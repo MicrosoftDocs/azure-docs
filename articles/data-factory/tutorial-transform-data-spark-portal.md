@@ -6,7 +6,7 @@ ms.subservice: tutorials
 ms.topic: tutorial
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/11/2023
+ms.date: 10/20/2023
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!NOTE]
 > HdInsight supports only general-purpose storage accounts with standard tier. Make sure that the account is not a premium or blob only storage account.
 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 
 ### Upload the Python script to your Blob storage account
@@ -119,7 +119,7 @@ You author two linked services in this section:
    
    e. For **Service principal id**, enter the ID of the service principal that has permission to create an HDInsight cluster. 
    
-      This service principal needs to be a member of the Contributor role of the subscription or the resource group in which the cluster is created. For more information, see [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). The **Service principal id** is equivalent to the *Application ID*, and a **Service principal key** is equivalent to the value for a *Client secret*.
+      This service principal needs to be a member of the Contributor role of the subscription or the resource group in which the cluster is created. For more information, see [Create a Microsoft Entra application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). The **Service principal id** is equivalent to the *Application ID*, and a **Service principal key** is equivalent to the value for a *Client secret*.
    
    f. For **Service principal key**, enter the key. 
    
@@ -207,7 +207,7 @@ The file should have each word from the input text file and the number of times 
 (u'file', 1)
 ```
 
-## Next steps
+## Related content
 The pipeline in this sample transforms data by using a Spark activity and an on-demand HDInsight linked service. You learned how to: 
 
 > [!div class="checklist"]
@@ -220,8 +220,3 @@ To learn how to transform data by running a Hive script on an Azure HDInsight cl
 
 > [!div class="nextstepaction"]
 > [Tutorial: Transform data using Hive in Azure Virtual Network](tutorial-transform-data-hive-virtual-network-portal.md).
-
-
-
-
-

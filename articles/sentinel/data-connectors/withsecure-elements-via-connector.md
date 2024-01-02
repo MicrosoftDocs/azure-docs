@@ -3,7 +3,7 @@ title: "WithSecure Elements via connector for Microsoft Sentinel"
 description: "Learn how to install the connector WithSecure Elements via to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -59,11 +59,11 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}
+   `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
 
    For python3 use command below:
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python3 cef_installer.py {0} {1}
+   `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python3 cef_installer.py {0} {1}`
 
 2. Forward data from WithSecure Elements Connector to Syslog agent
 
@@ -83,11 +83,11 @@ When in EPP open account settings in top right corner. Then select Get managemen
 
 2.4 Install Connector
 
-To install Elements Connector follow [Elements Connector Docs](https://help.f-secure.com/product.html#business/connector/latest/en/concept_BA55FDB13ABA44A8B16E9421713F4913-latest-en).
+To install Elements Connector follow [Elements Connector Docs](https://www.withsecure.com/userguides/product.html#business/connector/latest/en/).
 
 2.5 Configure event forwarding
 
-If api access has not been configured during installation follow [Configuring API access for Elements Connector](https://help.f-secure.com/product.html#business/connector/latest/en/task_F657F4D0F2144CD5913EE510E155E234-latest-en).
+If api access has not been configured during installation follow [Configuring API access for Elements Connector](https://www.withsecure.com/userguides/product.html#business/connector/latest/en/task_F657F4D0F2144CD5913EE510E155E234-latest-en).
 Then go to EPP, then Profiles, then use For Connector from where you can see the connector profiles. Create a new profile (or edit an existing not read-only profile). In Event forwarding enable it. SIEM system address: **127.0.0.1:514**. Set format to **Common Event Format**. Protocol is **TCP**. Save profile and assign it to Elements Connector in Devices tab.
 
 3. Validate connection
@@ -106,11 +106,11 @@ If the logs are not received, run the following connectivity validation script:
 
    Run the following command to validate your connectivity:
 
-   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py {0}
+   `sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py {0}`
 
    For python3 use command below:
 
-   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python3 cef_troubleshoot.py {0}
+   `sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python3 cef_troubleshoot.py {0}`
 
 4. Secure your machine 
 

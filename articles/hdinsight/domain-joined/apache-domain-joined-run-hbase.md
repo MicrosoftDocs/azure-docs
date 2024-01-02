@@ -3,7 +3,7 @@ title: Apache HBase & Enterprise Security Package - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 04/07/2022
+ms.date: 05/10/2023
 ---
 
 # Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
     > [!NOTE]  
     > Ranger credentials are not the same as Hadoop cluster credentials. To prevent browsers from using cached Hadoop credentials, use a new InPrivate browser window to connect to the Ranger Admin UI.
 
-2. Sign in using your Azure Active Directory (AD) admin credentials. The Azure AD admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials.
+2. Sign in using your Microsoft Entra admin credentials. The Microsoft Entra admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials.
 
 ## Create domain users
 
@@ -115,7 +115,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
    :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png" alt-text="Apache Ranger policy create sales" border="true":::
 
    >[!NOTE]
-   >Wait a few moments for Ranger to sync with Azure AD if a domain user is not automatically populated for **Select User**.
+   >Wait a few moments for Ranger to sync with Microsoft Entra ID if a domain user is not automatically populated for **Select User**.
 
 4. Click **Add** to save the policy.
 

@@ -32,7 +32,7 @@ Azure NetApp Files' [availability zone volume placement](manage-availability-zon
 
 [!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
 
-All Virtual Machines within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). Virtual Machines accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. 
+All virtual machines (VMs) within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). VMs accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. 
 
 Azure NetApp Files deployments will occur in the availability of zone of choice if Azure NetApp Files is present in that availability zone and has sufficient capacity.
 
@@ -44,11 +44,11 @@ You can co-locate your compute, storage, networking, and data resources across a
 Latency is subject to availability zone latency for within availability zone access and the regional latency envelope for cross-availability zone access.
 
 >[!IMPORTANT]
->Availability zone volume placement in Azure NetApp Files is currently in preview. Refer to [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#register-the-feature) for details on registering the feature. 
+>It's not recommended that you use availability zones with Terraform-managed volumes. If you do, you must [add the zone property to your volume](manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
 
 ## Azure regions with availability zones
 
-For a list of regions that that currently support availability zones, refer to [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
+For a list of regions that currently support availability zones, see [Azure regions with availability zone support](../reliability/availability-zones-service-support.md).
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
-title: Time sync for Linux VMs in Azure 
+title: Time sync for Linux VMs in Azure
 description: Time sync for Linux virtual machines.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 05/04/2022
-ms.author: cynthn
+ms.date: 04/26/2023
+ms.author: jushiman
 ---
 
 # Time sync for Linux VMs in Azure
@@ -100,7 +100,25 @@ cat /sys/class/ptp/ptp0/clock_name
 
 This should return `hyperv`, meaning the Azure host.
 
-In Linux VMs with Accelerated Networking enabled, you may see multiple PTP devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device. Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be `/dev/ptp0` or it might be `/dev/ptp1`, which makes it difficult to configure `chronyd` with the correct clock source. To solve this problem, the most recent Linux images have a `udev` rule that creates the symlink `/dev/ptp_hyperv` to whichever `/dev/ptp` entry corresponds to the Azure host. Chrony should be configured to use this symlink instead of `/dev/ptp0` or `/dev/ptp1`.
+In some Linux VMs you may see multiple PTP devices listed. One example is for Accelerated Networking the Mellanox mlx5 driver also creates a /dev/ptp device. Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be `/dev/ptp0` or it might be `/dev/ptp1`, which makes it difficult to configure `chronyd` with the correct clock source. To solve this problem, the most recent Linux images have a `udev` rule that creates the symlink `/dev/ptp_hyperv` to whichever `/dev/ptp` entry corresponds to the Azure host. Chrony should always be configured to use the `/dev/ptp_hyperv` symlink instead of `/dev/ptp0` or `/dev/ptp1`.
+
+If you are having issues with the `/dev/ptp_hyperv` device not being created, you can use the `udev` rule and steps below to configure it:
+
+NOTE: Most Linux distributions should not need this udev rule as it has been implemented in newer versions of [systemd](https://github.com/systemd/systemd/commit/32e868f058da8b90add00b2958c516241c532b70)
+
+Create the `udev` rules file:
+````bash
+$ sudo cat > /etc/udev/rules.d/99-ptp_hyperv.rules << EOF
+ACTION!="add", GOTO="ptp_hyperv"
+SUBSYSTEM=="ptp", ATTR{clock_name}=="hyperv", SYMLINK += "ptp_hyperv"
+LABEL="ptp_hyperv"
+EOF
+````
+Reboot the Virtual Machine OR reload the `udev` rules with:
+````bash
+$ sudo udevadm control --reload
+$ sudo udevadm trigger --subsystem-match=ptp --action=add
+````
 
 ### chrony
 
@@ -117,7 +135,7 @@ Stratum information isn't automatically conveyed from the Azure host to the Linu
 
 By default, chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too large, chrony fails to fix the drift. To overcome this, the `makestep` parameter in **/etc/chrony.conf** can be changed to force a time sync if the drift exceeds the threshold specified.
 
- ```bash
+```bash
 makestep 1.0 -1
 ```
 
@@ -126,6 +144,26 @@ Here, chrony will force a time update if the drift is greater than 1 second. To 
 ```bash
 systemctl restart chronyd
 ```
+
+### Time sync messages related to systemd-timesyncd
+
+In some cases, the systemd-timesyncd service might still be enabled and trying to do a sync upon a reboot, if you are still seeing messages in syslog that look similar to:
+
+````
+systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
+Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
+Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
+Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
+Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
+Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Synchronized to time server 185.125.190.56:123 (ntp.ubuntu.com)
+`````
+
+You can disable it by using:
+
+```bash
+systemctl disable systemd-timesyncd
+````
+In most cases, systemd-timesyncd will try during boot but once chrony starts up it will overwrite and become the default time sync source.
 
 For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
 
@@ -139,7 +177,7 @@ On SUSE and Ubuntu releases before 19.10, time sync is configured using [systemd
 
 ### cloud-init
 
-Images that use cloud-init to provision the VM can use the ntp section to setup a time sync service. An example of cloud-init installing chrony and configuring it to use the PTP clock source for Ubuntu VMs:
+Images that use cloud-init to provision the VM can use the `ntp` section to setup a time sync service. An example of cloud-init installing chrony and configuring it to use the PTP clock source for Ubuntu VMs:
 
 ```yaml
 #cloud-config
@@ -155,7 +193,7 @@ ntp:
        ## template:jinja
        driftfile /var/lib/chrony/chrony.drift
        logdir /var/log/chrony
-       maxupdateskey 100.0
+       maxupdateskew 100.0
        refclock PHC /dev/ptp_hyperv poll 3 dpoll -2
        makestep 1.0 -1
 ```

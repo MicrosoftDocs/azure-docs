@@ -29,6 +29,8 @@ landingContent:
             url: concepts-cluster.md
           - text: Distribute and modify tables
             url: howto-modify-distributed-tables.md
+          - text: Sharding models
+            url: concepts-sharding-models.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -47,6 +49,8 @@ landingContent:
         links:
           - text: Design a multi-tenant database
             url: tutorial-design-database-multi-tenant.md
+          - text: Design for microservices
+            url: tutorial-design-database-microservices.md
       - linkListType: how-to-guide
         links:
           - text: Connect to a cluster
@@ -95,8 +99,12 @@ landingContent:
             url: concepts-firewall-rules.md
           - text: Private access
             url: concepts-private-access.md
+          - text: Node DNS names
+            url: concepts-node-domain-name.md
           - text: Row-level security
             url: concepts-row-level-security.md
+          - text: Customer managed keys
+            url : concepts-customer-managed-keys.md
       - linkListType: how-to-guide
         links:
           - text: Manage public access
@@ -105,3 +113,6 @@ landingContent:
             url: howto-private-access.md
           - text: Configure SSL
             url: howto-ssl-connection-security.md
+          - text: Enable encryption with customer managed keys
+            url: how-to-customer-managed-keys.md
+

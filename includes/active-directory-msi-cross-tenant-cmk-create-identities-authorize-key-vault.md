@@ -25,18 +25,18 @@ The following steps are performed by the service provider in the service provide
 
 #### The service provider creates a new multi-tenant app registration
 
-You can either create a new multi-tenant Azure AD application registration or start with an existing multi-tenant application registration. If starting with an existing application registration, note the application ID (client ID) of the application.
+You can either create a new multi-tenant Microsoft Entra application registration or start with an existing multi-tenant application registration. If starting with an existing application registration, note the application ID (client ID) of the application.
 
 To create a new registration:
 
-1. Search for **Azure Active Directory** in the search box. Locate and select the **Azure Active Directory** extension.
+1. Search for **Microsoft Entra ID** in the search box. Locate and select the **Microsoft Entra ID** extension.
 1. Select **Manage > App registrations** from the left pane.
 1. Select **+ New registration**.
-1. Provide the name for the application registration and select *Account in any organizational directory (Any Azure AD directory – Multitenant)*.
+1. Provide the name for the application registration and select *Account in any organizational directory (Any Microsoft Entra directory – Multitenant)*.
 1. Select **Register**.
 1. Note the **ApplicationId/ClientId** of the application.
 
-    :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-application.png" alt-text="Screen shot showing how to create a new multi-tenant application registration." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-application.png" border="true":::
+    :::image type="content" source="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-application.png" alt-text="Screen shot showing how to create a new multi-tenant application registration." lightbox="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/register-application.png" border="true":::
 
 #### The service provider creates a user-assigned managed identity
 
@@ -50,31 +50,31 @@ Create a user-assigned managed identity to be used as a federated identity crede
 
    `/subscriptions/tttttttt-0000-tttt-0000-tttt0000tttt/resourcegroups/XTCMKDemo/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ConsotoCMKDemoUA`
 
-    :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-user-assigned-managed-identity.png" alt-text="Screen shot showing how to create a resource group and a user-assigned managed identity." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-user-assigned-managed-identity.png" border="true":::
+    :::image type="content" source="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-user-assigned-managed-identity.png" alt-text="Screen shot showing how to create a resource group and a user-assigned managed identity." lightbox="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-user-assigned-managed-identity.png" border="true":::
 
 #### The service provider configures the user-assigned managed identity as a federated credential on the application
 
 Configure a user-assigned managed identity as a federated identity credential on the application, so that it can impersonate the identity of the application.
 
-1. Navigate to **Azure Active Directory > App registrations > your application**.
+1. Navigate to **Microsoft Entra ID > App registrations > your application**.
 2. Select **Certificates & secrets**.
 3. Select **Federated credentials**.
 
-   :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/certificates-secrets.png" alt-text="Screen shot showing how to navigate to Certificate and secrets." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/certificates-secrets.png" border="true":::
+   :::image type="content" source="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/certificates-secrets.png" alt-text="Screen shot showing how to navigate to Certificate and secrets." lightbox="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/certificates-secrets.png" border="true":::
 
 4. Select **+ Add credential**.
 5. Under **Federated credential scenario**, select **Customer Managed Keys**.
 6. Click **Select a managed identity**. From the pane, select the subscription. Under **Managed identity**, select **User-assigned managed identity**. In the **Select** box, search for the managed identity you created earlier, then click **Select** at the bottom of the pane.
 
-   :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/select-managed-identity.png" alt-text="Screen shot showing how to select a managed identity." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/select-managed-identity.png" border="true":::
+   :::image type="content" source="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/select-managed-identity.png" alt-text="Screen shot showing how to select a managed identity." lightbox="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/select-managed-identity.png" border="true":::
 
 7. Under **Credential details**, provide a name and optional description for the credential and select **Add**.
 
-   :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/add-credential.png" alt-text="Screen shot showing how to add a credential." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/add-credential.png" border="true":::
+   :::image type="content" source="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/add-credential.png" alt-text="Screen shot showing how to add a credential." lightbox="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/add-credential.png" border="true":::
 
 # [PowerShell](#tab/azure-powershell)
 
-To use Azure PowerShell to configure the ISV's tenant, install the latest [Az](https://www.powershellgallery.com/packages/Az) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+To use Azure PowerShell to configure the ISV's tenant, install the latest [Az](https://www.powershellgallery.com/packages/Az) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
 
@@ -258,7 +258,7 @@ To create the key vault, the user's account must be assigned the **Key Vault Con
 1. On the **Access policy** tab, select **Azure role-based access control** for **Permission model**.
 1. Select **Review + create** and then **Create**.
 
-    :::image type="content" source="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-key-vault.png" alt-text="Screen shot showing how to create a key vault." lightbox="media/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-key-vault.png" border="true":::
+    :::image type="content" source="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-key-vault.png" alt-text="Screen shot showing how to create a key vault." lightbox="media/msi-cross-tenant-cmk-create-identities-authorize-key-vault/create-key-vault.png" border="true":::
 
 Take note of the key vault name and URI Applications that access your key vault must use this URI.
 
@@ -300,7 +300,7 @@ Now you can configure customer-managed keys with the key vault URI and key.
 
 # [PowerShell](#tab/azure-powershell)
 
-To use Azure PowerShell to configure the client's tenant, install the latest [Az](https://www.powershellgallery.com/packages/Az) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps).
+To use Azure PowerShell to configure the client's tenant, install the latest [Az](https://www.powershellgallery.com/packages/Az) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
 

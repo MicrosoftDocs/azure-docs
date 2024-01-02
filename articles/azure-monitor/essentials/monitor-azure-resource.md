@@ -4,7 +4,7 @@ description: This article describes how to collect and analyze monitoring data f
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/15/2021
+ms.date: 07/17/2023
 ms.reviewer: robb
 
 ---
@@ -32,10 +32,9 @@ This section discusses collecting and monitoring data.
 As soon as you create an Azure resource, Azure Monitor is enabled and starts collecting metrics and activity logs. With some configuration, you can gather more monitoring data and enable other features. The Azure Monitor data platform is made up of Metrics and Logs. Each feature collects different kinds of data and enables different Azure Monitor features.
 
 - [Azure Monitor Metrics](../essentials/data-platform-metrics.md) stores numeric data from monitored resources into a time-series database. The metric database is automatically created for each Azure subscription. Use [Metrics Explorer](../essentials/tutorial-metrics.md) to analyze data from Azure Monitor Metrics.
-- [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) collects and stores numeric data from Azure Kubernetes Service, in a Prometheus compatible time-series database. Onboard to managed Prometheus using remote write, or the Azure Kubernetes Service add-on. Analyze the data using a Prometheus explorer workbook in your [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md), or [Grafana](../visualize/grafana-plugin.md).
 - [Azure Monitor Logs](../logs/data-platform-logs.md) collects logs and performance data where they can be retrieved and analyzed in different ways by using log queries. You must create a Log Analytics workspace to collect log data. Use [Log Analytics](../logs/log-analytics-tutorial.md) to analyze data from Azure Monitor Logs.
 
-### <a id="monitoring-data-from-azure-resources"></a> Monitor data from Azure resources
+### Monitoring data from Azure resources
 
 While resources from different Azure services have different monitoring requirements, they generate monitoring data in the same formats so that you can use the same Azure Monitor tools to analyze all Azure resources.
 
@@ -60,13 +59,13 @@ The **Overview** page includes details about the resource and often its current 
 
 To learn how to use Metrics Explorer, see [Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md).
 
-![Screenshot that shows the Overview page.](media/monitor-azure-resource/overview-page.png)
+:::image type="content" source="media/monitor-azure-resource/overview-page.png" lightbox="media/monitor-azure-resource/overview-page.png" alt-text="Screenshot that shows the Overview page.":::
 
 ### Activity log
 
 The **Activity log** menu item lets you view entries in the [activity log](../essentials/activity-log.md) for the current resource.
-
-:::image type="content" source="media/monitor-azure-resource/activity-log.png" lightbox="media/monitor-azure-resource/activity-log.png" alt-text="Screenshot that shows an activity log.":::
+<!-- convertborder later -->
+:::image type="content" source="media/monitor-azure-resource/activity-log.png" lightbox="media/monitor-azure-resource/activity-log.png" alt-text="Screenshot that shows an activity log." border="false":::
 
 ## Alerts
 
@@ -81,8 +80,8 @@ To learn how to create alert rules and view alerts, see [Create a metric alert f
 The **Metrics** menu item opens [Metrics Explorer](./metrics-getting-started.md). You can use it to work with individual metrics or combine multiple metrics to identify correlations and trends. This is the same Metrics Explorer that opens when you select one of the charts on the **Overview** page.
 
 To learn how to use Metrics Explorer, see [Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md).
-
-:::image type="content" source="media/monitor-azure-resource/metrics.png" lightbox="media/monitor-azure-resource/metrics.png" alt-text="Screenshot that shows Metrics Explorer.":::
+<!-- convertborder later -->
+:::image type="content" source="media/monitor-azure-resource/metrics.png" lightbox="media/monitor-azure-resource/metrics.png" alt-text="Screenshot that shows Metrics Explorer." border="false":::
 
 ## Diagnostic settings
 
@@ -97,8 +96,8 @@ To learn how to create a diagnostic setting, see [Collect and analyze resource l
 The **Insights** menu item opens the insight for the resource if the Azure service has one. [Insights](../monitor-reference.md) provide a customized monitoring experience built on the Azure Monitor data platform and standard features.
 
 For a list of insights that are available and links to their documentation, see [Insights](../insights/insights-overview.md) and [core solutions](/previous-versions/azure/azure-monitor/insights/solutions).
-
-:::image type="content" source="media/monitor-azure-resource/insights.png" lightbox="media/monitor-azure-resource/insights.png" alt-text="Screenshot that shows the Insights page.":::
+<!-- convertborder later -->
+:::image type="content" source="media/monitor-azure-resource/insights.png" lightbox="media/monitor-azure-resource/insights.png" alt-text="Screenshot that shows the Insights page." border="false":::
 
 ## Next steps
 

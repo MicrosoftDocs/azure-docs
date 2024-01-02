@@ -5,15 +5,16 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 06/20/2023
 ms.author: maquaran
 ms.devlang: csharp, java
-ms.custom: devx-track-dotnet, devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-python
 zone_pivot_groups: programming-languages-set-cosmos
 ---
 
 # Query performance tips for Azure Cosmos DB SDKs
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
+
 
 Azure Cosmos DB is a fast, flexible distributed database that scales seamlessly with guaranteed latency and throughput levels. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [provision container throughput](how-to-provision-container-throughput.md) or [provision database throughput](how-to-provision-database-throughput.md).
 
@@ -22,6 +23,53 @@ Azure Cosmos DB is a fast, flexible distributed database that scales seamlessly 
 ## Reduce Query Plan calls
 
 To execute a query, a query plan needs to be built. This in general represents a network request to the Azure Cosmos DB Gateway, which adds to the latency of the query operation. There are two ways to remove this request and reduce the latency of the query operation:
+
+### Optimizing single partition queries with Optimistic Direct Execution
+
+Azure Cosmos DB NoSQL has an optimization called Optimistic Direct Execution (ODE), which can improve the efficiency of certain NoSQL queries. Specifically, queries that don’t require distribution include those that can be executed on a single physical partition or that have responses that don't require [pagination](query/pagination.md). Queries that don’t require distribution can confidently skip some processes, such as client-side query plan generation and query rewrite, thereby reducing query latency and RU cost. If you specify the partition key in the request or query itself (or have only one physical partition), and the results of your query don’t require pagination, then ODE can improve your queries.
+
+ODE is now available and enabled by default in the .NET SDK (preview) version 3.35.0-preview and later. When you execute a query and specify a partition key in the request or query itself, or your database has only one physical partition, your query execution can leverage the benefits of ODE. To disable ODE, set EnableOptimisticDirectExecution to false in the QueryRequestOptions. 
+
+Single partition queries that feature GROUP BY, ORDER BY, DISTINCT, and aggregation functions (like sum, mean, min, and max) can significantly benefit from using ODE. However, in scenarios where the query is targeting multiple partitions or still requires pagination, the latency of the query response and RU cost might be higher than without using ODE. Therefore, when using ODE, we recommend to:
+-	Specify the partition key in the call or query itself. 
+-	Ensure that your data size hasn’t grown and caused the partition to split.
+-	Ensure that your query results don’t require pagination to get the full benefit of ODE.
+ 
+Here are a few examples of simple single partition queries which can benefit from ODE:
+```
+- SELECT * FROM r
+- SELECT * FROM r WHERE r.pk == "value"
+- SELECT * FROM r WHERE r.id > 5
+- SELECT r.id FROM r JOIN id IN r.id
+- SELECT TOP 5 r.id FROM r ORDER BY r.id
+- SELECT * FROM r WHERE r.id > 5 OFFSET 5 LIMIT 3 
+```
+There can be cases where single partition queries may still require distribution if the number of data items increases over time and your Azure Cosmos DB database [splits the partition](../partitioning-overview.md#physical-partitions).  Examples of queries where this could occur include:
+```
+- SELECT Count(r.id) AS count_a FROM r
+- SELECT DISTINCT r.id FROM r
+- SELECT Max(r.a) as min_a FROM r
+- SELECT Avg(r.a) as min_a FROM r
+- SELECT Sum(r.a) as sum_a FROM r WHERE r.a > 0 
+```
+Some complex queries can always require distribution, even if targeting a single partition. Examples of such queries include:
+```
+- SELECT Sum(id) as sum_id FROM r JOIN id IN r.id
+- SELECT DISTINCT r.id FROM r GROUP BY r.id
+- SELECT DISTINCT r.id, Sum(r.id) as sum_a FROM r GROUP BY r.id
+- SELECT Count(1) FROM (SELECT DISTINCT r.id FROM root r)
+- SELECT Avg(1) AS avg FROM root r 
+```
+
+It's important to note that ODE might not always retrieve the query plan and, as a result, is not able to disallow or turn off for unsupported queries. For example, after partition split, such queries are no longer eligible for ODE and, therefore, won't run because client-side query plan evaluation will block those. To ensure compatibility/service continuity, it's critical to ensure that only queries that are fully supported in scenarios without ODE (that is, they execute and produce the correct result in the general multi-partition case) are used with ODE.
+
+>[!NOTE]
+> Using ODE can potentially cause a new type of continuation token to be generated. Such a token is not recognized by the older SDKs by design and this could result in a Malformed Continuation Token Exception. If you have a scenario where tokens generated from the newer SDKs are used by an older SDK, we recommend a 2 step approach to upgrade:
+>
+>- Upgrade to the new SDK and disable ODE, both together as part of a single deployment. Wait for all nodes to upgrade.
+>    - In order to disable ODE, set EnableOptimisticDirectExecution to false in the QueryRequestOptions. 
+>- Enable ODE as part of second deployment for all nodes.
+
 
 ### Use local Query Plan generation
 
@@ -43,7 +91,17 @@ The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries l
 
 # [V3 .NET SDK](#tab/v3)
 
-For queries that target a Partition Key by setting the [PartitionKey](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.partitionkey) property in `QueryRequestOptions` and contain no aggregations (including Distinct, DCount, Group By):
+For queries that target a Partition Key by setting the [PartitionKey](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.partitionkey) property in `QueryRequestOptions` and contain no aggregations (including Distinct, DCount, Group By). In this example, the partition key field of `/state` is filtered on the value `Washington`.
+
+```csharp
+using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
+    "SELECT * FROM c WHERE c.city = 'Seattle' AND c.state = 'Washington'"
+{
+    // ...
+}
+```
+
+Optionally, you can provide the partition key as a part of the request options object.
 
 ```cs
 using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
@@ -162,7 +220,7 @@ Following are implications of how the parallel queries would behave for differen
 
 ## Tune the page size
 
-When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large.
 
 > [!NOTE] 
 > The `MaxItemCount` property shouldn't be used just for pagination. Its main use is to improve the performance of queries by reducing the maximum number of items returned in a single page. 
@@ -228,8 +286,6 @@ IQueryable<dynamic> authorResults = client.CreateDocumentQuery(
 ---
 
 Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.
-
-
 
 ## Next steps
 
@@ -359,11 +415,117 @@ CosmosPagedFlux<MyItem> filteredItems =
 
 Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.
 
+
 ## Next steps
 
 To learn more about performance using the Java SDK:
 
 * [Best practices for Azure Cosmos DB Java V4 SDK](best-practice-java.md)
 * [Performance tips for Azure Cosmos DB Java V4 SDK](performance-tips-java-sdk-v4.md)
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+## Reduce Query Plan calls
+
+To execute a query, a query plan needs to be built. This in general represents a network request to the Azure Cosmos DB Gateway, which adds to the latency of the query operation. There is a way to remove this request and reduce the latency of the single partition query operation. For single partition queries specify the partition key value for the item and pass it as [partition_key](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-query-items) argument:
+
+```python
+items = container.query_items(
+        query="SELECT * FROM r where r.city = 'Seattle'",
+        partition_key="Washington"
+    )
+```
+
+## Tune the page size
+
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. The [max_item_count](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-query-items) allows you to set the maximum number of items to be returned in the enumeration operation.
+
+```python
+items = container.query_items(
+        query="SELECT * FROM r where r.city = 'Seattle'",
+        partition_key="Washington",
+        max_item_count=1000
+    )
+```
+
+## Next steps
+
+To learn more about using the Python SDK for API for NoSQL:
+
+* [Azure Cosmos DB Python SDK for API for NoSQL](sdk-python.md)
+* [Quickstart: Azure Cosmos DB for NoSQL client library for Python](quickstart-python.md)
+
+::: zone-end
+
+::: zone pivot="programming-language-nodejs"
+## Reduce Query Plan calls
+
+To execute a query, a query plan needs to be built. This in general represents a network request to the Azure Cosmos DB Gateway, which adds to the latency of the query operation. There is a way to remove this request and reduce the latency of the single partition query operation. For single partition queries scoping a query to a single partition can be accomplished two ways.
+
+Using a parameterized query expression and specifying partition key in query statement. The query is programmatically composed to `SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'`:
+
+```javascript
+// find all items with same categoryId (partitionKey)
+const querySpec = {
+    query: "select * from products p where p.categoryId=@categoryId",
+    parameters: [
+        {
+            name: "@categoryId",
+            value: "Bikes, Touring Bikes"
+        }
+    ]
+};
+
+// Get items 
+const { resources } = await container.items.query(querySpec).fetchAll();
+
+for (const item of resources) {
+    console.log(`${item.id}: ${item.name}, ${item.sku}`);
+}
+```
+
+Or specify [partitionKey](/javascript/api/@azure/cosmos/feedoptions#@azure-cosmos-feedoptions-partitionkey) in `FeedOptions` and pass it as argument:
+
+```javascript
+const querySpec = {
+    query: "select * from products p"
+};
+
+const { resources } = await container.items.query(querySpec, { partitionKey: "Bikes, Touring Bikes" }).fetchAll();
+
+for (const item of resources) {
+    console.log(`${item.id}: ${item.name}, ${item.sku}`);
+}
+```
+
+## Tune the page size
+
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. The [maxItemCount](/javascript/api/@azure/cosmos/feedoptions#@azure-cosmos-feedoptions-maxitemcount) allows you to set the maximum number of items to be returned in the enumeration operation.
+
+```javascript
+const querySpec = {
+    query: "select * from products p where p.categoryId=@categoryId",
+    parameters: [
+        {
+            name: "@categoryId",
+            value: items[2].categoryId
+        }
+    ]
+};
+
+const { resources } = await container.items.query(querySpec, { maxItemCount: 1000 }).fetchAll();
+
+for (const item of resources) {
+    console.log(`${item.id}: ${item.name}, ${item.sku}`);
+}
+```
+
+## Next steps
+
+To learn more about using the Node.js SDK for API for NoSQL:
+
+* [Azure Cosmos DB Node.js SDK for API for NoSQL](sdk-nodejs.md)
+* [Quickstart - Azure Cosmos DB for NoSQL client library for Node.js](quickstart-nodejs.md)
 
 ::: zone-end

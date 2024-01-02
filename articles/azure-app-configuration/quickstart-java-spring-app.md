@@ -6,8 +6,8 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/22/2023
-ms.custom: devx-track-java, mode-api
+ms.date: 09/27/2023
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---
@@ -18,24 +18,19 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and then select Java version 8 or higher.
 
-## Create an App Configuration store
+## Add a key-value
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-9. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
-
-   | Key | Value |
-   |---|---|
-   | /application/config.message | Hello |
-
-   Leave **Label** and **Content Type** empty for now.
-
-10. Select **Apply**.
+| Key | Value |
+|---|---|
+| /application/config.message | Hello |
 
 ## Connect to an App Configuration store
 
@@ -43,16 +38,49 @@ Now that you have an App Configuration store, you can use the Spring Cloud Azure
 
 To install the Spring Cloud Azure Config starter module, add the following dependency to your *pom.xml* file:
 
+### [Spring Boot 3](#tab/spring-boot-3)
+
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
-    <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
-    <version>2.11.0</version>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
 </dependency>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>5.5.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 ```
 
-> [!NOTE]
-> If you need to support an older version of Spring Boot, see our [old library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
+### [Spring Boot 2](#tab/spring-boot-2)
+
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+</dependency>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.11.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+---
 
 ### Code the application
 

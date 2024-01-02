@@ -14,13 +14,13 @@ ms.author: femila
 
 Azure Virtual Desktop supports GPU-accelerated rendering and encoding for improved app performance and scalability. GPU acceleration is particularly crucial for graphics-intensive apps.
 
-Follow the instructions in this article to create a GPU optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding. This article assumes you already have a Azure Virtual Desktop tenant configured.
+Follow the instructions in this article to create a GPU optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding. This article assumes you already have an Azure Virtual Desktop tenant configured.
 
 ## Select a GPU optimized Azure virtual machine size
 
 Azure offers a number of [GPU optimized virtual machine sizes](../../virtual-machines/sizes-gpu.md). The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density.
 
-## Create a host pool, provision your virtual machine, and configure an app group
+## Create a host pool, provision your virtual machine, and configure an application group
 
 Create a new host pool using a VM of the size you selected. For instructions, see [Tutorial: Create a host pool with Azure Marketplace](../create-host-pools-azure-marketplace.md).
 
@@ -29,7 +29,7 @@ Azure Virtual Desktop supports GPU-accelerated rendering and encoding in the fol
 * Windows 10 version 1511 or newer
 * Windows Server 2016 or newer
 
-You must also configure an app group, or use the default desktop app group (named "Desktop Application Group") that's automatically created when you create a new host pool. For instructions, see [Tutorial: Manage app groups for Azure Virtual Desktop](../manage-app-groups.md).
+You must also configure an application group, or use the default desktop application group (named "Desktop Application Group") that's automatically created when you create a new host pool. For instructions, see [Tutorial: Manage application groups for Azure Virtual Desktop](../manage-app-groups.md).
 
 ## Install supported graphics drivers in your virtual machine
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 06/22/2023
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -53,8 +53,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
 * The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
-* Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (AADDS). 
-* Dual-protocol volumes do not support the use of LDAP over TLS with AADDS. See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
+* Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Microsoft Entra Domain Services. 
+* Dual-protocol volumes do not support the use of LDAP over TLS with [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md). LDAP over TLS is supported with Active Directory Domain Services (AD DS). See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
 * The NFS version used by a dual-protocol volume can be NFSv3 or NFSv4.1. The following considerations apply:
     * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
     * NFS clients cannot change permissions for the NTFS security style, and Windows clients cannot change permissions for UNIX-style dual-protocol volumes.   
@@ -82,6 +82,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * If you have large topologies, and you use the Unix security style with a dual-protocol volume or LDAP with extended groups, you should use the **LDAP Search Scope** option on the Active Directory Connections page to avoid "access denied" errors on Linux clients for Azure NetApp Files. See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for more information.
 
 * You don't need a server root CA certificate for creating a dual-protocol volume. It is required only if LDAP over TLS is enabled.
+
+* To understand Azure NetApp Files dual protocols and related considerations, see the [Dual Protocols section in Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#dual-protocols).
 
 ## Create a dual-protocol volume
 
@@ -112,6 +114,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
+    * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
+        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
 
@@ -122,13 +127,14 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         The subnet you specify must be delegated to Azure NetApp Files. 
         
         If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
- 
-        ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
+
+    * **Encryption key source** 
+        You can select `Microsoft Managed Key` or `Customer Managed Key`. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
     * **Availability zone**   
         This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
@@ -223,9 +229,9 @@ The values specified for `objectClass` are separate entries. For example, in Mul
 
 ![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
-Azure Active Directory Domain Services (AADDS) doesn’t allow you to modify the objectClass POSIX attribute on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
+Microsoft Entra Domain Services doesn’t allow you to modify the objectClass POSIX attribute on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
 
-If you are synchronizing the users and groups in your Azure AD tenancy to users and groups in the AADDC Users OU, you cannot move users and groups into a custom OU. Users and groups created in the custom OU will not be synchronized to your AD tenancy. For more information, see the [AADDS Custom OU Considerations and Limitations](../active-directory-domain-services/create-ou.md#custom-ou-considerations-and-limitations).
+If you are synchronizing the users and groups in your Microsoft Entra tenancy to users and groups in the AADDC Users OU, you cannot move users and groups into a custom OU. Users and groups created in the custom OU will not be synchronized to your AD tenancy. For more information, see the [Microsoft Entra Domain Services Custom OU considerations and limitations](../active-directory-domain-services/create-ou.md#custom-ou-considerations-and-limitations).
 
 ### Access Active Directory Attribute Editor 
 
@@ -244,6 +250,7 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 ## Next steps  
 
+* [Considerations for Azure NetApp Files dual-protocol volumes](network-attached-storage-protocols.md#considerations-for-azure-netapp-files-dual-protocol-volumes) 
 * [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md)
 * [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)

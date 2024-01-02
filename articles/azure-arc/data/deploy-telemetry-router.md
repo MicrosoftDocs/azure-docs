@@ -72,30 +72,23 @@ apiVersion: arcdata.microsoft.com/v1beta4
     namespace: <namespace>
   spec:
     credentials:
-      certificates:
-      - certificateName: arcdata-msft-elasticsearch-exporter-internal
-      - certificateName: cluster-ca-certificate
     exporters:
-      elasticsearch:
-      - caCertificateName: cluster-ca-certificate
-        certificateName: arcdata-msft-elasticsearch-exporter-internal
-        endpoint: https://logsdb-svc:9200
-        index: logstash-otel
-        name: arcdata/msft/internal
     pipelines:
-      logs:
-        exporters:
-        - elasticsearch/arcdata/msft/internal
-
 ```
 
-For the public preview, the pipeline and exporter have a default pre-configuration to Microsoft's deployment of Elasticsearch. This default deployment gives you an example of how the parameters for credentials, exporters, and pipelines are set up within the spec. You can follow this example to export to your own monitoring solutions. See [adding exporters and pipelines](adding-exporters-and-pipelines.md) for more examples. This example deployment will be removed at the conclusion of the public preview.
+At the time of creation, no pipeline or exporters are set up. You can [setup your own pipelines and exporters](adding-exporters-and-pipelines.md) to route metrics and logs data to your own instances of Kafka and Elasticsearch. 
 
-After the TelemetryRouter is deployed, both TelemetryCollector custom resources should be in a *Ready* state. These resources are system managed and editing them isn't supported. If you look at the pods, you should see the following types of pods:
+After the TelemetryRouter is deployed, an instance of Kafka (arc-router-kafka) and a single instance of TelemetryCollector (collector-inbound) should be deployed and in a ready state. These resources are system managed and editing them isn't supported. The following pods will be deployed as a result:
 
-- Two telemetry collector pods - `arctc-collector-inbound-0` and `arctc-collector-outbound-0`
+- An inbound collector pod - `arctc-collector-inbound-0`
 - A kakfa broker pod - `arck-arc-router-kafka-broker-0`
 - A kakfa controller pod - `arck-arc-router-kafka-controller-0`
+
+
+> [!NOTE]
+> An outbound collector pod isn't created until at least one pipeline has been added to the telemetry router.
+>
+> After you create the first pipeline, an additional TelemetryCollector resource (collector-outbound) and pod `arctc-collector-outbound-0` are deployed.
 
 ```bash
 kubectl get pods -n <namespace>
@@ -106,7 +99,6 @@ arc-webhook-job-facc4-z7dd7          0/1     Completed   0          15h
 arck-arc-router-kafka-broker-0       2/2     Running     0          15h
 arck-arc-router-kafka-controller-0   2/2     Running     0          15h
 arctc-collector-inbound-0            2/2     Running     0          15h
-arctc-collector-outbound-0           2/2     Running     0          15h
 bootstrapper-8d5bff6f7-7w88j         1/1     Running     0          15h
 control-vpfr9                        2/2     Running     0          15h
 controldb-0                          2/2     Running     0          15h
@@ -115,12 +107,9 @@ logsui-fwrh9                         3/3     Running     0          15h
 metricsdb-0                          2/2     Running     0          15h
 metricsdc-bc4df                      2/2     Running     0          15h
 metricsdc-fm7jh                      2/2     Running     0          15h
-metricsdc-qgl26                      2/2     Running     0          15h
-metricsdc-sndjv                      2/2     Running     0          15h
-metricsdc-xh78q                      2/2     Running     0          15h
 metricsui-qqgbv                      2/2     Running     0          15h
 ```
 
-## Next steps
+## Related content
 
 - [Add exporters and pipelines to your telemetry router](adding-exporters-and-pipelines.md)

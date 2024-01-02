@@ -13,12 +13,7 @@ ms.custom: template-concept, ignite-fall-2021
 
 In this article, you learn about the different types of configurations you can create and deploy using Azure Virtual Network Manager. There are two types of configurations currently available: *Connectivity* and *Security Admins*. 
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
->
-> Mesh connectivity configurations and security admin rules remain in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Connectivity configuration
 
@@ -30,7 +25,7 @@ A mesh network is a topology in which all the virtual networks in the [network g
 
 :::image type="content" source="./media/concept-configuration-types/mesh-topology.png" alt-text="Diagram of a mesh network topology.":::
 
-### <a name="connectedgroup"></a> Connected group
+### Connected group
 
 When you create a mesh topology, a new connectivity construct is created called *Connected group*. Virtual networks in a connected group can communicate to each other just like if you were to connect virtual networks together manually. When you look at the effective routes for a network interface, you'll see a next hop type of **ConnectedGroup**. Virtual networks connected together in a connected group don't have a peering configuration listed under *Peerings* for the virtual network.
 
@@ -48,7 +43,7 @@ In this configuration, you have settings you can enable such as *direct connecti
 
 ### Direct connectivity
 
-Enabling *Direct connectivity* creates an overlay of a [*connected group*](#connectedgroup) on top of your hub and spoke topology, which contains spoke virtual networks of a given group. Direct connectivity allows a spoke VNet to talk directly to other VNets in its spoke group, but not to VNets in other spokes.
+Enabling *Direct connectivity* creates an overlay of a [*connected group*](#connected-group) on top of your hub and spoke topology, which contains spoke virtual networks of a given group. Direct connectivity allows a spoke VNet to talk directly to other VNets in its spoke group, but not to VNets in other spokes.
 
 
 For example, you create two network groups. You enable direct connectivity for the *Production* network group but not for the *Test* network group. This set up only allows virtual networks in the *Production* network group to communicate with one another but not the ones in the *Test* network group. 
@@ -75,7 +70,7 @@ Enabling direct connectivity between spokes virtual networks can be helpful when
 
 #### Global mesh
 
-Like mesh, these spoke connected groups can be configured as regional or global. Global mesh is required when you want your spoke virtual networks to communicate with each other across regions. This connectivity is limited to virtual network in the same network group. To enable connectivity for virtual networks across regions, you need to **Enable mesh connectivity across regions** for the network group. Connections created between spokes virtual networks are in a [*Connected group*](#connectedgroup). 
+Like mesh, these spoke connected groups can be configured as regional or global. Global mesh is required when you want your spoke virtual networks to communicate with each other across regions. This connectivity is limited to virtual network in the same network group. To enable connectivity for virtual networks across regions, you need to **Enable mesh connectivity across regions** for the network group. Connections created between spokes virtual networks are in a [*Connected group*](#connected-group). 
 
 #### Use hub as a gateway
 
@@ -85,6 +80,6 @@ When you deploy a hub and spoke topology from the Azure portal, the **Use hub as
 
 ## Next steps
 
-- Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance.
+- Deploy an [Azure Virtual Network Manager](create-virtual-network-manager-terraform.md) instance using Terraform.
 - Learn about [configuration deployments](concept-deployments.md) in Azure Virtual Network Manager.
 - Learn how to block network traffic with a [security admin configuration](how-to-block-network-traffic-portal.md).

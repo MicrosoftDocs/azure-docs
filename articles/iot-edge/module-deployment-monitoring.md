@@ -4,7 +4,7 @@ description: Use automatic deployments in Azure IoT Edge to manage groups of dev
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/17/2022
+ms.date: 05/09/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -64,7 +64,7 @@ For example, you have a deployment with a target condition `tags.environment = '
 
 If a deployment has no target condition, then it's applied to no devices.
 
-Use any Boolean condition on device twin tags, device twin reported properties, or deviceId to select the target devices. If you want to use a condition with tags, you need to add a `"tags":{}` section in the device twin under the same level as properties. [Learn more about tags in a device twin](../iot-hub/iot-hub-devguide-device-twins.md).
+Use any Boolean condition on device twin tags, device twin reported properties, or deviceId to select the target devices. If you want to use a condition with tags, you need to add a `"tags":{}` section in the device twin under the same level as properties. For more information about tags in a device twin, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md). For more information about query operations, see [IoT Hub query language operators and IS_DEFINED function](../iot-hub/iot-hub-devguide-query-language.md#operators).
 
 Examples of target conditions:
 
@@ -74,6 +74,9 @@ Examples of target conditions:
 * tags.environment = 'prod' OR tags.location = 'westus'
 * tags.operator = 'John' AND tags.environment = 'prod' AND NOT deviceId = 'linuxprod1'
 * properties.reported.devicemodel = '4000x'
+* IS_DEFINED(tags.remote)
+* NOT IS_DEFINED(tags.location.building)
+* tags.environment != null
 * [none]
 
 Consider these constraints when you construct a target condition:
@@ -82,11 +85,11 @@ Consider these constraints when you construct a target condition:
 * Double quotes aren't allowed in any portion of the target condition. Use single quotes.
 * Single quotes represent the values of the target condition. Therefore, you must escape the single quote with another single quote if it's part of the device name. For example, to target a device called `operator'sDevice`, write `deviceId='operator''sDevice'`.
 * Numbers, letters, and the following characters are allowed in target condition values: `"()<>@,;:\\"/?={} \t\n\r`.
-* The following characters are not allowed in target condition keys:`/;`.
+* The following characters aren't allowed in target condition keys:`/;`.
 
 ### Priority
 
-A priority defines whether a deployment should be applied to a targeted device relative to other deployments. A deployment priority is a positive integer, with larger numbers denoting higher priority. If an IoT Edge device is targeted by more than one deployment, the deployment with the highest priority applies. Deployments with lower priorities are not applied, nor are they merged. If a device is targeted with two or more deployments with equal priority, the most recently created deployment (determined by the creation timestamp) applies.
+A priority defines whether a deployment should be applied to a targeted device relative to other deployments. A deployment priority is a positive integer within the range from 0 through 2,147,483,647. Larger numbers denote a higher priority. If an IoT Edge device is targeted by more than one deployment, the deployment with the highest priority applies. Deployments with lower priorities aren't applied, nor are they merged. If a device is targeted with two or more deployments with equal priority, the most recently created deployment (determined by the creation timestamp) applies.
 
 ### Labels
 

@@ -32,9 +32,7 @@ By carefully examining the entire end to end scenario, you can determine the ben
 
 ## Configurable TCP idle timeout
 
-Azure Load Balancer has the following idle timeout range:
--  4 minutes to 100 minutes for Outbound Rules
--  4 minutes to 30 minutes for Load Balancer rules and Inbound NAT rules
+Azure Load Balancer has a 4 minutes to 100 minutes timeout range for Load Balancer rules, Outbound Rules, and Inbound NAT rules.
 
 By default, it's set to 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your cloud service.
 

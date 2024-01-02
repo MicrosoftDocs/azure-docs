@@ -32,7 +32,7 @@ The [OPENROWSET](develop-openrowset.md) function enables you to read the content
 
 ### Read Delta Lake folder
 
-The easiest way to see to the content of your `DELTA` file is to provide the file URL to the [OPENROWSET](develop-openrowset.md) function and specify `DELTA` format. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using a query like the one shown in the following example:
+The easiest way to see to the content of your `DELTA` file is to provide the file URL to the [OPENROWSET](develop-openrowset.md) function and specify `DELTA` format. If the file is publicly available or if your Microsoft Entra identity can access this file, you should be able to see the content of the file using a query like the one shown in the following example:
 
 ```sql
 SELECT TOP 10 *
@@ -62,7 +62,7 @@ To improve the performance of your queries, consider specifying explicit types i
 > The serverless Synapse SQL pool uses schema inference to automatically determine columns and their types. The rules for schema inference are the same used for Parquet files.
 > For Delta Lake type mapping to SQL native type check [type mapping for Parquet](develop-openrowset.md#type-mapping-for-parquet). 
 
-Make sure you can access your file. If your file is protected with SAS key or custom Azure identity, you will need to set up a [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Make sure you can access your file. If your file is protected with SAS key or custom Azure identity, you will need to set up a [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
 
 > [!IMPORTANT]
 > Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in Delta Lake files are encoded using UTF-8 encoding.

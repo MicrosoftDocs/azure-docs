@@ -6,7 +6,7 @@ ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.custom: engagement-fy23
-ms.date: 02/28/2023
+ms.date: 10/06/2023
 
 --- 
 
@@ -17,11 +17,11 @@ Azure Managed Grafana offers a zone-redundant option to protect your instance ag
 In this how-to guide, learn how to enable zone redundancy for Azure Managed Grafana during the creation of your Managed Grafana instance.
 
 > [!NOTE]
-> Zone redundancy for Azure Managed Grafana is a billable option. [See prices](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing). Zone redundancy can only be enabled when creating the Managed Grafana instance, and can't be modified subsequently. 
+> Zone redundancy for Azure Managed Grafana is a billable option. [See prices](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing). Zone redundancy can only be enabled when creating the Managed Grafana instance, and can't be modified subsequently.
 
-## Prerequisite
+## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
 ## Sign in to Azure
 
@@ -43,7 +43,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 ---
 
-## Create a Managed Grafana workspace
+## Create an Azure Managed Grafana workspace
 
 Create a workspace and enable zone redundancy with the Azure portal or the CLI.
 
@@ -57,17 +57,16 @@ Create a workspace and enable zone redundancy with the Azure portal or the CLI.
 
 1. In the **Basics** pane, enter the following settings.
 
-    | Setting             | Description                                                                                                                                                                                              | Example             |
-    |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
-    | Subscription ID     | Select the Azure subscription you want to use.                                                                                                                                                           | *my-subscription*   |
-    | Resource group name | Create a resource group for your Azure Managed Grafana resources.                                                                                                                                        | *my-resource-group* |
-    | Location            | Use Location to specify the geographic location in which to host your resource. Choose the location closest to you.                                                                                      | *(US) East US*      |
-    | Name                | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL.                                                                                                   | *my-grafana*        |
-    | Zone Redundancy     | Set **Enable Zone Redundancy** to **Enable**. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. | *Enabled*           |
+    | Setting             | Description                                                                                            | Example             |
+    |---------------------|--------------------------------------------------------------------------------------------------------|---------------------|
+    | Subscription ID     | Select the Azure subscription you want to use.                                                         | *my-subscription*   |
+    | Resource group name | Create a resource group for your Azure Managed Grafana resources.                                      | *my-resource-group* |
+    | Location            | Specify the geographic location in which to host your resource. Choose the location closest to you.    | *(US) East US*      |
+    | Name                | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL. | *my-grafana*        |
+    | Pricing plan        | Select the **Standard** plan to get access to the zone redundancy feature. This feature is only available for customers using a [Standard plan](overview.md#service-tiers).                             | *Standard*          |
+    | Zone Redundancy     | Set **Enable Zone Redundancy** to **Enable**.                                                          | *Enabled*           |
 
-1. Set **Zone redundancy** to **Enable**. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. There's an [additional charge](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing) for this option.
-
-    :::image type="content" source="media/zone-redundancy/create-form-basics.png" alt-text="Screenshot of the Azure portal. Create workspace form. Basics.":::
+    Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. There's an [additional charge](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing) for this option.
 
 1. Keep all other options set to their default values and select **Review + create**.
 

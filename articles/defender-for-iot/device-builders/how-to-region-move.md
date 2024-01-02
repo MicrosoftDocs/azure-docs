@@ -58,7 +58,7 @@ After transferring, and enabling the resource, you can link to the same log anal
 
 In this section, you'll verify that the resource has been moved, that the connection to the IoT Hub has been enabled, and that everything is working correctly.
 
-**To verify the resource in in the correct region**:
+**To verify the resource is in the correct region**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **All Resources**.
 

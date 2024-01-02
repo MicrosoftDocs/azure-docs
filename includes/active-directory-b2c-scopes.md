@@ -12,7 +12,7 @@ ms.author: kengaderdus
 1. Select **App registrations**.
 1. Select the *webapi1* application to open its **Overview** page.
 1. Under **Manage**, select **Expose an API**.
-1. Next to **Application ID URI**, select the **Set** link.
+1. Next to **Application ID URI**, select the **Add** link.
 1. Replace the default value (a GUID) with `api`, and then select **Save**. The full URI is shown, and should be in the format `https://your-tenant-name.onmicrosoft.com/api`. When your web application requests an access token for the API, it should add this URI as the prefix for each scope that you define for the API.
 1. Under **Scopes defined by this API**, select **Add a scope**.
 1. Enter the following values to create a scope that defines read access to the API, then select **Add scope**:

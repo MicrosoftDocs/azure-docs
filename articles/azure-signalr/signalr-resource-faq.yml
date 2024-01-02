@@ -5,7 +5,7 @@ metadata:
   author: vicancy
   ms.service: signalr
   ms.topic: faq
-  ms.custom: devx-track-dotnet
+  ms.custom:
   ms.date: 03/21/2023
   ms.author: lianwei
 title: Azure SignalR Service FAQ
@@ -93,7 +93,7 @@ sections:
       - question: |
           Where does my data reside?
         answer: |
-          Azure SignalR Service does not store any customer data. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, see [this white paper](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.
+          Azure SignalR Service does not store any customer data. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, see [Azure Privacy Overview (white paper)](https://go.microsoft.com/fwlink/p/?linkid=2220836) for guidance about how to keep data residency in Azure regions.
 
       - question: |
           How do I choose between Azure SignalR service and Azure Web PubSub service?

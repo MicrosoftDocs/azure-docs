@@ -1,6 +1,6 @@
 ---
 title: Set up Kerberos Key Distribution Center proxy Azure Virtual Desktop - Azure
-description: How to set up a Azure Virtual Desktop host pool to use a Kerberos Key Distribution Center proxy.
+description: How to set up an Azure Virtual Desktop host pool to use a Kerberos Key Distribution Center proxy.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/04/2021
@@ -9,20 +9,20 @@ manager: femila
 ---
 # Configure a Kerberos Key Distribution Center proxy
 
-Security-conscious customers, such as financial or government organizations, often sign in using Smartcards. Smartcards make deployments more secure by requiring multifactor authentication (MFA). However, for the RDP portion of a Azure Virtual Desktop session, Smartcards require a direct connection, or "line of sight," with an Active Directory (AD) domain controller for Kerberos authentication. Without this direct connection, users can't automatically sign in to the organization's network from remote connections. Users in a Azure Virtual Desktop deployment can use the KDC proxy service to proxy this authentication traffic and sign in remotely. The KDC proxy allows for authentication for the Remote Desktop Protocol of a Azure Virtual Desktop session, letting the user sign in securely. This makes working from home much easier, and allows for certain disaster recovery scenarios to run more smoothly.
+Security-conscious customers, such as financial or government organizations, often sign in using Smartcards. Smartcards make deployments more secure by requiring multifactor authentication (MFA). However, for the RDP portion of an Azure Virtual Desktop session, Smartcards require a direct connection, or "line of sight," with an Active Directory (AD) domain controller for Kerberos authentication. Without this direct connection, users can't automatically sign in to the organization's network from remote connections. Users in an Azure Virtual Desktop deployment can use the KDC proxy service to proxy this authentication traffic and sign in remotely. The KDC proxy allows for authentication for the Remote Desktop Protocol of an Azure Virtual Desktop session, letting the user sign in securely. This makes working from home much easier, and allows for certain disaster recovery scenarios to run more smoothly.
 
 However, setting up the KDC proxy typically involves assigning the Windows Server Gateway role in Windows Server 2016 or later. How do you use a Remote Desktop Services role to sign in to Azure Virtual Desktop? To answer that, let's take a quick look at the components.
 
 There are two components to the Azure Virtual Desktop service that need to be authenticated:
 
-- The feed in the Azure Virtual Desktop client that gives users a list of available desktops or applications they have access to. This authentication process happens in Azure Active Directory, which means this component isn't the focus of this article.
+- The feed in the Azure Virtual Desktop client that gives users a list of available desktops or applications they have access to. This authentication process happens in Microsoft Entra ID, which means this component isn't the focus of this article.
 - The RDP session that results from a user selecting one of those available resources. This component uses Kerberos authentication and requires a KDC proxy for remote users.
 
 This article will show you how to configure the feed in the Azure Virtual Desktop client in the Azure portal. If you want to learn how to configure the RD Gateway role, see [Deploy the RD Gateway role](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
 ## Requirements
 
-To configure a Azure Virtual Desktop session host with a KDC proxy, you'll need the following things:
+To configure an Azure Virtual Desktop session host with a KDC proxy, you'll need the following things:
 
 - Access to the Azure portal and an Azure administrator account.
 - The remote client machines must be running at least Windows 10 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed. The web client isn't currently supported.

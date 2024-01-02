@@ -116,6 +116,8 @@
     items:
     - name: Blobs
       href: ../../storage/blobs/storage-quickstart-blobs-dotnet.md
+    - name: Queues
+      href: ../../storage/queues/storage-quickstart-queues-dotnet.md
     - name: File shares
       href: ../../storage/files/storage-dotnet-how-to-use-files.md
     - name: Key-value pairs
@@ -124,8 +126,6 @@
       href: ../../cosmos-db/create-sql-api-dotnet.md
     - name: Relational tables
       href: /azure/azure-sql/database/single-database-create-quickstart
-    - name: Message queues
-      href: ../../storage/queues/storage-dotnet-how-to-use-queues.md
   - name: Scale
     items:
     - name: Web and mobile apps

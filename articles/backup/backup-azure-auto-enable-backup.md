@@ -4,8 +4,8 @@ description: 'An article describing how to use Azure Policy to auto-enable backu
 ms.topic: how-to
 ms.date: 10/17/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Auto-Enable Backup on VM Creation using Azure Policy

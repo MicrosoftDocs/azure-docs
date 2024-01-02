@@ -1,12 +1,14 @@
 ---
 title: About Azure file share backup
-description: Learn how to back up Azure file shares in the Recovery Services vault 
+description: Learn how to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
 ms.date: 03/08/2022
-author: jyothisuri
 ms.service: backup
-ms.author: jsuri
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - ignite-2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # About Azure file share backup
@@ -67,7 +69,6 @@ To protect a snapshot from deletion while restore operation is in progress, Azur
 The following diagram explains the lifecycle of the lease acquired by Azure Backup:
 
 :::image type="content" source="./media/azure-file-share-backup-overview/backup-lease-lifecycle-diagram.png" alt-text="Diagram explaining the lifecycle of the lease acquired by Azure Backup." border="false":::
-
 
 ## Next steps
 

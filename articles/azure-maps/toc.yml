@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Maps?
     href: about-azure-maps.md
+  - name: What is Azure Maps Creator?
+    href: about-creator.md
 - name: Quickstarts
   expanded: true
   items:
@@ -78,8 +80,6 @@ items:
       href: creator-indoor-maps.md
     - name: Creator service geographic scope
       href: creator-geographic-scope.md
-    - name: Drawing conversion errors and warnings
-      href: drawing-conversion-error-codes.md
   - name: Encryption of data at rest
     href: ../security/fundamentals/encryption-atrest.md
   - name: Azure Services that support managed identities
@@ -137,20 +137,24 @@ items:
       href: how-to-view-api-usage.md
   - name: Creator Indoor Maps
     items:
+    - name: Create indoor map with the onboarding tool
+      href: creator-onboarding-tool.md
     - name: Manage Creator
       href: how-to-manage-creator.md
+    - name: Drawing package guide
+      href: drawing-package-guide.md
     - name: Query datasets with WFS API
       href: how-to-creator-wfs.md
-    - name: Create a feature stateset
-      href: how-to-creator-feature-stateset.md
     - name: Custom styling for indoor maps
       href: how-to-create-custom-styles.md
     - name: Indoor maps wayfinding service
       href: how-to-creator-wayfinding.md
-    - name: Drawing package guide
-      href: drawing-package-guide.md
+    - name: Edit indoor maps using the QGIS plugin
+      href: creator-qgis-plugin.md
     - name: Create dataset using GeoJson package
       href: how-to-dataset-geojson.md
+    - name: Create a feature stateset
+      href: how-to-creator-feature-stateset.md
   - name: Get map data from REST APIs
     items:
     - name: Search for an address
@@ -163,8 +167,6 @@ items:
       href: how-to-render-custom-data.md
     - name: Request real-time and forecasted weather data
       href: how-to-request-weather-data.md
-    - name: Request elevation data
-      href: how-to-request-elevation-data.md
   - name: Develop with the REST SDK
     items:
     - name: REST SDK Developer Guide
@@ -179,10 +181,14 @@ items:
       href: how-to-dev-guide-java-sdk.md
   - name: Develop with the Web SDK
     items:
+    - name: Web SDK v1 migration guide
+      href: web-sdk-migration-guide.md
     - name: Map control
       items:
       - name: Use the Azure Maps map control
         href: how-to-use-map-control.md
+      - name: Use the Azure Maps npm package
+        href: how-to-use-npm-package.md
       - name: Create a map
         href: map-create.md
       - name: Change the style of the map
@@ -239,10 +245,10 @@ items:
         href: drawing-tools-events.md
       - name: Interaction types and keyboard shortcuts
         href: drawing-tools-interactions-keyboard-shortcuts.md
-    - name: Services module
+    - name: REST SDK integration
       items:
-      - name: Use the services module
-        href: how-to-use-services-module.md
+      - name: Use the REST SDK
+        href: how-to-use-ts-rest-sdk.md
       - name: Show search results
         href: map-search-location.md
       - name: Get information from a coordinate
@@ -255,8 +261,6 @@ items:
         href: how-to-use-indoor-module.md
       - name: Dynamic styling for indoor maps
         href: indoor-map-dynamic-styling.md
-      - name: Drawing error visualizer
-        href: drawing-error-visualizer.md
     - name: Spatial IO module 
       items:
       - name: Use the spatial IO module
@@ -353,6 +357,8 @@ items:
       href: how-to-use-indoor-module-ios.md
   - name: Use Azure Maps in Power BI
     items: 
+    - name: Convert Map and Filled map visuals
+      href: power-bi-visual-conversion.md
     - name: The Azure Maps Power BI visual
       href: power-bi-visual-get-started.md
     - name: Geocoding in Azure Maps Power BI Visual
@@ -363,8 +369,8 @@ items:
       href: power-bi-visual-add-bubble-layer.md
     - name: Add a pie chart layer
       href: power-bi-visual-add-pie-chart-layer.md
-    - name: Add a bar chart layer
-      href: power-bi-visual-add-bar-chart-layer.md
+    - name: Add a 3D column layer
+      href: power-bi-visual-add-3d-column-layer.md
     - name: Add a heat map layer
       href: power-bi-visual-add-heat-map-layer.md
     - name: Add a reference layer
@@ -390,15 +396,17 @@ items:
 - name: Reference
   items:
   - name: Creator Indoor Maps
-    items:   
-    - name: Drawing error visualizer
-      href: drawing-error-visualizer.md
+    items:
     - name: Drawing package requirements
       href: drawing-requirements.md
-    - name: Dynamic maps StylesObject
-      href: schema-stateset-stylesobject.md
     - name: Facility Ontology
       href: creator-facility-ontology.md
+    - name: Dynamic maps StylesObject
+      href: schema-stateset-stylesobject.md
+    - name: Drawing error visualizer
+      href: drawing-error-visualizer.md
+    - name: Drawing conversion errors and warnings
+      href: drawing-conversion-error-codes.md
   - name: API and parameter extensions
     items:
     - name: Vehicle consumption model
@@ -419,8 +427,6 @@ items:
       href: /rest/api/maps/data-v2
     - name: Data Registry
       href: /rest/api/maps/data-registry
-    - name: Elevation
-      href: /rest/api/maps/elevation
     - name: Geolocation
       href: /rest/api/maps/geolocation
     - name: Render
@@ -445,6 +451,28 @@ items:
       items:
       - name: Overview
         href: /rest/api/maps-creator/
+      - name: 2023-03-01-preview
+        items:
+        - name: Alias
+          href: /rest/api/maps/2023-03-01-preview/alias
+        - name: Conversion
+          href: /rest/api/maps/2023-03-01-preview/conversion		
+        - name: Dataset
+          href: /rest/api/maps/2023-03-01-preview/dataset
+        - name: Feature State
+          href: /rest/api/maps/2023-03-01-preview/feature-state
+        - name: Features
+          href: /rest/api/maps/2023-03-01-preview/features
+        - name: Map configuration
+          href: /rest/api/maps/2023-03-01-preview/map-configuration
+        - name: Routeset
+          href: /rest/api/maps/2023-03-01-preview/routeset
+        - name: Style
+          href: /rest/api/maps/2023-03-01-preview/style
+        - name: Tileset
+          href: /rest/api/maps/2023-03-01-preview/tileset
+        - name: Wayfinding
+          href: /rest/api/maps/2023-03-01-preview/wayfinding
       - name: V2
         items:
           - name: Alias
@@ -459,20 +487,6 @@ items:
             href: /rest/api/maps/v2/tileset
           - name: WFS
             href: /rest/api/maps/v2/wfs
-      - name: V20220901Preview
-        items:
-        - name: Dataset
-          href: /rest/api/maps/v20220901preview/dataset
-        - name: Map configuration
-          href: /rest/api/maps/v20220901preview/map-configuration
-        - name: Routeset
-          href: /rest/api/maps/v20220901preview/routeset
-        - name: Style
-          href: /rest/api/maps/v20220901preview/style
-        - name: Tileset
-          href: /rest/api/maps/v20220901preview/tileset
-        - name: Wayfinding
-          href: /rest/api/maps/v20220901preview/wayfinding
     - name: Maps account management
       href: /rest/api/maps-management/
   - name: JavaScript
@@ -493,6 +507,10 @@ items:
         href: release-notes-map-control.md
       - name: Indoor module
         href: release-notes-indoor-module.md
+      - name: Drawing Tools module
+        href: release-notes-drawing-tools-module.md
+      - name: Spatial IO module
+        href: release-notes-spatial-module.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI
@@ -501,32 +519,8 @@ items:
   items:
   - name: Azure Maps code samples
     href: https://samples.azuremaps.com/
-  - name: Support and help options
-    href: ../iot/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure Maps QPS Rate Limits
     href: azure-maps-qps-rate-limits.md
-  - name: Azure IoT services
-    items:
-    - name: IoT Hub
-      href: ../iot-hub/index.yml
-    - name: IoT Hub Device Provisioning Service
-      href: ../iot-dps/index.yml
-    - name: IoT Central
-      href: ../iot-central/index.yml
-    - name: IoT Edge
-      href: ../iot-edge/index.yml
-    - name: IoT Plug and Play
-      href: ../iot-develop/index.yml
-    - name: Azure Maps
-      href: ./index.yml
-    - name: Time Series Insights
-      href: ../time-series-insights/index.yml
-  - name: Azure IoT SDKs
-    items:
-    - name: IoT Service SDKs
-      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
-    - name: IoT Device SDKs
-      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
   - name: Azure Maps terms of use
     href: https://azure.microsoft.com/support/legal/
   - name: Azure Maps pricing
@@ -545,13 +539,5 @@ items:
     href: glossary.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/overview/iot/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Technical case studies
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Azure Maps on IoT School
-    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
   - name: Create elevation data & services
     href: elevation-data-services.md

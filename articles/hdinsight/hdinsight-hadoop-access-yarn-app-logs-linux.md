@@ -4,7 +4,7 @@ description: Learn how to access YARN application logs on a Linux-based HDInsigh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/05/2022
+ms.date: 12/7/2023
 ---
 
 # Access Apache Hadoop YARN application logs on Linux-based HDInsight
@@ -34,7 +34,7 @@ YARN Timeline Server includes the following type of data:
 
 Application logs (and the associated container logs) are critical in debugging problematic Hadoop applications. YARN provides a nice framework for collecting, aggregating, and storing application logs with Log Aggregation.
 
-The Log Aggregation feature makes accessing application logs more deterministic. It aggregates logs across all containers on a worker node and stores them as one aggregated log file per worker node. The log is stored on the default file system after an application finishes. Your application may use hundreds or thousands of containers, but logs for all containers run on a single worker node are always aggregated to a single file. So there's only 1 log per worker node used by your application. Log Aggregation is enabled by default on HDInsight clusters version 3.0 and above. Aggregated logs are located in default storage for the cluster. The following path is the HDFS path to the logs:
+The Log Aggregation feature makes accessing application logs more deterministic. It aggregates logs across all containers on a worker node and stores them as one aggregated log file per worker node. The log is stored on the default file system after an application finishes. Your application may use hundreds or thousands of containers, but logs for all containers run on a single worker node are always aggregated to a single file. So there's only one log per worker node used by your application. Log Aggregation is enabled by default on HDInsight clusters version 3.0 and above. Aggregated logs are located in default storage for the cluster. The following path is the HDFS path to the logs:
 
 ```
 /app-logs/<user>/logs/<applicationId>
@@ -42,7 +42,7 @@ The Log Aggregation feature makes accessing application logs more deterministic.
 
 In the path, `user` is the name of the user who started the application. The `applicationId` is the unique identifier assigned to an application by the YARN RM.
 
-The aggregated logs aren't directly readable, as they're written in a TFile, binary format indexed by container. Use the YARN `ResourceManager` logs or CLI tools to view these logs as plain text for applications or containers of interest.
+The aggregated logs aren't directly readable, as they're written in a `TFile`, binary format indexed by container. Use the YARN `ResourceManager` logs or CLI tools to view these logs as plain text for applications or containers of interest.
 
 ## Yarn logs in an ESP cluster
 
@@ -71,7 +71,7 @@ Two configurations must be added to the custom `mapred-site` in Ambari.
 
 ## YARN CLI tools
 
-1. Use [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+1. Use [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the following command by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -109,7 +109,7 @@ Two configurations must be added to the custom `mapred-site` in Ambari.
 
 ### Other sample commands
 
-1. Download Yarn containers logs for all application masters with the command below. This step will create the log file named `amlogs.txt` in text format.
+1. Download Yarn containers logs for all application masters with the following command. This step creates the log file named `amlogs.txt` in text format.
 
     ```bash
     yarn logs -applicationId <application_id> -am ALL > amlogs.txt

@@ -44,7 +44,7 @@ Follow these steps to restart your flexible server.
     initiated.
 
 > [!NOTE]
-> Using custom RBAC role to restart server please make sure that in addition to Microsoft.DBforPostgreSQL/flexibleServers/restart/action permission this role also has Microsoft.DbforPostgreSQL/servers/write permission granted to it. 
+> Using custom RBAC role to restart server please make sure that in addition to Microsoft.DBforPostgreSQL/flexibleServers/restart/action permission this role also has Microsoft.DBforPostgreSQL/flexibleServers/read permission granted to it. 
 ## Next steps
 
 -   Learn about [business continuity](./concepts-business-continuity.md)

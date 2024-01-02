@@ -14,6 +14,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources.  In this article, you will learn how to use the Azure portal to create a VM in an Azure Virtual Network and an Azure Database for PostgreSQL Single server with an Azure private endpoint.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -217,7 +219,7 @@ After you've created **myVm**, connect to it from the internet as follows:
     Address:  10.1.3.4
     ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](/sql/azure-data-studio/download) to do the operation.
+3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](/azure-data-studio/download-azure-data-studio) to do the operation.
 
 4. In **New connection**, enter or select this information:
 

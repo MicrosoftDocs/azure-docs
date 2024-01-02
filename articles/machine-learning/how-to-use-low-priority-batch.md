@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use low priority VMs to save costs when running batch jobs.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: larryfr
+ms.reviewer: mopeakande 
 ms.custom: devplatv2
 ---
 
 # Using low priority VMs in batch deployments
 
-[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
 Azure Batch Deployments supports low priority VMs to reduce the cost of batch inference workloads. Low priority VMs enable a large amount of compute power to be used for a low cost. Low priority VMs take advantage of surplus capacity in Azure. When you specify low priority VMs in your pools, Azure can use this surplus, when available.
 
@@ -29,14 +29,13 @@ Azure Machine Learning Batch Deployments provides several capabilities that make
 
 - Batch deployment jobs consume low priority VMs by running on Azure Machine Learning compute clusters created with low priority VMs. Once a deployment is associated with a low priority VMs' cluster, all the jobs produced by such deployment will use low priority VMs. Per-job configuration is not possible.
 - Batch deployment jobs automatically seek the target number of VMs in the available compute cluster based on the number of tasks to submit. If VMs are preempted or unavailable, batch deployment jobs attempt to replace the lost capacity by queuing the failed tasks to the cluster.
-- When a job is interrupted, it is resubmitted to run again. Rescheduling is done at the mini batch level, regardless of the progress. No checkpointing capability is provided.
 - Low priority VMs have a separate vCPU quota that differs from the one for dedicated VMs. Low-priority cores per region have a default limit of 100 to 3,000, depending on your subscription offer type. The number of low-priority cores per subscription can be increased and is a single value across VM families. See [Azure Machine Learning compute quotas](how-to-manage-quotas.md#azure-machine-learning-compute).
 
 ## Considerations and use cases
 
 Many batch workloads are a good fit for low priority VMs. Although this may introduce further execution delays when deallocation of VMs occurs, the potential drops in capacity can be tolerated at expenses of running with a lower cost if there is flexibility in the time jobs have to complete. 
 
-Since batch endpoints distribute the work at the mini-batch level, deallocation only impacts those mini-batches that are currently being processed and not finished on the affected node. 
+When **deploying models** under batch endpoints, rescheduling can be done at the mini batch level. That has the extra benefit that deallocation only impacts those mini-batches that are currently being processed and not finished on the affected node. Every completed progress is kept.
 
 ## Creating batch deployments with low priority VMs
 
@@ -99,19 +98,19 @@ Once you have the new compute created, you can create or update your deployment 
    endpoint_name: heart-classifier-batch
    name: classifier-xgboost
    description: A heart condition classifier based on XGBoost
+   type: model
    model: azureml:heart-classifier@latest
    compute: azureml:low-pri-cluster
    resources:
      instance_count: 2
-   max_concurrency_per_instance: 2
-   mini_batch_size: 2
-   output_action: append_row
-   output_file_name: predictions.csv
-   retry_settings:
-     max_retries: 3
-     timeout: 300
-   error_threshold: -1
-   logging_level: info
+   settings:
+     max_concurrency_per_instance: 2
+     mini_batch_size: 2
+     output_action: append_row
+     output_file_name: predictions.csv
+     retry_settings:
+       max_retries: 3
+       timeout: 300
    ```
    
    Then, create the deployment with the following command:
@@ -125,19 +124,20 @@ Once you have the new compute created, you can create or update your deployment 
    To create or update a deployment under the new compute cluster, use the following script:
    
    ```python
-   deployment = BatchDeployment(
+   deployment = ModelBatchDeployment(
        name="classifier-xgboost",
        description="A heart condition classifier based on XGBoost",
        endpoint_name=endpoint.name,
        model=model,
        compute=compute_name,
-       instance_count=2,
-       max_concurrency_per_instance=2,
-       mini_batch_size=2,
-       output_action=BatchDeploymentOutputAction.APPEND_ROW,
-       output_file_name="predictions.csv",
-       retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
-       logging_level="info",
+       settings=ModelBatchDeploymentSettings(
+         instance_count=2,
+         max_concurrency_per_instance=2,
+         mini_batch_size=2,
+         output_action=BatchDeploymentOutputAction.APPEND_ROW,
+         output_file_name="predictions.csv",
+         retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
+      )
    )
    
    ml_client.batch_deployments.begin_create_or_update(deployment)

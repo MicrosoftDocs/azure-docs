@@ -2,6 +2,7 @@
 title: Apache Kafka bindings for Azure Functions
 description: Learn to integrate Azure Functions with an Apache Kafka stream.
 ms.topic: reference
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 01/12/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -24,25 +25,19 @@ The Kafka extension for Azure Functions lets you write values out to [Apache Kaf
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kafka).
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka).
 
-<!--
-# [C# script](#tab/csharp-script)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+# [In-process model](#tab/in-process)
 
-The Kafka extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 2.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
--->
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kafka).
+
 
 ---
 

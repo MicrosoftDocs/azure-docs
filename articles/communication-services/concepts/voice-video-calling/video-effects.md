@@ -28,7 +28,7 @@ ms.subservice: calling
 > [!NOTE]
 > Currently browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
 
-The Azure Communication Calling SDK allows you to create video effects that other users on a call are able to see. For example, for a user doing ACS calling using the WebJS SDK you can now enable that the user can turn on background blur. When the background blur is enabled, a user can feel more comfortable in doing a video call that the output video just shows a user, and all other content is blurred.
+The Azure Communication Calling SDK allows you to create video effects that other users on a call are able to see. For example, for a user doing Azure Communication Services calling using the WebJS SDK you can now enable that the user can turn on background blur. When the background blur is enabled, a user can feel more comfortable in doing a video call that the output video just shows a user, and all other content is blurred.
 
 ## Prerequisites
 ### Install the Azure Communication Services Calling SDK

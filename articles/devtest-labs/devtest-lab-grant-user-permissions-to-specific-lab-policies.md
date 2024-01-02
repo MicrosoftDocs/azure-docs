@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Grant user permissions to specific lab policies
@@ -22,7 +22,7 @@ For example, in order to grant users read/write permission to the **Allowed VM S
 To learn more about custom roles in Azure RBAC, see the [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ## Creating a lab custom role using PowerShell
-In order to get started, you’ll need to [install Azure PowerShell](/powershell/azure/install-az-ps). 
+In order to get started, you’ll need to [install Azure PowerShell](/powershell/azure/install-azure-powershell). 
 
 Once you’ve set up the Azure PowerShell cmdlets, you can perform the following tasks:
 

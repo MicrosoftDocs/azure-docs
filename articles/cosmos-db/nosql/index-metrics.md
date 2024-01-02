@@ -21,7 +21,7 @@ Azure Cosmos DB provides indexing metrics to show both utilized indexed paths an
 
 You can enable indexing metrics for a query by setting the `PopulateIndexMetrics` property to `true`. When not specified, `PopulateIndexMetrics` defaults to `false`. We only recommend enabling the index metrics for troubleshooting query performance. As long as your queries and indexing policy stay the same, the index metrics are unlikely to change. Instead, we recommend identifying expensive queries by monitoring query RU charge and latency using diagnostic logs.
 
-### .NET SDK example
+## [.NET SDK](#tab/dotnet)
 
 ```csharp
     string sqlQueryText = "SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2";
@@ -42,6 +42,56 @@ You can enable indexing metrics for a query by setting the `PopulateIndexMetrics
           Console.WriteLine(response.IndexMetrics);
         }
 ```
+
+## [Java SDK Sync](#tab/java-sync)
+
+```java    
+    SqlQuerySpec querySpec = new SqlQuerySpec("SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2");
+    CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
+    options.setIndexMetricsEnabled(true);
+
+    CosmosPagedIterable<JsonNode> items = container.queryItems(querySpec, options, JsonNode.class);
+
+    // Print
+    items.iterableByPage().forEach(itemResponse -> {
+        logger.info("diagnostics: {}", itemResponse.getCosmosDiagnostics());
+        for (JsonNode item : itemResponse.getResults()) {
+            logger.info("Item: {}", item.toString());
+        }
+    });  
+```
+
+## [Java SDK Async](#tab/java-async)
+
+```java    
+    SqlQuerySpec querySpec = new SqlQuerySpec("SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2");
+    CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
+    options.setIndexMetricsEnabled(true);
+
+    CosmosPagedFlux<JsonNode> items = container.queryItems(querySpec, options, JsonNode.class);
+    
+    // Print
+    items.byPage(100).flatMap(itemsResponse -> {
+        logger.info("diagnostics: {}",itemsResponse.getCosmosDiagnostics());
+        for (JsonNode item : itemsResponse.getResults()) {
+            logger.info("Item: {}", item.toString());
+        }
+        executeCountQueryPrintSingleResultNumber.incrementAndGet();
+        return Flux.just(itemsResponse);
+    }).blockLast();   
+```
+
+## [JavaScript SDK](#tab/javascript)
+```javascript
+const querySpec = {
+    query: "SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2",
+  };
+const { resources: resultsIndexMetrics, indexMetrics } = await container.items
+    .query(querySpec, { populateIndexMetrics: true })
+    .fetchAll();
+console.log("IndexMetrics: ", indexMetrics);
+```
+---
 
 ### Example output
 

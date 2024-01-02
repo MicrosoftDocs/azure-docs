@@ -14,7 +14,7 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 The number of resource groups that you can use for managing your VMs is limited by the [Resource Manager deployment limits](../../azure-resource-manager/templates/deploy-to-resource-group.md). Resource Manager deployments are limited to five resource groups per deployment. Two of these resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with three resource groups to select for management by Change Tracking and Inventory. This limit only applies to simultaneous setup, not the number of resource groups that can be managed by an Automation feature.
 
 > [!NOTE]
-> When enabling Change Tracking and Inventory, only certain regions are supported for linking a Log Analytics workspace and an Automation Account. For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](../how-to/region-mappings.md).
+> When you enable Change Tracking and Inventory, only certain regions are supported for linking a Log Analytics workspace and an Automation Account. For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](../how-to/region-mappings.md).
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ The number of resource groups that you can use for managing your VMs is limited 
 
 ## Sign in to Azure
 
-Sign in to Azure at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Change Tracking and Inventory
 

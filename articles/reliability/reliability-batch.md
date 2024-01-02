@@ -14,14 +14,13 @@ ms.date: 03/09/2023
 
 # Reliability in Azure Batch
 
-This article describes reliability support in Azure Batch and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
+This article describes reliability support in Azure Batch and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability in the case of a local zone failure. When one zone experiences a failure, the remaining two zones support all regional services, capacity, and high availability. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
 
-There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 Batch maintains parity with Azure on supporting availability zones.
 
@@ -44,7 +43,7 @@ Batch maintains parity with Azure on supporting availability zones.
 
 ### Create an Azure Batch pool across availability zones
 
-For examples on how to create a Batch pool across availability zones, see [Create an Azure Batch pool across Availability Zones](/azure/batch/create-pool-availability-zones).
+For examples on how to create a Batch pool across availability zones, see [Create an Azure Batch pool across availability zones](/azure/batch/create-pool-availability-zones).
 
 Learn more about creating Batch accounts with the [Azure portal](../batch/batch-account-create-portal.md), the [Azure CLI](../batch/scripts/batch-cli-sample-create-account.md), [PowerShell](../batch/batch-powershell-cmdlets-get-started.md), or the [Batch management API](../batch/batch-management-dotnet.md).
 
@@ -59,7 +58,11 @@ Azure Batch account doesn't reallocate or create new nodes to compensate for nod
 To prepare for a possible availability zone failure, you should over-provision capacity of service to ensure that the solution can tolerate 1/3 loss of capacity and continue to function without degraded performance during zone-wide outages. Since the platform spreads VMs across three zones and you need to account for at least the failure of one zone, multiply peak workload instance count by a factor of zones/(zones-1), or 3/2. For example, if your typical peak workload requires four instances, you should provision six instances: (2/3 * 6 instances) = 4 instances.
 
 
-## Disaster recovery: cross region failover
+### Availability zone redeployment and migration
+
+You can't migrate an existing Batch pool to availability zone support. If you wish to recreate your Batch pool across availability zones, see [Create an Azure Batch pool across availability zones](/azure/batch/create-pool-availability-zones).
+
+## Cross-region disaster recovery and business continuity
 
 Azure Batch is available in all Azure regions. However, when a Batch account is created, it must be associated with one specific region. All subsequent operations for that Batch account only apply to that region. For example, pools and associated virtual machines (VMs) are created in the same region as the Batch account.
 
@@ -88,7 +91,7 @@ Consider the following points when designing a solution that can failover:
 The duration of time to recover from a disaster depends on the setup you choose. Batch itself is agnostic regarding whether you're using multiple accounts or a single account. In active-active configurations, where two Batch instances are receiving traffic simultaneously, disaster recovery is faster than for an active-passive configuration. Which configuration you choose should be based on business needs (different regions, latency requirements) and technical considerations. 
 
 
-### Single-region geography disaster recovery
+### Single-region disaster recovery
 How you implement disaster recovery in Batch is the same, whether you're working in a single-region or multi-region geography. The only differences are which SKU you use for storage, and whether you intend to use the same or different storage account across all regions.
 
 ### Disaster recovery testing 
@@ -132,5 +135,4 @@ When a storage account is linked to a Batch account, think of it as the autostor
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](./overview.md)

@@ -4,7 +4,7 @@ titleSuffix: Defender EASM domain asset filters
 description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management for domain assets specifically, including operators and applicable field values.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 12/14/2022
 ms.topic: how-to
 ---
@@ -15,7 +15,7 @@ These filters specifically apply to domain assets. Use these filters when search
 
 ## Defined value filters  
 
-The following filters provide a drop-down list of options to select. The available values are pre-defined. 
+The following filters provide a drop-down list of options to select. The available values are predefined. 
 
 |       Filter name      |     Description                                                                                                |     Value format example                                                                     |     Applicable operators          |
 |------------------------|----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|-----------------------------------|
@@ -26,12 +26,11 @@ The following filters provide a drop-down list of options to select. The availab
 
 ## Free form filters  
 
-The following filters require that the user manually enters the value with which they want to search. This list is organized by the number of applicable operators for each filter, then alphabetically. Please note that many of these values are case-sensitive. 
+The following filters require that the user manually enters the value with which they want to search. This list is organized according to the number of applicable operators for each filter, then alphabetically. Note that many values are case-sensitive. 
 
 |       Filter name                  |     Description                                                                              |     Value format example                                                                           |     Applicable operators                                                                                                                                                                                                                            |
 |------------------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     Domain Status                  |   Any detected domain configurations.                                                        |   clientDeleteProhibited, clientRenewProhibited, clientTransferProhibited, clientUpdateProhibited  |   `Equals` `Not Equals` `Starts with` `Does not start with` `In` `Not In` `Starts with in` `Does not start with in` `Contains` `Does Not Contain` `Contains In` `Does Not Contain In` `Empty` `Not Empty`                                 |
-|     IANA ID                        |   The allocated unique ID for a domain, IP or AS seen within WhoIs, IANA and ICANN records.  |   1005                                                                                             |                                                                                                                                                                                                                                                     |
 |     Domain                         |   The domain name of the desired asset(s).                                                   |   Must align with the standard format of domains in inventory:  “domain.tld”                       |   `Equals` `Not Equals` `Starts with` `Does not start with` `Matches` `Does not match` `In` `Not In` `Starts with in` `Does not start with in` `Matches in` `Does not match in` `Contains` `Does Not Contain` `Contains In` `Does Not Contain In` `Empty` `Not Empty`  |
 |     Name Server                    |   Any name servers connected to the domain.                                                  |   dns.domain.com                                                                                   |                                                                                                                                                                                                                                                     |
 |     Registrar                      |   The name of the registrar within the WhoIs record.                                         |   GODADDY.COM, INC.                                                                                |                                                                                                                                                                                                                                                     |
@@ -44,7 +43,8 @@ The following filters require that the user manually enters the value with which
 |     Whois Registrant Organization  |   An organization associated with the listed registrant.                                     |   Contoso Ltd.                                                                                     |                                                                                                                                                                                                                                                     |
 |     Whois Technical Email          |   The email address of the listed technical contact.                                         |   name@domain.com                                                                                  |                                                                                                                                                                                                                                                     |
 |     Whois Technical Name           |   The name of the listed technical contact.                                                  |   John Smith                                                                                       |                                                                                                                                                                                                                                                     |
-|     Whois Technical Organization   |   The organization associated to the listed technical contact.                               |   Contoso Ltd.                                                                                     |                                                                                                                                                                                                                                                     |
+|     Whois Technical Organization   |   The organization associated to the listed technical contact.                               |   Contoso Ltd.                                                                                     |     
+|     IANA ID                        |   The allocated unique ID for a domain, IP or AS seen within WhoIs, IANA and ICANN records.  |   1005                                                                                             |    `Equals` `Not Equals` `In` `Not In` `Empty` `Not Empty`    |
 
 
 ## Next steps 

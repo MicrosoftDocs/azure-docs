@@ -4,7 +4,7 @@ description: This article provides information on the library that you can use t
 ms.topic: article
 ms.date: 09/06/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Event Hubs management libraries
@@ -19,19 +19,19 @@ You can use the Azure Event Hubs management libraries to dynamically provision E
 
 ## Prerequisites
 
-To get started using the Event Hubs management libraries, you must authenticate with Azure Active Directory (Azure AD). Azure AD requires that you authenticate as a service principal, which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
+To get started using the Event Hubs management libraries, you must authenticate with Microsoft Entra ID. Microsoft Entra ID requires that you authenticate as a service principal, which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
 
 * [Use the Azure portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Use Azure CLI to create a service principal to access resources](/cli/azure/create-an-azure-service-principal-azure-cli)
 
-These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. The Azure AD application must be added to the **Azure Event Hubs Data Owner** role at the resource group level.
+These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. The Microsoft Entra application must be added to the **Azure Event Hubs Data Owner** role at the resource group level.
 
 ## Sample code
 
 The pattern to manipulate any Event Hubs resource follows a common protocol:
 
-1. Obtain a token from Azure AD using the `Microsoft.Identity.Client` library.
+1. Obtain a token from Microsoft Entra ID using the `Microsoft.Identity.Client` library.
 1. Create the `EventHubManagementClient` object.
 1. Then, use the client object to create an Event Hubs namespace and an event hub. 
 

@@ -9,13 +9,15 @@ ms.date: 02/16/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.devlang: csharp, java, javascript
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, devx-track-dotnet, devx-track-extended-java
 ---
 
 # Manage consistency levels in Azure Cosmos DB
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article explains how to manage consistency levels in Azure Cosmos DB. You learn how to configure the default consistency level, override the default consistency, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
+
+As you change your account level consistency, ensure you redeploy your applications and make any necessary code modifications to apply these changes.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -78,17 +80,17 @@ documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy
 // Override consistency at the request level via request options
 RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Eventual };
 
-var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
+var response = await client.ReadDocumentAsync(collectionUri, document, requestOptions);
 ```
 
 # [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 // Override consistency at the request level via request options
-ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = ConsistencyLevel.Eventual };
 
 var response = await client.GetContainer(databaseName, containerName)
-    .CreateItemAsync(
+    .ReadItemAsync(
         item,
         new PartitionKey(itemPartitionKey),
         requestOptions);
@@ -170,7 +172,7 @@ In some scenarios you need to manage this Session yourself. Consider a web appli
 
 If you do not flow the Azure Cosmos DB SessionToken across as described above you could end up with inconsistent read results for a period of time.
 
-To manage session tokens manually, get the session token from the response and set them per request. If you don't need to manage session tokens manually, you don't need to use these samples. The SDK keeps track of session tokens automatically. If you don't set the session token manually, by default, the SDK uses the most recent session token.
+Session Tokens in Azure Cosmos DB are partition-bound, meaning they are exclusively associated with one partition. In order to ensure you can read your writes, use the session token that was last generated for the relevant item(s). To manage session tokens manually, get the session token from the response and set them per request. If you don't need to manage session tokens manually, you don't need to use these samples. The SDK keeps track of session tokens automatically. If you don't set the session token manually, by default, the SDK uses the most recent session token.
 
 ### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
 

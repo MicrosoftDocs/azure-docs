@@ -1,15 +1,16 @@
 ---
 title: Upgrade to the latest generation of dedicated SQL pool (formerly SQL DW)
 description: Upgrade Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) to latest generation of Azure hardware and storage architecture.
-author: mlee3gsd
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 02/19/2019
-ms.author: martinle
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sngun
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.date: 02/19/2019
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - devx-track-azurepowershell
 ---
 
 # Optimize performance by upgrading dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics

@@ -31,7 +31,7 @@ The size of the reserved capacity purchase should be based on the total amount o
 
 We calculate purchase recommendations based on your hourly usage pattern. Usage over last 7, 30 and 60 days is analyzed, and reserved capacity purchase that maximizes your savings is recommended. You can view recommended reservation sizes in the Azure portal using the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).  
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **All services** > **Reservations** > **Add**.
 
@@ -55,7 +55,7 @@ This recommendation to purchase a 30,000 RU/s reservation indicates that, among 
 
 ## Buy Azure Cosmos DB reserved capacity
 
-1. Sign in to the [Azure portal](https://portal.azure.com).  
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **All services** > **Reservations** > **Add**.  
 
@@ -93,7 +93,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## Exceeding reserved capacity
 
-When you reserve capacity for your Azure Cosmos DB resources, you are reserving [provisioned thorughput](set-throughput.md). If the provisioned throughput is exceeded, requests beyond that provisioning will be billed using pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article. For more information on provisioned throughput, see [provisioned throughput types](how-to-choose-offer.md#overview-of-provisioned-throughput-types).
+When you reserve capacity for your Azure Cosmos DB resources, you are reserving [provisioned throughput](set-throughput.md). If the provisioned throughput is exceeded, requests beyond that provisioning will be billed using pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article. For more information on provisioned throughput, see [provisioned throughput types](how-to-choose-offer.md#overview-of-provisioned-throughput-types).
 
 ## Next steps
 

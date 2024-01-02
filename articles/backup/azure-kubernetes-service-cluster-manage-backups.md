@@ -1,14 +1,17 @@
 ---
-title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup 
+title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup
 description: This article explains how to manage Azure Kubernetes Service (AKS) backups using Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 03/27/2023
-author: jyothisuri
-ms.author: jsuri
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
+ms.date: 04/26/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# Manage Azure Kubernetes Service backups using Azure Backup (preview) 
+# Manage Azure Kubernetes Service backups using Azure Backup 
 
 This article describes how to register resource providers on your subscriptions for using Backup Extension and Trusted Access. Also, it provides you with the Azure CLI commands to manage them.
 
@@ -82,7 +85,7 @@ This section provides the set of Azure CLI commands to perform create, update, o
 To install the Backup Extension, run the following command:
 
    ```azurecli-interactive
-   az k8s-extension create --name azure-aks-backup --extension-type Microsoft.DataProtection.Kubernetes --scope cluster --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg --release-train stable --configuration-settings blobContainer=containername storageAccount=storageaccountname storageAccountResourceGroup=storageaccountrg storageAccountSubscriptionId=subscriptionid
+   az k8s-extension create --name azure-aks-backup --extension-type microsoft.dataprotection.kubernetes --scope cluster --cluster-type managedClusters --cluster-name <aksclustername> --resource-group <aksclusterrg> --release-train stable --configuration-settings blobContainer=<containername> storageAccount=<storageaccountname> storageAccountResourceGroup=<storageaccountrg> storageAccountSubscriptionId=<subscriptionid>
    ```
 
 ### View Backup Extension installation status
@@ -90,7 +93,7 @@ To install the Backup Extension, run the following command:
 To view the progress of Backup Extension installation, use the following command:
 
    ```azurecli-interactive
-   az k8s-extension show --name azure-aks-backup --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg
+   az k8s-extension show --name azure-aks-backup --cluster-type managedClusters --cluster-name <aksclustername> --resource-group <aksclusterrg>
    ```
 
 ### Update resources in Backup Extension
@@ -98,7 +101,7 @@ To view the progress of Backup Extension installation, use the following command
 To update blob container, CPU, and memory in the Backup Extension, use the following command:
 
    ```azurecli-interactive
-   az k8s-extension update --name azure-aks-backup --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg --release-train stable --configuration-settings [blobContainer=containername storageAccount=storageaccountname storageAccountResourceGroup=storageaccountrg storageAccountSubscriptionId=subscriptionid] [cpuLimit=1] [memoryLimit=1Gi]
+   az k8s-extension update --name azure-aks-backup --cluster-type managedClusters --cluster-name <aksclustername> --resource-group <aksclusterrg> --release-train stable --configuration-settings [blobContainer=<containername> storageAccount=<storageaccountname> storageAccountResourceGroup=<storageaccountrg> storageAccountSubscriptionId=<subscriptionid>] [cpuLimit=1] [memoryLimit=1Gi]
    
    []: denotes the 3 different sub-groups of updates possible (discard the brackets while using the command)
 
@@ -109,7 +112,7 @@ To update blob container, CPU, and memory in the Backup Extension, use the follo
 To stop the Backup Extension install operation, use the following command:
 
    ```azurecli-interactive
-   az k8s-extension delete --name azure-aks-backup --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg
+   az k8s-extension delete --name azure-aks-backup --cluster-type managedClusters --cluster-name <aksclustername> --resource-group <aksclusterrg>
    ```
 
 ### Grant permission on storage account
@@ -117,7 +120,7 @@ To stop the Backup Extension install operation, use the following command:
 To provide *Storage Account Contributor Permission* to the Extension Identity on storage account, run the following command:
 
    ```azurecli-interactive
-   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name aksclustername --resource-group aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Account Contributor' --scope /subscriptions/subscriptionid/resourceGroups/storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/storageaccountname 
+   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name <aksclustername> --resource-group <aksclusterrg> --cluster-type managedClusters --query identity.principalId --output tsv) --role 'Storage Account Contributor' --scope /subscriptions/<subscriptionid>/resourceGroups/<storageaccountrg>/providers/Microsoft.Storage/storageAccounts/<storageaccountname> 
    ```
 
 
@@ -127,18 +130,17 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
 
    ```azurecli-interactive
    az aks trustedaccess rolebinding create \
-   -g $myResourceGroup \ 
-   --cluster-name $myAKSCluster 
-   –n <randomRoleBindingName> \ 
-   -s <vaultID> \ 
-   --roles Microsoft.DataProtection/backupVaults/backup-operator
-
+   -g <aksclusterrg> \
+   --cluster-name <aksclustername> \
+   -n <randomRoleBindingName> \
+   --source-resource-id $(az dataprotection backup-vault show -g <vaultrg> -v <VaultName> --query id -o tsv) \
+   --roles Microsoft.DataProtection/backupVaults/backup-operator   
    ```
 
 Learn more about [other commands related to Trusted Access](../aks/trusted-access-feature.md#trusted-access-feature-overview).
 
 ## Next steps
 
-- [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
-- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
-- [Supported scenarios for backing up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup-support-matrix.md)
+- [Back up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup.md)
+- [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
+- [Supported scenarios for backing up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup-support-matrix.md)

@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 09/28/2022
+ms.date: 06/05/2023
 ---
 
 # Connect to a cluster with private access in Azure Cosmos DB for PostgreSQL
@@ -63,7 +63,7 @@ az vm create \
 	--subnet link-demo-subnet \
 	--nsg link-demo-nsg \
 	--public-ip-address link-demo-net-ip \
-	--image debian \
+	--image Debian11 \
 	--admin-username azureuser \
 	--generate-ssh-keys
 
@@ -120,7 +120,7 @@ The private link allows the VM to connect to the cluster, and prevents external 
 ```azurecli
 # replace {your_password} in the string with your actual password
 
-PG_URI='host=c.link-demo-sg.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require'
+PG_URI='host=c-link-demo-sg.12345678901234.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require'
 
 # Attempt to connect to cluster with psql in the VM
 

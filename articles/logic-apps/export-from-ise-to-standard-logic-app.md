@@ -5,17 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 12/11/2023
 ms.custom: engagement-fy23
 #Customer intent: As a developer, I want to export one or more ISE workflows to a Standard workflow.
 ---
 
-# Export ISE workflows to a Standard logic app (Preview)
-
-> [!NOTE]
->
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Export ISE workflows to a Standard logic app
 
 Standard logic app workflows, which run in single-tenant Azure Logic Apps, offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
 
@@ -31,28 +26,25 @@ You can now export logic app workflows from an ISE to a Standard logic app. Usin
 >
 > You control the export process and your migration journey. You can test and validate your 
 > exported workflows to your satisfaction with the destination environment. You choose when 
-> to disable or delete your source logic apps. 
+> to disable or delete your source logic apps.
 
 This article provides information about the export process and shows how to export your logic app workflows from an ISE to a local Standard logic app project in Visual Studio Code.
 
 ## Known issues and limitations
 
-- To run the export tool, you must be on the same network as your ISE. So, if your ISE is internal, you have to run the export tool from a Visual Studio Code instance that can access your ISE through the internal network. Otherwise, you can't download the exported package or files.
-
-- The following logic apps and scenarios are currently ineligible for export:
-
-  - Consumption workflows in multi-tenant Azure Logic Apps
-  - Logic apps that use custom connectors
-  - Logic apps that use the Azure API Management connector
-  - Logic apps that use the Azure Functions connector
-
-- The export tool doesn't export any infrastructure information, such as virtual network dependencies or integration account settings.
+- The export tool doesn't export any infrastructure information, such as integration account settings.
 
 - The export tool can export logic app workflows with triggers that have concurrency settings. However, single-tenant Azure Logic Apps ignores these settings.
 
-- For now, connectors with the **ISE** label deploy as their *managed* versions, which appear in the designer under the **Azure** tab. The export tool will have the capability to export **ISE** connectors as built-in, service provider connectors when the latter gain parity with their ISE versions. The export tool automatically makes the conversion when an **ISE** connector is available to export as a built-in, service provider connector.
+- Logic apps must exist in the same region if you want to export them within the same Standard logic app project.
 
-- Currently, connection credentials aren't cloned from source logic app workflows. Before your logic app workflows can run, you'll have to reauthenticate these connections after export.
+- By default, connection credentials aren't cloned from source logic app workflows. Before your logic app workflows can run, you'll have to reauthenticate these connections after export.
+
+- By default, if an Azure connector has a built-in connector version, the export tool automatically converts the Azure connector to the built-in connector. No option exists to opt out from this behavior.
+
+- If the connection ID is incorrectly formatted, an error is thrown. Before you export your workflow, make sure that the connection IDs for your connectors match the following format:
+
+   `subscriptionId/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/integrationServiceEnvironments/{integration-service-environment-name}/managedApis/{managed-api-name}`
 
 ## Exportable operation types
 
@@ -63,13 +55,18 @@ This article provides information about the export process and shows how to expo
 
 ## Prerequisites
 
-- An existing ISE with the logic app workflows that you want to export.
+- One or more logic apps to deploy to the same subscription and Azure region, for example, East US 2.
 
-- Azure contributor subscription-level access to the ISE, not just resource group-level access.
+- Azure reader subscription-level access to the subscription where the logic apps are currently deployed.
 
-- To include and deploy managed connections in your workflows, you'll need an existing Azure resource group for deploying these connections. This option is recommended only for non-production environments.
+- Azure contributor resource group-level access, if the **Deploy managed connectors** option is selected.
 
-- Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+- Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites). 
+
+> [!NOTE]
+> 
+> Make sure to install version 2.0.16 or higher for the Azure Logic Apps (Standard) extension for Visual Studio Code. 
+> Some conversion scenarios require the latest workflow designer, which is available starting with this version.
 
 ## Group logic apps for export
 
@@ -87,17 +84,17 @@ Consider the following recommendations when you select logic apps for export:
 
 1. In Visual Studio Code, sign in to Azure, if you haven't already.
 
-1. In the left navigation bar, select **Azure** to open the **Azure** window (Shift + Alt + A), and expand the **Logic Apps (Standard)** extension view.
+1. On the Visual Studio Code Activity Bar, select **Azure** to open the **Azure** window (Shift + Alt + A).
 
-   ![Screenshot showing Visual Studio Code with 'Azure' view selected.](media/export-from-ise-to-standard-logic-app/select-azure-view.png)
+   ![Screenshot showing Visual Studio Code Activity Bar with Azure icon selected.](media/export-from-ise-to-standard-logic-app/select-azure-view.png)
 
-1. On the extension toolbar, select **Export Logic App...**.
+1. On the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Export Logic App**.
 
-   ![Screenshot showing Visual Studio Code and 'Logic Apps (Standard)' extension toolbar with 'Export Logic App' selected.](media/export-from-ise-to-standard-logic-app/select-export-logic-app.png)
+   ![Screenshot showing Azure window, Workspace section toolbar, and Export Logic App selected.](media/export-from-ise-to-standard-logic-app/select-export-logic-app.png)
 
 1. After the **Export** tab opens, select your Azure subscription and ISE instance, and then select **Next**.
 
-   ![Screenshot showing 'Export' tab and 'Select logic app instance' section with Azure subscription and ISE instance selected.](media/export-from-ise-to-standard-logic-app/select-subscription-ise.png)
+   ![Screenshot showing Export tab with Azure subscription and ISE instance selected.](media/export-from-ise-to-standard-logic-app/select-subscription-ise.png)
 
 1. Select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side. When you're done, select **Next**.
 
@@ -170,6 +167,12 @@ Some exported logic app workflows require post-export remediation steps to run o
 ### Integration account actions and settings
 
 If you export actions that depend on an integration account, you have to manually set up your Standard logic app with a reference link to the integration account that contains the required artifacts. For more information, review [Link integration account to a Standard logic app](logic-apps-enterprise-integration-create-integration-account.md#link-account).
+
+If you have a Standard integration account that's created from inside an ISE, you can [export that integration account to an existing Premium integration account](ise-manage-integration-service-environment.md#export-integration-account-preview).
+
+### Batch actions and settings
+
+If you export actions that use Batch actions with multiple configurations stored in an integration account, you have to manually configure your Batch actions with the correct values after export. For more information, review [Send, receive, and batch process messages in Azure Logic Apps](logic-apps-batch-process-send-receive-messages.md#create-batch-receiver).
 
 ## Project folder structure
 

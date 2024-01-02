@@ -2,10 +2,11 @@
 title: Authenticate with managed identity
 description: Provide access to images in your private container registry by using a user-assigned or system-assigned managed Azure identity.
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 author: tejaswikolli-web
+ms.service: container-registry
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ---
 
 # Use an Azure managed identity to authenticate to an Azure container registry 
@@ -37,7 +38,7 @@ If you're not familiar with the managed identities for Azure resources feature, 
 
 After you set up selected Azure resources with a managed identity, give the identity the access you want to another resource, just like any security principal. For example, assign a managed identity a role with pull, push and pull, or other permissions to a private registry in Azure. (For a complete list of registry roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).) You can give an identity access to one or more resources.
 
-Then, use the identity to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), without any credentials in your code. Choose how to authenticate using the managed identity, depending on your scenario. To use the identity to access an Azure container registry from a virtual machine, you authenticate with Azure Resource Manager. 
+Then, use the identity to authenticate to any [service that supports Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), without any credentials in your code. Choose how to authenticate using the managed identity, depending on your scenario. To use the identity to access an Azure container registry from a virtual machine, you authenticate with Azure Resource Manager. 
 
 ## Create a container registry
 
@@ -67,7 +68,7 @@ Deploy a default Ubuntu Azure virtual machine with [az vm create][az-vm-create].
 az vm create \
     --resource-group myResourceGroup \
     --name myDockerVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
@@ -269,13 +270,13 @@ SSH into the Docker virtual machine that's configured with the identity. Run the
 
 First, authenticate to the Azure CLI with [az login][az-login], using the identity you configured on the VM. For `<userID>`, substitute the ID of the identity you retrieved in a previous step. 
 
-```azurecli
+```azurecli-interactive
 az login --identity --username <userID>
 ```
 
 Then, authenticate to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
 
-```azurecli
+```azurecli-interactive
 az acr login --name myContainerRegistry
 ```
 
@@ -291,20 +292,20 @@ SSH into the Docker virtual machine that's configured with the identity. Run the
 
 First, authenticate to the Azure PowerShell with [Connect-AzAccount][connect-azaccount], using the identity you configured on the VM. For `-AccountId` specify a client ID of the identity. 
 
-```azurepowershell
+```azurepowershell-interactive
 $clientId = (Get-AzUserAssignedIdentity -ResourceGroupName myResourceGroup -Name myACRId).ClientId
 Connect-AzAccount -Identity -AccountId $clientId
 ```
 
 Then, authenticate to the registry with [Connect-AzContainerRegistry][connect-azcontainerregistry]. When you use this command, the Azure PowerShell uses the Active Directory token created when you ran `Connect-AzAccount` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
 
-```azurepowershell
+```azurepowershell-interactive
 sudo pwsh -command Connect-AzContainerRegistry -Name myContainerRegistry
 ```
 
 You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, run [docker pull][docker-pull] to pull the `aci-helloworld:v1` image, specifying the login server name of your registry. The login server name consists of your container registry name (all lowercase) followed by `.azurecr.io` - for example, `mycontainerregistry.azurecr.io`.
 
-```
+```bash
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
@@ -385,19 +386,19 @@ SSH into the Docker virtual machine that's configured with the identity. Run the
 
 First, authenticate the Azure CLI with [az login][az-login], using the system-assigned identity on the VM.
 
-```azurecli
+```azurecli-interactive
 az login --identity
 ```
 
 Then, authenticate to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
 
-```azurecli
+```azurecli-interactive
 az acr login --name myContainerRegistry
 ```
 
 You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, run [docker pull][docker-pull] to pull the `aci-helloworld:v1` image, specifying the login server name of your registry. The login server name consists of your container registry name (all lowercase) followed by `.azurecr.io` - for example, `mycontainerregistry.azurecr.io`.
 
-```
+```bash
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -406,19 +407,19 @@ SSH into the Docker virtual machine that's configured with the identity. Run the
 
 First, authenticate the Azure PowerShell with [Connect-AzAccount][connect-azaccount], using the system-assigned identity on the VM.
 
-```azurepowershell
+```azurepowershell-interactive
 Connect-AzAccount -Identity
 ```
 
 Then, authenticate to the registry with [Connect-AzContainerRegistry][connect-azcontainerregistry]. When you use this command, the PowerShell uses the Active Directory token created when you ran `Connect-AzAccount` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
 
-```azurepowershell
+```azurepowershell-interactive
 sudo pwsh -command Connect-AzContainerRegistry -Name myContainerRegistry
 ```
 
 You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, run [docker pull][docker-pull] to pull the `aci-helloworld:v1` image, specifying the login server name of your registry. The login server name consists of your container registry name (all lowercase) followed by `.azurecr.io` - for example, `mycontainerregistry.azurecr.io`.
 
-```
+```bash
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 

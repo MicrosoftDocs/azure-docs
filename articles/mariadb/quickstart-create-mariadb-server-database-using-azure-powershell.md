@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create a server - Azure PowerShell - Azure Database for MariaDB'
 description: This quickstart describes how to use PowerShell to create an Azure Database for MariaDB server in an Azure resource group.
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/24/2022
 ms.topic: quickstart
 ms.service: mariadb
@@ -11,6 +11,8 @@ ms.custom: devx-track-azurepowershell, mvc, mode-api
 ---
 
 # Quickstart: Create an Azure Database for MariaDB server using PowerShell
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 This quickstart describes how to use PowerShell to create an Azure Database for MariaDB server in an
 Azure resource group. You can use PowerShell to create and manage Azure resources interactively or
@@ -25,7 +27,7 @@ If you choose to use PowerShell locally, this article requires that you install 
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
 about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
 > While the Az.MariaDb PowerShell module is in preview, you must install it separately from the Az

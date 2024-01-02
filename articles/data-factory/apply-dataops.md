@@ -32,7 +32,7 @@ Specifically, once you bring your own GitHub or Azure DevOps repository into dat
 
 ### "Code" in Azure Data Factory
 
-All artifacts in Azure Data Factory, whether they're pipelines, linked services, triggers, etc. have corresponding “code” representations in JSON behind the visual UI integration. These artifacts act in compliance with [Azure Resource Manager templates](/azure-resource-manager/templates/overview.md) standards. You can find the code by clicking on the bracket icon on the top right of the canvas. Sample JSON “code” would look like this:
+All artifacts in Azure Data Factory, whether they're pipelines, linked services, triggers, etc. have corresponding “code” representations in JSON behind the visual UI integration. These artifacts act in compliance with [Azure Resource Manager templates](/azure/azure-resource-manager/templates/overview) standards. You can find the code by clicking on the bracket icon on the top right of the canvas. Sample JSON “code” would look like this:
 
 :::image type="content" source="media/apply-dataops/view-json-button.png" alt-text="Screenshot showing the View JSON button on the pipeline UI.":::
 
@@ -82,7 +82,7 @@ CI/CD is a paradigm of code development where changes are inspected and tested a
 
 Continuous integration (CI) is the practice of automatically testing and validating every time a developer makes a change to your codebase. Continuous delivery (CD) means that after Continuous Integration tests succeed, the changes are brought to the next stage continuously.
 
-As discussed briefly previously, “code” in Azure Data Factory takes the form of [Azure Resource Manager template](/azure-resource-manager/templates/overview.md) JSON. Hence, the changes going through the continuous integration and delivery (CI/CD) process comprise additions, deletions, and edits to JSON blobs.
+As discussed briefly previously, “code” in Azure Data Factory takes the form of [Azure Resource Manager template](/azure/azure-resource-manager/templates/overview) JSON. Hence, the changes going through the continuous integration and delivery (CI/CD) process comprise additions, deletions, and edits to JSON blobs.
 
 #### Pipeline runs in Azure Data Factory
 
@@ -140,7 +140,7 @@ Here are the few points to consider regarding stopping triggers:
 
 We recommend that you follow these best practices for pull requests. 
 
-- Each developer should work on their own individual branches, and at the end of day, create pull requests to the main branch of the repository. See tutorials on pull requests in [GitHub](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) and [DevOps](/devops/repos/git/pull-requests.md?view=azure-devops&tabs=browser&preserve-view=true).
+- Each developer should work on their own individual branches, and at the end of day, create pull requests to the main branch of the repository. See tutorials on pull requests in [GitHub](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) and [DevOps](/azure/devops/repos/git/pull-requests).
 - When gate keepers approve the pull requests and merge the changes into the main branch, the CI/CD process can start. There are two suggested methods to promote changes throughout environments: [automated](#automated-deployment-of-changes) and [manual](#manual-deployment-of-changes).
 - Once you're ready to kick off CI/CD pipelines, you can do so generally using [Azure Pipeline Release](continuous-integration-delivery-improvements.md) or make deployments of specific individual pipelines using this [open source utility from Azure Player](https://github.com/Azure-Player/azure.datafactory.tools).
 
@@ -176,8 +176,6 @@ When developing data flows, you'll be able to gain insights into each individual
 
 The service provides live and interactive feedback of your pipeline activities in the UI when debugging and unit testing in Azure Data Factory.
 
-For more advanced unit testing within your repository, refer to the blog [How to build unit tests for Azure Data Factory](https://towardsdatascience.com/how-to-build-unit-tests-for-azure-data-factory-3aa11b36c7af).
-
 ### Automated testing
 
 There are several tools available for automated testing that you can use with Azure Data Factory. Since the service stores objects in the service as JSON entities, it can be convenient to use the open-source .NET unit testing framework NUnit with Visual Studio. Refer to this post [Setup automated testing for Azure Data Factory](https://richardswinbank.net/adf/set_up_automated_testing_for_azure_data_factory) that provides an in-depth explanation of how to set up an automated unit testing environment for your factory. (Special thanks to Richard Swinbank for permission to use this blog.)
@@ -212,7 +210,7 @@ You can use the main search bar from the Azure Data Factory Studio to find data 
 
 :::image type="content" lightbox="media/apply-dataops/purview-search.png" source="media/apply-dataops/purview-search.png" alt-text="Screenshot showing Purview results from a search in the Azure Data Factory Studio search bar.":::
 
-## Next steps
+## Related content
 
 - [Automated publishing for CI/CD in Azure Data Factory](continuous-integration-delivery-improvements.md)
 - [Source control in Azure Data Factory](source-control.md)

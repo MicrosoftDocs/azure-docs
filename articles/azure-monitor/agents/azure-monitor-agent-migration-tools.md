@@ -4,22 +4,20 @@ description: This article describes various migration tools and helpers availabl
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.reviewer: shseth
-ms.date: 1/18/2023 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-
-# Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.    
-
+ms.reviewer: jeffwo
+ms.date: 12/12/2023 
+ms.custom:
+# Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.
 ---
 
 # Tools for migrating from Log Analytics Agent to Azure Monitor Agent 
 
-Azure Monitor Agent (AMA) replaces the Log Analytics Agent (MMA/OMS) for Windows and Linux virtual machines, scale sets, on premise, 3rd party clouds and Arc-enabled servers. The [benefits of migrating to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) include enhanced security, cost-effectiveness, performance, manageability and reliability. This article explains how to use the AMA Migration Helper and DCR Config Generator tools to help automate and track the migration from Log Analytics Agent to Azure Monitor Agent.
+[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as MMA and OMS) for Windows and Linux machines, in Azure and non-Azure environments, including on-premises and third-party clouds. The [benefits of migrating to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) include enhanced security, cost-effectiveness, performance, manageability and reliability. This article explains how to use the AMA Migration Helper and DCR Config Generator tools to help automate and track the migration from Log Analytics Agent to Azure Monitor Agent.
 
-![Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)  
+:::image type="content" source="media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png" lightbox="media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png" alt-text="Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.":::  
 
 > [!IMPORTANT]
-> Do not remove the legacy agents if being used by other [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features). Use the migration helper to discover which solutions/services you use today.
+> Do not remove legacy agents being used by other [Azure solutions or services](./azure-monitor-agent-migration.md#migrate-additional-services-and-features). Use the migration helper to discover which solutions and services you use today.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
@@ -33,8 +31,8 @@ You can access the workbook **[here](https://portal.azure.com/#view/AppInsightsE
 :::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper.png" lightbox="media/azure-monitor-migration-tools/ama-migration-helper.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the Subscription and Workspace dropdowns and shows the Azure Virtual Machines tab, on which you can track which agent is deployed on each virtual machine.":::
 
 **Automatic Migration Recommendations**
-
-:::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper-recommendations.png" lightbox="media/azure-monitor-migration-tools/ama-migration-helper-recommendations.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the automatic migration recommendations based on sample usage across machines within selected scope.":::
+<!-- convertborder later -->
+:::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper-recommendations.png" lightbox="media/azure-monitor-migration-tools/ama-migration-helper-recommendations.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the automatic migration recommendations based on sample usage across machines within selected scope." border="false":::
 
 ## Installing and using DCR Config Generator 
 Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) for configuration, whereas Log Analytics Agent inherits its configuration from Log Analytics workspaces. 
@@ -42,50 +40,74 @@ Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/
 Use the DCR Config Generator tool to parse Log Analytics Agent configuration from your workspaces and generate/deploy corresponding data collection rules automatically. You can then associate the rules to machines running the new agent using built-in association policies. 
 
 > [!NOTE]
-> DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on Log Analytics Agent.
+> DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-migration.md#migrate-additional-services-and-features) dependent on Log Analytics Agent.
 
-### Prerequisites
-To install DCR Config Generator, you need:
+### Prerequisites\Setup
+1. `Powershell version 7.1.3` or higher is recommended (minimum version 5.1)
+2. Uses `Az Powershell module` to pull workspace agent configuration information [Az PowerShell module](https://learn.microsoft.com/powershell/azure/install-azps-windows?view=azps-11.0.0&tabs=powershell&pivots=windows-psgallery)
+3. User will need Read/Write access to the specified workspace resource
+4. Connect-AzAccount and Select-AzSubscription will be used to set the context for the script to run so proper Azure credentials will be needed
 
-1. PowerShell version 5.1 or higher. We recommend using PowerShell version 7.1.3 or higher.
-1. Read access for the specified workspace resources.
-1. The `Az Powershell` module to pull workspace agent configuration information.
-1. The Azure credentials for running `Connect-AzAccount` and `Select-AzContext`, which set the context for the script to run.
-
-To install DCR Config Generator:
+### To install DCR Config Generator:
 
 1. [Download the PowerShell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator).
-
-1. Run the script:
-
-	Option 1: Outputs **ready-to-deploy ARM template files** only that will create the generated DCR in the specified subscription and resource group, when deployed.
+1. Run the script using the sample parameters below:
 
 	```powershell
-	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath
+	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -OutputFolder $outputFolderPath
 	```
-	Option 2: Outputs **ready-to-deploy ARM template files** and **the DCR JSON files** separately for you to deploy via other means. You need to set the `GetDcrPayload` parameter.
+	---
 
-	```powershell
-	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath -GetDcrPayload
-	```
+	| Name                    | Required  | Description                                                                   |
+	|:----------------------- |:---------|:-----------------------------------------------------------------------------|
+	| `SubscriptionId`        | YES       | This is the subscription ID of the workspace                                  |
+	| `ResourceGroupName`     | YES       | This is the resource Group of the workspace                                   |
+	| `WorkspaceName`         | YES       | This is the name of the workspace (Azure resource IDs are case insensitive)   |
+	| `DCRName`               | YES       | The base name that will be used for each one the outputs DCRs                 |
+	| `OutputFolder`          | NO        | The output folder path. If not provided, the working directory path is used   |
 
-	**Parameters**  
-	
-	| Parameter | Required? | Description |
-	|------|------|------|
-	| `SubscriptionId` | Yes | ID of the subscription that contains the target workspace. |
-	| `ResourceGroupName` | Yes | Resource group that contains the target workspace. |
-	| `WorkspaceName` | Yes | Name of the target workspace. |
-	| `DCRName` | Yes | Name of the new DCR. |
-	| `Location` | Yes | Region location for the new DCR. |
-	| `GetDcrPayload` | No | When set, it generates additional DCR JSON files 
-	| `FolderPath` | No | Path in which to save the ARM template files and JSON files (optional). By default, Azure Monitor uses the current directory. |  
-	
-1. Review the output ARM template files. The script can produce two types of ARM template files, depending on the agent configuration in the target workspace:
+3. Outputs:
 
-	- Windows ARM template and parameter files - if the target workspace contains Windows performance counters or Windows events.
-	- Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.
-	
-	If the Log Analytics workspace was not [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but was not configured to send any data from the host machine.
+	For each supported `DCR type`, the script produces a DCR ARM template (ready to be deployed) and a DCR payload (for users that don't need the ARM template). This is the list of currently supported DCR types:
+ 	 - **Windows** contains `WindowsPerfCounters` and `WindowsEventLogs` data sources only
+	  - **Linux** contains `LinuxPerfCounters` and `Syslog` data sources only
+	  - **Custom Logs** contains `logFiles` data sources only:
+  		- Each custom log gets its own DCR ARM template
+	  - **IIS Logs** contains `iisLogs` data sources only
+	  - **Extensions** contains `extensions` data sources only along with any associated perfCounters data sources
+	    - `VMInsights` 
+ 	   - If you would like to add support for a new extension type, please reach out to us.
 
-1. [Deploy the generated ARM template](../../azure-resource-manager/templates/deployment-tutorial-local-template.md) to associate the generated data collection rules with virtual machines running the new agent.
+
+4. **Deploy the generated ARM templates:**
+
+	Portal
+   
+	- In the portal's search box, type in *template* and then select **Deploy a custom template**.
+    
+        :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot of the Deploy custom template screen.":::
+    
+	- Select **Build your own template in the editor**.
+    
+        :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot of the template editor.":::
+    
+	- Paste the generated template into the editor and select **Save**. 
+	- On the **Custom deployment** screen, specify a **Subscription**, **Resource group**, and **Region**.    
+	- Select **Review + create** > **Create**.
+
+   	PowerShell
+   
+	```powershell-interactive
+   	New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+   	```
+
+	> [!NOTE]
+	> You can include up to 100 'counterSpecifiers' in a data collection rule. 'samplingFrequencyInSeconds' must be between 1 and 300, inclusive.
+
+1. Associate machines to your data collection rules:
+
+    1. From the **Monitor** menu, select **Data Collection Rules**.
+    1. From the **Data Collection Rules** screen, select your data collection rule.
+    1. Select **View resources** > **Add**.
+    1. Select your machines > **Apply**.  
+    

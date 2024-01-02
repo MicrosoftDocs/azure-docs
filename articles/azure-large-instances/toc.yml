@@ -1,0 +1,24 @@
+- name: Azure Large Instances
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Large Instances?
+    href: what-is-azure-large-instances.md
+  - name: Work with Azure Large Instances in the Azure portal
+    href: work-with-azure-large-instances-in-azure-portal.md
+- name: Getting started
+  items:
+  - name: Onboarding requirements
+    href: onboarding-requirements.md
+  - name: Quality checks of Azure Large Instances
+    href: quality-checks.md
+  - name: Find your subscription ID
+    href: find-your-subscription-id.md
+  - name: Configure Azure service health alerts
+    href: configure-azure-service-health-alerts.md
+- name: Workloads
+  items:
+  - name: Azure Large Instances for Epic workload
+    href: ./workloads/epic/index.yml
+  - name: FAQ
+    href: faq.md

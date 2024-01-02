@@ -139,7 +139,7 @@ DNS resolution within an existing VNet is under your control. For example, a fir
 | `mcr.microsoft.com` | Microsoft Container Registry (MCR) |
 | `<ACR name>.azurecr.io` | Your Azure Container Registry (ACR) |
 | `<account>.blob.core.windows.net` | Azure Storage Account (blob storage) |
-| `api.azureml.ms` | Azure Active Directory (Azure AD) authentication |
+| `api.azureml.ms` | Microsoft Entra authentication |
 | `ingest-vienna<region>.kusto.windows.net` | Kusto endpoint for uploading telemetry |
 
 ### Connectivity requirements in chronological order: from cluster creation to model deployment
@@ -151,7 +151,7 @@ Right after azureml-fe is deployed, it will attempt to start and this requires t
 
 Once azureml-fe is started, it requires the following connectivity to function properly:
 * Connect to Azure Storage to download dynamic configuration
-* Resolve DNS for Azure AD authentication server api.azureml.ms and communicate with it when the deployed service uses Azure AD authentication.
+* Resolve DNS for Microsoft Entra authentication server api.azureml.ms and communicate with it when the deployed service uses Microsoft Entra authentication.
 * Query AKS API server to discover deployed models
 * Communicate to deployed model PODs
 
@@ -169,4 +169,3 @@ After the model is deployed and service starts, azureml-fe will automatically di
 
 - [Create and manage instance types](./how-to-manage-kubernetes-instance-types.md)
 - [Secure AKS inferencing environment](./how-to-secure-kubernetes-inferencing-environment.md)
-

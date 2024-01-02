@@ -4,13 +4,16 @@ description: Learn to automatically create new revisions in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-linux
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: cshoe
 ---
 
-# Deploy to Azure Container Apps with GitHub Actions (preview)
+# Deploy to Azure Container Apps with GitHub Actions
 
 Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a workflow is triggered which updates the container image in the container registry. Azure Container Apps creates a new revision based on the updated container image.
 
@@ -27,7 +30,7 @@ To build and deploy your container app, you add the [`azure/container-apps-deplo
 The action supports the following scenarios:
 
 * Build from a Dockerfile and deploy to Container Apps
-* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby
+* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Java, Node.js, PHP, and Python
 * Deploy an existing container image to Container Apps
 
 ### Usage examples
@@ -47,7 +50,7 @@ steps:
       creds: ${{ secrets.AZURE_CREDENTIALS }}
 
   - name: Build and deploy Container App
-    uses: azure/container-apps-deploy-action@v0
+    uses: azure/container-apps-deploy-action@v1
     with:
       appSourcePath: ${{ github.workspace }}/src
       acrName: myregistry
@@ -70,7 +73,7 @@ steps:
       creds: ${{ secrets.AZURE_CREDENTIALS }}
         
   - name: Build and deploy Container App
-    uses: azure/container-apps-deploy-action@v0
+    uses: azure/container-apps-deploy-action@v1
     with:
       acrName: myregistry
       containerAppName: my-container-app
@@ -114,13 +117,13 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
 
 1. Log in to Azure with the Azure CLI. 
 
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
 
 1. Next, install the latest Azure Container Apps extension for the CLI.
 
-    ```azurecli
+    ```azurecli-interactive
     az extension add --name containerapp --upgrade
     ```
 
@@ -131,7 +134,7 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
 
 1. Clone the repository to your local machine.
 
-    ```bash
+    ```git
     git clone https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-container-app.git
     ```
 
@@ -149,12 +152,12 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
 
 1. Create a service principal with the *Contributor* role on the resource group that contains the container app and container registry.
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp create-for-rbac \
       --name my-app-credentials \
       --role contributor \
       --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/my-container-app-rg \
-      --sdk-auth \
+      --json-auth \
       --output json
     ```
 
@@ -197,7 +200,7 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
               creds: ${{ secrets.AZURE_CREDENTIALS }}
 
           - name: Build and deploy Container App
-            uses: azure/container-apps-deploy-action@v0
+            uses: azure/container-apps-deploy-action@v1
             with:
               appSourcePath: ${{ github.workspace }}/src
               acrName: <ACR_NAME>

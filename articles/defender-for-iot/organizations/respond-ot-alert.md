@@ -115,7 +115,7 @@ Triage alerts on a regular basis to prevent alert fatigue in your network and en
 
 **To triage alerts**:
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, go to the **Alerts** page. By default, alerts are sorted by the **Last detection** column, from most recent to oldest alert, so that you can first see the latest alerts in your network.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, go to the **Alerts** page. By default, alerts are sorted by the **Last detection** column, from most recent to oldest alert, so that you can first see the latest alerts in your network.
 
 1. Use other filters, such as **Sensor** or **Severity** to find specific alerts.
 

@@ -2,10 +2,10 @@
 title: Resource Manager template samples for data collection rules
 description: Sample Azure Resource Manager templates to create associations between data collection rules and virtual machines in Azure Monitor.
 ms.topic: sample
-author: bwren
-ms.author: bwren
-ms.date: 06/22/2022
-
+ms.custom: devx-track-arm-template
+author: guywi-ms
+ms.author: guywild
+ms.date: 07/19/2023
 ---
 
 # Resource Manager template samples for data collection rules in Azure Monitor
@@ -14,13 +14,6 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-## Permissions required
-
-| Built-in Role | Scope(s) | Reason |
-|:---|:---|:---|
-| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | To create or edit data collection rules |
-| <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Arc-enabled servers</li></ul> | To deploy associations (i.e. to assign rules to the machine) |
-| Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | To deploy ARM templates |
 
 ## Create rule (sample)
 

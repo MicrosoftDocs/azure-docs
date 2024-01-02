@@ -4,7 +4,7 @@ description: Learn how to connect Azure Functions to an Azure Queue Storage by a
 ms.date: 01/31/2023
 ms.topic: quickstart
 ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22
+ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-extended-java
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
@@ -73,9 +73,9 @@ Because you're using a Queue storage output binding, you must have the Storage b
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
 
-Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
+Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
 
-:::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
+:::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/host.json":::
 
 Now, you can add the storage output binding to your project.
 
@@ -231,7 +231,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 ::: zone pivot="programming-language-javascript"  
 * [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
 
-* [Azure Functions JavaScript developer guide](functions-reference-node.md)  
+* [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 * [Examples of complete Function projects in Java](/samples/browse/?products=azure-functions&languages=java).
@@ -241,7 +241,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 ::: zone pivot="programming-language-typescript"  
 * [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
 
-* [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
+* [Azure Functions TypeScript developer guide](functions-reference-node.md?tabs=typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 * [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).

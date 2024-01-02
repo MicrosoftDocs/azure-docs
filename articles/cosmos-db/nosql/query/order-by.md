@@ -1,134 +1,72 @@
 ---
-title: ORDER BY clause in Azure Cosmos DB
-description: Learn about SQL ORDER BY clause for Azure Cosmos DB. Use SQL as an Azure Cosmos DB JSON query language.
-author: seesharprun
+title: ORDER BY
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL clause that specifies a sort order for the query results.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 04/27/2022
-ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# ORDER BY clause in Azure Cosmos DB
+
+# ORDER BY (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-The optional `ORDER BY` clause specifies the sorting order for results returned by the query.
+The optional ``ORDER BY`` clause specifies the sorting order for results returned by the query.
 
 ## Syntax
-  
-```sql  
+
+```sql
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
+<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]
 ```  
 
 ## Arguments
-  
-- `<sort_specification>`  
-  
-   Specifies a property or expression on which to sort the query result set. A sort column can be specified as a name or property alias.  
-  
-   Multiple properties can be specified. Property names must be unique. The sequence of the sort properties in the `ORDER BY` clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on.  
-  
-   The property names referenced in the `ORDER BY` clause must correspond to either a property in the select list or to a property defined in the collection specified in the `FROM` clause without any ambiguities.  
-  
-- `<sort_expression>`  
-  
-   Specifies one or more properties or expressions on which to sort the query result set.  
-  
-- `<scalar_expression>`  
-  
-   See the [Scalar expressions](scalar-expressions.md) section for details.  
-  
-- `ASC | DESC`  
-  
-   Specifies that the values in the specified column should be sorted in ascending or descending order. `ASC` sorts from the lowest value to highest value. `DESC` sorts from highest value to lowest value. `ASC` is the default sort order. Null values are treated as the lowest possible values.  
-  
-## Remarks  
-  
-   The `ORDER BY` clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple `ORDER BY` properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](../../index-policy.md#composite-indexes) on the fields being sorted.
 
-> [!Note]
-> If the properties being sorted might be undefined for some documents and you want to retrieve them in an ORDER BY query, you must explicitly include this path in the index. The default indexing policy won't allow for the retrieval of the documents where the sort property is undefined. [Review example queries on documents with some missing fields](#documents-with-missing-fields).
+| | Description |
+| --- | --- |
+| **``<sort_specification>``** | Specifies a property or expression on which to sort the query result set. A sort column can be specified as a name or property alias. Multiple properties can be specified. Property names must be unique. The sequence of the sort properties in the ``ORDER BY`` clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on. The property names referenced in the ``ORDER BY`` clause must correspond to either a property in the select list or to a property defined in the collection specified in the ``FROM`` clause without any ambiguities. |
+| **``<sort_expression>``** | Specifies one or more properties or expressions on which to sort the query result set. |
+| **``<scalar_expression>``** | Expression representing the value to be computed. |
+| **``ASC`` or ``DESC``** | Specifies that the values in the specified column should be sorted in ascending or descending order. ``ASC`` sorts from the lowest value to highest value. ``DESC`` sorts from highest value to lowest value. If this argument isn't specified, ``ASC`` (ascending) is the default sort order. ``null`` values are treated as the lowest possible values. |
+
+> [!NOTE]
+> For more information on scalar expressions, see [scalar expressions](scalar-expressions.md)
 
 ## Examples
 
-For example, here's a query that retrieves families in ascending order of the resident city's name:
+For the examples in this section, this reference set of items is used. Each item contains a `name` property with `first` and `last` subproperties.
 
-```sql
-    SELECT f.id, f.address.city
-    FROM Families f
-    ORDER BY f.address.city
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/order-by/seed.json" range="1-2,4-10,12-18,20-26" highlight="3-6,10-13,17-20":::
 
-The results are:
+In this first example, the ``ORDER BY`` clause is used to sort a field by the default sort order, ascending.
 
-```json
-    [
-      {
-        "id": "WakefieldFamily",
-        "city": "NY"
-      },
-      {
-        "id": "AndersenFamily",
-        "city": "Seattle"
-      }
-    ]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/order-by/query.sql" range="1-6,9-10" highlight="7-8":::
 
-The following query retrieves family `id`s in order of their item creation date. Item `creationDate` is a number representing the *epoch time*, or elapsed time since Jan. 1, 1970 in seconds.
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/order-by/result.json":::
 
-```sql
-    SELECT f.id, f.creationDate
-    FROM Families f
-    ORDER BY f.creationDate DESC
-```
+In this next example, the sort order is explicitly specified to be descending.
 
-The results are:
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/order-by-desc/query.sql" range="1-6,9-10" highlight="7-8":::
 
-```json
-    [
-      {
-        "id": "AndersenFamily",
-        "creationDate": 1431620472
-      },
-      {
-        "id": "WakefieldFamily",
-        "creationDate": 1431620462
-      }
-    ]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/order-by-desc/result.json":::
 
-Additionally, you can order by multiple properties. A query that orders by multiple properties requires a [composite index](../../index-policy.md#composite-indexes). Consider the following query:
+In this final example, the items are sorted using two fields, in a specific order using explicitly specified ordering. A query that sorts using two or more fields requires a [composite index](../../index-policy.md#composite-indexes).
 
-```sql
-    SELECT f.id, f.creationDate
-    FROM Families f
-    ORDER BY f.address.city ASC, f.creationDate DESC
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/order-by-multiple/query.novalidate.sql" range="1-6,9-11" highlight="7-9":::
 
-This query retrieves the family `id` in ascending order of the city name. If multiple items have the same city name, the query will order by the `creationDate` in descending order.
+## Remarks  
 
-## Documents with missing fields
+- Queries with ``ORDER BY`` return all items, including items where the property in the ORDER BY clause isn't defined. Typically, you can't control the order that different ``undefined`` types appear in the results. To control the sort order of undefined values, assign any ``undefined`` properties an arbitrary value to ensure they sort either before or after the defined values.
+- The ``ORDER BY`` clause requires that the indexing policy includes an index for the fields being sorted. The query runtime supports sorting against a property name or [computed properties](./computed-properties.md). The runtime also supports multiple ``ORDER BY`` properties. In order to run a query with multiple ``ORDER BY`` properties, define a [composite index](../../index-policy.md#composite-indexes) on the fields being sorted.
+- If the properties being sorted might be ``undefined`` for some items and you want to retrieve them in an ``ORDER BY`` query, you must explicitly include this path in the index. The default indexing policy doesn't allow for the retrieval of the items where the sort property is ``undefined``.
 
-Queries with `ORDER BY` will return all items, including items where the property in the ORDER BY clause isn't defined.
+## Related content
 
-For example, if you run the below query that includes `lastName` in the `Order By` clause, the results will include all items, even those that don't have a `lastName` property defined.
-
-```sql
-    SELECT f.id, f.lastName
-    FROM Families f
-    ORDER BY f.lastName
-```
-
-> [!Note]
-> Only the .NET SDK  3.4.0 or later and Java SDK 4.13.0 or later support ORDER BY with mixed types. Therefore, if you want to sort by a combination of undefined and defined values, you should use this version (or later).
-
-You can't control the order that different types appear in the results. In the above example, we showed how undefined values were sorted before string values. If instead, for example, you wanted more control over the sort order of undefined values, you could assign any undefined properties a string value of "aaaaaaaaa" or "zzzzzzzz" to ensure they were either first or last.
-
-## Next steps
-
-- [Getting started](getting-started.md)
-- [Indexing policies in Azure Cosmos DB](../../index-policy.md)
-- [OFFSET LIMIT clause](offset-limit.md)
+- [``GROUP BY`` clause](group-by.md)
+- [``OFFSET LIMIT`` clause](offset-limit.md)

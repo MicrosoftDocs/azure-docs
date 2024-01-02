@@ -1,14 +1,13 @@
 ---
-title: 'Tutorial: Load New York Taxicab data'
+title: "Tutorial: Load New York Taxicab data"
 description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from an Azure blob for Synapse SQL.
 author: joannapea
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/23/2020
 ms.author: joanpo
 ms.reviewer: wiassaf
+ms.date: 11/23/2020
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
@@ -19,7 +18,7 @@ This tutorial uses the [COPY statement](/sql/t-sql/statements/copy-into-transact
 > [!div class="checklist"]
 >
 > * Create a user designated for loading data
-> * Create the tables for the sample dataset 
+> * Create the tables for the sample dataset
 > * Use the COPY T-SQL statement to load data into your data warehouse
 > * View the progress of data as it is loading
 
@@ -27,7 +26,7 @@ If you don't have an Azure subscription, [create a free Azure account](https://a
 
 ## Before you begin
 
-Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).  
+Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
 This tutorial assumes you have already created a SQL dedicated pool from the following [tutorial](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
 
@@ -52,7 +51,7 @@ Connect as the server admin so  you can create logins and users. Use these steps
 
 3. Select **Execute**.
 
-4. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.  
+4. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.
 
     ![New query on sample data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
 
@@ -68,7 +67,7 @@ Connect as the server admin so  you can create logins and users. Use these steps
 
 ## Connect to the server as the loading user
 
-The first step toward loading data is to login as LoaderRC20.  
+The first step toward loading data is to login as LoaderRC20.
 
 1. In Object Explorer, select the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
 
@@ -137,7 +136,7 @@ Run the following SQL scripts and specify information about the data you wish to
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     );
-    
+
     CREATE TABLE [dbo].[Geography]
     (
         [GeographyID] int NOT NULL,
@@ -153,7 +152,7 @@ Run the following SQL scripts and specify information about the data you wish to
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     );
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     (
         [HackneyLicenseID] int NOT NULL,
@@ -165,7 +164,7 @@ Run the following SQL scripts and specify information about the data you wish to
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     );
-    
+
     CREATE TABLE [dbo].[Medallion]
     (
         [MedallionID] int NOT NULL,
@@ -177,7 +176,7 @@ Run the following SQL scripts and specify information about the data you wish to
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     );
-    
+
     CREATE TABLE [dbo].[Time]
     (
         [TimeID] int NOT NULL,
@@ -195,7 +194,7 @@ Run the following SQL scripts and specify information about the data you wish to
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     );
-    
+
     CREATE TABLE [dbo].[Trip]
     (
         [DateID] int NOT NULL,
@@ -227,7 +226,7 @@ Run the following SQL scripts and specify information about the data you wish to
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     );
-    
+
     CREATE TABLE [dbo].[Weather]
     (
         [DateID] int NOT NULL,
@@ -241,14 +240,14 @@ Run the following SQL scripts and specify information about the data you wish to
         CLUSTERED COLUMNSTORE INDEX
     );
     ```
-    
+
 
 ## Load the data into your data warehouse
 
-This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) the sample data from Azure Storage Blob.  
+This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) the sample data from Azure Storage Blob.
 
 > [!NOTE]
-> This tutorial loads the data directly into the final table. You would typically load into a staging table for your production workloads. While data is in the staging table you can perform any necessary transformations. 
+> This tutorial loads the data directly into the final table. You would typically load into a staging table for your production workloads. While data is in the staging table you can perform any necessary transformations.
 
 1. Run the following statements to load the data:
 
@@ -258,72 +257,72 @@ This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-t
     WITH
     (
         FILE_TYPE = 'CSV',
-    	FIELDTERMINATOR = ',',
-    	FIELDQUOTE = ''
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Date] - Taxi dataset');
-    
-    
+
+
     COPY INTO [dbo].[Geography]
     FROM 'https://nytaxiblob.blob.core.windows.net/2013/Geography'
     WITH
     (
         FILE_TYPE = 'CSV',
-    	FIELDTERMINATOR = ',',
-    	FIELDQUOTE = ''
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Geography] - Taxi dataset');
-    
+
     COPY INTO [dbo].[HackneyLicense]
     FROM 'https://nytaxiblob.blob.core.windows.net/2013/HackneyLicense'
     WITH
     (
         FILE_TYPE = 'CSV',
-    	FIELDTERMINATOR = ',',
-    	FIELDQUOTE = ''
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
     OPTION (LABEL = 'COPY : Load [dbo].[HackneyLicense] - Taxi dataset');
-    
+
     COPY INTO [dbo].[Medallion]
     FROM 'https://nytaxiblob.blob.core.windows.net/2013/Medallion'
     WITH
     (
         FILE_TYPE = 'CSV',
-    	FIELDTERMINATOR = ',',
-    	FIELDQUOTE = ''
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Medallion] - Taxi dataset');
-    
+
     COPY INTO [dbo].[Time]
     FROM 'https://nytaxiblob.blob.core.windows.net/2013/Time'
     WITH
     (
         FILE_TYPE = 'CSV',
-    	FIELDTERMINATOR = ',',
-    	FIELDQUOTE = ''
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = ''
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Time] - Taxi dataset');
-    
+
     COPY INTO [dbo].[Weather]
     FROM 'https://nytaxiblob.blob.core.windows.net/2013/Weather'
     WITH
     (
         FILE_TYPE = 'CSV',
-    	FIELDTERMINATOR = ',',
-    	FIELDQUOTE = '',
-    	ROWTERMINATOR='0X0A'
+        FIELDTERMINATOR = ',',
+        FIELDQUOTE = '',
+        ROWTERMINATOR='0X0A'
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Weather] - Taxi dataset');
-    
+
     COPY INTO [dbo].[Trip]
     FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013'
     WITH
     (
         FILE_TYPE = 'CSV',
-    	FIELDTERMINATOR = '|',
-    	FIELDQUOTE = '',
-    	ROWTERMINATOR='0X0A',
-    	COMPRESSION = 'GZIP'
+        FIELDTERMINATOR = '|',
+        FIELDQUOTE = '',
+        ROWTERMINATOR='0X0A',
+        COMPRESSION = 'GZIP'
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
@@ -331,9 +330,9 @@ This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-t
 2. View your data as it loads. You're loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load.
 
     ```sql
-    SELECT  r.[request_id]                           
-    ,       r.[status]                               
-    ,       r.resource_class                         
+    SELECT  r.[request_id]
+    ,       r.[status]
+    ,       r.resource_class
     ,       r.command
     ,       sum(bytes_processed) AS bytes_processed
     ,       sum(rows_processed) AS rows_processed
@@ -346,14 +345,14 @@ This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-t
         [label] = 'COPY : Load [dbo].[Medallion] - Taxi dataset' OR
         [label] = 'COPY : Load [dbo].[Time] - Taxi dataset' OR
         [label] = 'COPY : Load [dbo].[Weather] - Taxi dataset' OR
-        [label] = 'COPY : Load [dbo].[Trip] - Taxi dataset' 
+        [label] = 'COPY : Load [dbo].[Trip] - Taxi dataset'
     and session_id <> session_id() and type = 'WRITER'
-    GROUP BY r.[request_id]                           
-    ,       r.[status]                               
-    ,       r.resource_class                         
+    GROUP BY r.[request_id]
+    ,       r.[status]
+    ,       r.resource_class
     ,       r.command;
     ```
-    
+
 3. View all system queries.
 
     ```sql

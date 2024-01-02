@@ -11,6 +11,7 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2023
 ms.author: anfdocs
@@ -23,7 +24,7 @@ For information about monitoring a volume’s capacity, see [Monitor the capacit
 ## Considerations
 
 * Volume quotas are indexed against `maxfiles` limits. Once a volume has surpassed a `maxfiles` limit, you cannot reduce the volume size below the quota that corresponds to that `maxfiles` limit. For more information and specific limits, see [`maxfiles` limits](azure-netapp-files-resource-limits.md#maxfiles-limits-).
-* Capacity pools with Basic network features have a minimum size of 4 TiB. For capacity pools with Standard network features, the minimum size is 2 TiB. For more information, see [Resource limits](azure-netapp-files-resource-limits.md)
+* Capacity pools with Basic network features have a minimum size of 4 TiB. For capacity pools with Standard network features, the minimum size is 1 TiB. For more information, see [Resource limits](azure-netapp-files-resource-limits.md)
 
 ## Resize the capacity pool using the Azure portal 
 

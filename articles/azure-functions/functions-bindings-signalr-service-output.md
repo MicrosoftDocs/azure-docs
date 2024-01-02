@@ -4,7 +4,7 @@ description: Learn about the SignalR Service output binding for Azure Functions.
 author: Y-Sindo
 ms.topic: reference
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 01/13/2023
 ms.author: zityang
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -25,11 +25,17 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 ### Broadcast to all clients
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following example shows a function that sends a message using the output binding to all connected clients. The *newMessage* is the name of the method to be invoked on each client.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_broadcast_to_all":::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a function that sends a message using the output binding to all connected clients. The *target* is the name of the method to be invoked on each client. The *Arguments* property is an array of zero or more objects to be passed to the client method.
 
@@ -38,47 +44,6 @@ The following example shows a function that sends a message using the output bin
 public static Task SendMessage(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]object message,
     [SignalR(HubName = "chat")]IAsyncCollector<SignalRMessage> signalRMessages)
-{
-    return signalRMessages.AddAsync(
-        new SignalRMessage
-        {
-            Target = "newMessage",
-            Arguments = new [] { message }
-        });
-}
-```
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows a function that sends a message using the output binding to all connected clients. The *newMessage* is the name of the method to be invoked on each client.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_broadcast_to_all":::
-
-# [C# Script](#tab/csharp-script)
-
-Here's binding data in the *function.json* file:
-
-Example function.json:
-
-```json
-{
-  "type": "signalR",
-  "name": "signalRMessages",
-  "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-  "direction": "out"
-}
-```
-
-Here's the C# Script code:
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static Task Run(
-    object message,
-    IAsyncCollector<SignalRMessage> signalRMessages)
 {
     return signalRMessages.AddAsync(
         new SignalRMessage
@@ -170,52 +135,17 @@ public SignalRMessage sendMessage(
 
 You can send a message only to connections that have been authenticated to a user by setting the *user ID* in the SignalR message.
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_send_to_user":::
+
+# [In-process model](#tab/in-process)
 
 ```cs
 [FunctionName("SendMessage")]
 public static Task SendMessage(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]object message,
     [SignalR(HubName = "chat")]IAsyncCollector<SignalRMessage> signalRMessages)
-{
-    return signalRMessages.AddAsync(
-        new SignalRMessage
-        {
-            // the message will only be sent to this user ID
-            UserId = "userId1",
-            Target = "newMessage",
-            Arguments = new [] { message }
-        });
-}
-```
-
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_send_to_user":::
-
-# [C# Script](#tab/csharp-script)
-
-Example function.json:
-
-```json
-{
-  "type": "signalR",
-  "name": "signalRMessages",
-  "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-  "direction": "out"
-}
-```
-
-Here's the C# script code:
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static Task Run(
-    object message,
-    IAsyncCollector<SignalRMessage> signalRMessages)
 {
     return signalRMessages.AddAsync(
         new SignalRMessage
@@ -313,7 +243,11 @@ public SignalRMessage sendMessage(
 
 You can send a message only to connections that have been added to a group by setting the *group name* in the SignalR message.
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_send_to_group":::
+
+# [In-process model](#tab/in-process)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -331,45 +265,6 @@ public static Task SendMessage(
         });
 }
 ```
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_send_to_group":::
-
-# [C# Script](#tab/csharp-script)
-
-Example function.json:
-
-```json
-{
-  "type": "signalR",
-  "name": "signalRMessages",
-  "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-  "direction": "out"
-}
-```
-
-Here's the C# Script code:
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static Task Run(
-    object message,
-    IAsyncCollector<SignalRMessage> signalRMessages)
-{
-    return signalRMessages.AddAsync(
-        new SignalRMessage
-        {
-            // the message will be sent to the group with this name
-            GroupName = "myGroup",
-            Target = "newMessage",
-            Arguments = new [] { message }
-        });
-}
-```
-
 ---
 
 ::: zone-end
@@ -455,7 +350,13 @@ public SignalRMessage sendMessage(
 
 SignalR Service allows users or connections to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage groups.
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+Specify `SignalRGroupActionType` to add or remove a member. The following example removes a user from a group.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_remove_from_group":::
+
+# [In-process model](#tab/in-process)
 
 Specify `GroupAction` to add or remove a member. The following example adds a user to a group.
 
@@ -474,86 +375,6 @@ public static Task AddToGroup(
             UserId = userIdClaim.Value,
             GroupName = "myGroup",
             Action = GroupAction.Add
-        });
-}
-```
-
-# [Isolated process](#tab/isolated-process)
-
-Specify `SignalRGroupActionType` to add or remove a member. The following example removes a user from a group.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_remove_from_group":::
-
-# [C# Script](#tab/csharp-script)
-
-The following example adds a user to a group.
-
-Example *function.json*
-
-```json
-{
-    "type": "signalR",
-    "name": "signalRGroupActions",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "hubName": "chat",
-    "direction": "out"
-}
-```
-
-*Run.csx*
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static Task Run(
-    HttpRequest req,
-    ClaimsPrincipal claimsPrincipal,
-    IAsyncCollector<SignalRGroupAction> signalRGroupActions)
-{
-    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
-    return signalRGroupActions.AddAsync(
-        new SignalRGroupAction
-        {
-            UserId = userIdClaim.Value,
-            GroupName = "myGroup",
-            Action = GroupAction.Add
-        });
-}
-```
-
-The following example removes a user from a group.
-
-Example *function.json*
-
-```json
-{
-    "type": "signalR",
-    "name": "signalRGroupActions",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "hubName": "chat",
-    "direction": "out"
-}
-```
-
-*Run.csx*
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static Task Run(
-    HttpRequest req,
-    ClaimsPrincipal claimsPrincipal,
-    IAsyncCollector<SignalRGroupAction> signalRGroupActions)
-{
-    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
-    return signalRGroupActions.AddAsync(
-        new SignalRGroupAction
-        {
-            UserId = userIdClaim.Value,
-            GroupName = "myGroup",
-            Action = GroupAction.Remove
         });
 }
 ```
@@ -689,9 +510,17 @@ public SignalRGroupAction removeFromGroup(
 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a [function.json configuration file](#configuration).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following table explains the properties of the `SignalROutput` attribute.
+
+| Attribute property |Description|
+|---------|----------------------|
+|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+# [In-process model](#tab/in-process)
 
 The following table explains the properties of the `SignalR` output attribute.
 
@@ -700,27 +529,6 @@ The following table explains the properties of the `SignalR` output attribute.
 |**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
 |**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
-
-# [Isolated process](#tab/isolated-process)
-
-The following table explains the properties of the `SignalROutput` attribute.
-
-| Attribute property |Description|
-|---------|----------------------|
-|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
-
-# [C# Script](#tab/csharp-script)
-
-The following table explains the binding configuration properties that you set in the *function.json* file.
-
-|function.json property | Description|
-|---------|----------------------|
-|**type**|  Must be set to `signalR`.|
-|**direction**|Must be set to `out`.|
-|**name**|  Variable name used in function code for connection info object. |
-|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 ---
 

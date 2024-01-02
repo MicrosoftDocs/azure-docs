@@ -44,7 +44,7 @@ Microsoft Sentinel presents artifacts that help your security analysts get a cle
 - as compared to organization's behavior.
     :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Entity context":::
 
-The user entity information that Microsoft Sentinel uses to build its user profiles comes from your Azure Active Directory (and/or your on-premises Active Directory, now in Preview). When you enable UEBA, it synchronizes your Azure Active Directory with Microsoft Sentinel, storing the information in an internal database visible through the *IdentityInfo* table in Log Analytics.
+The user entity information that Microsoft Sentinel uses to build its user profiles comes from your Microsoft Entra ID (and/or your on-premises Active Directory, now in Preview). When you enable UEBA, it synchronizes your Microsoft Entra ID with Microsoft Sentinel, storing the information in an internal database visible through the *IdentityInfo* table in Log Analytics.
 
 Now in preview, you can also sync your on-premises Active Directory user entity information as well, using Microsoft Defender for Identity.
 
@@ -66,7 +66,7 @@ Information about **entity pages** can now be found at [Investigate entities wit
 
 Using [KQL](/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
 
-For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country, and connections from that country are uncommon even for the user's peers, we can use the following query:
+For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country/region, and connections from that country/region are uncommon even for the user's peers, we can use the following query:
 
 ```Kusto
 BehaviorAnalytics
@@ -79,7 +79,7 @@ BehaviorAnalytics
 
 User peers' metadata provides important context in threat detections, in investigating an incident, and in hunting for a potential threat. Security analysts can observe the normal activities of a user's peers to determine if the user's activities are unusual as compared to those of his or her peers.
 
-Microsoft Sentinel calculates and ranks a user's peers, based on the user’s Azure AD security group membership, mailing list, et cetera, and stores the peers ranked 1-20 in the **UserPeerAnalytics** table. The screenshot below shows the schema of the UserPeerAnalytics table, and displays the top eight-ranked peers of the user Kendall Collins. Microsoft Sentinel uses the *term frequency-inverse document frequency* (TF-IDF) algorithm to normalize the weighing for calculating the rank: the smaller the group, the higher the weight. 
+Microsoft Sentinel calculates and ranks a user's peers, based on the user’s Microsoft Entra security group membership, mailing list, et cetera, and stores the peers ranked 1-20 in the **UserPeerAnalytics** table. The screenshot below shows the schema of the UserPeerAnalytics table, and displays the top eight-ranked peers of the user Kendall Collins. Microsoft Sentinel uses the *term frequency-inverse document frequency* (TF-IDF) algorithm to normalize the weighing for calculating the rank: the smaller the group, the higher the weight. 
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Screen shot of user peers metadata table":::
 
@@ -89,7 +89,7 @@ You can use the [Jupyter notebook](https://github.com/Azure/Azure-Sentinel-Noteb
 
 Permission analytics helps determine the potential impact of the compromising of an organizational asset by an attacker. This impact is also known as the asset's "blast radius." Security analysts can use this information to prioritize investigations and incident handling.
 
-Microsoft Sentinel determines the direct and transitive access rights held by a given user to Azure resources, by evaluating the Azure subscriptions the user can access directly or via groups or service principals. This information, as well as the full list of the user's Azure AD security group membership, is then stored in the **UserAccessAnalytics** table. The screenshot below shows a sample row in the UserAccessAnalytics table, for the user Alex Johnson. **Source entity** is the user or service principal account, and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see that Alex has Contributor access to the Azure subscription *Contoso Hotels Tenant*. The access control model of the subscription is Azure RBAC.
+Microsoft Sentinel determines the direct and transitive access rights held by a given user to Azure resources, by evaluating the Azure subscriptions the user can access directly or via groups or service principals. This information, as well as the full list of the user's Microsoft Entra security group membership, is then stored in the **UserAccessAnalytics** table. The screenshot below shows a sample row in the UserAccessAnalytics table, for the user Alex Johnson. **Source entity** is the user or service principal account, and **target entity** is the resource that the source entity has access to. The values of **access level** and **access type** depend on the access-control model of the target entity. You can see that Alex has Contributor access to the Azure subscription *Contoso Hotels Tenant*. The access control model of the subscription is Azure RBAC.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Screen shot of user access analytics table":::
 

@@ -305,13 +305,11 @@ Install DBMS and SAP application Servers as described earlier.
 [2287140]:https://launchpad.support.sap.com/#/notes/2287140
 [2492395]:https://launchpad.support.sap.com/#/notes/2492395
 
-[sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 [s2d-in-win-2016]:/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
 [new-in-win-2016-storage]:/windows-server/storage/whats-new-in-storage
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[sap-installation-guides-file-share]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 [networking-limits-azure-resource-manager]:../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md

@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
 title: Azure Cosmos DB documentation
-summary: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open-source APIs for MongoDB and Cassandra.
+summary: Fully managed, distributed NoSQL & relational database for modern app development. High performance, high availability, and support for open-source PostgreSQL, MongoDB, and Apache Cassandra. Build cloud-native apps effortlessly.
 brand: azure
 
 metadata:
   title: Azure Cosmos DB
-  description: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open-source APIs for MongoDB and Cassandra.
+  description: Fully managed, distributed NoSQL & relational database for modern apps. High performance, availability, and support for PostgreSQL, MongoDB, and Cassandra.
   services: cosmos-db
   author: seesharprun
   ms.author: sidandrews
@@ -30,6 +30,9 @@ highlightedContent:
     - title: Q&A
       itemType: reference
       url: /answers/tags/187/azure-cosmos-db
+    - title: Vector Search with Azure Cosmos DB
+      itemType: concept
+      url: vector-search.md
     - title: Choose an API in Azure Cosmos DB
       itemType: concept
       url: choose-api.md
@@ -39,9 +42,6 @@ highlightedContent:
     - title: Create an Azure Cosmos DB for PostgreSQL account
       itemType: how-to-guide
       url: postgresql/quickstart-create-portal.md
-    - title: Learn more about Azure Cosmos DB
-      itemType: learn
-      url: /training/modules/explore-azure-cosmos-db/
 
 additionalContent:
   sections:

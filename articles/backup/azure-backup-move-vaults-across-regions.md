@@ -4,8 +4,8 @@ description: In this article, you'll learn how to ensure continued backups after
 ms.topic: conceptual
 ms.date: 09/24/2021
 ms.custom: how-to 
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up resources in Recovery Services vault after moving across regions
 

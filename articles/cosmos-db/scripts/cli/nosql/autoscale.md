@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: sample
 ms.date: 06/22/2022
-ms.custom: kr2b-contr-experiment, ignite-2022
+ms.custom: kr2b-contr-experiment, ignite-2022, devx-track-azurecli
 ---
 
 # Create an Azure Cosmos DB for NoSQL account, database, and container with autoscale
@@ -23,7 +23,7 @@ The script in this article creates an Azure Cosmos DB for NoSQL account, databas
 
 - This script requires Azure CLI version 2.0.73 or later.
 
-  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/quickstart.md). When Cloud Shell opens, make sure **Bash** appears in the environment field at the upper left of the shell window. Cloud Shell always has the latest version of Azure CLI.
+  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/get-started.md). When Cloud Shell opens, make sure **Bash** appears in the environment field at the upper left of the shell window. Cloud Shell always has the latest version of Azure CLI.
 
     [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
@@ -31,7 +31,7 @@ The script in this article creates an Azure Cosmos DB for NoSQL account, databas
 
     ```azurecli
     subscription="<subscriptionId>" # add subscription here
-    
+
     az account set -s $subscription # ...or use 'az login'
     ```
 

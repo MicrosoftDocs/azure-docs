@@ -3,7 +3,7 @@ title: Set up preview features in Azure subscription
 description: Describes how to list, register, or unregister preview features in your Azure subscription for a resource provider.
 ms.topic: how-to
 ms.date: 08/10/2022
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to use preview features in my subscription so that I can expose a resource provider's preview functionality.
 ---
 
@@ -30,19 +30,19 @@ The portal only shows a preview feature when the service that owns the feature h
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box, enter _subscriptions_ and select **Subscriptions**.
 
-    :::image type="content" source="./media/preview-features/search.png" alt-text="Azure portal search.":::
+    :::image type="content" source="./media/preview-features/search.png" alt-text="Screenshot of Azure portal search box with 'subscriptions' entered.":::
 
 1. Select the link for your subscription's name.
 
-    :::image type="content" source="./media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
+    :::image type="content" source="./media/preview-features/subscriptions.png" alt-text="Screenshot of Azure portal with subscription selection highlighted.":::
 
 1. From the left menu, under **Settings** select **Preview features**.
 
-    :::image type="content" source="./media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
+    :::image type="content" source="./media/preview-features/preview-features-menu.png" alt-text="Screenshot of Azure portal with Preview features menu option highlighted.":::
 
 1. You see a list of available preview features and your current registration status.
 
-    :::image type="content" source="./media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
+    :::image type="content" source="./media/preview-features/preview-features-list.png" alt-text="Screenshot of Azure portal displaying a list of preview features.":::
 
 1. From **Preview features** you can filter the list by **name**, **State**, or **Type**:
 
@@ -50,7 +50,7 @@ The portal only shows a preview feature when the service that owns the feature h
     - **State**: Select the drop-down menu and choose a state. The portal doesn't filter by **Unregistered**.
     - **Type**: Select the drop-down menu and choose a type.
 
-    :::image type="content" source="./media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
+    :::image type="content" source="./media/preview-features/filter.png" alt-text="Screenshot of Azure portal with filter options for preview features.":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -169,7 +169,7 @@ Some services require other methods, such as email, to get approval for pending 
 1. Select the link for the preview feature you want to register.
 1. Select **Register**.
 
-    :::image type="content" source="./media/preview-features/register.png" alt-text="Azure portal register preview feature.":::
+    :::image type="content" source="./media/preview-features/register.png" alt-text="Screenshot of Azure portal with Register button for a preview feature.":::
 
 1. Select **OK**.
 
@@ -253,7 +253,7 @@ You can unregister preview features from **Preview features**. The **State** cha
 1. Select the link for the preview feature you want to unregister.
 1. Select **Unregister**.
 
-    :::image type="content" source="./media/preview-features/unregister.png" alt-text="Azure portal unregister preview feature.":::
+    :::image type="content" source="./media/preview-features/unregister.png" alt-text="Screenshot of Azure portal with Unregister button for a preview feature.":::
 
 1. Select **OK**.
 

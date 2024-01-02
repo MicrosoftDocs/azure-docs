@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 02/23/2022
+ms.date: 04/12/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -49,15 +49,15 @@ This article provides suggestions to troubleshoot common problems with the Googl
         j. MARKETPLACE_PERFORMANCE_REPORT  
         k. TOP_CONTENT_PERFORMANCE_REPORT  
 
-    2. The syntax for Google Ads query language is similar to AWQL from the AdWords API, but not identical. You can refer this [document](https://developers.google.com/google-ads/api/docs/migration/querying) for more details.  
+    2. The syntax for Google Ads query language is similar to AWQL from the AdWords API, but not identical.  
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

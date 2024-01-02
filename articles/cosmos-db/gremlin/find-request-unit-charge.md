@@ -8,7 +8,7 @@ ms.date: 10/14/2020
 author: manishmsfte
 ms.author: mansha
 ms.devlang: csharp, java
-ms.custom: devx-track-csharp, devx-track-java, ignite-2022
+ms.custom: devx-track-csharp, devx-track-java, ignite-2022, devx-track-dotnet, devx-track-extended-java
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB for Gremlin
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
@@ -25,7 +25,7 @@ Headers returned by the Gremlin API are mapped to custom status attributes, whic
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](quickstart-console.md#create-a-database-account) and feed it with data, or select an existing account that already contains data.
+1. [Create a new Azure Cosmos account](quickstart-console.md) and feed it with data, or select an existing account that already contains data.
 
 1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 

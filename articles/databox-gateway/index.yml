@@ -4,15 +4,15 @@ title: Azure Data Box Gateway documentation - Online transfer # < 60 chars
 summary: Use Azure Data Box Gateway devices for over-the-network data transfers for cloud archival purposes, disaster recovery, or to process data at cloud scale. # < 160 chars
 
 metadata:
-  title: Azure Data Box Gateway documentation - Online transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Data Box Gateway documentation - Online transfer
   description: Data Box Gateway Documentation for high-performance over-the-network data transfer to Azure. # v-dalc: Should "high-performance" go? Required; article description that is displayed in search results. < 160 chars.
   services: databox
-  ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: databox
   ms.subservice: gateway
   ms.topic: landing-page 
   ms.collection: collection
-  author: v-dalc 
-  ms.author: alkohli
+  author: stevenmatthew 
+  ms.author: shaas
   ms.date: 10/29/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

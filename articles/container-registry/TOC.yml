@@ -50,20 +50,30 @@
         href: tutorial-rotate-revoke-customer-managed-keys.md
       - name: Troubleshoot
         href: tutorial-troubleshoot-customer-managed-keys.md
-    - name: Caching for ACR (preview)
+    - name: Artifact Cache
       items:
-      - name: Caching for ACR - Overview
-        href: tutorial-registry-cache.md
-      - name: Enable Caching for ACR - Azure portal
-        href: tutorial-enable-registry-cache.md
-      - name: Enable Caching for ACR with authentication - Azure portal
-        href: tutorial-enable-registry-cache-auth.md
-      - name: Enable Caching for ACR - Azure CLI
-        href: tutorial-enable-registry-cache-cli.md
-      - name: Enable Caching for ACR with authentication - Azure CLI
-        href: tutorial-enable-registry-cache-auth-cli.md
+      - name: Artifact Cache - Overview
+        href: tutorial-artifact-cache.md
+      - name: Enable Artifact Cache - Azure portal
+        href: tutorial-enable-artifact-cache.md
+      - name: Enable Artifact Cache with authentication - Azure portal
+        href: tutorial-enable-artifact-cache-auth.md
+      - name: Enable Artifact Cache - Azure CLI
+        href: tutorial-enable-artifact-cache-cli.md
+      - name: Enable Artifact Cache with authentication - Azure CLI
+        href: tutorial-enable-artifact-cache-auth-cli.md
       - name: Troubleshoot 
-        href: tutorial-troubleshoot-registry-cache.md
+        href: tutorial-troubleshoot-artifact-cache.md
+    - name: Artifact Streaming
+      items:
+      - name: Artifact Streaming - Overview
+        href: tutorial-artifact-streaming.md
+      - name: Enable Artifact Streaming - Azure portal
+        href: tutorial-artifact-streaming-portal.md
+      - name: Enable Artifact Streaming - Azure CLI
+        href: tutorial-artifact-streaming-cli.md
+      - name: Troubleshoot
+        href: tutorial-artifact-streaming-troubleshoot.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries
@@ -161,8 +171,10 @@
         href: allow-access-trusted-services.md
       - name: Access behind a firewall
         href: container-registry-firewall-access-rules.md
-      - name: Enable conditional access policy
-        href: container-registry-enable-conditional-access-policy.md
+      - name: Configure conditional access to your Azure Container Registry.
+        href: container-registry-configure-conditional-access.md
+      - name: Disable authentication as ARM template
+        href: container-registry-disable-authentication-as-arm.md
       - name: Authentication
         items:
         - name: Authentication overview
@@ -192,8 +204,10 @@
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
-      - name: Sign and verify containers with notation (preview)
+      - name: Sign container images with Notation and AKV using a self-signed certificate (Preview)
         href: container-registry-tutorial-sign-build-push.md
+      - name: Sign container images with Notation and AKV using a CA issued certificate (Preview)
+        href: container-registry-tutorial-sign-trusted-ca.md
     - name: Registries and other Azure services
       expanded: false
       items:
@@ -215,8 +229,6 @@
           items:
           - name: Scan with Microsoft Defender for Cloud
             href: scan-images-defender.md
-          - name: Scan with GitHub Actions
-            href: github-action-scan.md        
 - name: Tasks
   expanded: true
   items:
@@ -358,6 +370,8 @@
     href: container-registry-support-policies.md
   - name: FAQ
     href: container-registry-faq.yml
+  - name: API Deprecation
+    href: container-registry-api-deprecation.md
 - name: Resources
   expanded: false
   items:

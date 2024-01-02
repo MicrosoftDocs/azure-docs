@@ -5,9 +5,10 @@ ms.topic: conceptual
 ms.date: 12/30/2022
 ms.custom: devx-track-azurepowershell
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Soft delete for Azure Backup
 
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion.
@@ -48,11 +49,11 @@ Additionally, you can extend the retention duration for deleted backup data, ran
 
 To disable soft delete, follow these steps:
 
-1. In the Azure portal, go to your vault, and then go to **Settings** -> **Properties**.
-2. In the properties pane, select **Security Settings** -> **Update**.  
-3. In the security settings pane, under **Soft Delete**, select **Disable**.
+1. In the Azure portal, go to your *vault*, and then go to **Settings** > **Properties**.
+1. In the **Properties** pane, select **Security Settings Update**.
+1. In the **Security and soft delete settings** pane, clear the required checkboxes to disable soft delete.
 
-![Disable soft delete](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+:::image type="content" source="./media/backup-azure-security-feature-cloud/disable-soft-delete-inline.png" alt-text="Screenshot shows how to disable soft delete." lightbox="./media/backup-azure-security-feature-cloud/disable-soft-delete-expanded.png":::
 
 ### Disabling soft delete using Azure PowerShell
 

@@ -11,9 +11,12 @@ ms.custom: devx-track-js
 ---
 
 
-# Deploy hybrid Next.js websites on Azure Static Web Apps
+# Deploy hybrid Next.js websites on Azure Static Web Apps (Preview)
 
 In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to [Azure Static Web Apps](overview.md), leveraging the support for Next.js features such as Server-Side Rendering (SSR) and API routes.
+
+>[!NOTE]
+> Next.js hybrid support is in preview, with limited support for Next.js versions 13 and above.
 
 ## Prerequisites
 
@@ -31,7 +34,7 @@ Begin by initializing a new Next.js application.
 1. Initialize the application using `npm init`. If you are prompted to install `create-next-app`, say yes.
 
     ```bash
-    npm init next-app@latest --typescript
+    npm init next-app@next-12-3-2 --typescript
     ```
 
 1. When prompted for an app name, enter **nextjs-app**.
@@ -54,7 +57,17 @@ Begin by initializing a new Next.js application.
 
 1. Stop the development server by pressing **CMD/CTRL + C**.
 
-## Deploy your static website
+## Configure your Next.js app for deployment to Static Web Apps
+
+To configure your Next.js app for deployment to Static Web Apps, enable the standalone feature for your Next.js project. This step reduces the size of your Next.js project to ensure it's below the size limits for Static Web Apps. Refer to the [standalone](#enable-standalone-feature) section for more information.
+
+```js
+module.exports = {
+    output: "standalone",
+}
+```
+
+## Deploy your Next.js app
 
 The following steps show how to link your app to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
 

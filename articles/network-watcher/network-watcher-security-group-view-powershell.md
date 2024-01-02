@@ -14,11 +14,6 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 
 # Analyze your Virtual Machine security with Security Group View using PowerShell
 
-> [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [Azure CLI](network-watcher-security-group-view-cli.md)
-> - [REST API](network-watcher-security-group-view-rest.md)
-
 > [!NOTE]
 > The Security Group View API is no longer being maintained and will be deprecated soon. Please use the [Effective Security Rules feature](./network-watcher-security-group-view-overview.md) which provides the same functionality. 
 
@@ -42,7 +37,8 @@ The scenario covered in this article retrieves the configured and effective secu
 The first step is to retrieve the Network Watcher instance. This variable is passed to the `Get-AzNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 ```
 
 ## Get a VM

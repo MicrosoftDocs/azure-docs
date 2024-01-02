@@ -41,7 +41,7 @@ Azure Firewall Premium can intercept outbound HTTP/S traffic and auto-generate a
 
 Ensure your CA certificate complies with the following requirements:
 
-- When deployed as a Key Vault secret, you must use Password-less PFX (Pkcs12) with a certificate and a private key.
+- When deployed as a Key Vault secret, you must use Password-less PFX (PKCS12) with a certificate and a private key. PEM certificates are not supported.
 
 - It must be a single certificate, and shouldn’t include the entire chain of certificates.  
 
@@ -51,11 +51,12 @@ Ensure your CA certificate complies with the following requirements:
 
 - It must have the `KeyUsage` extension marked as Critical with the `KeyCertSign` flag (RFC 5280; 4.2.1.3 Key Usage).
 
-- It must have the `BasicContraints` extension marked as Critical (RFC 5280; 4.2.1.9 Basic Constraints).  
+- It must have the `BasicConstraints` extension marked as Critical (RFC 5280; 4.2.1.9 Basic Constraints).  
 
 - The `CA` flag must be set to TRUE.
 
 - The Path Length must be greater than or equal to one.
+- It must be exportable.
 
 ## Azure Key Vault
 
@@ -70,7 +71,10 @@ To configure your key vault:
 - The provided CA certificate needs to be trusted by your Azure workload. Ensure they are deployed correctly.
 - Since Azure Firewall Premium is listed as Key Vault [Trusted Service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services), it allows you to bypass Key Vault internal Firewall and to eliminate any exposure of your Key Vault to the Internet.
 
-You can either create or reuse an existing user-assigned managed identity, which Azure Firewall uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) 
+You can either create or reuse an existing user-assigned managed identity, which Azure Firewall uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+
+> [!NOTE]
+> Azure role-based access control (Azure RBAC) is not currently supported for authorization. Use the access policy model instead. For more information, see [Azure role-based access control (Azure RBAC) vs. access policies](../key-vault/general/rbac-access-policy.md).
 
 ## Configure a certificate in your policy
 

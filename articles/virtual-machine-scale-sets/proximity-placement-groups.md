@@ -17,7 +17,7 @@ ms.custom: cynthn, devx-track-azurepowershell
 > [!NOTE]
 > Many of the steps listed in this document apply to Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
-Placing VMs in a single region reduces the physical distance between the instances. Placing them within a single availability zone will also bring them physically closer together. However, as the Azure footprint grows, a single availability zone may span multiple physical data centers, which may result in a network latency impacting your application. 
+Placing VMs in a single region reduces the physical distance between the instances. Placing them within a single availability zone will also bring them physically closer together. However, as the Azure footprint grows, a single availability zone might span multiple physical data centers, which might result in a network latency impacting your application. 
 
 To get VMs as close as possible, achieving the lowest possible latency, you can deploy them within a proximity placement group.
 
@@ -40,16 +40,16 @@ In the case of availability sets and Virtual Machine Scale Sets, you should set 
 A proximity placement group is a colocation constraint rather than a pinning mechanism. It is pinned to a specific data center with the deployment of the first resource to use it. Once all resources using the proximity placement group have been stopped (deallocated) or deleted, it is no longer pinned. Therefore, when using a proximity placement group with multiple VM series, it is important to specify all the required types upfront in a template when possible or follow a deployment sequence which will improve your chances for a successful deployment. If your deployment fails, restart the deployment with the VM size which has failed as the first size to be deployed.
 
 ## What to expect when using Proximity Placement Groups 
-Proximity placement groups offer colocation in the same data center. However, because proximity placement groups represent an additional deployment constraint, allocation failures can occur. There are few use cases where you may see allocation failures when using proximity placement groups:
+Proximity placement groups offer colocation in the same data center. However, because proximity placement groups represent an additional deployment constraint, allocation failures can occur. There are few use cases where you might see allocation failures when using proximity placement groups:
 
-- When you ask for the first virtual machine in the proximity placement group, the data center is automatically selected. In some cases, a second request for a different virtual machine SKU, may fail if it doesn't exist in that data center. In this case, an **OverconstrainedAllocationRequest** error is returned. To avoid this, try changing the order in which you deploy your SKUs or have both resources deployed using a single ARM template.
-- 	In the case of elastic workloads, where you add and remove VM instances, having a proximity placement group constraint on your deployment may result in a failure to satisfy the request resulting in **AllocationFailure** error. 
-- Stopping (deallocate) and starting your VMs as needed is another way to achieve elasticity. Since the capacity is not kept once you stop (deallocate) a VM, starting it again may result in an **AllocationFailure** error. 
+- When you ask for the first virtual machine in the proximity placement group, the data center is automatically selected. In some cases, a second request for a different virtual machine SKU might fail if it doesn't exist in that data center. In this case, an **OverconstrainedAllocationRequest** error is returned. To avoid this, try changing the order in which you deploy your SKUs or have both resources deployed using a single ARM template.
+- 	In the case of elastic workloads, where you add and remove VM instances, having a proximity placement group constraint on your deployment might result in a failure to satisfy the request resulting in **AllocationFailure** error. 
+- Stopping (deallocate) and starting your VMs as needed is another way to achieve elasticity. Since the capacity is not kept once you stop (deallocate) a VM, starting it again might result in an **AllocationFailure** error. 
 - VM start and redeploy operations will continue to respect the Proximity Placement Group once successfully configured.
 
 ## Planned maintenance and Proximity Placement Groups
 
-Planned maintenance events, like hardware decommissioning at an Azure datacenter, could potentially affect the alignment of resources in proximity placement groups. Resources may be moved to a different data center, disrupting the collocation and latency expectations associated with the proximity placement group.
+Planned maintenance events, like hardware decommissioning at an Azure datacenter, could potentially affect the alignment of resources in proximity placement groups. Resources might be moved to a different data center, disrupting the collocation and latency expectations associated with the proximity placement group.
 
 ### Check the alignment status
 
@@ -78,12 +78,12 @@ You can do the following to check the alignment status of your proximity placeme
 
 If a proximity placement group is `Not Aligned`, you can stop\deallocate and then restart the affected resources. If the VM is in an availability set or a scale set, all VMs in the availability set or scale set must be stopped\deallocated first before restarting them.
 
-If there is an allocation failure due to deployment constraints, you may have to stop\deallocate all resources in the affected proximity placement group (including the aligned resources) first and then restart them to restore alignment.
+If there is an allocation failure due to deployment constraints, you might have to stop\deallocate all resources in the affected proximity placement group (including the aligned resources) first and then restart them to restore alignment.
 
 ## Best practices 
 - For the lowest latency, use proximity placement groups together with accelerated networking. For more information, see [Create a Linux virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) or [Create a Windows virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md).
 - Deploy all VM sizes in a single template. In order to avoid landing on hardware that doesn't support all the VM SKUs and sizes you require, include all of the application tiers in a single template so that they will all be deployed at the same time.
-- If you are scripting your deployment using PowerShell, CLI or the SDK, you may get an allocation error `OverconstrainedAllocationRequest`. In this case, you should stop/deallocate all the existing VMs, and change the sequence in the deployment script to begin with the VM SKU/sizes that failed. 
+- If you are scripting your deployment using PowerShell, CLI or the SDK, you might get an allocation error `OverconstrainedAllocationRequest`. In this case, you should stop/deallocate all the existing VMs, and change the sequence in the deployment script to begin with the VM SKU/sizes that failed. 
 - When reusing an existing placement group from which VMs were deleted, wait for the deletion to fully complete before adding VMs to it.
 - If latency is your first priority, put VMs in a proximity placement group and the entire solution in an availability zone. But, if resiliency is your top priority, spread your instances across multiple availability zones (a single proximity placement group cannot span zones).
 
@@ -113,6 +113,10 @@ Get-AzProximityPlacementGroup
 
 ## Create a scale set in a proximity placement group
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Create a scale in the proximity placement group using `-ProximityPlacementGroup $ppg.Id` to refer to the proximity placement group ID when you use [New-AzVMSS](/powershell/module/az.compute/new-azvmss) to create the scale set.
 
 ```azurepowershell-interactive
@@ -121,12 +125,12 @@ $scalesetName = "myVM"
 New-AzVmss `
   -ResourceGroupName $resourceGroup `
   -Location $location `
+  -OrchestrationMode "Uniform" `
   -VMScaleSetName $scalesetName `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicyMode "Automatic" `
   -ProximityPlacementGroup $ppg.Id
 ```
 

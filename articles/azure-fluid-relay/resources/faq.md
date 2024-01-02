@@ -1,8 +1,6 @@
 ---
 title: Azure Fluid Relay FAQ
 description: Frequently asked questions about Fluid Relay
-author: hickeys
-ms.author: hickeys
 ms.date: 6/1/2022
 ms.service: azure-fluid
 ms.topic: reference
@@ -46,7 +44,7 @@ Yes. The Fluid Framework uses socket.io library for communication with the servi
 
 ## Where does Azure Fluid Relay store customer data?
 
-Azure Fluid Relay stores customer data. By default, customer data is replicated to the paired region. However, the customer can choose to keep it within the same region by selecting the Basic SKU during provisioning. This option is available in select regions where the paired region is outside the country boundary of the primary region data is stored. For more information, go to [Data storage in Azure Fluid Relay](../concepts/data-storage.md).
+Azure Fluid Relay stores customer data. By default, customer data is replicated to the paired region. However, the customer can choose to keep it within the same region by selecting the Basic SKU during provisioning. This option is available in select regions where the paired region is outside the boundary of the primary country/region data is stored. For more information, go to [Data storage in Azure Fluid Relay](../concepts/data-storage.md).
 
 ## Does Azure Fluid Relay support offline mode?
 

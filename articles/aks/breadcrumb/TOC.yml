@@ -2,6 +2,54 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Kubernetes Service (AKS)
+  - name: Azure Kubernetes Service
+    tocHref: /azure/virtualization/windowscontainers/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/postgresql/flexible-server/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/mysql/flexible-server/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/azure-arc/kubernetes/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
     tocHref: /virtualization/windowscontainers/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/devops-project/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/developer/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/migrate/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/troubleshoot/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/defender-for-cloud/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/governance/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/application-gateway/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/storage/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/architecture/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/backup/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/security/
+    topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /compliance/regulatory/
     topicHref: /azure/aks/index

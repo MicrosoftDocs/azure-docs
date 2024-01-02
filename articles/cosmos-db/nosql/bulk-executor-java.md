@@ -9,7 +9,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 03/07/2022
 ms.reviewer: mjbrown
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Perform bulk operations on Azure Cosmos DB data
@@ -24,7 +24,7 @@ Currently, the bulk executor library is supported only by Azure Cosmos DB for No
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.  
 
-* You can [try Azure Cosmos DB for free](../try-free.md) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](../local-emulator.md) with  the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](../local-emulator.md#authenticate-requests).  
+* You can [try Azure Cosmos DB for free](../try-free.md) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](../emulator.md) with  the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](../emulator.md).  
 
 * [Java Development Kit (JDK) 1.8+](/java/azure/jdk/)  
   - On Ubuntu, run `apt-get install default-jdk` to install the JDK.  

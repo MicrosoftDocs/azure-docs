@@ -3,11 +3,9 @@ title: Add maps to use with workflows
 description: Add maps for transform operations in workflows with Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 10/04/2023
 ---
 
 # Add maps for transformations in workflows with Azure Logic Apps
@@ -16,27 +14,29 @@ Workflow actions such as **Transform XML** and **Liquid** require a map to perfo
 
 For example, suppose you regularly receive B2B orders or invoices from a customer who uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can define and use a map that transforms the YYYYMMDD format to the MMDDYYYY format before storing the order or invoice details in your customer activity database.
 
-This article shows how to add a map to your integration account. If you're working with a Standard logic app workflow, you can also add a map directly to your logic app resource.
+This how-to guide shows how to add a map to your integration account. If you're working with a Standard logic app workflow, you can also add a map directly to your logic app resource.
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The map that you want to add. To create maps, you can use the following tools with the [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas):
+* The map that you want to add. To create maps, you can use any of the following tools:
 
-  * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
+  * Visual Studio Code and the Data Mapper extension. To call the maps created with Data Mapper from your workflow, you must use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**, not the **XML Operations** action named **Transform XML**. For more information, see [Create maps for data transformation with Visual Studio Code](create-maps-data-transformation-visual-studio-code.md).
 
-  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) extension.
+  * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools extension](https://aka.ms/vsenterpriseintegrationtools).
 
-   > [!NOTE]
-   > Don't install the extension alongside the BizTalk Server extension. Having both extensions might 
-   > produce unexpected behavior. Make sure that you only have one of these extensions installed.
-   >
-   > On high resolution monitors, you might experience a [display problem with the map designer](/visualstudio/designers/disable-dpi-awareness) 
-   > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
-   > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
+  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 extension](https://aka.ms/vsmapsandschemas).
 
-   For more information, review the [Create maps](#create-maps) section in this article.
+    > [!NOTE]
+    > Don't install the Microsoft Azure Logic Apps Enterprise Integration Tools extension alongside the BizTalk Server extension. 
+    > Having both extensions might produce unexpected behavior. Make sure that you only have one of these extensions installed.
+    >
+    > On high resolution monitors, you might experience a [display problem with the map designer](/visualstudio/designers/disable-dpi-awareness) 
+    > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
+    > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
+
+    For more information, review the [Create maps](#create-maps) section in this article.
 
 * Based on whether you're working on a Consumption or Standard logic app workflow, you'll need an [integration account resource](logic-apps-enterprise-integration-create-integration-account.md). Usually, you need this resource when you want to define and store artifacts for use in enterprise integration and B2B workflows.
 
@@ -50,9 +50,27 @@ This article shows how to add a map to your integration account. If you're worki
 
     * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload maps to each individual logic app. For more information, review [Link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
 
-    * The **Liquid** built-in connector lets you select a map that you previously uploaded to your logic app resource or to a linked integration account, but not both. You can then use this artifact across all child workflows within the same logic app resource.
+    * The **Liquid** built-in connector lets you select a map that you previously uploaded to your logic app resource or to a linked integration account, but not both.
 
     So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
+
+* Consumption and Standard workflows support XSLT maps that reference external assemblies, which enable directly calling custom .NET code from XSLT maps. To support this capability, Consumption workflows also have the following requirements:
+
+  * You need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
+
+  * You have to upload *both the assembly and the map* in a specific order to your integration account. Make sure you [*upload your assembly first*](#add-assembly), and then upload the map that references the assembly.
+
+  * If your assembly or map is [2 MB or smaller](#smaller-map), you can add your assembly and map to your integration account *directly* from the Azure portal.
+
+  * If your assembly is bigger than 2 MB but not bigger than the [size limit for assemblies](logic-apps-limits-and-config.md#artifact-capacity-limits), you'll need an Azure storage account and blob container where you can upload your assembly. Later, you can provide that container's location when you add the assembly to your integration account. For this task, the following table describes the items you need:
+
+    | Item | Description |
+    |------|-------------|
+    | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-account-create.md). |
+    | Blob container | In this container, you can upload your assembly. You also need this container's content URI location when you add the assembly to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
+    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md). <br><br>Or, in the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. |
+
+    To add larger maps, you can use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). For Standard workflows, the Azure Logic Apps REST API is currently unavailable.
 
 ## Limitations
 
@@ -62,43 +80,37 @@ This article shows how to add a map to your integration account. If you're worki
 
   * Standard workflows
 
-    * References to external assemblies from maps are currently in preview. To configure support for external assemblies, see [.NET Framework assembly support for XSLT transformations added to Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120).
+    * Support XSLT 1.0, 2.0, and 3.0.
 
     * No limits apply to map file sizes.
 
   * Consumption workflows
 
-    * Supports references to external assemblies from maps, which enable direct calls from XSLT maps to custom .NET code with the following requirements:
-
-      * You need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
-
-      * You have to upload *both the assembly and the map* in a specific order to your integration account. Make sure you [*upload your assembly first*](#add-assembly), and then upload the map that references the assembly.
-
-      * If your assembly or map is [2 MB or smaller](#smaller-map), you can add your assembly and map to your integration account *directly* from the Azure portal.
-
-      * If your assembly is bigger than 2 MB but not bigger than the [size limit for assemblies](logic-apps-limits-and-config.md#artifact-capacity-limits), you'll need an Azure storage account and blob container where you can upload your assembly. Later, you can provide that container's location when you add the assembly to your integration account. For this task, the following table describes the items you need:
-
-        | Item | Description |
-        |------|-------------|
-        | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-account-create.md). |
-        | Blob container | In this container, you can upload your assembly. You also need this container's content URI location when you add the assembly to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
-        | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md). <br><br>Or, in the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. |
-
-        To add larger maps, you can use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). For Standard workflows, the Azure Logic Apps REST API is currently unavailable.
-
     * Azure Logic Apps allocates finite memory for processing XML transformations. If you create Consumption workflows, and your map or payload transformations have high memory consumption, such transformations might fail, resulting in out of memory errors. To avoid this scenario, consider these options:
 
       * Edit your maps or payloads to reduce memory consumption.
 
-      * Create [Standard logic app workflows](logic-apps-overview.md#resource-environment-differences) instead.
-
-        These workflows run in single-tenant Azure Logic Apps, which offers dedicated and flexible options for compute and memory resources. However, Standard workflows support only XSLT 1.0 and don't support referencing external assemblies from maps.
+      * Create [Standard logic app workflows](logic-apps-overview.md#resource-environment-differences), which run in single-tenant Azure Logic Apps and offer dedicated and flexible options for compute and memory resources.
 
 <a name="create-maps"></a>
 
 ## Create maps
 
-To create an XSLT document to use as a map, create an integration project in Visual Studio 2019 or 2015 using the [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas). In the integration project, you can build an integration map file, which lets you visually map items between two XML schema files. These tools offer the following map capabilities:
+You can create maps using either Visual Studio Code with the Data Mapper extension or Visual Studio with the Microsoft Azure Logic Apps Enterprise Integration Tools extension.
+
+### Visual Studio Code
+
+When you create maps using Visual Studio Code and the Data Mapper extension, you can call these maps from your workflow, but only with the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**, not the **XML Operations** action named **Transform XML**. For more information, see [Create maps for data transformation with Visual Studio Code](create-maps-data-transformation-visual-studio-code.md).
+
+### Visual Studio
+
+When you create maps using Visual Studio, you'll need to create an integration project with either of the following tools:
+
+* Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools extension](https://aka.ms/vsenterpriseintegrationtools)
+
+* Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 extension](https://aka.ms/vsmapsandschemas).
+
+In the integration project, you can build an integration map file, which lets you visually map items between two XML schema files. These tools offer the following map capabilities:
 
 * You work with a graphical representation of the map, which shows all the relationships and links you create.
 
@@ -143,11 +155,13 @@ The following example shows a map that references an assembly named `XslUtilitie
 
 <a name="add-assembly"></a>
 
-## Add referenced assemblies (Consumption workflows only)
+## Add referenced assemblies
 
-1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
+### [Consumption](#tab/consumption)
 
-1. In the main Azure search box, enter `integration accounts`, and select **Integration accounts**.
+A Consumption logic app resource supports referencing external assemblies from maps, which enable directly calling custom .NET code from XSLT maps.
+
+1. In the [Azure portal](https://portal.azure.com) search box, enter **integration accounts**, and select **Integration accounts**.
 
 1. Select the integration account where you want to add your assembly.
 
@@ -162,7 +176,7 @@ Based on your assembly file's size, follow the steps for uploading an assembly t
 
 <a name="smaller-assembly"></a>
 
-### Add assemblies up to 2 MB
+#### Add assemblies up to 2 MB
 
 1. Under **Add Assembly**, enter a name for your assembly. Keep **Small file** selected. Next to the **Assembly** box, select the folder icon. Find and select the assembly you're uploading.
 
@@ -174,7 +188,7 @@ Based on your assembly file's size, follow the steps for uploading an assembly t
 
 <a name="larger-assembly"></a>
 
-### Add assemblies more than 2 MB
+#### Add assemblies more than 2 MB
 
 To add larger assemblies, you can upload your assembly to an Azure blob container in your Azure storage account. Your steps for adding assemblies differ based whether your blob container has public read access. So first, check whether or not your blob container has public read access by following these steps: [Set public access level for blob container](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
@@ -196,7 +210,7 @@ To add larger assemblies, you can upload your assembly to an Azure blob containe
 
 <a name="public-access-assemblies"></a>
 
-#### Upload to containers with public access
+##### Upload to containers with public access
 
 1. Upload the assembly to your storage account. In the right-side window, select **Upload**.
 
@@ -212,7 +226,7 @@ To add larger assemblies, you can upload your assembly to an Azure blob containe
 
 <a name="no-public-access-assemblies"></a>
 
-#### Upload to containers without public access
+##### Upload to containers without public access
 
 1. Upload the assembly to your storage account. In the right-side window, select **Upload**.
 
@@ -227,6 +241,30 @@ To add larger assemblies, you can upload your assembly to an Azure blob containe
 1. In the **Content URI** box, paste the SAS URI that you previously generated. Finish adding your assembly.
 
 After your assembly finishes uploading, the assembly appears in the **Assemblies** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded assembly also appears.
+
+### [Standard](#tab/standard)
+
+A Standard logic app resource supports referencing external assemblies from maps, which enable directly calling custom .NET code from XSLT maps. For more information about this capability, see [Create and run .NET Framework code from Standard workflows](create-run-custom-code-functions.md).
+
+1. In the [Azure portal](https://portal.azure.com) search box, find and open your logic app resource.
+
+1. On the logic app menu, under **Artifacts**, select **Assemblies**.
+
+1. On the **Assemblies** page toolbar, select **Add**. On the **Add Assembly** pane, under **Assembly Type**, select the following type for your assembly, based on your scenario:
+
+   | Assembly type | Description |
+   |---------------|-------------|
+   | **Client/SDK Assembly (.NET Framework)** | This assembly type provides storage and deployment of client and custom SDK for the .NET Framework. For example, the [SAP built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses these assemblies to load the SAP NCo non-redistributable DLL files. |
+   | **Client/SDK Assembly (Java)** | This assembly type provides storage and deployment of custom SDK for Java. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). |
+   | **Custom Assembly (.NET Framework)** | This assembly type provides storage and deployment of custom DLLs. For example, the [**Transform XML** operation](logic-apps-enterprise-integration-transform.md) uses these assemblies for the custom transformation functions that are required during XML transformation. | 
+
+1. Now, either drag-and-drop your assemblies to the **Upload Files** area, or browse to and select your assemblies.
+
+1. When you're done, select **Upload Files**.
+
+   Your selected assemblies now appear on your logic app's **Assemblies** page.
+
+---
 
 <a name="add-map"></a>
 
@@ -286,7 +324,7 @@ The following steps apply only if you want to add a map directly to your Standar
 
 #### Azure portal
 
-1. On your logic app resource's menu, under **Settings**, select **Maps**.
+1. On your logic app resource's menu, under **Artifacts**, select **Maps**.
 
 1. On the **Maps** pane toolbar, select **Add**.
 

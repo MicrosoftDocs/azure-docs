@@ -66,7 +66,9 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 
 #### Symptoms
 
-The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but continually reporting 'empty config file...'.
+* The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but and reports *empty config file...*.
+
+* When you run `sudo iotedge check` on a device, it reports *Container engine is not configured with DNS server setting, which may impact connectivity to IoT Hub. Please see https://aka.ms/iotedge-prod-checklist-dns for best practices.*
 
 #### Cause
 
@@ -465,6 +467,29 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. If you chose to exclude authentication keys during the device export, reconfigure each device with the new keys given by the new IoT hub (`device_id_pk` under `[provisioning.authentication]` in `config.toml`)
 1. Restart the top-level parent Edge device first, make sure it's up and running
 1. Restart each device in hierarchy level by level from top to the bottom
+
+### IoT Edge has low message throughput when geographically distant from IoT Hub
+
+#### Symptoms
+
+Azure IoT Edge devices that are geographically distant from Azure IoT Hub have a lower than expected message throughput.
+
+#### Cause
+
+High latency between the device and IoT Hub can cause a lower than expected message throughput. IoT Edge uses a default message batch size of 10. This limits the number of messages that are sent in a single batch, which increases the number of round trips between the device and IoT Hub.
+
+#### Solution
+
+Try increasing the IoT Edge Hub **MaxUpstreamBatchSize** environment variable. This allows more messages to be sent in a single batch, which reduces the number of round trips between the device and IoT Hub.
+
+To set Azure Edge Hub environment variables in the Azure portal:
+
+1. Navigate to your IoT Hub and select **Devices** under the **Device management** menu.
+1. Select the IoT Edge device that you want to update.
+1. Select **Set Modules**.
+1. Select **Runtime Settings**.
+1. In the **Edge Hub** module settings tab, add the **MaxUpstreamBatchSize** environment variable as type **Number** with a value of **20**.
+1. Select **Apply**.
 
 ## Next steps
 

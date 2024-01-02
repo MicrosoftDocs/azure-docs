@@ -4,7 +4,7 @@ description: Learn how to perform the commonly used tasks in workbooks.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 05/30/2022
+ms.date: 06/21/2023
 ms.reviewer: gardnerjr 
 ---
 
@@ -32,7 +32,7 @@ By default, the workbook is auto-filled with the same settings as the LA workspa
 
 ## Share a workbook
 
-When you want to share a workbook or template, keep in mind that the person you want to share with must have permissions to access the workbook. They must have an Azure account, and **Azure Sentinel Workbook Reader** permissions.
+When you want to share a workbook or template, keep in mind that the person you want to share with must have permissions to access the workbook. They must have an Azure account, and **Monitoring Reader** permissions.
 To share a workbook or workbook template:
 
 1. In the Azure portal, select the workbook or template you want to share.

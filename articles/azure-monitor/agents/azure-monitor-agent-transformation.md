@@ -2,7 +2,7 @@
 title: Transform text logs during ingestion in Azure Monitor Logs 
 description: Write a KQL query that transforms text log data and add the transformation to a data collection rule in Azure Monitor Logs.
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 07/19/2023
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: jeffwo
@@ -39,7 +39,11 @@ To complete this procedure, you need:
     1. Run a basic query the custom logs table to view table data.
 1. Use the query window to write and test a query that transforms the raw data in your table.
 
-    For information about the KQL operators that transformations support, see [Structure of transformation in Azure Monitor](../essentials/data-collection-transformations-structure.md#kql-limitations). 
+    For information about the KQL operators that transformations support, see [Structure of transformation in Azure Monitor](../essentials/data-collection-transformations-structure.md#kql-limitations).
+   
+   > [!Note]
+   > The only columns that are available to apply transforms against are TimeGenerated and RawData.  Other columns are added to the table automatically after the transformation and are not available at the time of transformation.
+   > The _ResourceId column can't be used in the transformation.
 
     **Example**
     

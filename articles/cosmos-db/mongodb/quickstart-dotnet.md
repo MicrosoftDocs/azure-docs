@@ -8,12 +8,21 @@ ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, mode-api, ignite-2022, devguide-csharp, cosmos-db-dev-journey
+ms.custom: devx-track-csharp, mode-api, ignite-2022, devguide-csharp, cosmos-db-dev-journey, devx-track-azurecli, devx-track-dotnet
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for .NET with the MongoDB driver
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+
+> [!div class="op_single_selector"]
+>
+> * [.NET](quickstart-dotnet.md)
+> * [Python](quickstart-python.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Go](quickstart-go.md)
+>
 
 Get started with MongoDB to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 
@@ -26,7 +35,7 @@ Get started with MongoDB to create databases, collections, and docs within your 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - [.NET 6.0](https://dotnet.microsoft.com/download)
-- [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ### Prerequisite check
 
@@ -96,7 +105,7 @@ dotnet add package MongoDb.Driver
 Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and docs.
 
 :::image type="complex" source="media/quickstart-dotnet/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, collections, and docs.":::
-    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database shards. One of the database shards includes two child collection shards. The other database shard includes a single child collection shard. That single collection shard has three child doc shards.
 :::image-end:::
 
 You'll use the following MongoDB classes to interact with these resources:

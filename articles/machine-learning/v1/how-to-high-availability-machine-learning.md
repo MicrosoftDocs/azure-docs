@@ -5,12 +5,13 @@ description: Learn how to plan for disaster recovery and maintain business conti
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: event-tier1-build-2022
+ms.custom: UpdateFrequency5, event-tier1-build-2022
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/04/2022
+monikerRange: 'azureml-api-1'
 ---
 
 # Failover for business continuity and disaster recovery
@@ -91,7 +92,7 @@ Azure Machine Learning builds on top of other services. Some services can be con
 | Key Vault | Microsoft | Use the same Key Vault instance with the Azure Machine Learning workspace and resources in both regions. Key Vault automatically fails over to a secondary region. For more information, see [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md).|
 | Container Registry | Microsoft | Configure the Container Registry instance to geo-replicate registries to the paired region for Azure Machine Learning. Use the same instance for both workspace instances. For more information, see [Geo-replication in Azure Container Registry](../../container-registry/container-registry-geo-replication.md). |
 | Storage Account | You | Azure Machine Learning does not support __default storage-account__ failover using geo-redundant storage (GRS), geo-zone-redundant storage (GZRS), read-access geo-redundant storage (RA-GRS), or read-access geo-zone-redundant storage (RA-GZRS). Create a separate storage account for the default storage of each workspace. </br>Create separate storage accounts or services for other data storage. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md). |
-| Application Insights | You | Create Application Insights for the workspace in both regions. To adjust the data-retention period and details, see [Data collection, retention, and storage in Application Insights](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept). |
+| Application Insights | You | Create Application Insights for the workspace in both regions. To adjust the data-retention period and details, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy#how-long-is-the-data-kept). |
 
 To enable fast recovery and restart in the secondary region, we recommend the following development practices:
 
@@ -193,7 +194,9 @@ The following artifacts can be exported and imported between workspaces by using
 
 ### Workspace deletion
 
-If you accidentally deleted your workspace it is currently not possible to recover it. However you are able to retrieve your existing notebooks from the corresponding storage if you follow these steps:
+If you accidentally deleted your workspace, you might able to recover it. For recovery steps, see [Recover workspace data after accidental deletion with soft delete](../concept-soft-delete.md). 
+
+Even if your workspace cannot be recovered, you may still be able to retrieve your notebooks from the workspace-associated Azure storage resource by following these steps:
 * In the [Azure portal](https://portal.azure.com) navigate to the storage account that was linked to the deleted Azure Machine Learning workspace.
 * In the Data storage section on the left, click on **File shares**.
 * Your notebooks are located on the file share with the name that contains your workspace ID. 
@@ -203,3 +206,4 @@ If you accidentally deleted your workspace it is currently not possible to recov
 ## Next steps
 
 To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](../tutorial-create-secure-workspace-template.md).
+

@@ -1,13 +1,13 @@
 ---
-title: Use Application Configuration Service for Tanzu with Azure Spring Apps Enterprise Tier
-titleSuffix: Azure Spring Apps Enterprise Tier
-description: Learn how to use Application Configuration Service for Tanzu with Azure Spring Apps Enterprise Tier.
-author: karlerickson
+title: Use Application Configuration Service for Tanzu with the Azure Spring Apps Enterprise plan
+titleSuffix: Azure Spring Apps Enterprise plan
+description: Learn how to use Application Configuration Service for Tanzu with the Azure Spring Apps Enterprise plan.
+author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 02/09/2022
-ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, engagement-fy23, devx-track-azurecli
 ---
 
 # Use Application Configuration Service for Tanzu
@@ -15,17 +15,30 @@ ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use Application Configuration Service for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
+This article shows you how to use Application Configuration Service for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
-[Application Configuration Service for VMware Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
+[Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.0/acs/GUID-overview.html) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
 
-With Application Configuration Service for Tanzu, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in Basic/Standard tier, see the [Use Application Configuration Service for external configuration](./how-to-migrate-standard-tier-to-enterprise-tier.md#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier](./how-to-migrate-standard-tier-to-enterprise-tier.md).
+With Application Configuration Service for Tanzu, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in Basic/Standard, see the [Use Application Configuration Service for external configuration](./how-to-migrate-standard-tier-to-enterprise-tier.md#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](./how-to-migrate-standard-tier-to-enterprise-tier.md).
+
+Application Configuration Service is offered in two versions: Gen1 and Gen2. The Gen1 version mainly serves existing customers for backward compatibility purposes, and is supported only until April 30, 2024. New service instances should use Gen2. The Gen2 version uses [flux](https://fluxcd.io/) as the backend to communicate with Git repositories, and provides better performance compared to Gen1.
+
+The following table shows some benchmark data for your reference. However, the Git repository size is a key factor with significant impact on the performance data. We recommend that you store only the necessary configuration files in the Git repository in order to keep it small.
+
+| Application Configuration Service generation | Duration to refresh under 100 patterns | Duration to refresh under 250 patterns | Duration to refresh under 500 patterns |
+|----------------------------------------------|----------------------------------------|----------------------------------------|----------------------------------------|
+| Gen1                                         | 330 s                                  | 840 s                                  | 1500 s                                 |
+| Gen2                                         | 13 s                                   | 100 s                                  | 378 s                                  |
+
+Gen2 also provides more security verifications when you connect to a remote Git repository. Gen2 requires a secure connection if you're using HTTPS, and verifies the correct host key and host algorithm when using an SSH connection.
+
+You can choose the version of Application Configuration Service when you create an Azure Spring Apps Enterprise service instance. The default version is Gen1. You can also upgrade to Gen2 after the instance is created, but downgrade isn't supported. The upgrade is zero downtime, but we still recommend that you to test in a staging environment before moving to a production environment.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier instance with Application Configuration Service for Tanzu enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan instance with Application Configuration Service for Tanzu enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
   > To use Application Configuration Service for Tanzu, you must enable it when you provision your Azure Spring Apps service instance. You can't enable it after you provision the instance.
@@ -36,9 +49,9 @@ Application Configuration Service for Tanzu supports Azure DevOps, GitHub, GitLa
 
 To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of the Application Configuration Service page showing how to add a repository." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings-repositories.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab and Repositories section highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings-repositories.png":::
 
-The following table describes properties for each entry.
+The following table describes the properties for each entry.
 
 | Property      | Required? | Description                                                                                                                                                                                                                                                                                                                                  |
 |---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -57,43 +70,81 @@ Configuration is pulled from Git backends using what you define in a pattern. A 
 
 ### Authentication
 
-The following image shows the three types of repository authentication supported by Application Configuration Service for Tanzu.
+The following screenshot shows the three types of repository authentication supported by Application Configuration Service for Tanzu.
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of where to edit authentication types." lightbox="media/how-to-enterprise-application-configuration-service/config-service-auth.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Authentication type menu highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-auth.png":::
+
+The following list describes the three authentication types:
 
 - Public repository.
 
-   You don't need extra Authentication configuration when you use a public repository. Select **Public** in the **Authentication** form.
+   You don't need any extra authentication configuration when you use a public repository. Select **Public** in the **Authentication** form.
+
+   The following table shows the configurable property you can use to set up a public Git repository:
+
+   | Property         | Required? | Description                                                         |
+   |------------------|-----------|---------------------------------------------------------------------|
+   | `CA certificate` | No        | Required only when a self-signed cert is used for the Git repo URL. |
 
 - Private repository with basic authentication.
 
-   The following table shows the configurable properties you can use to set up a private Git repository with basic authentication.
+   The following table shows the configurable properties you can use to set up a private Git repository with basic authentication:
 
-   | Property   | Required? | Description                                 |
-   |------------|-----------|---------------------------------------------|
-   | `username` | Yes       | The username used to access the repository. |
-   | `password` | Yes       | The password used to access the repository. |
+   | Property         | Required? | Description                                                         |
+   |------------------|-----------|---------------------------------------------------------------------|
+   | `username`       | Yes       | The username used to access the repository.                         |
+   | `password`       | Yes       | The password used to access the repository.                         |
+   | `CA certificate` | No        | Required only when a self-signed cert is used for the Git repo URL. |
 
 - Private repository with SSH authentication.
 
-   The following table shows the configurable properties you can use to set up a private Git repository with SSH.
+   The following table shows the configurable properties you can use to set up a private Git repository with SSH:
 
-   | Property                   | Required? | Description                                                                                                                                                                                                                         |
-   |----------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | `Private key`              | Yes       | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
-   | `Host key`                 | No        | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
-   | `Host key algorithm`       | No        | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
-   | `Strict host key checking` | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
+   | Property                   | Required?                     | Description                                                                                                                                                                                                                         |
+   |----------------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | `Private key`              | Yes                           | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
+   | `Host key`                 | No for Gen1 <br> Yes for Gen2 | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
+   | `Host key algorithm`       | No for Gen1 <br> Yes for Gen2 | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
+   | `Strict host key checking` | No                            | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
 To validate access to the target URI, select **Validate**. After validation completes successfully, select **Apply** to update the configuration settings.
 
+## Upgrade from Gen1 to Gen2
+
+Application Configuration Service Gen2 provides better performance compared to Gen1, especially when you have a large number of configuration files. We recommend using Gen2, especially because Gen1 is being retired soon. The upgrade from Gen1 to Gen2 is zero downtime, but we still recommend that you test in a staging environment before moving to a production environment.
+
+Gen2 requires more configuration properties than Gen1 when using SSH authentication. You need to update the configuration properties in your application to make it work with Gen2. The following table shows the required properties for Gen2 when using SSH authentication:
+
+| Property             | Description                                                                                                                                                                                                                         |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Host key`           | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
+| `Host key algorithm` | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`.                                                                                                   |
+
+Use the following steps to upgrade from Gen1 to Gen2:
+
+1. In the Azure portal, navigate to the Application Configuration Service page for your Azure Spring Apps service instance.
+
+1. Select the **Settings** section, and then select  **Gen 2** in the **Generation** dropdown menu.
+
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab showing and the Generation menu open." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png":::
+
+1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
+
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab showing and the Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png":::
+
+## Polyglot support
+
+The Application Configuration Service for Tanzu works seamlessly with Spring Boot applications. The properties generated by the service are imported as external configurations by Spring Boot and injected into the beans. You don't need to write extra code. You can consume the values by using the `@Value` annotation, accessed through Spring's Environment abstraction, or you can bind them to structured objects by using the `@ConfigurationProperties` annotation.
+
+The Application Configuration Service also supports polyglot apps like dotNET, Go, Python, and so on. To access config files that you specify to load during polyglot app deployment in the apps, try to access a file path that you can retrieve through an environment variable with a name such as `AZURE_SPRING_APPS_CONFIG_FILE_PATH`. You can access all your intended config files under that path. To access the property values in the config files, use the existing read/write file libraries for your app.
+
 ## Refresh strategies
 
-Use the following steps to refresh your application configuration after you update the configuration file in the Git repository.
+Use the following steps to refresh your Java Spring Boot application configuration after you update the configuration file in the Git repository.
 
 1. Load the configuration to Application Configuration Service for Tanzu.
 
-   The refresh frequency is managed by Azure Spring Apps and fixed to 60 seconds.
+   Azure Spring Apps manages the refresh frequency, which is set to 60 seconds.
 
 1. Load the configuration to your application.
 
@@ -136,24 +187,26 @@ A Spring application holds the properties as the beans of the Spring Application
    curl -X POST http://{app-endpoint}/actuator/refresh
    ```
 
-## Configure Application Configuration Service for Tanzu settings using the portal
+## Configure Application Configuration Service for Tanzu settings
 
-Use the following steps to configure Application Configuration Service for Tanzu using the portal.
+### [Azure portal](#tab/Portal)
+
+Use the following steps to configure Application Configuration Service for Tanzu:
 
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-overview.png" alt-text="Screenshot of the Application Configuration Service page showing the Overview tab." lightbox="media/how-to-enterprise-application-configuration-service/config-service-overview.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-overview.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with Overview tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-overview.png":::
 
 1. Select **Settings** and add a new entry in the **Repositories** section with the Git backend information.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of the Application Configuration Service page showing the Settings tab." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings-validate.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab and Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings-validate.png":::
 
-## Configure Application Configuration Service for Tanzu settings using the CLI
+### [Azure CLI](#tab/Azure-CLI)
 
-Use the following steps to configure Application Configuration Service for Tanzu using the CLI.
+Use the following command to configure Application Configuration Service for Tanzu:
 
 ```azurecli
 az spring application-configuration-service git repo add \
@@ -163,36 +216,72 @@ az spring application-configuration-service git repo add \
     --label <git-branch-name>
 ```
 
+---
+
+## Configure the TLS certificate to access the Git backend with a self-signed certificate for Gen2
+
+This step is optional. If you use a self-signed certificate for the Git backend, you must configure the TLS certificate to access the Git backend.
+
+You need to upload the certificate to Azure Spring Apps first. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to configure the TLS certificate:
+
+1. Navigate to your service resource, and then select **Application Configuration Service**.
+1. Select **Settings** and add or update a new entry in the **Repositories** section with the Git backend information.
+
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/ca-certificate.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab showing." lightbox="media/how-to-enterprise-application-configuration-service/ca-certificate.png":::
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to configure the TLS certificate:
+
+```azurecli
+az spring application-configuration-service git repo add \
+    --name <entry-name> \
+    --patterns <patterns> \
+    --uri <git-backend-uri> \
+    --label <git-branch-name> \
+    --ca-cert-name <ca-certificate-name>
+```
+
+---
+
 ## Use Application Configuration Service for Tanzu with applications using the portal
 
-When you use Application Configuration Service for Tanzu with a Git back end and use the centralized configurations, you must bind the app to Application Configuration Service for Tanzu. After binding the app, use the following steps to configure the pattern to be used by the app.
+## Use Application Configuration Service for Tanzu with applications
+
+When you use Application Configuration Service for Tanzu with a Git back end and use the centralized configurations, you must bind the app to Application Configuration Service for Tanzu.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to use Application Configuration Service for Tanzu with applications:
 
 1. Open the **App binding** tab.
 
 1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of the Application Configuration Service page showing the App binding tab." lightbox="media/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the App binding tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png":::
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
 
-1. Select **Apps**, and then select the [pattern(s)](./how-to-enterprise-application-configuration-service.md#pattern) to be used by the apps.
+1. In the navigation menu, select **Apps** to view the list all the apps.
 
-   1. In the left navigation menu, select **Apps** to view the list all the apps.
+1. Select the target app to configure patterns for from the `name` column.
 
-   1. Select the target app to configure patterns for from the `name` column.
+1. In the navigation pane, select **Configuration**, and then select **General settings**.
 
-   1. In the left navigation pane, select **Configuration**, then select **General settings**.
+1. In the **Config file patterns** dropdown, choose one or more patterns from the list. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section.
 
-   1. In the **Config file patterns** dropdown, choose one or more patterns from the list.
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the Azure portal showing the App Configuration page with the General settings tab and api-gateway options highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-pattern.png":::
 
-      :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the Application Configuration Service page showing the General settings tab." lightbox="media/how-to-enterprise-application-configuration-service/config-service-pattern.png":::
+1. Select **Save**
 
-   1. Select **Save**
+### [Azure CLI](#tab/Azure-CLI)
 
-## Use Application Configuration Service for Tanzu with applications using the CLI
-
-Use the following command to use Application Configuration Service for Tanzu with applications.
+Use the following command to use Application Configuration Service for Tanzu with applications:
 
 ```azurecli
 az spring application-configuration-service bind --app <app-name>
@@ -202,13 +291,15 @@ az spring app deploy \
     --config-file-pattern <config-file-pattern>
 ```
 
+---
+
 ## Enable/disable Application Configuration Service after service creation
 
 You can enable and disable Application Configuration Service after service creation using the Azure portal or Azure CLI. Before disabling Application Configuration Service, you're required to unbind all of your apps from it.
 
 ### [Azure portal](#tab/Portal)
 
-Use the following steps to enable or disable Application Configuration Service using the Azure portal:
+Use the following steps to enable or disable Application Configuration Service:
 
 1. Navigate to your service resource, and then select **Application Configuration Service**.
 1. Select **Manage**.
@@ -217,7 +308,7 @@ Use the following steps to enable or disable Application Configuration Service u
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following Azure CLI commands to enable or disable Application Configuration Service:
+Use the following commands to enable or disable Application Configuration Service:
 
 ```azurecli
 az spring application-configuration-service create \

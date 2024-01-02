@@ -1,7 +1,7 @@
 ---
 title: Discover misconfigurations in Infrastructure as Code
-titleSuffix: Defender for Cloud
-description: Learn how to use Defender for DevOps to discover misconfigurations in Infrastructure as Code (IaC)
+
+description: Learn how to use DevOps security in Defender for Cloud to discover misconfigurations in Infrastructure as Code (IaC)
 ms.date: 01/24/2023
 ms.topic: how-to
 ms.custom: ignite-2022
@@ -190,7 +190,7 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
 The IaC scanning tools that are included with Microsoft Security DevOps, are [Template Analyzer](https://github.com/Azure/template-analyzer) (which contains [PSRule](https://aka.ms/ps-rule-azure)) and [Terrascan](https://github.com/tenable/terrascan). 
 
-Template Analyzer runs rules on ARM and Bicep templates. You can learn more about [Template Analyzer's rules and remediation details](https://github.com/Azure/template-analyzer/blob/main/docs/built-in-bpa-rules.md#built-in-rules).
+Template Analyzer runs rules on ARM and Bicep templates. You can learn more about [Template Analyzer's rules and remediation details](https://github.com/Azure/template-analyzer/blob/main/docs/built-in-rules.md#built-in-rules).
 
 Terrascan runs rules on ARM, CloudFormation, Docker, Helm, Kubernetes, Kustomize, and Terraform templates. You can learn more about the [Terrascan rules](https://runterrascan.io/docs/policies/).
 
@@ -204,7 +204,7 @@ In this tutorial you learned how to configure the Microsoft Security DevOps GitH
 
 ## Next steps
 
-Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+Learn more about [DevOps security](defender-for-devops-introduction.md).
 
 Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.
 

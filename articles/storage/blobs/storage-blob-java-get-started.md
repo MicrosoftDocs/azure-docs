@@ -6,14 +6,15 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 11/16/2022
-ms.subservice: blobs
-ms.custom: devx-track-java, devguide-java
+ms.date: 07/12/2023
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Get started with Azure Blob Storage and Java
+
+[!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Java. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
@@ -28,8 +29,17 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 
 ## Set up your project
 
-Use Maven to create a new console app, or open an existing project. Open the `pom.xml` file in your text editor.
+> [!NOTE]
+> This article uses the Maven build tool to build and run the sample code. Other build tools, such as Gradle, also work with the Azure SDK for Java.
 
+Use Maven to create a new console app, or open an existing project. Follow these steps to install packages and add the necessary `import` directives.
+
+### Install packages
+
+Open the `pom.xml` file in your text editor. Install the packages by [including the BOM file](#include-the-bom-file), or [including a direct dependency](#include-a-direct-dependency).
+
+#### Include the BOM file
+ 
 Add **azure-sdk-bom** to take a dependency on the latest version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. Using **azure-sdk-bom** keeps you from having to specify the version of each individual dependency. To learn more about the BOM, see the [Azure SDK BOM README](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/boms/azure-sdk-bom/README.md).
 
 ```xml
@@ -56,12 +66,36 @@ Add the following dependency elements to the group of dependencies. The **azure-
 <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-storage-common</artifactId>
-    </dependency>
+</dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-identity</artifactId>
 </dependency>
 ```
+
+#### Include a direct dependency
+
+To take dependency on a particular version of the library, add the direct dependency to your project:
+
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-blob</artifactId>
+    <version>{package_version_to_target}</version>
+</dependency>
+<dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-storage-common</artifactId>
+      <version>{package_version_to_target}</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+    <version>{package_version_to_target}</version>
+</dependency>
+```
+
+### Include import directives
 
 Then open your code file and add the necessary `import` directives. In this example, we add the following directives in the *App.java* file:
 
@@ -86,16 +120,18 @@ To connect an application to Blob Storage, create an instance of the [BlobServic
 
 To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
-You can authorize a `BlobServiceClient` object by using an Azure Active Directory (Azure AD) authorization token, an account access key, or a shared access signature (SAS).
+You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS).
 
-## [Azure AD (Recommended)](#tab/azure-ad)
+<a name='azure-ad-recommended'></a>
 
-To authorize with Azure AD, you'll need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
+## [Microsoft Entra ID (Recommended)](#tab/azure-ad)
+
+To authorize with Microsoft Entra ID, you'll need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
 
 | Where the application runs | Security principal | Guidance |
 | --- | --- | --- |
-| Local machine (developing and testing) | Service principal | To learn how to register the app, set up an Azure AD group, assign roles, and configure environment variables, see [Authorize access using developer service principals](/dotnet/azure/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json). | 
-| Local machine (developing and testing) | User identity | To learn how to set up an Azure AD group, assign roles, and sign in to Azure, see [Authorize access using developer credentials](/dotnet/azure/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json). | 
+| Local machine (developing and testing) | Service principal | To learn how to register the app, set up a Microsoft Entra group, assign roles, and configure environment variables, see [Authorize access using developer service principals](/dotnet/azure/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json). | 
+| Local machine (developing and testing) | User identity | To learn how to set up a Microsoft Entra group, assign roles, and sign in to Azure, see [Authorize access using developer credentials](/dotnet/azure/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json). | 
 | Hosted in Azure | Managed identity | To learn how to enable managed identity and assign roles, see [Authorize access from Azure-hosted apps using a managed identity](/dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json). |
 | Hosted outside of Azure (for example, on-premises apps) | Service principal | To learn how to register the app, assign roles, and configure environment variables, see [Authorize access from on-premises apps using an application service principal](/dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
 
@@ -115,7 +151,14 @@ Use [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclien
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/App.java" id="Snippet_GetServiceClientSAS":::
 
-To generate and manage SAS tokens, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json).
+To learn more about generating and managing SAS tokens, see the following articles:
+
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
+- [Create an account SAS with Java](../common/storage-account-sas-create-java.md)
+- [Create a service SAS for a container with Java](sas-service-create-java-container.md)
+- [Create a service SAS for a blob with Java](sas-service-create-java.md)
+- [Create a user delegation SAS for a container with Java](storage-blob-container-user-delegation-sas-create-java.md)
+- [Create a user delegation SAS for a blob with Java](storage-blob-user-delegation-sas-create-java.md)
 
 ## [Account key](#tab/account-key)
 
@@ -136,27 +179,9 @@ For information about how to obtain account keys and best practice guidelines fo
 
 ## Build your application
 
-As you build your application, your code will primarily interact with three types of resources:
+As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
 
-- The storage account, which is the unique top-level namespace for your Azure Storage data.
-- Containers, which organize the blob data in your storage account.
-- Blobs, which store unstructured data like text and binary data.
-
-The following diagram shows the relationship between these resources.
-
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
-
-Each type of resource is represented by one or more associated Java classes. These are the basic classes:
-
-| Class | Description |
-|---|---|
-| [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
-| [BlobClient](/java/api/com.azure.storage.blob.blobclient) | Allows you to manipulate Azure Storage blobs.|
-| [AppendBlobClient](/java/api/com.azure.storage.blob.specialized.appendblobclient) | Allows you to perform operations specific to append blobs such as periodically appending log data.|
-| [BlockBlobClient](/java/api/com.azure.storage.blob.specialized.blockblobclient)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.|
-
-The following guides show you how to use each of these classes to build your application.
+The following guides show you how to work with data resources and perform specific actions using the Azure Storage client library for Java:
 
 | Guide | Description |
 |--|---|
@@ -173,3 +198,4 @@ The following guides show you how to use each of these classes to build your app
 | [Delete and restore](storage-blob-delete-java.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
 | [Find blobs using tags](storage-blob-tags-java.md) | Set and retrieve tags as well as use tags to find blobs. |
 | [Manage properties and metadata (blobs)](storage-blob-properties-metadata-java.md) | Get and set properties and metadata for blobs. |
+| [Set or change a blob's access tier](storage-blob-use-access-tier-java.md) | Set or change the access tier for a block blob. |

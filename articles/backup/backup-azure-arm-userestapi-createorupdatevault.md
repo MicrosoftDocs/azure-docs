@@ -4,8 +4,8 @@ description: In this article, learn how to manage backup and restore operations 
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Create Azure Recovery Services vault using REST API
 

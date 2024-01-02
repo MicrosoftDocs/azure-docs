@@ -2,6 +2,7 @@
 title: Apache HBase Master fails to start in Azure HDInsight
 description: Apache HBase Master (HMaster) fails to start in Azure HDInsight
 ms.service: hdinsight
+ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
 ms.date: 12/21/2022
 ---
@@ -10,7 +11,7 @@ ms.date: 12/21/2022
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
-## Scenario: Master startup cannot progress, in holding-pattern until region comes online
+## Scenario: `Master startup cannot progress, in holding-pattern until region comes online`
 
 ### Issue
 
@@ -26,7 +27,7 @@ hbase:namespace,,1546588612000.0000010bc582e331e3080d5913a97000. is NOT online; 
 
 ### Cause
 
-HMaster will check for the WAL directory on the region servers before bringing back the **OPEN** regions online. In this case, if that directory was not present, it was not getting started
+HMaster checks the WAL directory on the region servers before bringing back the **OPEN** regions online. In this case, if that directory wasn't present, it was not getting started
 
 ### Resolution
 
@@ -34,6 +35,8 @@ HMaster will check for the WAL directory on the region servers before bringing b
 `sudo -u hbase hdfs dfs -mkdir /hbase-wals/WALs/<wn fqdn>,16000,1622012792000`
 
 2. Restart the HMaster service from the Ambari UI.
+
+If you're using hbase-2.x, see more information in [how to use hbck2 to assign namespace and meta table](how-to-use-hbck2-tool.md#assign-and-unassign)
 
 ## Scenario: Atomic renaming failure
 
@@ -49,9 +52,9 @@ HMaster does a basic list command on the WAL folders. If at any time, HMaster se
 
 ### Resolution
 
-Check the call stack and try to determine which folder might be causing the problem (for instance, it might be the WAL folder or the .tmp folder). Then, in Cloud Explorer or by using HDFS commands, try to locate the problem file. Usually, this is a `*-renamePending.json` file. (The `*-renamePending.json` file is a journal file that's used to implement the atomic rename operation in the WASB driver. Due to bugs in this implementation, these files can be left over after process crashes, and so on.) Force-delete this file either in Cloud Explorer or by using HDFS commands.
+Check the call stack and try to determine which folder might be causing the problem (for instance, it might be the WAL folder or the .tmp folder). Then, in Azure Storage Explorer or by using HDFS commands, try to locate the problem file. Usually, this file is called `*-renamePending.json`. (The `*-renamePending.json` file is a journal file that's used to implement the atomic rename operation in the WASB driver. Due to bugs in this implementation, these files can be left over after process crashes, and so on.) Force-delete this file either in Cloud Explorer or by using HDFS commands.
 
-Sometimes, there might also be a temporary file named something like `$$$.$$$` at this location. You have to use HDFS `ls` command to see this file; you cannot see the file in Cloud Explorer. To delete this file, use the HDFS command `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.
+Sometimes, there might also be a temporary file named something like `$$$.$$$` at this location. You have to use HDFS `ls` command to see this file; you can't see the file in Azure Storage Explorer. To delete this file, use the HDFS command `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.
 
 After you've run these commands, HMaster should start immediately.
 
@@ -61,11 +64,11 @@ After you've run these commands, HMaster should start immediately.
 
 ### Issue
 
-You might see a message that indicates that the `hbase: meta` table is not online. Running `hbck` might report that `hbase: meta table replicaId 0 is not found on any region.` In the HMaster logs, you might see the message: `No server address listed in hbase: meta for region hbase: backup <region name>`.  
+You might see a message that indicates that the `hbase: meta` table isn't online. Running `hbck` might report that `hbase: meta table replicaId 0 is not found on any region.` In the HMaster logs, you might see the message: `No server address listed in hbase: meta for region hbase: backup <region name>`.  
 
 ### Cause
 
-HMaster could not initialize after restarting HBase.
+HMaster couldn't initialize after restarting HBase.
 
 ### Resolution
 
@@ -88,7 +91,7 @@ HMaster could not initialize after restarting HBase.
 
 ---
 
-## Scenario: java.io.IOException: Timedout
+## Scenario: `java.io.IOException: Timedout`
 
 ### Issue
 
@@ -96,7 +99,7 @@ HMaster times out with fatal exception similar to: `java.io.IOException: Timedou
 
 ### Cause
 
-You might experience this issue if you have many tables and regions that have not been flushed when you restart your HMaster services. The time-out is a known defect with HMaster. General cluster startup tasks can take a long time. HMaster shuts down if the namespace table isn’t yet assigned. The lengthy startup tasks happen where large amount of unflushed data exists and a timeout of five minutes is not sufficient.
+You might experience this issue if you have many tables and regions that haven't been flushed when you restart your HMaster services. The time-out is a known defect with HMaster. General cluster startup tasks can take a long time. HMaster shuts down if the namespace table isn’t yet assigned. The lengthy startup tasks happen where large amount of unflushed data exists and a timeout of five minutes isn't sufficient.
 
 ### Resolution
 
@@ -124,7 +127,7 @@ Nodes reboot periodically. From the region server logs you may see entries simil
 
 ### Cause: zookeeper session timeout
 
-Long `regionserver` JVM GC pause. The pause will cause `regionserver` to be unresponsive and not able to send heart beat to HMaster within the zk session timeout 40s. HMaster will believe `regionserver` is dead and will abort the `regionserver` and restart.
+Long `regionserver` JVM GC pause. The pause causes `regionserver` to be unresponsive and not able to send heart beat to HMaster within the zookeeper session timeout 40s. HMaster believes `regionserver` is dead, aborts the `regionserver` and restarts.
 
 
 

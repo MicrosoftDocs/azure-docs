@@ -20,13 +20,10 @@ landingContent:
         links:
           - text: Azure reliability overview
             url: overview.md
-  # Card
-  - title: Azure Service Manager Retirement
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: ASM Retirement Overview
-            url: overview.md
+          - text: Azure reliability guidance by service
+            url: reliability-guidance-overview.md
+          - text: Azure Service Manager Retirement
+            url: asm-retirement.md    
   # Card
   - title: Availability zone support
     linkLists:
@@ -36,6 +33,8 @@ landingContent:
             url: availability-zones-overview.md
           - text: Services and regions with availability zone support
             url: availability-zones-service-support.md
+          - text: Azure availability zone migration baseline
+            url: availability-zones-baseline.md
       - linkListType: how-to-guide
         links:
           - text: Migrate to availability zone support
@@ -45,14 +44,13 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: What is disaster recovery?
+            url: disaster-recovery-overview.md
           - text: Business continuity management program
             url: business-continuity-management-program.md
-          - text: Cross-region replication
+          - text: Cross-region pairs
             url: cross-region-replication-azure.md
-          - text: Use Azure Site Recovery
-            url: ../site-recovery/index.yml
-          - text: Use Azure Backup
-            url: ../backup/index.yml
+  
   # Service availability
   - title: Service availability
     linkLists:

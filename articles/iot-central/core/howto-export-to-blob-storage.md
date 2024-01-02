@@ -1,10 +1,10 @@
 ---
-title: Export data to Blob Storage IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to Blob Storage
+title: Export data to Blob Storage IoT Central
+description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Blob Storage
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/28/2022
+ms.date: 05/22/2023
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: devx-track-azurecli
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Export IoT data to Blob Storage
 
-This article describes how to configure data export to send data to the  Blob Storage service.
+This article describes how to configure data export to send data to the Blob Storage service.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
@@ -22,8 +22,8 @@ To learn how to manage data export by using the IoT Central REST API, see [How t
 
 IoT Central exports data once per minute, with each file containing the batch of changes since the previous export. Exported data is saved in JSON format. The default paths to the exported data in your storage account are:
 
-- Telemetry: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
-- Property changes: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
+- Telemetry: *{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}*
+- Property changes: *{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}*
 
 To browse the exported files in the Azure portal, navigate to the file and select **Edit blob**.
 
@@ -31,15 +31,15 @@ To browse the exported files in the Azure portal, navigate to the file and selec
 
 Blob Storage destinations let you configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
 
+> [!TIP]
+> If the Blob Storage destination is protected by a firewall, you must use a managed identity to connect to it.
+
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
-This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
-
----
+### Create an Azure Blob Storage destination
 
 # [Connection string](#tab/connection-string)
 
-### Create an Azure Blob Storage destination
 
 If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. It then prints the connection string to use when you configure the data export in IoT Central:
 
@@ -82,7 +82,7 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 
 # [Managed identity](#tab/managed-identity)
 
-### Create an Azure Blob Storage destination
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
 
 If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your storage account:
 
@@ -137,6 +137,8 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 1. Enter the endpoint URI for your storage account and the case-sensitive container name. An endpoint URI looks like: `https://contosowaste.blob.core.windows.net`.
 
 1. Select **Save**.
+
+If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshoot-data-export.md).
 
 ---
 

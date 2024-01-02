@@ -30,7 +30,7 @@ The Azure Maps Creator [wayfinding service] allows you to navigate from place to
 
 A [routeset] is a collection of indoor map data that is used by the wayfinding service.
 
-A routeset is created from a dataset, but is independent from that dataset. This means that if the dataset is deleted, the routeset continues to exist.
+A routeset is created from a dataset. The routeset is independent from the dataset, meaning if the dataset is deleted, the routeset continues to exist.
 
 Once you've created a routeset, you can then use the wayfinding API to get a path from the starting point to the destination point within the facility.
 
@@ -39,13 +39,13 @@ To create a routeset:
 1. Execute the following **HTTP POST request**:
 
     ```http
-    https://us.atlas.microsoft.com/routesets?api-version=2022-09-01-preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Subscription-key} 
+    https://us.atlas.microsoft.com/routesets?api-version=2023-03-01-preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Subscription-key} 
     
     ```
 
 1. Copy the value of the **Operation-Location** key from the response header.
 
-This is the status URL that you'll use to check the status of the routeset creation in the next section.
+The **Operation-Location** key is the status URL used to check the status of the routeset creation as demonstrated in the next section.
 
 ### Check the routeset creation status and retrieve the routesetId
 
@@ -54,18 +54,18 @@ To check the status of the routeset creation process and retrieve the routesetId
 1. Execute the following **HTTP GET request**:
 
     ```http
-    https://us.atlas.microsoft.com/routesets/operations/{operationId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
+    https://us.atlas.microsoft.com/routesets/operations/{operationId}?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
  
     ```
 
     > [!NOTE]
     > Get the `operationId` from the Operation-Location key in the response header when creating a new routeset.
 
-1. Copy the value of the **Resource-Location** key from the responses header. This is the resource location URL and contains the `routesetId`, as shown below:
+1. Copy the value of the **Resource-Location** key from the responses header. It's the resource location URL and contains the `routesetId`:
 
-   > https://us.atlas.microsoft.com/routesets/**675ce646-f405-03be-302e-0d22bcfe17e8**?api-version=2022-09-01-preview
+   > https://us.atlas.microsoft.com/routesets/**675ce646-f405-03be-302e-0d22bcfe17e8**?api-version=2023-03-01-preview
 
-Make a note of the `routesetId`, it will be required parameter in all [wayfinding](#get-a-wayfinding-path) requests, and when your [Get the facility ID](#get-the-facility-id).
+Make a note of the `routesetId`. It's required in all [wayfinding](#get-a-wayfinding-path) requests and when you [Get the facility ID].
 
 ### Get the facility ID
 
@@ -74,7 +74,7 @@ The `facilityId`, a property of the routeset, is a required parameter when searc
 1. Execute the following **HTTP GET request**:
 
     ```http
-    https://us.atlas.microsoft.com/routesets/{routesetId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
+    https://us.atlas.microsoft.com/routesets/{routesetId}?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
  
     ```
 
@@ -101,14 +101,14 @@ The `facilityId`, a property of the routeset, is a required parameter when searc
 
 ## Get a wayfinding path
 
-In this section, you’ll use the [wayfinding API] to generate a path from the routeset you created in the previous section. The wayfinding API requires a query that contains start and end points in an indoor map, along with floor level ordinal numbers. For more information about Creator wayfinding, see [wayfinding] in the concepts article.
+Use the [wayfinding API] to generate a path from the routeset you created in the previous section. The wayfinding API requires a query that contains start and end points in an indoor map, along with floor level ordinal numbers. For more information about Creator wayfinding, see [wayfinding] in the concepts article.
 
 To create a wayfinding query:
 
-1. Execute the following **HTTP GET request** (replace {routesetId} with the routesetId obtained in the [Check the routeset creation status](#check-the-routeset-creation-status-and-retrieve-the-routesetid) section and the {facilityId} with the facilityId obtained in the [Get the facility ID](#get-the-facility-id) section):
+1. Execute the following **HTTP GET request** (replace {routesetId} with the routesetId obtained in the [Check the routeset creation status] section and the {facilityId} with the facilityId obtained in the [Get the facility ID] section):
 
     ```http
-    https://us.atlas.microsoft.com/wayfinding/path?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}&routesetid={routeset-ID}&facilityid={facility-ID}&fromPoint={lat,lon}&fromLevel={from-level}&toPoint={lat,lon}&toLevel={to-level}&minWidth={minimun-width}
+    https://us.atlas.microsoft.com/wayfinding/path?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}&routesetid={routeset-ID}&facilityid={facility-ID}&fromPoint={lat,lon}&fromLevel={from-level}&toPoint={lat,lon}&toLevel={to-level}&minWidth={minimun-width}
     ```
 
     > [!TIP]
@@ -122,13 +122,18 @@ The wayfinding service calculates the path through specific intervening points. 
 
 <!-- TODO: ## Implement the wayfinding service in your map   (Refer to sample app once completed)  -->
 
+<!---------   Internal Links     --------------->
+[Check the routeset creation status]: #check-the-routeset-creation-status-and-retrieve-the-routesetid
+[Get the facility ID]: #get-the-facility-id
+<!---------   learn.microsoft.com links     --------------->
+[Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
+[Check the dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
 [Creator concepts]: creator-indoor-maps.md
 [dataset]: creator-indoor-maps.md#datasets
 [tileset]: creator-indoor-maps.md#tilesets
-[routeset]: /rest/api/maps/v20220901preview/routeset
-[wayfinding]: creator-indoor-maps.md#wayfinding-preview
-[wayfinding API]: /rest/api/maps/v20220901preview/wayfinding
-[Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
-[Check the dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
-[wayfinding service]: creator-indoor-maps.md#wayfinding-preview
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
+[wayfinding service]: creator-indoor-maps.md#wayfinding-preview
+[wayfinding]: creator-indoor-maps.md#wayfinding-preview
+<!---------   REST API Links     --------------->
+[routeset]: /rest/api/maps/2023-03-01-preview/routeset
+[wayfinding API]: /rest/api/maps/2023-03-01-preview/wayfinding

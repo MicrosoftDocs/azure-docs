@@ -14,7 +14,7 @@ The Azure Static Web Apps database connection feature allows you to access a dat
 
 Once you create a connection between your web application and database, you can manipulate data with full support for CRUD operations, built-in authorization, and relationships.
 
-Based on the [Data API builder](https://github.com/Azure/data-api-builder), Azure Static Web Apps takes REST and GraphQL requests and converts them to database queries.
+Based on the [Data API builder](/azure/data-api-builder), Azure Static Web Apps takes REST and GraphQL requests and converts them to database queries.
 
 Features supported by database connections include:
 
@@ -33,7 +33,7 @@ The following table shows support for different relational and NoSQL databases.
 
 | Name | Type | Description | REST | GraphQL |
 |---|---|---|---|---|
-| [Azure Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | Globally distributed database platform for both NoSQL and relational databases of any scale.<br><br>In addition to the [standard configuration](database-configuration.md), a [`gql` schema file](https://github.com/Azure/data-api-builder/blob/main/docs/getting-started/getting-started-azure-cosmos-db.md) is required for GraphQL endpoints. | | ✔ |
+| [Azure Cosmos DB](/azure/cosmos-db/distributed-nosql) | Standard | Globally distributed database platform for both NoSQL and relational databases of any scale.<br><br>In addition to the [standard configuration](database-configuration.md), a [`gql` schema file](/azure/data-api-builder/get-started/get-started-azure-cosmos-db#add-book-schema-file) is required for GraphQL endpoints. | | ✔ |
 | [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql&preserve-view=true) | Standard | Family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. | ✔ | ✔ |
 | [Azure Database for MySQL](/azure/mysql/single-server/overview#azure-database-for-mysql---flexible-server) | Flex |  Relational database service in the Microsoft cloud based on the MySQL Community Edition | ✔ | ✔ |
 | [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) | Flex | Fully managed PostgreSQL database-as-a-service that handles mission-critical workloads with predictable performance and dynamic scalability. | ✔ | ✔ |
@@ -78,7 +78,7 @@ Here's an example command that starts the SWA CLI with a database connection:
 swa start ./src --data-api-location swa-db-connections
 ```
 
-This command starts the SWA CLI in the *src* directory. The `--data-api-location` option tells the CLI that a folder named *swa-db-connections* holds the *[staticwebapps.database.config.json](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md)* file.
+This command starts the SWA CLI in the *src* directory. The `--data-api-location` option tells the CLI that a folder named *swa-db-connections* holds the *[staticwebapp.database.config.json](https://github.com/MicrosoftDocs/data-api-builder-docs/blob/main/data-api-builder/configuration-file.md)* file.
 
 > [!NOTE]
 > In development, if you use a connection string to authenticate, use the `env()` function to read a connection string from an environment variable. The string passed in to the `env` function must be surrounded by quotes.

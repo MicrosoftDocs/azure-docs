@@ -4,7 +4,8 @@ description: Use the Azure portal to create a lab, create a virtual machine in t
 ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/30/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Tutorial: Create a DevTest Labs lab and VM and add a user in the Azure portal

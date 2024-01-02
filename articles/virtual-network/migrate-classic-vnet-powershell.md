@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 01/25/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Migrate an Azure Virtual Network from classic to Resource Manager using Azure PowerShell
@@ -23,7 +23,7 @@ When you migrate the virtual network from the classic to Resource Manager model,
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- The steps and examples in this article use Azure PowerShell Az module. To install the Az modules locally on your computer, see [Install Azure PowerShell](/powershell/azure/install-az-ps). To learn more about the new Az module, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). PowerShell cmdlets are updated frequently. If you aren’t running the latest version, the values specified in the instructions may fail. To find the installed versions of PowerShell on your system, use the cmdlet Get-Module -ListAvailable Az cmdlet.
+- The steps and examples in this article use Azure PowerShell Az module. To install the Az modules locally on your computer, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell). To learn more about the new Az module, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). PowerShell cmdlets are updated frequently. If you aren’t running the latest version, the values specified in the instructions may fail. To find the installed versions of PowerShell on your system, use the cmdlet Get-Module -ListAvailable Az cmdlet.
 - To migrate a virtual network with an application gateway, remove the gateway before you run a prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager.
 - Verify that you’ve installed both the classic and Az Azure PowerShell modules locally on your computer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/).
 - Azure ExpressRoute gateways that connect to ExpressRoute circuits in another subscription can't be migrated automatically. In these cases, remove the ExpressRoute gateway, migrate the virtual network, and re-create the gateway.
@@ -36,7 +36,7 @@ The following scenarios are supported for a classic to Resource Manager migratio
 
 * Classic Virtual Networks with one availability set per cloud service at the most.
 
-* Classic Virtual Networks that contain Azure AD Domain services.
+* Classic Virtual Networks that contain Microsoft Entra Domain Services.
 
 * Classic Virtual Networks with a single VPN gateway or a single Express Route circuit.
 
@@ -159,4 +159,3 @@ For more information on migrating resources in Azure from classic to Resource Ma
 - [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
 - [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.yml).
 - [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md).
-

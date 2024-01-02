@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/08/2022
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to
 ---
 
 # Manage models registries in Azure Machine Learning with MLflow
@@ -19,12 +19,12 @@ Azure Machine Learning supports MLflow for model management. Such approach repre
 
 ### Prerequisites
 
-[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
+[!INCLUDE [mlflow-prereqs](includes/machine-learning-mlflow-prereqs.md)]
 
 * Some operations may be executed directly using the MLflow fluent API (`mlflow.<method>`). However, others may require to create an MLflow client, which allows to communicate with Azure Machine Learning in the MLflow protocol. You can create an `MlflowClient` object as follows. This tutorial uses the object `client` to refer to such MLflow client.
 
     ```python
-    using mlflow
+    import mlflow
 
     client = mlflow.tracking.MlflowClient()
     ```
@@ -117,7 +117,7 @@ You can load models directly from the registry to restore the models objects tha
 * `models:/<model-name>/<stage-name>`, to load a specific version in a given stage for a model. View [Model stages](#model-stages) for details.
 
 > [!TIP]
-> For learning about the difference between `mlflow.<flavor>.load_model()` and `mlflow.pyfunc.load_model()`, view [Loading MLflow models back](concept-mlflow-models.md#loading-mlflow-models-back) article.
+> To learn about the difference between `mlflow.<flavor>.load_model()` and `mlflow.pyfunc.load_model()`, view [Workflows for loading MLflow models](concept-mlflow-models.md#workflows-for-loading-mlflow-models).
 
 ## Model stages
 

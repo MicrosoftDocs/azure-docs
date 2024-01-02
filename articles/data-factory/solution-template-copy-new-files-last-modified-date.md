@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/22/2022
+ms.date: 08/10/2023
 ---
 
 # Copy new and changed files by LastModifiedDate with Azure Data Factory
@@ -34,7 +34,7 @@ The template defines six parameters:
 
 ## How to use this solution template
 
-1. Go to template **Copy new files only by LastModifiedDate**. Create a **New** connection to to your destination store. The destination store is where you want to copy files to.
+1. Go to template **Copy new files only by LastModifiedDate**. Create a **New** connection to your destination store. The destination store is where you want to copy files to.
 
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-1.png" alt-text="Create a new connection to the source":::
 	
@@ -98,6 +98,6 @@ The template defines six parameters:
 
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-15.png" alt-text="Screenshot that shows the results that return when the pipeline is triggered.":::
 	
-## Next steps
+## Related content
 
 - [Introduction to Azure Data Factory](introduction.md)

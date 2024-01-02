@@ -25,7 +25,7 @@ Before starting this how-to guide, you must complete the following prerequisites
 
 - [Create an organization in Azure DevOps](/azure/devops/organizations/accounts/create-organization)
 - [Create and add a project to the Azure DevOps organization](/azure/devops/organizations/projects/create-project)
-- Install and set up [Azure PowerShell](/powershell/azure/install-az-ps)
+- Install and set up [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 If you don't have an active Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
@@ -172,7 +172,6 @@ For more information, see the following resources:
 - [Azure Government blog](https://devblogs.microsoft.com/azuregov/)
 - [What is Infrastructure as Code? – Azure DevOps](/devops/deliver/what-is-infrastructure-as-code)
 - [DevSecOps for infrastructure as code (IaC) – Azure Architecture Center](/azure/architecture/solution-ideas/articles/devsecops-infrastructure-as-code)
-- [Testing your application and Azure environment – Microsoft Azure Well-Architected Framework](/azure/architecture/framework/devops/release-engineering-testing)
 - [Azure Government overview](./documentation-government-welcome.md)
 - [Azure Government security](./documentation-government-plan-security.md)
 - [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)

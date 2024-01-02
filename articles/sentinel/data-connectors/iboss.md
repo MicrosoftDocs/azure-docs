@@ -3,7 +3,7 @@ title: "iboss connector for Microsoft Sentinel"
 description: "Learn how to install the connector iboss to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -56,7 +56,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}
+  `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
 
 2. Forward Common Event Format (CEF) logs
 
@@ -72,7 +72,7 @@ Set your Threat Console to send Syslog messages in CEF format to your Azure work
 
 >5. Wait one to two minutes for the setup to complete
 
->6. Select your Microsoft Sentinel Service and verify the Sentinel Setup Status is Successful. If a dedicated proxy Linux machine has been configured, you may proceed with validating your connection
+>6. Select your Microsoft Sentinel Service and verify the Microsoft Sentinel Setup Status is Successful. If a dedicated proxy Linux machine has been configured, you may proceed with validating your connection
 
 3. Validate connection
 

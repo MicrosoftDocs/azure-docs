@@ -1,9 +1,9 @@
 ---
-title: Configure devices for network proxies - Azure IoT Edge | Microsoft Docs
-description: How to configure the Azure IoT Edge runtime and any internet-facing IoT Edge modules to communicate through a proxy server. 
+title: Configure devices for network proxies for Azure IoT Edge
+description: How to configure the Azure IoT Edge runtime and any internet-facing IoT Edge modules to communicate through a proxy server.
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/1/2022
+ms.date: 07/14/2023
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -129,7 +129,7 @@ Enter the following text, replacing **\<proxy URL>** with your proxy server addr
 
 ```ini
 [Service]
-Environment=https_proxy=<proxy URL>
+Environment="https_proxy=<proxy URL>"
 ```
 
 Starting in version 1.2, IoT Edge uses the IoT identity service to handle device provisioning with IoT Hub or IoT Hub Device Provisioning Service. Open an editor in the terminal to configure the IoT identity service daemon.
@@ -142,7 +142,7 @@ Enter the following text, replacing **\<proxy URL>** with your proxy server addr
 
 ```ini
 [Service]
-Environment=https_proxy=<proxy URL>
+Environment="https_proxy=<proxy URL>"
 ```
 
 Refresh the service manager to pick up the new configurations.

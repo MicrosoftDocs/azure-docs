@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q4, engagement-fy23
-ms.date: 02/07/2023
+ms.date: 05/24/2023
 ---
 
 # What is Azure Logic Apps?
@@ -151,7 +151,7 @@ When you create an ISE, Azure *injects* or deploys that ISE into your Azure virt
 
 ## How logic apps work
 
-In a logic app, each workflow always starts with a single [trigger](#logic-app-concepts). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. After the trigger fires, one or more [actions](#logic-app-concepts) run operations that process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step.
+In a logic app, each workflow always starts with a single [trigger](#logic-app-concepts). A trigger fires when a condition is met, for example, when a specific event happens or when data meets specific criteria. Many triggers include [scheduling capabilities](concepts-schedule-automated-recurring-tasks-workflows.md) that control how often your workflow runs. After the trigger fires, one or more [actions](#logic-app-concepts) run operations that process, handle, or convert data that travels through the workflow, or that advance the workflow to the next step. Azure Logic Apps implements and uses the "at-least-once" message delivery semantic. Rarely does the service deliver a message more than one time, but no messages are lost. If your business doesn't or can't handle duplicate messages, you need to implement idempotence, so that repeating the same exact operation doesn't change the result after the first execution.
 
 The following screenshot shows part of an example enterprise workflow. This workflow uses conditions and switches to determine the next action. Let's say you have an order system, and your workflow processes incoming orders. You want to review orders above a certain cost manually. Your workflow already has previous steps that determine how much an incoming order costs. So, you create an initial condition based on that cost value. For example:
 
@@ -197,7 +197,7 @@ You might also want to explore other quickstart guides for Azure Logic Apps:
 
 Learn more about the Azure Logic Apps platform with these introductory videos:
 
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps/player]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=integrate-your-mainframes-and-midranges-with-azure-logic-apps]
 
 ## Next steps
 

@@ -6,7 +6,10 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: ignite-fall-2021, mode-ui
+ms.custom:
+  - ignite-fall-2021
+  - mode-ui
+  - ignite-2023
 ---
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal
 
@@ -36,6 +39,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Resource Group**- Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group](../azure-resource-manager/management/overview.md) overview article.
    * **Cluster name** - Enter a name for your cluster.
    * **Location** - Location where your cluster will be deployed to.
+   * **Cassandra version** - Version of Apache Cassandra that will be deployed.
+   * **Extention** - Extensions that will be added, including [Cassandra Lucene Index](search-lucene-index.md).
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
    * **Confirm Cassandra admin password** - Reenter your password.
    * **Virtual Network** - Select an Exiting Virtual Network and Subnet, or create a new one. 
@@ -49,8 +54,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > - Azure KeyVault
    > - Azure Virtual Machine Scale Sets
    > - Azure Monitoring
-   > - Azure Active Directory
+   > - Microsoft Entra ID
    > - Azure Security
+
+   * **Auto Replicate** - Choose the form of auto-replication to be utilized. [Learn more](#turnkey-replication)
+    * **Schedule Event Strategy** - The strategy to be used by the cluster for scheduled events.
+    
+    > [!TIP]
+    > - StopANY means stop any node when there is a scheduled even for the node. 
+    > - StopByRack means only stop node in a given rack for a given Scheduled Event, e.g. if two or more events are scheduled for nodes in different racks at the same time, only nodes in one rack will be stopped whereas the other nodes in other racks are delayed.
 
 1. Next select the **Data center** tab.
 
@@ -59,6 +71,18 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Data center name** - Type a data center name in the text field.
    * **Availability zone** - Check this box if you want availability zones to be enabled.
    * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
+   
+   :::image type="content" source="./media/create-cluster-portal/l-sku-sizes.png" alt-text="Screenshot of select a SKU Size." lightbox="./media/create-cluster-portal/l-sku-sizes.png" border="true":::
+
+
+    > [!NOTE]
+    > We have introduced write-through caching (Public Preview) through the utilization of L-series VM SKUs. This implementation aims to minimize tail latencies and enhance read performance, particularly for read intensive workloads. These specific SKUs are equipped with locally attached disks, ensuring hugely increased IOPS for read operations and reduced tail latency.
+
+    > [!IMPORTANT]
+    > Write-through caching, is in public preview.
+    > This feature is provided without a service level agreement, and it's not recommended for production workloads.
+    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
    * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
    * **No. of nodes** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
 
@@ -67,7 +91,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > [!WARNING]
    > Availability zones are not supported in all regions. Deployments will fail if you select a region where Availability zones are not supported. See [here](../availability-zones/az-overview.md#azure-regions-with-availability-zones) for supported regions. The successful deployment of availability zones is also subject to the availability of compute resources in all of the zones in the given region. Deployments may fail if the SKU you have selected, or capacity, is not available across all zones. 
 
-1. Next, click **Review + create** > **Create**
+1. Next, select **Review + create** > **Create**
 
    > [!NOTE]
    > It can take up to 15 minutes for the cluster to be created.
@@ -84,16 +108,25 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Scale a datacenter
 
-1. Now that you have deployed a cluster with a single data center, you can scale the nodes up or down by highlighting the data center, and selecting the `Scale` button:
+Now that you have deployed a cluster with a single data center, you can either scale horizontally or vertically by highlighting the data center, and selecting the `Scale` button:
 
-   :::image type="content" source="./media/create-cluster-portal/datacenter-scale-1.png" alt-text="Screenshot of scaling datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-1.png" border="true":::
+:::image type="content" source="./media/create-cluster-portal/datacenter-scale-1.png" alt-text="Screenshot of scaling datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-1.png" border="true":::
 
-1. Next, move the slider to the desired number, or just edit the value. When finished, hit `Scale`. 
+### Horizontal scale
 
-   :::image type="content" source="./media/create-cluster-portal/datacenter-scale-2.png" alt-text="Screenshot of selecting number of datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-2.png" border="true":::
+To scale out on nodes, move the slider to the desired number, or just edit the value. When finished, hit `Scale`. 
 
-   > [!NOTE]
-   > The length of time it takes for nodes to scale depends on various factors, it may take several minutes. When Azure notifies you that the scale operation has completed, this does not mean that all your nodes have joined the Cassandra ring. Nodes will be fully commissioned when they all display a status of "healthy", and the datacenter status reads "succeeded".
+:::image type="content" source="./media/create-cluster-portal/datacenter-scale-2.png" alt-text="Screenshot of selecting number of datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-2.png" border="true":::
+
+
+### Vertical scale
+
+To scale up to a more powerful SKU size for your nodes, select from the `Sku Size` dropdown. When finished, hit `Scale`. 
+
+:::image type="content" source="./media/create-cluster-portal/datacenter-scale-3.png" alt-text="Screenshot of selecting Sku Size." lightbox="./media/create-cluster-portal/datacenter-scale-3.png" border="true":::
+
+> [!NOTE]
+> The length of time it takes for a scaling operation depends on various factors, it may take several minutes. When Azure notifies you that the scale operation has completed, this does not mean that all your nodes have joined the Cassandra ring. Nodes will be fully commissioned when they all display a status of "healthy", and the datacenter status reads "succeeded".
 
 ## Add a datacenter
 
@@ -129,6 +162,25 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. When the datacenter is deployed, you should be able to view all datacenter information in the **Data Center** pane:
 
    :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/multi-datacenter.png" border="true":::
+   
+1. To ensure replication between data centers, connect to [cqlsh](#connecting-from-cqlsh) and use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster (system tables will be updated automatically):
+
+   ```bash
+   ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'dc': 3, 'dc2': 3};
+   ```
+
+1. If you are adding a data center to a cluster where there is already data, you need to run `rebuild` to replicate the historical data. In Azure CLI, run the below command to execute `nodetool rebuild` on each node of the new data center, replacing `<new dc ip address>` with the IP address of the node, and `<olddc>` with the name of your existing data center:
+
+   ```azurecli-interactive
+    az managed-cassandra cluster invoke-command \
+      --resource-group $resourceGroupName \
+      --cluster-name $clusterName \
+      --host <new dc ip address> \
+      --command-name nodetool --arguments rebuild="" "<olddc>"=""
+   ```
+   
+   > [!WARNING]
+   > You should **not** allow application clients to write to the new data center until you have applied keyspace replication changes. Otherwise, rebuild won't work, and you will need to create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) so our team can run `repair` on your behalf. 
 
 ## Update Cassandra configuration
 
@@ -156,7 +208,7 @@ The service allows update to Cassandra YAML configuration on a datacenter via th
    > - seed_provider
    > - initial_token
    > - autobootstrap
-   > - client_ecncryption_options
+   > - client_encryption_options
    > - server_encryption_options
    > - transparent_data_encryption_options
    > - audit_logging_options
@@ -174,7 +226,67 @@ The service allows update to Cassandra YAML configuration on a datacenter via th
    > - data_file_directories
    > - commitlog_directory
    > - cdc_raw_directory
-   > - saved_caches_directory 
+   > - saved_caches_directory
+   > - endpoint_snitch
+   > - partitioner
+   > - rpc_address
+   > - rpc_interface 
+
+## Update Cassandra version
+
+> [!IMPORTANT]
+> Cassandra 4.1, 5.0 and Turnkey Version Updates, are in public preview.
+> These features are provided without a service level agreement, and it's not recommended for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+You have the option to conduct in-place major version upgrades directly from the portal or through Az CLI, Terraform, or ARM templates.
+
+1. Find the `Update` panel from the Overview tab
+
+   :::image type="content" source="./media/create-cluster-portal/cluster-version-1.png" alt-text="Screenshot of updating the Cassandra version." lightbox="./media/create-cluster-portal/cluster-version-1.png" border="true":::
+
+1. Select the Cassandra version from the dropdown.
+
+    > [!WARNING]
+    > Do not skip versions. We recommend to update only from one version to another example 3.11 to 4.0, 4.0 to 4.1.
+
+   :::image type="content" source="./media/create-cluster-portal/cluster-version.png" alt-text="Screenshot of selecting Cassandra version. " lightbox="./media/create-cluster-portal/cluster-version.png" border="true":::
+
+1. Select on update to save.
+
+
+### Turnkey replication
+
+Cassandra 5.0 introduces a streamlined approach for deploying multi-region clusters, offering enhanced convenience and efficiency. Using turnkey replication functionality, setting up and managing multi-region clusters has become more accessible, allowing for smoother integration and operation across distributed environments. This update significantly reduces the complexities traditionally associated with deploying and maintaining multi-region configurations, allowing users to use Cassandra's capabilities with greater ease and effectiveness.
+
+:::image type="content" source="./media/create-cluster-portal/auto-replicate.png" alt-text="Select referred option from the drop-down." lightbox="./media/create-cluster-portal/auto-replicate.png" border="true":::
+
+> [!TIP]
+> - None: Auto replicate is set to none.
+> - SystemKeyspaces: Auto-replicate all system keyspaces (system_auth, system_traces, system_auth)
+> - AllKeyspaces: Auto-replicate all keyspaces and monitor if new keyspaces are created and then apply auto-replicate settings automatically.
+
+#### Auto-replication scenarios
+
+* When adding a new data center, the auto-replicate feature in Cassandra will seamlessly execute `nodetool rebuild` to ensure the successful replication of data across the added data center.
+* Removing a data center triggers an automatic removal of the specific data center from the keyspaces.
+
+For external data centers, such as those hosted on-premises, they can be included in the keyspaces through the utilization of the external data center property. This enables Cassandra to incorporate these external data centers as sources for the rebuilding process.
+
+
+> [!WARNING]
+> Setting auto-replicate to AllKeyspaces will change your keyspaces replication to include 
+> `WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'on-prem-datacenter-1' : 3, 'mi-datacenter-1': 3 }`
+> If this is not the topology you want, you will need to use SystemKeyspaces, adjust them yourself, and run `nodetool rebuild` manually on the Azure Managed Instance for Apache Cassandra cluster.
+
+## De-allocate cluster
+
+1. For non-production environments, you can pause/de-allocate resources in the cluster in order to avoid being charged for them (you will continue to be charged for storage). First change cluster type to `NonProduction`, then `deallocate`.
+
+> [!WARNING] 
+> Do not execute any schema or write operations during de-allocation - this can lead to data loss and in rare cases schema corruption requiring manual intervention from the support team.
+
+   :::image type="content" source="./media/create-cluster-portal/pause-cluster.png" alt-text="Screenshot of pausing a cluster." lightbox="./media/create-cluster-portal/pause-cluster.png" border="true":::
 
 ## Troubleshooting
 
@@ -198,7 +310,7 @@ sudo apt update
 sudo apt install openjdk-8-jdk openjdk-8-jre
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo "deb http://archive.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra
@@ -214,12 +326,33 @@ cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 ```
 ### Connecting from an application
 
-As with CQLSH, connecting from an application using one of the supported [Apache Cassandra client drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html) requires SSL to be enabled. See samples for connecting to Azure Managed Instance for Apache Cassandra using [Java](https://github.com/Azure-Samples/azure-cassandra-mi-java-v4-getting-started) and [.NET](https://github.com/Azure-Samples/azure-cassandra-mi-dotnet-core-getting-started). For Java, we highly recommend enabling [speculative execution policy](https://docs.datastax.com/en/developer/java-driver/4.10/manual/core/speculative_execution/). You can find a demo illustrating how this works and how to enable the policy [here](https://github.com/Azure-Samples/azure-cassandra-mi-java-v4-speculative-execution).
+As with CQLSH, connecting from an application using one of the supported [Apache Cassandra client drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html) requires SSL encryption to be enabled, and certification verification to be disabled. See samples for connecting to Azure Managed Instance for Apache Cassandra using [Java](https://github.com/Azure-Samples/azure-cassandra-mi-java-v4-getting-started), [.NET](https://github.com/Azure-Samples/azure-cassandra-mi-dotnet-core-getting-started), [Node.js](https://github.com/Azure-Samples/azure-cassandra-mi-nodejs-getting-started) and [Python](https://github.com/Azure-Samples/azure-cassandra-mi-python-v4-getting-started).
 
 Disabling certificate verification is recommended because certificate verification will not work unless you map I.P addresses of your cluster nodes to the appropriate domain. If you have an internal policy which mandates that you do SSL certificate verification for any application, you can facilitate this by adding entries like `10.0.1.5 host1.managedcassandra.cosmos.azure.com` in your hosts file for each node. If taking this approach, you would also need to add new entries whenever scaling up nodes. 
 
+For Java, we also highly recommend enabling [speculative execution policy](https://docs.datastax.com/en/developer/java-driver/4.10/manual/core/speculative_execution/) where applications are sensitive to tail latency. You can find a demo illustrating how this works and how to enable the policy [here](https://github.com/Azure-Samples/azure-cassandra-mi-java-v4-speculative-execution).
 
+> [!NOTE]
+> In the vast majority of cases it should **not be necessary** to configure or install certificates (rootCA, node or client, truststores, etc) to connect to Azure Managed Instance for Apache Cassandra. SSL encryption can be enabled by using the default truststore and password of the runtime being used by the client (see [Java](https://github.com/Azure-Samples/azure-cassandra-mi-java-v4-getting-started), [.NET](https://github.com/Azure-Samples/azure-cassandra-mi-dotnet-core-getting-started), [Node.js](https://github.com/Azure-Samples/azure-cassandra-mi-nodejs-getting-started) and [Python](https://github.com/Azure-Samples/azure-cassandra-mi-python-v4-getting-started) samples), because Azure Managed Instance for Apache Cassandra certificates will be trusted by that environment. In rare cases, if the certificate is not trusted, you may need to add it to the truststore.  
 
+### Configuring client certificates (optional)
+
+Configuring client certificates is **optional**. A client application can connect to Azure Managed Instance for Apache Cassandra as long as the above steps have been taken. However, if preferred, you can also additionally create and configure client certificates for authentication. In general, there are two ways of creating certificates:
+
+- Self signed certs. This means a private and public (no CA) certificate for each node - in this case we need all public certificates.
+- Certs signed by a CA. This can be a self-signed CA or even a public one. In this case we need the root CA certificate (refer to [instructions on preparing SSL certificates](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html) for production), and all intermediaries (if applicable).
+
+If you want to implement client-to-node certificate authentication or mutual Transport Layer Security (mTLS), you need to provide the certificates via Azure CLI. The below command will upload and apply your client certificates to the truststore for your Cassandra Managed Instance cluster (i.e. you do not need to edit `cassandra.yaml` settings). Once applied, your  cluster will require Cassandra to verify the certificates when a client connects (see `require_client_auth: true` in Cassandra [client_encryption_options](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html#client_encryption_options)).
+
+   ```azurecli-interactive
+   resourceGroupName='<Resource_Group_Name>'
+   clusterName='<Cluster Name>'
+
+   az managed-cassandra cluster update \
+     --resource-group $resourceGroupName \
+     --cluster-name $clusterName \
+     --client-certificates /usr/csuser/clouddrive/rootCert.pem /usr/csuser/clouddrive/intermediateCert.pem
+   ```
 
 ## Clean up resources
 

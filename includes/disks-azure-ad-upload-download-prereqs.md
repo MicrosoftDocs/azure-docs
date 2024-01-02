@@ -1,12 +1,11 @@
 ---
  title: include file
  description: include file
- services: storage
  author: roygara
- ms.service: storage
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 11/28/2022
+ ms.date: 10/17/2023
  ms.author: rogarana
  ms.custom: include file
 ---
-- Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
+- Install the latest [Azure PowerShell module](/powershell/azure/install-azure-powershell).

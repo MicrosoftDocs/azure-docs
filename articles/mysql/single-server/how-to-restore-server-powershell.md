@@ -3,8 +3,8 @@ title: Backup and restore - Azure PowerShell - Azure Database for MySQL
 description: Learn how to backup and restore a server in Azure Database for MySQL by using Azure PowerShell.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/20/2022
@@ -25,7 +25,7 @@ server.
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or
+- The [Az PowerShell module](/powershell/azure/install-azure-powershell) installed locally or
   [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-powershell.md)
 

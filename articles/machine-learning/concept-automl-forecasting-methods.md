@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
-ms.date: 01/27/2023
+ms.date: 09/27/2023
 show_latex: true
 ---
 
@@ -165,7 +165,7 @@ Each Series in Own Group (1:1) | All Series in Single Group (N:1)
 -------------------| -----------------
 Naive, Seasonal Naive, Average, Seasonal Average, Exponential Smoothing, ARIMA, ARIMAX, Prophet | Linear SGD, LARS LASSO, Elastic Net, K Nearest Neighbors, Decision Tree, Random Forest, Extremely Randomized Trees, Gradient Boosted Trees, LightGBM, XGBoost, TCNForecaster
 
-More general model groupings are possible via AutoML's Many-Models solution; see our [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) and [Hierarchical time series- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-hierarchical-timeseries/auto-ml-forecasting-hierarchical-timeseries.ipynb).
+More general model groupings are possible via AutoML's Many-Models solution; see our [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1k_demand_forecasting_with_pipeline_components/automl-forecasting-demand-many-models-in-pipeline/automl-forecasting-demand-many-models-in-pipeline.ipynb).
 
 ## Next steps
 
@@ -174,3 +174,4 @@ More general model groupings are possible via AutoML's Many-Models solution; see
 * Learn about how AutoML creates [features from the calendar](./concept-automl-forecasting-calendar-features.md).
 * Learn about how AutoML creates [lag features](./concept-automl-forecasting-lags.md).
 * Read answers to [frequently asked questions](./how-to-automl-forecasting-faq.md) about forecasting in AutoML.
+  

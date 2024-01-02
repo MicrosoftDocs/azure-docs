@@ -6,12 +6,12 @@ ms.author: haital
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/29/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Customize the ingress configuration in Azure Spring Apps
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to set and update an application's ingress settings in Azure Spring Apps by using the Azure portal and Azure CLI.
 

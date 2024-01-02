@@ -60,8 +60,6 @@ For any questions or feedback about this dataset, contact the [Genome Reference 
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=genomics-reference-genomes -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=genomics-reference-genomes)**.
 
 ## Getting the Reference Genomes from Azure Open Datasets
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 08/20/2022
 #Customer intent: As a developer, I want to create and deploy an automated workflow in multi-tenant Azure Logic Apps with Azure Resource Manager templates (ARM templates).
 ---
@@ -83,7 +83,7 @@ Follow the option that you want to use for deploying the quickstart template:
 #### [CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-read -p "Enter a project name name to use for generating resource names:" projectName &&
+read -p "Enter a project name to use for generating resource names:" projectName &&
 read -p "Enter the location, such as 'westus':" location &&
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json" &&
 resourceGroupName="${projectName}rg" &&

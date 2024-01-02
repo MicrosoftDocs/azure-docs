@@ -83,7 +83,7 @@ What Ricardo just showed Cristina is a DFD, short for **[Data Flow Diagram](http
 
 ## Analyzing threats
 
-Once he clicks on the analysis view from the icon menu selection (file with magnifying glass), he is taken to a list of generated threats the Threat Modeling Tool found based on the default template, which uses the SDL approach called **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. The idea is that software comes under a predictable set of threats, which can be found using these 6 categories.
+Once he clicks on the analysis view from the icon menu selection (file with magnifying glass), he is taken to a list of generated threats the Threat Modeling Tool found based on the default template, which uses the SDL approach called **[STRIDE (Spoofing, Tampering, Repudiation, Info Disclosure, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. The idea is that software comes under a predictable set of threats, which can be found using these 6 categories.
 
 This approach is like securing your house by ensuring each door and window has a locking mechanism in place before adding an alarm system or chasing after the thief.
 

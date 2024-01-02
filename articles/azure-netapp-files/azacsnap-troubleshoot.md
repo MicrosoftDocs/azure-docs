@@ -23,6 +23,74 @@ This article describes how to troubleshoot issues when using the Azure Applicati
 
 You might encounter several common issues when running AzAcSnap commands. Follow the instructions to troubleshoot the issues. If you still have issues, open a Service Request for Microsoft Support from the Azure portal and assign the request to the SAP HANA Large Instance queue.
 
+## AzAcSnap command won't run
+
+In some cases AzAcSnap won't start due to the user's environment.
+
+### Failed to create CoreCLR
+
+AzAcSnap is written in .NET and the CoreCLR is an execution engine for .NET apps, performing functions such as IL byte code loading, compilation to machine code and garbage collection.  In this case there is an environmental problem blocking the CoreCLR engine from starting.
+
+A common cause is limited permissions or environmental setup for the AzAcSnap operating system user, usually 'azacsnap'.
+
+The error `Failed to create CoreCLR, HRESULT: 0x80004005` can be caused by lack of write access for the azacsnap user to the system's `TMPDIR`.
+
+> [!NOTE]
+> All command lines starting with `#` are commands run as `root`, all command lines starting with `>` are run as `azacsnap` user.
+
+Check the `/tmp` ownership and permissions (note in this example only the `root` user can read and write to `/tmp`):
+
+```bash
+# ls -ld /tmp
+drwx------ 9 root root 8192 Mar 31 10:50 /tmp
+```
+
+A typical `/tmp` has the following permissions, which would allow the azacsnap user to run the azacsnap command: 
+```bash
+# ls -ld /tmp
+drwxrwxrwt 9 root root 8192 Mar 31 10:51 /tmp
+```
+
+If it's not possible to change the `/tmp` directory permissions, then create a user specific `TMPDIR`.
+ 
+Make a `TMPDIR` for the `azacsnap` user:
+
+```bash
+> mkdir /home/azacsnap/_tmp
+> export TMPDIR=/home/azacsnap/_tmp
+> azacsnap -c about
+```
+
+```output
+ 
+ 
+                            WKO0XXXXXXXXXXXNW
+                           Wk,.,oxxxxxxxxxxx0W
+                           0;.'.;dxxxxxxxxxxxKW
+                          Xl'''.'cdxxxxxxxxxdkX
+                         Wx,''''.,lxxxxdxdddddON
+                         0:''''''.;oxdddddddddxKW
+                        Xl''''''''':dddddddddddkX
+                       Wx,''''''''':ddddddddddddON
+                       O:''''''''',xKxddddddoddod0W
+                      Xl''''''''''oNW0dooooooooooxX
+                     Wx,,,,,,'','c0WWNkoooooooooookN
+                    WO:',,,,,,,,;cxxxxooooooooooooo0W
+                    Xl,,,,,,,;;;;;;;;;;:llooooooooldX
+                   Nx,,,,,,,,,,:c;;;;;;;;coooollllllkN
+                  WO:,,,,,,,,,;kXkl:;;;;,;lolllllllloOW
+                  Xl,,,,,,,,,,dN WNOl:;;;;:lllllllllldK
+                  0c,;;;;,,,;lK     NOo:;;:clllllllllo0W
+                  WK000000000N        NK000KKKKKKKKKKXW
+ 
+ 
+                Azure Application Consistent Snapshot Tool
+                       AzAcSnap 7a (Build: 1AA8343)
+```
+
+> [!IMPORTANT]
+> Changing the user's `TMPDIR` would need to be made permanent by changing the user's profile (e.g. `$HOME/.bashrc` or `$HOME/.bash_profile`).  There would also be a need to clean-up the `TMPDIR` on system reboot, this is typically automatic for `/tmp`.
+
 ## Check log files, result files, and syslog
 
 Some of the best sources of information for investigating AzAcSnap issues are the log files, result files, and the system log.
@@ -218,13 +286,13 @@ Make sure the installer added the location of these files to the AzAcSnap user's
 
 This command output shows that the connection key hasn't been set up correctly with the `hdbuserstore Set` command.
 
-  ```bash
-  hdbsql -n 172.18.18.50 -i 00 -U AZACSNAP "select version from sys.m_database"
-  ```
+```bash
+hdbsql -n 172.18.18.50 -i 00 -U AZACSNAP "select version from sys.m_database"
+```
 
-  ```output
-  * -10104: Invalid value for KEY (AZACSNAP)
-  ```
+```output
+* -10104: Invalid value for KEY (AZACSNAP)
+```
 
 For more information on setup of the `hdbuserstore`, see [Get started with AzAcSnap](azacsnap-get-started.md).
 
@@ -266,7 +334,7 @@ To troubleshoot this error:
 
 ### Insufficient privilege error
 
-If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check that the user has the appropriate AZACSNAP database user privileges set up per the [installation guide](azacsnap-installation.md#enable-communication-with-database). Verify the user's privileges with the following command:
+If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check that the user has the appropriate AZACSNAP database user privileges set up per the [installation guide](azacsnap-installation.md#enable-communication-with-the-database). Verify the user's privileges with the following command:
 
 ```bash
 hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges " | grep -i -e GRANTEE -e azacsnap
@@ -298,3 +366,5 @@ In the preceding example, adding the `DATABASE BACKUP ADMIN` privilege to the SY
 
 - [Tips and tricks for using AzAcSnap](azacsnap-tips.md)
 - [AzAcSnap command reference](azacsnap-cmd-ref-configure.md)
+
+

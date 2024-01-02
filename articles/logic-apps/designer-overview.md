@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 05/23/2023
 ---
 
 # About the Standard logic app workflow designer in single-tenant Azure Logic Apps
@@ -28,45 +28,30 @@ When you select the **Designer** view, your workflow opens in the workflow desig
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
-- A *Standard* logic app resource [in a single-tenant environment](single-tenant-overview-compare.md). For more information, see [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
-- A workflow for your single-tenant logic app.
+- A *Standard* logic app resource [in single-tenant Azure Logic Apps](single-tenant-overview-compare.md). For more information, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps using the Azure portal](create-single-tenant-workflows-azure-portal.md).
+- A workflow for your Standard logic app resource.
 
 ## Latest version features
 
 The latest workflow designer offers a new experience with noteworthy features and benefits, for example:
 
 - A new layout engine that supports more complicated workflows.
+
 - You can create and view complicated workflows cleanly and easily, thanks to the new layout engine, a more compact canvas, and updates to the card-based layout.
+
 - Add and edit steps using panels separate from the workflow layout. This change gives you a cleaner and clearer canvas to view your workflow layout. For more information, review [Add steps to workflows](#add-steps-to-workflows).
+
 - Move between steps in your workflow on the designer using keyboard navigation.
+
   - Move to the next card: **Ctrl** + **Down Arrow (&darr;)**
+
   - Move to the previous card: **Ctrl** + **Up Arrow (&uarr;)**
 
 ## Add steps to workflows
 
 The workflow designer provides a visual way to add, edit, and delete steps in your workflow. As the first step in your workflow, always add a [*trigger*](logic-apps-overview.md#logic-app-concepts). Then, complete your workflow by adding one or more [*actions*](logic-apps-overview.md#logic-app-concepts).
 
-To add either the trigger or an action your workflow, follow these steps:
-
-1. Open your workflow in the designer.
-
-1. On the designer, select **Choose an operation**, which opens a pane named either **Add a trigger** or **Add an action**.
-
-1. In the opened pane, find an operation by filtering the list in the following ways:
-
-   1. Enter a service, connector, or category in the search bar to show related operations. For example, `Azure Cosmos DB` or `Data Operations`.
-
-   1. If you know the specific operation you want to use, enter the name in the search bar. For example, `Call an Azure function` or `When an HTTP request is received`.
-
-   1. Select the **Built-in** tab to only show categories of [*built-in operations*](logic-apps-overview.md#logic-app-concepts). Or, select the **Azure** tab to show other categories of operations available through Azure.
-
-   1. You can view only triggers or actions by selecting the **Triggers** or **Actions** tab. However, you can only add a trigger as the first step and an action as a following step. Based on the operation category, only triggers or actions might be available.
-
-      :::image type="content" source="./media/designer-overview/designer-add-operation.png" alt-text="Screenshot of the Logic Apps designer in the Azure portal, showing a workflow being edited to add a new operation." lightbox="./media/designer-overview/designer-add-operation.png":::
-
-1. Select the operation you want to use.
-
-   :::image type="content" source="./media/designer-overview/designer-filter-operations.png" alt-text="Screenshot of the Logic Apps designer, showing a pane of possible operations that can be filtered by service or name." lightbox="./media/designer-overview/designer-filter-operations.png":::
+To add a trigger or an action to your Standard workflow, see [Build a workflow with a trigger or action in Azure Logic Apps](create-workflow-with-trigger-or-action.md).
 
 1. Configure your trigger or action as needed.
 

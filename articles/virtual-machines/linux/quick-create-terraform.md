@@ -6,9 +6,11 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 08/31/2022
+ms.date: 07/24/2023
 ms.author: tarcher
 ms.custom: devx-track-terraform
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Use Terraform to create a Linux VM
@@ -17,55 +19,58 @@ ms.custom: devx-track-terraform
 
 Article tested with the following Terraform and Terraform provider versions:
 
-- [Terraform v1.2.7](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.3.20.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
-
 This article shows you how to create a complete Linux environment and supporting resources with Terraform. Those resources include a virtual network, subnet, public IP address, and more.
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 In this article, you learn how to:
 > [!div class="checklist"]
-
-> * Create a virtual network
-> * Create a subnet
-> * Create a public IP address
-> * Create a network security group and SSH inbound rule
-> * Create a virtual network interface card
-> * Connect the network security group to the network interface
-> * Create a storage account for boot diagnostics
-> * Create SSH key
-> * Create a virtual machine
-> * Use SSH to connect to virtual machine
-
-> [!NOTE]
-> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-vm-with-infrastructure). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+> * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
+> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
+> * Create a virtual network (VNET) using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network).
+> * Create a subnet using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet).
+> * Create a public IP using [azurerm_public_ip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip).
+> * Create a network security group using [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group).
+> * Create a network interface using [azurerm_network_interface](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface).
+> * Create an association between the network security group and the network interface using [azurerm_network_interface_security_group_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association).
+> * Generate a random value for a unique storage account name using [random_id](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id).
+> * Create a storage account for boot diagnostics using [azurerm_storage_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account).
+> * Create a Linux VM using [azurerm_linux_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine)
+> * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
+> * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
 ## Prerequisites
-
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
 ## Implement the Terraform code
 
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-vm-with-infrastructure). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-vm-with-infrastructure/TestRecord.md).
+>
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-vm-with-infrastructure/providers.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-vm-with-infrastructure/providers.tf":::
+
+1. Create a file named `ssh.tf` and insert the following code:
+
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-vm-with-infrastructure/ssh.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-vm-with-infrastructure/main.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-vm-with-infrastructure/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-vm-with-infrastructure/variables.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-vm-with-infrastructure/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-vm-with-infrastructure/outputs.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-vm-with-infrastructure/outputs.tf":::
 
 ## Initialize Terraform
 
@@ -81,28 +86,37 @@ In this article, you learn how to:
 
 ## Verify the results
 
-To use SSH to connect to the virtual machine, do the following steps:
+#### [Azure CLI](#tab/azure-cli)
 
-1. Run [terraform output](https://www.terraform.io/cli/commands/output) to get the SSH private key and save it to a file.
-
-    ```console
-    terraform output -raw tls_private_key > id_rsa
-    ```
-
-1. Run [terraform output](https://www.terraform.io/cli/commands/output) to get the virtual machine public IP address.
+1. Get the Azure resource group name.
 
     ```console
-    terraform output public_ip_address
+    resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Use SSH to connect to the virtual machine.
+1. Run [az vm list](/cli/azure/vm#az-vm-list) with a [JMESPath](/cli/azure/query-azure-cli) query to display the names of the virtual machines created in the resource group.
+
+    ```azurecli
+    az vm list \
+      --resource-group $resource_group_name \
+      --query "[].{\"VM Name\":name}" -o table
+    ```
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Get the Azure resource group name.
 
     ```console
-    ssh -i id_rsa azureuser@<public_ip_address>
+    $resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-    **Key points:** 
-    - Depending on the permissions of your environment, you might get an error when trying to ssh into the virtual machine using  the `id_rsa` key file. If you get an error stating that the private key file is unprotected and can't be used, try running the following command: `chmod 600 id_rsa`, which will restrict read and write access to the owner of the file.
+1. Run [Get-AzVm](/powershell/module/az.compute/get-azvm)  to display the names of all the virtual machines in the resource group.
+
+    ```azurepowershell
+    Get-AzVm -ResourceGroupName $resource_group_name
+    ```
+
+---
 
 ## Clean up resources
 

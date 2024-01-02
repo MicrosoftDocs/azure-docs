@@ -2,8 +2,8 @@
 title: Key components of a private mobile network
 titleSuffix: Azure Private 5G Core
 description: Learn about the key components of a private mobile network deployed through Azure Private 5G Core.
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual 
 ms.date: 02/09/2022
@@ -44,7 +44,7 @@ The following diagram shows the key resources you'll use to manage your private 
     For detailed information on policy control, see [Policy control](policy-control.md).
 
 - The *mobile network site* and *packet core* resources allow you to manage the sites in your private mobile network and the packet core instances that run in them.
-- Each *attached data network* resource allows you to manage how its associated packet core instance will connect to the corresponding data network. You can attach up to three data networks to a packet core instance.
+- Each *attached data network* resource allows you to manage how its associated packet core instance will connect to the corresponding data network. You can attach up to ten data networks to a packet core instance.
 
     Since each data network can be configured independently, you can provision separate data networks to serve different applications and UE groups. For example, you can use separate data networks for person-to-person, machine-to-machine, and edge applications in a single site.
 

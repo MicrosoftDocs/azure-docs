@@ -67,4 +67,4 @@ The `-r` flag instructs SCP to recursively copy the files and directories from t
 
 ## Next steps
 
-* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the 'VMAccess' Extension](./extensions/vmaccess.md)
+* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the 'VMAccess' Extension](./extensions/vmaccess-linux.md)

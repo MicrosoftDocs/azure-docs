@@ -7,7 +7,7 @@ author: abeomor
 ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 11/04/2022
@@ -43,7 +43,7 @@ To access the terminal:
 
 In addition to the steps above, you can also access the terminal from:
 
-* RStudio or Posit Workbench (formerly RStudio Workbench) (See [Add custom applications such as RStudio or Posit Workbench)](how-to-create-manage-compute-instance.md?tabs=python#add-custom-applications-such-as-rstudio-or-posit-workbench-preview)): Select the **Terminal** tab on top left.
+* RStudio or Posit Workbench (formerly RStudio Workbench) (See [Add custom applications such as RStudio or Posit Workbench)](how-to-create-compute-instance.md?tabs=python#add-custom-applications-such-as-rstudio-or-posit-workbench)): Select the **Terminal** tab on top left.
 * Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
 * SSH to the machine, if you enabled SSH access when the compute instance was created.
@@ -69,7 +69,7 @@ To integrate Git with your Azure Machine Learning workspace, see  [Git integrati
 
 Or you can install packages directly in Jupyter Notebook, RStudio, or Posit Workbench (formerly RStudio Workbench):
 
-* RStudio or Posit Workbench(see [Add custom applications such as RStudio or Posit Workbench](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench-preview)): Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
+* RStudio or Posit Workbench(see [Add custom applications such as RStudio or Posit Workbench](how-to-create-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench)): Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
 > [!NOTE]
@@ -102,7 +102,43 @@ To add a new Jupyter kernel to the compute instance:
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 
-Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
+Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.  
+
+To add a new R kernel to the compute instance:
+
+1. Use the terminal window to create a new environment. For example, the code below creates `r_env`:
+
+    ```shell
+    conda create -n r_env r-essentials r-base
+    ```
+
+1. Activate the environment.  For example, after creating `r_env`:
+
+    ```shell
+    conda activate r_env
+    ```
+
+1. Run R in the new environment:
+
+   ```
+   R
+   ```
+   
+1. At the R prompt, run `IRkernel`:
+
+   ```
+   IRkernel::installspec(name = 'irenv', displayname = 'New R Env')
+   ```
+
+1. Quit the R session.
+
+    ```
+    q()
+    ```
+
+It will take a few minutes before the new R kernel is ready to use.  If you get an error saying it is invalid, wait and then try again.
+
+For more information about conda, see [Using R language with Anaconda](https://docs.anaconda.com/free/anaconda/packages/using-r-language/). For more information about IRkernel, see [Native R kernel for Jupyter](https://cran.r-project.org/web/packages/IRkernel/readme/README.html).
 
 ### Remove added kernels
 

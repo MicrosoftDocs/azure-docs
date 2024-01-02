@@ -1,13 +1,12 @@
 ---
 title: Configure a lifecycle management policy
 titleSuffix: Azure Storage
-description: Configure a lifecycle management policy to automatically move data between hot, cool, and archive tiers during the data lifecycle.
+description: Configure a lifecycle management policy to automatically move data between hot, cool, cold, and archive tiers during the data lifecycle.
 author: normesta
 
 ms.author: normesta
-ms.date: 12/21/2022
-ms.service: storage
-ms.subservice: common
+ms.date: 08/30/2023
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli" 
@@ -18,7 +17,7 @@ ms.devlang: azurecli
 
 Azure Storage lifecycle management offers a rule-based policy that you can use to transition blob data to the appropriate access tiers or to expire data at the end of the data lifecycle. A lifecycle policy acts on a base blob, and optionally on the blob's versions or snapshots. For more information about lifecycle management policies, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md).
 
-A lifecycle management policy is comprised of one or more rules that define a set of actions to take based on a condition being met. For a base blob, you can choose to check one of the following conditions:
+A lifecycle management policy is composed of one or more rules that define a set of actions to take based on a condition being met. For a base blob, you can choose to check one of the following conditions:
 
 - The number of days since the blob was created.
 - The number of days since the blob was last modified.
@@ -30,7 +29,9 @@ For a blob snapshot or version, the condition that is checked is the number of d
 
 ## Optionally enable access time tracking
 
-Before you configure a lifecycle management policy, you can choose to enable blob access time tracking. When access time tracking is enabled, a lifecycle management policy can include an action based on the time that the blob was last accessed with a read or write operation.To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
+Before you configure a lifecycle management policy, you can choose to enable blob access time tracking. When access time tracking is enabled, a lifecycle management policy can include an action based on the time that the blob was last accessed with a read or write operation. To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
+
+If [last access time tracking](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. This date is also used when the `LastAccessTime` property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](lifecycle-management-overview.md#move-data-based-on-last-accessed-time).
 
 #### [Portal](#tab/azure-portal)
 
@@ -38,6 +39,7 @@ To enable last access time tracking with the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. In the **Data management** section, select **Lifecycle management**.
+1. Check the checkbox "Enable access tracking"
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot showing how to enable last access tracking in Azure portal.](media/lifecycle-management-policy-configure/last-access-tracking-enable.png)
@@ -100,7 +102,7 @@ There are two ways to add a policy through the Azure portal.
 
   :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
 
-  The **Last accessed** option is available only if you have enabled access time tracking. To learn how to enable access tracking, see [Optionally enable access time tracking](#optionally-enable-access-time-tracking).
+  The **Last accessed** option is available only if you have enabled access time tracking and you've selected **Block blobs** as the blob type. To learn how to enable access tracking, see [Optionally enable access time tracking](#optionally-enable-access-time-tracking).
 
 1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs whose name begins with *log* in a container called *sample-container*.
 
@@ -213,22 +215,8 @@ To define a lifecycle management policy with an Azure Resource Manager template,
 
 ---
 
-A lifecycle management policy must be read or written in full. Partial updates are not supported.
-
-
-> [!NOTE]
-> Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
-
-> [!NOTE]
-> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
-
-> [!NOTE]
-> A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
-
-> [!NOTE]
-> The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
-
 ## See also
 
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
-- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
+- [Known issues and limitations for lifecycle management policies](lifecycle-management-overview.md#known-issues-and-limitations)
+- [Access tiers for blob data](access-tiers-overview.md)

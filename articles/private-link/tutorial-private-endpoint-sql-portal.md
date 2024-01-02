@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 06/22/2022
+ms.date: 08/30/2023
 ms.author: allensu
 ms.custom: template-tutorial, fasttrack-edit, template-tutorial
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -33,178 +33,57 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a virtual network and bastion host
+[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
 
-In this section, you'll create a virtual network, subnet, and bastion host. 
-
-The bastion host will be used to connect securely to the virtual machine for testing the private endpoint.
-
-1. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
-
-2. In **Create virtual network**, enter or select this information in the **Basics** tab:
-
-    | Setting          | Value                                                          |
-    |------------------|-----------------------------------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription.                                  |
-    | Resource Group   | Select **Create new**. </br> Enter **CreateSQLEndpointTutorial** in **Name**. </br> Select **OK**. |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **myVNet**.                                    |
-    | Region           | Select **East US**. |
-
-3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
-
-4. In the **IP Addresses** tab, enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16**. |
-
-5. Under **Subnet name**, select the word **default**.
-
-6. In **Edit subnet**, enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Subnet name | Enter **mySubnet**. |
-    | Subnet address range | Enter **10.1.0.0/24**. |
-
-7. Select **Save**.
-
-8. Select the **Security** tab.
-
-9. Under **BastionHost**, select **Enable**. Enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost**. |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/24**. |
-    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
-
-
-8. Select the **Review + create** tab or select the **Review + create** button.
-
-9. Select **Create**.
-
-## Create a virtual machine
-
-In this section, you'll create a virtual machine that will be used to test the private endpoint.
-
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine** or search for **Virtual machine** in the search box.
-   
-2. In **Create a virtual machine**, enter or select the values in the **Basics** tab:
-
-    | Setting | Value                                          |
-    |-----------------------|----------------------------------|
-    | **Project Details** |  |
-    | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **CreateSQLEndpointTutorial**. |
-    | **Instance details** |  |
-    | Virtual machine name | Enter **myVM**. |
-    | Region | Select **(US) East US**. |
-    | Availability Options | Select **No infrastructure redundancy required**. |
-    | Security type | Select **Standard**. |
-    | Image | Select **Windows Server 2019 Datacenter - Gen2**. |
-    | Azure Spot instance | Select **No**. |
-    | Size | Choose VM size or take default setting. |
-    | **Administrator account** |  |
-    | Username | Enter a username. |
-    | Password | Enter a password. |
-    | Confirm password | Reenter password. |
-
-3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
-  
-4. In the **Networking** tab, enter or select this information:
-
-    | Setting | Value |
-    |-|-|
-    | **Network interface** |  |
-    | Virtual network | Select **myVNet**. |
-    | Subnet | Select **mySubnet**. |
-    | Public IP | Select **None**. |
-    | NIC network security group | Select **Basic**. |
-    | Public inbound ports | Select **None**. |
-   
-5. Select **Review + create**. 
-  
-6. Review the settings, and then select **Create**.
-
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [create-test-virtual-machine-linux.md](../../includes/create-test-virtual-machine-linux.md)]
 
 ## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server and private endpoint
 
-In this section, you'll create a SQL server in Azure. 
+In this section, you create a SQL server in Azure. 
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **SQL database**.
+1. In the search box at the top of the portal, enter **SQL**. Select **SQL databases** in the search results.
 
-1. In the **Basics** tab of **Create SQL database**, enter or select this information:
+1. In **SQL databases**, select **+ Create**.
+
+1. In the **Basics** tab of **Create SQL Database**, enter or select the following information:
 
     | Setting | Value |
-    | ------- | ----- |
-    | **Project details** | |
+    |---|---|
+    | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **CreateSQLEndpointTutorial**. You created this resource group in the previous section.|
+    | Resource group | Select **test-rg**. |
     | **Database details** |  |
-    | Database name  | Enter **mysqldatabase**. |
-    | Server | Select **Create new**. |
-
-1. In **Create SQL Database Server**, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Server details** | |
-    | Server name  | Enter **mysqlserver**. If this name is taken, create a unique name.|
-    | Location | Select **(US) East US**. |
-    | **Authentication** | |
-    | Authentication method | Select **Use SQL authentication**. |
-    | Server admin login | Enter an administrator name of your choosing. |
-    | Password | Enter a password of your choosing. The password must be at least eight characters long and meet the defined requirements. |
-    | Confirm password | Reenter password. |
-    
-1. Select **OK**.
-
-1. In the **Basics** tab, enter or select this information after creating the SQL database server:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Database details** |  |
-    | Want to use SQL elastic pool?  | Select **No**. |
-    | Compute + Storage | Take default settings or select **Configure database** to configure compute and storage settings. |
+    | Database name | Enter **sql-db**. |
+    | Server | Select **Create new**. </br> Enter **sql-server-1** in **Server name** (Server names must be unique, replace **sql-server-1** with a unique value). </br> Select **(US) East US 2** in **Location**. </br> Select **Use SQL authentication**. </br> Enter a server admin sign-in and password. </br> Select **OK**. |
+    | Want to use SQL elastic pool? | Select **No**. |
+    | Workload environment | Leave the default of **Production**. |
     | **Backup storage redundancy** |  |
-    | Backup storage redundancy  | Select **Locally-redundant backup storage**. |
+    | Backup storage redundancy | Select **Locally redundant backup storage**. |
 
-    :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-inline.png" alt-text="Screenshot of Create S Q L Database page showing the settings used." lightbox="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-expanded.png":::
+1. Select **Next: Networking**.
 
-1. Select the **Networking** tab or select the **Next: Networking** button.
-
-1. In the **Networking** tab, enter or select this information:
+1. In the **Networking** tab of **Create SQL Database**, enter or select the following information:
 
     | Setting | Value |
-    | ------- | ----- |
-    | **Network connectivity** | |
+    |---|---|
+    | **Network connectivity** |  |
     | Connectivity method | Select **Private endpoint**. |
-   
-1. Select **+ Add private endpoint** in **Private endpoints**.
-
-1. In **Create private endpoint**, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
+    | **Private endpoints** |  |
+    | Select **+Add private endpoint**. |   |
+    | **Create private endpoint** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **CreateSQLEndpointTutorial**. |
-    | Location | Select **East US**. |
-    | Name | Enter **myPrivateSQLendpoint**. |
-    | Target sub-resource | Select **SqlServer**. |
+    | Resource group | Select **test-rg**. |
+    | Location | Select **East US 2**. |
+    | Name | Enter **private-endpoint-sql**. |
+    | Target subresource | Select **SqlServer**. |
     | **Networking** |  |
-    | Virtual network | Select **myVNet**. |
-    | Subnet | Select **mySubnet**. |
-    | **Private DNS integration** | |
-    | Integrate with private DNS zone | Leave the default **Yes**. |
-    | Private DNS Zone | Leave the default **(New) privatelink.database.windows.net**. |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | Select **subnet-1**. |
+    | **Private DNS integration** |  |
+    | Integrate with private DNS zone | Select **Yes**. |
+    | Private DNS zone | Leave the default of **privatelink.database.windows.net**. |
 
-1. Select **OK**. 
-
-    :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/create-private-endpoint-sql-inline.png" alt-text="Screenshot of Create private endpoint page showing the settings used." lightbox="./media/tutorial-private-endpoint-sql-portal/create-private-endpoint-sql-expanded.png":::
+1. Select **OK**.
 
 1. Select **Review + create**.
 
@@ -214,78 +93,76 @@ In this section, you'll create a SQL server in Azure.
 > When adding a Private endpoint connection, public routing to your Azure SQL server is not blocked by default. The setting "Deny public network access" under the "Firewall and virtual networks" blade is left unchecked by default. To disable public network access ensure this is checked.
  
 ## Disable public access to Azure SQL logical server
+
 For this scenario, assume you would like to disable all public access to your Azure SQL server, and only allow connections from your virtual network.
  
-1. In the Azure portal search box, enter **mysqlserver** or the server name you entered in the previous steps.
-2. On the **Networking** page, select **Public access** tab, then select **Disable** for **Public network access**.
+1. In the search box at the top of the portal, enter **SQL server**. Select **SQL servers** in the search results.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/disable-sql-server-public-access-inline.png" alt-text="Screenshot of the S Q L server Networking page showing how to disable public access." lightbox="./media/tutorial-private-endpoint-sql-portal/disable-sql-server-public-access-expanded.png":::
+1. Select **sql-server-1**.
+
+1. On the **Networking** page, select **Public access** tab, then select **Disable** for **Public network access**.
     
-3. Select **Save**.
+1. Select **Save**.
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous steps to connect to the SQL server across the private endpoint.
+In this section, you use the virtual machine you created in the previous steps to connect to the SQL server across the private endpoint.
 
-1. Select **Resource groups** in the left-hand navigation pane.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **CreateSQLEndpointTutorial**.
+1. Select **vm-1**.
 
-3. Select **myVM**.
+1. In **Operations** select **Bastion**.
 
-4. On the overview page for **myVM**, select **Connect** then **Bastion**.
-
-5. Enter the username and password that you entered during the virtual machine creation.
-
-6. Select **Connect** button.
-
-7. Open Windows PowerShell on the server after you connect.
-
-8. Enter `nslookup <sqlserver-name>.database.windows.net`. Replace **\<sqlserver-name>** with the name of the SQL server you created in the previous steps. You'll receive a message similar to what is displayed below: 
-
-    ```powershell
-    Server:  UnKnown
-    Address:  168.63.129.16
-
-    Non-authoritative answer:
-    Name:    mysqlserver.privatelink.database.windows.net
-    Address:  10.1.0.5
-    Aliases:  mysqlserver.database.windows.net
-    ```
-    A private IP address of **10.1.0.5** is returned for the SQL server name. This address is in **mySubnet** subnet of **myVNet** virtual network you created previously.
-
-9. Install [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) on **myVM**.
-
-10. Open **SQL Server Management Studio**.
-
-4. In **Connect to server**, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Server type | Select **Database Engine**.|
-    | Server name | Enter **\<sqlserver-name>.database.windows.net**. |
-    | Authentication | Select **SQL Server Authentication**. |
-    | User name | Enter the username you entered during server creation. |
-    | Password | Enter the password you entered during server creation. |
-    | Remember password | Select **Yes**. |
+1. Enter the username and password for the virtual machine.
 
 1. Select **Connect**.
-2. Browse databases from left menu.
-3. (Optionally) Create or query information from **mysqldatabase**.
-4. Close the remote desktop connection to **myVM**. 
 
-## Clean up resources 
-When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter **CreateSQLEndpointTutorial** in the **Search** box at the top of the portal and select **CreateSQLEndpointTutorial** from the search results. 
-2. Select **Delete resource group**. 
-3. Enter *CreateSQLEndpointTutorial* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+1. To verify name resolution of the private endpoint, enter the following command in the terminal window:
+
+    ```bash
+    nslookup sql-server-1.database.windows.net
+    ```
+
+    You receive a message similar to the following example. The IP address returned is the private IP address of the private endpoint.
+
+    ```output
+    Server:    127.0.0.53
+    Address:   127.0.0.53#53
+
+    Non-authoritative answer:
+    sql-server-8675.database.windows.netcanonical name = sql-server-8675.privatelink.database.windows.net.
+    Name:sql-server-8675.privatelink.database.windows.net
+    Address: 10.1.0.4
+    ```
+
+1. Install the SQL server command line tools from [Install the SQL Server command-line tools sqlcmd and bcp on Linux](/sql/linux/sql-server-linux-setup-tools). Proceed with the next steps after the installation is complete.
+
+1. Use the following commands to connect to the SQL server you created in the previous steps.
+
+    * Replace **\<server-admin>** with the admin username you entered during the SQL server creation.
+
+    * Replace **\<admin-password>** with the admin password you entered during SQL server creation.
+
+    * Replace **sql-server-1** with the name of your SQL server.
+
+    ```bash
+    sqlcmd -S sql-server-1.database.windows.net -U '<server-admin>' -P '<admin-password>'
+    ```
+
+1. A SQL command prompt is displayed on successful sign in. Enter **exit** to exit the **sqlcmd** tool.
+
+
+[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
 ## Next steps
 
 In this tutorial, you learned how to create:
 
 * Virtual network and bastion host.
+
 * Virtual machine.
+
 * Azure SQL server with private endpoint.
 
 You used the virtual machine to test connectivity privately and securely to the SQL server across the private endpoint.

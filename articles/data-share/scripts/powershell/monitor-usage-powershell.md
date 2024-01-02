@@ -4,9 +4,9 @@ description: This PowerShell script retrieves usage metrics of a sent data share
 author: sidontha
 ms.service: data-share
 ms.topic: article
-ms.date: 10/31/2022
+ms.date: 12/19/2023
 ms.author: sidontha 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Use PowerShell to monitor the usage of a sent data share
@@ -30,10 +30,9 @@ Get-AzDataShareSynchronization -ResourceGroupName $resourceGroupName -AccountNam
 Get-AzDataShareSynchronizationDetails -ResourceGroupName $resourceGroupName -AccountName $dataShareAccountName -ShareName $dataShareName -SynchronizationId $synchronizationId
 ```
 
-
 ## Script explanation
 
-This script uses the following commands: 
+This script uses the following commands:
 
 | Command | Notes |
 |---|---|
@@ -45,4 +44,4 @@ This script uses the following commands:
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
-Additional Azure Data Share PowerShell script samples can be found in the [Azure Data Share PowerShell samples](../../samples-powershell.md).
+Other Azure Data Share PowerShell script samples can be found in the [Azure Data Share PowerShell samples](../../samples-powershell.md).

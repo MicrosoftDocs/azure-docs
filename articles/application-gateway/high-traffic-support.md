@@ -5,25 +5,27 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 05/19/2023
 ms.author: greglin
 ---
 
 # Application Gateway high traffic support
 
->[!NOTE]
+> [!NOTE]
 > This article describes a few suggested guidelines to help you set up your Application Gateway to handle extra traffic for any high traffic volume that may occur. The alert thresholds are purely suggestions and generic in nature. Users can determine alert thresholds based on their workload and utilization expectations.
 
 You can use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to your web applications.
 
-It is important that you scale your Application Gateway according to your traffic and with a bit of a buffer so that you're prepared for any traffic surges or spikes and minimizing the impact that it may have in your QoS. The following suggestions help you set up Application Gateway with WAF to handle extra traffic.
+It's important that you scale your Application Gateway according to your traffic and with a bit of a buffer so that you're prepared for any traffic surges or spikes and minimizing the impact that it may have in your QoS. The following suggestions help you set up Application Gateway with WAF to handle extra traffic.
 
 Please check the [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](../azure-monitor/alerts/alerts-metric.md) on how to set alerts for metrics.
+
+For details and recommendations on performance efficiency for Application Gateway, see [Azure Well-Architected Framework review - Azure Application Gateway v2](/azure/well-architected/services/networking/azure-application-gateway#performance-efficiency).
 
 ## Scaling for Application Gateway v1 SKU (Standard/WAF SKU)
 
 ### Set your instance count based on your peak CPU usage
-If you're using a v1 SKU gateway, you’ll have the ability to set your Application Gateway up to 32 instances for scaling. Check your Application Gateway’s CPU utilization in the past one month for any spikes above 80%, it is available as a metric for you to monitor. It is recommended that you set your instance count according to your peak usage and with a 10% to 20% additional buffer to account for any traffic spikes.
+If you're using a v1 SKU gateway, you’ll have the ability to set your Application Gateway up to 32 instances for scaling. Check your Application Gateway’s CPU utilization in the past one month for any spikes above 80%, it's available as a metric for you to monitor. It's recommended that you set your instance count according to your peak usage and with a 10% to 20% additional buffer to account for any traffic spikes.
 
 :::image type="content" source="./media/application-gateway-covid-guidelines/v1-cpu-utilization-inline.png" alt-text="V1 CPU utilization metrics" lightbox="./media/application-gateway-covid-guidelines/v1-cpu-utilization-exp.png":::
 
@@ -34,9 +36,9 @@ The v2 SKU offers autoscaling to ensure that your Application Gateway can scale 
 
 ### Set maximum instance count to the maximum possible (125)
  
-For Application Gateway v2 SKU, setting the maximum instance count to the maximum possible value of 125 allows the Application Gateway to scale out as needed. This allows it to handle the possible increase in traffic to your applications. You will only be charged for the Capacity Units (CUs) you use. 
+For Application Gateway v2 SKU, setting the maximum instance count to the maximum possible value of 125 allows the Application Gateway to scale out as needed. This allows it to handle the possible increase in traffic to your applications. You are only be charged for the Capacity Units (CUs) you use. 
 
-Make sure to check your subnet size and available IP address count in your subnet and set your maximum instance count based on that. If your subnet doesn’t have enough space to accommodate, you will have to re-create your gateway in the same or different subnet which has enough capacity. 
+Make sure to check your subnet size and available IP address count in your subnet and set your maximum instance count based on that. If your subnet doesn’t have enough space to accommodate, you must recreate your gateway in the same or different subnet which has enough capacity. 
 
 :::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-inline.png" alt-text="V2 autoscaling configuration" lightbox="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-exp.png":::
 
@@ -44,7 +46,7 @@ Make sure to check your subnet size and available IP address count in your subne
 
 For Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale out and provision additional set of instances ready to take traffic. Until then, if there are short spikes in traffic, your existing gateway instances might get under stress and this may cause unexpected latency or loss of traffic. 
 
-It is recommended that you set your minimum instance count to an optimal level. For example, if you require 50 instances to handle the traffic at peak load, then setting the minimum 25 to 30 is a good idea rather than at <10 so that even when there are short bursts of traffic, Application Gateway would be able to handle it and give enough time for autoscaling to respond and take effect.
+It's recommended that you set your minimum instance count to an optimal level. For example, if you require 50 instances to handle the traffic at peak load, then setting the minimum 25 to 30 is a good idea rather than at <10 so that even when there are short bursts of traffic, Application Gateway would be able to handle it and give enough time for autoscaling to respond and take effect.
 
 Check your Compute Unit metric for the past one month. Compute unit metric is a representation of your gateway's CPU utilization and based on your peak usage divided by 10, you can set the minimum number of instances required. Note that 1 application gateway instance can handle a minimum of 10 compute units
 
@@ -54,7 +56,7 @@ Check your Compute Unit metric for the past one month. Compute unit metric is a 
 
 ### Set your instance count based on your peak Compute Unit usage 
 
-Unlike autoscaling, in manual scaling, you must manually set the number of instances of your application gateway based on the traffic requirements. It is recommended that you set your instance count according to your peak usage and with a 10% to 20% additional buffer to account for any traffic spikes. For example, if your traffic requires 50 instances at peak, provision 55 to 60 instances to handle unexpected traffic spikes that may occur.
+Unlike autoscaling, in manual scaling, you must manually set the number of instances of your application gateway based on the traffic requirements. It's recommended that you set your instance count according to your peak usage and with a 10% to 20% additional buffer to account for any traffic spikes. For example, if your traffic requires 50 instances at peak, provision 55 to 60 instances to handle unexpected traffic spikes that may occur.
 
 Check your Compute Unit metric for the past one month. Compute unit metric is a representation of your gateway's CPU utilization and based on your peak usage divided by 10, you can set the number of instances required, since 1 application gateway instance can handle a minimum of 10 compute units
 
@@ -72,7 +74,7 @@ Under normal conditions, CPU usage should not regularly exceed 90%, as this may 
 
 ### Alert if Unhealthy host count crosses threshold
 
-This metric indicates number of backend servers that application gateway is unable to probe successfully. This will catch issues where Application gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity. E.g. if currently you have 30 backend servers in their backend pool, set an alert if the unhealthy host count goes above 6.
+This metric indicates number of backend servers that application gateway is unable to probe successfully. This catches issues where Application gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity. For example, if you have 30 backend servers in a backend pool, set an alert if the unhealthy host count goes above 6.
 
 ### Alert if Response status (4xx, 5xx) crosses threshold 
 
@@ -97,7 +99,7 @@ This example shows you how to use the Azure portal to set up an alert when the f
 
 ### Alert if Compute Unit utilization crosses 75% of average usage 
 
-Compute unit is the measure of compute utilization of your Application Gateway. Check your average compute unit usage in the last one month and set alert if it crosses 75% of it. For example, if your average usage is 10 compute units, set an alert on 7.5 CUs. This alerts you if usage is increasing and gives you time to respond. You can raise the minimum if you think this traffic will be sustained to alert you that traffic may be increasing. Follow the scaling suggestions above to scale out as necessary.
+Compute unit's the measure of compute utilization of your Application Gateway. Check your average compute unit usage in the last one month and set alert if it crosses 75% of it. For example, if your average usage is 10 compute units, set an alert on 7.5 CUs. This alerts you if usage is increasing and gives you time to respond. You can raise the minimum if you think this traffic will be sustained to alert you that traffic may be increasing. Follow the scaling suggestions above to scale out as necessary.
 
 ### Example: Setting up an alert on 75% of average CU usage
 
@@ -118,7 +120,7 @@ Capacity units represent overall gateway utilization in terms of throughput, com
 
 ### Alert if Unhealthy host count crosses threshold 
 
-This metric indicates number of backend servers that application gateway is unable to probe successfully. This will catch issues where Application gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity. E.g. if currently you have 30 backend servers in their backend pool, set an alert if the unhealthy host count goes above 6.
+This metric indicates number of backend servers that application gateway is unable to probe successfully. This catches issues where Application gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity. For example, if you have 30 backend servers in a backend pool, set an alert if the unhealthy host count goes above 6.
 
 ### Alert if Response status (4xx, 5xx) crosses threshold 
 
@@ -145,5 +147,5 @@ Enable bot protection to block known bad bots. This should reduce the amount of 
 
 Diagnostic logs allow you to view firewall logs, performance logs, and access logs. You can use these logs in Azure to manage and troubleshoot Application Gateways. For more information, see our [diagnostics documentation](./application-gateway-diagnostics.md#diagnostic-logging). 
 
-## Set up an TLS policy for extra security
-Ensure you're using the latest TLS policy version ([AppGwSslPolicy20220101](./application-gateway-ssl-policy-overview.md#predefined-tls-policy)) or higher. These support minimum TLS version 1.2 with stronger ciphers. For more information, see [configuring TLS policy versions and cipher suites via PowerShell](./application-gateway-configure-ssl-policy-powershell.md).
+## Set up a TLS policy for extra security
+Ensure you're using the latest TLS policy version ([AppGwSslPolicy20220101](./application-gateway-ssl-policy-overview.md#predefined-tls-policy)) or higher. These support a minimum TLS version of 1.2 with stronger ciphers. For more information, see [configuring TLS policy versions and cipher suites via PowerShell](./application-gateway-configure-ssl-policy-powershell.md).

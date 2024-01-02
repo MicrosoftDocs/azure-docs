@@ -31,7 +31,7 @@ Event Grid on Kubernetes supports various event-driven integration scenarios. Ho
 
 "As an owner of a system deployed to a Kubernetes cluster, I want to communicate my system's state changes by publishing events and configuring routing of those events so that event handlers, under my control or otherwise, can process my system's events in a way they see fit."
 
-**Feature** that helps you realize above requirement: [Event Grid topics](/rest/api/eventgrid/controlplane-version2021-10-15-preview/topics).
+**Feature** that helps you realize above requirement: [Event Grid topics](/rest/api/eventgrid/controlplane-preview/topics).
 
 ### Event Grid on Kubernetes at a glance
 From the user perspective, Event Grid on Kubernetes is composed of the following resources in blue:
@@ -64,7 +64,7 @@ With Event Grid on Kubernetes, you can forward events to Azure for further proce
 Event handler destinations can be any HTTPS or HTTP endpoint to which Event Grid can reach through the network, public or private, and has access (not protected with some authentication mechanism). You define event delivery destinations when you create an event subscription. For more information, see [event handlers](event-handlers.md). 
 
 ## Features
-Event Grid on Kubernetes supports [Event Grid topics](/rest/api/eventgrid/controlplane-version2021-10-15-preview/topics), which is a feature also offered by [Azure Event Grid](../custom-topics.md). Event Grid topics help you realize the [primary integration use case](#use-case) where your requirements call for integrating your system with another workload that you own or otherwise is made accessible to your system.
+Event Grid on Kubernetes supports [Event Grid topics](/rest/api/eventgrid/controlplane-preview/topics), which is a feature also offered by [Azure Event Grid](../custom-topics.md). Event Grid topics help you realize the [primary integration use case](#use-case) where your requirements call for integrating your system with another workload that you own or otherwise is made accessible to your system.
 
 Some of the capabilities you get with Azure Event Grid on Kubernetes are:
 

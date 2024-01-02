@@ -1,24 +1,28 @@
 ---
 title: Set up an image labeling project
 titleSuffix: Azure Machine Learning
-description: Learn how to create a project and use the data labeling tool to label images in the project. Enable machine learning-assisted labeling or human-in-the-loop labeling to help with the task.
+description: Learn how to create a project to label images in the project. Enable machine learning-assisted labeling to help with the task.
 author: kvijaykannan 
 ms.author: vkann 
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 08/16/2023
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
+monikerRange: 'azureml-api-1 || azureml-api-2'
+#customer intent: As a project manager, I want to set up a project to label images in the project. I want to enable machine learning-assisted labeling to help with the task.
 ---
 
 # Set up an image labeling project and export labels
 
 Learn how to create and run data labeling projects to label images in Azure Machine Learning. Use machine learning (ML)-assisted data labeling or human-in-the-loop labeling to help with the task.
 
-Set up labels for classification, object detection (bounding box), or instance segmentation (polygon).
+Set up labels for classification, object detection (bounding box), instance segmentation (polygon), or semantic segmentation (Preview).
 
 You can also use the data labeling tool in Azure Machine Learning to [create a text labeling project](how-to-create-text-labeling-projects.md).
+
+[!INCLUDE [machine-learning-preview-items-disclaimer](includes/machine-learning-preview-items-disclaimer.md)]
 
 ## Image labeling capabilities
 
@@ -51,11 +55,11 @@ Each file is an item to be labeled.
 
 You use these items to set up image labeling in Azure Machine Learning:
 
-[!INCLUDE [prerequisites](../../includes/machine-learning-data-labeling-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/machine-learning-data-labeling-prerequisites.md)]
 
 ## Create an image labeling project
 
-[!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
+[!INCLUDE [start](includes/machine-learning-data-labeling-start.md)]
 
 1. To create a project, select **Add project**.
 
@@ -71,6 +75,7 @@ You use these items to set up image labeling in Azure Machine Learning:
     * To apply *one or more* labels to an image from a set of labels, select **Image Classification Multi-label**. For example, a photo of a dog might be labeled with both *dog* and *daytime*.
     * To assign a label to each object within an image and add bounding boxes, select **Object Identification (Bounding Box)**.
     * To assign a label to each object within an image and draw a polygon around each object, select **Instance Segmentation (Polygon)**.
+    * To draw masks on an image and assign a label class at the pixel level, select **Semantic Segmentation (Preview)**.
 
     :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Screenshot that shows creating a labeling project to manage labeling.":::
 
@@ -78,7 +83,7 @@ You use these items to set up image labeling in Azure Machine Learning:
 
 ## Add workforce (optional)
 
-[!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
+[!INCLUDE [outsource](includes/machine-learning-data-labeling-outsource.md)]
 
 ## Specify the data to label
 
@@ -126,15 +131,15 @@ To directly upload your data:
 
 ## Configure incremental refresh
 
-[!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
+[!INCLUDE [refresh](includes/machine-learning-data-labeling-refresh.md)]
 
 ## Specify label classes
 
-[!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
+[!INCLUDE [classes](includes/machine-learning-data-labeling-classes.md)]
 
 ## Describe the image labeling task
 
-[!INCLUDE [describe](../../includes/machine-learning-data-labeling-describe.md)]
+[!INCLUDE [describe](includes/machine-learning-data-labeling-describe.md)]
 
 For bounding boxes, important questions include:
 
@@ -152,14 +157,14 @@ For bounding boxes, important questions include:
 
 ## Quality control (preview)
 
-[!INCLUDE [describe](../../includes/machine-learning-data-labeling-quality-control.md)]
+[!INCLUDE [describe](includes/machine-learning-data-labeling-quality-control.md)]
 
 > [!NOTE]
 > **Instance Segmentation** projects can't use consensus labeling.
 
 ## Use ML-assisted data labeling
 
-To accelerate labeling tasks, on the **ML assisted labeling** page, you can trigger automatic machine learning models. Medical images (files that have a *.dcm* extension) aren't included in assisted labeling.
+To accelerate labeling tasks, on the **ML assisted labeling** page, you can trigger automatic machine learning models. Medical images (files that have a *.dcm* extension) aren't included in assisted labeling.  If the project type is **Semantic Segmentation (Preview)**, ML-assisted labeling isn't available.
 
 At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases that are present in the dataset. For example, if 80 percent of your items are of a single class, then approximately 80 percent of the data used to train the model lands in that class.
 
@@ -195,11 +200,11 @@ After a machine learning model is trained on your manually labeled data, the mod
 
 ## Initialize the image labeling project
 
-[!INCLUDE [initialize](../../includes/machine-learning-data-labeling-initialize.md)]
+[!INCLUDE [initialize](includes/machine-learning-data-labeling-initialize.md)]
 
 ## Run and monitor the project
 
-[!INCLUDE [run](../../includes/machine-learning-data-labeling-run.md)]
+[!INCLUDE [run](includes/machine-learning-data-labeling-run.md)]
 
 ### Dashboard
 
@@ -262,38 +267,54 @@ View and change details of your project. On this tab, you can:
 
 ### Vision Studio tab
 
-If your project was created from [Cognitive Services Vision Studio](../cognitive-services/computer-vision/how-to/model-customization.md), you'll also see a **Vision Studio** tab.  Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you will be able to import your labeled data.
+If your project was created from [Vision Studio](../ai-services/computer-vision/how-to/model-customization.md), you'll also see a **Vision Studio** tab.  Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you will be able to import your labeled data.
 
 ### Access for labelers
 
-[!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]
+[!INCLUDE [access](includes/machine-learning-data-labeling-access.md)]
 
 ## Add new labels to a project
 
-[!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
+[!INCLUDE [add-label](includes/machine-learning-data-labeling-add-label.md)]
 
 ## Start an ML-assisted labeling task
 
-[!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
+[!INCLUDE [start-ml-assist](includes/machine-learning-data-labeling-start-ml-assist.md)]
 
 ## Export the labels
 
 To export the labels, on the **Project details** page of your labeling project, select the **Export** button. You can export the label data for Machine Learning experimentation at any time.
 
-You can export an image label as:
+If your project type is Semantic segmentation (Preview), an [Azure MLTable data asset](./how-to-mltable.md) is created.
 
-* A [COCO format](http://cocodataset.org/#format-data) file. The COCO file is created in the default blob store of the Machine Learning workspace in a folder in *Labeling/export/coco*. 
-* An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
+For all other project types, you can export an image label as:
 
-Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code you can use to access your labels by using Python.
+:::moniker range="azureml-api-1"
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
+* A [COCO format](http://cocodataset.org/#format-data) file. Azure Machine Learning creates the COCO file in a folder inside *Labeling/export/coco*. 
+* An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md).
+:::moniker-end
+:::moniker range="azureml-api-2"
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
+* A [COCO format](http://cocodataset.org/#format-data) file. Azure Machine Learning creates the COCO file in a folder inside *Labeling/export/coco*. 
+* An [Azure MLTable data asset](./how-to-mltable.md).
+:::moniker-end
+
+When you export a CSV or COCO file, a notification appears briefly when the file is ready to download. Select the **Download file** link to download your results. You'll also find the notification in the **Notification** section on the top bar:
+
+:::image type="content" source="media/how-to-create-labeling-projects/download-file.png" alt-text="Screenshot that shows the notification for the file download.":::
+
+Access exported Azure Machine Learning datasets and data assets in the **Data** section of Machine Learning. The data details page also provides sample code you can use to access your labels by using Python.
 
 :::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
 
+:::moniker range="azureml-api-1"
 After you export your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models that are trained on your labeled data. Learn more at [Set up AutoML to train computer vision models by using Python](how-to-auto-train-image-models.md).
+:::moniker-end
 
 ## Troubleshoot issues
 
-[!INCLUDE [troubleshooting](../../includes/machine-learning-data-labeling-troubleshooting.md)]
+[!INCLUDE [troubleshooting](includes/machine-learning-data-labeling-troubleshooting.md)]
 
 ### Troubleshoot object detection
 

@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: chugu
 author: chugugrace
 ms.custom: seo-lt-2019
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 ---
 
 # Execute SSIS packages in Azure from SSDT
@@ -195,6 +195,6 @@ After starting your package execution, we'll format and display its logs in the 
 
 -  The Azure-enabled SSDT supports only commercial/global cloud regions and doesn't support governmental/national cloud regions for now.
 
-## Next steps
+## Related content
 
 Once you're satisfied with running your packages in Azure from SSDT, you can deploy and run them as Execute SSIS Package activities in ADF pipelines, see [Running SSIS packages as Execute SSIS Package activities in ADF pipelines](./how-to-invoke-ssis-package-ssis-activity.md).

@@ -22,19 +22,16 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
-- An Azure App Configuration store
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 
 ## Create a key-value
 
-1. In the Azure portal, open your App Configuration store and select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value:
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-    | Key                        | Value                               |
-    |----------------------------|-------------------------------------|
-    | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
+| Key                        | Value                               |
+|----------------------------|-------------------------------------|
+| *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
-    Leave **Label** and **Content Type** empty for now.
-
-1. Select **Apply**.
 
 ## Set up the Python app
 
@@ -79,7 +76,7 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
-    To build and run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
     setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
@@ -109,14 +106,14 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
     export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
     ```
 
-1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly with the command below.
+1. Print out the value of the environment variable to validate that it is set properly with the command below.
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
-    Using the Windows command prompt, run the following command:
+    Using the Windows command prompt, restart the command prompt to allow the change to take effect and run the following command:
 
     ```cmd
-    printenv AZURE_APPCONFIG_CONNECTION_STRING
+    echo %AZURE_APPCONFIG_CONNECTION_STRING%
     ```
 
     ### [PowerShell](#tab/powershell)
@@ -142,8 +139,6 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
     ```console
     echo "$AZURE_APPCONFIG_CONNECTION_STRING"
     ```
-
-1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
 
 ## Code samples
 

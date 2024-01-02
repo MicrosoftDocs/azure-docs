@@ -3,8 +3,8 @@ title: Microsoft Defender for open-source relational databases - the benefits an
 description: Learn about the benefits and features of Microsoft Defender for open-source relational databases such as PostgreSQL, MySQL, and MariaDB
 ms.date: 06/19/2022
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 
 # Overview of Microsoft Defender for open-source relational databases
@@ -24,10 +24,10 @@ Defender for Cloud detects anomalous activities indicating unusual and potential
 | Release state: | General availability (GA) |
 | Pricing: | **Microsoft Defender for open-source relational databases** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | Supported environments:|:::image type="icon" source="./media/icons/yes-icon.png"::: PaaS<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Arc-enabled machines |
-| Protected versions of PostgreSQL: | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL pricing tiers](../postgresql/concepts-pricing-tiers.md). |
+| Protected versions of PostgreSQL: | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL Single Server pricing tiers](../postgresql/concepts-pricing-tiers.md).  Flexible Server - all pricing tiers (enablement is currently only supported at resource level).|
 | Protected versions of MySQL: | Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md). |
 | Protected versions of MariaDB: | General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md). |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br> :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br> :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet |
 
 ## What are the benefits of Microsoft Defender for open-source relational databases?
 

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Web activity in Azure Data Factory and Azure Synapse Analytics
@@ -277,7 +277,7 @@ public HttpResponseMessage Execute(JObject payload)
 
 ```
 
-## Next steps
+## Related content
 See other supported control flow activities:
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

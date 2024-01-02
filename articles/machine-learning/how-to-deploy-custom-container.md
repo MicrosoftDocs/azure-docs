@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use a custom container with an open-source server to deploy a model in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
@@ -16,15 +16,13 @@ ms.devlang: azurecli
 
 # Use a custom container to deploy a model to an online endpoint
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to use a custom container for deploying a model to an online endpoint in Azure Machine Learning.
 
 Custom container deployments can use web servers other than the default Python Flask server used by Azure Machine Learning. Users of these deployments can still take advantage of Azure Machine Learning's built-in monitoring, scaling, alerting, and authentication.
 
-The following table lists various [deployment examples](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container) that use custom containers such as TensorFlow Serving, TorchServe, Triton Inference Server, Plumber R package, and AzureML Inference Minimal image.
+The following table lists various [deployment examples](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container) that use custom containers such as TensorFlow Serving, TorchServe, Triton Inference Server, Plumber R package, and Azure Machine Learning Inference Minimal image.
 
 |Example|Script (CLI)|Description| 
 |-------|------|---------|
@@ -45,7 +43,7 @@ This article focuses on serving a TensorFlow model with TensorFlow (TF) Serving.
 
 ## Prerequisites
 
-[!INCLUDE [cli & sdk](../../includes/machine-learning-cli-sdk-v2-prereqs.md)]
+[!INCLUDE [cli & sdk](includes/machine-learning-cli-sdk-v2-prereqs.md)]
 
 * You, or the service principal you use, must have `Contributor` access to the Azure Resource Group that contains your workspace. You'll have such a resource group if you configured your workspace using the quickstart article.
 
@@ -163,7 +161,7 @@ For more information, see [Deploy machine learning models to managed online endp
 ### Configure online endpoint
 
 > [!TIP]
-> * `name`: The name of the endpoint. It must be unique in the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+> * `name`: The name of the endpoint. It must be unique in the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 > * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 
 Optionally, you can add description, tags to your endpoint.
@@ -321,7 +319,7 @@ Now that you've understood how the YAML was constructed, create your endpoint.
 az ml online-endpoint create --name tfserving-endpoint -f endpoints/online/custom-container/tfserving-endpoint.yml
 ```
 
-Creating a deployment may take few minutes.
+Creating a deployment might take few minutes.
 
 ```azurecli
 az ml online-deployment create --name tfserving-deployment -f endpoints/online/custom-container/tfserving-deployment.yml --all-traffic

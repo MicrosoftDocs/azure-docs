@@ -5,13 +5,15 @@ description: Learn how to use Azure Virtual WAN to create a site-to-site VPN con
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 08/09/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
 # Tutorial: Create a site-to-site connection using Azure Virtual WAN
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv1 and IKEv2) VPN connection. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
+
+:::image type="content" source="./media/site-to-site/site-to-site-diagram.png" alt-text="Screenshot shows a networking diagram for Virtual WAN." lightbox="./media/site-to-site/site-to-site-diagram.png" :::
 
 In this tutorial you learn how to:
 
@@ -29,8 +31,6 @@ In this tutorial you learn how to:
 > [!NOTE]
 > If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
 >
-
-:::image type="content" source="./media/virtual-wan-about/virtualwan.png" alt-text="Screenshot shows a networking diagram for Virtual WAN.":::
 
 ## Prerequisites
 
@@ -56,9 +56,11 @@ In this section, you configure site-to-site connectivity settings, and then proc
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
+[!INCLUDE [hub warning message](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
+
 ## <a name="site"></a>Create a site
 
-In this section, you create site. Sites correspond to your physical locations. Create as many sites as you need. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per virtual hub in a virtual WAN. If you had multiple virtual hubs, you can create 1000 per each of those virtual hubs. If you have Virtual WAN partner CPE device, check with them to learn about their automation to Azure. Typically, automation implies a simple click experience to export large-scale branch information into Azure, and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway. For more information, see [Automation guidance from Azure to CPE partners](virtual-wan-configure-automation-providers.md).
+In this section, you create a site. Sites correspond to your physical locations. Create as many sites as you need. For example, if you have a branch office in NY, a branch office in London, and a branch office in LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per virtual hub in a virtual WAN. If you had multiple virtual hubs, you can create 1000 per each of those virtual hubs. If you have a Virtual WAN partner CPE device, check with them to learn about their automation to Azure. Typically, automation implies a simple click experience to export large-scale branch information into Azure, and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway. For more information, see [Automation guidance from Azure to CPE partners](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 

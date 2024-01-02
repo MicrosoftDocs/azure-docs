@@ -1,7 +1,7 @@
 ---
 title: App status in Azure Spring Apps
 description: Learn the app status categories in Azure Spring Apps
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 03/30/2022
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to view app status for Azure Spring Apps.
 
@@ -28,7 +28,7 @@ To view general status of an application type, select **Apps** in the left navig
 
 * **Provisioning state**: Shows the deployment’s provisioning state.
 * **Running instance**: Shows how many app instances are running and how many app instances you desire. If you stop the app, this column shows **stopped**.
-* **Registered status**: Shows how many app instances are registered to Eureka and how many app instances you desire. If you stop the app, this column shows **stopped**. Eureka isn't applicable to enterprise tier. For more information if you're using the enterprise tier, see [Use Service Registry](how-to-enterprise-service-registry.md).
+* **Registered status**: Shows how many app instances are registered to Eureka and how many app instances you desire. If you stop the app, this column shows **stopped**. Eureka isn't applicable to the Enterprise plan. For more information if you're using the Enterprise plan, see [Use Service Registry](how-to-enterprise-service-registry.md).
 
 :::image type="content" source="media/concept-app-status/apps-ui-status.png" alt-text="Screenshot of the Azure portal showing the Apps Settings page with the Provisioning state, Running instance, and Registration status columns highlighted." lightbox="media/concept-app-status/apps-ui-status.png":::
 

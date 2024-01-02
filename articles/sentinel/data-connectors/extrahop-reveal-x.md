@@ -3,7 +3,7 @@ title: "ExtraHop Reveal(x) connector for Microsoft Sentinel"
 description: "Learn how to install the connector ExtraHop Reveal(x) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -86,7 +86,7 @@ Install and configure the Linux agent to collect your Common Event Format (CEF) 
 
 1.1 Select or create a Linux machine
 
-Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-premises environment, Azure or other clouds.
 
 1.2 Install the CEF collector on the Linux machine
 
@@ -98,12 +98,12 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}
+   `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
 
 2. Forward ExtraHop Networks logs to Syslog agent
 
 1.  Set your security solution to send Syslog messages in CEF format to the proxy machine. Make sure to send the logs to port 514 TCP on the machine IP address.
-2. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://aka.ms/asi-syslog-extrahop-forwarding) on your Reveal(x) system. The SIEM Connector is required for this integration.
+2. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://learn.extrahop.com/extrahop-detection-siem-connector-bundle) on your Reveal(x) system. The SIEM Connector is required for this integration.
 3. Enable the trigger for **ExtraHop Detection SIEM Connector - CEF**
 4. Update the trigger with the ODS syslog targets you created 
 5. The Reveal(x) system formats syslog messages in Common Event Format (CEF) and then sends data to Microsoft Sentinel.
@@ -124,7 +124,7 @@ If the logs are not received, run the following connectivity validation script:
 
    Run the following command to validate your connectivity:
 
-   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}
+   `sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}`
 
 4. Secure your machine 
 

@@ -74,7 +74,7 @@ sections:
           
           If you're new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and a credit to try all the Azure services. If you have a Visual Studio subscription, you're also eligible for [free Azure credits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.
           
-          You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
+          You can also use the [Azure Cosmos DB Emulator](emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
           
       - question: |
           How can I get additional help with Azure Cosmos DB?
@@ -95,7 +95,7 @@ sections:
 
           The following conditions apply to Try Azure Cosmos DB subscriptions:
 
-          * Account access can be granted to personal Microsoft accounts (MSA). Avoid using Azure Active Directory (Azure AD) accounts or accounts belonging to corporate Azure AD Tenants, they might have limitations in place that could block access granting.
+          * Account access can be granted to personal Microsoft accounts (MSA). Avoid using Microsoft Entra accounts or accounts belonging to corporate Microsoft Entra tenants, they might have limitations in place that could block access granting.
           * One [throughput provisioned container](./set-throughput.md#set-throughput-on-a-container) per subscription for API for NoSQL, Gremlin, and Table accounts.
           * Up to three [throughput provisioned collections](./set-throughput.md#set-throughput-on-a-container) per subscription for MongoDB accounts.
           * One [throughput provisioned database](./set-throughput.md#set-throughput-on-a-database) per subscription. Throughput provisioned databases can contain any number of containers inside.
@@ -198,7 +198,7 @@ sections:
       - question: |
           Does the API for NoSQL support SQL aggregation functions?
         answer: |
-          The API for NoSQL supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](nosql/query/aggregate-functions.md).
+          The API for NoSQL supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar.
           
       - question: |
           How does the API for NoSQL provide concurrency?
@@ -228,7 +228,7 @@ sections:
       - question: |
           Is a local instance of API for NoSQL available?
         answer: |
-          Yes. The [Azure Cosmos DB Emulator](local-emulator.md) provides a high-fidelity emulation of the Azure Cosmos DB service. It supports functionality that's identical to Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications by using the Azure Cosmos DB Emulator, and deploy them to Azure at a global scale by making a single configuration change to the connection endpoint for Azure Cosmos DB.
+          Yes. The [Azure Cosmos DB Emulator](emulator.md) provides a high-fidelity emulation of the Azure Cosmos DB service. It supports functionality that's identical to Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications by using the Azure Cosmos DB Emulator, and deploy them to Azure at a global scale by making a single configuration change to the connection endpoint for Azure Cosmos DB.
           
       - question: |
           Why are long floating-point values in a document rounded when viewed from data explorer in the portal.

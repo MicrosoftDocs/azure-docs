@@ -1,0 +1,96 @@
+### YamlMime:Landing
+
+title: Azure Virtual Desktop (classic) documentation
+summary: Securely deliver virtual desktops and apps with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Azure Virtual Desktop (classic) has been superseded by Azure Virtual Desktop using Azure Resource Manager.
+
+metadata:
+  title: Azure Virtual Desktop (classic) documentation
+  description: Azure Virtual Desktop securely delivers virtual desktops and apps.
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  manager: femila
+  author: dknappettmsft
+  ms.author: daknappe
+  ms.date: 04/13/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Virtual Desktop (classic)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Desktop?
+            url: ../overview.md?toc=%2Fazure%2Fvirtual-desktop%2Fvirtual-desktop-fall-2019%2Ftoc.json
+          - text: Terminology
+            url: ../terminology.md?toc=%2Fazure%2Fvirtual-desktop%2Fvirtual-desktop-fall-2019%2Ftoc.json
+          - text: Azure Virtual Desktop using Azure Resource Manager 
+            url: ../index.yml
+
+  # Card
+  - title: Get started with Azure Virtual Desktop (classic)
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a tenant
+            url: tenant-setup-azure-active-directory.md
+          - text: Create service principals and role assignments with PowerShell
+            url: create-service-principal-role-powershell.md
+          - text: Create a host pool
+            url: create-host-pools-azure-marketplace-2019.md
+          - text: Manage app groups
+            url: manage-app-groups-2019.md
+          - text: Create a host pool to validate service updates
+            url: create-validation-host-pool-2019.md
+          - text: Set up service alerts
+            url: set-up-service-alerts-2019.md
+
+  # Card
+  - title: Azure Virtual Desktop for users
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Virtual Desktop for users
+            url: ../users/index.yml
+      - linkListType: how-to-guide
+        links:
+          - text: Connect with the Windows Desktop client
+            url: ../users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+          - text: Connect with the web client
+            url: ../users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+          - text: Connect with macOS
+            url: ../users/connect-macos.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+          - text: Connect with iOS/iPadOS
+            url: ../users/connect-ios-ipados.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+          - text: Connect with Android/Chrome OS
+            url: ../users/connect-android-chrome-os.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+          - text: Connect with thin clients
+            url: ../users/connect-thin-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+
+  # Card
+  - title: More information
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual Desktop
+            url: /training/modules/m365-wvd-intro/
+          - text: More Azure Virtual Desktop learning paths
+            url: /training/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
+      - linkListType: reference
+        links:
+          - text: User experience estimator
+            url: https://azure.microsoft.com/services/virtual-desktop/assessment/
+          - text: Pricing calculator
+            url: https://azure.microsoft.com/pricing/calculator/
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: PowerShell
+            url: /powershell/windows-virtual-desktop/overview/
+          - text: REST API
+            url: /rest/api/virtual-desktop/

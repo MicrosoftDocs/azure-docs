@@ -1,6 +1,6 @@
 ---
-title: Device authentication in Azure IoT Central | Microsoft Docs
-description: This article introduces key concepts relating to device authentication in Azure IoT Central
+title: Device authentication in Azure IoT Central
+description: This article introduces key IoT Central device authentication concepts such as enrollment groups, shared access signatures, and X.509 certificates.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/28/2022

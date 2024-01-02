@@ -1,24 +1,36 @@
 ---
-title: Quickstart - Create Azure API Management instance by using Bicep
-description: Learn how to create an Azure API Management instance in the Developer tier by using Bicep.
+title: Quickstart - Create Azure API Management instance - Bicep
+description: Use this quickstart to create an Azure API Management instance in the Developer tier by using Bicep.
 services: azure-resource-manager
 author: mumian
 ms.service: api-management
 tags: azure-resource-manager, bicep
-ms.topic: quickstart
+ms.custom: devx-track-bicep, subject-bicepqs
+ms.topic: quickstart-bicep
 ms.author: jgao
-ms.date: 03/10/2022
+ms.date: 12/12/2023
 ---
 
 # Quickstart: Create a new Azure API Management service instance using Bicep
 
-This quickstart describes how to use a Bicep file to create an Azure API Management (APIM) service instance. APIM helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
+This quickstart describes how to use a Bicep file to create an Azure API Management instance. You can also use Bicep for common management tasks such as importing APIs in your API Management instance.
+
+[!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+- For Azure CLI:
+
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- For Azure PowerShell:
+
+
+    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 
 ## Review the Bicep file
 

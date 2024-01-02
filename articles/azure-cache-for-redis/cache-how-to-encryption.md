@@ -1,11 +1,11 @@
 ---
-title: Configure active encryption for Enterprise Azure Cache for Redis instances
-description: Learn about encryption for your Azure Cache for Redis Enterprise instances across Azure regions.
+title: Configure disk encryption in Azure Cache for Redis
+description: Learn about disk encryption when using Azure Cache for Redis.
 author: flang-msft
 
 ms.service: cache
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 03/28/2023
 ms.author: franlanglois
 
 ---

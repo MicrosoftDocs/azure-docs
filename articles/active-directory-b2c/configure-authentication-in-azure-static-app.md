@@ -1,11 +1,11 @@
 ---
 title: Configure authentication in an Azure Static Web App by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an Azure Static Web App.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 08/22/2022
 ms.author: kengaderdus
@@ -50,8 +50,7 @@ During app registration, you specify a *redirect URI*. The redirect URI is the e
 To register your application, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *My Azure Static web app*).
@@ -89,7 +88,7 @@ Add the following keys to the app settings:
 
 ### 3.1 Add an OpenID Connect identity provider
 
-Once you've added the app ID and secrete, use the following steps to add the Azure AD B2C as OpenId Connect identity provider.
+Once you've added the app ID and secret, use the following steps to add the Azure AD B2C as OpenId Connect identity provider.
 
 1. Add an `auth` section of the [configuration file](../static-web-apps/configuration.md) with a configuration block for the OIDC providers, and your provider definition.
 

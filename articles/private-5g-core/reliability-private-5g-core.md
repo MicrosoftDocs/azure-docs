@@ -11,15 +11,21 @@ ms.date: 01/31/2022
 
 # Reliability for Azure Private 5G Core
 
-This article describes reliability support in Azure Private 5G Core. It covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For an overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure Private 5G Core. It covers both regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity).  For an overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Availability zone support
+
+[!INCLUDE [Availability zone description](../reliability/includes/reliability-availability-zone-description-include.md)]
+
 
 The Azure Private 5G Core service is automatically deployed as zone-redundant in Azure regions that support availability zones, as listed in [Availability zone service and regional support](../reliability/availability-zones-service-support.md). If a region supports availability zones then all Azure Private 5G Core resources created in a region can be managed from any of the availability zones.
 
 No further work is required to configure or manage availability zones. Failover between availability zones is automatic.
 
-Azure Private 5G Core is currently available in the EastUS and WestEurope regions.
+
+### Prerequisites
+
+See [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=private-5g-core) for the Azure regions where Azure Private 5G Core is available.
 
 ### Zone down experience
 
@@ -29,17 +35,17 @@ In a zone-wide outage scenario, users should experience no impact because the se
 
 The application ensures that all cloud state is replicated between availability zones in the region so all management operations will continue without interruption. The packet core is running at the Edge and is unaffected by the zone failure, so will continue to provide service for users.
 
-## Disaster recovery: cross-region failover
+  
+## Cross-region disaster recovery and business continuity
 
-Azure Private 5G Core is only available in multi-region (3+N) geographies. The service automatically replicates SIM credentials to a backup region in the same geography. This means that there's no loss of data in the event of region failure. Within four hours of the failure, all resources in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered. the packet running at the Edge continues to operate without interruption and network connectivity will be maintained.
+[!INCLUDE [introduction to disaster recovery](../reliability/includes/reliability-disaster-recovery-description-include.md)]
 
-To view all regions that support Azure Private 5G Core, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
-### Cross-region disaster recovery in multi-region geography
+Azure Private 5G Core is only available in multi-region (3+N) geographies. The service automatically replicates SIM credentials to a backup region in the same geography. This means that there's no loss of data in the event of region failure. Within four hours of the failure, all resources in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered. The packet core running at the Edge continues to operate without interruption and network connectivity will be maintained.
 
 Microsoft is responsible for outage detection, notification and support for the Azure cloud aspects of the Azure Private 5G Core service.
 
-#### Outage detection, notification, and management
+### Outage detection, notification, and management
 
 Microsoft monitors the underlying resources providing the Azure Private 5G Core service in each region. If those resources start to show failures or health monitoring alerts that aren't restricted to a single availability zone then Microsoft will move the service to another supported region in the same geography. This is an Active-Active pattern. The service health for a particular region can be found on [Azure Service Health](https://status.azure.com/status) (Azure Private 5G Core is listed in the **Networking** section). You'll be notified of any region failures through normal Azure communications channels.
 
@@ -57,7 +63,7 @@ Note that this will cause an outage of your packet core service and interrupt ne
 
 In advance of a disaster recovery event, you must back up your resource configuration to another region that supports Azure Private 5G Core. When the region failure occurs, you can redeploy the packet core using the resources in your backup region.
 
-##### Preparation
+#### Preparation
 
 There are two types of Azure Private 5G Core configuration data that need to be backed up for disaster recovery: mobile network configuration and SIM credentials. We recommend that you:
 
@@ -76,7 +82,7 @@ For security reasons, Azure Private 5G Core will never return the SIM credential
 <br></br>
 Your Azure Private 5G Core deployment may make use of Azure Key Vaults for storing [SIM encryption keys](./security.md#customer-managed-key-encryption-at-rest) or HTTPS certificates for [local monitoring](./security.md#access-to-local-monitoring-tools). You must follow the [Azure Key Vault documentation](../key-vault/general/disaster-recovery-guidance.md) to ensure that your keys and certificates will be available in the backup region.
 
-##### Recovery
+#### Recovery
 In the event of a region failure, first validate that all the resources in your backup region are present by querying the configuration through the Azure portal or API (see [Move resources to a different region](./region-move-private-mobile-network-resources.md)). If all the resources aren't present, stop here and don't follow the rest of this procedure. You may not be able to recover service at the edge site without the resource configuration.
 
 The recovery process is split into three stages for each packet core:
@@ -104,7 +110,7 @@ Take a copy of the **packetCoreControlPlanes.platform** values you stored in [Pr
 
 You should follow your normal process for validating a new site install to confirm that UE connectivity has been restored and all network functionality is operational. In particular, you should confirm that the site dashboards in the Azure portal show UE registrations and that data is flowing through the data plane.
 
-##### Failed region restored
+#### Failed region restored
 
 When the failed region recovers, you should ensure the configuration in the two regions is in sync by performing a backup from the active backup region to the recovered primary region, following the steps in [Preparation](#preparation).
 
@@ -115,13 +121,13 @@ You must also check for and remove any resources in the recovered region that ha
 
 You then have two choices for ongoing management:
 
-1. Use the operational backup region as the new primary region and use the recovered region as a backup. No further action is required.
-1. Make the recovered region the new active primary region by following the instructions in [Move resources to a different region](./region-move-private-mobile-network-resources.md) to switch back to the recovered region.
+- Use the operational backup region as the new primary region and use the recovered region as a backup. No further action is required.
+- Make the recovered region the new active primary region by following the instructions in [Move resources to a different region](./region-move-private-mobile-network-resources.md) to switch back to the recovered region.
 
-##### Testing
+#### Testing
 
 If you want to test your disaster recovery plans, you can follow the recovery procedure for a single packet core at any time. Note that this will cause a service outage of your packet core service and interrupt network connectivity to your UEs for up to four hours, so we recommend only doing this with non-production packet core deployments or at a time when an outage won't adversely affect your business.
 
 ## Next steps
 
-- [Resiliency in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](/azure/reliability/overview)

@@ -2,9 +2,9 @@
 title: Quickstart - Create a Stream Analytics job using Visual Studio Code
 description: This quickstart shows you how to create a Stream Analytics job using the ASA extension for Visual Studio Code.
 ms.service: stream-analytics
-author: alexlzx
-ms.author: zhenxilin
-ms.date: 10/27/2022
+author: ahartoon
+ms.author: anboisve
+ms.date: 07/17/2023
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
 #Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio Code.

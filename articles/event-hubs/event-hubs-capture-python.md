@@ -4,7 +4,7 @@ description: This quickstart shows you how to write Python code to capture data 
 ms.topic: quickstart
 ms.date: 03/14/2023
 ms.devlang: python
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-python
 ---
 
 # Quickstart: Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)
@@ -185,7 +185,6 @@ In this example, the captured data is stored in Azure Blob storage. The script i
 Check out [Python samples on GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples). 
 
 
-[Azure portal]: https://portal.azure.com/
 [Overview of Event Hubs Capture]: event-hubs-capture-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md

@@ -4,8 +4,8 @@ description: An overview of Recovery Services vaults.
 ms.topic: conceptual
 ms.date: 01/24/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ms.custom: engagement-fy23
 ---
 # Recovery Services vaults overview

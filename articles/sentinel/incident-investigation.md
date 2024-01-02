@@ -11,13 +11,7 @@ ms.date: 01/01/2023
 
 Microsoft Sentinel gives you a complete, full-featured case management platform for investigating and managing security incidents. **Incidents** are Microsoft Sentinel’s name for case files that contain a complete and constantly updated chronology of a security threat, whether it’s individual pieces of evidence (alerts), suspects and parties of interest (entities), insights collected and curated by security experts and AI/machine learning models, or comments and logs of all the actions taken in the course of the investigation.
 
-The incident investigation experience in Microsoft Sentinel begins with the **Incidents** page – a new experience designed to give you everything you need for your investigation in one place. The key goal of this new experience is to increase your SOC’s efficiency and effectiveness, reducing its mean time to resolve (MTTR).
-
-> [!IMPORTANT]
->
-> The new incident experience is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> Some of the individual functionalities mentioned below are also in **PREVIEW**. They will be so indicated.
+The incident investigation experience in Microsoft Sentinel begins with the **Incidents** page&mdash;a new experience designed to give you everything you need for your investigation in one place. The key goal of this new experience is to increase your SOC’s efficiency and effectiveness, reducing its mean time to resolve (MTTR).
 
 This article takes you through the phases of a typical incident investigation, presenting all the displays and tools available to you to help you along.
 
@@ -55,7 +49,7 @@ This can benefit your investigation in several ways:
 
 The widget shows you the 20 most similar incidents. Microsoft Sentinel decides which incidents are similar based on common elements including entities, the source analytics rule, and alert details. From this widget you can jump directly to any of these incidents' full details pages, while keeping the connection to the current incident intact.
 
-Learn more about what you can do with [similar incidents](investigate-incidents.md#similar-incidents-preview).
+Learn more about what you can do with [similar incidents](investigate-incidents.md#similar-incidents).
 
 ### Examine top insights
 
@@ -76,14 +70,16 @@ The **Entities tab** contains a list of all the entities in the incident. When a
 - **Timeline** contains a list of the alerts that feature this entity and activities the entity has done, as collected from logs in which the entity appears.
 - **Insights** contains answers to questions about the entity relating to its behavior in comparison to its peers and its own history, its presence on watchlists or in threat intelligence, or any other sort of unusual occurrence relating to it. These answers are the results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources.
 
+    As of November 2023, the **Insights** panel includes the next generation of insights, available in **PREVIEW**, in the form of [enrichment widgets](whats-new.md#visualize-data-with-enrichment-widgets-preview), alongside the existing insights. To take advantage of these new widgets, you must [enable the widget experience](enable-enrichment-widgets.md).
+
 Depending on the entity type, you can take a number of further actions from this side panel:
 - Pivot to the entity's full [entity page](entity-pages.md) to get even more details over a longer timespan or launch the graphical investigation tool centered on that entity.
 - Run a [playbook](respond-threats-during-investigation.md) to take specific response or remediation actions on the entity (in Preview).
-- Classify the entity as an [indicator of compromise (IOC)](add-entity-to-threat-intelligence.md) and add it to your Threat intelligence list (in Preview).
+- Classify the entity as an [indicator of compromise (IOC)](add-entity-to-threat-intelligence.md) and add it to your Threat intelligence list.
 
 Each of these actions is currently supported for certain entity types and not for others. The following table shows which actions are supported for which entity types:
 
-| Available actions &#9654;<br>Entity types &#9660;  | View full details<br>(in entity page) | Add to TI *<br>(Preview) | Run playbook *<br>(Preview) |
+| Available actions &#9654;<br>Entity types &#9660;  | View full details<br>(in entity page) | Add to TI * | Run playbook *<br>(Preview) |
 | ----- | :----: | :----: | :----: |
 | **User account** | &#10004; | | &#10004; |
 | **Host** | &#10004; | | &#10004; |
@@ -94,7 +90,7 @@ Each of these actions is currently supported for certain entity types and not fo
 | **Azure resource** | &#10004; | | | 
 | **IoT device** | &#10004; | | |
 
-\* For entities for which either or both of these two actions are available, you can take those actions right from the **Entities** widget in the **Overview tab**, never leaving the incident page.
+\* For entities for which the **Add to TI** or **Run playbook** actions are available, you can take those actions right from the **Entities** widget in the **Overview tab**, never leaving the incident page.
 
 ### Explore logs
 

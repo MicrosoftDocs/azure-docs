@@ -2,19 +2,19 @@
 title: Add a dual-stack network to an existing virtual machine - Azure CLI
 titleSuffix: Azure Virtual Network
 description: Learn how to add a dual-stack network to an existing virtual machine using the Azure CLI.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 08/24/2023
 ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
 # Add a dual-stack network to an existing virtual machine using the Azure CLI
 
-In this article, you'll add IPv6 support to an existing virtual network. You'll configure an existing virtual machine with both IPv4 and IPv6 addresses. When completed, the existing virtual network will support private IPv6 addresses. The existing virtual machine network configuration will contain a public and private IPv4 and IPv6 address. 
+In this article, you add IPv6 support to an existing virtual network. You configure an existing virtual machine with both IPv4 and IPv6 addresses. When completed, the existing virtual network supports private IPv6 addresses. The existing virtual machine network configuration contains a public and private IPv4 and IPv6 address. 
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ In this article, you'll add IPv6 support to an existing virtual network. You'll 
 
 ## Add IPv6 to virtual network
 
-In this section, you'll add an IPv6 address space and subnet to your existing virtual network.
+In this section, you add an IPv6 address space and subnet to your existing virtual network.
 
 Use [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update) to update the virtual network.
 
@@ -57,7 +57,7 @@ az network vnet subnet update \
 
 ## Create IPv6 public IP address
 
-In this section, you'll create a IPv6 public IP address for the virtual machine.
+In this section, you create a IPv6 public IP address for the virtual machine.
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create the public IP address.
 

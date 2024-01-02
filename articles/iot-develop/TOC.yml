@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Device application development
+    - name: General device development
       items: 
       - name: Send telemetry to IoT Hub
         href: quickstart-send-telemetry-iot-hub.md
@@ -21,6 +21,8 @@
       items:
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
+      - name: Renesas RX65N Cloud Kit
+        href: quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub.md
       - name: STMicroelectronics L475E-IOT01A
         href: quickstart-devkit-stm-b-l475e-iot-hub.md
       - name: STMicroelectronics L4S5I-IOT01A
@@ -57,6 +59,8 @@
     href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types
     href: concepts-iot-device-types.md
+  - name: Manage device reconnections in IoT Hub and DPS
+    href: concepts-manage-device-reconnections.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
   - name: IoT device selection list
@@ -79,14 +83,14 @@
       href: concepts-architecture.md
     - name: IoT Plug and Play conventions
       href: concepts-convention.md
+    - name: IoT Plug and Play message payloads
+      href: concepts-message-payloads.md
     - name: Device developer guide
       href: concepts-developer-guide-device.md
     - name: Service developer guide
       href: concepts-developer-guide-service.md
     - name: Digital twins
       href: concepts-digital-twin.md
-    - name: IoT Plug and Play bridge
-      href: concepts-iot-pnp-bridge.md
   - name: Security
     items:
     - name: Guidelines for secured embedded development
@@ -97,9 +101,6 @@
     href: ../iot/howto-use-iot-explorer.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
-  - name: Manage connectivity and reliable messaging
-    displayName: device SDK, network connection, resiliency, re-connection, retry, connection failures
-    href: how-to-use-reliability-features-in-sdks.md
   - name: Convert a device to IoT Plug and Play
     href: howto-convert-to-pnp.md
   - name: Azure RTOS samples
@@ -110,12 +111,8 @@
         href: quickstart-devkit-microchip-atsame54-xpro.md
       - name: Renesas RX65N Cloud Kit
         href: quickstart-devkit-renesas-rx65n-cloud-kit.md
-      - name: Renesas RX65N-2 MB
-        href: quickstart-devkit-renesas-rx65n-2mb.md
       - name: NXP MIMXRT1060-EVK
         href: quickstart-devkit-nxp-mimxrt1060-evk.md
-      - name: NXP MIMXRT1050-EVKB
-        href: quickstart-devkit-nxp-mimxrt1050-evkb.md
       - name: STMicroelectronics L4S5I-IOT01A
         href: quickstart-devkit-stm-b-l4s5i.md
       - name: STMicroelectronics B-L475-IOT01A

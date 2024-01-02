@@ -33,7 +33,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-You can analyze metrics for *Azure Functions* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for *Azure Functions* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 For a list of the platform metrics collected for Azure Functions, see [Monitoring *Azure Functions* data reference metrics](monitor-functions-reference.md#metrics).
 
@@ -100,10 +100,10 @@ The following table lists common and recommended alert rules for Functions.
 | Metric | Average connections| When number of connections exceed a set value|
 | Metric | HTTP 404| When HTTP 404 responses exceed a set value|
 | Metric | HTTP Server Errors| When HTTP 5xx errors exceed a set value|
-| Activity Log | Create or Update Web App | When app is created or updated|
-| Activity Log | Delete Web App | When app is deleted|
-| Activity Log | Restart Web App| When app is restarted|
-| Activity Log | Stop Web App| When app is stopped|
+| Activity Log | Create or update function app | When app is created or updated|
+| Activity Log | Delete function app | When app is deleted|
+| Activity Log | Restart function app| When app is restarted|
+| Activity Log | Stop function app| When app is stopped|
 
 ## Next steps
 

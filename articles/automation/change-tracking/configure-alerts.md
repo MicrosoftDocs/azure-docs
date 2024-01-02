@@ -21,7 +21,7 @@ The following example shows that the file **c:\windows\system32\drivers\etc\host
 
 Let's use this example to discuss the steps for creating alerts on a change.
 
-1. On the **Change tracking** page from your Automation account, select **Log Analytics**.
+1. On the **Change tracking** page from your Virtual Machine, select **Log Analytics**.
 
 2. In the Logs search, look for content changes to the **hosts** file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for content changes for files with fully qualified path names containing the word `hosts`. You can also ask for a specific file by changing the path portion to its fully qualified form, for example, using `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`.
 

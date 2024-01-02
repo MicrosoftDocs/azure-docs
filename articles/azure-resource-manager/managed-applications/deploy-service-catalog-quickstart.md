@@ -1,10 +1,9 @@
 ---
 title: Deploy a service catalog managed application
 description: Describes how to deploy a service catalog's managed application for an Azure Managed Application using Azure PowerShell, Azure CLI, or Azure portal.
-author: davidsmatlak
-ms.author: davidsmatlak
 ms.topic: quickstart
-ms.date: 03/21/2023
+ms.date: 05/12/2023
+ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Quickstart: Deploy a service catalog managed application
@@ -16,7 +15,7 @@ In this quickstart, you use the managed application definition that you created 
 - A managed application definition created with [publish an application definition](publish-service-catalog-app.md) or [publish a definition with bring your own storage](publish-service-catalog-bring-your-own-storage.md).
 - An Azure account with an active subscription. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/).
-- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- Install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create service catalog managed application
 
@@ -127,7 +126,7 @@ $mrgname = $mrgprefix + $mrgtimestamp
 $mrgname
 ```
 
-The `$mrgprefix` and `$mrgtimestamp` variables are concatenated to create a managed resource group name like _mrg-sampleManagedApplication-20230310100148_ that's stored in the `$mrgname` variable. The name's format `mrg-{definitionName}-{dateTime}` is the same format as the portal's default value. You use the `$mrgname` variable's value when you deploy the managed application.
+The `$mrgprefix` and `$mrgtimestamp` variables are concatenated and stored in the `$mrgname` variable. The variable's value is in the format _mrg-sampleManagedApplication-20230512103059_. You use the `$mrgname` variable's value when you deploy the managed application.
 
 You need to provide several parameters to the deployment command for the managed application. You can use a JSON formatted string or create a JSON file. In this example, we use a JSON formatted string. The PowerShell escape character for the quote marks is the backtick (`` ` ``) character. The backtick is also used for line continuation so that commands can use multiple lines.
 
@@ -151,7 +150,7 @@ The parameters to create the managed resources:
 - `appServicePlanName`: Create a plan name. Maximum of 40 alphanumeric characters and hyphens. For example, _demoAppServicePlan_. App Service plan names must be unique within a resource group in your subscription.
 - `appServiceNamePrefix`: Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure.
 - `storageAccountNamePrefix`: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
-- `storageAccountType`: The default is Standard_LRS. The other options are Premium_LRS, Standard_LRS, and Standard_GRS.
+- `storageAccountType`: The options are Premium_LRS, Standard_LRS, and Standard_GRS.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -173,9 +172,9 @@ subid=$(az account list --query [].id --output tsv)
 mrgpath="/subscriptions/$subid/resourceGroups/$mrgname"
 ```
 
-The `mrgprefix` and `mrgtimestamp` variables are concatenated to create a managed resource group name like _mrg-sampleManagedApplication-20230310100148_ that's stored in the `mrgname` variable. The name's format:`mrg-{definitionName}-{dateTime}` is the same format as the portal's default value. The `mrgname` and `subid` variable's are concatenated to create the `mrgpath` variable value that creates the managed resource group during the deployment.
+The `$mrgprefix` and `$mrgtimestamp` variables are concatenated and stored in the `$mrgname` variable. The variable's value is in the format _mrg-sampleManagedApplication-20230512103059_. The `mrgname` and `subid` variable's are concatenated to create the `mrgpath` variable value that creates the managed resource group during the deployment.
 
-You need to provide several parameters to the deployment command for the managed application. You can use a JSON formatted string or create a JSON file. In this example, we use a JSON formatted string. The PowerShell escape character for the quote marks is the backslash (`\`) character. The backslash is also used for line continuation so that commands can use multiple lines.
+You need to provide several parameters to the deployment command for the managed application. You can use a JSON formatted string or create a JSON file. In this example, we use a JSON formatted string. In Bash, the escape character for the quote marks is the backslash (`\`) character. The backslash is also used for line continuation so that commands can use multiple lines.
 
 The JSON formatted string's syntax is as follows:
 
@@ -183,7 +182,7 @@ The JSON formatted string's syntax is as follows:
 "{ \"parameterName\": {\"value\":\"parameterValue\"}, \"parameterName\": {\"value\":\"parameterValue\"} }"
 ```
 
-For readability, the completed JSON string uses the backtick for line continuation. The values are stored in the `params` variable that's used in the deployment command. The parameters in the JSON string are required to deploy the managed resources.
+For readability, the completed JSON string uses the backslash for line continuation. The values are stored in the `params` variable that's used in the deployment command. The parameters in the JSON string are required to deploy the managed resources.
 
 ```azurecli
 params="{ \"appServicePlanName\": {\"value\":\"demoAppServicePlan\"}, \
@@ -197,7 +196,7 @@ The parameters to create the managed resources:
 - `appServicePlanName`: Create a plan name. Maximum of 40 alphanumeric characters and hyphens. For example, _demoAppServicePlan_. App Service plan names must be unique within a resource group in your subscription.
 - `appServiceNamePrefix`: Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure.
 - `storageAccountNamePrefix`: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
-- `storageAccountType`: The default is Standard_LRS. The other options are Premium_LRS, Standard_LRS, and Standard_GRS.
+- `storageAccountType`: The options are Premium_LRS, Standard_LRS, and Standard_GRS.
 
 # [Portal](#tab/azure-portal)
 
@@ -399,7 +398,7 @@ Go to the managed resource group with the name prefix **mrg-sampleManagedApplica
 
 :::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-resource-group.png" alt-text="Screenshot that shows the managed resource group that contains the resources deployed by the managed application definition.":::
 
-The managed resource group and each resource created by the managed application has a role assignment. When you used a quickstart article to create the definition, you created an Azure Active Directory group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed resources.
+The managed resource group and each resource created by the managed application has a role assignment. When you used a quickstart article to create the definition, you created a Microsoft Entra group. That group was used in the managed application definition. When you deployed the managed application, a role assignment for that group was added to the managed resources.
 
 To see the role assignment from the Azure portal:
 
@@ -408,7 +407,7 @@ To see the role assignment from the Azure portal:
 
    You can also view the resource's **Deny assignments**.
 
-The role assignment gives the application's publisher access to manage the storage account. In this example, the publisher might be your IT department. The _Deny assignments_ prevents customers from making changes to a managed resource's configuration. Managed apps are designed so that customers don't need to maintain the resources. The _Deny assignment_ excludes the Azure Active Directory group that was assigned in **Role assignments**.
+The role assignment gives the application's publisher access to manage the storage account. In this example, the publisher might be your IT department. The _Deny assignments_ prevents customers from making changes to a managed resource's configuration. Managed apps are designed so that customers don't need to maintain the resources. The _Deny assignment_ excludes the Microsoft Entra group that was assigned in **Role assignments**.
 
 ---
 

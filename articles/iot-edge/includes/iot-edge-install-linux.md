@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/05/2023
+ms.date: 05/03/2023
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -36,14 +36,6 @@ Installing can be done with a few commands.  Open a terminal and run the followi
    rm packages-microsoft-prod.deb
    ```
 
-* **18.04**:
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/18.04/multiarch/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-   sudo dpkg -i packages-microsoft-prod.deb
-   rm packages-microsoft-prod.deb
-   ```
-
 # [Debian](#tab/debian)
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
@@ -61,6 +53,14 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 # [Red Hat Enterprise Linux](#tab/rhel)
 
 Installing can be done with a few commands. Open a terminal and run the following commands:
+
+* **9.x (amd64)**:
+
+   ```bash
+    wget https://packages.microsoft.com/config/rhel/9.0/packages-microsoft-prod.rpm -O packages-microsoft-prod.rpm
+    sudo yum localinstall packages-microsoft-prod.rpm
+    rm packages-microsoft-prod.rpm
+    ```
 
 * **8.x (amd64)**:
 
@@ -160,7 +160,7 @@ Install the latest version of IoT Edge and the IoT identity service package (if 
      sudo apt-get install aziot-edge
    ```
 
-* **20.04 or 18.04**:
+* **20.04**:
    ```bash
    sudo apt-get update; \
      sudo apt-get install aziot-edge defender-iot-micro-agent-edge

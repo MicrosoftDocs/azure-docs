@@ -3,7 +3,7 @@ title: Python UDF with Apache Hive and Apache Pig - Azure HDInsight
 description: Learn how to use Python User Defined Functions (UDF) from Apache Hive and Apache Pig in HDInsight, the Apache Hadoop technology stack on Azure.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/21/2022
+ms.date: 09/15/2023
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python, devx-track-azurepowershell
 ---
 
@@ -13,7 +13,7 @@ Learn how to use Python user-defined functions (UDF) with Apache Hive and Apache
 
 ## <a name="python"></a>Python on HDInsight
 
-Python2.7 is installed by default on HDInsight 3.0 and later. Apache Hive can be used with this version of Python for stream processing. Stream processing uses STDOUT and STDIN to pass data between Hive and the UDF.
+`Python2.7` is installed by default on HDInsight 3.0 and later. Apache Hive can be used with this version of Python for stream processing. Stream processing uses STDOUT and STDIN to pass data between Hive and the UDF.
 
 HDInsight also includes Jython, which is a Python implementation written in Java. Jython runs directly on the Java Virtual Machine and doesn't use streaming. Jython is the recommended Python interpreter when using Python with Pig.
 
@@ -23,14 +23,14 @@ HDInsight also includes Jython, which is a Python implementation written in Java
 * **An SSH client**. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be wasbs://.  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 * **Possible change to storage configuration.**  See [Storage configuration](#storage-configuration) if using storage account kind `BlobStorage`.
-* Optional.  If Planning to use PowerShell, you'll need the [AZ module](/powershell/azure/new-azureps-module-az) installed.
+* Optional. If planning to use PowerShell, you need the [AZ module](/powershell/azure/new-azureps-module-az) installed.
 
 > [!NOTE]  
 > The storage account used in this article was Azure Storage with [secure transfer](../../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` is used throughout the article.
 
 ## Storage configuration
 
-No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in this article will produce output to at least `/tezstaging`.  A default hadoop configuration will contain `/tezstaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which aren't supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/tezstaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Otherwise, you'll receive the error message: `Page blob is not supported for this account type.`
+No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in this article produces output to at least `/tezstaging`.  A default hadoop configuration contains `/tezstaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration causes output to the directory to be page blobs, which aren't supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/tezstaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Otherwise, you receive the error message: `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > The steps in this document make the following assumptions:  
@@ -99,15 +99,15 @@ The script output is a concatenation of the input values for `devicemake` and `d
 
 ### Upload file (shell)
 
-In the commands below, replace `sshuser` with the actual username if different.  Replace `mycluster` with the actual cluster name.  Ensure your working directory is where the file is located.
+The following command, replaces `sshuser` with the actual username if different.  Replace `mycluster` with the actual cluster name.  Ensure your working directory is where the file is located.
 
-1. Use `scp` to copy the files to your HDInsight cluster. Edit and enter the command below:
+1. Use `scp` to copy the files to your HDInsight cluster. Edit and enter the command:
 
     ```cmd
     scp hiveudf.py sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-2. Use SSH to connect to the cluster.  Edit and enter the command below:
+2. Use SSH to connect to the cluster. Edit and enter the command:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
@@ -140,7 +140,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
    ORDER BY clientid LIMIT 50;
    ```
 
-3. After entering the last line, the job should start. Once the job completes, it returns output similar to the following example:
+3. Once the last line entered, the job should start. Once the job completes, it returns output similar to the following example:
 
     ```output
     100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -357,13 +357,13 @@ When the data is returned to Pig, it has a consistent schema as defined in the `
 
 In the commands below, replace `sshuser` with the actual username if different.  Replace `mycluster` with the actual cluster name.  Ensure your working directory is where the file is located.
 
-1. Use `scp` to copy the files to your HDInsight cluster. Edit and enter the command below:
+1. Use `scp` to copy the files to your HDInsight cluster. Edit and enter the command:
 
     ```cmd
     scp pigudf.py sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-2. Use SSH to connect to the cluster.  Edit and enter the command below:
+2. Use SSH to connect to the cluster.  Edit and enter the command:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net

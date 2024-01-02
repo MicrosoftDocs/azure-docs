@@ -1,0 +1,41 @@
+- name: Azure API Center Documentation
+  href: index.yml
+- name: Get started
+  expanded: true
+  items:
+    - name: Overview
+      items:
+      - name: What is API Center?
+        displayName: Overview
+        href: overview.md
+      - name: Key concepts
+        href: key-concepts.md  
+      - name: Service limits
+        href: ../azure-resource-manager/management/azure-subscription-service-limits.md#api-center-preview-limits
+    - name: Quickstarts
+      items:
+          - name: Create an API center
+            href: set-up-api-center.md
+    - name: Tutorials
+      items:
+          - name: 1 - Customize metadata properties
+            href: add-metadata-properties.md
+          - name: 2 - Add APIs to the inventory
+            href: register-apis.md
+          - name: 3 - Add environments and deployments
+            href: configure-environments-deployments.md
+#- name: API inventory
+#- name: API governance
+#- name: API discovery and consumption
+- name: Reference
+  items:
+      - name: REST API
+        href: /rest/api/apicenter/
+      - name: REST API SDKs
+        items:
+          - name: JavaScript
+            href: /javascript/api/overview/azure/apicenter
+          - name: Java
+            href: /java/api/overview/azure/apicenter
+          - name: Python
+            href: https://pypi.org/project/azure-mgmt-apicenter

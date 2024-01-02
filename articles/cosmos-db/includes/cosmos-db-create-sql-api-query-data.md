@@ -20,7 +20,7 @@ You can use queries in Data Explorer to retrieve and filter your data.
 
    :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="Screenshot shows a change to the default query to ORDER BY c._ts DESC." lightbox="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png":::
 
-   The modified query displays the documents in descending order based on their description, so now your second document is listed first.
+   The modified query displays the documents in descending order based on their timestamp, so now your second document is listed first.
 
    :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="Screenshot shows the result of the changed query." lightbox="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png":::
 

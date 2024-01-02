@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 11/14/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -46,13 +46,13 @@ The copy activity fails with the following error when using Snowflake as sink:<b
     - Direct copy: Make sure to grant access permission to Snowflake in the other source/sink. Currently, only Azure Blob Storage that uses shared access signature authentication is supported as source or sink. When you generate the shared access signature, make sure to set the allowed permissions and IP addresses to Snowflake in the Azure Blob Storage. For more information, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token). 
     - Staged copy: The staging Azure Blob Storage linked service must use shared access signature authentication. When you generate the shared access signature, make sure to set the allowed permissions and IP addresses to Snowflake in the staging Azure Blob Storage. For more information, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token).
  
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [Data Factory feature requests](/answers/topics/azure-data-factory.html)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
+- [Data Factory feature requests](https://feedback.azure.com/d365community/forum/1219ec2d-6c26-ec11-b6e6-000d3a4f032c)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

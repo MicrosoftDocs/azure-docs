@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 01/11/2023
+ms.date: 10/20/2023
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using PowerShell
@@ -65,7 +65,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-* Azure PowerShell. Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* Azure PowerShell. Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 * **Azure SQL Database**. You use the database as the **source** data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **adftutorial**. 
 
@@ -143,7 +143,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```
 
 ### Azure PowerShell
-Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Create a data factory
 
@@ -651,7 +651,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
 
-## Next steps
+## Related content
 Advance to the following tutorial to learn about copying new and changed files only based on their LastModifiedDate:
 
 > [!div class="nextstepaction"]

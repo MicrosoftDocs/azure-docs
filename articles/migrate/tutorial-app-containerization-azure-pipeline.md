@@ -4,6 +4,7 @@ description: Tutorial:Continuous Deployment for containerized applications with 
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
+ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 12/07/2021
 ms.custom: engagement-fy23

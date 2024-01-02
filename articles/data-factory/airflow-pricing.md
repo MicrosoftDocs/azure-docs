@@ -5,7 +5,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 10/20/2023
 ms.author: abnarain
 ---
 
@@ -21,8 +21,7 @@ Managed Airflow supports either small (D2v4) or large (D4v4) node sizing.  Small
 
 :::image type="content" source="media/airflow-pricing/airflow-pricing.png" alt-text="Shows a screenshot of a table of pricing options for Managed Airflow configuration.":::
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
 - [Changing password for Airflow environments](password-change-airflow.md)

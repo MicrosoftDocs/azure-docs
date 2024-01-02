@@ -5,11 +5,10 @@ description: Learn how to configure an immutability policy that is scoped to a c
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/14/2022
 ms.author: normesta
-ms.subservice: blobs
 ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ---

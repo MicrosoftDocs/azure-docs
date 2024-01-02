@@ -3,10 +3,9 @@ title: Virtual machine and disk performance
 description: Learn more about how virtual machines and their attached disks work in combination for performance.
 author: roygara
 ms.author: rogarana
-ms.date: 12/12/2022
+ms.date: 05/31/2023
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 # Virtual machine and disk performance
 

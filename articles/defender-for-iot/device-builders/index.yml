@@ -41,6 +41,8 @@ landingContent:
             url: concept-recommendations.md
           - text: Event aggregation
             url: concept-event-aggregation.md
+          - text: Firmware analysis (preview)
+            url: overview-firmware-analysis.md
   - title: How-to
     linkLists:
       - linkListType: how-to-guide

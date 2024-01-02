@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.
 author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: conceptual
 ms.date: 03/09/2023
 ms.author: normesta
@@ -155,7 +154,7 @@ Again, the choice you make with the folder and file organization should optimize
 
 ## Set up security
 
-Start by reviewing the recommendations in the [Security recommendations for Blob storage](security-recommendations.md) article. You'll find best practice guidance about how to protect your data from accidental or malicious deletion, secure data behind a firewall, and use Azure Active Directory (Azure AD) as the basis of identity management.
+Start by reviewing the recommendations in the [Security recommendations for Blob storage](security-recommendations.md) article. You'll find best practice guidance about how to protect your data from accidental or malicious deletion, secure data behind a firewall, and use Microsoft Entra ID as the basis of identity management.
 
 Then, review the [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md) article for guidance that is specific to Data Lake Storage Gen2 enabled accounts. This article helps you understand how to use Azure role-based access control (Azure RBAC) roles together with access control lists (ACLs) to enforce security permissions on directories and files in your hierarchical file system.
 
@@ -197,7 +196,7 @@ If you want to store your logs for both near real-time query and long term reten
 
 If you want to access your logs through another query engine such as Splunk, you can configure your diagnostic settings to send logs to an event hub and ingest logs from the event hub to your chosen destination.
 
-Azure Storage logs in Azure Monitor can be enabled through the Azure portal, PowerShell, the Azure CLI, and Azure Resource Manager templates. For at-scale deployments, Azure Policy can be used with full support for remediation tasks. For more information, see [Azure/Community-Policy](https://github.com/Azure/Community-Policy/tree/master/Policies/Storage/deploy-storage-monitoring-log-analytics) and [ciphertxt/AzureStoragePolicy](https://github.com/ciphertxt/AzureStoragePolicy).
+Azure Storage logs in Azure Monitor can be enabled through the Azure portal, PowerShell, the Azure CLI, and Azure Resource Manager templates. For at-scale deployments, Azure Policy can be used with full support for remediation tasks. For more information, see [ciphertxt/AzureStoragePolicy](https://github.com/ciphertxt/AzureStoragePolicy).
 
 
 ## See also

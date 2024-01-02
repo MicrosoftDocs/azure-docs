@@ -14,6 +14,8 @@ ms.date: 09/20/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Azure Database for PostgreSQL Single Server planning the root certificate change starting  **December 2022 (12/2022)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 ## Why root certificate update is required?
@@ -150,7 +152,7 @@ No. There's no action needed if your certificate file already has the **DigiCert
 There are many tools that you can use. For example, DigiCert has a handy [tool](https://www.digicert.com/help/) that  shows you the certificate chain of any server name. (This tool works with publicly accessible server; it cannot connect to server that is contained in a virtual network (VNET)). 
 Another tool you can use is OpenSSL in the command line, you can use this syntax to check certificates:
 ```bash
-openssl s_client -showcerts -connect <your-postgresql-server-name>:443
+openssl s_client -starttls postgres -showcerts -connect <your-postgresql-server-name>:5432
 ```
 
 ### 14. What if I have further questions?

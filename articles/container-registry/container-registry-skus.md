@@ -4,7 +4,8 @@ description: Learn about the features and limits (quotas) in the Basic, Standard
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Azure Container Registry service tiers
@@ -13,11 +14,18 @@ Azure Container Registry is available in multiple service tiers (also known as S
 
 | Tier | Description |
 | --- | ----------- |
-| **Basic** | A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (such as Azure Active Directory [authentication integration](container-registry-authentication.md#individual-login-with-azure-ad), [image deletion][container-registry-delete], and [webhooks][container-registry-webhook]). However, the included storage and image throughput are most appropriate for lower usage scenarios. |
+| **Basic** | A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (such as Microsoft Entra [authentication integration](container-registry-authentication.md#individual-login-with-azure-ad), [image deletion][container-registry-delete], and [webhooks][container-registry-webhook]). However, the included storage and image throughput are most appropriate for lower usage scenarios. |
 | **Standard** | Standard registries offer the same capabilities as Basic, with increased included storage and image throughput. Standard registries should satisfy the needs of most production scenarios. |
 | **Premium** | Premium registries provide the highest amount of included storage and concurrent operations, enabling high-volume scenarios. In addition to higher image throughput, Premium adds features such as [geo-replication][container-registry-geo-replication] for managing a single registry across multiple regions, [content trust](container-registry-content-trust.md) for image tag signing, [private link with private endpoints](container-registry-private-link.md) to restrict access to the registry. |
 
 The Basic, Standard, and Premium tiers all provide the same programmatic capabilities. They also all benefit from [image storage][container-registry-storage] managed entirely by Azure. Choosing a higher-level tier provides more performance and scale. With multiple service tiers, you can get started with Basic, then convert to Standard and Premium as your registry usage increases.
+
+For example :
+
+- If you purchase a Basic tier registry, it includes a storage of 10 GB. The price you pay here is $0.167 per day. Prices are calculated based on US dollars.
+- If you have a Basic tier registry and use 25 GB storage, you are paying $0.003/day*15 = $0.045 per day for the additional 15 GB.
+- So, the pricing for the Basic ACR with 25 GB storage is $0.167+$0.045= 0.212 USD per day with other related charges like networking, builds, etc, according to the [Pricing - Container Registry.](https://azure.microsoft.com/pricing/details/container-registry/)
+
 
 ## Service tier features and limits
 

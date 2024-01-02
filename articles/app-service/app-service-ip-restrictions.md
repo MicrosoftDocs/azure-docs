@@ -5,7 +5,7 @@ author: madsd
 
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 10/05/2022
 ms.author: madsd
 ---
@@ -56,8 +56,11 @@ You must have at least the following Role-based access control permissions on th
 | Microsoft.Web/sites/config/read | Get Web App configuration settings |
 | Microsoft.Web/sites/config/write | Update Web App's configuration settings |
 | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* | Joins resource such as storage account or SQL database to a subnet |
+| Microsoft.Web/sites/write** | Update Web App settings |
 
 **only required when adding a virtual network (service endpoint) rule.*
+
+***only required if you are updating access restrictions through Azure portal.*
 
 If you're adding a service endpoint-based rule and the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the Microsoft.Web resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it will also automatically be registered when creating the first web app in a subscription.
 

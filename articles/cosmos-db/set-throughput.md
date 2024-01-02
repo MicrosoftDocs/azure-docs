@@ -28,7 +28,7 @@ The throughput provisioned on an Azure Cosmos DB container is exclusively reserv
 
 Setting provisioned throughput on a container is the most frequently used option. You can elastically scale throughput for a container by provisioning any amount of throughput by using [Request Units (RUs)](request-units.md). 
 
-The throughput provisioned for a container is evenly distributed among its physical partitions, and assuming a good partition key that distributes the logical partitions evenly among the physical partitions, the throughput is also distributed evenly across all the logical partitions of the container. You cannot selectively specify the throughput for logical partitions. Because one or more logical partitions of a container are hosted by a physical partition, the physical partitions belong exclusively to the container and support the throughput provisioned on the container. 
+The throughput provisioned for a container is evenly distributed among its physical partitions, and assuming a good partition key that distributes the logical partitions evenly among the physical partitions, the throughput is also distributed evenly across all the logical partitions of the container. You can't selectively specify the throughput for logical partitions. Because one or more logical partitions of a container are hosted by a physical partition, the physical partitions belong exclusively to the container and support the throughput provisioned on the container. 
 
 If the workload running on a logical partition consumes more than the throughput that was allocated to the underlying physical partition, it's possible that your operations will be rate-limited. What is known as a _hot partition_ occurs when one logical partition has disproportionately more requests than other partition key values.
 
@@ -42,7 +42,7 @@ The following image shows how a physical partition hosts one or more logical par
 
 ## Set throughput on a database
 
-When you provision throughput on an Azure Cosmos DB database, the throughput is shared across all the containers (called shared database containers) in the database. An exception is if you specified a provisioned throughput on specific containers in the database. Sharing the database-level provisioned throughput among its containers is analogous to hosting a database on a cluster of machines. Because all containers within a database share the resources available on a machine, you naturally do not get predictable performance on any specific container. To learn how to configure provisioned throughput on a database, see [Configure provisioned throughput on an Azure Cosmos DB database](how-to-provision-database-throughput.md). To learn how to configure autoscale throughput on a database, see [Provision autoscale throughput](how-to-provision-autoscale-throughput.md).
+When you provision throughput on an Azure Cosmos DB database, the throughput is shared across all the containers (called shared database containers) in the database. An exception is if you specified a provisioned throughput on specific containers in the database. Sharing the database-level provisioned throughput among its containers is analogous to hosting a database on a cluster of machines. Because all containers within a database share the resources available on a machine, you naturally don't get predictable performance on any specific container. To learn how to configure provisioned throughput on a database, see [Configure provisioned throughput on an Azure Cosmos DB database](how-to-provision-database-throughput.md). To learn how to configure autoscale throughput on a database, see [Provision autoscale throughput](how-to-provision-autoscale-throughput.md).
 
 Because all containers within the database share the provisioned throughput, Azure Cosmos DB doesn't provide any predictable throughput guarantees for a particular container in that database. The portion of the throughput that a specific container can receive is dependent on:
 
@@ -68,7 +68,7 @@ Containers in a shared throughput database share the throughput (RU/s) allocated
 > In February 2020, we introduced a change that allows you to have a maximum of 25 containers in a shared throughput database, which  better enables throughput sharing across the containers. After the first 25 containers, you can add more containers to the database only if they are [provisioned with dedicated throughput](#set-throughput-on-a-database-and-a-container), which is separate from the shared throughput of the database.<br>
 If your Azure Cosmos DB account already contains a shared throughput database with >=25 containers, the account and all other accounts in the same Azure subscription are exempt from this change. Please [contact product support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you have feedback or questions. 
 
-If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
+If your workloads involve deleting and recreating all the collections in a database, it's recommended that you drop the empty database and recreate a new database prior to collection creation. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
 :::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Physical partition that hosts one or more logical partitions that belong to different containers " border="false":::
 
@@ -81,15 +81,15 @@ You can combine the two models. Provisioning throughput on both the database and
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Setting the throughput at the container-level":::
 
-* The *"K"* RUs throughput is shared across the four containers *A*, *C*, *D*, and *E*. The exact amount of throughput available to *A*, *C*, *D*, or *E* varies. There are no SLAs for each individual container's throughput.
-* The container named *B* is guaranteed to get the *"P"* RUs throughput all the time. It's backed by SLAs.
+* The *"K"* RU/s throughput is shared across the four containers *A*, *C*, *D*, and *E*. The exact amount of throughput available to *A*, *C*, *D*, or *E* varies. There are no SLAs for each individual container's throughput.
+* The container named *B* is guaranteed to get the *"P"* RU/s throughput all the time. It's backed by SLAs.
 
 > [!NOTE]
-> A container with provisioned throughput cannot be converted to shared database container. Conversely a shared database container cannot be converted to have a dedicated throughput. You will need to move the data to a container with the desired throughput setting. ([Container copy jobs](intra-account-container-copy.md) for NoSQL and Cassandra APIs help with this process.)
+> A container with provisioned throughput cannot be converted to shared database container. Conversely a shared database container cannot be converted to have a dedicated throughput. You will need to move the data to a container with the desired throughput setting. ([Container copy jobs](container-copy.md) for NoSQL, MongoDB and Cassandra APIs help with this process.)
 
 ## Update throughput on a database or a container
 
-After you create an Azure Cosmos DB container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container.
+After you create an Azure Cosmos DB container or a database, you can update the provisioned throughput. There's no limit on the maximum provisioned throughput that you can configure on the database or the container.
 
 ### <a id="current-provisioned-throughput"></a> Current provisioned throughput
 
@@ -103,11 +103,7 @@ The response of those methods also contains the [minimum provisioned throughput]
 * [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput) on the .NET SDK.
 * [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) on the Java SDK.
 
-The actual minimum RU/s may vary depending on your account configuration. But generally it's the maximum of:
-
-* 400 RU/s 
-* Current storage in GB * 1 RU/s
-* Highest RU/s ever provisioned on the database or container / 100
+The actual minimum RU/s might vary depending on your account configuration. For more information, see [the autoscale FAQ](autoscale-faq.yml).
 
 ### Changing the provisioned throughput
 
@@ -116,9 +112,9 @@ You can scale the provisioned throughput of a container or a database through th
 * [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync) on the .NET SDK.
 * [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput) on the Java SDK.
 
-If you are **reducing the provisioned throughput**, you will be able to do it up to the [minimum](#current-provisioned-throughput).
+If you're **reducing the provisioned throughput**, you'll be able to do it up to the [minimum](#current-provisioned-throughput).
 
-If you are **increasing the provisioned throughput**, most of the time, the operation is instantaneous. There are however, cases where the operation can take longer time due to the system tasks to provision the required resources. In this case, an attempt to modify the provisioned throughput while this operation is in progress will yield an HTTP 423 response with an error message explaining that another scaling operation is in progress.
+If you're **increasing the provisioned throughput**, most of the time, the operation is instantaneous. There are however, cases where the operation can take longer time due to the system tasks to provision the required resources. In this case, an attempt to modify the provisioned throughput while this operation is in progress yields an HTTP 423 response with an error message explaining that another scaling operation is in progress.
 
 Learn more in the [Best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md) article.
 

@@ -76,14 +76,13 @@ Read the following SAP Notes and papers first:
 * [Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure](./sap-high-availability-installation-wsfc-file-share.md) 
 * [Azure Virtual Machines high-availability architecture and scenarios for SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 * [Add probe port in ASCS cluster configuration](sap-high-availability-installation-wsfc-file-share.md)
-* [Installation of an (A)SCS Instance on a Failover Cluster](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Create an SMB volume for Azure NetApp Files](../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure] 
 
 ## Overview
 
 SAP developed a new approach, and an alternative to cluster shared disks, for clustering an SAP ASCS/SCS instance on a Windows failover cluster. Instead of using cluster shared disks, one can use an SMB file share to deploy SAP global host files. Azure NetApp Files supports SMBv3 (along with NFS) with NTFS ACL using Active Directory. Azure NetApp Files is automatically highly available (as it is a PaaS service). These features make Azure NetApp Files great option for hosting the SMB file share for SAP global.  
-Both [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can be in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. In this article, we will use Domain controller in an Azure VM.  
+Both [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can be in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. In this article, we will use Domain controller in an Azure VM.  
 High availability(HA) for SAP Netweaver central services requires shared storage. To achieve that on Windows, so far it was necessary to build either SOFS cluster or use cluster shared disk s/w like SIOS. Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using Azure NetApp Files for the shared storage eliminates the need for either SOFS or SIOS.  
 
 > [!NOTE]
@@ -119,7 +118,7 @@ Perform the following steps, as preparation for using Azure NetApp Files.
 7. Mount the SMB volume on your Windows Virtual Machine.  
 
 > [!TIP]
-> You can find the instructions on how to mount the Azure NetApp Files volume, if you navigate in [Azure Portal](https://portal.azure.com/#home) to the Azure NetApp Files object, click on the **Volumes** blade, then **Mount Instructions**.  
+> For instructions on how to mount the Azure NetApp Files volume, sign in to the [Azure portal](https://portal.azure.com), then navigate to the Azure NetApp Files object, select the **Volumes** blade, then select **Mount Instructions**.  
 
 ### Important considerations
 

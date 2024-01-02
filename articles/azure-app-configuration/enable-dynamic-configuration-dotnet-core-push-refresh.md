@@ -12,10 +12,10 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ms.topic: tutorial
 ms.date: 02/03/2022
 ms.author: msolomon
-
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration using push refresh in a .NET Core app
@@ -83,7 +83,7 @@ Open *Program.cs* and update the file with the following code.
 
 ```csharp
 using Azure.Messaging.EventGrid;
-using Microsoft.Azure.ServiceBus;
+using Azure.Messaging.ServiceBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration.Extensions;
@@ -145,13 +145,13 @@ namespace TestConsole
             string serviceBusConnectionString = Environment.GetEnvironmentVariable(ServiceBusConnectionStringEnvVarName);
             string serviceBusTopic = Environment.GetEnvironmentVariable(ServiceBusTopicEnvVarName);
             string serviceBusSubscription = Environment.GetEnvironmentVariable(ServiceBusSubscriptionEnvVarName);
-            SubscriptionClient serviceBusClient = new SubscriptionClient(serviceBusConnectionString, serviceBusTopic, serviceBusSubscription);
+            ServiceBusClient serviceBusClient = new ServiceBusClient(serviceBusConnectionString);
+            ServiceBusProcessor serviceBusProcessor = serviceBusClient.CreateProcessor(serviceBusTopic, serviceBusSubscription);
 
-            serviceBusClient.RegisterMessageHandler(
-                handler: (message, cancellationToken) =>
+            serviceBusProcessor.ProcessMessageAsync += (processMessageEventArgs) =>
                 {
                     // Build EventGridEvent from notification message
-                    EventGridEvent eventGridEvent = EventGridEvent.Parse(BinaryData.FromBytes(message.Body));
+                    EventGridEvent eventGridEvent = EventGridEvent.Parse(BinaryData.FromBytes(processMessageEventArgs.Message.Body));
 
                     // Create PushNotification from eventGridEvent
                     eventGridEvent.TryCreatePushNotification(out PushNotification pushNotification);
@@ -160,12 +160,13 @@ namespace TestConsole
                     _refresher.ProcessPushNotification(pushNotification);
 
                     return Task.CompletedTask;
-                },
-                exceptionReceivedHandler: (exceptionargs) =>
+                };
+
+            serviceBusProcessor.ProcessErrorAsync += (exceptionargs) =>
                 {
                     Console.WriteLine($"{exceptionargs.Exception}");
                     return Task.CompletedTask;
-                });
+                };
         }
     }
 }

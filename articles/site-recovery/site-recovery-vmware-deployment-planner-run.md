@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 05/27/2021
+ms.date: 12/15/2023
 
 ---
 # Run the Deployment Planner for VMware disaster recovery
@@ -76,20 +76,20 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-NoOfHoursToProfile|The number of hours for which profiling is to be run.|
 | -NoOfDaysToProfile | The number of days for which profiling is to be run. We recommend that you run profiling for more than 7 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation. |
 |-Virtualization|Specify the virtualization type (VMware or Hyper-V).|
-| -Directory | (Optional) The universal naming convention (UNC) or local directory path to store profiling data generated during profiling. If a directory name is not given, the directory named ‘ProfiledData’ under the current path will be used as the default directory. |
-| -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If you do not specify one now, you will be prompted for it when the command is executed.|
+| -Directory | (Optional) The universal naming convention (UNC) or local directory path to store profiling data generated during profiling. If a directory name is not given, the directory named ‘ProfiledData’ under the current path is used as the default directory. |
+| -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If you do not specify one now, you are prompted for it when the command is executed.|
 |-Port|(Optional) Port number to connect to vCenter/ESXi host. Default port is 443.|
 |-Protocol| (Optional) Specified the protocol either ‘http’ or ‘https’ to connect to vCenter. Default protocol is https.|
 | -StorageAccountName | (Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput. The storage account must be General-purpose v1 (GPv1) type. |
 | -StorageAccountKey | (Optional) The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1. |
-| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China 21Vianet. |
+| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Microsoft Azure operated by 21Vianet. |
 
 
 We recommend that you profile your VMs for more than 7 days. If churn pattern varies in a month, we recommend to profile during the week when you see the maximum churn. The best way is to profile for 31 days to get better recommendation. During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. For a quick test of the tool or for proof of concept you can profile for few hours or minutes. The minimum allowed profiling time is 30 minutes.
 
 During profiling, you can optionally pass a storage-account name and key to find the throughput that Site Recovery can achieve at the time of replication from the configuration server or process server to Azure. If the storage-account name and key are not passed during profiling, the tool does not calculate achievable throughput.
 
-You can run multiple instances of the tool for various sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, if you have profiled ten VMs (VM1 through VM10) and after few days you want to profile another five VMs (VM11 through VM15), you can run the tool from another command-line console for the second set of VMs (VM11 through VM15). Ensure that the second set of VMs do not have any VM names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same VMs and use the same output directory, the generated report will be incorrect.
+You can run multiple instances of the tool for various sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, if you have profiled ten VMs (VM1 through VM10) and after few days you want to profile another five VMs (VM11 through VM15), you can run the tool from another command-line console for the second set of VMs (VM11 through VM15). Ensure that the second set of VMs do not have any VM names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same VMs and use the same output directory, the generated report is incorrect.
 
 By default, the tool is configured to profile and generate report up to 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
 ```
@@ -102,7 +102,7 @@ We have seen that based on the hardware configuration especially RAM size of the
 
 If you have multiple vCenter servers, you need to run one instance of ASRDeploymentPlanner for each vCenter server for profiling.
 
-VM configurations are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information is used when the report is generated. Any change in VM configuration (for example, an increased number of cores, disks, or NICs) from the beginning to the end of profiling is not captured. If a profiled VM configuration has changed during the course of profiling, in the public preview, here is the workaround to get latest VM details when generating the report:
+VM configurations are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information is used when the report is generated. Any change in VM configuration (for example, an increased number of cores, disks, or NICs) from the beginning to the end of profiling is not captured. If a profiled VM configuration has changed during the profiling, in the public preview, here is the workaround to get latest VM details when generating the report:
 
 * Back up VMdetailList.xml, and delete the file from its current location.
 * Pass -User and -Password arguments at the time of report generation.
@@ -133,7 +133,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 >[!NOTE]
 >
 >* If the server that the tool is running on is rebooted or has crashed, or if you close the tool by using Ctrl + C, the profiled data is preserved. However, there is a chance of missing the last 15 minutes of profiled data. In such an instance, rerun the tool in profiling mode after the server restarts.
->* When the storage-account name and key are passed, the tool measures the throughput at the last step of profiling. If the tool is closed before profiling is completed, the throughput is not calculated. To find the throughput before generating the report, you can run the GetThroughput operation from the command-line console. Otherwise, the generated report will not contain the throughput information.
+>* When the storage-account name and key are passed, the tool measures the throughput at the last step of profiling. If the tool is closed before profiling is completed, the throughput is not calculated. To find the throughput before generating the report, you can run the GetThroughput operation from the command-line console. Otherwise, the generated report won't contain the throughput information.
 
 
 ## Generate report
@@ -149,13 +149,13 @@ After profiling is complete, you can run the tool in report-generation mode. The
 |Parameter name | Description |
 |-|-|
 | -Operation | GenerateReport |
-| -Server |  The vCenter/vSphere server fully qualified domain name or IP address (use the same name or IP address that you used at the time of profiling) where the profiled VMs whose report is to be generated are located. Note that if you used a vCenter server at the time of profiling, you cannot use a vSphere server for report generation, and vice-versa.|
+| -Server |  The vCenter/vSphere server fully qualified domain name or IP address (use the same name or IP address that you used at the time of profiling) where the profiled VMs whose report is to be generated are located. If you used a vCenter server at the time of profiling, you cannot use a vSphere server for report generation, and vice-versa.|
 | -VMListFile | The file that contains the list of profiled VMs that the report is to be generated for. The file path can be absolute or relative. The file should contain one VM name or IP address per line. The VM names that are specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host, and match what was used during profiling.|
 |-Virtualization|Specify the virtualization type (VMware or Hyper-V).|
-| -Directory | (Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, ‘ProfiledData’ directory will be used. |
+| -Directory | (Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, ‘ProfiledData’ directory is used. |
 | -GoalToCompleteIR | (Optional) The number of hours in which the initial replication of the profiled VMs needs to be completed. The generated report provides the number of VMs for which initial replication can be completed in the specified time. The default is 72 hours. |
 | -User | (Optional) The user name to use to connect to the vCenter/vSphere server. The name is used to fetch the latest configuration information of the VMs, such as the number of disks, number of cores, and number of NICs, to use in the report. If the name isn't provided, the configuration information collected at the beginning of the profiling kickoff is used. |
-| -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If the password isn't specified as a parameter, you will be prompted for it later when the command is executed. |
+| -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If the password isn't specified as a parameter, you is prompted for it later when the command is executed. |
 |-Port|(Optional) Port number to connect to vCenter/ESXi host. Default port is 443.|
 |-Protocol|(Optional) Specified the protocol either ‘http’ or ‘https’ to connect to vCenter. Default protocol is https.|
 | -DesiredRPO | (Optional) The desired recovery point objective, in minutes. The default is 15 minutes.|
@@ -164,7 +164,7 @@ After profiling is complete, you can run the tool in report-generation mode. The
 | -EndDate | (Optional) The end date and time in MM-DD-YYYY:HH:MM (24-hour format). *EndDate* must be specified along with *StartDate*. When EndDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
 | -UseManagedDisks | (Optional) UseManagedDisks - Yes/No. Default is Yes. The number of virtual machines that can be placed into a single storage account is calculated considering whether Failover/Test failover of virtual machines is done on managed disk instead of unmanaged disk. |
-|-SubscriptionId |(Optional) The subscription GUID. Note that this parameter is required when you need to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription and for your specific target Azure region in the **specified currency**.|
+|-SubscriptionId |(Optional) The subscription GUID. This parameter is required when you need to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription and for your specific target Azure region in the **specified currency**.|
 |-TargetRegion|(Optional) The Azure region where replication is targeted. Since Azure has different costs per region, to generate report with specific target Azure region use this parameter.<br>Default is WestUS2 or the last used target region.<br>Refer to the list of [supported target regions](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Optional) The offer associated with the give subscription. Default is MS-AZR-0003P (Pay-As-You-Go).|
 |-Currency|(Optional) The currency in which cost is shown in the generated report. Default is US Dollar ($) or the last used currency.<br>Refer to the list of [supported currencies](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
@@ -209,7 +209,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### Example 7: Generate a report for South India Azure region with Indian Rupee and specific offer ID
 
-Note that the subscription ID is required to generate cost report in a specific currency.
+The subscription ID is required to generate cost report in a specific currency.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -233,11 +233,11 @@ It is critical to account for growth in your workload characteristics, assuming 
 
 For example, let's say that today your VM fits in a standard storage replication account. Over the next three months, several changes are likely to occur:
 
-* The number of users of the application that runs on the VM will increase.
-* The resulting increased churn on the VM will require the VM to go to premium storage so that Site Recovery replication can keep pace.
-* Consequently, you will have to disable and re-enable protection to a premium storage account.
+* The number of users of the application that runs on the VM increases.
+* The resulting increased churn on the VM requires the VM to go to premium storage so that Site Recovery replication can keep pace.
+* Consequently, you have to disable and re-enable protection to a premium storage account.
 
-We strongly recommend that you plan for growth during deployment planning and while the default value is 30 percent. You are the expert on your application usage pattern and growth projections, and you can change this number accordingly while generating a report. Moreover, you can  generate multiple reports with various growth factors with the same profiled data and determine what target storage and source bandwidth recommendations work best for you.
+We strongly recommend that you plan for growth during deployment planning and while the default value is 30 percent. You are the expert on your application usage pattern and growth projections, and you can change this number accordingly while generating a report. Moreover, you can generate multiple reports with various growth factors with the same profiled data and determine what target storage and source bandwidth recommendations work best for you.
 
 The generated Microsoft Excel report contains the following information:
 
@@ -266,9 +266,9 @@ Open a command-line console, and go to the Site Recovery deployment planning too
 | -StorageAccountName | The storage-account name that's used to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. The storage account must be either  General-purpose v1 (GPv1) type.|
 | -StorageAccountKey | The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1 (or a primary access key for a classic storage account). |
 | -VMListFile | The file that contains the list of VMs to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. The file should contain one VM name/IP address per line. The VM names specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China 21Vianet. |
+| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Microsoft Azure operated by 21Vianet. |
 
-The tool creates several 64-MB asrvhdfile<#>.vhd files (where "#" is the number of files) on the specified directory. The tool uploads the files to the storage account to find the throughput. After the throughput is measured, the tool deletes all the files from the storage account and from the local server. If the tool is terminated for any reason while it is calculating throughput, it doesn't delete the files from the storage or from the local server. You will have to delete them manually.
+The tool creates several 64-MB asrvhdfile<#>.vhd files (where "#" is the number of files) on the specified directory. The tool uploads the files to the storage account to find the throughput. After the throughput is measured, the tool deletes all the files from the storage account and from the local server. If the tool is terminated for any reason while it is calculating throughput, it doesn't delete the files from the storage or from the local server. You have to delete them manually.
 
 The throughput is measured at a specified point in time, and it is the maximum throughput that Site Recovery can achieve during replication, provided that all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, the actual throughput varies during replication. If you are running the GetThroughput command from a configuration server, the tool is unaware of any protected VMs and ongoing replication. The result of the measured throughput is different if the GetThroughput operation is run when the protected VMs have high data churn. We recommend that you run the tool at various points in time during profiling to understand what throughput levels can be achieved at various times. In the report, the tool shows the last measured throughput.
 

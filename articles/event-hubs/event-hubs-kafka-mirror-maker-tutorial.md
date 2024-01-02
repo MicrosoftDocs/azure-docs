@@ -16,7 +16,7 @@ This tutorial shows how to mirror a Kafka broker into an Azure Event Hubs using 
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
 
 > [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

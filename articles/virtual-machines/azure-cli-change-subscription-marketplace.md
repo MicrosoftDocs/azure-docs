@@ -1,13 +1,13 @@
 ---
 title: Azure CLI sample for moving a Marketplace Azure VM to another subscription
 description: Azure CLI sample for moving an Azure Marketplace Virtual Machine to a different subscription.
-author: cynthn
-ms.author: cynthn
-manager: 
-ms.date: 01/29/2021
+author: ju-shim
+ms.author: jushiman
+ms.reviewer: mattmcinnes
+ms.date: 04/20/2023
 ms.topic: sample
 ms.service: virtual-machines
-ms.devlang: azurecli 
+ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
@@ -141,4 +141,4 @@ az group delete --name $destinationResourceGroup --subscription $destinationSubs
 ## Next steps
 
 - [Move VMs to another Azure region](../site-recovery/azure-to-azure-tutorial-migrate.md)
-- [Move a VM to another subscription or resource group](./linux/move-vm.md)
+- [Move a VM to another subscription or resource group](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli)

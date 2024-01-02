@@ -6,8 +6,8 @@ ms.topic: conceptual
 author: normesta
 ms.author: normesta
 ms.date: 07/11/2021
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 
 ---
 

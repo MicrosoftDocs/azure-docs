@@ -6,7 +6,7 @@ ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.date: 01/20/2023
+ms.date: 10/20/2023
 ---
 
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory using the Azure portal
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 - **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md). Here is a sample configuration of HDInsight in a virtual network. 
 
 	:::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png" alt-text="HDInsight in a virtual network":::
-- **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+- **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 - **A virtual machine**. Create an Azure virtual machine VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/quick-create-portal.md#create-virtual-machines). 
 
 ### Upload Hive script to your Blob Storage account
@@ -224,7 +224,7 @@ Note the following points:
 
     :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png" alt-text="Output file":::
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]

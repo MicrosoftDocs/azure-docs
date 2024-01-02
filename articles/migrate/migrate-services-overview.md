@@ -1,11 +1,12 @@
 ---
 title: About Azure Migrate 
 description: Learn about the Azure Migrate service.
-author: v-ksreedevan
-ms.author: v-ksreedevan
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: overview
-ms.date: 01/17/2023
+ms.service: azure-migrate
+ms.date: 05/25/2023
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -47,7 +48,7 @@ Azure Migrate integrates with several ISV offerings.
 
 **ISV**    | **Feature**
 --- | ---
-[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate servers.
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | Migrate servers.
 [Cloudamize](https://www.cloudamize.com/platform) | Assess servers.
 [CloudSphere](https://go.microsoft.com/fwlink/?linkid=2157454) | Assess servers.
 [Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers.

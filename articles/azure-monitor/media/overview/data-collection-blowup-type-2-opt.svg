@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1578.662" height="869.519" viewBox="0 0 1184 652.139" xml:space="preserve" color-interpolation-filters="sRGB" style="background-color:#fff;fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3">
+  <style>
+    .st2{fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:.75}.st3{fill:#000;font-family:Segoe UI Semibold;font-size:2.50001em;font-weight:700}.st4{font-size:1em}.st6{fill:#d8d8d8;stroke:#d8d8d8;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}.st7{fill:#000;font-family:Segoe UI Semibold;font-size:1.5em}.st8{marker-end:url(#mrkr3-36);stroke:#a5a5a5;stroke-linecap:round;stroke-linejoin:round;stroke-width:2}
+  </style>
+  <defs id="Markers">
+    <marker id="mrkr3-36" orient="auto" markerUnits="strokeWidth" overflow="visible" style="fill:#a5a5a5;fill-opacity:1;stroke:#a5a5a5;stroke-opacity:1;stroke-width:.44247787610619">
+      <use xlink:href="#lend3" transform="scale(-2.26)"/>
+    </marker>
+    <path d="M2 1 0 0l2-1" style="stroke-linecap:round;stroke-linejoin:round;fill:none" id="lend3"/>
+  </defs>
+  <g id="shape10995-1" transform="translate(.25 -.25)">
+    <path style="fill:#fff;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:.5" d="M0 .5h1183.5v651.639H0z"/>
+  </g>
+  <g id="shape16363-3" transform="translate(217.094 -592.557)">
+    <path class="st2" d="M0 600.946h387v51.193H0z"/>
+    <text x="85.74" y="631.95" class="st3">Data Collection, <tspan x="50.5" dy="1.2em" class="st4">Routing, and Transform</tspan></text>
+  </g>
+  <g id="shape16364-7" transform="translate(332.217 -28.657)">
+    <rect y="158.264" width="142.875" height="493.875" rx="9" ry="9" style="fill:#e6e6e6;stroke:#d8d8d8;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25"/>
+  </g>
+  <g id="shape16365-9" transform="translate(361.35 -212.663)">
+    <path d="M4.06 652.1a4.865 2.84-180 0 0 .8.04h74.22a4.865 2.84-180 0 0 .8-.04 4.5 4.5-180 0 0 4.07-4.48v-39.81a2.25 2.25-180 0 0-.65-1.58 4.865 2.84-180 0 0-4.22-1.43H4.86a4.865 2.84-180 0 0-.8.04A4.5 4.5-180 0 0 0 609.32v38.3a4.5 4.5-180 0 0 4.06 4.48Z" class="st6"/>
+    <text x="23.05" y="623.07" class="st7">Diag<tspan x="8.88" dy="1.2em" class="st4">Settings</tspan></text>
+    </g>
+  <g id="shape16366-12" transform="translate(361.35 -60.073)">
+    <path d="M4.06 652.1a4.865 2.84-180 0 0 .8.04h74.22a4.865 2.84-180 0 0 .8-.04 4.5 4.5-180 0 0 4.07-4.48v-39.81a2.25 2.25-180 0 0-.65-1.58 4.865 2.84-180 0 0-4.22-1.43H4.86a4.865 2.84-180 0 0-.8.04A4.5 4.5-180 0 0 0 609.32v38.3a4.5 4.5-180 0 0 4.06 4.48Z" class="st6"/>
+    <text x="28.05" y="633.87" class="st7">API</text>
+  </g>
+  <g id="shape16367-15" transform="translate(362.012 -441.548)">
+    <path d="M4.06 652.1a4.865 2.84-180 0 0 .8.04h74.22a4.865 2.84-180 0 0 .8-.04 4.5 4.5-180 0 0 4.07-4.48v-39.81a2.25 2.25-180 0 0-.65-1.58 4.865 2.84-180 0 0-4.22-1.43H4.86a4.865 2.84-180 0 0-.8.04A4.5 4.5-180 0 0 0 609.32v38.3a4.5 4.5-180 0 0 4.06 4.48Z" class="st6"/>
+    <text x="5.76" y="633.87" class="st7">App SDK</text>
+  </g>
+  <g id="shape16368-18" transform="translate(362.012 -365.253)">
+    <path d="M4.06 652.1a4.865 2.84-180 0 0 .8.04h74.22a4.865 2.84-180 0 0 .8-.04 4.5 4.5-180 0 0 4.07-4.48v-39.81a2.25 2.25-180 0 0-.65-1.58 4.865 2.84-180 0 0-4.22-1.43H4.86a4.865 2.84-180 0 0-.8.04A4.5 4.5-180 0 0 0 609.32v38.3a4.5 4.5-180 0 0 4.06 4.48Z" class="st6"/>
+    <text x="7.37" y="633.87" class="st7">Agent(s)</text>
+  </g>
+  <g id="shape16369-21" transform="translate(361.35 -136.368)">
+    <path d="M4.06 652.1a4.865 2.84-180 0 0 .8.04h74.22a4.865 2.84-180 0 0 .8-.04 4.5 4.5-180 0 0 4.07-4.48v-39.81a2.25 2.25-180 0 0-.65-1.58 4.865 2.84-180 0 0-4.22-1.43H4.86a4.865 2.84-180 0 0-.8.04A4.5 4.5-180 0 0 0 609.32v38.3a4.5 4.5-180 0 0 4.06 4.48Z" class="st6"/>
+    <text x="23.43" y="623.87" class="st7">Zero<tspan x="15.88" dy="1.2em" class="st4">Config</tspan></text>
+  </g>
+  <g id="shape16370-25" transform="translate(361.35 -288.958)">
+    <path d="M4.06 652.1a4.865 2.84-180 0 0 .8.04h74.22a4.865 2.84-180 0 0 .8-.04 4.5 4.5-180 0 0 4.07-4.48v-39.81a2.25 2.25-180 0 0-.65-1.58 4.865 2.84-180 0 0-4.22-1.43H4.86a4.865 2.84-180 0 0-.8.04A4.5 4.5-180 0 0 0 609.32v38.3a4.5 4.5-180 0 0 4.06 4.48Z" class="st6"/>
+    <text x="24.32" y="633.87" class="st7">DCR</text>
+  </g>
+  <g id="shape16371-28" transform="translate(14.594 -249.725)">
+    <path class="st2" d="M0 600.946h193.119v51.193H0z"/>
+    <text x="7.68" y="631.95" class="st3">Data Sources</text>
+  </g>
+  <g id="shape16372-31" transform="translate(213.153 -275.594)">
+    <path d="M0 652.14h119.06" class="st8"/>
+  </g>
+  <g id="shape16373-37" transform="translate(475.092 -275.594)">
+    <path d="M0 652.14h119.06" class="st8"/>
+  </g>
+  <g id="shape16374-42" transform="translate(608.594 -249.725)">
+    <path class="st2" d="M0 600.946h211.196v51.193H0z"/>
+    <text x="10.73" y="631.95" class="st3">Data Platform</text>
+  </g>
+  <g id="shape16375-45" transform="translate(819.791 -275.321)">
+    <path d="M0 652.14h119.06" class="st8"/>
+  </g>
+  <g id="shape16376-50" transform="translate(950.594 -249.725)">
+    <path class="st2" d="M0 600.946h211.196v51.193H0z"/>
+    <text x="13.98" y="631.95" class="st3">Consumption</text>
+  </g>
+</svg>

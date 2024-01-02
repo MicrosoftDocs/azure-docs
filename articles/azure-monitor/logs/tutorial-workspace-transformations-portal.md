@@ -4,7 +4,7 @@ description: Describes how to add a custom transformation to data flowing throug
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 07/01/2022
+ms.date: 07/17/2023
 ---
 
 # Tutorial: Add a transformation in a workspace data collection rule by using the Azure portal
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
-- [Permissions to create DCR objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create DCR objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 - A table that already has some data.
 - The table can't be linked to the [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr).
 

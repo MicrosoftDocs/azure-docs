@@ -25,7 +25,7 @@ Azure Analysis Services is a fully managed platform as a service (PaaS) that pro
 
 In Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And with Azure Resource Manager [templates](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) and PowerShell, you can create servers using a declarative template. With a single template, you can deploy server resources along with other Azure components such as storage accounts and Azure Functions. 
 
-Azure Analysis Services integrates with many Azure services enabling you to build sophisticated analytics solutions. Integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) provides secure, role-based access to your critical data. Integrate with [Azure Data Factory](../data-factory/introduction.md) pipelines by including an activity that loads data into the model. [Azure Automation](../automation/automation-intro.md) and [Azure Functions](../azure-functions/functions-overview.md) can be used for lightweight orchestration of models using custom code. 
+Azure Analysis Services integrates with many Azure services enabling you to build sophisticated analytics solutions. Integration with [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) provides secure, role-based access to your critical data. Integrate with [Azure Data Factory](../data-factory/introduction.md) pipelines by including an activity that loads data into the model. [Azure Automation](../automation/automation-intro.md) and [Azure Functions](../azure-functions/functions-overview.md) can be used for lightweight orchestration of models using custom code. 
 
 ## The right tier when you need it
 
@@ -168,7 +168,7 @@ Azure Analysis Services Firewall blocks all client connections other than those 
 
 ### Authentication
 
-User authentication is handled by [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). When logging in, users use an organization account identity with role-based access to the database. User identities must be members of the default Azure Active Directory for the subscription that the server is in. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+User authentication is handled by [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md). When logging in, users use an organization account identity with role-based access to the database. User identities must be members of the default Microsoft Entra ID for the subscription that the server is in. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ### Data security
 
@@ -178,7 +178,7 @@ Secure access to data sources on-premises in your organization is achieved by in
 
 ### Roles
 
-Analysis Services uses [role-based authorization](/analysis-services/tabular-models/roles-ssas-tabular) that grants access to server and model database operations, objects, and data. All users who access a server or database do so with their Azure AD user account within an assigned role. The server administrator role is at the server resource level. By default, the account used when creating a server is automatically included in the Server Admins role. Additional user and group accounts are added by using the portal, SSMS, or PowerShell.
+Analysis Services uses [role-based authorization](/analysis-services/tabular-models/roles-ssas-tabular) that grants access to server and model database operations, objects, and data. All users who access a server or database do so with their Microsoft Entra user account within an assigned role. The server administrator role is at the server resource level. By default, the account used when creating a server is automatically included in the Server Admins role. Additional user and group accounts are added by using the portal, SSMS, or PowerShell.
   
 Non-administrative users who query data are granted access through database roles. A database role is created as a separate object in the database, and applies only to the database in which that role is created. Database roles are defined by (database) Administrator, Read, and Read and Process permissions. User and group accounts are added by using SSMS or PowerShell.
 
@@ -192,12 +192,12 @@ Tabular models at the 1400 and higher compatibility level support object-level s
 
 ### Automation through service principals
 
-Service principals are an Azure Active Directory application resource you create within your tenant to perform unattended resource and service-level operations. Service principals are used with Azure Automation, PowerShell unattended mode, custom client applications, and web apps to automate common tasks like data refresh, scale up/down, and pause/resume. Permissions are assigned to service principals through role membership. To learn more, see [Automation with service principals](analysis-services-service-principal.md).
+Service principals are a Microsoft Entra application resource you create within your tenant to perform unattended resource and service-level operations. Service principals are used with Azure Automation, PowerShell unattended mode, custom client applications, and web apps to automate common tasks like data refresh, scale up/down, and pause/resume. Permissions are assigned to service principals through role membership. To learn more, see [Automation with service principals](analysis-services-service-principal.md).
 
 ### Azure governance
 
 Azure Analysis Services is governed by the [Microsoft Online Services Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
-To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
+To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
 
 ## Use the tools you already know
 
@@ -215,7 +215,7 @@ Manage your servers and model databases by using [SQL Server Management Studio (
 
 ### Open-source tools
 
-Analysis Services has a vibrant community of developers who create tools. Be sure to check out [Tabular Editor](https://tabulareditor.github.io/), an open-source tool for creating, maintaining, and managing tabular models using an intuitive, lightweight editor. [DAX Studio](https://daxstudio.org/), is a great open-source tool for DAX authoring, diagnosis, performance tuning, and analysis.
+Analysis Services has a vibrant community of developers who create tools. [DAX Studio](https://daxstudio.org/), is a great open-source tool for DAX authoring, diagnosis, performance tuning, and analysis.
 
 ### PowerShell
 

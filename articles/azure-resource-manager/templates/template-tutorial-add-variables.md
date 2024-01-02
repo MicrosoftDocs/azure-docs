@@ -1,11 +1,9 @@
 ---
 title: Tutorial - add variable to template
 description: Add variables to your Azure Resource Manager template (ARM template) to simplify the syntax.
-author: mumian
-ms.date: 06/17/2022
+ms.date: 07/28/2023
 ms.topic: tutorial
-ms.author: jgao
-ms.custom:
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Add variables to your ARM template
@@ -72,7 +70,7 @@ az deployment group create \
   --name addnamevariable \
   --resource-group myResourceGroup \
   --template-file $templateFile \
-  --parameters storagePrefix=store storageSKU=Standard_LRS
+  --parameters '{"storagePrefix": {"value":"store"}}' '{"storageSKU": {"value":"Standard_LRS"}}'
 ```
 
 ---

@@ -4,7 +4,7 @@ description: Learn how to create a Log Analytics workspace to enable management 
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 03/28/2022
+ms.date: 07/02/2023
 ms.reviewer: yossiy
 
 # Customer intent: As a DevOps engineer or IT expert, I want to set up a workspace to collect logs from multiple data sources from Azure, on-premises, and third-party cloud deployments.
@@ -19,6 +19,14 @@ You need a Log Analytics workspace if you collect data from:
 * On-premises computers monitored by System Center Operations Manager.
 * Device collections from Configuration Manager.
 * Diagnostics or log data from Azure Storage.
+
+## Prerequisites
+
+To create a Log Analytics workspace, you need an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free).
+
+## Permissions required
+
+You need `Microsoft.OperationalInsights/workspaces/write` permissions to the resource group where you want to create the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
 ## Create a workspace
 
@@ -204,13 +212,13 @@ For more information about Azure Resource Manager templates, see [Azure Resource
 
 ## Troubleshooting
 
-When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have a different outcome depending on your workspace configuration:
+When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#delete-a-workspace-into-a-soft-delete-state), the operation could have a different outcome depending on your workspace configuration:
 
 1. If you provide the same workspace name, resource group, subscription, and region as in the deleted workspace, your workspace will be recovered including its data, configuration, and connected agents.
 1. Workspace names must be unique for a resource group. If you use a workspace name that already exists, or is soft deleted, an error is returned. To permanently delete your soft-deleted name and create a new workspace with the same name, follow these steps:
 
-   1. [Recover](../logs/delete-workspace.md#recover-a-workspace) your workspace.
-   1. [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace.
+   1. [Recover](../logs/delete-workspace.md#recover-a-workspace-in-a-soft-delete-state) your workspace.
+   1. [Permanently delete](../logs/delete-workspace.md#delete-a-workspace-permanently) your workspace.
    1. Create a new workspace by using the same workspace name.
   
 ## Next steps

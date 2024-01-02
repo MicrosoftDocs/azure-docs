@@ -1,467 +1,771 @@
 ---
-title: Release notes for Microsoft Defender for Cloud
-description: A description of what's new and changed in Microsoft Defender for Cloud
+title: Release notes
+description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 03/26/2023
+ms.date: 12/26/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
 
 Defender for Cloud is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
 
-This page is updated frequently, so revisit it often.
+This page is updated frequently with the latest updates in Defender for Cloud.
+
+> [!TIP]
+> Get notified when this page is updated by copying and pasting the following URL into your feed reader:
+>
+> `https://aka.ms/mdc/rss`
 
 To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
-> [!TIP]
-> If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
-## March 2023
+## December 2023
 
-Updates in March include:
+| Date | Update |
+|--|--|
+| December 24 | [Defender for Servers at the resource level available as GA](#defender-for-servers-at-the-resource-level-available-as-ga) |
+| December 21 | [Retirement of Classic connectors for multicloud](#retirement-of-classic-connectors-for-multicloud) |
+| December 21 | [Release of the Coverage workbook](#release-of-the-coverage-workbook) |
+| December 14 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management in Azure Government and Azure operated by 21Vianet](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-in-azure-government-and-azure-operated-by-21vianet) |
+| December 14 | [Public preview of Windows support for Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management](#public-preview-of-windows-support-for-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management) |
+| December 13 | [Retirement of AWS container vulnerability assessment powered by Trivy](#retirement-of-aws-container-vulnerability-assessment-powered-by-trivy) |
+| December 13 | [Agentless container posture for AWS in Defender for Containers and Defender CSPM (Preview)](#agentless-container-posture-for-aws-in-defender-for-containers-and-defender-cspm-preview) |
+| December 13 | [Deny effect - replacing deprecated policies](#deny-effect---replacing-deprecated-policies) |
+| December 13 | [General availability (GA) support for PostgreSQL Flexible Server in Defender for open-source relational databases plan](#general-availability-support-for-postgresql-flexible-server-in-defender-for-open-source-relational-databases-plan) |
+| December 12 | [Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless](#container-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-google-distroless) |
+| December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account) |
 
-- [A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection](#a-new-defender-for-storage-plan-is-available-including-near-real-time-malware-scanning-and-sensitive-data-threat-detection)
-- [Data-aware security posture (preview)](#data-aware-security-posture-preview)
-- [New experience for managing the Azure default security policy](#new-experience-for-managing-the-azure-default-security-policy)
-- [Defender for CSPM (Cloud Security Posture Management) is now Generally Available (GA)](#defender-for-cspm-cloud-security-posture-management-is-now-generally-available-ga)
-- [Option to create custom recommendations and security standards in Microsoft Defender for Cloud](#option-to-create-custom-recommendations-and-security-standards-in-microsoft-defender-for-cloud)
-- [Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)](#microsoft-cloud-security-benchmark-mcsb-version-10-is-now-generally-available-ga)
-- [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
-- [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
-- [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
+### Defender for Servers at the resource level available as GA
 
-### A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection
+December 24, 2023
 
-Cloud storage plays a key role in the organization and stores large volumes of valuable and sensitive data. Today we are announcing a new Defender for Storage plan. If you’re using the previous plan (now renamed to "Defender for Storage (classic)"), you will need to proactively [migrate to the new plan](defender-for-storage-classic-migrate.md) in order to use the new features and benefits.
+It is now possible to manage Defender for Servers on specific resources within your subscription, giving you full control over your protection strategy. With this capability, you can configure specific resources with custom configurations that differ from the settings configured at the subscription level.
 
-The new plan includes advanced security capabilities to help protect against malicious file uploads, sensitive data exfiltration, and data corruption. It also provides a more predictable and flexible pricing structure for better control over coverage and costs.
+Learn more about [enabling Defender for Servers at the resource level](tutorial-enable-servers-plan.md#enable-the-plan-at-the-resource-level).
 
-The new plan has new capabilities now in public preview:
+### Retirement of Classic connectors for multicloud
 
-- Detecting sensitive data exposure and exfiltration events
+December 21, 2023
 
-- Near real-time blob on-upload malware scanning across all file types
+The classic multicloud connector experience is retired and data is no longer streamed to connectors created through that mechanism. These classic connectors were used to connect AWS Security Hub and GCP Security Command Center recommendations to Defender for Cloud and onboard AWS EC2s to Defender for Servers.
 
-- Detecting entities with no identities using SAS tokens
+The full value of these connectors has been replaced with the native multicloud security connectors experience, which has been Generally Available for AWS and GCP since March 2022 at no extra cost.
 
-These capabilities will enhance the existing Activity Monitoring capability, based on control and data plane log analysis and behavioral modeling to identify early signs of breach.
+The new native connectors are included in your plan and offer an automated onboarding experience with options to onboard single accounts, multiple accounts (with Terraform), and organizational onboarding with auto provisioning for the following Defender plans: free foundational CSPM capabilities, Defender Cloud Security Posture Management (CSPM), Defender for Servers, Defender for SQL, and Defender for Containers.
 
-All these capabilities are available in a new predictable and flexible pricing plan that provides granular control over data protection at both the subscription and resource levels. 
+### Release of the Coverage workbook
 
-Learn more at [Overview of Microsoft Defender for Storage](defender-for-storage-introduction.md).
+December 21, 2023
 
-### Data-aware security posture (preview)
+The Coverage workbook allows you to keep track of which Defender for Cloud plans are active on which parts of your environments. This workbook can help you to ensure that your environments and subscriptions are fully protected. By having access to detailed coverage information, you can also identify any areas that might need other protection and take action to address those areas.
 
-Microsoft Defender for Cloud helps security teams to be more productive at reducing risks and responding to data breaches in the cloud. It allows them to cut through the noise with data context and prioritize the most critical security risks, preventing a costly data breach.
+Learn more about the [Coverage workbook](custom-dashboards-azure-workbooks.md#use-the-coverage-workbook).
 
-- Automatically discover data resources across cloud estate and evaluate their accessibility, data sensitivity and configured data flows.
--Continuously uncover risks to data breaches of sensitive data resources, exposure or attack paths that could lead to a data resource using a lateral movement technique.
-- Detect suspicious activities that may indicate an ongoing threat to sensitive data resources.
+### General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management in Azure Government and Azure operated by 21Vianet
 
-[Learn more](concept-data-security-posture.md) about data-aware security posture.
+December 14, 2023
 
-### New experience for managing the Azure default security policy
+Vulnerability assessment (VA) for Linux container images in Azure container registries powered by Microsoft Defender Vulnerability Management is released for General Availability (GA) in Azure Government and Azure operated by 21Vianet. This new release is available under the Defender for Containers and Defender for Container Registries plans.
 
-We introduce an improved Azure security policy management experience for built-in recommendations that simplifies the way Defender for Cloud customers fine tune their security requirements. The new experience includes the following new capabilities:
+As part of this change, the following recommendations are released for GA, and are included in secure score calculation:
 
-- A simple interface allows better performance and fewer clicks when managing default security policies within Defender for Cloud, including enabling/disabling, denying, setting parameters and managing exemptions.
-- A single view of all built-in security recommendations offered by the Microsoft cloud security benchmark (formerly the Azure security benchmark). Recommendations are organized into logical groups, making it easier to understand the types of resources covered, and the relationship between parameters and recommendations.
-- New features such as filters and search have been added.
+| Recommendation name                                          | Description                                                  | Assessment key                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------ |
+| Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessments scan your registry for commonly known vulnerabilities (CVEs) and provide a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5 |
+| Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management). <br /><br />Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5 |
 
-Learn how to  [manage security policies](tutorial-security-policy.md). 
-
-Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog).
-
-### Defender for CSPM (Cloud Security Posture Management) is now Generally Available (GA)
-
-We are announcing that Defender for CSPM is now Generally Available (GA). Defender for CSPM offers all of the services available under the Foundational CSPM capabilities and adds the following benefits:
-
-- **Attack path analysis and ARG API** - Attack path analysis uses a graph-based algorithm that scans the cloud security graph to expose attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach. You can also consume attack paths programmatically by querying Azure Resource Graph (ARG) API. Learn how to use [attack path analysis](how-to-manage-attack-path.md)
-- **Cloud Security explorer** - Use the Cloud Security Explorer to run graph-based queries on the cloud security graph, to proactively identify security risks in your multicloud environments.  Learn more about [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer). 
-
-Learn more about [Defender for CSPM](overview-page.md).
-
-### Option to create custom recommendations and security standards in Microsoft Defender for Cloud
-
-Microsoft Defender for Cloud provides the option of creating custom recommendations and standards for AWS and GCP using KQL queries. You can use a query editor to build and test queries over your data.
-This feature is part of the Defender CSPM (Cloud Security Posture Management) plan. Learn how to [create custom recommendations and standards](create-custom-recommendations.md).
-
-### Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)
-
-Microsoft Defender for Cloud is announcing that the Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA). 
-
-MCSB version 1.0 replaces the Azure Security Benchmark (ASB) version 3 as Microsoft Defender for Cloud's default security policy for identifying security vulnerabilities in your cloud environments according to common security frameworks and best practices. MCSB version 1.0 appears as the default compliance standard in the compliance dashboard and is enabled by default for all Defender for Cloud customers.
-
-You can also learn [How Microsoft cloud security benchmark (MCSB) helps you succeed in your cloud security journey](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/announcing-microsoft-cloud-security-benchmark-v1-general/ba-p/3763013).
-
-Learn more about [MCSB](https://aka.ms/mcsb).
-
-### Some regulatory compliance standards are now available in government clouds
-
-We're announcing that the following regulatory standards are being updated with latest version and are available for customers in Azure Government and Azure China 21Vianet.
-
-**Azure Government**:
-- [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss)
-- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
-- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
-
-**Azure China 21Vianet**:
-- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
-- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
-
-Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
-
-### New preview recommendation for Azure SQL Servers
-
-We've added a new recommendation for Azure SQL Servers, `Azure SQL Server authentication mode should be Azure Active Directory Only (Preview)`.
-
-The recommendation is based on the existing policy [`Azure SQL Database should have Azure Active Directory Only Authentication enabled`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fabda6d70-9778-44e7-84a8-06713e6db027)
-
-This recommendation disables local authentication methods and allows only Azure Active Directory Authentication which improves security by ensuring that Azure SQL Databases can exclusively be accessed by Azure Active Directory identities.
-
-Learn how to [create servers with Azure AD-only authentication enabled in Azure SQL](/azure/azure-sql/database/authentication-azure-ad-only-authentication-create-server).
-
-### New alert in Defender for Key Vault
-
-Defender for Key Vault has the following new alert:
-
-| Alert (alert type) | Description | MITRE tactics | Severity |
-|---|---|:-:|---|
-| **Denied access from a suspicious IP to a key vault**<br>(KV_SuspiciousIPAccessDenied) | An unsuccessful key vault access has been attempted by an IP that has been identified by Microsoft Threat Intelligence as a suspicious IP address. Though this attempt was unsuccessful, it indicates that your infrastructure might have been compromised. We recommend further investigations. | Credential Access | Low |
-
-You can see a list of all of the [alerts available for Key Vault](alerts-reference.md).
-
-## February 2023
-
-Updates in February include:
-
-- [Enhanced Cloud Security Explorer](#enhanced-cloud-security-explorer)
-- [Recommendation to find vulnerabilities in running container images for Linux released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-released-for-general-availability-ga)
-- [Announcing support for the AWS CIS 1.5.0 compliance standard](#announcing-support-for-the-aws-cis-150-compliance-standard)
-- [Microsoft Defender for DevOps (preview) is now available in other regions](#microsoft-defender-for-devops-preview-is-now-available-in-other-regions)
-- [The built-in policy [Preview]: Private endpoint should be configured for Key Vault has been deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-has-been-deprecated)
-
-### Enhanced Cloud Security Explorer
-
-An improved version of the cloud security explorer includes a refreshed user experience that removes query friction dramatically, added the ability to run multicloud and multi-resource queries, and embedded documentation for each query option.
-
-The Cloud Security Explorer now allows you to run cloud-abstract queries across resources. You can use either the pre-built query templates or use the custom search to apply filters to build your query. Learn [how to manage Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
-
-### Recommendation to find vulnerabilities in running container images released for General Availability (GA)
-
-The [Running container images should have vulnerability findings resolved](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation for Linux is now GA. The recommendation is used to identify unhealthy resources and is included in the calculations of your secure score.
-
-We recommend that you use the recommendation to remediate vulnerabilities in your Linux containers. Learn about [recommendation remediation](implement-security-recommendations.md).
-
-### Announcing support for the AWS CIS 1.5.0 compliance standard
-
-Defender for Cloud now supports the CIS Amazon Web Services Foundations v1.5.0 compliance standard. The standard can be [added to your Regulatory Compliance dashboard](update-regulatory-compliance-packages.md#add-a-regulatory-standard-to-your-dashboard), and builds on MDC's existing offerings for multicloud recommendations and standards.
-
-This new standard includes both existing and new recommendations that extend Defender for Cloud's coverage to new AWS services and resources.
-
-Learn how to [Manage AWS assessments and standards](how-to-manage-aws-assessments-standards.md).
-
-### Microsoft Defender for DevOps (preview) is now available in other regions
-
-Microsoft Defender for DevOps has expanded its preview and is now available in the West Europe and East Australia regions, when you onboard your Azure DevOps and GitHub resources. 
-
-Learn more about [Microsoft Defender for DevOps](defender-for-devops-introduction.md).
-
-### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault has been deprecated
-
-The built-in policy [`[Preview]: Private endpoint should be configured for Key Vault`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) has been deprecated and has been replaced with the [`[Preview]: Azure Key Vaults should use private link`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) policy.
-
-Learn more about [integrating Azure Key Vault with Azure Policy](../key-vault/general/azure-policy.md#network-access).
-
-## January 2023
-
-Updates in January include:
-
-- [The Endpoint protection (Microsoft Defender for Endpoint) component is now accessed in the Settings and monitoring page](#the-endpoint-protection-microsoft-defender-for-endpoint-component-is-now-accessed-in-the-settings-and-monitoring-page)
-- [New version of the recommendation to find missing system updates (Preview)](#new-version-of-the-recommendation-to-find-missing-system-updates-preview)
-- [Cleanup of deleted Azure Arc machines in connected AWS and GCP accounts](#cleanup-of-deleted-azure-arc-machines-in-connected-aws-and-gcp-accounts)
-- [Allow continuous export to Event Hubs behind a firewall](#allow-continuous-export-to-event-hubs-behind-a-firewall)
-- [The name of the Secure score control Protect your applications with Azure advanced networking solutions has been changed](#the-name-of-the-secure-score-control-protect-your-applications-with-azure-advanced-networking-solutions-has-been-changed)
-- [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports has been deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-has-been-deprecated)
-- [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets has been deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-has-been-deprecated)
-
-### The Endpoint protection (Microsoft Defender for Endpoint) component is now accessed in the Settings and monitoring page
-
-In our continuing efforts to simplify your Defender for Cloud configuration experience, we moved the configuration for Endpoint protection (Microsoft Defender for Endpoint) component from the **Environment settings** > **Integrations** page to the **Environment settings** > **Defender plans** > **Settings and monitoring** page, where the other components are managed as well. There's no change to the functionality other than the location in the portal.
-
-Learn more about [enabling Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) on your servers with Defender for Servers.
-
-### New version of the recommendation to find missing system updates (Preview)
-
-You no longer need an agent on your Azure VMs and Azure Arc machines to make sure the machines have all of the latest security or critical system updates.
-
-The new system updates recommendation, `System updates should be installed on your machines (powered by Update management center)` in the `Apply system updates` control, is based on the [Update management center (preview)](../update-center/overview.md). The recommendation relies on a native agent embedded in every Azure VM and Azure Arc machines instead of an installed agent. The Quick Fix in the new recommendation leads you to a one-time installation of the missing updates in the Update management center portal.
-
-To use the new recommendation, you need to:
-
-- Connect your non-Azure machines to Arc
-- Turn on the [periodic assessment property](../update-center/assessment-options.md#periodic-assessment). You can use the Quick Fix in the new recommendation, `Machines should be configured to periodically check for missing system updates` to fix the recommendation.
-
-The existing "System updates should be installed on your machines" recommendation, which relies on the Log Analytics agent, is still available under the same control.
-
-### Cleanup of deleted Azure Arc machines in connected AWS and GCP accounts
-
-A machine connected to an AWS and GCP account that is covered by Defender for Servers or Defender for SQL on machines is represented in Defender for Cloud as an Azure Arc machine. Until now, that machine wasn't deleted from the inventory when the machine was deleted from the AWS or GCP account. Leading to unnecessary Azure Arc resources left in Defender for Cloud that represents deleted machines.
-
-Defender for Cloud will now automatically delete Azure Arc machines when those machines are deleted in connected AWS or GCP account.
-
-### Allow continuous export to Event Hubs behind a firewall
-
-You can now enable the continuous export of alerts and recommendations, as a trusted service to Event Hubs that are protected by an Azure firewall.
-
-You can enable continuous export as the alerts or recommendations are generated. You can also define a schedule to send periodic snapshots of all of the new data.
-
-Learn how to enable [continuous export to an Event Hubs behind an Azure firewall](continuous-export.md#continuously-export-to-an-event-hub-behind-a-firewall).
-
-### The name of the Secure score control Protect your applications with Azure advanced networking solutions has been changed
-
-The secure score control, `Protect your applications with Azure advanced networking solutions` has been changed to `Protect applications against DDoS attacks`.
-
-The updated name is reflected on Azure Resource Graph (ARG), Secure Score Controls API and the `Download CSV report`.
-
-### The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports has been deprecated
-
-The policy [`Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) has been deprecated.
-
-The Defender for SQL vulnerability assessment email report is still available and existing email configurations haven't changed.
-
-### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets has been deprecated
-
-The recommendation `Diagnostic logs in Virtual Machine Scale Sets should be enabled` has been deprecated.
-
-The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) has also been deprecated from any standards displayed in the regulatory compliance dashboard.
-
-| Recommendation | Description | Severity |
-|--|--|--|
-| Diagnostic logs in Virtual Machine Scale Sets should be enabled | Enable logs and retain them for up to a year, enabling you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | Low |
-
-## December 2022
-
-Updates in December include:
-
-- [Announcing express configuration for vulnerability assessment in Defender for SQL](#announcing-express-configuration-for-vulnerability-assessment-in-defender-for-sql)
-
-### Announcing express configuration for vulnerability assessment in Defender for SQL
-
-The express configuration for vulnerability assessment in Microsoft Defender for SQL provides security teams with a streamlined configuration experience on Azure SQL Databases and Dedicated SQL Pools outside of Synapse Workspaces.
-
-With the express configuration experience for vulnerability assessments, security teams can:
-
-- Complete the vulnerability assessment configuration in the security configuration of the SQL resource, without any another settings or dependencies on customer-managed storage accounts.
-- Immediately add scan results to baselines so that the status of the finding changes from **Unhealthy** to **Healthy** without rescanning a database.
-- Add multiple rules to baselines at once and use the latest scan results.
-- Enable vulnerability assessment for all Azure SQL Servers when you turn on Microsoft Defender for databases at the subscription-level.
-
-Learn more about [Defender for SQL vulnerability assessment](sql-azure-vulnerability-assessment-overview.md).
-
-## November 2022
-
-Updates in November include:
-
-- [Protect containers across your GCP organization with Defender for Containers](#protect-containers-across-your-gcp-organization-with-defender-for-containers)
-- [Validate Defender for Containers protections with sample alerts](#validate-defender-for-containers-protections-with-sample-alerts)
-- [Governance rules at scale (Preview)](#governance-rules-at-scale-preview)
-- [The ability to create custom assessments in AWS and GCP (Preview) has been deprecated](#the-ability-to-create-custom-assessments-in-aws-and-gcp-preview-has-been-deprecated)
-- [The recommendation to configure dead-letter queues for Lambda functions has been deprecated](#the-recommendation-to-configure-dead-letter-queues-for-lambda-functions-has-been-deprecated)
-
-### Protect containers across your GCP organization with Defender for Containers
-
-Now you can enable [Defender for Containers](defender-for-containers-introduction.md) for your GCP environment to protect standard GKE clusters across an entire GCP organization. Just create a new GCP connector with Defender for Containers enabled or enable Defender for Containers on an existing organization level GCP connector.
-
-Learn more about [connecting GCP projects and organizations](quickstart-onboard-gcp.md#connect-your-gcp-project) to Defender for Cloud.
-
-### Validate Defender for Containers protections with sample alerts
-
-You can now create sample alerts also for Defender for Containers plan. The new sample alerts are presented as being from AKS, Arc-connected clusters, EKS, and GKE resources with different severities and MITRE tactics. You can use the sample alerts to validate security alert configurations, such as SIEM integrations, workflow automation, and email notifications.
-
-Learn more about [alert validation](alert-validation.md).
-
-### Governance rules at scale (Preview)
-
-We're happy to announce the new ability to apply governance rules at scale (Preview) in Defender for Cloud.
-
-With this new experience, security teams are able to define governance rules in bulk for various scopes (subscriptions and connectors). Security teams can accomplish this task by using management scopes such as Azure management groups, AWS top level accounts or GCP organizations.
-
-Additionally, the Governance rules (Preview) page presents all of the available governance rules that are effective in the organization’s environments.
-
-Learn more about the [new governance rules at-scale experience](governance-rules.md).
+Container image scan powered by Microsoft Defender Vulnerability Management now also incurs charges according to [plan pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing).
 
 > [!NOTE]
-> As of January 1, 2023, in order to experience the capabilities offered by Governance, you must have the [Defender CSPM plan](concept-cloud-security-posture-management.md) enabled on your subscription or connector.
+> Images scanned both by our container VA offering powered by Qualys and Container VA offering powered by Microsoft Defender Vulnerability Management will only be billed once.
 
-### The ability to create custom assessments in AWS and GCP (Preview) has been deprecated
+The following Qualys recommendations for Containers Vulnerability Assessment are renamed and continue to be available for customers who enabled Defender for Containers on any of their subscriptions prior to this release. New customers onboarding Defender for Containers after this release will only see the new Container vulnerability assessment recommendations powered by Microsoft Defender Vulnerability Management.
 
-The ability to create custom assessments for [AWS accounts](how-to-manage-aws-assessments-standards.md) and [GCP projects](how-to-manage-gcp-assessments-standards.md), which was a Preview feature, has been deprecated.
+| Current recommendation name                                  | New recommendation name                                      | Description                                                  | Assessment key                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------ |
+| Container registry images should have vulnerability findings resolved (powered by Qualys) | Azure registry container images should have vulnerabilities resolved (powered by Qualys) | Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. | dbd0cb49-b563-45e7-9724-889e799fa648 |
+| Running container images should have vulnerability findings resolved (powered by Qualys) | Azure running container images should have vulnerabilities resolved - (powered by Qualys) | Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. | 41503391-efa5-47ee-9282-4eff6131462  |
 
-### The recommendation to configure dead-letter queues for Lambda functions has been deprecated
+### Public preview of Windows support for Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management
 
-The recommendation [`Lambda functions should have a dead-letter queue configured`](https://portal.azure.com/#view/Microsoft_Azure_Security/AwsRecommendationDetailsBlade/assessmentKey/dcf10b98-798f-4734-9afd-800916bf1e65/showSecurityCenterCommandBar~/false) has been deprecated.
+December 14, 2023
 
-| Recommendation | Description | Severity |
+Support for Windows images was released in public preview as part of Vulnerability assessment (VA) powered by Microsoft Defender Vulnerability Management for Azure container registries and Azure Kubernetes Services.
+
+### Retirement of AWS container vulnerability assessment powered by Trivy
+
+December 13, 2023
+
+The [container vulnerability assessment powered by Trivy](defender-for-containers-vulnerability-assessment-elastic.md) is now on a retirement path to be completed by February 13. This capability is now deprecated and will continue to be available to existing customers using this capability until February 13. We encourage customers using this capability to upgrade to the new [AWS container vulnerability assessment powered by Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md) by February 13.
+
+### Agentless container posture for AWS in Defender for Containers and Defender CSPM (Preview)
+
+December 13, 2023
+
+The new Agentless container posture (Preview) capabilities are available for AWS. For more information, see [Agentless container posture in Defender CSPM](concept-agentless-containers.md) and [Agentless capabilities in Defender for Containers](defender-for-containers-introduction.md#agentless-capabilities).
+
+### Deny effect - replacing deprecated policies
+
+December 13, 2023
+
+The [Deny effect](manage-mcsb.md#deny-and-enforce-recommendations) is used to prevent deployment of resources that don't comply with the [Microsoft Cloud Security Benchmark (MCSB) standard](concept-regulatory-compliance.md). A change in the policy's effects requires the deprecation of the current versions of the policy.
+
+To make sure you can still use the Deny effect, you must delete the old policies and assign the new policies in their place.
+
+**Deprecated policies**:
+
+- Function apps should use the latest TLS version
+- App Service apps should have local authentication methods disabled for FTP deployments
+- Function app slots should use the latest TLS version
+- App Service app slots should have local authentication methods disabled for FTP deployments
+- App Service apps should use the latest TLS version
+- App Service apps should have local authentication methods disabled for SCM site deployments
+- App Service app slots should use the latest TLS version
+- App Service app slots should have local authentication methods disabled for SCM site deployments
+
+Learn how to [Enable and configure at scale with an Azure built-in policy](defender-for-storage-policy-enablement.md).
+
+Check out [Azure Policy built-in definitions for Microsoft Defender for Cloud](policy-reference.md).
+
+### General availability support for PostgreSQL Flexible Server in Defender for open-source relational databases plan
+
+December 13, 2023
+
+We're announcing the general availability (GA) release of PostgreSQL Flexible Server support in the [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md) plan. Microsoft Defender for open-source relational databases provides advanced threat protection to PostgreSQL Flexible Servers, by detecting anomalous activities and generating [security alerts](defender-for-databases-usage.md).
+
+Learn how to [Enable Microsoft Defender for open-source relational databases](defender-for-databases-usage.md).
+
+### Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless
+
+December 12, 2023
+
+Container vulnerability assessment powered by Microsoft Defender Vulnerability Management have been extended with additional coverage for Linux OS packages, now supporting Google Distroless.
+
+For a list of all supported operating systems, see [Registries and images support for Azure - Vulnerability assessment powered by Microsoft Defender Vulnerability Management](support-matrix-defender-for-containers.md#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management).
+
+### Defender for Storage alert released for preview: malicious blob was downloaded from a storage account
+
+December 4, 2023
+
+The following alert is being released for preview:
+
+|Alert (alert type)|Description|MITRE tactics|Severity|
+|----|----|----|----|
+| **Malicious blob was downloaded from a storage account (Preview)**<br>Storage.Blob_MalwareDownload | The alert indicates that a malicious blob was downloaded from a storage account. Potential causes may include malware that was uploaded to the storage account and not removed or quarantined, thereby enabling a threat actor to download it, or an unintentional download of the malware by legitimate users or applications. <br>Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen2 or premium block blobs) storage accounts with the new Defender for Storage plan with the Malware Scanning feature enabled. | Lateral Movement | High, if Eicar - low |
+
+See the [extension-based alerts in Defender for Storage](alerts-reference.md#alerts-azurestorage).
+
+For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
+
+## November 2023
+
+| Date | Update |
+|--|--|
+| November 30 | [Four alerts are deprecated](#four-alerts-are-deprecated) |
+| November 27 | [General availability of agentless secrets scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secrets-scanning-in-defender-for-servers-and-defender-cspm) |
+| November 22 | [Enable permissions management with Defender for Cloud (Preview)](#enable-permissions-management-with-defender-for-cloud-preview) |
+| November 22 | [Defender for Cloud integration with ServiceNow](#defender-for-cloud-integration-with-servicenow) |
+| November 20| [General Availability of the autoprovisioning process for SQL Servers on machines plan](#general-availability-of-the-autoprovisioning-process-for-sql-servers-on-machines-plan)|
+| November 15  | [General availability of Defender for APIs](#general-availability-of-defender-for-apis) |
+| November 15 | [Defender for Cloud is now integrated with Microsoft 365 Defender (Preview)](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview) |
+| November 15 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
+| November 15 | [Change to Container Vulnerability Assessments recommendation names](#change-to-container-vulnerability-assessments-recommendation-names) |
+| November 15 | [Risk prioritization is now available for recommendations](#risk-prioritization-is-now-available-for-recommendations) |
+| November 15 | [Attack path analysis new engine and extensive enhancements](#attack-path-analysis-new-engine-and-extensive-enhancements) |
+| November 15 | [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |
+| November 15 | [General Availability release of GCP support in Defender CSPM](#general-availability-release-of-gcp-support-in-defender-cspm) |
+| November 15 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
+| November 15 | [General Availability release of sensitive data discovery for databases](#general-availability-release-of-sensitive-data-discovery-for-databases) |
+| November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
+
+### Four alerts are deprecated
+
+November 30, 2023
+
+As part of our quality improvement process, the following security alerts are deprecated:
+
+- `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)`
+- `Executable found running from a suspicious location (K8S.NODE_SuspectExecutablePath)`
+- `Suspicious process termination burst (VM_TaskkillBurst)`
+- `PsExec execution detected (VM_RunByPsExec)`
+
+### General availability of agentless secrets scanning in Defender for Servers and Defender CSPM
+
+November 27, 2023
+
+Agentless secrets scanning enhances the security cloud based Virtual Machines (VM) by identifying plaintext secrets on VM disks. Agentless secrets scanning provides comprehensive information to help prioritize detected findings and mitigate lateral movement risks before they occur. This proactive approach prevents unauthorized access, ensuring your cloud environment remains secure.
+
+We're announcing the General Availability (GA) of agentless secrets scanning, which is included in both the [Defender for Servers P2](tutorial-enable-servers-plan.md) and the [Defender CSPM](tutorial-enable-cspm-plan.md) plans.
+
+Agentless secrets scanning utilizes cloud APIs to capture snapshots of your disks, conducting out-of-band analysis that ensures that there's no effect on your VM's performance. Agentless secrets scanning broadens the coverage offered by Defender for Cloud over cloud assets across Azure, AWS, and GCP environments to enhance your cloud security.
+
+With this release, Defender for Cloud's detection capabilities now support other database types, data store signed URLs, access tokens, and more.
+
+Learn how to [manage secrets with agentless secrets scanning](secret-scanning.md).
+
+### Enable permissions management with Defender for Cloud (Preview)
+
+November 22, 2023
+
+Microsoft now offers both Cloud-Native Application Protection Platforms (CNAPP) and Cloud Infrastructure Entitlement Management (CIEM) solutions with [Microsoft Defender for Cloud (CNAPP)](defender-for-cloud-introduction.md) and [Microsoft Entra Permissions Management](/entra/permissions-management/) (CIEM).
+
+Security administrators can get a centralized view of their unused or excessive access permissions within Defender for Cloud.
+
+Security teams can drive the least privilege access controls for cloud resources and receive actionable recommendations for resolving permissions risks across Azure, AWS, and GCP cloud environments as part of their Defender Cloud Security Posture Management (CSPM), without any extra licensing requirements.
+
+Learn how to [Enable Permissions Management in Microsoft Defender for Cloud (Preview)](enable-permissions-management.md).
+
+### Defender for Cloud integration with ServiceNow
+
+November 22, 2023
+
+ServiceNow is now integrated with Microsoft Defender for Cloud, which enables customers to connect ServiceNow to their Defender for Cloud environment to prioritize remediation of recommendations that affect your business. Microsoft Defender for Cloud integrates with the ITSM module (incident management). As part of this connection, customers are able to create/view ServiceNow tickets (linked to recommendations) from Microsoft Defender for Cloud.
+
+You can learn more about [Defender for Cloud's integration with ServiceNow](integration-servicenow.md).
+
+### General Availability of the autoprovisioning process for SQL Servers on machines plan
+
+November 20, 2023
+
+In preparation for the Microsoft Monitoring Agent (MMA) deprecation in August 2024, Defender for Cloud released a SQL Server-targeted Azure Monitoring Agent (AMA) autoprovisioning process. The new process is automatically enabled and configured for all new customers, and also provides the ability for resource level enablement for Azure SQL VMs and Arc-enabled SQL Servers.
+
+Customers using the MMA autoprovisioning process are requested to [migrate to the new Azure Monitoring Agent for SQL server on machines autoprovisioning process](/azure/defender-for-cloud/defender-for-sql-autoprovisioning). The migration process is seamless and provides continuous protection for all machines.  
+
+### General availability of Defender for APIs
+
+November 15, 2023
+
+We're announcing the General Availability (GA) of Microsoft Defender for APIs. Defender for APIs is designed to protect organizations against API security threats.
+
+Defender for APIs allows organizations to protect their APIs and data from malicious actors. Organizations can investigate and improve their API security posture, prioritize vulnerability fixes, and quickly detect and respond to active real-time threats. Organizations can also integrate security alerts directly into their Security Incident and Event Management (SIEM) platform, for example Microsoft Sentinel, to investigate and triage issues.
+
+You can learn how to [Protect your APIs with Defender for APIs](defender-for-apis-deploy.md). You can also learn more about [About Microsoft Defender for APIs](defender-for-apis-introduction.md).
+
+You can also read [this blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-announces-general-availability-of-defender-for-apis/ba-p/3981488) to learn more about the GA announcement.
+
+### Defender for Cloud is now integrated with Microsoft 365 Defender (Preview)
+
+November 15, 2023
+
+Businesses can protect their cloud resources and devices with the new integration between Microsoft Defender for Cloud and Microsoft Defender XDR. This integration connects the dots between cloud resources, devices, and identities, which previously required multiple experiences.
+
+The integration also brings competitive cloud protection capabilities into the Security Operations Center (SOC) day-to-day. With Microsoft Defender XDR, SOC teams can easily discover attacks that combine detections from multiple pillars, including Cloud, Endpoint, Identity, Office 365, and more.
+
+Some of the key benefits include:
+
+- **One easy-to-use interface for SOC teams**: With Defender for Cloud's alerts and cloud correlations integrated into M365D, SOC teams can now access all security information from a single interface, significantly improving operational efficiency.
+
+- **One attack story**: Customers are able to understand the complete attack story, including their cloud environment, by using prebuilt correlations that combine security alerts from multiple sources.
+
+- **New cloud entities in Microsoft Defender XDR**: Microsoft Defender XDR now supports new cloud entities that are unique to Microsoft Defender for Cloud, such as cloud resources. Customers can match Virtual Machine (VM) entities to device entities, providing a unified view of all relevant information about a machine, including alerts and incidents that were triggered on it.
+
+- **Unified API for Microsoft Security products**: Customers can now export their security alerts data into their systems of choice using a single API, as Microsoft Defender for Cloud alerts and incidents are now part of Microsoft Defender XDR's public API.
+
+The integration between Defender for Cloud and Microsoft Defender XDR is available to all new and existing Defender for Cloud customers.
+
+### General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
+
+November 15, 2023
+
+Vulnerability assessment (VA) for Linux container images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) is released for General Availability (GA) in Defender for Containers and Defender for Container Registries.
+
+As part of this change, the following recommendations were released for GA and renamed, and are now included in the secure score calculation:
+
+|Current recommendation name|New recommendation name|Description|Assessment key|
+|--|--|--|--|
+|Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)|Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)|Container image vulnerability assessments scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. |c0b7cfc6-3172-465a-b378-53c7ff2cc0d5|
+|Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)|Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management|Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.|c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5|
+
+Container image scan powered by MDVM now also incur charges as per [plan pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing).  
+
+> [!NOTE]
+> Images scanned both by our container VA offering powered by Qualys and Container VA offering powered by MDVM, will only be billed once.
+
+The below Qualys recommendations for Containers Vulnerability Assessment were renamed and will continue to be available for customers that enabled Defender for Containers on any of their subscriptions prior to November 15. New customers onboarding Defender for Containers after November 15, will only see the new Container vulnerability assessment recommendations powered by Microsoft Defender Vulnerability Management.
+
+|Current recommendation name|New recommendation name|Description|Assessment key|
+|--|--|--|--|
+|Container registry images should have vulnerability findings resolved (powered by Qualys)|Azure registry container images should have vulnerabilities resolved (powered by Qualys)|Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. |dbd0cb49-b563-45e7-9724-889e799fa648|
+|Running container images should have vulnerability findings resolved (powered by Qualys)|Azure running container images should have vulnerabilities resolved - (powered by Qualys)|Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.|41503391-efa5-47ee-9282-4eff6131462|
+
+### Change to Container Vulnerability Assessments recommendation names
+
+The following Container Vulnerability Assessments recommendations were renamed:
+
+|Current recommendation name|New recommendation name|Description|Assessment key|
+|--|--|--|--|
+|Container registry images should have vulnerability findings resolved (powered by Qualys)|Azure registry container images should have vulnerabilities resolved (powered by Qualys)|Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. |dbd0cb49-b563-45e7-9724-889e799fa648|
+|Running container images should have vulnerability findings resolved (powered by Qualys)|Azure running container images should have vulnerabilities resolved - (powered by Qualys)|Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.|41503391-efa5-47ee-9282-4eff6131462|
+|Elastic container registry images should have vulnerability findings resolved|AWS registry container images should have vulnerabilities resolved - (powered by Trivy)|Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.|03587042-5d4b-44ff-af42-ae99e3c71c87|
+
+### Risk prioritization is now available for recommendations
+
+November 15, 2023
+
+You can now prioritize your security recommendations according to the risk level they pose, taking in to consideration both the exploitability and potential business effect of each underlying security issue.
+
+By organizing your recommendations based on their risk level (Critical, high, medium, low), you're able to address the most critical risks within your environment and efficiently prioritize the remediation of security issues based on the actual risk such as internet exposure, data sensitivity, lateral movement possibilities, and potential attack paths that could be mitigated by resolving the recommendations.
+
+Learn more about [risk prioritization](implement-security-recommendations.md#group-recommendations-by-risk-level).
+
+### Attack path analysis new engine and extensive enhancements
+
+November 15, 2023
+
+We're releasing enhancements to the attack path analysis capabilities in Defender for Cloud.  
+
+- **New engine** - attack path analysis has a new engine, which uses path-finding algorithm to detect every possible attack path that exists in your cloud environment (based on the data we have in our graph). We can find many more attack paths in your environment and detect more complex and sophisticated attack patterns that attackers can use to breach your organization.
+
+- **Improvements** - The following improvements are released:
+
+  - **Risk prioritization** - prioritized list of attack paths based on risk (exploitability & business affect).
+  - **Enhanced remediation** - pinpointing the specific recommendations that should be resolved to actually break the chain.
+  - **Cross-cloud attack paths** – detection of attack paths that are cross-clouds (paths that start in one cloud and end in another).
+  - **MITRE** – Mapping all attack paths to the MITRE framework.
+  - **Refreshed user experience** – refreshed experience with stronger capabilities: advanced filters, search, and grouping of attack paths to allow easier triage.
+
+Learn [how to identify and remediate attack paths](how-to-manage-attack-path.md).
+
+### Changes to Attack Path's Azure Resource Graph table scheme
+
+November 15, 2023
+
+The attack path's Azure Resource Graph (ARG) table scheme is updated. The `attackPathType` property is removed and other properties are added.
+
+### General Availability release of GCP support in Defender CSPM
+
+November 15, 2023
+
+We're announcing the GA (General Availability) release of the Defender CSPM contextual cloud security graph and attack path analysis with support for GCP resources. You can apply the power of Defender CSPM for comprehensive visibility and intelligent cloud security across GCP resources.
+
+ Key features of our GCP support include:
+
+- **Attack path analysis** - Understand the potential routes attackers might take.
+- **Cloud security explorer** - Proactively identify security risks by running graph-based queries on the security graph.
+- **Agentless scanning** - Scan servers and identify secrets and vulnerabilities without installing an agent.
+- **Data-aware security posture** - Discover and remediate risks to sensitive data in Google Cloud Storage buckets.
+
+Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md).
+
+> [!NOTE]
+> Billing for the GA release of GCP support in Defender CSPM will begin on February 1st 2024.
+
+### General Availability release of Data security dashboard
+
+November 15, 2023
+
+The data security dashboard is now available in General Availability (GA) as part of the Defender CSPM plan.
+
+The data security dashboard allows you to view your organization's data estate, risks to sensitive data, and insights about your data resources.
+
+Learn more about the [data security dashboard](data-aware-security-dashboard-overview.md).
+
+### General Availability release of sensitive data discovery for databases
+
+November 15, 2023
+
+Sensitive data discovery for managed databases including Azure SQL databases and AWS RDS instances (all RDBMS flavors) is now generally available and allows for the automatic discovery of critical databases that contain sensitive data.
+
+To enable this feature across all supported datastores on your environments, you need to enable `Sensitive data discovery` in Defender CSPM. Learn [how to enable sensitive data discovery in Defender CSPM](tutorial-enable-cspm-plan.md#enable-the-components-of-the-defender-cspm-plan).
+
+You can also learn how [sensitive data discovery is used in data-aware security posture](concept-data-security-posture.md).
+
+Public Preview announcement: [New expanded visibility into multicloud data security in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/new-expanded-visibility-into-multicloud-data-security-in/ba-p/3913010).
+
+### New version of the recommendation to find missing system updates is now GA
+
+November 6, 2023
+
+An extra agent is no longer needed on your Azure VMs and Azure Arc machines to ensure the machines have all of the latest security or critical system updates.
+
+The new system updates recommendation, `System updates should be installed on your machines (powered by Azure Update Manager)` in the `Apply system updates` control, is based on the [Update Manager](/azure/update-center/overview) and is now fully GA. The recommendation relies on a native agent embedded in every Azure VM and Azure Arc machines instead of an installed agent. The quick fix in the new recommendation navigates you to a one-time installation of the missing updates in the Update Manager portal.
+
+The old and the new versions of the recommendations to find missing system updates will both be available until August 2024, which is when the older version is deprecated. Both recommendations: `System updates should be installed on your machines (powered by Azure Update Manager)`and `System updates should be installed on your machines` are available under the same control: `Apply system updates` and has the same results. Thus, there's no duplication in the effect on the secure score.
+
+We recommend migrating to the new recommendation and remove the old one, by disabling it from Defender for Cloud's built-in initiative in Azure policy.
+
+The recommendation `[Machines should be configured to periodically check for missing system updates](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/90386950-71ca-4357-a12e-486d1679427c)` is also GA and is a prerequisite, which will have a negative effect on your Secure Score. You can remediate the negative effect with the available Fix.  
+
+To apply the new recommendation, you need to:
+
+1. Connect your non-Azure machines to Arc.
+1. Turn on the [periodic assessment property](/azure/update-center/assessment-options). You can use the Quick Fix in the new recommendation, `[Machines should be configured to periodically check for missing system updates](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/90386950-71ca-4357-a12e-486d1679427c)` to fix the recommendation.
+
+> [!NOTE]
+> Enabling periodic assessments for Arc enabled machines that Defender for Servers Plan 2 isn't enabled on their related Subscription or Connector, is subject to [Azure Update Manager pricing](https://azure.microsoft.com/pricing/details/azure-update-management-center/). Arc enabled machines that [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) is enabled on their related Subscription or Connectors, or any Azure VM, are eligible for this capability with no additional cost.
+
+## October 2023
+
+|Date |Update  |
+|----------|----------|
+| October 30 | [Changing adaptive application control’s security alert's severity](#changing-adaptive-application-controls-security-alerts-severity) |
+| October 25 | [Offline Azure API Management revisions removed from Defender for APIs](#offline-azure-api-management-revisions-removed-from-defender-for-apis) |
+| October 19 | [DevOps security posture management recommendations available in public preview](#devops-security-posture-management-recommendations-available-in-public-preview) |
+| October 18 | [Releasing CIS Azure Foundations Benchmark v2.0.0 in Regulatory Compliance dashboard](#releasing-cis-azure-foundations-benchmark-v200-in-regulatory-compliance-dashboard) |
+
+### Changing adaptive application controls security alert's severity
+
+Announcement date: October 30, 2023
+
+As part of security alert quality improvement process of Defender for Servers, and as part of the [adaptive application controls](adaptive-application-controls.md) feature, the severity of the following security alert is changing to “Informational”:
+
+| Alert [Alert Type] | Alert Description |
+|--|--|
+| Adaptive application control policy violation was audited.[VM_AdaptiveApplicationControlWindowsViolationAudited, VM_AdaptiveApplicationControlWindowsViolationAudited] | The below users ran applications that are violating the application control policy of your organization on this machine. It can possibly expose the machine to malware or application vulnerabilities.|
+
+To keep viewing this alert in the “Security alerts” page in the Microsoft Defender for Cloud portal, change the default view filter **Severity** to include **informational** alerts in the grid.
+
+   :::image type="content" source="media/release-notes/add-informational-severity.png" alt-text="Screenshot that shows you where to add the informational severity for alerts." lightbox="media/release-notes/add-informational-severity.png":::
+
+### Offline Azure API Management revisions removed from Defender for APIs
+
+October 25, 2023
+
+Defender for APIs updated its support for Azure API Management API revisions. Offline revisions no longer appear in the onboarded Defender for APIs inventory and no longer appear to be onboarded to Defender for APIs. Offline revisions don't allow any traffic to be sent to them and pose no risk from a security perspective.
+
+### DevOps security posture management recommendations available in public preview
+
+October 19, 2023
+
+New DevOps posture management recommendations are now available in public preview for all customers with a connector for Azure DevOps or GitHub. DevOps posture management helps to reduce the attack surface of DevOps environments by uncovering weaknesses in security configurations and access controls. Learn more about [DevOps posture management](concept-devops-environment-posture-management-overview.md).
+
+### Releasing CIS Azure Foundations Benchmark v2.0.0 in regulatory compliance dashboard
+
+October 18, 2023
+
+Microsoft Defender for Cloud now supports the latest [CIS Azure Security Foundations Benchmark - version 2.0.0](https://www.cisecurity.org/benchmark/azure) in the Regulatory Compliance [dashboard](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/22), and a built-in policy initiative in Azure Policy. The release of version 2.0.0 in Microsoft Defender for Cloud is a joint collaborative effort between Microsoft, the Center for Internet Security (CIS), and the user communities. The version 2.0.0 significantly expands assessment scope, which now includes 90+ built-in Azure policies and succeed the prior versions 1.4.0 and 1.3.0 and 1.0 in Microsoft Defender for Cloud and Azure Policy. For more information, you can check out this [blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-cloud-now-supports-cis-azure-security/ba-p/3944860).
+
+## September 2023
+
+|Date |Update  |
+|----------|----------|
+| September 27 | [Data security dashboard available in public preview](#data-security-dashboard-available-in-public-preview)
+| September 21 | [Preview release: New autoprovisioning process for SQL Server on machines plan](#preview-release-new-autoprovisioning-process-for-sql-server-on-machines-plan) |
+| September 20 | [GitHub Advanced Security for Azure DevOps alerts in Defender for Cloud](#github-advanced-security-for-azure-devops-alerts-in-defender-for-cloud) |
+| September 11 | [Exempt functionality now available for Defender for APIs recommendations](#exempt-functionality-now-available-for-defender-for-apis-recommendations) |
+| September 11 | [Create sample alerts for Defender for APIs detections](#create-sample-alerts-for-defender-for-apis-detections) |
+| September 6 | [Preview release: Containers vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports scan on pull](#preview-release-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-scan-on-pull)|
+| September 6 | [Updated naming format of Center for Internet Security (CIS) standards in regulatory compliance](#updated-naming-format-of-center-for-internet-security-cis-standards-in-regulatory-compliance) |
+| September 5 | [Sensitive data discovery for PaaS databases (Preview)](#sensitive-data-discovery-for-paas-databases-preview) |
+| September 1 | [General Availability (GA): malware scanning in Defender for Storage](#general-availability-ga-malware-scanning-in-defender-for-storage)|
+
+### Data security dashboard available in public preview
+
+September 27, 2023
+
+The data security dashboard is now available in public preview as part of the Defender CSPM plan.
+The data security dashboard is an interactive, data-centric dashboard that illuminates significant risks to sensitive data, prioritizing alerts and potential attack paths for data across hybrid cloud workloads. Learn more about the [data security dashboard](data-aware-security-dashboard-overview.md).
+
+### Preview release: New autoprovisioning process for SQL Server on machines plan
+
+September 21, 2023
+
+Microsoft Monitoring Agent (MMA) is being deprecated in August 2024. Defender for Cloud [updated it's strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) by replacing MMA with the release of a SQL Server-targeted Azure Monitoring Agent autoprovisioning process.
+
+During the preview, customers who are using the MMA autoprovisioning process with Azure Monitor Agent (Preview) option, are requested to [migrate to the new Azure Monitoring Agent for SQL server on machines (Preview) autoprovisioning process](defender-for-sql-autoprovisioning.md#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process). The migration process is seamless and provides continuous protection for all machines.
+
+For more information, see [Migrate to SQL server-targeted Azure Monitoring Agent autoprovisioning process](defender-for-sql-autoprovisioning.md).
+
+### GitHub Advanced Security for Azure DevOps alerts in Defender for Cloud
+
+September 20, 2023
+
+You can now view GitHub Advanced Security for Azure DevOps (GHAzDO) alerts related to CodeQL, secrets, and dependencies in Defender for Cloud. Results are displayed in the DevOps page and in Recommendations. To see these results, onboard your GHAzDO-enabled repositories to Defender for Cloud.
+
+Learn more about [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
+
+### Exempt functionality now available for Defender for APIs recommendations
+
+September 11, 2023
+
+You can now exempt recommendations for the following Defender for APIs security recommendations.
+
+| Recommendation | Description & related policy | Severity |
 |--|--|--|
-| Lambda functions should have a dead-letter queue configured | This control checks whether a Lambda function is configured with a dead-letter queue. The control fails if the Lambda function isn't configured with a dead-letter queue. As an alternative to an on-failure destination, you can configure your function with a dead-letter queue to save discarded events for further processing. A dead-letter queue acts the same as an on-failure destination. It's used when an event fails all processing attempts or expires without being processed. A dead-letter queue allows you to look back at errors or failed requests to your Lambda function to debug or identify unusual behavior. From a security perspective, it's important to understand why your function failed and to ensure that your function doesn't drop data or compromise data security as a result. For example, if your function can't communicate to an underlying resource that could be a symptom of a denial of service (DoS) attack elsewhere in the network. | Medium |
+| (Preview) API endpoints that are unused should be disabled and removed from the Azure API Management service | As a security best practice, API endpoints that haven't received traffic for 30 days are considered unused, and should be removed from the Azure API Management service. Keeping unused API endpoints might pose a security risk. These might be APIs that should have been deprecated from the Azure API Management service, but have accidentally been left active. Such APIs typically do not receive the most up-to-date security coverage. | Low |
+| (Preview) API endpoints in Azure API Management should be authenticated | API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses the execution of authentication via the Subscription Keys, JWT, and Client Certificate configured within Azure API Management. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation. | High |
 
-## October 2022
+Learn more about [exempting recommendations in Defender for Cloud](/azure/defender-for-cloud/exempt-resource).
 
-Updates in October include:
+### Create sample alerts for Defender for APIs detections
 
-- [Announcing the Microsoft cloud security benchmark](#announcing-the-microsoft-cloud-security-benchmark)
-- [Attack path analysis and contextual security capabilities in Defender for Cloud (Preview)](#attack-path-analysis-and-contextual-security-capabilities-in-defender-for-cloud-preview)
-- [Agentless scanning for Azure and AWS machines (Preview)](#agentless-scanning-for-azure-and-aws-machines-preview)
-- [Defender for DevOps (Preview)](#defender-for-devops-preview)
-- [Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status](#regulatory-compliance-dashboard-now-supports-manual-control-management-and-detailed-information-on-microsofts-compliance-status)
-- [Auto-provisioning has been renamed to Settings & monitoring and has an updated experience](#auto-provisioning-has-been-renamed-to-settings--monitoring-and-has-an-updated-experience)
-- [Defender Cloud Security Posture Management (CSPM) (Preview)](#defender-cloud-security-posture-management-cspm)
-- [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
-- [Defender for Containers now supports vulnerability assessment for Elastic Container Registry (Preview)](#defender-for-containers-now-supports-vulnerability-assessment-for-elastic-container-registry-preview)
+September 11, 2023
 
-### Announcing the Microsoft cloud security benchmark
+You can now generate sample alerts for the security detections that were released as part of the Defender for APIs public preview. Learn more about [generating sample alerts in Defender for Cloud](/azure/defender-for-cloud/alert-validation#generate-sample-security-alerts).
 
-The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) (MCSB) is a new framework defining fundamental cloud security principles based on common industry standards and compliance frameworks. Together with detailed technical guidance for implementing these best practices across cloud platforms. MCSB is replacing the Azure Security Benchmark. MCSB provides prescriptive details for how to implement its cloud-agnostic security recommendations on multiple cloud service platforms, initially covering Azure and AWS.
+### Preview release: containers vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports scan on pull
 
-You can now monitor your cloud security compliance posture per cloud in a single, integrated dashboard. You can see MCSB as the default compliance standard when you navigate to Defender for Cloud's regulatory compliance dashboard.
+September 6, 2023
 
-Microsoft cloud security benchmark is automatically assigned to your Azure subscriptions and AWS accounts when you onboard Defender for Cloud.
+Containers vulnerability assessment powered by Microsoft Defender Vulnerability Management (MDVM), now supports an additional trigger for scanning images pulled from an ACR. This newly added trigger provides additional coverage for active images in addition to the existing triggers scanning images pushed to an ACR in the last 90 days and images currently running in AKS.
 
-Learn more about the [Microsoft cloud security benchmark](concept-regulatory-compliance.md).
+The new trigger will start rolling out today, and is expected to be available to all customers by end of September.
 
-### Attack path analysis and contextual security capabilities in Defender for Cloud (Preview)
+For more information, see [Container Vulnerability Assessment powered by MDVM](agentless-vulnerability-assessment-azure.md)
 
-The new cloud security graph, attack path analysis and contextual cloud security capabilities are now available in Defender for Cloud in preview.
+### Updated naming format of Center for Internet Security (CIS) standards in regulatory compliance
 
-One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolved and never enough resources to address them all.
+September 6, 2023
 
-Defender for Cloud's new cloud security graph and attack path analysis capabilities gives security teams the ability to assess the risk behind each security issue. Security teams can also identify the highest risk issues that need to be resolved soonest. Defender for Cloud works with security teams to reduce the risk of an affectful breach to their environment in the most effective way.
+The naming format of CIS (Center for Internet Security) foundations benchmarks in the compliance dashboard is changed from `[Cloud] CIS [version number]` to `CIS [Cloud] Foundations v[version number]`. Refer to the following table:
 
-Learn more about the new [cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
+| Current Name | New Name |
+|--|--|
+| Azure CIS 1.1.0 | CIS Azure Foundations v1.1.0 |
+| Azure CIS 1.3.0 | CIS Azure Foundations v1.3.0 |
+| Azure CIS 1.4.0 | CIS Azure Foundations v1.4.0 |
+| AWS CIS 1.2.0 | CIS AWS Foundations v1.2.0 |
+| AWS CIS 1.5.0 | CIS AWS Foundations v1.5.0 |
+| GCP CIS 1.1.0 | CIS GCP Foundations v1.1.0 |
+| GCP CIS 1.2.0 | CIS GCP Foundations v1.2.0 |
 
-### Agentless scanning for Azure and AWS machines (Preview)
+Learn how to [improve your regulatory compliance](regulatory-compliance-dashboard.md).
 
-Until now, Defender for Cloud based its posture assessments for VMs on agent-based solutions. To help customers maximize coverage and reduce onboarding and management friction, we're releasing agentless scanning for VMs to preview.
+### Sensitive data discovery for PaaS databases (Preview)
 
-With agentless scanning for VMs, you get wide visibility on installed software and software CVEs. You get the visibility without the challenges of agent installation and maintenance, network connectivity requirements, and performance affect on your workloads. The analysis is powered by Microsoft Defender vulnerability management.
+September 5, 2023
 
-Agentless vulnerability scanning is available in both Defender Cloud Security Posture Management (CSPM) and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
+Data-aware security posture capabilities for frictionless sensitive data discovery for PaaS Databases (Azure SQL Databases and Amazon RDS Instances of any type) are now in public preview. This public preview allows you to create a map of your critical data wherever it resides, and the type of data that is found in those databases.
 
-- Learn more about [agentless scanning](concept-agentless-data-collection.md).
-- Find out how to enable [agentless vulnerability assessment](enable-vulnerability-assessment-agentless.md).
+Sensitive data discovery for Azure and AWS databases, adds to the shared taxonomy and configuration, which is already publicly available for cloud object storage resources (Azure Blob Storage, AWS S3 buckets and GCP storage buckets) and provides a single configuration and enablement experience.
 
-### Defender for DevOps (Preview)
+Databases are scanned on a weekly basis. If you enable `sensitive data discovery`, discovery runs within 24 hours. The results can be viewed in the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md) or by reviewing the new [attack paths](how-to-manage-attack-path.md) for managed databases with sensitive data.
 
-Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across hybrid and multicloud environments including Azure, AWS, Google, and on-premises resources.
+Data-aware security posture for databases is available through the [Defender CSPM plan](tutorial-enable-cspm-plan.md), and is automatically enabled on subscriptions where `sensitive data discovery` option is enabled.
 
-Now, the new Defender for DevOps plan integrates source code management systems, like GitHub and Azure DevOps, into Defender for Cloud. With this new integration, we're empowering security teams to protect their resources from code to cloud.
+You can learn more about data aware security posture in the following articles:
 
-Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high-level overview of the discovered security issues that exist within them in a unified DevOps Security page.
+- [Support and prerequisites for data-aware security posture](concept-data-security-posture-prepare.md)
+- [Enable data-aware security posture](data-security-posture-enable.md)
+- [Explore risks to sensitive data](data-security-review-risks.md)
 
-Security teams can now configure pull request annotations to help developers address secret scanning findings in Azure DevOps directly on their pull requests.
+### General Availability (GA): malware scanning in Defender for Storage
 
-You can configure the Microsoft Security DevOps tools on Azure Pipelines and GitHub workflows to enable the following security scans:
+September 1, 2023
 
-| Name | Language | License |
-|--|--|--|
-| [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/main/LICENSE) |
-| [BinSkim](https://github.com/Microsoft/binskim) | Binary – Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
-| [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
-| [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html) (Azure DevOps Only) | Credential Scanner (also known as CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files common types: default passwords, SQL connection strings, Certificates with private keys| Not Open Source |
-| [Template Analyze](https://github.com/Azure/template-analyzer) | ARM template, Bicep file | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
-| [Terrascan](https://github.com/tenable/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
-| [Trivy](https://github.com/aquasecurity/trivy) | Container images, file systems, git repositories | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
+Malware scanning is now generally available (GA) as an add-on to Defender for Storage. Malware scanning in Defender for Storage helps protect your storage accounts from malicious content by performing a full malware scan on uploaded content in near real time, using Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements for handling untrusted content. The malware scanning capability is an agentless SaaS solution that allows setup at scale, and supports automating response at scale.
 
-The following new recommendations are now available for DevOps:
+Learn more about [malware scanning in Defender for Storage](defender-for-storage-malware-scan.md).
 
-| Recommendation | Description | Severity |
-|--|--|--|
-| (Preview) [Code repositories should have code scanning findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/c68a8c2a-6ed4-454b-9e37-4b7654f2165f/showSecurityCenterCommandBar~/false) | Defender for DevOps has found vulnerabilities in code repositories. To improve the security posture of the repositories, it's highly recommended to remediate these vulnerabilities. (No related policy) | Medium |
-| (Preview) [Code repositories should have secret scanning findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/4e07c7d0-e06c-47d7-a4a9-8c7b748d1b27/showSecurityCenterCommandBar~/false) | Defender for DevOps has found a secret in code repositories.  This should be remediated immediately to prevent a security breach.  Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service. For Azure DevOps, the Microsoft Security DevOps CredScan tool only scans builds on which it has been configured to run. Therefore, results may not reflect the complete status of secrets in your repositories. (No related policy) | High |
-| (Preview) [Code repositories should have Dependabot scanning findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/822425e3-827f-4f35-bc33-33749257f851/showSecurityCenterCommandBar~/false) | Defender for DevOps has found vulnerabilities in code repositories. To improve the security posture of the repositories, it's highly recommended to remediate these vulnerabilities. (No related policy) | Medium |
-| (Preview) [Code repositories should have infrastructure as code scanning findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/2ebc815f-7bc7-4573-994d-e1cc46fb4a35/showSecurityCenterCommandBar~/false) | (Preview) Code repositories should have infrastructure as code scanning findings resolved | Medium |
-| (Preview) [GitHub repositories should have code scanning enabled](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6672df26-ff2e-4282-83c3-e2f20571bd11/showSecurityCenterCommandBar~/false) | GitHub uses code scanning to analyze code in order to find security vulnerabilities and errors in code. Code scanning can be used to find, triage, and prioritize fixes for existing problems in your code. Code scanning can also prevent developers from introducing new problems. Scans can be scheduled for specific days and times, or scans can be triggered when a specific event occurs in the repository, such as a push. If code scanning finds a potential vulnerability or error in code, GitHub displays an alert in the repository. A vulnerability is a problem in a project's code that could be exploited to damage the confidentiality, integrity, or availability of the project. (No related policy) | Medium |
-| (Preview) [GitHub repositories should have secret scanning enabled](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/1a600c61-6443-4ab4-bd28-7a6b6fb4691d/showSecurityCenterCommandBar~/false) | GitHub scans repositories for known types of secrets, to prevent fraudulent use of secrets that were accidentally committed to repositories. Secret scanning will scan the entire Git history on all branches present in the GitHub repository for any secrets. Examples of secrets are tokens and private keys that a service provider can issue for authentication. If a secret is checked into a repository, anyone who has read access to the repository can use the secret to access the external service with those privileges. Secrets should be stored in a dedicated, secure location outside the repository for the project. (No related policy) | High |
-| (Preview) [GitHub repositories should have Dependabot scanning enabled](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/92643c1f-1a95-4b68-bbd2-5117f92d6e35/showSecurityCenterCommandBar~/false) | GitHub sends Dependabot alerts when it detects vulnerabilities in code dependencies that affect repositories. A vulnerability is a problem in a project's code that could be exploited to damage the confidentiality, integrity, or availability of the project or other projects that use its code. Vulnerabilities vary in type, severity, and method of attack. When code depends on a package that has a security vulnerability, this vulnerable dependency can cause a range of problems. (No related policy) | Medium |
+Malware scanning is priced according to your data usage and budget. Billing begins on September 3, 2023. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information.
 
-The Defender for DevOps recommendations replaced the deprecated vulnerability scanner for CI/CD workflows that was included in Defender for Containers.
+If you're using the previous plan (now renamed "Microsoft Defender for Storage (classic)"), you need to proactively [migrate to the new plan](defender-for-storage-classic-migrate.md) in order to enable malware scanning.
 
-Learn more about [Defender for DevOps](defender-for-devops-introduction.md)
+Read the [Microsoft Defender for Cloud announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/malware-scanning-for-cloud-storage-ga-pre-announcement-prevent/ba-p/3884470).
 
-### Regulatory Compliance dashboard now supports manual control management and detailed information on Microsoft's compliance status
+## August 2023
 
-The compliance dashboard in Defender for Cloud is a key tool for customers to help them understand and track their compliance status. Customers can continuously monitor environments in accordance with requirements from many different standards and regulations.
+Updates in August include:
 
-Now, you can fully manage your compliance posture by manually attesting to operational and non-technical controls. You can now provide evidence of compliance for controls that aren't automated. Together with the automated assessments, you can now generate a full report of compliance within a selected scope, addressing the entire set of controls for a given standard.
+|Date |Update  |
+|----------|----------|
+| August 30 | [Defender For Containers: Agentless Discovery for Kubernetes](#defender-for-containers-agentless-discovery-for-kubernetes)|
+| August 22 | [Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection](#recommendation-release-microsoft-defender-for-storage-should-be-enabled-with-malware-scanning-and-sensitive-data-threat-detection)
+| August 17 | [Extended properties in Defender for Cloud security alerts are masked from activity logs](#extended-properties-in-defender-for-cloud-security-alerts-are-masked-from-activity-logs)
+| August 15 | [Preview release of GCP support in Defender CSPM](#preview-release-of-gcp-support-in-defender-cspm)|
+| August 7 | [New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions](#new-security-alerts-in-defender-for-servers-plan-2-detecting-potential-attacks-abusing-azure-virtual-machine-extensions)
+| August 1 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) |
 
-In addition, with richer control information and in-depth details and evidence for Microsoft's compliance status, you now have all of the information required for audits at your fingertips.
+### Defender For Containers: Agentless discovery for Kubernetes
 
-Some of the new benefits include:
+August 30, 2023
 
-- **Manual customer actions** provide a mechanism for manually attesting compliance with non-automated controls. Including the ability to link evidence, set a compliance date and expiration date.
+We're excited to introduce to Defender For Containers: Agentless discovery for Kubernetes. This release marks a significant step forward in container security, empowering you with advanced insights and comprehensive inventory capabilities for Kubernetes environments. The new container offering is powered by the Defender for Cloud contextual security graph.  Here's what you can expect from this latest update:
 
-- Richer control details for supported standards that showcase **Microsoft actions** and **manual customer actions** in addition to the already existing automated customer actions.
+- Agentless Kubernetes discovery
+- Comprehensive inventory capabilities
+- Kubernetes-specific security insights
+- Enhanced risk hunting with Cloud Security Explorer
 
-- Microsoft actions provide transparency into Microsoft’s compliance status that includes audit assessment procedures, test results, and Microsoft responses to deviations.
+Agentless discovery for Kubernetes is now available to all Defender For Containers customers. You can start using these advanced capabilities today. We encourage you to update your subscriptions to have the full set of extensions enabled, and benefit from the latest additions and features. Visit the **Environment and settings** pane of your Defender for Containers subscription to enable the extension.
 
-- **Compliance offerings** provide a central location to check Azure, Dynamics 365, and Power Platform products and their respective regulatory compliance certifications.
+> [!NOTE]
+> Enabling the latest additions won't incur new costs to active Defender for Containers customers.
 
-Learn more on how to [Improve your regulatory compliance](regulatory-compliance-dashboard.md) with Defender for Cloud.
+For more information, see [Overview of Container security Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
-### Auto-provisioning has been renamed to Settings & monitoring and has an updated experience
+### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
 
-We've renamed the Auto-provisioning page to **Settings & monitoring**.
+August 22, 2023
 
-Auto-provisioning was meant to allow at-scale enablement of prerequisites, which are needed by Defender for Cloud's advanced features and capabilities. To better support our expanded capabilities, we're launching a new experience with the following changes:
+A new recommendation in Defender for Storage has been released. This recommendation ensures that Defender for Storage is enabled at the subscription level with malware scanning and sensitive data threat detection capabilities.
 
-**The Defender for Cloud's plans page now includes**:
-- When you enable a Defender plan that requires monitoring components, those components are enabled for automatic provisioning with default settings. These settings can optionally be edited at any time.
-- You can access the monitoring component settings for each Defender plan from the Defender plan page.
-- The Defender plans page clearly indicates whether all the monitoring components are in place for each Defender plan, or if your monitoring coverage is incomplete.
+| Recommendation | Description  |
+|--|--|
+| Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection | Microsoft Defender for Storage detects potential threats to your storage accounts. It helps prevent the three major impacts on your data and workload: malicious file uploads, sensitive data exfiltration, and data corruption. The new Defender for Storage plan includes malware scanning and sensitive data threat detection. This plan also provides a predictable pricing structure (per storage account) for control over coverage and costs. With a simple agentless setup at scale, when enabled at the subscription level, all existing and newly created storage accounts under that subscription will be automatically protected. You can also exclude specific storage accounts from protected subscriptions.|
 
-**The Settings & monitoring page**:
-- Each monitoring component indicates the Defender plans to which it's related.
+This new recommendation replaces the current recommendation `Microsoft Defender for Storage should be enabled` (assessment key 1be22853-8ed1-4005-9907-ddad64cb1417). However, this recommendation will still be available in Azure Government clouds.
 
-Learn more about [managing your monitoring settings](monitoring-components.md).
+Learn more about [Microsoft Defender for Storage](defender-for-storage-introduction.md).
 
-### Defender Cloud Security Posture Management (CSPM)
+### Extended properties in Defender for Cloud security alerts are masked from activity logs
 
-One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud Security Posture Management (CSPM). CSPM provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
+August 17, 2023
 
-We're announcing a new Defender plan: Defender CSPM. This plan enhances the security capabilities of Defender for Cloud and includes the following new and expanded features:
+We recently changed the way security alerts and activity logs are integrated. To better protect sensitive customer information, we no longer include this information in activity logs. Instead, we mask it with asterisks. However, this information is still available through the alerts API, continuous export, and the Defender for Cloud portal.
 
-- Continuous assessment of the security configuration of your cloud resources
-- Security recommendations to fix misconfigurations and weaknesses
-- Secure score
-- Governance
-- Regulatory compliance
-- Cloud security graph
-- Attack path analysis
-- Agentless scanning for machines
+Customers who rely on activity logs to export alerts to their SIEM solutions should consider using a different solution, as it isn't the recommended method for exporting Defender for Cloud security alerts.
 
-Learn more about the [Defender CSPM plan](concept-cloud-security-posture-management.md).
+For instructions on how to export Defender for Cloud security alerts to SIEM, SOAR and other third party applications, see [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 
-### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
+### Preview release of GCP support in Defender CSPM
 
-For security analysts, it’s essential to identify the potential risks associated with security recommendations and understand the attack vectors, so that they can efficiently prioritize their tasks.
+August 15, 2023
 
-Defender for Cloud makes prioritization easier by mapping the Azure, AWS and GCP security recommendations against the MITRE ATT&CK framework. The MITRE ATT&CK framework is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations, allowing customers to strengthen the secure configuration of their environments.
+We're announcing the preview release of the Defender CSPM contextual cloud security graph and attack path analysis with support for GCP resources. You can apply the power of Defender CSPM for comprehensive visibility and intelligent cloud security across GCP resources.
 
-The MITRE ATT&CK framework has been integrated in three ways:
+ Key features of our GCP support include:
 
-- Recommendations map to MITRE ATT&CK tactics and techniques.
-- Query MITRE ATT&CK tactics and techniques on recommendations using the Azure Resource Graph.
+- **Attack path analysis** - Understand the potential routes attackers might take.
+- **Cloud security explorer** - Proactively identify security risks by running graph-based queries on the security graph.
+- **Agentless scanning** - Scan servers and identify secrets and vulnerabilities without installing an agent.
+- **Data-aware security posture** - Discover and remediate risks to sensitive data in Google Cloud Storage buckets.
 
-:::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the MITRE attack exists in the Azure portal. ":::
+Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md).
 
-### Defender for Containers now supports vulnerability assessment for Elastic Container Registry (Preview)
+### New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions
 
-Microsoft Defender for Containers now provides agentless vulnerability assessment scanning for Elastic Container Registry (ECR) in Amazon AWS. Expanding on coverage for multicloud environments, building on the release earlier this year of advanced threat protection and Kubernetes environment hardening for AWS and Google GCP. The agentless model creates AWS resources in your accounts to scan your images without extracting images out of your AWS accounts and with no footprint on your workload.
+August 7, 2023
 
-Agentless vulnerability assessment scanning for images in ECR repositories helps reduce the attack surface of your containerized estate by continuously scanning images to identify and manage container vulnerabilities. With this new release, Defender for Cloud scans container images after they're pushed to the repository and continually reassess the ECR container images in the registry. The findings are available in Microsoft Defender for Cloud as recommendations, and you can use Defender for Cloud's built-in automated workflows to take action on the findings, such as opening a ticket for fixing a high severity vulnerability in an image.
+This new series of alerts focuses on detecting suspicious activities of Azure virtual machine extensions and provides insights into attackers' attempts to compromise and perform malicious activities on your virtual machines.
 
-Learn more about [vulnerability assessment for Amazon ECR images](defender-for-containers-vulnerability-assessment-elastic.md).
+Microsoft Defender for Servers can now detect suspicious activity of the virtual machine extensions, allowing you to get better coverage of the workloads security.  
+
+Azure virtual machine extensions are small applications that run post-deployment on virtual machines and provide capabilities such as configuration, automation, monitoring, security, and more. While extensions are a powerful tool, they can be used by threat actors for various malicious intents, for example:
+
+- Data collection and monitoring
+- Code execution and configuration deployment with high privileges
+- Resetting credentials and creating administrative users
+- Encrypting disks
+
+Here's a table of the new alerts.
+
+|Alert (alert type)|Description|MITRE tactics|Severity|
+|----|----|----|----|
+| **Suspicious failure installing GPU extension in your subscription (Preview)**<br>(VM_GPUExtensionSuspiciousFailure) | Suspicious intent of installing a GPU extension on unsupported VMs. This extension should be installed on virtual machines equipped with a graphic processor, and in this case the virtual machines aren't equipped with such. These failures can be seen when malicious adversaries execute multiple installations of such extension for crypto-mining purposes. | Impact | Medium |
+| **Suspicious installation of a GPU extension was detected on your virtual machine (Preview)**<br>(VM_GPUDriverExtensionUnusualExecution)<br>*This alert was [released in July  2023](#new-security-alert-in-defender-for-servers-plan-2-detecting-potential-attacks-leveraging-azure-vm-gpu-driver-extensions).* | Suspicious installation of a GPU extension was detected on your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers might use the GPU driver extension to install GPU drivers on your virtual machine via the Azure Resource Manager to perform cryptojacking. This activity is deemed suspicious as the principal's behavior departs from its usual patterns. | Impact | Low |
+| **Run Command with a suspicious script was detected on your virtual machine (Preview)**<br>(VM_RunCommandSuspiciousScript) | A Run Command with a suspicious script was detected on your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers might use Run Command to execute malicious code with high privileges on your virtual machine via the Azure Resource Manager. The script is deemed suspicious as certain parts were identified as being potentially malicious. | Execution | High |
+| **Suspicious unauthorized Run Command usage was detected on your virtual machine (Preview)**<br>(VM_RunCommandSuspiciousFailure) | Suspicious unauthorized usage of Run Command has failed and was detected on your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers might attempt to use Run Command to execute malicious code with high privileges on your virtual machines via the Azure Resource Manager. This activity is deemed suspicious as it hasn't been commonly seen before. | Execution | Medium |
+| **Suspicious Run Command usage was detected on your virtual machine (Preview)**<br>(VM_RunCommandSuspiciousUsage) | Suspicious usage of Run Command was detected on your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers might use Run Command to execute malicious code with high privileges on your virtual machines via the Azure Resource Manager. This activity is deemed suspicious as it hasn't been commonly seen before. | Execution | Low |
+| **Suspicious usage of multiple monitoring or data collection extensions was detected on your virtual machines (Preview)**<br>(VM_SuspiciousMultiExtensionUsage) | Suspicious usage of multiple monitoring or data collection extensions was detected on your virtual machines by analyzing the Azure Resource Manager operations in your subscription. Attackers might abuse such extensions for data collection, network traffic monitoring, and more, in your subscription. This usage is deemed suspicious as it hasn't been commonly seen before. | Reconnaissance | Medium |
+| **Suspicious installation of disk encryption extensions was detected on your virtual machines (Preview)**<br>(VM_DiskEncryptionSuspiciousUsage) | Suspicious installation of disk encryption extensions was detected on your virtual machines by analyzing the Azure Resource Manager operations in your subscription. Attackers might abuse the disk encryption extension to deploy full disk encryptions on your virtual machines via the Azure Resource Manager in an attempt to perform ransomware activity. This activity is deemed suspicious as it hasn't been commonly seen before and due to the high number of extension installations. | Impact | Medium |
+| **Suspicious usage of VM Access extension was detected on your virtual machines (Preview)**<br>(VM_VMAccessSuspiciousUsage) | Suspicious usage of VM Access extension was detected on your virtual machines. Attackers might abuse the VM Access extension to gain access and compromise your virtual machines with high privileges by resetting access or managing administrative users. This activity is deemed suspicious as the principal's behavior departs from its usual patterns, and due to the high number of the extension installations. | Persistence | Medium |
+| **Desired State Configuration (DSC) extension with a suspicious script was detected on your virtual machine (Preview)**<br>(VM_DSCExtensionSuspiciousScript) | Desired State Configuration (DSC) extension with a suspicious script was detected on your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers might use the Desired State Configuration (DSC) extension to deploy malicious configurations, such as persistence mechanisms, malicious scripts, and more, with high privileges, on your virtual machines. The script is deemed suspicious as certain parts were identified as being potentially malicious. | Execution | High |
+| **Suspicious usage of a Desired State Configuration (DSC) extension was detected on your virtual machines (Preview)**<br>(VM_DSCExtensionSuspiciousUsage) | Suspicious usage of a Desired State Configuration (DSC) extension was detected on your virtual machines by analyzing the Azure Resource Manager operations in your subscription. Attackers might use the Desired State Configuration (DSC) extension to deploy malicious configurations, such as persistence mechanisms, malicious scripts, and more, with high privileges, on your virtual machines. This activity is deemed suspicious as the principal's behavior departs from its usual patterns, and due to the high number of the extension installations. | Impact | Low |
+| **Custom script extension with a suspicious script was detected on your virtual machine (Preview)**<br>(VM_CustomScriptExtensionSuspiciousCmd)<br>*(This alert already exists and has been improved with more enhanced logic and detection methods.)* | Custom script extension with a suspicious script was detected on your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers might use Custom script extension to execute malicious code with high privileges on your virtual machine via the Azure Resource Manager. The script is deemed suspicious as certain parts were identified as being potentially malicious. | Execution | High |
+
+ See the [extension-based alerts in Defender for Servers](alerts-reference.md#alerts-for-azure-vm-extensions).
+
+For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
+
+### Business model and pricing updates for Defender for Cloud plans
+
+August 1, 2023
+
+Microsoft Defender for Cloud has three plans that offer service layer protection:
+
+- Defender for Key Vault
+
+- Defender for Resource Manager
+- Defender for DNS
+
+These plans have transitioned to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure.
+
+**Business model and pricing changes summary**:
+
+Existing customers of Defender for Key-Vault, Defender for Resource Manager, and Defender for DNS keep their current business model and pricing unless they actively choose to switch to the new business model and price.
+
+- **Defender for Resource Manager**: This plan has a fixed price per subscription per month. Customers can switch to the new business model by selecting the Defender for Resource Manager new per subscription model.
+
+Existing customers of Defender for Key-Vault, Defender for Resource Manager, and Defender for DNS keep their current business model and pricing unless they actively choose to switch to the new business model and price.
+
+- **Defender for Resource Manager**: This plan has a fixed price per subscription per month. Customers can switch to the new business model by selecting the Defender for Resource Manager new per subscription model.
+- **Defender for Key Vault**: This plan has a fixed price per vault, per month with no overage charge. Customers can switch to the new business model by selecting the Defender for Key Vault new per vault model
+- **Defender for DNS**: Defender for Servers Plan 2 customers gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS are no longer charged for Defender for DNS. Defender for DNS is no longer available as a standalone plan.
+
+Learn more about the pricing for these plans in the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
+
+## July 2023
+
+Updates in July include:
+
+|Date |Update  |
+|----------|----------|
+| July 31 | [Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#preview-release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
+| July 30 | [Agentless container posture in Defender CSPM is now Generally Available](#agentless-container-posture-in-defender-cspm-is-now-generally-available) |
+| July 20 | [Management of automatic updates to Defender for Endpoint for Linux](#management-of-automatic-updates-to-defender-for-endpoint-for-linux) |
+| July 18 | [Agentless secrets scanning for virtual machines in Defender for servers P2 & Defender CSPM](#agentless-secrets-scanning-for-virtual-machines-in-defender-for-servers-p2--defender-cspm) |
+| July 12 | [New Security alert in Defender for Servers plan 2: Detecting Potential Attacks leveraging Azure VM GPU driver extensions](#new-security-alert-in-defender-for-servers-plan-2-detecting-potential-attacks-leveraging-azure-vm-gpu-driver-extensions) |
+| July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings) |
+| July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
+
+### Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
+
+July 31, 2023
+
+We're announcing the release of Vulnerability Assessment (VA) for Linux container images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries. The new container VA offering will be provided alongside our existing Container VA offering powered by Qualys in both Defender for Containers and Defender for Container Registries, and include daily rescans of container images, exploitability information, support for OS and programming languages (SCA) and more.
+
+This new offering will start rolling out today, and is expected to be available to all customers by August 7.
+
+For more information, see [Container Vulnerability Assessment powered by MDVM](agentless-vulnerability-assessment-azure.md) and [Microsoft Defender Vulnerability Management (MDVM)](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management).
+
+### Agentless container posture in Defender CSPM is now Generally Available
+
+July 30, 2023
+
+Agentless container posture capabilities are now Generally Available (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
+
+Learn more about [agentless container posture in Defender CSPM](concept-agentless-containers.md).
+
+### Management of automatic updates to Defender for Endpoint for Linux
+
+July 20, 2023
+
+By default, Defender for Cloud attempts to update your Defender for Endpoint for Linux agents onboarded with the `MDE.Linux` extension. With this release, you can manage this setting and opt-out from the default configuration to manage your update cycles manually.
+
+Learn how to [manage automatic updates configuration for Linux](integration-defender-for-endpoint.md#manage-automatic-updates-configuration-for-linux).  
+
+### Agentless secrets scanning for virtual machines in Defender for servers P2 & Defender CSPM
+
+July 18, 2023
+
+Secrets scanning is now available as part of the agentless scanning in Defender for Servers P2 and Defender CSPM. This capability helps to detect unmanaged and insecure secrets saved on virtual machines in Azure or AWS resources that can be used to move laterally in the network. If secrets are detected, Defender for Cloud can help to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
+
+For more information about how to protect your secrets with secrets scanning, see [Manage secrets with agentless secrets scanning](secret-scanning.md).
+
+### New security alert in Defender for Servers plan 2: detecting potential attacks leveraging Azure VM GPU driver extensions
+
+July 12, 2023
+
+This alert focuses on identifying suspicious activities leveraging Azure virtual machine **GPU driver extensions** and provides insights into attackers' attempts to compromise your virtual machines. The alert targets suspicious deployments of GPU driver extensions; such extensions are often abused by threat actors to utilize the full power of the GPU card and perform cryptojacking.
+
+| Alert Display Name <br> (Alert Type)  | Description | Severity | MITRE Tactic  |
+|---------|---------|---------|---------|
+| Suspicious installation of GPU extension in your virtual machine (Preview) <br> (VM_GPUDriverExtensionUnusualExecution) | Suspicious installation of a GPU extension was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers might use the GPU driver extension to install GPU drivers on your virtual machine via the Azure Resource Manager to perform cryptojacking. | Low | Impact |
+
+For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
+
+### Support for disabling specific vulnerability findings
+
+July 9, 2023
+
+Release of support for disabling vulnerability findings for your container registry images or running images as part of agentless container posture. If you have an organizational need to ignore a vulnerability finding on your container registry image, rather than remediate it, you can optionally disable it. Disabled findings don't affect your secure score or generate unwanted noise.
+
+Learn how to [disable vulnerability assessment findings on Container registry images](disable-vulnerability-findings-containers.md).
+
+### Data Aware Security Posture is now Generally Available
+
+July 1, 2023
+
+Data-aware security posture in Microsoft Defender for Cloud is now Generally Available. It helps customers to reduce data risk, and respond to data breaches. Using data-aware security posture you can:
+
+- Automatically discover sensitive data resources across Azure and AWS.
+- Evaluate data sensitivity, data exposure, and how data flows across the organization.
+- Proactively and continuously uncover risks that might lead to data breaches.
+- Detect suspicious activities that might indicate ongoing threats to sensitive data resources
+
+For more information, see [Data-aware security posture in Microsoft Defender for Cloud](concept-data-security-posture.md).
 
 ## Next steps
 

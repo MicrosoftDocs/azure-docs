@@ -149,7 +149,7 @@ For example:
 
 Currently, the GROUP BY clause is only supported when querying device twins.
 
-> [!IMPORTANT]
+> [!CAUTION]
 > The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 
 The formal syntax for GROUP BY is:
@@ -162,6 +162,11 @@ GROUP BY <group_by_element>
 ```
 
 **Attribute_name** refers to any property of the JSON document in the FROM collection.
+
+### Query results pagination
+
+A query object is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](device-twins-node.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) on Node.js SDK or [GetNextAsTwinAsync](device-twins-dotnet.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) on .Net SDK method multiple times.
+A query object can expose multiple Next values, depending on the deserialization option required by the query. For example, a query object can return device twin or job objects, or plain JSON when using projections.
 
 ## Expressions and conditions
 
@@ -266,8 +271,8 @@ In routes conditions, the following string functions are supported:
 | UPPER(x) | Returns a string expression after converting lowercase character data to uppercase. |
 | SUBSTRING(string, start [, length]) | Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string. |
 | INDEX_OF(string, fragment) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string isn't found.|
-| STARTS_WITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
-| ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
+| STARTSWITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
+| ENDSWITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 | CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
 
 ## Query examples with the service SDKs
@@ -290,9 +295,7 @@ while (query.HasMoreResults)
 }
 ```
 
-The **query** object is instantiated with a page size (up to 100). Then multiple pages are retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
-
-The query object exposes multiple **Next** values, depending on the deserialization option required by the query. For example, device twin or job objects, or plain JSON when using projections.
+The query object is instantiated with the parameters mentioned in the [query results pagination](#query-results-pagination) section. Multiple pages are retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
 
 ### Node.js example
 
@@ -319,11 +322,11 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-The **query** object is instantiated with a page size (up to 100). Then multiple pages are retrieved by calling the **nextAsTwin** method multiple times.
-
-The query object exposes multiple **Next** values, depending on the deserialization option required by the query. For example, device twin or job objects, or plain JSON when using projections.
+The query object is instantiated with the parameters mentioned in the [query results pagination](#query-results-pagination) section. Multiple pages are retrieved by calling the **nextAsTwin** method multiple times.  
 
 ## Next steps
 
 * Learn about routing messages based on message properties or message body with the [IoT Hub message routing query syntax](iot-hub-devguide-routing-query-syntax.md).
 * Get specific examples of [Queries for device and module twins](query-twins.md) or [Queries for jobs](query-jobs.md).
+
+
