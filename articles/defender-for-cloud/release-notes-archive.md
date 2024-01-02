@@ -4,7 +4,7 @@ description: A description of what's new and changed in Microsoft Defender for C
 author: dcurwin
 ms.author: dacurwin
 ms.topic: reference
-ms.date: 12/20/2023
+ms.date: 01/02/2024
 ---
 
 # Archive for what's new in Defender for Cloud?
@@ -834,7 +834,7 @@ Now, the new Defender for DevOps plan integrates source code management systems,
 
 Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high-level overview of the discovered security issues that exist within them in a unified DevOps Security page.
 
-You can configure annotations on pull requests, to help developers address secret scanning findings in Azure DevOps directly on their pull requests.
+You can configure annotations on pull requests, to help developers address secrets scanning findings in Azure DevOps directly on their pull requests.
 
 You can configure the Microsoft Security DevOps tools on Azure Pipelines and GitHub workflows to enable the following security scans:
 
@@ -3460,7 +3460,7 @@ To apply the standard to your subscriptions and continuously monitor your compli
 
 :::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="The NIST SP 800 171 R2 standard in Security Center's regulatory compliance dashboard":::
 
-For more information about this compliance standard, see [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
+For more information about this compliance standard, see [NIST SP 800-171 R2](https://csrc.nist.gov/pubs/sp/800/171/r2/upd1/final).
 
 ### Recommendations list now includes filters
 

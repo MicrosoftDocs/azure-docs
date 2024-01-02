@@ -31,7 +31,7 @@ Azure CDN global and Azure CDN China have the following features:
 
      - Performs content delivery outside of China
 
-     - Four pricing tiers: Microsoft standard, Edgio standard, Edgio premium, and Akamai standard
+     - Three pricing tiers: Microsoft standard, Edgio standard, and Edgio premium
 
      - [Documentation](./index.yml)
 

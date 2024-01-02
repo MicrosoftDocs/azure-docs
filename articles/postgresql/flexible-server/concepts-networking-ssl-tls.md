@@ -35,11 +35,11 @@ Diagram above shows typical TLS 1.2 handshake sequence, consisting of following:
 
 ## TLS versions
 
-There are several government entities worldwide that maintain guidelines for TLS with regard to network security, including Department of Health and Human Services (HHS) or the National Institute of Standards and Technology (NIST) in the United States. The level of security that TLS provides is most affected by the TLS protocol version and the supported cipher suites. A cipher suite is a set of algorithms, including a cipher, a key-exchange algorithm and a hashing algorithm, which are used together to establish a secure TLS connection. Most TLS clients and servers support multiple alternatives, so they have to negotiate when establishing a secure connection to select a common TLS version and cipher suite.
+There are several government entities worldwide that maintain guidelines for TLS regarding network security, including Department of Health and Human Services (HHS) or the National Institute of Standards and Technology (NIST) in the United States. The level of security that TLS provides is most affected by the TLS protocol version and the supported cipher suites. A cipher suite is a set of algorithms, including a cipher, a key-exchange algorithm and a hashing algorithm, which are used together to establish a secure TLS connection. Most TLS clients and servers support multiple alternatives, so they have to negotiate when establishing a secure connection to select a common TLS version and cipher suite.
 
 Azure Database for PostgreSQL supports TLS version 1.2 and later. In [RFC 8996](https://datatracker.ietf.org/doc/rfc8996/), the Internet Engineering Task Force (IETF) explicitly states that TLS 1.0 and TLS 1.1 must not be used. Both protocols were deprecated by the end of 2019.
 
-All incoming connections that use earlier versions of the TLS protocol, such as TLS 1.0 and TLS 1.1, will be denied by default.
+All incoming connections that use earlier versions of the TLS protocol, such as TLS 1.0 and TLS 1.1, are denied by default.
 
 > [!NOTE]  
 > SSL and TLS certificates certify that your connection is secured with state-of-the-art encryption protocols. By encrypting your  connection on the wire, you prevent unauthorized access to your data while in transit. This is why we strongly recommend using latest versions of TLS to encrypt your connections to Azure Database for PostgreSQL - Flexible Server.  
@@ -48,7 +48,7 @@ All incoming connections that use earlier versions of the TLS protocol, such as 
 [Certificate authentication](https://www.postgresql.org/docs/current/auth-cert.html) is performed using **SSL client certificates** for authentication. In this scenario, PostgreSQL server compares the CN (common name) attribute of the client certificate presented, against the requested database user.
 **Azure Database for PostgreSQL - Flexible Server does not support SSL certificate based authentication at this time.**
 
-To determine your current TLS\SSL connection status you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f. You can also collect all the information about your Azure Database for PostgreSQL - Flexible Server instance's SSL usage by process, client, and application by using the following query:
+To determine your current TLS\SSL connection status, you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f. You can also collect all the information about your Azure Database for PostgreSQL - Flexible Server instance's SSL usage by process, client, and application by using the following query:
 
 ```sql
 SELECT datname as "Database name", usename as "User name", ssl, client_addr, application_name, backend_type
@@ -62,7 +62,7 @@ For testing, you can also use the **openssl** command directly, for example:
 ```bash
 openssl s_client -connect localhost:5432 -starttls postgres
 ```
-This will print out a lot of low-level protocol information, including the TLS version, cipher, and so on. Note that you must use the option -starttls postgres, or otherwise this command will report that no SSL is in use. This requires at least OpenSSL 1.1.1. 
+This prints out a lot of low-level protocol information, including the TLS version, cipher, and so on. Note that you must use the option -starttls postgres, or otherwise this command reports that no SSL is in use. This requires at least OpenSSL 1.1.1. 
 
 > [!NOTE]  
 > To enforce **latest, most secure TLS version** for connectivity protection from client to Azure Database for PostgreSQL - Flexible Server set **ssl_min_protocol_version** to **1.3**. That would **require** clients connecting to your Azure Postgres server to use **this version of the protocol only** to securely communicate. However, older clients, since they don't support this version, may not be able to communicate with the server.
@@ -71,8 +71,8 @@ This will print out a lot of low-level protocol information, including the TLS v
 ## Cipher Suites
 
 A **cipher suite** is a set of cryptographic algorithms. TLS/SSL protocols use algorithms from a cipher suite to create keys and encrypt information. 
-A cipher suite is generally displayed as a long string of seemingly random information — but each segment of that string contains essential information. Generally, this data string is made up of several key components:
-- Protocol (i.e., TLS 1.2 or TLS 1.3)
+A cipher suite is displayed as a long string of seemingly random information — but each segment of that string contains essential information. Generally, this data string is made up of several key components:
+- Protocol (that is, TLS 1.2 or TLS 1.3)
 - Key exchange or agreement algorithm
 - Digital signature (authentication) algorithm
 - Bulk encryption algorithm
@@ -80,6 +80,13 @@ A cipher suite is generally displayed as a long string of seemingly random infor
 
 Different versions of SSL/TLS support different cipher suites. TLS 1.2 cipher suites can’t be negotiated with TLS 1.3 connections and vice versa.
 As of this time Azure Database for PostgreSQL - Flexible Server supports number of cipher suites with TLS 1.2 protocol version that fall into [HIGH:!aNULL](https://www.postgresql.org/docs/16/runtime-config-connection.html#GUC-SSL-CIPHERS)  category. 
+
+## Troubleshooting SSL\TLS connectivity errors
+
+1. The first step to troubleshoot SSL/TLS protocol version compatibility is to identify the error messages that you or your users are seeing when trying to access your Azure Database for PostgreSQL - Flexible Server under TLS encryption from the client. Depending on the  application and platform, the error messages might be different, but in many cases point to underlying issue. 
+2. To be certain of SSL/TLS protocol version compatibility, you should check the SSL/TLS configuration of the database server and the application client to make sure they support compatible versions and cipher suites.
+3. Analyze any discrepancies or gaps between the database server and the client's SSL/TLS versions and cipher suites, and try to resolve them by enabling or disabling certain options, upgrading or downgrading software, or changing certificates or keys. For example, you might need to enable or disable specific SSL/TLS versions on the server or the client depending on security and compatibility requirements – such as disabling TLS 1.0 and TLS 1.1, which are considered insecure and deprecated, and enabling TLS 1.2 and TLS 1.3, which are more secure and modern.
+
 
 
 ## Related content
