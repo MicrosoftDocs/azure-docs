@@ -279,9 +279,6 @@ In this tutorial, you learn how to:
    func new -n message -t HttpTrigger
    ```
 
-   > [!NOTE]
-   > This function is actually using `WebPubSubTrigger`. However, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to initialize the function template and change trigger type in code.
-
    # [JavaScript](#tab/javascript)
 
    - Update `message/function.json` and copy following json codes.
