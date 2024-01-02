@@ -47,7 +47,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
  | JPSS-1/NOAA-20  | 43013        | 7812                       | 30                  | Downlink      | RHCP             |
  | Terra           | 25994        | 8212.5                     | 45                  | Downlink      | RHCP             |  
  
-4. Search for your desired public satellite in [CelesTrak](https://celestrak.com/NORAD/elements/active.txt) and identify its current Two-Line Element (TLE).
+4. Search for your desired public satellite in [CelesTrak](https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle) and identify its current Two-Line Element (TLE).
    
    > [!NOTE]
    > Be sure to update this TLE to the most current value before you schedule a contact. A TLE that's more than two weeks old might result in an unsuccessful downlink.
