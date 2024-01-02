@@ -216,14 +216,14 @@ For example:
 az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
 ```
 
-The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicep-config-modules.md) file. Provide the full module path.
+The `publish` command doesn't recognize aliases specified in a [bicepconfig.json](bicep-config-modules.md) file. Provide the full module path.
 
 > [!WARNING]
 > Publishing to the same target overwrites the old module. We recommend that you increment the version when updating.
 
 ## restore
 
-When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. A Bicep file can only be built when the external files are available in the local cache. Typically, you don't need to run `restore` because it's called automatically by `build`.
+When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. A Bicep file can only be built when the external files are available in the local cache. Normally, running restore isn't necessary as it's automatically triggered by the build process.
 
 To restore external modules to the local cache, the account must have the correct profile and permissions to access the registry. You can configure the profile and credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#configure-profiles-and-credentials).
 
@@ -296,7 +296,7 @@ To call this command directly through the Bicep CLI, use:
 bicep --version
 ```
 
-If you haven't installed Bicep CLI, you see an error indicating Bicep CLI wasn't found.
+If the Bicep CLI hasn't been installed, you'll encounter an error message stating that Bicep CLI wasn't found.
 
 ## Next steps
 
