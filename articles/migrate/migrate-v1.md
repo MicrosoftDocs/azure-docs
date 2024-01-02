@@ -1,8 +1,8 @@
 ---
 title: Work with the previous version of Azure Migrate 
 description: Describes how to work with the previous version of Azure Migrate.
-author: jyothisuri
-ms.author: jsuri
+author: MaryMichael-MS
+ms.author: v-michaelar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/08/2023
