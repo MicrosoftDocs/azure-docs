@@ -1,5 +1,5 @@
 ---
-title: "Configure secure access with managed identities and private endpoints"
+title: "Configure secure access with managed identities and virtual networks"
 titleSuffix: Azure AI services
 description: Learn how to configure secure communications between Document Intelligence and other Azure Services.
 author: laujan
@@ -14,7 +14,7 @@ monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
-# Configure secure access with managed identities and private endpoints
+# Configure secure access with managed identities and virtual networks
 
 [!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
@@ -28,7 +28,7 @@ This how-to guide walks you through the process of enabling secure connections f
 
  You're setting up your environment to secure the resources:
 
-  :::image type="content" source="media/managed-identities/secure-config.png" alt-text="Screenshot of secure configuration with managed identity and private endpoints.":::
+  :::image type="content" source="media/managed-identities/di-secure-config.png" alt-text="Screenshot of secure configuration with managed identity and virtual networks.":::
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ Configure each of the resources to ensure that the resources can communicate wit
 
 You now have a working implementation of all the components needed to build a Document Intelligence solution with the default security model:
 
-  :::image type="content" source="media/managed-identities/default-config.png" alt-text="Screenshot of default security configuration.":::
+  :::image type="content" source="media/managed-identities/di-default-config.png" alt-text="Screenshot of default security configuration.":::
 
 Next, complete the following steps:
 
@@ -74,7 +74,7 @@ Next, complete the following steps:
 
 * Configure the Document Intelligence managed identity to communicate with the storage account.
 
-* Disable public access to the Document Intelligence resource and create a private endpoint to make it accessible from the virtual network.
+* Disable public access to the Document Intelligence resource and create a private endpoint to make it accessible from only specific virtual networks and IP addresses.
 
 * Add a private endpoint for the storage account in a selected virtual network.
 
@@ -155,7 +155,7 @@ When you connect to resources from a virtual network, adding private endpoints e
 
 Next, configure the virtual network to ensure only resources within the virtual network or traffic router through the network have access to the Document Intelligence resource and the storage account.
 
-### Enable your virtual network and private endpoints
+### Enable your firewalls and virtual networks
 
 1. In the Azure portal, navigate to your Document Intelligence resource.
 
@@ -165,7 +165,7 @@ Next, configure the virtual network to ensure only resources within the virtual 
 
 > [!NOTE]
 >
->If you try accessing any of the Document Intelligence Studio features, you'll see an access denied message. To enable access from the Studio on your machine, select the **client IP address checkbox** and **Save** to restore access.
+>If you try accessing any of the Document Intelligence Studio features, you'll see an access denied message. To enable access from the Studio on your machine, select the **Add your client IP address** checkbox and **Save** to restore access.
 
   :::image type="content" source="media/managed-identities/v2-fr-network.png" alt-text="Screenshot showing how to disable public access to Document Intelligence.":::
 
@@ -242,7 +242,7 @@ Navigate to your **storage account** on the Azure portal.
 Great work! You now have all the connections between the Document Intelligence resource and storage configured to use managed identities.
 
 > [!NOTE]
-> The resources are only accessible from the virtual network.
+> The resources are only accessible from the virtual network and allowed IPs.
 >
 > Studio access and analyze requests to your Document Intelligence resource will fail unless the request originates from the virtual network or is routed via the virtual network.
 
@@ -264,13 +264,16 @@ That's it! You can now configure secure access for your Document Intelligence re
 
    :::image type="content" source="media/managed-identities/cors-error.png" alt-text="Screenshot of error message when CORS config is required":::
 
-  **Resolution**: [Configure CORS](quickstarts/try-document-intelligence-studio.md#prerequisites-for-new-users).
+  **Resolution**:
+    1. [Configure CORS](quickstarts/try-document-intelligence-studio.md#prerequisites-for-new-users).
+ 
+    1. Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same VNET, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage accounts.
 
 * **AuthorizationFailure**:
 
   :::image type="content" source="media/managed-identities/auth-failure.png" alt-text="Screenshot of authorization failure error.":::
 
-  **Resolution**: Ensure that there's a network line-of-sight between the computer accessing the Document Intelligence Studio and the storage account. For example, you can add the client IP address in the storage account's networking tab.
+  **Resolution**: Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same VNET, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage accounts.
 
 * **ContentSourceNotAccessible**:
 
