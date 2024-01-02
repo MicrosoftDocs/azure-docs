@@ -40,6 +40,7 @@ A load test configuration uses the following keys:
 | `certificates` | object | N |  | List of client certificates for authenticating with application endpoints in the JMeter script. See [certificates](#certificates-configuration) for more details.|
 | `keyVaultReferenceIdentity` | string | N |  | Resource ID of the user-assigned managed identity for accessing the secrets from your Azure Key Vault. If you use a system-managed identity, this information isn't needed. Make sure to grant this user-assigned identity access to your Azure key vault. Learn more about [managed identities in Azure Load Testing](./how-to-use-a-managed-identity.md). |
 | `subnetId` | string | N |  | Resource ID of the virtual network subnet for testing privately hosted endpoints. This subnet hosts the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
+| `publicIPDisabled` | boolean | N |  | Disable the deployment of Public IP, Load Balancer, Network Security Group while testing a private endpoint. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 
 ### Load test configuration sample
 
