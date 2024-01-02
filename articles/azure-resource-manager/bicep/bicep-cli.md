@@ -3,7 +3,7 @@ title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 11/03/2023
+ms.date: 01/02/2024
 ---
 
 # Bicep CLI commands
@@ -124,6 +124,32 @@ To install a specific version:
 ```azurecli
 az bicep install --version v0.3.255
 ```
+## lint
+
+The `lint` command returns the errors and the [linter rule](./linter.md) violations of a Bicep file.
+
+```azurecli
+az bicep lint --file main.bicep
+```
+
+If your Bicep file includes a module that references an external registry, the lint command automatically calls [restore](#restore). The restore command gets the file from the registry and stores it in the local cache.
+
+> [!NOTE]
+> The restore command doesn't refresh the cache. For more information, see [restore](#restore).
+
+To not call restore automatically, use the `--no-restore` switch:
+
+```azurecli
+az bicep lint --no-restore <bicep-file>
+```
+
+The lint process with the `--no-restore` switch fails if one of the external modules isn't already cached:
+
+```error
+The module with reference "br:exampleregistry.azurecr.io/bicep/modules/storage:v1" has not been restored.
+```
+
+When you get this error, either run the `lint` command without the `--no-restore` switch or run `bicep restore` first.
 
 ## list-versions
 
@@ -190,14 +216,14 @@ For example:
 az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
 ```
 
-The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicep-config-modules.md) file. Provide the full module path.
+The `publish` command doesn't recognize aliases specified in a [bicepconfig.json](bicep-config-modules.md) file. Provide the full module path.
 
 > [!WARNING]
 > Publishing to the same target overwrites the old module. We recommend that you increment the version when updating.
 
 ## restore
 
-When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. A Bicep file can only be built when the external files are available in the local cache. Typically, you don't need to run `restore` because it's called automatically by `build`.
+When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. A Bicep file can only be built when the external files are available in the local cache. Normally, running restore isn't necessary as it's automatically triggered by the build process.
 
 To restore external modules to the local cache, the account must have the correct profile and permissions to access the registry. You can configure the profile and credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#configure-profiles-and-credentials).
 
@@ -270,7 +296,7 @@ To call this command directly through the Bicep CLI, use:
 bicep --version
 ```
 
-If you haven't installed Bicep CLI, you see an error indicating Bicep CLI wasn't found.
+If the Bicep CLI hasn't been installed, you'll encounter an error message stating that Bicep CLI wasn't found.
 
 ## Next steps
 
