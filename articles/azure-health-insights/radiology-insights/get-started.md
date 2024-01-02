@@ -25,7 +25,9 @@ Once deployment is complete, you use the Azure portal to navigate to the newly c
 
 ## Example request and results
 
-To send an API request, you need your Azure AI services account endpoint and key. You can also find a full view on the [request parameters here](../request-info.md)
+To send an API request, you need your Azure AI services account endpoint and key. 
+
+You can find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/create-job)
 
 ![Screenshot of the Keys and Endpoints for the RI.](../media/keys-and-endpoints.png) 
 
@@ -119,6 +121,9 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
   } ]
 }
 ```
+
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/create-job)
+
 ### Evaluating a response that contains a case
 
 You get the status of the job by sending a request to the Radiology Insights model and adding the job ID from the initial request in the URL, as seen in the code snippet:
@@ -159,14 +164,16 @@ http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/
   "status": "succeeded"
 }
 ```
+You can find a full view of the [respone parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/get-job)
+
 
 ## Data limits
 
 Limit, Value
-Maximum # patients per request, 1
-Maximum # patientdocuments per request, 1
-Maximum # encounters per request, 1
-Maximum # characters per patient, 50,000 for data[i].content.value all combined
+- Maximum # patients per request, 1
+- Maximum # patientdocuments per request, 1
+- Maximum # encounters per request, 1
+- Maximum # characters per patient, 50,000 for data[i].content.value all combined
 
 # Request validation
 
@@ -175,7 +182,7 @@ Every request has required and optional fields that should be provided to the Ra
 Within a request:
 - patients should be set
 - patients should contain one entry
-•	id in patients entry should be set
+- id in patients entry should be set
 
 Within configuration:
 - If set, configuration locale should be one of the following values(case-insensitive): en-CA; en-US; en-AU; en-DE; en-IE; en-NZ; en-GB
