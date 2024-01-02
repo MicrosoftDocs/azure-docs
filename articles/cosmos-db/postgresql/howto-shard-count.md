@@ -6,10 +6,10 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 01/30/2023
 ---
 
-# Choose shard count
+# Choose shard count in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

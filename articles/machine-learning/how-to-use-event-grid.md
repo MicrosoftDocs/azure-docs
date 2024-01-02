@@ -7,9 +7,11 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.author: larryfr
-author: Blackmist
+ms.author: vaidyas
+author: vaidya-s
+ms.reviewer: larryfr
 ms.date: 09/09/2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (preview)
@@ -23,6 +25,8 @@ When to use Event Grid for event driven actions:
 * Use an Azure function after a model is registered
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -130,7 +134,7 @@ You can either install the latest [Azure CLI](/cli/azure/install-azure-cli), or 
 To install the Event Grid extension, use the following command from the CLI:
 
 ```azurecli-interactive
-az add extension --name eventgrid
+az extension add --name eventgrid
 ```
 
 The following example demonstrates how to select an Azure subscription and creates e a new event subscription for Azure Machine Learning:
@@ -178,11 +182,11 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 
     ![Screenshot shows the Save As and Create buttons in the Logic Apps Designer.](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
-
+:::moniker range="azureml-api-1"
 ### Example: Data drift triggers retraining
 
 > [!IMPORTANT]
-> This example relies on a feature (data drift) that is only available when using Azure Machine Learning SDK v1 or Azure CLI extension v1 for Azure Machine Learning. For more information, see [What is Azure ML CLI & SDK v2](concept-v2.md).
+> This example relies on a feature (data drift) that is only available when using Azure Machine Learning SDK v1 or Azure CLI extension v1 for Azure Machine Learning. For more information, see [What is Azure Machine Learning CLI & SDK v2](concept-v2.md).
 
 Models go stale over time, and not remain useful in the context it is running in. One way to tell if it's time to retrain the model is detecting data drift. 
 
@@ -190,7 +194,7 @@ This example shows how to use event grid with an Azure Logic App to trigger retr
 
 Before you begin, perform the following actions:
 
-* Set up a dataset monitor to [detect data drift](v1/how-to-monitor-datasets.md) in a workspace
+* Set up a dataset monitor to [detect data drift (SDK/CLI v1)](v1/how-to-monitor-datasets.md) in a workspace
 * Create a published [Azure Data Factory pipeline](../data-factory/index.yml).
 
 In this example, a simple Data Factory pipeline is used to copy files into a blob store and run a published Machine Learning pipeline. For more information on this scenario, see how to set up a [Machine Learning step in Azure Data Factory](../data-factory/transform-data-machine-learning-service.md)
@@ -228,6 +232,7 @@ In this example, a simple Data Factory pipeline is used to copy files into a blo
 Now the data factory pipeline is triggered when drift occurs. View details on your data drift run and machine learning pipeline in [Azure Machine Learning studio](https://ml.azure.com). 
 
 :::image type="content" source="./media/how-to-use-event-grid/view-in-workspace.png" alt-text="Screenshot showing pipeline endpoints.":::
+:::moniker-end
 
 ## Next steps
 

@@ -5,8 +5,8 @@ author: sidontha
 ms.author: sidontha 
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 10/27/2022
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.date: 12/19/2023
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Share data using Azure Data Share and Bicep

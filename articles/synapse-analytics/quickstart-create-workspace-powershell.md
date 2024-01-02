@@ -17,7 +17,7 @@ Azure PowerShell is a set of cmdlets for managing Azure resources directly from 
 
 In this quickstart, you learn to create a Synapse workspace using Azure PowerShell.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ If you choose to use Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-s
 
 ### Install the Azure PowerShell module locally
 
-If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 For more information about authentication with Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 

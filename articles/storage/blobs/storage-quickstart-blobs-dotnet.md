@@ -3,41 +3,30 @@ title: "Quickstart: Azure Blob Storage library - .NET"
 description: In this quickstart, you will learn how to use the Azure Blob Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 10/06/2021
-ms.service: storage
-ms.subservice: blobs
+ms.date: 11/09/2022
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api
-ROBOTS: NOINDEX
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Azure Blob Storage client library for .NET
 
-Get started with the Azure Blob Storage client library for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob Storage client library for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow these steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-The examples in this quickstart show you how to use the Azure Blob Storage client library for .NET to:
+[API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 
-* [Create the project and configure dependencies](#setting-up)
-* [Authenticate to Azure and authorize access to blob data](#authenticate-to-azure-and-authorize-access-to-blob-data)
-* [Create a container](#create-a-container)
-* [Upload a blob to a container](#upload-a-blob-to-a-container)
-* [List blobs in a container](#list-blobs-in-a-container)
-* [Download a blob](#download-a-blob)
-* [Delete a container](#delete-a-container)
+This video shows you how to start using the Azure Blob Storage client library for .NET.
+> [!VIDEO cdae65e7-1892-48fe-934a-70edfbe147be]
 
-Additional resources:
-
-- [API reference documentation](/dotnet/api/azure.storage.blobs)
-- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
-- [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+The steps in the video are also described in the following sections.
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
-- Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
+- Current [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
 
@@ -96,9 +85,27 @@ To interact with Azure Blob Storage, install the Azure Blob Storage client libra
 
 ### [.NET CLI](#tab/net-cli)
 
+Use the following command to install the `Azure.Storage.Blobs` package:
+
 ```dotnetcli
 dotnet add package Azure.Storage.Blobs
 ```
+
+If this command to add the package fails, follow these steps:
+
+- Make sure that `nuget.org` is added as a package source. You can list the package sources using the [dotnet nuget list source](/dotnet/core/tools/dotnet-nuget-list-source#examples) command:
+
+    ```dotnetcli
+    dotnet nuget list source
+    ```
+
+- If you don't see `nuget.org` in the list, you can add it using the [dotnet nuget add source](/dotnet/core/tools/dotnet-nuget-add-source#examples) command:
+
+    ```dotnetcli
+    dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
+    ```
+
+Now that the package source is updated, run the command to install the package.
 
 ---
 
@@ -170,6 +177,8 @@ string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
 BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName);
 ```
 
+To learn more about creating a container, and to explore more code samples, see [Create a blob container with .NET](storage-blob-container-create.md).
+
 ### Upload a blob to a container
 
 Add the following code to the end of the `Program.cs` class:
@@ -199,6 +208,8 @@ The code snippet completes the following steps:
 1. Gets a reference to a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
 1. Uploads the local text file to the blob by calling the [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_String_System_Boolean_System_Threading_CancellationToken_) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
+To learn more about uploading blobs, and to explore more code samples, see [Upload a blob with .NET](storage-blob-upload.md).
+
 ### List blobs in a container
 
 List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
@@ -214,6 +225,8 @@ await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
     Console.WriteLine("\t" + blobItem.Name);
 }
 ```
+
+To learn more about listing blobs, and to explore more code samples, see [List blobs with .NET](storage-blobs-list.md).
 
 ### Download a blob
 
@@ -232,6 +245,8 @@ Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
 // Download the blob's contents and save it to a file
 await blobClient.DownloadToAsync(downloadFilePath);
 ```
+
+To learn more about downloading blobs, and to explore more code samples, see [Download a blob with .NET](storage-blob-download.md).
 
 ### Delete a container
 
@@ -255,6 +270,8 @@ File.Delete(downloadFilePath);
 
 Console.WriteLine("Done");
 ```
+
+To learn more about deleting a container, and to explore more code samples, see [Delete and restore a blob container with .NET](storage-blob-container-delete.md).
 
 ## The completed code
 
@@ -438,7 +455,8 @@ In this quickstart, you learned how to upload, download, and list blobs using .N
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage SDK .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+> [Azure Blob Storage library for .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
-- For tutorials, samples, quick starts and other documentation, visit [Azure for .NET and .NET Core developers](/dotnet/azure/).
-- To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
+- To learn more, see the [Azure Blob Storage client libraries for .NET](/dotnet/api/overview/azure/storage).
+- For tutorials, samples, quick starts and other documentation, visit [Azure for .NET developers](/dotnet/azure/sdk/azure-sdk-for-dotnet).
+- To learn more about .NET, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).

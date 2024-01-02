@@ -4,6 +4,8 @@ description: This article details on disaster recovery strategy to handle servic
 keywords: automation disaster recovery
 services: automation
 ms.subservice: process-automation
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.date: 10/17/2022
 ms.topic: conceptual 
 ---
@@ -21,10 +23,10 @@ In addition to high availability offered by Availability zones, some regions are
 
 ## Enable disaster recovery
 
-Every Automation account that you [create](https://learn.microsoft.com/azure/automation/quickstarts/create-azure-automation-account-portal)
+Every Automation account that you [create](/azure/automation/quickstarts/create-azure-automation-account-portal)
 requires a location that you must use for deployment. This would be the primary region for your Automation account and it includes Assets, runbooks created for the Automation account, job execution data, and logs. For disaster recovery, the replica  Automation account must be already deployed and ready in the secondary region. 
 
-- Begin by [creating a replica Automation account](https://learn.microsoft.com/azure/automation/quickstarts/create-azure-automation-account-portal#create-automation-account) in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
+- Begin by [creating a replica Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal#create-automation-account) in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 - Select the secondary region of your choice - paired region or any other region where Azure Automation is available.
 - Apart from creating a replica of the Automation account, replicate the dependent resources such as Runbooks, Modules, Connections, Credentials, Certificates, Variables, Schedules and permissions assigned for the Run As account and Managed Identities in the Automation account in primary region to the Automation account in secondary region. You can use the [PowerShell script](#script-to-migrate-automation-account-assets-from-one-region-to-another) to migrate assets of the Automation account from one region to another.
 - If you are using [ARM templates](../azure-resource-manager/management/overview.md) to define and deploy Automation runbooks, you can use these templates to deploy the same runbooks in any other Azure region where you create the replica Automation account. In case of a region-wide outage or zone-wide failure in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This ensures that the secondary region steps up to continue the work if the primary region has a disruption or failure. 
@@ -75,9 +77,10 @@ You can use these scripts for migration of Automation account assets from the ac
 
 ### Prerequisites
 
- 1. Ensure that the Automation account in the secondary region is created and available so that assets from primary region can be migrated to it. It is preferred if the destination automation account is one without any custom resources as it prevents potential resource class due to same name and loss of data.
- 1. Ensure that the system assigned identities are enabled in the Automation account in the primary region.
- 1. Ensure that the primary Automation account's Managed Identity has Contributor access with read and write permissions to the Automation account in secondary region. To enable, provide the necessary permissions in secondary Automation account's managed identities. [Learn more](../role-based-access-control/quickstart-assign-role-user-portal.md).
+ 1. Ensure that the Automation account in the secondary region is created and available so that assets from primary region can be migrated to it. It is preferred if the destination automation account is one without any custom resources as it prevents potential resource clash due to same name and loss of data.
+ 1. Ensure that the system assigned managed identities are enabled in the Automation account in the primary region.
+ 1. Ensure that the system assigned managed identities of the primary Automation account has contributor access to the subscription it belongs to.
+ 1. Ensure that the primary Automation account's managed identity has Contributor access with read and write permissions to the Automation account in secondary region. To enable, provide the necessary permissions in secondary Automation account's managed identities. [Learn more](../role-based-access-control/quickstart-assign-role-user-portal.md).
  1. Ensure that the script has access to the Automation account assets in primary region. Hence, it should be executed as a runbook in that Automation account for successful migration.
  1. If the primary Automation account is deployed using a Run as account, then it must be switched to Managed Identity before migration. [Learn more](migrate-run-as-accounts-managed-identity.md).
  1. Modules required are:
@@ -86,7 +89,7 @@ You can use these scripts for migration of Automation account assets from the ac
       - Az.Resources version 6.0.0 
       - Az.Automation version 1.7.3 
       - Az.Storage version 4.6.0 
-1. Ensure that both the source and destination Automation accounts should belong to the same Azure Active Directory tenant.
+1. Ensure that both the source and destination Automation accounts should belong to the same Microsoft Entra tenant.
 
 ### Create and execute the runbook
 You can use the[PowerShell script](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another) or [PowerShell workflow](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another-PwshWorkflow/tree/main) runbook or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 

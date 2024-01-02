@@ -6,15 +6,15 @@ ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/13/2022
+ms.date: 07/22/2022
 ms.author: patricka
 ---
 
 # How to configure Azure IoT Edge for Linux on Windows Industrial IoT & DMZ configuration
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-This article describes how to configure the Azure IoT Edge for Linux (EFLOW) VM to support multiple network interface cards (NICs) and connect to multiple networks. By enabling multiple NIC support, applications running on the EFLOW VM can communicate with devices connected to the offline network, and at the same time, use IoT Edge to send data to the cloud.
+This article describes how to configure the Azure IoT Edge for Linux (EFLOW) virtual machine (VM) to support multiple network interface cards (NICs) and connect to multiple networks. By enabling multiple NIC support, applications running on the EFLOW VM can communicate with devices connected to the offline network, while using IoT Edge to send data to the cloud.
 
 ## Prerequisites
 
@@ -23,24 +23,24 @@ This article describes how to configure the Azure IoT Edge for Linux (EFLOW) VM 
 
 ## Industrial scenario 
 
-Industrial IoT is transcurring the era of IT and OT convergence. However, making traditional OT assets more intelligent with IT technologies also means a larger exposure to cyberattacks. This is one of the main reasons why multiple environments are designed using demilitarized zones or also known as DMZs. 
+Industrial IoT is overtaking the era of information technology (IT) and operational technology (OT) convergence. However, making traditional OT assets more intelligent with IT technologies also means a larger exposure to cyber attacks. This scenario is one of the main reasons why multiple environments are designed using demilitarized zones, also known as, DMZs. 
 
 Imagine a workflow scenario where you have a networking configuration divided into two different networks or zones. In the first zone, you may have a secure network defined as the offline network. The offline network has no internet connectivity and is limited to internal access. In the second zone, you may have a demilitarized zone (DMZ), in which you may have a couple of devices that have limited internet connectivity. When moving the workflow to run on the EFLOW VM, you may have problems accessing the different networks since the EFLOW VM by default has only one NIC attached.
 
-Suppose you have an environment with some devices like PLCs or OPC UA compatible devices connected to the offline network, and you want to upload all the device's information to Azure using the OPC Publisher module running on the EFLOW VM.
+In this scenario, you have an environment with some devices like programmable logic controllers (PLCs) or open platform communications unified architecture (OPC UA)-compatible devices connected to the offline network, and you want to upload all the devices' information to Azure using the OPC Publisher module running on the EFLOW VM.
 
 Since the EFLOW host device and the PLC or OPC UA devices are physically connected to the offline network, you can use the [Azure IoT Edge for Linux on Windows virtual multiple NIC configurations](./how-to-configure-multiple-nics.md) to connect the EFLOW VM to the offline network. By using an *external virtual switch*, you can connect the EFLOW VM to the offline network and directly communicate with other offline devices.
 
 For the other network, the EFLOW host device is physically connected to the DMZ (online network) with internet and Azure connectivity. Using an *internal or external switch*, you can connect the EFLOW VM to Azure IoT Hub using IoT Edge modules and upload the information sent by the offline devices through the offline NIC.
 
-![EFLOW Industrial IoT scenario showing a EFLOW VM connected to offline and online network.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/iiot-multiple-nic.png)
+:::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/iiot-multiple-nic.png" alt-text="Screenshot of an EFLOW Industrial IoT scenario showing an EFLOW virtual machine connected to an offline and online network." lightbox="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/iiot-multiple-nic.png":::
 
 ### Scenario summary
 
 Secure network:
 
-- No internet connectivity, access restricted.
-- PLCs or UPC UA compatible devices connected.
+- No internet connectivity - access restricted.
+- PLCs or UPC UA-compatible devices connected.
 - EFLOW VM connected using an External virtual switch.
 
 DMZ:
@@ -54,11 +54,11 @@ DMZ:
 The following steps are specific for the networking described in the example scenario. Ensure that the virtual switches used and the configurations used align with your networking environment.
 
 > [!NOTE]
-> The steps in this article assume that the EFLOW VM was deployed with an *external virtual switch* connected to the *secure network (offline)*. You can change the following steps to your specific network configuration you want to achieve. For more information about EFLOW multiple NIcs support, see [Azure IoT Edge for Linux on Windows virtual multiple NIC configurations](./how-to-configure-multiple-nics.md).
+> The steps in this article assume that the EFLOW VM was deployed with an *external virtual switch* connected to the *secure network (offline)*. You can change the following steps to the specific network configuration you want to achieve. For more information about EFLOW multiple NICs support, see [Azure IoT Edge for Linux on Windows virtual multiple NIC configurations](./how-to-configure-multiple-nics.md).
 
 To finish the provisioning of the EFLOW VM and communicate with Azure, you need to assign another NIC that is connected to the DMZ network (online). 
 
-For this scenario, you'll assign an *external virtual switch* connected to the DMZ network. For more information, review [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines). 
+For this scenario, you assign an *external virtual switch* connected to the DMZ network. For more information, review [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines). 
 
 To create an external virtual switch, follow these steps:
 
@@ -70,19 +70,27 @@ To create an external virtual switch, follow these steps:
 6. Under **Connection Type**, select **External Network** then choose the *network adapter* connected to your DMZ network.
 7. Select **Apply**.
 
-Once the external virtual switch is created, you need to attach it to the EFLOW VM using the following steps. For more information about attaching multiple NICs, see [EFLOW Multiple NICs](https://github.com/Azure/iotedge-eflow/wiki/Multiple-NICs).
+Once the external virtual switch is created, you need to attach it to the EFLOW VM using the following steps. If you need to attach multiple NICs, see [EFLOW Multiple NICs](https://github.com/Azure/iotedge-eflow/wiki/Multiple-NICs).
 
-For the custom new *external virtual switch* you created, use the following PowerShell commands to attach it your EFLOW VM and set a static IP: 
+For the custom new *external virtual switch* you created, use the following PowerShell commands to: 
 
-1. `Add-EflowNetwork -vswitchName "OnlineOPCUA" -vswitchType "External"`
+1. Attach the switch to your EFLOW VM.
 
-    ![Screenshot of showing successful creation of the external network named OnlineOPCUA.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-network.png)
+   ```powershell
+   Add-EflowNetwork -vswitchName "OnlineOPCUA" -vswitchType "External"
+   ```
 
-2. `Add-EflowVmEndpoint -vswitchName "OnlineOPCUA" -vEndpointName "OnlineEndpoint" -ip4Address 192.168.0.103 -ip4PrefixLength 24 -ip4GatewayAddress 192.168.0.1`
+   :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-network.png" alt-text="Screenshot of a successful creation of the external network named OnlineOPCUA." lightbox="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-network.png":::
 
-    ![Screenshot showing the successful configuration of the OnlineOPCUA switch.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-vm-endpoint.png)
+1. Set a static IP.
 
-Once complete, you'll have the *OnlineOPCUA* switch assigned to the EFLOW VM. To check the multiple NIC attachment, use the following steps:
+   ```powershell
+   Add-EflowVmEndpoint -vswitchName "OnlineOPCUA" -vEndpointName "OnlineEndpoint" -ip4Address 192.168.0.103 -ip4PrefixLength 24 -ip4GatewayAddress 192.168.0.1
+   ```
+
+   :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-vm-endpoint.png" alt-text="Screenshot of a successful configuration of the OnlineOPCUA switch.." lightbox="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/add-eflow-vm-endpoint.png":::
+
+Once complete, you have the *OnlineOPCUA* switch assigned to the EFLOW VM. To check the multiple NIC attachment, use the following steps:
 
 1. Open an elevated PowerShell session by starting with **Run as Administrator**.
 
@@ -91,14 +99,14 @@ Once complete, you'll have the *OnlineOPCUA* switch assigned to the EFLOW VM. To
     Connect-EflowVm
     ```
 
-1. List all the network interfaces assigned to the EFLOW virtual machine.
+1. Once you're in your VM, list all the network interfaces assigned to the EFLOW virtual machine.
     ```bash
     ifconfig
     ```
 
 1. Review the IP configuration and verify you see the *eth0* interface (connected to the secure network) and the *eth1* interface (connected to the DMZ network).
 
-    ![Screenshot showing IP configuration of multiple NICs connected to two different networks.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/ifconfig-multiple-nic.png)
+   :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/ifconfig-multiple-nic.png" alt-text="Screenshot showing the IP configuration of multiple NICs connected to two different networks.":::
 
 ## Configure VM network routing 
 
@@ -114,13 +122,13 @@ EFLOW uses the [route](https://man7.org/linux/man-pages/man8/route.8.html) servi
     Connect-EflowVm
     ```
 
-1. List all the network routes configured in the EFLOW virtual machine.
+1. Once you're in your VM, list all the network routes configured in the EFLOW virtual machine.
     
     ```bash
     sudo route
     ```
 
-    ![Screenshot listing routing table for the EFLOW VM.](./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/route-output.png)
+   :::image type="content" source="./media/how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz/route-output.png" alt-text="Screenshot showing the routing table for the EFLOW virtual machine.":::
 
     >[!TIP]
     >The previous image shows the route command output with the two NIC's assigned (*eth0* and *eth1*). The virtual machine creates two different *default* destinations rules with different metrics. A lower metric value has a higher priority. This routing table will vary depending on the networking scenario configured in the previous steps.
@@ -150,7 +158,7 @@ sudo route add -net default gw yyy.yyy.yyy.yyy netmask 0.0.0.0 dev eth1 metric <
 
 You can use the previous script to create your own custom script specific to your networking scenario. Once script is defined, save it, and assign execute permission. For example, if the script name is *route-setup.sh*, you can assign execute permission using the command `sudo chmod +x route-setup.sh`. You can test if the script works correctly by executing it manually using the command `sudo sh ./route-setup.sh` and then checking the routing table using the `sudo route` command. 
         
-The final step is to create a Linux service that runs on startup, and executes the bash script to set the routes. You'll have to create a *systemd* unit file to load the service. The following is an example of that file.
+The final step is to create a Linux service that runs on startup, and executes the bash script to set the routes. You have to create a *systemd* unit file to load the service. The following is an example of that file.
         
 ```systemd
 [Unit]

@@ -3,9 +3,9 @@ title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup
 ms.topic: conceptual
 ms.date: 01/24/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # About Azure Database for PostgreSQL backup
@@ -66,14 +66,16 @@ Additionally, ensure that the database user (corresponding to the credentials st
 - ALTER USER username CREATEDB;
 - Assign the role _azure_pg_admin_ to the database user.
 
-### Azure Active Directory based authentication model
+<a name='azure-active-directory-based-authentication-model'></a>
 
-We had earlier launched a different authentication model that was entirely based on Azure Active Directory (Azure AD). However, we now provide the new key vault-based authentication model (as explained above) as an alternative option, which eases the configuration process. 
+### Microsoft Entra ID based authentication model
+
+We had earlier launched a different authentication model that was entirely based on Microsoft Entra ID. However, we now provide the new key vault-based authentication model (as explained above) as an alternative option, which eases the configuration process. 
 
 [Download this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) to get an automated script and related instructions to use this authentication model. It’ll grant an appropriate set of permissions to an Azure PostgreSQL server, for backup and restore.
 
 >[!Note]
->All the new configure protection will take place with the new key vault authentication model only. However, all the existing backup instances configured protection with the Azure AD based authentication will continue to exist and have regular backups taken. To restore these backups, you need to follow the Azure AD based authentication.
+>All the new configure protection will take place with the new key vault authentication model only. However, all the existing backup instances configured protection with the Microsoft Entra ID based authentication will continue to exist and have regular backups taken. To restore these backups, you need to follow the Microsoft Entra ID based authentication.
 
 ## Grant access on the Azure PostgreSQL server and Key vault manually
 

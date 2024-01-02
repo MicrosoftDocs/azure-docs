@@ -19,6 +19,7 @@ Automation rules are a way to centrally manage automation in Microsoft Sentinel,
 Automation rules apply to the following categories of use cases:
 
 - Perform basic automation tasks for incident handling without using playbooks. For example:
+    - [Add incident tasks](incident-tasks.md) (in Preview) for analysts to follow.
     - Suppress noisy incidents.
     - Triage new incidents by changing their status from New to Active and assigning an owner.
     - Tag incidents to classify them.
@@ -31,13 +32,7 @@ Automation rules apply to the following categories of use cases:
 
 - Inspect the contents of an incident (alerts, entities, and other properties) and take further action by calling a playbook.
 
-- Automation rules can also be [the mechanism by which you run a playbook](whats-new.md#automation-rules-for-alerts-preview) in response to an **alert** *not associated with an incident*.
-
-    > [!IMPORTANT]
-    >
-    > **Automation rules for alerts** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-
+- Automation rules can also be the mechanism by which you run a playbook in response to an **alert** *not associated with an incident*.
 
 In short, automation rules streamline the use of automation in Microsoft Sentinel, enabling you to simplify complex workflows for your threat response orchestration processes.
 
@@ -51,15 +46,15 @@ Automation rules are made up of several components:
 
 ### Triggers
 
-Automation rules are triggered **when an incident is created or updated** or **when an alert is created** (the **update** and **alert** triggers are now in **Preview**). Recall that incidents include alerts, and that both alerts and incidents are created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents are created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
 The following table shows the different possible scenarios that will cause an automation rule to run.
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
-| **When incident is updated**<br>(Preview) | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
-| **When alert is created**<br>(Preview) | - An alert is created by a scheduled analytics rule.
+| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft Defender XDR.<br>- A new incident is created manually. |
+| **When incident is updated**<br> | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
+| **When alert is created**<br> | - An alert is created by a scheduled analytics rule.
 
 #### Incident-based or alert-based automation?
 
@@ -111,7 +106,7 @@ One of these properties is **Updated by**. This property lets you track the type
 - an alert grouping (that added alerts to the incident)
 - a playbook
 - an automation rule
-- Microsoft 365 Defender
+- Microsoft Defender XDR
 
 Using this condition, for example, you can instruct this automation rule to run on any change made to an incident, except if it was made by another automation rule.
 
@@ -138,6 +133,8 @@ Currently the only condition that can be configured for the alert creation trigg
 
 Actions can be defined to run when the conditions (see above) are met. You can define many actions in a rule, and you can choose the order in which they’ll run (see below). The following actions can be defined using automation rules, without the need for the [advanced functionality of a playbook](automate-responses-with-playbooks.md):
 
+- Adding a task to an incident - you can create a [checklist of tasks for analysts to follow](incident-tasks.md) throughout the processes of triage, investigation, and remediation of the incident, to ensure that no critical steps are missed.
+
 - Changing the status of an incident, keeping your workflow up to date.
 
   - When changing to “closed,” specifying the [closing reason](investigate-cases.md#closing-an-incident) and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce [false positives](false-positives.md).
@@ -162,13 +159,31 @@ You can define the order in which automation rules will run. Later automation ru
 
 For example, if "First Automation Rule" changed an incident's severity from Medium to Low, and "Second Automation Rule" is defined to run only on incidents with Medium or higher severity, it won't run on that incident.
 
+The order of automation rules that add [incident tasks](incident-tasks.md) determines the order in which the tasks will appear in a given incident.
+
 Rules based on the update trigger have their own separate order queue. If such rules are triggered to run on a just-created incident (by a change made by another automation rule), they will run only after all the applicable rules based on the create trigger have run.
+
+#### Notes on execution order and priority
+
+- Setting the **order** number in automation rules determines their order of execution.
+- Each trigger type maintains its own queue.
+- For rules created in the Azure portal, the **order** field will be automatically populated with the number following the highest number used by existing rules of the same trigger type.
+- However, for rules created in other ways (command line, API, etc.), the **order** number must be assigned manually.
+- There is no validation mechanism preventing multiple rules from having the same order number, even within the same trigger type. 
+- You can allow two or more rules of the same trigger type to have the same order number, if you don't care which order they run in.
+- For rules of the same trigger type with the same order number, the execution engine randomly selects which rules will run in which order.
+- For rules of different *incident trigger* types, all applicable rules with the *incident creation* trigger type will run first (according to their order numbers), and only then the rules with the *incident update* trigger type (according to *their* order numbers).
+- Rules always run sequentially, never in parallel.
 
 ## Common use cases and scenarios
 
+### Incident tasks
+
+Automation rules allow you to standardize and formalize the steps required for the triaging, investigation, and remediation of incidents, by [creating tasks](incident-tasks.md) that can be applied to a single incident, across groups of incidents, or to all incidents, according to the conditions you set in the automation rule and the threat detection logic in the underlying analytics rules. Tasks applied to an incident appear in the incident's page, so your analysts have the entire list of actions they need to take, right in front of them, and won't miss any critical steps.
+
 ### Incident- and alert-triggered automation
 
-Automation rules can be triggered by the creation or updating of incidents and also (in Preview) by the creation of alerts. These occurrences can all trigger automated response chains, which can include playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)). 
+Automation rules can be triggered by the creation or updating of incidents and also by the creation of alerts. These occurrences can all trigger automated response chains, which can include playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)). 
 
 ### Trigger playbooks for Microsoft providers
 
@@ -176,13 +191,13 @@ Automation rules provide a way to automate the handling of Microsoft security al
 
 Microsoft security alerts include the following:
 
-- Microsoft Defender for Cloud Apps (formerly Microsoft Cloud App Security)
-- Azure AD Identity Protection
-- Microsoft Defender for Cloud (formerly Azure Defender or Azure Security Center)
-- Defender for IoT (formerly Azure Security Center for IoT)
+- Microsoft Entra ID Protection
+- Microsoft Defender for Cloud
+- Microsoft Defender for Cloud Apps
 - Microsoft Defender for Office 365
 - Microsoft Defender for Endpoint
 - Microsoft Defender for Identity
+- Microsoft Defender for IoT
 
 ### Multiple sequenced playbooks/actions in a single rule
 
@@ -246,9 +261,9 @@ When you're configuring an automation rule and adding a **run playbook** action,
 
 #### Permissions in a multi-tenant architecture
 
-Automation rules fully support cross-workspace and [multi-tenant deployments](extend-sentinel-across-workspaces-tenants.md#manage-workspaces-across-tenants-using-azure-lighthouse) (in the case of multi-tenant, using [Azure Lighthouse](../lighthouse/index.yml)).
+Automation rules fully support cross-workspace and [multitenant deployments](extend-sentinel-across-workspaces-tenants.md#manage-workspaces-across-tenants-using-azure-lighthouse) (in the case of multitenant, using [Azure Lighthouse](../lighthouse/index.yml)).
 
-Therefore, if your Microsoft Sentinel deployment uses a multi-tenant architecture, you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
+Therefore, if your Microsoft Sentinel deployment uses a multitenant architecture, you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
 
 In the specific case of a Managed Security Service Provider (MSSP), where a service provider tenant manages a Microsoft Sentinel workspace in a customer tenant, there are two particular scenarios that warrant your attention:
 
@@ -280,7 +295,7 @@ You can [create and manage automation rules](create-manage-use-automation-rules.
 
 - **Analytics rule wizard**
 
-    In the **Automated response** tab of the analytics rule wizard, under **Automation rules (Preview)**, you can view, edit, and create automation rules that apply to the particular analytics rule being created or edited in the wizard.
+    In the **Automated response** tab of the analytics rule wizard, under **Automation rules**, you can view, edit, and create automation rules that apply to the particular analytics rule being created or edited in the wizard.
 
     You'll notice that when you create an automation rule from here, the **Create new automation rule** panel shows the **analytics rule** condition as unavailable, because this rule is already set to apply only to the analytics rule you're editing in the wizard. All the other configuration options are still available to you.
 
@@ -296,5 +311,6 @@ You can [create and manage automation rules](create-manage-use-automation-rules.
 In this document, you learned about how automation rules can help you to centrally manage response automation for Microsoft Sentinel incidents and alerts.
 
 - [Create and use Microsoft Sentinel automation rules to manage incidents](create-manage-use-automation-rules.md).
+- [Use automation rules to create lists of tasks for analysts](create-tasks-automation-rule.md).
 - To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 - For help in implementing playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).

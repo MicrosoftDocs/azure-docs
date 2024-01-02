@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 01/11/2023
 ms.author: victorh
 ---
 
@@ -39,9 +39,11 @@ The following table compares these two architecture options and can help you dec
 |**Multiple security provider support**|Supported with manually configured forced tunneling to third-party firewalls|Automated support for two security providers: Azure Firewall for private traffic filtering and third party for Internet filtering|
 |**Web Application Firewall on Application Gateway** |Supported in Virtual Network|Currently supported in spoke network|
 |**Network Virtual Appliance**|Supported in Virtual Network|Currently supported in spoke network|
-|**Azure DDoS Protection Standard support**|Yes|No|
+|**Azure DDoS Protection support**|Yes|No|
 
 ## Next steps
 
 - Review [Azure Firewall Manager deployment overview](deployment-overview.md)
-- Learn about [secured Virtual Hubs](secured-virtual-hub.md).
+- [Learn about secured Virtual Hubs](secured-virtual-hub.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
+

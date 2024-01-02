@@ -4,7 +4,7 @@ description: Learn how to use Apache Spark Structured Streaming to read data fro
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli, ignite-2022
-ms.date: 04/08/2022
+ms.date: 12/05/2023
 ---
 
 # Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB
@@ -68,7 +68,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     |Ssh User Name|The SSH user to create for the Spark and Kafka clusters.|
     |Ssh Password|The password for the SSH user for the Spark and Kafka clusters.|
 
-    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png" alt-text="HDInsight custom deployment values":::
+    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters-40.png" alt-text="HDInsight version 4.0 custom deployment values":::
 
 1. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 

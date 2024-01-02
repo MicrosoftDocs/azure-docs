@@ -4,6 +4,8 @@ description: In this tutorial, learn how to use the Microsoft Azure Recovery Ser
 ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Recover files from Azure to a Windows Server
 

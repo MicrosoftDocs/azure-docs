@@ -4,7 +4,8 @@ description: Use the Azure portal to create a lab, create a virtual machine in t
 ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/30/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Tutorial: Create a DevTest Labs lab and VM and add a user in the Azure portal
@@ -126,6 +127,15 @@ To add users to a lab, you must be a [User Access Administrator](../role-based-a
 1. On the **Members** tab, select the user to assign the role to.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+## Share a link to the lab
+
+1. In the [Azure portal](https://portal.azure.com), go to the lab.
+2. Copy the **lab URL** from your browser, and then share it with your lab users.
+          
+> [!NOTE]
+> If a lab user is an external user who has a Microsoft account, but who is not a member of your organization's Active Directory instance, the user might see an error message when they try to access the shared link. If an external user sees an error message, ask the user to first select their name in the upper-right corner of the Azure portal. Then, in the Directory section of the menu, the user can select the directory where the lab exists.
+          
 
 ## Clean up resources
 

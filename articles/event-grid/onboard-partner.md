@@ -31,16 +31,16 @@ For step #5, you should decide what kind of user experience you want to provide.
 This article shows you how to **onboard as an Azure Event Grid partner** using the **Azure portal**. 
 
 ## Communicate your interest in becoming a partner
-Contact the Event Grid team at [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com) communicating your interest in becoming a partner. We'll have a conversation with you providing detailed information on Partner Events’ use cases, personas, onboarding process, functionality, pricing, and more.
+Contact the Event Grid team at [askgrid@microsoft.com](mailto:askgrid@microsoft.com?subject=Interested&nbsp;in&nbsp;onboarding&nbsp;as&nbsp;an&nbsp;Event&nbsp;Grid&nbsp;partner) communicating your interest in becoming a partner. We'll have a conversation with you providing detailed information on Partner Events’ use cases, personas, onboarding process, functionality, pricing, and more.
 
 ## Prerequisites
 To complete the remaining steps, make sure you have:
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- An Azure [tenant](../active-directory/develop/quickstart-create-new-tenant.md).
+- An Azure [tenant](/entra/identity-platform/quickstart-create-new-tenant).
 
 
-[!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
+[!INCLUDE [register-provider](./includes/register-provider.md)]
 
 ## Create a partner registration 
 

@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/28/2020
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022, devx-track-extended-java
 ---
 
 # Quickstart: Build a API for Table app with Java SDK and Azure Cosmos DB
@@ -92,7 +92,7 @@ Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](/powershe
 
 Azure Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Azure Cosmos DB account names must also be unique across Azure.
 
-Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
+Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-azure-powershell).
 
 It typically takes several minutes for the Azure Cosmos DB account creation process to complete.
 
@@ -778,7 +778,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app. Now you can query your data using the Tables API.
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app. Now you can query your data using the API for Table.  
 
 > [!div class="nextstepaction"]
-> [Import table data to the Tables API](import.md)
+> [Query Azure Cosmos DB by using the API for Table](tutorial-query.md)

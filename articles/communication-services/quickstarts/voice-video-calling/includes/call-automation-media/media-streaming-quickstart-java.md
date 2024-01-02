@@ -4,7 +4,7 @@ description: Java Media Streaming quickstart
 services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
+ms.subservice: call-automation
 ms.date: 09/06/2022
 ms.topic: include
 ms.topic: include file
@@ -15,7 +15,7 @@ ms.author: kpunjabi
 
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
-- Create a new web service application using the [Call Automation SDK](../../Callflows-for-customer-interactions.md).
+- Create a new web service application using the [Call Automation SDK](../../../call-automation/Callflows-for-customer-interactions.md).
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
@@ -24,10 +24,10 @@ Azure Communication Services requires your server application to set up a WebSoc
 You can optionally use Azure services Azure WebApps that allows you to create an application to receive audio streams over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
 
 ## Establish a call
-In this quickstart we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../callflows-for-customer-interactions.md). For the purposes of this quickstart, we'll be going through the process of starting media streaming for both incoming calls and outbound calls.
+In this quickstart we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../../call-automation/callflows-for-customer-interactions.md). For the purposes of this quickstart, we'll be going through the process of starting media streaming for both incoming calls and outbound calls.
 
 ## Start media streaming - incoming call 
-Your application will start receiving media streams once you answer the call and provide ACS with the WebSocket information.
+Your application will start receiving media streams once you answer the call and provide Azure Communication Services with the WebSocket information.
 
 ``` java
 var mediaStreamingOptions = new MediaStreamingOptions(
@@ -42,7 +42,7 @@ var answerCallResponse = callAutomationAsyncClient.answerCallWithResponse(answer
 ```
 
 ## Start media streaming - outbound call
-Your application will start receiving media streams once you create the call and provide ACS with the WebSocket information.
+Your application will start receiving media streams once you create the call and provide Azure Communication Services with the WebSocket information.
 
 ``` java
 var mediaStreamingOptions = new MediaStreamingOptions(

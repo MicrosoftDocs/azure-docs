@@ -4,14 +4,16 @@ description: This article describes how to restore a server in Azure Database fo
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 06/24/2022
 ---
 
 # How to backup and restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 ## Backup happens automatically
 
@@ -32,7 +34,7 @@ While creating a server through the Azure portal, the **Pricing Tier** window is
 For more information about setting these values during create, see the [Azure Database for PostgreSQL server quickstart](quickstart-create-server-database-portal.md).
 
 The backup retention period of a server can be changed through the following steps:
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select your Azure Database for PostgreSQL server. This action opens the **Overview** page.
 3. Select **Pricing Tier** from the menu, under **SETTINGS**. Using the slider you can change the **Backup Retention Period** to your preference between 7 and 35 days.
 In the screenshot below it has been increased to 34 days.

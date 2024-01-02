@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 ms.custom: references_regions
 ---
@@ -25,34 +25,6 @@ Below are some basic concepts related to Microsoft Azure Attestation.
 ## Attestation provider
 
 Attestation provider belongs to Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md). Each attestation provider honors a specific, discoverable policy. Attestation providers get created with a default policy for each attestation type (note that VBS enclave has no default policy). See [examples of an attestation policy](policy-examples.md) for more details on the default policy for SGX.
-
-### Regional shared provider
-
-Azure Attestation provides a regional shared provider in every available region. Customers can choose to use the regional shared provider for attestation, or create their own providers with custom policies. The shared providers are accessible by any Azure AD user and the policy associated with it cannot be altered.
-
-| Region | Attest Uri | 
-|--|--|
-| East US | `https://sharedeus.eus.attest.azure.net` | 
-| West US | `https://sharedwus.wus.attest.azure.net` | 
-| UK South | `https://shareduks.uks.attest.azure.net` | 
-| UK West| `https://sharedukw.ukw.attest.azure.net	` | 
-| Canada East | `https://sharedcae.cae.attest.azure.net` | 
-| Canada Central | `https://sharedcac.cac.attest.azure.net` | 
-| North Europe | `https://sharedneu.neu.attest.azure.net` | 
-| West Europe| `https://sharedweu.weu.attest.azure.net` | 
-| US East 2 | `https://sharedeus2.eus2.attest.azure.net` | 
-| Central US | `https://sharedcus.cus.attest.azure.net` |
-| North Central US | `https://sharedncus.ncus.attest.azure.net` | 
-| South Central US | `https://sharedscus.scus.attest.azure.net` | 
-| Australia East | `https://sharedeau.eau.attest.azure.net` | 
-| Australia SouthEast | `https://sharedsau.sau.attest.azure.net` |
-| South East Asia | `https://sharedsasia.sasia.attest.azure.net` | 
-| Japan East | `https://sharedjpe.jpe.attest.azure.net` |
-| Switzerland North | `https://sharedswn.swn.attest.azure.net` |
-| US Gov Virginia | `https://sharedugv.ugv.attest.azure.us` | 
-| US Gov Arizona | `https://shareduga.uga.attest.azure.us` | 
-| Central US EUAP | `https://sharedcuse.cuse.attest.azure.net` |
-| East US2 EUAP | `https://sharedeus2e.eus2e.attest.azure.net` |
 
 ## Attestation request
 
@@ -75,7 +47,7 @@ See [examples of an attestation policy](policy-examples.md)
 
 An attestation policy is what ultimately determines if an attestation token will be issued by Azure Attestation. Policy also determines the claims to be generated in the attestation token. It is thus of utmost importance that the policy evaluated by the service is in fact the policy written by the administrator and it has not been tampered or modified by external entities. 
 
-Trust model defines the authorization model of attestation provider to define and update policy.  Two models are supported – one based on Azure AD authorization and one based on possession of customer-managed cryptographic keys (referred as isolated model).  Isolated model will enable Azure Attestation to ensure that the customer-submitted policy is not tampered.
+Trust model defines the authorization model of attestation provider to define and update policy.  Two models are supported – one based on Microsoft Entra authorization and one based on possession of customer-managed cryptographic keys (referred as isolated model).  Isolated model will enable Azure Attestation to ensure that the customer-submitted policy is not tampered.
 
 In isolated model, administrator creates an attestation provider specifying a set of trusted signing X.509 certificates in a file. The administrator can then add a signed policy to the attestation provider. While processing the attestation request, Azure Attestation will validate the signature of the policy using the public key represented by either the “jwk” or the “x5c” parameter in the header.  Azure Attestation will also verify if public key in the request header is in the list of trusted signing certificates associated with the attestation provider. In this way, the relying party (Azure Attestation) can trust a policy signed using the X.509 certificates it knows about. 
 

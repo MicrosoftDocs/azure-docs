@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 03/13/2023
 ms.author: banders
 ---
 
@@ -15,7 +15,7 @@ ms.author: banders
 
 Customers in India receive Web Direct (Azure and Microsoft 365) invoices billed by Microsoft Regional Sales Pte Ltd. Singapore (MRS) and make cross-border payments to Singapore to settle the invoice. If you withheld taxes when remitting the payment, this article explains the process for claiming a credit for the Withholding Tax (WHT) in your account with MRS.
 
-## Invoice payment by check and wire
+## Invoice payment by wire
 
 If you withheld tax when remitting payment to MRS and deposited the withheld tax with the Income Tax Department, you must submit a WHT request to settle the tax amount withheld in your account.
 
@@ -25,6 +25,8 @@ Your WHT request must include the following items:
 - A digitally signed TDS Certificate (Form 16A) issued by the Indian Income Tax Department (provided by the customer)
 
 Submit the WHT request by opening a ticket with Microsoft support.
+
+[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 
 ## Credit card payment
 
@@ -60,7 +62,7 @@ If there’s a problem with your request, the review team might require correcti
 
 ## Approved requests
 
-**For customers paying by check and wire:** Approved WHT requests are settled against the unpaid portion of the invoice amount reflected in the Withholding Tax Credit Form.
+**For customers paying by wire:** Approved WHT requests are settled against the unpaid portion of the invoice amount reflected in the Withholding Tax Credit Form.
 
 After your claim is approved, it’s reflected in the next billing cycle. The WHT amount paid is included in the payment section of your next invoice. The amount is also displayed under the paid amount in the customer portal.
 

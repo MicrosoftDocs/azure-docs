@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services
+    tocHref: /azure/ai-services/
+    topicHref: /azure/ai-services/index
+    items:
+    - name: Immersive Reader
+      tocHref: /azure/ai-services/
+      topicHref: /azure/ai-services/immersive-reader/index
+    - name: Immersive Reader
+      tocHref: /azure/ai-services/
+      topicHref: /azure/ai-services/immersive-reader/index

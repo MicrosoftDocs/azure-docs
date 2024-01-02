@@ -1,14 +1,14 @@
 ---
 title: Monitor data factories using Azure Monitor 
 description: Learn how to use Azure Monitor to monitor Azure Data Factory pipelines by enabling diagnostic logs with information from Data Factory.
-author: joshuha-msft
-ms.author: joowen
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.custom: contperf-fy22q1
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 10/22/2022
+ms.date: 10/20/2023
 ---
 
 # Monitor and Alert Data Factory by using Azure Monitor
@@ -28,10 +28,9 @@ Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor if you
 * **Log Analytics**: Analyze the logs with Log Analytics. The Data Factory integration with Azure Monitor is useful in the following scenarios:
   * You want to write complex queries on a rich set of metrics that are published by Data Factory to Monitor. You can create custom alerts on these queries via Monitor.
   - You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
-* **Partner Solution:** Diagnostic logs could be sent to Partner solutions through integration. For potential partner integrations, [click to learn more about partner integration.](/azure/partner-solutions/overview)
+* **Partner Solution:** Diagnostic logs could be sent to Partner solutions through integration. For potential partner integrations, [click to learn more about partner integration.](../partner-solutions/overview.md)
    You can also use a storage account or event-hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate Azure role-based access control (Azure RBAC) access to both subscriptions.
-## Next steps
+## Related content
 
 - [Azure Data Factory metrics and alerts](monitor-metrics-alerts.md)
 - [Monitor and manage pipelines programmatically](monitor-programmatically.md)
-

@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/10/2021
+ms.date: 05/26/2023
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
@@ -280,7 +280,7 @@ Use the following procedure if your subscription is configured for the Automatio
 
 2. Check [Update Management history](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) to determine the exact time when the update deployment was run.
 
-3. For machines that you suspect to have been missed by Update Management, use Azure Resource Graph (ARG) to [locate machine changes](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details).
+3. For machines that you suspect to have been missed by Update Management, use Azure Resource Graph (ARG) to [locate machine changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 4. Search for changes over a considerable period, such as one day, before the update deployment was run.
 
@@ -652,7 +652,7 @@ If updates run locally, try removing and reinstalling the agent on the machine b
 
 ### I know updates are available, but they don't show as available on my machines
 
-This often happens if machines are configured to get updates from WSUS or Microsoft Endpoint Configuration Manager but WSUS and Configuration Manager haven't approved the updates.
+This often happens if machines are configured to get updates from WSUS or Microsoft Configuration Manager but WSUS and Configuration Manager haven't approved the updates.
 
 You can check to see if the machines are configured for WSUS and SCCM by cross-referencing the `UseWUServer` registry key to the registry keys in the [Configuring Automatic Updates by Editing the Registry section of this article](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
 
@@ -672,7 +672,7 @@ Deploying updates to Linux by classification ("Critical and security updates") h
 
 ### KB2267602 is consistently missing
 
-KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/wdsi/definitions). It's updated daily.
+KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/en-us/wdsi/defenderupdates). It's updated daily.
 
 ## Next steps
 

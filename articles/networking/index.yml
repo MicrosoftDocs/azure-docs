@@ -10,32 +10,32 @@ metadata:
   ms.service: virtual-network
   ms.topic: hub-page
   ms.collection:
-  author: mbender-ms
-  ms.author: mbender
+  author: asudbring
+  ms.author: allensu
   manager: kumudD
   ms.date: 09/08/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
-    - title: What is Azure Networking? 
-      itemType: overview # controls the icon image and super-title text 
+    - title: Azure Networking services overview 
+      itemType: overview
       url: fundamentals/networking-overview.md
     - title: What's new in Azure Networking? 
       itemType: whats-new 
       url: https://azure.microsoft.com/updates/?category=networking
-    - title: Load-balancing options in Azure
-      itemType: architecture
-      url: /azure/architecture/guide/technology-choices/load-balancing-overview
+    - title: Azure network security
+      itemType: overview
+      url: ./security/index.yml
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
     - title: Azure Networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/topics/networking/
-    - title: Working remotely using Azure services
-      itemType: concept
-      url: working-remotely-support.md
+    - title: Azure Networking Solutions
+      itemType: deploy
+      url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
     
 
 # additionalContent section (optional)

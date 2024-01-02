@@ -7,9 +7,9 @@
  ms.topic: include
  ms.date: 10/25/2021
  ms.author: rogarana
- ms.custom: include file
+ms.custom: include file, devx-track-azurepowershell
 ---
-1. Make sure that you have installed latest [Azure PowerShell version](/powershell/azure/install-az-ps), and you are signed in to an Azure account in with Connect-AzAccount
+1. Make sure that you have installed latest [Azure PowerShell version](/powershell/azure/install-azure-powershell), and you are signed in to an Azure account in with Connect-AzAccount
 
 1. Create an instance of Azure Key Vault and encryption key.
 
@@ -50,7 +50,7 @@
 1.    Grant the DiskEncryptionSet resource access to the key vault.
 
         > [!NOTE]
-        > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
+        > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Microsoft Entra ID. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
         
         ```powershell  
         Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get

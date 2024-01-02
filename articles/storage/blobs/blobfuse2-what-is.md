@@ -1,22 +1,19 @@
 ---
-title: What is BlobFuse? - BlobFuse2 (preview)
-titleSuffix: Azure Blob Storage
+title: What is BlobFuse? - BlobFuse2
+titleSuffix: Azure Storage
 description: An overview of how to use BlobFuse to mount an Azure Blob Storage container through the Linux file system.
-author: jimmart-dev
-ms.author: jammart
+author: akashdubey-ms
+ms.author: akashdubey
 ms.reviewer: tamram
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 12/02/2022
 ms.custom: engagement-fy23
 ---
 
-# What is BlobFuse2 (preview)?
+# What is BlobFuse? - BlobFuse2
 
 BlobFuse is a virtual file system driver for Azure Blob Storage. Use BlobFuse to access your existing Azure block blob data through the Linux file system.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## About the BlobFuse2 open source project
 
@@ -30,7 +27,7 @@ The open source BlobFuse2 project is on GitHub:
 
 ### Licensing
 
-The BlobFuse2 project is [licensed under MIT](https://github.com/Azure/azure-storage-fuse/blob/main/LICENSE).
+The BlobFuse2 project is [licensed under the MIT license](https://github.com/Azure/azure-storage-fuse/blob/main/LICENSE).
 
 ## Features
 
@@ -70,7 +67,7 @@ The [BlobFuse2 migration guide](https://github.com/Azure/azure-storage-fuse/blob
 
 ## Support
 
-BlobFuse2 is supported by Microsoft if it's used within the specified [limits](#limitations). If you encounter an issue in this preview version, [report it on GitHub](https://github.com/Azure/azure-storage-fuse/issues).
+BlobFuse2 is supported by Microsoft if it's used within the specified [limits](#limitations). If you encounter an issue, [report it on GitHub](https://github.com/Azure/azure-storage-fuse/issues).
 
 ## Limitations
 

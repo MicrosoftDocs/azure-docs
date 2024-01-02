@@ -7,13 +7,13 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/21/2023
 ms.author: cherylmc
 
 ---
 # Configure a packet capture for Virtual WAN site-to-site VPN: Azure portal
 
-This article helps you create a packet capture for an Azure Virtual WAN site-to-site VPN gateway using the Azure portal. Packet capture helps you narrow down the scope of a problem to certain parts of the network. It can help you determine whether the problem is on the on-premises side of the network, the Azure side of the network, or somewhere in between. By narrowing down the problem, you can more efficiently debug and take remedial action.
+This article helps you create a packet capture for an Azure Virtual WAN site-to-site VPN gateway using the Azure portal. Packet capture helps you narrow down the scope of a problem to certain parts of the network. It can help you determine whether the problem is on the on-premises side or the Azure side. By narrowing down the problem, you can more efficiently debug and take remedial action.
 
 While some commonly available packet capture tools do exist, getting relevant packet captures with these tools can be cumbersome, especially in high-volume traffic scenarios. The filtering capabilities provided by the Virtual WAN packet capture are a major differentiator. The Virtual WAN packet capture can be used along with commonly available packet capture tools.
 
@@ -23,9 +23,9 @@ While some commonly available packet capture tools do exist, getting relevant pa
 
 Verify that you have the following configuration already set up in your environment:
 
-* A virtual WAN and a virtual hub.
+* A Virtual WAN and a virtual hub.
 * A site-to-site VPN gateway deployed in the virtual hub.
-* You may also have connections connecting VPN sites to your site-to-site VPN gateway.
+* You can also have connections connecting VPN sites to your site-to-site VPN gateway.
 
 ## <a name="storage"></a> Create a storage account and container
 
@@ -62,12 +62,12 @@ In this section, you start the packet capture on the virtual hub.
 
 ## <a name="filters"></a> Optional: Specify filters
 
-To simplify your packet captures, you may specify filters on your packet capture to focus on specific behaviors.
+To simplify your packet captures, you can specify filters on your packet capture to focus on specific behaviors.
 
 | Parameter | Description | Default values | Available values |
 |---|---|---|---|
 |TracingFlags|	Integer that determines what types of packets are captured|	11 (ESP, IKE, OVPN)	|ESP = 1 IKE = 2 OPVN = 8|
-|TCPFlags|	Integer that determines which Types of TCP Packets are captured	|0 (none)|	FIN = 1, SYN = 2, RST = 4, PSH = 8, ACK = 16,URG = 32, ECE = 64, CWR = 128|
+|TCPFlags|	Integer that determines which types of TCP Packets are captured	|0 (none)|	FIN = 1, SYN = 2, RST = 4, PSH = 8, ACK = 16,URG = 32, ECE = 64, CWR = 128|
 |MaxPacketBufferSize|	Maximum size of a captured packet in bytes. Packets are truncated if larger than the provided value.	|120	|Any|
 |MaxFileSize |	Maximum capture file size in Mb. Captures are stored in a circular buffer so overflow is handled in a FIFO manner (older packets removed first)|	100|	Any|
 |SourceSubnets |	Packets from the specified CIDR ranges are captured. Specified as an array. |	[ ] (all IPv4 addresses)	|An IPV4 Subnet|
@@ -75,17 +75,18 @@ To simplify your packet captures, you may specify filters on your packet capture
 |SourcePort|	Packets with source in the specified ranges are captured. Specified as an array.|	[ ] (all ports)|	A port|
 |DestinationPort|	Packets with destination in the specified ranges are captured. Specified as an array.	|[ ] (all ports)|	A port|
 |CaptureSingleDirectionTrafficOnly |	If true, only one direction of a bidirectional flow will show up in the packet capture. This will capture all possible combo of IP and ports.|	True|	True, False|
-|Protocol|	An array of integers that correspond IANA protocols.|	[ ] (all protocols)|	A protocol listed on this [iana.org](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) page.|
+|Protocol|	An array of integers that correspond to IANA protocols.|	[ ] (all protocols)|	Any protocols listed on this [iana.org](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) page.|
+
 
 > [!NOTE]
-> For TracingFlags and TCPFlags, you may specify multiple protocols by adding up the numerical values for the protocols you want to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.
+> For TracingFlags and TCPFlags, you can specify multiple protocols by adding up the numerical values for the protocols you want to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.
 >
 
 ## Stop a packet capture
 
 This section helps you stop or abort a packet capture.
 
-1. On the virtual hub page, click the **Packet Capture** button to open the **Packet Capture** page, then click **Stop**. This opens the **Stop Packet Capture** page. At this point, the packet capture is not yet stopped.
+1. On the virtual hub page, click the **Packet Capture** button to open the **Packet Capture** page, then click **Stop**. This opens the **Stop Packet Capture** page. At this point, the packet capture isn't yet stopped.
    :::image type="content" source="./media/packet-capture-site-to-site-portal/packet-stop.png" alt-text="Graphic showing the Stop button." lightbox="./media/packet-capture-site-to-site-portal/packet-stop-expand.png":::
 
 1. On the **Stop Packet Capture** page, paste the *SaS URL* for the storage container that you created earlier into the **Output Sas Url** field. This is the location where the packet capture files will be stored.

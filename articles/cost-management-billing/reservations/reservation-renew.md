@@ -2,11 +2,11 @@
 title: Automatically renew Azure reservations
 description: Learn how you can automatically renew Azure reservations to continue getting reservation discounts.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 11/17/2023
 ms.author: banders
 ---
 

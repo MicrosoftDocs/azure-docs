@@ -19,7 +19,7 @@ The machine learning operations don't support seasonality trends or multi-variat
 
 The following video demonstrates how to detect an anomaly in real time using machine learning functions in Azure Stream Analytics. 
 
-> [!VIDEO /Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=internet-of-things-show&ep=real-time-ml-based-anomaly-detection-in-azure-stream-analytics]
 
 ## Model behavior
 
@@ -35,8 +35,7 @@ An anomaly generator available [here](https://aka.ms/asaanomalygenerator) can be
 
 ## Spike and dip
 
-Temporary anomalies in a time series event stream are known as spikes and dips. Spikes and dips can be monitored using the Machine Learning based operator, [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
-).
+Temporary anomalies in a time series event stream are known as spikes and dips. Spikes and dips can be monitored using the Machine Learning based operator, [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics).
 
 ![Example of spike and dip anomaly](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 

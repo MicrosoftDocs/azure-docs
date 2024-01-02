@@ -1,7 +1,7 @@
 ---
 title: OT sensor VM (VMware ESXi) - Microsoft Defender for IoT
 description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using VMware ESXi.
-ms.date: 04/24/2022
+ms.date: 08/20/2023
 ms.topic: reference
 ---
 
@@ -24,11 +24,14 @@ Before you begin the installation, make sure you have the following items:
 
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
-- The OT sensor software [downloaded from Defender for IoT in the Azure portal](../how-to-install-software.md#download-software-files-from-the-azure-portal).
+- The OT sensor software [downloaded from Defender for IoT in the Azure portal](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal).
 
 - Traffic mirroring configured on your vSwitch. For more information, see [Configure traffic mirroring with a ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md).
 
 Make sure the hypervisor is running.
+
+> [!NOTE]
+> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
 
 ## Create the virtual machine
 
@@ -60,6 +63,8 @@ This procedure describes how to create a virtual machine by using ESXi.
 
 1. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
 
+1. In your VM options, change your boot options from **Firmware** to **BIOS**. Make sure that you're not booting from EFI.
+
 1. Select **Next** > **Finish**.
 
 ## Software installation
@@ -68,7 +73,7 @@ This procedure describes how to create a virtual machine by using ESXi.
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-monitoring-software).
+1. Continue with the [generic procedure for installing sensor software](../ot-deploy/install-software-ot-sensor.md).
 
 
 ## Next steps

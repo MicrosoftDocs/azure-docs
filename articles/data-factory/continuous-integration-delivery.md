@@ -7,8 +7,8 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 08/23/2022 
-ms.custom: devx-track-azurepowershell
+ms.date: 10/26/2023
+ms.custom:
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -67,7 +67,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
     >[!WARNING]
     >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
 
--   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
+-   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name, type and sub-type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
     >[!Note]
     >The integration runtime sharing is only available for self-hosted integration runtimes. Azure-SSIS integration runtimes don't support sharing.
@@ -77,6 +77,8 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 -   **Key Vault**. When you use linked services whose connection information is stored in Azure Key Vault, it is recommended to keep separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, we recommend that you to keep the same secret names across all stages. If you keep the same secret names, you don't need to parameterize each connection string across CI/CD environments because the only thing that changes is the key vault name, which is a separate parameter.
 
 -  **Resource naming**. Due to ARM template constraints, issues in deployment may arise if your resources contain spaces in the name. The Azure Data Factory team recommends using '_' or '-' characters instead of spaces for resources. For example, 'Pipeline_1' would be a preferable name over 'Pipeline 1'.
+ 
+-   **Altering repository**. ADF manages GIT repository content automatically. Altering or adding manually unrelated files or folder into anywhere in ADF Git repository data folder could cause resource loading errors. For example, presence of *.bak* files can cause ADF CI/CD error, so they should be removed for ADF to load. 
 
 - **Exposure control and feature flags**.  When working in a team, there are instances where you may merge changes, but don't want them to be run in elevated environments such as PROD and QA. To handle this scenario, the ADF team recommends [the DevOps concept of using feature flags](/devops/operate/progressive-experimentation-feature-flags). In ADF, you can combine [global parameters](author-global-parameters.md) and the [if condition activity](control-flow-if-condition-activity.md) to hide sets of logic based upon these environment flags.
 
@@ -107,7 +109,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
     **No action is required unless you are using 'PartialArmTemplates'. Otherwise, switch to any supported mechanism for deployments using: 'ARMTemplateForFactory.json' or 'linkedTemplates' files.**
 
-## Next steps
+## Related content
 
 - [Continuous deployment improvements](continuous-integration-delivery-improvements.md#continuous-deployment-improvements)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

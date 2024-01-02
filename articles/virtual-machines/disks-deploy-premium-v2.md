@@ -1,35 +1,29 @@
 ---
 title: Deploy a Premium SSD v2 managed disk
-description: Learn how to deploy a Premium SSD v2.
+description: Learn how to deploy a Premium SSD v2 and about its regional availability.
 author: roygara
 ms.author: rogarana
-ms.date: 10/12/2022
+ms.date: 11/15/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
-ms.custom: references_regions, ignite-2022
+ms.service: azure-disk-storage
+ms.custom: references_regions, ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Deploy a Premium SSD v2
 
 Azure Premium SSD v2 is designed for IO-intense enterprise workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2](disks-types.md#premium-ssd-v2).
 
-## Limitations
-
-[!INCLUDE [disks-prem-v2-limitations](../../includes/disks-prem-v2-limitations.md)]
-
-### Regional availability
-
-[!INCLUDE [disks-premv2-regions](../../includes/disks-premv2-regions.md)]
+Premium SSD v2 support a 4k physical sector size by default, but can be configured to use a 512E sector size as well. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks.
 
 ## Prerequisites
 
-- [Sign up](https://aka.ms/PremiumSSDv2AccessRequest) for access to Premium SSD v2.
-- Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-az-ps). 
+- Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-azure-powershell). 
 
 ## Determine region availability programmatically
 
-To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. To determine regions, and zones support premium SSD v2, replace `yourSubscriptionId` then run the following command:
+To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. For a list of regions, see [Regional availability](#regional-availability).
+
+To determine regions, and zones support premium SSD v2, replace `yourSubscriptionId` then run the following command:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -67,7 +61,7 @@ Now that you know the region and zone to deploy to, follow the deployment steps 
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it. Replace the values of all the variables with your own, then run the following script:
+Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it. The following script creates a Premium SSD v2 with a 4k sector size, to deploy one with a 512 sector size, update the `$logicalSectorSize` parameter. Replace the values of all the variables with your own, then run the following script:
 
 ```azurecli-interactive
 ## Initialize variables
@@ -75,6 +69,7 @@ diskName="yourDiskName"
 resourceGroupName="yourResourceGroupName"
 region="yourRegionName"
 zone="yourZoneNumber"
+##Replace 4096 with 512 to deploy a disk with 512 sector size
 logicalSectorSize=4096
 vmName="yourVMName"
 vmImage="Win2016Datacenter"
@@ -104,7 +99,7 @@ az vm create -n $vmName -g $resourceGroupName \
 
 # [PowerShell](#tab/azure-powershell)
 
-Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it. Replace the values of all the variables with your own, then run the following script:
+Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it. The following script creates a Premium SSD v2 with a 4k sector size, to deploy one with a 512 sector size, update the `$logicalSectorSize` parameter. Replace the values of all the variables with your own, then run the following script:
 
 ```powershell
 # Initialize variables
@@ -115,6 +110,7 @@ $diskName = "yourDiskName"
 $diskSizeInGiB = 100
 $diskIOPS = 5000
 $diskThroughputInMBPS = 150
+#To use a 512 sector size, replace 4096 with 512
 $logicalSectorSize=4096
 $lun = 1
 $vmName = "yourVMName"
@@ -159,10 +155,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 
 # [Azure portal](#tab/portal)
 
-> [!IMPORTANT]
-> Premium SSD v2 managed disks can only be deployed and managed in the Azure portal from the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
-
-1. Sign in to the Azure portal with the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. On the **Basics** page, select a [supported region](#regional-availability) and set **Availability options** to **Availability zone**.
 1. Select one of the zones.
@@ -175,9 +168,13 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 
     :::image type="content" source="media/disks-deploy-premium-v2/premv2-create-data-disk.png" alt-text="Screenshot highlighting create and attach a new disk on the disk page." lightbox="media/disks-deploy-premium-v2/premv2-create-data-disk.png":::
 
-1. Select the **Disk SKU** and select **Premium SSD v2 (Preview)**.
+1. Select the **Disk SKU** and select **Premium SSD v2**.
 
     :::image type="content" source="media/disks-deploy-premium-v2/premv2-select.png" alt-text="Screenshot selecting Premium SSD v2 SKU." lightbox="media/disks-deploy-premium-v2/premv2-select.png":::
+
+1. Select whether you'd like to deploy a 4k or 512 logical sector size.
+
+    :::image type="content" source="media/disks-deploy-premium-v2/premv2-sector-size.png" alt-text="Screenshot of deployment logical sector size deployment options." lightbox="media/disks-deploy-premium-v2/premv2-sector-size.png":::
 
 1. Proceed through the rest of the VM deployment, making any choices that you desire.
 
@@ -212,4 +209,16 @@ Currently, adjusting disk performance is only supported with Azure CLI or the Az
 
 ---
 
+## Limitations
+
+[!INCLUDE [disks-prem-v2-limitations](../../includes/disks-prem-v2-limitations.md)]
+
+### Regional availability
+
+[!INCLUDE [disks-premv2-regions](../../includes/disks-premv2-regions.md)]
+
 ## Next steps
+
+Add a data disk using either the [Azure portal](linux/attach-disk-portal.md), [CLI](linux/add-disk.md), or [PowerShell](windows/attach-disk-ps.md).
+
+Provide feedback on [Premium SSD v2](https://aka.ms/premium-ssd-v2-survey).

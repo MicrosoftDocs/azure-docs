@@ -18,16 +18,6 @@
       items:
       - name: Deploy Affirmed Private Network Service on Azure
         href: deploy-affirmed-private-network-service-solution.md
-  - name: Edge connectivity using Metaswitch 5G Fusion Core
-    items:
-    - name: Overview
-      items:
-        - name: What is Fusion Core?
-          href: metaswitch-fusion-core-overview.md
-    - name: How-to guides
-      items:
-        - name: Deploy Fusion Core on Azure Stack Edge
-          href: deploy-metaswitch-fusion-core-solution.md
   - name: Related
     items:
     - name: Azure Network Function Manager

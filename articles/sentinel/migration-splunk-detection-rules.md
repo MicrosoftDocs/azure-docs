@@ -11,18 +11,20 @@ ms.date: 05/03/2022
 
 This article describes how to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
 
+If you want to migrate your Splunk Observability deployment, learn more about how to [migrate from Splunk to Azure Monitor Logs](../azure-monitor/logs/migrate-splunk-to-azure-monitor-logs.md).
+
 ## Identify and migrate rules
 
 Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Microsoft Sentinel. Therefore, don't migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.
 
 - Make sure to select use cases that justify rule migration, considering business priority and efficiency.
-- Check that you [understand Microsoft Sentinel rule types](detect-threats-built-in.md#view-built-in-detections). 
+- Check that you [understand Microsoft Sentinel rule types](detect-threats-built-in.md). 
 - Check that you understand the [rule terminology](#compare-rule-terminology).
 - Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
 - Eliminate low-level threats or alerts that you routinely ignore.
 - Use existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
-- Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/tdm/) to check whether  your rules are available.
+- Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/platform-overview/) to check whether  your rules are available.
 - Consider whether an online query converter such as Uncoder.io might work for your rules. 
 - If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [rules mapping](#map-and-compare-rule-samples) to create new queries. 
 
@@ -101,7 +103,7 @@ Use these samples to compare and map rules from Splunk to Microsoft Sentinel in 
 |`rename`     |Renames a field. Use wildcards to specify multiple fields.	         |[project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)         |`T | project-rename new_column_name = column_name`      |
 |`rex`     |Specifies group names using regular expressions to extract fields.	|[matches regex](/azure/data-explorer/kusto/query/re2)         |`… | where field matches regex "^addr.*"`         |
 |`search`     |Filters results to results that match the search expression.	 |[search](/azure/data-explorer/kusto/query/searchoperator?pivots=azuredataexplorer)         |`search "X"`         |
-|`sort`     |Sorts the search results by the specified fields.	   |[sort](/azure/data-explorer/kusto/query/sortoperator)         |`T | sort by strlen(country) asc, price desc`         |
+|`sort`     |Sorts the search results by the specified fields.	   |[sort](/azure/data-explorer/kusto/query/sort-operator)         |`T | sort by strlen(country) asc, price desc`         |
 |`stats`     |Provides statistics, optionally grouped by fields. Learn more about [common stats commands](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/SPL%20to%20KQL.md#common-stats-commands).     |[summarize](/azure/data-explorer/kusto/query/summarizeoperator)         |[KQL example](#stats-command-kql-example) |
 |`mstats`     |Similar to stats, used on metrics instead of events.	  |[summarize](/azure/data-explorer/kusto/query/summarizeoperator)          |[KQL example](#mstats-command-kql-example) |
 |`table`     |Specifies which fields to keep in the result set, and retains data in tabular format.	|[project](/azure/data-explorer/kusto/query/projectoperator)         |`T | project columnA, columnB`         |

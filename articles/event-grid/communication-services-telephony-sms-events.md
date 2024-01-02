@@ -2,7 +2,8 @@
 title: Azure Communication Services - Telephony and SMS events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for telephony and SMS Events.
 ms.topic: conceptual
-ms.date: 05/19/2022
+ms.date: 12/02/2022
+author: VikramDhumal
 ms.author: vikramdh
 ---
 
@@ -45,7 +46,8 @@ This section contains an example of what that data would look like for each even
         "SegmentsSucceeded": 1,
         "SegmentsFailed": 0
       }
-    ]
+    ],
+    "Tag": "Optional customer-tag set in the original message"
   },
   "eventType": "Microsoft.Communication.SMSDeliveryReportReceived",
   "dataVersion": "1.0",
@@ -68,7 +70,7 @@ This section contains an example of what that data would look like for each even
     "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
     "From": "15555555555",
     "To": "15555555555",
-    "Message": "Great to connect with ACS events",
+    "Message": "Great to connect with Azure Communication Services events",
     "ReceivedTimestamp": "2020-09-18T00:27:45.32Z"
   },
   "eventType": "Microsoft.Communication.SMSReceived",
@@ -77,3 +79,6 @@ This section contains an example of what that data would look like for each even
   "eventTime": "2020-09-18T00:27:47Z"
 }]
 ```
+
+## Next steps
+See the following tutorial:[Quickstart: Handle SMS and delivery report events](../communication-services/quickstarts/sms/handle-sms-events.md).

@@ -1,15 +1,14 @@
 ---
-title: Use Apache Kafka MirrorMaker - Azure Event Hubs | Microsoft Docs
+title: Use Apache Kafka Mirror Maker 1 - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Kafka MirrorMaker to mirror a Kafka cluster in AzureEvent Hubs.
 ms.topic: how-to
 ms.date: 01/04/2021
 ---
 
-# Use Apache Kafka MirrorMaker with Event Hubs
+# Replicate data from a Kafka cluster to Event Hubs using Apache Kafka Mirror Maker 1
 
-This tutorial shows how to mirror a Kafka broker into an Azure Event Hub using Kafka MirrorMaker. If you are hosting Apache Kafka on 
-Kubernetes using the CNCF Strimzi operator, you can refer to the tutorial in [this blog post](https://strimzi.io/blog/2020/06/09/mirror-maker-2-eventhub/) 
-to learn how to set up Kafka with Strimzi and Mirror Maker 2. 
+
+This tutorial shows how to mirror a Kafka broker into an Azure Event Hubs using Kafka Mirror Maker 1. 
 
    ![Kafka MirrorMaker with Event Hubs](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
@@ -17,7 +16,7 @@ to learn how to set up Kafka with Strimzi and Mirror Maker 2.
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
 
 > [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -39,7 +38,7 @@ You can use Apache Kafka's MirrorMaker 1 unidirectionally from Apache Kafka to E
 
 To complete this tutorial, make sure you have:
 
-* Read through the [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) article. 
+* Read through the [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md) article. 
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.

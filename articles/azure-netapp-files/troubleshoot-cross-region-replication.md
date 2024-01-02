@@ -87,4 +87,4 @@ This article describes error messages and resolutions that can help you troubles
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
-* [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
+* [Test disaster recovery for Azure NetApp Files](test-disaster-recovery.md)

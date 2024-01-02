@@ -54,7 +54,7 @@ Under **Settings**, select **Access Key**. Copy the **Primary key** value, **Acc
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 1. After you sign in, use the [az account set](/cli/azure/account#az-account-set) command to select the subscription in which to set up the spatial anchors account:
 
@@ -147,7 +147,7 @@ Install-Module -Name Az.MixedReality
 
    [!INCLUDE [resource group intro text](resource-group.md)]
 
-   You can view your current spatial anchors accounts for a resource group by using the [Get-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/get-azspatialanchorsaccount) cmdlet:
+   You can view your current spatial anchors accounts for a resource group by using the [Get-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/get-azmixedrealityspatialanchorsaccount) cmdlet:
 
    ```azurepowershell-interactive
    Get-AzSpatialAnchorsAccount -ResourceGroup myResourceGroup
@@ -159,13 +159,13 @@ Install-Module -Name Az.MixedReality
    Get-AzSpatialAnchorsAccount
    ```
 
-1. Run the [New-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/new-azspatialanchorsaccount) cmdlet to create your spatial anchors account:
+1. Run the [New-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/new-azmixedrealityspatialanchorsaccount) cmdlet to create your spatial anchors account:
 
    ```azurepowershell-interactive
    New-AzSpatialAnchorsAccount -ResourceGroup myResourceGroup -Name MySpatialAnchorsQuickStart -Location eastus2
    ```
 
-1. View the resource properties by using the [Get-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/get-azspatialanchorsaccount) cmdlet:
+1. View the resource properties by using the [Get-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/get-azmixedrealityspatialanchorsaccount) cmdlet:
 
    ```azurepowershell-interactive
    Get-AzSpatialAnchorsAccount -ResourceGroup myResourceGroup -Name MySpatialAnchorsQuickStart
@@ -173,7 +173,7 @@ Install-Module -Name Az.MixedReality
 
    Copy the property **accountId** value and the property **accountDomain** value into a text editor for later use.
 
-1. Run the [Get-AzSpatialAnchorsAccountKey](/powershell/module/az.mixedreality/get-azspatialanchorsaccountkey) cmdlet to get your primary and secondary keys:
+1. Run the [Get-AzSpatialAnchorsAccountKey](/powershell/module/az.mixedreality/get-azmixedrealityspatialanchorsaccountkey) cmdlet to get your primary and secondary keys:
 
    ```azurepowershell-interactive
    Get-AzSpatialAnchorsAccountKey -ResourceGroup myResourceGroup -Name MySpatialAnchorsQuickStart
@@ -181,14 +181,14 @@ Install-Module -Name Az.MixedReality
 
    Copy the key values into a text editor for later use.
 
-   If you need to regenerate keys, use the [New-AzSpatialAnchorsAccountKey](/powershell/module/az.mixedreality/new-azspatialanchorsaccountkey) cmdlet:
+   If you need to regenerate keys, use the [New-AzSpatialAnchorsAccountKey](/powershell/module/az.mixedreality/new-azmixedrealityspatialanchorsaccountkey) cmdlet:
 
    ```azurepowershell-interactive
    New-AzSpatialAnchorsAccountKey -ResourceGroupName myResourceGroup -Name MySpatialAnchorsQuickStart -Primary
    New-AzSpatialAnchorsAccountKey -ResourceGroupName myResourceGroup -Name MySpatialAnchorsQuickStart -Secondary
    ```
 
-You can delete an account by using the [Remove-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/remove-azspatialanchorsaccount) cmdlet:
+You can delete an account by using the [Remove-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/remove-azmixedrealityspatialanchorsaccount) cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzSpatialAnchorsAccount -ResourceGroup myResourceGroup -Name MySpatialAnchorsQuickStart

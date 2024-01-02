@@ -3,11 +3,15 @@ title: Configure Azure Automation Start/Stop VMs during off-hours
 description: This article tells how to configure the Start/Stop VMs during off-hours feature to support different use cases or scenarios.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/12/2021
+ms.date: 03/16/2023
 ms.topic: conceptual
+ms.custom: engagement-fy23
 ---
 
 # Configure Start/Stop VMs during off-hours
+
+> [!NOTE]
+> Start/Stop VM during off-hours version 1 is unavailable in the marketplace now as it will retire by 30 September 2023. We recommend you start using [version 2](../azure-functions/start-stop-vms/overview.md), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until 30 September 2023. The details of the announcement will be shared soon. 
 
 This article describes how to configure the [Start/Stop VMs during off-hours](automation-solution-vm-management.md) feature to support the described scenarios. You can also learn how to:
 
@@ -82,18 +86,20 @@ In an environment that includes two or more components on multiple VMs supportin
 
 1. Preview the action and make any necessary changes before implementing against production VMs. When ready, manually execute the **monitoring-and-diagnostics/monitoring-action-groupsrunbook** with the parameter set to **False**. Alternatively, let the Automation schedules **Sequenced-StartVM** and **Sequenced-StopVM** run automatically following your prescribed schedule.
 
-## <a name="cpuutil"></a>Scenario 3: Start or stop automatically based on CPU utilization
+## <a name="cpuutil"></a>Scenario 3: Stop automatically based on CPU utilization
 
 Start/Stop VMs during off-hours can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
 
-By default, the feature is pre-configured to evaluate the percentage CPU metric to see if average utilization is 5 percent or less. This scenario is controlled by the following variables and can be modified if the default values don't meet your requirements:
+By default, the feature is pre-configured to evaluate the percentage CPU metric to see if average utilization is 5 percent or less. This scenario is controlled by the following variables or parameters and can be modified if the default values don't meet your requirements:
 
-* `External_AutoStop_MetricName`
-* `External_AutoStop_Threshold`
-* `External_AutoStop_TimeAggregationOperator`
-* `External_AutoStop_TimeWindow`
-* `External_AutoStop_Frequency`
-* `External_AutoStop_Severity`
+|Parameter | Description|
+|----------|----------|
+|External_AutoStop_MetricName | This parameter specifies the name of the metric that will be used to trigger the auto-stop action. It could be a metric related to the VM's performance or resource usage.|
+|External_AutoStop_Threshold | This parameter sets the threshold value for the specified metric. When the metric value falls below this threshold, the auto-stop action will be triggered.|
+|External_AutoStop_TimeAggregationOperator | This parameter determines how the metric values will be aggregated over time. It could be an operator like "Average", "Minimum", or "Maximum".|
+|External_AutoStop_TimeWindow | This parameter defines the time window over which the metric values will be evaluated. It specifies the duration for which the metric values will be monitored before triggering the auto-stop action.|
+|External_AutoStop_Frequency | This parameter sets the frequency at which the metric values will be checked. It determines how often the auto-stop action will be evaluated based on the specified metric.|
+|External_AutoStop_Severity | This parameter specifies the severity level of the auto-stop action. It could be a value like "Low", "Medium", or "High" to indicate the importance or urgency of the action.|
 
 You can enable and target the action against a subscription and resource group, or target a specific list of VMs.
 
@@ -154,7 +160,7 @@ The feature allows you to add VMs to be targeted or excluded.
 
 There are two ways to ensure that a VM is included when the feature runs:
 
-* Each of the parent [runbooks](automation-solution-vm-management.md#runbooks) of the feature has a `VMList` parameter. You can pass a comma-separated list of VM names (without spaces) to this parameter when scheduling the appropriate parent runbook for your situation, and these VMs will be included when the feature runs.
+* Each of the parent runbooks of the feature has a `VMList` parameter. You can pass a comma-separated list of VM names (without spaces) to this parameter when scheduling the appropriate parent runbook for your situation, and these VMs will be included when the feature runs.
 
 * To select multiple VMs, set `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` with the resource group names that contain the VMs you want to start or stop. You can also set the variables to a value of `*` to have the feature run against all resource groups in the subscription.
 
@@ -177,6 +183,11 @@ Configuring the feature to just stop VMs at a certain time is supported. In this
 1. Select **Parameters and run settings** and set the **ACTION** field to **Stop**.
 
 1. Select **OK** to save your changes.
+
+
+## Create alerts
+
+Start/Stop VMs during off-hours doesn't include a predefined set of Automation job alerts. Review [Forward job data to Azure Monitor Logs](automation-manage-send-joblogs-log-analytics.md#azure-monitor-log-records) to learn about log data forwarded from the Automation account related to the runbook job results and how to create job failed alerts to support your DevOps or operational processes and procedures.
 
 ## Next steps
 

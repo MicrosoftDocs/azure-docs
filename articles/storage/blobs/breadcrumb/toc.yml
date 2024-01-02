@@ -1,0 +1,26 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Storage
+    tocHref: /azure/storage/
+    topicHref: /azure/storage/index
+    items: 
+    - name: Blobs
+      tocHref: /azure/storage/blobs/
+      topicHref: /azure/storage/blobs/storage-blobs-introduction
+    - name: Blobs
+      tocHref: /azure/storage/common/
+      topicHref: /azure/storage/blobs/storage-blobs-introduction
+    - name: Blobs
+      tocHref: /dotnet/azure/sdk/
+      topicHref: /azure/storage/blobs/storage-blobs-introduction
+    - name: Blobs
+      tocHref: /azure/developer/javascript/sdk/authentication/
+      topicHref: /azure/storage/blobs/storage-blobs-introduction
+    - name: Blobs
+      tocHref: /azure/developer/python/sdk/
+      topicHref: /azure/storage/blobs/storage-blobs-introduction
+    - name: Blobs
+      tocHref: /azure/developer/java/sdk/
+      topicHref: /azure/storage/blobs/storage-blobs-introduction

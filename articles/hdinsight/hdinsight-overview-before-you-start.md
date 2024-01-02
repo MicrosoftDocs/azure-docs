@@ -3,7 +3,7 @@ title: Before you start with Azure HDInsight
 description: In Azure HDInsight, few points to be considered before starting to create a cluster.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 10/16/2023
 ---
 
 # Consider the below points before starting to create a cluster.
@@ -17,9 +17,9 @@ HDInsight have two options to configure the databases in the clusters.
 1. Bring your own database (external)
 1. Default database (internal)
  
-During cluster creation, default configuration will use internal database. Once the cluster is created, customer can’t change the database type.  Hence, it's recommended to create and use the external database. You can create custom databases for Ambari, Hive, and Ranger.
+During cluster creation, default configuration uses internal database. Once the cluster is created, customer can’t change the database type.  Hence, it's recommended to create and use the external database. You can create custom databases for Ambari, Hive, and Ranger.
 
-For more information, see how to [Set up HDInsight clusters with a custom Ambari DB](/azure/hdinsight/hdinsight-custom-ambari-db)
+For more information, see how to [Set up HDInsight clusters with a custom Ambari DB](./hdinsight-custom-ambari-db.md)
           
 ## Keep your clusters up to date
 
@@ -29,7 +29,7 @@ As part of the best practices, we recommend you keep your clusters updated on re
 
 HDInsight release happens every 30 to 60 days. It's always good to move to the latest release as early possible. The recommended maximum duration for cluster upgrades is less than six months.
 
-For more information, see how to [Migrate HDInsight cluster to a newer version](/azure/hdinsight/hdinsight-upgrade-cluster)
+For more information, see how to [Migrate HDInsight cluster to a newer version](./hdinsight-upgrade-cluster.md)
 
 ## Next steps
 

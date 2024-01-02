@@ -5,9 +5,9 @@ description: Overview of gateway load balancer SKU for Azure Load Balancer.
 ms.service: load-balancer
 author: mbender-ms
 ms.author: mbender
-ms.date: 12/28/2021
+ms.date: 04/20/2023
 ms.topic: conceptual
-ms.custom: ignite-fall-2021
+ms.custom: template-concept, ignite-fall-2021, engagement-fy23
 ---
 
 # Gateway Load Balancer
@@ -65,7 +65,9 @@ Gateway Load Balancer consists of the following components:
 
 * **Tunnel interfaces** - Gateway Load balancer backend pools have another component called the tunnel interfaces. The tunnel interface enables the appliances in the backend to ensure network flows are handled as expected. Each backend pool can have up to two tunnel interfaces. Tunnel interfaces can be either internal or external. For traffic coming to your backend pool, you should use the external type. For traffic going from your appliance to the application, you should use the internal type.
 
-* **Chain** - A Gateway Load Balancer can be referenced by a Standard Public Load Balancer frontend or a Standard Public IP configuration on a virtual machine. The addition of advanced networking capabilities in a specific sequence is known as service chaining. As a result, this reference is called a chain.
+* **Chain** - A Gateway Load Balancer can be referenced by a Standard Public Load Balancer frontend or a Standard Public IP configuration on a virtual machine. The addition of advanced networking capabilities in a specific sequence is known as service chaining. As a result, this reference is called a chain. A Cross tenant chain involves chaining a Load Balancer frontend or Public IP configuration to a Gateway Load Balancer that is in another subscription. For cross tenant chaining, users need:
+    * Permission for the resource provider operation `Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action`.
+    * Guest access to the subscription of the Gateway Load Balancer.
 
 ## Pricing
 
@@ -75,8 +77,6 @@ For pricing, see [Load Balancer pricing](https://azure.microsoft.com/pricing/det
 
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
 * Cross-tenant chaining isn't supported through the Azure portal.
-* Gateway Load Balancer doesn't currently support IPv6
-* Currently, Gateway Load Balancer frontends configured in Portal will automatically be created as no-zone. To create a zone-redundant frontend, use an alternative client such as ARM/CLI/PS.
 
 ## Next steps
 

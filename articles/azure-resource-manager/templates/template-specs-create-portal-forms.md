@@ -1,23 +1,26 @@
 ---
 title: Create portal forms for template spec
-description: Learn how to create forms that are displayed in the Azure portal forms. Use the form to deploying a template spec 
+description: Learn how to create forms that are displayed in the Azure portal forms. Use the form to deploying a template spec
 ms.topic: tutorial
-ms.date: 11/02/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 11/15/2022
 ---
 
 # Tutorial: Create Azure portal forms for a template spec
 
-To help users deploy a [template spec](template-specs.md), you can create a form that is displayed in the Azure portal. The form lets users provide values that are passed to the template spec as parameters.
+You can create a form that appears in the Azure portal to assist users in deploying a [template spec](template-specs.md). The form allows users to enter values that are passed as parameters to the template spec.
 
 When you create the template spec, you package the form and Azure Resource Manager template (ARM template) together. Deploying the template spec through the portal automatically launches the form.
 
-:::image type="content" source="./media/template-specs-create-portal-forms/view-portal.png" alt-text="Screenshot of form to provide values for template spec":::
+The following screenshot shows a form opened in the Azure portal.
+
+:::image type="content" source="./media/template-specs-create-portal-forms/view-portal.png" alt-text="Screenshot of Azure portal form for providing values to a template spec.":::
 
 ## Prerequisites
 
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-For Azure PowerShell, use [version 6.0.0 or later](/powershell/azure/install-az-ps). For Azure CLI, use [version 2.24.0 or later](/cli/azure/install-azure-cli).
+For Azure PowerShell, use [version 6.0.0 or later](/powershell/azure/install-azure-powershell). For Azure CLI, use [version 2.24.0 or later](/cli/azure/install-azure-cli).
 
 ## Create template
 
@@ -109,10 +112,10 @@ Copy this file and save it locally. This tutorial assumes you've named it **keyv
     },
     "skuName": {
       "type": "string",
-      "defaultValue": "Standard",
+      "defaultValue": "standard",
       "allowedValues": [
-        "Standard",
-        "Premium"
+        "standard",
+        "premium"
       ],
       "metadata": {
         "description": "Specifies whether the key vault is a standard vault or a premium vault."
@@ -125,7 +128,7 @@ Copy this file and save it locally. This tutorial assumes you've named it **keyv
       }
     },
     "secretValue": {
-      "type": "securestring",
+      "type": "secureString",
       "metadata": {
         "description": "Specifies the value of the secret that you want to create."
       }
@@ -134,7 +137,7 @@ Copy this file and save it locally. This tutorial assumes you've named it **keyv
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2019-09-01",
+      "apiVersion": "2022-07-01",
       "name": "[parameters('keyVaultName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -164,9 +167,8 @@ Copy this file and save it locally. This tutorial assumes you've named it **keyv
     },
     {
       "type": "Microsoft.KeyVault/vaults/secrets",
-      "apiVersion": "2019-09-01",
-      "name": "[concat(parameters('keyVaultName'), '/', parameters('secretName'))]",
-      "location": "[parameters('location')]",
+      "apiVersion": "2022-07-01",
+      "name": "[format('{0}/{1}', parameters('keyVaultName'), parameters('secretName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"
       ],
@@ -180,114 +182,134 @@ Copy this file and save it locally. This tutorial assumes you've named it **keyv
 
 ## Create default form
 
-The Azure portal provides a sandbox for creating and previewing forms. This sandbox can generate a form from an existing ARM template. You'll use this default form to get started with creating a form for your template spec.
+The Azure portal provides a sandbox for creating and previewing forms. This sandbox can render a form from an existing ARM template. You'll use this default form to get started with creating a form for your template spec. For more information about the form structure, see [FormViewType](https://github.com/Azure/portaldocs/blob/main/portal-sdk/generated/dx-view-formViewType.md).
 
 1. Open the [Form view sandbox](https://aka.ms/form/sandbox).
 
-1. Set **Package Type** to **CustomTemplate**.
+    :::image type="content" source="./media/template-specs-create-portal-forms/deploy-template-spec-config.png" alt-text="Screenshot of Azure portal form view sandbox interface.":::
 
-   :::image type="content" source="./media/template-specs-create-portal-forms/package-type.png" alt-text="Screenshot of setting package type to custom template":::
+1. In **Package Type**, select **CustomTemplate**. Make sure you select the package type before specify deployment template.
+1. In **Deployment template (optional)**, select the key vault template you saved locally. When prompted if you want to overwrite current changes, select **Yes**. The autogenerated form is displayed in the code window. The form is editable from the portal. To customize the form, see [customize form](#customize-form).
+    If you look closely into the autogenerated form, the default title is called **Test Form View**, and there's only one step called **basics** defined.
 
-1. Select the icon to open an existing template.
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2021-09-09/uiFormDefinition.schema.json",
+      "view": {
+        "kind": "Form",
+        "properties": {
+          "title": "Test Form View",
+          "steps": [
+            {
+              "name": "basics",
+              "label": "Basics",
+              "elements": [
+                ...
+              ]
+            }
+          ]
+        },
+        "outputs": {
+          ...
+        }
+      }
+    }
+    ```
 
-   :::image type="content" source="./media/template-specs-create-portal-forms/open-template.png" alt-text="Screenshot of icon to open file":::
+1. To see that works it without any modifications, select **Preview**.
 
-1. Navigate to the key vault template you saved locally. Select it and select **Open**.
-1. When prompted if you want to overwrite current changes, select **Yes**.
-1. The autogenerated form is displayed in the code window. To see that works it without any modifications, select **Preview**.
+    :::image type="content" source="./media/template-specs-create-portal-forms/view-portal-basic.png" alt-text="Screenshot of the generated basic Azure portal form.":::
 
-   :::image type="content" source="./media/template-specs-create-portal-forms/preview-form.png" alt-text="Screenshot of selecting preview":::
+    The sandbox displays the form. It has fields for selecting a subscription, resource group, and region. It also fields for all of the parameters from the template.
 
-1. The sandbox displays the form. It has fields for selecting a subscription, resource group, and region. It also fields for all of the parameters from the template.
+    Most of the fields are text boxes, but some fields are specific for the type of parameter. When your template includes allowed values for a parameter, the autogenerated form uses a drop-down element. The drop-down element is pre-populated with the allowed values.
 
-   Most of the fields are text boxes, but some fields are specific for the type of parameter. When your template includes allowed values for a parameter, the autogenerated form uses a drop-down element. The drop-down element is prepopulated with the allowed values.
+    In between the title and **Project details**, there are no tabs because the default form only has one step defined.  In the **Customize form** section, you'll break the parameters into multiple tabs.
 
-   > [!WARNING]
-   > Don't select **Create** as it will launch a real deployment. You'll have a chance to deploy the template spec later in this tutorial.
+    > [!WARNING]
+    > Don't select **Create** as it will launch a real deployment. You'll have a chance to deploy the template spec later in this tutorial.
+
+1. To exit from the preview, select **Cancel**.
 
 ## Customize form
 
 The default form is a good starting point for understanding forms but usually you'll want to customize it. You can edit it in the sandbox or in Visual Studio Code. The preview option is only available in the sandbox.
 
-1. Let's set the correct schema. Replace the schema text with:
-
-   ::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform.json" range="1-2" highlight="2" :::
-
 1. Give the form a **title** that describes its use.
 
-   ::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform.json" range="1-6" highlight="6" :::
+    ::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform.json" range="1-6" highlight="6" :::
 
-1. Your default form had all of the fields for your template combined into one step called **Basics**. To help users understand the values they're providing, divide the form into steps. Each step contains fields related to a logical part of the solution to deploy.
+1. Your default form had all of the fields for your template combined into one step called **Basics**. To help users to understand the values they're providing, divide the form into steps. Each step contains fields related to a logical part of the solution to deploy.
 
-   Find the step labeled **Basics**. You'll keep this step but add steps below it. The new steps will focus on configuring the key vault, setting user permissions, and specifying the secret. Make sure you add a comma after the basics step.
+    Find the step labeled **Basics**. You'll keep this step but add steps below it. The new steps will focus on configuring the key vault, setting user permissions, and specifying the secret. Make sure you add a comma after the basics step.
 
-   ::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/steps.json" highlight="15-32" :::
+    ::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/steps.json" highlight="15-32" :::
 
-   > [!IMPORTANT]
-   > Properties in the form are case-sensitive. Make sure you use the casing shown in the examples.
+    > [!IMPORTANT]
+    > Properties in the form are case-sensitive. Make sure you use the casing shown in the examples.
 
 1. Select **Preview**. You'll see the steps, but most of them don't have any elements.
 
-   :::image type="content" source="./media/template-specs-create-portal-forms/view-steps.png" alt-text="Screenshot of form steps":::
+    :::image type="content" source="./media/template-specs-create-portal-forms/view-steps.png" alt-text="Screenshot of Azure portal form with multiple steps.":::
 
 1. Now, move elements to the appropriate steps. Start with the elements labeled **Secret Name** and **Secret Value**. Remove these elements from the **Basics** step and add them to the **Secret** step.
 
-   ```json
-   {
-     "name": "secret",
-     "label": "Secret",
-     "elements": [
-	   {
-         "name": "secretName",
-         "type": "Microsoft.Common.TextBox",
-         "label": "Secret Name",
-         "defaultValue": "",
-         "toolTip": "Specifies the name of the secret that you want to create.",
-         "constraints": {
-           "required": true,
-           "regex": "",
-           "validationMessage": ""
-         },
-         "visible": true
-       },
-       {
-         "name": "secretValue",
-         "type": "Microsoft.Common.PasswordBox",
-         "label": {
-           "password": "Secret Value",
-           "confirmPassword": "Confirm password"
-         },
-         "toolTip": "Specifies the value of the secret that you want to create.",
-         "constraints": {
-           "required": true,
-           "regex": "",
-           "validationMessage": ""
-         },
-         "options": {
-           "hideConfirmation": true
-         },
-         "visible": true
-       }
-     ]
-   }
-   ```
+    ```json
+    {
+      "name": "secret",
+      "label": "Secret",
+      "elements": [
+      {
+          "name": "secretName",
+          "type": "Microsoft.Common.TextBox",
+          "label": "Secret Name",
+          "defaultValue": "",
+          "toolTip": "Specifies the name of the secret that you want to create.",
+          "constraints": {
+            "required": true,
+            "regex": "",
+            "validationMessage": ""
+          },
+          "visible": true
+        },
+        {
+          "name": "secretValue",
+          "type": "Microsoft.Common.PasswordBox",
+          "label": {
+            "password": "Secret Value",
+            "confirmPassword": "Confirm password"
+          },
+          "toolTip": "Specifies the value of the secret that you want to create.",
+          "constraints": {
+            "required": true,
+            "regex": "",
+            "validationMessage": ""
+          },
+          "options": {
+            "hideConfirmation": true
+          },
+          "visible": true
+        }
+      ]
+    }
+    ```
 
 1. When you move elements, you need to fix the `outputs` section. Currently, the outputs section references those elements as if they were still in the basics step. Fix the syntax so it references the elements in the `secret` step.
 
-   ```json
-   "outputs": {
-     "parameters": {
-       ...
-       "secretName": "[steps('secret').secretName]",
-       "secretValue": "[steps('secret').secretValue]"
-     }
-   ```
+    ```json
+    "outputs": {
+      "parameters": {
+        ...
+        "secretName": "[steps('secret').secretName]",
+        "secretValue": "[steps('secret').secretValue]"
+      }
+    ```
 
 1. Continue moving elements to the appropriate steps. Rather than go through each one, take a look at the updated form.
 
-   ::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform.json" :::
+    ::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform.json" :::
 
-Save this file locally with the name **keyvaultform.json**.
+1. Save this file locally with the name **keyvaultform.json**.
 
 ## Create template spec
 
@@ -321,7 +343,7 @@ az ts create \
 
 To test the form, go to the portal and navigate to your template spec. Select **Deploy**.
 
-:::image type="content" source="./media/template-specs-create-portal-forms/deploy-template-spec.png" alt-text="Screenshot of template spec overview with deploy option":::
+:::image type="content" source="./media/template-specs-create-portal-forms/deploy-template-spec.png" alt-text="Screenshot of Azure template spec overview with deploy option highlighted.":::
 
 You'll see the form you created. Go through the steps and provide values for the fields.
 
@@ -383,7 +405,7 @@ az ts create \
 
 Redeploy your template spec with the improved portal form.
 
-:::image type="content" source="./media/template-specs-create-portal-forms/view-portal.png" alt-text="Screenshot of form to provide values for template spec":::
+:::image type="content" source="./media/template-specs-create-portal-forms/view-portal.png" alt-text="Screenshot of Azure portal form for providing values to a template spec.":::
 
 Notice that your permission fields are now drop-down that allow multiple values.
 

@@ -1,13 +1,15 @@
 ---
 title: 'Scale and manage custom skill'
-titleSuffix: Azure Cognitive Search
-description: Learn the tools and techniques for efficiently scaling out a custom skill for maximum throughput. Custom skills invoke custom AI models or logic that you can add to an AI-enriched indexing pipeline in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Learn the tools and techniques for efficiently scaling out a custom skill for maximum throughput. Custom skills invoke custom AI models or logic that you can add to an AI-enriched indexing pipeline in Azure AI Search.
 
-author: LiamCavanagh
-ms.author: liamca
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 12/01/2022
 ---
 
 # Efficiently scale out a custom skill
@@ -101,5 +103,5 @@ Congratulations! Your custom skill is now scaled right to maximize throughput on
 
 + [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
-+ [Add a Azure Machine Learning skill](./cognitive-search-aml-skill.md)
++ [Add an Azure Machine Learning skill](./cognitive-search-aml-skill.md)
 + [Use debug sessions to test changes](./cognitive-search-debug-session.md)

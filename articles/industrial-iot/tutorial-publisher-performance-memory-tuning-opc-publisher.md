@@ -1,8 +1,8 @@
 ---
 title: Microsoft OPC Publisher Performance and Memory Tuning
 description: In this tutorial, you learn how to tune the performance and memory of the OPC Publisher.
-author: jehona-m
-ms.author: jemorina
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
@@ -16,34 +16,113 @@ In this tutorial, you learn how to:
 > * Adjust the performance
 > * Adjust the message flow to the memory resources
 
-When running OPC Publisher in production setups, network performance requirements (throughput and latency) and memory resources must be considered. OPC Publisher exposes the following command-line parameters to help meet these requirements:
+## Definitions
 
-* Message queue capacity (`mq` for version 2.5 and below, not available in version 2.6, `om` for version 2.7)
-* IoT Hub send interval (`si`)
-* IoT Hub message size (`ms`)
+### Data value changes
+An OPC UA node is exposing a value reflecting a measurement of a sensor. If the value of the sensor changes, the OPC UA node value changes. This tutorial refers to it as data value change. An OPC UA server does track the time when the data change happened and reports it as `SourceTimestamp` upstream with the new value. The time base of this timestamp is either from the OPC UA server itself or provided by a downstream system like a PLC or sensor. The OPC UA specification says: "The sourceTimestamp should be generated as close as possible to the source of the value but the timestamp needs to be set always by the same physical clock."
 
-## Adjusting IoT Hub send interval and IoT Hub message size
+### Data change notifications
+OPC Publisher does establish a session to an OPC UA server and creates subscriptions to monitor data value changes of OPC UA nodes. Depending on configuration settings, the OPC UA server notifies OPC Publisher and reports data value changes. Those data change notifications might contain more than one data value change.
 
-The `mq/om` parameter controls the upper limit of the capacity of the internal message queue. This queue buffers all messages before they are sent to IoT Hub. The default size of the queue is up to 2 MB for OPC Publisher version 2.5 and below and 4000 IoT Hub messages for version 2.7 (that is, if the setting for the IoT Hub message size is 256 KB, the size of the queue will be up to 1 GB). If OPC Publisher is not able to send messages to IoT Hub fast enough, the number of items in this queue increases. If this happens during test runs, one or both of the following can be done to mitigate:
+### Telemetry event
+A telemetry event is an event, which is sent to the cloud. Depending on the messaging mode configured in OPC Publisher (`--mm`) this event will contain:
+- for Samples mode (`--mm=Samples`): one data value change
+- for PubSub mode (`--mm=PubSub`): all data value changes in a data change notification
 
-* decrease the IoT Hub send interval (`si`)
+### Latency
+Latency in the context of this tutorial is the time difference between the `SourceTimestamp` of a data value change and when the corresponding telemetry event is queued in IoT Hub.
 
-* increase the IoT Hub message size (`ms`, the maximum this can be set to is 256 KB). In version 2.7 or later the default value is already set to 256 KB.
+## Telemetry event creation
+A telemetry event emitted by OPC Publisher is triggered by data value change of a node value in an OPC UA Server. OPC Publisher does use OPC UA subscriptions to get notifications of those changes. The OPC UA subscription mechanism can be configured via a few parameters, which control the timing and content of those notifications. These settings can be configured in OPC Publisher via a JSON configuration file as well via a Direct Method API (only version 2.8.2 and above). The settings supported by OPC Publisher are per OPC UA node are:
+* Sampling interval
+* Publishing interval
+* Queue size
+* Heartbeat interval
 
-If the queue keeps growing even though the `si` and `ms` parameters have been adjusted, eventually the maximum queue capacity will be reached and messages will be lost. This is due to the fact that both the `si` and `ms` parameter have physical limits and the Internet connection between OPC Publisher and IoT Hub is not fast enough for the number of messages that must be sent in a given scenario. In that case, only setting up several, parallel OPC Publishers will help. The `mq/om` parameter also has the biggest impact on the memory consumption by OPC Publisher. 
+The [section](https://reference.opcfoundation.org/Core/Part4/v104/5.12.1/) of the OPC UA Specification describes which affect sampling interval and queue size have on the notifications. The timing is controlled by the publishing interval, it specifies the interval in which notifications will be reported by the OPC UA server to OPC Publisher. The Publishing Interval is a parameter set during the [subscription creation process](https://reference.opcfoundation.org/Core/Part4/v104/5.13.2/).
 
-The `si` parameter forces OPC Publisher to send messages to IoT Hub at the specified interval. A message is sent either when the maximum IoT Hub message size of 256 KB of data is available (triggering the send interval to reset) or when the specified interval time has passed.
+OPC UA servers are often handling higher priority tasks like controlling machinery. For this reason the settings above are sent to the OPC UA server, which may return revised values in case the OPC UA server doesn't want to support the requested value.
 
-The `ms` parameter enables batching of messages sent to IoT Hub. In most network setups, the latency of sending a single message to IoT Hub is high, compared to the time it takes to transmit the payload. This is mainly due to Quality of Service (QoS) requirements, since messages are acknowledged only once they have been processed by IoT Hub). Therefore, if a delay for the data to arrive at IoT Hub is acceptable, OPC Publisher should be configured to use the maximal message size of 256 KB by setting the `ms` parameter to 0. It is also the most cost-effective way to use OPC Publisher.
+For OPC UA node values, which don't change their value at all, OPC Publisher supports configuration of a heartbeat interval. The heartbeat interval can be configured similar as the other settings for a node, but isn't part of the OPC UA specification. The configuration of the heartbeat interval might be useful for certain scenarios, which involve time series databases to populate the time series with actual telemetry events. Starting with OPC Publisher v2.8.2 the Heartbeat Interval must be a multiple of the Publishing Interval of the OPC UA node, due to the internal implementation. The SourceTimestamp of a telemetry event generated by the heartbeat implementation will be updated with the OPC UA server time when the heartbeat triggers.
 
-In version 2.5 the default configuration sends data to IoT Hub every 10 seconds (`si=10`) or when 256 KB of IoT Hub message data is available (`ms=0`). This adds a maximum delay of 10 seconds, but has low probability of losing data because of the large message size. In version 2.7 or later the default configuration is 500 ms for orchestrated mode and 0 for standalone mode (no send interval). The metric `monitored item notifications enqueue failure`  in OPC Publisher version 2.5 and below and `messages lost` in OPC Publisher version 2.7 shows how many messages were lost.
 
-When both `si` and `ms` parameters are set to 0, OPC Publisher sends a message to IoT Hub as soon as data is available. This results in an average IoT Hub message size of just over 200 bytes. However, the advantage of this configuration is that OPC Publisher sends the data from the connected asset without delay. The number of lost messages will be high for use cases where a large amount of data must be published and hence this is not recommended for these scenarios.
+## OPC Publisher command line options impacting latency, performance and cost
 
-To measure the performance of OPC Publisher,  the `di` parameter can be used to print performance metrics to the trace log in the interval specified (in seconds).
+To run OPC Publisher in production, network performance requirements (throughput and latency) and memory resources must be considered. OPC Publisher exposes the following command-line options to help adjust these requirements:
+
+* Message queue capacity `--mq` (or `--monitoreditemqueuecapacity`) for version 2.5 and below (default: 8192), not available in version 2.6, `--om` (or `--maxoutgressmessages`) for version 2.7 and higher (default: 4096): Configures the internal buffer used to buffer telemetry events. If OPC Publisher can't send telemetry events fast enough, then it will  buffer them. This option configures how large this buffer will be. In version 2.5 and below this option specifies how many telemetry events can be buffered, whereas in versions 2.7 a higher it specifies it as number of IoT Hub messages.
+  
+* Send interval `--si` or `--iothubsendinterval` (in seconds, default: 10). This option configures the interval after which all telemetry events available will be sent. Whenever a message is sent, the send interval timer will be reset. If the send interval is set to 0, this send trigger mechanism is disabled. In version 2.7 or higher `--BatchTriggerInterval` (in .NET TimeSpan format converted to seconds, default: 00:00:10) does have the similar effect.
+  
+* Message size `--ms` or `--iothubmessagesize` for version 2.5 and below or in version 2.7 and higher additionally `--IoTHubMaxMessageSize` (in byte, default: 256*1024).
+  
+* Batch size for version 2.8.2 and higher `--bs` or `batchsize` or `--BatchSize` (default: 50): Configures a send trigger by specifying how many notifications OPC Publisher will receive from the configured OPC UA subscriptions (one notification may contain multiple data change events). Even with batch size set to 1, an IoT Hub message can contain multiple data value changes.
+
+## Latency considerations
+
+What is typically seen as latency is the time difference between the `iothub-enqueuedtime` of the [device to cloud message](/azure/iot-hub/iot-hub-devguide-messages-construct) and the `SourceTimestamp` field of an OPC UA telemetry event. There are multiple factors, which contribute to the latency:
+* The `SourceTimestamp` of the OPC UA telemetry event is a value [defined by the OPC UA Specification](https://reference.opcfoundation.org/Core/Part4/v104/7.7.3/) as to be as close to the source of the value. The origin of `SourceTimestamp` is highly dependent on the setup between sensor and OPC UA server. Independent from the setup, it's important to ensure that the time source is synchronized precisely otherwise the latency calculation will be not correct.
+* It's important that the systems and interconnection between the sensor and the IoT Edge host system where OPC Publisher runs is stable and doesn't introduce latency.
+* The configuration of the OPC UA nodes to publish and the effect of OPC Publisher command line options on latency will be discussed below.
+* OPC Publisher sends messages via IoT Edge edgeHub to IoT Hub. The latency added by internal communication is typically low. 
+* Finally the network connectivity to the IoT Hub cloud service adds latency. It must be ensured that the network connection is stable otherwise it will lead to outliers in the telemetry event latency.
+
+### Effect of the node publishing interval
+
+Data value changes of an OPC UA node are reported to OPC Publisher in an interval, which can be configured at a node level. For a data value of a node, this means the maximum latency introduced is lower than the configured publishing interval. Since the actual latency of a node is dependent of the timing of the actual value change, the introduced latency isn't constant, but has an upper limit of the configured publishing interval of the node.
+
+### Effect of the node heartbeat interval
+
+Creation of telemetry events triggered by the heartbeat interval setting is done in OPC Publisher. It still does use the `SourceTimestamp` of the OPC UA server in the telemetry event. The heartbeat interval can introduce latency (similar as the publishing interval), which has an upper limit of the heartbeat interval. In case the OPC UA node value does never change, then the latency introduced won't change and is equal to the configured heartbeat interval.
+
+### Effect of the Send interval command line option
+
+OPC Publisher's send interval configuration will trigger sending all queued telemetry events to IoT Hub. Depending on when OPC Publisher receives data change notifications, a maximum latency of the configured send interval could be introduced. It means that all data change notifications received in this period of time are batched. The configuration of the message size and batch size will still be active and can trigger sending all queued telemetry events to IoT Hub before the send interval has passed. In this case, the send interval timer will be reset.
+
+### Effect of the Batch size command line option
+
+This command line option triggers after OPC Publisher received the configured number of data change notifications (either from the OPC UA server because the publishing interval has passed or by internally created data change notifications due to the heartbeat configuration) and will be sending all queued telemetry events to IoT Hub. As pointed out earlier the notifications from the OPC UA server can contain multiple data change events, whereas the heartbeat created data change events count as one data change notification per node. The configuration of the message size and send interval will still be taken into account and can trigger sending all queued telemetry events to IoT Hub. In this case, the batch size counter will be reset. The batch size adds a nondeterministic latency depending on the node configuration.
+
+### Effect of the Message size command line option
+
+The message size option sets the maximum size of the message, which will be sent to IoT Hub. It doesn't add any latency, but controls how many messages will be created from the queued telemetry events when sending is triggered. If no other option is set, then this setting can trigger sending as well as soon the size of all queued telemetry events hit the message size.
+
+
+## Optimizations
+
+Depending on the requirements of the use case, volatility of the node values, OPC UA node configuration of the OPC Publisher and OPC Publisher command line options the system behaves differently. It's possible to use the OPC UA node configuration and the command line options to ensure the requirements of the use case are met.
+
+###  Optimizing for low latency
+The goal here's to minimize the difference between the enqueued time of a telemetry event and the corresponding `SourceTimestamp` of the data value change. To achieve this goal the publishing interval or heartbeat interval of this node should be minimized taking the maximal accepted latency into account. Additionally the send interval (`--si`) should set to 0 and the batch size (`--bs`) should be set to 1.
+Those settings will have the effect that a data value change will be sent as telemetry event to the cloud as soon as OPC Publisher get notified about it.
+
+### Optimizing to minimize number of cloud messages and maximize throughput
+To minimize the number of messages being send to the cloud, the payload of each message sent must be maximized. The `--ms` command line option defaults to the maximal value (256*1024). Removing other send triggers will ensure that a message is only sent when the message size is hit. Setting the send interval `--si` to 0 and the batch size `--bs` option to 262144 enables using the message size to trigger sending a message to the cloud.
+
+Another side effect of this is that throughput is maximized due to the fact of how the time of sending a message to the cloud is made up. It consists of several parts:
+- Establish the connection if not already established
+- Send the payload
+- Wait for acknowledgment after IoT Hub has processed and stored the message
+Sending the payload is compared to the other parts (especially waiting for the acknowledgment) small. Given this fact it's faster to send one message with large payload than multiple messages with smaller payloads (where sum of the smaller payloads is equal to the large payload size). That means to maximize the payload size also maximizes the overall throughput.
+
+### Optimizing for low cost
+Minimizing the cost of the cloud ingest requires to understand how [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/) works. The ingested data is one part of the price and is counted in 4-KB blocks. Depending on the node configuration and data value change frequency the `--ms` parameter should be set to a multiple of 4096. 
+To tune the solution also for the required latency the send interval `--si` can be adjusted. The batch size `--bs` shouldn't trigger sending a message to IoT Hub and be set to 262144.
+
+## High load conditions
+OPC Publisher maintains an internal queue for all data change notifications. The `--mq` and `--om` parameter controls the upper limit of the capacity of this internal message queue. The queue buffers all messages before they're sent to IoT Hub. The default size of the queue is up to 2 MB for OPC Publisher version 2.5 and below and 4000 IoT Hub messages for version 2.7 (this will result in a queue size of 1 GB, if the setting for the IoT Hub message size is 256 KB). The `--mq` and `--om` parameter also has the biggest effect on the memory consumption by OPC Publisher. If OPC Publisher isn't able to send messages to IoT Hub fast enough, the number of items in this queue increases until it hits its size limit. If this happens, one or both of the following can be done to mitigate:
+* decrease the IoT Hub send interval `--si`
+* increase the IoT Hub message size `--ms`
+
+If the queue keeps growing even though the `--si` and `--ms` have been adjusted and the queue capacity will be reached, messages will be discarded. The reason can be that the time it takes to send a message to IoT Hub doesn't provide the required throughput. Since this time is made up of multiple parts to understand if there's a bottleneck several areas should be validated:
+- Validation that the IoT Edge host network connection to the IoT Hub is stable and has low latency.
+- Validation that the modules running in IoT Edge (OPC Publisher, edgeHub, and others) don't hit any limits for CPU and memory consumption. Additionally use of the [IoT Edge metrics collector](/azure/iot-edge/how-to-collect-and-transport-metrics?tabs=iothub) can give insights on resource usage of the system.
+- Validation that the time to ingest a message from an IoT Edge module not using any OPC UA data does meet expectations even with active workload.
+
+If the capacity of the internal message queue is used and there are still incoming notifications from the OPC UA server, data change notifications will be discarded. The diagnostics output will show the number of discarded messages.
 
 ## Next steps
-Now that you have learned how to tune the performance and memory of the OPC Publisher, you can check out the OPC Publisher GitHub repository for further resources:
+Now that you've learned how to tune the performance and memory of the OPC Publisher, you can check out the OPC Publisher GitHub repository for further resources:
 
 > [!div class="nextstepaction"]
 > [OPC Publisher GitHub repository](https://github.com/Azure/Industrial-IoT)

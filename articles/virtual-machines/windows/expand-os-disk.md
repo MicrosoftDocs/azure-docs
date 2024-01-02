@@ -3,12 +3,11 @@ title: Expand virtual hard disks attached to a Windows VM in an Azure
 description: Expand the size of the virtual hard disks attached to a virtual machine using Azure PowerShell in the Resource Manager deployment model.
 author: kirpasingh
 manager: roshar
-ms.service: storage
+ms.service: azure-disk-storage
 ms.collection: windows
 ms.topic: article
-ms.date: 09/08/2022
+ms.date: 07/12/2023
 ms.author: kirpas
-ms.subservice: disks
 ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
 ---
 # How to expand virtual hard disks attached to a Windows virtual machine
@@ -16,6 +15,9 @@ ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 When you create a new virtual machine (VM) in a resource group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default operating system (OS) disk is usually 127 GiB (some images have smaller OS disk sizes by default). You can add data disks to your VM (the amount depends on the VM SKU you selected) and we recommend installing applications and CPU-intensive workloads on data disks. You may need to expand the OS disk if you're supporting a legacy application that installs components on the OS disk or if you're migrating a physical PC or VM from on-premises that has a larger OS disk. This article covers expanding either OS disks or data disks.
+
+An OS disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, create and attach data disks and use them for data storage. If you need to store data on the OS disk and require the additional space, [convert it to GUID Partition Table](/windows-server/storage/disk-management/change-an-mbr-disk-into-a-gpt-disk) (GPT). To learn about the differences between MBR and GPT on Windows deployments, see [Windows and GPT FAQ](/windows-hardware/manufacture/desktop/windows-and-gpt-faq).
+
 
 > [!IMPORTANT]
 > Unless you use [Expand without downtime](#expand-without-downtime), expanding a data disk requires the VM to be deallocated.
@@ -26,7 +28,7 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 
 ## Expand without downtime
 
-You can now expand your data disks without deallocating your VM.
+You can expand data disks without deallocating your VM. The host cache setting of your disk doesn't change whether or not you can expand a data disk without deallocating your VM.
 
 This feature has the following limitations:
 
@@ -150,6 +152,30 @@ When you've expanded the disk for the VM, you need to go into the OS and expand 
 1. Follow the steps you should be able to see the disk with updated capacity:
 
     :::image type="content" source="media/expand-os-disk/disk-mgr-3.png" alt-text="Screenshot showing the larger C: volume in Disk Manager.":::
+
+## Expanding without downtime classic VM SKU support
+
+If you're using a classic VM SKU, it might not support expanding disks without downtime.
+
+Use the following PowerShell script to determine which VM SKUs it's available with:
+
+```azurepowershell
+Connect-AzAccount
+$subscriptionId="yourSubID"
+$location="desiredRegion"
+Set-AzContext -Subscription $subscriptionId
+$vmSizes=Get-AzComputeResourceSku -Location $location | where{$_.ResourceType -eq 'virtualMachines'}
+
+foreach($vmSize in $vmSizes){
+    foreach($capability in $vmSize.Capabilities)
+    {
+       if(($capability.Name -eq "EphemeralOSDiskSupported" -and $capability.Value -eq "True") -or ($capability.Name -eq "PremiumIO" -and $capability.Value -eq "True") -or ($capability.Name -eq "HyperVGenerations" -and $capability.Value -match "V2"))
+        {
+            $vmSize.Name
+       }
+   }
+}
+```
 
 ## Next steps
 

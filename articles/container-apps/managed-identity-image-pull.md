@@ -2,11 +2,12 @@
 title: Azure Container Apps image pull from Azure Container Registry with managed identity
 description: Set up Azure Container Apps to authenticate Azure Container Registry image pulls with managed identity
 services: container-apps
-author: cebundy
+author: v-jaswel
 ms.service: container-apps
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/16/2022
-ms.author: v-bcatherine
+ms.author: v-wellsjason
 zone_pivot_groups: container-apps-interface-types
 ---
 
@@ -93,7 +94,15 @@ Create a container app revision with a private image and the system-assigned man
 1. Select **Save**.
 1. Select **Create** from the **Create and deploy new revision** page.
 
-A new revision will be created and deployed.  The portal will automatically attempt to add the `acrpull` role to the user-assigned managed identity.  If the role isn't added, you can add it manually.
+A new revision will be created and deployed.  The portal will automatically attempt to add the `acrpull` role to the user-assigned managed identity.  If the role isn't added, you can add it manually.  
+
+You can verify that the role was added by checking the identity from the **Identity** pane of the container app page.
+
+1. Select **Identity** from the left menu.
+1. Select the **User assigned** tab.
+1. Select the user-assigned managed identity.
+1. Select **Azure role assignments** from the menu on the managed identity resource page.
+1. Verify that the `acrpull` role is assigned to the user-assigned managed identity.
 
 ### Clean up resources
 
@@ -172,6 +181,15 @@ Edit the container to use the image from your private Azure Container Registry, 
 1. Select **Create** at the bottom of the **Create and deploy new revision** page
 1. After a few minutes, select **Refresh**  on the **Revision management** page to see the new revision.
 
+A new revision will be created and deployed.  The portal will automatically attempt to add the `acrpull` role to the system-assigned managed identity.  If the role isn't added, you can add it manually.  
+
+You can verify that the role was added by checking the identity in the **Identity** pane of the container app page.
+
+1. Select **Identity** from the left menu.
+1. Select the **System assigned** tab.
+1. Select **Azure role assignments**.
+1. Verify that the `acrpull` role is assigned to the system-assigned managed identity.
+
 ### Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
@@ -196,7 +214,7 @@ This article describes how to configure your container app to use managed identi
 |--------------|-------------|
 | Azure account | An Azure account with an active subscription. If you don't have one, you can  [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine. |
-| Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-az-ps) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
+| Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
 |Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)|
 
 ## Setup
@@ -435,7 +453,7 @@ Create your container app with your image from the private registry authenticate
 
 # [Azure CLI](#tab/azure-cli)
 
-Copy the identity's resource ID to paste into the *\<IDENTITY_ID\>* placeholders in the command below.
+Copy the identity's resource ID to paste into the *\<IDENTITY_ID\>* placeholders in the command below. If your image tag isn't `latest`, replace 'latest' with your tag.
 
 ```azurecli
 echo $IDENTITY_ID
@@ -557,9 +575,6 @@ New-AzContainerApp @AppArgs
 
 Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the Azure Container Registry pull.  You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.  
 
-If you are using an image tag other than `latest`, replace the `latest` value with your value.
-
-
 # [Azure CLI](#tab/azure-cli)
 
 Set the registry server and turn on system-assigned managed identity in the container app.
@@ -571,7 +586,6 @@ az containerapp registry set \
   --identity system \
   --server "$REGISTRY_NAME.azurecr.io"
 ```
-
 
 ```azurecli
 az containerapp update \

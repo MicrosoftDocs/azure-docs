@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Cosmos DB for NoSQL and .NET
+title: Get started with Azure Cosmos DB for NoSQL using .NET
 description: Get started developing a .NET application that works with Azure Cosmos DB for NoSQL. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for NoSQL endpoint.
 author: seesharprun
 ms.author: sidandrews
@@ -8,10 +8,10 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey, devx-track-azurepowershell, devx-track-dotnet, devx-track-azurecli
 ---
 
-# Get started with Azure Cosmos DB for NoSQL and .NET
+# Get started with Azure Cosmos DB for NoSQL using .NET
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
@@ -21,10 +21,10 @@ This article shows you how to connect to Azure Cosmos DB for NoSQL using the .NE
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* Azure Cosmos DB for NoSQL account. [Create a API for NoSQL account](how-to-create-account.md).
-* [.NET 6.0 or later](https://dotnet.microsoft.com/download)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Azure Cosmos DB for NoSQL account. [Create a API for NoSQL account](how-to-create-account.md).
+- [.NET 6.0 or later](https://dotnet.microsoft.com/download)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
 ## Set up your project
 
@@ -50,11 +50,11 @@ dotnet build
 
 ## <a id="connect-to-azure-cosmos-db-sql-api"></a>Connect to Azure Cosmos DB for NoSQL
 
-To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three core ways to connect to a API for NoSQL account using the **CosmosClient** class:
+To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three core ways to connect to an API for NoSQL account using the **CosmosClient** class:
 
-* [Connect with a API for NoSQL endpoint and read/write key](#connect-with-an-endpoint-and-key)
-* [Connect with a API for NoSQL connection string](#connect-with-a-connection-string)
-* [Connect with Azure Active Directory](#connect-using-the-microsoft-identity-platform)
+- [Connect with a API for NoSQL endpoint and read/write key](#connect-with-an-endpoint-and-key)
+- [Connect with a API for NoSQL connection string](#connect-with-a-connection-string)
+- [Connect with Microsoft Entra ID](#connect-using-the-microsoft-identity-platform)
 
 ### Connect with an endpoint and key
 
@@ -197,7 +197,7 @@ export COSMOS_KEY="<cosmos-account-PRIMARY-KEY>"
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` and ``COSMOS_KEY`` environment variables as parameters.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/101-client-endpoint-key/Program.cs" id="endpoint_key" highlight="3-4":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/101-client-endpoint-key/Program.cs" id="endpoint_key" highlight="3-4":::
 
 ### Connect with a connection string
 
@@ -295,11 +295,11 @@ export COSMOS_CONNECTION_STRING="<cosmos-account-PRIMARY-CONNECTION-STRING>"
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_CONNECTION_STRING`` environment variable as the only parameter.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/102-client-connection-string/Program.cs" id="connection_string" highlight="3":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/102-client-connection-string/Program.cs" id="connection_string" highlight="3":::
 
-### Connect using the Microsoft Identity Platform
+### Connect using the Microsoft identity platform
 
-To connect to your API for NoSQL account using the Microsoft Identity Platform and Azure AD, use a security principal. The exact type of principal will depend on where you host your application code. The table below serves as a quick reference guide.
+To connect to your API for NoSQL account using the Microsoft identity platform and Microsoft Entra ID, use a security principal. The exact type of principal will depend on where you host your application code. The table below serves as a quick reference guide.
 
 | Where the application runs | Security principal
 |--|--|---|
@@ -325,7 +325,7 @@ dotnet build
 
 In your code editor, add using directives for ``Azure.Core`` and ``Azure.Identity`` namespaces.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/103-client-default-credential/Program.cs" id="using_identity_directives":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="using_identity_directives":::
 
 #### Create CosmosClient with default credential implementation
 
@@ -333,11 +333,11 @@ If you're testing on a local machine, or your application will run on Azure serv
 
 For this example, we saved the instance in a variable of type [``TokenCredential``](/dotnet/api/azure.core.tokencredential) as that's a more generic type that's reusable across SDKs.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/103-client-default-credential/Program.cs" id="credential":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="credential":::
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/103-client-default-credential/Program.cs" id="default_credential" highlight="4":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="default_credential" highlight="4":::
 
 #### Create CosmosClient with a custom credential implementation
 
@@ -345,25 +345,25 @@ If you plan to deploy the application out of Azure, you can obtain an OAuth toke
 
 For this example, we create a [``ClientSecretCredential``](/dotnet/api/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/104-client-secret-credential/Program.cs" id="credential" highlight="3-5":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/104-client-secret-credential/Program.cs" id="credential" highlight="3-5":::
 
-You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
+You can obtain the client ID, tenant ID, and client secret when you register an application in Microsoft Entra ID. For more information about registering Microsoft Entra applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/104-client-secret-credential/Program.cs" id="secret_credential" highlight="4":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/104-client-secret-credential/Program.cs" id="secret_credential" highlight="4":::
 
 ## Build your application
 
 As you build your application, your code will primarily interact with four types of resources:
 
-* The API for NoSQL account, which is the unique top-level namespace for your Azure Cosmos DB data.
+- The API for NoSQL account, which is the unique top-level namespace for your Azure Cosmos DB data.
 
-* Databases, which organize the containers in your account.
+- Databases, which organize the containers in your account.
 
-* Containers, which contain a set of individual items in your database.
+- Containers, which contain a set of individual items in your database.
 
-* Items, which represent a JSON document in your container.
+- Items, which represent a JSON document in your container.
 
 The following diagram shows the relationship between these resources.
 
@@ -390,15 +390,15 @@ The following guides show you how to use each of these classes to build your app
 
 ## See also
 
-* [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
-* [Samples](samples-dotnet.md)
-* [API reference](/dotnet/api/microsoft.azure.cosmos)
-* [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3)
-* [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
+- [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+- [Samples](samples-dotnet.md)
+- [API reference](/dotnet/api/microsoft.azure.cosmos)
+- [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
 
 ## Next steps
 
-Now that you've connected to a API for NoSQL account, use the next guide to create and manage databases.
+Now that you've connected to an API for NoSQL account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
 > [Create a database in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-database.md)

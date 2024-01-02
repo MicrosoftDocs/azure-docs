@@ -2,28 +2,29 @@
 title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.custom: devx-track-bicep
+ms.date: 11/03/2023
 ---
 
 # Data types in Bicep
 
-This article describes the data types supported in [Bicep](./overview.md).
+This article describes the data types supported in [Bicep](./overview.md). To define custom data types, see [User-defined data types](./user-defined-data-types.md).
 
 ## Supported types
 
 Within a Bicep, you can use these data types:
 
-* array
-* bool
-* int
-* object
-* secureObject - indicated by modifier in Bicep
-* secureString - indicated by modifier in Bicep
-* string
+* [array](#arrays)
+* [bool](#booleans)
+* [int](#integers)
+* [object](#objects)
+* [secureObject - indicated by decorator in Bicep](#secure-strings-and-objects)
+* [secureString - indicated by decorator     in Bicep](#secure-strings-and-objects)
+* [string](#strings)
 
 ## Arrays
 
-Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, an array can be declared in single line or multiple lines. Commas (`,`) are used between values in single-line declarations, but not used in multiple-line declarations,  You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires **Bicep version 0.7.4 or later**.
+Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, an array can be declared in single line or multiple lines. Commas (`,`) are used between values in single-line declarations, but not used in multiple-line declarations,  You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI version 0.7.X or higher](./install.md).
 
 ```bicep
 var multiLineArray = [
@@ -69,6 +70,22 @@ var exampleArray = [
 ]
 ```
 
+You get the following error when the index is out of bounds:
+
+```error
+The language expression property array index 'x' is out of bounds
+```
+
+To avoid this exception, you can use the [Or logical operator](./operators-logical.md#or-) as shown in the following example:
+
+```bicep
+param emptyArray array = []
+param numberArray array = [1, 2, 3]
+
+output foo bool = empty(emptyArray) || emptyArray[0] == 'bar'
+output bar bool = length(numberArray) >= 3 || numberArray[3] == 4
+```
+
 ## Booleans
 
 When specifying boolean values, use `true` or `false`. Don't surround the value with quotation marks.
@@ -91,7 +108,7 @@ Floating point, decimal or binary formats aren't currently supported.
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object can be declared in single line or multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but not used between properties for multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires **Bicep version 0.7.4 or later**.
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object can be declared in single line or multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but not used between properties for multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI version 0.7.X or higher](./install.md).
 
 ```bicep
 param singleLineObject object = {name: 'test name', id: '123-abc', isCurrent: true, tier: 1}
@@ -159,6 +176,24 @@ output accessorResult string = environmentSettings['dev'].name
 
 [!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
+You will get the following error when accessing an nonexisting property of an object:
+
+```error
+The language expression property 'foo' doesn't exist
+```
+
+To avoid the exception, you can use the [And logical operator](./operators-logical.md#and-) as shown in the following example:
+
+```bicep
+param objectToTest object = {
+  one: 1
+  two: 2
+  three: 3
+}
+
+output bar bool = contains(objectToTest, 'four') && objectToTest.four == 4
+```
+
 ## Strings
 
 In Bicep, strings are marked with singled quotes, and must be declared on a single line. All Unicode characters with code points between *0* and *10FFFF* are allowed.
@@ -196,7 +231,9 @@ In Bicep, multi-line strings are defined between three single quote characters (
 
 > [!NOTE]
 > Because the Bicep parser reads all characters as is, depending on the line endings of your Bicep file, newlines can be interpreted as either `\r\n` or `\n`.
-> Interpolation is not currently supported in multi-line strings.
+>
+> Interpolation is not currently supported in multi-line strings. Due to this limitation, you may need to use the [`concat`](./bicep-functions-string.md#concat) function instead of use [interpolation](#strings).
+>
 > Multi-line strings containing `'''` are not supported.
 
 ```bicep
@@ -227,13 +264,13 @@ comments // are included
 
 // evaluates to "interpolation\nis ${blocked}"
 // note ${blocked} is part of the string, and is not evaluated as an expression
-myVar6 = '''interpolation
+var myVar6 = '''interpolation
 is ${blocked}'''
 ```
 
 ## Secure strings and objects
 
-Secure string uses the same format as string, and secure object uses the same format as object. With Bicep, you add the `@secure()` modifier to a string or object.
+Secure string uses the same format as string, and secure object uses the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#decorators) to a string or object.
 
 When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. However, if you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 

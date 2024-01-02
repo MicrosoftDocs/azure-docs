@@ -1,46 +1,44 @@
 ---
-title: Discover and deploy Microsoft Sentinel out-of-the-box solutions from Content hub
+title: Discover and deploy Microsoft Sentinel out-of-the-box content from Content hub
 description: Learn how to find and deploy Sentinel packaged solutions containing data connectors, analytics rules, hunting queries, workbooks, and other content.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 09/29/2023
 ms.author: austinmc
 ---
 
-# Discover and deploy Microsoft Sentinel out-of-the-box solutions from Content hub (Public preview)
+# Discover and manage Microsoft Sentinel out-of-the-box content
 
-The Microsoft Sentinel Content hub provides access to out-of-the-box (built-in) solutions, which are packed with Sentinel content for end-to-end products by domain or industry.
+The Microsoft Sentinel Content hub is your centralized location to discover and manage out-of-the-box (built-in) content. There you'll find packaged solutions for end-to-end products by domain or industry. You'll also have access to the vast number of standalone contributions hosted in our GitHub repository and feature blades.
 
-- Discover solutions in the Content hub based on status, the content type, support, provider and category.
+- Discover solutions and standalone content with a consistent set of filtering capabilities based on status, content type, support, provider and category.
 
-- Install solutions in your workspace all at once or individually when you find ones that fit your organization's needs. 
+- Install content in your workspace all at once or individually. 
 
-- View solutions in list view and quickly see which ones have updates. Update them all at once.
+- View content in list view and quickly see which solutions have updates. Update solutions all at once while standalone content updates automatically.
 
 - Manage a solution to install its content types and get the latest changes.
 
-If you're a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
+- Configure standalone content to create new active items based on the most up-to-date template.
 
-> [!IMPORTANT]
->
-> Microsoft Sentinel solutions and the Microsoft Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+If you're a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
 
 ## Prerequisites
 
-In order to install, update or delete solutions in content hub, you need the **Template Spec Contributor** role at the resource group level. See [Azure RBAC built in roles](/azure/role-based-access-control/built-in-roles#template-spec-contributor) for details on this role. 
+In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level. In addition, the **Template Spec Contributor** role is still required for some edge cases. See [Azure RBAC built in roles](../role-based-access-control/built-in-roles.md#template-spec-contributor) for details on this role. 
 
 This is in addition to Sentinel specific roles. For more information about other roles and permissions supported for Microsoft Sentinel, see [Permissions in Microsoft Sentinel](roles.md).
   
 
-## Discover solutions
+## Discover content
 
-The content hub offers the best way to find new solutions or manage the ones you already have installed.
+The content hub offers the best way to find new content or manage the solutions you already have installed.
 
-1. From the Microsoft Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
+1. From the Microsoft Sentinel navigation menu, under **Content management**, select **Content hub**.
 
-1. The **Content hub** page displays a searchable grid or list of solutions.
+1. The **Content hub** page displays a searchable grid or list of solutions and standalone content.
 
-    Filter the list displayed, either by selecting specific values from the filters, or entering any part of a product name or description in the **Search** field.
+    Filter the list displayed, either by selecting specific values from the filters, or entering any part of a content name or description in the **Search** field.
 
     For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
 
@@ -48,18 +46,20 @@ The content hub offers the best way to find new solutions or manage the ones you
     > If a solution that you've deployed has updates since you deployed it, the list view will have a blue up arrow in the status column, and will be included in the **Updates** blue up arrow count at the top of the page.
     >
 
-Each solution shows categories that apply to it, and the types of content included.
+Each content item shows categories that apply to it, and solutions show the types of content included.
 
-For example, in the following image, the **Cisco Umbrella** solution shows a category of **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
+For example, in the following image, the **Cisco Umbrella** solution lists one of its categories as **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
 
 :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub.":::
 
 
-## Install or update a solution
+## Install or update content
 
-Solutions can be installed and updated individually or in bulk. Here's the process for an individual solution.
+Standalone content and solutions can be installed individually or all together in bulk. For more information on bulk operations, see [Bulk install and update content](#bulk-install-and-update-content) in the next section. Here's an example showing the install of an individual solution.
 
-1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**. For example:
+1. In the content hub, to view more information about a solution switch to **Card view**. 
+
+1. Then select **View details** to initiate steps for installation. 
 
 1. On the solution details page, select **Create** or **Update** to start the solution wizard. On the **Basics** tab, enter the subscription, resource group, and workspace to deploy the solution. For example:
 
@@ -77,18 +77,17 @@ Solutions can be installed and updated individually or in bulk. Here's the proce
 
 1. Each content type within the solution may require additional steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
 
-## Bulk install and update solutions
+## Bulk install and update content
 
-Content hub supports a list view in addition to the default card view. Multiple solutions can be selected with this view to install and update them all at once. 
+Content hub supports a list view in addition to the default card view. Multiple solutions and standalone content can be selected with this view to install and update them all at once. Standalone content is kept up-to-date automatically. Any active or 
+custom content created based on solutions or standalone content installed from content hub remains untouched.
 
 1. To install and/or update items in bulk, change to the list view.
-   :::image type="content" source="media/sentinel-solutions-deploy/content-hub-list-view.png" alt-text="Screenshot of the list view icon button highlighted." lightbox="media/sentinel-solutions-deploy/content-hub-list-view.png":::
 
-1. The list view is paginated, so choose a filter to ensure the solutions you want to bulk install and modify are in view. Select their checkboxes and click the **Install/Update** button.
-
-1. The content hub interface will indicate *in progress* for installs and updates. Azure notifications will also indicate the action taken.
-
+1. The list view is paginated, so choose a filter to ensure the content you want to bulk install are in view. Select their checkboxes and click the **Install/Update** button.
     :::image type="content" source="media/sentinel-solutions-deploy/bulk-install-update.png" alt-text="Screenshot of solutions list view with multiple solutions selected and in progress for installation." lightbox="media/sentinel-solutions-deploy/bulk-install-update.png":::
+
+1. The content hub interface will indicate *in progress* for installs and updates. Azure notifications will also indicate the action taken. If a solution or standalone content that was already installed or updated was selected, no action will be taken on that item and it won't interfere with the update and install of the other items.
 
 1. Check each installed solution's **Manage** view. Content types within the solution may require additional steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
 
@@ -108,7 +107,7 @@ Centrally manage content items for installed solutions from the content hub.
 1. Select a content item to get started. 
 
 ### Management options for each content type
-Below are some tips on how to interact with various content types when managing the solution.
+Below are some tips on how to interact with various content types when managing a solution. 
 
 #### Data connector
 1. Select **Open connector page**. 
@@ -158,24 +157,24 @@ When a solution is installed, any parsers included are added as workspace functi
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-playbook.png" alt-text="Screenshot of playbook type content type in a solution." lightbox="media/sentinel-solutions-deploy/manage-solution-playbook.png":::
 
 
-## Find the support model for your solution
+## Find the support model for your content
 
-Each solution explains its support model on the solution's details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
+Each solution and standalone content item explains its support model on its details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
 
 :::image type="content" source="media/sentinel-solutions-deploy/find-support-details.png" alt-text="Screenshot of where you can find your support model for your solution." lightbox="media/sentinel-solutions-deploy/find-support-details.png":::
 
-When contacting support, you may need other details about your solution, such as a publisher, provider, and plan ID values. You can find each of these on the solution's details page, on the **Usage information & support** tab. For example:
+When contacting support, you may need other details about your solution, such as a publisher, provider, and plan ID values. You can find each of these on the details page, on the **Usage information & support** tab. For example:
 
 :::image type="content" source="media/sentinel-solutions-deploy/usage-support.png" alt-text="Screenshot of usage and support details for a solution.":::
 
 ## Next steps
 
-In this document, you learned about Microsoft Sentinel solutions and how to find and deploy built-in content.
+In this document, you learned how to find and deploy built-in solutions and standalone content for Microsoft Sentinel.
 
 - Learn more about [Microsoft Sentinel solutions](sentinel-solutions.md).
 - See the full Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
 - Find domain specific solutions in the [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md).
-- [Delete installed Microsoft Sentinel out-of-the-box content and solutions (public preview)](sentinel-solutions-delete.md)
+- [Delete installed Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-delete.md)
 
 Many solutions include data connectors that you'll need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector will have its own set of requirements, detailed on the data connector page in Microsoft Sentinel. 
 

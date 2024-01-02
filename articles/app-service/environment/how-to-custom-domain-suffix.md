@@ -3,7 +3,8 @@ title: Configure custom domain suffix for App Service Environment
 description: Configure a custom domain suffix for the Azure App Service Environment.
 author: seligj95
 ms.topic: tutorial
-ms.date: 09/01/2022
+ms.custom: devx-track-arm-template
+ms.date: 05/03/2023
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
 ---
@@ -22,12 +23,14 @@ The custom domain suffix defines a root domain that can be used by the App Servi
 
 The custom domain suffix is for the App Service Environment. This feature is different from a custom domain binding on an App Service. For more information on custom domain bindings, see [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md).
 
-If the certificate used for the custom domain suffix contains a Subject Alternate Name (SAN) entry for **.scm.CUSTOM-DOMAIN*, the scm site will then also be reachable from *APP-NAME.scm.CUSTOM-DOMAIN*. You can only access scm over custom domain using basic authentication. Single sign-on is only possible with the default root domain.
+If the certificate used for the custom domain suffix contains a Subject Alternate Name (SAN) entry for **.scm.CUSTOM-DOMAIN*, the scm site will then also be reachable from *APP-NAME.scm.CUSTOM-DOMAIN*. You can only access scm over custom domain using basic authentication. Single sign-on is only possible with the default root domain. 
+
+Unlike earlier versions, the FTPS endpoints for your App Services on your App Service Environment v3 can only be reached using the default domain suffix.
 
 ## Prerequisites
 
 - ILB variation of App Service Environment v3.
-- Valid SSL/TLS certificate must be stored in an Azure Key Vault. For more information on using certificates with App Service, see [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).
+- Valid SSL/TLS certificate must be stored in an Azure Key Vault in .PFX format. For more information on using certificates with App Service, see [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).
 
 ### Managed identity
 
@@ -55,11 +58,13 @@ If you choose to use Azure role-based access control to manage access to your ke
 
 ### Certificate
 
-The certificate for custom domain suffix must be stored in an Azure Key Vault. App Service Environment will use the managed identity you selected to get the certificate. The key vault must be publicly accessible, however you can lock down the key vault by restricting access to your App Service Environment's outbound IPs. You can find your App Service Environment's outbound IPs under "Default outbound addresses" on the **IP addresses** page for your App Service Environment. You'll need to add both IPs to your key vault's firewall rules. For more information on key vault network security and firewall rules, see [Configure Azure Key Vault firewalls and virtual networks](../../key-vault/general/network-security.md#key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips). The key vault also must not have any [private endpoint connections](../../private-link/private-endpoint-overview.md).
+The certificate for custom domain suffix must be stored in an Azure Key Vault. The certificate must be uploaded in .PFX format. Certificates in .PEM format are not supported at this time. App Service Environment will use the managed identity you selected to get the certificate. The key vault must be publicly accessible, however you can lock down the key vault by restricting access to your App Service Environment's outbound IPs. You can find your App Service Environment's outbound IPs under "Default outbound addresses" on the **IP addresses** page for your App Service Environment. You'll need to add both IPs to your key vault's firewall rules. For more information on key vault network security and firewall rules, see [Configure Azure Key Vault firewalls and virtual networks](../../key-vault/general/network-security.md#key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips). The key vault also must not have any [private endpoint connections](../../private-link/private-endpoint-overview.md).
 
 :::image type="content" source="./media/custom-domain-suffix/key-vault-networking.png" alt-text="Screenshot of a sample networking page for key vault to allow custom domain suffix feature.":::
 
-Your certificate must be a wildcard certificate for the selected custom domain name. For example, *internal-contoso.com* would need a certificate covering **.internal-contoso.com*. If the certificate used custom domain suffix contains a Subject Alternate Name (SAN) entry for scm, for example **.scm.internal-contoso.com*, the scm site will also available using the custom domain suffix.
+Your certificate must be a wildcard certificate for the selected custom domain name. For example, *internal-contoso.com* would need a certificate covering **.internal-contoso.com*. If the certificate used by the custom domain suffix contains a Subject Alternate Name (SAN) entry for scm, for example **.scm.internal-contoso.com*, the scm site will also available using the custom domain suffix.
+
+If you rotate your certificate in Azure Key Vault, the App Service Environment will pick up the change within 24 hours.
 
 ::: zone pivot="experience-azp"
 

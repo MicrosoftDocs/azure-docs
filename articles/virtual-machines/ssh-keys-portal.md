@@ -1,12 +1,12 @@
 ---
 title: Create SSH keys in the Azure portal 
 description: Learn how to generate and store SSH keys in the Azure portal for connecting the Linux VMs.
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/25/2020
-ms.author: cynthn
+ms.date: 04/27/2023
+ms.author: mattmcinnes
 
 ---
 
@@ -14,11 +14,15 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-If you frequently use the portal to deploy Linux VMs, you can make using SSH keys simpler by creating them directly in the portal, or uploading them from your computer.
+If you frequently use the portal to deploy Linux VMs, you can simplify using SSH keys by integrating them into Azure. There are several ways to create SSH keys for use with Azure. 
 
-You can create a SSH keys when you first create a VM, and reuse them for other VMs. Or, you can create SSH keys separately, so that you have a set of keys stored in Azure to fit your organizations needs. 
+- You can create SSH keys when you first create a VM. Your keys aren't tied to a specific VM and you can use them in future applications.
 
-If you have existing keys and you want to simplify using them in the portal, you can upload them and store them in Azure for reuse.
+- You can create SSH keys in the Azure portal separate from a VM. You can use them with both new and old VMs.
+
+- You can create SSH keys externally and upload them for use in Azure.
+
+You can reuse your stored keys in various of applications to fit your organization's needs. 
 
 For more detailed information about creating and using SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
 
@@ -34,21 +38,21 @@ For more detailed information about creating and using SSH keys with Linux VMs, 
 
 1. In **Resource group** select **Create new** to create a new resource group to store your keys. Type a name for your resource group and select **OK**.
 
-1. In **Region** select a region to store your keys. You can use the keys in any region, this is just the region where they will be stored.
+1. In **Region** select a region to store your keys. You can use the keys in any region, this option is just the region where you store them.
 
 1. Type a name for your key in **Key pair name**.
 
 1. In **SSH public key source**, select **Generate public key source**. 
 
-1. When you are done, select **Review + create**.
+1. When you're done, select **Review + create**.
 
 1. After it passes validation, select **Create**.
 
-1. You will then get a pop-up window to, select **Download private key and create resource**. This will download the SSH key as a .pem file.
+1. You'll get a pop-up window to, select **Download private key and create resource** that downloads the SSH key as a .pem file.
 
    :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Download the private key as a .pem file":::
 
-1. Once the .pem file is downloaded, you might want to move it somewhere on your computer where it is easy to point to from your SSH client.
+1. Once you've downloaded the .pem file, you might want to move it somewhere on your computer where it's easy to point to from your SSH client.
 
 
 ## Connect to the VM
@@ -59,8 +63,7 @@ On your local computer, open a PowerShell prompt and type:
 ssh -i <path to the .pem file> username@<ipaddress of the VM>
 ```
 
-For example, type: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
-
+For example, type: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890` and replace the example IP address at the end of the command with your VM's [public IP address](/azure/virtual-network/ip-services/public-ip-addresses).
 
 ## Upload an SSH key
 
@@ -76,7 +79,7 @@ You can also upload a public SSH key to store in Azure. For information about ho
 
 1. In **Resource group** select **Create new** to create a new resource group to store your keys. Type a name for your resource group and select **OK**.
 
-1. In **Region** select a region to store your keys. You can use the keys in any region, this is just the region where they will be stored.
+1. In **Region** select a region to store your keys. You can use the keys in any region, this option is just the region where they're stored.
 
 1. Type a name for your key in **Key pair name**.
 
@@ -86,11 +89,11 @@ You can also upload a public SSH key to store in Azure. For information about ho
 
 1. After validation completes, select **Create**. 
 
-Once the key has been uploaded, you can choose to use it when you create a VM.
+Once you upload the key, you can choose to use it when you create a VM.
 
 ## List keys
 
-SSH keys created in the portal are stored as resources, so you can filter your resources view to see all of them.
+Azure stores your SSH keys created in the portal as resources, so you can filter your resources view to see all of them.
 
 1. In the portal, select **All resource**.
 1. In the filters, select **Type**, unselect the **Select all** option to clear the list.
@@ -100,7 +103,7 @@ SSH keys created in the portal are stored as resources, so you can filter your r
 
 ## Get the public key
 
-If you need your public key, you can easily copy it from the portal page for the key. Just list your keys (using the process in the last section) then select a key from the list. The page for your key will open and you can click the **Copy to clipboard** icon next to the key to copy it.
+If you need your public key, you can easily copy it from the portal page for the key. Just list your keys (using the process in the last section) then select a key from the list. The page for your key opens and you can click the **Copy to clipboard** icon next to the key to copy it.
 
 ## Next steps
 

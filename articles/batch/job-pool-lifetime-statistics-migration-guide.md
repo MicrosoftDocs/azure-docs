@@ -14,13 +14,13 @@ The Azure Batch lifetime statistics API for jobs and pools will be retired on *A
 
 ## About the feature
 
-Currently, you can use API to retrieve lifetime statistics for [jobs](https://learn.microsoft.com/rest/api/batchservice/job/get-all-lifetime-statistics) and [pools](https://learn.microsoft.com/rest/api/batchservice/pool/get-all-lifetime-statistics) in Batch. The API collects statistical data from when the Batch account was created for all jobs and pools created for the lifetime of the Batch account.
+Currently, you can use API to retrieve lifetime statistics for jobs and pools in Batch. The API collects statistical data from when the Batch account was created for all jobs and pools created for the lifetime of the Batch account.
 
 To make statistical data available to customers, the Batch service performs aggregation and roll-ups on a periodic basis. Due to these lifetime stats APIs being rarely exercised by Batch customers, these APIs are being retired as alternatives exist.
 
 ## Feature end of support
 
-The lifetime statistics API is designed and maintained to help you gather information about usage of your Batch pools and jobs across the lifetime of your Batch account. Alternatives exist to gather data at a fine-grained level on a [per job](https://learn.microsoft.com/rest/api/batchservice/job/get#jobstatistics) or [per pool](https://learn.microsoft.com/rest/api/batchservice/pool/get#poolstatistics) basis. Only the lifetime statistics APIs are being retired.
+The lifetime statistics API is designed and maintained to help you gather information about usage of your Batch pools and jobs across the lifetime of your Batch account. Alternatives exist to gather data at a fine-grained level on a [per job](/rest/api/batchservice/job/get#jobstatistics) or [per pool](/rest/api/batchservice/pool/get#poolstatistics) basis. Only the lifetime statistics APIs are being retired.
 
 When the job and pool lifetime statistics API is retired on April 30, 2023, the API will no longer work, and it will return an appropriate HTTP response error code to the client.
 
@@ -28,7 +28,7 @@ When the job and pool lifetime statistics API is retired on April 30, 2023, the 
 
 ### Aggregate with per job or per pool statistics
 
-You can get statistics for any active job or pool in a Batch account. For jobs, you can issue a [Get Job](https://learn.microsoft.com/rest/api/batchservice/job/get) request and view the [JobStatistics object](https://learn.microsoft.com/rest/api/batchservice/job/get#jobstatistics). For pools, you can issue a [Get Pool](https://learn.microsoft.com/rest/api/batchservice/pool/get) request and view the [PoolStatistics object](https://learn.microsoft.com/rest/api/batchservice/pool/get#poolstatistics). You'll then be able to use these results and aggregate as needed across jobs and pools that are relevant for your analysis workflow.
+You can get statistics for any active job or pool in a Batch account. For jobs, you can issue a [Get Job](/rest/api/batchservice/job/get) request and view the [JobStatistics object](/rest/api/batchservice/job/get#jobstatistics). For pools, you can issue a [Get Pool](/rest/api/batchservice/pool/get) request and view the [PoolStatistics object](/rest/api/batchservice/pool/get#poolstatistics). You'll then be able to use these results and aggregate as needed across jobs and pools that are relevant for your analysis workflow.
 
 ### Set up logs in the Azure portal
 
@@ -46,4 +46,4 @@ The Azure portal has various options to enable monitoring and logs. System logs 
 
 ## Next steps
 
-For more information, see the Batch [Job](https://learn.microsoft.com/rest/api/batchservice/job) or [Pool](https://learn.microsoft.com/rest/api/batchservice/pool) API. For Azure Monitor logs, see [this article](../azure-monitor/logs/data-platform-logs.md).
+For more information, see the Batch [Job](/rest/api/batchservice/job) or [Pool](/rest/api/batchservice/pool) API. For Azure Monitor logs, see [this article](../azure-monitor/logs/data-platform-logs.md).

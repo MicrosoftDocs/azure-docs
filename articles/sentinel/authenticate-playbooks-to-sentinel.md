@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Authenticate playbooks to Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The way Logic Apps works, it has to connect separately and authenticate independently to every resource of every type that it interacts with, including to Microsoft Sentinel itself. Logic Apps uses [specialized connectors](/connectors/connector-reference/) for this purpose, with each resource type having its own connector. This document explains the types of connection and authentication in the [Logic Apps Microsoft Sentinel connector](/connectors/azuresentinel/), that playbooks can use to interact with Microsoft Sentinel in order to have access to the information in your workspace's tables.
 
 This document, along with our guide to [using triggers and actions in playbooks](playbook-triggers-actions.md), is a companion to our other playbook documentation - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
@@ -25,8 +23,8 @@ For the complete specification of the Microsoft Sentinel connector, see the [Log
 The Microsoft Sentinel connector in Logic Apps, and its component triggers and actions, can operate on behalf of any identity that has the necessary permissions (read and/or write) on the relevant workspace. The connector supports multiple identity types:
 
 - [Managed identity (Preview)](#authenticate-with-managed-identity)
-- [Azure AD user](#authenticate-as-an-azure-ad-user)
-- [Service principal (Azure AD application)](#authenticate-as-a-service-principal-azure-ad-application)
+- [Microsoft Entra user](#authenticate-as-an-azure-ad-user)
+- [Service principal (Microsoft Entra application)](#authenticate-as-a-service-principal-azure-ad-application)
 
     ![Authentication Options](media/authenticate-playbooks-to-sentinel/auth-methods.png)
 
@@ -53,7 +51,7 @@ To authenticate with managed identity:
 
     - On the logic app menu, under **Settings**, select **Identity**. Select **System assigned > On > Save**. When Azure prompts you to confirm, select **Yes**.
 
-    - Your logic app can now use the system-assigned identity, which is registered with Azure AD and is represented by an object ID.
+    - Your logic app can now use the system-assigned identity, which is registered with Microsoft Entra ID and is represented by an object ID.
 
 1. [Give that identity access](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) to the Microsoft Sentinel workspace:
     1. From the Microsoft Sentinel menu, select **Settings**.
@@ -88,17 +86,21 @@ To authenticate with managed identity:
 
         ![Connect with managed identity](media/authenticate-playbooks-to-sentinel/auth-methods-msi.png)
 
-### Authenticate as an Azure AD user
+<a name='authenticate-as-an-azure-ad-user'></a>
+
+### Authenticate as a Microsoft Entra user
 
 To make a connection, select **Sign in**. You will be prompted to provide your account information. Once you have done so, follow the remaining instructions on the screen to create a connection.
 
-### Authenticate as a service principal (Azure AD application)
+<a name='authenticate-as-a-service-principal-azure-ad-application'></a>
 
-Service principals can be created by registering an Azure AD application. It is **preferable** to use a registered application as the connector's identity, instead of using a user account, as you will be better able to control permissions, manage credentials, and enable certain limitations on the use of the connector.
+### Authenticate as a service principal (Microsoft Entra application)
+
+Service principals can be created by registering a Microsoft Entra application. It is **preferable** to use a registered application as the connector's identity, instead of using a user account, as you will be better able to control permissions, manage credentials, and enable certain limitations on the use of the connector.
 
 To use your own application with the Microsoft Sentinel connector, perform the following steps:
 
-1. Register the application with Azure AD and create a service principal. [Learn how](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. Register the application with Microsoft Entra ID and create a service principal. [Learn how](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 
 1. Get credentials (for future authentication).
 
@@ -117,7 +119,7 @@ To use your own application with the Microsoft Sentinel connector, perform the f
 
     1. Select the role you wish to assign to the application. For example, to allow the application to perform actions that will make changes in the Sentinel workspace, like updating an incident, select the **Microsoft Sentinel Contributor** role. For actions which only read data, the **Microsoft Sentinel Reader** role is sufficient. [Learn more about the available roles in Microsoft Sentinel](./roles.md).
 
-    1. Find the required application and save. By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it.
+    1. Find the required application and save. By default, Microsoft Entra applications aren't displayed in the available options. To find your application, search for the name and select it.
 
 1. Authenticate
 

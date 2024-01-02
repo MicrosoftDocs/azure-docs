@@ -5,16 +5,21 @@ description: Use the Data Movement library to move or copy data to or from blob 
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
-ms.devlang: csharp
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 11/13/2023
 ms.author: pauljewell
-ms.subservice: common
-ms.custom: devx-track-csharp
+ms.subservice: storage-common-concepts
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Transfer data with the Data Movement library
+
+> [!NOTE]
+> This article includes guidance for working with version 2.0.XX of the Azure Storage Data Movement library. Version 2.0.XX is currently in maintenance mode, and the library is only receiving fixes for data integrity and security issues. No new functionality or features will be added, and new storage service versions will not be supported by the library.
+>
+> Beta versions of a modern Data Movement library are currently in development. For more information, see [Azure Storage Data Movement Common client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) on GitHub.
 
 The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods provide the ability to set the number of parallel operations, track transfer progress, easily resume a canceled transfer, and much more.
 
@@ -464,7 +469,7 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
     ConsoleKeyInfo keyinfo;
     try
     {
-        task = TransferManager.CopyAsync(uri, blob, true, null, context, cancellationSource.Token);
+        task = TransferManager.CopyAsync(uri, blob, CopyMethod.ServiceSideAsyncCopy, null, context, cancellationSource.Token);
         while(!task.IsCompleted)
         {
             if(Console.KeyAvailable)
@@ -490,7 +495,7 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
         checkpoint = context.LastCheckpoint;
         context = GetSingleTransferContext(checkpoint);
         Console.WriteLine("\nResuming transfer...\n");
-        await TransferManager.CopyAsync(uri, blob, true, null, context, cancellationSource.Token);
+        await TransferManager.CopyAsync(uri, blob, CopyMethod.ServiceSideAsyncCopy, null, context, cancellationSource.Token);
     }
 
     stopWatch.Stop();
@@ -499,7 +504,13 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
 }
 ```
 
-One important use case for this feature is when you need to move data from another cloud service (e.g. AWS) to Azure. As long as you have a URL that gives you access to the resource, you can easily move that resource into Azure Blobs by using the `TransferManager.CopyAsync` method. This method also introduces a new boolean parameter. Setting this parameter to `true` indicates that we want to do an asynchronous server-side copy. Setting this parameter to `false` indicates a synchronous copy - meaning the resource is downloaded to our local machine first, then uploaded to Azure Blob. However, synchronous copy is currently only available for copying from one Azure Storage resource to another.
+One important use case for this feature is when you need to move data from another cloud service (e.g. AWS) to Azure. As long as you have a URL that gives you access to the resource, you can easily move that resource into Azure Blobs by using the `TransferManager.CopyAsync` method. This method also introduces a **CopyMethod** parameter. The following table shows the available options for this parameter:
+
+| Member name | Value | Description |
+| --- | --- | --- |
+| SyncCopy | 0 | Download data from source to memory, and upload the data from memory to destination. Currently only available for copying from one Azure Storage resource to another. |
+| ServiceSideAsyncCopy | 1 | Send a start copy request to Azure Storage to let it do the copying; monitor the copy operation progress until the copy is completed. |
+| ServiceSideSyncCopy | 2 | Copy content of each chunk with with [Put Block From URL](/rest/api/storageservices/put-block-from-url), [Append Block From URL](/rest/api/storageservices/append-block-from-url), or [Put Page From URL](/rest/api/storageservices/put-page-from-url). |
 
 ## Copy a blob
 
@@ -522,7 +533,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
     ConsoleKeyInfo keyinfo;
     try
     {
-        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, CopyMethod.ServiceSideAsyncCopy, null, context, cancellationSource.Token);
+        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, CopyMethod.SyncCopy, null, context, cancellationSource.Token);
         while(!task.IsCompleted)
         {
             if(Console.KeyAvailable)
@@ -548,7 +559,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
         checkpoint = context.LastCheckpoint;
         context = GetSingleTransferContext(checkpoint);
         Console.WriteLine("\nResuming transfer...\n");
-        await TransferManager.CopyAsync(sourceBlob, destinationBlob, false, null, context, cancellationSource.Token);
+        await TransferManager.CopyAsync(sourceBlob, destinationBlob, CopyMethod.SyncCopy, null, context, cancellationSource.Token);
     }
 
     stopWatch.Stop();
@@ -557,7 +568,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-In this example, we set the boolean parameter in `TransferManager.CopyAsync` to `false` to indicate that we want to do a synchronous copy. This means that the resource is downloaded to our local machine first, then uploaded to Azure Blob. The synchronous copy option is a great way to ensure that your copy operation has a consistent speed. In contrast, the speed of an asynchronous server-side copy is dependent on the available network bandwidth on the server, which can fluctuate. However, synchronous copy may generate additional egress cost compared to asynchronous copy. The recommended approach is to use synchronous copy in an Azure VM that is in the same region as your source storage account to avoid egress cost.
+In this example, we set the boolean parameter in `TransferManager.CopyAsync` to `CopyMethod.SyncCopy` to indicate that we want to do a synchronous copy. This means that the resource is downloaded to our local machine first, then uploaded to Azure Blob. The synchronous copy option is a great way to ensure that your copy operation has a consistent speed. In contrast, the speed of an asynchronous server-side copy is dependent on the available network bandwidth on the server, which can fluctuate. However, synchronous copy may generate additional egress cost compared to asynchronous copy. The recommended approach is to use synchronous copy in an Azure VM that is in the same region as your source storage account to avoid egress cost.
 
 The data movement application is now complete. [The full code sample is available on GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app).
 

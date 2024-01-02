@@ -1,0 +1,26 @@
+### YamlMime:FAQ
+metadata:
+  title: Service Connector FAQ
+  description: Read answers to frequently asked questions (FAQ) about Service Connector.
+  author: maud-lv
+  ms.author: malev
+  ms.service: service-connector
+  ms.topic: faq 
+  ms.date: 01/12/2023
+title: Service Connector FAQ
+summary: This article answers frequently asked questions about Service Connector.
+
+sections:
+  - name: Ignored
+    questions:
+      - question: What is Microsoft.ServiceLinker and why is it registered in my subscription?
+        answer: |
+         [!INCLUDE [Service Connector Microsoft.ServiceLinker](../../includes/service-connector-service-linker.md)]
+      - question: How much does Service Connector cost?
+        answer: | 
+         There are no fees associated with using Service Connector.
+
+additionalContent: |
+    ## Next steps
+
+    To learn more about Service Connector, see [About Service Connector text](./overview.md).

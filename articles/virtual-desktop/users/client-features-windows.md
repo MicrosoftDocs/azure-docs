@@ -67,7 +67,7 @@ If you want to use different display settings to those specified by your admin, 
 
 1. Open the **Remote Desktop** application on your device.
 
-1. Right-click the name of a desktop or app, for example **SessionDesktop**, then select **Settings**.
+1. Right-click the name of a desktop connection, for example **SessionDesktop**, then select **Settings**.
 
 1. Toggle **Use default settings** to off.
 
@@ -92,7 +92,23 @@ If you want to use different display settings to those specified by your admin, 
 
 ## Input methods
 
-You can use a built-in or external PC keyboard, trackpad and mouse to control desktops or apps.
+You can use touch input, or a built-in or external PC keyboard, trackpad and mouse to control desktops or apps.
+
+### Use touch gestures and mouse modes in a remote session
+
+You can use touch gestures to replicate mouse actions in your remote session. If you connect to Windows 10 or later with Azure Virtual Desktop, native Windows touch and multi-touch gestures are supported.
+
+The following table shows which mouse operations map to which gestures:
+
+| Mouse operation      | Gesture                                                               |
+|:---------------------|:----------------------------------------------------------------------|
+| Left-click           | Tap with one finger                                                   |
+| Right-click          | Tap and hold with one finger                                          |
+| Left-click and drag  | Double-tap and hold with one finger, then drag                        |
+| Right-click          | Tap with two fingers                                                  |
+| Right-click and drag | Double-tap and hold with two fingers, then drag                       |
+| Mouse wheel          | Tap and hold with two fingers, then drag up or down                   |
+| Zoom                 | With two fingers, pinch to zoom out and move fingers apart to zoom in |
 
 ### Keyboard
 
@@ -103,11 +119,11 @@ There are several keyboard shortcuts you can use to help use some of the feature
 | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>HOME</kbd> | Activates the connection bar when in full-screen mode and the connection bar isn't pinned. |
 | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>PAUSE</kbd> | Switches the client between full-screen mode and window mode. |
 
-Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for copy and <kbd>CTRL</kbd>+<kbd>Z</kbd> for undo, are the same when using Azure Virtual Desktop. There are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
+Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for copy and <kbd>CTRL</kbd>+<kbd>Z</kbd> for undo, are the same when using Azure Virtual Desktop. When you're using a remote desktop or app in windowed mode, there are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
 
 | Windows shortcut | Azure Virtual Desktop shortcut | Description |
 |--|--|--|
-| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>END</kbd> | Shows the Windows Security dialog box. |
+| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>END</kbd> | Shows the Windows Security dialog box. Also applicable in fullscreen mode. |
 | <kbd>ALT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE UP</kbd> | Switches between programs from left to right. |
 | <kbd>ALT</kbd>+<kbd>SHIFT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE DOWN</kbd> | Switches between programs from right to left. |
 | <kbd>WINDOWS</kbd> key, or <br /><kbd>CTRL</kbd>+<kbd>ESC</kbd> | <kbd>ALT</kbd>+<kbd>HOME</kbd> | Shows the Start menu. |
@@ -116,7 +132,7 @@ Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for
 | <kbd>ALT</kbd>+<kbd>PRINT SCREEN</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>-</kbd> (minus sign) | Takes a snapshot of the active window in the remote session, and places it in the clipboard. |
 
 > [!NOTE]
-> Keyboard shortcuts will not work when using Remote Desktop or RemoteApp sessions that are nested.
+> Keyboard shortcuts will not work when using remote desktop or RemoteApp sessions that are nested.
 
 ### Keyboard language
 
@@ -156,6 +172,9 @@ You can also manually search for new updates for the client:
 
 1. If there's an update available, tap **Install update** to update the client. If the client is already up to date, you'll see a green check box, and the message **You're up to date**.
 
+> [!TIP]
+> Admins can control notifications about updates and when updates are installed. For more information, see [Update behavior](#update-behavior).
+
 ## App display modes
 
 You can configure the Remote Desktop client to be displayed in light or dark mode, or match the mode of your system:
@@ -176,9 +195,9 @@ You can view your remote desktops and apps as either a tile view (default) or li
 
 1. If you want to switch to Tile view, select **List**, then select **Tile view**.
 
-## Enable Windows Insider releases
+## Enable Insider releases
 
-If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
+If you want to help us test new builds of the Remote Desktop client for Windows before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
 
 > [!NOTE]
 > Insider releases shouldn't be used in production.
@@ -203,7 +222,7 @@ Insider releases are made available in the Remote Desktop client once you've con
 
 1. Open the Remote Desktop client. The title in the top left-hand corner should be **Remote Desktop (Insider)**:
 
-   :::image type="content" source="../media/remote-desktop-client-windows-insider.png" alt-text="A screenshot of the Remote Desktop client with Insider features enabled. The title is highlighted in a red box.":::
+   :::image type="content" source="../media/remote-desktop-client-insider.png" alt-text="A screenshot of the Remote Desktop client with Insider features enabled. The title is highlighted in a red box.":::
 
 If you already have configured the Remote Desktop client to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the client](#update-the-client).
 
@@ -211,7 +230,7 @@ If you already have configured the Remote Desktop client to use Insider releases
 
 ### Enterprise deployment
 
-To deploy the Remote Desktop client in an enterprise, you can use `maiexec` to install the MSI file. You can install the client per-device or per-user by running the relevant command from Command Prompt as an administrator:
+To deploy the Remote Desktop client in an enterprise, you can use `msiexec` to install the MSI file. You can install the client per-device or per-user by running the relevant command from Command Prompt as an administrator:
 
 - Per-device installation:
 
@@ -224,6 +243,9 @@ To deploy the Remote Desktop client in an enterprise, you can use `maiexec` to i
    ```cmd
    msiexec /i <path to the MSI> /qn ALLUSERS=2 MSIINSTALLPERUSER=1
    ```
+
+> [!IMPORTANT]
+> If you want to deploy the Remote Desktop client per-user with Intune or Configuration Manager, you'll need to use a script. For more information, see [Install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager](../install-client-per-user.md).
 
 ### Update behavior
 
@@ -239,7 +261,9 @@ You can control notifications about updates and when updates are installed. The 
 The Remote Desktop client offers three ways to update:
 
 - Notification-based updates, where the client shows the user a notification in the client UI or a pop-up message in the taskbar. The user can choose to update the client by selecting the notification.
+
 - Silent on-close updates, where the client automatically updates after the user has closed the Remote Desktop client.
+
 - Silent background updates, where a background process checks for updates a few times a day and will update the client if a new update is available.
 
 To avoid interrupting users, silent updates won't happen while users have the client open, have a remote connection active, or if you've disabled automatic updates. If the client is running while a silent background update occurs, the client will show a notification to let users know an update is available.
@@ -254,15 +278,9 @@ You can set the *AutomaticUpdates* registry key to one of the following values:
 
 ### URI to subscribe to a workspace
 
-The Remote Desktop client for Windows supports the *ms-rd* Uniform Resource Identifier (URI) scheme. This enables you to use a link that users can help to automatically subscribe to a workspace, rather than them having to manually add the workspace in the Remote Desktop client.
+The Remote Desktop client for Windows supports the *ms-rd* and *ms-avd* (preview) Uniform Resource Identifier (URI) schemes. This enables you to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or RemoteApp.
 
-To subscribe to a workspace with a link:
-
-1. Open the following link in a web browser: `ms-rd:subscribe?url=https://rdweb.wvd.microsoft.com`.
-
-1. If you see the prompt **This site is trying to open Microsoft Remote Desktop Connection Center**, select **Open**. The **Remote Desktop** application should open and automatically show a sign-in prompt.
-
-1. Enter your user account, then select **Sign in**. After a few seconds, your workspaces should show the desktops and applications that have been made available to you by your admin.
+For more information and the available commands, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](../uri-scheme.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json)
 
 ## Provide feedback
 
@@ -274,4 +292,4 @@ To best help you, we need you to give us as detailed information as possible. Al
 
 ## Next steps
 
-If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md).
+If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md).

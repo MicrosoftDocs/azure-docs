@@ -2,7 +2,7 @@
 title: Azure file share for Azure Batch pools
 description: How to mount an Azure Files share from compute nodes in a Linux or Windows pool in Azure Batch.
 ms.topic: how-to
-ms.date: 08/23/2021
+ms.date: 03/20/2023
 ---
 
 # Use an Azure file share with a Batch pool
@@ -30,4 +30,3 @@ For details on how to mount an Azure file share on a pool, see [Mount a virtual 
 ## Next steps
 
 - To learn about other options to read and write data in Batch, see [Persist job and task output](batch-task-output.md).
-- Explore the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit, which includes [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes) to deploy file systems for Batch container workloads.

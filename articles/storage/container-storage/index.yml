@@ -1,0 +1,59 @@
+### YamlMime:Landing
+
+title: Azure Container Storage documentation # < 60 chars
+summary: Volume management built natively for containers. # < 160 chars
+
+metadata:
+  title: Azure Container Storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Container Storage is a service built natively for containers that enables customers to create and manage volumes for running production scale stateful container applications (preview).  # Required; article description that is displayed in search results. < 160 chars.
+  services: storage
+  ms.service: azure-container-storage #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: khdownie #Required; your GitHub user alias, with correct capitalization.
+  ms.author: kendownie #Required; microsoft alias of author; optional team alias.
+  ms.date: 08/02/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Container Storage
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Container Storage?
+            url: container-storage-introduction.md
+
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Use Azure Container Storage with Azure Kubernetes Service (AKS)
+            url: container-storage-aks-quickstart.md
+
+# Card (optional)
+  - title: How-to
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Install Azure Container Storage
+            url: install-container-storage-aks.md
+          - text: Use Azure Container Storage with Azure Disks
+            url: use-container-storage-with-managed-disks.md
+          - text: Use Azure Container Storage with Ephemeral Disk
+            url: use-container-storage-with-local-disk.md
+          - text: Use Azure Container Storage with Azure Elastic SAN Preview
+            url: use-container-storage-with-elastic-san.md
+
+# Card (optional)
+  - title: Frequently asked questions
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Container Storage FAQ
+            url: container-storage-faq.md

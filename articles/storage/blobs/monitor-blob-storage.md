@@ -1,15 +1,16 @@
 ---
 title: Monitoring Azure Blob Storage
+titleSuffix: Azure Storage
 recommendations: false
 description: Learn how to monitor the performance and availability of Azure Blob Storage. Monitor Azure Blob Storage data, learn about configuration, and analyze metric and log data.
 author: normesta
-services: storage
-ms.service: storage
+
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 10/06/2022
+ms.date: 08/08/2023
 ms.author: normesta
 ms.devlang: csharp
-ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
+ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Monitoring Azure Blob Storage
@@ -49,7 +50,7 @@ You can continue using classic metrics and logs if you want to. In fact, classic
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
 To collect resource logs, you must create a diagnostic setting. When you create the setting, choose **blob** as the type of storage that you want to enable logs for. Then, specify one of the following categories of operations for which you want to collect logs.
 
@@ -58,6 +59,8 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 | StorageRead | Read operations on objects. |
 | StorageWrite | Write operations on objects. |
 | StorageDelete | Delete operations on objects. |
+
+The **audit** resource log category group allows you to collect the baseline of resource logs that Microsoft deems necessary for auditing your resource. What's collected is dynamic, and Microsoft may change it over time as new resource log categories become available. If you choose the **audit** category group, you can't specify any other resource categories, because the system will decide which logs to collect. For more information, see [Diagnostic settings in Azure Monitor: Resource logs](../../azure-monitor/essentials/diagnostic-settings.md#resource-logs).
 
 > [!NOTE]
 > Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.
@@ -68,7 +71,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 For general destination limitations, see [Destination limitations](../../azure-monitor/essentials/diagnostic-settings.md#destination-limitations). The following limitations apply only to monitoring Azure Storage accounts.
 
-- You can't send logs to the same storage account that you are monitoring with this setting. 
+- You can't send logs to the same storage account that you're monitoring with this setting. 
 
   This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
@@ -76,7 +79,7 @@ For general destination limitations, see [Destination limitations](../../azure-m
 
   If you archive logs to a storage account, you can manage the retention policy of a log container by defining a lifecycle management policy. To learn how, see [Optimize costs by automating Azure Blob Storage access tiers](lifecycle-management-overview.md).
 
-  If you send logs to Log Analytics, you can manage the data retention period of Log Analytics at the workspace level or even specify different retention settings by data type. To learn how, see [Change the data retention period](/azure/azure-monitor/logs/data-retention-archive).
+  If you send logs to Log Analytics, you can manage the data retention period of Log Analytics at the workspace level or even specify different retention settings by data type. To learn how, see [Change the data retention period](../../azure-monitor/logs/data-retention-archive.md).
 
 ## Analyzing metrics
 
@@ -84,7 +87,7 @@ For a list of all Azure Monitor support metrics, which includes Azure Blob Stora
 
 ### [Azure portal](#tab/azure-portal)
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
 This example shows how to view **Transactions** at the account level.
 
@@ -169,7 +172,7 @@ Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.A
 
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
 
-Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
+Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### List the account-level metric definition
 
@@ -306,15 +309,17 @@ The following example shows how to read metric data on the metric supporting mul
 
 ## Analyzing logs
 
-You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those logs, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
+You can access resource logs either as a blob in a storage account, as event data, or through Log Analytics queries. For information about how to find those logs, see [Azure resource logs](../../azure-monitor/essentials/resource-logs.md).
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). The schema for Azure Blob Storage resource logs is found in [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/essentials/resource-logs-schema.md). The schema for Azure Blob Storage resource logs is found in [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md).
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure Blob Storage service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
-The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+
+When you view a storage account in the Azure portal, the operations called by the portal are also logged. For this reason, you may see operations logged in a storage account even though you haven't written any data to the account.
 
 ### Log authenticated requests
 
@@ -328,7 +333,7 @@ The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of pl
 Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
 
 > [!NOTE]
-> Azure Monitor currently filters out logs that describe activity in the `insights-` container. You can track activities in that container by using storage analytics (classic logs).
+> Azure Monitor currently filters out logs that describe activity in the "insights-logs-" container. You can track activities in that container by using storage analytics (classic logs).
 
 ### Log anonymous requests
 
@@ -343,7 +348,7 @@ All other failed anonymous requests aren't logged. For a full list of the logged
 
 ### Sample Kusto queries
 
-If you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+If you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see [Log Analytics tutorial](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
 
@@ -421,11 +426,9 @@ The following table lists some example scenarios to monitor and the proper metri
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
-## FAQ
+## Frequently asked questions (FAQ)
 
-**Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
-
-No. Azure Compute supports the metrics on disks. For more information, see [Per disk metrics for Managed and Unmanaged Disks](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+See [Metrics and Logs FAQ](storage-blob-faq.yml#metrics-and-logs).
 
 ## Next steps
 
@@ -437,7 +440,7 @@ Get started with any of these guides.
 | [Monitor, diagnose, and troubleshoot your Azure Storage](/training/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |
 | [Monitor storage with Azure Monitor Storage insights](../common/storage-insights-overview.md) | A unified view of storage performance, capacity, and availability |
 | [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md) | Guidance for common monitoring and troubleshooting scenarios. | 
-| [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) | A tour of Metrics Explorer. 
+| [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md) | A tour of Metrics Explorer. 
 | [Overview of Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md) | A tour of Log Analytics. |
 | [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md) | The basics of metrics and metric dimensions  |
 | [Azure Monitor Logs overview](../../azure-monitor/logs/data-platform-logs.md)| The basics of logs and how to collect and analyze them |

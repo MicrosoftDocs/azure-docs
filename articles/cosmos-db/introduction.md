@@ -1,61 +1,70 @@
 ---
-title: Introduction to Azure Cosmos DB
-description: Learn about Azure Cosmos DB. This globally distributed multi-model database is built for low latency, elastic scalability, high availability, and offers native support for NoSQL data.
+title: Azure Cosmos DB – Unified AI Database
+description: Azure Cosmos DB is a global multi-model database and ideal database for AI applications requiring speed, elasticity and availability with native support for NoSQL and relational data.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 10/05/2021
-ms.custom: cosmos-db-video, ignite-2022
+ms.date: 11/02/2023
+ms.custom: ignite-2022
 adobe-target: true
 ---
 
-# Welcome to Azure Cosmos DB
+# Azure Cosmos DB – Unified AI Database
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table, PostgreSQL](includes/appliesto-nosql-mongodb-cassandra-gremlin-table-postgresql.md)]
 
 Today's applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. Applications need to respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds.
 
-Azure Cosmos DB is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) availability and enterprise-grade security.
+Recently, the surge of AI-powered applications created another layer of complexity, because many of these applications currently integrate a multitude of data stores. For example, some teams built applications that simultaneously connect to MongoDB, Postgres, and Gremlin. These databases differ in implementation workflow and operational performances, posing extra complexity for scaling applications. Azure Cosmos DB can simplify and expedite your development by being the single AI database for your applications. Azure Cosmos DB accommodates all your operational data models, including relational, document, vector, key-value, graph, and table.
+
+Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development including; AI, digital commerce, Internet of Things, booking management, and other types of solutions. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale. Business continuity is assured with [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) availability and enterprise-grade security.
 
 App development is faster and more productive thanks to:
 
-- Turnkey multi region data distribution anywhere in the world
+- Turnkey multi-region data distribution anywhere in the world
 - Open source APIs
 - SDKs for popular languages.
+- AI database functionalities like native vector search or seamless integration with Azure AI Services to support Retrieval Augmented Generation
 
 As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
->
-> [!VIDEO https://aka.ms/docs.essential-introduction]
-
-You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments or use the [Azure Cosmos DB free tier](free-tier.md) to get an account with the first 1000 RU/s and 25 GB of storage free.
+If you are an existing Azure AI or GitHub Copilot customer, you may try Azure Cosmos DB for free with 40,000 [RU/s](request-units.md) of throughput for 90 days under the Azure AI Advantage offer.
 
 > [!div class="nextstepaction"]
-> [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/)
+> [90-day Free Trial with Azure AI Advantage](ai-advantage.md)
+
+If you are not an Azure customer, you may use the [30-day Free Trial without an Azure subscription](https://azure.microsoft.com/try/cosmosdb/). No commitment follows the end of your trial period.
+
+Alternatively, you may use the [Azure Cosmos DB lifetime free tier](free-tier.md) with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
 
 > [!TIP]
 > To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
 
-:::image type="content" source="./media/introduction/azure-cosmos-db.png" alt-text="Azure Cosmos DB is a fully managed NoSQL database for modern app development." border="false":::
+## Azure Cosmos DB is more than an AI database
+
+Besides AI database, Azure Cosmos DB should also be your goto database for web, mobile, gaming, and IoT applications. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build IoT and telematics, retail and marketing, gaming and web and mobile applications.
 
 ## Key Benefits
+
+Here's some key benefits of using Azure Cosmos DB.
 
 ### Guaranteed speed at any scale
 
 Gain unparalleled [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) speed and throughput, fast global access, and instant elasticity.
 
 - Real-time access with fast read and write latencies globally, and throughput and consistency all backed by [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db)
-- Multi-region writes and data distribution to any Azure region with the just a button.
+- Multi-region writes and data distribution to any Azure region with just a button.
 - Independently and elastically scale storage and throughput across any Azure region – even during unpredictable traffic bursts – for unlimited scale worldwide.
 
 ### Simplified application development
 
-Build fast with open source APIs, multiple SDKs, schemaless data and no-ETL analytics over operational data.
+Build fast with open-source APIs, multiple SDKs, schemaless data and no-ETL analytics over operational data.
 
 - Deeply integrated with key Azure services used in modern (cloud-native) app development including Azure Functions, IoT Hub, AKS (Azure Kubernetes Service), App Service, and more.
-- Choose from multiple database APIs including the native API for NoSQL, API for MongoDB, Apache Cassandra, Apache Gremlin, and Table.
+- Choose from multiple database APIs including the native API for NoSQL, MongoDB, PostgreSQL, Apache Cassandra, Apache Gremlin, and Table.
+- Use Azure Cosmos DB as your unified AI database for data models like relational, document, vector, key-value, graph, and table.
 - Build apps on API for NoSQL using the languages of your choice with SDKs for .NET, Java, Node.js and Python. Or your choice of drivers for any of the other database APIs.
 - Change feed makes it easy to track and manage changes to database containers and create triggered events with Azure Functions.
 - Azure Cosmos DB's schema-less service automatically indexes all your data, regardless of the data model, to deliver blazing fast queries.
@@ -80,7 +89,7 @@ End-to-end database management, with serverless and automatic scaling matching y
 
 ### Azure Synapse Link for Azure Cosmos DB
 
-[Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables near real time analytics over operational data in Azure Cosmos DB. Azure Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
+[Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables analytics at near real-time over operational data in Azure Cosmos DB. Azure Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
 - Reduced analytics complexity with No ETL jobs to manage.
 - Near real-time insights into your operational data.
@@ -90,24 +99,12 @@ End-to-end database management, with serverless and automatic scaling matching y
 - Analytics for locally available, globally distributed, multi-region writes.
 - Native integration with Azure Synapse Analytics.
 
-## Solutions that benefit from Azure Cosmos DB
-
-[Web, mobile, gaming, and IoT application](use-cases.md) that handle massive amounts of data, reads, and writes at a [global scale](distribute-data-globally.md) with near-real response times for various data will benefit from Azure Cosmos DB. Azure Cosmos DB's [guaranteed high availability](https://azure.microsoft.com/support/legal/sla/cosmos-db/), high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build [IoT and telematics](use-cases.md#iot-and-telematics), [retail and marketing](use-cases.md#retail-and-marketing), [gaming](use-cases.md#gaming) and [web and mobile applications](use-cases.md#web-and-mobile-applications).
-
-## Next steps
-
-Get started with Azure Cosmos DB with one of our quickstarts:
+## Related content
 
 - Learn [how to choose an API](choose-api.md) in Azure Cosmos DB
-- [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-dotnet.md)
-- [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-nodejs.md)
-- [Get started with Azure Cosmos DB for Apache Cassandra](cassandra/manage-data-dotnet.md)
-- [Get started with Azure Cosmos DB for Apache Gremlin](gremlin/quickstart-dotnet.md)
-- [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
-- [A whitepaper on next-gen app development with Azure Cosmos DB](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
-- Trying to do capacity planning for a migration to Azure Cosmos DB?
-  - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md)
-  - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
-
-> [!div class="nextstepaction"]
-> [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)
+  - [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-dotnet.md)
+  - [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-nodejs.md)
+  - [Get started with Azure Cosmos DB for Apache Cassandra](cassandra/manage-data-dotnet.md)
+  - [Get started with Azure Cosmos DB for Apache Gremlin](gremlin/quickstart-dotnet.md)
+  - [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
+  - [Get started with Azure Cosmos DB for PostgreSQL](postgresql/quickstart-app-stacks-python.md)

@@ -1,9 +1,9 @@
 ---
-title: Quickstart - Configure rules and actions in Azure IoT Central
+title: Quickstart - Configure Azure IoT Central rules and actions
 description: In this quickstart, you learn how to configure telemetry-based rules and actions in your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/26/2022
+ms.date: 10/28/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central

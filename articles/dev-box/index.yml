@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 07/11/2022
+  ms.date: 06/06/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is Microsoft Dev Box?
             url: overview-what-is-microsoft-dev-box.md
+          - text: Architecture overview
+            url: concept-dev-box-architecture.md
           - text: Microsoft Dev Box concepts
             url: concept-dev-box-concepts.md
 
@@ -32,44 +34,57 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Configure the Microsoft Dev Box service
+          - text: Set up Dev Box with an ARM template
+            url: quickstart-configure-dev-box-arm-template.md 
+          - text: Configure Microsoft Dev Box
             url: quickstart-configure-dev-box-service.md
-          - text: Configure Dev Box Projects
-            url: quickstart-configure-dev-box-project.md
-          - text: Create a Dev Box
-            url: quickstart-create-dev-box.md  
+          - text: Create a dev box
+            url: quickstart-create-dev-box.md
 
   # Card
-  - title: Provide access to dev box
+  - title: Quota management
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Provide access to projects for project admins
-            url: how-to-project-admin.md
-          - text: Provide access to projects for dev box users
-            url: how-to-dev-box-user.md  
-
+          - text: Determine resource usage and quota
+            url: how-to-determine-your-quota-usage.md
+          - text: Request a quota limit increase
+            url: how-to-request-quota-increase.md
+            
   # Card
-  - title: Add custom image galleries
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Configure an Azure Compute Gallery
-            url: how-to-configure-azure-compute-gallery.md
-
-  # Card
-  - title: Connect to your dev box
+  - title: Connect to a dev box
     linkLists:
       - linkListType: tutorial
-        links:
-          - text: Use the Remote Desktop client to connect to a dev box
+        links:              
+          - text: Configure the Remote Desktop client to connect to a dev box with multiple monitors
             url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot dev box connectivity issues
+            url: how-to-troubleshoot-repair-dev-box.md      
 
- # <!-- Adding later 
   # Card
- # - title: Reference docs
- #   linkLists:
- #     - linkListType: reference
- #       links:
- #       - text: REST API
- #         url: /rest/api/loadtesting/
+  - title: Customize images
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Azure Compute Gallery
+            url: how-to-configure-azure-compute-gallery.md
+          - text: Provision a custom image by using Azure VM Image Builder
+            url: how-to-customize-devbox-azure-image-builder.md
+          - text: Configure Dev Box Hibernation
+            url: how-to-configure-dev-box-hibernation.md
+
+   # Card
+  - title: Support & Reference
+    linkLists:
+        - linkListType: how-to-guide
+          links:
+          - text: Get support for Microsoft Dev Box
+            url: how-to-get-help.md
+        - linkListType: reference
+          links:
+          - text: Azure CLI
+            url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
+          - text: REST API
+            url: https://aka.ms/dev-box/restapidocs

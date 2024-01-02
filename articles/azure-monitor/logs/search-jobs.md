@@ -12,7 +12,11 @@ ms.custom: references_regions
 Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across large datasets. This article describes how to create a search job and how to query its resulting data.
 
 > [!NOTE]
-> The search job feature is currently not supported in workspaces with [customer-managed keys](customer-managed-keys.md) and in the China East 2 region.
+> The search job feature is currently not supported for workspaces with [customer-managed keys](customer-managed-keys.md). 
+
+## Permissions
+
+To run a search job, you need `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/searchJobs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).
 
 ## When to use search jobs
 
@@ -30,7 +34,7 @@ Search jobs also let you retrieve records from [Archived Logs](data-retention-ar
 
 A search job sends its results to a new table in the same workspace as the source data. The results table is available as soon as the search job begins, but it may take time for results to begin to appear. 
 
-The search job results table is a [Log Analytics](log-analytics-workspace-overview.md#log-data-plans) table that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this value after the table is created.
+The search job results table is an [Analytics table](../logs/basic-logs-configure.md) that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this value after the table is created.
 
 The search results table schema is based on the source table schema and the specified query. The following other columns help you track the source records:
 
@@ -39,7 +43,7 @@ The search results table schema is based on the source table schema and the spec
 | _OriginalType          | *Type* value from source table. |
 | _OriginalItemId        | *_ItemID* value from source table. |
 | _OriginalTimeGenerated | *TimeGenerated* value from source table. |
-| TimeGenerated          | Time at which the search job retrieved the record from the original table. |
+| TimeGenerated          | Time at which the search job ran. |
 
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
@@ -230,37 +234,8 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 ---
 
-## Delete search a job table
-We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
-### [Portal](#tab/portal-3)
-1. From the Log Analytics workspace menu, select **Tables.**
-1. Search for the tables you want to delete by name, or by selecting **Search results** in the **Type** field.
-    
-    :::image type="content" source="media/search-job/search-results-on-log-analytics-tables-screen.png" alt-text="Screenshot that shows the Tables screen for a Log Analytics workspace with the Filter by name and Type fields highlighted." lightbox="media/search-job/search-results-on-log-analytics-tables-screen.png":::
-
-1. Select the tables you want to delete, select **Delete**, and confirm the deletion by typing **yes**.
-
-    :::image type="content" source="media/search-job/delete-table.png" alt-text="Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace." lightbox="media/search-job/delete-table.png":::
-    
-### [API](#tab/api-3)
-
-To delete a table, call the **Tables - Delete** API: 
-
-```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
-```
-
-### [CLI](#tab/cli-3)
-
-To delete a search table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
-
-For example:
-
-```azurecli
-az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH
-```
-
----
+## Delete a search job table
+We recommend you [delete the search job table](../logs/create-custom-table.md#delete-a-table) when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
 
 ## Limitations
 Search jobs are subject to the following limitations:
@@ -294,13 +269,11 @@ You can use all functions and binary operators within these operators.
 ## Pricing model
 The charge for a search job is based on: 
 
-- Search job execution - the amount of data the search job needs to scan.
-- Search job results - the amount of data ingested in the results table, based on the regular log data ingestion prices.
+- Search job execution - the amount of data the search job scans.
+- Search job results - the amount of data the search job finds and is ingested into the results table, based on the regular log data ingestion prices.
 
-For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of scanned data. If the job returns 1000 records, you'll be charged for ingesting these 1000 records into the results table. 
-
-> [!NOTE]
-> Search job execution is free until early 2023. In other words, until early 2023, you will only incur charges for ingesting the search results, not for executing the search job. 
+For example, if your table holds 500 GB per day, for a search over 30 days, you'll be charged for 15,000 GB of scanned data. 
+If the search job finds 1,000 records that match the search query, you'll be charged for ingesting these 1,000 records into the results table. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

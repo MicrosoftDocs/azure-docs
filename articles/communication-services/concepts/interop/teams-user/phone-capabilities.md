@@ -10,7 +10,7 @@ ms.author: tchladek
 ms.date: 12/01/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: calling
+ms.subservice: teams-interop
 ---
 # Phone capabilities for Teams user in Calling SDK
 
@@ -90,7 +90,7 @@ The following list of capabilities is supported for scenarios where at least one
 |                   | Read and configure call forwarding rules                                                                             |   ❌      |
 |                   | Does start a call and add user operations honor simultaneous ringing                                                 |   ✔️      |
 |                   | Read and configure simultaneous ringing                                                                              |   ❌      |
-|                   | Placing participant on hold plays music on hold                                                                      |   ❌      |
+|                   | Placing participant on hold plays music on hold                                                                      |   ✔️     |
 |                   | Being placed by Teams user on Teams client on hold plays music on hold                                               |   ✔️      |
 |                   | Park a call                                                                                                          |   ❌      |
 |                   | Be parked                                                                                                            |   ✔️      |
@@ -114,14 +114,16 @@ The following list of capabilities is supported for scenarios where at least one
 |                   | Replace the caller ID with this service number                                                                       |   ❌      |
 | Teams dial out plan policies | Start a phone call honoring dial plan policy                                                              |   ❌      |
 | DevOps            | [Azure Metrics](../../metrics.md)                                                                                   | ✔️ |
-|                   | [Azure Monitor](../../logging-and-diagnostics.md)                                                                   | ✔️ |
-|                   | [Azure Communication Services Insights](../../analytics/insights.md)                                                | ✔️ |
+|                   | [Azure Monitor](../../analytics/logs/voice-and-video-logs.md)                                                                     | ✔️ |
+|                   | [Azure Communication Services Insights](../../analytics/logs/voice-and-video-logs.md)                                             | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |
 
-Note: Participants joining via phone number can't see video content. Therefore actions involving video do not impact them but can apply when VoIP participants join.
-
+Notes:
+ 
+* Participants joining via phone number can't see video content. Therefore actions involving video do not impact them but can apply when VoIP participants join.
+* Currently, *Placing participant on hold plays music on hold* feature, is only available in JavaScript.
 ## Next steps
 
 > [!div class="nextstepaction"]

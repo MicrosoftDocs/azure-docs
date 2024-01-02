@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Create an Azure DB for PostgresSQL Flexible Server - ARM template'
-description: In this Quickstart, learn how to create an Azure Database for PostgresSQL Flexible server using ARM template.
+title: 'Quickstart: Create an Azure Database for PostgreSQL Flexible Server - ARM template'
+description: In this Quickstart, learn how to create an Azure Database for PostgreSQL Flexible server using ARM template.
 author: mksuni
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: sumuth
-ms.date: 05/12/2022
+ms.date: 12/12/2023
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server
@@ -26,7 +26,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the template
 
-An Azure Database for PostgresSQL Server is the parent resource for one or more databases within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, and configurations.
+An Azure Database for PostgreSQL Server is the parent resource for one or more databases within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, and configurations.
 
 Create a _postgres-flexible-server-template.json_ file and copy the following JSON script into it.
 
@@ -70,7 +70,7 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
     },
     "version": {
       "type": "string",
-      "defaultValue": "12"
+      "defaultValue": "16"
     },
     "virtualNetworkExternalId": {
       "type": "string",
@@ -88,7 +88,7 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
   "resources": [
     {
       "type": "Microsoft.DBforPostgreSQL/flexibleServers",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2022-12-01",
       "name": "[parameters('serverName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -204,7 +204,8 @@ In the [portal](https://portal.azure.com), select the resource group you want to
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name ExampleResourceGroup
+$serverName = Read-Host -Prompt "Enter the resource group where the Azure Database for PostgreSQL Flexible Server exists:"
+Remove-AzResourceGroup -Name $serverName
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -212,7 +213,9 @@ Remove-AzResourceGroup -Name ExampleResourceGroup
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 ```azurecli-interactive
-az group delete --name ExampleResourceGroup
+echo "Enter the resource group where the Azure Database for PostgreSQL Flexible Server exists:" &&
+read resourcegroupName &&
+az group delete --name $resourcegroupName
 ```
 
 ---

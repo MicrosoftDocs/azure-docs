@@ -20,7 +20,7 @@ ms.custom: devx-track-dotnet, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet
 
 [!INCLUDE[Console app language selector](includes/tutorial-console-app-selector.md)]
 
-The Azure SDK for .NET allows you to add data to an API for NoSQL container either how-to-dotnet-create-item.md#create-an-item-asynchronously or by using a [transactional batch](transactional-batch.md?tabs=dotnet). This tutorial will walk through the process of create a new .NET console application that adds multiple items to a container.
+The Azure SDK for .NET allows you to add data to an API for NoSQL container either [asynchronous individual operations](how-to-dotnet-create-item.md#create-an-item-asynchronously) or a [transactional batch](transactional-batch.md?tabs=dotnet). This tutorial will walk through the process of create a new .NET console application that adds multiple items to a container.
 
 In this tutorial, you learn how to:
 
@@ -36,9 +36,8 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An existing Azure Cosmos DB for NoSQL account.
-  - If you have an Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
-  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  - Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit.
+  - If you have an existing Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 - [Visual Studio Code](https://code.visualstudio.com)
 - [.NET 6 (LTS) or later](https://dotnet.microsoft.com/download/dotnet/6.0)
 - Experience writing C# applications.

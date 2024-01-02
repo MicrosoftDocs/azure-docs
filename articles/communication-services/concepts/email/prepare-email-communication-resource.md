@@ -6,14 +6,11 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Prepare Email Communication resource for Azure Communication Service 
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Similar to Chat, VoIP and SMS modalities under the Azure Communication Services, you'll be able to send an email using Azure Communication Resource. However sending an email requires certain pre-configuration steps and you have to rely on your organization admins help setting that up. The administrator of your organization needs to,
 - Approve the domain that your organization allows you to send mail from 

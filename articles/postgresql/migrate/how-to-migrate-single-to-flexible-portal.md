@@ -1,28 +1,44 @@
 ---
-title: "Migrate from Single Server to Flexible Server by using the Azure portal"
-titleSuffix: Azure Database for PostgreSQL Flexible Server
-description: Learn about migrating your Single Server databases to Azure database for PostgreSQL Flexible Server by using the Azure portal.
+title: "Tutorial: Migrate Azure Database for PostgreSQL - Single Server to Flexible Server using the Azure portal"
+titleSuffix: "Azure Database for PostgreSQL Flexible Server"
+description: "Learn about migrating your Single Server databases to Azure Database for PostgreSQL Flexible Server by using the Azure portal."
 author: hariramt
 ms.author: hariramt
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 05/09/2022
+ms.topic: tutorial
+ms.date: 02/02/2023
+ms.custom: references_regions, seo-lt-2023
 ---
 
-# Migrate from Single Server to Flexible Server by using the Azure portal
+# Tutorial: Migrate Azure Database for PostgreSQL - Single Server to Flexible Server by using the Azure portal
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
-This article shows you how to use the migration tool in the Azure portal to migrate databases from Azure Database for PostgreSQL Single Server to Flexible Server.
-
 >[!NOTE]
-> The migration tool is in public preview.
+> Before you begin, it is highly recommended to go through some of the [best practices to sensure a seamless migration experience](best-practices-seamless-migration-single-to-flexible.md)
 
-## Getting started
+You can migrate an instance of Azure Database for PostgreSQL – Single Server to Azure Database for PostgreSQL – Flexible Server by using the Azure portal. In this tutorial, we perform migration of a sample database from an Azure Database for PostgreSQL single server to a PostgreSQL flexible server using the Azure portal.
 
-1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate the offerings.
+In this tutorial, you learn to:
 
-2. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#migration-prerequisites). It is very important to complete the prerequisite steps before you initiate a migration using this tool.
+> [!div class="checklist"]
+>
+> * Configure your Azure Database for PostgreSQL Flexible Server
+> * Configure the migration task
+> * Monitor the migration
+> * Cancel the migration
+> * Conclusion
+
+## Configure your Azure Database for PostgreSQL Flexible Server
+
+> [!IMPORTANT]
+> To provide the best migration experience, performing migration using a burstable SKU of Flexible server is not supported. Please use a general purpose or a memory optimized SKU (4 VCore or higher) as your Target Flexible server to perform the migration. Once the migration is complete, you can downscale to a burstable instance if necessary.
+
+1. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md)
+
+2. Allowlist extensions whose libraries need to be loaded at server start, by following the steps mentioned in this [doc](./concepts-single-to-flexible.md#allowlist-required-extensions). It's important to allowlist these extensions before you initiate a migration using this tool.
+
+3. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./best-practices-seamless-migration-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
 
 ## Configure the migration task
 
@@ -30,207 +46,212 @@ The migration tool comes with a simple, wizard-based experience on the Azure por
 
 1. Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in. The default view is your service dashboard.
 
-2. Go to your Azure Database for PostgreSQL Flexible Server target. If you haven't created a Flexible Server target, [create one now](../flexible-server/quickstart-create-server-portal.md).
+2. Go to your Azure Database for PostgreSQL Flexible Server target.
 
-3. In the **Overview** tab of the Flexible Server, on the left menu, scroll down to **Migration (preview)** and select it.
+3. In the **Overview** tab of the Flexible Server, on the left menu, scroll down to **Migration** and select it.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png" alt-text="Screenshot of the details belonging to Migration tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/flexible-overview.png" alt-text="Screenshot of the flexible Overview page." lightbox="./media/concepts-single-to-flexible/flexible-overview.png":::
 
 4. Select the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you're using the migration tool, an empty grid appears with a prompt to begin your first migration.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png" alt-text="Screenshot of the Migrate from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-grid.png" alt-text="Screenshot of the Migration tab in flexible." lightbox="./media/concepts-single-to-flexible/flexible-migration-grid.png":::
 
-    If you've already created migrations to your Flexible Server target, the grid is populated with information about migrations that were attempted to this target from the Single Server(s).
+    If you've already created migrations to your Flexible Server target, the grid contains information about migrations that were attempted to this target from the Single Server(s).
 
-5. Select the **Migrate from Single Server** button. You'll go through a wizard-based series of tabs to create a migration to this Flexible Server target from any Single Server.
+5. Select the **Migrate from Single Server** button. You go through a wizard-based series of tabs to create a migration into this Flexible Server target from any source Single Server.
 
 Alternatively, you can initiate the migration process from the Azure Database for PostgreSQL Single Server.
 
 1. Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in. The default view is your service dashboard.
 
-2. Upon selecting the Single Server, you can observe the **Migrate your PostgreSQL single server to a fully managed PostgreSQL flexible server. Flexible server provides more granular control, flexibility and better cost optimization. Migrate now.** banner in the Overview tab. Click on **Migrate now** to get started.
+2. Upon selecting the Single Server, you can observe a migration-related banner in the Overview tab. Select **Migrate now** to get started.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-initiate-migrate-from-single-server.png" alt-text="Screenshot to initiate migration from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-initiate-migrate-from-single-server.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/single-banner.png" alt-text="Screenshot to initiate migration from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-banner.png":::
 
-3. You will be taken to a page with two options. If you have already created a Flexible Server and want to use that as the target, choose **Select existing**, and select the corresponding Subscription, Resource group and Server name details. Once the selections have been made, click on **Go to Migration wizard** and skip to the instructions under the **Setup tab** section in this page.
+3. You're taken to a page with two options. If you've already created a Flexible Server and want to use that as the target, choose **Select existing**, and select the corresponding Subscription, Resource group and Server name details. Once the selections are made, select **Go to Migration wizard** and skip to the instructions under the **Setup tab** section in this page.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-choose-between-flexible-server.png" alt-text="Screenshot to choose existing flexible server option." lightbox="./media/concepts-single-to-flexible/single-to-flex-choose-between-flexible-server.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/single-click-banner.png" alt-text="Screenshot to choose existing flexible server option." lightbox="./media/concepts-single-to-flexible/single-click-banner.png":::
 
-4. Should you choose to Create a new Flexible Server, select **Create new** and click on **Go to Create Wizard**. This action will take you through the Flexible Server creation process and deploy the Flexible Server.
+4. Should you choose to Create a new Flexible Server, select **Create new** and select **Go to Create Wizard**. This action takes you through the Flexible Server creation process and deploys the Flexible Server.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-create-new.png" alt-text="Screenshot to choose new flexible server option." lightbox="./media/concepts-single-to-flexible/single-to-flex-create-new.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/single-banner-create-new.png" alt-text="Screenshot to choose new flexible server option." lightbox="./media/concepts-single-to-flexible/single-banner-create-new.png":::
 
-5. Once the Flexible Server is deployed, select to open the Flexible Server menu. On the left panel, scroll down to **Migration (preview)** and select it.
-
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png" alt-text="Screenshot of the details related to Migration tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png":::
-
-6. Select the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you're using the migration tool, an empty grid appears with a prompt to begin your first migration.
-
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png" alt-text="Screenshot of the Migrate from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png":::
-
-    If you've already created migrations to your Flexible Server target, the grid is populated with information about migrations that were attempted to this target from Single Server sources.
-
-7. Select the **Migrate from Single Server** button. You'll go through a wizard-based series of tabs to create a migration to this Flexible Server from any Single Server.
+After deploying the Flexible Server, follow the steps 3 to 5 under [Configure the migration task](#configure-the-migration-task)
 
 ### Setup tab
 
-The first tab is **Setup**. It has basic information about the migration and the list of prerequisites for getting started with migrations. These prerequisites are the same as the ones listed in the [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#migration-prerequisites) article.
+The first tab is **Setup**. Just in case you missed it, allowlist necessary extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allowlist-required-extensions). It's important to allowlist these extensions before you initiate a migration using this tool.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-setup.png" alt-text="Screenshot of the details belonging to Setup tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-setup.png":::
+>[!NOTE]
+> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
 
-**Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and does not accept any special characters except a hyphen (-). The name can't start with a hyphen and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-setup.png" alt-text="Screenshot of the details belonging to Set up tab." lightbox="./media/concepts-single-to-flexible/flexible-migration-setup.png":::
 
-**Migration resource group** is where the migration tool will create all the migration-related components. By default, the resource group of the Flexible Server target and all the components will be cleaned up automatically after the migration finishes. If you want to create a temporary resource group for the migration, create it and then select it from the dropdown list.
+**Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and doesn't accept any special characters except a hyphen (-). The name can't start with a hyphen and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
 
-For **Azure Active Directory App**, click the **select** option and choose the Azure Active Directory app that you created for the prerequisite step. Then, in the **Azure Active Directory Client Secret** box, paste the client secret that was generated for that app.
+**Migration Option** gives you the option to perform validations before triggering a migration. You can pick any of the following options
+ - **Validate** - Checks your server and database readiness for migration to the target.
+ - **Migrate** - Skips validations and starts migrations.
+ - **Validate and Migrate** - Performs validation before triggering a migration. Migration gets triggered only if there are no validation failures.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-client-secret.png" alt-text="Screenshot of the box to enter a client secret." lightbox="./media/concepts-single-to-flexible/single-to-flex-client-secret.png":::
+It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform pre-migration validations before running the migration. To learn more about the pre-migration validation refer to this [documentation](./concepts-single-to-flexible.md#pre-migration-validations).
+
+**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option.  Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+
+:::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
+
+If **Online** migration is selected, it requires Logical replication to be turned on in the source Single server. If it's not turned on, the migration tool automatically turns on logical replication at the source Single server. Replication can also be set up manually under **Replication** tab in the Single server side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
 
 Select the **Next** button.
 
 ### Source tab
 
-The **Source** tab prompts you to give details related to the Single Server that databases need to be migrated from.
+The **Source** tab prompts you to give details related to the Single Server that is the source of the databases.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-source.png" alt-text="Screenshot of source database server details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-source.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-source.png" alt-text="Screenshot of source database server details." lightbox="./media/concepts-single-to-flexible/flexible-migration-source.png":::
 
-After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. We recommend that you migrate databases from a Single Server to a target Flexible Server in the same region.
+After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. You can migrate databases from a Single Server to a target Flexible Server in the same region. Cross region migrations are enabled only for servers in India, China and UAE.
 
-After you choose the Single Server source, the **Location**, **PostgreSQL version**, and **Server admin login name** boxes are automatically populated. The server admin login name is the admin username that was used to create the Single Server. In the **Password** box, enter the password for that admin login name. It will enable the migration tool to log in to the Single Server to initiate the dump and migration.
+After you choose the Single Server source, the **Location**, **PostgreSQL version**, and **Server admin login name** boxes are populated automatically. The server admin login name is the admin username used to create the Single Server. In the **Password** box, enter the password for that admin user. The migration tool performs the migration of single server databases as the admin user.
 
-Under **Choose databases to migrate**, there's a list of user databases inside the Single Server. You can select up to eight databases that can be migrated in a single migration attempt. If there are more than eight user databases, create multiple migrations by using the same experience between the source and target servers.
-
-The final property on the **Source** tab is **Migration mode**. The migration tool offers online and offline modes of migration. The [concepts article](./concepts-single-to-flexible.md) talks more about the migration modes and their differences. After you choose the migration mode, the restrictions that are associated with that mode appear.
-
-When you're finished filling out all the fields, select the **Next** button.
+After filling out all the fields, select the **Next** button.
 
 ### Target tab
 
 The **Target** tab displays metadata for the Flexible Server target, like subscription name, resource group, server name, location, and PostgreSQL version. 
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-target.png" alt-text="Screenshot of target database server details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-target.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-target.png" alt-text="Screenshot of target database server details." lightbox="./media/concepts-single-to-flexible/flexible-migration-target.png":::
 
-For **Server admin login name**, the tab displays the admin username that was used during the creation of the Flexible Server target. Enter the corresponding password for the admin user. This password is required for the migration tool to log in to the Flexible Server target and perform restore operations.
-
-For **Authorize DB overwrite**:
-
-- If you select **Yes**, you give this migration service permission to overwrite existing data if a database that's being migrated to Flexible Server is already present.
-- If you select **No**, the migration service goes into a waiting state and asks you for permission to either overwrite the data or cancel the migration.
+For **Server admin login name**, the tab displays the admin username used during the creation of the Flexible Server target. Enter the corresponding password for the admin user.
 
 Select the **Next** button.
 
-### Networking tab
+### Select Database(s) for Migration tab
 
-The content on the **Networking** tab depends on the networking topology of your source and target servers. If both source and target servers are in public access, the following message appears.
+Under this tab, there's a list of user databases inside the Single Server. You can select and migrate up to eight databases in a single migration attempt. If there are more than eight user databases, the migration process is repeated between the source and target servers for the next set of databases.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-networking.png" alt-text="Screenshot of a message that says you're all set to create a migration because source and target servers are in public access." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-networking.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-database.png" alt-text="Screenshot of Databases to migrate." lightbox="./media/concepts-single-to-flexible/flexible-migration-database.png":::
 
-In this case, you don't need to do anything and can select the **Next**  button.
-
-If either the source and/or target server is configured in private access, the content of the **Networking** tab is different.
-
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-private.png" alt-text="Screenshot of the Networking tab for private access configuration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-private.png":::
-
-Let's try to understand what private access means for Single Server and Flexible Server:
-
-- **Single Server Private Access**: **Deny public network access** is set to **Yes**, and a private endpoint is configured.
-- **Flexible Server Private Access**: A Flexible Server target is deployed inside a virtual network.
-
-For private access, all the fields are automatically populated with subnet details. This is the subnet in which the migration tool will deploy Azure Database Migration Service to move data between the source and the target.
-
-You can use the suggested subnet or choose a different one. But make sure that the selected subnet can connect to both the source and target servers.
-
-After you choose a subnet, select the **Next** button.
-
-### Review + create tab
+### Review
 
 >[!NOTE]
-> Gentle reminder to complete the [prerequisites](./concepts-single-to-flexible.md#migration-prerequisites) before you click **Create** in case it is not yet complete.
+> Gentle reminder to allowlist necessary [extensions](./concepts-single-to-flexible.md#allowlist-required-extensions) before you select **Create** in case it's not yet complete.
 
-The **Review + create** tab summarizes all the details for creating the migration. Review the details and select the **Create** button to start the migration.
+The **Review** tab summarizes all the details for creating the validation or migration. Review the details and click on the start button.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-review.png" alt-text="Screenshot of details to review for the migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-review.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-review.png" alt-text="Screenshot of details to review for the migration." lightbox="./media/concepts-single-to-flexible/flexible-migration-review.png":::
 
-## Monitor migrations
+## Monitor the migration
 
-After you select the **Create** button, a notification appears in a few seconds to say that the migration was successfully created.
+After you click the start button, a notification appears in a few seconds to say that the validation or migration creation is successful. You're redirected automatically to the **Migration** blade of Flexible Server. This has a new entry for the recently created validation or migration.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-monitoring.png" alt-text="Screenshot of the message that you successfully created a migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-monitoring.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-monitor.png" alt-text="Screenshot of recently created migration details." lightbox="./media/concepts-single-to-flexible/flexible-migration-monitor.png":::
 
-You should automatically be redirected to the **Migration (Preview)** page of Flexible Server. That page has a new entry for the recently created migration.
+The grid that displays the migrations has these columns: **Name**, **Status**,  **Source DB server**, **Resource group**, **Region**, **Databases**, and **Start time**. The entries are displayed in the descending order of the start time with the most recent entry on the top.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-review-tab.png" alt-text="Screenshot of recently created migration details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-review-tab.png":::
+You can use the refresh button to refresh the status of the validation or migration.
+You can also select the migration name in the grid to see the associated details.
 
-The grid that displays the migrations has these columns: **Name**, **Status**,  **Source DB server**, **Resource group**, **Region**, **Version**, **Databases**, and **Start time**. By default, the grid shows the list of migrations in descending order of migration start times. In other words, recent migrations appear on top of the grid.
+As soon as the validation or migration is created, it moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. It takes 2-3 minutes for the workflow to set up the migration infrastructure and network connections.
 
-You can use the refresh button to refresh the status of the migrations.
+Let us look at how to monitor migrations for each of the **Migration Option**.
 
-You can also select the migration name in the grid to see the details of that migration.
+### Validate
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png" alt-text="Screenshot of the migration grid containing all migrations." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png":::
+After the **PerformingPreRequisiteSteps** substate is completed, the validation moves to the substate of **Validation in Progress** where checks are done on the source and target server to assess the readiness for migration.
 
-As soon as the migration is created, the migration moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. It takes up to 10 minutes for the migration workflow to move out of this substate. The reason is that it takes time to create and deploy Database Migration Service, add the IP address on the firewall list of source and target servers, and perform maintenance tasks.
+The validation moves to the **Succeeded** state if all validations are either in **Succeeded** or **Warning** state.
 
-After the **PerformingPreRequisiteSteps** substate is completed, the migration moves to the substate of **Migrating Data** where the dump and restore of the databases take place. The time that the **Migrating Data** substate takes to finish depends on the size of databases that you're migrating.
+:::image type="content" source="./media/concepts-single-to-flexible/validation-successful.png" alt-text="Screenshot of the validation grid." lightbox="./media/concepts-single-to-flexible/validation-successful.png":::
 
-When you select each of the databases that are being migrated, a fan-out pane appears. It has all the migration details, such as table count, incremental inserts, deletes, and pending bytes.
+The validation grid has the following columns
+- **Finding** - Represents the validation rules that are used to check readiness for migration.
+- **Finding Status** - Represents the result for each rule and can have any of the three values
+    - **Succeeded** - If no errors were found.  
+    - **Failed** - If there are validation errors.
+    - **Warning** - If there are validation warnings.
+- **Impacted Object** - Represents the object name for which the errors or warnings are raised. 
+- **Object Type** - This can have the value **Database** for database level validations and **Instance** for server level validations.
 
-For offline mode, the migration moves to the **Succeeded** state as soon as the **Migrating Data** state finishes successfully. If there's an issue at the **Migrating Data** state, the migration moves into a **Failed** state.
+The validation moves to **Validation Failed** state if there are any errors in the validation. Click on the **Finding** in the grid whose status is **Failed** and a fan-out pane gives the details and the corrective action you should take to avoid this error.
 
-For online mode, the migration moves to the **WaitingForUserAction** state and the **WaitingForCutOver** substate after the **Migrating Data** substate finishes successfully.
+:::image type="content" source="./media/concepts-single-to-flexible/validation-failed.png" alt-text="Screenshot of the validation grid with failed status." lightbox="./media/concepts-single-to-flexible/validation-failed.png":::
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-status-wait.png" alt-text="Screenshot of migration status after clicking on the migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-status-wait.png":::
+### Migrate
 
-Select the migration name to open the migration details page. There, you should see the substate of **WaitingForCutover**.
+After the **PerformingPreRequisiteSteps** substate is completed, the migration moves to the substate of **Migrating Data** when the Cloning/Copying of the databases takes place.  The time for migration to complete depends on the size and shape of databases that you're migrating. If the data is mostly evenly distributed across all the tables, the migration is quick. Skewed table sizes take a relatively longer time.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-cutover.png" alt-text="Screenshot of the migration status at waiting for cutover." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-cutover.png":::
+When you select any of the databases in migration, a fan-out pane appears. It has all the table count - copied, queued, copying and errors apart from the database migration status.
 
-At this stage, the ongoing writes at your Single Server are replicated to the Flexible Server via the logical decoding feature of PostgreSQL. You should wait until the replication reaches a state where the target is almost in sync with the source.
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-progress-dbclick.png" alt-text="Screenshot of the migration grid containing all DB details." lightbox="./media/concepts-single-to-flexible/flexible-migration-progress-dbclick.png":::
 
-You can monitor the replication lag by selecting each database that's being migrated. That opens a fan-out pane with metrics. The value of the **Pending Bytes** metric should be nearing zero over time. After it reaches a few megabytes for all the databases, stop any further writes to your Single Server and wait until the metric reaches 0. Then, validate the data and schemas on your Flexible Server target to make sure that they match exactly with the source server.
+The migration moves to the **Succeeded** state as soon as the **Migrating Data** state finishes successfully. If there's an issue at the **Migrating Data** state, the migration moves into a **Failed** state.
 
-After you complete the preceding steps, select the **Cutover** button. The following message appears.
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-progress-dbsuccess.png" alt-text="Screenshot of the migration result." lightbox="./media/concepts-single-to-flexible/flexible-migration-progress-dbsuccess.png":::
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-click-cutover.png" alt-text="Screenshot of the cutover button before migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-click-cutover.png":::
+Once the migration moves to the **Succeeded** state, migration of schema and data from your Single Server to your Flexible Server target is complete. You can use the refresh button on the page to confirm the same.
 
-Select the **Yes** button to start cutover.
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-progress-complete.png" alt-text="Screenshot of the completed migrations." lightbox="./media/concepts-single-to-flexible/flexible-migration-progress-complete.png":::
 
-A few seconds after you start cutover, the following notification appears.
+### Validate and Migrate
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-successful-cutover.png" alt-text="Screenshot of successful cutover after migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-successful-cutover.png":::
+In this option, validations are performed first before migration starts. After the **PerformingPreRequisiteSteps** sub state is completed, the workflow moves into the sub state of **Validation in Progress**. 
+- If validation has errors, the migration moves into a **Failed** state.
+- If validation completes without any error, the migration starts and the workflow will move into the sub state of **Migrating Data**. 
 
-When the cutover is complete, the migration moves to the **Succeeded** state. Migration of schema and data from your Single Server to your Flexible Server target is now complete. You can use the refresh button on the page to check if the cutover was successful.
+You can see the results of validation under the **Validation** tab and monitor the migration under the **Migration** tab.
 
-After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.
+:::image type="content" source="./media/concepts-single-to-flexible/validate-and-migrate-1.png" alt-text="Screenshot showing validations tab in details page." lightbox="./media/concepts-single-to-flexible/validate-and-migrate-1.png":::
+
+:::image type="content" source="./media/concepts-single-to-flexible/validate-and-migrate-2.png" alt-text="Screenshot showing migrations tab in details page." lightbox="./media/concepts-single-to-flexible/validate-and-migrate-2.png":::
+
+### Online migration
+
+> [!NOTE]  
+>  Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia.
+
+In case of both **Migrate** as well as **Validate and Migrate**, completion of the Online migration requires another step - a Cutover action is required from the user. After the copy/clone of the base data is complete, the migration moves to `WaitingForUserAction` state and `WaitingForCutoverTrigger` substate. In this state, user can trigger cutover from the portal by selecting the migration.
+
+Before initiating cutover, it's important to ensure that:
+
+- Writes to the source are stopped -`Latency (minutes)` parameter is 0 or close to 0
+The `Latency (minutes)` information can be obtained from the migration details screen as shown below:
+
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-cutover.png" alt-text="Screenshot showing migration ready for cutover." lightbox="./media/concepts-single-to-flexible/flexible-migration-cutover.png":::
+
+`Latency (minutes)` parameter indicates when the target last synced up with the source. For example, for the Orders Database above, it's 0.33333. It means that the changes that occurred in the last ~0.3 minutes at the source are yet to be synced to the target, for the Orders Database. At this point, writes to the source can be stopped and cutover initiated. In case there's heavy traffic at the source, it's recommended to stop writes first so that `Latency (minutes)` can come close to 0 and then cutover is initiated. The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with **non-zero Latency**, the replication stops until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at cutover point, so all the change data in the last 15 minutes will be applied on the target. Time taken will depend on the backlog of changes occurred in the last 15 minutes. Hence, it's recommended that the latency goes to zero or near zero, before triggering the cutover.
+
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-click-cutover.png" alt-text="Screenshot showing click cutover." lightbox="./media/concepts-single-to-flexible/flexible-migration-click-cutover.png":::
+
+The migration moves to the `Succeeded` state as soon as the `Migrating Data` substate or the cutover (in Online migration) finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
+
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-progress-online-dbsuccess.png" alt-text="Screenshot showing cutover success." lightbox="./media/concepts-single-to-flexible/flexible-migration-progress-online-dbsuccess.png":::
+
+After the migration has moved to the **Succeeded** state, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#post-migration).
 
 Possible migration states include:
 
-- **InProgress**: The migration infrastructure is being set up, or the actual data migration is in progress.
-- **Canceled**: The migration has been canceled or deleted.
+- **InProgress**: The migration infrastructure setup is underway, or the actual data migration is in progress.
+- **Canceled**: The migration is canceled or deleted.
 - **Failed**: The migration has failed.
+- **Validation Failed** : The validation has failed.
 - **Succeeded**: The migration has succeeded and is complete.
-- **WaitingForUserAction**: The migration is waiting for a user action.
 
 Possible migration substates include:
 
-- **PerformingPreRequisiteSteps**: Infrastructure is being set up and is being prepped for data migration.
-- **MigratingData**: Data is being migrated.
-- **CompletingMigration**: Migration cutover is in progress.
-- **WaitingForLogicalReplicationSetupRequestOnSourceDB**: Waiting for logical replication enablement.
-- **WaitingForCutoverTrigger**: Migration is ready for cutover.
-- **WaitingForTargetDBOverwriteConfirmation**: Waiting for confirmation on target overwrite. Data is present in the target server that you're migrating into.
-- **Completed**: Cutover was successful, and migration is complete.
+- **PerformingPreRequisiteSteps**: Infrastructure set up is underway for data migration.
+- **Validation in Progress**: Validation is in progress.
+- **MigratingData**: Data migration is in progress.
+- **CompletingMigration**: Migration is in final stages of completion.
+- **Completed**: Migration has successfully completed.
 
-## Cancel migrations
+## Cancel the migration
 
-You have the option to cancel any ongoing migrations. For a migration to be canceled, it must be in the **InProgress** or  **WaitingForUserAction** state. You can't cancel a migration that's in the **Succeeded** or **Failed** state.
+You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration that's in the **Succeeded** or **Failed** state.
 
-You can choose multiple ongoing migrations at once and cancel them.
+Canceling a validation stops any further validation activity and the validation moves to a **Canceled** state.
+Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server involved in a canceled migration.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-multiple.png" alt-text="Screenshot of canceling multiple migrations in process." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-multiple.png":::
+## Conclusion
 
-Canceling a migration stops further migration activity on your target server. It doesn't drop or roll back any changes on your target server from the migration attempts. Be sure to drop the databases involved in a canceled migration on your target server.
-
-## Next steps
-
-Follow the [post-migration steps](./concepts-single-to-flexible.md) for a successful end-to-end migration.
+For a successful end-to-end migration, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#post-migration). After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.

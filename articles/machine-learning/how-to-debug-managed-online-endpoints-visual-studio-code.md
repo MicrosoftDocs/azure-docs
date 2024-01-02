@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use Visual Studio Code to test and debug online endpoints locally before deploying them to Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-author: shohei1029
-ms.author:  shnagata
+ms.subservice: inferencing
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
 ms.date: 11/03/2021
 ms.topic: troubleshooting
@@ -15,19 +15,21 @@ ms.devlang: azurecli
 #Customer intent: As a machine learning engineer, I want to test and debug online endpoints locally using Visual Studio Code before deploying them Azure.
 ---
 
-# Debug online endpoints locally in Visual Studio Code (preview)
+# Debug online endpoints locally in Visual Studio Code
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to use the Visual Studio Code (VS Code) debugger to test and debug online endpoints locally before deploying them to Azure.
 
 Azure Machine Learning local endpoints help you test and debug your scoring script, environment configuration, code configuration, and machine learning model locally.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Online endpoint local debugging
 
 Debugging endpoints locally before deploying them to the cloud can help you catch errors in your code and configuration earlier. You have different options for debugging endpoints locally with VS Code.
 
-- [Azure Machine Learning inference HTTP server (Preview)](how-to-inference-server-http.md)
+- [Azure Machine Learning inference HTTP server](how-to-inference-server-http.md)
 - Local endpoint
 
 This guide focuses on local endpoints.
@@ -52,7 +54,7 @@ This guide assumes you have the following items installed locally on your PC.
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Azure CLI `ml` extension (v2)](how-to-configure-cli.md)
 
-For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md#prepare-your-system).
+For more information, see the guide on [how to prepare your system to deploy online endpoints](how-to-deploy-online-endpoints.md#prepare-your-system).
 
 The examples in this article are based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli` directory in the repo:
 
@@ -78,7 +80,7 @@ az configure --defaults workspace=<workspace> group=<resource-group> location=<l
 ```
 
 # [Python](#tab/python)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 This guide assumes you have the following items installed locally on your PC.
 
@@ -86,9 +88,9 @@ This guide assumes you have the following items installed locally on your PC.
 - [VS Code](https://code.visualstudio.com/#alt-downloads)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Azure CLI `ml` extension (v2)](how-to-configure-cli.md)
-- [Azure ML Python SDK (v2)](https://aka.ms/sdk-v2-install)
+- [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install)
 
-For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md#prepare-your-system).
+For more information, see the guide on [how to prepare your system to deploy online endpoints](how-to-deploy-online-endpoints.md#prepare-your-system).
 
 The examples in this article can be found in the [Debug online endpoints locally in Visual Studio Code](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb) notebook within the[azureml-examples](https://github.com/azure/azureml-examples) repository. To run the code locally, clone the repo and then change directories to the notebook's parent directory `sdk/endpoints/online/managed`. 
 
@@ -175,26 +177,7 @@ ml_client = MLClient(
 
 To debug online endpoints locally in VS Code, set the `vscode-debug` and `local` flags when creating or updating an Azure Machine Learning online deployment. The following code mirrors a deployment example from the examples repo:
 
-```python
-deployment = ManagedOnlineDeployment(
-    name="blue",
-    endpoint_name=endpoint_name,
-    model=Model(path="../model-1/model/sklearn_regression_model.pkl"),
-    code_configuration=CodeConfiguration(
-        code="../model-1/onlinescoring", scoring_script="score.py"
-    ),
-    environment=Environment(
-        conda_file="../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
-    ),
-    instance_type="Standard_DS2_v2",
-    instance_count=1,
-)
-
-deployment = ml_client.online_deployments.begin_create_or_update(
-    deployment, local=True, vscode_debug=True
-)
-```
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb?name=launch-container-4)]
 
 > [!IMPORTANT]
 > On Windows Subsystem for Linux (WSL), you'll need to update your PATH environment variable to include the path to the VS Code executable or use WSL interop. For more information, see [Windows interoperability with Linux](/windows/wsl/interop).
@@ -237,14 +220,14 @@ Once your environment is set up, use the VS Code debugger to test and debug your
     - To debug scoring behavior, place your breakpoint(s) inside the `run` function.
 
 1. Select the VS Code Job view.
-1. In the Run and Debug dropdown, select **Azure ML: Debug Local Endpoint** to start debugging your endpoint locally.
+1. In the Run and Debug dropdown, select **AzureML: Debug Local Endpoint** to start debugging your endpoint locally.
 
     In the **Breakpoints** section of the Run view, check that:
 
     - **Raised Exceptions** is **unchecked**
     - **Uncaught Exceptions** is **checked**
 
-    :::image type="content" source="media/how-to-debug-managed-online-endpoints-visual-studio-code/configure-debug-profile.png" alt-text="Configure Azure ML Debug Local Environment debug profile":::
+    :::image type="content" source="media/how-to-debug-managed-online-endpoints-visual-studio-code/configure-debug-profile.png" alt-text="Configure Azure Machine Learning Debug Local Environment debug profile":::
 
 1. Select the play icon next to the Run and Debug dropdown to start your debugging session.
 
@@ -391,26 +374,7 @@ To apply changes to your code:
 
 For more extensive changes involving updates to your environment and endpoint configuration, use your `MLClient`'s `online_deployments.update` module/method. Doing so will trigger a full image rebuild with your changes.
 
-```python
-new_deployment = ManagedOnlineDeployment(
-    name="green",
-    endpoint_name=endpoint_name,
-    model=Model(path="../model-2/model/sklearn_regression_model.pkl"),
-    code_configuration=CodeConfiguration(
-        code="../model-2/onlinescoring", scoring_script="score.py"
-    ),
-    environment=Environment(
-        conda_file="../model-2/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
-    ),
-    instance_type="Standard_DS2_v2",
-    instance_count=2,
-)
-
-deployment = ml_client.online_deployments.begin_create_or_update(
-    new_deployment, local=True, vscode_debug=True
-)
-```
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb?name=edit-endpoint-1)]
 
 Once the updated image is built and your development container launches, use the VS Code debugger to test and troubleshoot your updated endpoint.
 
@@ -420,5 +384,5 @@ Once the updated image is built and your development container launches, use the
 
 ## Next steps
 
-- [Deploy and score a machine learning model by using a managed online endpoint)](how-to-deploy-managed-online-endpoints.md)
+- [Deploy and score a machine learning model by using an online endpoint)](how-to-deploy-online-endpoints.md)
 - [Troubleshooting managed online endpoints deployment and scoring)](how-to-troubleshoot-managed-online-endpoints.md)

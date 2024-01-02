@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 12/12/2023
 ---
 
 # Servers - Azure Database for PostgreSQL - Flexible Server
@@ -26,7 +26,7 @@ An Azure Database for PostgreSQL server:
 - Provides a namespace for databases.
 - Is a container with strong lifetime semantics - delete a server and it deletes the contained databases.
 - Collocates resources in a region.
-- Provides a connection endpoint for server and database access
+- Provides a connection endpoint for server and database access.
 - Provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
 - Is available in multiple versions. For more information, see [supported PostgreSQL database versions](concepts-supported-versions.md).
 - Is extensible by users. For more information, see [PostgreSQL extensions](concepts-extensions.md).
@@ -61,7 +61,7 @@ An Azure Database for PostgreSQL server has default databases:
 
 The PostgreSQL server parameters determine the configuration of the server. In Azure Database for PostgreSQL, the list of parameters can be viewed and edited using the Azure portal or the Azure CLI.
 
-As a managed service for Postgres, the configurable parameters in Azure Database for PostgreSQL are a subset of the parameters in a local Postgres instance (For more information on Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.org/docs/12/static/runtime-config.html)). Your Azure Database for PostgreSQL server is enabled with default values for each parameter on creation. Some parameters that would require a server restart or superuser access for changes to take effect cannot be configured by the user.
+As a managed service for Postgres, the configurable parameters in Azure Database for PostgreSQL are a subset of the parameters in a local Postgres instance (For more information on Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/static/runtime-config.html)). Your Azure Database for PostgreSQL server is enabled with default values for each parameter on creation. Some parameters that would require a server restart or superuser access for changes to take effect cannot be configured by the user.
 
 ## Next steps
 

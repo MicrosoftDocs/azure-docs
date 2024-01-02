@@ -2,13 +2,11 @@
 title: 'Remote work and Point-to-Site VPN gateways'
 titleSuffix: Azure VPN Gateway
 description: Learn how you can use VPN Gateway point-to-site connections in order to work remotely due to the COVID-19 pandemic.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/28/2021
-ms.author: alzam
+ms.date: 02/13/2023
+ms.author: cherylmc
 
 ---
 # Remote work using Azure VPN Gateway Point-to-site
@@ -42,7 +40,7 @@ At a high level, the following steps are needed to enable users to connect to Az
 
    * For certificate authentication, follow [this link](vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw).
    * For OpenVPN, follow [this link](vpn-gateway-howto-openvpn.md).
-   * For Azure AD authentication, follow [this link](openvpn-azure-ad-tenant.md).
+   * For Microsoft Entra authentication, follow [this link](openvpn-azure-ad-tenant.md).
    * For troubleshooting point-to-site connections, follow [this link](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 3. Download and distribute the VPN client configuration.
 4. Distribute the certificates (if certificate authentication is selected) to the clients.
@@ -74,7 +72,7 @@ To learn how to set up a site-to-site VPN tunnel, see [this link](./tutorial-sit
 
 ## Next Steps
 
-* [Configure a P2S connection - Azure AD authentication](openvpn-azure-ad-tenant.md)
+* [Configure a P2S connection - Microsoft Entra authentication](openvpn-azure-ad-tenant.md)
 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 

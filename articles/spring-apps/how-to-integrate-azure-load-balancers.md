@@ -1,7 +1,7 @@
 ---
 title:  Tutorial - Integrate Azure Spring Apps with Azure Load Balance Solutions
 description: How to integrate Azure Spring Apps with Azure Load Balance Solutions
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
@@ -16,11 +16,11 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 Azure Spring Apps supports Spring applications on Azure. Increasing business can require multiple data centers with management of multiple instances of Azure Spring Apps.
 
-Azure already provides [different load-balance solutions](/azure/architecture/guide/technology-choices/load-balancing-overview.md). There are three common options to integrate Azure Spring Apps with Azure load-balance solutions:
+Azure already provides [different load-balance solutions](/azure/architecture/guide/technology-choices/load-balancing-overview). There are three common options to integrate Azure Spring Apps with Azure load-balance solutions:
 
 1. Integrate Azure Spring Apps with Azure Traffic Manager
 1. Integrate Azure Spring Apps with Azure App Gateway
@@ -28,11 +28,11 @@ Azure already provides [different load-balance solutions](/azure/architecture/gu
 
 In the examples below, we will load balance requests for a custom domain of `www.contoso.com` towards two deployments of Azure Spring Apps in two different regions: `eastus.azuremicroservices.io` and `westus.azuremicroservices.io`.
 
-We recommend that the domain name, as seen by the browser, is the same as the host name which the load balancer uses to direct traffic to the Azure Spring Apps back end. This recommendation provides the best experience when using a load balancer to expose applications hosted in Azure Spring Apps. If the domain exposed by the load balancer is different from the domain accepted by Azure Spring Apps, cookies and generated redirect URLs (for example) can be broken. For more information, see [Host name preservation](/azure/architecture/best-practices/host-name-preservation.md).
+We recommend that the domain name, as seen by the browser, is the same as the host name which the load balancer uses to direct traffic to the Azure Spring Apps back end. This recommendation provides the best experience when using a load balancer to expose applications hosted in Azure Spring Apps. If the domain exposed by the load balancer is different from the domain accepted by Azure Spring Apps, cookies and generated redirect URLs (for example) can be broken. For more information, see [Host name preservation](/azure/architecture/best-practices/host-name-preservation).
 
 ## Prerequisites
 
-* A custom domain to be used to access the application: [Tutorial: Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md)
+* A custom domain to be used to access the application: [Tutorial: Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
 * Azure Spring Apps: [How to create an Azure Spring Apps service](./quickstart.md)
 * Azure Traffic Manager: [How to create a traffic manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
 * Azure App Gateway: [How to create an application gateway](../application-gateway/quick-create-portal.md)
@@ -73,7 +73,7 @@ To integrate with Azure Spring Apps service, complete the following configuratio
 ### Add Custom Probe
 
 1. Select **Health Probes** then **Add** to open custom **Probe** dialog.
-1. The key point is to select *No* for **Pick host name from backend HTTP settings** option and explicitly specify the host name. For more information, see [Application Gateway configuration for host name preservation](/azure/architecture/best-practices/host-name-preservation.md#application-gateway).
+1. The key point is to select *No* for **Pick host name from backend HTTP settings** option and explicitly specify the host name. For more information, see [Application Gateway configuration for host name preservation](/azure/architecture/best-practices/host-name-preservation#application-gateway).
 
     ![App Gateway 2](media/spring-cloud-load-balancers/app-gateway-2.png)
 
@@ -96,7 +96,7 @@ To integrate with Azure Spring Apps service and configure an origin group, use t
 
 1. Specify **origin type** as *Azure Spring Apps*.
 1. Select your Azure Spring Apps instance for the **host name**.
-1. Keep the **origin host header** empty, so that the incoming host header will be used towards the backend. For more information, see [Azure Front Door configuration for host name preservation](/azure/architecture/best-practices/host-name-preservation.md#azure-front-door).
+1. Keep the **origin host header** empty, so that the incoming host header will be used towards the backend. For more information, see [Azure Front Door configuration for host name preservation](/azure/architecture/best-practices/host-name-preservation#azure-front-door).
 
     ![Front Door 2](media/spring-cloud-load-balancers/front-door-2.png)
 

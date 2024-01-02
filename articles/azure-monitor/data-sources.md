@@ -4,7 +4,7 @@ description: Describes the data available to monitor the health and performance 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/21/2022
+ms.date: 11/17/2022
 ms.reviewer: shseth
 
 ---
@@ -14,8 +14,10 @@ ms.reviewer: shseth
 Azure Monitor is based on a [common monitoring data platform](data-platform.md) that includes 
 - [Metrics](essentials/data-platform-metrics.md)
 - [Logs](logs/data-platform-logs.md)
-- Traces 
-- Changes. This platform allows data from multiple resources to be analyzed together using a common set of tools in Azure Monitor. Monitoring data may also be sent to other locations to support certain scenarios, and some resources may write to other locations before they can be collected into Logs or Metrics.
+- [Traces](app/asp-net-trace-logs.md) 
+- [Changes](change/change-analysis.md) 
+
+This platform allows data from multiple resources to be analyzed together using a common set of tools in Azure Monitor. Monitoring data may also be sent to other locations to support certain scenarios, and some resources may write to other locations before they can be collected into Logs or Metrics.
 
 This article describes common sources of monitoring data collected by Azure Monitor in addition to the monitoring data created by Azure resources. Links are provided to detailed information on configuration required to collect this data to different locations.
 
@@ -29,16 +31,15 @@ Some of these data sources use the [new data ingestion pipeline](essentials/data
 
 Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections. See [Monitoring data locations in Azure](monitor-reference.md) for a description of each data location and how you can access its data.
 
-
-:::image type="content" source="media/overview/overview.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview.png":::
-
+:::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
 ### Azure
+
 The following table briefly describes the application tiers that are specific to Azure. Following the link for further details on each in the sections below.
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View Azure Active Directory data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
+| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Microsoft Entra ID. | View Microsoft Entra data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
 | [Azure subscription](#azure-subscription) | Data related to the health and management of cross-resource services in your Azure subscription such as Resource Manager and Service Health. | View in portal or configure collection to Azure Monitor using a log profile. |
 | [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically, view in Metrics Explorer.<br>Configure diagnostic settings to collect logs in Azure Monitor.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
 
@@ -52,19 +53,21 @@ The following table briefly describes the application tiers that may be in Azure
 | [Custom sources](#custom-sources) | Data from external services or other components or devices. | Collect log or metrics data into Azure Monitor from any REST client. |
 
 ## Azure tenant
-Telemetry related to your Azure tenant is collected from tenant-wide services such as Azure Active Directory.
+Telemetry related to your Azure tenant is collected from tenant-wide services such as Microsoft Entra ID.
 
 :::image type="content" source="media/data-sources/tenant.png" lightbox="media/data-sources/tenant.png" alt-text="Diagram that shows Azure tenant collection." border="false":::
 
 
-### Azure Active Directory Audit Logs
-[Azure Active Directory reporting](../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. 
+<a name='azure-active-directory-audit-logs'></a>
+
+### Microsoft Entra audit logs
+[Microsoft Entra ID reporting](../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. 
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Configure Azure AD logs to be collected in Azure Monitor to analyze them with other monitoring data. | [Integrate Azure AD logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure Storage | Export Azure AD logs to Azure Storage for archiving. | [Tutorial: Archive Azure AD logs to an Azure storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event Hubs | Stream Azure AD logs to other locations using Event Hubs. | [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Azure Monitor Logs | Configure Microsoft Entra logs to be collected in Azure Monitor to analyze them with other monitoring data. | [Integrate Microsoft Entra logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure Storage | Export Microsoft Entra logs to Azure Storage for archiving. | [Tutorial: Archive Microsoft Entra logs to an Azure storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event Hubs | Stream Microsoft Entra logs to other locations using Event Hubs. | [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 ## Azure subscription
 Telemetry related to the health and operation of your Azure subscription.
@@ -109,7 +112,7 @@ Most Azure services will send [platform metrics](essentials/data-platform-metric
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Metrics | Platform metrics will write to the Azure Monitor metrics database with no configuration. Access platform metrics from Metrics Explorer.  | [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md)<br>[Supported metrics with Azure Monitor](essentials/metrics-supported.md) |
+| Azure Monitor Metrics | Platform metrics will write to the Azure Monitor metrics database with no configuration. Access platform metrics from Metrics Explorer.  | [Analyze metrics with Azure Monitor metrics explorer](essentials/analyze-metrics.md) <br>[Supported metrics with Azure Monitor](essentials/metrics-supported.md) |
 | Azure Monitor Logs | Copy platform metrics to Logs for trending and other analysis using Log Analytics. | [Azure diagnostics direct to Log Analytics](essentials/resource-logs.md#send-to-log-analytics-workspace) |
 | Azure Monitor Change Analysis | Change Analysis detects various types of changes, from the infrastructure layer through application deployment. | [Use Change Analysis in Azure Monitor](./change/change-analysis.md) |
 | Event Hubs | Stream metrics to other locations using Event Hubs. |[Stream Azure monitoring data to an event hub for consumption by an external tool](essentials/stream-monitoring-data-event-hubs.md) |
@@ -121,8 +124,8 @@ The configuration requirements and content of resource logs vary by resource typ
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Send resource logs to Azure Monitor Logs for analysis with other collected log data. | [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](essentials/resource-logs.md#send-to-azure-storage) |
-| Storage | Send resource logs to Azure Storage for archiving. | [Archive Azure resource logs](essentials/resource-logs.md#send-to-log-analytics-workspace) |
+| Azure Monitor Logs | Send resource logs to Azure Monitor Logs for analysis with other collected log data. | [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](essentials/resource-logs.md#send-to-log-analytics-workspace) |
+| Storage | Send resource logs to Azure Storage for archiving. | [Archive Azure resource logs](essentials/resource-logs.md#send-to-azure-storage) |
 | Event Hubs | Stream resource logs to other locations using Event Hubs. |[Stream Azure resource logs to an event hub](essentials/resource-logs.md#send-to-azure-event-hubs) |
 
 ## Operating system (guest)
@@ -180,12 +183,12 @@ When you enable Application Insights for an application by installing an instrum
 | Destination | Description | Reference |
 |:---|:---|:---|
 | Azure Monitor Logs | Operational data about your application including page views, application requests, exceptions, and traces. | [Analyze log data in Azure Monitor](logs/log-query-overview.md) |
-|                    | Dependency information between application components to support Application Map and telemetry correlation. | [Telemetry correlation in Application Insights](app/correlation.md) <br> [Application Map](app/app-map.md) |
-|            | Results of availability tests that test the availability and responsiveness of your application from different locations on the public Internet. | [Monitor availability and responsiveness of any web site](app/monitor-web-app-availability.md) |
+|                    | Dependency information between application components to support Application Map and telemetry correlation. | [Telemetry correlation in Application Insights](app/distributed-tracing-telemetry-correlation.md) <br> [Application Map](app/app-map.md) |
+|            | Results of availability tests that test the availability and responsiveness of your application from different locations on the public Internet. | [Monitor availability and responsiveness of any web site](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) |
 | Azure Monitor Metrics | Application Insights collects metrics describing the performance and operation of the application in addition to custom metrics that you define in your application into the Azure Monitor metrics database. | [Log-based and pre-aggregated metrics in Application Insights](app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights API for custom events and metrics](app/api-custom-events-metrics.md) |
 | Azure Monitor Change Analysis | Change Analysis detects and provides insights on various types of changes in your application. | [Use Change Analysis in Azure Monitor](./change/change-analysis.md) |
-| Azure Storage | Send application data to Azure Storage for archiving. | [Export telemetry from Application Insights](app/export-telemetry.md) |
-|            | Details of availability tests are stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis. Results of availability tests are stored in Azure Monitor Logs. | [Monitor availability and responsiveness of any web site](app/monitor-web-app-availability.md) |
+| Azure Storage | Send application data to Azure Storage for archiving. | [Export telemetry from Application Insights](/previous-versions/azure/azure-monitor/app/export-telemetry) |
+|            | Details of availability tests are stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis. Results of availability tests are stored in Azure Monitor Logs. | [Monitor availability and responsiveness of any web site](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) |
 |            | Profiler trace data is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [Profile production applications in Azure with Application Insights](app/profiler-overview.md) 
 |            | Debug snapshot data that is captured for a subset of exceptions is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [How snapshots work](app/snapshot-debugger.md#how-snapshots-work) |
 
@@ -214,7 +217,7 @@ In addition to the standard tiers of an application, you may need to monitor oth
 
 | Destination | Method | Description | Reference |
 |:---|:---|:---|:---|
-| Azure Monitor Logs | Logs ingestion API | Collect log data from any REST client and store in Log Analytics workspace using a data collection rule. | [Logs ingestion API in Azure Monitor (preview)](logs/logs-ingestion-api-overview.md) |
+| Azure Monitor Logs | Logs ingestion API | Collect log data from any REST client and store in Log Analytics workspace using a data collection rule. | [Logs ingestion API in Azure Monitor](logs/logs-ingestion-api-overview.md) |
 |                    | Data Collector API | Collect log data from any REST client and store in Log Analytics workspace. | [Send log data to Azure Monitor with the HTTP Data Collector API (preview)](logs/data-collector-api.md) |
 | Azure Monitor Metrics | Custom Metrics API | Collect metric data from any REST client and store in Azure Monitor metrics database. | [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md) |
 

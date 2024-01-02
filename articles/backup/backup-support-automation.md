@@ -1,11 +1,11 @@
 ---
 title: Automation in Azure Backup support matrix
 description: This article summarizes automation tasks related to Azure Backup support.
-ms.date: 12/24/2021
+ms.date: 11/04/2022
 ms.topic: conceptual
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for automation in Azure Backup
@@ -85,7 +85,7 @@ You  can automate most backup related tasks using programmatic methods in Azure 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Backup | Create backup policy and configure backup | Supported    <br><br> [See the examples](./backup-blobs-storage-account-ps.md). | Supported    <br><br> [See the examples](./backup-blobs-storage-account-cli.md). | Supported    <br><br> [See the examples](./backup-azure-dataprotection-use-rest-api-backup-blobs.md). | Currently not supported | Supported | Supported    <br><br> [See the examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dataprotection/backup-create-storage-account-enable-protection). | Supported    <br><br> [See the examples](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_protection_backup_instance_blob_storage). |
 | Restore | Restore blobs | Supported    <br><br> [See the examples](./restore-blobs-storage-account-ps.md). | Supported    <br><br> [See the examples](./restore-blobs-storage-account-cli.md). | Supported    <br><br> [See the examples](./backup-azure-dataprotection-use-rest-api-restore-blobs.md). | N/A | N/A | N/A | N/A |
-| Manage | Monitor jobs | Supported    <br><br> [See the examples](./restore-blobs-storage-account-ps.md#tracking-job). | Supported    <br><br> [See the examples](./restore-blobs-storage-account-cli.md#tracking-job). | Supported    <br><br> [See the examples](./backup-azure-dataprotection-use-rest-api-restore-blobs.md#tracking-jobs). | N/A | N/A | N/A | N/A |
+| Manage | Monitor jobs | Supported    <br><br> [See the examples](./restore-blobs-storage-account-ps.md#tracking-job). | Supported    <br><br> [See the examples](./restore-blobs-storage-account-cli.md#tracking-job). | Supported    <br><br> [See the examples](./backup-azure-dataprotection-use-rest-api-restore-blobs.md#track-jobs). | N/A | N/A | N/A | N/A |
 | Manage | Modify backup policy | Currently not supported | Currently not supported | Currently not supported | N/A | N/A | N/A | N/A |
 | Manage | Stop protection and retain backup data | Currently not supported | Currently not supported | Currently not supported | N/A | N/A | N/A | N/A |
 | Manage | Stop protection and delete backup data | Supported | Supported | Supported | N/A | N/A | N/A | N/A |
@@ -108,9 +108,9 @@ You  can automate most backup related tasks using programmatic methods in Azure 
 
 | **Category** | **Operation** | **PowerShell** | **CLI** | **REST API** | **Azure Policy** | **ARM Template** | **Bicep** | **Terraform** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Backup | Create backup policy and configure backup | Supported | Supported | Supported | Currently not here | Supported | Supported | Supported    <br><br> [See the examples](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_protection_backup_instance_postgresql). |
-| Backup | Run on-demand backup | Supported | Supported | Supported | N/A | N/A | N/A | N/A |
-| Restore | Restore database on target storage account | Supported | Supported | Supported | N/A | N/A | N/A | N/A |
+| Backup | Create backup policy and configure backup | Supported <br><br> [See the examples](backup-postgresql-ps.md). | Supported <br><br> [See the examples](backup-postgresql-cli.md). | Supported <br><br> [See the examples](backup-azure-data-protection-use-rest-api-backup-postgresql.md). | Currently not here | Supported | Supported | Supported    <br><br> [See the examples](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_protection_backup_instance_postgresql). |
+| Backup | Run on-demand backup | Supported <br><br> [See the examples](backup-postgresql-ps.md). | Supported <br><br> [See the examples](backup-postgresql-cli.md). | Supported <br><br> [See the examples](backup-azure-data-protection-use-rest-api-backup-postgresql.md). | N/A | N/A | N/A | N/A |
+| Restore | Restore database on target storage account | Supported <br><br> [See the examples](restore-postgresql-database-ps.md). | Supported <br><br> [See the examples](restore-postgresql-database-cli.md). | Supported <br><br> [See the examples](restore-postgresql-database-use-rest-api.md) | N/A | N/A | N/A | N/A |
 | Manage | Modify backup policy | Supported | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Stop protection and delete data | Supported | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Stop protection and retain data | Supported | Supported | Supported | N/A | N/A | N/A | N/A |

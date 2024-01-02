@@ -5,7 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 04/22/2022
+ms.service: azure-migrate
+ms.date: 08/05/2022
+ms.custom: engagement-fy23
 ---
 
 # Assessment overview (migrate to Azure VMware Solution)

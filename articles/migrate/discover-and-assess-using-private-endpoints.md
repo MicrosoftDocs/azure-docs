@@ -1,14 +1,15 @@
 ---
 title: Discover and assess using Azure Private Link
 description: Create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration.
-author: deseelam
-ms.author: deseelam
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.service: azure-migrate
+ms.date: 09/15/2023
+ms.custom: engagement-fy23
 ---
  
-# Discover and assess servers for migration using Private Link (Preview)
+# Discover and assess servers for migration using Private Link 
 
 This article describes how to create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration using [Azure Private Link](../private-link/private-endpoint-overview.md).  You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
 
@@ -52,7 +53,7 @@ In the **Advanced** configuration section, provide the following details to crea
 Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
 
 > [!Note]
-> If you have deployed an appliance using a template (OVA for servers on a VMware environment and VHD for a Hyper-V environment), you can use the same appliance and register it with an Azure Migrate project with private endpoint connectivity.
+> If you have deployed an appliance using a template (OVA for servers on a VMware environment and VHD for a Hyper-V environment), you can use the same appliance and register it with an Azure Migrate project with private endpoint connectivity. You will need to run the Azure Migrate installer script and select the private endpoint connectivity option mentioned in the instructions below. 
 
 To set up the appliance:
   1. Download the zipped file that contains the installer script from the portal.
@@ -72,7 +73,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7EF01AE30F7BB8F4486EDC1688481DB656FB8ECA7B9EF6363B4DAB1CFCFDA141
 
 > [!NOTE]
 > The same script can be used to set up an appliance with private endpoint connectivity for any of the chosen scenarios, such as VMware, Hyper-V, physical or other to deploy an appliance with the desired configuration.
@@ -99,6 +100,11 @@ After the script has executed successfully, the appliance configuration manager 
 
 > [!NOTE]
 > If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+
+## Enabling DNS Resolution to Private Endpoints
+
+1. The DNS records required for the private endpoints can be downloaded from the Azure Migrate project. Instructions on how to download the DNS entries is [here](./troubleshoot-network-connectivity.md#verify-dns-resolution)
+2. Add these DNS records to your DNS server on-premises using our [Private Endpoint Connectivity documentation](../private-link/private-endpoint-dns.md) or add these DNS records to the local host file in the Azure Migrate appliance.
 
 ## Configure the appliance and start continuous discovery
 

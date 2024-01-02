@@ -23,7 +23,7 @@ Azure NetApp Files supports NFS client encryption in Kerberos modes (krb5, krb5i
 
 The following requirements apply to NFSv4.1 client encryption: 
 
-* Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (AADDS) connection to facilitate Kerberos ticketing 
+* Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services connection to facilitate Kerberos ticketing 
 * DNS A/PTR record creation for both the client and Azure NetApp Files NFS server IP addresses
 * A Linux client: This article provides guidance for RHEL and Ubuntu clients.  Other clients will work with similar configuration steps. 
 * NTP server access: You can use one of the commonly used Active Directory Domain Controller (AD DC) domain controllers.
@@ -54,11 +54,11 @@ The following requirements apply to NFSv4.1 client encryption:
 
 1.	Follow the instructions in [Create an Active Directory connection](create-active-directory-connections.md).  
 
-    Kerberos requires that you create at least one machine account in Active Directory. The account information you provide is used for creating the accounts for both SMB *and* NFSv4.1 Kerberos volumes. This machine is account is created automatically during volume creation.
+    Kerberos requires that you create at least one computer account in Active Directory. The account information you provide is used for creating the accounts for both SMB *and* NFSv4.1 Kerberos volumes. This machine is account is created automatically during volume creation.
 
 2.	Under **Kerberos Realm**, enter the **AD Server Name** and the **KDC IP** address.
 
-    AD Server and KDC IP can be the same server. This information is used to create the SPN machine account used by Azure NetApp Files. After the machine account is created, Azure NetApp Files will use DNS Server records to locate additional KDC servers as needed. 
+    AD Server and KDC IP can be the same server. This information is used to create the SPN computer account used by Azure NetApp Files. After the computer account is created, Azure NetApp Files will use DNS Server records to locate additional KDC servers as needed. 
 
     ![Kerberos Realm](../media/azure-netapp-files/kerberos-realm.png)
  

@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 If you boot up in a non-DHCP environment, follow these steps to deploy the virtual machine for your Data Box Gateway.
@@ -28,4 +28,5 @@ If you boot up in a non-DHCP environment, follow these steps to deploy the virtu
     ```
     Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1
     ```
+
 

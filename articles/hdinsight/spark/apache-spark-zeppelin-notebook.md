@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to use Zeppelin notebooks with Apa
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/22/2022
+ms.date: 12/14/2023
 ---
 
 # Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
@@ -81,7 +81,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
     The **%sql** statement at the beginning tells the notebook to use the Livy Scala interpreter.
 
-6. Select the **Bar Chart** icon to change the display.  **settings**, appear after you have selected **Bar Chart**, allows you to choose **Keys**, and **Values**.  The following screenshot shows the output.
+6. Select the **Bar Chart** icon to change the display.  **settings** appear after you have selected **Bar Chart**, allows you to choose **Keys**, and **Values**.  The following screenshot shows the output.
 
     :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png " alt-text="Run a Spark SQL statement using the notebook1" border="true":::
 
@@ -144,6 +144,29 @@ The Zeppelin notebooks are saved to the cluster headnodes. So, if you delete the
 :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png " alt-text="Download notebook" border="true":::
 
 This action saves the notebook as a JSON file in your download location.
+
+> [!NOTE]
+> * In HDI 4.0, the zeppelin notebook directory path is, `/usr/hdp/<version>/zeppelin/notebook/<notebook_session_id>/`
+   > 
+   >    Eg. /usr/hdp/4.1.17.10/zeppelin/2JMC9BZ8X/
+   > 
+   >    Where as in HDI 5.0 and above this path is different `/usr/hdp/<version>/zeppelin/notebook/<Kernel_name>/`
+   > 
+   >    Eg. /usr/hdp/5.1.4.5/zeppelin/notebook/Scala/
+> * The file name stored is different in HDI 5.0.
+   >    It is stored as `<notebook_name>_<sessionid>.zpln`
+   > 
+   >    Eg. testzeppelin_2JJK53XQA.zpln
+   > 
+   >    In HDI 4.0, the file name is just note.json stored under session_id directory.
+   > 
+   >    Eg. /2JMC9BZ8X/note.json
+> 
+> * HDI Zeppelin always saves the notebook in the path `/usr/hdp/<version>/zeppelin/notebook/` in hn0 local disk.
+>    
+>    If you want the notebook to be available even after cluster deletion , you can try to use azure file storage (Using SMB protocol ) and link it to local path. For more details, see [Mount SMB Azure file share on Linux](/azure/storage/files/storage-how-to-use-files-linux)
+> 
+>    After mounting it, you can modify the zeppelin configuration zeppelin.notebook.dir to the mounted path in ambari UI.
 
 ## Use `Shiro` to Configure Access to Zeppelin Interpreters in Enterprise Security Package (ESP) Clusters
 
@@ -216,7 +239,7 @@ To validate the service from a command line, SSH to the head node. Switch user t
 |---|---|
 |zeppelin-server|/usr/hdp/current/zeppelin-server/|
 |Server Logs|/var/log/zeppelin|
-|Configuration Interpreter, `Shiro`, site.xml, log4j|/usr/hdp/current/zeppelin-server/conf or /etc/zeppelin/conf|
+|Configuration Interpreter, `Shiro`, site.xml, `log4j`|/usr/hdp/current/zeppelin-server/conf or /etc/zeppelin/conf|
 |PID directory|/var/run/zeppelin|
 
 ### Enable debug logging

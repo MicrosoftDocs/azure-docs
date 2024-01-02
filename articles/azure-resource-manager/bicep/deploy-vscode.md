@@ -4,7 +4,8 @@ description: Deploy Bicep files from Visual Studio Code.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.custom: devx-track-bicep
+ms.date: 12/06/2022
 ---
 
 # Deploy Bicep files from Visual Studio Code
@@ -28,6 +29,8 @@ After you select the command, you follow the wizard to enter the values:
 1. Sign in to Azure and select subscription.
 
     :::image type="content" source="./media/deploy-vscode/bicep-deploy-select-subscription.png" alt-text="Screenshot of Select subscription.":::
+
+    [!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
 
 1. Select or create a resource group.
 

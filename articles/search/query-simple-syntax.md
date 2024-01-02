@@ -1,23 +1,25 @@
 ---
 title: Simple query syntax
-titleSuffix: Azure Cognitive Search
-description: Reference for the simple query syntax used for full text search queries in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Reference for the simple query syntax used for full text search queries in Azure AI Search.
 
 manager: nitinme
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/27/2022
 ---
 
-# Simple query syntax in Azure Cognitive Search
+# Simple query syntax in Azure AI Search
 
-Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because it's flexible, it's the default for queries in Azure Cognitive Search.
+Azure AI Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because it's flexible, it's the default for queries in Azure AI Search.
 
 Query syntax for either parser applies to query expressions passed in the "search" parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the ["$filter"](search-filters.md) and ["$orderby"](search-query-odata-orderby.md) expressions in the same request. OData parameters have different syntax and rules for constructing queries, escaping strings, and so on.
 
-Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, its implementation in Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md), consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
+Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, its implementation in Azure AI Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md), consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
 
 ## Example (simple syntax)
 
@@ -48,9 +50,9 @@ Strings passed to the "search" parameter can include terms or phrases in any sup
 
 By default, all strings passed in the "search" parameter undergo lexical analysis. Make sure you understand the tokenization behavior of the analyzer you're using. Often, when query results are unexpected, the reason can be traced to how terms are tokenized at query time. You can [test tokenization on specific strings](/rest/api/searchservice/test-analyzer) to confirm the output.
 
-Any text input with one or more terms is considered a valid starting point for query execution. Azure Cognitive Search will match documents containing any or all of the terms, including any variations found during analysis of the text.
+Any text input with one or more terms is considered a valid starting point for query execution. Azure AI Search will match documents containing any or all of the terms, including any variations found during analysis of the text.
 
-As straightforward as this sounds, there's one aspect of query execution in Azure Cognitive Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a "searchMode" parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. For more information, see the NOT operator under [Boolean operators](#boolean-operators).
+As straightforward as this sounds, there's one aspect of query execution in Azure AI Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a "searchMode" parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. For more information, see the NOT operator under [Boolean operators](#boolean-operators).
 
 ## Boolean operators
 
@@ -60,7 +62,7 @@ You can embed Boolean operators in a query string to improve the precision of a 
 |----------- |--------|-------|
 | `+` | `pool + ocean` | An AND operation. For example, `pool + ocean` stipulates that a document must contain both terms.|
 | `|` | `pool | ocean` | An OR operation finds a match when either term is found. In the example, the query engine will return match on documents containing either `pool` or `ocean` or both. Because OR is the default conjunction operator, you could also leave it out, such that `pool ocean` is the equivalent of  `pool | ocean`.|
-| `-` | `pool – ocean` | A NOT operation returns matches on documents that exclude the term. </p></p>The `searchMode` parameter on a query request controls whether a term with the NOT operator is ANDed or ORed with other terms in the query (assuming there's no boolean operators on the other terms). Valid values include `any` or `all`.  </p>`searchMode=any` increases the recall of queries by including more results, and by default `-` will be interpreted as "OR NOT". For example, `pool - ocean` will match documents that either contain the term `pool` or those that don't contain the term `ocean`.  </p>`searchMode=all` increases the precision of queries by including fewer results, and by default `-` will be interpreted as "AND NOT". For example, with `searchMode=and`, the query `pool - ocean` will match documents that contain the term "pool" and all documents that don't contain the term "ocean". This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider using `searchMode=all` instead of `searchMode=any` if you want to optimize searches for precision instead of recall, *and* Your users frequently use the `-` operator in searches.</p> When deciding on a `searchMode` setting, consider the user interaction patterns for queries in various applications. Users who are searching for information are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures. |
+| `-` | `pool – ocean` | A NOT operation returns matches on documents that exclude the term. </p></p>The `searchMode` parameter on a query request controls whether a term with the NOT operator is ANDed or ORed with other terms in the query (assuming there's no boolean operators on the other terms). Valid values include `any` or `all`.  </p>`searchMode=any` increases the recall of queries by including more results, and by default `-` will be interpreted as "OR NOT". For example, `pool - ocean` will match documents that either contain the term `pool` or those that don't contain the term `ocean`.  </p>`searchMode=all` increases the precision of queries by including fewer results, and by default `-` will be interpreted as "AND NOT". For example, with `searchMode=any`, the query `pool - ocean` will match documents that contain the term "pool" and all documents that don't contain the term "ocean". This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider using `searchMode=all` instead of `searchMode=any` if you want to optimize searches for precision instead of recall, *and* Your users frequently use the `-` operator in searches.</p> When deciding on a `searchMode` setting, consider the user interaction patterns for queries in various applications. Users who are searching for information are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures. |
 
 <a name="prefix-search"></a>
 
@@ -93,7 +95,7 @@ To make things simple for the more typical cases, there are two exceptions to th
 
 ## Encoding unsafe and reserved characters in URLs
 
-Ensure all unsafe and reserved characters are encoded in a URL. For example, '#' is an unsafe character because it's a fragment/anchor identifier in a URL. The character must be encoded to `%23` if used in a URL. '&' and '=' are examples of reserved characters as they delimit parameters and specify values in Azure Cognitive Search. For more information, see [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt).
+Ensure all unsafe and reserved characters are encoded in a URL. For example, '#' is an unsafe character because it's a fragment/anchor identifier in a URL. The character must be encoded to `%23` if used in a URL. '&' and '=' are examples of reserved characters as they delimit parameters and specify values in Azure AI Search. For more information, see [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt).
 
 Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `; / ? : @ = + &`.
 
@@ -131,7 +133,7 @@ For more information on query limits, see [API request limits](search-limits-quo
 
 ## Next steps
 
-If you'll be constructing queries programmatically, review [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md) to understand the stages of query processing and the implications of text analysis.
+If you'll be constructing queries programmatically, review [Full text search in Azure AI Search](search-lucene-query-architecture.md) to understand the stages of query processing and the implications of text analysis.
 
 You can also review the following articles to learn more about query construction:
 

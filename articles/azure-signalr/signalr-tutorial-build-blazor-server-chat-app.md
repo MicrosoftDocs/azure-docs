@@ -56,7 +56,7 @@ Beginning in Visual Studio 2019 version 16.2.0, Azure SignalR Service is built i
        dotnet new blazorserver -o BlazorChat
        ```
    
-1. Add a new C# file called `BlazorChatSampleHub.cs` and create a new class `BlazorSampleHub` deriving from the `Hub` class for the chat app. For more information on creating hubs, see [Create and Use Hubs](/aspnet/core/signalr/hubs#create-and-use-hubs). 
+1. Add a new C# file called `BlazorChatSampleHub.cs` and create a new class `BlazorChatSampleHub` deriving from the `Hub` class for the chat app. For more information on creating hubs, see [Create and Use Hubs](/aspnet/core/signalr/hubs#create-and-use-hubs). 
    
    ```cs
    using System;
@@ -185,7 +185,7 @@ Beginning in Visual Studio 2019 version 16.2.0, Azure SignalR Service is built i
               _messages.Add(new Message(name, message, isMine));
       
               // Inform blazor the UI needs updating
-              StateHasChanged();
+              InvokeAsync(StateHasChanged);
           }
       
           private async Task DisconnectAsync()

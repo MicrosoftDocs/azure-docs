@@ -6,7 +6,7 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: quickstart
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ms.custom: template-quickstart, devx-track-azurecli, mode-api
 ---
 
@@ -18,7 +18,7 @@ For an introduction to the Azure Data Factory service, see [Introduction to Azur
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 > [!NOTE]
 > To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the contributor or owner role, or an administrator of the Azure subscription. For more information, see [Azure roles](quickstart-create-data-factory-powershell.md#azure-roles).
@@ -274,7 +274,7 @@ In this quickstart, you created the following JSON files:
 
 Delete them by using standard Bash commands.
 
-## Next steps
+## Related content
 
 - [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md)
 - [Linked services in Azure Data Factory](concepts-linked-services.md)

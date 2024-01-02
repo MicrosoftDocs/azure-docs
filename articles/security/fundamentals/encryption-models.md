@@ -11,7 +11,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2022
+ms.date: 05/05/2023
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -88,7 +88,7 @@ Loss of key encryption keys means loss of data. For this reason, keys should not
 
 ### Key Access
 
-The server-side encryption model with customer-managed keys in Azure Key Vault involves the service accessing the keys to encrypt and decrypt as needed. Encryption at rest keys are made accessible to a service through an access control policy. This policy grants the service identity access to receive the key. An Azure service running on behalf of an associated subscription can be configured with an identity in that subscription. The service can perform Azure Active Directory authentication and receive an authentication token identifying itself as that service acting on behalf of the subscription. That token can then be presented to Key Vault to obtain a key it has been given access to.
+The server-side encryption model with customer-managed keys in Azure Key Vault involves the service accessing the keys to encrypt and decrypt as needed. Encryption at rest keys are made accessible to a service through an access control policy. This policy grants the service identity access to receive the key. An Azure service running on behalf of an associated subscription can be configured with an identity in that subscription. The service can perform Microsoft Entra authentication and receive an authentication token identifying itself as that service acting on behalf of the subscription. That token can then be presented to Key Vault to obtain a key it has been given access to.
 
 For operations using encryption keys, a service identity can be granted access to any of the following operations: decrypt, encrypt, unwrapKey, wrapKey, verify, sign, get, list, update, create, import, delete, backup, and restore.
 
@@ -139,16 +139,17 @@ The Azure services that support each encryption model:
 | Product, Feature, or Service | Server-Side Using Service-Managed Key   | Server-Side Using Customer-Managed Key | Client-Side Using Client-Managed Key  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **AI and Machine Learning**      |                    |                    |                    |
-| Azure Cognitive Search           | Yes                | Yes                | -                  |
-| Azure Cognitive Services         | Yes                | Yes                | -                  |
+| Azure AI Search           | Yes                | Yes                | -                  |
+| Azure AI services         | Yes                | Yes, including Managed HSM | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
-| Content Moderator                | Yes                | Yes                | -                  |
-| Face                             | Yes                | Yes                | -                  |
-| Language Understanding           | Yes                | Yes                | -                  |
-| Personalizer                     | Yes                | Yes                | -                  |
-| QnA Maker                        | Yes                | Yes                | -                  |
-| Speech Services                  | Yes                | Yes                | -                  |
-| Translator Text                  | Yes                | Yes                | -                  |
+| Content Moderator                | Yes                | Yes, including Managed HSM | -                  |
+| Face                             | Yes                | Yes, including Managed HSM | -                  |
+| Language Understanding           | Yes                | Yes, including Managed HSM | -                  |
+| Azure OpenAI                     | Yes                | Yes, including Managed HSM | -                  |
+| Personalizer                     | Yes                | Yes, including Managed HSM | -                  |
+| QnA Maker                        | Yes                | Yes, including Managed HSM | -                  |
+| Speech Services                  | Yes                | Yes, including Managed HSM | -                  |
+| Translator Text                  | Yes                | Yes, including Managed HSM | -                  |
 | Power BI                         | Yes                | Yes, RSA 4096-bit  | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | Yes\*\*, including Managed HSM | -                  |
@@ -157,8 +158,8 @@ The Azure services that support each encryption model:
 | Azure Analysis Services          | Yes                | -                  | -                  |
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Azure HDInsight                  | Yes                | All                | -                  |
-| Azure Monitor Application Insights | Yes                | Yes                | -                  |
-| Azure Monitor Log Analytics      | Yes                | Yes                | -                  |
+| Azure Monitor Application Insights | Yes              | Yes                | -                  |
+| Azure Monitor Log Analytics      | Yes                | Yes, including Managed HSM | -                  |
 | Azure Data Explorer              | Yes                | Yes                | -                  |
 | Azure Data Factory               | Yes                | Yes, including Managed HSM | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
@@ -174,6 +175,7 @@ The Azure services that support each encryption model:
 | Automation                       | Yes                | Yes                | -                  |
 | Azure Functions                  | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Azure portal                     | Yes                | Yes\*\*, including Managed HSM | -                  |
+| Azure VMware Solution            | Yes                | Yes, including Managed HSM | -                  |
 | Logic Apps                       | Yes                | Yes                | -                  |
 | Azure-managed applications       | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Service Bus                      | Yes                | Yes                | -                  |
@@ -184,18 +186,18 @@ The Azure services that support each encryption model:
 | Azure SQL Managed Instance       | Yes                | Yes, RSA 3072-bit, including Managed HSM | Yes                |
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
-| Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
-| Azure Synapse Analytics          | Yes                | Yes, RSA 3072-bit, including Managed HSM | -                  |
+| Azure SQL Database for PostgreSQL | Yes               | Yes, including Managed HSM | -                  |
+| Azure Synapse Analytics (dedicated SQL pool (formerly SQL DW) only) | Yes                | Yes, RSA 3072-bit, including Managed HSM | -                  |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 3072-bit  | Yes                |
 | Table Storage                    | Yes                | Yes                | Yes                |
-| Azure Cosmos DB                  | Yes  ([learn more](../../cosmos-db/database-security.md?tabs=sql-api))              | Yes ([learn more](../../cosmos-db/how-to-setup-cmk.md))                | -                  |
-| Azure Databricks                 | Yes                | Yes                | -                  |
+| Azure Cosmos DB                  | Yes  ([learn more](../../cosmos-db/database-security.md?tabs=sql-api))              | Yes, including Managed HSM ([learn more](../../cosmos-db/how-to-setup-cmk.md) and [learn more](../../cosmos-db/how-to-setup-customer-managed-keys-mhsm.md))                | -                  |
+| Azure Databricks                 | Yes                | Yes, including Managed HSM                | -                  |
 | Azure Database Migration Service | Yes                | N/A\*              | -                  |
 | **Identity**                     |                    |                    |                    |
-| Azure Active Directory           | Yes                | -                  | -                  |
-| Azure Active Directory Domain Services | Yes          | Yes                | -                  |
+| Microsoft Entra ID           | Yes                | -                  | -                  |
+| Microsoft Entra Domain Services | Yes          | Yes                | -                  |
 | **Integration**                  |                    |                    |                    |
-| Service Bus                      | Yes                | Yes                | Yes                |
+| Service Bus                      | Yes                | Yes                | -                |
 | Event Grid                       | Yes                | -                  | -                  |
 | API Management                   | Yes                | -                  | -                  |
 | **IoT Services**                 |                    |                    |                    |
@@ -209,7 +211,7 @@ The Azure services that support each encryption model:
 | Media Services                   | Yes                | Yes                | Yes                |
 | **Security**                     |                    |                    |                    |
 | Microsoft Defender for IoT    | Yes                | Yes                | -                  |
-| Microsoft Sentinel                   | Yes                | Yes                | -                  |
+| Microsoft Sentinel               | Yes                | Yes, including Managed HSM | -                  |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Yes                | Yes, including Managed HSM | Yes                |
 | Premium Blob Storage             | Yes                | Yes, including Managed HSM | Yes                |
@@ -223,12 +225,14 @@ The Azure services that support each encryption model:
 | Data Lake Storage Gen2           | Yes                | Yes, including Managed HSM | Yes                |
 | Avere vFXT                       | Yes                | -                  | -                  |
 | Azure Cache for Redis            | Yes                | N/A\*              | -                  |
-| Azure NetApp Files               | Yes                | Yes                | -                  |
+| Azure NetApp Files               | Yes                | Yes                | Yes                |
 | Archive Storage                  | Yes                | Yes                | -                  |
 | StorSimple                       | Yes                | Yes                | Yes                |
 | Azure Backup                     | Yes                | Yes                | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
 | Data Box Edge                    | Yes                | Yes                | -                  |
+| **Other**                        |                    |                    |                    |
+| Azure Data Manager for Energy Preview  | Yes                | -                  | Yes                |
 
 \* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
 

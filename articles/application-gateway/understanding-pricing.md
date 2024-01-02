@@ -234,19 +234,19 @@ units) * 1 (Hours)  = $0.24
 
 Total Costs = $0.492 + $0.24 = $0.732
 
-### Example 6 – WAF_V2 with DDoS Protection Standard Plan, and with manual scaling set to 2 instance
+### Example 6 – WAF_V2 with DDoS Network Protection, and with manual scaling set to 2 instance
 
-Let’s assume you’ve provisioned a WAF_V2 and set it to manual scaling with 2 instance for the entire month with 2 CUs. Let's also assume that you've enabled DDoS Protection Standard Plan. In this example, since you're paying the monthly fee for DDoS Protection Standard, there's no additional charges for WAF; and you're charged at the lower Standard_V2 rates.
+Let’s assume you’ve provisioned a WAF_V2 and set it to manual scaling with 2 instance for the entire month with 2 CUs. Let's also assume that you've enabled DDoS Network Protection. In this example, since you're paying the monthly fee for DDoS Network Protection, there's no additional charges for WAF; and you're charged at the lower Standard_V2 rates.
 
 Monthly price estimates are based on 730 hours of usage per month.
 
 Fixed Price = $0.246   * 730 (Hours) =  $179.58
 
-Variable Costs = $0.008  * 2 (capacity units) * 730 (Hours) = $11.68
+Variable Costs = $0.008  * ( 2 (Instance Units) * 10 (capacity units) * 730 (Hours) = $116.8
 
-DDoS Protection Standard Cost = $2,944 * 1 (month) = $2,944
+DDoS Network Protection Cost = $2,944 * 1 (month) = $2,944
 
-Total Costs = $179.58 + $11.68 + $2,944 = $3,135.26
+Total Costs = $179.58 + $116.8 + $2,944 = $3,240.38
 
 
 ## V1 SKUs
@@ -372,9 +372,9 @@ Variable Costs = 60 * 1000 * $0.0035/GB = $210 (Large tier has no costs for the 
 
 Total Costs = $161.28 + $210 = $371.28
 
-### Example 3 – WAF Application Gateway with DDoS Protection Standard Plan
+### Example 3 – WAF Application Gateway with DDoS Network Protection
 
-Let's assume you've provisioned a medium type WAF application Gateway, and you've enabled DDoS Protection Standard Plan. This medium WAF application gateway processes 40 TB in the duration that it is active. Your Application Gateway costs using the pricing method above would be calculated as follows:
+Let's assume you've provisioned a medium type WAF application Gateway, and you've enabled DDoS Network Protection. This medium WAF application gateway processes 40 TB in the duration that it is active. Your Application Gateway costs using the pricing method above would be calculated as follows:
 
 Monthly price estimates are based on 730 hours of usage per month.
 
@@ -382,14 +382,14 @@ Fixed Price = $0.07 * 730 (Hours) = $51.1
 
 Variable Costs = 30 * 1000 * $0.007/GB = $210 (Medium tier has no cost for the first 10 TB processed per month)
 
-DDoS Protection Standard Costs = $2,944 * 1 (month) = $2,944
+DDoS Network Protection Costs = $2,944 * 1 (month) = $2,944
 
 Total Costs = $3,507.08
 
 
-## Azure DDoS Protection Standard Plan
+## Azure DDoS Network Protection 
 
-When Azure DDoS Protection Standard Plan is enabled on your application gateway with WAF you'll be billed at the lower non-WAF rates. Please see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for more details.
+When Azure DDoS Network Protection is enabled on your application gateway with WAF you'll be billed at the lower non-WAF rates. Please see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for more details.
 
 
 ## Monitoring Billed Usage

@@ -30,7 +30,11 @@ This how-to guide shows how to add metadata to an integration account artifact. 
 
 * The logic app workflow where you want to use the artifact metadata. Make sure that your workflow has at least a trigger, such as the **Request** or **HTTP** trigger, and the action that you want to use for working with artifact metadata. The example in this article uses the **Request** trigger named **When a HTTP request is received**.
 
-  * If you don't have a logic app workflow, learn [how to create a Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md) or [how to create a Standard logic app workflow](create-single-tenant-workflows-azure-portal.md).
+  For more information, see the following documentation:
+
+  * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+
+  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 * Make sure to [link your integration account to your Consumption logic app resource](logic-apps-enterprise-integration-create-integration-account.md?tabs=azure-portal%2Cconsumption#link-account) or [to your Standard logic app workflow](logic-apps-enterprise-integration-create-integration-account.md?tabs=azure-portal%2Cstandard#link-account).
 

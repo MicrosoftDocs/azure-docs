@@ -8,9 +8,7 @@ metadata:
   description: Azure Fluid Relay is a managed cloud service that supports Fluid Framework Clients
   ms.service: azure-fluid
   ms.topic: landing-page
-  author: hickeys
-  ms.author: hickeys
-  ms.date: 08/19/2021
+  ms.date: 08/19/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -26,6 +24,8 @@ landingContent:
           url: concepts/architecture.md
         - text: Version compatibility with Fluid Framework releases
           url: concepts/version-compatibility.md
+        - text: Service limits
+          url: reference/service-limits.md
     - linkListType: get-started
       links:
         - text: Provision an Azure Fluid Relay service
@@ -37,32 +37,67 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Authentication and authorization in your app
-            url: concepts/authentication-authorization.md
-          - text: Data encryption in Azure Fluid Relay
-            url: concepts/data-encryption.md
+          - text: Managing Fluid containers
+            url: concepts/container-management.md
+          - text: Data storage in Azure Fluid Relay
+            url: concepts/data-storage.md
           - text: Distributed data structures (DDS)
             url: concepts/data-structures.md
           - text: Azure Fluid Relay token contract
             url: how-tos/fluid-json-web-token.md
-
+# Card
+  - title: Security in Azure Fluid Relay
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Authentication and authorization in your app
+            url: concepts/authentication-authorization.md
+          - text: Data encryption in Azure Fluid Relay
+            url: concepts/data-encryption.md
+          - text: Customer-managed keys for Azure Fluid Relay encryption
+            url: concepts/customer-managed-keys.md
   # Card
   - title: How to use Azure Fluid
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: 'How to: Provision an Azure Fluid Relay service'
+            url: how-tos/provision-fluid-azure-portal.md
           - text: 'How to: Connect to an Azure Fluid Relay service'
             url: how-tos/connect-fluid-azure-service.md
           - text: 'How to: Write a TokenProvider with an Azure Function'
             url: how-tos/azure-function-token-provider.md
-          - text: 'How to: Use AzureClient for local testing'
-            url: how-tos/local-mode-with-azure-client.md
-          - text: Delete Fluid containers in Microsoft Azure Fluid Relay Server
+          - text: 'How to: Deploy Fluid applications using Azure Static Web Apps'
+            url: how-tos/deploy-fluid-static-web-apps.md
+          - text: 'How to: Use JWT tokens'
+            url: how-tos/fluid-json-web-token.md
+          - text: 'How to: Delete a Fluid container'
             url: how-tos/container-deletion.md
-          - text: 'How to: Use test automation with Azure Fluid Relay'
-            url: how-tos/test-automation.md
+          - text: 'How to: Recover Fluid container data'
+            url: how-tos/container-recovery.md
           - text: 'How to: Validate a User Created a Document'
             url: how-tos/validate-document-creator.md
-
-
-          
+          - text: 'How to: Use audience features in the Fluid Framework'
+            url: how-tos/use-audience-in-fluid.md
+  # Card
+  - title: Test your Azure Fluid Relay app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: 'How to: Use test automation with Azure Fluid Relay'
+            url: how-tos/test-automation.md
+          - text: 'How to: Use AzureClient for local testing'
+            url: how-tos/local-mode-with-azure-client.md
+  # Card
+  - title: More information
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: Fluid Framework home page
+          url: https://fluidframework.com/
+        - text: Azure Fluid Relay FAQ
+          url: resources/faq.md
+        - text: API documentation
+          url: https://fluidframework.com/docs/apis/
+        - text: Help and support options for Azure Fluid Relay
+          url: resources/support.md

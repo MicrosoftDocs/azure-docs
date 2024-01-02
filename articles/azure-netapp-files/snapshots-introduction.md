@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 11/22/2022
 ms.author: anfdocs
 ---
 # How Azure NetApp Files snapshots work
@@ -131,7 +131,7 @@ The following diagram shows volume restoration (cloning) by using DR target volu
 
 [![Diagram that shows volume restoration using DR target volume snapshot](../media/azure-netapp-files/snapshot-restore-clone-target-volume.png)](../media/azure-netapp-files/snapshot-restore-clone-target-volume.png#lightbox)
 
-See [Restore a snapshot to a new volume](snapshots-restore-new-volume.md) about volume restore operations.
+When you restore a snapshot to a new volume, the Volume overview page displays the name of the snapshot used to create the new volume in the **Originated from** field. See [Restore a snapshot to a new volume](snapshots-restore-new-volume.md) about volume restore operations.
 
 ### Restoring (reverting) an online snapshot in-place
 
@@ -200,7 +200,7 @@ This section explains how online snapshots and vaulted snapshots are deleted.
 
 ### Deleting online snapshots 
 
-Snapshots consume storage capacity. As such, they are not typically kept indefinitely. For data protection, retention, and recoverability, a number of snapshots (created at various points in time) are usually kept online for a certain duration depending on RPO, RTO, and retention SLA requirements. However, older snapshots often do not have to be kept on the storage service and might need to be deleted to free up space. Any snapshot can be deleted (not necessarily in order of creation) by an administrator at any time. 
+Snapshots consume storage capacity. As such, they are not typically kept indefinitely. For data protection, retention, and recoverability, a number of snapshots (created at various points in time) are usually kept online for a certain duration depending on RPO, RTO, and retention SLA requirements. Snapshots can be deleted from the storage service by an administrator at any time. Any snapshot can be deleted regardless of the order in which it was created. Deleting older snapshots will free up space.
 
 > [!IMPORTANT]
 > The snapshot deletion operation cannot be undone. You should retain offline copies (vaulted snapshots) of the volume for data protection and retention purposes. 
@@ -243,3 +243,4 @@ Vaulted snapshot history is managed automatically by the applied snapshot policy
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
 * [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
+* [Test disaster recovery for Azure NetApp Files](test-disaster-recovery.md)

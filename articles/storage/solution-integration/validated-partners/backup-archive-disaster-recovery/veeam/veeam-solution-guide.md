@@ -7,8 +7,8 @@ author: karauten
 ms.author: karauten
 ms.date: 10/15/2022
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Azure Data Protection with Veeam
@@ -41,7 +41,7 @@ This diagram provides an overview of these capabilities.
 
 ## Before you begin
 
-As you plan your Azure Storage strategy with Veeam, it's recommended to review the [Microsoft Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/) for guidance on setting up your Azure environment. The [Azure Setup Guide](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/) includes step-by-step details to help you establish a foundation for operating efficiently and securely within Azure.
+As you plan your Azure Storage strategy with Veeam, it's recommended to review the [Microsoft Cloud Adoption Framework](/azure/cloud-adoption-framework/) for guidance on setting up your Azure environment. The [Azure Setup Guide](/azure/cloud-adoption-framework/ready/azure-setup-guide/) includes step-by-step details to help you establish a foundation for operating efficiently and securely within Azure.
 
 ## Using Azure Blob Storage with Veeam
 

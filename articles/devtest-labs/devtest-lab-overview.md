@@ -4,7 +4,8 @@ description: Learn how DevTest Labs makes it easy to create, manage, and monitor
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/03/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # What is Azure DevTest Labs?
@@ -45,6 +46,5 @@ Lab owners can take several measures to reduce waste and control lab costs.
 
 - [DevTest Labs concepts](devtest-lab-concepts.md)
 - [Quickstart: Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md)
-- [DevTest Labs FAQ](devtest-lab-faq.yml)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

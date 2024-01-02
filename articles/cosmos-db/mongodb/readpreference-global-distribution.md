@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 02/26/2019
-ms.custom: devx-track-js, ignite-2022
+ms.custom: ignite-2022
 ---
 # How to globally distribute reads using Azure Cosmos DB's API for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
@@ -81,7 +81,7 @@ Refer to the detailed [MongoDB Read Preference behavior](https://docs.mongodb.co
 
 Based on common scenarios, we recommend using the following settings:
 
-1. If **low latency reads** are required, use the **NEAREST** read preference mode. This setting directs the read operations to the nearest available region. Note that if the nearest region is the WRITE region, then these operations are directed to that region.
+1. If **high availability and low latency reads** are required, use the **NEAREST** read preference mode. This setting directs the read operations to the nearest available region. Note that if the nearest region is the WRITE region, then these operations are directed to that region.
 2. If **high availability and geo distribution of reads** are required (latency is not a constraint), then use the **PRIMARY PREFERRED** or **SECONDARY PREFERRED** read preference mode. This setting directs read operations to an available WRITE or READ region respectively. If the region is not available, then requests are directed to the next available region as per the read preference behavior.
 
 The following snippet from the sample application shows how to configure NEAREST Read Preference in NodeJS:
@@ -168,4 +168,4 @@ If you're not going to continue to use this app, delete all resources created by
 
 * [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
 * [Setup a globally distributed database with Azure Cosmos DB's API for MongoDB](tutorial-global-distribution.md)
-* [Develop locally with the Azure Cosmos DB Emulator](../local-emulator.md)
+* [Develop locally with the Azure Cosmos DB Emulator](../emulator.md)

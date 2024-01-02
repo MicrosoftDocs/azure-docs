@@ -4,6 +4,7 @@ description: In this article, you learn how to add or modify multiple Azure Fire
 services: firewall
 author: vhorne
 ms.service: firewall
+ms.custom: devx-track-azurepowershell
 ms.date: 02/23/2022
 ms.author: victorh
 ms.topic: how-to

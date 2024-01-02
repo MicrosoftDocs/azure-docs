@@ -3,6 +3,7 @@ title: "Quickstart: New policy assignment with PowerShell"
 description: In this quickstart, you use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
 ms.date: 08/17/2021
 ms.topic: quickstart
+ms.custom: devx-track-azurepowershell
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
 
@@ -19,7 +20,7 @@ This guide explains how to use Az module to create a policy assignment.
   account before you begin.
 
 - Before you start, make sure that the latest version of Azure PowerShell is installed. See
-  [Install Azure PowerShell module](/powershell/azure/install-az-ps) for detailed information.
+  [Install Azure PowerShell module](/powershell/azure/install-azure-powershell) for detailed information.
 
 - Register the Azure Policy Insights resource provider using Azure PowerShell. Registering the
   resource provider makes sure that your subscription works with it. To register a resource

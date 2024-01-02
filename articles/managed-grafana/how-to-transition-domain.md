@@ -5,7 +5,8 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: msoumar-ms
 ms.author: msoumar
-ms.date: 09/27/2022
+ms.date: 11/27/2022
+ms.custom: content-health
 --- 
 
 # Transition to using the grafana.azure.com domain
@@ -22,7 +23,7 @@ Verify that you are set to use the grafana.azure.com domain:
 
 1. In the Azure portal, go to your Azure Managed Grafana resource.
 1. At the top of the **Overview** page, in **Essentials**, look for the endpoint of your Grafana workspace. Verify that the URL ends in grafana.azure.com and that clicking the link takes you to your Grafana endpoint.
-     :::image type="content" source="media/grafana-endpoint/grafana-domain-view-endpoint.png" alt-text="Screenshot of the Azure platform showing the Grafana endpoint URL.":::
+     :::image type="content" source="media/domain-transition/grafana-domain-view-endpoint.png" alt-text="Screenshot of the Azure platform showing the Grafana endpoint URL.":::
 1. If you have any bookmarks or links in your own documentation to your Grafana workspace, make sure that they point to the URL ending in grafana.azure.com listed in the Azure portal.
 
 ## Next steps

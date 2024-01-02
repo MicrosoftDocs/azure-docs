@@ -4,6 +4,7 @@ description: Configure a public or private DNS configuration for a container gro
 author: tomvcassidy
 ms.topic: how-to
 ms.service: container-instances
+ms.custom: devx-track-azurecli, devx-track-linux
 services: container-instances
 ms.author: tomcassidy
 ms.date: 05/25/2022
@@ -53,7 +54,7 @@ If you have an existing virtual network that meets these criteria, you can skip 
 
 1. Create the virtual network using the [az network vnet create][az-network-vnet-create] command. Enter address prefixes in Classless Inter-Domain Routing (CIDR) format (for example: `10.0.0.0/16`).
 
-   ```azurecli
+   ```azurecli-interactive
    az network vnet create \
      --name aci-vnet \
      --resource-group ACIResourceGroup \
@@ -63,7 +64,7 @@ If you have an existing virtual network that meets these criteria, you can skip 
 
 1. Create the subnet using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following command creates a subnet in your virtual network with a delegation that permits it to create container groups. For more information about working with subnets, see the [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md). For more information about subnet delegation, see the [Virtual Network Scenarios and Resources article section on delegated subnets](container-instances-virtual-network-concepts.md#subnet-delegated).
 
-   ```azurecli
+   ```azurecli-interactive
    az network vnet subnet create \
      --name aci-subnet \
      --resource-group ACIResourceGroup \
@@ -76,13 +77,13 @@ If you have an existing virtual network that meets these criteria, you can skip 
 
 1. Create the private DNS Zone using the [az network private-dns zone create][az-network-private-dns-zone-create] command.
 
-    ```azurecli
+    ```azurecli-interactive
     az network private-dns zone create -g ACIResourceGroup -n private.contoso.com
     ```
 
 1. Link the DNS zone to your virtual network using the [az network private-dns link vnet create][az-network-private-dns-link-vnet-create] command. The DNS server is only required to test name resolution. The `-e` flag enables automatic hostname registration, which is unneeded, so we set it to `false`.
 
-   ```azurecli
+   ```azurecli-interactive
    az network private-dns link vnet create \ 
      -g ACIResourceGroup \
      -n aciDNSLink \ 
@@ -96,7 +97,7 @@ Once you've completed the steps above, you should see an output with a final key
 ## Deploy your container group
 
 > [!NOTE]
-> Custom DNS settings are not currently available in the Azure portal for container group deployments. They must be provided with YAML file, Resource Manager template, [REST API](/rest/api/container-instances/containergroups/createorupdate), or an [Azure SDK](https://azure.microsoft.com/downloads/).
+> Custom DNS settings are not currently available in the Azure portal for container group deployments. They must be provided with YAML file, Resource Manager template, [REST API](/rest/api/container-instances/2022-09-01/container-groups/create-or-update), or an [Azure SDK](https://azure.microsoft.com/downloads/).
 
 Copy the following YAML into a new file named *custom-dns-deploy-aci.yaml*. Edit the following configurations with your values:
 
@@ -150,18 +151,18 @@ type: Microsoft.ContainerInstance/containerGroups
 
 Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name with the `--file` parameter:
 
-```azurecli
+```azurecli-interactive
 az container create --resource-group ACIResourceGroup \
   --file custom-dns-deploy-aci.yaml
 ```
 
 Once the deployment is complete, run the [az container show][az-container-show] command to display its status. Sample output:
 
-```azurecli
+```azurecli-interactive
 az container show --resource-group ACIResourceGroup --name pwsh-vnet-dns -o table
 ```
 
-```console
+```output
 Name              ResourceGroup    Status    Image                                       IP:ports     Network    CPU/Memory       OsType    Location
 ----------------  ---------------  --------  ------------------------------------------  -----------  ---------  ---------------  --------  ----------
 pwsh-vnet-dns     ACIResourceGroup  Running   mcr.microsoft.com/powershell                10.0.0.5:80  Private    1.0 core/2.0 gb  Linux     westus
@@ -169,13 +170,13 @@ pwsh-vnet-dns     ACIResourceGroup  Running   mcr.microsoft.com/powershell      
 
 After the status shows `Running`, execute the [az container exec][az-container-exec] command to obtain bash access within the container.
 
-```azurecli
+```azurecli-interactive
 az container exec --resource-group ACIResourceGroup --name pwsh-vnet-dns --exec-command "/bin/bash"
 ```
 
 Validate that DNS is working as expected from within your container. For example, read the `/etc/resolv.conf` file to ensure it's configured with the DNS settings provided in the YAML file.
 
-```console
+```bash
 root@wk-caas-81d609b206c541589e11058a6d260b38-90b0aff460a737f346b3b0:/# cat /etc/resolv.conf
 
 nameserver 10.0.0.10
@@ -189,7 +190,7 @@ search contoso.com
 
 When you're finished with the container instance you created, delete it with the [az container delete][az-container-delete] command:
 
-```azurecli
+```azurecli-interactive
 az container delete --resource-group ACIResourceGroup --name pwsh-vnet-dns -y
 ```
 
@@ -197,7 +198,7 @@ az container delete --resource-group ACIResourceGroup --name pwsh-vnet-dns -y
 
 If you don't plan to use this virtual network again, you can delete it with the [az network vnet delete][az-network-vnet-delete] command:
 
-```azurecli
+```azurecli-interactive
 az network vnet delete --resource-group ACIResourceGroup --name aci-vnet
 ```
 
@@ -205,7 +206,7 @@ az network vnet delete --resource-group ACIResourceGroup --name aci-vnet
 
 If you don't plan to use this resource group outside of this guide, you can delete it with [az group delete][az-group-delete] command:
 
-```azurecli
+```azurecli-interactive
 az group delete --name ACIResourceGroup
 ```
 

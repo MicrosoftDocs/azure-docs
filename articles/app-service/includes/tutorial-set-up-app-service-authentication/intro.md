@@ -5,7 +5,7 @@ services: active-directory, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.workload: identity
 ms.date: 02/25/2022
@@ -13,6 +13,7 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 #Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.
+ms.subservice: web-apps
 ---
 
 Learn how to enable authentication for your web app running on Azure App Service and limit access to users in your organization.
@@ -22,7 +23,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Configure authentication for the web app.
-> * Limit access to the web app to users in your organization by using Azure Active Directory (Azure AD) as the identity provider.
+> * Limit access to the web app to users in your organization by using Microsoft Entra ID as the identity provider.
 
 ## Automatic authentication provided by App Service
 
@@ -33,7 +34,7 @@ App service authentication provides:
 * Easily turn on and configure through the Azure portal and app settings. 
 * No SDKs, specific languages, or changes to application code are required.​ 
 * Several identity providers are supported:
-    * Azure AD
+    * Microsoft Entra ID
     * Microsoft Account
     * Facebook
     * Google

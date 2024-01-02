@@ -3,9 +3,9 @@ title: Tutorial - Back up Azure Database for PostgreSQL server
 description: Learn about how to back up Azure Database for PostgreSQL server to an Azure Backup Vault.
 ms.topic: tutorial
 ms.date: 02/25/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up Azure Database for PostgreSQL server
 
@@ -49,7 +49,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
 1. On the **Basics** tab, provide subscription, resource group, backup vault name, region, and backup storage redundancy.
 
-   Continue by selecting **Review + create**. Learn more about [creating a Backup vault](./backup-vault-overview.md#create-a-backup-vault).
+   Continue by selecting **Review + create**. Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
    :::image type="content" source="./media/backup-managed-disks/review-and-create.png" alt-text="Screenshot showing to select Review and create vault.":::
 

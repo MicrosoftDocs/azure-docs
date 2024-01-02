@@ -4,6 +4,7 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
+ms.custom: devx-track-azurecli
 ms.date: 10/31/2022
 ms.author: victorh
 ms.topic: how-to
@@ -42,7 +43,7 @@ If you prefer, you can complete this procedure using the [Azure portal](tutorial
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -167,7 +168,7 @@ Note the private IP address. You'll use it later when you create the default rou
 
 ## Create a default route
 
-Create a table, with BGP route propagation disabled
+Create a route table, with BGP route propagation disabled
 
 ```azurecli-interactive
 az network route-table create \

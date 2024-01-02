@@ -6,10 +6,10 @@ author: bandersmsft
 ms.author: banders
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
+ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 11/17/2023
 ---
 
 # Azure saving plan cancellation policies

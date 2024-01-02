@@ -1,20 +1,20 @@
 ### YamlMime:Landing
-title: Azure Kubernetes Fleet Manager (preview)
+title: Azure Kubernetes Fleet Manager
 summary: Learn how to address multi-cluster and at-scale scenarios for Azure Kubernetes Service (AKS) clusters
 
 metadata:
-  title: Azure Kubernetes Fleet Manager (preview)
+  title: Azure Kubernetes Fleet Manager
   description: Learn how to address multi-cluster and at-scale scenarios for Azure Kubernetes Service (AKS) clusters
   ms.service: kubernetes-fleet
-  ms.custom: ignite-2022
+  ms.custom: ignite-2023
   ms.topic: landing-page
-  ms.date: 10/03/2022
+  ms.date: 11/06/2023
 landingContent:
-  - title: About Azure Kubernetes Fleet Manager (preview)
+  - title: About Azure Kubernetes Fleet Manager
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Kubernetes Fleet Manager (preview)?
+          - text: What is Azure Kubernetes Fleet Manager?
             url: overview.md
       - linkListType: concept
         links:
@@ -30,7 +30,7 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/fleet
           - text: .NET
-            url: /dotnet/api/overview/azure/containerservice
+            url: /dotnet/api/overview/azure/container-service
           - text: Python
             url: /python/api/overview/azure/container-service
           - text: Java
@@ -48,11 +48,13 @@ landingContent:
             url: quickstart-create-fleet-and-members.md
       - linkListType: how-to-guide
         links:
-          - text: Propagate Kubernetes resource objects from a Fleet resource to member clusters
-            url: configuration-propagation.md
+          - text: Orchestrate updates across multiple member clusters
+            url: update-orchestration.md
       - linkListType: how-to-guide
         links:
-          - text: Set up multi-cluster Layer 4 load balancing
+          - text: Propagate Kubernetes resource objects from a Fleet resource to member clusters (preview)
+            url: resource-propagation.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up multi-cluster Layer 4 load balancing (preview)
             url: l4-load-balancing.md
-
-  

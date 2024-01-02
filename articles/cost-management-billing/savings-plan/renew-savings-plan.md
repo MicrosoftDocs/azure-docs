@@ -5,10 +5,10 @@ description: Learn how you can automatically renew an Azure saving plan to conti
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
+ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 11/17/2023
 ms.author: banders
 ---
 

@@ -2,7 +2,9 @@
 title: Overview of security features
 description: Learn about security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/31/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Overview of security features in Azure Backup
@@ -25,7 +27,7 @@ Azure Backup has several security controls built into the service to prevent, de
 
 ## Separation between guest and Azure storage
 
-With Azure Backup, which includes virtual machine backup and SQL and SAP HANA in VM backup, the backup data is stored in Azure storage and the guest has no direct access to backup storage or its contents.  With virtual machine backup, the backup snapshot creation and storage is done by Azure fabric where the guest has no involvement other than quiescing the workload for application consistent backups.  With SQL and SAP HANA, the backup extension gets temporary access to write to specific blobs.  In this way, even in a compromised environment, existing backups can't be tampered with or deleted by the guest.
+With Azure Backup, which includes virtual machine backup and SQL and SAP HANA in VM backup, the backup data is stored in Azure storage and the guest has no direct access to backup storage or its contents.  With the virtual machine backup, the backup snapshot creation and storage are done by Azure fabric where the guest has no involvement other than quiescing the workload for application consistent backups.  With SQL and SAP HANA, the backup extension gets temporary access to write to specific blobs.  In this way, even in a compromised environment, existing backups can't be tampered with or deleted by the guest.
 
 ## Internet connectivity not required for Azure VM backup
 
@@ -49,9 +51,23 @@ Encryption protects your data and helps you to meet your organizational security
 
 * When data is backed up from on-premises servers with the MARS agent, data is encrypted with a passphrase before upload to Azure Backup and decrypted only after it's downloaded from Azure Backup. Read more about [security features to help protect hybrid backups](#security-features-to-help-protect-hybrid-backups).
 
-## Protection of backup data from unintentional deletes
+## Soft delete
 
-Azure Backup provides security features to help protect backup data even after deletion. With soft delete, if user deletes the backup of a VM, the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to you. [Learn more about soft delete](backup-azure-security-feature-cloud.md).
+Azure Backup provides security features to help protect the backup data even after deletion. With soft delete, if you delete the backup of a VM, the backup data is retained for *14 additional days*, allowing the recovery of that backup item with no data loss. The additional *14 days retention of backup data in the "soft delete state* doesn't incur any cost. [Learn more about soft delete](backup-azure-security-feature-cloud.md).
+
+Azure Backup has now also enhanced soft delete to further improve chances of recovering data after deletion. [Learn more](#enhanced-soft-delete).
+
+## Immutable vaults
+
+Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the immutable vault setting to make it irreversible that can prevent any malicious actors from disabling immutability and deleting backups. [Learn more about immutable vaults](backup-azure-immutable-vault-concept.md). 
+
+## Multi-user authorization
+
+Multi-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults and Backup vaults. For MUA, Azure Backup uses another Azure resource called the Resource Guard to ensure critical operations are performed only with applicable authorization. [Learn more about multi-user authorization for Azure Backup](multi-user-authorization-concept.md).
+
+## Enhanced soft delete
+
+Enhanced soft delete provides you with the ability to recover your data even after it's deleted, accidentally or maliciously. It works by delaying the permanent deletion of data by a specified duration, providing you with an opportunity to retrieve it. You can also make soft delete *always-on* to prevent it from being disabled. [Learn more about enhanced soft delete for Backup](backup-azure-enhanced-soft-delete-about.md).
 
 ## Monitoring and alerts of suspicious activity
 
@@ -69,7 +85,7 @@ Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to 
 
 ## Compliance with standardized security requirements
 
-To help organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals' data, Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations. [See the list of compliance certifications](compliance-offerings.md)
+To help organizations comply with national/regional and industry-specific requirements governing the collection and use of individuals' data, Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations. [See the list of compliance certifications](compliance-offerings.md)
 
 ## Next steps
 

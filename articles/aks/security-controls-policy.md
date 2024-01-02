@@ -1,9 +1,8 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Kubernetes Service (AKS)
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Kubernetes Service (AKS). These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 10/12/2022
+ms.date: 12/14/2023
 ms.topic: sample
-ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Kubernetes Service (AKS)

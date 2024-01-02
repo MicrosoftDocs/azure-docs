@@ -3,12 +3,12 @@ title: Revisions in Azure API Management | Microsoft Docs
 description: Learn about the concept of revisions in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: johndowns
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 02/22/2022
-ms.author: jodowns
-ms.custom: fasttrack-new, devx-track-azurepowershell
+ms.author: danlep
+ms.custom: fasttrack-new
 ---
 # Revisions in Azure API Management
 
@@ -30,9 +30,12 @@ With revisions you can:
 
 Each revision to your API can be accessed using a specially formed URL. Append `;rev={revisionNumber}` at the end of your API URL, but before the query string, to access a specific revision of that API. For example, you might use this URL to access revision 3 of the `customers` API:
 
-`https://apis.contoso.com/customers;rev=3?customerId=123`
+`https://apis.contoso.com/customers;rev=3/leads?customerId=123`
 
-By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to add a [IP filtering policy](./api-management-access-restriction-policies.md#RestrictCallerIPs) to prevent external callers from accessing a revision that is still under development.
+By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to add a [IP filtering policy](ip-filter-policy.md) to prevent external callers from accessing a revision that is still under development.
+
+> [!NOTE]
+> The `;rev={id}` must be appended to the API ID, and not the URI path.
 
 ## Current revision
 
@@ -42,7 +45,7 @@ You can set a revision as current using the Azure portal. If you use PowerShell,
 
 ## Revision descriptions
 
-When you create a revision, you can set a description for your own tracking purposes. Descriptions aren't played to your API users.
+When you create a revision, you can set a description for your own tracking purposes. Descriptions aren't displayed to your API users.
 
 When you set a revision as current you can also optionally specify a public change log note. The change log is included in the developer portal for your API users to view. You can modify your change log note using the `Update-AzApiManagementApiRelease` PowerShell cmdlet.
 

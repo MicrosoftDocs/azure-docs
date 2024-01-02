@@ -1,65 +1,67 @@
 ---
-title: Profile production apps in Azure with Application Insights Profiler
-description: Identify the hot path in your web server code with a low-footprint profiler
+title: Analyze application performance traces with Application Insights Profiler
+description: Identify the hot path in your web server code with a low-footprint profiler.
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 07/15/2022
-ms.reviewer: jogrima
+ms.date: 12/11/2023
+ms.reviewer: ryankahng
 ---
 
 # Profile production applications in Azure with Application Insights Profiler
 
-Diagnosing performance issues can prove difficult, especially when your application is running on production environment in the cloud. The cloud is dynamic, with machines coming and going, user input and other conditions constantly changing, and the potential for high scale. Slow responses in your application could be caused by infrastructure, framework, or application code handling the request in the pipeline.
+Diagnosing your application's performance issues can be difficult, especially when running on a production environment in the dynamic cloud. Slow responses in your application could be caused by infrastructure, framework, or application code handling the request in the pipeline. 
 
-With Application Insights Profiler, you can capture and view performance traces for your application in all these dynamic situations, automatically at-scale, without negatively affecting your end users. The Profiler captures the following information so you can easily identify performance issues while your app is running in Azure:
+With Application Insights Profiler, you can capture, identify, and view performance traces for your application running in Azure, regardless of the scenario. The Profiler trace process occurs automatically, at scale, and doesn't negatively affect your users. The Profiler identifies:
 
 - The median, fastest, and slowest response times for each web request made by your customers.
-- Helps you identify the “hot” code path spending the most time handling a particular web request. 
+- The "hot" code path spending the most time handling a particular web request.
 
-Enable the Profiler on all of your Azure applications to catch issues early and prevent your customers from being widely impacted. When you enable the Profiler, it will gather data with these triggers:
+Enable the Profiler on all your Azure applications to gather data with the following triggers:
 
-- **Sampling Trigger**: starts the Profiler randomly about once an hour for 2 minutes.
-- **CPU Trigger**: starts the Profiler when the CPU usage percentage is over 80%.
-- **Memory Trigger**: starts the Profiler when memory usage is above 80%.
+- **Sampling trigger**: Starts Profiler randomly about once an hour for two minutes.
+- **CPU trigger**: Starts Profiler when the CPU usage percentage is over 80 percent.
+- **Memory trigger**: Starts Profiler when memory usage is above 80 percent.
 
-Each of these triggers can be configured, enabled, or disabled on the [Configure Profiler page](./profiler-settings.md#trigger-settings).
+Each of these triggers can be [configured, enabled, or disabled](./profiler-settings.md#trigger-settings).
 
 ## Overhead and sampling algorithm
 
-Profiler randomly runs two minutes/hour on each virtual machine hosting the application with Profiler enabled for capturing traces. When Profiler is running, it adds from 5-15% CPU overhead to the server.
+Profiler randomly runs two minutes per hour on each virtual machine hosting applications with Profiler enabled. When Profiler is running, it adds from 5 percent to 15 percent CPU overhead to the server.
 
 ## Supported in Profiler
 
-Profiler works with .NET applications deployed on the following Azure services. View specific instructions for enabling Profiler for each service type in the links below.
+Profiler works with .NET applications deployed on the following Azure services. View specific instructions for enabling Profiler for each service type in the following links.
 
-| Compute platform | .NET (>= 4.6) | .NET Core | Java |
-| ---------------- | ------------- | --------- | ---- |
-| [Azure App Service](profiler.md) | Yes | Yes | No |
-| [Azure Virtual Machines and virtual machine scale sets for Windows](profiler-vm.md) | Yes | Yes | No |
-| [Azure Virtual Machines and virtual machine scale sets for Linux](profiler-aspnetcore-linux.md) | No | Yes | No |
-| [Azure Cloud Services](profiler-cloudservice.md) | Yes | Yes | N/A |
-| [Azure Container Instances for Windows](profiler-containers.md) | No | Yes | No |
-| [Azure Container Instances for Linux](profiler-containers.md) | No | Yes | No |
-| Kubernetes | No | Yes | No |
-| [Azure Functions](./profiler-azure-functions.md) | Yes | Yes | No |
-| Azure Spring Cloud | N/A | No | No |
-| [Azure Service Fabric](profiler-servicefabric.md) | Yes | Yes | No |
+| Compute platform | .NET (>= 4.6) | .NET Core |
+| ---------------- | ------------- | --------- |
+| [Azure App Service](profiler.md) | Yes | Yes |
+| [Azure Virtual Machines and Virtual Machine Scale Sets for Windows](profiler-vm.md) | Yes | Yes |
+| [Azure Virtual Machines and Virtual Machine Scale Sets for Linux](profiler-aspnetcore-linux.md) | No | Yes |
+| [Azure Cloud Services](profiler-cloudservice.md) | Yes | Yes |
+| [Azure Container Instances for Windows](profiler-containers.md) | No | Yes |
+| [Azure Container Instances for Linux](profiler-containers.md) | No | Yes |
+| Kubernetes | No | Yes |
+| [Azure Functions](./profiler-azure-functions.md) | Yes | Yes |
+| [Azure Service Fabric](profiler-servicefabric.md) | Yes | Yes |
 
-If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting guide](profiler-troubleshooting.md).
+> [!NOTE]
+> You can also use the [Java Profiler for Azure Monitor Application Insights](../app/java-standalone-profiler.md), currently in preview.
+
+If you've enabled Profiler but aren't seeing traces, see the [Troubleshooting guide](profiler-troubleshooting.md).
 
 ## Limitations
 
-- **Data retention**: The default data retention period is five days. 
-- **Profiling web apps**: 
-   - While you can use the Profiler at no extra cost, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
-   - You can only attach 1 profiler to each web app. 
+- **Data retention**: The default data retention period is five days.
+- **Profiling web apps**:
+   - Although you can use Profiler at no extra cost, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
+   - You can attach only one profiler to each web app.
 
 ## Next steps
 Learn how to enable Profiler on your Azure service:
 - [Azure App Service](./profiler.md)
 - [Azure Functions app](./profiler-azure-functions.md)
-- [Cloud Service](./profiler-cloudservice.md)
-- [Service Fabric app](./profiler-servicefabric.md)
-- [Azure Virtual Machine](./profiler-vm.md)
+- [Azure Cloud Services](./profiler-cloudservice.md)
+- [Azure Service Fabric app](./profiler-servicefabric.md)
+- [Azure Virtual Machines](./profiler-vm.md)
 - [ASP.NET Core application hosted in Linux on Azure App Service](./profiler-aspnetcore-linux.md)
 - [ASP.NET Core application running in containers](./profiler-containers.md)

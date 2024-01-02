@@ -4,7 +4,7 @@ description: This article lists specifications of the currently supported data s
 ms.service: data-catalog
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 02/24/2022
+ms.date: 12/13/2023
 ---
 # Supported data sources in Azure Data Catalog
 

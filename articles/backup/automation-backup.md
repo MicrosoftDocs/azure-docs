@@ -2,10 +2,11 @@
 title: Automation in Azure Backup
 description: Provides a summary of automation capabilities offered by Azure Backup.
 ms.topic: conceptual
-ms.date: 11/26/2021
-author: v-amallick
+ms.date: 09/15/2022
 ms.service: backup
-ms.author: v-amallick
+ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Automation in Azure Backup
@@ -38,7 +39,7 @@ This section provides a few common automation use cases that you might encounter
 
 ### Configure backups
 
-As a backup admin, you need to deal with new infrastructure getting added periodically, and ensure they are protected as per the agreed requirements. The automation clients, such as PowerShell/CLI, help to fetch all VM details, check the backup status of each of them, and then take appropriate action for unprotected VMs.
+As a backup admin, you need to deal with new infrastructure getting added periodically, and ensure they're protected as per the agreed requirements. The automation clients, such as PowerShell/CLI, help to fetch all VM details, check the backup status of each of them, and then take appropriate action for unprotected VMs.
 
 However, this must be performant at-scale. Also, you need to schedule them periodically and monitor each run. To ease the automation operations, Azure Backup now uses Azure Policy and provides [built-in backup specific Azure Policies](backup-center-govern-environment.md#azure-policies-for-backup) to govern the backup estate.
 

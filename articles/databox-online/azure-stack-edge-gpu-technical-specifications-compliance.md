@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/12/2023
 ms.author: alkohli
 ---
 
@@ -24,9 +24,9 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 | CPU type       | Dual Intel Xeon Silver 4214 (Cascade Lake) CPU                              |
 | CPU: raw       | 24 total cores, 48 total vCPUs                                              |
 | CPU: usable    | 40 vCPUs                                                                    |
-| Memory type    | Dell Compatible 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM |
-| Memory: raw    | 128 GB RAM (8 x 16 GB)                                                      |
-| Memory: usable | 96 GB RAM                                                                  |
+| Memory type    | Dell Compatible 16 GiB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM |
+| Memory: raw    | 128 GiB RAM (8 x 16 GiB)                                                      |
+| Memory: usable | 96 GiB RAM                                                                  |
 
 
 ## Compute acceleration specifications
@@ -35,7 +35,7 @@ A Graphics Processing Unit (GPU) is included on every Azure Stack Edge Pro devic
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| GPU   | One or two nVidia T4 GPUs <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
+| GPU   | One or two nVidia T4 GPUs <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).|
 
 
 ## Power supply unit specifications
@@ -75,7 +75,6 @@ Here are the details for the Mellanox card:
 For a full list of supported cables, switches, and transceivers for these network cards, go to:
 
 - [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
 ## Storage specifications
 

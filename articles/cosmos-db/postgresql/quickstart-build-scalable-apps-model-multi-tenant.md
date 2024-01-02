@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/11/2022
+ms.date: 01/30/2023
 ---
 
-# Model multi-tenant SaaS apps
+# Model multi-tenant SaaS apps in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -124,7 +124,7 @@ There are helper libraries for several popular application frameworks that make
 it easy to include a tenant ID in queries. Here are instructions:
 
 * [Ruby on Rails instructions](https://docs.citusdata.com/en/stable/develop/migration_mt_ror.html)
-* [Django instructions](https://docs.citusdata.com/en/stable/develop/migration_mt_django.html)
+* [Django instructions](https://django-multitenant.readthedocs.io/en/latest/migration_mt_django.html)
 * [ASP.NET](https://docs.citusdata.com/en/stable/develop/migration_mt_asp.html)
 * [Java Hibernate](https://www.citusdata.com/blog/2018/02/13/using-hibernate-and-spring-to-build-multitenant-java-apps/)
 

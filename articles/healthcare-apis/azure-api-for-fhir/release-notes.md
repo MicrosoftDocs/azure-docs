@@ -2,18 +2,66 @@
 title: Azure API for FHIR monthly releases
 description: This article provides details about the Azure API for FHIR monthly features and enhancements.
 services: healthcare-apis
-author: expekesheth
+author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/16/2022
+ms.date: 09/27/2023
 ms.custom: references_regions
-ms.author: kesheth
+ms.author: kavitagaddam
 ---
 
 # Release notes: Azure API for FHIR
 
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
+
+> [!NOTE]
+> There is a known issue with Azure API for FHIR instances where attempts to increase Request Units (RUs) through Azure Blade is failing. The Azure API for FHIR team is actively working on resolving the issue. In case you want to increase RUs, create a [support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).  
+
+## **November 2023**
+**Bulk delete capability now available**
+`$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](../../healthcare-apis/azure-api-for-fhir/bulk-delete-operation.md).
+
+Bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
+
+**Bug Fix: FHIR queries using pagination and revinclude resulted in an error on using next link**
+
+Issue is now addressed and FHIR queries using continuation token with include/ revinclude, no longer report an exception. For details on fix, visit [#3525](https://github.com/microsoft/fhir-server/pull/3525).
+
+## **July 2023**
+**Feature enhancement: Change to the exported file name format**
+
+FHIR service enables customers to export data with $export operation. Export can be conducted across various levels, such as System, Patient and Group of patients. There are name changes with exported file and default storage account name.
+* Exported file names will follow the format \<FHIR Resource Name\>-\<Number\>- \<Number\>.ndjson. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
+* Default storage account name is updated to Export-\<Number\>.
+
+There is no change to number of resources added in individual exported files.
+
+## **June 2023**
+**Bug Fix: Metadata endpoint URL in capability statement is relative URL**
+Per FHIR specification, metadata endpoint URL in capability statement needs to be an absolute URL. 
+For details on FHIR specification, visit [Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). This fanix addresses the issue, for details visit [3265](https://github.com/microsoft/fhir-server/pull/3265).
+
+## **May 2023**
+
+**SMART on FHIR : Fixed clinical scope mapping for applications**
+
+This bug fix addresses issue with clinical scope not interpreted correctly for backend applications. 
+For more details, visit [#3250](https://github.com/microsoft/fhir-server/pull/3250)
+
+## **April 2023**
+
+**Fixed transient issues associated with loading custom search parameters**
+This bug fix address the issue, where the FHIR service would not load the latest SearchParameter status in event of failure.
+For more details, visit [#3222](https://github.com/microsoft/fhir-server/pull/3222)
+
+## **November 2022**
+
+**Fixed the Error generated when resource is updated using if-match header and PATCH**
+
+Bug is now fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)|
 
 ## May 2022
 

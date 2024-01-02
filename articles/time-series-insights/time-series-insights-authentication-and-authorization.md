@@ -17,14 +17,14 @@ ms.custom: seodec18, devx-track-azurecli
 
 [!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
-Depending on your business needs, your solution might include one or more client applications that you use to interact with your Azure Time Series Insights environment's [APIs](/rest/api/time-series-insights/reference-data-access-overview). Azure Time Series Insights performs authentication using [Azure AD Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). To authenticate your client(s), you'll need to get a bearer token with the right permissions, and pass it along with your API calls. This document describes several methods for getting credentials that you can use to get a bearer token and authenticate, including using managed identity and Azure Active Directory app registration.
+Depending on your business needs, your solution might include one or more client applications that you use to interact with your Azure Time Series Insights environment's [APIs](/rest/api/time-series-insights/reference-data-access-overview). Azure Time Series Insights performs authentication using [Microsoft Entra Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). To authenticate your client(s), you'll need to get a bearer token with the right permissions, and pass it along with your API calls. This document describes several methods for getting credentials that you can use to get a bearer token and authenticate, including using managed identity and Microsoft Entra app registration.
 
 ## Managed identities
 
-The following sections describe how to use a managed identity from Azure Active Directory (Azure AD) to access the Azure Time Series Insights API. On Azure, managed identities eliminate the need for developers having to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens. Here are some of the benefits of using Managed identities:
+The following sections describe how to use a managed identity from Microsoft Entra ID to access the Azure Time Series Insights API. On Azure, managed identities eliminate the need for developers having to manage credentials by providing an identity for the Azure resource in Microsoft Entra ID and using it to obtain Microsoft Entra tokens. Here are some of the benefits of using Managed identities:
 
 - You don't need to manage credentials. Credentials are not even accessible to you.
-- You can use managed identities to authenticate to any Azure service that supports Azure AD authentication including Azure Key Vault.
+- You can use managed identities to authenticate to any Azure service that supports Microsoft Entra authentication including Azure Key Vault.
 - Managed identities can be used without any additional cost.
 
 For more information on the two types of managed identities read [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
@@ -39,9 +39,11 @@ You can use managed identities from your:
 
 See [Azure services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) for the complete list.
 
-## Azure Active Directory app registration
+<a name='azure-active-directory-app-registration'></a>
 
-We recommend using managed identities whenever possible so that you don't need to manage credentials. If your client application is not hosted on an Azure service that supports managed identities you can register your application with an Azure AD tenant. When you register your application with Azure AD, you are creating an identity configuration for your application that allows it to integrate with Azure AD. When you register an app in the [Azure portal](https://portal.azure.com/), you choose whether it's a single tenant (only accessible in your tenant) or multi-tenant (accessible in other tenants) and can optionally set a redirect URI (where the access token is sent to).
+## Microsoft Entra app registration
+
+We recommend using managed identities whenever possible so that you don't need to manage credentials. If your client application is not hosted on an Azure service that supports managed identities you can register your application with a Microsoft Entra tenant. When you register your application with Microsoft Entra ID, you are creating an identity configuration for your application that allows it to integrate with Microsoft Entra ID. When you register an app in the [Azure portal](https://portal.azure.com/), you choose whether it's a single tenant (only accessible in your tenant) or multi-tenant (accessible in other tenants) and can optionally set a redirect URI (where the access token is sent to).
 
 When you've completed the app registration, you have a globally unique instance of the app (the application object) which lives within your home tenant or directory. You also have a globally unique ID for your app (the app or client ID). In the portal, you can then add secrets or certificates and scopes to make your app work, customize the branding of your app in the sign-in dialog, and more.
 
@@ -49,7 +51,7 @@ If you register an application in the portal, an application object as well as a
 
 Be sure to review the [Security](../active-directory/develop/identity-platform-integration-checklist.md#security) checklist for your application. As a best practice, you should use [certificate credentials](../active-directory/develop/active-directory-certificate-credentials.md), not password credentials (client secrets).
 
-See [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) for more details.
+See [Application and service principal objects in Microsoft Entra ID](../active-directory/develop/app-objects-and-service-principals.md) for more details.
 
 ## Step 1: Create your managed identity or app registration
 
@@ -57,7 +59,7 @@ Once you've identified whether you'll be using a managed identity or app registr
 
 ### Managed identity
 
-The steps you'll use to create a managed identity will vary depending on where your code is located and whether or not you're creating a system assigned or user assigned identity. Read [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) to understand the difference. Once you've selected your identity type, locate and follow the correct tutorial in the Azure AD-managed identities [documentation](../active-directory/managed-identities-azure-resources/index.yml). There you will find instructions for how to configure managed identities for:
+The steps you'll use to create a managed identity will vary depending on where your code is located and whether or not you're creating a system assigned or user assigned identity. Read [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) to understand the difference. Once you've selected your identity type, locate and follow the correct tutorial in the Microsoft Entra managed identities [documentation](../active-directory/managed-identities-azure-resources/index.yml). There you will find instructions for how to configure managed identities for:
 
 - [Azure VMs](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-during-creation-of-a-vm)
 - [App Service and Azure Functions](../app-service/overview-managed-identity.md)
@@ -118,7 +120,7 @@ Request a token for Azure Time Series Insights using C# and the Azure Identity c
 
 ### App registration
 
-* Developers may use the [Microsoft Authentication Library](../active-directory/develop/msal-overview.md) (MSAL) to obtain tokens for app registrations.
+* Use the [Microsoft Authentication Library](../active-directory/develop/msal-overview.md) (MSAL) to obtain tokens for app registrations.
 
 MSAL can be used in many application scenarios, including, but not limited to:
 
@@ -132,7 +134,7 @@ MSAL can be used in many application scenarios, including, but not limited to:
 For sample C# code showing how to acquire a token as an app registration and query data from a Gen2 environment, view the sample app on [GitHub](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs)
 
 > [!IMPORTANT]
-> If you are using [Azure Active Directory Authentication Library (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) read about [migrating to MSAL](../active-directory/develop/msal-net-migration.md).
+> If you are using Azure Active Directory Authentication Library (ADAL), [migrate to MSAL](../active-directory/develop/msal-net-migration.md).
 
 ## Common headers and parameters
 

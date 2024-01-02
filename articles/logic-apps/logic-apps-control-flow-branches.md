@@ -28,7 +28,7 @@ and then [join those branches](#join-branches) later in your flow.
 * An Azure subscription. If you don't have a subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md)
 
 <a name="parallel-branches"></a>
 

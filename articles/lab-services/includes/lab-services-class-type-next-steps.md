@@ -1,6 +1,6 @@
 ---
 author: EMaher
-ms.author: enewman
+ms.service: lab-services
 ms.date: 01/04/2022
 ms.topic: include
 ---
@@ -9,7 +9,7 @@ The template image can now be published to the lab. For more information, see [P
 
 As you set up your lab, see the following articles:
 
-- [Set quota](../how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](../tutorial-setup-lab.md#set-a-schedule-for-the-lab)
+- [Set quota](../how-to-manage-lab-users.md#set-quotas-for-users)
+- [Set a schedule](../tutorial-setup-lab.md#add-a-lab-schedule)
 - [Add users](../tutorial-setup-lab.md#add-users-to-the-lab)
-- [Email registration links to students](../how-to-configure-student-usage.md#send-invitations-to-users)
+- [Email registration links to students](../how-to-manage-lab-users.md#send-invitations-to-users)

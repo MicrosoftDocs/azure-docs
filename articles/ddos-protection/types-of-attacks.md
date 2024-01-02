@@ -2,14 +2,12 @@
 title: 'Types of attacks Azure DDoS Protection mitigates' 
 description: Learn what types of attacks Azure DDoS Protection protects against.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 12/07/2023
 ms.author: abell
 ---
 # Types of attacks Azure DDoS Protection mitigates
@@ -26,4 +24,4 @@ Azure DDoS Protection protects resources in a virtual network including public I
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
+* [Components of a DDoS response strategy](ddos-response-strategy.md).

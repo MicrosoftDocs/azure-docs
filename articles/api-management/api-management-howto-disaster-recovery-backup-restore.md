@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 07/27/2022
+ms.date: 11/30/2023
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -40,7 +40,7 @@ This article shows how to automate backup and restore operations of your API Man
 * An Azure storage account. If you don't have one, see [Create a storage account](../storage/common/storage-account-create.md).
     * [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in the storage account to hold the backup data.
         
-* The latest version of Azure PowerShell, if you plan to use Azure PowerShell cmdlets. If you haven't already, [install Azure PowerShell](/powershell/azure/install-az-ps).
+* The latest version of Azure PowerShell, if you plan to use Azure PowerShell cmdlets. If you haven't already, [install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Configure storage account access
 When running a backup or restore operation, you need to configure access to the storage account. API Management supports two storage access mechanisms: an Azure Storage access key, or an API Management managed identity.
@@ -214,7 +214,7 @@ $apiManagementResourceGroup="apimresourcegroup";
 $storageAccountName="backupstorageaccount";
 $storageResourceGroup="storageresourcegroup";
 $containerName="backups";
-$blobName="ContosoBackup.apimbackup;
+$blobName="ContosoBackup.apimbackup"
 ```
 
 ### Access using storage access key
@@ -222,7 +222,7 @@ $blobName="ContosoBackup.apimbackup;
 ```powershell
 $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageResourceGroup -StorageAccountName $storageAccountName)[0].Value
 
-$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey$st
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey
 
 Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
     -StorageContext $storageContext -SourceContainerName $containerName -SourceBlobName $blobName
@@ -334,13 +334,8 @@ Restore is a long-running operation that may take up to 30 or more minutes to co
 
 ## Storage networking constraints
 
-### Access using storage access key
 
-If the storage account is **[firewall][azure-storage-ip-firewall] enabled** and a storage key is used for access, then the customer must **Allow** the set of [Azure API Management control plane IP addresses][control-plane-ip-address] on their storage account for backup or restore to work. The storage account can be in any Azure region except the one where the API Management service is located. For example, if the API Management service is in West US, then the Azure Storage account can be in West US 2 and the customer needs to open the control plane IP 13.64.39.16 (API Management control plane IP of West US) in the firewall. This is because the requests to Azure Storage aren't SNATed to a public IP from compute (Azure API Management control plane) in the same Azure region. Cross-region storage requests will be SNATed to the public IP address.
-
-### Access using managed identity
-
-If an API Management system-assigned managed identity is used to access a firewall-enabled storage account, ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
+If the storage account is **[firewall][azure-storage-ip-firewall] enabled**, it's recommended to use the API Management instance's system-assigned managed identity for access to the account. Ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
 ## What is not backed up
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
@@ -360,7 +355,7 @@ Check out the following related resources for the backup/restore process:
 
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
 - [How to move Azure API Management across regions](api-management-howto-migrate.md)
-- API Management **Premium** tier also supports [zone redundancy](../availability-zones/migrate-api-mgt.md), which provides resiliency and high availability to a service instance in a specific Azure region (location).
+- API Management **Premium** tier also supports [zone redundancy](../reliability/migrate-api-mgt.md), which provides resiliency and high availability to a service instance in a specific Azure region (location).
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

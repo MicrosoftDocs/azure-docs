@@ -66,7 +66,7 @@ The following diagram shows the dependencies between your logic app project and 
 
 ## Deploy logic app resources (zip deploy)
 
-After you push your logic app project to your source repository, you can set up build and release pipelines that deploy logic apps to infrastructure either inside or outside Azure.
+After you push your logic app project to your source repository, you can set up build and release pipelines either inside or outside Azure that deploy logic apps to infrastructure.
 
 ### Build your project
 
@@ -80,7 +80,7 @@ To set up a build pipeline based on your logic app project type, complete the co
 
 ### Before release to Azure
 
-The managed API connections inside your logic app project's **connections.json** file are created specifically for local use in Visual Studio Code. Before you can release your project artiffacts from Visual Studio Code to Azure, you have to update these artifacts. To use the managed API connections in Azure, you have to update their authentication methods so that they're in the correct format to use in Azure.
+The managed API connections inside your logic app project's **connections.json** file are created specifically for local use in Visual Studio Code. Before you can release your project artifacts from Visual Studio Code to Azure, you have to update these artifacts. To use the managed API connections in Azure, you have to update their authentication methods so that they're in the correct format to use in Azure.
 
 #### Update authentication type
 

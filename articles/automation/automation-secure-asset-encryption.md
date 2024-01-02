@@ -4,19 +4,21 @@ description: This article provides concepts for configuring the Automation accou
 services: automation
 ms.service: automation
 ms.subservice: process-automation
+ms.custom: devx-track-azurepowershell
 author: snehithm
 ms.author: snmuvva
-ms.date: 07/27/2021
+ms.date: 04/20/2023
 ms.topic: conceptual
 manager: kmadnani
 ---
 
 # Encryption of secure assets in Azure Automation
 
-Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are protected in Azure Automation using multiple levels of encryption. Based on the top-level key used for the encryption, there are two models for encryption:
+Azure Automation secures assets such as credentials, certificates, connections, and encrypted variables are using various levels of encryption. This helps enhance the security of these assets. Additionally, to ensure greater security and privacy for the customer code, runbooks, and DSC scripts are also encrypted. Encryption in Azure Automation follows two models, depending on the top-level key used for encryption:
 
 - Using Microsoft-managed keys
 - Using keys that you manage
+
 
 ## Microsoft-managed Keys
 
@@ -30,7 +32,7 @@ You can manage encryption of secure assets for your Automation account with your
 
 Use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. 
 
-Enabling the Azure Firewall on [Azure Key Vault](../key-vault/general/network-security.md) blocks access from Azure Automation runbooks for that service. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../key-vault/general/overview-vnet-service-endpoints.md).
+Enabling the Azure Firewall on [Azure Key Vault](../key-vault/general/network-security.md) blocks access from Azure Automation runbooks for that service. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../key-vault/general/overview-vnet-service-endpoints.md). However, when you enable the Private link for Key Vault, Azure Automation loses access to the Key Vault. Even if you enable a Private link for Hybrid Runbook Worker, it will allow access only to Azure Automation service and not to the Key Vault.
 
 For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
@@ -51,8 +53,8 @@ Before enabling customer-managed keys for an Automation account, you must ensure
 
 - An [Azure Key Vault](../key-vault/general/basic-concepts.md) with the **Soft Delete** and **Do Not Purge** properties enabled. These properties are required to allow for recovery of keys if there's accidental deletion.
 - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
-- The Automation account and the key vault can be in different subscriptions but need to be in the same Azure Active Directory tenant.
-- When using PowerShell, verify the [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) is installed. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+- The Automation account and the key vault can be in different subscriptions but need to be in the same Microsoft Entra tenant.
+- When using PowerShell, verify the [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) is installed. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Generate and assign a new system-assigned identity for an Automation account
 

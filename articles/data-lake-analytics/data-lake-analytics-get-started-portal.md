@@ -4,13 +4,15 @@ description: Use the Azure portal to create an Azure Data Lake Analytics account
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 12/20/2023
+ROBOTS: NOINDEX
 ---
 
 # Get started with Azure Data Lake Analytics using the Azure portal
+
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
 
 This article describes how to use the Azure portal to create Azure Data Lake Analytics accounts, define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to the Data Lake Analytics service.
 
@@ -32,7 +34,6 @@ Now, you'll create a Data Lake Analytics and an Azure Data Lake Storage Gen1 acc
    * **Data Lake Storage Gen1**: Follow the instruction to create a new Data Lake Storage Gen1 account, or select an existing one.
 1. Optionally, select a pricing tier for your Data Lake Analytics account.
 1. Select **Create**. 
-
 
 ## Your first U-SQL script
 

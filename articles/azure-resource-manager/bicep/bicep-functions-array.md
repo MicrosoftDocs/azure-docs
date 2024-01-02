@@ -3,8 +3,9 @@ title: Bicep functions - arrays
 description: Describes the functions to use in a Bicep file for working with arrays.
 author: mumian
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.author: jgao
-ms.date: 09/26/2022
+ms.date: 12/09/2022
 ---
 
 # Array functions for Bicep
@@ -37,8 +38,8 @@ The following example shows how to use the array function with different types.
 param intToConvert int = 1
 param stringToConvert string = 'efgh'
 param objectToConvert object = {
-  'a': 'b'
-  'c': 'd'
+  a: 'b'
+  c: 'd'
 }
 
 output intOutput array = array(intToConvert)
@@ -58,7 +59,7 @@ The output from the preceding example with the default values is:
 
 `concat(arg1, arg2, arg3, ...)`
 
-Combines multiple arrays and returns the concatenated array.
+Combines multiple arrays and returns the concatenated array. For more information about combining multiple strings, see [concat](./bicep-functions-string.md#concat).
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -126,9 +127,9 @@ The following example shows how to use contains with different types:
 ```bicep
 param stringToTest string = 'OneTwoThree'
 param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param arrayToTest array = [
   'one'
@@ -197,8 +198,7 @@ The output from the preceding example with the default values is:
 
 ### Quickstart examples
 
-The following example is extracted from a quickstart template, [SQL Server VM with performance optimized storage settings
-](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.attestation/attestation-provider-create/main.bicep):
+The following example is extracted from a quickstart template, [Virtual Network with diagnostic logs settings](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-create-with-diagnostic-logs/main.bicep):
 
 ```bicep
 @description('Array containing DNS Servers')
@@ -402,15 +402,15 @@ The following example shows how to use intersection with arrays and objects:
 
 ```bicep
 param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 
 param secondObject object = {
-  'one': 'a'
-  'two': 'z'
-  'three': 'c'
+  one: 'a'
+  two: 'z'
+  three: 'c'
 }
 
 param firstArray array = [
@@ -615,10 +615,10 @@ param arrayToTest array = [
 ]
 param stringToTest string = 'One Two Three'
 param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
+  propA: 'one'
+  propB: 'two'
+  propC: 'three'
+  propD: {
     'propD-1': 'sub'
     'propD-2': 'sub'
   }
@@ -955,15 +955,15 @@ The following example shows how to use union with arrays and objects:
 
 ```bicep
 param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c1'
+  one: 'a'
+  two: 'b'
+  three: 'c1'
 }
 
 param secondObject object = {
-  'three': 'c2'
-  'four': 'd'
-  'five': 'e'
+  three: 'c2'
+  four: 'd'
+  five: 'e'
 }
 
 param firstArray array = [

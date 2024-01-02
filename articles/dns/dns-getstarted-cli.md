@@ -6,7 +6,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: quickstart
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure CLI so I can use Azure DNS for my name resolution.
@@ -24,7 +24,7 @@ Azure DNS also supports private DNS zones. To learn more about private DNS zones
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

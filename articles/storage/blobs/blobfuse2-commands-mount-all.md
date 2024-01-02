@@ -1,21 +1,19 @@
 ---
-title: How to use the 'blobfuse2 mount all' command to mount all blob containers in a storage account as a Linux file system (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
-description: Learn how to use the 'blobfuse2 mount all' all command to mount all blob containers in a storage account as a Linux file system (preview).
-author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+title: How to use the 'blobfuse2 mount all' command to mount all blob containers in a storage account as a Linux file system
+titleSuffix: Azure Storage
+description: Learn how to use the 'blobfuse2 mount all' all command to mount all blob containers in a storage account as a Linux file system.
+author: akashdubey-ms
+ms.service: azure-blob-storage
+ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 10/17/2022
-ms.author: jammart
+ms.date: 12/02/2022
+ms.author: akashdubey
 ms.reviewer: tamram
 ---
 
-# How to use the BlobFuse2 mount all command to mount all blob containers in a storage account as a Linux file system (preview)
+# How to use the BlobFuse2 mount all command to mount all blob containers in a storage account as a Linux file system
 
 Use the `blobfuse2 mount all` command to mount all blob containers in a storage account as a Linux file system. Each container will be mounted to a unique subdirectory under the path specified. The subdirectory names will correspond to the container names.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Syntax
 
@@ -75,18 +73,25 @@ The following flags are inherited from parent command [`blobfuse2 mount`](blobfu
 Mount all blob storage containers in the storage account specified in the configuration file to the path specified in the command. (Each container will be a subdirectory under the directory specified):
 
 ```bash
-~$ mkdir bf2all
-~$ blobfuse2 mount all ./bf2all --config-file=./config.yaml
+sudo mkdir bf2all
+sudo blobfuse2 mount all ./bf2all --config-file=./config.yaml
+```
+Example Output
+```output
 Mounting container : blobfuse2a to path : bf2all/blobfuse2a
 Mounting container : blobfuse2b to path : bf2all/blobfuse2b
-
-~$ blobfuse2 mount list
+```
+```bash
+sudo blobfuse2 mount list
+```
+Example output
+```output
 1 : /home/<user>/bf2all/blobfuse2a
 2 : /home/<user>/bf2all/blobfuse2b
 ```
 
 ## See also
 
-- [The Blobfuse2 unmount all command (preview)](blobfuse2-commands-unmount-all.md)
-- [The Blobfuse2 mount command (preview)](blobfuse2-commands-mount.md)
-- [The Blobfuse2 unmount command (preview)](blobfuse2-commands-unmount.md)
+- [The Blobfuse2 unmount all command](blobfuse2-commands-unmount-all.md)
+- [The Blobfuse2 mount command](blobfuse2-commands-mount.md)
+- [The Blobfuse2 unmount command](blobfuse2-commands-unmount.md)

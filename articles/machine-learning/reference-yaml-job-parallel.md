@@ -9,21 +9,19 @@ ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 author: alainli
 ms.author: alainli
+ms.reviewer: lagayhar
 ms.date: 09/27/2022
 ---
 
 # CLI (v2) parallel job YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/reference-pipeline-yaml.md)
-> * [v2 (current version)](reference-yaml-job-pipeline.md)
 
 > [!IMPORTANT]
-> Parallel job can only be used as a single step inside an Azure ML pipeline job. Thus, there is no source JSON schema for parallel job at this time. This document lists the valid keys and their values when creating a parallel job in a pipeline.
+> Parallel job can only be used as a single step inside an Azure Machine Learning pipeline job. Thus, there is no source JSON schema for parallel job at this time. This document lists the valid keys and their values when creating a parallel job in a pipeline.
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -33,7 +31,7 @@ ms.date: 09/27/2022
 | `inputs` | object | Dictionary of inputs to the parallel job. The key is a name for the input within the context of the job and the value is the input value. <br><br> Inputs can be referenced in the `program_arguments` using the `${{ inputs.<input_name> }}` expression. <br><br> Parallel job inputs can be referenced by pipeline inputs using the `${{ parent.inputs.<input_name> }}` expression. For how to bind the inputs of a parallel step to the pipeline inputs, see the [Expression syntax for binding inputs and outputs between steps in a pipeline job](reference-yaml-core-syntax.md#binding-inputs-and-outputs-between-steps-in-a-pipeline-job). | | |
 | `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |
 | `outputs` | object | Dictionary of output configurations of the parallel job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Parallel job outputs can be referenced by pipeline outputs using the `${{ parents.outputs.<output_name> }}` expression. For how to bind the outputs of a parallel step to the pipeline outputs, see the [Expression syntax for binding inputs and outputs between steps in a pipeline job](reference-yaml-core-syntax.md#binding-inputs-and-outputs-between-steps-in-a-pipeline-job). | |
-| `outputs.<output_name>` | object | You can leave the object empty, in which case by default the output will be of type `uri_folder` and Azure ML will system-generate an output location for the output based on the following templatized path: `{settings.datastore}/azureml/{job-name}/{output-name}/`. File(s) to the output directory will be written via read-write mount. If you want to specify a different mode for the output, provide an object containing the [job output specification](#job-outputs). | |
+| `outputs.<output_name>` | object | You can leave the object empty, in which case by default the output will be of type `uri_folder` and Azure Machine Learning will system-generate an output location for the output based on the following templatized path: `{settings.datastore}/azureml/{job-name}/{output-name}/`. File(s) to the output directory will be written via read-write mount. If you want to specify a different mode for the output, provide an object containing the [job output specification](#job-outputs). | |
 | `compute` | string | Name of the compute target to execute the job on. The value can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. <br><br> When using parallel job in pipeline, you can leave this setting empty, in which case the compute will be auto-selected by the `default_compute` of pipeline.| | `local` |
 | `task` | object | **Required.** The template for defining the distributed tasks for parallel job. See [Attributes of the `task` key](#attributes-of-the-task-key).|||
 |`input_data`| object | **Required.**  Define which input data will be split into mini-batches to run the parallel job. Only applicable for referencing one of the parallel job `inputs` by using the `${{ inputs.<input_name> }}` expression|||
@@ -44,16 +42,17 @@ ms.date: 09/27/2022
 | `max_concurrency_per_instance` | integer| Define the number of processes on each node of compute.<br><br>For a GPU compute, the default value is 1.<br>For a CPU compute, the default value is the number of cores.|||
 | `retry_settings.max_retries` | integer | Define the number of retries when mini-batch is failed or timeout. If all retries are failed, the mini-batch will be marked as failed to be counted by `mini_batch_error_threshold` calculation. ||2|
 | `retry_settings.timeout` | integer | Define the timeout in seconds for executing custom run() function. If the execution time is higher than this threshold, the mini-batch will be aborted, and marked as a failed mini-batch to trigger retry.|(0, 259200]|60|
+| `environment_variables` | object | Dictionary of environment variable key-value pairs to set on the process where the command is executed. |||
+
 
 ### Attributes of the `task` key
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | const | **Required.** The type of task. Only applicable for `run_function` by now.<br><br> In `run_function` mode, you're required to provide `code`, `entry_script`, and `program_arguments` to define python script with executable functions and arguments. Note: Parallel job only supports python script in this mode. | run_function | run_function |
+| `type` | const | **Required.** The type of task. Only applicable for `run_function` by now.<br><br> In `run_function` mode, you're required to provide `code`, `entry_script`, and `program_arguments` to define Python script with executable functions and arguments. Note: Parallel job only supports Python script in this mode. | run_function | run_function |
 | `code` | string | Local path to the source code directory to be uploaded and used for the job. |||
-| `entry_script` | string | The python file that contains the implementation of pre-defined parallel functions. For more information, see [Prepare entry script to parallel job](). |||
+| `entry_script` | string | The Python file that contains the implementation of pre-defined parallel functions. For more information, see [Prepare entry script to parallel job](). |||
 | `environment` | string or object | **Required** The environment to use for running the task. The value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment_name>:<environment_version>` syntax or `azureml:<environment_name>@latest` (to reference the latest version of an environment). <br><br> To define an inline environment, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they aren't supported for inline environments.|||
-| `environment_variables` | object | Dictionary of environment variable key-value pairs to set on the process where the command is executed. |||
 | `program_arguments` | string | The arguments to be passed to the entry script. May contain  "--\<arg_name\> ${{inputs.\<intput_name\>}}" reference to inputs or outputs.<br><br> Parallel job provides a list of predefined arguments to set configuration of parallel run. For more information, see [predefined arguments for parallel job](#predefined-arguments-for-parallel-job). |||
 | `append_row_to` | string | Aggregate all returns from each run of mini-batch and output it into this file. May reference to one of the outputs of parallel job by using the expression \${{outputs.<output_name>}} |||
 
@@ -62,8 +61,8 @@ ms.date: 09/27/2022
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `type` | string | The type of job input. Specify `mltable` for input data that points to a location where has the mltable meta file, or `uri_folder` for input data that points to a folder source. | `mltable`, `uri_folder` | `uri_folder` |
-| `path` | string | The path to the data to use as input. The value can be specified in a few ways: <br><br> - A local path to the data source file or folder, for example, `path: ./iris.csv`. The data will get uploaded during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information, see [Core yaml syntax](reference-yaml-core-syntax.md) on how to use the `azureml://` URI format. <br><br> - An existing registered Azure ML data asset to use as the input. To reference a registered data asset, use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), for example, `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
-| `mode` | string | Mode of how the data should be delivered to the compute target. <br><br> For read-only mount (`ro_mount`), the data will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as a file. Azure ML will resolve the input to the mount path. <br><br> For `download` mode the data will be downloaded to the compute target. Azure ML will resolve the input to the downloaded path. <br><br> If you only want the URL of the storage location of the data artifact(s) rather than mounting or downloading the data itself, you can use the `direct` mode. It will pass in the URL of the storage location as the job input. In this case, you're fully responsible for handling credentials to access the storage. | `ro_mount`, `download`, `direct` | `ro_mount` |
+| `path` | string | The path to the data to use as input. The value can be specified in a few ways: <br><br> - A local path to the data source file or folder, for example, `path: ./iris.csv`. The data will get uploaded during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information, see [Core yaml syntax](reference-yaml-core-syntax.md) on how to use the `azureml://` URI format. <br><br> - An existing registered Azure Machine Learning data asset to use as the input. To reference a registered data asset, use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), for example, `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
+| `mode` | string | Mode of how the data should be delivered to the compute target. <br><br> For read-only mount (`ro_mount`), the data will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as a file. Azure Machine Learning will resolve the input to the mount path. <br><br> For `download` mode the data will be downloaded to the compute target. Azure Machine Learning will resolve the input to the downloaded path. <br><br> If you only want the URL of the storage location of the data artifact(s) rather than mounting or downloading the data itself, you can use the `direct` mode. It will pass in the URL of the storage location as the job input. In this case, you're fully responsible for handling credentials to access the storage. | `ro_mount`, `download`, `direct` | `ro_mount` |
 
 ### Job outputs
 

@@ -3,22 +3,21 @@ title: Remove Azure Automation Start/Stop VMs during off-hours overview
 description: This article describes how to remove the Start/Stop VMs during off-hours feature and unlink an Automation account from the Log Analytics workspace.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/15/2021
+ms.date: 03/16/2023
 ms.topic: conceptual
+ms.custom: engagement-fy23
 ---
 
 # Remove Start/Stop VMs during off-hours from Automation account
 
+> [!NOTE]
+> Start/Stop VM during off-hours version 1 is unavailable in the marketplace now as it will retire by 30 September 2023. We recommend you start using [version 2](../azure-functions/start-stop-vms/overview.md), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until 30 September 2023. The details of the announcement will be shared soon. 
+
 After you enable the Start/Stop VMs during off-hours feature to manage the running state of your Azure VMs, you may decide to stop using it. Removing this feature can be done using one of the following methods based on the supported deployment models:
 
-* Delete the resource group containing the Automation account and linked Azure Monitor Log Analytics workspace, each dedicated to support this feature.
-* Unlink the Log Analytics workspace from the Automation account and delete the Automation account dedicated for this feature.
-* Delete the feature from an Automation account and linked workspace that are supporting other management and monitoring objectives.
-
-Deleting this feature only removes the associated runbooks, it doesn't delete the schedules or variables that were created during deployment or any custom-defined ones created after.
 
 > [!NOTE]
-> Before proceeding, verify there aren't any [Resource Manager locks](../azure-resource-manager/management/lock-resources.md) applied at the subscription, resource group, or resource which prevents accidental deletion or modification of critical resources. When you deploy the Start/Stop VMs during off-hours solution, it sets the lock level to **CanNotDelete** against several dependent resources in the Automation account (specifically its runbooks and variables). Any locks need to be removed before you can delete the Automation account.
+> Before proceeding, verify there aren't any [Resource Manager locks](../azure-resource-manager/management/lock-resources.md) applied at the subscription, resource group, or resource which prevents accidental deletion or modification of critical resources. When you deploy the Start/Stop VMs during off-hours solution, it sets the lock level to **Cannot Delete** against several dependent resources in the Automation account (specifically its runbooks and variables). Any locks need to be removed before you can delete the Automation account.
 
 ## Delete the dedicated resource group
 
@@ -54,7 +53,7 @@ To unlink from your Automation account, perform the following steps.
 
 3. On the **Unlink workspace** page, select **Unlink workspace** and respond to prompts.
 
-   ![Unlink workspace page](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
+   ![Screenshot showing how to unlink a workspace page.](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
 
     While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
@@ -90,13 +89,15 @@ To delete Start/Stop VMs during off-hours from your Automation account, perform 
 
 5. On the **VMManagementSolution[Workspace]** page, select **Delete** from the menu.
 
-    ![Delete VM management feature](media/automation-solution-vm-management/vm-management-solution-delete.png)
+    ![Screenshot showing the delete VM management feature.](media/automation-solution-vm-management/vm-management-solution-delete.png)
 
 6. In the Delete Solution window, confirm that you want to delete the feature.
 
 7. While the information is verified and the feature is deleted, you can track the progress under **Notifications**, chosen from the menu. You're returned to the Solutions page after the removal process.
 
-8. If you don't want to keep the [resources](automation-solution-vm-management.md#components) created by the feature or by you afterwards (such as, variables, schedules, etc.), you have to manually delete them from the account.
+8. If you don't want to keep the resources created by the feature or by you afterwards (such as, variables, schedules, etc.), you have to manually delete them from the account.
+
+
 
 ## Next steps
 

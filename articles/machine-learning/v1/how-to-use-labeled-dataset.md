@@ -2,12 +2,13 @@
 title: Create and explore datasets with labels
 titleSuffix: Azure Machine Learning
 description: Learn how to export data labels from your Azure Machine Learning labeling projects and use them for machine learning tasks.  
-author: blackmist
-ms.author: larryfr
+author: kvijaykannan 
+ms.author: vkann 
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: data4ml, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022, ignite-2022
 ms.date: 08/17/2022
 #Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
@@ -62,12 +63,9 @@ pip install azureml-dataprep
 ```
 
 In the following code, the `animal_labels` dataset is the output from a labeling project previously saved to the workspace.
-The exported dataset is a [TabularDataset](/python/api/azureml-core/azureml.data.tabular_dataset.tabulardataset). If you plan to use [download()](/python/api/azureml-core/azureml.data.tabulardataset#azureml-data-tabulardataset-download) or [mount()](/python/api/azureml-core/azureml.data.tabulardataset#azureml-data-tabulardataset-mount) methods, be sure to set the parameter `stream column ='image_url'`. 
+The exported dataset is a [TabularDataset](/python/api/azureml-core/azureml.data.tabular_dataset.tabulardataset). 
 
-> [!NOTE]
-> The public preview methods download() and mount() are [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features, and may change at any time.
-
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```Python
 import azureml.core
@@ -77,14 +75,11 @@ from azureml.core import Dataset, Workspace
 animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe()
 
-# download the images to local 
-download_path = animal_labels.download(stream_column='image_url') 
-
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-#read images from downloaded path
-img = mpimg.imread(download_path[0])
+#read images from dataset
+img = mpimg.imread(animal_pd['image_url'].iloc(0).open())
 imgplot = plt.imshow(img)
 ```
 

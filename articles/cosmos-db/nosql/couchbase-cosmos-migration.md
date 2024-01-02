@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Migrate from CouchBase to Azure Cosmos DB for NoSQL
@@ -430,8 +430,6 @@ Then subscribe to mono, refer mono subscription snippet in insert operation. The
 There are two ways to migrate data.
 
 * **Use Azure Data Factory:** This is the most recommended method to migrate the data. Configure the source as Couchbase and sink as Azure Cosmos DB for NoSQL, see the Azure [Azure Cosmos DB Data Factory connector](../../data-factory/connector-azure-cosmos-db.md) article for detailed steps.
-
-* **Use the Azure Cosmos DB data import tool:** This option is recommended to migrate using VMs with less amount of data. For detailed steps, see the [Data importer](../import-data.md) article.
 
 ## Next Steps
 

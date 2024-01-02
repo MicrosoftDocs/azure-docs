@@ -2,9 +2,9 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 09/12/2023
 ms.devlang: csharp, java, javascript, vb
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ms.reviewer: mmcc
 ---
 
@@ -20,7 +20,7 @@ The core API is uniform across all platforms, apart from a few variations like `
 
 | Method | Used for |
 | --- | --- |
-| [`TrackPageView`](#page-views) |Pages, screens, blades, or forms. |
+| [`TrackPageView`](#page-views) |Pages, screens, panes, or forms. |
 | [`TrackEvent`](#trackevent) |User actions and other events. Used to track user behavior or to monitor performance. |
 | [`GetMetric`](#getmetric) |Zero and multidimensional metrics, centrally configured aggregation, C# only. |
 | [`TrackMetric`](#trackmetric) |Performance measurements such as queue lengths not related to specific events. |
@@ -39,7 +39,7 @@ If you don't have a reference on Application Insights SDK yet:
 
   * [ASP.NET project](./asp-net.md)
   * [ASP.NET Core project](./asp-net-core.md)
-  * [Java project](./java-in-process-agent.md)
+  * [Java project](./opentelemetry-enable.md?tabs=java)
   * [Node.js project](./nodejs.md)
   * [JavaScript in each webpage](./javascript.md)
 * In your device or web server code, include:
@@ -108,7 +108,7 @@ In Node.js projects, you can use `new applicationInsights.TelemetryClient(instru
 
 ## TrackEvent
 
-In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../essentials/metrics-charts.md) as an aggregated count and in [Diagnostic Search](./diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
+In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../essentials/metrics-charts.md) as an aggregated count and in [Diagnostic Search](./transaction-search-and-diagnostics.md?tabs=transaction-search) as individual occurrences. (It isn't related to MVC or other framework "events.")
 
 Insert `TrackEvent` calls in your code to count various events. For example, you might want to track how often users choose a particular feature. Or you might want to know how often they achieve certain goals or make specific types of mistakes.
 
@@ -146,7 +146,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### Custom events in Log Analytics
 
-The telemetry is available in the `customEvents` table on the [Application Insights Logs tab](../logs/log-query-overview.md) or [usage experience](usage-overview.md). Events might come from `trackEvent(..)` or the [Click Analytics Auto-collection plug-in](javascript-click-analytics-plugin.md).
+The telemetry is available in the `customEvents` table on the [Application Insights Logs tab](../logs/log-query-overview.md) or [usage experience](usage-overview.md). Events might come from `trackEvent(..)` or the [Click Analytics Auto-collection plug-in](javascript-feature-extensions.md).
 
 If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than `1`. For example, `itemCount==10` means that of 10 calls to `trackEvent()`, the sampling process transmitted only one of them. To get a correct count of custom events, use code such as `customEvents | summarize sum(itemCount)`.
 
@@ -220,7 +220,7 @@ The telemetry is available in the `customMetrics` table in [Application Insights
 
 ## Page views
 
-In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change the default to track page views at more or different times. For example, in an app that displays tabs or blades, you might want to track a page whenever the user opens a new blade.
+In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change the default to track page views at more or different times. For example, in an app that displays tabs or panes, you might want to track a page whenever the user opens a new pane.
 
 User and session data is sent as properties along with page views, so the user and session charts come alive when there's page view telemetry.
 
@@ -319,9 +319,9 @@ The recommended way to send request telemetry is where the request acts as an <a
 
 ## Operation context
 
-You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./diagnostic-search.md) and [Analytics](../logs/log-query-overview.md), you can easily find any events associated with the request by using its operation ID.
+You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./transaction-search-and-diagnostics.md?tabs=transaction-search) and [Analytics](../logs/log-query-overview.md), you can easily find any events associated with the request by using its operation ID.
 
-For more information on correlation, see [Telemetry correlation in Application Insights](./correlation.md).
+For more information on correlation, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
 
 When you track telemetry manually, the easiest way to ensure telemetry correlation is by using this pattern:
 
@@ -351,7 +351,7 @@ Telemetry items reported within a scope of operation become children of such an 
 
 In **Search**, the operation context is used to create the **Related Items** list.
 
-![Screenshot that shows the Related Items list.](./media/api-custom-events-metrics/21.png)
+:::image type="content" source="./media/api-custom-events-metrics/21.png" lightbox="./media/api-custom-events-metrics/21.png" alt-text="Screenshot that shows the Related Items list.":::
 
 For more information on custom operations tracking, see [Track custom operations with Application Insights .NET SDK](./custom-operations-tracking.md).
 
@@ -371,7 +371,7 @@ requests
 Send exceptions to Application Insights:
 
 * To [count them](../essentials/metrics-charts.md), as an indication of the frequency of a problem.
-* To [examine individual occurrences](./diagnostic-search.md).
+* To [examine individual occurrences](./transaction-search-and-diagnostics.md?tabs=transaction-search).
 
 The reports include the stack traces.
 
@@ -427,8 +427,8 @@ catch (ex)
 The SDKs catch many exceptions automatically, so you don't always have to call `TrackException` explicitly:
 
 * **ASP.NET**: [Write code to catch exceptions](./asp-net-exceptions.md).
-* **Java EE**: [Exceptions are caught automatically](./java-in-process-agent.md).
-* **JavaScript**: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
+* **Java EE**: [Exceptions are caught automatically](./opentelemetry-enable.md?tabs=java).
+* **JavaScript**: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the JavaScript (Web) SDK Loader Script that you insert in your webpages:
 
 ```javascript
 ({
@@ -464,11 +464,11 @@ exceptions
 
 ## TrackTrace
 
-Use `TrackTrace` to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](./diagnostic-search.md).
+Use `TrackTrace` to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](./transaction-search-and-diagnostics.md?tabs=transaction-search).
 
 In .NET [Log adapters](./asp-net-trace-logs.md), use this API to send third-party logs to the portal.
 
-In Java, the [Application Insights Java agent](java-in-process-agent.md) autocollects and sends logs to the portal.
+In Java, the [Application Insights Java agent](opentelemetry-enable.md?tabs=java) autocollects and sends logs to the portal.
 
 *C#*
 
@@ -533,7 +533,7 @@ properties.put("Database", db.ID);
 telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
 ```
 
-In [Search](./diagnostic-search.md), you can then easily filter out all the messages of a particular severity level that relate to a particular database.
+In [Search](./transaction-search-and-diagnostics.md?tabs=transaction-search), you can then easily filter out all the messages of a particular severity level that relate to a particular database.
 
 ### Traces in Log Analytics
 
@@ -612,12 +612,12 @@ finally
 Remember that the server SDKs include a [dependency module](./asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically, for example, to databases and REST APIs. You have to install an agent on your server to make the module work.
 
 In Java, many dependency calls can be automatically tracked by using the
-[Application Insights Java agent](java-in-process-agent.md).
+[Application Insights Java agent](opentelemetry-enable.md?tabs=java).
 
 You use this call if you want to track calls that the automated tracking doesn't catch.
 
 To turn off the standard dependency-tracking module in C#, edit [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`. For Java, see
-[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppress-specific-auto-collected-telemetry).
+[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppress-specific-autocollected-telemetry).
 
 ### Dependencies in Log Analytics
 
@@ -723,7 +723,7 @@ appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
 In [Metrics Explorer](../essentials/metrics-charts.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
 
-You can also [search](./diagnostic-search.md) for client data points with specific user names and accounts.
+You can also [search](./transaction-search-and-diagnostics.md?tabs=transaction-search) for client data points with specific user names and accounts.
 
 > [!NOTE]
 > The [EnableAuthenticationTrackingJavaScript property in the ApplicationInsightsServiceOptions class](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) in the .NET Core SDK simplifies the JavaScript configuration needed to inject the user name as the Auth ID for each trace sent by the Application Insights JavaScript SDK.
@@ -959,15 +959,7 @@ Individual telemetry calls can override the default values in their property dic
 
 ## Sample, filter, and process telemetry
 
-You can write code to process your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
-
-[Add properties](./api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer`. For example, you can add version numbers or values that are calculated from other properties.
-
-[Filtering](./api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcessor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
-
-[Sampling](./api-filtering-sampling.md) is a packaged solution to reduce the volume of data that's sent from your app to the portal. It does so without affecting the displayed metrics. And it does so without affecting your ability to diagnose problems by navigating between related items like exceptions, requests, and page views.
-
-To learn more, see [Filter and preprocess telemetry in the Application Insights SDK](./api-filtering-sampling.md).
+See [Filter and preprocess telemetry in the Application Insights SDK](./api-filtering-sampling.md).
 
 ## Disable telemetry
 
@@ -1048,7 +1040,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
-To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](./create-new-resource.md) and change their keys, depending on the environment.
+To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](./create-workspace-resource.md) and change their keys, depending on the environment.
 
 Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as `global.aspx.cs` in an ASP.NET service:
 
@@ -1123,7 +1115,7 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 To avoid hitting the data rate limit, use [sampling](./sampling.md).
 
-To determine how long data is kept, see [Data retention and privacy](./data-retention-privacy.md).
+To determine how long data is kept, see [Data retention and privacy](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
 
 ## Reference docs
 
@@ -1141,6 +1133,8 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 
 ## Frequently asked questions
 
+This section provides answers to common questions.
+
 ### Why am I missing telemetry data?
 
 Both [TelemetryChannels](telemetry-channels.md#what-are-telemetry-channels) will lose buffered telemetry if it isn't flushed before an application shuts down.
@@ -1155,15 +1149,29 @@ None. You don't need to wrap them in try-catch clauses. If the SDK encounters pr
 
 ### Is there a REST API to get data from the portal?
 
-Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [Power BI](..\logs\log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md) or [continuous export](./export-telemetry.md) if you're still on a classic resource.
+Yes, the [data access API](/rest/api/application-insights/). Other ways to extract data include [Power BI](..\logs\log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md) or [continuous export](./export-telemetry.md) if you're still on a classic resource.
 
 ### Why are my calls to custom events and metrics APIs ignored?
 
-The Application Insights SDK isn't compatible with auto-instrumentation. If auto-instrumentation is enabled, calls to <code class="notranslate">Track()</code> and other custom events and metrics APIs will be ignored.
+The Application Insights SDK isn't compatible with autoinstrumentation. If autoinstrumentation is enabled, calls to <code class="notranslate">Track()</code> and other custom events and metrics APIs will be ignored.
 
-Turn off auto-instrumentation in the Azure portal on the Application Insights tab of the App Service page or set <code class="notranslate">ApplicationInsightsAgent_EXTENSION_VERSION</code> to <code class="notranslate">disabled</code>.
+Turn off autoinstrumentation in the Azure portal on the Application Insights tab of the App Service page or set <code class="notranslate">ApplicationInsightsAgent_EXTENSION_VERSION</code> to <code class="notranslate">disabled</code>.
+
+### Why are the counts in Search and Metrics charts unequal?
+
+[Sampling](./sampling.md) reduces the number of telemetry items (like requests and custom events) that are sent from your app to the portal. In Search, you see the number of items received. In metric charts that display a count of events, you see the number of original events that occurred.
+          
+Each item that's transmitted carries an `itemCount` property that shows how many original events that item represents. To observe sampling in operation, you can run this query in Log Analytics:
+          
+```
+    requests | summarize original_events = sum(itemCount), transmitted_events = count()
+```
+
+### How can I set an alert on an event?
+
+Azure alerts are only on metrics. Create a custom metric that crosses a value threshold whenever your event occurs. Then set an alert on the metric. You get a notification whenever the metric crosses the threshold in either direction. You won't get a notification until the first crossing, no matter whether the initial value is high or low. There's always a latency of a few minutes.
+
 
 ## <a name="next"></a>Next steps
 
-* [Search events and logs](./diagnostic-search.md)
-* [Troubleshooting](../faq.yml)
+* [Search events and logs](./transaction-search-and-diagnostics.md?tabs=transaction-search)

@@ -2,12 +2,12 @@
 title: Define a claims transformation technical profile
 titleSuffix: Azure AD B2C
 description: Define a claims transformation technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 01/17/2022
 ms.author: kengaderdus

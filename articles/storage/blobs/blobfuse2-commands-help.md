@@ -1,21 +1,18 @@
 ---
-title: How to use 'blobfuse2 help' to get help info for the BlobFuse2 command and subcommands (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
-description: Learn how to use 'blobfuse2 help' to get help info for the BlobFuse2 command and subcommands (preview).
-author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+title: How to use 'blobfuse2 help' to get help info for the BlobFuse2 command and subcommands
+titleSuffix: Azure Storage
+description: Learn how to use 'blobfuse2 help' to get help info for the BlobFuse2 command and subcommands.
+author: akashdubey-ms
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/17/2022
-ms.author: jammart
+ms.date: 12/02/2022
+ms.author: akashdubey
 ms.reviewer: tamram
 ---
 
-# BlobFuse2 help command (preview)
+# BlobFuse2 help command
 
 Use the `blobfuse2 help` command to get help info for the BlobFuse2 command and subcommands.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Syntax
 
@@ -71,5 +68,5 @@ Get help for the `blobfuse2 secure encrypt` subcommand:
 
 ## See also
 
-- [What is Blobfuse2? (preview)](blobfuse2-what-is.md)
-- [The Blobfuse2 command set (preview)](blobfuse2-commands.md)
+- [What is Blobfuse2?](blobfuse2-what-is.md)
+- [The Blobfuse2 command set](blobfuse2-commands.md)

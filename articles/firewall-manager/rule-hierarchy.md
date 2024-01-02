@@ -5,8 +5,9 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 11/17/2022
 ms.author: victorh
+ms.custom: FY23 content-maintenance
 ---
 
 # Use Azure Firewall policy to define a rule hierarchy
@@ -26,7 +27,7 @@ The high-level steps for this example are:
 3. Define IT security-specific rules in the base policy. This adds a common set of rules to allow/deny traffic.
 4. Create application team policies that inherit the base policy.
 5. Define application team-specific rules in the policy. You can also migrate rules from pre-existing firewalls.
-6. Create Azure Active Directory custom roles to provide fine grained access to rule collection group and add roles at a Firewall Policy scope. In the following example, Sales team members can edit rule collection groups for the Sales teams Firewall Policy. The same applies to the Database and Engineering teams.
+6. Create Microsoft Entra custom roles to provide fine grained access to rule collection group and add roles at a Firewall Policy scope. In the following example, Sales team members can edit rule collection groups for the Sales teams Firewall Policy. The same applies to the Database and Engineering teams.
 7. Associate the policy to the corresponding firewall. An Azure firewall can have only one assigned policy. This requires each application team to have their own firewall.
 
 
@@ -159,5 +160,5 @@ Security administrators can use base policy to enforce guardrails and block cert
 
 ## Next steps
 
-Learn more about [Azure Firewall policy](policy-overview.md).
-
+- [Learn more about Azure Firewall policy](policy-overview.md)
+- [Learn more about Azure network security](../networking/security/index.yml)

@@ -2,8 +2,8 @@
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 05/11/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template
+ms.date: 11/14/2022
 ---
 
 # Create Resource Manager parameter file
@@ -32,7 +32,7 @@ A parameter file uses the following format:
 }
 ```
 
-Notice that the parameter file stores parameter values as plain text. This approach works for values that aren't sensitive, such as a resource SKU. Plain text doesn't work for sensitive values, such as passwords. If you need to pass a parameter that contains a sensitive value, store the value in a key vault. Then reference the key vault in your parameter file. The sensitive value is securely retrieved during deployment.
+It's worth noting that the parameter file saves parameter values as plain text. For security reasons, this approach is not recommended for sensitive values such as passwords. If you must pass a parameter with a sensitive value, keep the value in a key vault. Then, in your parameter file, include a reference to the key vault. During deployment, the sensitive value is securely retrieved. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
 
 The following parameter file includes a plain text value and a sensitive value that's stored in a key vault.
 

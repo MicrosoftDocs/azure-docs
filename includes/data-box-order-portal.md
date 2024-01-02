@@ -1,10 +1,10 @@
 ---
-author: v-dalc
+author: stevenmatthew
 ms.service: databox
 ms.subservice: databox   
 ms.topic: include
 ms.date: 06/06/2022
-ms.author: alkohli
+ms.author: shaas
 ms.custom: contperf-fy22q3
 ---
 
@@ -27,7 +27,7 @@ Do the following steps in the Azure portal to order a device:
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
     |Source country/region    |    Select the country/region where your data currently resides.         |
-    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).<br>If the selected source and destination regions cross international country borders, Data Box and Data Box Heavy won't be available. |
+    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).<br>If the selected source and destination regions cross international country/region borders, Data Box and Data Box Heavy won't be available. |
 
     [ ![Screenshot of options to select the Transfer Type, Subscription, Resource Group, and source and destination to start a Data Box order in the Azure portal.](media/data-box-order-portal/data-box-import-03.png) ](media/data-box-order-portal/data-box-import-03.png#lightbox)
 
@@ -37,11 +37,11 @@ Do the following steps in the Azure portal to order a device:
 
     You can't select Data Box or Data Box Heavy in either of these cases:
 
-    - If the source and destination regions that you selected cross international country boundaries.
+    - If the source and destination regions that you selected cross international country/region boundaries.
 
       To transfer your data across country/region borders, you can import your data to a destination in the same country/region and then use Azure Import/Export to transfer the data in Azure.
 
-    - If your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country.
+    - If your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country/region.
     
     If you select **Data Box Heavy**, the Data Box team checks device availability in your region. They'll notify you when you can continue with the order.
 
@@ -81,7 +81,7 @@ Do the following steps in the Azure portal to order a device:
 
       ![Screenshot of the Enable option for for a Data Box order that will import files to storage accounts. The Enabled button is highlighted.](media/data-box-order-portal/data-box-import-07.png)
 
-    - If you are using a **General Purpose v1**, **General Purpose v2**, or **Blob** storage account, you will also see the **Enable copy to archive** option in addition to the **Enable large file shares** option. Enabling copy to archive will allow you to send your blobs to the archive tier directly. Any data that is uploaded to the archive tier is offline and will need to be rehydrated before reading or modifying. 
+    - If you are using a **General Purpose v1**, **General Purpose v2**, or **Blob** storage account, you will also see the **Enable copy to archive** option in addition to the **Enable large file shares** option. Enabling copy to archive will allow you to send your blobs to the archive tier automatically. This is done in two steps with each blob first being uploaded to the default access tier of the storage account and then its metadata updated to archive. Any data that is uploaded to the archive tier is offline and will need to be rehydrated before reading or modifying. 
     
         When copy to archive is enabled, you will see an extra archive share on the data box during the copy process.The extra share is available for [SMB, NFS, REST, and data copy service](../articles/databox/data-box-deploy-copy-data.md) methods. 
 
@@ -273,3 +273,4 @@ Do the following steps in the Azure portal to order a device:
     The order takes a few minutes to be created. Your completed order will look similar to this one. You can select **Go to resource** to open the order.
 
     ![Screenshot of a completed deployment for a Data Box order. The Go To Resource button is highlighted.](media/data-box-order-portal/data-box-import-11.png)
+

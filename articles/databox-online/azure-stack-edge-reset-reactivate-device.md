@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/13/2023
 ms.author: alkohli
 ---
 
@@ -31,7 +31,11 @@ To wipe the data off the data disks of your device, you need to reset your devic
 Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
 
 >[!IMPORTANT]
-> Resetting your device will erase all local data and workloads from your device, and that can't be reversed. Reset your device only if you want to start afresh with the device.
+> - Resetting your device will erase all local data and workloads from your device, and that can't be reversed. Reset your device only if you want to start afresh with the device.
+> - If running AP5GC/SAP Kubernetes workload profiles and you updated your Azure Stack Edge to 2309, and reset your Azure Stack Edge device, you see the following behavior: 
+>   - In the local web UI, if you go to Software updates page, you see that the Kubernetes version is unavailable.
+>    - In Azure portal, you are prompted to apply a Kubernetes update. Go ahead and apply the Kubernetes update.
+>   - After device reset, you must select a Kubernetes workload profile again. Otherwise, the default "Other workloads" profile will be applied. For more information, see [Configure compute IPs](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1).  
 
 You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
@@ -39,13 +43,35 @@ You can reset your device in the local web UI or in PowerShell. For PowerShell i
 
 ## Reactivate device
 
-After you reset the device, you'll need to reactivate the device as a new resource. After placing a new order, you'll need to reconfigure and then reactivate the new resource.
+After you reset the device, you must reactivate the device as a new management resource. After placing a new order, you must reconfigure and then reactivate the new resource.
 
-To reactivate your existing device, follow these steps:
+Use the following steps to create a new management resource for your existing device:
 
-1. Create a new order for the existing device by following the steps in [Create a new resource](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource). On the **Shipping address** tab, select **I already have a device**.
+1. On the **Azure services** page of Azure portal, select **Azure Stack Edge**.
+ 
+   [![Screenshot of Azure services page on Azure portal. The Azure Stack Edge option is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-select-azure-stack-edge-00.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-select-azure-stack-edge-00.png#lightbox)
 
-   ![Specify no new device in Shipping address](./media/azure-stack-edge-reset-reactivate-device/create-resource-with-no-new-device.png)
+1. On the **Azure Stack Edge** page, select **+ Create**.
+
+   [![Screenshot of Azure Stack Edge page on Azure portal. The Create resource option is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-new-resource-01.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-new-resource-01.png#lightbox)
+
+1. On the **Manage Azure Stack Edge** page, select **Manage a device**.
+
+   [![Screenshot of Manage Azure Stack Edge page on Azure portal. The Manage a device button is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-manage-device-02.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-manage-device-02.png#lightbox)
+
+1. On the **Basics** tab, specify project details for your resource, and then select **Next: Tags**. 
+
+   [![Screenshot of Create management resource page Basics tab on Azure portal. The Project details fields are highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-management-resource-03.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-management-resource-03.png#lightbox)
+
+1. On the **Tags** tab, specify **Name** and **Value** tags for your management resource, and then select **Review + create**.   
+
+   [![Screenshot of Create management resource page Tags tab on Azure portal. The Name and Value fields are highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-tags-04.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-tags-04.png#lightbox)
+
+1. On the **Review + create** tab, review **Terms and conditions** and **Basics** for your management resource, and then review and accept the **Privacy terms**. To complete the operation, select **Create**.
+
+   [![Screenshot of Create management resource page Review and create tab on Azure portal. The Privacy terms checkbox is highlighted.](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png)](./media/azure-stack-edge-reset-reactivate-device/azure-stack-edge-create-resource-05.png#lightbox)
+
+After you create the management resource for your device, use the following steps to complete device configuration.
 
 1. [Get the activation key](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#get-the-activation-key).
 

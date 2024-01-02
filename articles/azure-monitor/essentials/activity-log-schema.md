@@ -9,25 +9,25 @@ ms.date: 09/30/2020
 ms.author: bwren
 ---
 # Azure Activity Log event schema
-The [Azure Activity log](./platform-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes Activity log categories and the schema for each. 
+The [Azure Activity log](./platform-logs-overview.md) provides insight into any subscription-level events that occurred in Azure. This article describes Activity log categories and the schema for each. 
 
-The schema will vary depending on how you access the log:
+The schema varies depending on how you access the log:
  
-- The schemas described in this article are when you access the Activity log from the [REST API](/rest/api/monitor/activitylogs). This is also the schema used when you select the **JSON** option when viewing an event in the Azure portal.
+- The schemas described in this article are when you access the Activity log from the [REST API](/rest/api/monitor/activitylogs). The schema is also used when you select the **JSON** option when viewing an event in the Azure portal.
 - See the final section [Schema from storage account and event hubs](#schema-from-storage-account-and-event-hubs) for the schema when you use a [diagnostic setting](./diagnostic-settings.md) to send the Activity log to Azure Storage or Azure Event Hubs.
 - See [Azure Monitor data reference](/azure/azure-monitor/reference/) for the schema when you use a [diagnostic setting](./diagnostic-settings.md) to send the Activity log to a Log Analytics workspace.
 
 ## Severity Level
-Each entry in the activity log has a severity level. Severity level can have one of the following values:  
+Each entry in the activity log has a severity level. Severity level can have one of the following values: 
 
-| Severity | Description |
-|:---|:---|
-| Critical | Events that demand the immediate attention of a system administrator. May indicate that an application or system has failed or stopped responding.
-| Error | Events that indicate a problem, but do not require immediate attention.
-| Warning | Events that provide forewarning of potential problems, although not an actual error. Indicate that a resource is not in an ideal state and may degrade later into showing errors or critical events.  
-| Informational | Events that pass noncritical information to the administrator. Similar to a note that says: "For your information". 
+|Severity  |Description  |
+|---------|---------|
+|Critical     |Events that demand the immediate attention of a system administrator. Might indicate that an application or system failed or stopped responding.  |
+|Error     |Events that indicate a problem, but don't require immediate attention.  |
+|Warning     | Events that provide forewarning of potential problems, although not an actual error. Indicate that a resource isn't in an ideal state and may degrade later into showing errors or critical events.         |
+|Informational     | Events that pass noncritical information to the administrator. Similar to a note that says: "For your information".        |
 
-The developers of each resource provider choose the severity levels of their resource entries. As a result, the actual severity to you can vary depending on how your application is built. For example, items that are "critical" to a particular resource taken in isolation may not be as important as "errors" in a resource type that is central to your Azure application. Be sure to consider this fact when deciding what events to alert on.  
+The developers of each resource provider choose the severity levels of their resource entries. As a result, the actual severity to you can vary depending on how your application is built. For example, items that are "critical" to a particular resource taken in isolation might not be as important as "errors" in a resource type that is central to your Azure application. Be sure to consider this fact when deciding what events to alert on. 
 
 ## Categories
 Each event in the Activity Log has a particular category that is described in the following table. See the sections below for more detail on each category and its schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](./resource-logs.md#send-to-azure-event-hubs). A mapping of the properties to the [resource logs schema](./resource-logs-schema.md) is provided in the last section of the article.
@@ -35,16 +35,16 @@ Each event in the Activity Log has a particular category that is described in th
 | Category | Description |
 |:---|:---|
 | [Administrative](#administrative-category) | Contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of Administrative events include _create virtual machine_ and _delete network security group_.<br><br>Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is _Write_, _Delete_, or _Action_, the records of both the start and success or fail of that operation are recorded in the Administrative category. Administrative events also include any changes to Azure role-based access control in a subscription. |
-| [Service Health](#service-health-category) | Contains the record of any service health incidents that have occurred in Azure. An example of a Service Health event _SQL Azure in East US is experiencing downtime_. <br><br>Service Health events come in Six varieties: _Action Required_, _Assisted Recovery_, _Incident_, _Maintenance_, _Information_, or _Security_. These events are only created if you have a resource in the subscription that would be impacted by the event.
-| [Resource Health](#resource-health-category) | Contains the record of any resource health events that have occurred to your Azure resources. An example of a Resource Health event is _Virtual Machine health status changed to unavailable_.<br><br>Resource Health events can represent one of four health statuses: _Available_, _Unavailable_, _Degraded_, and _Unknown_. Additionally, Resource Health events can be categorized as being _Platform Initiated_ or _User Initiated_. |
-| [Alert](#alert-category) | Contains the record of activations for Azure alerts. An example of an Alert event is _CPU % on myVM has been over 80 for the past 5 minutes_.|
-| [Autoscale](#autoscale-category) | Contains the record of any events related to the operation of the autoscale engine based on any autoscale settings you have defined in your subscription. An example of an Autoscale event is _Autoscale scale up action failed_. |
+| [Service Health](#service-health-category) | Contains the record of any service health incidents that occurred in Azure. An example of a Service Health event _SQL Azure in East US is experiencing downtime_. <br><br>Service Health events come in Six varieties: _Action Required_, _Assisted Recovery_, _Incident_, _Maintenance_, _Information_, or _Security_. These events are only created if you have a resource in the subscription impacted by the event.
+| [Resource Health](#resource-health-category) | Contains the record of any resource health events that occurred to your Azure resources. An example of a Resource Health event is _Virtual Machine health status changed to unavailable_.<br><br>Resource Health events can represent one of four health statuses: _Available_, _Unavailable_, _Degraded_, and _Unknown_. Additionally, Resource Health events can be categorized as being _Platform Initiated_ or _User Initiated_. |
+| [Alert](#alert-category) | Contains the record of activations for Azure alerts. An example of an Alert event is _CPU % on myVM above 80 for the past 5 minutes_.|
+| [Autoscale](#autoscale-category) | Contains the record of any events related to the operation of the autoscale engine based on any autoscale settings you defined in your subscription. An example of an Autoscale event is _Autoscale scale up action failed_. |
 | [Recommendation](#recommendation-category) | Contains recommendation events from Azure Advisor. |
 | [Security](#security-category) | Contains the record of any alerts generated by Microsoft Defender for Cloud. An example of a Security event is _Suspicious double extension file executed_. |
 | [Policy](#policy-category) | Contains records of all effect action operations performed by Azure Policy. Examples of Policy events include _Audit_ and _Deny_. Every action taken by Policy is modeled as an operation on a resource. |
 
 ## Administrative category
-This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to Azure role-based access control in a subscription.
+This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group". Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to Azure role-based access control in a subscription.
 
 ### Sample event
 ```json
@@ -147,22 +147,22 @@ This category contains the record of all create, update, delete, and action oper
 | eventName | Friendly name of the Administrative event. |
 | category | Always "Administrative" |
 | httpRequest |Blob describing the Http Request. Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method. For example, PUT). |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, and “Informational” |
+| level |[Severity level](#severity-level) of the event.  |
 | resourceGroupName |Name of the resource group for the impacted resource. |
 | resourceProviderName |Name of the resource provider for the impacted resource |
-| resourceType | The type of resource that was affected by an Administrative event. |
+| resourceType | The type of resource affected by an Administrative event. |
 | resourceId |Resource ID of the impacted resource. |
 | operationId |A GUID shared among the events that correspond to a single operation. |
 | operationName |Name of the operation. |
 | properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event. |
 | status |String describing the status of the operation. Some common values are: Started, In Progress, Succeeded, Failed, Active, Resolved. |
-| subStatus |Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus, such as these common values: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504). |
+| subStatus |Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a subStatus, such as these common values: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504). |
 | eventTimestamp |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
 | submissionTimestamp |Timestamp when the event became available for querying. |
 | subscriptionId |Azure Subscription ID. |
 
 ## Service health category
-This category contains the record of any service health incidents that have occurred in Azure. An example of the type of event you would see in this category is "SQL Azure in East US is experiencing downtime." Service health events come in five varieties: Action Required, Incident, Maintenance, Information, or Security, and only appear if you have a resource in the subscription that would be impacted by the event.
+This category contains the record of any service health incidents that occurred in Azure. An example of the type of event you would see in this category is "SQL Azure in East US is experiencing downtime." Service health events come in five varieties: Action Required, Incident, Maintenance, Information, or Security, and only appear if you have a resource in the subscription that would be impacted by the event.
 
 ### Sample event
 ```json
@@ -222,7 +222,19 @@ This category contains the record of any service health incidents that have occu
 Refer to the [service health notifications](../../service-health/service-notifications.md) article for documentation about the values in the properties.
 
 ## Resource health category
-This category contains the record of any resource health events that have occurred to your Azure resources. An example of the type of event you would see in this category is "Virtual Machine health status changed to unavailable." Resource health events can represent one of four health statuses: Available, Unavailable, Degraded, and Unknown. Additionally, resource health events can be categorized as being Platform Initiated or User Initiated.
+This category contains the record of resource health events that have occurred to your Azure resources. An example of the type of event you would see in this category is "Virtual Machine health status changed to unavailable." Resource health events can represent one of four health statuses: Available, Unavailable, Degraded, and Unknown. Additionally, resource health events can be categorized as being Platform Initiated or User Initiated.
+
+A resource health event is recorded in the activity log when:
+- An annotation, for example "ResourceDegraded" or "AccountClientThrottling", is submitted for a resource.
+- A resource transitioned to or from Unhealthy.
+- A resource was Unhealthy for more than 15 minutes.
+
+The following resource health transitions aren't recorded in the activity log:
+- A transition to Unknown state.
+- A transition from Unknown state if:
+    - This is the first transition.
+    - If the state prior to Unknown is the same as the new state after. (For example, if the resource transitioned from Healthy to Unknown and back to Healthy).
+    - For compute resources: VMs that transition from Healthy to Unhealthy, and back to Healthy, when the Unhealthy time is less than 35 seconds.
 
 ### Sample event
 
@@ -290,12 +302,12 @@ This category contains the record of any resource health events that have occurr
 | eventDataId |Unique identifier of the alert event. |
 | category | Always "ResourceHealth" |
 | eventTimestamp |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| level |Level of the event. One of the following values: “Critical”, or “Informational” (other levels are not supported) |
+| level |[Severity level](#severity-level) of the event. |
 | operationId |A GUID shared among the events that correspond to a single operation. |
 | operationName |Name of the operation. |
 | resourceGroupName |Name of the resource group that contains the resource. |
 | resourceProviderName |Always "Microsoft.Resourcehealth/healthevent/action". |
-| resourceType | The type of resource that was affected by a Resource Health event. |
+| resourceType | The type of resource affected by a Resource Health event. |
 | resourceId | Name of the resource ID for the impacted resource. |
 | status |String describing the status of the health event. Values can be: Active, Resolved, InProgress, Updated. |
 | subStatus | Usually null for alerts. |
@@ -311,7 +323,7 @@ This category contains the record of any resource health events that have occurr
 
 
 ## Alert category
-This category contains the record of all activations of classic Azure alerts. An example of the type of event you would see in this category is "CPU % on myVM has been over 80 for the past 5 minutes." A variety of Azure systems have an alerting concept -- you can define a rule of some sort and receive a notification when conditions match that rule. Each time a supported Azure alert type 'activates,' or the conditions are met to generate a notification, a record of the activation is also pushed to this category of the Activity Log.
+This category contains the record of all activations of classic Azure alerts. An example of the type of event you would see in this category is "CPU % on myVM is over 80 for the past 5 minutes." Various Azure systems have an alerting concept: you can define a rule of some sort and receive a notification when conditions match that rule. Each time a supported Azure alert type 'activates,' or the conditions are met to generate a notification, a record of the activation is also pushed to this category of the Activity Log.
 
 ### Sample event
 
@@ -384,10 +396,10 @@ This category contains the record of all activations of classic Azure alerts. An
 | description |Static text description of the alert event. |
 | eventDataId |Unique identifier of the alert event. |
 | category | Always "Alert" |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, and “Informational” |
-| resourceGroupName |Name of the resource group for the impacted resource if it is a metric alert. For other alert types, it is the name of the resource group that contains the alert itself. |
-| resourceProviderName |Name of the resource provider for the impacted resource if it is a metric alert. For other alert types, it is the name of the resource provider for the alert itself. |
-| resourceId | Name of the resource ID for the impacted resource if it is a metric alert. For other alert types, it is the resource ID of the alert resource itself. |
+| level |[Severity level](#severity-level) of the event. |
+| resourceGroupName |Name of the resource group for the impacted resource if it's a metric alert. For other alert types, it's the name of the resource group that contains the alert itself. |
+| resourceProviderName |Name of the resource provider for the impacted resource if it's a metric alert. For other alert types, it's the name of the resource provider for the alert itself. |
+| resourceId | Name of the resource ID for the impacted resource if it's a metric alert. For other alert types, it's the resource ID of the alert resource itself. |
 | operationId |A GUID shared among the events that correspond to a single operation. |
 | operationName |Name of the operation. |
 | properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event. |
@@ -403,13 +415,13 @@ The properties field will contain different values depending on the source of th
 #### Properties for Activity Log alerts
 | Element Name | Description |
 | --- | --- |
-| properties.subscriptionId | The subscription ID from the activity log event which caused this activity log alert rule to be activated. |
-| properties.eventDataId | The event data ID from the activity log event which caused this activity log alert rule to be activated. |
-| properties.resourceGroup | The resource group from the activity log event which caused this activity log alert rule to be activated. |
-| properties.resourceId | The resource ID from the activity log event which caused this activity log alert rule to be activated. |
-| properties.eventTimestamp | The event timestamp of the activity log event which caused this activity log alert rule to be activated. |
-| properties.operationName | The operation name from the activity log event which caused this activity log alert rule to be activated. |
-| properties.status | The status from the activity log event which caused this activity log alert rule to be activated.|
+| properties.subscriptionId | The subscription ID from the activity log event that caused this activity log alert rule to be activated. |
+| properties.eventDataId | The event data ID from the activity log event that caused this activity log alert rule to be activated. |
+| properties.resourceGroup | The resource group from the activity log event that caused this activity log alert rule to be activated. |
+| properties.resourceId | The resource ID from the activity log event that caused this activity log alert rule to be activated. |
+| properties.eventTimestamp | The event timestamp of the activity log event that caused this activity log alert rule to be activated. |
+| properties.operationName | The operation name from the activity log event that caused this activity log alert rule to be activated. |
+| properties.status | The status from the activity log event that caused this activity log alert rule to be activated.|
 
 #### Properties for metric alerts
 | Element Name | Description |
@@ -425,7 +437,7 @@ The properties field will contain different values depending on the source of th
 | properties.MetricUnit | The metric unit for the metric used in the evaluation of the metric alert rule. |
 
 ## Autoscale category
-This category contains the record of any events related to the operation of the autoscale engine based on any autoscale settings you have defined in your subscription. An example of the type of event you would see in this category is "Autoscale scale up action failed." Using autoscale, you can automatically scale out or scale in the number of instances in a supported resource type based on time of day and/or load (metric) data using an autoscale setting. When the conditions are met to scale up or down, the start and succeeded or failed events will be recorded in this category.
+This category contains the record of any events related to the operation of the autoscale engine based on any autoscale settings you have defined in your subscription. An example of the type of event you would see in this category is "Autoscale scale up action failed." Using autoscale, you can automatically scale out or scale in the number of instances in a supported resource type based on time of day and/or load (metric) data using an autoscale setting. When the conditions are met to scale up or down, the start and succeeded or failed events are recorded in this category.
 
 ### Sample event
 ```json
@@ -493,7 +505,7 @@ This category contains the record of any events related to the operation of the 
 | correlationId | A GUID in the string format. |
 | description |Static text description of the autoscale event. |
 | eventDataId |Unique identifier of the autoscale event. |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, and “Informational” |
+| level |[Severity level](#severity-level) of the event. |
 | resourceGroupName |Name of the resource group for the autoscale setting. |
 | resourceProviderName |Name of the resource provider for the autoscale setting. |
 | resourceId |Resource ID of the autoscale setting. |
@@ -584,14 +596,14 @@ This category contains the record any alerts generated by Microsoft Defender for
 | eventName |Friendly name of the security event. |
 | category | Always "Security" |
 | ID |Unique resource identifier of the security event. |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, or “Informational” |
+| level |[Severity level](#severity-level) of the event.|
 | resourceGroupName |Name of the resource group for the resource. |
 | resourceProviderName |Name of the resource provider for Microsoft Defender for Cloud. Always "Microsoft.Security". |
 | resourceType |The type of resource that generated the security event, such as "Microsoft.Security/locations/alerts" |
 | resourceId |Resource ID of the security alert. |
 | operationId |A GUID shared among the events that correspond to a single operation. |
 | operationName |Name of the operation. |
-| properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event. These properties will vary depending on the type of security alert. See [this page](../../security-center/security-center-alerts-overview.md) for a description of the types of alerts that come from Defender for Cloud. |
+| properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event. These properties vary depending on the type of security alert. See [this page](../../security-center/security-center-alerts-overview.md) for a description of the types of alerts that come from Defender for Cloud. |
 | properties.Severity |The severity level. Possible values are "High," "Medium," or "Low." |
 | status |String describing the status of the operation. Some common values are: Started, In Progress, Succeeded, Failed, Active, Resolved. |
 | subStatus | Usually null for security events. |
@@ -664,7 +676,7 @@ This category contains the record of any new recommendations that are generated 
 | eventDataId | Unique identifier of the recommendation event. |
 | category | Always "Recommendation" |
 | ID |Unique resource identifier of the recommendation event. |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, or “Informational” |
+| level |[Severity level](#severity-level) of the event.|
 | operationName |Name of the operation.  Always "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |Name of the resource group for the resource. |
 | resourceProviderName |Name of the resource provider for the resource that this recommendation applies to, such as "MICROSOFT.COMPUTE" |
@@ -779,12 +791,12 @@ This category contains records of all effect action operations performed by [Azu
 | category | Declares the activity log event as belonging to "Policy". |
 | eventTimestamp | Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
 | ID | Unique identifier of the event on the specific resource. |
-| level | Level of the event. Audit uses "Warning" and Deny uses "Error". An auditIfNotExists or deployIfNotExists error can generate "Warning" or "Error" depending on severity. All other Policy events use "Informational". |
+| level | [Severity level](#severity-level) of the event. Audit uses "Warning" and Deny uses "Error". An auditIfNotExists or deployIfNotExists error can generate "Warning" or "Error" depending on severity. All other Policy events use "Informational". |
 | operationId | A GUID shared among the events that correspond to a single operation. |
 | operationName | Name of the operation and directly correlates to the Policy effect. |
 | resourceGroupName | Name of the resource group for the evaluated resource. |
 | resourceProviderName | Name of the resource provider for the evaluated resource. |
-| resourceType | For new resources, it is the type being evaluated. For existing resources, returns "Microsoft.Resources/checkPolicyCompliance". |
+| resourceType | For new resources, it's the type being evaluated. For existing resources, returns "Microsoft.Resources/checkPolicyCompliance". |
 | resourceId | Resource ID of the evaluated resource. |
 | status | String describing the status of the Policy evaluation result. Most Policy evaluations return "Succeeded", but a Deny effect returns "Failed". Errors in auditIfNotExists or deployIfNotExists also return "Failed". |
 | subStatus | Field is blank for Policy events. |
@@ -809,7 +821,7 @@ When streaming the Azure Activity log to a storage account or event hub, the dat
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName are all inferred from the resourceId. |
 | operationName | operationName.value |  |
-| category | Part of operation name | Breakout of the operation type - "Write"/"Delete"/"Action" |
+| category | Part of operation name | Breakout of the operation type. "Write", "Delete", or "Action". |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
 | resultDescription | description |  |
@@ -818,9 +830,9 @@ When streaming the Azure Activity log to a storage account or event hub, the dat
 | correlationId | correlationId |  |
 | identity | claims and authorization properties |  |
 | Level | Level |  |
-| location | N/A | Location of where the event was processed. *This is not the location of the resource, but rather where the event was processed. This property will be removed in a future update.* |
+| location | N/A | Location of where the event was processed. *This isn't the location of the resource, but rather where the event was processed. This property will be removed in a future update.* |
 | Properties | properties.eventProperties |  |
-| properties.eventCategory | category | If properties.eventCategory is not present, category is "Administrative" |
+| properties.eventCategory | category | If properties.eventCategory isn't present, category is "Administrative" |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |
 | properties.eventProperties | properties |  |
@@ -832,7 +844,7 @@ Following is an example of an event using this schema:
     "records": [
         {
             "time": "2019-01-21T22:14:26.9792776Z",
-            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/123456112305841",
             "operationName": "microsoft.support/supporttickets/write",
             "category": "Write",
             "resultType": "Success",
@@ -841,32 +853,37 @@ Following is an example of an event using this schema:
             "callerIpAddress": "111.111.111.11",
             "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
             "identity": {
-                "authorization": {
-                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-                    "action": "microsoft.support/supporttickets/write",
-                    "evidence": {
-                        "role": "Subscription Admin"
-                    }
-                },
+               "authorization": {
+                   "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-001/providers/Microsoft.Storage/storageAccounts/       msftstorageaccount",
+                   "action": "Microsoft.Storage/storageAccounts/listAccountSas/action",
+                   "evidence": {
+                       "role": "Azure Eventhubs Service Role",
+                       "roleAssignmentScope": "/subscriptions/00000000-0000-0000-0000-000000000000",
+                       "roleAssignmentId": "123abc2a6c314b0ab03a891259123abc",
+                       "roleDefinitionId": "123456789de042a6a64b29b123456789",
+                       "principalId": "abcdef038c6444c18f1c31311fabcdef",
+                       "principalType": "ServicePrincipal"
+                   }
+               },
                 "claims": {
                     "aud": "https://management.core.windows.net/",
-                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+                    "iss": "https://sts.windows.net/abcde123-86f1-41af-91ab-abcde1234567/",
                     "iat": "1421876371",
                     "nbf": "1421876371",
                     "exp": "1421880271",
                     "ver": "1.0",
                     "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
                     "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "123abc45-8211-44e3-95xq-85137af64708",
                     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
                     "puid": "20030000801A118C",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9876543210DKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
                     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
                     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
                     "name": "John Smith",
-                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
+                    "groups": "12345678-cacfe77c-e058-4712-83qw-f9b08849fd60,12345678-4c41-4b23-99d2-d32ce7aa621c,12345678-0578-4ea0-9gdc-e66cc564d18c",
                     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
+                    "appid": "12345678-3bq0-49c1-b47d-974e53cbdf3c",
                     "appidacr": "2",
                     "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
                     "http://schemas.microsoft.com/claims/authnclassreference": "1"
@@ -876,14 +893,12 @@ Following is an example of an event using this schema:
             "location": "global",
             "properties": {
                 "statusCode": "Created",
-                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
+                "serviceRequestId": "12345678-8ca0-47ad-9b80-6cde2207f97c"
             }
         }
     ]
 }
 ```
-
-
 
 
 

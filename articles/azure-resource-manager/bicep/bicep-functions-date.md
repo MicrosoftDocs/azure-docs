@@ -1,10 +1,9 @@
 ---
 title: Bicep functions - date
 description: Describes the functions to use in a Bicep file to work with dates.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.custom: devx-track-bicep
+ms.date: 11/03/2023
 ---
 
 # Date functions for Bicep
@@ -30,6 +29,17 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 ### Return value
 
 The datetime value that results from adding the duration value to the base value.
+
+### Remarks
+
+The dateTimeAdd function takes into account leap years and the number of days in a month when performing date arithmetic. The following example adds one month to January 31:
+
+```bicep
+output add1MonthOutput string = dateTimeAdd('2023-01-31 00:00:00Z', 'P1M') //2023-03-02T00:00:00Z
+output add1MonthLeapOutput string = dateTimeAdd('2024-01-31 00:00:00Z', 'P1M')  //2024-03-01T00:00:00Z
+```
+
+In this example, `dateTimeAdd` returns `2023-03-02T00:00:00Z`, not `2023-02-28T00:00:00Z`. If the base is `2024-01-31 00:00:00Z`, it returns `2024-03-01T00:00:00Z` because 2024 is a leap year.
 
 ### Examples
 
@@ -66,7 +76,7 @@ var startTime = dateTimeAdd(baseTime, 'PT1H')
 
 ...
 
-resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31' = {
+resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2022-08-08' = {
   name: concat(omsAutomationAccountName, '/', scheduleName)
   properties: {
     description: 'Demo Scheduler'
@@ -97,7 +107,7 @@ An ISO 8601 datetime string.
 
 ### Remarks
 
-This function requires **Bicep version 0.5.6 or later**.
+This function requires [Bicep CLI version 0.5.X or higher](./install.md).
 
 ### Example
 
@@ -139,7 +149,7 @@ An integer that represents the number of seconds from midnight on January 1, 197
 
 ### Remarks
 
-This function requires **Bicep version 0.5.6 or later**.
+This function requires [Bicep CLI version 0.5.X or higher](./install.md).
 
 ### Examples
 
@@ -219,7 +229,7 @@ The next example shows how to use a value from the function when setting a tag v
 param utcShort string = utcNow('d')
 param rgName string
 
-resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
+resource myRg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
   name: rgName
   location: 'westeurope'
   tags: {

@@ -1,6 +1,6 @@
 ---
 title: Use system-assigned managed identities to access Azure Cosmos DB data
-description: Learn how to configure an Azure Active Directory (Azure AD) system-assigned managed identity (managed service identity) to access keys from Azure Cosmos DB. 
+description: Learn how to configure a Microsoft Entra system-assigned managed identity (managed service identity) to access keys from Azure Cosmos DB. 
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
@@ -120,7 +120,7 @@ In this step, you'll query the document endpoint for the API for NoSQL account.
 
 ## Grant access to your Azure Cosmos DB account
 
-In this step, you'll assign a role to the function app's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity for control-plane access. For data-plane access, you'll create a new custom role with acess to read metadata.
+In this step, you'll assign a role to the function app's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity for control-plane access. For data-plane access, you'll create a new custom role with access to read metadata.
 
 > [!TIP]
 > For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
@@ -156,7 +156,7 @@ In this step, you'll assign a role to the function app's system-assigned managed
     echo $principal
     ```
 
-1. Create a new JSON object with the configuration of the new custom role.
+1. Create a new JSON file with the configuration of the new custom role.
 
     ```json
     {
@@ -170,6 +170,9 @@ In this step, you'll assign a role to the function app's system-assigned managed
         }]
     }
     ```
+
+    > [!TIP]
+    > You can create a file in the Azure Cloud Shell using either `touch <filename>` or the built-in editor (`code .`). For more information, see [Azure Cloud Shell editor](../cloud-shell/using-cloud-shell-editor.md)
 
 1. Use [``az cosmosdb sql role definition create``](/cli/azure/cosmosdb/sql/role/definition#az-cosmosdb-sql-role-definition-create) to create a new role definition named ``Read Azure Cosmos DB Metadata`` using the custom JSON object.
 
@@ -328,6 +331,5 @@ Once published, the ``DefaultAzureCredential`` class will use credentials from t
 
 ## Next steps
 
-- [Certificate-based authentication with Azure Cosmos DB and Azure Active Directory](certificate-based-authentication.md)
-- [Secure Azure Cosmos DB keys using Azure Key Vault](access-secrets-from-keyvault.md)
+- [Secure Azure Cosmos DB keys using Azure Key Vault](store-credentials-key-vault.md)
 - [Security baseline for Azure Cosmos DB](security-baseline.md)

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to deploy models using online endpoints with REST APIs.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: dem108
 ms.author: sehan
@@ -45,7 +45,7 @@ In this article, you learn how to use the new REST APIs to:
 
 Online endpoints allow you to deploy your model without having to create and manage the underlying infrastructure as well as Kubernetes clusters. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you'll have to register the assets needed for deployment, including model, code, and environment.
 
-There are many ways to create an Azure Machine Learning online endpoints [including the Azure CLI](how-to-deploy-managed-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example an online endpoint with the REST API.
+There are many ways to create an Azure Machine Learning online endpoint [including the Azure CLI](how-to-deploy-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example an online endpoint with the REST API.
 
 ## Create machine learning assets
 
@@ -139,12 +139,12 @@ If you aren't going use the deployment, you should delete it with the below comm
 
 ## Next steps
 
-* Learn how to deploy your model [using the Azure CLI](how-to-deploy-managed-online-endpoints.md).
+* Learn how to deploy your model [using the Azure CLI](how-to-deploy-online-endpoints.md).
 * Learn how to deploy your model [using studio](how-to-use-managed-online-endpoint-studio.md).
 * Learn to [Troubleshoot online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)
 * Learn how to [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 * Learn how to [monitor online endpoints](how-to-monitor-online-endpoints.md).
-* Learn [safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md).
+* Learn [safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md).
 * [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
 * [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
-* Learn about limits on managed online endpoints in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+* Learn about [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).

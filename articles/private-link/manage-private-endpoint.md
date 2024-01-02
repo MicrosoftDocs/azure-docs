@@ -8,9 +8,9 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 05/17/2022
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, template-how-to, devx-track-azurecli
 ---
+
 # Manage Azure Private Endpoints
 
 Azure Private Endpoints have several options when managing the configuration and their deployment. 
@@ -69,7 +69,7 @@ You should receive an output similar to the below example.
 
 ## Custom properties
 
-Network interface rename and static IP address assignment are custom properties that can be set on a private endpoint when it's created. 
+Network interface rename and static IP address assignment are custom properties that can be set on a private endpoint during creation. 
 
 ### Network interface rename
 
@@ -134,7 +134,7 @@ az network private-endpoint create \
 
 ### Static IP address
 
-By default, when a private endpoint is created the IP address for the endpoint is automatically assigned. The IP is assigned from the IP range of the virtual network configured for the private endpoint. A situation may arise when a static IP address for the private endpoint is required. The static IP address must be assigned when the private endpoint is created. The configuration of a static IP address for an existing private endpoint is currently unsupported.
+By default, when a private endpoint is created the IP address for the endpoint is automatically assigned. The IP is assigned from the IP range of the virtual network configured for the private endpoint. A situation can arise when a static IP address for the private endpoint is required. The static IP address must be assigned when the private endpoint is created. The configuration of a static IP address for an existing private endpoint is currently unsupported.
 
 For procedures to configure a static IP address when creating a private endpoint, see [Create a private endpoint using Azure PowerShell](create-private-endpoint-powershell.md) and [Create a private endpoint using the Azure CLI](create-private-endpoint-cli.md).
 
@@ -153,14 +153,17 @@ There are two connection approval methods that a Private Link service consumer c
 - **Manual**: If the service consumer doesn’t have Azure Role Based Access Control permissions on the service provider resource, the consumer can choose the manual approval method. The connection request appears on the service resources as **Pending**. The service provider has to manually approve the request before connections can be established. 
 In manual cases, service consumer can also specify a message with the request to provide more context to the service provider. The service provider has following options to choose from for all private endpoint connections: **Approve**, **Reject**, **Remove**.
 
-The below table shows the various service provider actions and the resulting connection states for private endpoints. The service provider can change the connection state at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side. 
+> [!IMPORTANT]
+> To approve connections with a private endpoint that is in a separate subscription or tenant, ensure that the provider subscription or tenant has registered **Microsoft.Network**. The consumer subscription or tenant should also have the resource provider of the destination resource registered.
+
+The below table shows the various service provider actions and the resulting connection states for private endpoints. The service provider can change the connection state at a later time without consumer intervention. The action updates the state of the endpoint on the consumer side. 
 
 | Service provider action  | Service consumer private endpoint state | Description |
 |---------|---------|---------|
 | None    |    Pending     |    Connection is created manually and is pending for approval by the Private Link resource owner.       |
-| Approve    |  Approved       |  Connection was automatically or manually approved and is ready to be used.     |
-| Reject     | Rejected        | Connection was rejected by the private link resource owner.        |
-| Remove    |  Disconnected       | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for clean-up.        |
+| Approve    |  Approved       |  Connection is automatically or manually approved and is ready to be used.     |
+| Reject     | Rejected        | The private link resource owner rejects the connection.     |
+| Remove    |  Disconnected       | The private link resource owner removes the connection, causing the private endpoint to become disconnected and it should be deleted for clean-up.        |
 
 ## Manage private endpoint connections on Azure PaaS resources
 
@@ -282,6 +285,10 @@ Use **[az network private-endpoint-connection delete](/cli/azure/network/private
 ```
 
 ---
+
+> [!NOTE]
+> Connections that have been previously denied can't be approved. You must remove the connection and create a new one.
+
 
 ## Next steps
 - [Learn about Private Endpoints](private-endpoint-overview.md)

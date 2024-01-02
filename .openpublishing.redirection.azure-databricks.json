@@ -1,0 +1,104 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-databricks/index.yml",
+            "redirect_url": "/azure/databricks/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/vnet-injection.md",
+            "redirect_url": "/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/connect-databricks-excel-python-r.md",
+            "redirect_url": "/azure/databricks/scenarios/connect-databricks-excel-python-r",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/databricks-cli-from-azure-cloud-shell.md",
+            "redirect_url": "/azure/databricks/scenarios/databricks-cli-from-azure-cloud-shell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/databricks-connect-to-data-sources.md",
+            "redirect_url": "/azure/databricks/scenarios/databricks-connect-to-data-sources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/databricks-extract-load-sql-data-warehouse.md",
+            "redirect_url": "/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/databricks-sentiment-analysis-cognitive-services.md",
+            "redirect_url": "/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/databricks-stream-from-eventhubs.md",
+            "redirect_url": "/azure/databricks/scenarios/databricks-stream-from-eventhubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/frequently-asked-questions-databricks.md",
+            "redirect_url": "/azure/databricks/scenarios/frequently-asked-questions-databricks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/howto-regional-disaster-recovery.md",
+            "redirect_url": "/azure/databricks/scenarios/howto-regional-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/mysql-ip-address.md",
+            "redirect_url": "/azure/databricks/scenarios/mysql-ip-address",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/quickstart-create-databricks-workspace-portal.md",
+            "redirect_url": "/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/quickstart-create-databricks-workspace-powershell.md",
+            "redirect_url": "/azure/databricks/scenarios/quickstart-create-databricks-workspace-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template.md",
+            "redirect_url": "/azure/databricks/scenarios/quickstart-create-databricks-workspace-resource-manager-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/quickstart-create-databricks-workspace-vnet-injection.md",
+            "redirect_url": "/azure/databricks/scenarios/quickstart-create-databricks-workspace-vnet-injection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/security-baseline.md",
+            "redirect_url": "/azure/databricks/scenarios/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/service-endpoint-cosmosdb.md",
+            "redirect_url": "/azure/databricks/scenarios/service-endpoint-cosmosdb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/store-secrets-azure-key-vault.md",
+            "redirect_url": "/azure/databricks/scenarios/store-secrets-azure-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/vnet-injection-sql-server.md",
+            "redirect_url": "/azure/databricks/scenarios/vnet-injection-sql-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-databricks/what-is-azure-databricks.md",
+            "redirect_url": "/azure/databricks/scenarios/what-is-azure-databricks",
+            "redirect_document_id": false
+        }
+    ]
+}

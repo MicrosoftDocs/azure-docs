@@ -1,16 +1,15 @@
 ---
-title: Manage packet captures with Azure Network Watcher - Azure CLI | Microsoft Docs
-description: This page explains how to manage the packet capture feature of Network Watcher using the Azure CLI
+title: Manage packet captures in VMs with Azure Network Watcher - Azure CLI
+description: Learn how to manage packet captures in virtual machines with the packet capture feature of Network Watcher using the Azure CLI.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: damendo
+ms.workload: infrastructure-services
+ms.date: 12/09/2021
+ms.author: halkazwini
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Manage packet captures with Azure Network Watcher using the Azure CLI
@@ -19,7 +18,6 @@ ms.author: damendo
 > - [Azure portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
-> - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 Network Watcher packet capture allows you to create capture sessions to track traffic to and from a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more. By being able to remotely trigger packet captures, this capability eases the burden of running a packet capture manually and on the desired machine, which saves valuable time.
 

@@ -17,7 +17,7 @@ ms.author: mathapli
 Azure offers various RHEL images for different use cases.
 
 > [!NOTE]
-> All RHEL images are available in Azure public and Azure Government clouds. They are not available in Azure China clouds.
+> All RHEL images are available in Azure public and Azure Government clouds. They are not available in Microsoft Azure operated by 21Vianet clouds.
 
 ## List of RHEL images
 This section provides list of RHEL images available in Azure. Unless otherwise stated, all images are LVM-partitioned and attached to regular RHEL repositories (not EUS, not E4S). The following images are currently available for general use:
@@ -62,8 +62,8 @@ RHEL          | 7-RAW    | RAW    | Linux Agent | RHEL 7.x family of images. <br
 |             | 85-gen2  | LVM    | Linux Agent |Hyper-V Generation 2 -  Attached to regular repositories (EUS unavailable for RHEL 8.5)
 |             | 8.6      | LVM    | Linux Agent | Attached to EUS repositories 
 |             | 86-gen2  | LVM    | Linux Agent |Hyper-V Generation 2 -  Hyper-V Generation 2 - Attached to EUS repositories 
-|             | 9.0      | LVM    | Linux Agent | Attached to EUS repositories 
-|             | 90-gen2  | LVM    | Linux Agent |Hyper-V Generation 2 -  Hyper-V Generation 2 - Attached to EUS repositories 
+|             | 9.0      | LVM    | Linux Agent | Currently attached to regular repositores. Will be attached to EUS repositories once they become available 
+|             | 90-gen2  | LVM    | Linux Agent |Hyper-V Generation 2 - Currently attached to regular repositores. Will be attached to EUS repositories once they become available
 RHEL-SAP-APPS | 6.8      | RAW    | Linux Agent | RHEL 6.8 for SAP Business Applications. Outdated in favor of the RHEL-SAP images.
 |             | 7.3      | LVM    | Linux Agent | RHEL 7.3 for SAP Business Applications. Outdated in favor of the RHEL-SAP images.
 |             | 7.4      | LVM    | Linux Agent | RHEL 7.4 for SAP Business Applications
@@ -107,14 +107,16 @@ rhel-byos     |rhel-lvm74| LVM    | Linux Agent | RHEL 7.4 BYOS images, not atta
 |             |rhel-lvm81-gen2 | LVM    | Linux Agent | RHEL 8.1 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
 |             |rhel-lvm82 | LVM    | Linux Agent | RHEL 8.2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
 |             |rhel-lvm82-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
-|             |rhel-lvm83 | LVM    | Linux Agent | RHEL 8.2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
-|             |rhel-lvm83-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
-|             |rhel-lvm84 | LVM    | Linux Agent | RHEL 8.2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
-|             |rhel-lvm84-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
-|             |rhel-lvm85 | LVM    | Linux Agent | RHEL 8.2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
-|             |rhel-lvm85-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
-|             |rhel-lvm86 | LVM    | Linux Agent | RHEL 8.2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
-|             |rhel-lvm86-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
+|             |rhel-lvm83 | LVM    | Linux Agent | RHEL 8.3 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
+|             |rhel-lvm83-gen2 | LVM    | Linux Agent | RHEL 8.3 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
+|             |rhel-lvm84 | LVM    | Linux Agent | RHEL 8.4 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
+|             |rhel-lvm84-gen2 | LVM    | Linux Agent | RHEL 8.4 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
+|             |rhel-lvm85 | LVM    | Linux Agent | RHEL 8.5 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
+|             |rhel-lvm85-gen2 | LVM    | Linux Agent | RHEL 8.5 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
+|             |rhel-lvm86 | LVM    | Linux Agent | RHEL 8.6 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
+|             |rhel-lvm86-gen2 | LVM    | Linux Agent | RHEL 8.6 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
+|             |rhel-lvm90 | LVM    | Linux Agent | RHEL 9.0 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
+|             |rhel-lvm90-gen2 | LVM    | Linux Agent | RHEL 9.0 Generation 2 BYOSimages, not attached to any source of updates, won't charge an RHEL premium
 RHEL-SAP (out of support)        | 7.4      | LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Business Apps. Images are attached to E4S repositories, will charge a premium for SAP and RHEL and the base compute fee
 |             | 74sap-gen2| LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Business Apps. Generation 2 image. Images are attached to E4S repositories, will charge a premium for SAP and RHEL and the base compute fee
 |             | 7.5      | LVM    | Linux Agent | RHEL 7.5 for SAP HANA and Business Apps. Images are attached to E4S repositories, will charge a premium for SAP and RHEL and the base compute fee

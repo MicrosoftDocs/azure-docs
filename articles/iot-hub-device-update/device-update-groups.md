@@ -1,10 +1,10 @@
 ---
-title: Understand Device Update for Azure IoT Hub device groups | Microsoft Docs
+title: Understand Device Update for Azure IoT Hub device groups
 description: Understand how device groups are used.
 author: aysancag
 ms.author: aysancag
 ms.date: 2/09/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 
@@ -64,9 +64,16 @@ Below are the devices and the possible groups that can be created for them.
 | Device1 | Group1                        |
 | Device2 | Group1                        |
 | Device3 | Group2                        |
-| Device4 | DefaultGroup1-(deviceClassId) |
+| Device4 | DefaultGroup                  |
 
 
+## Subgroups
+
+All user-created groups as well as default groups are automatically sub-categorized into one or more subgroups to allow administrators to manage heterogeneous devices in an organized and efficient manner, by providing a way to perform updates on a set of devices that share compatibility properties. Each device class within a group maps to one subgroup. Devices are added to a subgroup based on their compatibility properties and the Device Update PnP model ID, which together comprise a device class. 
+
+A group can have one or more best available update, one for each subgroup it contains. 
+
+[Learn more](./device-update-configuration-file.md) about setting compatibility properties on the Device Update agent
 
 ## Next steps
 

@@ -7,8 +7,8 @@ ms.topic: quickstart
 ms.devlang: java
 author: jdubois
 ms.author: judubois
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
-ms.date: 08/15/2022
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java, devx-track-extended-java, devx-track-linux
+ms.date: 05/03/2023
 ---
 
 # Quickstart: Use Java and JDBC with Azure Database for MySQL
@@ -21,9 +21,9 @@ This article demonstrates creating a sample application that uses Java and [JDBC
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
-In this article, we'll include two authentication methods: Azure Active Directory (Azure AD) authentication and MySQL authentication. The **Passwordless** tab shows the Azure AD authentication and the **Password** tab shows the MySQL authentication.
+In this article, we'll include two authentication methods: Microsoft Entra authentication and MySQL authentication. The **Passwordless** tab shows the Microsoft Entra authentication and the **Password** tab shows the MySQL authentication.
 
-Azure AD authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 MySQL authentication uses accounts stored in MySQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in MySQL, you'll need to manage the rotation of the passwords by yourself.
 
@@ -56,7 +56,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your MySQL server, which should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
-- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 ### [Password](#tab/password)
 
@@ -83,7 +83,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 Next, create a resource group by using the following command:
 
-```azurecli
+```azurecli-interactive
 az group create \
     --name $AZ_RESOURCE_GROUP \
     --location $AZ_LOCATION \
@@ -99,17 +99,17 @@ The first thing you'll create is a managed MySQL server.
 > [!NOTE]
 > You can read more detailed information about creating MySQL servers in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
-```bash
+```azurecli-interactive
 az login --scope https://graph.microsoft.com/.default
 ```
 
 Then, run the following command to create the server:
 
-```azurecli
+```azurecli-interactive
 az mysql server create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_SERVER_NAME \
@@ -119,9 +119,9 @@ az mysql server create \
     --output tsv
 ```
 
-Next, run the following command to set the Azure AD admin user:
+Next, run the following command to set the Microsoft Entra admin user:
 
-```azurecli
+```azurecli-interactive
 az mysql server ad-admin create \
     --resource-group $AZ_RESOURCE_GROUP \
     --server-name $AZ_DATABASE_SERVER_NAME \
@@ -130,13 +130,13 @@ az mysql server ad-admin create \
 ```
 
 > [!IMPORTANT]
-> When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. You can only create one Azure AD admin per MySQL server. Selection of another user will overwrite the existing Azure AD admin configured for the server.
+> When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. You can only create one Microsoft Entra admin per MySQL server. Selection of another user will overwrite the existing Microsoft Entra admin configured for the server.
 
 This command creates a small MySQL server and sets the Active Directory admin to the signed-in user.
 
 #### [Password](#tab/password)
 
-```azurecli
+```azurecli-interactive
 az mysql server create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_SERVER_NAME \
@@ -158,7 +158,7 @@ Azure Databases for MySQL instances are secured by default. These instances have
 
 Because you configured your local IP address at the beginning of this article, you can open the server's firewall by running the following command:
 
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
@@ -184,7 +184,7 @@ AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
 
 Then, use the following command to open the server's firewall to your WSL-based app:
 
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip-wsl \
@@ -198,7 +198,7 @@ az mysql server firewall-rule create \
 
 The MySQL server that you created earlier is empty. Use the following command to create a new database.
 
-```azurecli
+```azurecli-interactive
 az mysql db create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_NAME \
@@ -213,7 +213,7 @@ Next, create a non-admin user and grant all permissions to the database.
 > [!NOTE]
 > You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](./how-to-create-users.md).
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -232,7 +232,7 @@ FLUSH privileges;
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
@@ -260,7 +260,7 @@ FLUSH PRIVILEGES;
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $AZ_MYSQL_ADMIN_USERNAME@$AZ_DATABASE_SERVER_NAME --enable-cleartext-plugin --password=$AZ_MYSQL_ADMIN_PASSWORD < create_user.sql
@@ -278,7 +278,7 @@ rm create_user.sql
 
 Using your favorite IDE, create a new Java project using Java 8 or above. Create a *pom.xml* file in its root directory and add the following contents:
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -304,8 +304,8 @@ Using your favorite IDE, create a new Java project using Java 8 or above. Create
         </dependency>
         <dependency>
             <groupId>com.azure</groupId>
-            <artifactId>azure-identity-providers-jdbc-mysql</artifactId>
-            <version>1.0.0-beta.1</version>
+            <artifactId>azure-identity-extensions</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>
@@ -345,15 +345,27 @@ This file is an [Apache Maven](https://maven.apache.org/) file that configures y
 
 ### Prepare a configuration file to connect to Azure Database for MySQL
 
-Run the following script in the project root directory to create a *src/main/resources/application.properties* file and add configuration details:
+Run the following script in the project root directory to create a *src/main/resources/database.properties* file and add configuration details:
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 ```bash
-mkdir -p src/main/resources && touch src/main/resources/application.properties
+mkdir -p src/main/resources && touch src/main/resources/database.properties
 
-cat << EOF > src/main/resources/application.properties
-url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
+cat << EOF > src/main/resources/database.properties
+url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
+user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
+EOF
+```
+
+> [!NOTE]
+> If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin" in the url.
+
+```bash
+mkdir -p src/main/resources && touch src/main/resources/database.properties
+
+cat << EOF > src/main/resources/database.properties
+url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
 ```
@@ -361,9 +373,9 @@ EOF
 #### [Password](#tab/password)
 
 ```bash
-mkdir -p src/main/resources && touch src/main/resources/application.properties
+mkdir -p src/main/resources && touch src/main/resources/database.properties
 
-cat << EOF > src/main/resources/application.properties
+cat << EOF > src/main/resources/database.properties
 url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
 user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
@@ -417,7 +429,7 @@ public class DemoApplication {
     public static void main(String[] args) throws Exception {
         log.info("Loading application properties");
         Properties properties = new Properties();
-        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
+        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("database.properties"));
 
         log.info("Connecting to the database");
         Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
@@ -446,12 +458,12 @@ public class DemoApplication {
 }
 ```
 
-This Java code will use the *application.properties* and the *schema.sql* files that you created earlier. After connecting to the MySQL server, you can create a schema to store your data.
+This Java code will use the *database.properties* and the *schema.sql* files that you created earlier. After connecting to the MySQL server, you can create a schema to store your data.
 
 In this file, you can see that we commented methods to insert, read, update and delete data. You'll implement those methods in the rest of this article, and you'll be able to uncomment them one after each other.
 
 > [!NOTE]
-> The database credentials are stored in the *user* and *password* properties of the *application.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
+> The database credentials are stored in the *user* and *password* properties of the *database.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
 
 > [!NOTE]
 > The `AbandonedConnectionCleanupThread.uncheckedShutdown();` line at the end is a MySQL driver command to destroy an internal thread when shutting down the application. You can safely ignore this line.
@@ -712,7 +724,7 @@ Congratulations! You've created a Java application that uses JDBC to store and r
 
 To clean up all resources used during this quickstart, delete the resource group using the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
     --name $AZ_RESOURCE_GROUP \
     --yes

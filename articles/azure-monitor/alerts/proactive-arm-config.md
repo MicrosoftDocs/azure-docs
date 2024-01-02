@@ -1,37 +1,42 @@
 ---
-title: Smart detection rule settings - Azure Application Insights
-description: Automate management and configuration of Azure Application Insights smart detection rules with Azure Resource Manager Templates
+title: 'Smart detection rule settings: Application Insights'
+description: Automate management and configuration of Application Insights smart detection rules with Azure Resource Manager templates.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 02/14/2021
 ms.reviewer: yagil
 ---
-# Manage Application Insights smart detection rules using Azure Resource Manager templates
+# Manage Application Insights smart detection rules by using Azure Resource Manager templates
 
 >[!NOTE]
->You can migrate your Application Insight resources to alerts-bases smart detection (preview). The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
+>You can migrate your Application Insight resources to alerts-based smart detection (preview). The migration creates alert rules for the different smart detection modules. After you create the rules, you can manage and configure them like any other Azure Monitor alert rules. You can also configure action groups for these rules to enable multiple methods of taking actions or triggering notification on new detections.
 >
-> See [Smart Detection Alerts migration](./alerts-smart-detections-migration.md) for more details on the migration process and the behavior of smart detection after the migration.
-> 
+> For more information on the migration process and the behavior of smart detection after the migration, see [Smart detection alerts migration](./alerts-smart-detections-migration.md).
+>
 
-Smart detection rules in Application Insights can be managed and configured using [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
-This method can be used when deploying new Application Insights resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
+ You can manage and configure smart detection rules in Application Insights by using [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
+
+You can use this method when you deploy new Application Insights resources with Resource Manager automation or when you modify the settings of existing resources.
 
 ## Smart detection rule configuration
 
 You can configure the following settings for a smart detection rule:
-- If the rule is enabled (the default is **true**.)
-- If emails should be sent to users associated to the subscription’s [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) and [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roles when a detection is found (the default is **true**.)
-- Any additional email recipients who should get a notification when a detection is found.
-    -  Email configuration is not available for Smart Detection rules marked as _preview_.
+- If the rule is enabled. (The default is **true**.)
+- If emails should be sent to users associated to the subscription's [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) and [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roles when a detection is found. (The default is **true**.)
+- Any other email recipients who should get a notification when a detection is found.
+    - Email configuration isn't available for smart detection rules marked as _preview_.
 
-To allow configuring the rule settings via Azure Resource Manager, the smart detection rule configuration is now available as an inner resource within the Application Insights resource, named **ProactiveDetectionConfigs**.
-For maximal flexibility, each smart detection rule can be configured with unique notification settings.
+To allow configuring the rule settings via Resource Manager, the smart detection rule configuration is available as an inner resource within the Application Insights resource. It's named **ProactiveDetectionConfigs**.
+
+For maximal flexibility, you can configure each smart detection rule with unique notification settings.
 
 ## Examples
 
-Below are a few examples showing how to configure the settings of smart detection rules using Azure Resource Manager templates.
-All samples refer to an Application Insights resource named _“myApplication”_, and to the "long dependency duration smart detection rule", which is internally named _“longdependencyduration”_.
-Make sure to replace the Application Insights resource name, and to specify the relevant smart detection rule internal name. Check the table below for a list of the corresponding internal Azure Resource Manager names for each smart detection rule.
+The following examples show how to configure the settings of smart detection rules by using Resource Manager templates.
+
+All samples refer to an Application Insights resource named _"myApplication"_. They also refer to the "long dependency duration smart detection rule." It's internally named _"longdependencyduration"_.
+
+Make sure to replace the Application Insights resource name and to specify the relevant smart detection rule internal name. Check the following table for a list of the corresponding internal Resource Manager names for each smart detection rule.
 
 ### Disable a smart detection rule
 
@@ -95,7 +100,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
     }
 ```
 
-### Add additional email recipients for a smart detection rule
+### Add more email recipients for a smart detection rule
 
 ```json
 {
@@ -127,13 +132,12 @@ Make sure to replace the Application Insights resource name, and to specify the 
 
 ```
 
-
 ## Smart detection rule names
 
-Below is a table of smart detection rule names as they appear in the portal, along with their internal names, that should be used in the Azure Resource Manager template.
+The following table shows smart detection rule names as they appear in the portal. The table also shows their internal names to use in the Resource Manager template.
 
 > [!NOTE]
-> Smart detection rules marked as _preview_ don’t support email notifications. Therefore, you can only set the _enabled_ property for these rules. 
+> Smart detection rules marked as _preview_ don't support email notifications. You can only set the _enabled_ property for these rules.
 
 | Azure portal rule name | Internal name
 |:---|:---|
@@ -150,10 +154,10 @@ Below is a table of smart detection rule names as they appear in the portal, alo
 
 ### Failure Anomalies alert rule
 
-This Azure Resource Manager template demonstrates configuring a Failure Anomalies alert rule with a severity of 2.
+This Resource Manager template demonstrates how to configure a Failure Anomalies alert rule with a severity of 2.
 
 > [!NOTE]
-> Failure Anomalies is a global service therefore rule location is created on the global location.
+> Failure Anomalies is a global service, so rule location is created on the global location.
 
 ```json
 {
@@ -184,12 +188,12 @@ This Azure Resource Manager template demonstrates configuring a Failure Anomalie
 ```
 
 > [!NOTE]
-> This Azure Resource Manager template is unique to the Failure Anomalies alert rule and is different from the other classic Smart Detection rules described in this article. If you want to manage Failure Anomalies manually this is done in Azure Monitor Alerts whereas all other Smart Detection rules are managed in the Smart Detection pane of the UI.
+> This Resource Manager template is unique to the Failure Anomalies alert rule and is different from the other classic smart detection rules described in this article. If you want to manage Failure Anomalies manually, use Azure Monitor alerts. All other smart detection rules are managed in the **Smart Detection** pane of the UI.
 
-## Next Steps
+## Next steps
 
 Learn more about automatically detecting:
 
 - [Failure anomalies](./proactive-failure-diagnostics.md)
-- [Memory Leaks](./proactive-potential-memory-leak.md)
-- [Performance anomalies](./proactive-performance-diagnostics.md)
+- [Memory leaks](./proactive-potential-memory-leak.md)
+- [Performance anomalies](./smart-detection-performance.md)

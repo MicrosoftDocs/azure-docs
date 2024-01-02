@@ -1,27 +1,33 @@
 ---
-title: 'Quickstart: Azure Blob Storage client library for Python'
+title: "Quickstart: Azure Blob Storage client library for Python"
+titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 10/24/2022
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.devlang: python
-ms.custom: devx-track-python, mode-api
+ms.custom: devx-track-python, mode-api, passwordless-python, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Azure Blob Storage client library for Python
 
-Get started with the Azure Blob Storage client library for Python to manage blobs and containers. Follow steps to install the package and try out example code for basic tasks in an interactive console app.
+Get started with the Azure Blob Storage client library for Python to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks in an interactive console app.
 
-[API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (PyPi)](https://pypi.org/project/azure-storage-blob/) | [Samples](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (PyPi)](https://pypi.org/project/azure-storage-blob/) | [Samples](../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json#blob-samples)
+
+This video shows you how to start using the Azure Blob Storage client library for Python.
+> [!VIDEO f663a554-96ca-4bc3-b3b1-48376a7efbdf]
+
+The steps in the video are also described in the following sections.
 
 ## Prerequisites
 
 - Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) 3.6+
+- [Python](https://www.python.org/downloads/) 3.7+
 
 ## Setting up
 
@@ -99,9 +105,11 @@ These example code snippets show you how to do the following tasks with the Azur
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
-For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
+For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
-#### Assign roles to your Azure AD user account
+<a name='assign-roles-to-your-azure-ad-user-account'></a>
+
+#### Assign roles to your Microsoft Entra user account
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
@@ -109,7 +117,7 @@ For example, your app can authenticate using your Azure CLI sign-in credentials 
 
 You can authorize access to data in your storage account using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your storage account. You can authenticate via the Azure CLI, Visual Studio Code, or Azure PowerShell.
+1. Make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your storage account. You can authenticate via the Azure CLI, Visual Studio Code, or Azure PowerShell.
 
     #### [Azure CLI](#tab/sign-in-azure-cli)
 
@@ -218,6 +226,8 @@ Add this code to the end of the `try` block:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_CreateContainer":::
 
+To learn more about creating a container, and to explore more code samples, see [Create a blob container with Python](storage-blob-container-create-python.md).
+
 ### Upload blobs to a container
 
 The following code snippet:
@@ -231,6 +241,8 @@ Add this code to the end of the `try` block:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_UploadBlobs":::
 
+To learn more about uploading blobs, and to explore more code samples, see [Upload a blob with Python](storage-blob-upload-python.md).
+
 ### List the blobs in a container
 
 List the blobs in the container by calling the [list_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
@@ -239,6 +251,8 @@ Add this code to the end of the `try` block:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_ListBlobs":::
 
+To learn more about listing blobs, and to explore more code samples, see [List blobs with Python](storage-blobs-list-python.md).
+
 ### Download blobs
 
 Download the previously created blob by calling the [download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#download-blob-offset-none--length-none----kwargs-) method. The example code adds a suffix of "DOWNLOAD" to the file name so that you can see both files in local file system.
@@ -246,6 +260,8 @@ Download the previously created blob by calling the [download_blob](/python/api/
 Add this code to the end of the `try` block:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_DownloadBlobs":::
+
+To learn more about downloading blobs, and to explore more code samples, see [Download a blob with Python](storage-blob-download-python.md).
 
 ### Delete a container
 
@@ -256,6 +272,8 @@ The app pauses for user input by calling `input()` before it deletes the blob, c
 Add this code to the end of the `try` block:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_CleanUp":::
+
+To learn more about deleting a container, and to explore more code samples, see [Delete and restore a blob container with Python](storage-blob-container-delete-python.md).
 
 ## Run the code
 
@@ -303,5 +321,5 @@ To see Blob storage sample apps, continue to:
 > [!div class="nextstepaction"]
 > [Azure Blob Storage library for Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-- To learn more, see the [Azure Storage client libraries for Python](/azure/developer/python/sdk/storage/overview).
-- For tutorials, samples, quickstarts, and other documentation, visit [Azure for Python Developers](/azure/python/).
+- To learn more, see the [Azure Blob Storage client libraries for Python](/python/api/overview/azure/storage-blob-readme).
+- For tutorials, samples, quickstarts, and other documentation, visit [Azure for Python Developers](/azure/developer/python/sdk/azure-sdk-overview).

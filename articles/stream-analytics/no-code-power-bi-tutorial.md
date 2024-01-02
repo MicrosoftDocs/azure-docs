@@ -1,15 +1,15 @@
 ---
-title: Build near real-time dashboard with Azure Synapse Analytics and Power BI
-description: Use no code editor to compute aggregations and write to Azure Synapse Analytics and build near-real time dashboards using Power BI 
-author: sidramadoss
-ms.author: sidram
+title: Build real-time dashboard with Azure Stream Analytics no-code editor, Synapse Analytics and Power BI
+description: Use no code editor to compute aggregations and write to Azure Synapse Analytics and build real-time dashboards using Power BI 
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/25/2022
+ms.date: 02/23/2023
 ms.custom: seodec18
 ---
 
-# Build real time Power BI dashboards with Stream Analytics no code editor
+# Build real-time Power BI dashboards with Stream Analytics no code editor
 This tutorial shows how you can use the Stream Analytics no code editor to compute aggregates on real time data streams and store it in Azure Synapse Analytics. 
 
 In this tutorial, you learn how to:
@@ -27,10 +27,13 @@ In this tutorial, you learn how to:
 
 Before you start, make sure you've completed the following steps:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-* Deploy the TollApp event generator to Azure, use this link to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json). Set the 'interval' parameter to 1. And use a new resource group for this step.
-* Create an [Azure Synapse Analytics workspace](../synapse-analytics/get-started-create-workspace.md) with a [Dedicated SQL pool](../synapse-analytics/get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
-* Create a table named **carsummary** using your Dedicated SQL pool. You can do it by running the following SQL script:
+1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+2. Deploy the TollApp event generator to Azure, use this link to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json). Set the 'interval' parameter to 1. And use a new resource group for this step.
+3. Create an [Azure Synapse Analytics workspace](../synapse-analytics/get-started-create-workspace.md) with a [Dedicated SQL pool](../synapse-analytics/get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
+    > [!NOTE]
+    > If you'd like to build the real-time Power BI dashboard directly without capturing the data into database, you can skip step#3 and 4, then go to this guide to [<u>build real-time dashboard with Power BI dataset produced by Stream Analytics job</u>](./no-code-build-power-bi-dashboard.md).
+
+4. Create a table named `carsummary` using your Dedicated SQL pool. You can do it by running the following SQL script:
     ```SQL
     CREATE TABLE carsummary   
     (  
@@ -40,17 +43,19 @@ Before you start, make sure you've completed the following steps:
 	)
     WITH ( CLUSTERED COLUMNSTORE INDEX ) ;
     ``` 
+
+
 ## Use no code editor to create a Stream Analytics job
 1. Locate the Resource Group in which the TollApp event generator was deployed. 
 2. Select the Azure Event Hubs **namespace**. 
 1. On the **Event Hubs Namespace** page, select **Event Hubs** under **Entities** on the left menu. 
-1. Select **entrystream** instance.
+1. Select `entrystream` instance.
 
     :::image type="content" source="./media/stream-analytics-no-code/select-event-hub.png" alt-text="Screenshot showing the selection of the event hub." lightbox="./media/stream-analytics-no-code/select-event-hub.png":::    
 1. Go to **Process data** under Features section and then select **start** on the **Start with blank canvas** template.
 
     :::image type="content" source="./media/stream-analytics-no-code/start-blank-canvas.png" alt-text="Screenshot showing the selection of the Start button on the Start with a blank canvas tile." lightbox="./media/stream-analytics-no-code/start-blank-canvas.png":::    
-1. Name your job **carsummary** and select **Create**.
+1. Name your job `carsummary` and select **Create**.
 
     :::image type="content" source="./media/stream-analytics-no-code/job-name.png" alt-text="Screenshot of the New Stream Analytics job page." lightbox="./media/stream-analytics-no-code/job-name.png":::    
 1. On the **event hub** configuration page, confirm the following settings, and then select **Connect**.
@@ -89,9 +94,9 @@ Before you start, make sure you've completed the following steps:
 1. Select **Synapse** on the command bar. Connect the **Synapse** tile to the **Manage fields** tile on your canvas.
 1.  Configure Azure Synapse Analytics by specifying:
     * Subscription where your Azure Synapse Analytics is located
-    * Database of the Dedicated SQL pool that you used to create the **carsummary** table in the previous section.
+    * Database of the Dedicated SQL pool that you used to create the `carsummary` table in the previous section.
     * Username and password to authenticate
-    * Table name as **carsummary**
+    * Table name as `carsummary`
     * Select **Connect**. You'll see sample results that will be written to your Synapse SQL table.
 
         :::image type="content" source="./media/stream-analytics-no-code/synapse-settings.png" alt-text="Screenshot of the Synapse tile settings." lightbox="./media/stream-analytics-no-code/synapse-settings.png":::
@@ -104,7 +109,7 @@ Before you start, make sure you've completed the following steps:
 
 ## Create a Power BI visualization
 1. Download the latest version of [Power BI desktop](https://powerbi.microsoft.com/desktop).
-2. Use the Power BI connector for Azure Synapse SQL to connect to your database.
+2. Use the Power BI connector for Azure Synapse SQL to connect to your database with **DirectQuery**.
 3. Use this query to fetch data from your database
     ```SQL
     SELECT [Make],[CarCount],[times]
@@ -115,8 +120,15 @@ Before you start, make sure you've completed the following steps:
     * X-axis as times
     * Y-axis as CarCount
     * Legend as Make
-    You'll then see a chart that can be published. You can configure [automatic page refresh](/power-bi/create-reports/desktop-automatic-page-refresh#authoring-reports-with-automatic-page-refresh-in-power-bi-desktop) and set it to 3 minutes to get a near-real time view.
+    You'll then see a chart that can be published. You can configure [automatic page refresh](/power-bi/create-reports/desktop-automatic-page-refresh#authoring-reports-with-automatic-page-refresh-in-power-bi-desktop) and set it to 3 minutes to get a real-time view.
 [![Screenshot of Power BI dashboard showing car summary data.](./media/stream-analytics-no-code/no-code-power-bi-real-time-dashboard.png)](./media/stream-analytics-no-code/no-code-power-bi-real-time-dashboard.png#lightbox)
+
+## More option
+
+Except the Azure Synapse SQL, you can also use the SQL Database as the no-code editor output to receive the streaming data. And then use Power BI connector to connect the SQL Database with your database with **DirectQuery** as well to build the real-time dashboard.
+
+It's also a good option to build the real-time dashboard with your streaming data. For more information about the SQL Database output, see [Transform and ingest to SQL Database](./no-code-transform-filter-ingest-sql.md).
+
 
 ## Clean up resources
 1. Locate your Event Hubs instance and see the list of Stream Analytics jobs under **Process Data** section. Stop any jobs that are running.
@@ -124,7 +136,7 @@ Before you start, make sure you've completed the following steps:
 3. Select **Delete resource group**. Type the name of the resource group to confirm deletion.
 
 ## Next steps
-In this tutorial, you created a Stream Analytics job using the no code editor to define aggregations and write results to Azure Synapse Analytics. You then used the Power BI to build a near-real time dashboard to see the results produced by the job.
+In this tutorial, you created a Stream Analytics job using the no code editor to define aggregations and write results to Azure Synapse Analytics. You then used the Power BI to build a real-time dashboard to see the results produced by the job.
 
 > [!div class="nextstepaction"]
 > [No code stream processing with Azure Stream Analytics](https://aka.ms/asanocodeux)

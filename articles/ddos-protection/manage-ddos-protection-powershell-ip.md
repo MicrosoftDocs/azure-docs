@@ -1,25 +1,27 @@
 ---
-title: 'Quickstart: Create and configure Azure DDoS IP Protection using PowerShell'
-description: Learn how to create Azure DDoS IP Protection using PowerShell
+title: 'Quickstart: Create and configure Azure DDoS IP Protection Preview - PowerShell'
+description: Learn how to create Azure DDoS IP Protection Preview using PowerShell
 author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 10/12/2022
+ms.date: 04/04/2023
 ms.workload: infrastructure-services
-ms.custom: template-quickstart, ignite-2022
+ms.custom: template-quickstart, ignite-2022, devx-track-azurepowershell
 ---
 
-# Quickstart: Create and configure Azure DDoS IP Protection using Azure PowerShell
+# QuickStart: Create and configure Azure DDoS IP Protection using Azure PowerShell
 
 Get started with Azure DDoS IP Protection by using Azure PowerShell.
-In this quickstart, you'll enable DDoS IP protection and link it to a public IP address utilizing PowerShell.
+In this QuickStart, you'll enable DDoS IP protection and link it to a public IP address utilizing PowerShell.
+
+:::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png" alt-text="Diagram of DDoS IP Protection protecting the Public IP address.":::
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell 
-- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 9.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 9.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -67,7 +69,7 @@ $publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName My
 #Checks the status of the public IP address
 $protectionMode = $publicIp.DdosSettings.ProtectionMode
 
-#Returns the status of the pubic IP address
+#Returns the status of the public IP address
 $protectionMode
 
 ```
@@ -81,7 +83,7 @@ $publicIp.DdosSettings.ProtectionMode = 'Disabled'
 Set-AzPublicIpAddress -PublicIpAddress $publicIp 
 ```
 > [!NOTE]
-> When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will not be available.
+> When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will no longer be active.
 
 ## Clean up resources
 

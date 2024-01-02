@@ -9,7 +9,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: ignite-2022
 ms.topic: article
-ms.date: 10/26/2021
+ms.date: 11/14/2022
 ms.author: mbaldwin
 ---
 # Azure encryption overview
@@ -49,7 +49,7 @@ The three server-side encryption models offer different key management character
 
 ### Azure disk encryption
 
-You can protect your managed disks by using [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md), which uses [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt), or [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md), which uses [Windows BitLocker](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)), to protect both operating system disks and data disks with full volume encryption.
+You can protect your managed disks by using [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md), which uses [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt), or [Azure Disk Encryption for Windows VMs](../../virtual-machines/windows/disk-encryption-overview.md), which uses [Windows BitLocker](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)), to protect both operating system disks and data disks with full volume encryption.
 
 Encryption keys and secrets are safeguarded in your [Azure Key Vault subscription](../../key-vault/general/overview.md). By using the Azure Backup service, you can back up and restore encrypted virtual machines (VMs) that use Key Encryption Key (KEK) configuration.
 
@@ -109,7 +109,7 @@ Azure offers many mechanisms for keeping data private as it moves from one locat
 
 ### Data-link Layer encryption in Azure
 
-Whenever Azure Customer traffic moves between datacenters-- outside physical boundaries not controlled by Microsoft (or on behalf of Microsoft)-- a data-link layer encryption method using the [IEEE 802.1AE MAC Security Standards](https://1.ieee802.org/security/802-1ae/) (also known as MACsec) is applied from point-to-point across the underlying network hardware. The packets are encrypted and decrypted on the devices before being sent, preventing physical “man-in-the-middle” or snooping/wiretapping attacks. Because this technology is integrated on the network hardware itself, it provides line rate encryption on the network hardware with no measurable link latency increase. This MACsec encryption is on by default for all Azure traffic traveling within a region or between regions, and no action is required on customers’ part to enable. 
+Whenever Azure Customer traffic moves between datacenters-- outside physical boundaries not controlled by Microsoft (or on behalf of Microsoft)-- a data-link layer encryption method using the [IEEE 802.1AE MAC Security Standards](https://1.ieee802.org/security/802-1ae/) (also known as MACsec) is applied from point-to-point across the underlying network hardware. The packets are encrypted  on the devices before being sent, preventing physical “man-in-the-middle” or snooping/wiretapping attacks. Because this technology is integrated on the network hardware itself, it provides line rate encryption on the network hardware with no measurable link latency increase. This MACsec encryption is on by default for all Azure traffic traveling within a region or between regions, and no action is required on customers’ part to enable. 
 
 ### TLS encryption in Azure
 
@@ -191,7 +191,7 @@ To learn more about encryption of data in transit in Data Lake, see [Encryption 
 
 ## Key management with Key Vault
 
-Without proper protection and management of the keys, encryption is rendered useless. Key Vault is the Microsoft-recommended solution for managing and controlling access to encryption keys used by cloud services. Permissions to access keys can be assigned to services or to users through Azure Active Directory accounts.
+Without proper protection and management of the keys, encryption is rendered useless. Key Vault is the Microsoft-recommended solution for managing and controlling access to encryption keys used by cloud services. Permissions to access keys can be assigned to services or to users through Microsoft Entra accounts.
 
 Key Vault relieves organizations of the need to configure, patch, and maintain hardware security modules (HSMs) and key management software. When you use Key Vault, you maintain control. Microsoft never sees your keys, and applications don’t have direct access to them. You can also import or generate keys in HSMs.
 

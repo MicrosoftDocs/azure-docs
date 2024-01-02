@@ -4,14 +4,14 @@ description: Learn how to create and manage Azure HDInsight clusters using the A
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/01/2022
+ms.date: 12/06/2023
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using the Azure portal
 
 [!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
-Using the [Azure portal](https://portal.azure.com), you can manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight. Use the tab selector above for information on managing Hadoop clusters in HDInsight using other tools.
+Using the [Azure portal](https://portal.azure.com), you can manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight. Use the tab selector for information on managing Hadoop clusters in HDInsight using other tools.
 
 ## Prerequisites
 
@@ -23,13 +23,13 @@ Sign in to [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="showClusters"></a> List and show clusters
 
-The **HDInsight clusters** page will list your existing clusters.  From the portal:
+The **HDInsight clusters** page lists your existing clusters. From the portal:
 1. Select **All services** from the left menu.
 2. Select **HDInsight clusters** under **ANALYTICS**.
 
 ## <a name="homePage"></a> Cluster home page
 
-Select your cluster name from the [**HDInsight clusters**](#showClusters) page.  This will open the **Overview** view, which looks similar to the following image:
+Select your cluster name from the [**HDInsight clusters**](#showClusters) page.  This opens the **Overview** view, which looks similar to the following image:
 
 :::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png" alt-text="Azure portal HDInsight cluster essentials":::
 
@@ -98,11 +98,11 @@ From the [cluster home page](#homePage),  under **Settings** select **Properties
 |CLUSTER URL|The URL for the Ambari web interface.|
 |Private Endpoint|The private endpoint for the cluster.|
 |Secure shell (SSH)|The username and host name to use in accessing the cluster via SSH.|
-|STATUS|One of: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, or ClusterCustomization.|
+|STATUS|One of: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timeout, DeleteQueued, DeleteTimeout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, or ClusterCustomization.|
 |REGION|Azure location. For a list of supported Azure locations, see the **Region** drop-down list box on [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |DATE CREATED|The date the cluster was deployed.|
 |OPERATING SYSTEM|Either **Windows** or **Linux**.|
-|TYPE|Hadoop, HBase, Storm, Spark.|
+|TYPE|Hadoop, HBase, Spark.|
 |Version|See [HDInsight versions](hdinsight-component-versioning.md).|
 |Minimum TLS version|The TLS version.|
 |SUBSCRIPTION|Subscription name.|

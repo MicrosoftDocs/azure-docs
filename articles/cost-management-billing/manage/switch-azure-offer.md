@@ -7,7 +7,7 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 04/05/2023
 ms.author: banders
 ---
 
@@ -28,7 +28,6 @@ You can switch from a pay-as-you-go subscription to:
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
 - [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)
 - [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
-- [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/)
 
 You can also switch from an expired [Visual Studio Enterprise subscription](https://azure.microsoft.com/offers/ms-azr-0063p/) to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/). 
 
@@ -88,9 +87,9 @@ You might not see the **Switch Offer** option if:
   * To switch offer from a different subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * You're still in your first billing period; you must wait for your first billing period to end before you can switch offers.
 
-### Why do I see "There are no offers available in your region or country at this time"?
+### Why do I see "There are no offers available in your country/region at this time"?
 
-* You might not be eligible for any offer switches. Check the [list of available offers you can switch to](#whats-supported) and make sure that you've activated the right benefits with Visual Studio or Bizspark.
+* You might not be eligible for any offer switches. Check the [list of available offers you can switch to](#whats-supported) and make sure that you've activated the right benefits with Visual Studio.
 * Some offers may not be available in all countries/regions.
 
 ### What does switching Azure offers do to my service and billing?

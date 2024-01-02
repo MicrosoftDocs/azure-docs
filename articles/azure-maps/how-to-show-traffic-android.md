@@ -1,11 +1,12 @@
 ---
 title: Show traffic data on Android maps | Microsoft Azure Maps
-description: In this article you'll learn, how to display traffic data on a map using the Microsoft Azure Maps Android SDK.
-author: stevemunk
-ms.author: v-munksteve
+description: This article demonstrates how to display traffic data on a map using the Microsoft Azure Maps Android SDK.
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
@@ -198,7 +199,7 @@ The following table shows all the traffic incident categories that can be used w
 | `IncidentCategory.WIND` | `"wind"` | High winds that may make driving difficult for vehicles with a large side profile or high center of gravity. |
 | `IncidentCategory.FLOODING` | `"flooding"` | Flooding occurring on road. |
 | `IncidentCategory.DETOUR` | `"detour"` | Traffic being directed to take a detour. |
-| `IncidentCategory.CLUSTER` | `"cluster"` | A cluster of traffic incidents of different categories. Zooming in the map will result in the cluster breaking apart into its individual incidents. |
+| `IncidentCategory.CLUSTER` | `"cluster"` | A cluster of traffic incidents of different categories. Zooming in the map results in the cluster breaking apart into its individual incidents. |
 | `IncidentCategory.BROKEN_DOWN_VEHICLE` | `"brokenDownVehicle"` | Broken down vehicle on or beside road. |
 
 The following table shows all the traffic incident magnitudes that can be used within the `incidentMagnitudeFilter` option.

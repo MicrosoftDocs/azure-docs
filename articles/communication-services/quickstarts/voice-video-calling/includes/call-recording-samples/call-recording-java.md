@@ -1,25 +1,29 @@
 ---
 author: dbasantes
 ms.service: azure-communication-services
-ms.date: 10/14/2022
+ms.date: 06/11/2023
 ms.topic: include
 ms.custom: public_preview
 ---
+
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallRecording)
 
 ## Prerequisites
 
 - You need an Azure account with an active subscription.
 - Deploy a Communication Service resource. Record your resource **connection string**.
-- Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services).
-- Download the [Java SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callautomation/overview/1.0.0-alpha.20221013.1)
+- Subscribe to events via [Azure Event Grid](../../../../../event-grid/event-schema-communication-services.md).
+- Download the [Java SDK](https://search.maven.org/artifact/com.azure/azure-communication-callautomation/1.0.0-beta.1/jar)
 
 ## Before you start
 
 Call Recording APIs use exclusively the `serverCallId`to initiate recording. There are a couple of methods you can use to fetch the `serverCallId` depending on your scenario:
 
 ### Call Automation scenarios
-- When using [Call Automation](../../callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
-    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get serverCallId](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) from Call Automation SDK.
+- When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
+    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-java#update-programcs) from Call Automation SDK.
     2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
 ### Calling SDK scenarios
@@ -34,7 +38,7 @@ Let's get started with a few simple steps!
 
 ## 1. Create a Call Automation client
 
-Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/voice-video-calling/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client. 
+Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/call-automation/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client. 
 To create a call automation client, you'll use your Communication Services connection string and pass it to `CallAutomationClient` object.
 
 ```java
@@ -43,7 +47,7 @@ CallAutomationClient callAutomationClient = new CallAutomationClientBuilder()
             .buildClient();
 ```
 
-## 2. Start recording session with StartRecordingOptions using 'startRecordingWithResponse' API
+## 2. Start recording session with StartRecordingOptions using 'startWithResponse' API
 
 Use the `serverCallId` received during initiation of the call.
 - RecordingContent is used to pass the recording content type. Use AUDIO
@@ -57,13 +61,13 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
                     .setRecordingContent(RecordingContent.AUDIO)
                     .setRecordingStateCallbackUrl("<recordingStateCallbackUrl>");
 
-Response<StartCallRecordingResult> response = callAutomationClient.getCallRecording()
-.startRecordingWithResponse(recordingOptions, null);
+Response<RecordingStateResult> response = callAutomationClient.getCallRecording()
+.startWithResponse(recordingOptions, null);
 
 ```
 
-### 2.1. Only for Unmixed - Specify a user on a channel 0
-To produce unmixed audio recording files, you can use the `ChannelAffinity` functionality to specify which user you want to record on each channel. Channel 0 typically records the agent attending or making the call. If you use the affinity channel but don't specify any user to any channel, Call Recording will assign channel 0 to the first person on the call speaking. 
+### 2.1. Only for Unmixed - Specify a user on channel 0
+To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking. 
 
 ```java
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
@@ -71,44 +75,60 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
                     .setRecordingFormat(RecordingFormat.WAV)
                     .setRecordingContent(RecordingContent.AUDIO)
                     .setRecordingStateCallbackUrl("<recordingStateCallbackUrl>")
-                    .setChannelAffinity(List.of(
-                            new ChannelAffinity(0, new CommunicationUserIdentifier("<participantMri>"));
+                    .setAudioChannelParticipantOrdering(List.of(new CommunicationUserIdentifier("<participantMri>")));
 
 Response<RecordingStateResult> response = callAutomationClient.getCallRecording()
+.startWithResponse(recordingOptions, null);
+
+```
+
+### 2.2. Only for Unmixed - Specify channel affinity
+```java
+ChannelAffinity channelAffinity = new ChannelAffinity()
+.setParticipant(new PhoneNumberIdentifier("RECORDING_ID"))
+.setChannel(0);
+List<ChannelAffinity> channelAffinities = Arrays.asList(channelAffinity);
+
+StartRecordingOptions startRecordingOptions = new StartRecordingOptions(new ServerCallLocator(SERVER_CALL_ID))
+   .setRecordingChannel(RecordingChannel.UNMIXED)
+   .setRecordingFormat(RecordingFormat.WAV)
+   .setRecordingContent(RecordingContent.AUDIO)
+   .setRecordingStateCallbackUrl("<recordingStateCallbackUrl>")
+   .setChannelAffinity(channelAffinities);
+Response<RecordingStateResult> response = callAutomationClient.getCallRecording()
 .startRecordingWithResponse(recordingOptions, null);
-
 ```
-The `startRecordingWithResponse` API response contains the `recordingId` of the recording session.
+The `startWithResponse` API response contains the `recordingId` of the recording session.
 
-## 3.	Stop recording session using 'stopRecordingWithResponse' API
+## 3.	Stop recording session using 'stopWithResponse' API
 
-Use the `recordingId` received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startWithResponse`.
 
 ```java
 Response<Void> response = callAutomationClient.getCallRecording()
-               .stopRecordingWithResponse(response.getValue().getRecordingId(), null);
+               .stopWithResponse(response.getValue().getRecordingId(), null);
 ```
 
-## 4.	Pause recording session using 'pauseRecordingWithResponse' API
+## 4.	Pause recording session using 'pauseWithResponse' API
 
-Use the `recordingId` received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startWithResponse`.
 ```java
 Response<Void> response = callAutomationClient.getCallRecording()
-              .pauseRecordingWithResponse(response.getValue().getRecordingId(), null);
+              .pauseWithResponse(response.getValue().getRecordingId(), null);
 ```
 
-## 5.	Resume recording session using 'resumeRecordingWithResponse' API
+## 5.	Resume recording session using 'resumeWithResponse' API
 
-Use the `recordingId` received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startWithResponse`.
 
 ```java
 Response<Void> response = callAutomationClient.getCallRecording()
-               .resumeRecordingWithResponse(response.getValue().getRecordingId(), null);
+               .resumeWithResponse(response.getValue().getRecordingId(), null);
 ```
 
 ## 6.	Download recording File using 'downloadToWithResponse' API
 
-Use an [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
+Use an [Azure Event Grid](../../../../../event-grid/event-schema-communication-services.md) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
 An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (for example, meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file.
 
@@ -163,13 +183,13 @@ Response<Void> downloadResponse = callAutomationClient.getCallRecording().downlo
 ```
 The content location and document IDs for the recording files can be fetched from the `contentLocation` and `documentId` fields respectively, for each `recordingChunk`.
 
-## 7. Delete recording content using ‘deleteRecordingWithResponse’ API.
+## 7. Delete recording content using ‘deleteWithResponse’ API.
 
-Use `deleteRecordingWithResponse` method of `CallRecording` class for deleting the recorded media. Following are the supported parameters for `deleteRecordingWithResponse` method:
+Use `deleteWithResponse` method of `CallRecording` class for deleting the recorded media. Following are the supported parameters for `deleteWithResponse` method:
 - `deleteLocation`: Azure Communication Services URL where the content to delete is located.
 - `context`: A Context representing the request context.
 
 ```
-Response<Void> deleteResponse = callAutomationClient.getCallRecording().deleteRecordingWithResponse(deleteLocation, context);
+Response<Void> deleteResponse = callAutomationClient.getCallRecording().deleteWithResponse(deleteLocation, context);
 ```
 The delete location for the recording can be fetched from the `deleteLocation` field of the Event Grid event.

@@ -1,13 +1,13 @@
 ---
 title: Order device connection events from Azure IoT Hub w/Azure Cosmos DB
 description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB to maintain the latest connection state.
-services: iot-hub
+author: kgremban
+
+ms.author: kgremban
 ms.service: iot-hub
-ms.custom: ignite-2022
-author: ash2017
-ms.topic: conceptual
+ms.custom: ignite-2022, devx-track-azurecli
+ms.topic: how-to
 ms.date: 04/11/2019
-ms.author: asrastog 
 ---
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
@@ -35,7 +35,9 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-java.md#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
-* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) for a walkthrough.
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* An IoT hub under your Azure subscription. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 ## Create a logic app
 

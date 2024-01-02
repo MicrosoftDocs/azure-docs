@@ -1,21 +1,19 @@
 ---
-title: How to use the 'blobfuse2 mount list' command to display all BlobFuse2 mount points (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
-description: Learn how to use the 'blobfuse2 mount list' command to display all BlobFuse2 mount points. (preview)
-author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+title: How to use the 'blobfuse2 mount list' command to display all BlobFuse2 mount points
+titleSuffix: Azure Storage
+description: Learn how to use the 'blobfuse2 mount list' command to display all BlobFuse2 mount points.
+author: akashdubey-ms
+ms.service: azure-blob-storage
+ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 10/17/2022
-ms.author: jammart
+ms.date: 12/02/2022
+ms.author: akashdubey
 ms.reviewer: tamram
 ---
 
-# How to use the BlobFuse2 mount list command to display all BlobFuse2 mount points (preview)
+# How to use the BlobFuse2 mount list command to display all BlobFuse2 mount points
 
 Use the `blobfuse2 mount list` command to display all existing BlobFuse2 mount points.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Syntax
 
@@ -62,13 +60,16 @@ The following flags are inherited from parent command [`blobfuse2 mount`](blobfu
 Display all current BlobFuse2 mount points:
 
 ```bash
-~$ blobfuse2 mount list
+sudo blobfuse2 mount list
+```
+Example output
+```output
 1 : /home/<user>/bf2a
 2 : /home/<user>/bf2b
 ```
 
 ## See also
 
-- [The `Blobfuse2 unmount` command (preview)](blobfuse2-commands-unmount.md)
-- [The `Blobfuse2 mount` command (preview)](blobfuse2-commands-mount.md)
-- [The `Blobfuse2 mount all` command (preview)](blobfuse2-commands-mount-all.md)
+- [The `Blobfuse2 unmount` command](blobfuse2-commands-unmount.md)
+- [The `Blobfuse2 mount` command](blobfuse2-commands-mount.md)
+- [The `Blobfuse2 mount all` command](blobfuse2-commands-mount-all.md)

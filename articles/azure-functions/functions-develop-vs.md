@@ -54,7 +54,7 @@ Your code can also read the function app settings values as environment variable
 
 ## Configure the project for local development
 
-The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, set the `Values.AzureWebJobsStorage` key to a valid Azure Storage account connection string. Your function app can also use the [Azurite emulator](/storage/common/storage-use-azurite.md) for the `AzureWebJobsStorage` connection setting that's required by the project. To use the emulator, set the value of `AzureWebJobsStorage` to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment. For more information, see [Local storage emulator](functions-develop-local.md#local-storage-emulator).
+The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, set the `Values.AzureWebJobsStorage` key to a valid Azure Storage account connection string. Your function app can also use the [Azurite emulator](../storage/common/storage-use-azurite.md) for the `AzureWebJobsStorage` connection setting that's required by the project. To use the emulator, set the value of `AzureWebJobsStorage` to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment. For more information, see [Local storage emulator](functions-develop-local.md#local-storage-emulator).
 
 To set the storage account connection string:
 
@@ -120,16 +120,16 @@ As with triggers, input and output bindings are added to your function as bindin
 
 1. Use the following command in the Package Manager Console to install a specific package:
 
-    # [In-process](#tab/in-process)
-
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
-    ```
-    
-    # [Isolated process](#tab/isolated-process)
+    # [Isolated worker model](#tab/isolated-process)
 
     ```powershell
     Install-Package Microsoft.Azure.Functions.Worker.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
+    ```
+    
+    # [In-process model](#tab/in-process)
+
+    ```powershell
+    Install-Package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
     ```
     
     ---
@@ -180,7 +180,7 @@ For a more detailed testing scenario using Visual Studio, see [Testing functions
 When you publish from Visual Studio, it uses one of the two deployment methods:
 
 * [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): Packages and deploys Windows apps to any IIS server.
-* [Zip Deploy with run-From-package enabled](functions-deployment-technologies.md#zip-deploy): Recommended for Azure Functions deployments.
+* [Zip Deploy with Run-From-Package enabled](functions-deployment-technologies.md#zip-deploy): Recommended for Azure Functions deployments.
 
 Use the following steps to publish your project to a function app in Azure.
 
@@ -225,25 +225,15 @@ This section assumes you've already published to your function app using a relea
 
 ### Attach the debugger
 
-The way you attach the debugger depends on your execution mode. When debugging an isolated process app, you currently need to attach the remote debugger to a separate .NET process, and several other configuration steps are required.
+The way you attach the debugger depends on your execution mode. When debugging an isolated worker process app, you currently need to attach the remote debugger to a separate .NET process, and several other configuration steps are required.
 
 When you're done, you should [disable remote debugging](#disable-remote-debugging).
 
-# [In-process](#tab/in-process)
-
-To attach a remote debugger to a function app running in-process with the Functions host:
-
-+ From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
-
-    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Screenshot of attaching the debugger from Visual Studio.":::
-
-Visual Studio connects to your function app and enables remote debugging, if it's not already enabled. It also locates and attaches the debugger to the host process for the app. At this point, you can debug your function app as normal. 
-
-# [Isolated process](#tab/isolated-process) 
+# [Isolated worker model](#tab/isolated-process) 
 
 To attach a remote debugger to a function app running in a process separate from the Functions host:
 
-1. From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Download publish profile**. This action downloads a copy of the publish profile and opens the download location. You need this file, which contains the credentials used to attach to your isolated process running in Azure.
+1. From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Download publish profile**. This action downloads a copy of the publish profile and opens the download location. You need this file, which contains the credentials used to attach to your isolated worker process running in Azure.
 
     > [!CAUTION]
     > The .publishsettings file contains your credentials (unencoded) that are used to administer your function app. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it after it's no longer needed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your function app.
@@ -271,7 +261,17 @@ To attach a remote debugger to a function app running in a process separate from
 
     ![Visual Studio enter credential](./media/functions-develop-vs/creds-dialog.png)
 
-1. Check **Show process from all users** and then choose **dotnet.exe** and select **Attach**. When the operation completes, you're attached to your C# class library code running in an isolated process. At this point, you can debug your function app as normal.
+1. Check **Show process from all users** and then choose **dotnet.exe** and select **Attach**. When the operation completes, you're attached to your C# class library code running in an isolated worker process. At this point, you can debug your function app as normal.
+
+# [In-process model](#tab/in-process)
+
+To attach a remote debugger to a function app running in-process with the Functions host:
+
++ From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
+
+    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Screenshot of attaching the debugger from Visual Studio.":::
+
+Visual Studio connects to your function app and enables remote debugging, if it's not already enabled. It also locates and attaches the debugger to the host process for the app. At this point, you can debug your function app as normal. 
 
 ---
 

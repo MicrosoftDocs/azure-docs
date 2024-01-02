@@ -6,8 +6,9 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 04/04/2023
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Migrate your application to use the Azure Cosmos DB .NET SDK v3
@@ -84,11 +85,7 @@ The following classes have been replaced on the 3.0 SDK:
 
 * `Microsoft.Azure.Documents.UriFactory`
 
-* `Microsoft.Azure.Documents.Document`
-
-* `Microsoft.Azure.Documents.Resource`
-
-The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design. 
+The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design.
 
 # [.NET SDK v3](#tab/dotnet-v3)
 
@@ -112,7 +109,17 @@ await client.CreateDocumentAsync(
 
 ---
 
-Because the .NET v3 SDK allows users to configure a custom serialization engine, there's no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
+* `Microsoft.Azure.Documents.Document`
+
+Because the .NET v3 SDK allows users to configure [a custom serialization engine](migrate-dotnet-v3.md#customize-serialization), there's no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
+
+* `Microsoft.Azure.Documents.Resource`
+
+There is no direct replacement for `Resource`, in cases where it was used for documents, follow the guidance for `Document`.
+
+* `Microsoft.Azure.Documents.AccessCondition`
+
+`IfNoneMatch` or `IfMatch` are now available on the `Microsoft.Azure.Cosmos.ItemRequestOptions` directly.
 
 ### Changes to item ID generation
 
@@ -125,31 +132,22 @@ public Guid Id { get; set; }
 
 ### Changed default behavior for connection mode
 
-The SDK v3 now defaults to Direct + TCP connection modes compared to the previous v2 SDK, which defaulted to Gateway + HTTPS connections modes. This change provides enhanced performance and scalability.
+The SDK v3 now defaults to [Direct + TCP connection modes](sdk-connection-modes.md) compared to the previous v2 SDK, which defaulted to Gateway + HTTPS connections modes. This change provides enhanced performance and scalability.
 
 ### Changes to FeedOptions (QueryRequestOptions in v3.0 SDK)
 
 The `FeedOptions` class in SDK v2 has now been renamed to `QueryRequestOptions` in the SDK v3 and within the class, several properties have had changes in name and/or default value or been removed completely.  
 
-`FeedOptions.MaxDegreeOfParallelism` has been renamed to `QueryRequestOptions.MaxConcurrency` and default value and associated behavior remains the same, operations run client side during parallel query execution will be executed serially with no-parallelism.
-
-`FeedOptions.EnableCrossPartitionQuery` has been removed and the default behavior in SDK 3.0 is that cross-partition queries will be executed without the need to enable the property specifically.
-
-`FeedOptions.PopulateQueryMetrics` is enabled by default with the results being present in the `FeedResponse.Diagnostics` property of the response.
-
-`FeedOptions.RequestContinuation` has now been promoted to the query methods themselves.
-
-The following properties have been removed:
-
-* `FeedOptions.DisableRUPerMinuteUsage`
-
-* `FeedOptions.EnableCrossPartitionQuery`
-
-* `FeedOptions.JsonSerializerSettings`
-
-* `FeedOptions.PartitionKeyRangeId`
-
-* `FeedOptions.PopulateQueryMetrics`
+| .NET v2 SDK | .NET v3 SDK |
+|-------------|-------------|
+|`FeedOptions.MaxDegreeOfParallelism`|`QueryRequestOptions.MaxConcurrency` - Default value and associated behavior remains the same, operations run client side during parallel query execution will be executed serially with no-parallelism.|
+|`FeedOptions.PartitionKey`|`QueryRequestOptions.PartitionKey` - Behavior maintained. |
+|`FeedOptions.EnableCrossPartitionQuery`|Removed. Default behavior in SDK 3.0 is that cross-partition queries will be executed without the need to enable the property specifically. |
+|`FeedOptions.PopulateQueryMetrics`|Removed. It is now enabled by default and part of the [diagnostics](troubleshoot-dotnet-sdk.md#capture-diagnostics).|
+|`FeedOptions.RequestContinuation`|Removed. It is now promoted to the query methods themselves. |
+|`FeedOptions.JsonSerializerSettings`|Removed. See how to [customize serialization](#customize-serialization) for additional information.|
+|`FeedOptions.PartitionKeyRangeId`|Removed. Same outcome can be obtained from using [FeedRange](change-feed-pull-model.md#use-feedrange-for-parallelization) as input to the query method.|
+|`FeedOptions.DisableRUPerMinuteUsage`|Removed.|
 
 ### Constructing a client
 
@@ -213,7 +211,7 @@ catch (CosmosException cosmosException) {
 
 ### ConnectionPolicy
 
-Some settings in `ConnectionPolicy` have been renamed or replaced:
+Some settings in `ConnectionPolicy` have been renamed or replaced by `CosmosClientOptions`:
 
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
@@ -222,6 +220,8 @@ Some settings in `ConnectionPolicy` have been renamed or replaced:
 |`MediaRequestTimeout`|Removed. Attachments are no longer supported.|
 |`SetCurrentLocation`|`CosmosClientOptions.ApplicationRegion` can be used to achieve the same effect.|
 |`PreferredLocations`|`CosmosClientOptions.ApplicationPreferredRegions` can be used to achieve the same effect.|
+|`UserAgentSuffix`|`CosmosClientBuilder.ApplicationName` can be used to achieve the same effect.|
+|`UseMultipleWriteLocations`|Removed. The SDK automatically detects if the account supports multiple write endpoints.|
 
 ### Indexing policy
 
@@ -240,7 +240,7 @@ Where the v2 SDK exposed the session token of a response as `ResourceResponse.Se
 
 ### Timestamp
 
-Where the v2 SDK exposed the timestamp of a document through the `Timestamp` property, because `Document` is no longer available, users can map the `_ts` [system property](../account-databases-containers-items.md#properties-of-an-item) to a property in their model.
+Where the v2 SDK exposed the timestamp of a document through the `Timestamp` property, because `Document` is no longer available, users can map the `_ts` [system property](../resource-model.md#properties-of-an-item) to a property in their model.
 
 ### OpenAsync
 
@@ -258,13 +258,13 @@ Executing change feed queries on the v3 SDK is considered to be using the [chang
 
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
-|`ChangeFeedOptions.PartitionKeyRangeId`|`FeedRange` - In order to achieve parallelism reading the change feed [FeedRanges](change-feed-pull-model.md#using-feedrange-for-parallelization) can be used. It's no longer a required parameter, you can [read the Change Feed for an entire container](change-feed-pull-model.md#consuming-an-entire-containers-changes) easily now.|
-|`ChangeFeedOptions.PartitionKey`|`FeedRange.FromPartitionKey` - A FeedRange representing the desired Partition Key can be used to [read the Change Feed for that Partition Key value](change-feed-pull-model.md#consuming-a-partition-keys-changes).|
-|`ChangeFeedOptions.RequestContinuation`|`ChangeFeedStartFrom.Continuation` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
+|`ChangeFeedOptions.PartitionKeyRangeId`|`FeedRange` - In order to achieve parallelism reading the change feed [FeedRanges](change-feed-pull-model.md#use-feedrange-for-parallelization) can be used. It's no longer a required parameter, you can [read the Change Feed for an entire container](change-feed-pull-model.md#consume-the-changes-for-an-entire-container) easily now.|
+|`ChangeFeedOptions.PartitionKey`|`FeedRange.FromPartitionKey` - A FeedRange representing the desired Partition Key can be used to [read the Change Feed for that Partition Key value](change-feed-pull-model.md#consume-the-changes-for-a-partition-key).|
+|`ChangeFeedOptions.RequestContinuation`|`ChangeFeedStartFrom.Continuation` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#save-continuation-tokens).|
 |`ChangeFeedOptions.StartTime`|`ChangeFeedStartFrom.Time` |
 |`ChangeFeedOptions.StartFromBeginning` |`ChangeFeedStartFrom.Beginning` |
-|`ChangeFeedOptions.MaxItemCount`|`ChangeFeedRequestOptions.PageSizeHint` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#saving-continuation-tokens).|
-|`IDocumentQuery.HasMoreResults` |`response.StatusCode == HttpStatusCode.NotModified` - The change feed is conceptually infinite, so there could always be more results. When a response contains the `HttpStatusCode.NotModified` status code, it means there are no new changes to read at this time. You can use that to stop and [save the continuation](change-feed-pull-model.md#saving-continuation-tokens) or to temporarily sleep or wait and then call `ReadNextAsync` again to test for new changes. |
+|`ChangeFeedOptions.MaxItemCount`|`ChangeFeedRequestOptions.PageSizeHint` - The change feed iterator can be stopped and resumed at any time by [saving the continuation and using it when creating a new iterator](change-feed-pull-model.md#save-continuation-tokens).|
+|`IDocumentQuery.HasMoreResults` |`response.StatusCode == HttpStatusCode.NotModified` - The change feed is conceptually infinite, so there could always be more results. When a response contains the `HttpStatusCode.NotModified` status code, it means there are no new changes to read at this time. You can use that to stop and [save the continuation](change-feed-pull-model.md#save-continuation-tokens) or to temporarily sleep or wait and then call `ReadNextAsync` again to test for new changes. |
 |Split handling|It's no longer required for users to handle split exceptions when reading the change feed, splits will be handled transparently without the need of user interaction.|
 
 ### Using the bulk executor library directly from the V3 SDK
@@ -272,6 +272,33 @@ Executing change feed queries on the v3 SDK is considered to be using the [chang
 The v3 SDK has built-in support for the bulk executor library, allowing you to use the same SDK for building your application and performing bulk operations. Previously, you were required to use a separate bulk executor library.
 
 For more information, see [how to migrate from the bulk executor library to  bulk support in Azure Cosmos DB .NET V3 SDK](how-to-migrate-from-bulk-executor-library.md)
+
+### Customize serialization
+The .NET V2 SDK allows setting *JsonSerializerSettings* in *RequestOptions* at the operational level used to deserialize the result document:
+
+```csharp
+// .NET V2 SDK
+var result = await container.ReplaceDocumentAsync(document, new RequestOptions { JsonSerializerSettings = customSerializerSettings })
+```
+
+The .NET SDK v3 provides a [serializer interface](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializer) to fully customize the serialization engine, or more generic [serialization options](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializeroptions) as part of the client construction.
+
+Customizing the serialization at the operation level can be achieved through the use of Stream APIs:
+
+```csharp
+// .NET V3 SDK
+using(Response response = await this.container.ReplaceItemStreamAsync(stream, "itemId", new PartitionKey("itemPartitionKey"))
+{
+
+    using(Stream stream = response.ContentStream)
+    {
+        using (StreamReader streamReader = new StreamReader(stream))
+        {
+            // Read the stream and do dynamic deserialization based on type with a custom Serializer
+        }
+    }
+}
+```
 
 ## Code snippet comparisons
 

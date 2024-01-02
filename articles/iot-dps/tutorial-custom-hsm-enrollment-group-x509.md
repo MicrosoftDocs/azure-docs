@@ -7,14 +7,14 @@ ms.date: 11/01/2022
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps 
-ms.custom: mvc
+ms.custom: mvc, devx-track-extended-java, devx-track-python
 zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want provision groups of devices using X.509 certificate chains and the Azure IoT device SDK.
 ---
 
 # Tutorial: Provision multiple X.509 devices using enrollment groups
 
-In this tutorial, you'll learn how to provision groups of IoT devices that use X.509 certificates for authentication. Sample device code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be executed on your development machine to simulate provisioning of X.509 devices. On real devices, device code would be deployed and run from the IoT device.
+In this tutorial, you'll learn how to provision groups of IoT devices that use X.509 certificates for authentication. Sample device code from the Azure IoT SDK will be executed on your development machine to simulate provisioning of X.509 devices. On real devices, device code would be deployed and run from the IoT device.
 
 The Azure IoT Hub Device Provisioning Service supports two types of enrollments for provisioning devices:
 
@@ -28,11 +28,11 @@ The Azure IoT Hub Device Provisioning Service supports three forms of authentica
 * [Symmetric keys](./concepts-symmetric-key-attestation.md)
 
 ::: zone pivot="programming-language-ansi-c"
-This tutorial uses the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example), which provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but it is strongly recommended to help protect sensitive information like your device certificate's private key.
+This tutorial uses the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example), which provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but it's strongly recommended to help protect sensitive information like your device certificate's private key.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-nodejs,programming-language-python,programming-language-java"
-A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but it is strongly recommended to help protect sensitive information like your device certificate's private key.
+A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but it's strongly recommended to help protect sensitive information like your device certificate's private key.
 ::: zone-end
 
 In this tutorial, you'll complete the following objectives:
@@ -125,7 +125,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 3. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-4. In your Windows command prompt, run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step.
+4. In your Windows command prompt, run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step, for example: `lts_01_2023`.
 
     ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -183,7 +183,7 @@ git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 
 ::: zone pivot="programming-language-nodejs"
 
-In your Windows command prompt, clone the [Azure IoT Samples for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository using the following command:
 
 ```cmd
 git clone https://github.com/Azure/azure-iot-sdk-node.git
@@ -193,17 +193,20 @@ git clone https://github.com/Azure/azure-iot-sdk-node.git
 
 ::: zone pivot="programming-language-python"
 
-In your Windows command prompt, clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT Device SDK for Python](https://github.com/Azure/azure-iot-sdk-python/tree/v2) GitHub repository using the following command:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
+git clone -b v2 https://github.com/Azure/azure-iot-sdk-python.git --recursive
 ```
+
+>[!NOTE]
+>The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. V3 of the Python SDK is available to use in beta.
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-1. In your Windows command prompt, clone the [Azure IoT Samples for Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
+1. In your Windows command prompt, clone the [Azure IoT Samples for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -771,6 +774,19 @@ To add the root CA certificate to your DPS instance, follow these steps:
   
     :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/verify-root-certificate.png" alt-text="Screenshot that shows the verified root C A certificate in the list of certificates.":::
 
+## (Optional) Manual verification of root certificate
+If you didn't choose to automatically verify the certificate during upload, you manually prove possession:
+
+1. Select the new CA certificate.
+
+1. Select Generate Verification Code in the Certificate Details dialog.
+
+1. Create a certificate that contains the verification code. For example, if you're using the Bash script supplied by Microsoft, run `./certGen.sh create_verification_certificate "<verification code>"` to create a certificate named `verification-code.cert.pem`, replacing `<verification code>` with the previously generated verification code. For more information, you can download the [files](https://github.com/Azure/azure-iot-sdk-c/tree/main/tools/CACertificates) relevant to your system to a working folder and follow the instructions in the [Managing CA certificates readme](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) to perform proof-of-possession on a CA certificate.
+ 
+1. Upload `verification-code.cert.pem` to your provisioning service in the Certificate Details dialog.
+
+1. Select Verify.
+
 ## Update the certificate store on Windows-based devices
 
 On non-Windows devices, you can pass the certificate chain from the code as the certificate store.
@@ -814,19 +830,8 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
 ## Create an enrollment group
 
-1. From your DPS instance in Azure portal, select the **Manage enrollments** tab. then select the **Add enrollment group** button at the top.
-
-1. In the **Add Enrollment Group** panel, enter the following information, then select **Save**.
-
-    * **Group name**: For this tutorial, enter **custom-hsm-x509-devices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
-    * **Attestation Type**: Select **Certificate**.
-    * **IoT Edge device**: Select **False**.
-    * **Certificate Type**: Select **Intermediate Certificate**.
-    * **Primary certificate .pem or .cer file**: Navigate to the intermediate certificate that you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*) and upload it.
-
-        Your intermediate certificate is signed by the root certificate that you already uploaded and verified. Because DPS trusts that root certificate, it will trust any intermediate certificate that is either directly signed by the root, or whose signing chain contains the root. DPS will permit any device to register through the enrollment group whose certificate signing chain contains the intermediate certificate and the verified (root) certificate.
-
-    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/custom-hsm-enrollment-group-x509.png" alt-text="Screenshot that shows adding an enrollment group in the portal.":::
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-enrollment-group-x509.md](../../includes/iot-dps-enrollment-group-x509.md)]
 
 ## Prepare and run the device provisioning code
 
@@ -871,7 +876,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 The specifics of interacting with actual secure hardware-based storage vary depending on the device hardware. The certificate chains used by the simulated devices in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods used in this sample would then be implemented to read the secrets from that hardware-based storage.
 
-While HSM hardware isn't required, it is recommended to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this tutorial to assist with learning.
+While HSM hardware isn't required, it's recommended to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this tutorial to assist with learning.
 
 To update the custom HSM stub code to simulate the identity of the device with ID `device-01`:
 
@@ -1009,12 +1014,12 @@ In the rest of this section, you'll use your Windows command prompt.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Screenshot of the ID scope on Azure portal.":::
 
-3. In your Windows command prompt, change to the X509Sample directory. This directory is located in the *.\azure-iot-sdk-csharp\provisioning\device\samples\Getting Started\X509Sample* directory off the directory where you cloned the samples on your computer.
+3. In your Windows command prompt, change to the X509Sample directory. This directory is located in the *.\azure-iot-sdk-csharp\provisioning\device\samples\getting started\X509Sample* directory off the directory where you cloned the samples on your computer.
 
 4. Enter the following command to build and run the X.509 device provisioning sample (replace `<id-scope>` with the ID Scope that you copied in step 2. Replace `<your-certificate-folder>` with the path to the folder where you ran your OpenSSL commands.
 
     ```cmd
-    run -- -s <id-scope> -c <your-certificate-folder>\certs\device-01-full-chain.cert.pfx -p 1234
+    dotnet run -- -s <id-scope> -c <your-certificate-folder>\certs\device-01-full-chain.cert.pfx -p 1234
     ```
 
    The device connects to DPS and is assigned to an IoT hub. Then, the device sends a telemetry message to the IoT hub. You should see output similar to the following:
@@ -1041,10 +1046,10 @@ In the rest of this section, you'll use your Windows command prompt.
    >
    > Additional parameters can be passed to change the TransportType (-t) and the GlobalDeviceEndpoint (-g). For a full list of parameters type `dotnet run -- --help`.
 
-5. To register your second device, re-run the sample using its full chain certificate.
+5. To register your second device, rerun the sample using its full chain certificate.
 
     ```cmd
-    run -- -s <id-scope> -c <your-certificate-folder>\certs\device-02-full-chain.cert.pfx -p 1234
+    dotnet run -- -s <id-scope> -c <your-certificate-folder>\certs\device-02-full-chain.cert.pfx -p 1234
     ```
 
 ::: zone-end
@@ -1142,7 +1147,7 @@ In the following steps, use your Windows command prompt.
 
     :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/copy-id-scope.png" alt-text="Screenshot of the ID scope in the Azure portal.":::
 
-1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
+1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/v2/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
 
     ```cmd
     cd .\azure-iot-sdk-python\samples\async-hub-scenarios
@@ -1179,7 +1184,7 @@ In the following steps, use your Windows command prompt.
     set X509_KEY_FILE=<your-certificate-folder>\private\device-01.key.pem
     ```
 
-1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
+1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/v2/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
 
 1. Run the sample. The sample connects to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample sends some test messages to the IoT hub.
 
@@ -1241,12 +1246,12 @@ In the following steps, you'll use both your Windows command prompt and your Git
 1. In your Windows command prompt, navigate to the sample project folder. The path shown is relative to the location where you cloned the SDK
 
     ```cmd
-    cd .\azure-iot-sdk-java\provisioning\provisioning-samples\provisioning-X509-sample
+    cd .\azure-iot-sdk-java\provisioning\provisioning-device-client-samples\provisioning-X509-sample
     ```
 
 1. Enter the provisioning service and X.509 identity information in the sample code. This is used during provisioning, for attestation of the simulated device, prior to device registration.
 
-    1. Open the file `.\src\main\java\samples\com/microsoft\azure\sdk\iot\ProvisioningX509Sample.java` in your favorite editor.
+    1. Open the file `.\src\main\java\samples\com\microsoft\azure\sdk\iot\ProvisioningX509Sample.java` in your favorite editor.
 
     1. Update the following values. For `idScope`, use the **ID Scope** that you copied previously. For global endpoint, use the  **Global device endpoint**. This endpoint is the same for every DPS instance, `global.azure-devices-provisioning.net`.
 
@@ -1255,7 +1260,7 @@ In the following steps, you'll use both your Windows command prompt and your Git
         private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
         ```
 
-    1. The sample defaults to using HTTPS as the transport protocol. If you want to change the protocol, comment out the following line and uncomment the line for the protocol you want to use.
+    1. The sample defaults to using HTTPS as the transport protocol. If you want to change the protocol, comment out the following line, and uncomment the line for the protocol you want to use.
 
         ```java
         private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
@@ -1431,11 +1436,11 @@ Examine the registration records of the enrollment group to see the registration
 
 1. In the **Settings** menu, select **Manage enrollments**.
 
-1. Select **Enrollment Groups**. The X.509 enrollment group entry that you created previously, *custom-hsm-devices*, should appear in the list.
+1. Select **Enrollment groups**. The X.509 enrollment group entry that you created previously should appear in the list.
 
-1. Select the enrollment entry. Then select the **Registration Records** tab to see the devices that have been registered through the enrollment group. The IoT hub that each of your devices was assigned to, their device IDs, and the dates and times they were registered appear in the list.
+1. Select the enrollment entry. Then select **Details** next to the **Registration status** to see the devices that have been registered through the enrollment group. The IoT hub that each of your devices was assigned to, their device IDs, and the dates and times they were registered appear in the list.
 
-    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/enrollment-group-registration-records.png" alt-text="Screenshot that shows the registration records tab for the enrollment group on Azure portal.":::
+    :::image type="content" source="./media/how-to-unprovision-devices/view-registration-records.png" alt-text="Screenshot that shows the registration status details for the enrollment group on Azure portal.":::
 
 1. You can select one of the devices to see further details for that device.
 
@@ -1463,18 +1468,18 @@ When you're finished testing and exploring this device client sample, use the fo
 
 1. In the **Settings** menu, select **Manage enrollments**.
 
-1. Select the **Enrollment Groups** tab.
+1. Select the **Enrollment groups** tab.
 
-1. Select the enrollment group you used for this tutorial, *custom-hsm-x509-devices*.
+1. Select the enrollment group you used for this tutorial.
 
-1. On the **Enrollment Group Details** page, select the **Registration Records** tab. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete Registrations** at the top of the page to delete the registration records.
+1. On the **Enrollment details** page, select **Details** next to the **Registration status**. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete** at the top of the page to delete the registration records.
 
     > [!IMPORTANT]
     > Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
 
-1. Go back to the **Manage Enrollments** page and make sure the **Enrollment Groups** tab is selected.
+1. Go back to the **Manage enrollments** page and make sure the **Enrollment groups** tab is selected.
 
-1. Select the check box next to the *GROUP NAME* of the enrollment group you used for this tutorial, *custom-hsm-x509-devices*.
+1. Select the check box next to the group name of the enrollment group you used for this tutorial.
 
 1. At the top of the page, select  **Delete**.
 
@@ -1490,13 +1495,13 @@ When you're finished testing and exploring this device client sample, use the fo
 
 3. In the **Explorers** menu, select **IoT devices**.
 
-4. Select the check box next to the *DEVICE ID* of the devices you registered in this tutorial. For example, *device-01* and *device-02*..
+4. Select the check box next to the device ID of the devices you registered in this tutorial. For example, *device-01* and *device-02*.
 
 5. At the top of the page, select  **Delete**.
 
 ## Next steps
 
-In this tutorial, you provisioned X.509 devices using an enrollment group to your IoT hub. To learn how to provision IoT devices to multiple hubs continue to the next tutorial.
+In this tutorial, you provisioned multiple X.509 devices to your IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
 
 > [!div class="nextstepaction"]
-> [How to use allocation policies](how-to-use-allocation-policies.md)
+> [Use custom allocation policies](tutorial-custom-allocation-policies.md)

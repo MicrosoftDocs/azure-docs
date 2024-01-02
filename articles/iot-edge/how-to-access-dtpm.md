@@ -4,7 +4,7 @@ description: Learn about how to configure access the dTPM on your  Azure IoT Edg
 author: fcabrera
 manager: patricka
 ms.author: patricka
-ms.date: 07/12/2022
+ms.date: 8/1/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # dTPM access for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 A Trusted platform module (TPM) chip is a secure crypto-processor that is designed to carry out cryptographic operations. This technology is designed to provide hardware-based, security-related functions. The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine doesn't have a virtual TPMs attached to the VM. However, the user can enable or disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM. The TPM passthrough feature enables two main scenarios:
 
@@ -55,7 +55,7 @@ The following steps show you how to create a sample executable to access a TPM i
 
 1. Choose the **Microsoft.TSS** package from the list then select **Install**.
 
-    ![Visual Studio add NuGet packages](./media/how-to-access-dtpm/vs-nuget-microsoft-tss.png)
+   :::image type="content" source="./media/how-to-access-dtpm/vs-nuget-microsoft-tss.png" alt-text="Screenshot that shows Visual Studio add NuGet packages .":::
 
 1. Edit the *Program.cs* file and replace the contents with the [EFLOW TPM sample code - Program.cs](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/samples/tpm-read-nv/Program.cs).
 
@@ -69,7 +69,7 @@ The following steps show you how to create a sample executable to access a TPM i
     - Target Runtime:  **linux-x64**.
     - Deployment mode: **Self-contained**.
     
-    ![Publish options](./media/how-to-access-dtpm/sample-publish-options.png)
+   :::image type="content" source="./media/how-to-access-dtpm/sample-publish-options.png" alt-text="Screenshot that shows publish options .":::
  
 1. Select **Publish** then wait for the executable to be created. 
 
@@ -132,7 +132,7 @@ Once the executable file and dependency files are created, you need to copy the 
     ```
     You should see an output similar to the following.
 
-    ![EFLOW dTPM output](./media/how-to-access-dtpm/tpm-read-output.png)
+   :::image type="content" source="./media/how-to-access-dtpm/tpm-read-output.png" alt-text="Screenshot that shows EFLOW dTPM output.":::
 
 ## Next steps
 

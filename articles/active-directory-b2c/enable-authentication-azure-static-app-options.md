@@ -1,11 +1,11 @@
 ---
 title: Enable Azure Static Web App authentication options using Azure Active Directory B2C
 description:  This article discusses several ways to enable Azure Static Web App authentication options.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 06/28/2022
 ms.author: kengaderdus
@@ -26,7 +26,7 @@ To use a custom domain and your tenant ID in the authentication URL, follow the 
 In the configuration file, follow these steps:
 
 1. Under the `customOpenIdConnectProviders` locate the `wellKnownOpenIdConfiguration` element.
-1. Update the URL of your Azure AD B2C well-Known configuration endpoint with your custom domain and [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
+1. Update the URL of your Azure AD B2C well-Known configuration endpoint with your custom domain and [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The following JSON shows the app settings before the change: 
 

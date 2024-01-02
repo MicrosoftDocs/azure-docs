@@ -11,9 +11,12 @@ ms.custom: devx-track-js
 ---
 
 
-# Deploy hybrid Next.js websites on Azure Static Web Apps
+# Deploy hybrid Next.js websites on Azure Static Web Apps (Preview)
 
 In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to [Azure Static Web Apps](overview.md), leveraging the support for Next.js features such as Server-Side Rendering (SSR) and API routes.
+
+>[!NOTE]
+> Next.js hybrid support is in preview, with limited support for Next.js versions 13 and above.
 
 ## Prerequisites
 
@@ -31,7 +34,7 @@ Begin by initializing a new Next.js application.
 1. Initialize the application using `npm init`. If you are prompted to install `create-next-app`, say yes.
 
     ```bash
-    npm init next-app@latest -- --typescript
+    npm init next-app@next-12-3-2 --typescript
     ```
 
 1. When prompted for an app name, enter **nextjs-app**.
@@ -54,7 +57,17 @@ Begin by initializing a new Next.js application.
 
 1. Stop the development server by pressing **CMD/CTRL + C**.
 
-## Deploy your static website
+## Configure your Next.js app for deployment to Static Web Apps
+
+To configure your Next.js app for deployment to Static Web Apps, enable the standalone feature for your Next.js project. This step reduces the size of your Next.js project to ensure it's below the size limits for Static Web Apps. Refer to the [standalone](#enable-standalone-feature) section for more information.
+
+```js
+module.exports = {
+    output: "standalone",
+}
+```
+
+## Deploy your Next.js app
 
 The following steps show how to link your app to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
 
@@ -111,11 +124,17 @@ Once the workflow is complete, you can refresh the browser to view your web app.
 
 Now any changes made to the `main` branch starts a new build and deployment of your website.
 
+
+>[!NOTE]
+>If you have trouble deploying a Next.js Hybrid application with more than 100Mb app size, use the `standalone` feature of Next.js. Refer to the [standalone](#enable-standalone-feature) section for more information. 
+
+
 ### Sync changes
 
 When you created the app, Azure Static Web Apps created a GitHub Actions file in your repository. Synchronize with the server by pulling down the latest to your local repository.
 
 Return to the terminal and run the following command `git pull origin main`.
+
 
 ## Add Server-Rendered data
 
@@ -206,6 +225,28 @@ Begin by adding an API route.
 1. The result from the API route will be displayed on the page.
 
 :::image type="content" source="media/deploy-nextjs/nextjs-api-route-display.png" alt-text="Display the output from the API route":::
+
+## Enable standalone feature
+
+When your application size exceeds 100Mb, the Next.js [Output File Tracing](https://nextjs.org/docs/advanced-features/output-file-tracing) feature helps optimize the app size and enhance performance.
+
+Output File Tracing creates a compressed version of the whole application with necessary package dependencies built into a folder named *.next/standalone*. This folder is meant to deploy on its own without additional *node_modules* dependencies.
+
+In order to enable the `standalone` feature, add the following additional property to your `next.config.js`:
+```bash
+module.exports ={
+    output:"standalone",
+}
+```
+
+## Enable logging for Next.js
+
+Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom start up script. To learn more:
+
+* [Example preload script for Application Insights + Next.js](https://medium.com/microsoftazure/enabling-the-node-js-application-insights-sdk-in-next-js-746762d92507)
+* [GitHub issue](https://github.com/microsoft/ApplicationInsights-node.js/issues/808)
+* [Preloading with Next.js](https://jake.tl/notes/2021-04-04-nextjs-preload-hack)
+
 
 ## Clean up resources
 

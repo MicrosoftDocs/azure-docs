@@ -3,7 +3,7 @@ title: How to discover data sources in Azure Data Catalog
 description: This article highlights how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 12/13/2023
 ---
 # How to discover data sources in Azure Data Catalog
 
@@ -35,7 +35,7 @@ Although the default free text search is simple and intuitive, you can also use 
 | Grouping with parenthesis |Use parentheses to group parts of the query to achieve logical isolation, especially with Boolean operators. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Comparison operators |Use comparisons other than equality for properties that have numeric and date data types. |`modifiedTime > "11/05/2014"` |
 
-For more information about Data Catalog search, see the [Azure Data Catalog](/rest/api/datacatalog/#search-syntax-reference) article.
+For more information about Data Catalog search, see the [Azure Data Catalog REST API](/rest/api/datacatalog/#search-syntax-reference) article.
 
 ## Hit highlighting
 
@@ -44,7 +44,7 @@ When you view search results, any displayed properties that match the specified 
 > [!NOTE]
 > To turn off hit highlighting, use the **Highlight** switch in the Data Catalog portal.
 
-When you view search results, it may not always be obvious why a data asset is included, even with hit highlighting enabled. Because all properties are searched by default, a data asset might be returned because of a match on a column-level property. And because multiple users can annotate registered data assets with their own tags and descriptions, not all metadata is displayed in the list of search results.
+When you view search results, it might not always be obvious why a data asset is included, even with hit highlighting enabled. Because all properties are searched by default, a data asset might be returned because of a match on a column-level property. And because multiple users can annotate registered data assets with their own tags and descriptions, not all metadata is displayed in the list of search results.
 
 In the default tile view, each tile displayed in the search results includes a **View search term matches** icon, so that you can quickly view the number of matches and their location, and to jump to them if you want.
 

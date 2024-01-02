@@ -1,0 +1,56 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions about Azure Application Gateway for Containers (preview)
+  description: Find answers to frequently asked questions about Azure Application Gateway for Containers.
+  services: application-gateway
+  author: greglin
+  ms.service: application-gateway
+  ms.subservice: appgw-for-containers
+  ms.topic: article
+  ms.date: 09/25/2023
+  ms.author: greglin
+    
+title: Frequently asked questions about Application Gateway for Containers (preview)
+summary: The following are common questions asked about Azure Application Gateway for Containers.
+
+sections:
+  - name: General
+    questions:
+      - question: What is Application Gateway for Containers?
+        answer: Application Gateway for Containers offers various layer 7 load-balancing capabilities for your container applications. This service is highly available, scalable, and fully managed by Azure.
+
+      - question: Where does Application Gateway for Containers store customer data?
+        answer: Application Gateway for Containers stores and processes data in the region of its deployed resource(s). Configuration data may be replicated to its region pair, where applicable, for resiliency.
+
+      - question: How does Application Gateway for Containers handle routine maintenance?
+        answer: Routine maintenance and updates are designed to not be service impacting and require no customer intervention. For updates that might break existing configurations or cause existing product functionality changes, notifications are published via [Azure Service Health](../../service-health/alerts-activity-log-service-notifications-portal.md). These notifications are also sent via email to subscription service administrators.
+
+  - name: Performance
+    questions:
+      - question: How does Application Gateway for Containers support high availability and scalability?
+        answer: Application Gateway for Containers automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintainence and unexpected failures.
+          
+  - name: Configuration - TLS
+    questions:
+      - question: Does Application Gateway for Containers support reencryption (end-to-end encryption) of traffic to backend targets?
+        answer: Yes. Application Gateway for Containers supports TLS offloading and end-to-end TLS to backend targets.
+
+      - question: Can I configure TLS protocol versions?
+        answer: No. Application Gateway for Containers supports TLS 1.2; SSL 2.0, 3.0, TLS 1.0, and TLS 1.1 are disabled and not configurable.
+        
+  - name: Configuration - ALB Controller
+    questions:
+      - question: Is it supported to install both Application Gateway Ingress Controller (AGIC) and ALB Controller in the same Kubernetes cluster?
+        answer: Yes, both Application Gateway Ingress Controller (AGIC) and ALB Controller may run at the same time in the same Kubernetes cluster. Updates to AGIC or to ALB Controller won't interfere with each other. 
+        
+      - question: Is it supported to install multiple ALB Controllers on the same Kubernetes cluster?
+        answer: It's possible to install multiple ALB Controllers on the same cluster, however this isn't recommended or supported as it's not possible to partition gateways, routes, services, etc.
+
+      - question: Is it supported to increase the number of pods/replicas for ALB Controller?
+        answer: No, user defined replica count is not supported.  ALB Controller is automatically provisioned with at least two replicas in active/passive configuration to enable high availability.
+
+      - question: Is it supported to use the same managed identity with multiple ALB Controllers?
+        answer: No.  Each ALB controller must use its own unique managed identity.
+
+      - question: Can I share the same frontend resource between multiple Gateway and/or Ingress resources in Kubernetes?
+        answer: No. A frontend should be unique to a single Ingress or Gateway resource. Multiple hostnames and routes can be defined in a given Gateway or Ingress resource to eliminate the need for numerous frontend resources.

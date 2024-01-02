@@ -3,14 +3,12 @@ title: Remove Microsoft Sentinel | Microsoft Docs
 description: How to delete your Microsoft Sentinel instance.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 07/05/2023
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
 # Remove Microsoft Sentinel from your workspace
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 If you no longer want to use Microsoft Sentinel, this article explains how to remove it from your workspace.
 
@@ -34,6 +32,9 @@ Follow this process to remove Microsoft Sentinel from your workspace:
     
     :::image type="content" source="media/offboard/remove-sentinel-reasons.png" alt-text="Screenshot to remove the Microsoft Sentinel solution from your workspace and specify reasons.":::
 
+## Consider pricing changes
+When Microsoft Sentinel is removed from a workspace, there may still be costs associated with the data in Azure Monitor Log Analytics. For more information on the effect to commitment tier costs, see [Simplified billing offboarding behavior](enroll-simplified-pricing-tier.md#offboarding-behavior).
+
 ## What happens behind the scenes?
 
 When you remove the solution, Microsoft Sentinel takes up to 48 hours to complete the first phase of the deletion process.
@@ -45,7 +46,7 @@ After the disconnection is identified, the offboarding process begins.
 
 -   AWS
 
--   Microsoft services security alerts: Microsoft Defender for Identity, Microsoft Defender for Cloud Apps (*formerly Microsoft Cloud App Security*) including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender for Endpoint, security alerts from Microsoft Defender for Cloud (*formerly Azure Defender*)
+-   Microsoft services security alerts: Microsoft Defender for Identity, Microsoft Defender for Cloud Apps (*formerly Microsoft Cloud App Security*) including Cloud Discovery Shadow IT reporting, Microsoft Entra ID Protection, Microsoft Defender for Endpoint, security alerts from Microsoft Defender for Cloud (*formerly Azure Defender*)
 
 -   Threat Intelligence
 
@@ -63,14 +64,12 @@ Within the first 48 hours, the data and analytics rules (including real-time aut
 
 -   Bookmarks
 
-Your playbooks, saved workbooks, saved hunting queries, and notebooks are not removed. **Some may break due to the removed data. You can remove those manually.**
+Your playbooks, saved workbooks, saved hunting queries, and notebooks are not removed. **Some may break due to the removed data. Remove those manually.**
 
-After you remove the service, there is a grace period of 30 days during which you can re-enable the solution. Your data and analytics rules will be restored, but the configured connectors that were disconnected must be reconnected.
+After you remove the service, there is a grace period of 30 days to re-enable the solution. Your data and analytics rules will be restored, but the configured connectors that were disconnected must be reconnected.
 
 > [!NOTE]
 > If you remove the solution, your subscription will continue to be registered with the Microsoft Sentinel resource provider. **You can remove it manually.**
-
-
 
 
 ## Next steps

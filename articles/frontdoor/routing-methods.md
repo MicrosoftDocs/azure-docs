@@ -1,14 +1,12 @@
 ---
-title: Traffic routing methods to origin - Azure Front Door | Microsoft Docs
+title: Traffic routing methods to origin
+titleSuffix: Azure Front Door
 description: This article explains the four different traffic routing methods used by Azure Front Door to origin.
 services: front-door
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/11/2022
+ms.topic: conceptual
+ms.date: 12/28/2023
 ms.author: duau
 ---
 
@@ -39,17 +37,32 @@ All Front Door configurations have backend health monitoring and automated insta
 > [!NOTE]
 > When you use the [Front Door rules engine](front-door-rules-engine.md), you can configure a rule to [override route configurations](front-door-rules-engine-actions.md#route-configuration-overrides) in Azure Front Door Standard and Premium tier or [override the backend pool](front-door-rules-engine-actions.md#route-configuration-overrides) in Azure Front Door (classic) for a request. The origin group or backend pool set by the rules engine overrides the routing process described in this article.
 
+## Overall decision flow
+
+The following diagram shows the overall decision flow:
+
+:::image type="content" source="./media/routing-methods/routing.png" alt-text="Diagram explaining how origins are selected based on priority, latency and weight settings in Azure Front Door." lightbox="./media/routing-methods/routing-expanded.png":::
+
+The decision steps are:
+
+1. **Available origins:** Select all origins that are enabled and returned healthy (200 OK) for the health probe.
+   - *Example: Suppose there are six origins A, B, C, D, E, and F, and among them C is unhealthy and E is disabled. The list of available origins is A, B, D, and F.*
+1. **Priority:** The top priority origins among the available ones are selected.
+   - *Example: Suppose origin A, B, and D have priority 1 and origin F has a priority of 2. Then, the selected origins are A, B, and D.*
+1. **Latency signal (based on health probe):** Select the origins within the allowable latency range from the Front Door environment where the request arrived. This signal is based on the latency sensitivity setting on the origin group, and the latency of the closer origins.
+   - *Example: Suppose Front Door has measured the latency from the environment where the request arrived to origin A at 15 ms, while the latency for B is 30 ms and D is 60 ms away. If the origin group's latency sensitivity is set to 30 ms, then the lowest latency pool consists of origins A and B, because D is beyond 30 ms away from the closest origin that is A.*
+1. **Weights:** Lastly, Azure Front Door round robins the traffic among the final selected group of origins in the ratio of weights specified.
+   - *Example: If origin A has a weight of 3 and origin B has a weight of 7, then the traffic is distributed 3/10 to origins A and 7/10 to origin B.*
+
+If session affinity is enabled, then the first request in a session follows the flow listed previously. Subsequent requests are sent to the origin selected in the first request.
+
 ## <a name = "latency"></a>Lowest latencies based traffic-routing
 
-Deploying origins in two or more locations across the globe can improve the responsiveness of your applications by routing traffic to the destination that is 'closest' to your end users. Latency is the default traffic-routing method for your Front Door configuration. This routing method forwards requests from your end users to the closest origin behind Azure Front Door. This routing mechanism combined with the anycast architecture of Azure Front Door ensures that each of your end users get the best performance based on their location.
+Deploying origins in two or more locations across the globe can improve the responsiveness of your applications by routing traffic to the destination that is 'closest' to your end users. Latency is the default traffic-routing method for your Front Door configuration. This routing method forwards requests from your end users to the closest origin behind Azure Front Door. This routing mechanism combined with the anycast architecture of Azure Front Door ensures that each of your end users gets the best performance based on their location.
 
 The 'closest' origin isn't necessarily closest as measured by geographic distance. Instead, Azure Front Door determines the closest origin by measuring network latency. Read more about [Azure Front Door routing architecture](front-door-routing-architecture.md). 
 
-The following table shows the overall decision flow:
-
-| Available origins | Priority | Latency signal (based on health probe) | Weights |
-|-------------| ----------- | ----------- | ----------- |
-| First, select all origins that are enabled and returned healthy (200 OK) for the health probe. If there are six origins A, B, C, D, E, and F, and among them C is unhealthy and E is disabled. The list of available origins is A, B, D, and F.  | Next, the top priority origins among the available ones are selected. If origin A, B, and D have priority 1 and origin F has a priority of 2. Then, the selected origins will be A, B, and D.| Select the origins with latency range (least latency & latency sensitivity in ms specified). If origin A is 15 ms, B is 30 ms and D is 60 ms away from the Azure Front Door environment where the request landed, and latency sensitivity is 30 ms, then the lowest latency pool consist of origin A and B, because D is beyond 30 ms away from the closest origin that is A. | Lastly, Azure Front Door will round robin the traffic among the final selected group of origins in the ratio of weights specified. For example, if origin A has a weight of 5 and origin B has a weight of 8, then the traffic will be distributed in the ratio of 5:8 among origins A and B. |
+Each Front Door environment measures the origin latency separately. This means that different users in different locations are routed to the origin with the best performance for that environment.
 
 >[!NOTE]
 > By default, the latency sensitivity property is set to 0 ms. With this setting the request is always forwarded to the fastest available origins and weights on the origin don't take effect unless two origins have the same network latency.
@@ -59,7 +72,7 @@ The following table shows the overall decision flow:
 
 Often an organization wants to provide high availability for their services by deploying more than one backup service in case the primary one goes down. Across the industry, this type of topology is also referred to as Active/Standby or Active/Passive deployment. The *Priority* traffic-routing method allows you to easily implement this failover pattern.
 
-The default Azure Front Door contains an equal priority list of origins. By default, Azure Front Door sends traffic only to the top priority origins (lowest value in priority) as the primary set of origins. If the primary origins aren't available, Azure Front Door routes the traffic to the secondary set of origins (second lowest value for priority). If both the primary and secondary origins aren't available, the traffic goes to the third, and so on. Availability of the origin is based on the configured status of enabled or disabled and the ongoing origin health status as determined by the health probes.
+The default Azure Front Door contains an equal priority list of origins. By default, Azure Front Door sends traffic only to the top priority origins (lowest value in priority) as the primary set of origins. If the primary origins aren't available, Azure Front Door routes the traffic to the secondary set of origins (second lowest value for priority). If both the primary and secondary origins aren't available, the traffic goes to the third, and so on. Availability of the origin is based on the configured status and the ongoing origin health status determined by the health probes.
 
 ### Configuring priority for origins
 
@@ -67,7 +80,7 @@ Each origin in your origin group of the Azure Front Door configuration has a pro
 
 ## <a name = "weighted"></a>Weighted traffic-routing method
 
-The *Weighted* traffic-routing method allows you to distribute traffic evenly or to use a pre-defined weighting.
+The *Weighted* traffic-routing method allows you to distribute traffic evenly or to use a predefined weighting.
 
 In the weighted traffic-routing method, you assign a weight to each origin in the Azure Front Door configuration of your origin group. The weight is an integer ranging from 1 to 1000. This parameter uses a default weight of **50**.
 
@@ -79,7 +92,7 @@ The weighted method enables some useful scenarios:
 * **Application migration to Azure**: Create an origin group with both Azure and external origins. Adjust the weight of the origins to prefer the new origins. You can gradually set this up starting with having the new origins disabled, then assigning them the lowest weights, slowly increasing it to levels where they take most traffic. Then finally disabling the less preferred origins and removing them from the group.  
 * **Cloud-bursting for additional capacity**: Quickly expand an on-premises deployment into the cloud by putting it behind Front Door. When you need extra capacity in the cloud, you can add or enable more origins and specify what portion of traffic goes to each origin.
 
-## <a name = "affinity"></a>Session Affinity
+## <a name = "affinity"></a>Session affinity
 
 By default, without session affinity, Azure Front Door forwards requests originating from the same client to different origins. Certain stateful applications or in certain scenarios when ensuing requests from the same user prefers the same origin to process the initial request. The cookie-based session affinity feature is useful when you want to keep a user session on the same origin. When you use managed cookies with SHA256 of the origin URL as the identifier in the cookie, Azure Front Door can direct ensuing traffic from a user session to the same origin for processing.
 

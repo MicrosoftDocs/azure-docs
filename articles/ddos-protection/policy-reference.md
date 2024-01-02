@@ -2,12 +2,10 @@
 title: Azure Policy built-in definitions for Azure DDoS Protection
 description: Lists Azure Policy built-in policy definitions for Azure DDoS Protection. These built-in policy definitions provide common approaches to managing your Azure resources.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 12/13/2023
 ms.author: abell
 ms.custom: subject-policy-reference
 ms.topic: include

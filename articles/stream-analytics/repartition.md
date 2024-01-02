@@ -1,10 +1,10 @@
 ---
 title: Use repartitioning to optimize Azure Stream Analytics jobs
-description: This article describes how to use repartitioning to optimize Azure Stream Analytics jobs that cannot be parallelized.
+description: This article describes how to use repartitioning to optimize Azure Stream Analytics jobs that can't be parallelized.
 ms.service: stream-analytics
-author: sidramadoss
-ms.author: sidram
-ms.date: 03/04/2021
+author: ahartoon
+ms.author: anboisve
+ms.date: 12/21/2022
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -21,12 +21,12 @@ You might not be able to use [parallelization](stream-analytics-parallelization.
 Repartitioning, or reshuffling, is required when you process data on a stream that's not sharded according to a natural input scheme, such as **PartitionId** for Event Hubs. When you repartition, each shard can be processed independently, which allows you to linearly scale out your streaming pipeline. 
 
 ## How to repartition
-You can repartition your input in 2 ways:
+You can repartition your input in two ways:
 1. Use a separate Stream Analytics job that does the repartitioning
 2. Use a single job but do the repartitioning first before your custom analytics logic
 
 ### Creating a separate Stream Analytics job to repartition input
-You can create a job that reads input and writes to an Event Hub output using a partition key. This Event Hub can then serve as input for another Stream Analytics job where you implement your analytics logic. When configuring this Event Hub output in your job, you must specify the partition key by which Stream Analytics will repartition your data. 
+You can create a job that reads input and writes to an event hub output using a partition key. This event hub can then serve as input for another Stream Analytics job where you implement your analytics logic. When configuring this event hub output in your job, you must specify the partition key by which Stream Analytics will repartition your data. 
 ```sql
 -- For compat level 1.2 or higher
 SELECT * 
@@ -73,7 +73,7 @@ Experiment and observe the resource usage of your job to determine the exact num
 
 When your job uses SQL database for output, use explicit repartitioning to match the optimal partition count to maximize throughput. Since SQL works best with eight writers, repartitioning the flow to eight before flushing, or somewhere further upstream, may benefit job performance. 
 
-When there are more than 8 input partitions, inheriting the input partitioning scheme might not be an appropriate choice. Consider using [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) in your query to explicitly specify the number of output writers. 
+When there are more than eight input partitions, inheriting the input partitioning scheme might not be an appropriate choice. Consider using [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) in your query to explicitly specify the number of output writers. 
 
 The following example reads from the input, regardless of it being naturally partitioned, and repartitions the stream tenfold according to the DeviceID dimension and flushes the data to output. 
 

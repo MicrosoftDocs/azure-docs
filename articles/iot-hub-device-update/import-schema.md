@@ -1,10 +1,10 @@
 ---
-title: Importing updates into Device Update for IoT Hub - import manifest schema | Microsoft Docs
+title: Importing updates into Device Update for IoT Hub - import manifest schema
 description: Schema used to create the import manifest required to import updates into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 09/9/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 
@@ -24,7 +24,7 @@ The import manifest JSON schema is hosted at [SchemaStore.org](https://json.sche
 |**compatibility**|`compatibility`|List of device property sets this update is compatible with.|Yes|
 |**instructions**|`instructions`|Update installation instructions.|Yes|
 |**files**|`file` `[0-10]`|List of update payload files. Sum of all file sizes may not exceed 2 GB. May be empty or null if all instruction steps are reference steps.|No|
-|**manifestVersion**|`string`|Import manifest schema version. Must be 4.0.|Yes|
+|**manifestVersion**|`string`|Import manifest schema version. Must be 5.0.|Yes|
 |**createdDateTime**|`string`|Date & time import manifest was created in ISO 8601 format.<br><br>Example: `"2020-10-02T22:18:04.9446744Z"`|Yes|
 
 Additional properties aren't allowed.
@@ -221,6 +221,7 @@ For example:
   }
 }
 ```
+
 ## relatedFiles object
 
 Collection of related files to one or more of your primary payload files.
@@ -251,6 +252,9 @@ For example:
   }
 ],
 ```
+
+For more information, see [Use the related files feature to reference multiple update files](related-files.md).
+
 ## downloadHandler object
 
 Specifies how to process any related files.

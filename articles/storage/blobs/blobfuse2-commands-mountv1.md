@@ -1,21 +1,19 @@
 ---
-title: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
-description: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file (preview).
-author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+title: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file
+titleSuffix: Azure Storage
+description: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file.
+author: akashdubey-ms
+ms.service: azure-blob-storage
+ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 10/17/2022
-ms.author: jammart
+ms.date: 12/02/2022
+ms.author: akashdubey
 ms.reviewer: tamram
 ---
 
-# How to use the BlobFuse2 mountv1 command (preview)
+# How to use the BlobFuse2 mountv1 command
 
 Use the `blobfuse2 mountv1` command to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Syntax
 
@@ -96,17 +94,17 @@ The following flags apply only to command `blobfuse2 mountv1` command:
 1. Mount a blob container in an Azure Data Lake Storage account using a BlobFuse v1 configuration file:
 
     ```bash
-    blobfuse2 mountv1 ./mount_dir --config-file=./config.cfg --use-adls=true
+    sudo blobfuse2 mountv1 ./mount_dir --config-file=./config.cfg --use-adls=true
     ```
 
 1. Create a BlobFuse2 configuration file from a v1 configuration file in the same directory, but do not mount any containers:
 
     ```bash
-    blobfuse2 mountv1 --config-file=./config.cfg --output-file=./config.yaml --convert-config-only=true
+    sudo blobfuse2 mountv1 --config-file=./config.cfg --output-file=./config.yaml --convert-config-only=true
     ```
 
 ## See also
 
-- [The Blobfuse2 mount command (preview)](blobfuse2-commands-mount.md)
-- [The Blobfuse2 unmount command (preview)](blobfuse2-commands-unmount.md)
-- [The Blobfuse2 command set (preview)](blobfuse2-commands.md)
+- [The Blobfuse2 mount command](blobfuse2-commands-mount.md)
+- [The Blobfuse2 unmount command](blobfuse2-commands-unmount.md)
+- [The Blobfuse2 command set](blobfuse2-commands.md)

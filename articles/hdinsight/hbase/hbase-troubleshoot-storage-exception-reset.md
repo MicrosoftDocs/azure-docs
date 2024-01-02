@@ -3,7 +3,7 @@ title: Storage exception after connection reset in Azure HDInsight
 description: Storage exception after connection reset in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/08/2019
+ms.date: 12/31/2022
 ---
 
 # Scenario: Storage exception after connection reset in Azure HDInsight

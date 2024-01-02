@@ -3,7 +3,7 @@ title: Concept - Integrate an Azure VMware Solution deployment in a hub and spok
 description: Learn about integrating an Azure VMware Solution deployment in a hub and spoke architecture on Azure.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 10/24/2022
+ms.date: 12/21/2023
 ms.custom: engagement-fy23
 ---
 
@@ -24,7 +24,7 @@ The *Hub* is an Azure Virtual Network that acts as a central point of connectivi
 Traffic between the on-premises datacenter, Azure VMware Solution private cloud, and the Hub goes through Azure ExpressRoute connections. Spoke virtual networks usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md), which has direct integration with Virtual Network, or other PaaS services with [Azure Private Link](../private-link/index.yml) enabled.
 
 >[!IMPORTANT]
->You can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.
+>You can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network. However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and Azure VMware Solution through ExpressRoute Global Reach.
 
@@ -34,9 +34,9 @@ The architecture has the following main components:
 
 - **On-premises site:** Customer on-premises datacenter(s) connected to Azure through an ExpressRoute connection.
 
-- **Azure VMware Solution private cloud:** Azure VMware Solution SDDC formed by one or more vSphere clusters, each one with a maximum of 16 hosts.
+- **Azure VMware Solution private cloud:** Azure VMware Solution Software-Defined Data Center formed by one or more vSphere clusters, each one with a maximum of 16 hosts.
 
-- **ExpressRoute gateway:** Enables the communication between Azure VMware Solution private cloud, shared services on Hub virtual network, and workloads running on Spoke virtual networks.
+- **ExpressRoute gateway:** Enables the communication between Azure VMware Solution private cloud, shared services on Hub virtual network, and workloads running on Spoke virtual networks via an ExpressRoute Connection.
 
 - **ExpressRoute Global Reach:** Enables the connectivity between on-premises and Azure VMware Solution private cloud. The connectivity between Azure VMware Solution and the Azure fabric is through ExpressRoute Global Reach only.
 
@@ -64,7 +64,7 @@ Because an ExpressRoute gateway doesn't provide transitive routing between its c
 
   :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Diagram showing the on-premises to Azure VMware Solution traffic flow." border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
-* **Azure VMware Solution to Hub VNET traffic flow**
+* **Azure VMware Solution to Hub VNet traffic flow**
 
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Diagram showing the Azure VMware Solution to Hub virtual network traffic flow." border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
@@ -92,7 +92,7 @@ A second level of traffic segmentation using the network security groups within 
 
 ### Application Gateway
 
-Azure Application Gateway V1 and V2 have been tested with web apps that run on Azure VMware Solution VMs as a backend pool. Application Gateway is currently the only supported method to expose web apps running on Azure VMware Solution VMs to the internet. It can also expose the apps to internal users securely.
+Azure Application Gateway V1 and V2 were tested with web apps that run on Azure VMware Solution VMs as a backend pool. Application Gateway is currently the only supported method to expose web apps running on Azure VMware Solution VMs to the internet. It can also expose the apps to internal users securely.
 
 For more information, see the Azure VMware Solution-specific article on [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md).
 
@@ -123,7 +123,7 @@ For Azure DNS resolution, there are two options available:
 
 The best approach is to combine both to provide reliable name resolution for Azure VMware Solution, on-premises, and Azure.
 
-As a general design recommendation, use the existing Active Directory-integrated DNS deployed onto at least two Azure VMs in the Hub virtual network and configured in the Spoke virtual networks to use those Azure DNS servers in the DNS settings.
+A general design recommendation: use the existing Active Directory-integrated DNS deployed onto at least two Azure VMs in the Hub virtual network and configured in the Spoke virtual networks to use those Azure DNS servers in the DNS settings.
 
 You can use Azure Private DNS, where the Azure Private DNS zone links to the virtual network.  The DNS servers are used as hybrid resolvers with conditional forwarding to on-premises or Azure VMware Solution running DNS using customer Azure Private DNS infrastructure.
 
@@ -137,7 +137,7 @@ For identity purposes, the best approach is to deploy at least one domain contro
 
 Additionally, deploy another domain controller on the Azure VMware Solution side to act as identity and DNS source within the vSphere environment.
 
-As a recommended best practice, integrate [AD domain with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
+As a recommended best practice, integrate [AD domain with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad).
 
 <!-- LINKS - external -->
 [Azure Architecture Center]: /azure/architecture/

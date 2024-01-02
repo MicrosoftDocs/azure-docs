@@ -4,9 +4,12 @@ description: Learn the basics of the U-SQL language in Azure Data Lake Analytics
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 12/20/2023
 ---
+
 # Get started with U-SQL in Azure Data Lake Analytics
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 U-SQL is a language that combines declarative SQL with imperative C# to let you process data at any scale. Through the scalable, distributed-query capability of U-SQL, you can efficiently analyze data across relational stores such as Azure SQL Database. With U-SQL, you can process unstructured data by applying schema on read and inserting custom logic and UDFs. Additionally, U-SQL includes extensibility that gives you fine-grained control over how to execute at scale.
 

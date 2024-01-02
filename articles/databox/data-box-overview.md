@@ -3,13 +3,13 @@ title: Microsoft Azure Data Box overview | Microsoft Docs in data
 description: Describes Azure Data Box, a cloud solution that enables you to transfer massive amounts of data into Azure
 services: databox
 documentationcenter: NA
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
 ms.date: 05/06/2022
-ms.author: alkohli
+ms.author: shaas
 ms.custom: references_regions
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
@@ -143,7 +143,7 @@ Throughout the export process, you are notified via email on all status changes.
 
 ## Region availability
 
-Data Box can transfer data based on the region in which service is deployed, the country or region you ship the device to, and the target storage account where you transfer the data.
+Data Box can transfer data based on the region in which service is deployed, the country/region you ship the device to, and the target storage account where you transfer the data.
 
 ### For import
 

@@ -2,14 +2,12 @@
 title: Components of a DDoS response strategy
 description: Learn what how to use Azure DDoS Protection to respond to DDoS attacks.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 06/01/2023
 ms.author: abell
 ---
 
@@ -45,7 +43,7 @@ It's essential that you understand the normal behavior of an application and pre
 
 ## Customer DDoS response team
 
-Creating a DDoS response team is a key step in responding to an attack quickly and effectively. Identify contacts in your organization who will oversee both planning and execution. This DDoS response team should thoroughly understand the Azure DDoS Protection Standard service. Make sure that the team can identify and mitigate an attack by coordinating with internal and external customers, including the Microsoft support team.
+Creating a DDoS response team is a key step in responding to an attack quickly and effectively. Identify contacts in your organization who will oversee both planning and execution. This DDoS response team should thoroughly understand the Azure DDoS Protection service. Make sure that the team can identify and mitigate an attack by coordinating with internal and external customers, including the Microsoft support team.
 
 We recommend that you use simulation exercises as a normal part of your service availability and continuity planning, and these exercises should include scale testing. See [test through simulations](test-through-simulations.md) to learn how to simulate DDoS test traffic against your Azure public endpoints.
 
@@ -55,7 +53,7 @@ Azure DDoS Protection identifies and mitigates DDoS attacks without any user int
 
 ### When to contact Microsoft support
 
-Azure DDoS Protection customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack as well as post-attack analysis. See [DDoS Rapid Response](ddos-rapid-response.md) for more details, including when you should engage the DRR team.
+Azure DDoS Network Protection customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack as well as post-attack analysis. For more details, including when you should engage the DRR team, see [DDoS Rapid Response](ddos-rapid-response.md). Azure DDoS IP Protection customers should create a request to connect with Microsoft support. To learn more, see [Create a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Post-attack steps
 
@@ -71,4 +69,5 @@ If you suspect you're under a DDoS attack, escalate through your normal Azure Su
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
+- Learn how to [configure metric alerts through portal](alerts.md).
+- Learn how to [engage DDoS Rapid Response](ddos-rapid-response.md).

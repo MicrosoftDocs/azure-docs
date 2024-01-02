@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/27/2021
 ms.author: spelluru
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Migrate existing Java Message Service (JMS) 2.0 applications from Apache ActiveMQ to Azure Service Bus
@@ -58,7 +58,7 @@ As part of migrating and modifying your client applications to interact with Azu
 
 #### Authentication and authorization
 
-Azure role-based access control (Azure RBAC), backed by Azure Active Directory, is the preferred authentication mechanism for Service Bus. Because Azure RBAC, or claim-based authentication, isn't currently supported by Apache QPID JMS, however, you should use SAS keys for authentication.
+Azure role-based access control (Azure RBAC), backed by Microsoft Entra ID, is the preferred authentication mechanism for Service Bus. To enable role-based access control, please follow the steps in the [Azure Service Bus JMS 2.0 developer guide](jms-developer-guide.md).
 
 ## Pre-migration
 

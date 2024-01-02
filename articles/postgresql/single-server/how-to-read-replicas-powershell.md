@@ -4,8 +4,8 @@ description: Learn how to set up and manage read replicas in Azure Database for 
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 06/24/2022
 ms.custom: devx-track-azurepowershell
 ---
@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 # How to create and manage read replicas in Azure Database for PostgreSQL using PowerShell
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 In this article, you learn how to create and manage read replicas in the Azure Database for PostgreSQL
 service using PowerShell. To learn more about read replicas, see the
@@ -26,7 +28,7 @@ You can create and manage read replicas using PowerShell.
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed
+- The [Az PowerShell module](/powershell/azure/install-azure-powershell) installed
   locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for PostgreSQL server](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
@@ -78,7 +80,7 @@ By default, read replicas are created with the same server configuration as the 
 
 > [!NOTE]
 > It is recommended that the replica server's configuration should be kept at equal or greater
-> values than the primary to ensure the replica is able to keep up with the master.
+> values than the primary to ensure the replica is able to keep up with the primary.
 
 ### List replicas for a primary server
 

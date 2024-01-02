@@ -10,7 +10,7 @@ Create the following extra app settings by following the same steps for creating
 - *DB_HOST*: Use the *\<database-server-domain-name>* from the copied connection string as the value.
 - *DB_USERNAME*: Use the *\<username>* from the copied connection string as the value.
 - *DB_PASSWORD*: Use the *\<password>* from the copied connection string as the value.
-- *MYSQL_ATTR_SSL_CA*: Use */home/site/wwwroot/ssl/BaltimoreCyberTrustRoot.crt.pem* as the value. 
+- *MYSQL_ATTR_SSL_CA*: Use */home/site/wwwroot/ssl/DigiCertGlobalRootCA.crt.pem* as the value. 
 
     This app setting points to the path of the [TLS/SSL certificate you need to access the MySQL server](../../../mysql/flexible-server/how-to-connect-tls-ssl.md#download-the-public-ssl-certificate). It's included in the sample repository for convenience.
 

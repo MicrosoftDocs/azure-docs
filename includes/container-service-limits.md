@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-author: zr-msft
-ms.service: container-service
+author: mgoedtel
+ms.service: azure-kubernetes-service
 ms.topic: include
-ms.date: 04/06/2021
-ms.author: zarhoads
+ms.date: 04/13/2023
+ms.author: magoedte
 ms.custom: include file
 ---
 
@@ -25,16 +25,16 @@ ms.custom: include file
 
 | Kubernetes Control Plane tier | Limit |  
 | -------------- | :--------------------------------------------- |
-| Paid tier      | Automatically scales out based on the load     |
-| Free tier      | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls   |
+| Standard tier      | Automatically scales Kubernetes API server based on load. Larger control plane component limits and API server/etc instances.    |
+| Free tier      | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls. Recommended node limit of 10 nodes per cluster. Best for experimenting, learning, and simple testing. **Not advised for production/critical workloads**.  |
 
 <!-- LINKS - Internal -->
 
 [Kubenet]: ../articles/aks/concepts-network.md#kubenet-basic-networking
 [Azure CNI]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
 [standard-load-balancer]: ../articles/load-balancer/load-balancer-overview.md
-[node-pool]: ../articles/aks/use-multiple-node-pools.md
-[Contact Support]: https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
+[node-pool]: ../articles/aks/create-node-pools.md
+[Contact Support]: https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
 
 <!-- LINKS - External -->
 

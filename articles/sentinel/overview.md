@@ -19,6 +19,9 @@ Microsoft Sentinel delivers intelligent security analytics and threat intelligen
 
 Microsoft Sentinel is your bird's-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames.
 
+> [!NOTE]
+> Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](../azure-monitor/logs/data-security.md#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes.
+
 - **Collect data at cloud scale** across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
 - **Detect previously undetected threats**, and [minimize false positives](false-positives.md) using Microsoft's analytics and unparalleled threat intelligence.
@@ -39,14 +42,15 @@ To on-board Microsoft Sentinel, you first need to [connect to your data sources]
 
 Microsoft Sentinel comes with many connectors for Microsoft solutions that are available out of the box and provide real-time integration. Some of these connectors include:
 
-- Microsoft sources like Microsoft 365 Defender, Microsoft Defender for Cloud, Office 365, Microsoft Defender for IoT, and more.
-- Azure service sources like Azure Active Directory, Azure Activity, Azure Storage, Azure Key Vault, Azure Kubernetes service, and more.
+- Microsoft sources like Microsoft Defender XDR, Microsoft Defender for Cloud, Office 365, Microsoft Defender for IoT, and more.
+
+- Azure service sources like Microsoft Entra ID, Azure Activity, Azure Storage, Azure Key Vault, Azure Kubernetes service, and more.
 
 Microsoft Sentinel has built-in connectors to the broader security and applications ecosystems for non-Microsoft solutions. You can also use common event format, Syslog, or REST-API to connect your data sources with Microsoft Sentinel.
 
 For more information, see [Find your data connector](data-connectors-reference.md).
 
-:::image type="content" source="media/collect-data/collect-data-page.png" alt-text="Screenshot of the data connectors page in Microsoft Sentinel that shows a list of available connectors.":::
+:::image type="content" source="media/connect-data-sources/open-data-connector-page.png" alt-text="Screenshot of the data connectors page in Microsoft Sentinel that shows a list of available connectors.":::
 
 ## Create interactive reports by using workbooks
 
@@ -70,7 +74,7 @@ To help you reduce noise and minimize the number of alerts you have to review an
 
 Automate your common tasks and [simplify security orchestration with playbooks](tutorial-respond-threats-playbook.md) that integrate with Azure services and your existing tools.
 
-Microsoft Sentinel's automation and orchestration solution provides a highly extensible architecture that enables scalable automation as new technologies and threats emerge. To build playbooks with Azure Logic Apps, you can choose from a growing gallery of built-in playbooks. These include [200+ connectors](../connectors/apis-list.md) for services such as Azure functions. The connectors allow you to apply any custom logic in code like:
+Microsoft Sentinel's automation and orchestration solution provides a highly extensible architecture that enables scalable automation as new technologies and threats emerge. To build playbooks with Azure Logic Apps, you can choose from a constantly expanding gallery with [many hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for various services and systems. These connectors allow you to apply any custom logic in your workflow, for example:
 
 - ServiceNow
 - Jira
@@ -78,8 +82,9 @@ Microsoft Sentinel's automation and orchestration solution provides a highly ext
 - HTTP requests
 - Microsoft Teams
 - Slack
-- Windows Defender ATP
-- Defender for Cloud Apps
+- Microsoft Entra ID
+- Microsoft Defender for Endpoint
+- Microsoft Defender for Cloud Apps
 
 For example, if you use the ServiceNow ticketing system, use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular alert or incident is generated.
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/27/2022
 ms.author: anfdocs
 ---
 # Disable backup functionality for a volume 
@@ -25,6 +25,9 @@ You can disable the backup functionality for a volume if you no longer need the 
 If a volume is deleted but the backup policy wasn’t disabled before the volume deletion, all the backups related to the volume are retained in the Azure storage and will be listed under the associated NetApp account. 
 
 ## Steps
+
+>[!IMPORTANT]
+>Existing backups not assigned to a backup vault must be migrated. You cannot perform any operations on a backup until it has been migrated to a backup vault. To learn how to migrate, see [Manage backup vaults](backup-vault-manage.md#migrate-backups-to-a-backup-vault).
 
 1. Select **Volumes**.
 2. Select the specific volume whose backup functionality you want to disable.
@@ -46,4 +49,3 @@ If a volume is deleted but the backup policy wasn’t disabled before the volume
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
-

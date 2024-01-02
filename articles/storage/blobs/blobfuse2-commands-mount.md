@@ -1,21 +1,19 @@
 ---
-title: How to use the 'blobfuse2 mount' command to mount a Blob Storage container as a file system in Linux, or to display and manage existing mount points (preview). | Microsoft Docs
-titleSuffix: Azure Blob Storage
-description: Learn how to use the 'blobfuse2 mount' command to mount a Blob Storage container as a file system in Linux, or to display and manage existing mount points (preview).
-author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+title: How to use the 'blobfuse2 mount' command to mount a Blob Storage container as a file system in Linux, or to display and manage existing mount points.
+titleSuffix: Azure Storage
+description: Learn how to use the 'blobfuse2 mount' command to mount a Blob Storage container as a file system in Linux, or to display and manage existing mount points.
+author: akashdubey-ms
+ms.service: azure-blob-storage
+ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 10/17/2022
-ms.author: jammart
+ms.date: 12/02/2022
+ms.author: akashdubey
 ms.reviewer: tamram
 ---
 
-# How to use the BlobFuse2 mount command (preview)
+# How to use the BlobFuse2 mount command
 
 Use the `blobfuse2 mount` command to mount a Blob Storage container as a file system in Linux, or to display existing mount points.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Command Syntax
 
@@ -90,22 +88,35 @@ The following flags apply only to command `blobfuse2 mount`:
 1. Mount an individual Azure Blob Storage container to a new directory using the settings from a configuration file, and with foreground mode disabled:
 
     ```bash
-    ~$ mkdir bf2a
-    ~$ blobfuse2 mount ./bf2a --config-file=./config.yaml --foreground=false
-    
-    ~$ blobfuse2 mount list
+    sudo mkdir bf2a
+    sudo blobfuse2 mount ./bf2a --config-file=./config.yaml --foreground=false
+    ```
+    ```bash
+    sudo blobfuse2 mount list
+    ```
+   Example output
+    ```output
     1 : /home/<user>/bf2a
     ```
 
 1. Mount all Blob Storage containers in the storage account specified in the configuration file to the path specified in the command. (Each container will be a subdirectory under the directory specified):
 
     ```bash
-    ~$ mkdir bf2all
-    ~$ blobfuse2 mount all ./bf2all --config-file=./config.yaml
+    sudo mkdir bf2all
+    ```
+    ```bash
+    sudo blobfuse2 mount all ./bf2all --config-file=./config.yaml
+    ```
+    Example output
+    ```output
     Mounting container : blobfuse2a to path : bf2all/blobfuse2a
     Mounting container : blobfuse2b to path : bf2all/blobfuse2b
-    
-    ~$ blobfuse2 mount list
+    ```
+    ```bash
+    sudo blobfuse2 mount list
+    ```
+    Example output
+    ```output
     1 : /home/<user>/bf2all/blobfuse2a
     2 : /home/<user>/bf2all/blobfuse2b
     ```
@@ -113,30 +124,33 @@ The following flags apply only to command `blobfuse2 mount`:
 1. Mount a fast storage device, then mount a Blob Storage container specifying the path to the mounted disk as the BlobFuse2 file caching location:
 
     ```bash
-    ~$ sudo mkdir /mnt/resource/blobfuse2tmp -p
-    ~$ sudo chown <youruser> /mnt/resource/blobfuse2tmp
-    ~$ mkdir bf2a
-    ~$ blobfuse2 mount ./bf2a --config-file=./config.yaml --tmp-path=/mnt/resource/blobfuse2tmp
-    
-    ~$ blobfuse2 mount list
+    sudo mkdir /mnt/resource/blobfuse2tmp -p
+    sudo chown <youruser> /mnt/resource/blobfuse2tmp
+    sudo mkdir bf2a
+    sudo blobfuse2 mount ./bf2a --config-file=./config.yaml --tmp-path=/mnt/resource/blobfuse2tmp
+    ```
+    ```bash
+    blobfuse2 mount list
+    ```
+    ```output
     1 : /home/<user>/bf2a/blobfuse2a
     ```
 
 1. Mount a Blob Storage container in read-only mode and skipping the automatic BlobFuse2 version check:
 
     ```bash
-    blobfuse2 mount ./mount_dir --config-file=./config.yaml --read-only --disable-version-check=true
+    sudo blobfuse2 mount ./mount_dir --config-file=./config.yaml --read-only --disable-version-check=true
     ```
 
 1. Mount a Blob Storage container using an existing configuration file, but override the container name (mounting another container in the same storage account):
 
     ```bash
-    blobfuse2 mount ./mount_dir2 --config-file=./config.yaml --container-name=container2
+    sudo blobfuse2 mount ./mount_dir2 --config-file=./config.yaml --container-name=container2
     ```
 
 ## See also
 
-- [The Blobfuse2 mount all command (preview)](blobfuse2-commands-mount-all.md)
-- [The Blobfuse2 mount list command (preview)](blobfuse2-commands-mount-list.md)
-- [The Blobfuse2 unmount command (preview)](blobfuse2-commands-unmount.md)
-- [The Blobfuse2 mountv1 command (preview)](blobfuse2-commands-mountv1.md)
+- [The Blobfuse2 mount all command](blobfuse2-commands-mount-all.md)
+- [The Blobfuse2 mount list command](blobfuse2-commands-mount-list.md)
+- [The Blobfuse2 unmount command](blobfuse2-commands-unmount.md)
+- [The Blobfuse2 mountv1 command](blobfuse2-commands-mountv1.md)

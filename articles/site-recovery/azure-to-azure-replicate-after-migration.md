@@ -1,11 +1,12 @@
 ---
 title: Set up disaster recovery after migration to Azure with Azure Site Recovery 
 description: This article describes how to prepare machines to set up disaster recovery between Azure regions after migration to Azure using Azure Site Recovery.
-services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-ms.date: 11/14/2019
+ms.custom: devx-track-linux
+ms.topic: how-to
+ms.date: 05/02/2023
 ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Set up disaster recovery for Azure VMs after migration to Azure 
@@ -58,8 +59,16 @@ Install the [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) agen
 
 1. Run this command: **ps -e** to ensure that the Azure agent is running on the Linux VM.
 2. If the process isn't running, restart it by using the following commands:
-    - For Ubuntu: **service walinuxagent start**
-    - For other distributions: **service waagent start**
+    - For Ubuntu/Debian:
+
+     ```bash
+        sudo systemctl enable --now walinuxagent.service
+     ```
+    - For other distributions: 
+    
+    ```bash
+       sudo systemctl enable --now waagent.service
+    ```
 
 
 ## Uninstall the Mobility service

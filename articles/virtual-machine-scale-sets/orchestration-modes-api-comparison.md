@@ -5,9 +5,9 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 11/01/2022
+ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, vmss-flex
+ms.custom: mimckitt, vmss-flex
 ---
 
 # Orchestration modes API comparison 

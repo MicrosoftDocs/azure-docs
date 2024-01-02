@@ -1,7 +1,9 @@
 ---
-title: Monitoring Azure IoT Hub Device Provisioning Service data reference #Required; *your official service name*  
-description: Important reference material needed when you monitor Azure IoT Hub Device Provisioning Service 
+title: Monitoring DPS data reference
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Important reference material needed when you monitor Azure IoT Hub Device Provisioning Service using Azure Monitor
 author: kgremban
+
 ms.topic: reference
 ms.author: kgremban
 ms.service: iot-dps
@@ -68,7 +70,7 @@ DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagn
 | Resource | String | The name forOF the resource where the event took place. For example, "MYEXAMPLEDPS". |
 | ResourceGroup | String | The name of the resource group where the resource is located. |
 | ResourceId | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
-| ResourceProvider | String | The resource provider for the the event. For example, "MICROSOFT.DEVICES". |
+| ResourceProvider | String | The resource provider for the event. For example, "MICROSOFT.DEVICES". |
 | ResourceType | String | The resource type for the event. For example, "PROVISIONINGSERVICES". |
 | ResultDescription | String | Error details for the event if unsuccessful. |
 | ResultSignature | String | HTTP status code for the event if unsuccessful. |

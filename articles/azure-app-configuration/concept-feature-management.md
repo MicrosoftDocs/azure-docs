@@ -4,7 +4,7 @@ description: Turn features on and off using Azure App Configuration
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.custom: devx-track-dotnet, devdivchpfy22
+ms.custom: devdivchpfy22
 ms.topic: conceptual
 ms.date: 08/17/2022
 ---

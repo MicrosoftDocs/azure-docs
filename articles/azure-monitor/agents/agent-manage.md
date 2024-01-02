@@ -4,7 +4,7 @@ description: This article describes the different management tasks that you'll t
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 04/06/2022
+ms.date: 07/06/2023
 ms.reviewer: luki
 ---
 
@@ -20,7 +20,7 @@ Upgrade to the latest release of the Log Analytics agent for Windows and Linux m
 
 | Environment | Installation method | Upgrade method |
 |--------|----------|-------------|
-| Azure VM | Log Analytics agent VM extension for Windows/Linux | The agent is automatically upgraded [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property `autoUpgradeMinorVersion` to **false**. Once deployed, however, the extension won't upgrade minor versions unless redeployed, even with this property set to **true**. Only the Linux agent supports automatic update post deployment with `enableAutomaticUpgrade` property (see [Enable Auto-update for the Linux agent](#enable-auto-update-for-the-linux-agent)). Major version upgrade is always manual (see [VirtualMachineExtensionInner.AutoUpgradeMinorVersion Property](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.fluent.models.virtualmachineextensioninner.autoupgrademinorversion?view=azure-dotnet)). |
+| Azure VM | Log Analytics agent VM extension for Windows/Linux | The agent is automatically upgraded [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property `autoUpgradeMinorVersion` to **false**. Once deployed, however, the extension won't upgrade minor versions unless redeployed, even with this property set to **true**. Only the Linux agent supports automatic update post deployment with `enableAutomaticUpgrade` property (see [Enable Auto-update for the Linux agent](#enable-auto-update-for-the-linux-agent)). Major version upgrade is always manual (see [VirtualMachineExtensionInner.AutoUpgradeMinorVersion Property](/dotnet/api/microsoft.azure.management.compute.fluent.models.virtualmachineextensioninner.autoupgrademinorversion)). |
 | Custom Azure VM images | Manual installation of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent must be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle.|
 | Non-Azure VMs | Manual installation of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent must be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
 
@@ -36,7 +36,7 @@ To download the latest version of the Windows agent from your Log Analytics work
 
 1. In your list of Log Analytics workspaces, select the workspace.
 
-1. In your Log Analytics workspace, select the **Agents Management** tile and then select **Windows Servers**.
+1. In your Log Analytics workspace, select the **Agents** tile and then select **Windows Servers**.
 
 1. On the **Windows Servers** screen, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
 
@@ -352,6 +352,14 @@ Perform the following steps to configure the Log Analytics agent for Linux to re
 1. Restart the OMI server by using the following command:
 
     `sudo /opt/omi/bin/service_control restart`
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How do I stop the Log Analytics agent from communicating with Azure Monitor?
+
+For agents connected to Log Analytics directly, open Control Panel and select **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, remove all workspaces listed. In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics.
 
 ## Next steps
 

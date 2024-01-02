@@ -4,12 +4,13 @@ description: Obtain an overview of your containers, blobs, snapshots, and blob v
 services: storage
 author: normesta
 
-ms.service: storage
-ms.date: 08/16/2021
+ms.service: azure-blob-storage
+ms.date: 02/24/2023
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
-ms.subservice: blobs
+ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Enable Azure Storage blob inventory reports
@@ -63,7 +64,7 @@ You can add, edit, or remove a policy by using the Azure PowerShell module.
 
 1. Open a Windows PowerShell command window.
 
-2. Make sure that you have the latest Azure PowerShell module. See [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+2. Make sure that you have the latest Azure PowerShell module. See [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
@@ -189,4 +190,5 @@ You can add, edit, or remove a policy via the [Azure CLI](/cli/azure/).
 ## Next steps
 
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 - [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

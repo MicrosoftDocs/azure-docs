@@ -1,98 +1,88 @@
 ### YamlMime:Hub
 
 title: Azure Native ISV Services
-summary: Use Azure Native ISV Services to seamlessly provision, manage, and integrate preferred third-party solutions on Azure.
-brand: azure ## Used for color theming of icons and hero area
+summary: Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services are developed and managed by Microsoft and the ISV.
+brand: azure
 
 metadata:
   title: Azure Native ISV Services
-  description: Use Azure Native ISV Services to seamlessly provision, manage, and integrate preferred third-party solutions on Azure. 
+  description: Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services are developed and managed by Microsoft and the ISV.
   author: flang-msft
   ms.topic: hub-page
-  ms.date: 10/10/2022
+  ms.custom:
+    - ignite-2023
+  ms.date: 06/06/2023
   ms.author: franlanglois
-
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What are  Azure Native ISV Services?
-      itemType: overview # controls the icon image and super-title text
+    - title: What are Azure Native ISV Services?
+      itemType: overview
       url: ./overview.md
     - title: Find Azure Native ISV Services 
       itemType: get-started
       url: ./partners.md
 
 productDirectory:
-  title: Our Partners
+  title: Available Services
   items:
     # Card 1
     - title: Elastic
       imageSrc: ./media/index/elastic.svg
       links:
         - url: ./elastic/overview.md
-          text: Build modern search experiences and maximize visibility into health, performance, and security of your infrastructure, applications, and data.
+          text: Build modern search experiences and maximize visibility into the health, performance, and security of your infrastructure, applications, and data.
     # Card 2
     - title: Datadog 
       imageSrc: ./media/index/datadog.svg
       links:
         - url: ./datadog/overview.md
-          text: Monitoring and analytics platform for large scale applications.
+          text: Cloud-scale observability and security for your Azure, hybrid, or multi-cloud environment to troubleshoot quickly, increase uptime, and control costs.
     # Card 3
     - title: Logz.io
       imageSrc: ./media/index/logz.io.svg
       links:
         - url: ./logzio/overview.md
-          text: Observability platform that centralizes log, metric, and tracing analytics.
+          text: Centralize log, metric, and tracing analytics in one observability platform.
   # Card 4
     - title: Dynatrace
       imageSrc: ./media/index/dynatrace.svg
       links:
         - url: ./dynatrace/dynatrace-overview.md
-          text:  Provides deep cloud observability, advanced AIOps, and continuous runtime application security.
+          text:  Get deep cloud observability, advanced AIOps, and continuous runtime application security.
   # Card 5
     - title: Confluent
       imageSrc: ./media/index/confluent.svg
       links:
         - url: ./apache-kafka-confluent-cloud/overview.md
-          text: Deploy a full managed, cloud-native Apache Kafka service.
+          text: Deploy a fully managed, cloud-native Apache Kafka service.
   # Card 6
     - title: NGINX
       imageSrc: ./media/index/nginx.svg
       links:
         - url: ./nginx/nginx-overview.md
-          text: Delivers secure and high performance applications using familiar and trusted load balancing solutions.
+          text: Deliver secure, high-performance applications by using familiar and trusted load-balancing solutions.
   # Card 7
-#    - title: Qumolo
-#      imageSrc: /qumuloa/overview.md
-#      links:
-#        - url: ./qumulo/overview.md
-#         text: 
-  
-
-
-
-# conceptualContent section (optional)
-# conceptualContent:
-# itemType: architecture | concept | deploy | download |
-#           get-started | how-to-guide | learn | overview |
-#           quickstart | reference | tutorial | video |
-#           whats-new
-#  sections:
-# ==========================Section ==================================================
-    # - title: subsectiontitle1 # < 60 chars (optional)
-    #   summary: subsectionsummary1 # optional
-    #   items:
-    #     # Card 1
-    #     - title: Azure Native ISV Service features 
-    #       links:
-    #         - url: ./overview.md#resource-management
-    #           itemType: concept
-    #           text: Resource management
-    #         - url: ./overview.md#vnet-injection
-    #           itemType: concept
-    #           text: VNet injection 
-    #         - url: ./overview.md#integrations
-    #           itemType: concept
-    #           text: Integrations
-
-
+    - title: Qumulo
+      imageSrc: ./media/index/qumulo.svg
+      links:
+        - url: ./qumulo/qumulo-overview.md
+          text: Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
+  # Card 8
+    - title: New Relic
+      imageSrc: ./media/index/new-relic.svg
+      links:
+        - url: ./new-relic/new-relic-overview.md
+          text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.
+  # Card 9
+    - title: Palo Alto Networks
+      imageSrc: ./media/index/palo-alto.svg
+      links:
+        - url: ./palo-alto/palo-alto-overview.md
+          text: Get a next generation firewall solution integrated with Azure that you can use to protect your organization.
+  # Card 10
+    - title: Astro
+      imageSrc: ./media/index/astronomer.svg
+      links:
+        - url: ./astronomer/astronomer-overview.md
+          text: Deploy a fully managed and seamless Apache Airflow on Astro on Azure.

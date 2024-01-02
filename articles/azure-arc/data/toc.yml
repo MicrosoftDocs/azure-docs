@@ -11,6 +11,8 @@ items:
       href: validation-program.md
     - name: Data collection and reporting
       href: privacy-data-collection-and-reporting.md
+    - name: Support policy
+      href: support-policy.md
 - name: Quickstarts
   items:
     - name: Directly connected | Azure portal example
@@ -30,6 +32,8 @@ items:
       href: sizing-guidance.md
     - name: Operate with least privilege
       href: least-privilege.md
+    - name: Automated validation testing
+      href: automated-integration-testing.md
 - name: How-to guides
   items:
     - name: Install tools
@@ -72,6 +76,8 @@ items:
           href: view-billing-data-in-azure.md
         - name: View data controller (portal)
           href: view-data-controller-in-azure-portal.md
+        - name: Backup data controller
+          href: backup-controller-database.md
         - name: Delete resources
           href: delete-azure-resources.md
         - name: Uninstall Azure Arc data controller
@@ -86,6 +92,8 @@ items:
           href: monitor-grafana-kibana.md
         - name: Deploy telemetry router 
           href: deploy-telemetry-router.md
+        - name: Adding Exporters and Pipelines 
+          href: adding-exporters-and-pipelines.md
         - name: Upload to Azure Monitor
           items:
             - name: Upload prerequisites
@@ -120,11 +128,11 @@ items:
           href: troubleshoot-guide.md
         - name: Get logs
           href: troubleshooting-get-logs.md
-- name: Azure Arc-enabled SQL Managed Instance
+- name: SQL Managed Instance enabled by Azure Arc
   items:
     - name: Overview
       items:
-        - name: What is Azure Arc-enabled SQL Managed Instance
+        - name: SQL Managed Instance enabled by Azure Arc
           href: managed-instance-overview.md
         - name: Features
           href: managed-instance-features.md
@@ -148,12 +156,16 @@ items:
           items:
             - name: Configure
               href: configure-managed-instance.md
+            - name: Pod scheduling
+              href: pod-scheduling.md
             - name: Monitor, log analytics, and billing information - portal
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: Reserved capacity
               href: reserved-capacity-overview.md
             - name: Rotate certificates
               href: rotate-user-tls-certificate.md
+            - name: Rotate service managed credentials
+              href: rotate-sql-managed-instance-credentials.md  
             - name: Resize persistent volume (PVC)
               href: resize-persistent-volume-claim.md
             - name: Delete
@@ -192,6 +204,8 @@ items:
                   href: deploy-system-managed-keytab-active-directory-connector.md
                 - name: Customer-managed keytab
                   href: deploy-customer-managed-keytab-active-directory-connector.md
+                - name: Rotate customer-managed keytab
+                  href: rotate-customer-managed-keytab.md
                 - name: Deploy AD connector - CLI
                   href: deploy-active-directory-connector-cli.md
                 - name: Deploy AD connector - portal
@@ -206,10 +220,12 @@ items:
                   href: connect-active-directory-sql-managed-instance.md
             - name: Upgrade connector
               href: upgrade-active-directory-connector.md
-        - name: Transparent data encryption
+        - name: Transparent data encryption (TDE)
           items:
-            - name: Turn on transparent data encryption manually
+            - name: Encrypt a database
               href: configure-transparent-data-encryption-manually.md
+            - name: Configure automatic TDE (preview)
+              href: configure-transparent-data-encryption-sql-managed-instance.md
         - name: Business continuity
           items:
             - name: Overview
@@ -219,9 +235,21 @@ items:
             - name: High availability
               href: managed-instance-high-availability.md
             - name: Disaster recovery
-              href: managed-instance-disaster-recovery.md
+              items:
+                - name: Overview
+                  href: managed-instance-disaster-recovery.md
+                - name: Configure failover group - portal
+                  href: managed-instance-disaster-recovery-portal.md
+                - name: Configure failover group - CLI
+                  href: managed-instance-disaster-recovery-cli.md
             - name: Reprovision replica
               href: reprovision-replica.md
+        - name: Troubleshoot
+          items:
+            - name: General
+              href: troubleshoot-managed-instance.md
+            - name: Configuration
+              href: troubleshoot-managed-instance-configuration.md
 - name: Azure Arc-enabled PostgreSQL (preview) 
   items:
     - name: Overview
@@ -246,8 +274,14 @@ items:
       items:
         - name: Manage
           items:
-            - name: Back up and restore
+            - name: Active Directory
+              items:
+                - name: Deploy PostgresSQL server - CLI
+                  href: deploy-active-directory-postgresql-server-cli.md
+            - name: Automated backup and restore
               href: backup-restore-postgresql.md
+            - name: Restore
+              href: restore-postgresql.md
             - name: Change PostgreSQL port
               href: change-postgresql-port.md
             - name: Configure and scale
@@ -276,7 +310,7 @@ items:
               href: restore-adventureworks-sample-db-into-postgresql-server.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-server.md
-- name: Azure Arc-enabled SQL Server >
+- name: SQL Server enabled by Azure Arc >
   href: /sql/sql-server/azure-arc/overview
 - name: Reference
   items:
@@ -286,11 +320,9 @@ items:
     href: about-arcdata-extension.md
 - name: Resources
   items:
+    - name: FAQ
+      href: faq.yml
     - name: Azure Arc Jumpstart
-      href: https://azurearcjumpstart.io
+      href: https://aka.ms/AzureArcJumpstart
     - name: Pre-release testing
       href: preview-testing.md
-    - name: Support policy
-      href: support-policy.md
-    - name: Automated validation testing
-      href: automated-integration-testing.md

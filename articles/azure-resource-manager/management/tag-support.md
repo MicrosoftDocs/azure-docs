@@ -310,12 +310,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | DataControllers | Yes | Yes |
+> | DataControllers | Yes | No |
 > | DataControllers / ActiveDirectoryConnectors | No | No |
-> | PostgresInstances | Yes | Yes |
-> | SqlManagedInstances | Yes | Yes |
-> | SqlServerInstances | Yes | Yes |
-> | SqlServerInstances / Databases | Yes | Yes |
+> | PostgresInstances | Yes | No |
+> | SqlManagedInstances | Yes | No |
+> | SqlServerInstances | Yes | No |
+> | SqlServerInstances / Databases | Yes | No |
+> | SqlServerInstances / AvailabilityGroups | Yes | No |
 
 ## Microsoft.AzureCIS
 
@@ -325,27 +326,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | autopilotEnvironments | Yes | Yes |
 > | dstsServiceAccounts | Yes | Yes |
 > | dstsServiceClientIdentities | Yes | Yes |
-
-## Microsoft.AzureData
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | sqlServerRegistrations | Yes | Yes |
-> | sqlServerRegistrations / sqlServers | No | No |
-
-## Microsoft.AzurePercept
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
-> | accounts / devices | No | No |
-> | accounts / devices / sensors | No | No |
-> | accounts / sensors | No | No |
-> | accounts / solutioninstances | No | No |
-> | accounts / solutions | No | No |
-> | accounts / targets | No | No |
 
 ## Microsoft.AzureScan
 
@@ -671,7 +651,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | CdnWebApplicationFirewallPolicies | Yes | Yes |
 > | edgenodes | No | No |
 > | migrate | No | No |
-> | profiles | Yes | Yes |
+> | profiles | Yes | No |
 > | profiles / afdendpoints | Yes | Yes |
 > | profiles / afdendpoints / routes | No | No |
 > | profiles / customdomains | No | No |
@@ -2325,6 +2305,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | expressRouteProviderPorts | No | No |
 > | expressRouteServiceProviders | No | No |
 > | firewallPolicies | Yes, see [note below](#network-limitations) | Yes |
+> | firewallPolicies / ruleCollectionGroups | No | No |
 > | frontdoors | Yes, but limited (see [note below](#network-limitations)) | Yes |
 > | frontdoors / frontendEndpoints | Yes, but limited (see [note below](#network-limitations)) | No |
 > | frontdoors / frontendEndpoints / customHttpsConfiguration | Yes, but limited (see [note below](#network-limitations)) | No |
@@ -2335,6 +2316,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | internalPublicIpAddresses | No | No |
 > | ipGroups | Yes | Yes |
 > | loadBalancers | Yes | Yes |
+> | loadBalancers / backendAddressPools | No | No |
 > | localNetworkGateways | Yes | Yes |
 > | natGateways | Yes | Yes |
 > | networkExperimentProfiles | Yes | Yes |
@@ -2344,6 +2326,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkManagers | Yes | Yes |
 > | networkProfiles | Yes | Yes |
 > | networkSecurityGroups | Yes | Yes |
+> | networkSecurityGroups / securityRules | No | No |
 > | networkSecurityPerimeters | Yes | Yes |
 > | networkVirtualAppliances | Yes | Yes |
 > | networkWatchers | Yes | Yes |
@@ -2372,6 +2355,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | publicIPPrefixes | Yes | Yes |
 > | routeFilters | Yes | Yes |
 > | routeTables | Yes | Yes |
+> | routeTables / routes | No | No |
 > | securityPartnerProviders | Yes | Yes |
 > | serviceEndpointPolicies | Yes | Yes |
 > | trafficManagerGeographicHierarchies | No | No |
@@ -2385,6 +2369,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | virtualNetworkGateways | Yes | Yes |
 > | virtualNetworks | Yes | Yes |
 > | virtualNetworks / privateDnsZoneLinks | No | No |
+> | virtualNetworks / subnets | No | No |
 > | virtualNetworks / taggedTrafficConsumers | No | No |
 > | virtualNetworkTaps | Yes | Yes |
 > | virtualRouters | Yes | Yes |
@@ -2398,7 +2383,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!NOTE]
 > For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported. Front Door doesn't support the use of # or : in the tag name.
 > 
-> Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number. Azure DNS tag names do not support special and unicode characters. The value can contain all characters.
+> Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number. Azure DNS and Traffic Manager tag names do not support special and unicode characters. The value can contain all characters.
 > 
 > Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az-network-ip-group-update) command.
 
@@ -3027,6 +3012,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | managedInstances / databases | Yes | No |
 > | managedInstances / databases / advancedThreatProtectionSettings | No | No |
 > | managedInstances / databases / backupLongTermRetentionPolicies | No | No |
+> | managedInstances / databases / LongTermRetentionBackups | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |
 > | managedInstances / dnsAliases | No | No |
 > | managedInstances / metricDefinitions | No | No |
@@ -3054,6 +3040,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / databases / auditRecords | No | No |
 > | servers / databases / automaticTuning | No | No |
 > | servers / databases / backupLongTermRetentionPolicies | No | No |
+> | servers / databases / LongTermRetentionBackups | No | No |
 > | servers / databases / backupShortTermRetentionPolicies | No | No |
 > | servers / databases / databaseState | No | No |
 > | servers / databases / dataMaskingPolicies | No | No |
@@ -3108,13 +3095,15 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / usages | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / vulnerabilityAssessments | No | No |
-> | virtualClusters | No | No |
+> | virtualClusters | Yes | No |
 
 <a id="sqlnote"></a>
 
 > [!NOTE]
 > The Master database doesn't support tags, but other databases, including Azure Synapse Analytics databases, support tags. Azure Synapse Analytics databases must be in Active (not Paused) state.
 
+> [!NOTE]
+> Only Virtual Clusters with version 2.0 support tags. Minimal required API version for configuring tags is 2022-05-01.
 
 ## Microsoft.SqlVirtualMachine
 
@@ -3460,3 +3449,4 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Next steps
 
 To learn how to apply tags to resources, see [Use tags to organize your Azure resources](tag-resources.md).
+

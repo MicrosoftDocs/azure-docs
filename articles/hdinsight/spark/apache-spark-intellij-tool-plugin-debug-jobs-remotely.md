@@ -4,7 +4,7 @@ description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ to r
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 05/30/2022
+ms.date: 06/09/2023
 ---
 
 # Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely in HDInsight through VPN

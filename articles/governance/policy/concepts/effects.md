@@ -1,11 +1,12 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-author: timwarner-msft
-ms.date: 10/20/2022
+author: davidsmatlak
+ms.date: 12/19/2023
 ms.topic: conceptual
-ms.author: timwarner
+ms.author: davidsmatlak
 ---
+
 # Understand Azure Policy effects
 
 Each policy definition in Azure Policy has a single effect. That effect determines what happens when
@@ -14,25 +15,27 @@ resource, an updated resource, or an existing resource.
 
 These effects are currently supported in a policy definition:
 
+- [AddToNetworkGroup](#addtonetworkgroup)
 - [Append](#append)
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
+- [DenyAction](#denyaction)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
-- [Manual (preview)](#manual-preview)
+- [Manual](#manual)
 - [Modify](#modify)
+- [Mutate](#mutate-preview)
 
-The following effects are _deprecated_:
+## Interchanging effects
 
-- [EnforceOPAConstraint](#enforceopaconstraint)
-- [EnforceRegoPolicy](#enforceregopolicy)
+Sometimes multiple effects can be valid for a given policy definition. Parameters are often used to specify allowed effect values so that a single definition can be more versatile. However, it's important to note that not all effects are interchangeable. Resource properties and logic in the policy rule can determine whether a certain effect is considered valid to the policy definition. For example, policy definitions with effect **AuditIfNotExists** require other details in the policy rule that aren't required for policies with effect **Audit**. The effects also behave differently. **Audit** policies assess a resource's compliance based on its own properties, while **AuditIfNotExists** policies assess a resource's compliance based on a child or extension resource's properties.
 
-> [!IMPORTANT]
-> In place of the **EnforceOPAConstraint** or **EnforceRegoPolicy** effects, use _audit_ and
-> _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`. The built-in policy definitions
-> have been updated. When existing policy assignments of these built-in policy definitions are
-> modified, the _effect_ parameter must be changed to a value in the updated _allowedValues_ list.
+The following list is some general guidance around interchangeable effects:
+- **Audit**, **Deny**, and either **Modify** or **Append** are often interchangeable.
+- **AuditIfNotExists** and **DeployIfNotExists** are often interchangeable.
+- **Manual** isn't interchangeable.
+- **Disabled** is interchangeable with any effect.
 
 ## Order of evaluation
 
@@ -47,22 +50,33 @@ manages the evaluation and outcome and reports the results back to Azure Policy.
 
 - **Disabled** is checked first to determine whether the policy rule should be evaluated.
 - **Append** and **Modify** are then evaluated. Since either could alter the request, a change made
-  may prevent an audit or deny effect from triggering. These effects are only available with a
+  might prevent an audit or deny effect from triggering. These effects are only available with a
   Resource Manager mode.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired
   resource is prevented.
-- **Audit** is evaluated last.
+- **Audit** is evaluated.
+- **Manual** is evaluated.
+- **AuditIfNotExists** is evaluated.
+- **denyAction** is evaluated last.
 
 After the Resource Provider returns a success code on a Resource Manager mode request,
-**AuditIfNotExists** and **DeployIfNotExists** evaluate to determine whether additional compliance
+**AuditIfNotExists** and **DeployIfNotExists** evaluate to determine whether more compliance
 logging or action is required.
 
-Additionally, `PATCH` requests that only modify `tags` related fields restricts policy evaluation to
+`PATCH` requests that only modify `tags` related fields restricts policy evaluation to
 policies containing conditions that inspect `tags` related fields.
+
+## AddToNetworkGroup
+
+AddToNetworkGroup is used in Azure Virtual Network Manager to define dynamic network group membership. This effect is specific to _Microsoft.Network.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
+
+With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The addToNetworkGroup effect is used to place resources in the destination network group.
+
+To learn more, go to [Configuring Azure Policy with network groups in Azure Virtual Network Manager](../../../virtual-network-manager/concept-azure-policy-integration.md).
 
 ## Append
 
-Append is used to add additional fields to the requested resource during creation or update. A
+Append is used to add more fields to the requested resource during creation or update. A
 common example is specifying allowed IPs for a storage resource.
 
 > [!IMPORTANT]
@@ -75,7 +89,7 @@ Append evaluates before the request gets processed by a Resource Provider during
 updating of a resource. Append adds fields to the resource when the **if** condition of the policy
 rule is met. If the append effect would override a value in the original request with a different
 value, then it acts as a deny effect and rejects the request. To append a new value to an existing
-array, use the **\[\*\]** version of the alias.
+array, use the `[*]` version of the alias.
 
 When a policy definition using the append effect is run as part of an evaluation cycle, it doesn't
 make changes to resources that already exist. Instead, it marks any resource that meets the **if**
@@ -89,39 +103,45 @@ take either a single **field/value** pair or multiples. Refer to
 
 ### Append examples
 
-Example 1: Single **field/value** pair using a non-**\[\*\]**
+Example 1: Single **field/value** pair using a non-`[*]`
 [alias](definition-structure.md#aliases) with an array **value** to set IP rules on a storage
-account. When the non-**\[\*\]** alias is an array, the effect appends the **value** as the entire
+account. When the non-`[*]` alias is an array, the effect appends the **value** as the entire
 array. If the array already exists, a deny event occurs from the conflict.
 
 ```json
 "then": {
-    "effect": "append",
-    "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-        "value": [{
-            "action": "Allow",
-            "value": "134.5.0.0/21"
-        }]
-    }]
+  "effect": "append",
+  "details": [
+    {
+      "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+      "value": [
+        {
+          "action": "Allow",
+          "value": "134.5.0.0/21"
+        }
+      ]
+    }
+  ]
 }
 ```
 
-Example 2: Single **field/value** pair using an **\[\*\]** [alias](definition-structure.md#aliases)
-with an array **value** to set IP rules on a storage account. By using the **\[\*\]** alias, the
+Example 2: Single **field/value** pair using an `[*]` [alias](definition-structure.md#aliases)
+with an array **value** to set IP rules on a storage account. When you use the `[*]` alias, the
 effect appends the **value** to a potentially pre-existing array. If the array doesn't exist yet,
 it's created.
 
 ```json
 "then": {
-    "effect": "append",
-    "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
-        "value": {
-            "value": "40.40.40.40",
-            "action": "Allow"
-        }
-    }]
+  "effect": "append",
+  "details": [
+    {
+      "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+      "value": {
+        "value": "40.40.40.40",
+        "action": "Allow"
+      }
+    }
+  ]
 }
 ```
 
@@ -141,11 +161,11 @@ resource is updated.
 
 ### Audit properties
 
-For a Resource Manager mode, the audit effect doesn't have any additional properties for use in the
+For a Resource Manager mode, the audit effect doesn't have any other properties for use in the
 **then** condition of the policy definition.
 
 For a Resource Provider mode of `Microsoft.Kubernetes.Data`, the audit effect has the following
-additional subproperties of **details**. Use of `templateInfo` is required for new or updated policy
+subproperties of **details**. Use of `templateInfo` is required for new or updated policy
 definitions as `constraintTemplate` is deprecated.
 
 - **templateInfo** (required)
@@ -157,36 +177,53 @@ definitions as `constraintTemplate` is deprecated.
       location must be publicly accessible.
 
       > [!WARNING]
-      > Don't use SAS URIs, URL tokens, or or anything else that could expose secrets in plain text.
+      > Don't use SAS URIs, URL tokens, or anything else that could expose secrets in plain text.
 
     - If _Base64Encoded_, paired with property `content` to provide the base 64 encoded constraint
       template. See
       [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to
       create a custom definition from an existing
-      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) Gatekeeper v3
       [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
 - **constraint** (deprecated)
   - Can't be used with `templateInfo`.
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
     `{{ .Values.<valuename> }}`. In example 2 below, these values are
     `{{ .Values.excludedNamespaces }}` and `{{ .Values.allowedContainerImagesRegex }}`.
+- **constraintTemplate** (deprecated)
+  - Can't be used with `templateInfo`.
+  - Must be replaced with `templateInfo` when creating or updating a policy definition.
+  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
+    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
+    passed via **values** from Azure Policy. For more information, go to [Gatekeeper constraints](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints).
+- **constraintInfo** (optional)
+  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, `kinds`, `scope`, `namespaces`, `excludedNamespaces`, or `labelSelector`.
+  - If `constraintInfo` isn't provided, the constraint can be generated from `templateInfo` and policy.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the constraint. The location must be publicly accessible.
+
+      > [!WARNING]
+      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
 - **namespaces** (optional)
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
     to limit policy evaluation to.
-  - An empty or missing value causes policy evaluation to include all namespaces, except those
+  - An empty or missing value causes policy evaluation to include all namespaces not
     defined in _excludedNamespaces_.
-- **excludedNamespaces** (required)
+- **excludedNamespaces** (optional)
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
     to exclude from policy evaluation.
-- **labelSelector** (required)
+- **labelSelector** (optional)
   - An _object_ that includes _matchLabels_ (object) and _matchExpression_ (array) properties to
     allow specifying which Kubernetes resources to include for policy evaluation that matched the
     provided
     [labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
   - An empty or missing value causes policy evaluation to include all labels and selectors, except
     namespaces defined in _excludedNamespaces_.
+- **scope** (optional)
+  - A _string_ that includes the [scope](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#the-match-field) property to allow specifying if cluster-scoped or namespaced-scoped resources are matched.
 - **apiGroups** (required when using _templateInfo_)
   - An _array_ that includes the
     [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
@@ -198,14 +235,7 @@ definitions as `constraintTemplate` is deprecated.
     of Kubernetes object to limit evaluation to.
   - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
-  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
-    Constraint template CRD.
-- **constraintTemplate** (deprecated)
-  - Can't be used with `templateInfo`.
-  - Must be replaced with `templateInfo` when creating or updating a policy definition.
-  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
-    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
-    passed via **values** from Azure Policy.
+  - Defines any parameters and values to pass to the Constraint. Each value must exist and match a property in the validation openAPIV3Schema section of the Constraint template CRD.
 
 ### Audit example
 
@@ -213,7 +243,7 @@ Example 1: Using the audit effect for Resource Manager modes.
 
 ```json
 "then": {
-    "effect": "audit"
+  "effect": "audit"
 }
 ```
 
@@ -223,18 +253,22 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 
 ```json
 "then": {
-    "effect": "audit",
-    "details": {
-        "templateInfo": {
-            "sourceType": "PublicURL",
-            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
-        },
-        "values": {
-            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
-        },
-        "apiGroups": [""],
-        "kinds": ["Pod"]
-    }
+  "effect": "audit",
+  "details": {
+    "templateInfo": {
+      "sourceType": "PublicURL",
+      "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+    },
+    "values": {
+      "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+    },
+    "apiGroups": [
+      ""
+    ],
+    "kinds": [
+      "Pod"
+    ]
+  }
 }
 ```
 
@@ -268,6 +302,15 @@ related resources to match.
   - When the condition values for **if.field.type** and **then.details.type** match, then **Name**
     becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
     However, an [audit](#audit) effect should be considered instead.
+
+> [!NOTE]
+>
+> **Type** and **Name** segments can be combined to generically retrieve nested resources.
+>
+> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`.
+>
+> To retrieve a collection of nested resources, a wildcard character `?` can be provided in place of the last name segment. For example, `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/?"`. This can be combined with field functions to access resources related to the evaluated resource, such as `"name": "[concat(field('name'), '/?')]"`."
+
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -276,8 +319,7 @@ related resources to match.
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the scope of where to fetch the related resource to match from.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
-  - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
-    resource group specified in **ResourceGroupName**.
+  - For _ResourceGroup_, would limit to the resource group in **ResourceGroupName** if specified. If **ResourceGroupName** isn't specified, would limit to the **if** condition resource's resource group, which is the default behavior.
   - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
@@ -290,7 +332,7 @@ related resources to match.
     complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
     failure when determining _AfterProvisioning_ evaluation delays.
   - Default is `PT10M` (10 minutes).
-  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+  - Specifying a long evaluation delay might cause the recorded compliance state of the resource to
     not update until the next
     [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
@@ -311,27 +353,28 @@ audits when missing.
 
 ```json
 {
-    "if": {
-        "field": "type",
-        "equals": "Microsoft.Compute/virtualMachines"
-    },
-    "then": {
-        "effect": "auditIfNotExists",
-        "details": {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "existenceCondition": {
-                "allOf": [{
-                        "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
-                        "equals": "Microsoft.Azure.Security"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/extensions/type",
-                        "equals": "IaaSAntimalware"
-                    }
-                ]
-            }
-        }
+  "if": {
+    "field": "type",
+    "equals": "Microsoft.Compute/virtualMachines"
+  },
+  "then": {
+    "effect": "auditIfNotExists",
+    "details": {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "existenceCondition": {
+        "allOf": [
+          {
+            "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+            "equals": "Microsoft.Azure.Security"
+          },
+          {
+            "field": "Microsoft.Compute/virtualMachines/extensions/type",
+            "equals": "IaaSAntimalware"
+          }
+        ]
+      }
     }
+  }
 }
 ```
 
@@ -353,11 +396,11 @@ non-compliant.
 
 ### Deny properties
 
-For a Resource Manager mode, the deny effect doesn't have any additional properties for use in the
+For a Resource Manager mode, the deny effect doesn't have any more properties for use in the
 **then** condition of the policy definition.
 
 For a Resource Provider mode of `Microsoft.Kubernetes.Data`, the deny effect has the following
-additional subproperties of **details**. Use of `templateInfo` is required for new or updated policy
+subproperties of **details**. Use of `templateInfo` is required for new or updated policy
 definitions as `constraintTemplate` is deprecated.
 
 - **templateInfo** (required)
@@ -375,18 +418,33 @@ definitions as `constraintTemplate` is deprecated.
       template. See
       [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to
       create a custom definition from an existing
-      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
+      [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) Gatekeeper v3
       [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
 - **constraint** (optional)
   - Can't be used with `templateInfo`.
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
     `{{ .Values.<valuename> }}`. In example 2 below, these values are
     `{{ .Values.excludedNamespaces }}` and `{{ .Values.allowedContainerImagesRegex }}`.
+- **constraintTemplate** (deprecated)
+  - Can't be used with `templateInfo`.
+  - Must be replaced with `templateInfo` when creating or updating a policy definition.
+  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
+    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
+    passed via **values** from Azure Policy. For more information, go to [Gatekeeper constraints](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints).
+- **constraintInfo** (optional)
+  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, or `kinds`.
+  - If `constraintInfo` isn't provided, the constraint can be generated from `templateInfo` and policy.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the constraint. The location must be publicly accessible.
+
+      > [!WARNING]
+      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
 - **namespaces** (optional)
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
     to limit policy evaluation to.
-  - An empty or missing value causes policy evaluation to include all namespaces, except those
+  - An empty or missing value causes policy evaluation to include all namespaces, except the ones
     defined in _excludedNamespaces_.
 - **excludedNamespaces** (required)
   - An _array_ of
@@ -412,13 +470,6 @@ definitions as `constraintTemplate` is deprecated.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
-- **constraintTemplate** (deprecated)
-  - Can't be used with `templateInfo`.
-  - Must be replaced with `templateInfo` when creating or updating a policy definition.
-  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
-    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
-    passed via **values** from Azure Policy. It's recommended to use the newer `templateInfo` to
-    replace `constraintTemplate`.
 
 ### Deny example
 
@@ -426,7 +477,7 @@ Example 1: Using the deny effect for Resource Manager modes.
 
 ```json
 "then": {
-    "effect": "deny"
+  "effect": "deny"
 }
 ```
 
@@ -436,18 +487,92 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 
 ```json
 "then": {
-    "effect": "deny",
+  "effect": "deny",
+  "details": {
+    "templateInfo": {
+      "sourceType": "PublicURL",
+      "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+    },
+    "values": {
+      "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+    },
+    "apiGroups": [
+      ""
+    ],
+    "kinds": [
+      "Pod"
+    ]
+  }
+}
+```
+
+## DenyAction
+
+`DenyAction` is used to block requests based on intended action to resources at scale. The only supported action today is `DELETE`. This effect and action name helps prevent any accidental deletion of critical resources.
+
+### DenyAction evaluation
+
+When a request call with an applicable action name and targeted scope is submitted, `denyAction` prevents the request from succeeding. The request is returned as a `403 (Forbidden)`. In the portal, the Forbidden can be viewed as a status on the deployment that was prevented by the policy
+assignment.
+
+`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, `Microsoft.Resources/subscriptions` and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
+
+#### Subscription deletion
+
+Policy doesn't block removal of resources that happens during a subscription deletion.
+
+#### Resource group deletion
+
+Policy evaluates resources that support location and tags against `DenyAction` policies during a resource group deletion. Only policies that have the `cascadeBehaviors` set to `deny` in the policy rule block a resource group deletion. Policy doesn't block removal of resources that don't support location and tags nor any policy with `mode:all`.
+
+#### Cascade deletion
+
+Cascade deletion occurs when deleting of a parent resource is implicitly deletes all its child resources. Policy doesn't block removal of child resources when a delete action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implicitly delete the diagnostic setting (child).
+
+[!INCLUDE [policy-denyAction](../../../../includes/azure-policy-deny-action.md)]
+
+### DenyAction properties
+
+The **details** property of the DenyAction effect has all the subproperties that define the action and behaviors.
+
+- **actionNames** (required)
+  - An _array_  that specifies what actions to prevent from being executed.
+  - Supported action names are: `delete`.
+- **cascadeBehaviors** (optional)
+  - An _object_ that defines what behavior will be followed when the resource is being implicitly deleted by the removal of a resource group.
+  - Only supported in policy definitions with [mode](./definition-structure.md#resource-manager-modes) set to `indexed`.
+  - Allowed values are `allow` or `deny`.
+  - Default value is `deny`.
+
+### DenyAction example
+
+Example: Deny any delete calls targeting database accounts that have a tag environment that equals prod. Since cascade behavior is set to deny, block any `DELETE` call that targets a resource group with an applicable database account.
+
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.DocumentDb/accounts"
+      },
+      {
+        "field": "tags.environment",
+        "equals": "prod"
+      }
+    ]
+  },
+  "then": {
+    "effect": "denyAction",
     "details": {
-        "templateInfo": {
-            "sourceType": "PublicURL",
-            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
-        },
-        "values": {
-            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
-        },
-        "apiGroups": [""],
-        "kinds": ["Pod"]
+      "actionNames": [
+        "delete"
+      ],
+      "cascadeBehaviors": {
+        "resourceGroup": "deny"
+      }
     }
+  }
 }
 ```
 
@@ -489,6 +614,15 @@ related resources to match and the template deployment to execute.
     resource instead of all resources of the specified type.
   - When the condition values for **if.field.type** and **then.details.type** match, then **Name**
     becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
+
+> [!NOTE]
+>
+> **Type** and **Name** segments can be combined to generically retrieve nested resources.
+>
+> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`.
+>
+> To retrieve a collection of nested resources, a wildcard character `?` can be provided in place of the last name segment. For example, `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/?"`. This can be combined with field functions to access resources related to the evaluated resource, such as `"name": "[concat(field('name'), '/?')]"`."
+
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -498,8 +632,7 @@ related resources to match and the template deployment to execute.
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the scope of where to fetch the related resource to match from.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
-  - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
-    resource group specified in **ResourceGroupName**.
+  - For _ResourceGroup_, would limit to the resource group in **ResourceGroupName** if specified. If **ResourceGroupName** isn't specified, would limit to the **if** condition resource's resource group, which is the default behavior.
   - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation.
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
@@ -512,7 +645,7 @@ related resources to match and the template deployment to execute.
     complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
     failure when determining _AfterProvisioning_ evaluation delays.
   - Default is `PT10M` (10 minutes).
-  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+  - Specifying a long evaluation delay might cause the recorded compliance state of the resource to
     not update until the next
     [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
@@ -554,56 +687,58 @@ related resources to match and the template deployment to execute.
 
 ### DeployIfNotExists example
 
-Example: Evaluates SQL Server databases to determine whether transparentDataEncryption is enabled.
+Example: Evaluates SQL Server databases to determine whether `transparentDataEncryption` is enabled.
 If not, then a deployment to enable is executed.
 
 ```json
 "if": {
-    "field": "type",
-    "equals": "Microsoft.Sql/servers/databases"
+  "field": "type",
+  "equals": "Microsoft.Sql/servers/databases"
 },
 "then": {
-    "effect": "DeployIfNotExists",
-    "details": {
-        "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-        "name": "current",
-        "evaluationDelay": "AfterProvisioning",
-        "roleDefinitionIds": [
-            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-            "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-        ],
-        "existenceCondition": {
-            "field": "Microsoft.Sql/transparentDataEncryption.status",
-            "equals": "Enabled"
-        },
-        "deployment": {
-            "properties": {
-                "mode": "incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {
-                        "fullDbName": {
-                            "type": "string"
-                        }
-                    },
-                    "resources": [{
-                        "name": "[concat(parameters('fullDbName'), '/current')]",
-                        "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-                        "apiVersion": "2014-04-01",
-                        "properties": {
-                            "status": "Enabled"
-                        }
-                    }]
-                },
-                "parameters": {
-                    "fullDbName": {
-                        "value": "[field('fullName')]"
-                    }
-                }
+  "effect": "deployIfNotExists",
+  "details": {
+    "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+    "name": "current",
+    "evaluationDelay": "AfterProvisioning",
+    "roleDefinitionIds": [
+      "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+      "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ],
+    "existenceCondition": {
+      "field": "Microsoft.Sql/transparentDataEncryption.status",
+      "equals": "Enabled"
+    },
+    "deployment": {
+      "properties": {
+        "mode": "incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "fullDbName": {
+              "type": "string"
             }
+          },
+          "resources": [
+            {
+              "name": "[concat(parameters('fullDbName'), '/current')]",
+              "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+              "apiVersion": "2014-04-01",
+              "properties": {
+                "status": "Enabled"
+              }
+            }
+          ]
+        },
+        "parameters": {
+          "fullDbName": {
+            "value": "[field('fullName')]"
+          }
         }
+      }
     }
+  }
 }
 ```
 
@@ -617,143 +752,16 @@ of that policy's assignments.
 > Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
 
 An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
+When **enforcementMode** is **Disabled**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
-## EnforceOPAConstraint
+## Manual
 
-This effect is used with a policy definition _mode_ of `Microsoft.Kubernetes.Data`. It's used to
-pass Gatekeeper v3 admission control rules defined with
-[OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
-to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
-
-> [!IMPORTANT]
-> The limited preview policy definitions with **EnforceOPAConstraint** effect and the related
-> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
-> Resource Provider mode `Microsoft.Kubernetes.Data`.
-
-### EnforceOPAConstraint evaluation
-
-The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
-
-### EnforceOPAConstraint properties
-
-The **details** property of the EnforceOPAConstraint effect has the subproperties that describe the
-Gatekeeper v3 admission control rule.
-
-- **constraintTemplate** (required)
-  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
-    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
-    passed via **values** from Azure Policy.
-- **constraint** (required)
-  - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
-    `{{ .Values.<valuename> }}`. In the following example, these values are `{{ .Values.cpuLimit }}`
-    and `{{ .Values.memoryLimit }}`.
-- **values** (optional)
-  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
-    Constraint template CRD.
-
-### EnforceOPAConstraint example
-
-Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in
-Kubernetes.
-
-```json
-"if": {
-    "allOf": [
-        {
-            "field": "type",
-            "in": [
-                "Microsoft.ContainerService/managedClusters",
-                "AKS Engine"
-            ]
-        },
-        {
-            "field": "location",
-            "equals": "westus2"
-        }
-    ]
-},
-"then": {
-    "effect": "enforceOPAConstraint",
-    "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/constraint.yaml",
-        "values": {
-            "cpuLimit": "[parameters('cpuLimit')]",
-            "memoryLimit": "[parameters('memoryLimit')]"
-        }
-    }
-}
-```
-
-## EnforceRegoPolicy
-
-This effect is used with a policy definition _mode_ of `Microsoft.ContainerService.Data`. It's used
-to pass Gatekeeper v2 admission control rules defined with
-[Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) to
-[Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
-[Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
-
-> [!IMPORTANT]
-> The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
-> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
-> Resource Provider mode `Microsoft.Kubernetes.Data`.
-
-### EnforceRegoPolicy evaluation
-
-The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
-
-### EnforceRegoPolicy properties
-
-The **details** property of the EnforceRegoPolicy effect has the subproperties that describe the
-Gatekeeper v2 admission control rule.
-
-- **policyId** (required)
-  - A unique name passed as a parameter to the Rego admission control rule.
-- **policy** (required)
-  - Specifies the URI of the Rego admission control rule.
-- **policyParameters** (optional)
-  - Defines any parameters and values to pass to the rego policy.
-
-### EnforceRegoPolicy example
-
-Example: Gatekeeper v2 admission control rule to allow only the specified container images in AKS.
-
-```json
-"if": {
-    "allOf": [
-        {
-            "field": "type",
-            "equals": "Microsoft.ContainerService/managedClusters"
-        },
-        {
-            "field": "location",
-            "equals": "westus2"
-        }
-    ]
-},
-"then": {
-    "effect": "EnforceRegoPolicy",
-    "details": {
-        "policyId": "ContainerAllowedImages",
-        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
-        "policyParameters": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
-        }
-    }
-}
-```
-
-## Manual (preview)
-
-The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope which defines the boundary of resources whose compliance need attesting.
+The new `manual` effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope that defines the boundary of resources whose compliance need attesting.
 
 > [!NOTE]
-> During Public Preview, support for manual policy is available through various Microsoft Defender
+> Support for manual policy is available through various Microsoft Defender
 > for Cloud regulatory compliance initiatives. If you are a Microsoft Defender for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/) customer, refer to their experience overview.
 
 Currently, the following regulatory policy initiatives include policy definitions containing the manual effect:
@@ -778,7 +786,7 @@ The following example targets Azure subscriptions and sets the initial complianc
 ```json
 {
   "if": {
-    "field":  "type",
+    "field": "type",
     "equals": "Microsoft.Resources/subscriptions"
   },
   "then": {
@@ -818,10 +826,9 @@ operations. Policy assignments with effect set as Modify require a [managed iden
 
 The following operations are supported by Modify:
 
-- Add, replace, or remove resource tags. For tags, a Modify policy should have `mode` set to
-  _Indexed_ unless the target resource is a resource group.
+- Add, replace, or remove resource tags. For tags, a Modify policy should have [mode](./definition-structure.md#resource-manager-modes) set to `indexed` unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
-  virtual machine scale sets.
+  Virtual Machine Scale Sets. You can only modify the `identity.type` for virtual machines or Virtual Machine Scale Sets.
 - Add or replace the values of certain aliases.
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
@@ -829,7 +836,7 @@ The following operations are supported by Modify:
 
 > [!IMPORTANT]
 > If you're managing tags, it's recommended to use Modify instead of Append as Modify provides
-> additional operation types and the ability to remediate existing resources. However, Append is
+> more operation types and the ability to remediate existing resources. However, Append is
 > recommended if you aren't able to create a managed identity or Modify doesn't yet support the
 > alias for the resource property.
 
@@ -876,11 +883,11 @@ needed for remediation and the **operations** used to add, update, or remove tag
   - Determines which policy definition "wins" if more than one policy definition modifies the same
     property or when the Modify operation doesn't work on the specified alias.
     - For new or updated resources, the policy definition with _deny_ takes precedence. Policy
-      definitions with _audit_ skip all **operations**. If more than one policy definition has
+      definitions with _audit_ skip all **operations**. If more than one policy definition has the effect
       _deny_, the request is denied as a conflict. If all policy definitions have _audit_, then none
       of the **operations** of the conflicting policy definitions are processed.
-    - For existing resources, if more than one policy definition has _deny_, the compliance status
-      is _Conflict_. If one or fewer policy definitions have _deny_, each assignment returns a
+    - For existing resources, if more than one policy definition has the effect _deny_, the compliance status
+      is _Conflict_. If one or fewer policy definitions have the effect _deny_, each assignment returns a
       compliance status of _Non-compliant_.
   - Available values: _audit_, _deny_, _disabled_.
   - Default value is _deny_.
@@ -911,29 +918,29 @@ properties. Operation determines what the remediation task does to the tags, fie
 tag is altered, and value defines the new setting for that tag. The following example makes the
 following tag changes:
 
-- Sets the `environment` tag to "Test", even if it already exists with a different value.
+- Sets the `environment` tag to "Test" even if it already exists with a different value.
 - Removes the tag `TempResource`.
 - Sets the `Dept` tag to the policy parameter _DeptName_ configured on the policy assignment.
 
 ```json
 "details": {
-    ...
-    "operations": [
-        {
-            "operation": "addOrReplace",
-            "field": "tags['environment']",
-            "value": "Test"
-        },
-        {
-            "operation": "Remove",
-            "field": "tags['TempResource']",
-        },
-        {
-            "operation": "addOrReplace",
-            "field": "tags['Dept']",
-            "value": "[parameters('DeptName')]"
-        }
-    ]
+  ...
+  "operations": [
+    {
+      "operation": "addOrReplace",
+      "field": "tags['environment']",
+      "value": "Test"
+    },
+    {
+      "operation": "Remove",
+      "field": "tags['TempResource']",
+    },
+    {
+      "operation": "addOrReplace",
+      "field": "tags['Dept']",
+      "value": "[parameters('DeptName')]"
+    }
+  ]
 }
 ```
 
@@ -951,19 +958,19 @@ Example 1: Add the `environment` tag and replace existing `environment` tags wit
 
 ```json
 "then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-        ],
-        "operations": [
-            {
-                "operation": "addOrReplace",
-                "field": "tags['environment']",
-                "value": "Test"
-            }
-        ]
-    }
+  "effect": "modify",
+  "details": {
+    "roleDefinitionIds": [
+      "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+    ],
+    "operations": [
+      {
+        "operation": "addOrReplace",
+        "field": "tags['environment']",
+        "value": "Test"
+      }
+    ]
+  }
 }
 ```
 
@@ -972,80 +979,96 @@ with a parameterized value:
 
 ```json
 "then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-        ],
-        "conflictEffect": "deny",
-        "operations": [
-            {
-                "operation": "Remove",
-                "field": "tags['env']"
-            },
-            {
-                "operation": "addOrReplace",
-                "field": "tags['environment']",
-                "value": "[parameters('tagValue')]"
-            }
-        ]
-    }
+  "effect": "modify",
+  "details": {
+    "roleDefinitionIds": [
+      "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+    ],
+    "conflictEffect": "deny",
+    "operations": [
+      {
+        "operation": "Remove",
+        "field": "tags['env']"
+      },
+      {
+        "operation": "addOrReplace",
+        "field": "tags['environment']",
+        "value": "[parameters('tagValue')]"
+      }
+    ]
+  }
 }
 ```
 
 Example 3: Ensure that a storage account doesn't allow blob public access, the Modify operation
-is applied only when evaluating requests with API version greater or equals to '2019-04-01':
+is applied only when evaluating requests with API version greater or equals to `2019-04-01`:
 
 ```json
 "then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
-        ],
-        "conflictEffect": "audit",
-        "operations": [
-            {
-                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
-                "operation": "addOrReplace",
-                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
-                "value": false
-            }
-        ]
-    }
+  "effect": "modify",
+  "details": {
+    "roleDefinitionIds": [
+      "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+    ],
+    "conflictEffect": "audit",
+    "operations": [
+      {
+        "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+        "operation": "addOrReplace",
+        "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+        "value": false
+      }
+    ]
+  }
 }
 ```
+## Mutate (preview)
+
+Mutation is used in Azure Policy for Kubernetes to remediate AKS cluster components, like pods. This effect is specific to _Microsoft.Kubernetes.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
+
+To learn more, go to [Understand Azure Policy for Kubernetes clusters](./policy-for-kubernetes.md).
+
+### Mutate properties
+- **mutationInfo** (optional)
+  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, or `kinds`.
+  - Cannot be parameterized.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the mutation template. The location must be publicly accessible.
+      > [!WARNING]
+      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
+
 
 ## Layering policy definitions
 
-A resource may be affected by several assignments. These assignments may be at the same scope or at
+A resource can be affected by several assignments. These assignments might be at the same scope or at
 different scopes. Each of these assignments is also likely to have a different effect defined. The
 condition and effect for each policy is independently evaluated. For example:
 
 - Policy 1
-  - Restricts resource location to 'westus'
+  - Restricts resource location to `westus`
   - Assigned to subscription A
   - Deny effect
 - Policy 2
-  - Restricts resource location to 'eastus'
+  - Restricts resource location to `eastus`
   - Assigned to resource group B in subscription A
   - Audit effect
 
 This setup would result in the following outcome:
 
-- Any resource already in resource group B in 'eastus' is compliant to policy 2 and non-compliant to
+- Any resource already in resource group B in `eastus` is compliant to policy 2 and non-compliant to
   policy 1
-- Any resource already in resource group B not in 'eastus' is non-compliant to policy 2 and
-  non-compliant to policy 1 if not in 'westus'
-- Any new resource in subscription A not in 'westus' is denied by policy 1
-- Any new resource in subscription A and resource group B in 'westus' is created and non-compliant
+- Any resource already in resource group B not in `eastus` is non-compliant to policy 2 and
+  non-compliant to policy 1 if not in `westus`
+- Any new resource in subscription A not in `westus` is denied by policy 1
+- Any new resource in subscription A and resource group B in `westus` is created and non-compliant
   on policy 2
 
 If both policy 1 and policy 2 had effect of deny, the situation changes to:
 
-- Any resource already in resource group B not in 'eastus' is non-compliant to policy 2
-- Any resource already in resource group B not in 'westus' is non-compliant to policy 1
-- Any new resource in subscription A not in 'westus' is denied by policy 1
+- Any resource already in resource group B not in `eastus` is non-compliant to policy 2
+- Any resource already in resource group B not in `westus` is non-compliant to policy 1
+- Any new resource in subscription A not in `westus` is denied by policy 1
 - Any new resource in resource group B of subscription A is denied
 
 Each assignment is individually evaluated. As such, there isn't an opportunity for a resource to

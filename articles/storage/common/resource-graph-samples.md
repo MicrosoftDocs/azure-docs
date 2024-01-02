@@ -1,11 +1,14 @@
 ---
-title: Azure Resource Graph sample queries for Azure Storage
+title: Azure Resource Graph sample queries
+titleSuffix: Azure Storage
 description: Sample Azure Resource Graph queries for Azure Storage showing use of resource types and tables to access Azure Storage related resources and properties.
+author: akashdubey-ms
+
 ms.date: 07/07/2022
 ms.topic: sample
-author: jimmart-dev
-ms.author: jammart
-ms.service: storage
+ms.author: akashdubey
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.custom: subject-resourcegraph-sample
 ---
 

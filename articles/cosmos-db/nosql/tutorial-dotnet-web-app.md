@@ -9,7 +9,7 @@ ms.reviewer: esarroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: tutorial
-ms.date: 11/02/2022
+ms.date: 12/02/2022
 ms.devlang: csharp
 ms.custom: devx-track-dotnet, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet-path
 ---
@@ -34,9 +34,8 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An existing Azure Cosmos DB for NoSQL account.
-  - If you have an Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
-  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  - Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit.
+  - If you have an existing Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 - [Visual Studio Code](https://code.visualstudio.com)
 - [.NET 6 (LTS) or later](https://dotnet.microsoft.com/download/dotnet/6.0)
 - Experience writing C# applications.
@@ -203,6 +202,9 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
 Now, you'll create a new ASP.NET web application using a sample project template. You'll then explore the source code and run the sample to get acquainted with the application before adding Azure Cosmos DB connectivity using the Azure SDK for .NET.
 
+> [!IMPORTANT]
+> This tutorial transparently pulls packages from [NuGet](https://nuget.org). You can use [`dotnet nuget list source`](/dotnet/core/tools/dotnet-nuget-list-source#examples) to verify your package sources. If you do not have NuGet as a package source, use [`dotnet nuget add source`](/dotnet/core/tools/dotnet-nuget-add-source#examples) to install the site as a source.
+
 1. Open a terminal in an empty directory.
 
 1. Install the `cosmicworks.template.web` project template package from NuGet.
@@ -320,17 +322,17 @@ Next, you'll add the Azure SDK for .NET to this sample project and use the libra
     private readonly CosmosClient _client;
     ```
 
-1. Create a new empty constructor for the `CosmosClient` class.
+1. Create a new empty constructor for the `CosmosService` class.
 
     ```csharp
-    public CosmosClient()
+    public CosmosService()
     { }
     ```
 
 1. Within the constructor, create a new instance of the `CosmosClient` class passing in a string parameter with the **PRIMARY CONNECTION STRING** value you previously recorded in the lab. Store this new instance in the `_client` member.
 
     ```csharp
-    public CosmosClient()
+    public CosmosService()
     { 
         _client = new CosmosClient(
             connectionString: "<primary-connection-string>"
@@ -338,7 +340,7 @@ Next, you'll add the Azure SDK for .NET to this sample project and use the libra
     }
     ```
 
-1. Back within the **CosmosClient** class, create a new `private` property of type `Container` named `container`. Set the **get accessor** to return the `cosmicworks` database and `products` container.
+1. Back within the **CosmosService** class, create a new `private` property of type `Container` named `container`. Set the **get accessor** to return the `cosmicworks` database and `products` container.
 
     ```csharp
     private Container container
@@ -486,11 +488,8 @@ Finally, you'll run the application with **hot reloads** enabled. Running the ap
 1. Back in the terminal, run the application.
 
     ```bash
-    dotnet watch
+    dotnet run
     ```
-
-    > [!NOTE]
-    > `dotnet watch` is enabled here so you can quickly change the code if you find a mistake.
 
 1. The output of the run command should include a list of ports and URLs where the application is running. Open a new browser and navigate to the running web application. Observe all three pages of the running application. Each page should now include live data from Azure Cosmos DB.
 

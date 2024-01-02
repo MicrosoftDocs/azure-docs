@@ -3,12 +3,12 @@ title: Quickstart - Create an Azure Stream Analytics job by Azure Resource Manag
 description: This quickstart shows how to use the Azure Resource Manager template to create an Azure Stream Analytics job.
 services: stream-analytics
 ms.service: stream-analytics
-author: sidramadoss
-ms.author: sidram
+author: ahartoon
+ms.author: anboisve
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 05/28/2020
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 08/07/2023
 ---
 
 # Quickstart: Create an Azure Stream Analytics job by using an ARM template
@@ -17,7 +17,7 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.streamanalytics%2Fstreamanalytics-create%2Fazuredeploy.json)
 
@@ -33,7 +33,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.streamanalytics/streamanalytics-create/azuredeploy.json":::
 
-The Azure resource defined in the template is [Microsoft.StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs): create an Azure Stream Analytics job.
+The Azure resource defined in the template is [Microsoft.StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs): creates an Azure Stream Analytics job.
 
 ## Deploy the template
 
@@ -59,26 +59,26 @@ In this section, you create an Azure Stream Analytics job using the ARM template
 
 3. Select **Review + Create**, then **Create**.
 
+
 ## Review deployed resources
 
-You can either use the Azure portal to check the Azure Stream Analytics job or use the following Azure CLI or Azure PowerShell script to list the resource.
+You can either use the Azure portal to check the Azure Stream Analytics job or use Azure CLI or Azure PowerShell script to list the resource.
+
+### Azure portal
+After the deployment completes, select **Go to resource** to navigate to the **Stream Analytics Job** page for the job.
 
 ### Azure CLI
+Use the [az stream-analytics job show](/cli/azure/stream-analytics/job#az-stream-analytics-job-show) command to get details about the job you created. Replace placeholders with your Azure subscription ID, resource group name, and Stream Analytics job name.
 
 ```azurecli-interactive
-echo "Enter your Azure Stream Analytics job name:" &&
-read streamAnalyticsJobName &&
-echo "Enter the resource group where the Azure Stream Analytics job exists:" &&
-read resourcegroupName &&
-az stream-analytics job show -g $resourcegroupName -n $streamAnalyticsJobName
+az stream-analytics job show -s SUBSCRIPTIONID -g RESOURCEGROUPNAME -n ASAJOBNAME
 ```
 
 ### Azure PowerShell
+Use the [Get-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/get-azstreamanalyticsjob) command to get details about the job you created. Replace placeholders with your Azure subscription ID, resource group name, and Stream Analytics job name.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Stream Analytics job exists"
-(Get-AzResource -ResourceType "Microsoft.StreamAnalytics/StreamingJobs" -ResourceGroupName $resourceGroupName).Name
- Write-Host "Press [ENTER] to continue..."
+Get-AzStreamAnalyticsJob -SubscriptionID $subscriptionID -ResourceGroupName $resourceGroupName -Name $streamAnalyticsJobName
 ```
 
 ## Clean up resources
@@ -88,18 +88,13 @@ If you plan to continue on to subsequent tutorials, you may wish to leave these 
 ### Azure CLI
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
+az group delete --name RESOURCEGROUPNAME
 ```
 
 ### Azure PowerShell
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
+Remove-AzResourceGroup -Name RESOURCEGROUPNAME
 ```
 
 ## Next steps

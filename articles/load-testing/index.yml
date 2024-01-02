@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   ms.author: nicktrog
   author: ntrogh
-  ms.date: 09/30/2022
+  ms.date: 03/24/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -32,20 +32,32 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: 'Create & run a load test'
+          - text: 'Create a URL-based load test'
             url: quickstart-create-and-run-load-test.md
+          - text: Create a load test with a JMeter script
+            url: how-to-create-and-run-load-test-with-JMeter-script.md
+          - text: 'Automate load tests with CI/CD'
+            url: quickstart-add-load-test-cicd.md
       - linkListType: tutorial
         links:
           - text: Identify performance bottlenecks
             url: tutorial-identify-bottlenecks-azure-portal.md
-          - text: Set up automated regression testing with CI/CD
-            url: tutorial-identify-performance-regression-with-cicd.md
 
+  # Card
+  - title: Scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load test Azure App Service apps
+            url: concept-load-test-app-service.md
+  
   # Card
   - title: Configure load tests
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Add HTTP requests to URL-based tests
+            url: how-to-add-requests-to-url-based-test.md
           - text: Configure for high scale loads
             url: how-to-high-scale-load.md
           - text: Parameterize load tests
@@ -54,6 +66,10 @@ landingContent:
             url: how-to-define-test-criteria.md
           - text: Use JMeter user properties
             url: how-to-configure-user-properties.md
+          - text: Customize tests with JMeter plugins
+            url: how-to-use-jmeter-plugins.md
+          - text: Read data from a CSV file
+            url: how-to-read-csv-data.md
 
   # Card
   - title: Run load tests
@@ -68,8 +84,6 @@ landingContent:
             url: how-to-test-secured-endpoints.md
           - text: Test a private endpoint with VNET injection
             url: how-to-test-private-endpoint.md
-          - text: Read data from a CSV file
-            url: how-to-read-csv-data.md
 
   # Card
   - title: Analyze test results
@@ -80,8 +94,6 @@ landingContent:
             url: how-to-compare-multiple-test-runs.md
           - text: Configure server-side monitoring
             url: how-to-monitor-server-side-metrics.md
-          - text: Get insights from App Service Diagnostics
-            url: how-to-appservice-insights.md
           - text: Export test results for custom reporting
             url: how-to-export-test-results.md
 

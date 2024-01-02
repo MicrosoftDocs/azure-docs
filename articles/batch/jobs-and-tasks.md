@@ -19,7 +19,7 @@ A job specifies the [pool](nodes-and-pools.md#pools) in which the work is to be 
 
 You can assign an optional job priority to jobs that you create. The Batch service uses the priority value of the job to determine the order of scheduling (for all tasks within the job) wtihin each pool.
 
-To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/job/update) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority) (Batch .NET). Priority values range from -1000 (lowest priority) to 1000 (highest priority).
+To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/job/update) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority) (Batch .NET). Priority values range from -1000 (lowest priority) to +1000 (highest priority).
 
 Within the same pool, higher-priority jobs have scheduling precedence over lower-priority jobs. Tasks in lower-priority jobs that are already running won't be preempted by tasks in a higher-priority job. Jobs with the same priority level have an equal chance of being scheduled, and ordering of task execution is not defined.
 
@@ -137,8 +137,7 @@ For a detailed discussion on running MPI jobs in Batch by using the Batch .NET l
 
 [Task dependencies](batch-task-dependencies.md), as the name implies, allow you to specify that a task depends on the completion of other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task, or when an upstream task performs some initialization that is required by a downstream task.
 
-To use this feature, you must first [enable task dependencies](batch-task-dependencies.md#enable-task-dependencies
-) on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
+To use this feature, you must first [enable task dependencies](batch-task-dependencies.md#enable-task-dependencies) on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
 
 With task dependencies, you can configure scenarios like the following:
 

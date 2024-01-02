@@ -2,9 +2,9 @@
 title: Sample data collection rule - agent
 description: Sample data collection rule for Azure Monitor agent
 ms.topic: sample
-ms.date: 02/15/2022
+ms.date: 07/19/2023
 ms.custom: references_region
-ms.reviewer: shseth
+ms.reviewer: jeffwo
 
 ---
 
@@ -24,7 +24,7 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
   - Sends all data to a Log Analytics workspace named centralWorkspace.
 
 > [!NOTE]
-> For an explanation of XPaths that are used to specify event collection in data collection rules, see [Limit data collection with custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries)
+> For an explanation of XPaths that are used to specify event collection in data collection rules, see [Limit data collection with custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries).
 
 ## Sample DCR
 

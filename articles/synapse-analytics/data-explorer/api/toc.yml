@@ -32,7 +32,7 @@ items:
   items:
   - name: MS-TDS overview
     displayName: SQL, ADO.NET, JDBC, ODBC
-    href: /azure/data-explorer/kusto/api/tds/index?context=/azure/synapse-analytics/context/context
+    href: /azure/data-explorer/kusto/api/#ms-tds?context=/azure/synapse-analytics/context/context
   - name: T-SQL
     href: /azure/data-explorer/kusto/api/tds/t-sql?context=/azure/synapse-analytics/context/context
   - name: KQL over TDS
@@ -41,7 +41,7 @@ items:
     href: /azure/data-explorer/kusto/api/tds/clients?context=/azure/synapse-analytics/context/context
   - name: Linked server
     href: /azure/data-explorer/kusto/api/tds/linkedserver?context=/azure/synapse-analytics/context/context
-  - name: Azure Active Directory
+  - name: Microsoft Entra ID
     displayName: AAD, Azure AD
     href: /azure/data-explorer/kusto/api/tds/aad?context=/azure/synapse-analytics/context/context
   - name: Known issues

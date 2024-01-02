@@ -1,7 +1,7 @@
 ---
 title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
-ms.date: 06/23/2022
+ms.date: 11/29/2023
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devdivchpfy22
 # Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
@@ -13,14 +13,38 @@ Azure Functions integrates with Application Insights to better enable you to mon
 
 You can use Application Insights without any custom configuration. The default configuration can result in high volumes of data. If you're using a Visual Studio Azure subscription, you might hit your data cap for Application Insights. For information about Application Insights costs, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing). For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
 
-Later in this article, you learn how to configure and customize the data that your functions send to Application Insights. For a function app, logging is configured in the *[host.json]* file.
+Later in this article, you learn how to configure and customize the data that your functions send to Application Insights. Common logging configuration can be set in the *[host.json]* file. By default, these settings also govern custom logs emitted by your code, though in some cases this behavior can be disabled in favor of options that give you more control over logging. See [Custom application logs](#custom-application-logs) for more information.
 
 > [!NOTE]
 > You can use specially configured application settings to represent specific settings in a *host.json* file for a specific environment. This lets you effectively change *host.json* settings without having to republish the *host.json* file in your project. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
 
+## Custom application logs
+
+By default, custom application logs you write are sent to the Functions host, which then sends them to Application Insights through the ["Worker" category](#configure-categories). Some language stacks allow you to instead send the logs directly to Application Insights, giving you full control over how logs you write are emitted. The logging pipeline changes from `worker -> Functions host -> Application Insights` to `worker -> Application Insights`.
+
+The following table summarizes the options available to each stack:
+
+| Language stack | Configuration of custom logs |
+|-|-|
+| .NET (in-process model) | `host.json` |
+| .NET (isolated model) | By default: `host.json`<br/>Option to send logs directly: [Configure Application Insights in the HostBuilder](./dotnet-isolated-process-guide.md#application-insights) |
+| Node.JS | `host.json` |
+| Python | `host.json` |
+| Java | By default: `host.json`<br/>Option to send logs directly: [Configure the Application Insights Java agent](../azure-monitor/app/monitor-functions.md#distributed-tracing-for-java-applications) |
+| PowerShell | `host.json` |
+
+When custom application logs are sent directly, the host no longer emits them, and `host.json` no longer controls their behavior. Similarly, the options exposed by each stack only apply to custom logs, and they do not change the behavior of the other runtime logs described in this article. To control the behavior of all logs, you may need to make changes for both configurations.
+
 ## Configure categories
 
-The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. Categories differ between version 1.x and later versions. The following chart describes the main categories of logs that the runtime creates:
+The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. Categories differ between version 1.x and later versions. 
+
+Category names are assigned differently in Functions compared to other .NET frameworks. For example, when you use `ILogger<T>` in ASP.NET, the category is the name of the generic type. C# functions also use `ILogger<T>`, but instead of setting the generic type name as a category, the runtime assigns categories based on the source. For example:
+ 
++ Entries related to running a function are assigned a category of `Function.<FUNCTION_NAME>`.
++ Entries created by user code inside the function, such as when calling `logger.LogInformation()`, are assigned a category of `Function.<FUNCTION_NAME>.User`.
+
+The following chart describes the main categories of logs that the runtime creates:
 
 # [v2.x+](#tab/v2)
 
@@ -57,23 +81,23 @@ The **Table** column indicates to which table in Application Insights the log is
 
 For each category, you indicate the minimum log level to send. The *host.json* settings vary depending on the [Functions runtime version](functions-versions.md).
 
-The example below defines logging based on the following rules:
+The examples below define logging based on the following rules:
 
-+ For logs of `Host.Results` or `Function`, only log events at `Error` or a higher level.
-+ For logs of `Host.Aggregator`, log all generated metrics (`Trace`).
-+ For all other logs, including user logs, log only `Information` level and higher events.
++ The default logging level is set to `Warning` to prevent [excessive logging](#solutions-with-high-volume-of-telemetry) for unanticipated categories.
++ `Host.Aggregator` and `Host.Results` are set to lower levels. Setting these to too high a level (especially higher than `Information`) can result in loss of metrics and performance data.
++ Logging for function runs is set to `Information`. This can be [overridden](functions-host-json.md#override-hostjson-values) in local development to `Debug` or `Trace`, when needed.
 
 # [v2.x+](#tab/v2)
 
 ```json
 {
   "logging": {
-    "fileLoggingMode": "always",
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
-      "default": "Information",
-      "Host.Results": "Error",
-      "Function": "Error",
-      "Host.Aggregator": "Trace"
+      "default": "Warning",
+      "Host.Aggregator": "Trace",
+      "Host.Results": "Information",
+      "Function": "Information"
     }
   }
 }
@@ -85,11 +109,11 @@ The example below defines logging based on the following rules:
 {
   "logger": {
     "categoryFilter": {
-      "defaultLevel": "Information",
+      "defaultLevel": "Warning",
       "categoryLevels": {
-        "Host.Results": "Error",
-        "Function": "Error",
-        "Host.Aggregator": "Trace"
+        "Host.Results": "Information",
+        "Host.Aggregator": "Trace",
+        "Function": "Information"
       }
     }
   }
@@ -105,7 +129,7 @@ If *[host.json]* includes multiple logs that start with the same string, the mor
 ```json
 {
   "logging": {
-    "fileLoggingMode": "always",
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "default": "Information",
       "Host": "Error",
@@ -195,7 +219,24 @@ You can exclude certain types of telemetry from sampling. In this example, data 
 ```
 ---
 
-For more information, see [Sampling in Application Insights](../azure-monitor/app/sampling.md).
+If your project takes a dependency on the Application Insights SDK to do manual telemetry tracking, you may experience strange behavior if your sampling configuration differs from the sampling configuration in your function app. In such cases, use the same sampling configuration as the function app. For more information, see [Sampling in Application Insights](../azure-monitor/app/sampling.md).
+
+## Enable SQL query collection
+
+Application Insights automatically collects data on dependencies for HTTP requests, database calls, and for several bindings. For more information, see [Dependencies](./functions-monitoring.md#dependencies). For SQL calls, the name of the server and database is always collected and stored, but SQL query text isn't collected by default. You can use `dependencyTrackingOptions.enableSqlCommandTextInstrumentation` to enable SQL query text logging by setting (at minimum) the following in your [host.json file](./functions-host-json.md#applicationinsightsdependencytrackingoptions): 
+
+```json
+"logging": {
+    "applicationInsights": {
+        "enableDependencyTracking": true,    
+        "dependencyTrackingOptions": {
+            "enableSqlCommandTextInstrumentation": true
+        }
+    }
+}
+```
+
+For more information, see [Advanced SQL tracking to get full SQL query](../azure-monitor/app/asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
 
 ## Configure scale controller logs
 
@@ -290,7 +331,7 @@ Function apps are an essential part of solutions that can cause high volumes of 
 
 The generated telemetry can be consumed in real-time dashboards, alerting, detailed diagnostics, and so on. Depending on how the generated telemetry is going to be consumed, you'll need to define a strategy to reduce the volume of data generated. This strategy will allow you to properly monitor, operate, and diagnose your function apps in production. You can consider the following options:
 
-+ **Use sampling**: As mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still a get high volume of telemetry. Inspect the options that [adaptive sampling](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
++ **Use sampling**: As mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still get a high volume of telemetry. Inspect the options that [adaptive sampling](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
 
 + **Default log level**: Use `Warning` or `Error` as the default value for all telemetry categories. Now, you can decide which [categories](#configure-categories) you want to set at `Information` level so that you can monitor and diagnose your functions properly.
 
@@ -399,7 +440,7 @@ To configure these values at App settings level (and avoid redeployment on just 
 | Host.json path | App setting |
 |----------------|-------------|
 | logging.logLevel.default  | AzureFunctionsJobHost__logging__logLevel__default  |
-| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host__Aggregator |
+| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host.Aggregator |
 | logging.logLevel.Function | AzureFunctionsJobHost__logging__logLevel__Function |
 | logging.logLevel.Function.Function1 | AzureFunctionsJobHost__logging__logLevel__Function.Function1 |
 | logging.logLevel.Function.Function1.User | AzureFunctionsJobHost__logging__logLevel__Function.Function1.User |
@@ -418,6 +459,7 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 
 > [!NOTE]
 > Overriding the `host.json` through changing app settings will restart your function app.
+> App settings that contain a period aren't supported when running on Linux in an Elastic Premium plan or a Dedicated (App Service) plan. In these hosting environments, you should continue to use the *host.json* file.
 
 ## Monitor function apps using Health check
 

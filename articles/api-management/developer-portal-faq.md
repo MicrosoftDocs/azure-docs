@@ -10,7 +10,7 @@ ms.service: api-management
 ms.topic: troubleshooting
 ms.date: 02/04/2022
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # API Management developer portal - frequently asked questions
@@ -56,7 +56,7 @@ After you update the domain, you need to [republish the portal](api-management-h
 
 ## I added an identity provider and I can't see it in the portal
 
-After you configure an identity provider (for example, Azure AD, Azure AD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
+After you configure an identity provider (for example, Microsoft Entra ID, Azure AD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
 
 ## I set up delegation and the portal doesn't use it
 
@@ -68,7 +68,7 @@ Most configuration changes (for example, VNet, sign-in, product terms) require [
 
 ## <a name="cors"></a> I'm getting a CORS error when using the interactive console
 
-The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding [a CORS policy](api-management-cross-domain-policies.md#CORS) on your API(s).
+The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding [a CORS policy](cors-policy.md) on your API(s).
 
 You can check the status of the CORS policy in the **Portal overview** section of your API Management service in the Azure portal. A warning box indicates an absent or misconfigured policy.
 
@@ -103,7 +103,7 @@ Select the **Use CORS proxy** option in the configuration of the API operation d
 
 If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (Azure RBAC).
 
-The legacy portals required the permission `Microsoft.ApiManagement/service/getssotoken/action` at the service scope (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) to allow the user administrator access to the portals. The new portal requires the permission `Microsoft.ApiManagement/service/users/token/action` at the scope `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+The portal requires the permission `Microsoft.ApiManagement/service/users/token/action` at the scope `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
 
 You can use the following PowerShell script to create a role with the required permission. Remember to change the `<subscription-id>` parameter. 
 
@@ -149,7 +149,7 @@ The call failure may also be caused by an TLS/SSL certificate, which is assigned
 | Microsoft Internet Explorer | No              |
 | Mozilla Firefox             | Yes<sup>1</sup> |
 
- <small><sup>1</sup> Supported in the two latest production versions.</small>
+ <sup>1</sup> Supported in the two latest production versions.
 
 ## Local development of my self-hosted portal is no longer working
 

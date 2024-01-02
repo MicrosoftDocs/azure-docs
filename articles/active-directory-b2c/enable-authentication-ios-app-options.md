@@ -1,12 +1,12 @@
 ---
 title: Enable iOS Swift mobile application options by using Azure Active Directory B2C
 description:  This article discusses several ways to enable iOS Swift mobile application options by using Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
-ms.topic: reference
+
+ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -27,7 +27,7 @@ To use a custom domain and your tenant ID in the authentication URL, do the foll
 
 1. Follow the guidance in [Enable custom domains](custom-domain.md).
 1. Update the `kAuthorityHostName` class member with your custom domain.
-1. Update the `kTenantName` class member with your [tenant ID](tenant-management.md#get-your-tenant-id).
+1. Update the `kTenantName` class member with your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id).
 
 The following Swift code shows the app settings before the change:
 

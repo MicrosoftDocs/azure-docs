@@ -1,12 +1,11 @@
 ---
 title: Create Apache Kafka for Confluent Cloud through Azure CLI
 description: This article describes how to use the Azure CLI to create an instance of Apache Kafka for Confluent Cloud.
+
 ms.topic: quickstart
-ms.date: 06/07/2021
-author: flang-msft
-ms.author: franlanglois
-ms.custom: mode-api, devx-track-azurecli 
-ms.devlang: azurecli
+ms.custom: devx-track-azurecli
+ms.date: 11/20/2023
+
 ---
 
 # QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure CLI
@@ -48,7 +47,7 @@ After you've selected the offer for Apache Kafka on Confluent Cloud, you're read
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 After you sign in, use the [az confluent organization create](/cli/azure/confluent/organization#az-confluent-organization-create) command to create the new organization resource:
 

@@ -1,17 +1,18 @@
 ---
-title: Create an Azure DevTest Labs virtual machine custom image from a VHD file
-description: Learn how to use a VHD file to create an Azure DevTest Labs virtual machine custom image in the Azure portal.
+title: Create custom image for Azure DevTest Labs VMs from VHD files
+description: Use a VHD file to create an Azure DevTest Labs virtual machine custom image in the Azure portal.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/04/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
-# Create a custom image from a VHD file
+# Create a custom image for Azure DevTest Labs virtual machines from VHD files
 
 [!INCLUDE [devtest-lab-create-custom-image-from-vhd-selector](../../includes/devtest-lab-create-custom-image-from-vhd-selector.md)]
 
-You can create a virtual machine (VM) custom image for Azure DevTest Labs by using a virtual hard drive (VHD) file.
+In this article, you learn how to create a virtual machine (VM) custom image for Azure DevTest Labs by using a virtual hard drive (VHD) file.
 
 [!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
 
@@ -19,7 +20,7 @@ This article describes how to create a custom image in the Azure portal. You can
 
 [!INCLUDE [devtest-lab-upload-vhd-options](../../includes/devtest-lab-upload-vhd-options.md)]
 
-## Azure portal instructions
+## Create custom images for Azure DevTest Labs in Azure portal
 
 To create a custom image from a VHD file in DevTest Labs in the Azure portal, follow these steps:
 

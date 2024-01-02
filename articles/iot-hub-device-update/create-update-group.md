@@ -49,9 +49,13 @@ An Azure CLI environment:
 
 To create a device group, the first step is to add a tag to the target set of devices in IoT Hub. Tags can only be successfully added to your device after it has been connected to Device Update.
 
-Device Update tags use the following format:
+Device Update tags use the format in the following example:
 
 ```json
+"etag": "",
+"deviceId": "",
+"deviceEtag": "",
+"version": <version>,
 "tags": {
    "ADUGroup": "<CustomTagValue>"
 }
@@ -77,7 +81,7 @@ You can schedule a job on multiple devices to add or update a Device Update tag.
 For more information, see [Schedule and broadcast jobs](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
 
 > [!NOTE]
-> This action counts against your IoT Hub messages quota. We recommend only changing up to 50,000 device or module twin tags at a time, otherwise you may need to buy more IoT Hub units if you exceed your daily IoT Hub message quota. For more information, see [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
+> This action counts against your IoT Hub messages quota. We recommend only changing up to 50,000 device or module twin tags at a time, otherwise you may need to buy more IoT Hub units if you exceed your daily IoT Hub message quota. For more information, see [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md).
 
 ### Add tags by updating twins
 
@@ -173,6 +177,8 @@ You can use the `--order-by` argument to order the groups returned based on aspe
 3. You can also select an individual device within a group to be redirected to the device details page in IoT Hub.
 
    :::image type="content" source="media/create-update-group/device-details.png" alt-text="Screenshot of device details view." lightbox="media/create-update-group/device-details.png":::
+   
+   :::image type="content" source="media/create-update-group/device-details-2.png" alt-text="Screenshot of device details view in IoT hub." lightbox="media/create-update-group/device-details-2.png":::
 
 # [Azure CLI](#tab/cli)
 
@@ -190,6 +196,20 @@ az iot du device group show \
 ```
 
 ---
+
+## Deleting device groups
+
+While device groups are automatically created, groups, device classes and deployments are not automatically cleaned up so as to retain them for historical records or other user needs. Device groups can be deleted through Azure portal by individually selecting and deleting the desired groups, or by calling the DELETE API on the group. [Learn more](/cli/azure/iot/du/device/group#az-iot-du-device-group-delete)
+
+If a device is ever connected again for this group after the group is deleted, while the group will be automatically re-created there will be no associated device or deployment history. 
+
+To be deleted, a group must meet the following requirements: 
+* The group must have NO member devices. This means that no device provisioned in the Device Update instance should have a ADUGroup tag with a value matching the selected group's name. 
+* The group must NOT be a default group. 
+* The group must have NO active or canceled deployments associated with it. 
+
+> [!NOTE]
+> If you are still unable to delete a group after meeting the above requirements, then validate whether you have any Unhealthy devices that are tagged as part of the group. Unhealthy devices are devices that cannot receive a deployment, and as a result don't show up directly in the list of member devices within a group. You can validate whether you have any unhealthy devices by going to "Find missing devices" within the Diagnostics tab in the Device Update Portal experience. In case you have Unhealthy devices that are tagged as part of the group, you will need to modify the tag value or delete the device entirely before attempting to delete your group. 
 
 ## Next Steps
 

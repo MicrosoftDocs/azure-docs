@@ -7,7 +7,7 @@ ms.author: spelluru
 ms.date: 08/25/2022
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create a Service Bus namespace and a queue using an ARM template

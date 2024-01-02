@@ -51,7 +51,7 @@ communicate with the Storage REST services.
 Add the following code to the top of the **server.js** file in your application:
 
 ```javascript
-const { TableServiceClient } = require("@azure/data-tables");
+const { TableServiceClient, TableClient, AzureNamedKeyCredential, odata } = require("@azure/data-tables");
 ```
 
 ## Connect to Azure Table service
@@ -63,9 +63,15 @@ You can either connect to the Azure storage account or the Azure Cosmos DB for T
 The Azure module reads the environment variables AZURE_ACCOUNT and AZURE_ACCESS_KEY and AZURE_TABLES_ENDPOINT for information required to connect to your Azure Storage account or Azure Cosmos DB. If these environment variables are not set, you must specify the account information when calling `TableServiceClient`. For example, the following code creates a `TableServiceClient` object:
 
 ```javascript
+const endpoint = "<table-endpoint-uri>";
+const credential = new AzureNamedKeyCredential(
+  "<account-name>",
+  "<account-key>"
+);
+
 const tableService = new TableServiceClient(
-  tablesEndpoint,
-  new AzureNamedKeyCredential("<accountName>", "<accountKey>")
+  endpoint,
+  credential
 );
 ```
 
@@ -82,7 +88,19 @@ const tableService = TableServiceClient.fromConnectionString("<connection-string
 The call to `createTable` creates a new table with the specified name if it does not already exist. The following example creates a new table named 'mytable' if it does not already exist:
 
 ```javascript
-await tableService.createTable('mytable');
+await tableService.createTable('<table-name>');
+```
+
+### Creating the Table client
+
+To interact with a table, you should create a `TableClient` object using the same credentials you used to create the `TableServiceClient`. The `TableClient` also requires the name of the target table.
+
+```javascript
+const tableClient = new TableClient(
+  endpoint,
+  '<table-name>',
+  credential
+);
 ```
 
 ## Add an entity to a table
@@ -186,8 +204,11 @@ For successful batch operations, `result` contains information for each operatio
 To return a specific entity based on the **PartitionKey** and **RowKey**, use the **getEntity** method.
 
 ```javascript
-let result = await tableClient.getEntity("hometasks", "1");
-    // result contains the entity
+let result = await tableClient.getEntity("hometasks", "1")
+  .catch((error) => {
+    // handle any errors
+  });
+  // result contains the entity
 ```
 
 After this operation is complete, `result` contains the entity.
@@ -236,7 +257,7 @@ const entities = tableClient.listEntities({
 });
 
 let topEntities = [];
-const iterator = listResults.byPage({ maxPageSize: topN });
+const iterator = entities.byPage({ maxPageSize: topN });
 
 for await (const page of iterator) {
   topEntities = page;

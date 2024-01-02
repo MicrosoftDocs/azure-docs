@@ -4,8 +4,8 @@ description: Learn about automatic backups and restoring your Azure Database for
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: references_regions
 ms.date: 06/20/2022
 ---
@@ -81,7 +81,7 @@ The primary means of controlling the backup storage cost is by setting the appro
 
 ## Restore
 
-In Azure Database for MySQL, performing a restore creates a new server from the original server's backups and restores all databases contained in the server.
+In Azure Database for MySQL, performing a restore creates a new server from the original server's backups and restores all databases contained in the server. Restore is currently not supported if original server is in stopped state.
 
 There are two types of restore available:
 
@@ -122,7 +122,7 @@ You may need to wait for the next transaction log backup to be taken before you 
 ### Geo-restore
 
 You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. 
-- General purpose storage v1 servers (supporting up to 4-TB storage) can be restored to the geo-paired region, or to any Azure region that supports Azure Database for MySQL Single Server service.
+- General purpose storage v1 servers (supporting up to 4-TB storage) can be restored to the geo-paired region, or to any Azure region that supports Azure Database for MySQL - Single Server service.
 - General purpose storage v2 servers (supporting up to 16-TB storage) can only be restored to Azure regions that support General purpose storage v2 servers infrastructure. 
 Review [Azure Database for MySQL pricing tiers](./concepts-pricing-tiers.md#storage) for the list of supported regions.
 

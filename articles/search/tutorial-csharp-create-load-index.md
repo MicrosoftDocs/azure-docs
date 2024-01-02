@@ -1,58 +1,36 @@
 ---
-title: ".NET tutorial: Add search to web apps" 
-titleSuffix: Azure Cognitive Search
+title: "Load an index (.NET tutorial)"
+titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with .NET.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/01/2022
-ms.custom: devx-track-csharp
+ms.date: 07/18/2023
+ms.custom:
+  - devx-track-csharp
+  - devx-track-azurecli
+  - devx-track-dotnet
+  - devx-track-azurepowershell
+  - ignite-2023
 ms.devlang: csharp
 ---
 
 # 2 - Create and load Search Index with .NET
 
-Continue to build your Search-enabled website by:
-* Create a Search resource with the VS Code extension
+Continue to build your search-enabled website by following these steps:
+* Create a search resource
 * Create a new index
 * Import data with .NET using the sample script and Azure SDK [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/).
 
-## Create an Azure Search resource 
+## Create an Azure AI Search resource
 
-Create a new Search resource with the [Azure Cognitive Search](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) extension for Visual Studio Code.
-
-1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
-
-1. In the Side bar, **right-click on your Azure subscription** under the `Azure: Cognitive Search` area and select **Create new search service**.
-
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-create-search-resource.png" alt-text="Screenshot of Visual Studio code showing the Azure explorer bar, right-click on your Azure subscription under the Azure: Cognitive Search area and select Create new search service.":::
-
-1. Follow the prompts to provide the following information:
-
-    |Prompt|Enter|
-    |--|--|
-    |Enter a globally unique name for the new Search Service.|**Remember this name**. This resource name becomes part of your resource endpoint.|
-    |Select a resource group for new resources|Use the resource group you created for this tutorial.|
-    |Select the SKU for your Search service.|Select **Free** for this tutorial. You can't change a SKU pricing tier after the service is created.|
-    |Select a location for new resources.|Select a region close to you.|
-
-1. After you complete the prompts, your new Search resource is created. 
-
-## Get your Search resource admin key
-
-Get your Search resource admin key with the Visual Studio Code extension. 
-
-1. In Visual Studio Code, in the Side bar, right-click on your Search resource and select **Copy Admin Key**.
-
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-admin-key.png" alt-text="Screenshot of Visual Studio code showing the Azure explorer bar, right-click on your Search resource and select Copy Admin Key.":::
-
-1. Keep this admin key, you'll need to use it in [a later section](#prepare-the-bulk-import-script-for-search). 
+[!INCLUDE [tutorial-create-search-resource](includes/tutorial-add-search-website-create-search-resource.md)]
 
 ## Prepare the bulk import script for Search
 
-The script uses the Azure SDK for Cognitive Search:
+The script uses the Azure SDK for Azure AI Search:
 
 * [NuGet package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
 * [Reference Documentation](/dotnet/api/overview/azure/search)
@@ -62,7 +40,7 @@ The script uses the Azure SDK for Cognitive Search:
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/bulk-insert/Program.cs" highlight="16-19, 21-23, 32, 49" :::
+    :::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/bulk-insert/Program.cs" :::
 
 1. Open an integrated terminal in Visual Studio Code for the project directory's subdirectory, `search-website-functions-v4/bulk-insert`, then run the following command to install the dependencies. 
 
