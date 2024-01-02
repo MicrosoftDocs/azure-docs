@@ -37,7 +37,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Self-Service password reset](add-password-reset-policy.md) | GA| GA| Available in Mooncake cloud, but just through custom policy
 | [Force password reset](force-password-reset.md) | GA | NA | Available in Mooncake cloud, but just through custom policy |
 | [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
-| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications. Limited CA features are available in Mooncake cloud. Identity Protection is not available. in Mooncake cloud |
+| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications. Limited CA features are available in Mooncake cloud. Identity Protection is not available in Mooncake cloud |
 | [Smart lockout](threat-management.md) | GA | GA | Not available in Mooncake cloud |
 
 ## OAuth 2.0 application authorization flows
