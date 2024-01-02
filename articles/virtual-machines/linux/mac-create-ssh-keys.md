@@ -7,7 +7,7 @@ ms.collection: linux
 ms.workload: infrastructure-services
 ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 01/02/2024
 ms.author: mattmcinnes
 ms.reviewer: jamesser
 ---
@@ -81,7 +81,7 @@ az vm create \
   --ssh-key-values mysshkey.pub
 ```
 
-If you want to use multiple SSH keys with your VM, you can enter them in a space-separated list, like this `--ssh-key-values sshkey-desktop.pub, sshkey-laptop.pub`.
+If you want to use multiple SSH keys with your VM, you can enter them in a comma-separated list, like this `--ssh-key-values sshkey-desktop.pub, sshkey-laptop.pub`.
 
 ## SSH into your VM
 
