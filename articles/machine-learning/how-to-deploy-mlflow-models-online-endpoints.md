@@ -15,11 +15,8 @@ ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, c
 
 # Deploy MLflow models to online endpoints
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](./v1/how-to-deploy-mlflow-models.md)
-> * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to indicate a scoring script or an environment. This characteristic is referred as __no-code deployment__. 
 
@@ -31,8 +28,7 @@ For no-code-deployment, Azure Machine Learning
     * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
     * A scoring script to perform inference.
 
-> [!WARNING]
-> __Workspaces without public network access:__ Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If that's your case, either enable egress connectivity or indicate the environment to use in the deployment as explained in [Customizing MLflow model deployments](#customizing-mlflow-model-deployments).
+[!INCLUDE [mlflow-model-package-for-workspace-without-egress](includes/mlflow-model-package-for-workspace-without-egress.md)]
 
 
 ## About this example
@@ -336,6 +332,19 @@ version = registered_model.version
     )
     ```
 
+    If your endpoint doesn't have egress connectivity, use [model packaging (preview)](how-to-package-models.md) by including the argument `with_package=True`:
+
+    ```python
+    blue_deployment = ManagedOnlineDeployment(
+        name="blue",
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_type="Standard_F4s_v2",
+        instance_count=1,
+        with_package=True,
+    )
+    ```
+
     # [Python (MLflow SDK)](#tab/mlflow)
 
     ```python
@@ -376,6 +385,12 @@ version = registered_model.version
     # [Azure CLI](#tab/cli)
     
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="create_sklearn_deployment":::
+
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `--with-package`:
+
+    ```azurecli
+    az ml online-deployment create --with-package --name sklearn-deployment --endpoint $ENDPOINT_NAME -f endpoints/online/ncd/sklearn-deployment.yaml --all-traffic
+    ```
 
     # [Python (Azure Machine Learning SDK)](#tab/sdk)
 
@@ -529,21 +544,18 @@ The response will be similar to the following text:
 
 ## Customizing MLflow model deployments
 
-MLflow models can be deployed to online endpoints without indicating a scoring script in the deployment definition. However, you can opt in to indicate it to customize how inference is executed.
+MLflow models can be deployed to online endpoints without indicating a scoring script in the deployment definition. However, you can opt to customize how inference is executed.
 
 You will typically select this workflow when:
 
 > [!div class="checklist"]
+> - The model doesn't have a `PyFunc` flavor on it.
 > - You need to customize the way the model is run, for instance, use an specific flavor to load it with `mlflow.<flavor>.load_model()`.
-> - You need to do pre/pos processing in your scoring routine when it is not done by the model itself.
+> - You need to do pre/post processing in your scoring routine when it is not done by the model itself.
 > - The output of the model can't be nicely represented in tabular data. For instance, it is a tensor representing an image.
-> - Your endpoint is under a private link-enabled workspace.
 
 > [!IMPORTANT]
 > If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
-
-> [!WARNING]
-> Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure Machine Learning studio](https://ml.azure.com), please switch to the CLI or the SDK.
 
 ### Steps
 
@@ -579,7 +591,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     __conda.yml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/environment/conda.yaml":::
 
     > [!NOTE]
     > Note how the package `azureml-inference-server-http` has been added to the original conda dependencies file. 
@@ -595,7 +607,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     ```pythonS
     environment = Environment(
         conda_file="sklearn-diabetes/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+        image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04:latest",
     )
     ```
 
@@ -611,7 +623,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     1. Select the tab __Custom environments__ > __Create__.
     1. Enter the name of the environment, in this case `sklearn-mlflow-online-py37`.
     1. On __Select environment type__ select __Use existing docker image with conda__.
-    1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04`.
+    1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04`.
     1. On __Customize__ section copy the content of the file `sklearn-diabetes/environment/conda.yml` we introduced before. 
     1. Click on __Next__ and then on __Create__.
     1. The environment is ready to be used.   
@@ -630,7 +642,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     endpoint_name: my-endpoint
     model: azureml:sklearn-diabetes@latest
     environment: 
-      image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+      image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04
       conda_file: sklearn-diabetes/environment/conda.yml
     code_configuration:
       code: sklearn-diabetes/src
@@ -668,8 +680,17 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     # [Studio](#tab/studio)
     
-    > [!IMPORTANT]
-    > You can't create custom MLflow deployments in Online Endpoints using the Azure Machine Learning portal. Switch to [Azure Machine Learning CLI](?tabs=azure-cli) or the [Azure Machine Learning SDK for Python](?tabs=python).
+    On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
+   
+    1. From the __Endpoints__ page, Select **+Create**.
+    1. Provide a name and authentication type for the endpoint, and then select __Next__.
+    1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
+    1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment. However, you can indicate one by selecting the checkbox __Customize environment and scoring script__.
+
+        :::image type="content" source="media/how-to-batch-scoring-script/configure-scoring-script-mlflow.png" lightbox="media/how-to-batch-scoring-script/configure-scoring-script-mlflow.png" alt-text="Screenshot showing how to indicate an environment and scoring script for MLflow models":::
+    
+    1. Select the environment and scoring script you created before, then select __Next__.
+    1. Complete the wizard to deploy the model to the endpoint.
 
     ---
 

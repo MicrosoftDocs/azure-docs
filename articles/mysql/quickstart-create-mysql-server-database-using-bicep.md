@@ -5,14 +5,17 @@ author: rothja
 ms.author: jroth
 ms.reviewer: maghan
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 05/02/2022
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.date: 12/01/2023
 ---
 
 # Quickstart: Use Bicep to create an Azure Database for MySQL server
 
-[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE [Azure-database-for-mysql-single-server-deprecation](includes/Azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. In this quickstart, you use Bicep to create an Azure Database for MySQL server with virtual network integration. You can create the server in the Azure portal, Azure CLI, or Azure PowerShell.
 
@@ -50,9 +53,8 @@ The Bicep file defines five Azure resources:
 
 ## Deploy the Bicep file
 
-
 1. Save the Bicep file as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+2. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     # [CLI](#tab/CLI)
 

@@ -2,12 +2,12 @@
 title: Monitor Azure Container Apps metrics
 description: Monitor your running apps metrics
 services: container-apps
-author: cebundy
+author: v-jaswel
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 08/30/2022
-ms.author: v-bcatherine
+ms.author: v-wellsjason
 ---
 
 # Monitor Azure Container Apps metrics
@@ -44,7 +44,7 @@ From this view, you can pin one or more charts to your dashboard or select a cha
 
 The Azure Monitor metrics explorer lets you create charts from metric data to help you analyze your container app's resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
 
-1. Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app's page.  To learn more about metrics explorer, go to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
+1. Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app's page.  To learn more about metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md).
 
 1. Create a chart by selecting **Metric**.  You can modify the chart by changing aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
 :::image type="content" source="media/observability/metrics-main-page.png" alt-text="Screenshot of the metrics explorer from the container app resource page.":::

@@ -8,7 +8,7 @@ ms.author: scottpolly
 ms.date: 05/02/2022
 ms.topic: quickstart
 ms.service: data-science-vm
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create an Ubuntu Data Science Virtual Machine using Bicep

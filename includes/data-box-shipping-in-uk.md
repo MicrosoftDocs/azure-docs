@@ -1,10 +1,10 @@
 ---
-author: v-dalc
+author: stevenmatthew
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
 ms.date: 10/26/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Take the following steps if you're returning the device in UK.
@@ -38,3 +38,4 @@ Take the following steps if you're returning the device in UK.
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 
 Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
+

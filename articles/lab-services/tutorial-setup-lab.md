@@ -13,11 +13,13 @@ ms.custom: subject-rbac-steps
 
 # Tutorial: Create a lab for classroom training with Azure Lab Services
 
-Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. In this tutorial, you create a lab for classroom training with Azure Lab Services. Learn how to set up a customized lab template, and invite students to register for their lab virtual machine (VM). Use Azure Active Directory (Azure AD) role-based access control (RBAC) to assign permissions that match your organization's roles and responsibilities.
+Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. In this tutorial, you create a lab for classroom training with Azure Lab Services. Learn how to set up a customized lab template, and invite students to register for their lab virtual machine (VM).
+
+In this tutorial, you have the Lab Creator Azure RBAC role to let you create labs for a lab plan. Depending on your organization, the responsibilities for creating lab plans and labs might be assigned to different people or teams. Learn more about [mapping permissions across your organization](./classroom-labs-scenarios.md#mapping-organizational-roles-to-permissions).
 
 :::image type="content" source="./media/tutorial-setup-lab/lab-services-process-setup-lab.png" alt-text="Diagram that shows the steps involved in creating a lab with Azure Lab Services.":::
 
-After you complete this tutorial, lab users register for the lab and connect to their lab VM through remote desktop (RDP).
+After you complete this tutorial, lab users can register for the lab using their email, and connect to their lab virtual machine with remote desktop (RDP).
 
 In this tutorial, you learn how to:
 
@@ -30,13 +32,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- You have access to an existing lab plan. If you don't have access to a lab plan, ask an administrator to [create a lab plan and grant you access](./quick-create-resources.md).
-
-- To create labs, your Azure account must have either of the following Azure AD roles at the lab plan or resource group level. Learn more about the [Azure Lab Services roles](./administrator-guide.md#rbac-roles).
-    - Lab Creator
-    - Lab Operator
-    - Owner
-    - Contributor
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
 
 ## Create a lab
 
@@ -58,6 +55,8 @@ Follow these steps to add a lab to the lab plan you created earlier:
     | **Virtual machine image** | Select *Windows 11 Pro*. |
     | **Virtual machine size** | Select *Small*. |
     | **Location** | Leave the default value. |
+
+    Some virtual machine sizes might not be available depending on the lab plan region and your subscription core limit. Learn more about [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing) and how to [request additional capacity](./how-to-request-capacity-increase.md).
 
 1. On the **Virtual machine credentials** page, specify the default **username** and **password**, and then select **Next**.
 
@@ -81,6 +80,38 @@ Follow these steps to add a lab to the lab plan you created earlier:
 1. When the lab creation finishes, you can see the lab details in the **Template** page.
 
     :::image type="content" source="./media/tutorial-setup-lab/lab-template.png" alt-text="Screenshot of Template page for a lab.":::
+
+## Add a lab schedule
+
+Instead of each lab user starting their lab VM manually, you can optionally create a lab schedule to automatically start and stop the lab VM according to your training calendar. Azure Lab Services supports one-time events or recurring schedules.
+
+Alternately, you can also use [quota](./classroom-labs-concepts.md#quota) to manage the number of hours that lab users can run their lab virtual machine.
+
+Follow these steps to add a recurring schedule to your lab:
+
+1. On the **Schedule** page for the lab, select **Add scheduled event** on the toolbar.
+
+    :::image type="content" source="./media/tutorial-setup-lab/add-schedule-button.png" alt-text="Screenshot of the Add scheduled event button on the Schedule page, highlighting the Schedule menu and Add scheduled event button.":::
+
+1. On the **Add scheduled event** page, enter the following information:
+
+    | Field | Value |
+    | ----- | ----- |
+    | **Event type** | *Standard* |
+    | **Start date** | Enter a start date for the classroom training. |
+    | **Start time** | Enter a start time for the classroom training. |
+    | **Stop time** | Enter an end time for the classroom training. |
+    | **Time zone** | Select your time zone. |
+    | **Repeat** | Keep the default value, which is a weekly recurrence for four months. |
+    | **Notes** | Optionally enter a description for the schedule. |
+
+1. Select **Save** to confirm the lab schedule.
+
+    :::image type="content" source="./media/tutorial-setup-lab/add-schedule-page-weekly.png" alt-text="Screenshot of the Add scheduled event window.":::
+
+1. In the calendar view, confirm that the scheduled event is present.
+
+    :::image type="content" source="./media/tutorial-setup-lab/schedule-calendar.png" alt-text="Screenshot of the Schedule page for Azure Lab Services.  Repeating schedule, Monday through Friday shown in the calendar.":::
 
 ## Customize the lab template
 
@@ -110,7 +141,7 @@ You've now customized the lab template for the course. Every VM in the lab will 
 
 ## Publish lab
 
-Before Azure Lab Services can create lab VMs for your lab, you first need to publish the lab. When you publish the lab, you need to specify the maximum number of lab VMs that Azure Lab Services creates. All VMs in the lab share the same configuration as the lab template.
+All VMs in the lab share the same configuration as the lab template. Before Azure Lab Services can create lab VMs for your lab, you first need to publish the lab. When you publish the lab, you can specify the maximum number of lab VMs that Azure Lab Services creates. You can also modify the number of lab virtual machines at a later stage.
 
 To publish the lab and create the lab VMs:
 
@@ -131,35 +162,8 @@ To publish the lab and create the lab VMs:
 
     :::image type="content" source="./media/tutorial-setup-lab/virtual-machines-stopped.png" alt-text="Screenshot that shows the list of virtual machines for the lab. The lab VMs show as unassigned and stopped.":::
 
-## Add a lab schedule
-
-Instead of each lab user starting their lab VM manually, you can create a lab schedule to automatically start and stop the lab VM according to your training calendar. Azure Lab Services supports one-time events or recurring schedules.
-
-Follow these steps to add a recurring schedule to your lab:
-
-1. On the **Schedule** page for the lab, select **Add scheduled event** on the toolbar.
-
-    :::image type="content" source="./media/tutorial-setup-lab/add-schedule-button.png" alt-text="Screenshot of the Add scheduled event button on the Schedule page, highlighting the Schedule menu and Add scheduled event button.":::
-
-1. On the **Add scheduled event** page, enter the following information:
-
-    | Field | Value |
-    | ----- | ----- |
-    | **Event type** | *Standard* |
-    | **Start date** | Enter a start date for the classroom training. |
-    | **Start time** | Enter a start time for the classroom training. |
-    | **Stop time** | Enter an end time for the classroom training. |
-    | **Time zone** | Select your time zone. |
-    | **Repeat** | Keep the default value, which is a weekly recurrence for four months. |
-    | **Notes** | Optionally enter a description for the schedule. |
-
-1. Select **Save** to confirm the lab schedule.
-
-    :::image type="content" source="./media/tutorial-setup-lab/add-schedule-page-weekly.png" alt-text="Screenshot of the Add scheduled event window.":::
-
-1. In the calendar view, confirm that the scheduled event is present.
-
-    :::image type="content" source="./media/tutorial-setup-lab/schedule-calendar.png" alt-text="Screenshot of the Schedule page for Azure Lab Services.  Repeating schedule, Monday through Friday shown in the calendar.":::
+> [!CAUTION]
+> When you republish a lab, Azure Lab Services recreates all existing lab virtual machines and removes all data from the virtual machines.
 
 ## Invite users
 
@@ -176,7 +180,7 @@ Azure Lab Services supports multiple ways to add users to a lab:
 
 - Manually by entering an email address
 - Upload a CSV file with student information
-- Sync the lab with an Azure Active Directory group
+- Sync the lab with a Microsoft Entra group
 
 In this quickstart, you manually add the users by providing their email address. Follow these steps to add the users:
 
@@ -222,7 +226,5 @@ After you add users to the lab, they can register for the lab by using a registr
 
 You've successfully created a customized lab for a classroom training, created a recurring lab schedule, and invited users to register for the lab. Next, lab users can now connect to their lab virtual machine by using remote desktop.
 
-In this tutorial, you have the Lab Creator Azure AD role to let you create labs for a lab plan. Depending on your organziation, the responsibilities for creating lab plans and labs might be assigned to different people or teams. Learn more about [mapping permissions across your organization](./classroom-labs-scenarios.md#mapping-organizational-roles-to-permissions).
-
 > [!div class="nextstepaction"]
-> [Connect to a lab virtual machine](./tutorial-connect-lab-virtual-machine.md)
+> [Register for the lab and access the lab in the Lab Services website](./tutorial-connect-lab-virtual-machine.md)

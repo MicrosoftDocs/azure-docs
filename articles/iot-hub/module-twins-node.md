@@ -31,9 +31,17 @@ At the end of this article, you have two Node.js apps:
 
 ## Prerequisites
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this article on either Windows or Linux.
+
+## Module authentication
+
+You can use symmetric keys or X.509 certificates to authenticate module identities. For X.509 certificate authentication, the module's certificate *must* have its common name (CN) formatted like `CN=<deviceid>/<moduleid>`. For example:
+
+```bash
+openssl req -new -key d1m1.key.pem -out d1m1.csr -subj "/CN=device01\/module01"
+```
 
 ## Get the IoT hub connection string
 

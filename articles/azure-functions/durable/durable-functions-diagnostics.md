@@ -564,6 +564,10 @@ This is useful for debugging because you see exactly what state an orchestration
 > [!NOTE]
 > Other storage providers can be configured instead of the default Azure Storage provider. Depending on the storage provider configured for your app, you may need to use different tools to inspect the underlying state. For more information, see the [Durable Functions Storage Providers](durable-functions-storage-providers.md) documentation.
 
+## Durable Functions troubleshooting guide
+
+To troubleshoot common problem symptoms such as orchestrations being stuck, failing to start, running slowly, etc., refer to this [troubleshooting guide](durable-functions-troubleshooting-guide.md). 
+
 ## 3rd party tools
 
 The Durable Functions community publishes a variety of tools that can be useful for debugging, diagnostics, or monitoring. One such tool is the open source [Durable Functions Monitor](https://github.com/scale-tone/DurableFunctionsMonitor#durable-functions-monitor), a graphical tool for monitoring, managing, and debugging your orchestration instances.

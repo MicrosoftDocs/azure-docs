@@ -1,7 +1,7 @@
 ---
 title: "Workload management in a multi-cluster environment with GitOps"
 description: "This article provides a conceptual overview of the workload management in a multi-cluster environment with GitOps."
-ms.date: 03/13/2023
+ms.date: 03/29/2023
 ms.topic: conceptual
 author: eedorenko
 ms.author: iefedore
@@ -9,17 +9,17 @@ ms.author: iefedore
 
 # Workload management in a multi-cluster environment with GitOps
 
-Developing modern cloud-native applications often includes building, deploying, configuring, and promoting workloads across a fleet of Kubernetes clusters. With the increasing diversity of Kubernetes clusters in the fleet, and the variety of applications and services, the process can become complex and unscalable. Enterprise organizations can be more successful in these efforts by having a well defined structure that organizes people and their activities, and by using automated tools.
+Developing modern cloud-native applications often includes building, deploying, configuring, and promoting workloads across a group of Kubernetes clusters. With the increasing diversity of Kubernetes cluster types, and the variety of applications and services, the process can become complex and unscalable. Enterprise organizations can be more successful in these efforts by having a well defined structure that organizes people and their activities, and by using automated tools.
 
 This article walks you through a typical business scenario, outlining the involved personas and major challenges that organizations often face while managing cloud-native workloads in a multi-cluster environment. It also suggests an architectural pattern that can make this complex process simpler, observable, and more scalable.
 
 ## Scenario overview
 
-This article describes an organization that develops cloud-native applications. Any application needs a compute resource to work on. In the cloud-native world, this compute resource is a Kubernetes cluster. An organization may have a single cluster or, more commonly, multiple clusters. So the organization must decide which applications should work on which clusters. In other words, they must schedule the applications across clusters. The result of this decision, or scheduling, is a model of the desired state of their cluster fleet. Having that in place, they need somehow to deliver applications to the assigned clusters so that they can turn the desired state into the reality, or, in other words, reconcile it.
+This article describes an organization that develops cloud-native applications. Any application needs a compute resource to work on. In the cloud-native world, this compute resource is a Kubernetes cluster. An organization may have a single cluster or, more commonly, multiple clusters. So the organization must decide which applications should work on which clusters. In other words, they must schedule the applications across clusters. The result of this decision, or scheduling, is a model of the desired state of the clusters in their environment. Having that in place, they need somehow to deliver applications to the assigned clusters so that they can turn the desired state into the reality, or, in other words, reconcile it.
 
 Every application goes through a software development lifecycle that promotes it to the production environment. For example, an application is built, deployed to Dev environment, tested and promoted to Stage environment, tested, and finally delivered to production. For a cloud-native application, the application requires and targets different Kubernetes cluster resources throughout its lifecycle. In addition, applications normally require clusters to provide some platform services, such as Prometheus and Fluentbit, and infrastructure configurations, such as networking policy.
 
-Depending on the application, there may be a great diversity of cluster types to which the application is deployed. The same application with different configurations could be hosted on a managed cluster in the cloud, on a connected cluster in an on-premises environment, on a fleet of clusters on semi-connected edge devices on factory lines or military drones, and on an air-gapped cluster on a starship. Another complexity is that clusters in early lifecycle stages such as Dev and QA are normally managed by the developer, while reconciliation to actual production clusters may be managed by the organization's customers. In the latter case, the developer may be responsible only for promoting and scheduling the application across different rings.  
+Depending on the application, there may be a great diversity of cluster types to which the application is deployed. The same application with different configurations could be hosted on a managed cluster in the cloud, on a connected cluster in an on-premises environment, on a group of clusters on semi-connected edge devices on factory lines or military drones, and on an air-gapped cluster on a starship. Another complexity is that clusters in early lifecycle stages such as Dev and QA are normally managed by the developer, while reconciliation to actual production clusters may be managed by the organization's customers. In the latter case, the developer may be responsible only for promoting and scheduling the application across different rings.  
 
 ## Challenges at scale
 
@@ -28,7 +28,7 @@ In a small organization with a single application and only a few operations, mos
 The following capabilities are required to perform this type of workload management at scale in a multi-cluster environment:
 
 - Separation of concerns on scheduling and reconciling
-- Promotion of the fleet state through a chain of environments
+- Promotion of the multi-cluster state through a chain of environments
 - Sophisticated, extensible and replaceable scheduler
 - Flexibility to use different reconcilers for different cluster types depending on their nature and connectivity
 
@@ -38,14 +38,14 @@ Before we describe the scenario, let's clarify which personas are involved, what
 
 ### Platform team
 
-The platform team is responsible for managing the fleet of clusters that hosts applications produced by application teams.
+The platform team is responsible for managing the clusters that host applications produced by application teams.
 
 Key responsibilities of the platform team are:
 
 * Define staging environments (Dev, QA, UAT, Prod).
-* Define cluster types in the fleet and their distribution across environments.
+* Define cluster types and their distribution across environments.
 * Provision new clusters.
-* Manage infrastructure configurations across the fleet.
+* Manage infrastructure configurations across the clusters.
 * Maintain platform services used by applications.
 * Schedule applications and platform services on the clusters.
 
@@ -53,7 +53,7 @@ Key responsibilities of the platform team are:
 
 The application team is responsible for the software development lifecycle (SDLC) of their applications. They provide Kubernetes manifests that describe how to deploy the application to different targets. They're responsible for owning CI/CD pipelines that create container images and Kubernetes manifests and promote deployment artifacts across environment stages.
 
-Typically, the application team has no knowledge of the clusters that they are deploying to. They aren't aware of the structure of the fleet, global configurations, or tasks performed by other teams. The application team primarily understands the success of their application rollout as defined by the success of the pipeline stages. 
+Typically, the application team has no knowledge of the clusters that they are deploying to. They aren't aware of the structure of the multi-cluster environment, global configurations, or tasks performed by other teams. The application team primarily understands the success of their application rollout as defined by the success of the pipeline stages.
 
 Key responsibilities of the application team are:
 
@@ -88,7 +88,7 @@ Let's have a look at the high level solution architecture and understand its pri
 
 ### Control plane
 
-The platform team models the fleet in the control plane. It's designed to be human-oriented and easy to understand, update, and review. The control plane operates with abstractions such as Cluster Types, Environments, Workloads, Scheduling Policies, Configs and Templates. These abstractions are handled by an automated process that assigns deployment targets and configuration values to the cluster types, then saves the result to the platform GitOps repository. Although the entire fleet may consist of thousands of physical clusters, the platform repository operates at a higher level, grouping the clusters into cluster types. 
+The platform team models the multi-cluster environment in the control plane. It's designed to be human-oriented and easy to understand, update, and review. The control plane operates with abstractions such as Cluster Types, Environments, Workloads, Scheduling Policies, Configs and Templates. These abstractions are handled by an automated process that assigns deployment targets and configuration values to the cluster types, then saves the result to the platform GitOps repository. Although there may be thousands of physical clusters, the platform repository operates at a higher level, grouping the clusters into cluster types.
 
 The main requirement for the control plane storage is to provide a reliable and secure transaction processing functionality, rather than being hit with complex queries against a large amount of data. Various technologies may be used to store the control plane data.
 
@@ -129,13 +129,13 @@ Every cluster type can use a different reconciler (such as Flux, ArgoCD, Zarf, R
 
 ### Platform services
 
-Platform services are workloads (such as Prometheus, NGINX, Fluentbit, and so on) maintained by the platform team. Just like any workloads, they have their source repositories and manifests storage. The source repositories may contain pointers to external Helm charts. CI/CD pipelines pull the charts with containers and perform necessary security scans before submitting them to the manifests storage, from where they're reconciled to the clusters in the fleet. 
+Platform services are workloads (such as Prometheus, NGINX, Fluentbit, and so on) maintained by the platform team. Just like any workloads, they have their source repositories and manifests storage. The source repositories may contain pointers to external Helm charts. CI/CD pipelines pull the charts with containers and perform necessary security scans before submitting them to the manifests storage, from where they're reconciled to the clusters.
 
 ### Deployment Observability Hub
 
-Deployment Observability Hub is a central storage that is easy to query with complex queries against a large amount of data. It contains deployment data with historical information on workload versions and their deployment state across clusters in the fleet. Clusters register themselves in the storage and update their compliance status with the GitOps repositories. Clusters operate at the level of Git commits only. High-level information, such as application versions, environments, and cluster type data, is transferred to the central storage from the GitOps repositories. This high-level information gets correlated in the central storage with the commit compliance data sent from the clusters. 
+Deployment Observability Hub is a central storage that is easy to query with complex queries against a large amount of data. It contains deployment data with historical information on workload versions and their deployment state across clusters. Clusters register themselves in the storage and update their compliance status with the GitOps repositories. Clusters operate at the level of Git commits only. High-level information, such as application versions, environments, and cluster type data, is transferred to the central storage from the GitOps repositories. This high-level information gets correlated in the central storage with the commit compliance data sent from the clusters. 
 
 ## Next steps
 
-* Explore a [sample implementation of workload management in a multi-cluster environment with GitOps](https://github.com/microsoft/kalypso).
-* Try our [Tutorial: Workload Management in Multi-cluster environment with GitOps](tutorial-workload-management.md) to walk through the implementation.
+* Walk through a sample implementation to explore [workload management in a multi-cluster environment with GitOps](workload-management.md).
+* Explore a [multi-cluster workload management sample repository](https://github.com/microsoft/kalypso).

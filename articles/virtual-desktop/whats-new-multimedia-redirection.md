@@ -2,19 +2,47 @@
 title: What's new in multimedia redirection MMR? - Azure Virtual Desktop
 description: New features and product updates for multimedia redirection for Azure Virtual Desktop.
 author: Heidilohr
-ms.topic: conceptual
-ms.date: 02/07/2023
+ms.topic: release-notes
+ms.date: 09/12/2023
 ms.author: helohr
 manager: femila
 ---
 
 # What's new in multimedia redirection?
 
-This article has the latest updates for multimedia redirection (MMR) for Azure Virtual Desktop. 
+This article has the latest updates for multimedia redirection (MMR) for Azure Virtual Desktop.
+
+## Latest available version
+
+The following table shows the latest available version of the MMR extension for Azure Virtual Desktop.
+
+| Release | Latest version | Setup instructions |
+|---------|----------------|----------|
+| Public | 1.0.2309.7002 | [Use multimedia redirection on Azure Virtual Desktop](multimedia-redirection.md) |
+
+## Updates for version 1.0.2309.7002
+
+*Published: September 12, 2023*
+
+In this release, we've made the following changes:
+
+- Added support for using the Preview version of the extension.
+- Fixed a memory leak that caused the host to not close.
+- Added support for providing Telemetry IDs to the extension for customer support purposes.
+- Improved call connection reliability.
+
+## Updates for version 1.0.2304.12009 
+
+*Published: June 13, 2023*
+
+In this release, we've made the following changes: 
+
+- Fixed various issues that caused crashes. 
+- Improved telemetry.
 
 ## Updates for version 1.0.2301.24004
 
-*Date published: February 7, 2023*
+*Published: February 7, 2023*
 
 In this release, we've made the following changes:
 
@@ -23,7 +51,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 0.3.2210.12012
 
-*Date published: October 13, 2022*
+*Published: October 13, 2022*
 
 In this release, we've made the following changes:
 

@@ -72,5 +72,5 @@ These essential solutions like other Microsoft Sentinel domain solutions don't h
 
 ## Next steps
 
-- [Find ASIM-based domain essential solutions like the Network Session Essentials](sentinel-solutions-catalog.md)
+- [Find ASIM-based domain essential solutions](sentinel-solutions-catalog.md) like the Network Session Essentials and DNS Essentials Solution for Microsoft Sentinel
 - [Using the Advanced Security Information Model (ASIM)](/azure/sentinel/normalization-about-parsers)

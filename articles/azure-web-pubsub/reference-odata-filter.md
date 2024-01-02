@@ -19,22 +19,7 @@ This article provides the following resources:
 
 ## Syntax
 
-A filter in the OData language is a Boolean expression. It can be one of several expression types, as shown in the following EBNF description:
-
-```
-/* Identifiers */
-string_identifier ::= 'connectionId' | 'userId' 
-collection_identifier ::= 'groups'
-
-/* Rules for $filter */
-
-boolean_expression ::= logical_expression
-                     | comparison_expression
-                     | in_expression
-                     | boolean_literal
-                     | boolean_function_call
-                     | '(' boolean_expression ')'
-```
+A filter in the OData language is a Boolean expression. It can be one of several expression types, as shown in the [EBNF description](#formal-grammar).
 
 You can use an [interactive syntax diagram](https://aka.ms/awps/filter-syntax-diagram) to explore the syntax grammar rules.
 

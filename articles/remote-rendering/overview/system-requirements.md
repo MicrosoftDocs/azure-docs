@@ -35,11 +35,22 @@ The table below lists which GPUs support H265 hardware video decoding.
 
 Even though the correct H265 codec might be installed, security properties on the codec DLLs may cause codec initialization failures. The [troubleshooting guide](../resources/troubleshoot.md#h265-codec-not-available) describes steps how to solve this problem. The DLL issue can only occur when using the service in a desktop application, for instance in Unity.
 
-## Devices
+## Supported Platforms and Devices
 
-Azure Remote Rendering currently only supports **HoloLens 2** and Windows desktop as a target device. See the [platform limitations](../reference/limits.md#platform-limitations) section.
+* 64-Bit Windows 10
+* 64-Bit Windows 11
+* HoloLens 2
+* Meta Quest 2 (**Public Preview**)
+* Meta Quest Pro (**Public Preview**)
 
-On desktop, it's required to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+### Desktop Windows
+
+Requirements and limitations:
+
+* 32-Bit Windows versions are not supported.
+* You need to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+* No VR support. Only the [simulation](../concepts/graphics-bindings.md#simulation) graphics binding is supported.
+* Only the DX11 rendering API is supported.
 
 It's important to use the latest HEVC codec, as newer versions have significant improvements in latency. To check which version is installed on your device:
 
@@ -50,6 +61,35 @@ It's important to use the latest HEVC codec, as newer versions have significant 
     1. Select the **HEVC Video Extensions from Device Manufacturer** entry from the list.
     1. Scroll down to the **Additional Information** section.
     1. Check the **Installed version** entry.
+
+### HoloLens 2
+
+Requirements and limitations:
+
+* Both Unity's [OpenXR](https://docs.unity3d.com/Manual/com.unity.xr.openxr.html) (Unity 2020 or newer) and [Windows XR Plugin](https://docs.unity3d.com/2020.3/Documentation/Manual/com.unity.xr.windowsmr.html) (up to Unity 2020 only) are supported.
+* The [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature isn't supported.
+* Only the DX11 rendering API is supported.
+
+### Quest 2 and Quest Pro
+
+> [!IMPORTANT]
+> **Support for Quest 2 and Quest Pro is currently in Public Preview**.
+>
+> This functionality is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have limited capabilities. 
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Requirements and limitations:
+
+* The minimum supported Unity version is 2020.3.
+* Only Unity's [OpenXR](https://docs.unity3d.com/Manual/com.unity.xr.openxr.html) plugin is supported.
+* It is recommended to use Unity's Universal Render Pipeline (URP).
+* Only the Vulkan rendering API is supported. OpenGL support is not available.
+* The [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-android) doesn't work for Quest devices.
+* When a Quest device goes to sleep and is woken up again, the remote content may not resume at all, or take a long time to recover.
+* The [ArrInspector](../resources/tools/arr-inspector.md) tool is not supported.
+ 
+See the [Unity setup](../how-tos/unity/unity-setup.md) page for more details.
 
 ## Network
 

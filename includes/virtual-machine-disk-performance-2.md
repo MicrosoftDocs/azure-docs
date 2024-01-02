@@ -1,11 +1,10 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: albecker1
- ms.service: virtual-machines
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 12/12/2022
+ ms.date: 05/31/2023
  ms.author: albecker1
  ms.custom: include file
 ---
@@ -65,7 +64,7 @@ A read is handled the same way as a read-only. Writes are the only thing that's 
 
 ![Diagram showing read/write host caching write.](media/vm-disk-performance/host-caching-read-write.jpg)
 
-Let’s continue with our Standard_D8s_v3 virtual machine. Except this time, we'll enable host caching on the disks. Also, now the VM's IOPS limit is 16,000 IOPS. Attached to the VM are three underlying P30 disks that can each handle 5,000 IOPS.
+Let’s continue with our Standard_D8s_v3 virtual machine. Except this time, we'll enable host caching on the disks. This makes the VM's IOPS limit 16,000 IOPS. Attached to the VM are three underlying P30 disks that can each handle 5,000 IOPS.
 
 **Setup:**
 

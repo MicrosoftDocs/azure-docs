@@ -106,18 +106,22 @@ Actual cached images in your workspace ACR will have names like `azureml/azureml
 >
 >   To update the package, specify a version number to force an image rebuild. An example of this would be changing `numpy` to `numpy==1.18.1`. New dependencies--including nested ones--will be installed, and they might break a previously working scenario.
 >
-> * Using an unpinned base image like `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` in your environment definition results in rebuilding the image every time the `latest` tag is updated. This helps the image receive the latest patches and system updates.zzs
+> * Using an unpinned base image like `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` in your environment definition results in rebuilding the image every time the `latest` tag is updated. This helps the image receive the latest patches and system updates.
 
 ### Image patching
 
 Microsoft is responsible for patching the base images for known security vulnerabilities. Updates for supported images are released every two weeks, with a commitment of no unpatched vulnerabilities older than 30 days in the latest version of the image. Patched images are released with a new immutable tag and the `:latest` tag is updated to the latest version of the patched image. 
 
-If you provide your own images, you are responsible for updating them.
+You'll need to update associated Azure Machine Learning assets to use the newly patched image. For example, when working with a managed online endpoint, you'll need to redeploy your endpoint to use the patched image.
+
+If you provide your own images, you're responsible for updating them and updating the Azure Machine Learning assets that use them.
+
 
 For more information on the base images, see the following links:
 
 * [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) GitHub repository.
 * [Use a custom container to deploy a model to an online endpoint](how-to-deploy-custom-container.md)
+* [Managing environments and container images](concept-vulnerability-management.md#managing-environments-and-container-images)
 
 ## Next steps
 

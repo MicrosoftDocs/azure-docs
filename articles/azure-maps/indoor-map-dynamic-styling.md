@@ -1,5 +1,6 @@
 ---
 title: Implement dynamic styling for Azure Maps Creator indoor maps
+titleSuffix:  Microsoft Azure Maps Creator
 description: Learn how to Implement dynamic styling for Creator indoor maps 
 author: brendansco
 ms.author: Brendanc
@@ -28,7 +29,7 @@ After you complete the prerequisites, you should have a simple web application c
 
 You reference a feature, such as a meeting or conference room, by its ID to implement dynamic styling. Use the feature ID to update the dynamic property or *state* of that feature. To view the features defined in a dataset, use one of the following methods:
 
-- WFS API (Web Feature service). Use the [WFS API] to query datasets. WFS follows the [Open Geospatial Consortium API Features]. The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
+- WFS API (Web Feature service). Use the [WFS API] to query datasets. WFS follows the Open Geospatial Consortium API Features. The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
 
 - Implement customized code that a user can use to select features on a map using your web application, as demonstrated in this article.  
 
@@ -131,6 +132,9 @@ The web application that you previously opened in a browser should now reflect t
 Learn more by reading:
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
 > [Creator for indoor maps](creator-indoor-maps.md)
 
 [Feature State service]: /rest/api/maps/v2/feature-state
@@ -145,5 +149,5 @@ Learn more by reading:
 [See live demo]: https://samples.azuremaps.com/?sample=creator-indoor-maps
 [Feature Update States API]: /rest/api/maps/v2/feature-state/update-states
 [Create an indoor map]: tutorial-creator-indoor-maps.md
-[Open Geospatial Consortium API Features]: https://docs.opengeospatial.org/DRAFTS/17-069r4.html
 [WFS API]: /rest/api/maps/v2/wfs
+[Creator for indoor maps]: creator-indoor-maps.md

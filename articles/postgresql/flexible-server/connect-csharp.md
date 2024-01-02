@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.custom: mvc, devcenter, devx-track-csharp, mode-other
+ms.custom: mvc, devcenter, devx-track-csharp, mode-other, devx-track-dotnet
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 11/30/2021

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
+ms.custom: cliv2, event-tier1-build-2022, devx-track-python
 ms.author: amipatel
 author: amibp
 ms.date: 11/28/2022
@@ -15,13 +15,13 @@ ms.reviewer: larryfr
 
 # CLI (v2) sweep job YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json.
 
 
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 

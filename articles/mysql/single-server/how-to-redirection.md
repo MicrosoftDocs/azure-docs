@@ -1,12 +1,13 @@
 ---
 title: Connect with redirection - Azure Database for MySQL
 description: This article describes how you can configure your application to connect to Azure Database for MySQL with redirection.
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 03/27/2023
+ms.date: 05/03/2023
 ms.service: mysql
 ms.subservice: single-server
+ms.custom: devx-track-linux
 ms.topic: how-to
 ---
 
@@ -59,9 +60,9 @@ For a successful connection to Azure Database for MySQL single server using `mys
 
 The subsequent sections of the document outline how to install the `mysqlnd_azure` extension using PECL and set the value of this parameter.
 
-### Ubuntu Linux
+### [Ubuntu Linux](#tab/ubuntu)
 
-#### Prerequisites
+**Prerequisites**
 
 - PHP versions 7.2.15+ and 7.3.2+
 - PHP PEAR
@@ -99,9 +100,9 @@ The subsequent sections of the document outline how to install the `mysqlnd_azur
     mysqlnd_azure.enableRedirect = on/off/preferred
     ```
 
-### Windows
+### [Windows](#tab/windows)
 
-#### Prerequisites
+**Prerequisites**
 
 - PHP versions 7.2.15+ and 7.3.2+
 - php-mysql
@@ -146,11 +147,13 @@ The subsequent sections of the document outline how to install the `mysqlnd_azur
     mysqlnd_azure.enableRedirect = on/off/preferred
     ```
 
+---
+
 ### Confirm redirection
 
 You can also confirm redirection is configured with the below sample PHP code. Create a PHP file called `mysqlConnect.php` and paste the below code. Update the server name, username, and password with your own.
 
- ```php
+```php
 <?php
 $host = '<yourservername>.mysql.database.azure.com';
 $username = '<yourusername>@<yourservername>';
@@ -170,7 +173,7 @@ $db_name = 'testdb';
     $db->close();
   }
 ?>
- ```
+```
 
 ## Next steps
 

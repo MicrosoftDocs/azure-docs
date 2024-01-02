@@ -45,7 +45,7 @@ To integrate with GitHub (using Webhooks) (using Azure Function) make sure you h
 
 
 > [!NOTE]
-   >  This connector has been built on http trigger based Azure Function. And it provides an endpoint to which github will be connected through it's webhook capability and posts the subscribed events into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+   >  This connector has been built on http trigger based Azure Function. And it provides an endpoint to which GitHub will be connected through it's webhook capability and posts the subscribed events into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](../../app-service/app-service-key-vault-references.md) to use Azure Key Vault with an Azure Function App.
@@ -78,7 +78,7 @@ Use the following step-by-step instructions to deploy the GitHub webhook data co
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-GitHubWebhookAPI-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -108,11 +108,14 @@ If you're already signed in, go to the next step.
 
 1. In the Function App, select the Function App Name and select **Configuration**.
 2. In the **Application settings** tab, select ** New application setting**.
-3. Add each of the following application settings individually, with their respective string values (case-sensitive): 
-		WorkspaceID
-		WorkspaceKey
-		logAnalyticsUri (optional) - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
-4. Once all application settings have been entered, click **Save**.
+3. Add each of the following application settings individually, with their respective string values (case-sensitive):
+
+   - WorkspaceID
+   - WorkspaceKey
+   - logAnalyticsUri (optional) - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
+   - GithubWebhookSecret (optional) - To enable webhook authentication generate a secret value and store it in this setting.
+
+1. Once all application settings have been entered, click **Save**.
 
 
 **Post Deployment steps**
@@ -133,10 +136,11 @@ If you're already signed in, go to the next step.
  2. Click on Settings.
  3. Click on "Webhooks" and enter the function app url which was copied from above STEP 1 under payload URL textbox. 
  4. Choose content type as "application/json". 
- 5. Subscribe for events and Click on "Add Webhook"
+ 1. (Optional) To enable webhook authentication, add to the "Secret" field value you saved to GithubWebhookSecret from Function App settings.
+ 1. Subscribe for events and click on "Add Webhook"
 
 
-*Now we are done with the github Webhook configuration. Once the github events triggered and after the delay of 20 to 30 mins (As there will be a dealy for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the GitHub into LogAnalytics workspace table called "githubscanaudit_CL".*
+*Now we are done with the GitHub Webhook configuration. Once the GitHub events triggered and after the delay of 20 to 30 mins (As there will be a dealy for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the GitHub into LogAnalytics workspace table called "githubscanaudit_CL".*
 
  For more details, Click [here](https://aka.ms/sentinel-gitHubwebhooksteps)
 

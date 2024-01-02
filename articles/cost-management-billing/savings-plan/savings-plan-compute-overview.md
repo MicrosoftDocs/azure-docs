@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 02/16/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -22,7 +22,7 @@ You can buy savings plans in the [Azure portal](https://portal.azure.com/) or wi
 
 ## Why buy a savings plan?
 
-If you have consistent compute spend, but your use of disparate resources makes reservations infeasible, buying a savings plan gives you the ability to reduce your costs. For example, If you consistently spend at least $X every hour, but your usage comes from different resources and/or different datacenter regions, you likely can't effectively cover these costs with reservations. When you buy a savings plan, your hourly usage, up to your commitment amount, is discounted. For this usage, you no longer charged at the pay-as-you-go rates.
+If you have consistent compute spend, but your use of disparate resources makes reservations infeasible, buying a savings plan gives you the ability to reduce your costs. For example, if you consistently spend at least $X every hour, but your usage comes from different resources and/or different datacenter regions, you likely can't effectively cover these costs with reservations. When you buy a savings plan, your hourly usage, up to your commitment amount, is discounted. For this usage, you no longer charged at the pay-as-you-go rates.
 
 ## How savings plan benefits are applied
 
@@ -38,9 +38,9 @@ For more information about how savings plan scope works, see [Saving plan scopes
 
 Usage from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#how-it-works) is eligible for savings plan benefits.
 
-In addition, virtual machines used with the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service/) and [Azure Virtual Desktop (AVD)](https://azure.microsoft.com/products/virtual-desktop/) are eligible for the savings plan.
+In addition, virtual machines used with the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service/), [Azure Virtual Desktop (AVD)](https://azure.microsoft.com/products/virtual-desktop/), and [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/products/openshift/) are eligible for the savings plan.
 
-It's important to consider your hourly spend when you determine your hourly commitment. Azure provides commitment recommendations based on usage from your last 30 days. The recommendations may be found in:
+It's important to consider your hourly spend when you determine your hourly commitment. Azure provides commitment recommendations based on usage from your last 30 days. The recommendations are found in:
 
 - [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/%7E/score)
 - The savings plan purchase experience in the [Azure portal](https://portal.azure.com/)
@@ -58,7 +58,7 @@ The complete list of savings plan eligible products is found in your price sheet
 
 ## How is a savings plan billed?
 
-The savings plan is charged to the payment method tied to the subscription. The savings plan cost is deducted from your Azure Prepayment (previously called monetary commitment) balance, if available. When your Azure Prepayment balance doesn't cover the cost of the savings plan, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have in your account is billed immediately for up-front and for monthly purchases. Monthly payments that's you've made appear on your invoice. When you're billed by invoice, you see the charges on your next invoice.
+The savings plan is charged to the payment method tied to the subscription. The savings plan cost is deducted from your Azure Prepayment (previously called monetary commitment) balance, if available. When your Azure Prepayment balance doesn't cover the cost of the savings plan, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have in your account is billed immediately for up-front and for monthly purchases. Monthly payments that you've made appear on your invoice. When get billed by invoice, you see the charges on your next invoice.
 
 ## Who can buy a savings plan?
 
@@ -87,11 +87,13 @@ Savings plan purchases can't be canceled or refunded.
 
 ## Charges covered by savings plan
 
-- Virtual Machines - A savings plan only covers the virtual machine compute costs. It doesn't cover other software, Windows, networking, or storage charges. Virtual machines don't include BareMetal Infrastructure, A, G, and GS series. Spot VMs aren't covered by savings plans.
+- Virtual Machines - A savings plan only covers the virtual machine compute costs. It doesn't cover other software, Windows, networking, or storage charges. Virtual machines don't include BareMetal Infrastructure or the :::no-loc text="Av1"::: series. Spot VMs aren't covered by savings plans.
 - Azure Dedicated Hosts - Only the compute costs are included with the dedicated hosts.
 - Container Instances
+- Azure Container Apps
 - Azure Premium Functions
 - Azure App Services - The Azure savings plan for compute can only be applied to the App Service upgraded Premium v3 plan and the upgraded Isolated v2 plan.
+- On-demand Capacity Reservation
 
 Exclusions apply to the above services.
 
@@ -99,7 +101,7 @@ For Windows virtual machines and SQL Database, the savings plan discount doesn't
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications - data reference
 description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel solution for SAP® applications.
-author: MSFTandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 02/22/2022
+ms.date: 05/24/2023
 ---
 
 # Microsoft Sentinel solution for SAP® applications data reference
@@ -288,7 +288,7 @@ SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=0h, SelectedSystems= dyna
 | MaxTime | Time of last event observed|
 | Score | the anomaly scores as produced by the anomaly model|
 
-See [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) for more information.
+See [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#monitoring-the-sap-audit-log) for more information.
 
 ### SAPAuditLogConfigRecommend
 The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule. Learn how to [configure the rules](configure-audit-log-rules.md).
@@ -333,7 +333,7 @@ This functionality is heavily used in the Deterministic and Anomalous Audit Log 
 | The "SAP User Config" watchlist | SearchKey | Search Key |
 | The "SAP User Config" watchlist | SAPUser | The SAP User | OSS, DDIC  
 | The "SAP User Config" watchlist | Tags | string of tags assigned to user | RunObsoleteProgOK  
-| The "SAP User Config" watchlist | User's Microsoft Azure Active Directory (Azure AD) Object ID | Azure AD Object ID |   
+| The "SAP User Config" watchlist | User's Microsoft Entra Object ID | Microsoft Entra Object ID |   
 | The "SAP User Config" watchlist | User Identifier | AD User Identifier |
 | The "SAP User Config" watchlist | User on-premises Sid |  |
 | The "SAP User Config" watchlist | User Principal Name |  |
@@ -374,7 +374,7 @@ For a full history of user activity, run a custom KQL query against the SAPAudit
 |  | User | The SAP user |
 | SAP tables ADR6 and USR21 | Email | Taken from user's master data | OSS, DDIC  
 | SAP table USR02 | UserType | string of tags assigned to user | RunObsoleteProgOK  
-| SAP table USR02 | Timezone | Azure AD Object ID |
+| SAP table USR02 | Timezone | Microsoft Entra Object ID |
 | SAP table USR02 | LockedStatus | AD User Identifier |
 | SAP audit log | LastSeen | A timestamp | last audit event observed for the user  
 | SAP audit log | LastSeenDaysAgo | days passed since LastSeen |
@@ -1071,4 +1071,5 @@ For more information, see:
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Microsoft Sentinel solution for SAP® applications: built-in security content](sap-solution-security-content.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)

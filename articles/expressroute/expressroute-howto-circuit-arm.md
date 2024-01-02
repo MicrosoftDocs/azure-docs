@@ -4,7 +4,7 @@ description: This quickstart shows you how to create, provision, verify, update,
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 12/27/2022
+ms.date: 12/28/2023
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom: devx-track-azurepowershell, mode-api
@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell, mode-api
 # Quickstart: Create and modify an ExpressRoute circuit using Azure PowerShell
 
 This quickstart shows you how to create an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
+
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure PowerShell.":::
 
 ## Prerequisites
 
@@ -32,7 +34,7 @@ This quickstart shows you how to create an ExpressRoute circuit using PowerShell
 
 Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options.
 
-The PowerShell cmdlet **Get-AzExpressRouteServiceProvider** returns this information, which you’ll use in later steps:
+The PowerShell cmdlet **Get-AzExpressRouteServiceProvider** returns this information, which you use in later steps:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -143,7 +145,7 @@ Peerings                         : []
 
 ### Send the service key to your connectivity provider for provisioning
 
-*ServiceProviderProvisioningState* provides you information about the current state of provisioning on the service-provider side. *CircuitProvisioningState* provides you the status on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+*ServiceProviderProvisioningState* provides you with information about the current state of provisioning on the service-provider side. *CircuitProvisioningState* provides you with the status on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
@@ -168,7 +170,7 @@ CircuitProvisioningState         : Enabled
 
 ### Periodically check the status and the state of the circuit key
 
-Checking the status and the state of the service key will let you know when your provider has provisioned your circuit. After the circuit has been configured, *ServiceProviderProvisioningState* appears as *Provisioned*, as shown in the following example:
+Checking the status and the state of the service key lets you know when your provider provisioned your circuit. After the circuit gets configured, *ServiceProviderProvisioningState* appears as *Provisioned*, as shown in the following example:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -310,7 +312,7 @@ $ckt.sku.Name = "Premium_MeteredData"
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-The circuit now has the ExpressRoute premium add-on features enabled. We begin billing you for the premium add-on capability as soon as the command has successfully run.
+The circuit now has the ExpressRoute premium add-on features enabled. We begin billing you for the premium add-on capability as soon as the command successfully ran.
 
 ### To disable the ExpressRoute premium add-on
 
@@ -321,8 +323,8 @@ The circuit now has the ExpressRoute premium add-on features enabled. We begin b
 Note the following information:
 
 * Before you downgrade from premium to standard, you must ensure that the number of virtual networks that are linked to the circuit is less than 10. If you don't, your update request fails, and we bill you at premium rates.
-* All virtual networks in other geopolitical regions must be first unlinked. If you don't remove the link, your update request will fail and we continue to bill you at premium rates.
-* Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session will drop. The BGP session won't be re-enabled until the number of advertised prefixes is under 4,000.
+* All virtual networks in other geopolitical regions must be first unlinked. If you don't remove the link, your update request fails and we continue to bill you at premium rates.
+* Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops. The BGP session doesn't re-establish until the number of advertised prefixes is under 4,000.
 
 You can disable the ExpressRoute premium add-on for the existing circuit by using the following PowerShell cmdlet:
 
@@ -355,7 +357,7 @@ $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-Your circuit will be upgraded on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, we'll begin billing you for the updated bandwidth option.
+Your circuit is upgraded on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, we'll begin billing you for the updated bandwidth option.
 
 ### To move the SKU from metered to unlimited
 
@@ -380,7 +382,7 @@ Note the following information:
 
 * All virtual networks must be unlinked from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
 * If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
-* If the service provider has deprovisioned the circuit meaning the service provider provisioning state gets set to **Not provisioned**, you can delete the circuit. The billing for the circuit will then stop.
+* If the service provider deprovisioned the circuit, meaning the service provider provisioning state gets set to **Not provisioned**, you can delete the circuit. The billing for the circuit stops.
 
 ## Clean up resources
 

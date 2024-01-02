@@ -153,6 +153,6 @@ kubectl describe pod/<pod name> --namespace arc
 
 If you encounter any troubles with the deployment, please see the [troubleshooting guide](troubleshoot-guide.md).
 
-## Next steps
+## Related content
 
 [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md)

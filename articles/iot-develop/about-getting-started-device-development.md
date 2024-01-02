@@ -5,18 +5,18 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
-ms.date: 03/28/2023
+ms.date: 04/28/2023
 ms.custom: engagement-fy23
 ---
 
 # Get started with Azure IoT device development
 
-This article shows how to quickly get started with Azure IoT device development. As a prerequisite, see the introductory articles [What is Azure IoT device and application development?](about-iot-develop.md) and [Overview of Azure IoT Device SDKs](about-iot-sdks.md).  These articles summarize key development options, tools, and SDKs available to device developers. 
+This article shows how to get started quickly with Azure IoT device development. As a prerequisite, see the introductory articles [What is Azure IoT device and application development?](about-iot-develop.md) and [Overview of Azure IoT Device SDKs](about-iot-sdks.md).  These articles summarize key development options, tools, and SDKs available to device developers. 
 
-In this article, you'll select from a set of device quickstarts to get started with hands-on development.
+In this article, you can select from a set of device quickstarts to get started with hands-on development.
 
 ## Quickstarts for general devices
-To start using the Azure IoT device SDKs to connect general, unconstrained MPU devices to Azure IoT, see the following articles.  These quickstarts provide simulators and don't require you to have a physical device.
+See the following articles to start using the Azure IoT device SDKs to connect general, microprocessor unit (MPU) devices to Azure IoT.  Examples of general MPU devices with larger compute and memory resources include PCs, servers, Raspberry Pi devices, and smartphones. The following quickstarts all provide device simulators and don't require you to have a physical device.
 
 Each quickstart shows how to set up a code sample and tools, run a temperature controller sample, and connect it to Azure. After the device is connected, you perform several common operations. 
 
@@ -29,7 +29,7 @@ Each quickstart shows how to set up a code sample and tools, run a temperature c
 |[Send telemetry from a device to Azure IoT Hub (Java)](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java)|[Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java)|
 
 ## Quickstarts for embedded devices
-To start using the Azure IoT embedded device SDKs to connect embedded, resource-constrained MCU devices to Azure IoT, see the following articles.  These quickstarts require you to have one of the listed devices. 
+See the following articles to start using the Azure IoT embedded device SDKs to connect embedded, resource-constrained microcontroller unit (MCU) devices to Azure IoT.  Examples of constrained MCU devices with compute and memory limitations, include sensors, and special purpose hardware modules or boards. The following quickstarts require you to have the listed MCU devices. 
 
 Each quickstart shows how to set up a code sample and tools, flash the device, and connect it to Azure. After the device is connected, you perform several common operations. 
 

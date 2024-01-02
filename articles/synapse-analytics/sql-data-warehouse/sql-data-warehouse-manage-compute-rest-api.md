@@ -1,15 +1,16 @@
 ---
 title: Pause, resume, scale with REST APIs for dedicated SQL pool (formerly SQL DW)
 description: Manage compute power for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics through REST APIs.
-author: kedodd
-ms.author: kedodd
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 03/09/2022
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: wiassaf
-ms.custom: seo-lt-2019, azure-synapse
+ms.date: 03/09/2022
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - azure-synapse
 ---
 
 # REST APIs for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
@@ -21,7 +22,7 @@ REST APIs for managing compute for dedicated SQL pool (formerly SQL DW) in Azure
 
 ## Scale compute
 
-To change the data warehouse units, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the data warehouse units to DW1000 for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
+To change the data warehouse units, use the [Create or Update Database](/rest/api/sql/2022-08-01-preview/databases/create-or-update) REST API. The following example sets the data warehouse units to DW1000 for the database `MySQLDW`, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2020-08-01-preview HTTP/1.1

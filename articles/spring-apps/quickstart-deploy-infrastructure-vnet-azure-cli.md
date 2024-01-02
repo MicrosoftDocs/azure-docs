@@ -2,7 +2,7 @@
 title: Quickstart - Provision Azure Spring Apps using Azure CLI
 description: This quickstart shows you how to use Azure CLI to deploy an Azure Spring Apps cluster into an existing virtual network.
 services: azure-cli
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java, mode-api, event-tier1-build-2022
@@ -15,13 +15,13 @@ ms.date: 05/31/2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic tier ✔️ Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
 
 This quickstart describes how to use Azure CLI to deploy an Azure Spring Apps cluster into an existing virtual network.
 
 Azure Spring Apps makes it easy to deploy Spring applications to Azure without any code changes. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
-The Enterprise tier deployment plan includes the following Tanzu components:
+The Enterprise deployment plan includes the following Tanzu components:
 
 * Build Service
 * Application Configuration Service
@@ -40,19 +40,19 @@ The Enterprise tier deployment plan includes the following Tanzu components:
   * Network and fully qualified domain name (FQDN) rules. For more information, see [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements).
   * A unique User Defined Route (UDR) applied to each of the service runtime and Spring application subnets. For more information about UDRs, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Azure Spring Apps cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * [Azure CLI](/cli/azure/install-azure-cli)
-* If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+* If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Review the Azure CLI deployment script
 
-The deployment script used in this quickstart is from the [Azure Spring Apps reference architecture](reference-architecture.md).
+The deployment script used in this quickstart is from the [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture).
 
-### [Standard tier](#tab/azure-spring-apps-standard)
-
-:::code language="azurecli" source="~/azure-spring-apps-reference-architecture/CLI/brownfield-deployment/azuredeploySpringStandard.sh":::
-
-### [Enterprise tier](#tab/azure-spring-apps-enterprise)
+### [Enterprise plan](#tab/azure-spring-apps-enterprise)
 
 :::code language="azurecli" source="~/azure-spring-apps-reference-architecture/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh":::
+
+### [Standard plan](#tab/azure-spring-apps-standard)
+
+:::code language="azurecli" source="~/azure-spring-apps-reference-architecture/CLI/brownfield-deployment/azuredeploySpringStandard.sh":::
 
 ---
 
@@ -100,15 +100,15 @@ To deploy the Azure Spring Apps cluster using the Azure CLI script, follow these
    az group create --name <your-resource-group-name> --location <location-name>
    ```
 
-1. Save the script for Azure Spring Apps [Standard tier](https://raw.githubusercontent.com/Azure/azure-spring-apps-landing-zone-accelerator/reference-architecture/CLI/brownfield-deployment/azuredeploySpringStandard.sh) or [Enterprise tier](https://raw.githubusercontent.com/Azure/azure-spring-apps-landing-zone-accelerator/reference-architecture/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh) locally, then run it from the Bash prompt.
+1. Save the script for Azure Spring Apps [Standard plan](https://raw.githubusercontent.com/Azure/azure-spring-apps-landing-zone-accelerator/reference-architecture/CLI/brownfield-deployment/azuredeploySpringStandard.sh) or [Enterprise plan](https://raw.githubusercontent.com/Azure/azure-spring-apps-landing-zone-accelerator/reference-architecture/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh) locally, then run it from the Bash prompt.
 
-   **Standard tier:**
+   **Standard plan:**
 
    ```azurecli
    ./azuredeploySpringStandard.sh
    ```
 
-   **Enterprise tier:**
+   **Enterprise plan:**
 
    ```azurecli
    ./azuredeploySpringEnterprise.sh
@@ -152,6 +152,6 @@ In this quickstart, you deployed an Azure Spring Apps instance into an existing 
 * Deploy one of the following sample applications from the locations below:
   * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices)
   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
-* Use [custom domains](tutorial-custom-domain.md) with Azure Spring Apps.
+* Use [custom domains](how-to-custom-domain.md) with Azure Spring Apps.
 * Expose applications in Azure Spring Apps to the internet using Azure Application Gateway. For more information, see [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).
-* View the secure end-to-end [Azure Spring Apps reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+* View the secure end-to-end [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).

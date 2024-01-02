@@ -4,7 +4,7 @@ description: Learn how to configure diagnostic settings to send resource logs fr
 ms.topic: article
 author: bwren
 ms.author: bwren
-ms.date: 11/08/2021
+ms.date: 08/08/2023
 ms.reviewer: lualderm
 ---
 

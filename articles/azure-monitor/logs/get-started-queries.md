@@ -2,9 +2,10 @@
 title: Get started with log queries in Azure Monitor | Microsoft Docs
 description: This article provides a tutorial for getting started writing log queries in Azure Monitor.
 ms.topic: tutorial
-author: bwren
-ms.author: bwren
-ms.date: 10/20/2021
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: ilanawaitser
+ms.date: 10/31/2023
 
 ---
 
@@ -15,7 +16,7 @@ ms.date: 10/20/2021
 >
 > If you already know how to query in Kusto Query Language (KQL) but need to quickly create useful queries based on resource types, see the saved example queries pane in [Use queries in Azure Monitor Log Analytics](../logs/queries.md).
 
-In this tutorial, you'll learn to write log queries in Azure Monitor. The article shows you how to:
+In this tutorial, you learn to write log queries in Azure Monitor. The article shows you how to:
 
 - Understand query structure.
 - Sort query results.
@@ -32,6 +33,8 @@ For more information about log queries in Azure Monitor, see [Overview of log qu
 Here's a video version of this tutorial:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
+
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
 ## Write a new query
 
@@ -53,9 +56,13 @@ The preceding query returns 10 results from the `SecurityEvent` table, in no spe
 
 * The query starts with the table name `SecurityEvent`, which defines the scope of the query.
 * The pipe (|) character separates commands, so the output of the first command is the input of the next. You can add any number of piped elements.
-* Following the pipe is the `take` command, which returns a specific number of arbitrary records from the table.
+* Following the pipe is the [`take` operator](#take).
 
-We could run the query even without adding `| take 10`. The command would still be valid, but it could return up to 10,000 results.
+   We could run the query even without adding `| take 10`. The command would still be valid, but it could return up to 30,000 results.
+
+#### Take
+
+Use the [`take` operator](/azure/data-explorer/kusto/query/takeoperator) to view a small sample of records by returning up to the specified number of records. The selected results are arbitrary and displayed in no particular order. If you need to return results in a particular order, use the [`sort` and `top` operators](#sort-and-top).
 
 ### Search queries
 
@@ -66,36 +73,69 @@ search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-This query searches the `SecurityEvent` table for records that contain the phrase "Cryptographic." Of those records, 10 records will be returned and displayed. If you omit the `in (SecurityEvent)` part and run only `search "Cryptographic"`, the search will go over *all* tables. The process would then take longer and be less efficient.
+This query searches the `SecurityEvent` table for records that contain the phrase "Cryptographic." Of those records, 10 records are returned and displayed. If you omit the `in (SecurityEvent)` part and run only `search "Cryptographic"`, the search goes over *all* tables. The process would then take longer and be less efficient.
 
 > [!IMPORTANT]
 > Search queries are ordinarily slower than table-based queries because they have to process more data.
 
 ## Sort and top
-Although `take` is useful for getting a few records, the results are selected and displayed in no particular order. To get an ordered view, you could `sort` by the preferred column:
+
+This section describes the `sort` and `top` operators and their `desc` and `asc` arguments. Although [`take`](#take) is useful for getting a few records, you can't select or sort the results in any particular order. To get an ordered view, use `sort` and `top`.
+
+### Desc and asc
+
+#### Desc
+
+Use the `desc` argument to sort records in descending order. Descending is the default sorting order for `sort` and `top`, so you can usually omit the `desc` argument. 
+
+For example, the data returned by both of the following queries is sorted by the [TimeGenerated column](./log-standard-columns.md#timegenerated), in descending order:
+
+- ```Kusto
+  SecurityEvent	
+  | sort by TimeGenerated desc
+  ```
+
+- ```Kusto
+   SecurityEvent	
+   | sort by TimeGenerated
+   ```
+   
+#### Asc
+
+To sort in ascending order, specify `asc`.
+
+### Sort
+
+You can use the [`sort` operator](/azure/data-explorer/kusto/query/sort-operator). `sort` sorts the query results by the column you specify. However, `sort` doesn't limit the number of records that are returned by the query.
+
+For example, the following query returns all available records for the `SecurityEvent` table, which is up to a maximum of 30,000 records, and sorts them by the TimeGenerated column.
 
 ```Kusto
 SecurityEvent	
-| sort by TimeGenerated desc
+| sort by TimeGenerated
 ```
 
-The preceding query could return too many results though, and it might also take some time. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 10,000 records. This approach isn't optimal.
+The preceding query could return too many results. Also, it might also take some time to return the results. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 30,000 records. This approach isn't optimal. The best way to only get the latest records is to use the [`top` operator](#top).
 
-The best way to get only the latest 10 records is to use `top`, which sorts the entire table on the server side and then returns the top records:
+### Top
+
+Use the [`top` operator](/azure/data-explorer/kusto/query/topoperator) to sort the entire table on the server side and then only return the top records. 
+
+For example, the following query returns the latest 10 records:
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-Descending is the default sorting order, so you would usually omit the `desc` argument. The output looks like this example.
-
-![Screenshot that shows the top 10 records sorted in descending order.](media/get-started-queries/top10.png)
+The output looks like this example.
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/top10.png" lightbox="media/get-started-queries/top10.png" alt-text="Screenshot that shows the top 10 records sorted in descending order." border="false":::
 
 ## The where operator: Filter on a condition
 Filters, as indicated by their name, filter the data by a specific condition. Filtering is the most common way to limit query results to relevant information.
 
-To add a filter to a query, use the `where` operator followed by one or more conditions. For example, the following query returns only `SecurityEvent` records where `Level equals _8`:
+To add a filter to a query, use the [`where` operator](/azure/data-explorer/kusto/query/whereoperator) followed by one or more conditions. For example, the following query returns only `SecurityEvent` records where `Level equals _8`:
 
 ```Kusto
 SecurityEvent
@@ -139,12 +179,14 @@ You can specify a time range by using the time picker or a time filter.
 ### Use the time picker
 
 The time picker is displayed next to the **Run** button and indicates that you're querying records from only the last 24 hours. This default time range is applied to all queries. To get records from only the last hour, select **Last hour** and then run the query again.
-
-![Screenshot that shows the time picker and its list of time-range commands.](media/get-started-queries/timepicker.png)
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/timepicker.png" lightbox="media/get-started-queries/timepicker.png" alt-text="Screenshot that shows the time picker and its list of time-range commands." border="false":::
 
 ### Add a time filter to the query
 
-You can also define your own time range by adding a time filter to the query. It's best to place the time filter immediately after the table name:
+You can also define your own time range by adding a time filter to the query. Adding a time filter overrides the time range selected in the [time picker](#use-the-time-picker).
+
+It's best to place the time filter immediately after the table name:
 
 ```Kusto
 SecurityEvent
@@ -165,8 +207,8 @@ SecurityEvent
 ```
 
 The preceding example generates the following output:
-
-![Screenshot that shows the query "project" results list.](media/get-started-queries/project.png)
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/project.png" lightbox="media/get-started-queries/project.png" alt-text="Screenshot that shows the query 'project' results list." border="false":::
 
 You can also use `project` to rename columns and define new ones. The next example uses `project` to do the following:
 
@@ -237,8 +279,20 @@ Perf
 ```
 
 To make the output clearer, you can select to display it as a time chart, which shows the available memory over time.
+<!-- convertborder later -->
+:::image type="content" source="media/get-started-queries/chart.png" lightbox="media/get-started-queries/chart.png" alt-text="Screenshot that shows the values of a query memory over time." border="false":::
 
-![Screenshot that shows the values of a query memory over time.](media/get-started-queries/chart.png)
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Why am I seeing duplicate records in Azure Monitor Logs?
+
+Occasionally, you might notice duplicate records in Azure Monitor Logs. This duplication is typically from one of the following two conditions:
+          
+- Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this capability might result in duplicates for a small percentage of telemetry items.
+- If the duplicate records come from a virtual machine, you might have both the Log Analytics agent and Azure Monitor Agent installed. If you still need the Log Analytics agent installed, configure the Log Analytics workspace to no longer collect data that's also being collected by the data collection rule used by Azure Monitor Agent.
+
 
 ## Next steps
 

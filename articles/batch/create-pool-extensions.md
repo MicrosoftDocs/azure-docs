@@ -1,13 +1,14 @@
 ---
 title: Use extensions with Batch pools
-description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. 
+description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes.
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.custom: devx-track-linux
+ms.date: 12/05/2023
 ---
 
 # Use extensions with Batch pools
 
-Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. You can select any of the extensions that are allowed by Azure Batch and have them installed on the compute nodes as they are provisioned. After that, the extension can perform its intended operation.
+Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. You can select any of the extensions that are allowed by Azure Batch and have them installed on the compute nodes as they're provisioned. After that, the extension can perform its intended operation.
 
 You can check the live status of the extensions you use and retrieve the information they return in order to pursue any detection, correction, or diagnostics capabilities.
 
@@ -16,6 +17,9 @@ You can check the live status of the extensions you use and retrieve the informa
 - Pools with extensions must use [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration).
 - The CustomScript extension type is reserved for the Azure Batch service and can't be overridden.
 - Some extensions may need pool-level Managed Identity accessible in the context of a compute node in order to function properly. Please see [configuring managed identities in Batch pools](managed-identity-pools.md) if applicable for the extension(s).
+
+> [!TIP]
+> Extensions cannot be added to an existing pool. Pools must be recreated to add, remove, or update extensions.
 
 ## Supported extensions
 
@@ -31,6 +35,8 @@ The following extensions can currently be installed when creating a Batch pool:
 - [HPC GPU driver extension for Windows on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-windows.md)
 - [HPC GPU driver extension for Linux on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md)
 - [Microsoft Antimalware extension for Windows](../virtual-machines/extensions/iaas-antimalware-windows.md)
+- [Azure Monitor agent for Linux](../azure-monitor/agents/azure-monitor-agent-manage.md)
+- [Azure Monitor agent for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md)
 
 You can request support for additional publishers and/or extension types by opening a support request.
 
@@ -58,12 +64,12 @@ Request Body
         "deploymentConfiguration": {
             "virtualMachineConfiguration": {
                 "imageReference": {
-                    "publisher": "canonical",
-                    "offer": "ubuntuserver",
-                    "sku": "18.04-lts",
+                    "publisher": "microsoftcblmariner",
+                    "offer": "cbl-mariner",
+                    "sku": "cbl-mariner-2",
                     "version": "latest"
                 },
-                "nodeAgentSkuId": "batch.node.ubuntu 18.04",
+                "nodeAgentSkuId": "batch.node.mariner 2.0",
                 "extensions": [
                     {
                         "name": "secretext",
@@ -97,6 +103,8 @@ Request Body
                 "resizeTimeout": "PT15M"
             }
         }
+    }
+}
 ```
 
 ## Get extension data from a pool
@@ -106,7 +114,7 @@ The example below retrieves data from the Azure Key Vault extension.
 REST API URI
 
 ```http
- GET https://<accountname>.<region>.batch.azure.com/pools/test3/nodes/tvmps_a3ce79db285d6c124399c5bd3f3cf308d652c89675d9f1f14bfc184476525278_d/extensions/secretext?api-version=2010-01-01
+ GET https://<accountName>.<region>.batch.azure.com/pools/<poolName>/nodes/<tvmNodeName>/extensions/secretext?api-version=2010-01-01
 ```
 
 Response Body

@@ -3,6 +3,7 @@ title: 'Tutorial: Create a secure N-tier web app'
 description: Learn how to securely deploy your N-tier web app to Azure App Service.
 author: seligj95
 ms.topic: tutorial
+ms.custom: devx-track-azurecli
 ms.date: 2/25/2023
 ms.author: jordanselig
 ---
@@ -207,7 +208,7 @@ Now that the back-end SCM site is publicly accessible, you need to lock it down 
     az resource update --resource-group $groupName --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<backend-app-name> --set properties.allow=false
     ```
 
-[Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html) limits access to the FTP and SCM endpoints to users that are backed by Azure Active Directory, which further secures your apps. For more information on disabling basic auth including how to test and monitor logins, see [Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html).
+[Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html) limits access to the FTP and SCM endpoints to users that are backed by Microsoft Entra ID, which further secures your apps. For more information on disabling basic auth including how to test and monitor logins, see [Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html).
 
 ## 6. Configure continuous deployment using GitHub Actions
 
@@ -411,7 +412,7 @@ A default workflow file that uses a publish profile to authenticate to App Servi
 
 #### Is it safe to leave the back-end SCM publicly accessible?
 
-When you [lock down FTP and SCM access](#5-lock-down-ftp-and-scm-access), it ensures that only Azure AD backed principals can access the SCM endpoint even though it's publicly accessible. This setting should reassure you that your backend web app is still secure.
+When you [lock down FTP and SCM access](#5-lock-down-ftp-and-scm-access), it ensures that only Microsoft Entra backed principals can access the SCM endpoint even though it's publicly accessible. This setting should reassure you that your backend web app is still secure.
 
 #### Is there a way to deploy without opening up the back-end SCM site at all?
 

@@ -1,10 +1,10 @@
 ---
 title: Add snap grid to the map | Microsoft Azure Maps
 description: How to add a snap grid to a map using Azure Maps Web SDK
-author: eriklindeman
-ms.author: eriklind
-ms.date: 07/20/2021
-ms.topic: conceptual
+author: sinnypan
+ms.author: sipa
+ms.date: 06/08/2023
+ms.topic: how-to
 ms.service: azure-maps
 ---
 
@@ -18,29 +18,23 @@ The resolution of the snapping grid is in pixels. The grid is square and relativ
 
 Create a snap grid using the `atlas.drawing.SnapGridManager` class and pass in a reference to the map you want to connect the manager to. Set the `showGrid` option to `true` if you want to make the grid visible. To snap a shape to the grid, pass it into the snap grid managers `snapShape` function. If you want to snap an array of positions, pass it into the `snapPositions` function.
 
-The following example snaps an HTML marker to a grid when it is dragged. Drawing tools are used to snap drawn shapes to the grid when the `drawingcomplete` event fires.
+The [Use a snapping grid] sample snaps an HTML marker to a grid when it's dragged. Drawing tools are used to snap drawn shapes to the grid when the `drawingcomplete` event fires. For the source code for this sample, see [Use a snapping grid source code].
 
-<br/>
+:::image type="content" source="./media/map-add-snap-grid/use-snapping-grid.png"alt-text="A screenshot that shows the snap grid on map.":::
 
-<iframe height="500" scrolling="no" title="Use a snapping grid" src="https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/azuremaps/pen/rNmzvXO">
-  Use a snapping grid</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-
+<!--------------------------------------------------
+> [!VIDEO https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult]
+--------------------------------------------------->
 
 ## Snap grid options
 
-The following example shows the different customization options available for the snap grid manager. The grid line styles can be customized by retrieving the underlying line layer using the snap grid managers `getGridLayer` function.
+The [Snap grid options] sample shows the different customization options available for the snap grid manager. The grid line styles can be customized by retrieving the underlying line layer using the snap grid managers `getGridLayer` function. For the source code for this sample, see [Snap grid options source code].
 
-<br/>
+:::image type="content" source="./media/map-add-snap-grid/snap-grid-options.png"alt-text="A screenshot of map with snap grid enabled and an options panel on the left where you can set various options and see the results in the map.":::
 
-<iframe height="700" scrolling="no" title="Snap grid options" src="https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/azuremaps/pen/RwVZJry">
-  Snap grid options</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-
+<!--------------------------------------------------
+> [!VIDEO https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result]
+--------------------------------------------------->
 
 ## Next steps
 
@@ -54,3 +48,8 @@ Learn how to use other features of the drawing tools module:
 
 > [!div class="nextstepaction"]
 > [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
+
+[Use a snapping grid]: https://samples.azuremaps.com/drawing-tools-module/use-a-snapping-grid
+[Snap grid options]: https://samples.azuremaps.com/drawing-tools-module/snap-grid-options
+[Use a snapping grid source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Use%20a%20snapping%20grid/Use%20a%20snapping%20grid.html
+[Snap grid options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Snap%20grid%20options/Snap%20grid%20options.html

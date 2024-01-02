@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about Azure Digital Twins security best practices.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/02/2023
+ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -25,13 +25,13 @@ Azure Digital Twins also supports encryption of data at rest.
 
 ## Roles and permissions with Azure RBAC
 
-Azure RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
+Azure RBAC is provided to Azure Digital Twins via integration with [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md).
 
-You can use Azure RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
+You can use Azure RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by Microsoft Entra ID, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
 
 ### Authentication and authorization
 
-With Azure AD, access is a two-step process. When a security principal (a user, group, or application) attempts to access Azure Digital Twins, the request must be *authenticated* and *authorized*. 
+With Microsoft Entra ID, access is a two-step process. When a security principal (a user, group, or application) attempts to access Azure Digital Twins, the request must be *authenticated* and *authorized*. 
 
 1. First, the security principal's identity is authenticated, and an OAuth 2.0 token is returned.
 2. Next, the token is passed as part of a request to the Azure Digital Twins service, to authorize access to the specified resource.
@@ -89,13 +89,25 @@ If a user attempts to perform an action not allowed by their role, they may rece
 
 ## Managed identity for accessing other resources
 
-Setting up an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) *managed identity* for an Azure Digital Twins instance can allow the instance to easily access other Azure AD-protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and doesn't require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
+Setting up an [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) *managed identity* for an Azure Digital Twins instance can allow the instance to easily access other Microsoft Entra protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and doesn't require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
 Azure Digital Twins supports both types of managed identities, *system-assigned* and *user-assigned*. 
 
 You can use either of these managed identity types to authenticate to a [custom-defined endpoint](concepts-route-events.md#creating-endpoints). Azure Digital Twins supports identity-based authentication to endpoints for [Event Hubs](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and to an [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) endpoint for [dead-letter events](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md) endpoints are currently not supported for managed identities.
 
 For instructions on how to enable a managed identity for an Azure Digital Twins endpoint that can be used to route events, see [Endpoint options: Identity-based authentication](how-to-create-endpoints.md#endpoint-options-identity-based-authentication).
+
+### Using trusted Microsoft service for routing events to Event Hubs and Service Bus endpoints
+
+Azure Digital Twins can connect to Event Hubs and Service Bus endpoints for sending event data, using those resources' public endpoints. However, if those resources are bound to a VNet, connectivity to the resources are blocked by default. As a result, this configuration prevents Azure Digital Twins from sending event data to your resources. 
+
+To resolve this, enable connectivity from your Azure Digital Twins instance to your Event Hubs or Service Bus resources through the *trusted Microsoft service* option (see [Trusted Microsoft services for Event Hubs](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services) and [Trusted Microsoft services for Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services)). 
+
+You'll need to complete the following steps to enable the trusted Microsoft service connection.
+
+1. Your Azure Digital Twins instance must use a **system-assigned managed identity**. This allows other services to find your instance as a trusted Microsoft service. For instructions to set up a system-managed identity on the instance, see [Enable managed identity for the instance](how-to-create-endpoints.md#1-enable-managed-identity-for-the-instance).
+1. Once a system-assigned managed identity is provisioned, grant permission for your instance's managed identity to access your Event Hubs or Service Bus endpoint (this feature is not supported in Event Grid). For instructions to assign the proper roles, see [Assign Azure roles to the identity](how-to-create-endpoints.md#2-assign-azure-roles-to-the-identity).
+1. For Event Hubs and Service Bus endpoints that have firewall configurations in place, make sure you enable the **Allow trusted Microsoft services to bypass this firewall** setting.
 
 ## Private network access with Azure Private Link
 

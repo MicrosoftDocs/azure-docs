@@ -3,8 +3,9 @@ title: Manage server - Azure CLI - Azure Database for MySQL
 description: Learn how to manage an Azure Database for MySQL server from the Azure CLI.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+ms.custom: devx-track-azurecli
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/20/2022
 ---

@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
 
 # Advanced entry script authoring
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article shows how to write entry scripts for specialized use cases.
 

@@ -1,18 +1,18 @@
 ---
 title: How to configure origins
 titleSuffix: Azure Front Door
-description: This article shows how to configure origins in an origin group to use with your Azure Front Door profile.
+description: This article explains how to configure origins in an origin group to use with your Azure Front Door profile.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 06/06/2023
 ms.author: duau
 ---
 
 # How to configure an origin for Azure Front Door
 
-This article will show you how to create an Azure Front Door origin in an existing origin group. The origin group can be then associated with a route to determine how traffic will reach your origins.
+This article shows you how to create an Azure Front Door origin in a new origin group. The origin group can be then associated with a route to determine how traffic reaches your origins.
 
 > [!NOTE]
 > An *Origin* and a *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
@@ -20,17 +20,17 @@ This article will show you how to create an Azure Front Door origin in an existi
 
 ## Prerequisites
 
-Before you can create an Azure Front Door origin, you must have an Azure Front Door Standard or Premium tier profile. To create an Azure Front Door profile, see [create a Azure Front Door](create-front-door-portal.md).
+Before you can create an Azure Front Door origin, you must have an Azure Front Door Standard or Premium tier profile. For more information, see [create a Azure Front Door](create-front-door-portal.md).
 
 ## Create a new origin group
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Front Door profile.
 
-1. Select **Origin groups** and then select **+ Add** to create a new origin group.
+1. Select **Origin groups** from under *Settings** in the left hand side menu pane and then select **+ Add** to create a new origin group.
    
     :::image type="content" source="./media/how-to-configure-origin/select-origin-group.png" alt-text="Screenshot of origin groups landing page.":::
 
-1. On the **Add an origin group** page, enter a unique **Name** for the new origin group. Then select **+ Add an Origin** to add a new origin.
+1. On the **Add an origin group** page, enter a unique **Name** for the new origin group. Then select **+ Add an origin** to add a new origin.
 
     :::image type="content" source="./media/how-to-configure-origin/add-origin-group.png" alt-text="Screenshot of add an origin group page.":::
 
@@ -40,19 +40,18 @@ Before you can create an Azure Front Door origin, you must have an Azure Front D
 
     :::image type="content" source="./media/how-to-configure-origin/add-origin.png" alt-text="Screenshot of add an origin page.":::
   
-    | Setting | Value |
-    | --- | --- |
-    | Name | Enter a unique name for the new Azure Front Door origin. |   
-    | Origin Type | The type of resource you want to add. Azure Front Door Standard and Premium tier supports autodiscovery of your application origin such as Azure App services, Azure Cloud service, and Azure Storage. If you want a different origin type in Azure or a non-Azure backend, you can select **Custom host**. |
-    | Host Name  | If you didn't select **Custom host** as origin host type, then select your backend origin host name in the dropdown. |
-    | Origin host header | Enter the host header value being sent to the backend for each request. For more information, see [origin host header](origin.md#origin-host-header). |
-    | Certificate subject name validation | During the Azure Front Door and origin TLS connection, Azure Front Door will validate if the request host name matches the host name in the certificate provided by the origin. For more information, see [End-to-end TLS](end-to-end-tls.md). |
-    | HTTP Port | Enter the value for the port that the origin supports for HTTP protocol. |
-    | HTTPS Port | Enter the value for the port that the origin supports for HTTPS protocol. |
-    | Priority | Assign a priority value to this origin when you want to use a primary service origin for all traffic. This set up will provide backups if the primary or another backup origin is unavailable. For more information, see [Priority](routing-methods.md#priority). |
-    | Weight | Assign a weight value to this origin to distribute traffic across a set of origins, either evenly or according to weight coefficients. For more information, see [Weights](routing-methods.md#weighted). |
-    | Private link | You can enable the private link service to secure connectivity to your origin. Supported origin types are Azure Blobs, App services, Internal Load Balancers. |
-    | Status | Select this option to enable the origin. |
+    
+    * **Name** - Enter a unique name for the new origin.
+    * **Origin type** - The type of resource you want to add. Front Door supports autodiscovery of your Azure origin such as Azure App services, Azure Cloud service, and Azure Storage. If you want a non-Azure backend, you can select **Custom**.
+    * **Host name** - Select your backend origin host name in the dropdown. If you selected **Custom** as origin host type, then enter the host name of your backend origin.
+    * **Origin host header** - Enter the host header value being sent to the backend for each request. For more information, see [origin host header](origin.md#origin-host-header).
+    * **Certificate subject name validation** - During the Azure Front Door and origin TLS connection, Azure Front Door validates if the request host name matches the host name in the certificate provided by the origin. For more information, see [End-to-end TLS](end-to-end-tls.md).
+    * **HTTP Port** - Default value is 80. Enter the value for the port that the origin supports for HTTP protocol.
+    * **HTTPS Port** - Default value is 443. Enter the value for the port that the origin supports for HTTPS protocol.
+    * **Priority** - You can determine if this origin has higher priority than other origins in the origin group. With this value you can set primary, secondary, and backup origins. Default value is 1 for all origins. For more information, see [Priority](routing-methods.md#priority).
+    * **Weight** - Default value is 1000. Assign weights to your origins to determine how traffic gets distributed. For example, if you have two origins with weights 1000 and 2000, then the second origin receives twice as much traffic as the first origin. For more information, see [Weights](routing-methods.md#weighted).
+    * **Private link**-  You can enable the private link service to secure connectivity to your origin. Supported origin types are Azure blob storages, Azure static websites, App services, and internal load balancers.
+    * **Status** - Select this option to enable the origin.
 
     > [!IMPORTANT]
     > During configuration, the Azure portal doesn't validate if the origin is accessible from Azure Front Door environments. You need to verify that Azure Front Door can reach your origin.
@@ -69,7 +68,7 @@ Before you can create an Azure Front Door origin, you must have an Azure Front D
   
     :::image type="content" source="./media/how-to-configure-origin/save-origin-group.png" alt-text="Screenshot of a configured origin group.":::
 
-1. Select **Add** to save the origin group configuration. The origin group now should appear on the origin group page.
+1. Select **Add** to save the origin group configuration. The new origin group should appear on the origin group page.
 
     :::image type="content" source="./media/how-to-configure-origin/origin-group-list.png" alt-text="Screenshot of origin group in origin groups list.":::
 

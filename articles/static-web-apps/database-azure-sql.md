@@ -23,7 +23,7 @@ For the sake of simplicity, this tutorial shows you how to use an Azure database
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Link a Azure SQL database to your static web app
+> * Link an Azure SQL database to your static web app
 > * Create, read, update, and delete data
 
 ## Prerequisites
@@ -214,7 +214,7 @@ Next, create the configuration file that your static web app uses to interface w
 
 ```json
 {
-  "$schema": "https://dataapibuilder.azureedge.net/schemas/latest/dab.draft.schema.json",
+  "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
   "data-source": {
     "database-type": "mssql",
     "options": {
@@ -257,7 +257,7 @@ Next, create the configuration file that your static web app uses to interface w
 }
 ```
 
-Before moving on to the next step, review the following table that explains different aspects of the configuration file. For full documentation on the configuration file and functionality such as relationships and policies for item-level security, refer to [Data API Builder documentation](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md).
+Before moving on to the next step, review the following table that explains different aspects of the configuration file. For full documentation on the configuration file and functionality such as relationships and policies for item-level security, refer to [Data API Builder documentation](/azure/data-api-builder/configuration-file).
 
 | Feature | Explanation |
 |---|---|

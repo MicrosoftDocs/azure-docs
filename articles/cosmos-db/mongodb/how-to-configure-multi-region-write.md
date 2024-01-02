@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: gahllevy
+ms.subservice: mongodb
 ---
 
 # Configure multi-region writes in Azure Cosmos DB for MongoDB

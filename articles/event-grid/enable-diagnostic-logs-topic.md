@@ -2,7 +2,8 @@
 title: Azure Event Grid - Enable diagnostic logs for Event Grid resources
 description: This article provides step-by-step instructions on how to enable diagnostic logs for Event Grid resources.
 ms.topic: how-to
-ms.date: 11/11/2021
+ms.custom: devx-track-arm-template, build-2023
+ms.date: 09/25/2023
 ---
 
 # Enable diagnostic logs for Event Grid resources
@@ -11,12 +12,12 @@ This article provides step-by-step instructions for enabling diagnostic settings
 
 | Diagnostic setting |  Event Grid topics | Event Grid system topics | Event domains | Event Grid partner namespaces |
 | ------------- |  --------- | ----------- | ----------- | ----------- |
-| [DeliveryFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes | No |
-| [PublishFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes | Yes |
-| [DataPlaneRequests](diagnostic-logs.md#schema-for-data-plane-requests) | Yes | No | Yes | Yes |
+| [DeliveryFailures](monitor-push-reference.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes | No |
+| [PublishFailures](monitor-push-reference.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes | Yes |
+| [DataPlaneRequests](monitor-push-reference.md#schema-for-data-plane-operations-logs) | Yes | No | Yes | Yes |
 
 > [!IMPORTANT]
-> For schemas of delivery failures, publish failures, and data plane requests, see [Diagnostic logs](diagnostic-logs.md). 
+> For schemas of delivery failures, publish failures, and data plane requests, see [Diagnostic logs](monitor-push-reference.md). 
 
 ## Prerequisites
 
@@ -35,23 +36,30 @@ This article provides step-by-step instructions for enabling diagnostic settings
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the Event Grid topic for which you want to enable diagnostic log settings.
     1. In the search bar at the top, search for **Event Grid topics**.
-        ![Search for custom topics](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
-    2. Select the **topic** from the list for which you want to configure diagnostic settings.
-3. Select **Diagnostic settings** under **Monitoring** in the left menu.
-4. On the **Diagnostic settings** page, select **Add New Diagnostic Setting**.
-    ![Add diagnostic setting button](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
-5. Specify a **name** for the diagnostic setting.
-6. Select the **allLogs** option in the **Logs** section.
-    ![Select the failures](./media/enable-diagnostic-logs-topic/log-failures.png)
-7. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource.
-    - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription.
-        ![Screenshot that shows the "Diagnostic settings" page with "Archive to an Azure storage account" checked and a storage account selected.](./media/enable-diagnostic-logs-topic/archive-storage.png)
-    - If you select **Stream to an event hub**, select **Event hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy.
-        ![Screenshot that shows the "Diagnostic settings" page with "Stream to an event hub" checked.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+    
+        :::image type="content" source="./media/enable-diagnostic-logs-topic/search-custom-topics.png" alt-text="Screenshot that shows the Azure portal with Event Grid topics in the search box.":::
+    1. Select the **topic** from the list for which you want to configure diagnostic settings.
+1. Select **Diagnostic settings** under **Monitoring** in the left menu.
+1. On the **Diagnostic settings** page, select **Add New Diagnostic Setting**.
+
+    :::image type="content" source="./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png" alt-text="Screenshots showing the Diagnostic settings page of a custom topic.":::
+1. Specify a **name** for the diagnostic setting.
+1. Select the **allLogs** option in the **Logs** section.
+
+    :::image type="content" source="./media/enable-diagnostic-logs-topic/log-failures.png" alt-text="Screenshot that shows the Diagnostic setting page with All logs selected.":::    
+1. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource.
     - If you select **Send to Log Analytics**, select the Log Analytics workspace.
-        ![Screenshot that shows the "Diagnostic settings" page with "Send to Log Analytics" checked.](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
-8. Select **Save**. Then, select **X** in the right-corner to close the page.
-9. Now, back on the **Diagnostic settings** page, confirm that you see a new entry in the **Diagnostics Settings** table.
+    
+        :::image type="content" source="./media/enable-diagnostic-logs-topic/send-log-analytics.png" alt-text="Screenshot that shows the Diagnostic settings page with Send to Log Analytics selected.":::
+    - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription.
+    
+        :::image type="content" source="./media/enable-diagnostic-logs-topic/archive-storage.png" alt-text="Screenshot that shows the Diagnostic settings page with Archive to an Azure storage account checked and a storage account selected.":::
+    - If you select **Stream to an event hub**, select **Event hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy.
+    
+        ![Screenshot that shows the "Diagnostic settings" page with "Stream to an event hub" checked.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+1. Select **Save**. Then, select **X** in the right-corner to close the page.
+1. Now, back on the **Diagnostic settings** page, confirm that you see a new entry in the **Diagnostics Settings** table.
+
     ![Screenshot that shows the "Diagnostic settings" page with a new entry highlighted in the "Diagnostics settings" table.](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
 You can also enable collection of all metrics for the topic.
@@ -88,7 +96,7 @@ You can also enable collection of all **metrics** for the system topic.
 1. Once you enable a storage account as a capture destination, Event Grid starts emitting diagnostic logs. You should see new containers named **insights-logs-deliveryfailures** and **insights-logs-publishfailures** in the storage account.
 
     ![Storage - containers for diagnostic logs](./media/enable-diagnostic-logs-topic/storage-containers.png)
-2. As you navigate through one of the containers, you'll end up at a blob in JSON format. The file contains log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the event grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section.
+2. As you navigate through one of the containers, you'll end up at a blob in JSON format. The file contains log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the Event Grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section.
 
     ![JSON file in the storage](./media/enable-diagnostic-logs-topic/select-json.png)
 3. You should see content in the JSON file similar to the following example:
@@ -106,9 +114,9 @@ You can also enable collection of all **metrics** for the system topic.
 
 ## Use Azure Resource Manager template
 
-Here's a sample Azure Resource Manager template to enable diagnostic settings for an event grid topic. When you deploy this sample template, the following resources are created.
+Here's a sample Azure Resource Manager template to enable diagnostic settings for an Event Grid topic. When you deploy this sample template, the following resources are created.
 
-- An event grid topic
+- An Event Grid topic
 - A Log Analytics workspace
 
 Then, it creates a diagnostic setting on the topic to send diagnostic information to the Log Analytics workspace.
@@ -203,11 +211,11 @@ Then, it creates a diagnostic setting on the topic to send diagnostic informatio
 Event Grid can publish audit traces for data plane operations. To enable the feature, select **audit** in the **Category groups** section or select **DataPlaneRequests** in the **Categories** section.
 
 The audit trace can be used to ensure that data access is allowed only for authorized purposes. It collects information about security control such as resource name, operation type, network access, level, region and more. For more information about how to enable the diagnostic setting, see [Diagnostic logs in Event Grid topics and Event domains](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-domains).
-![Select the audit traces](./media/enable-diagnostic-logs-topic/enable-audit-logs.png)
+![Screenshot that shows the Diagnostic settings page with Audit selected.](./media/enable-diagnostic-logs-topic/enable-audit-logs.png)
 
 > [!IMPORTANT]
-> For more information about the `DataPlaneRequests` schema, see [Diagnostic logs](diagnostic-logs.md).
+> For more information about the `DataPlaneRequests` schema, see [Diagnostic logs](monitor-push-reference.md).
 
 ## Next steps
 
-For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](diagnostic-logs.md).
+For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](monitor-push-reference.md).

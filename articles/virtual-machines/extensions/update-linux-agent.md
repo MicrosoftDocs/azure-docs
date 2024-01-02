@@ -4,11 +4,11 @@ description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-linux
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 02/03/2023
-
 ---
 # How to update the Azure Linux Agent on a VM
 
@@ -17,7 +17,7 @@ To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a L
 - A running Linux VM in Azure.
 - A connection to that Linux VM using SSH.
 
-You should always check for a package in the Linux distro repository first. It is possible the package available may not be the latest version, however, enabling autoupdate will ensure the Linux Agent will always get the latest update. Should you have issues installing from the package managers, you should seek support from the distro vendor.
+You should always check for a package in the Linux distro repository first. It's possible the package available may not be the latest version, however, enabling autoupdate will ensure the Linux Agent will always get the latest update. Should you have issues installing from the package managers, you should seek support from the distro vendor.
 
 > [!NOTE]
 > For more information, see [Endorsed Linux distributions on Azure](../linux/endorsed-distros.md)
@@ -342,7 +342,7 @@ sudo sed -i 's/\# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 4. Restart the waagent service:
 
 ```bash
-sudo systemctl restart waagent
+sudo service waagent restart
 ```
 
 5. Validate waagent service is up and running
@@ -364,7 +364,7 @@ sudo systemctl status waagent
 Typically this is all you need, but if for some reason you need to install it from https://github.com directly, use the following steps.
 
 ## Update the Linux Agent when no agent package exists for distribution
-
+<!--
 Install wget, there are some distros that don't install it by default, such as Red Hat, CentOS, and Oracle Linux versions 6.4 and 6.5.
 
 ### 1. Download the latest version
@@ -435,5 +435,5 @@ sudo waagent -version
 ```
 
 You'll see that the Azure Linux Agent version has been updated to the new version.
-
-For more information regarding the Azure Linux Agent, see [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).
+-->
+For more information regarding updating the Azure Linux Agent when no package exists, see [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).

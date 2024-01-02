@@ -6,11 +6,10 @@ author: greg-lindsay
 manager: kumud
 ms.service: traffic-manager
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2023
 ms.author: greglin
-ms.custom: devx-track-azurecli, mode-api
+ms.custom: template-quickstart, devx-track-azurecli, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 

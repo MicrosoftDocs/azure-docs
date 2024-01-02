@@ -2,12 +2,12 @@
 title: Application logging in Azure Container Apps
 description: Description of logging in Azure Container Apps
 services: container-apps
-author: cebundy
+author: v-jaswel
 ms.service: container-apps
 ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/29/2022
-ms.author: v-bcatherine
+ms.author: v-wellsjason
 ---
 
 # Application Logging in Azure Container Apps
@@ -21,7 +21,11 @@ You can view the [log streams](log-streaming.md) in near real-time in the Azure 
 
 ## Container console Logs
 
-Container Apps captures the `stdout` and `stderr` output streams from your application containers and displays them as console logs. When you implement logging in your application, you can troubleshoot problems and monitor the health of your app.  
+Console logs originate from the `stderr` and `stdout` messages from the containers in your container app and Dapr sidecars.  When you implement logging in your application, you can troubleshoot problems and monitor the health of your app. 
+
+
+> [!TIP]
+> Instrumenting your code with well-defined log messages can help you to understand how your code is performing and to debug issues.  To learn more about best practices refer to [Design for operations](/azure/architecture/guide/design-principles/design-for-operations).
 
 ## System logs
 
@@ -41,6 +45,24 @@ Container Apps generates system logs to inform you of the status of service leve
 - Successfully provisioned revision
 - Deactivating Old revisions
 - Error provisioning revision
+
+System logs emit the following messages:
+
+| Source | Type | Message |
+|---------|------|---------|
+| Dapr | Info | Successfully created dapr component \<component-name\> with scope \<dapr-component-scope\> |
+| Dapr | Info | Successfully updated dapr component \<component-name\> with scope \<component-type\> |
+| Dapr | Error | Error creating dapr component \<component-name\> |
+| Volume Mounts | Info | Successfully mounted volume \<volume-name\> for revision \<revision-scope\> |
+| Volume Mounts | Error | Error mounting volume \<volume-name\> |
+| Domain Binding | Info | Successfully bound Domain \<domain\> to the container app \<container app name\> |
+| Authentication | Info | Auth enabled on app. Creating authentication config |
+| Authentication | Info | Auth config created successfully |
+| Traffic weight | Info | Setting a traffic weight of \<percentage>% for revision \<revision-name\\> |
+| Revision Provisioning | Info | Creating a new revision: \<revision-name\> |
+| Revision Provisioning | Info | Successfully provisioned revision \<name\> |
+| Revision Provisioning | Info| Deactivating Old revisions since 'ActiveRevisionsMode=Single' |
+| Revision Provisioning | Error | Error provisioning revision \<revision-name>. ErrorCode: \<[ErrImagePull]\|[Timeout]\|[ContainerCrashing]\> |
 
 ## Next steps
 

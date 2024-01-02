@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.custom:  "mqtt, devx-track-csharp"
+ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
 # Get started with device management (.NET)
@@ -28,11 +28,11 @@ This article shows you how to create:
 
 * Visual Studio.
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 ## Create a device app with a direct method
 

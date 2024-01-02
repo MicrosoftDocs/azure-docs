@@ -4,6 +4,7 @@ description: Describes the recommended workflow when migrating Azure resources a
 author: joshuawaddell
 ms.author: jowaddel
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 03/03/2023
 ---
 # Migrate to Bicep

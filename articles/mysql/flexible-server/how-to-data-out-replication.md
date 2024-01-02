@@ -1,6 +1,6 @@
 ---
-title: Configure Data-out replication - Azure Database for MySQL - Flexible Server
-description: This article describes how to set up Data-out replication for Azure Database for MySQL - Flexible Server.
+title: Configure data-out replication
+description: This article describes how to set up data-out replication for Azure Database for MySQL - Flexible Server.
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
@@ -14,23 +14,23 @@ ms.topic: how-to
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]  
 
-This article describes how to set up Data-out replication in Azure Database for MySQL - Flexible Server by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
+This article describes how to set up data-out replication in Azure Database for MySQL flexible server by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
-For Data-out replication, the source is always Azure Database for MySQL - Flexible Server. The replica can be any external MySQL server on other cloud providers, on-premises, or virtual machines. Review the limitations and requirements of Data-out replication before performing the steps in this article.
+For data-out replication, the source is always Azure Database for MySQL flexible server. The replica can be any external MySQL server on other cloud providers, on-premises, or virtual machines. Review the limitations and requirements of Data-out replication before performing the steps in this article.
 
 > [!NOTE]  
 > This article references the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-## Create an Azure Database for MySQL - Flexible Server instance to use as a source.
+## Create an Azure Database for MySQL flexible server instance to use as a source.
 
-1. Create a new instance of Azure Database for MySQL - Flexible Server (for example, sourceserver.mysql.database.Azure.com). Refer to [Create an Azure Database for MySQL - Flexible Server server using the Azure portal for server creation](quickstart-create-server-portal.md). This server is the "source" server for Data-out replication.
+1. Create a new instance of Azure Database for MySQL flexible server (for example, sourceserver.mysql.database.Azure.com). Refer to [Create an Azure Database for MySQL flexible server instance using the Azure portal for server creation](quickstart-create-server-portal.md). This server is the "source" server for Data-out replication.
 
 1. Create duplicate user accounts and corresponding privileges.
-   1. User accounts aren't replicated from the source server to the replica server. Suppose you plan on providing users with access to the replica server. In that case, you must manually create all accounts and corresponding privileges on this newly created Azure Database for MySQL - Flexible Server.
+   1. User accounts aren't replicated from the source server to the replica server. Suppose you plan on providing users with access to the replica server. In that case, you must manually create all accounts and corresponding privileges on this newly created Azure Database for MySQL flexible server instance.
 
 ## Configure the source MySQL server
 
-The following steps prepare and configure the Azure Database for MySQL - Flexible Server acting as the source.
+The following steps prepare and configure the Azure Database for MySQL flexible server instance acting as the source.
 
 1. **Networking Requirements**
 
@@ -39,7 +39,7 @@ The following steps prepare and configure the Azure Database for MySQL - Flexibl
    If the source server is on private access, ensure that the replica server can connect to the source through Vnet peering or a VNet-to-VNet VPN gateway connection.
    
    > [!NOTE]  
-   > For more information - [Networking overview - Azure Database for MySQL - Flexible Server](concepts-networking.md).
+   > For more information - [Networking overview - Azure Database for MySQL flexible server](concepts-networking.md).
    
 1. **Turn on binary logging**
 
@@ -124,12 +124,12 @@ Skip this section if it's a newly created source server with no existing data to
 
 Follow the below steps if the source server has existing data to migrate to the replica.
 
-1. Determine which databases and tables you want to replicate into Azure Database for MySQL - Flexible Server and perform the dump from the source server.
+1. Determine which databases and tables you want to replicate into Azure Database for MySQL flexible server and perform the dump from the source server.
 You can use mysqldump to dump databases from your primary server. For more details, visit [Dump & Restore](../single-server/concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
 
 1. Set the source server to read/write mode.
 
-After dumping the database, change the source MySQL server to read/write mode.
+After dumping the database, change the source Azure Database for MySQL flexible server instance to read/write mode.
 
    ```sql
    SET GLOBAL read_only = OFF;
@@ -137,7 +137,7 @@ After dumping the database, change the source MySQL server to read/write mode.
    ```
 
 1. Restore the dump file to the new server.
-Restore the dump file to the server created in the Azure Database for MySQL - Flexible Server service. Refer to Dump & Restore for restoring a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL - Flexible Server server from the virtual machine.
+Restore the dump file to the server created in Azure Database for MySQL flexible server. Refer to Dump & Restore for restoring a dump file to an Azure Database for MySQL flexible server instance. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL flexible server instance from the virtual machine.
 
 > [!NOTE]  
 > If you want to avoid setting the database to read-only when you dump and restore, you can use [mydumper/myloader](../migrate/concepts-migrate-mydumper-myloader.md).
@@ -146,7 +146,7 @@ Restore the dump file to the server created in the Azure Database for MySQL - Fl
 
 1. Filtering
 
-   Suppose data-out replication is being set up between Azure MySQL and an external MySQL on other cloud providers or on-premises. In that case, you must use the replication filter to filter out Azure custom tables on the replica server. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure mysql internal tables. Refer to [MySQL :: MySQL 5.7 Reference Manual :: 13.4.2.2 CHANGE REPLICATION FILTER Statement](https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html) for more details on modifying this server parameter.
+   Suppose data-out replication is being set up between Azure Database for MySQL flexible server and an external MySQL on other cloud providers or on-premises. In that case, you must use the replication filter to filter out Azure custom tables on the replica server. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure Database for MySQL flexible server mysql internal tables. Refer to [MySQL :: MySQL 5.7 Reference Manual :: 13.4.2.2 CHANGE REPLICATION FILTER Statement](https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html) for more details on modifying this server parameter.
 
 1. Set the replica server by connecting to it and opening the MySQL shell on the replica server. From the prompt, run the following operation, which configures several MySQL replication settings at the same time:
 
@@ -155,7 +155,7 @@ Restore the dump file to the server created in the Azure Database for MySQL - Fl
    SOURCE_HOST='<master_host>',
    SOURCE_USER='<master_user>',
    SOURCE_PASSWORD='<master_password>',
-   SOURCE_LOG_FILE='<master_log_file>,
+   SOURCE_LOG_FILE='<master_log_file>',
    SOURCE_LOG_POS=<master_log_pos>
    ```
 

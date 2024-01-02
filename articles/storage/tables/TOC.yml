@@ -54,7 +54,7 @@
   - name: Authorization
     href: ../common/authorize-data-access.md?toc=/azure/storage/tables/toc.json
     items:
-    - name: Authenticate and authorize with Azure AD
+    - name: Authenticate and authorize with Microsoft Entra ID
       href: authorize-access-azure-active-directory.md
     - name: Authorize with Shared Key
       items:
@@ -108,7 +108,7 @@
   - name: Recover a deleted storage account
     href: ../common/storage-account-recover.md?toc=/azure/storage/tables/toc.json
   - name: Migrate a classic account to Azure Resource Manager
-    href: ../common/storage-account-migrate-classic.md?toc=/azure/storage/tables/toc.json
+    href: ../common/classic-account-migrate.md?toc=/azure/storage/tables/toc.json
   - name: Get account configuration properties
     href: ../common/storage-account-get-info.md?toc=/azure/storage/tables/toc.json
   - name: Use the storage emulator (deprecated)
@@ -151,11 +151,11 @@
     - name: Configure client-side encryption
       items:
       - name: .NET
-        href: ../common/storage-client-side-encryption.md?toc=/azure/storage/tables/toc.json
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=dotnet
       - name: Java
-        href: ../common/storage-client-side-encryption-java.md?toc=/azure/storage/tables/toc.json
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=java
       - name: Python
-        href: ../common/storage-client-side-encryption-python.md?toc=/azure/storage/tables/toc.json
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=python
     - name: Configure network security
       items:
       - name: Configure firewalls and virtual networks
@@ -195,13 +195,13 @@
   - name: Troubleshoot
     items:
     - name: Performance
-      href: ../common/troubleshoot-storage-performance.md?toc=/azure/storage/tables/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-performance
     - name: Availability
-      href: ../common/troubleshoot-storage-availability.md?toc=/azure/storage/tables/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-availability
     - name: Client errors
-      href: ../common/troubleshoot-storage-client-application-errors.md?toc=/azure/storage/tables/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors
     - name: Latency issues
-      href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=/azure/storage/tables/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs
 - name: Resources
   items:
   - name: Azure updates

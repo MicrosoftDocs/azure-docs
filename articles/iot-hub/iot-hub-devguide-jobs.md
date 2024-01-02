@@ -24,7 +24,7 @@ Consider using jobs when you need to schedule and track progress any of the foll
 
 ## Job lifecycle
 
-Jobs are initiated by the solution back end and maintained by IoT Hub. You can initiate a job through a service-facing URI (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2021-04-12`) and query for progress on an executing job through a service-facing URI (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2021-04-12`). To refresh the status of running jobs once a job is initiated, run a job query.
+Jobs are initiated by the solution back end and maintained by IoT Hub. You can initiate a job through a service-facing URI (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2021-04-12`) and query for progress on an executing job through a service-facing URI (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2021-04-12`). To refresh the status of running jobs once a job is initiated, run a job query. There is no explicit purge of job history, but they have a TTL of 30 days. 
 
 > [!NOTE]
 > When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
@@ -210,10 +210,12 @@ Other reference topics in the IoT Hub developer guide include:
 
 * [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md) describes the IoT Hub query language. Use this query language to retrieve information from IoT Hub about your device twins and jobs.
 
-* [IoT Hub MQTT support](iot-hub-mqtt-support.md) provides more information about IoT Hub support for the MQTT protocol.
+* [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
 To try out some of the concepts described in this article, see the following IoT Hub tutorial:
 
 * [Schedule and broadcast jobs](schedule-jobs-node.md)
+
+

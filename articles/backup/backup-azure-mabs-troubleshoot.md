@@ -3,10 +3,10 @@ title: Troubleshoot Azure Backup Server
 description: Troubleshoot installation, registration of Azure Backup Server, and backup and restore of application workloads.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 10/21/2022
+ms.date: 04/26/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Backup Server
@@ -40,9 +40,9 @@ MABS is compatible with most popular antivirus software products. We recommend t
         - `\Windows\Microsoft.net\Framework\v2.0.50727\csc.exe`
         - `\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe`
     - For the MARS agent installed on the MABS server, we recommend that you exclude the following files and locations:
-        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\cbengine.exe` as a process
-        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\folder`
-        - Scratch location (if you're not using the standard location)
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\cbengine.exe` as a process.
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent` as a folder.
+        - Scratch location (if you're not using the standard location).
 2. **Disable real-time monitoring on the protected server**: Disable the real-time monitoring of **dpmra.exe**, which is located in the folder `C:\Program Files\Microsoft Data Protection Manager\DPM\bin`, on the protected server.
 3. **Configure anti-virus software to delete the infected files on protected servers and the MABS server**: To prevent data corruption of replicas and recovery points, configure the antivirus software to delete infected files, rather than automatically cleaning or quarantining them. Automatic cleaning and quarantining might cause the antivirus software to modify files, making changes that MABS can't detect.
 
@@ -136,7 +136,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | Operation | Error details | Workaround |
 | --- | --- | --- |
 | Change passphrase |The security PIN that was entered is incorrect. Provide the correct security PIN to complete this operation. |**Cause:**<br/> This error occurs when you enter an invalid or expired security PIN while you're performing a critical operation (such as changing a passphrase). <br/>**Recommended action:**<br/> To complete the operation, you must enter a valid security PIN. To get the PIN, sign in to the Azure portal and go to the Recovery Services vault. Then go to **Settings** > **Properties** > **Generate Security PIN**. Use this PIN to change the passphrase. |
-| Change passphrase |Operation failed. ID: 120002 |**Cause:**<br/>This error occurs when security settings are enabled, or when you try to change the passphrase when you're using an  unsupported version.<br/>**Recommended action:**<br/> To change the passphrase, you must first update the backup agent to the minimum version, which is 2.0.9052. You also need to update Azure Backup Server to the minimum of update 1, and then enter a valid security PIN. To get the PIN, sign into the Azure portal and go to the Recovery Services vault. Then go to **Settings** > **Properties** > **Generate Security PIN**. Use this PIN to change the passphrase. |
+| Change passphrase |Operation failed. ID: 120002 |**Cause:**<br/>This error occurs when security settings are enabled, or when you try to change the passphrase when you're using an  unsupported version.<br/>**Recommended action:**<br/> To change the passphrase, you must first update the backup agent to the minimum version, which is 2.0.9052. You also need to update Azure Backup Server to the minimum of update 1, and then enter a valid security PIN. To get the PIN, sign in to the Azure portal and go to the Recovery Services vault. Then go to **Settings** > **Properties** > **Generate Security PIN**. Use this PIN to change the passphrase. |
 
 ## Configure email notifications
 

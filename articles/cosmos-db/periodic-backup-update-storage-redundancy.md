@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/21/2023
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Update periodic backup storage redundancy for Azure Cosmos DB
@@ -30,7 +30,7 @@ Use the following steps to update backup storage redundancy.
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
 
 1. Open the **Backup & Restore** pane, update the backup storage redundancy and select **Submit**. It takes few minutes for the operation to complete.
 

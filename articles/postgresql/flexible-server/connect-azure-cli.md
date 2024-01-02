@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.custom: mvc, mode-api
+ms.custom: mvc, mode-api, devx-track-azurecli
 ms.tool: azure-cli
 ms.topic: quickstart
 ms.date: 11/30/2021

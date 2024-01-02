@@ -2,6 +2,7 @@
 title: Boston Safety Data
 description: Learn how to use the Boston Safety Data dataset in Azure Open Datasets.
 ms.service: open-datasets
+ms.custom: devx-track-python
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -64,8 +65,6 @@ This dataset is sourced from city of Boston government. For more information, se
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=city_safety_boston -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=city_safety_boston)**.
 
 ```
 # This is a package in preview.
@@ -91,8 +90,6 @@ safety.info()
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=city_safety_boston -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=city_safety_boston)**.
 
 ```python
 # Pip install packages
@@ -169,8 +166,6 @@ Sample not available for this platform/package combination.
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=city_safety_boston -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=city_safety_boston)**.
 
 ```
 # This is a package in preview.
@@ -201,8 +196,6 @@ Sample not available for this platform/package combination.
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=pyspark&registryId=city_safety_boston -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=pyspark&registryId=city_safety_boston)**.
 
 ```python
 # Azure storage access info
@@ -244,8 +237,6 @@ display(spark.sql('SELECT * FROM source LIMIT 10'))
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureSynapse&package=azureml-opendatasets&registryId=city_safety_boston -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureSynapse&package=azureml-opendatasets&registryId=city_safety_boston)**.
 
 ```python
 from azureml.opendatasets import BostonSafety
@@ -274,8 +265,6 @@ Sample not available for this platform/package combination.
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureSynapse&package=pyspark&registryId=city_safety_boston -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureSynapse&package=pyspark&registryId=city_safety_boston)**.
 
 ```python
 # Azure storage access info

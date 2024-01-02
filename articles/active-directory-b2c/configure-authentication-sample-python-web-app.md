@@ -1,16 +1,16 @@
 ---
 title: Configure authentication in a sample Python web application by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a Python web application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 02/28/2023
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.custom: b2c-support, devx-track-python
 ---
 
 # Configure authentication in a sample Python web app by using Azure AD B2C
@@ -50,8 +50,7 @@ During app registration, you'll specify the *Redirect URI*. The redirect URI is 
 To create the web app registration, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *webapp1*).
@@ -71,7 +70,7 @@ To create the web app registration, follow these steps:
 
 ## Step 3: Get the web app sample
 
-[Download the zip file](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip), or clone the sample web application from GitHub. 
+[Download the zip file](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/main.zip), or clone the sample web application from GitHub. 
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-python-webapp.git

@@ -1,12 +1,12 @@
 ---
-title: Azure Arc resource bridge (preview) deployment command overview
-description: Learn about the Azure CLI commands that can be used to manage your Azure Arc resource bridge (preview) deployment.
-ms.date: 02/06/2023
+title: Azure Arc resource bridge deployment command overview
+description: Learn about the Azure CLI commands that can be used to manage your Azure Arc resource bridge deployment.
+ms.date: 11/03/2023
 ms.topic: overview
+ms.custom: devx-track-azurecli
 ---
 
-
-# Azure Arc resource bridge (preview) deployment command overview
+# Azure Arc resource bridge deployment command overview
 
 [Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge. When deploying Arc resource bridge with a corresponding partner product, the Azure CLI commands may be combined into an automation script, along with additional provider-specific commands. To learn about installing Arc resource bridge with a corresponding partner product, see:
 
@@ -15,7 +15,7 @@ ms.topic: overview
 - [Azure Stack HCI VM Management through Arc resource bridge](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites)
 - [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server)
 
-This topic provides an overview of the [Azure CLI commands](/cli/azure/arcappliance) that are used to manage Arc resource bridge (preview) deployment, in the order in which they are typically used for deployment.
+This topic provides an overview of the [Azure CLI commands](/cli/azure/arcappliance) that are used to manage Arc resource bridge deployment, in the order in which they are typically used for deployment.
 
 ## `az arcappliance createconfig`
 
@@ -52,13 +52,23 @@ Once the `create` command initiates the connection, it will return in the termin
 
 ## `az arcappliance show`
 
-The `show` command gets the status of the Arc resource bridge and ARM resource information. It can be used to check the progress of the connection between the ARM resource and on-premises appliance VM.
+The `show` command gets the status of the Arc resource bridge and ARM resource information. It can be used to check the progress of the connection between the ARM resource and on-premises appliance VM. 
 
 While the Arc resource bridge is connecting the ARM resource to the on-premises VM, the resource bridge progresses through the following stages:
 
 `ProvisioningState` may be `Creating`, `Created`, `Failed`, `Deleting`, or `Succeeded`.
 
-`Status` transitions between `WaitingForHeartbeat` -> `Validating` -> `Connected` -> `Running`.
+`Status` transitions between `WaitingForHeartbeat` -> `Validating` ->  `Connecting` -> `Connected` -> `Running`.
+
+- WaitingForHeartbeat: Azure is waiting to receive a signal from the appliance VM
+
+- Validating: Appliance VM is checking Azure services for connectivity and serviceability
+
+- Connecting: Appliance VM is syncing on-premises resources to Azure
+
+- Connected: Appliance VM completed sync of on-premises resources to Azure
+
+- Running: Appliance VM and Azure have completed hybrid sync and Arc resource bridge is now operational. 
 
 Successful Arc resource bridge creation results in `ProvisioningState = Succeeded` and `Status = Running`.
 
@@ -72,3 +82,5 @@ If a deployment fails, run this command to clean up the environment before you a
 
 - Explore the full list of [Azure CLI commands and required parameters](/cli/azure/arcappliance) for Arc resource bridge.
 - Get [troubleshooting tips for Arc resource bridge](troubleshoot-resource-bridge.md).
+
+

@@ -7,8 +7,8 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 03/16/2023
-ms.custom: devx-track-azurepowershell
+ms.date: 10/26/2023
+ms.custom:
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -67,7 +67,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
     >[!WARNING]
     >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
 
--   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
+-   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name, type and sub-type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
     >[!Note]
     >The integration runtime sharing is only available for self-hosted integration runtimes. Azure-SSIS integration runtimes don't support sharing.
@@ -109,7 +109,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
     **No action is required unless you are using 'PartialArmTemplates'. Otherwise, switch to any supported mechanism for deployments using: 'ARMTemplateForFactory.json' or 'linkedTemplates' files.**
 
-## Next steps
+## Related content
 
 - [Continuous deployment improvements](continuous-integration-delivery-improvements.md#continuous-deployment-improvements)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

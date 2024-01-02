@@ -7,15 +7,15 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5,sdkv1
 ---
 
 # Configure and submit training jobs
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to configure and submit Azure Machine Learning jobs to train your models. Snippets of code explain the key parts of configuration and submission of a training script.  Then use one of the [example notebooks](#notebook-examples) to find the full end-to-end working examples.
 
@@ -73,10 +73,9 @@ Select the compute target where your training script will run on. If no compute 
 
 The example code in this article assumes that you have already created a compute target `my_compute_target` from the "Prerequisites" section.
 
->[!Note]
->Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks.
-
-[!INCLUDE [arc-enabled-kubernetes](../../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+>[!NOTE]
+> - Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks.
+> - To create and attach a compute target for training on Azure Arc-enabled Kubernetes cluster, see [Configure Azure Arc-enabled Machine Learning](../how-to-attach-kubernetes-anywhere.md)
 
 ## Create an environment
 Azure Machine Learning [environments](../concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
@@ -148,7 +147,7 @@ run.wait_for_completion(show_output=True)
 > [!IMPORTANT]
 > When you submit the training job, a snapshot of the directory that contains your training scripts is created and sent to the compute target. It is also stored as part of the experiment in your workspace. If you change files and submit the job again, only the changed files will be uploaded.
 >
-> [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
+> [!INCLUDE [amlinclude-info](../includes/machine-learning-amlignore-gitignore.md)]
 > 
 > For more information about snapshots, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -174,7 +173,7 @@ See these notebooks for examples of configuring jobs for various training scenar
 * [Training with ML frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-clone-for-examples.md)]
 
 ## Troubleshooting
 
@@ -214,7 +213,7 @@ See these notebooks for examples of configuring jobs for various training scenar
 * **Job or experiment deletion**:  Experiments can be archived by using the [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29#archive--) 
 method, or from the Experiment tab view in Azure Machine Learning studio client via the "Archive experiment" button. This action hides the experiment from list queries and views, but does not delete it.
 
-    Permanent deletion of individual experiments or jobs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](how-to-export-delete-data.md).
+    Permanent deletion of individual experiments or jobs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](../how-to-export-delete-data.md).
 
 * **Metric Document is too large**: Azure Machine Learning has internal limits on the size of metric objects that can be logged at once from a training job. If you encounter a "Metric Document is too large" error when logging a list-valued metric, try splitting the list into smaller chunks, for example:
 

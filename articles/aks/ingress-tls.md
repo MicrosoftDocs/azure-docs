@@ -3,11 +3,12 @@ title: Use TLS with an ingress controller on Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an ingress controller that uses TLS in an Azure Kubernetes Service (AKS) cluster.
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 author: asudbring
 ms.author: allensu
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/13/2023
+ROBOTS: NOINDEX
 #Customer intent: As a cluster operator or developer, I want to use TLS with an ingress controller to handle the flow of incoming traffic and secure my apps using my own certificates or automatically generated certificates.
 ---
 
@@ -17,7 +18,12 @@ The transport layer security (TLS) protocol uses certificates to provide securit
 
 You can bring your own certificates and integrate them with the Secrets Store CSI driver. Alternatively, you can use [cert-manager][cert-manager], which automatically generates and configures [Let's Encrypt][lets-encrypt] certificates. Two applications run in the AKS cluster, each of which is accessible over a single IP address.
 
-> [!NOTE]
+> [!IMPORTANT]
+> The Application routing add-on is recommended for ingress in AKS. For more information, see [Managed nginx Ingress with the application routing add-on][aks-app-add-on].
+
+> [!IMPORTANT]
+> Microsoft **_does not_** manage or support cert-manager and any issues stemming from its use. For issues with cert-manager, see [cert-manager troubleshooting][cert-manager-troubleshooting] documentation.
+>
 > There are two open source ingress controllers for Kubernetes based on Nginx: one is maintained by the Kubernetes community ([kubernetes/ingress-nginx][nginx-ingress]), and one is maintained by NGINX, Inc. ([nginxinc/kubernetes-ingress]). This article uses the *Kubernetes community ingress controller*.
 
 ## Before you begin
@@ -130,7 +136,8 @@ When you upgrade your ingress controller, you must pass a parameter to the Helm 
     helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
       --namespace $NAMESPACE \
       --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL \
-      --set controller.service.loadBalancerIP=$STATIC_IP
+      --set controller.service.loadBalancerIP=$STATIC_IP \
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -165,7 +172,8 @@ When you upgrade your ingress controller, you must pass a parameter to the Helm 
     helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
       --namespace $Namespace `
       --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
-      --set controller.service.loadBalancerIP=$StaticIP
+      --set controller.service.loadBalancerIP=$StaticIP `
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
     ```
 
 ---
@@ -292,7 +300,8 @@ NAMESPACE="ingress-basic"
 
 helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
   --namespace $NAMESPACE \
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNSLABEL
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNSLABEL \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -303,7 +312,8 @@ $Namespace = "ingress-basic"
 
 helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
   --namespace $Namespace `
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 
 ---
@@ -332,7 +342,7 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
-  --version $CERT_MANAGER_TAG \
+  --version=$CERT_MANAGER_TAG \
   --set installCRDs=true \
   --set nodeSelector."kubernetes\.io/os"=linux \
   --set image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_CONTROLLER \
@@ -615,6 +625,7 @@ You can also:
 [helm]: https://helm.sh/
 [helm-cli]: ./kubernetes-helm.md
 [cert-manager]: https://github.com/jetstack/cert-manager
+[cert-manager-troubleshooting]: https://cert-manager.io/docs/troubleshooting/
 [cert-manager-certificates]: https://cert-manager.io/docs/concepts/certificate/
 [ingress-shim]: https://cert-manager.io/docs/usage/ingress/
 [cert-manager-cluster-issuer]: https://cert-manager.io/docs/concepts/issuer/
@@ -643,9 +654,9 @@ You can also:
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-supported versions]: supported-kubernetes-versions.md
-[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
-[aks-integrated-acr-ps]: cluster-container-registry-integration.md?tabs=azure-powershell#create-a-new-aks-cluster-with-acr-integration
+[aks-integrated-acr]: cluster-container-registry-integration.md#create-a-new-acr
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [get-az-aks-cluster]: /powershell/module/az.aks/get-azakscluster
 [new-az-public-ip-address]: /powershell/module/az.network/new-azpublicipaddress
+[aks-app-add-on]: app-routing.md

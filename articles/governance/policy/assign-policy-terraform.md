@@ -3,6 +3,7 @@ title: "Quickstart: New policy assignment with Terraform"
 description: In this quickstart, you use Terraform and HCL syntax to create a policy assignment to identify non-compliant resources.
 ms.date: 03/01/2023
 ms.topic: quickstart
+ms.custom: devx-track-terraform
 ms.tool: terraform
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Terraform

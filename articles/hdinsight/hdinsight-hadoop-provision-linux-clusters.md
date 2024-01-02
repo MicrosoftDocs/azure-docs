@@ -3,7 +3,7 @@ title: Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kaf
 description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive, hdiseo17may2017, seodec18
+ms.custom: hdinsightactive, hdiseo17may2017, seodec18, devx-track-azurepowershell
 ms.date: 03/16/2023
 ---
 
@@ -162,7 +162,7 @@ Ambari is used to monitor HDInsight clusters, make configuration changes, and st
 
 ### Enterprise security package
 
-For Hadoop, Spark, HBase, Kafka, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
+For Hadoop, Spark, HBase, Kafka, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Microsoft Entra ID. For more information, see [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enterprise security package.
 

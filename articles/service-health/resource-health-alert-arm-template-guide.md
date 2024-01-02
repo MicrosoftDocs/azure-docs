@@ -3,8 +3,7 @@ title: Template to create Resource Health alerts
 description: Create alerts programmatically that notify you when your Azure resources become unavailable.
 ms.topic: conceptual
 ms.date: 9/4/2018 
-ms.custom: devx-track-azurepowershell
-
+ms.custom:
 ---
 
 # Configure resource health alerts using Resource Manager templates
@@ -19,7 +18,7 @@ Azure Resource Health keeps you informed about the current and historical health
 
 To follow the instructions on this page, you'll need to set up a few things in advance:
 
-1. You need to install the [Azure PowerShell module](/powershell/azure/install-az-ps)
+1. You need to install the [Azure PowerShell module](/powershell/azure/install-azure-powershell)
 2. You need to [create or reuse an Action Group](../azure-monitor/alerts/action-groups.md) configured to notify you
 
 ## Instructions

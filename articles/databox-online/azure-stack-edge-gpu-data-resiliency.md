@@ -43,7 +43,7 @@ Azure Stack Edge service is a non-regional, always-available service and has no 
 
     For all the Azure Regional Pairs, by default, Microsoft is responsible for the disaster recovery (DR) setup, execution, and testing. In the event of region outage, when the service instance fails over to from the primary region to the secondary region, the Azure Stack Edge service may be inaccessible for a short duration. 
 
-- **Non-paired region** - In Singapore, customer can choose that the customer data for Azure Stack Edge reside only in Singapore and not get replicated to the paired region, Hong Kong. With this option enabled, the service is resilient to zone-wide outages, but not to region-wide outages. Once the data residency is set to non-paired region, it persists during the lifetime of the resource and can't be changed. 
+- **Non-paired region** - In Singapore, customer can choose that the customer data for Azure Stack Edge reside only in Singapore and not get replicated to the paired region, Hong Kong Special Administrative Region. With this option enabled, the service is resilient to zone-wide outages, but not to region-wide outages. Once the data residency is set to non-paired region, it persists during the lifetime of the resource and can't be changed. 
 
     In Singapore (South East Asia) region, if the customer has chosen single data residency option that won’t allow replication in the paired region, the customer will be responsible for the DR setup, execution, and testing. 
 
@@ -56,7 +56,7 @@ In the event of region outage, when the service instance fails over to from the 
 
 For cross-region DR, Microsoft is responsible. The Recovery Time Objective (RTO) for DR is 8 hours, and Recovery Point Objective (RPO) is 15 minutes. For more information, see [Resiliency and continuity overview](/compliance/assurance/assurance-resiliency-and-continuity). <!--Azure Global - Bcdr Service Details, (Go to Business Impact Analysis)-->
 
-Cross region disaster recovery for non-paired region geography only pertains to Singapore. If there's a region-wide service outage in Singapore and you have chosen to keep your data only within Singapore and not replicated to regional pair Hong Kong, you have two options:
+Cross region disaster recovery for non-paired region geography only pertains to Singapore. If there's a region-wide service outage in Singapore and you have chosen to keep your data only within Singapore and not replicated to regional pair Hong Kong SAR, you have two options:
 
 - Wait for the Singapore region to be restored.
 - Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.md).
@@ -70,7 +70,7 @@ The disaster recovery isn't identical for non-paired region and multi-region geo
 
 For Azure Stack Edge service, all regions use regional pairs except for Singapore where you can configure the service for non-paired region data residency. 
 
-- In Singapore, you can configure the service for non-paired region data residency. The single-region geography disaster recovery support applies only to Singapore when the customer has chosen to not enable the regional pair Hong Kong. The customer is responsible for the Singapore customer enabled disaster recovery (CEDR).
+- In Singapore, you can configure the service for non-paired region data residency. The single-region geography disaster recovery support applies only to Singapore when the customer has chosen to not enable the regional pair Hong Kong SAR. The customer is responsible for the Singapore customer enabled disaster recovery (CEDR).
 - Except for Singapore, all other regions use regional pairs and Microsoft owns the regional pair disaster recovery.
 
 For the single-region disaster recovery for which the customer is responsible: 

@@ -28,7 +28,7 @@ ms.author: rahulva
 1. Open your terminal or command window create a new directory for your app, and navigate to it.
 
    ```console
-   mkdir access-tokens-quickstart && cd relay-tokens-quickstart
+   mkdir access-tokens-quickstart && cd access-tokens-quickstart
    ```
 
 2. Use a text editor to create a file called **issue-relay-tokens.py** in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the following sections.
@@ -91,9 +91,9 @@ user = identity_client.create_user()
 Call the Azure Communication token service to exchange the user access token for a TURN service token
 
 ```python
-relay_configuration = relay_client.get_relay_configuration(user)
+relay_configuration = relay_client.get_relay_configuration()
 
-for iceServer in config.ice_servers:
+for iceServer in relay_configuration.ice_servers:
     assert iceServer.username is not None
     print('Username: ' + iceServer.username)
 

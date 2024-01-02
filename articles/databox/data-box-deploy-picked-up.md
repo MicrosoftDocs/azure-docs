@@ -2,14 +2,14 @@
 title: Tutorial to return Azure Data Box
 description: In this tutorial, learn how to return Azure Data Box, including shipping the device, verifying data upload to Azure, and erasing data from Data Box.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 01/23/2023
-ms.author: alkohli
+ms.author: shaas
 zone_pivot_groups: data-box-shipping
 
 # Customer intent: As an IT admin, I need to be able to return a Data Box to upload on-premises data from my server onto Azure.
@@ -100,7 +100,7 @@ If using Microsoft managed shipping, follow these steps.
 
 [!INCLUDE [data-box-shipping-in-singapore](../../includes/data-box-shipping-in-singapore.md)]
 
-### [Hong Kong](#tab/in-hk)
+### [Hong Kong Special Administrative Region](#tab/in-hk)
 
 [!INCLUDE [data-box-shipping-in-hk](../../includes/data-box-shipping-in-hk.md)]
 

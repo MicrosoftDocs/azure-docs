@@ -4,8 +4,8 @@ description: This guide walks you through the remediation of resources that are 
 ms.date: 07/29/2022
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Remediate non-compliant resources with Azure Policy
 
@@ -88,6 +88,8 @@ is selected.
 
 1. Specify the location at which the managed identity is to be located.
 
+1. Don't assign a scope for system-assigned managed identity because the scope will be inherited from the assignment scope. 
+
 To set a user-assigned managed identity in the portal:
 
 1. On the **Remediation** tab of the create/edit assignment view, under **Types of Managed Identity**, ensure that **User assigned managed identity**
@@ -101,7 +103,7 @@ is selected.
 
 To create an identity during the assignment of the policy, **Location** must be defined and **Identity** used.
 
-The following example gets the definition of the built-in policy **Deploy SQL DB transparent data encryption** sets the target resource group, and then creates the assignment using a **system assigned** managed identity.
+The following example gets the definition of the built-in policy **Deploy SQL DB transparent data encryption**, sets the target resource group, and then creates the assignment using a **system assigned** managed identity.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -315,14 +317,7 @@ This step is only applicable when using [Option 1](#option-1-create-a-remediatio
 
 1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop-down. One **deployIfNotExists** or **modify** policy can be remediated through a single Remediation task at a time.
 
-1. Optionally modify remediation settings on the **New remediation task** page:
-
-    - **Failure Threshold percentage** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%.
-    - **Resource Count** - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number is 50,000 resources.
-    - **Parallel Deployments** - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
-
-   > [!NOTE]
-   > These settings cannot be changed once the remediation task has started.
+1. Optionally modify remediation settings on the page. For information on what each setting controls, see [remediation task structure](../concepts/remediation-structure.md).
 
 1. On the same page, filter the resources to remediate by using the **Scope**
    ellipses to pick child resources from where the policy is assigned (including down to the
@@ -364,8 +359,8 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 You may also choose to adjust remediation settings through these optional parameters:
 - `-FailureThreshold` - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%.
-- `-ParallelDeploymentCount` - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number is 50,000 resources.
-- `-ResourceCount` - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
+- `-ResourceCount` - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number is 50,000 resources.
+- `-ParallelDeploymentCount` - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
 
 For more remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
 module.

@@ -14,6 +14,8 @@ ms.date: 03/27/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 With Azure, your PostgreSQL Server workloads can run in a hosted virtual machine infrastructure as a service (IaaS) or as a hosted platform as a service (PaaS). PaaS has multiple deployment options, each with multiple service tiers. When you choose between IaaS and PaaS, you must decide if you want to manage your database, apply patches, and make backups, or if you want to delegate these operations to Azure.
 
 When making your decision, consider the following option in PaaS or alternatively running on Azure VMs (IaaS)
@@ -29,12 +31,12 @@ The main differences between these options are listed in the following table:
 | **OS and PostgreSQL patching**     | - Customer managed                                                                                                                                                          | - Flexible Server – Automatic with optional customer managed window                                                         |
 | **High availability**              | - Customers architect, implement, test, and maintain high availability. Capabilities might include clustering, replication etc.                                             | - Flexible Server: built-in                                                                                                 |
 | **Zone Redundancy**                | - Azure VMs can be set up to run in different availability zones. For an on-premises solution, customers must create, manage, and maintain their own secondary data center. | - Flexible Server: Yes                                                                                                      |
-| **Hybrid Scenario**                | - Customer managed                                                                                                                                                          | - Flexible Server: Not available during Preview                                                                             |
+| **Hybrid Scenario**                | - Customer managed                                                                                                                                                          | - Flexible Server: supported                                                                             |
 | **Backup and Restore**             | - Customer Managed                                                                                                                                                          | - Flexible Server: built-in with user configuration on zone-redundant storage                                               |
 | **Monitoring Database Operations** | - Customer Managed                                                                                                                                                          | - Flexible Server: All offer customers the ability to set alerts on the database operation and act upon reaching thresholds |
 | **Advanced Threat Protection**     | - Customers must build this protection for themselves.                                                                                                                      | - Flexible Server: Not available during Preview                                                                             |
-| **Disaster Recovery**              | - Customer Managed                                                                                                                                                          | - Flexible Server: Not available during Preview                                                                             |
-| **Intelligent Performance**        | - Customer Managed                                                                                                                                                          | - Flexible Server: Not available during Preview                                                                             |
+| **Disaster Recovery**              | - Customer Managed                                                                                                                                                          | - Flexible Server: supported                                                                             |
+| **Intelligent Performance**        | - Customer Managed                                                                                                                                                          | - Flexible Server: supported                                                                             |
 
 ## Total cost of ownership (TCO)
 

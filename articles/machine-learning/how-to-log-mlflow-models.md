@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 07/8/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, cliv2, sdkv2
+ms.custom: cliv2, sdkv2
 ---
 
 # Logging MLflow models

@@ -1,7 +1,7 @@
 ---
 
-title: Migrate Azure Cognitive Search to availability zone support 
-description: Learn how to migrate Azure Cognitive Search to availability zone support.
+title: Migrate Azure AI Search to availability zone support 
+description: Learn how to migrate Azure AI Search to availability zone support.
 author: mattmsft
 ms.service: azure-migrate
 ms.topic: conceptual
@@ -12,11 +12,11 @@ ms.custom: references_regions, subject-reliability
 
 ---
 
-# Migrate Azure Cognitive Search to availability zone support
+# Migrate Azure AI Search to availability zone support
 
-This guide describes how to migrate Azure Cognitive Search from non-availability zone support to availability support.
+This guide describes how to migrate Azure AI Search from non-availability zone support to availability support.
 
-Azure Cognitive Search services can take advantage of availability support [in regions that support availability zones](../search/search-reliability.md#availability-zones). Services with [two or more replicas](../search/search-capacity-planning.md) in these regions created after availability support was enabled can automatically utilize availability zones. Each replica will be placed in a different availability zone within the region. If you have more replicas than availability zones, the replicas will be distributed across availability zones as evenly as possible.
+Azure AI Search services can take advantage of availability support [in regions that support availability zones](../search/search-reliability.md#availability-zones). Services with [two or more replicas](../search/search-capacity-planning.md) in these regions created after availability support was enabled can automatically utilize availability zones. Each replica will be placed in a different availability zone within the region. If you have more replicas than availability zones, the replicas will be distributed across availability zones as evenly as possible.
 
 If a search service was created before availability zone support was enabled in its region, the search service must be recreated to take advantage of availability zone support.
 
@@ -47,8 +47,7 @@ If you created your search service in a region that supports availability zones 
 1. Add at [least two replicas to your new search service](../search/search-capacity-planning.md#add-or-reduce-replicas-and-partitions). Once the search service has at least two replicas, it automatically takes advantage of availability zone support.
 1. Migrate your data from your old search service to your new search service by rebuilding of all your search indexes from your old service.
 
-To rebuild all of your search indexes, choose one of the following two options:
-   - [Move individual indexes from your old search service to your new one](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/index-backup-restore)
+To rebuild all of your search indexes:
    - Rebuild indexes from an external data source if one is available.
 1. Redirect traffic from your old search service to your new search service. This may require updates to your application that uses the old search service.
 >[!TIP]
@@ -63,4 +62,4 @@ To rebuild all of your search indexes, choose one of the following two options:
 > [ARM Quickstart Templates](https://azure.microsoft.com/resources/templates/)
 
 > [!div class="nextstepaction"]
-> [Learn about high availability in Azure Cognitive Search](../search/search-reliability.md)
+> [Learn about high availability in Azure AI Search](../search/search-reliability.md)

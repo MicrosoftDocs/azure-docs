@@ -19,6 +19,10 @@ The common schema includes information about the affected resource and the cause
 
     If you want to route alert instances to specific teams based on criteria such as a resource group, you can use the fields in the **Essentials** section to provide routing logic for all alert types. The teams that receive the alert notification can then use the context fields for their investigation.
 - **Alert context**: Fields that vary depending on the type of the alert. The alert context fields describe the cause of the alert. For example, a metric alert would have fields like the metric name and metric value in the alert context. An activity log alert would have information about the event that generated the alert.
+- **Custom properties**: You can add more information to the alert payload by adding custom properties if you've configured action groups for a metric alert rule. 
+
+    > [!NOTE]
+    > Custom properties are currently only supported by metric alerts. For all other alert types, the **custom properties** field is null.
 
 ## Sample alert payload
 
@@ -1093,7 +1097,7 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
             "/subscriptions/11111111-1111-1111-1111-111111111111"
          ],
          "originAlertId":"12345678-1234-1234-1234-1234567890ab",
-         "firedDateTime":"2021-11-17T05:34:48.0623172",
+         "firedDateTime":"2021-11-17T05:34:48.0623172Z",
          "description":"Alert rule description",
          "essentialsVersion":"1.0",
          "alertContextVersion":"1.0"

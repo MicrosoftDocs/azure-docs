@@ -29,7 +29,7 @@ What makes a _large_ scale set special is not the number of VMs, but the number 
 To decide whether your application can make effective use of large scale sets, consider the following requirements:
 
 - If you are planning to deploy large number of VMs, your Compute vCPU quota limits may need to be increased. 
-- Scale sets created from Azure Marketplace images can scale up to 1,000 VMs.
+- Scale sets created from Azure Marketplace images or Azure Compute Gallery images can scale up to 1,000 VMs.
 - Scale sets created from custom images (VM images you create and upload yourself) can currently scale up to 600 VMs.
 - Large scale sets require Azure Managed Disks. Scale sets that are not created with Managed Disks require multiple storage accounts (one for every 20 VMs). Large scale sets are designed to work exclusively with Managed Disks to reduce your storage management overhead, and to avoid the risk of running into subscription limits for storage accounts. 
 - Large scale (SPG=false) does not support InfiniBand networking
@@ -48,7 +48,7 @@ You can create a large Virtual Machine Scale Set using the [Azure CLI](https://g
 
 ```azurecli
 az group create -l southcentralus -n biginfra
-az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
+az vmss create -g biginfra -n bigvmss --image Ubuntu2204 --instance-count 1000
 ```
 
 The _vmss create_ command defaults certain configuration values if you do not specify them. To see the available options that you can override, try:

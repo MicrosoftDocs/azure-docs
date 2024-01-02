@@ -2,13 +2,13 @@
 title: Create a VM with a static public IP address - Azure PowerShell
 titlesuffix: Azure Virtual Network
 description: Create a virtual machine (VM) with a static public IP address using Azure PowerShell. Static public IP addresses are addresses that never change.
-author: asudbring
-ms.author: allensu
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 10/01/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Create a virtual machine with a static public IP address using Azure PowerShell
@@ -22,7 +22,7 @@ Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 

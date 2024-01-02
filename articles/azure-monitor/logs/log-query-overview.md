@@ -18,7 +18,7 @@ Areas in Azure Monitor where you'll use queries include:
 - [Log alert rules](../alerts/alerts-overview.md): Proactively identify issues from data in your workspace. Each alert rule is based on a log query that's automatically run at regular intervals. The results are inspected to determine if an alert should be created.
 - [Workbooks](../visualize/workbooks-overview.md): Include the results of log queries by using different visualizations in interactive visual reports in the Azure portal.
 - [Azure dashboards](../visualize/tutorial-logs-dashboards.md): Pin the results of any query into an Azure dashboard, which allows you to visualize log and metric data together and optionally share with other Azure users.
-- [Azure Logic Apps](../logs/logicapp-flow-connector.md): Use the results of a log query in an automated workflow by using Logic Apps.
+- [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md): Use the results of a log query in an automated workflow by using a logic app workflow.
 - [PowerShell](/powershell/module/az.operationalinsights/invoke-azoperationalinsightsquery): Use the results of a log query in a PowerShell script from a command line or an Azure Automation runbook that uses `Invoke-AzOperationalInsightsQuery`.
 - [Azure Monitor Logs API](/rest/api/loganalytics/): Retrieve log data from the workspace from any REST API client. The API request includes a query that's run against Azure Monitor to determine the data to retrieve.
 - **Azure Monitor Query client libraries**: Retrieve log data from the workspace via an idiomatic client library for the following ecosystems:
@@ -27,6 +27,8 @@ Areas in Azure Monitor where you'll use queries include:
   - [Java](/java/api/overview/azure/monitor-query-readme)
   - [JavaScript](/javascript/api/overview/azure/monitor-query-readme)
   - [Python](/python/api/overview/azure/monitor-query-readme)
+  
+    For an example of how to implement the Azure Monitor Query client library for Python, see [Analyze data in Azure Monitor Logs using a notebook](../logs/notebooks-azure-monitor-logs.md). 
 
 ## Get started
 The best way to get started learning to write log queries by using KQL is to use available tutorials and samples:
@@ -70,9 +72,10 @@ Although Azure Monitor uses the same KQL as Azure Data Explorer, there are some 
 ### Other operators in Azure Monitor
 The following operators support specific Azure Monitor features and aren't available outside of Azure Monitor:
 
-* [app()](../logs/app-expression.md)
-* [resource()](./resource-expression.md)
-* [workspace()](../logs/workspace-expression.md)
+* [workspace()](../logs/cross-workspace-query.md#query-across-log-analytics-workspaces-using-workspace)
+* [app()](../logs/cross-workspace-query.md#query-across-classic-application-insights-applications-using-app)
+* [resource()](../logs/cross-workspace-query.md#correlate-data-between-resources-using-resource)
+
 
 ## Next steps
 - Walk through a [tutorial on writing queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).

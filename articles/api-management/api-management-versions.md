@@ -3,13 +3,14 @@ title: Versions in Azure API Management | Microsoft Docs
 description: Learn about the concept of versions in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: johndowns
+author: dlepow
  
 ms.service: api-management
 ms.topic: article
 ms.date: 10/31/2021
-ms.author: jodowns
+ms.author: danlep
 ---
+
 # Versions in Azure API Management
 
 Versions allow you to present groups of related APIs to your developers. You can use versions to handle breaking changes in your API safely. Clients can choose to use your new API version when they're ready, while existing clients continue to use an older version. Versions are differentiated through a version identifier (which is any string value you choose), and a versioning scheme allows clients to identify which version of an API they want to use.
@@ -52,6 +53,9 @@ The format of an API request URL when using query string-based versioning is: `h
 
 For example, `https://apis.contoso.com/products?api-version=v1` and `https://apis.contoso.com/products?api-version=v2` could refer to the same `products` API but to versions `v1` and `v2` respectively.
 
+> [!NOTE]
+> Query parameters aren't allowed in the `servers` property of an OpenAPI specification. If you export an OpenAPI specification from an API version, a query string won't appear in the server URL.
+
 ## Original versions
 
 If you add a version to a non-versioned API, an `Original` version will be automatically created and will respond on the default URL, without a version identifier specified. The `Original` version ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an `Original` version isn't created.
@@ -68,6 +72,8 @@ A version set is automatically deleted when the final version is deleted.
 
 You can view and manage version sets directly by using [Azure CLI](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), [Resource Manager templates](/azure/templates/microsoft.apimanagement/service/apiversionsets), or the [Azure Resource Manager API](/rest/api/apimanagement/current-ga/api-version-set).
 
+> [!NOTE]
+> All versions in a version set have the same versioning scheme, based on the versioning scheme used when you first add a version to an API.
 ### Migrating a non-versioned API to a versioned API
 
 When you use the Azure portal to enable versioning on an existing API, the following changes are made to your API Management resources:
@@ -94,3 +100,5 @@ The details of an API also show a list of all of the versions of that API. An `O
 
 > [!TIP]
 > API versions need to be added to a product before they will be visible on the developer portal.
+
+

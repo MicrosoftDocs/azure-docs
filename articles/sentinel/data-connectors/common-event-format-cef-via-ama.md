@@ -3,7 +3,7 @@ title: "Common Event Format (CEF) via AMA connector for Microsoft Sentinel"
 description: "Learn how to install the connector Common Event Format (CEF) via AMA to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,7 +17,7 @@ Common Event Format (CEF) is an industry standard format on top of Syslog messag
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Azure Monitor Agent DCR](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 

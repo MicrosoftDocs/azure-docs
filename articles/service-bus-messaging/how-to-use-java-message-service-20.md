@@ -3,7 +3,7 @@ title: Use Java Message Service 2.0 API with Azure Service Bus Premium
 description: How to use the Java Message Service (JMS) with Azure Service Bus
 ms.topic: article
 ms.date: 12/16/2022
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-extended-java
 ---
 
 # Use Java Message Service 2.0 API with Azure Service Bus Premium

@@ -21,7 +21,6 @@ In API Management, *workspaces* allow decentralized API development teams to man
 
 > [!NOTE]
 > * Workspaces are a preview feature of API Management and subject to certain [limitations](#preview-limitations).
-> * This feature is being released during March and April 2023.
 > * Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
@@ -85,7 +84,7 @@ Azure RBAC is used to configure workspace collaborators' permissions to read and
 Workspace members must be assigned both a service-scoped role and a workspace-scoped role, or granted equivalent permissions using custom roles. The service-scoped role enables referencing service-level resources from workspace-level resources. For example, publish an API from a workspace with a service-level product, assign a service-level tag to an API, or organize a user into a workspace-level group to control API and product visibility.  
 
 > [!NOTE]
-> For easier management, set up Azure AD groups to assign workspace permissions to multiple users.
+> For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
 > 
 
 ## Workspaces and other API Management features
@@ -109,9 +108,9 @@ Workspace members must be assigned both a service-scoped role and a workspace-sc
 
 The following resources aren't currently supported in workspaces: 
 
-* Authorization servers
+* Authorization servers (credential providers in credential manager)
 
-* Authorizations 
+* Authorizations (connections to credential providers in credential manager)
 
 * Backends 
 
@@ -135,7 +134,7 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 
 * Validating client certificates 
 
-* Using the authorizations feature 
+* Using the credential manager (formerly called authorizations) feature 
 
 * Specifying API authorization server information (for example, for the developer portal)
    

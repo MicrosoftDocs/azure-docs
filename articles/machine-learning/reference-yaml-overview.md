@@ -16,7 +16,7 @@ ms.reviewer: scottpolly
 
 # CLI (v2) YAML schemas
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses and sometimes requires YAML files with specific schemas. This article lists reference docs and the source schema for YAML files. Examples are included inline in individual articles.
 
@@ -45,6 +45,13 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | Reference | URI |
 | - | - |
 | [Model](reference-yaml-model.md) | https://azuremlschemas.azureedge.net/latest/model.schema.json |
+
+## Schedule
+
+| Reference | URI |
+| - | - |
+| [CLI (v2) schedule YAML schema](reference-yaml-schedule.md) | https://azuremlschemas.azureedge.net/latest/schedule.schema.json |
+
 
 ## Compute
 

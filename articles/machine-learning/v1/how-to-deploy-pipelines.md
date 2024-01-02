@@ -10,12 +10,12 @@ ms.author: zhanxia
 ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022, devx-track-python
 ---
 
 # Publish and track machine learning pipelines
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article will show you how to share a machine learning pipeline with your colleagues or customers.
 
@@ -25,7 +25,7 @@ Machine learning pipelines are reusable workflows for machine learning tasks. On
 
 * Create an [Azure Machine Learning workspace](../quickstart-create-resources.md) to hold all your pipeline resources
 
-* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed
 
 * Create and run a machine learning pipeline, such as by following [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](../tutorial-pipeline-batch-scoring-classification.md). For other options, see [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
 
@@ -75,7 +75,7 @@ All published pipelines have a REST endpoint. With the pipeline endpoint, you ca
 > [!IMPORTANT]
 > If you are using Azure role-based access control (Azure RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](../how-to-assign-roles.md#common-scenarios).
 
-To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token. Getting such a token is described in the [AzureCliAuthentication class](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
+To invoke the run of the preceding pipeline, you need a Microsoft Entra authentication header token. Getting such a token is described in the [AzureCliAuthentication class](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline

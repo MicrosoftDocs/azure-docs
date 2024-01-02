@@ -7,8 +7,7 @@ ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.date: 12/16/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
-
+ms.custom: mimckitt, devx-track-azurecli, devx-track-linux
 ---
 # Tutorial: Create and manage a Virtual Machine Scale Set with the Azure CLI
 A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
@@ -35,14 +34,18 @@ az group create --name myResourceGroup --location eastus
 The resource group name is specified when you create or modify a scale set throughout this tutorial.
 
 ## Create a scale set
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they don't exist:
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --orchestration-mode flexible \
-  --image UbuntuLTS \
+  --image <SKU image> \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -117,10 +120,10 @@ az vm show --resource-group myResourceGroup --name myScaleSet_instance1
   "storageProfile": {
     "dataDisks": [],
     "imageReference": {
-      "exactVersion": "18.04.202210180",
-      "offer": "UbuntuServer",
-      "publisher": "Canonical",
-      "sku": "18.04-LTS",
+      "exactVersion": "XXXXX",
+      "offer": "myOffer",
+      "publisher": "myPublisher",
+      "sku": "mySKU",
       "version": "latest"
     },
     "osDisk": {
@@ -155,8 +158,7 @@ When you created a scale set at the start of the tutorial, a default VM SKU of *
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
-  --orchestration-mode flexible \
+  --image <SKU image> \
   --vm-sku Standard_F1 \
   --admin-user azureuser \
   --generate-ssh-keys

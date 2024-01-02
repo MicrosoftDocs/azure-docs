@@ -1,7 +1,7 @@
 ---
 title: Accelerate on-premises OT alert workflows - Microsoft Defender for IoT
 description: Learn how to improve Microsoft Defender for IoT OT alert workflows on an OT network sensor or the on-premises management console.
-ms.date: 12/12/2022
+ms.date: 12/20/2023
 ms.topic: how-to
 ---
 
@@ -93,7 +93,7 @@ All OT sensor users can view a currently configured list of domains in a [data m
 
 **To define a DNS allowlist:**
 
-1. Sign into your OT sensor as the *support* user and select the **Support** page.
+1. Sign into your OT sensor as the *admin* user and select the **Support** page.
 
 1. In the search box, search for **DNS** and then locate the engine with the **Internet Domain Allowlist** description.
 
@@ -158,21 +158,6 @@ For more information, see
 [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md).
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-
-> [!div class="nextstepaction"]
-> [View and manage alerts on your OT sensor](how-to-view-alerts.md)
-
-> [!div class="nextstepaction"]
-> [Forward alert information](how-to-forward-alert-information-to-partners.md)
-
-> [!div class="nextstepaction"]
-> [OT monitoring alert types and descriptions](alert-engine-messages.md)
-
-> [!div class="nextstepaction"]
-> [View and manage alerts on the the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)

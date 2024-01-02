@@ -12,8 +12,6 @@ Azure Service Bus is a fully managed enterprise message broker with message queu
 - Safely routing and transferring data and control across service and application boundaries
 - Coordinating transactional work that requires a high-degree of reliability 
 
-> [!NOTE]
-> For a comparison of Azure messaging services, see [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json). 
 
 ## Overview
 Data is transferred between different applications and services using **messages**. A message is a container decorated with metadata, and contains data. The data can be any kind of information, including structured data encoded with the common formats such as the following ones: JSON, XML, Apache Avro, Plain Text.
@@ -112,7 +110,7 @@ Subscribers can define which messages they want to receive from a topic. These m
 
 ### Auto-delete on idle
 
-[Auto-delete on idle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The interval is reset when there's traffic on the queue. The minimum duration is 5 minutes.
+[Auto-delete on idle](/dotnet/api/azure.messaging.servicebus.administration.queueproperties.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The interval is reset when there's traffic on the queue. The minimum duration is 5 minutes.
 
 ### Duplicate detection
 
@@ -141,6 +139,7 @@ The primary wire protocol for Service Bus is [Advanced Messaging Queueing Protoc
 Fully supported Service Bus client libraries are available via the Azure SDK.
 
 - [Azure Service Bus for .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true)
+  - Third-party frameworks providing higher-level abstractions built on top of the SDK include [NServiceBus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus) and [MassTransit](https://masstransit.io/documentation/transports/azure-service-bus).
 - [Azure Service Bus libraries for Java](/java/api/overview/azure/servicebus?preserve-view=true)
 - [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
 - [Azure Service Bus modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
@@ -165,8 +164,7 @@ Service Bus fully integrates with many Microsoft and Azure services, for instanc
 
 To get started using Service Bus messaging, see the following articles:
 
-- [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json).
 - [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- Quickstarts: [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), or [JMS](service-bus-java-how-to-use-jms-api-amqp.md).
+- Quickstarts: [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [JMS](service-bus-java-how-to-use-jms-api-amqp.md), or [NServiceBus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus)
 - [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/). 
 - [Premium Messaging](service-bus-premium-messaging.md).

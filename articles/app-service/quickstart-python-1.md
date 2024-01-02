@@ -1,6 +1,8 @@
 ---
 title: 'Quickstart: Create a Python app on Linux'
 description: Get started with Azure App Service by deploying a Python app to a Linux container in App Service.
+ms.author: msangapu
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.devlang: python
@@ -19,7 +21,7 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](overvi
 ## Set up your initial environment
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-1. Install <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
+1. Install <a href="https://www.python.org/downloads/" target="_blank">Python</a>.
 1. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
 Open a terminal window and check your Python version is 3.6 or higher:

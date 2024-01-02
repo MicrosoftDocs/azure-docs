@@ -2,14 +2,15 @@
 title: Upgrade HCX on Azure VMware Solution 
 description: This article explains how to upgrade HCX on Azure VMware Solution. 
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 12/20/2023
+ms.custom: engagement-fy23
 ---
 
 # Upgrade HCX on Azure VMware Solution
 
-In this article, you'll learn how to upgrade Azure VMware Solution for HCX service updates that may include new features, software fixes, or security patches. 
+In this article, you learn how to upgrade Azure VMware Solution for HCX service updates, which can include new features, software fixes, or security patches. 
 
-You can update HCX Connector and HCX Cloud systems during separate maintenance windows, but for optimal compatibility, it's recommended you update both systems together. Apply service updates during a maintenance window where no new HCX operations are queued up. 
+You can update HCX Connector and HCX Cloud systems during separate maintenance windows, but for optimal compatibility, we recommend you update both systems together. Apply service updates during a maintenance window where no new HCX operations are queued up. 
 
 >[!IMPORTANT]
 >Starting with HCX 4.4.0, HCX appliances install the VMware Photon Operating System. When upgrading to HCX 4.4.x or later from an HCX version prior to version 4.4.0, you must also upgrade all Service Mesh appliances. 
@@ -19,6 +20,8 @@ You can update HCX Connector and HCX Cloud systems during separate maintenance w
 - For systems requirements, compatibility, and upgrade prerequisites, see the [VMware HCX release notes](https://docs.vmware.com/en/VMware-HCX/index.html).  
 
 - For more information about the upgrade path, see the [Product Interoperability Matrix](https://interopmatrix.vmware.com/Upgrade?productId=660). 
+- For information regarding VMware product compatibility by version, see the [Compatibility Matrix](https://interopmatrix.vmware.com/Interoperability?col=660,&row=0,).
+- Review VMware Software Versioning, Skew and Legacy Support Policies [here](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-skew-policy/GUID-787FB2A1-52AF-483C-B595-CF382E728674.html).
 
 - Ensure HCX manager and site pair configurations are healthy.  
 
@@ -46,7 +49,7 @@ The HCX update is first applied to the HCX Manager systems.
  
 **What to expect**
 - HCX manager is rebooted as part of the upgrade process.  
-- HCX vCenter Plugins will be updated.  
+- HCX vCenter Plugins are updated.  
 - There's no data-plane outage during this procedure.
 
 **Prerequisites**
@@ -65,12 +68,12 @@ While Service Mesh appliances are upgraded independently to the HCX Manager, the
 
 **What to expect**
 
-- Service VMs will be rebooted as part of the upgrade.
-- There is a small data plane outage during this procedure.
+- Service VMs are rebooted as part of the upgrade.
+- There's a small data plane outage during this procedure.
 - In-service upgrade of Network-extension can be considered to reduce downtime during HCX Network extension upgrades. 
 
 **Prerequisites**
-- All paired HCX Managers on both the source and the target site are updated and all services have returned to a fully converged state. 
+- All paired HCX Managers on both the source and the target site are updated and all services are returned to a fully converged state. 
 - Service Mesh appliances must be initiated using the HCX plug-in of vCenter or the 443 console at the source site 
 - No VM migrations should be in progress during this upgrade. 
 
@@ -87,7 +90,7 @@ For individual HCX component upgrade impact, see [Planning for HCX Updates](http
 
 ### Do I need to upgrade the service mesh appliances? 
 
-The HCX Service Mesh can be upgraded once all paired HCX Manager systems are updated, and all services have returned to a fully converged state. Check HCX release notes for upgrade requirements. Starting with HCX 4.4.0, HCX appliances installed the VMware Photon Operating System. When upgrading to HCX 4.4.x or later from an HCX version prior to 4.4.0 version, you must upgrade all Service Mesh appliances. 
+The HCX Service Mesh can be upgraded once all paired HCX Manager systems are updated, and all services are returned to a fully converged state. Check HCX release notes for upgrade requirements. Starting with HCX 4.4.0, HCX appliances installed the VMware Photon Operating System. When upgrading to HCX 4.4.x or later from an HCX version prior to 4.4.0 version, you must upgrade all Service Mesh appliances. 
 
 ### How do I roll back HCX upgrade using a snapshot? 
 

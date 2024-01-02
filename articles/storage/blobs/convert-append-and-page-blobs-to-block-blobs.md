@@ -4,12 +4,11 @@ titleSuffix: Azure Storage
 description: Learn how to convert an append blob or a page blob into a block blob in Azure Blob Storage.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/20/2023
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: blobs
 ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell
 ---
@@ -39,7 +38,7 @@ To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-4. Create the storage account context by using the [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) command. Include the `-UseConnectedAccount` parameter so that data operations will be performed using your Azure Active Directory (Azure AD) credentials.
+4. Create the storage account context by using the [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) command. Include the `-UseConnectedAccount` parameter so that data operations will be performed using your Microsoft Entra credentials.
 
    ```powershell
    $ctx = New-AzStorageContext -StorageAccountName '<storage account name>' -UseConnectedAccount
@@ -55,6 +54,20 @@ To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or
    $destTier = '<destination block blob tier>'
 
    Copy-AzStorageBlob -SrcContainer $containerName -SrcBlob $srcblobName -Context $ctx -DestContainer $destcontainerName -DestBlob $destblobName -DestContext $ctx -DestBlobType Block -StandardBlobTier $destTier
+   ```
+
+6. To copy a page blob snapshot to block blob, use the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) and [Copy-AzStorageBlob](/powershell/module/az.storage/copy-azstorageblob) command with `-DestBlobType` parameter as `Block`.
+
+   ```powershell
+   $containerName = '<source container name>'
+   $srcPageBlobName = '<source page blob name>'
+   $srcPageBlobSnapshotTime = '<snapshot time of source page blob>'
+   $destContainerName = '<destination container name>'
+   $destBlobName = '<destination block blob name>'
+   $destTier = '<destination block blob tier>'
+
+    Get-AzStorageBlob -Container $containerName -Blob $srcPageBlobName -SnapshotTime $srcPageBlobSnapshotTime -Context $ctx | Copy-AzStorageBlob -DestContainer $destContainerName -DestBlob $destBlobName -DestBlobType block -StandardBlobTier $destTier -DestContext $ctx 
+
    ```
 
    > [!TIP]
@@ -82,10 +95,21 @@ To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or
    containerName = '<source container name>'
    srcblobName = '<source append or page blob name>'
    destcontainerName = '<destination container name>'
-   destblobName = '<destination block blob name>'
+   destBlobName = '<destination block blob name>'
    destTier = '<destination block blob tier>'
 
    az storage blob copy start --account-name $accountName --destination-blob $destBlobName --destination-container $destcontainerName --destination-blob-type BlockBlob --source-blob $srcblobName --source-container $containerName --tier $destTier
+   ```
+
+4. To copy a page blob snapshot to block blob, use the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and set the `--destination-blob-type` parameter to `blockBlob` along with source page blob snapshot uri. 
+
+   ```azurecli
+   srcPageblobSnapshotUri  = '<source page blob snapshot uri>'
+   destcontainerName = '<destination container name>'
+   destblobName = '<destination block blob name>'
+   destTier = '<destination block blob tier>'
+
+   az storage blob copy start --account-name $accountName --destination-blob $destBlobName --destination-container $destcontainerName --destination-blob-type BlockBlob --source-uri $srcPageblobSnapshotUri --tier $destTier
    ```
 
    > [!TIP]
@@ -110,7 +134,6 @@ azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<cont
 > The optional `--metadata` parameter overwrites any existing metadata. Therefore, if you specify metadata by using this parameter, then none of the original metadata from the source blob will be copied to the destination blob.
 
 ---
-
 ## See also
 
 - [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)

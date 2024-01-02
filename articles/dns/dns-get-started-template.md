@@ -3,12 +3,12 @@ title: 'Quickstart: Create an Azure DNS zone and record - Azure Resource Manager
 titleSuffix: Azure DNS
 description: Learn how to create a DNS zone and record in Azure DNS. This article is a step-by-step quickstart to create and manage your first DNS zone and record using Azure Resource Manager template (ARM template).
 services: dns
-author: duongau
-ms.author: duau
-ms.date: 09/27/2022
+author: greg-lindsay
+ms.author: greglin
+ms.date: 11/30/2023
 ms.topic: quickstart
 ms.service: dns
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure ARM template so I can use Azure DNS for my name resolution.
 ---
 
@@ -66,7 +66,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 1. Enter the values.
 
-    The template deployment creates a zone with one `A` record pointing to two IP addresses. The resource group name is the project name with **rg** appended.
+    The template deployment creates a zone with one `A` record pointing to two IP addresses. The resource group name is the project name with `rg` appended.
 
     It takes a couple seconds to deploy the template. When completed, the output is similar to:
 
@@ -80,7 +80,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 1. Select **Resource groups** from the left pane.
 
-1. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
+1. Select the resource group that you created in the previous section. The default resource group name is the project name with `rg` appended.
 
 1. The resource group should contain the following resources seen here:
 

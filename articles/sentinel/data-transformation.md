@@ -83,11 +83,12 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 | Data connector type | DCR support |
 | ------------------- | ----------- |
 | **Direct ingestion via [Logs ingestion API](../azure-monitor/logs/logs-ingestion-api-overview.md)** | Standard DCRs |
-| [**AMA standard logs**](connect-services-windows-based.md), such as: <li>[Windows Security Events via AMA](./data-connectors/windows-security-events-via-ama.md)<li>[Windows Forwarded Events](./data-connectors/windows-forwarded-events.md)<li>[CEF data](connect-common-event-format.md)<li>[Syslog data](connect-syslog.md) | Standard DCRs |
+| [**AMA standard logs**](connect-services-windows-based.md), such as: <li>[Windows Security Events via AMA](./data-connectors/windows-security-events-via-ama.md)<li>[Windows Forwarded Events](./data-connectors/windows-forwarded-events.md)<li>[CEF data](connect-cef-ama.md)<li>[Syslog data](connect-cef-syslog.md) | Standard DCRs |
 | [**MMA standard logs**](connect-services-windows-based.md), such as <li>[Syslog data](connect-syslog.md)<li>[CommonSecurityLog](connect-azure-windows-microsoft-services.md) | Workspace transformation DCRs |
 | [**Diagnostic settings-based connections**](connect-services-diagnostic-setting-based.md) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
-| **Built-in, service-to-service data connectors**, such as:<li>[Microsoft Office 365](connect-services-api-based.md)<li>[Azure Active Directory](connect-azure-active-directory.md)<li>[Amazon S3](connect-aws.md) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
-| **Built-in, API-based data connectors**, such as: <li>[Codeless data connectors](create-codeless-connector.md)<li>[Azure Functions-based data connectors](connect-azure-functions-template.md) | Not currently supported |
+| **Built-in, service-to-service data connectors**, such as:<li>[Microsoft Office 365](connect-services-api-based.md)<li>[Microsoft Entra ID](connect-azure-active-directory.md)<li>[Amazon S3](connect-aws.md) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
+| **Built-in, API-based data connector**, such as: <li>[Codeless data connectors](create-codeless-connector.md) | Standard DCRs |
+| **Built-in, API-based data connectors**, such as: <li>[Legacy codeless data connectors](create-codeless-connector-legacy.md)<li>[Azure Functions-based data connectors](connect-azure-functions-template.md) | Not currently supported |
 
 
 ## Data transformation support for custom data connectors
@@ -99,16 +100,22 @@ Only the following tables are currently supported for custom log ingestion:
 - [**SecurityEvent**](/azure/azure-monitor/reference/tables/securityevent)
 - [**CommonSecurityLog**](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [**Syslog**](/azure/azure-monitor/reference/tables/syslog)
+- [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs)
+- **ASimAuthenticationEventLogs**
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)
+- [**ASimFileEventLogs**](/azure/azure-monitor/reference/tables/asimfileeventlogs)
 - [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)
+- [**ASimWebSessionLogs**](/azure/azure-monitor/reference/tables/asimwebsessionlogs)
 
-## Known issues
+For more information, see [Tables that support ingestion-time transformations](../azure-monitor/logs/tables-feature-support.md).
+
+## Limitations
 
 Ingestion-time data transformation currently has the following known issues for Microsoft Sentinel data connectors:
 
 - Data transformations using *workspace transformation DCRs* are supported only per table, and not per connector.
 
-    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. However, if you have two different MMA-based data connectors sending data to the *Syslog* table, they will both have to use the same input stream configuration in the DCR.
+    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. However, if you have two different MMA-based data connectors sending data to the *Syslog* table, they will both have to use the same input stream configuration in the DCR. Splitting data to multiple destinations (Log Analytics workspaces) with a workspace transformation DCR is not possible.
 
 - The following configurations are supported only via API:
 
@@ -119,6 +126,8 @@ Ingestion-time data transformation currently has the following known issues for 
 - It make take up to 60 minutes for the data transformation configurations to apply.
 
 - KQL syntax: Not all operators are supported. For more information, see [**KQL limitations** and **Supported KQL features**](../azure-monitor/essentials/data-collection-transformations-structure.md#kql-limitations) in the Azure Monitor documentation.
+
+- You can only send logs from one specific data source to one workspace. To send data from a single data source to multiple workspaces (destinations) with a standard DCR, please create one DCR per workspace. 
 
 ## Next steps
 
@@ -134,4 +143,3 @@ For more in-depth information on ingestion-time transformation, the Custom Logs 
 - [Data collection transformations in Azure Monitor Logs](../azure-monitor/essentials/data-collection-transformations.md)
 - [Logs ingestion API in Azure Monitor Logs](../azure-monitor/logs/logs-ingestion-api-overview.md)
 - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
-

@@ -4,8 +4,9 @@ description: A step-by-step guide to build a custom Linux or Windows image, push
 ms.topic: tutorial
 ms.date: 11/29/2022
 ms.author: msangapu
+author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli, devdivchpfy22"
+ms.custom: devx-track-csharp, mvc, seodec18, devx-track-azurecli, devdivchpfy22
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 

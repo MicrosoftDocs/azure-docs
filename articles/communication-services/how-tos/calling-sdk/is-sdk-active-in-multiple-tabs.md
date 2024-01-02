@@ -8,7 +8,7 @@ ms.date: 10/17/2022
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-js
 ---
 
 

@@ -2,9 +2,9 @@
 title: Concepts - Storage
 description: Learn about storage capacity, storage policies, fault tolerance, and storage integration in Azure VMware Solution private clouds.
 ms.topic: conceptual
-ms.custom: contperf-fy21q4
+ms.custom: contperf-fy21q4, engagement-fy23
 ms.service: azure-vmware
-ms.date: 12/08/2022
+ms.date: 12/13/2023
 ---
 
 # Azure VMware Solution storage concepts
@@ -29,19 +29,18 @@ Local storage in cluster hosts is used in the cluster-wide vSAN datastore. All d
 
 ## Storage policies and fault tolerance
 
-The default storage policy is set to **RAID-1 FTT-1**, with Object Space Reservation set to Thin provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. This is the policy that will be applied to the workload VMs. To set a different storage policy, see [Configure storage policy](configure-storage-policy.md).
+The default storage policy is set to **RAID-1 FTT-1**, with Object Space Reservation set to Thin provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. The default storage policy is the one that will be applied to the workload VMs. To set a different storage policy, see [Configure storage policy](configure-storage-policy.md).
 
 In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an operations perspective.
 
 >[!NOTE]
->When you log on to the vSphere Client, you may notice a VM Storage Policy called **vSAN Default Storage Policy** with **Object Space Reservation** set to **Thin** provisioning. Please note that this is not the default storage policy applied to the cluster. This policy exists for historical purposes and will eventually be modified to **Thin** provisioning. 
+>When you log on to the vSphere Client, you may notice a VM Storage Policy called **vSAN Default Storage Policy** with **Object Space Reservation** set to **Thick** provisioning. Please note that this is not the default storage policy applied to the cluster. This policy exists for historical purposes and will eventually be modified to **Thin** provisioning. 
 
 >[!NOTE]
 >All of the software-defined data center (SDDC) management VMs (vCenter Server, NSX-T Manager, NSX-T Data Center Edges, and others) use the **Microsoft vSAN Management Storage Policy**, with **Object Space Reservation** set to **Thin** provisioning.
 
 >[!TIP]
 >If you're unsure if the cluster will grow to four or more, then deploy using the default policy.  If you're sure your cluster will grow, then instead of expanding the cluster after your initial deployment, we recommend deploying the extra hosts during deployment. As the VMs are deployed to the cluster, change the disk's storage policy in the VM settings to either RAID-5 FTT-1 or RAID-6 FTT-2. In reference to [SLA for Azure VMware Solution](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/), note that more than 6 hosts should be configured in the cluster to use an FTT-2 policy (RAID-1, or RAID-6). Also note that the storage policy is not automatically updated based on cluster size. Similarly, changing the default does not automatically update the running VM policies.  
-
 
 ## Data-at-rest encryption
 
@@ -63,8 +62,6 @@ Microsoft provides alerts when capacity consumption exceeds 75%. In addition, yo
 ## Next steps
 
 Now that you've covered Azure VMware Solution storage concepts, you may want to learn about:
-
-- [Attach disk pools to Azure VMware Solution hosts (Preview)](attach-disk-pools-to-azure-vmware-solution-hosts.md) - You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance.
 
 - [Configure storage policy](configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
 

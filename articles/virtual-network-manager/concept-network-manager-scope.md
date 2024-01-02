@@ -13,12 +13,7 @@ ms.custom: template-concept
 
 In this article, you learn about how Azure Virtual Network Manager uses the concept of *scope* to enable management groups or subscriptions to use certain features of Virtual Network Manager. Also, you learn about *hierarchy* and how that can affect your users when using Virtual Network Manager. 
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
->
-> Mesh connectivity configurations and security admin rules remain in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Network Manager
 
@@ -43,6 +38,11 @@ A *scope* within Azure Virtual Network Manager represents the delegated access g
 When you deploy configurations, Network Manager only applies features to resources within its scope. If you attempt to add a resource to a network group that is out of scope, it's added to the group to represent your intent. But the network manager doesn't apply the changes to the configurations.
 
 The Network Manager's scope can be updated to add or remove scopes from its list. Updates trigger an automatic, scope wide, reevaluation and potentially add features with a scope addition, or remove them with a scope removal.
+
+### Cross-tenant Scope
+
+The Network Manager's scope can span across tenants, however a separate approval flow is required to establish this scope. First, intent for the desired scope must be added from within the Network Manager via the 'Scope Connection' resource. Second, the intent for the management of the Network Manager must be added from the scope (subscription/management group) via the 'Network Manager Connection' resource. These resources contain a state to represent whether the associated scope has been added to the Network Manager scope.
+
 ## Features
 
 Features are scope access that you allow the Azure Virtual Network Manager to manage. Azure Virtual Network Manager currently has two feature scopes, which are *Connectivity* and *SecurityAdmin*. You can enable both feature scopes on the same Virtual Network Manager instance. For more information about each feature, see [Connectivity](concept-connectivity-configuration.md) and [SecurityAdmin](concept-security-admins.md).

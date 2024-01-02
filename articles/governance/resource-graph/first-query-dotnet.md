@@ -3,14 +3,10 @@ title: "Quickstart: Your first .NET query"
 description: In this quickstart, you follow the steps to enable the Resource Graph NuGet packages for .NET and run your first query.
 ms.date: 01/20/2023
 ms.topic: quickstart
-ms.custom: devx-track-csharp
-ms.author: timwarner
+ms.custom: devx-track-csharp, devx-track-dotnet
+ms.author: davidsmatlak
 ---
 # Quickstart: Run your first Resource Graph query using .NET
-
-> [!NOTE]
-> Special thanks to [Glenn Block](https://github.com/glennblock) for contributing
-> the code used in this quickstart.
 
 The first step to using Azure Resource Graph is to check that the required NuGet packages are installed. This quickstart walks you through the process of adding the packages to your .NET application.
 
@@ -51,12 +47,12 @@ required packages.
     using Azure.ResourceManager;
     using Azure.ResourceManager.ResourceGraph;
     using Azure.ResourceManager.ResourceGraph.Models;
-    
+
     string strTenant = args[0];
     string strClientId = args[1];
     string strClientSecret = args[2];
     string strQuery = args[3];
-    
+
     var client = new ArmClient(
         new ClientSecretCredential(strTenant, strClientId, strClientSecret));
     var tenant = client.GetTenants().First();

@@ -107,7 +107,7 @@ SELECT count(*) as NumberOfRequests, RegionsRefDataInput.RegionName
 FROM UserRequestStreamDataInput
 JOIN RegionsRefDataInput 
 ON st_within(UserRequestStreamDataInput.FromLocation, RegionsRefDataInput.Geofence) = 1
-GROUP BY RegionsRefDataInput.RegionName, hoppingwindow(minute, 1, 15)
+GROUP BY RegionsRefDataInput.RegionName, hoppingwindow(minute, 15, 1)
 ```
 
 This query outputs a count of requests every minute for the last 15 minutes by each region within the city. This information can be displayed easily by Power BI dashboard, or can be broadcasted to all drivers as SMS text messages through integration with services like Azure functions.

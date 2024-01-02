@@ -1,15 +1,23 @@
 ---
 title: Explore your Azure resources
 description: Learn to use the Resource Graph query language to explore your resources and discover how they're connected.
-ms.date: 08/17/2021
+ms.date: 12/18/2023
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
+
 # Explore your Azure resources with Resource Graph
 
-Azure Resource Graph provides the ability to explore and discover your Azure resources quickly and
+Azure Resource Graph helps you explore and discover your Azure resources quickly and
 at scale. Engineered for fast responses, it's a great way to learn about your environment and also
 about the properties that exist on your Azure resources.
+
+> [!NOTE]
+> Depending on the Resource Graph table, properties will either match the casing as shown in the Azure portal or be lowercased.
+> For example, the name of a resource group when querying the `resourceContainers` table will match the portal, but the
+> `resourceGroup` property of resources from the `resources` table will be lowercase. This might cause unexpected results and
+> can be accounted for in your queries using case-insensitive comparison operators such as `=~` instead of `==` and
+> converting properties to lowercase in joins with the `tolower()` function.
 
 ## Explore virtual machines
 
@@ -114,7 +122,7 @@ a member of.
 ### Virtual machines by location
 
 Taking what we learned about the virtual machines resource, let's use the **location** property to
-count all virtual machines by location. To update the query, we'll remove the limit and summarize
+count all virtual machines by location. To update the query, we remove the limit and summarize
 the count of location values.
 
 ```kusto
@@ -155,9 +163,7 @@ We can now see how many virtual machines we have in each Azure region.
 ### Virtual machines by SKU
 
 Going back to the original virtual machine properties, let's try to find all the virtual machines
-that have a SKU size of **Standard_B2s**. Looking at the JSON returned, we see that it's stored in
-**properties.hardwareprofile.vmsize**. We'll update the query to find all VMs that match this size
-and return just the name of the VM and region.
+that have a SKU size of **Standard_B2s**. The returned JSON returned shows that it's stored in **properties.hardwareprofile.vmsize**. We'll update the query to find all VMs that match this size and return just the name of the VM and region.
 
 ```kusto
 Resources
@@ -217,7 +223,7 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Before running the query, how did we know the **type** should now be **Microsoft.Compute/disks**? If
+Before you run the query, how did we know the **type** should now be **Microsoft.Compute/disks**? If
 you look at the full ID, you'll see **/providers/Microsoft.Compute/disks/** as part of the string.
 This string fragment gives you a hint as to what type to search for. An alternative method would be
 to remove the limit by type and instead only search by the ID field. As the ID is unique, only one
@@ -324,7 +330,7 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 ```
 
 To see how to accomplish these steps in a single query with the `join` operator, see the
-[List virtual machines with their network interface and public IP](../samples/advanced.md#join-vmpip)
+[List virtual machines with their network interface and public IP](../samples/advanced.md#list-virtual-machines-with-their-network-interface-and-public-ip)
 sample.
 
 ## Next steps

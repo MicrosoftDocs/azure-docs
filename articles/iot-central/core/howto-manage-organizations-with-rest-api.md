@@ -1,9 +1,9 @@
 ---
-title: Use the REST API to manage organizations in Azure IoT Central
-description: How to use the IoT Central REST API to manage organizations in an application
+title: Manage organizations with the REST API in Azure IoT Central
+description: How to use the IoT Central REST API to manage organizations in an application. Oganizations let you manage access to application resources.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/08/2022
+ms.date: 05/22/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -21,8 +21,6 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 To learn more about organizations in IoT Central Application, see [Manage IoT Central organizations](howto-create-organizations.md).
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
-
-To learn how to manage organizations by using the IoT Central UI, see [Manage IoT Central organizations.](../core/howto-create-organizations.md)
 
 ## Organizations REST API
 
@@ -118,12 +116,10 @@ Use the following request to update details of an organization in your applicati
 PATCH https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-07-31
 ```
 
-The following example shows a request body that updates an organization.
+The following example shows a request body that updates the parent of the organization:
 
 ```json
 {
-  "id": "seattle",
-  "displayName": "Seattle Sales",
   "parent": "washington"
 }
 ```
@@ -177,7 +173,7 @@ The response to this request looks like the following example.
 }
 ```
 
- The organizations Washington, Redmond, and Bellevue will automatically have the application's default top-level organization as their parent.
+ The organizations Washington, Redmond, and Bellevue automatically have the application's default top-level organization as their parent.
 
 ### Delete an organization
 
@@ -188,6 +184,8 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organ
 ```
 
 ## Use organizations
+
+Use organizations to manage access to resources in your application.
 
 ### Manage roles
 
@@ -230,9 +228,9 @@ The response to this request looks like the following example that includes the 
 }
 ```
 
-### Create an API token to a node in an organization hierarchy
+### Create an API token attached to a node in an organization hierarchy
 
-Use the following request to create Create an API token to a node in an organization hierarchy in your application:
+Use the following request to create Create an API token attached to a node in an organization hierarchy in your application:
 
 ```http
 PUT https://{your app subdomain}.azureiotcentral.com/api/apiTokens/{tokenId}?api-version=2022-07-31
@@ -240,7 +238,7 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/apiTokens/{tokenId}?api
 
 * tokenId - Unique ID of the token
 
-The following example shows a request body that creates an API token for an organization in a IoT Central application.  
+The following example shows a request body that creates an API token for the *seattle* organization in an IoT Central application.  
 
 ```json
 {
@@ -257,7 +255,7 @@ The request body has some required fields:
 
 |Name|Description|
 |----|-----------|
-|role |ID of one of the organization roles.|
+|role |ID of one of the organization roles|
 |organization| ID of the organization|
 
 The response to this request looks like the following example:
@@ -374,7 +372,7 @@ Use the following request to create and associate a new device group with an org
 PUT https://{your app subdomain}.azureiotcentral.com/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
-When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true.
+When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the `dtmi:modelDefinition:dtdlv2` template where the `provisioned` property is true.
 
 ```json
 {

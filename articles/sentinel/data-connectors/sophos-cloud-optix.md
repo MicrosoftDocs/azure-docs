@@ -3,14 +3,14 @@ title: "Sophos Cloud Optix connector for Microsoft Sentinel"
 description: "Learn how to install the connector Sophos Cloud Optix to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Sophos Cloud Optix connector for Microsoft Sentinel
 
-The [Sophos Cloud Optix](https://www.sophos.com/products/cloud-optix.aspx) connector allows you to easily connect your Sophos Cloud Optix logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization's cloud security and compliance posture and improves your cloud security operation capabilities.
+The [Sophos Cloud Optix](https://www.sophos.com/products/cloud-optix.aspx) connector allows you to easily connect your Sophos Cloud Optix logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization's cloud security and compliance posture and improves your cloud security operation capabilities.
 
 ## Connector attributes
 
@@ -55,12 +55,12 @@ Copy the Workspace ID and Primary Key for your workspace.
 
 2. Configure the Sophos Cloud Optix Integration
 
-In Sophos Cloud Optix go to [Settings->Integrations->Azure Sentinel](https://optix.sophos.com/#/integrations/sentinel) and enter the Workspace ID and Primary Key copied in Step 1.
+In Sophos Cloud Optix go to [Settings->Integrations->Microsoft Sentinel](https://optix.sophos.com/#/integrations/sentinel) and enter the Workspace ID and Primary Key copied in Step 1.
 
 
 3. Select Alert Levels
 
-In Alert Levels, select which Sophos Cloud Optix alerts you want to send to Azure Sentinel.
+In Alert Levels, select which Sophos Cloud Optix alerts you want to send to Microsoft Sentinel.
 
 
 4. Turn on the integration

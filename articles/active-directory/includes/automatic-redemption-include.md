@@ -11,12 +11,11 @@ ms.author: rolyon
 ms.custom: include file
 ---
 
-The automatic redemption setting is an inbound and outbound organizational trust setting to automatically redeem invitations so users don't have to accept the consent prompt the first time they access the resource/target tenant. This setting is a check box with the following name depending on whether it's inbound or outbound:
+The automatic redemption setting is an inbound and outbound organizational trust setting to automatically redeem invitations so users don't have to accept the consent prompt the first time they access the resource/target tenant. This setting is a check box with the following name:
 
-- **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant**
-- **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant**
+- **Automatically redeem invitations with the tenant** &lt;tenant&gt;
 
-:::image type="content" source="../media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound suppress consent prompt check box." lightbox="../media/external-identities/inbound-consent-prompt-setting.png":::
+:::image type="content" source="../media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound Automatic redemption check box." lightbox="../media/external-identities/inbound-consent-prompt-setting.png":::
 
 #### Compare setting for different scenarios
 
@@ -33,9 +32,9 @@ The following table shows how this setting compares when enabled for these scena
 | Automatic redemption setting | Required | Optional | Optional |
 | Users receive a [B2B collaboration invitation email](../external-identities/invitation-email-elements.md) | No | No | N/A |
 | Users must accept a [consent prompt](../external-identities/redemption-experience.md#consent-experience-for-the-guest) | No | No | No |
-| Users receive a [B2B collaboration notification email](../external-identities/redemption-experience.md#automatic-redemption-setting) | No | Yes | N/A |
+| Users receive a [B2B collaboration notification email](../external-identities/redemption-experience.md#automatic-redemption-process-setting) | No | Yes | N/A |
 
-This setting doesn't impact application consent experiences. For more information, see [Consent experience for applications in Azure Active Directory](../develop/application-consent-experience.md). This setting isn't supported for organizations across different Microsoft cloud environments, such as Azure commercial and Azure Government.
+This setting doesn't impact application consent experiences. For more information, see [Consent experience for applications in Microsoft Entra ID](../develop/application-consent-experience.md). This setting isn't supported for organizations across different Microsoft cloud environments, such as Azure commercial and Azure Government.
 
 #### When is consent prompt suppressed?
 

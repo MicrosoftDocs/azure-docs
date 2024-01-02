@@ -6,7 +6,7 @@ author: mulander
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 06/16/2023
 ---
 
 # How to ingest data using pg_azure_storage in Azure Cosmos DB for PostgreSQL
@@ -66,7 +66,7 @@ pg_size_pretty | 5257 kB
 content_type   | application/x-gzip
 ```
 
-You can filter the output either by using a regular SQL `WHERE` clause, or by using the `prefix` parameter of the `blob_list` UDF. The latter will filter the returned rows on the Azure Blob Storage side.
+You can filter the output either by using a regular SQL `WHERE` clause, or by using the `prefix` parameter of the `blob_list` UDF. The latter filters the returned rows on the Azure Blob Storage side.
 
 
 > [!NOTE]
@@ -178,7 +178,7 @@ Currently the extension supports the following file formats:
 
 ### Load data with blob_get()
 
-The `COPY` command is convenient, but limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in much more complex scenarios.
+The `COPY` command is convenient, but limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in more complex scenarios.
 
 ```sql
 SELECT *
@@ -345,4 +345,6 @@ INSERT 0 264308
 
 Congratulations, you just learned how to load data into Azure Cosmos DB for PostgreSQL directly from Azure Blob Storage.
 
-Learn how to create a [real-time dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
+- Learn how to create a [real-time dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
+- Learn more about [pg_azure_storage](reference-pg-azure-storage.md).
+- Learn about [Postgres COPY support](reference-copy-command.md).

@@ -30,6 +30,7 @@ The preview of cross-zone replication is available in the following regions:
 * Australia East
 * Brazil South 
 * Canada Central 
+* Central India
 * Central US 
 * East Asia
 * East US 
@@ -59,10 +60,10 @@ In the future, cross-zone replication is planned for all [AZ-enabled regions](..
 
 Recovery Point Objective (RPO) indicates the point in time to which data can be recovered. The RPO target is typically less than twice the replication schedule, but it can vary. In some cases, it can go beyond the target RPO based on factors such as the total dataset size, the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer. 
 
+Cross-zone replication supports three replication schedules: 10 minutes, hourly, and daily. 
+
 * For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes. 
-
 * For the hourly replication schedule, the typical RPO is less than two hours. 
-
 * For the daily replication schedule, the typical RPO is less than two days. 
 
 Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute. 

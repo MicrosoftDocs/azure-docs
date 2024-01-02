@@ -6,8 +6,7 @@ services: storage
 ms.author: normesta
 ms.date: 04/20/2021
 ms.topic: reference
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.custom: subject-monitoring
 ---
 

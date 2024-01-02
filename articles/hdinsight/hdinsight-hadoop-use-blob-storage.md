@@ -4,7 +4,7 @@ description: Learn how to query data from Azure storage and Azure Data Lake Stor
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 03/31/2022
+ms.date: 04/24/2023
 ---
 
 # Use Azure storage with Azure HDInsight clusters

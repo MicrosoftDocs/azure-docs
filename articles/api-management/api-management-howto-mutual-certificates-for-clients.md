@@ -19,7 +19,7 @@ API Management provides the capability to secure access to APIs (that is, client
 
 For information about securing access to the backend service of an API using client certificates (that is, API Management to backend), see [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md).
 
-For a conceptual overview of API authorization, see [Authentication and authorization in API Management](authentication-authorization-overview.md#gateway-data-plane). 
+For a conceptual overview of API authorization, see [Authentication and authorization to APIs in API Management](authentication-authorization-overview.md). 
 
 ## Certificate options
 
@@ -37,7 +37,7 @@ Using key vault certificates is recommended because it helps improve API Managem
 ## Prerequisites
 
 * If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
-* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed. 
+* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in either CER or PFX format. Self-signed certificates are allowed. 
 
     If you use a self-signed certificate, also install trusted root and intermediate [CA certificates](api-management-howto-ca-certificates.md) in your API Management instance.
     
@@ -45,6 +45,9 @@ Using key vault certificates is recommended because it helps improve API Managem
     > CA certificates for certificate validation are not supported in the Consumption tier.
 
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
+
+   > [!NOTE]
+   > If you only wish to use the certificate to authenticate the client with API Management, you can upload a CER file.
 
 ## Enable API Management instance to receive and verify client certificates
 
@@ -69,9 +72,12 @@ Configure the policy to validate one or more attributes including certificate is
 
 You can also create policy expressions with the [`context` variable](api-management-policy-expressions.md#ContextVariables) to check client certificates. Examples in the following sections show expressions using the `context.Request.Certificate` property and other `context` properties.
 
+> [!NOTE]
+> Mutual certificate authentication might not function correctly when the API Management gateway endpoint is exposed through the Application Gateway. This is because Application Gateway functions as a Layer 7 load balancer, establishing a distinct SSL connection with the backend API Management service. Consequently, the certificate attached by the client in the initial HTTP request will not be forwarded to APIM. However, as a workaround, you can transmit the certificate using the server variables option. For detailed instructions, refer to [Mutual Authentication Server Variables](../application-gateway/rewrite-http-headers-url.md#mutual-authentication-server-variables).
+
 > [!IMPORTANT]
 > * Starting May 2021, the `context.Request.Certificate` property only requests the certificate when the API Management instance's [`hostnameConfiguration`](/rest/api/apimanagement/current-ga/api-management-service/create-or-update#hostnameconfiguration) sets the `negotiateClientCertificate` property to True. By default, `negotiateClientCertificate` is set to False.
-> * If TLS renegotiation is disabled in your client, you may see TLS errors when requesting the certificate using the `context.Request.Certificate` property. If this occurs, enable TLS renegotation settings in the client. 
+> * If TLS renegotiation is disabled in your client, you may see TLS errors when requesting the certificate using the `context.Request.Certificate` property. If this occurs, enable TLS renegotiation settings in the client. 
 
 ### Checking the issuer and subject
 

@@ -7,7 +7,7 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 02/02/2023
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-how-to
+ms.custom: template-how-to
 ms.devlang: azurecli
 ---
 

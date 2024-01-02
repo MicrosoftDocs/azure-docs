@@ -1,20 +1,17 @@
 ---
-title: What is Microsoft Azure Data Manager for Agriculture? #Required; page title is displayed in search results. Include the brand.
-description: About Azure Data Manager for Agriculture #Required; article description that is displayed in search results. 
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+title: What is Microsoft Azure Data Manager for Agriculture?
+description: About Azure Data Manager for Agriculture
+author: gourdsay
 ms.service: data-manager-for-agri
-ms.author: angour  #Required; microsoft alias of author; optional team alias.
-ms.topic: overview #Required; leave this attribute/value as-is.
-ms.date: 02/14/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-overview #Required; leave this attribute/value as-is.
+ms.author: angour
+ms.topic: overview
+ms.date: 02/14/2023
+ms.custom: template-overview
 ---
 
 # What is Azure Data Manager for Agriculture Preview?
 
-> [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
+[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
 Adopting sustainable agriculture practices is crucial for the future of our planet. Azure Data Manager for Agriculture is built to help the industry accelerate their sustainability and agriculture practices using digital solutions. In addition, Azure Data Manager for Agriculture helps to facilitate a more sustainable future and a more productive agriculture industry by empowering organizations to: 
 * Drive innovation through insight.
@@ -30,7 +27,7 @@ Azure Data Manager for Agriculture helps reduce data engineering investments thr
 
 ## Our key features
 
->:::image type="content" source="./media/about-data-manager.png" alt-text="Screenshot showing key features.":::
+:::image type="content" source="./media/about-data-manager.png" alt-text="Screenshot showing key features.":::
 
 * Ingest, store and manage farm data: Connectors for satellite, weather forecast, farm operations, sensor data and  extensibility framework help ingest your farm data. 
 * Run Apps on your farm data: Use REST APIs to power your apps. 

@@ -9,7 +9,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 ---
 
 # Create a trigger that runs a pipeline in response to a storage event
@@ -66,7 +66,7 @@ This section shows you how to create a storage event trigger within the Azure Da
 
 1. Select whether or not your trigger ignores blobs with zero bytes.
 
-1. After you configure you trigger, click on **Next: Data preview**. This screen shows the existing blobs matched by your storage event trigger configuration. Make sure you've specific filters. Configuring filters that are too broad can match a large number of files created/deleted and may significantly impact your cost. Once your filter conditions have been verified, click **Finish**.
+1. After you configure your trigger, click on **Next: Data preview**. This screen shows the existing blobs matched by your storage event trigger configuration. Make sure you've specific filters. Configuring filters that are too broad can match a large number of files created/deleted and may significantly impact your cost. Once your filter conditions have been verified, click **Finish**.
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-3.png" alt-text="Screenshot of storage event trigger preview page.":::
 
@@ -77,9 +77,6 @@ This section shows you how to create a storage event trigger within the Azure Da
    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-4.png" alt-text="Screenshot of storage event trigger mapping properties to pipeline parameters.":::
 
    In the preceding example, the trigger is configured to fire when a blob path ending in .csv is created in the folder _event-testing_ in the container _sample-data_. The **folderPath** and **fileName** properties capture the location of the new blob. For example, when MoviesDB.csv is added to the path sample-data/event-testing, `@triggerBody().folderPath` has a value of `sample-data/event-testing` and `@triggerBody().fileName` has a value of `moviesDB.csv`. These values are mapped, in the example, to the pipeline parameters `sourceFolder` and `sourceFile`, which can be used throughout the pipeline as `@pipeline().parameters.sourceFolder` and `@pipeline().parameters.sourceFile` respectively.
-
-   > [!NOTE]
-   > If you are creating your pipeline and trigger in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), you must use `@trigger().outputs.body.fileName` and `@trigger().outputs.body.folderPath` as parameters. Those two properties capture blob information. Use those properties instead of using `@triggerBody().fileName` and `@triggerBody().folderPath`.
 
 1. Click **Finish** once you are done.
 
@@ -163,7 +160,7 @@ There are three noticeable call outs in the workflow related to Event triggering
   * That said, if you have a Copy or other activity inside the pipeline to process the data in Storage account, the service will make direct contact with Storage, using the credentials stored in the Linked Service. Ensure that Linked Service is set up appropriately
   * However, if you make no reference to the Storage account in the pipeline, you do not need to grant permission to the service to access Storage account
 
-## Next steps
+## Related content
 
 * For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * Learn how to reference trigger metadata in pipeline, see [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md)

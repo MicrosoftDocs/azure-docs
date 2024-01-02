@@ -115,7 +115,7 @@ This section discusses cost optimization with Microsoft cost management, the Azu
 
 ### Microsoft cost management
 
-Microsoft Azure provides tools that help you to track, optimize, and control your Azure spending. If your data factory spending is a top priority, the recommendation is to create a separate resource group in Azure for each data factory. This way, it's easy to build budgets, track your spending, and apply cost controls using [Microsoft Cost Management](/cost-management-billing/costs/cost-mgt-best-practices.md).
+Microsoft Azure provides tools that help you to track, optimize, and control your Azure spending. If your data factory spending is a top priority, the recommendation is to create a separate resource group in Azure for each data factory. This way, it's easy to build budgets, track your spending, and apply cost controls using [Microsoft Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices).
 
 :::image type="content" source="media/apply-finops/microsoft-cost-management.png" lightbox="media/apply-finops/microsoft-cost-management.png" alt-text="Screenshot showing the Microsoft cost management page in Azure.":::
 
@@ -123,11 +123,11 @@ Today organizations are working harder than ever to control spending and do more
 
 :::image type="content" source="media/apply-finops/azure-budgets.png" alt-text="Screenshot of the Azure budgets page showing how to set budgets for a service.":::
 
-From the [create budget window](/cost-management-billing/costs/tutorial-acm-create-budgets.md), use filters to choose either the Azure Data Factory service or a resource group.
+From the [create budget window](/azure/cost-management-billing/costs/tutorial-acm-create-budgets), use filters to choose either the Azure Data Factory service or a resource group.
 
 ### Azure Advisor
 
-Another valuable tool for optimizing your Azure budget is Azure Advisor. With Azure Advisor, you can receive recommendations for reducing your overall Azure spending. This includes utilization of [Azure Data Factory's reserved instance pricing for reducing costs of mapping data flows](/advisor/advisor-reference-cost-recommendations.md#consider-data-factory-reserved-instance-to-save-over-your-on-demand-costs). You can also pay for Azure Data Factory charges with your [Azure pre-payment credit](plan-manage-costs.md#using-azure-prepayment-with-azure-data-factory).
+Another valuable tool for optimizing your Azure budget is Azure Advisor. With Azure Advisor, you can receive recommendations for reducing your overall Azure spending. This includes utilization of [Azure Data Factory's reserved instance pricing for reducing costs of mapping data flows](/azure/advisor/advisor-reference-cost-recommendations#consider-data-factory-reserved-instance-to-save-over-your-on-demand-costs). You can also pay for Azure Data Factory charges with your [Azure pre-payment credit](plan-manage-costs.md#using-azure-prepayment-with-azure-data-factory).
 
 :::image type="content" source="media/apply-finops/azure-advisor.png" lightbox="media/apply-finops/azure-advisor.png" alt-text="Screenshot showing the Azure Advisor window that can provide recommendations including cost reduction optimizations.":::
 
@@ -159,7 +159,7 @@ The pipeline-level view of your data factory bill is useful to attribute overall
 
 Another mechanism for tracking attributing costs for your data factory resource is to use [tagging in your factory](plan-manage-costs.md). You can assign the same tag to your data factory and other Azure resources, putting them into the same category to view their consolidated billing. All SSIS (SQL Server Integration Services) IRs within the factory inherit this tag. Keep in mind that if you change your data factory tag, you need to stop and restart all SSIS IRs within the factory for them to inherit the new tag. For more details, refer to the [reconfigure SSIS IR section](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir).
 
-## Next steps
+## Related content
 
 - [Plan to manage costs for Azure Data Factory](plan-manage-costs.md)
 - [Understanding Azure Data Factory pricing through examples](pricing-concepts.md)

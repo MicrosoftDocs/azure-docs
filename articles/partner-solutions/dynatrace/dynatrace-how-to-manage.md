@@ -113,7 +113,7 @@ If you would like to reconfigure single sign-on, select **Single sign-on** in th
 
 If single sign-on was already configured, you can disable it.
 
-To establish single sign-on or change the application, select **Enable single sign-on through Azure Active Directory**. The portal retrieves  Dynatrace application from Azure Active Directory. The app comes from the enterprise app name selected during the [pre-configuration steps](dynatrace-how-to-configure-prereqs.md).
+To establish single sign-on or change the application, select **Enable single sign-on through Microsoft Entra ID**. The portal retrieves  Dynatrace application from Microsoft Entra ID. The app comes from the enterprise app name selected during the [pre-configuration steps](dynatrace-how-to-configure-prereqs.md).
 
 ## Delete Dynatrace resource
 
@@ -127,4 +127,11 @@ If more than one Dynatrace resource is mapped to the Dynatrace environment using
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting Dynatrace integration with Azure](dynatrace-troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting Dynatrace integration with Azure](dynatrace-troubleshoot.md).
+- Get started with Azure Native Dynatrace Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)

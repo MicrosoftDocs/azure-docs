@@ -3,7 +3,8 @@ title: Automated deployments for Azure Kubernetes Service (Preview)
 description: Learn how to use automated deployments to simplify the process of adding GitHub Actions to your Azure Kubernetes Service (AKS) project
 ms.author: qpetraroia
 ms.topic: tutorial
-ms.date: 7/21/2022
+ms.custom: build-2023
+ms.date: 05/10/2023
 author: qpetraroia
 ---
 
@@ -14,37 +15,54 @@ Automated deployments simplify the process of setting up a GitHub Action and cre
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 > [!NOTE]
-> This feature is not yet available in all regions.
+> Private clusters are currently not supported.
 
 ## Prerequisites
 
-* A GitHub account.
-* An AKS cluster.
+* A GitHub account
+* An AKS cluster
 * An Azure Container Registry (ACR)
+* An application to deploy
 
-## Deploy an application to your AKS cluster
+## Configure an automated deployment
 
-1. In the Azure portal, navigate to the resource group containing the AKS cluster you want to deploy the application to.
+In the Azure portal, navigate to the resource group containing the AKS cluster you want to deploy the application to.
 
-1. Select your AKS cluster, and then select **Automated deployments (preview)** on the left blade. Select **Create an automated deployment**.
+Select your AKS cluster, and then select **Automated deployments (preview)** on the left blade. Upon selecting **Create**, you'll be presented with two options. If you have an application that isn't yet containerized, you can select **Automatically containerize and deploy**  to allow Azure to take care of the process for you. If you already have a containerized application, select **Deploy an application**.
 
-    :::image type="content" source="media/automated-deployments/ad-homescreen.png" alt-text="The automated deployments screen in the Azure portal."  lightbox="media/automated-deployments/ad-homescreen-expanded.png":::
+:::image type="content" source="media/automated-deployments/create-inline.png" alt-text="The automated deployments screen in the Azure portal. 'Create' has been selected, showing the options for already containerized applications and applications that aren't yet containerized."  lightbox="media/automated-deployments/create.png":::
 
-1. Name your workflow and click **Authorize** to connect your Azure account with your GitHub account. After your accounts are linked, choose which repository and branch you would like to create the GitHub Action for.
+Name your workflow and click **Authorize** to connect your Azure account with your GitHub account. After your accounts are linked, choose which repository and branch you would like to create the GitHub Action for.
 
-    - **GitHub**: Authorize and select the repository for your GitHub account.
+- **GitHub**: Authorize and select the repository for your GitHub account.
 
-        :::image type="content" source="media/automated-deployments/ad-ghactivate-repo.png" alt-text="The authorize and repository selection screen." lightbox="media/automated-deployments/ad-ghactivate-repo-expanded.png":::
+    :::image type="content" source="media/automated-deployments/ad-ghactivate-repo.png" alt-text="The authorize and repository selection screen." lightbox="media/automated-deployments/ad-ghactivate-repo-expanded.png":::
 
-1. Pick your dockerfile and your ACR and image.
+Next, follow along with the section below that relates to the option you chose.
 
-    :::image type="content" source="media/automated-deployments/ad-image.png" alt-text="The image selection screen." lightbox="media/automated-deployments/ad-image-expanded.png":::
+### Automatically containerize and deploy an application to your AKS cluster
 
-1. Determine whether you'll deploy with Helm or regular Kubernetes manifests. Once decided, pick the appropriate deployment files from your repository and decide which namespace you want to deploy into.
+Fill out the fields, providing details about your application that will be used to automatically generate deployment artifacts.
 
-    :::image type="content" source="media/automated-deployments/ad-deployment-details.png" alt-text="The deployment details screen." lightbox="media/automated-deployments/ad-deployment-details-expanded.png":::
+:::image type="content" source="./media/automated-deployments/details-inline.png" alt-text="Screenshot of the Azure portal form for artifact generation." lightbox="./media/automated-deployments/details.png":::
 
-1. Review your deployment before creating the pull request.
+Proceed to review and verify the automated deployment.
+
+### Deploy an already containerized application to your AKS cluster
+
+Pick your dockerfile and your ACR and image.
+
+:::image type="content" source="media/automated-deployments/ad-image.png" alt-text="The image selection screen." lightbox="media/automated-deployments/ad-image-expanded.png":::
+
+Determine whether you'll deploy with Helm or regular Kubernetes manifests. Once decided, pick the appropriate deployment files from your repository and decide which namespace you want to deploy into.
+
+:::image type="content" source="media/automated-deployments/ad-deployment-details.png" alt-text="The deployment details screen." lightbox="media/automated-deployments/ad-deployment-details-expanded.png":::
+
+Proceed to review and verify the automated deployment.
+
+## Review and verify the automated deployment
+
+1. When finished, select **Next: Deployment details** and **Next: Review**, and review your deployment. Finally, select **Next: Deploy** to finish the creation of the automated deployment.
 
 1. Click **view pull request** to see your GitHub Action.
 

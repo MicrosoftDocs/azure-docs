@@ -1,8 +1,8 @@
 ---
 title: Azure Private 5G Core 2302 release notes 
 description: Discover what's new in the Azure Private 5G Core 2302 release
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: release-notes
 ms.date: 01/31/2023
@@ -14,11 +14,9 @@ The following release notes identify the new features, critical open issues, and
 
 This article applies to the AP5GC 2302 release (PMN-2302-0). This release is compatible with the ASE Pro GPU running the ASE 2301 release, and is supported by the 2022-04-01-preview and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions.
 
-## Support
+## Support lifetime
 
-The default support lifetime for a packet core version is roughly two calendar months from release. 
-
-The support lifetime for version 2302 will end on April 30, 2023. Please be prepared to plan your packet core upgrade to a future version before 2302 goes out of support on this date. 
+Packet core versions are supported until two subsequent versions have been released (unless otherwise noted). This is typically two months after the release date. You should plan to upgrade your packet core in this time frame to avoid losing support.
 
 ## What's new
 

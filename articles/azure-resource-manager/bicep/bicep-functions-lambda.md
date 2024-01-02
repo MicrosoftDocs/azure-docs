@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
-author: mumian
 ms.topic: conceptual
-ms.author: jgao
-ms.date: 03/15/2023
-
+ms.custom: devx-track-bicep
+ms.date: 11/03/2023
 ---
 # Lambda functions for Bicep
 
@@ -16,7 +14,7 @@ This article describes the lambda functions to use in Bicep. [Lambda expressions
 ```
 
 > [!NOTE]
-> The lambda functions are only supported in Bicep CLI version 0.10.61 or newer.
+> The lambda functions are only supported in [Bicep CLI version 0.10.X or higher](./install.md).
 
 ## Limitations
 
@@ -40,7 +38,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to filter.|
-| lambda expression |Yes |expression |The lambda expression applied to each input array element. If false, the item will be filtered out of the output array.|
+| lambda expression |Yes |expression |The lambda expression is applied to each input array element. If the result is true, the item will be included in the output array; otherwise, the item is discarded.|
 
 ### Return value
 

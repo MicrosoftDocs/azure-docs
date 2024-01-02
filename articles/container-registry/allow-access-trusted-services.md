@@ -3,8 +3,9 @@ title: Access network-restricted registry using trusted Azure service
 description: Enable a trusted Azure service instance to securely access a network-restricted container registry to pull or push images 
 ms.topic: article
 author: tejaswikolli-web
+ms.service: container-registry
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ---
 
 # Allow trusted services to securely access a network-restricted container registry
@@ -40,7 +41,7 @@ Where indicated, access by the trusted service requires additional configuration
 | Azure Container Instances | [Deploy to Azure Container Instances from Azure Container Registry using a managed identity](../container-instances/using-azure-container-registry-mi.md) | Yes, either system-assigned or user-assigned identity |
 | Microsoft Defender for Cloud | Vulnerability scanning by [Microsoft Defender for container registries](scan-images-defender.md) | No |
 |ACR Tasks     | [Access the parent registry or a different registry from an ACR Task](container-registry-tasks-cross-registry-authentication.md)       | Yes |
-|Machine Learning | [Deploy](../machine-learning/how-to-deploy-custom-container.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image | Yes |
+|Machine Learning | [Deploy](../machine-learning/how-to-deploy-custom-container.md) or [train](../machine-learning/v1/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image | Yes |
 |Azure Container Registry | [Import images](container-registry-import-images.md) to or from a network-restricted Azure container registry | No |
 
 > [!NOTE]

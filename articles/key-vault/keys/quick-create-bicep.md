@@ -3,15 +3,14 @@ title: Azure Quickstart - Create an Azure key vault and a key by using Bicep | M
 description: Quickstart showing how to create Azure key vaults, and add key to the vaults by using Bicep.
 services: key-vault
 tags: azure-resource-manager
+ms.custom: devx-track-bicep, devx-track-arm-template
 author: mumian
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.author: jgao
 ms.date: 06/29/2022
-
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
-
 ---
 
 # Quickstart: Create an Azure key vault and a key by using Bicep
@@ -76,8 +75,9 @@ resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   location: location
   properties: {
     accessPolicies:[]
-    enableRbacAuthorization: false
-    enableSoftDelete: false
+    enableRbacAuthorization: true
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 90
     enabledForDeployment: false
     enabledForDiskEncryption: false
     enabledForTemplateDeployment: false

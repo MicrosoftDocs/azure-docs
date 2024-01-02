@@ -4,6 +4,7 @@ description: This article provides examples for defining filters and actions on 
 ms.topic: how-to
 ms.date: 02/28/2023
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Set subscription filters (Azure Service Bus)
@@ -30,6 +31,8 @@ Here are the examples of using application or user properties in a filter. You c
 MessageProperty = 'A'
 user.SuperHero like 'SuperMan%'
 ```
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## Filter on message properties with special characters
 If the message property name has special characters, use double quotes (`"`) to enclose the property name. For example if the property name is `"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName"`, use the following syntax in the filter. 
@@ -357,9 +360,8 @@ namespace SendAndReceiveMessages
 ## Next steps
 See the following samples: 
 
-- [Managing rules](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample12_ManagingRules.md).  
-- [.NET - Basic send and receive tutorial with filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters). This sample uses the old `Microsoft.Azure.ServiceBus` package. See the [Migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md) to learn how to migrate from using the old SDK to new SDK (`Azure.Messaging.ServiceBus`).
-- [.NET - Topic filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters). This sample uses the old `Microsoft.Azure.ServiceBus` package.
+- [Managing rules](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample12_ManagingRules.md)
+- [.NET - Topic filters](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/TopicFilters)
 - [Azure Resource Manager template](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 

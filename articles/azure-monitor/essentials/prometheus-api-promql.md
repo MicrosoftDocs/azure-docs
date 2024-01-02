@@ -10,35 +10,37 @@ ms.reviewer: aul
 
 # Query Prometheus metrics using the API and PromQL
 
-Azure Monitor managed service for Prometheus (preview), collects metrics from Azure Kubernetes Clusters and stores them in an Azure Monitor workspace.  PromQL - Prometheus query language, is a functional query language that allows you to query and aggregate time series data. Use PromQL to query and aggregate metrics stored in an Azure Monitor workspace. 
+Azure Monitor managed service for Prometheus, collects metrics from Azure Kubernetes clusters and stores them in an Azure Monitor workspace.  PromQL (Prometheus query language), is a functional query language that allows you to query and aggregate time series data. Use PromQL to query and aggregate metrics stored in an Azure Monitor workspace. 
 
 This article describes how to query an Azure Monitor workspace using PromQL via the REST API.
 For more information on PromQL, see [Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
 
 ## Prerequisites
 To query an Azure monitor workspace using PromQL, you need the following prerequisites:
-+ An Azure Kubernetes Cluster or remote Kubernetes cluster.
-+ Azure Monitor managed service for Prometheus (preview) scraping metrics from a Kubernetes cluster
-+ An Azure Monitor Workspace where Prometheus metrics are being stored.
++ An Azure Kubernetes cluster or remote Kubernetes cluster.
++ Azure Monitor managed service for Prometheus scraping metrics from a Kubernetes cluster.
++ An Azure Monitor workspace where Prometheus metrics are being stored.
 
 ## Authentication
 
-To query your Azure Monitor workspace, authenticate using Azure Active Directory.
-The API supports Azure Active Directory authentication using Client credentials. Register a client app with Azure Active Directory and request a token.
+To query your Azure Monitor workspace, authenticate using Microsoft Entra ID.
+The API supports Microsoft Entra authentication using client credentials. Register a client app with Microsoft Entra ID and request a token.
 
-To set up Azure Active Directory authentication, follow the steps below:
+To set up Microsoft Entra authentication, follow the steps below:
 
-1. Register an app with Azure Active Directory.
+1. Register an app with Microsoft Entra ID.
 1. Grant access for the app to your Azure Monitor workspace.
 1. Request a token.
 
 
-### Register an app with Azure Active Directory
+<a name='register-an-app-with-azure-active-directory'></a>
+
+### Register an app with Microsoft Entra ID
 
 1. To register an app, follow the steps in [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md?tabs=portal)
 
 ### Allow your app access to your workspace
-Allow your app to query data from your Azure Monitor workspace.
+Assign the **Monitoring Data Reader** role your app so it can query data from your Azure Monitor workspace.
 
 1. Open your Azure Monitor workspace in the Azure portal.
 
@@ -66,7 +68,7 @@ Allow your app to query data from your Azure Monitor workspace.
 
     :::image type="content" source="./media/prometheus-api-promql/select-members.png" lightbox="./media/prometheus-api-promql/select-members.png" alt-text="A screenshot showing the Add role assignment, select members page.":::
 
-You've created your App registration and have assigned it access to query data from your Azure Monitor workspace.  You can now generate a token and use it in a query.
+You've created your app registration and have assigned it access to query data from your Azure Monitor workspace.  You can now generate a token and use it in a query.
 
 
 ### Request a token
@@ -77,8 +79,8 @@ curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'client_id=<your apps client ID>' \
---data-urlencode 'client_secret=<your apps client secret' \
---data-urlencode 'resource= https://prometheus.monitor.azure.com'
+--data-urlencode 'client_secret=<your apps client secret>' \
+--data-urlencode 'resource=https://prometheus.monitor.azure.com'
 ```
 
 Sample response body:
@@ -99,7 +101,7 @@ Save the access token from the response for use in the following HTTP requests.
 
 ## Query endpoint
 
-Find your workspace's query endpoint on the Azure Monitor workspace overview page.  
+Find your Azure Monitor workspace's query endpoint on the Azure Monitor workspace overview page.  
 
 :::image type="content" source="./media/prometheus-api-promql/find-query-endpoint.png" lightbox="./media/prometheus-api-promql/find-query-endpoint.png" alt-text="A screenshot sowing the query endpoint on the Azure Monitor workspace overview page.":::
 
@@ -186,27 +188,40 @@ Example:
 GET 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/label/__name__/values'
 ```
 
-For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api )
+For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api).
 
 ## API limitations
 The following limitations are in addition to those detailed in the Prometheus specification.  
 
-+ Query must be scoped to metric  
++ Query must be scoped to a metric  
     Any time series fetch queries (/series or /query or /query_range) must contain a \_\_name\_\_ label matcher. That is, each query must be scoped to a metric. There can only be one \_\_name\_\_ label matcher in a query.
++ Query /series does not support regular expression filter
 + Supported time range  
-    + /query_range API supports a time range of 32 days. This is the maximum time range allowed including range selectors specified in the query itself.
-    For example, the query `rate(http_requests_total[1h]` for last 24 hours would actually mean data is being queried for 25 hours. A 24 hours range + 1 hour specified in query itself.
+    + /query_range API supports a time range of 32 days. This is the maximum time range allowed, including range selectors specified in the query itself.
+    For example, the query `rate(http_requests_total[1h]` for last the 24 hours would actually mean data is being queried for 25 hours. This comes from the 24-hour range plus the 1 hour specified in query itself.
     + /series API fetches data for a maximum 12-hour time range. If `endTime` isn't provided, endTime = time.now(). If the time rage is greater than 12 hours, the `startTime` is set to `endTime – 12h`
 + Ignored time range  
-    Start time and end time provided with `/labels` and `/label/__name__/values` are ignored, and all retained data in the Azure Monitor Workspace is queried.
+    Start time and end time provided with `/labels` and `/label/__name__/values` are ignored, and all retained data in the Azure Monitor workspace is queried.
 + Experimental features  
     Experimental features such as exemplars aren't supported.
 
 For more information on Prometheus metrics limits, see [Prometheus metrics](../../azure-monitor/service-limits.md#prometheus-metrics)
 
+[!INCLUDE [prometheus-case-sensitivity.md](..//includes/prometheus-case-sensitivity.md)]
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+[!INCLUDE [prometheus-faq-i-am-missing-some-metrics](../includes/prometheus-faq-i-am-missing-some-metrics.md)]
+
+[!INCLUDE [prometheus-faq-i-am-missing-metrics-with-same-name-different-casing](../includes/prometheus-faq-i-am-missing-metrics-with-same-name-different-casing.md)]
+
+[!INCLUDE [prometheus-faq-i-see-gaps-in-metric-data](../includes/prometheus-faq-i-see-gaps-in-metric-data.md)]
+
 ## Next steps
 
-[Azure Monitor workspace overview (preview)](./azure-monitor-workspace-overview.md)  
-[Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md)  
-[Overview of Azure Monitor Managed Service for Prometheus (preview)](./prometheus-metrics-overview.md)  
-[Query Prometheus metrics using Azure workbooks (preview)](./prometheus-workbooks.md)
+[Azure Monitor workspace overview](./azure-monitor-workspace-overview.md)  
+[Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md)  
+[Overview of Azure Monitor Managed Service for Prometheus](./prometheus-metrics-overview.md)  
+[Query Prometheus metrics using Azure workbooks](./prometheus-workbooks.md)

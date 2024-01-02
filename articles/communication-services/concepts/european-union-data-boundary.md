@@ -1,7 +1,7 @@
 ---
 title: European Union Data Boundary compliance for Azure Communication Services
 description: Learn about how Azure Communication Services meets European Union data handling compliance laws
-author: harazi
+author: hrazi
 manager: mharbut
 services: azure-communication-services
 

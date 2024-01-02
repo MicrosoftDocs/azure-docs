@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 zone_pivot_groups: iot-dps-set1
-ms.custom: mvc, amqp, mqtt, mode-other
+ms.custom: mvc, amqp, mqtt, mode-other, devx-track-extended-java, devx-track-python
 #Customer intent: As a new IoT developer, I want simulate a TPM device to learn how secure provisioning works.
 ---
 
@@ -98,7 +98,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 4. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-5. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
+5. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step, for example: `lts_01_2023`.
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -387,7 +387,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 1. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
     ```cmd
-    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\How To\TpmSample\'
+    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\how to guides\TpmSample\'
     ```
 
 2. Type the following command to build and run the TPM device provisioning sample. Copy the endorsement key returned from your TPM 2.0 hardware security module to use later when enrolling your device.
@@ -500,7 +500,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 3. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
    ```cmd
-    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\How To\TpmSample\'
+    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\how to guides\TpmSample\'
    ```
 
 4. Run the following command to register your device. Replace `<IdScope>` with the value for the DPS you copied and `<RegistrationId>` with the value you used when creating the device enrollment.
@@ -631,7 +631,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 ## Confirm your device provisioning registration
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the left-hand menu or on the portal page, select **All resources**.
 

@@ -1,6 +1,6 @@
 ---
-title: About SAP system deployment for the automation framework
-description: Overview of the SAP system deployment process within the SAP on Azure Deployment Automation Framework.
+title: SAP system deployment for the automation framework
+description: Overview of the SAP system deployment process in SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -12,44 +12,42 @@ ms.subservice: sap-automation
 
 # SAP system deployment for the automation framework
 
-The creation of the [SAP system](deployment-framework.md#sap-concepts) is part of the [SAP on Azure Deployment Automation Framework](deployment-framework.md) process. The SAP system creates your virtual machines (VMs), and supporting components for your [SAP application](deployment-framework.md#sap-concepts). 
+The creation of the [SAP system](deployment-framework.md#sap-concepts) is part of the [SAP Deployment Automation Framework](deployment-framework.md) process. The SAP system deployment creates your virtual machines (VMs) and supporting components for your [SAP application](deployment-framework.md#sap-concepts).
 
 The SAP system deploys:
 
-- The [database tier](#database-tier), which deploys database VMs, their disks, and a Standard Azure Load Balancer. You can run [HANA databases](configure-extra-disks.md#hana-databases) or [AnyDB databases](configure-extra-disks.md#anydb-databases) in this tier.
-- The [SAP central services tier](#central-services-tier), which deploys a customer-defined number of VMs and an Azure Standard Load Balancer.
+- The [database tier](#database-tier), which deploys database VMs, their disks, and a Standard instance of Azure Load Balancer. You can run [HANA databases](configure-extra-disks.md#hana-databases) or [AnyDB databases](configure-extra-disks.md#anydb-databases) in this tier.
+- The [SAP central services tier](#central-services-tier), which deploys a customer-defined number of VMs and a Standard instance of Load Balancer.
 - The [application tier](#application-tier), which deploys the VMs and their disks.
-- The [web dispatcher tier](#web-dispatcher-tier)
+- The [web dispatcher tier](#web-dispatcher-tier).
 
 ## Application tier
 
 The application tier deploys a customer-defined number of VMs. These VMs are size **Standard_D4s_v3** with a 30-GB operating system (OS) disk and a 512-GB data disk.
 
-To set the application server count, define the parameter `application_server_count` for this tier in your parameter file. For example, `application_server_count= 3`.
-
+To set the application server count, define the parameter `application_server_count` for this tier in your parameter file. For example, use `application_server_count= 3`.
 
 ## Central services tier
 
-The SAP central services (SCS) tier deploys a customer-defined number of VMs. These VMs are size **Standard_D4s_v3** with a 30-GB OS disk and a 512-GB data disk. This tier also deploys an [Azure Standard Load Balancer](../../load-balancer/load-balancer-overview.md).
+The SAP central services (SCS) tier deploys a customer-defined number of VMs. These VMs are size **Standard_D4s_v3** with a 30-GB OS disk and a 512-GB data disk. This tier also deploys a [Standard instance of Load Balancer](../../load-balancer/load-balancer-overview.md).
 
-To set the SCS server count, define the parameter `scs_server_count` for this tier in your parameter file. For example, `scs_server_count=1`.
-
+To set the SCS server count, define the parameter `scs_server_count` for this tier in your parameter file. For example, use `scs_server_count=1`.
 
 ## Web dispatcher tier
 
-The web dispatcher tier deploys a customer-defined number of VMs.  This tier also deploys an [Azure Standard Load Balancer](../../load-balancer/load-balancer-overview.md).
+The web dispatcher tier deploys a customer-defined number of VMs. This tier also deploys a [Standard instance of Load Balancer](../../load-balancer/load-balancer-overview.md).
 
-To set the web server count, define the parameter `web_server_count` for this tier in your parameter file. For example, `web_server_count = 2`.
+To set the web server count, define the parameter `web_server_count` for this tier in your parameter file. For example, use `web_server_count = 2`.
 
 ## Database tier
 
-The database tier deploys the VMs and their disks, and also an [Azure Standard Load Balancer](../../load-balancer/load-balancer-overview.md). You can use either [HANA databases](configure-extra-disks.md#hana-databases) or [AnyDB databases](configure-extra-disks.md#anydb-databases) as your database VMs.
+The database tier deploys the VMs and their disks and also deploys a [Standard instance of Load Balancer](../../load-balancer/load-balancer-overview.md). You can use either [HANA databases](configure-extra-disks.md#hana-databases) or [AnyDB databases](configure-extra-disks.md#anydb-databases) as your database VMs.
 
-You can set the size of database VMs with the parameter `size` for this tier. For example, `"size": "S4Demo"` for HANA databases or `"size": "1 TB"` for AnyDB databases. Refer to the **Size** parameter in the tables of [HANA database VM options](configure-extra-disks.md#hana-databases) and [AnyDB database VM options](configure-extra-disks.md#anydb-databases) for possible values.
+You can set the size of database VMs with the parameter `size` for this tier. For example, use `"size": "S4Demo"` for HANA databases or `"size": "1 TB"` for AnyDB databases. For possible values, see the **Size** parameter in the tables of [HANA database VM options](configure-extra-disks.md#hana-databases) and [AnyDB database VM options](configure-extra-disks.md#anydb-databases).
 
-By default, the automation framework deploys the correct disk configuration for HANA database deployments. For HANA database deployments, the framework calculates default disk configuration based on VM size. However, for AnyDB database deployments, the framework calculates default disk configuration based on database size. You can set a disk size as needed by creating a custom JSON file in your deployment. For an example, [see the following JSON code sample and replace values as necessary for your configuration](configure-extra-disks.md#custom-sizing-file). Then, define the parameter `db_disk_sizes_filename` in the parameter file for the database tier. For example, `db_disk_sizes_filename = "path/to/JSON/file"`.
+By default, the automation framework deploys the correct disk configuration for HANA database deployments. For HANA database deployments, the framework calculates default disk configuration based on VM size. However, for AnyDB database deployments, the framework calculates default disk configuration based on database size. You can set a disk size as needed by creating a custom JSON file in your deployment. For an example, [see the following JSON code sample and replace values as necessary for your configuration](configure-extra-disks.md#custom-sizing-file). Then, define the parameter `db_disk_sizes_filename` in the parameter file for the database tier. An example is `db_disk_sizes_filename = "path/to/JSON/file"`.
 
-You can also [add extra disks to a new system](configure-extra-disks.md#custom-sizing-file), or [add extra disks to an existing system](configure-extra-disks.md#add-extra-disks-to-existing-system).
+You can also [add extra disks to a new system](configure-extra-disks.md#custom-sizing-file) or [add extra disks to an existing system](configure-extra-disks.md#add-extra-disks-to-an-existing-system).
 
 ## Core configuration
 
@@ -113,33 +111,36 @@ webdispatcher_server_count=0
 
 ```
 
-## Deploying the SAP system
-   
-The sample SAP System configuration file `DEV-WEEU-SAP01-X01.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X01` folder.
+## Deploy the SAP system
 
-Running the command below will deploy the SAP System.
+The sample SAP system configuration file `DEV-WEEU-SAP01-X01.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X01` folder.
+
+Run the following command to deploy the SAP system.
 
 # [Linux](#tab/linux)
 
-> [!TIP]
-> Perform this task from the deployer.
+Perform this task from the deployer.
 
 You can copy the sample configuration files to start testing the deployment automation framework.
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp sap-automation/deploy/samples/WORKSPACES WORKSPACES
+cp -Rp sap-automation/deploy/samples/WORKSPACES config
 
 ```
 
 
 ```bash
+
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/config/WORKSPACES"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X01
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh          \
+${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/installer.sh     \
         --parameterfile DEV-WEEU-SAP01-X01.tfvars           \
-        --type sap_system
+        --type sap_system --auto-approve
 ```
 # [Windows](#tab/windows)
 
@@ -153,7 +154,6 @@ xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
 
 ```
 
-
 ```powershell
 
 cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\SYSTEM\DEV-WEEU-SAP01-X01
@@ -164,23 +164,23 @@ New-SAPSystem -Parameterfile DEV-WEEU-SAP01-X01.tfvars
 
 # [Azure DevOps](#tab/devops)
 
-Open (https://dev.azure.com) and go to your Azure DevOps Services project.
+Open [Azure DevOps](https://dev.azure.com) and go to your Azure DevOps Services project.
 
-> [!NOTE]
-> Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group is set to the folder that contains your configuration files, for this example you can use 'samples/WORKSPACES'.
+Ensure that the `Deployment_Configuration_Path` variable in the `SDAF-General` variable group is set to the folder that contains your configuration files. For this example, you can use `samples/WORKSPACES`.
 
-The deployment will use the configuration defined in the Terraform variable file located in the 'samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00' folder. 
+The deployment uses the configuration defined in the Terraform variable file located in the `samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00` folder.
 
-Run the pipeline by selecting the _SAP system deployment_ pipeline from the Pipelines section. Enter 'DEV-WEEU-SAP01-X00' as the SAP System configuration name.
+Run the pipeline by selecting the `SAP system deployment` pipeline from the **Pipelines** section. Enter `DEV-WEEU-SAP01-X00` as the SAP system configuration name.
 
-You can track the progress in the Azure DevOps Services portal. Once the deployment is complete, you can see the SAP System details in the _Extensions_ tab.
+You can track the progress in the Azure DevOps Services portal. After the deployment is finished, you can see the SAP system details on the **Extensions** tab.
 
 ---
 
 ### Output files
 
-The deployment will create an Ansible hosts file (`SID_hosts.yaml`) and an Ansible parameter file (`sap-parameters.yaml`) that are required input for the Ansible playbooks.
-## Next steps
+The deployment creates an Ansible hosts file (`SID_hosts.yaml`) and an Ansible parameter file (`sap-parameters.yaml`). These files are required input for the Ansible playbooks.
+
+## Next step
 
 > [!div class="nextstepaction"]
-> [About workload zone deployment with automation framework](software.md)
+> [Workload zone deployment with automation framework](software.md)

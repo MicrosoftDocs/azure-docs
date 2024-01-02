@@ -28,11 +28,11 @@ For detailed instructions on how to install a licensing server, see [Install Lic
 Assuming the license server is located in an on-premises network or a private network within Azure, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) when creating your [lab plan](./quick-create-resources.md).
 
 > [!IMPORTANT]
-> [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan. It can't be added later.
+> [Advanced networking](how-to-connect-vnet-injection.md) must be enabled during the creation of your lab plan. It can't be added later.
 
 ## Lab configuration
 
-Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). If you're using a [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) on a license server, enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plan. You can also use an existing lab plan.
+Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). If you're using a [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) on a license server, enable [advanced networking](how-to-connect-vnet-injection.md) when creating your lab plan. You can also use an existing lab plan.
 
 ### Lab settings
 

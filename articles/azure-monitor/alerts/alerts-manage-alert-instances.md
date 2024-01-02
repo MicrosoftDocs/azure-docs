@@ -2,13 +2,14 @@
 title: Manage your alert instances
 description: The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days and allows you to manage your alert instances.
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 07/11/2023
 ms.reviewer: harelbr
 ---
 # Manage your alert instances
-The **Alerts** page summarizes all alert instances in all your Azure resources generated in the last 30 days. You can see all types of alerts from multiple subscriptions in a single pane. You can search for a specific alert and manage alert instances.
+The **Alerts** page summarizes all alert instances in all your Azure resources generated in the last 30 days. Alerts are stored for 30 days and are deleted after the 30-day retention period. 
+For stateful alerts, while the alert itself is deleted after 30 days, and is not viewable on the alerts page, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved. For more information, see [Alerts and state](alerts-overview.md#alerts-and-state).
 
-There are a few ways to get to the **Alerts** page:
+You can get to the **Alerts** page in a few ways:
 
 - From the home page in the [Azure portal](https://portal.azure.com/), select **Monitor** > **Alerts**.  
 
@@ -24,8 +25,21 @@ The **Alerts** summary pane summarizes the alerts fired in the last 24 hours. Yo
 
 To see more information about a specific alert instance, select the alert instance to open the **Alert details** page.
 
-:::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot that shows the Alerts summary page in the Azure portal.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot that shows the Alerts summary page in the Azure portal.":::
 
+
+
+## View alerts as a timeline (preview)
+
+You can see your alerts in a timeline view. In this view, you can see the number of alerts fired in a specific time range. 
+
+To see the alerts in a timeline view, select **View as timeline** at the top of the Alerts summary page.
+
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-view-timeline.png" alt-text="Screenshot that shows the view timeline button in the Alerts summary page in the Azure portal.":::
+
+The timeline shows you which resource the alerts were fired on to give you context of the alert in your Azure hierarchy. The alerts are grouped by the time they were fired. You can filter the alerts by severity, resource, and more. You can also select a specific time range to see the alerts fired in that time range.
+
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline.png" alt-text="Screenshot that shows the Alerts timeline page in the Azure portal.":::
 ## Alert details page
 
 The **Alert details** page provides more information about the selected alert:

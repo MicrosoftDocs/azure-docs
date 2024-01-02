@@ -4,7 +4,8 @@ description: Walk through the steps to use PowerShell to upload a VHD file to a 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/22/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Upload a VHD file to a lab storage account by using PowerShell

@@ -5,7 +5,7 @@ description: Learn about the Azure private multi-access edge compute (MEC) solut
 author: niravi-msft
 ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
-ms.date: 06/16/2021
+ms.date: 06/16/2023
 ms.author: kumud
 
 ---
@@ -72,4 +72,8 @@ For more information, see [Azure Private 5G Core](../private-5g-core/private-5g-
 **Azure Digital Twins**: Azure Digital Twins enables device sensors to be modeled in their business context considering spatial relationships, usage patterns, and other business context that turns a fleet of devices into a digital replica of a physical asset or environment. For more information, see [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/).
 
 ## Next steps
+- Learn more about [Azure Private 5G Core](/azure/private-5g-core/private-5g-core-overview)
+- Learn more about [Azure Network Function Manager](/azure/network-function-manager/overview)
+- Learn more about [Azure Kubernetes Service (AKS) hybrid deployment](/azure/aks/hybrid/)
+- Learn more about [Azure Stack Edge](/azure/databox-online/)
 - Learn more about [Affirmed Private Network Service](affirmed-private-network-service-overview.md)

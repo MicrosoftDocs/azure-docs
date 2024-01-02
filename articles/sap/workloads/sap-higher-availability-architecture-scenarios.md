@@ -43,7 +43,7 @@ ms.custom: H1Hack27Feb2017
 [getting-started]:get-started.md
 
 [sap-higher-availability]:sap-higher-availability-architecture-scenarios.md
-[sap-high-availability-architecture-scenarios-sap-app-ha]:sap-high-availability-architecture-scenarios.md#baed0eb3-c662-4405-b114-24c10a62954e
+[sap-high-availability-architecture-scenarios-sap-app-ha]:sap-high-availability-architecture-scenarios.md
 
 [planning-guide]:planning-guide.md  
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff
@@ -233,15 +233,15 @@ For critical SAP components, you have achieved the following so far:
 
 * High availability of SAP application servers
 
-    SAP application server instances are redundant components. Each SAP application server instance is deployed on its own VM, which is running in a different Azure fault and upgrade domain. For more information, see the [Fault domains][planning-guide-3.2.1] and [Upgrade domains][planning-guide-3.2.2] sections. 
+    SAP application server instances are redundant components. Each SAP application server instance is deployed on its own VM, which is running in a different Azure fault and upgrade domain. For more information, see the [Fault domains](./planning-guide.md#fault-domains) and [Update domains](./planning-guide.md#update-domains) sections. 
 
-    You can ensure this configuration by using Azure availability sets. For more information, see the [Azure availability sets][planning-guide-3.2.3] section. 
+    You can ensure this configuration by using Azure availability sets. For more information, see the [Azure availability sets](./planning-guide.md#availability-sets) section. 
 
     Potential planned or unplanned unavailability of an Azure fault or upgrade domain will cause unavailability of a restricted number of VMs with their SAP application server instances.
 
-    Each SAP application server instance is placed in its own Azure storage account. The potential unavailability of one Azure storage account will cause the unavailability of only one VM with its SAP application server instance. However, be aware that there is a limit on the number of Azure storage accounts within one Azure subscription. To ensure automatic start of an ASCS/SCS instance after the VM reboot, set the Autostart parameter in the ASCS/SCS instance start profile that is described in the [Using Autostart for SAP instances][planning-guide-11.5] section.
+    Each SAP application server instance is placed in its own Azure storage account. The potential unavailability of one Azure storage account will cause the unavailability of only one VM with its SAP application server instance. However, be aware that there is a limit on the number of Azure storage accounts within one Azure subscription. To ensure automatic start of an ASCS/SCS instance after the VM reboot, set the Autostart parameter in the ASCS/SCS instance start profile.
   
-    For more information, see [High availability for SAP application servers][planning-guide-11.4.1].
+    For more information, see [High availability for SAP application servers](./planning-guide.md#high-availability).
 
     Even if you use managed disks, the disks are stored in an Azure storage account and might be unavailable in the event of a storage outage.
 
@@ -249,7 +249,7 @@ For critical SAP components, you have achieved the following so far:
 
     In this scenario, utilize Azure VM restart to protect the VM with the installed SAP ASCS/SCS instance. In the case of planned or unplanned downtime of Azure servers, VMs are restarted on another available server. As mentioned earlier, Azure VM restart primarily protects VMs and *not* applications, in this case the ASCS/SCS instance. Through the VM restart, you indirectly reach “higher availability” of the SAP ASCS/SCS instance. 
 
-    To ensure an automatic start of ASCS/SCS instance after the VM reboot, set the Autostart parameter in the ASCS/SCS instance start profile, as described in the [Using Autostart for SAP instances][planning-guide-11.5] section. This setting means that the ASCS/SCS instance as a single point of failure (SPOF) running in a single VM will determine the availability of the whole SAP landscape.
+    To ensure an automatic start of ASCS/SCS instance after the VM reboot, set the Autostart parameter in the ASCS/SCS instance start profile. This setting means that the ASCS/SCS instance as a single point of failure (SPOF) running in a single VM will determine the availability of the whole SAP landscape.
 
 * *Higher availability* of the DBMS server
 

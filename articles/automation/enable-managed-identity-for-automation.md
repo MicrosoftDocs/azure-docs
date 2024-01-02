@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - The latest version of Az PowerShell modules Az.Accounts, Az.Resources, Az.Automation, Az.KeyVault.
 
-- An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Azure AD tenant.
+- An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Microsoft Entra tenant.
 
 - If you want to execute hybrid jobs using a managed identity, update the agent-based Hybrid Runbook Worker to the latest version. There is no minimum version requirement for extension-based Hybrid Runbook Worker, and all the versions would work. The minimum required versions for the agent-based Hybrid Worker are:
 
@@ -40,8 +40,8 @@ Once enabled, the following properties will be assigned to the system-assigned m
 
 |Property (JSON) | Value | Description|
 |----------|-----------|------------|
-| principalid | \<principal-ID\> | The Globally Unique Identifier (GUID) of the service principal object for the system-assigned managed identity that represents your Automation account in the Azure AD tenant. This GUID sometimes appears as an "object ID" or objectID. |
-| tenantid | \<Azure-AD-tenant-ID\> | The Globally Unique Identifier (GUID) that represents the Azure AD tenant where the Automation account is now a member. Inside the Azure AD tenant, the service principal has the same name as the Automation account. |
+| principalid | \<principal-ID\> | The Globally Unique Identifier (GUID) of the service principal object for the system-assigned managed identity that represents your Automation account in the Microsoft Entra tenant. This GUID sometimes appears as an "object ID" or objectID. |
+| tenantid | \<Azure-AD-tenant-ID\> | The Globally Unique Identifier (GUID) that represents the Microsoft Entra tenant where the Automation account is now a member. Inside the Microsoft Entra tenant, the service principal has the same name as the Automation account. |
 
 You can enable a system-assigned managed identity for an Azure Automation account using the Azure portal, PowerShell, the Azure REST API, or ARM template. For the examples involving PowerShell, first sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
 
@@ -82,7 +82,7 @@ Perform the following steps:
 
    :::image type="content" source="media/managed-identity/managed-identity-on.png" alt-text="Enabling system-assigned identity in Azure portal.":::
 
-   Your Automation account can now use the system-assigned identity, which is registered with Azure Active Directory (Azure AD) and is represented by an object ID.
+   Your Automation account can now use the system-assigned identity, which is registered with Microsoft Entra ID and is represented by an object ID.
 
    :::image type="content" source="media/managed-identity/managed-identity-object-id.png" alt-text="Managed identity object ID.":::
 
@@ -255,7 +255,7 @@ Perform the following steps.
 
 ## Assign role to a system-assigned managed identity
 
-An Automation account can use its system-assigned managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that's accessing the resource. In this case, for example, the token represents an Automation account.
+An Automation account can use its system-assigned managed identity to get tokens to access other resources protected by Microsoft Entra ID, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that's accessing the resource. In this case, for example, the token represents an Automation account.
 
 Before you can use your system-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
 
@@ -274,7 +274,7 @@ New-AzRoleAssignment `
 
 To verify a role to a system-assigned managed identity of the Automation account, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to your Automation account.
 1. Under **Account Settings**, select **Identity**.
 
@@ -348,7 +348,7 @@ $accessToken = Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentT
 Write-Output $accessToken.access_token
 ```
 
-### Using system-assigned managed identity in Azure PowerShell
+### Using system-assigned managed identity to access Azure Key Vault in Azure PowerShell
 
 For more information, see [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
 
@@ -388,7 +388,7 @@ print(response.text)
 
 ### Using system-assigned managed identity to Access SQL Database
 
-For details on provisioning access to an Azure SQL database, see [Provision Azure AD admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).
+For details on provisioning access to an Azure SQL database, see [Provision Microsoft Entra admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).
 
 ```powershell
 $queryParameter = "?resource=https://database.windows.net/" 

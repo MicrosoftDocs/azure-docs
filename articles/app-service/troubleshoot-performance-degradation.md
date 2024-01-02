@@ -8,6 +8,8 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Troubleshoot slow app performance issues in Azure App Service

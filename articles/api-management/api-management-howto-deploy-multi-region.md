@@ -33,7 +33,7 @@ When adding a region, you configure:
 ## Prerequisites
 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
-* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
+* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add, and within the same subscription. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
 ## <a name="add-region"> </a>Deploy API Management service to an additional region
 
@@ -158,8 +158,10 @@ To restore routing to the regional gateway, set the value of `disableGateway` to
 
 This section provides considerations for multi-region deployments when the API Management instance is injected in a virtual network.
 
-* Configure each regional network independently. The [connectivity requirements](virtual-network-reference.md) such as required network security group rules for a virtual network in an added region are the same as those for a network in the primary region.
+* Configure each regional network independently. The [connectivity requirements](virtual-network-reference.md) such as required network security group rules for a virtual network in an added region are generally the same as those for a network in the primary region.
 * Virtual networks in the different regions don't need to be peered.
+> [!IMPORTANT]
+> When configured in internal VNet mode, each regional gateway must also have outbound connectivity on port 1443 to the Azure SQL database configured for your API Management instance, which is only in the *primary* region. Ensure that you allow connectivity to the FQDN or IP address of this Azure SQL database in any routes or firewall rules you configure for networks in your secondary regions; the Azure SQL service tag can't be used in this scenario. To find the Azure SQL database name in the primary region, go to the **Network** > **Network status** page of your API Management instance in the portal. 
 
 ### IP addresses
 
@@ -177,6 +179,8 @@ This section provides considerations for multi-region deployments when the API M
 
 ## Next steps
 
+* Learn more about configuring API Management for [high availability](high-availability.md).
+
 * Learn more about [zone redundancy](../reliability/migrate-api-mgt.md) to improve the availability of an API Management instance in a region.
 
 * For more information about virtual networks and API Management, see:
@@ -189,8 +193,15 @@ This section provides considerations for multi-region deployments when the API M
 
 
 [create an api management service instance]: get-started-create-service-instance.md
+
 [get started with azure api management]: get-started-create-service-instance.md
+
 [deploy an api management service instance to a new region]: #add-region
+
 [delete an api management service instance from a region]: #remove-region
+
 [unit]: https://azure.microsoft.com/pricing/details/api-management/
+
 [premium]: https://azure.microsoft.com/pricing/details/api-management/
+
+

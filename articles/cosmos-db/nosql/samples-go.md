@@ -5,6 +5,7 @@ author: soferreira
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: go
+ms.custom: devx-track-go
 ms.topic: sample
 ms.date: 10/17/2022
 ms.author: soferreira

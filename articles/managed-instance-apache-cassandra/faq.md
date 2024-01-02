@@ -22,7 +22,7 @@ It can be used either entirely in the cloud or as a part of a hybrid cloud and o
 
 ### Why should I use this service instead of Azure Cosmos DB for Apache Cassandra?
 
-Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB team. It's a standalone managed service for deploying, maintaining, and scaling open-source Apache Cassandra data-centers and clusters. [Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra-introduction.md) on the other hand is a Platform-as-a-Service, providing an interoperability layer for the Apache Cassandra wire protocol. If your expectation is for the platform to behave in exactly the same way as any Apache Cassandra cluster, you should choose the managed instance service. To learn more, see [Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra](compare-cosmosdb-managed-instance.md).
+Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB team. It's a standalone managed service for deploying, maintaining, and scaling open-source Apache Cassandra data-centers and clusters. [Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra-introduction.md) on the other hand is a Platform-as-a-Service, providing an interoperability layer for the Apache Cassandra wire protocol. If your expectation is for the platform to behave in exactly the same way as any Apache Cassandra cluster, you should choose the managed instance service. To learn more, see [Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra/choose-service.md).
 
 ### Is Azure Managed Instance for Apache Cassandra dependent on Azure Cosmos DB?
 
@@ -30,7 +30,7 @@ No, there's no architectural dependency between Azure Managed Instance for Apach
 
 ### What versions of Apache Cassandra does the service support?
 
-The service currently supports Cassandra versions 3.11 and 4.0. By default, version 3.11 is deployed, as version 4.0 is currently in public preview. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
+The service currently supports Cassandra versions 3.11 and 4.0. Both versions are GA. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
 
 ### Does Azure Managed Instance for Apache Cassandra have an SLA?
 

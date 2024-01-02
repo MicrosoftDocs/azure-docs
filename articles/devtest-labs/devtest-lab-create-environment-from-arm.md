@@ -5,8 +5,8 @@ description: Learn how to create multi-VM, platform-as-a-service (PaaS) environm
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/21/2022
-ms.custom: engagement-fy23, devx-track-azurepowershell
+ms.date: 09/30/2023
+ms.custom: engagement-fy23, devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Create Azure DevTest Labs environments from ARM templates

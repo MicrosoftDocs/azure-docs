@@ -1,14 +1,16 @@
 ---
 title: Troubleshoot Azure Kubernetes Service backup
-description: Symptoms, causes, and resolutions of Azure Kubernetes Service backup and restore.
+description: Symptoms, causes, and resolutions of the Azure Kubernetes Service backup and restore operations.
 ms.topic: troubleshooting
-ms.date: 03/15/2023
+ms.date: 12/28/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+ms.custom:
+  - ignite-2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# Troubleshoot Azure Kubernetes Service backup and restore (preview)
+# Troubleshoot Azure Kubernetes Service backup and restore
 
 This article provides troubleshooting steps that help you resolve Azure Kubernetes Service (AKS) backup, restore, and management errors.
 
@@ -45,7 +47,7 @@ To scale node pool on Azure portal, follow these steps:
 
 **Cause**: When you enable pod-managed identity on your AKS cluster, an *AzurePodIdentityException* named *aks-addon-exception* is added to the *kube-system* namespace. An *AzurePodIdentityException* allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the NMI server.
 
-The extension pods aren't exempt, and require the Azure Active Directory (Azure AD) pod identity to be enabled manually.
+The extension pods aren't exempt, and require the Microsoft Entra pod identity to be enabled manually.
 
 **Resolution**: Create *pod-identity* exception in AKS cluster (that works only for *dataprotection-microsoft* namespace and for *not kube-system*). [Learn more](/cli/azure/aks/pod-identity/exception?view=azure-cli-latest&preserve-view=true#az-aks-pod-identity-exception-add).
 
@@ -74,7 +76,7 @@ The extension pods aren't exempt, and require the Azure Active Directory (Azure 
    ```Error
    {"Message":"Error in the getting the Configurations: error {Post \https://centralus.dp.kubernetesconfiguration.azure.com/subscriptions/ subscriptionid /resourceGroups/ aksclusterresourcegroup /provider/managedclusters/clusters/ aksclustername /configurations/getPendingConfigs?api-version=2021-11-01\: dial tcp: lookup centralus.dp.kubernetesconfiguration.azure.com on 10.63.136.10:53: no such host}","LogType":"ConfigAgentTrace","LogLevel":"Error","Environment":"prod","Role":"ClusterConfigAgent","Location":"centralus","ArmId":"/subscriptions/ subscriptionid /resourceGroups/ aksclusterresourcegroup /providers/Microsoft.ContainerService/managedclusters/ aksclustername ","CorrelationId":"","AgentName":"ConfigAgent","AgentVersion":"1.8.14","AgentTimestamp":"2023/01/19 20:24:16"}`
    ```
-**Cause**: Specific FQDN/application rules are required to use cluster extensions in the AKS clusters. [Learn more](../aks/limit-egress-traffic.md#cluster-extensions).
+**Cause**: Specific FQDN/application rules are required to use cluster extensions in the AKS clusters. [Learn more](../aks/outbound-rules-control-egress.md#cluster-extensions).
 
 This error appears due to absence of these FQDN rules because of which configuration information from the Cluster Extensions service wasn't available.
 
@@ -112,6 +114,114 @@ This error appears due to absence of these FQDN rules because of which configura
 
 6. Delete and reinstall Backup Extension to initiate backup. 
 
+## Backup Extension post installation related errors
+
+These error codes appear due to issues on the Backup Extension installed in the AKS cluster.
+
+
+
+### KubernetesBackupListExtensionsError: 
+
+**Cause**: Backup vault as part of a validation, checks if the cluster has backup extension installed. For this, the Vault MSI needs a reader permission on the AKS cluster allowing it to list all the extensions installed in the cluster. 
+
+**Recommended action**: Reassign the Reader role to the Vault MSI (remove the existing role assignment and assign the Reader role again), because the Reader role assigned is missing the *list-extension* permission in it. If reassignment fails, use a different Backup vault to configure backup.
+
+### UserErrorKubernetesBackupExtensionNotFoundError
+
+**Cause**: Backup vault as part of validation, checks if the cluster has the Backup extension installed. Vault performs an operation to list the extensions installed in the cluster. If the Backup extension is absent in the list, this error appears.
+
+**Recommended action**: Use the CL or Azure portal client to delete the extension, and then install the extension again.
+
+### UserErrorKubernetesBackupExtensionHasErrors
+
+**Cause**: The Backup extension installed in the cluster has some internal errors.
+
+**Recommended action**: Use the CL or Azure portal client to delete the extension, and then install the extension again.
+
+### UserErrorKubernetesBackupExtensionIdentityNotFound
+
+**Cause**: AKS backup requires a Backup extension installed in the cluster. The extension along with its installation has a User Identity created called extension MSI. This MSI is created in the Resource Group comprising the node pools for the AKS cluster. This MSI gets the required Roles assigned to access Backup Storage location. The error code suggests that the Extension Identity is missing.
+
+**Recommended action**: Use the CLI or the Azure portal client to delete the extension, and then install the extension again. A new identity is created along with the extension.
+
+### KubernetesBackupCustomResourcesTrackingTimeOutError
+
+**Cause**: Azure Backup for AKS requires a Backup extension to be installed in the cluster. To perform the backup and restore operations, custom resources are created in the cluster. The extension-spawn pods that perform backup related operations via these CRs. This error occurs when the extension isn't able to update the status of these CRs.
+
+**Recommended action**: The health of the extension is required to be verified via running the command `kubectl get pods -n dataprotection.microsoft`. If the pods aren't in running state, then increase the number of nodes in the cluster by *1* or increase the compute limits. Then wait for a few minutes and run the command again, which should change the state of the pods to *running*. If the issue persists, delete and reinstall the extension.
+
+### BackupPluginDeleteBackupOperationFailed
+
+**Cause**: The Backup extension should be running to delete the backups. 
+
+**Recommended action**: If the cluster is running, verify if the extension is running in a healthy state. Check if the extension pods are spawning, otherwise, increase the nodes. If that fails, try deleting and reinstalling the extension. If the backed-up cluster is deleted, then manually delete the snapshots and metadata.
+
+### ExtensionTimedOutWaitingForBackupItemSync
+
+**Cause**: The Backup extension waits for the backup items to be synced with the storage account.
+
+**Recommended action**: If this error code appears, then either retry the backup operation or reinstall the extension.
+
+## Backup storage location based errors
+
+These error codes appear due to issues based on the Backup extension installed in the AKS cluster.
+
+### UserErrorDeleteBackupFailedBackupStorageLocationReadOnly
+
+**Cause**: The storage account provided as input during Backup extension installation is in *read only* state, which doesn't allow to delete the backup data from the blob container. 
+
+**Recommended action**: Change the storage account state from *read only* to *write*.
+
+### UserErrorDeleteBackupFailedBackupStorageLocationNotFound
+
+**Cause**: During the extension installation, a Backup Storage Location is to be provided as input that includes a storage account and blob container. This error appears if the location is deleted or incorrectly added during extension installation.
+
+**Recommended action**: Delete the Backup extension, and then reinstall it with correct storage account and blob container as input.
+
+### UserErrorBackupFailedBackupStorageLocationReadOnly
+
+**Cause**: The storage account provided as input during Backup extension installation is in *read only* state, which doesn't allow to write backup data on the blob container.
+
+**Recommended action**: Change the storage account state from *read only* to *write*.
+
+### UserErrorNoDefaultBackupStorageLocationFound
+
+**Cause**: During extension installation, a Backup Storage Location is to be provided as input, which includes a storage account and blob container. The error appears if the location is deleted or incorrectly entered during extension installation.
+
+**Recommended action**: Delete the Backup extension, and then reinstall it with correct storage account and blob container as input.
+
+### UserErrorExtensionMSIMissingPermissionsOnBackupStorageLocation
+
+**Cause**: The Backup extension should have the *Storage Account Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned. 
+
+**Recommended action**: If this role is missing, then use Azure portal or CLI to reassign this missing permission on the storage account.
+
+### UserErrorBackupStorageLocationNotReady
+
+**Cause**: During extension installation, a Backup Storage Location is to be provided as input that includes a storage account and blob container. The Backup extension should have *Storage Account Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned.
+
+**Recommended action**: The error appears if the Extension Identity doesn't have right permissions to access the storage account. This  error appears if AKS backup extension is installed the first time when configuring protection operation. This happens for the time taken for the granted permissions to propagate to the AKS backup extension. As a workaround, wait an hour and retry the protection configuration. Otherwise, use Azure portal or CLI to reassign this missing permission on the storage account.
+
+## Vaulted backup based errors
+
+This error code can appear while you enable AKS backup to store backups in a vault standard datastore.
+
+### DppUserErrorVaultTierPolicyNotSupported
+
+**Cause**: This error code appears when a backup policy is created with retention rule defined for vault-standard datastore for a Backup vault in a region where this datastore isn't supported.
+
+**Recommended action**: Update the retention rule with vault-standard duration defined on Azure portal:
+
+1. Select **Edit** icon next to the rule.
+
+   :::image type="content" source="./media/azure-kubernetes-service-backup-troubleshoot/edit-backup-policy-for-vaulted-backup.png" alt-text="Screenshot shows how to edit the retention duration of the AKS backups." lightbox="./media/azure-kubernetes-service-backup-troubleshoot/edit-backup-policy-for-vaulted-backup.png":::
+
+2. Clear the checkbox next the **Vault-standard**, and then select **Update**.
+
+   :::image type="content" source="./media/azure-kubernetes-service-backup-troubleshoot/clear-vault-standard-checkbox.png" alt-text="Screenshot shows clearing the vault-standard checkbox." lightbox="./media/azure-kubernetes-service-backup-troubleshoot/clear-vault-standard-checkbox.png":::
+
+3. Create a backup policy for operational tier backup (only snapshots for the AKS cluster).
+
 ## Next steps
 
-- [About Azure Kubernetes Service (AKS) backup (preview)](azure-kubernetes-service-backup-overview.md)
+- [About Azure Kubernetes Service (AKS) backup](azure-kubernetes-service-backup-overview.md)

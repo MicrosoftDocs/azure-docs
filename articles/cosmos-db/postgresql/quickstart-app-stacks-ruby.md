@@ -1,14 +1,14 @@
 ---
 title: Use Ruby to connect and query Azure Cosmos DB for PostgreSQL 
 description: See how to use Ruby to connect and run SQL statements on Azure Cosmos DB for PostgreSQL.
-ms.author: sasriram
-author: saimicrosoft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: quickstart
 recommendations: false
-ms.date: 10/27/2022
+ms.date: 06/05/2023
 ---
 
 # Use Ruby to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
@@ -33,7 +33,7 @@ In the code, replace \<cluster> with your cluster name and \<password> with your
 require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
-    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    connection = PG::Connection.new("host=c-<cluster>.<uniqueID>.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
     puts 'Successfully created connection to database'
 
     # Drop previous table of same name if one exists
@@ -71,7 +71,7 @@ Use the following code to connect to the database and distribute the table. In t
 require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
-    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    connection = PG::Connection.new("host=c-<cluster>.<uniqueID>.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
     puts 'Successfully created connection to database.'
 
     # Super power of distributed tables.
@@ -93,7 +93,7 @@ The code calls method `exec()` to run the SELECT command, keeping the results in
 require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
-    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    connection = PG::Connection.new("host=c-<cluster>.<uniqueID>.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
     puts 'Successfully created connection to database.'
 
     resultSet = connection.exec('SELECT * from pharmacy')
@@ -115,7 +115,7 @@ Use the following code to connect and update the data by using a UPDATE SQL stat
 require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
-    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    connection = PG::Connection.new("host=c-<cluster>.<uniqueID>.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
     puts 'Successfully created connection to database.'
 
     # Modify some data in table.
@@ -136,7 +136,7 @@ Use the following code to connect and delete data using a DELETE SQL statement. 
 require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
-    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    connection = PG::Connection.new("host=c-<cluster>.<uniqueID>.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
     puts 'Successfully created connection to database.'
 
     # Delete some data in table.
@@ -163,7 +163,7 @@ begin
     filename = String('pharmacies.csv')
 
     # NOTE: Replace <cluster> and <password> in the connection string.
-    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    connection = PG::Connection.new("host=c-<cluster>.<uniqueID>.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
     puts 'Successfully created connection to database.'
 
     # Copy the data from Csv to table.
@@ -188,7 +188,7 @@ The following code copies in-memory data to a table. In the code, replace \<clus
 require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
-    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    connection = PG::Connection.new("host=c-<cluster>.<uniqueID>.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
     puts 'Successfully created connection to database.'
 
     enco = PG::TextEncoder::CopyRow.new
@@ -216,7 +216,7 @@ def executeretry(sql,retryCount)
     for a in 1..retryCount do
       begin
         # NOTE: Replace <cluster> and <password> in the connection string.
-        connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+        connection = PG::Connection.new("host=c-<cluster>.<uniqueID>.postgres.cosmos.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
         resultSet = connection.exec(sql)
         return resultSet.each
       rescue PG::Error => e

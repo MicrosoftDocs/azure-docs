@@ -10,7 +10,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 02/27/2023
-ms.author: mazha
+ms.author: duau
 
 ---
 
@@ -25,7 +25,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 Compression for your endpoint is enabled, but files are being returned uncompressed.
 
 > [!TIP]
-> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, **brotli**, or **deflate**, your content is compressed.
+> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's developer tools.  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, **brotli**, or **deflate**, your content is compressed.
 > 
 > ![Content-Encoding header](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -45,25 +45,18 @@ There are several possible causes, including:
 > [!TIP]
 > As with deploying new endpoints, CDN configuration changes take some time to propagate through the network.  Usually, changes are applied within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs. 
 > 
-> 
 
 ### Verify the request
-First, we should do a quick sanity check on the request.  You can use your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) to view the requests being made.
+First, we should do a quick sanity check on the request.  You can use your browser's developer tools to view the requests being made.
 
 * Verify the request is being sent to your endpoint URL, `<endpointname>.azureedge.net`, and not your origin.
 * Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **deflate**, **brotli**, or **bzip2**.
-
-> [!NOTE]
-> **Azure CDN from Akamai** profiles only support **gzip** encoding.
-> 
-> 
 
 ![CDN request headers](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
 ### Verify compression settings (standard CDN profiles)
 > [!NOTE]
-> This step applies only if your CDN profile is an **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, or **Azure CDN Standard from Akamai** profile. 
-> 
+> This step applies only if your CDN profile is an **Azure CDN Standard from Microsoft** or **Azure CDN Standard from Edgio** profile. 
 > 
 
 Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and select the **Configure** button.
@@ -75,8 +68,7 @@ Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and se
 
 ### Verify compression settings (Premium CDN profiles)
 > [!NOTE]
-> This step applies only if your CDN profile is an **Azure CDN Premium from Verizon** profile.
-> 
+> This step applies only if your CDN profile is an **Azure CDN Premium from Edgio** profile.
 > 
 
 Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and select the **Manage** button.  The supplemental portal opens.  Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout.  Select **Compression**. 
@@ -87,9 +79,11 @@ Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and se
 
 ![CDN premium compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### Verify the content is cached (Verizon CDN profiles)
+<a name='verify-the-content-is-cached-verizon-cdn-profiles'></a>
+
+### Verify the content is cached (Edgio CDN profiles)
 > [!NOTE]
-> This step applies only if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
+> This step applies only if your CDN profile is an **Azure CDN Standard from Edgio** or **Azure CDN Premium from Edgio** profile.
 > 
 > 
 
@@ -100,9 +94,11 @@ Using your browser's developer tools, check the response headers to ensure the f
 
 ![CDN response headers](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### Verify the file meets the size requirements (Verizon CDN profiles)
+<a name='verify-the-file-meets-the-size-requirements-verizon-cdn-profiles'></a>
+
+### Verify the file meets the size requirements (Edgio CDN profiles)
 > [!NOTE]
-> This step applies only if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
+> This step applies only if your CDN profile is an **Azure CDN Standard from Edgio** or **Azure CDN Premium from Edgio** profile.
 > 
 > 
 
@@ -116,4 +112,3 @@ The **Via** HTTP header indicates to the web server that the request is being pa
 
 * **IIS 6**: [Set HcNoCompressionForProxies="FALSE" in the IIS Metabase properties](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
 * **IIS 7 and up**: [Set both **noCompressionForHttp10** and **noCompressionForProxies** to False in the server configuration](https://www.iis.net/configreference/system.webserver/httpcompression)
-

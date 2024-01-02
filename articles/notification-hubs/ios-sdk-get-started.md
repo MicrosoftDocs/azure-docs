@@ -11,7 +11,7 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ---
 
-# Tutorial: Send push notifications to iOS apps using Azure Notification Hubs
+# Tutorial: Set up your iOS app to work with Azure Notification Hubs
 
 This tutorial shows you how to set up Azure Notification Hubs and configure credentials to push notifications to an iOS device via the [Apple Push Notification service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1). 
 
@@ -101,7 +101,7 @@ Apple, and also register for push notifications.
 ## Create a certificate for Notification Hubs
 
 > [!NOTE]
-> With the release of iOS 13, you can only receive silent notifications using token based authentication. If you are using certificate-based authentication for your APNS credentials, you must switch to using token-based authentication.
+> With the release of iOS 13, you can only receive silent notifications using token based authentication. If you are using certificate-based authentication for your APNS credentials, you must switch to using [token-based authentication](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_token-based_connection_to_apns).
 
 A certificate is required to enable the notification hub to work with **APNS**. This can be done in one of two ways:
 

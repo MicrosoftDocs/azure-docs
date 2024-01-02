@@ -30,7 +30,7 @@ Our [Zero Trust infrastructure deployment guidance](/security/zero-trust/deploy/
 1. [Assess compliance with chosen standards and policies](update-regulatory-compliance-packages.md)
 1. [Harden configuration](recommendations-reference.md) wherever gaps are found
 1. Employ other hardening tools such as [just-in-time (JIT)](just-in-time-access-usage.md) VM access
-1. Set up [threat detection and protections](/azure/azure-sql/database/threat-detection-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&view=azuresql)
+1. Set up [threat detection and protections](/azure/azure-sql/database/threat-detection-configure)
 1. Automatically block and flag risky behavior and take protective actions
 
 There's a clear mapping from the goals we've described in the [infrastructure deployment guidance](/security/zero-trust/deploy/infrastructure) to the core aspects of Defender for Cloud.
@@ -49,6 +49,7 @@ There's a clear mapping from the goals we've described in the [infrastructure de
 With Defender for Cloud enabled on your subscription, and Microsoft Defender for Cloud enabled for all available resource types, you'll have a layer of intelligent threat protection - powered by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) - protecting  resources in Azure Key Vault, Azure Storage, Azure DNS, and other Azure PaaS services. For a full list, see [What resource types can Microsoft Defender for Cloud secure?](defender-for-cloud-introduction.md).
 
 ### Azure Logic Apps
+
 Use [Azure Logic Apps](../logic-apps/index.yml) to build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
 
 Defender for Cloud's [workflow automation](workflow-automation.md) feature lets you automate responses to Defender for Cloud triggers. 

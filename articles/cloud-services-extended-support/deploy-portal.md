@@ -18,7 +18,7 @@ This article explains how to use the Azure portal to create a Cloud Service (ext
 Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 
 
 ## Deploy a Cloud Services (extended support) 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2.	Using the search bar located at the top of the Azure portal, search for and select **Cloud Services (extended support)**.
 

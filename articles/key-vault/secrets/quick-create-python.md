@@ -21,9 +21,9 @@ Get started with the Azure Key Vault secret client library for Python. Follow th
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 3.7+](/azure/developer/python/configure-local-development-environment).
-- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
+- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
-This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) in a Linux terminal window.
+This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) in a Linux terminal window.
 
 
 ## Set up your local environment
@@ -67,7 +67,7 @@ This quickstart is using Azure Identity library with Azure CLI or Azure PowerShe
 
 1. In a terminal or command prompt, create a suitable project folder, and then create and activate a Python virtual environment as described on [Use Python virtual environments](/azure/developer/python/configure-local-development-environment#configure-python-virtual-environment).
 
-1. Install the Azure Active Directory identity library:
+1. Install the Microsoft Entra identity library:
 
     ```terminal
     pip install azure-identity

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 08/10/2023
 ms.author: jianleishen
 ---
 
@@ -240,7 +240,7 @@ The Get Metadata results are shown in the activity output. Following are two sam
 }
 ```
 
-## Next steps
+## Related content
 Learn about other supported control flow activities:
 
 - [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)

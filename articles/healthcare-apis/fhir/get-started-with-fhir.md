@@ -33,7 +33,7 @@ Optionally, you can create a [DICOM service](../dicom/deploy-dicom-services-in-a
 
 ## Access the FHIR service
 
-The FHIR service is secured by Azure Active Directory (Azure AD) that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Azure AD and grant it with the right permissions.
+The FHIR service is secured by Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application that's also referred to as a service principal in Microsoft Entra ID and grant it with the right permissions.
 
 ### Register a client application
 
@@ -53,7 +53,7 @@ You can perform create, read (search), update, and delete (CRUD) transactions ag
 
 #### Get an access token
 
-You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CCI, or .NET SDK.  For more information, see [Get access token](../get-access-token.md).
+You can obtain a Microsoft Entra access token using PowerShell, Azure CLI, REST CCI, or .NET SDK.  For more information, see [Get access token](../get-access-token.md).
 
 #### Access using existing tools
 
