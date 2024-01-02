@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Terraform'
 description: Learn how to quickly create a Kubernetes cluster using Terraform and deploy an application in Azure Kubernetes Service (AKS).
 ms.topic: quickstart
-ms.date: 10/23/2023
+ms.date: 12/27/2023
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
@@ -15,9 +15,6 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 * Deploy an AKS cluster using Terraform.
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
-
-> [!NOTE]
-> This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 :::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-application.png":::
 
@@ -457,12 +454,17 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Next steps
 
+In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+
+To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
+
 > [!div class="nextstepaction"]
 > [Learn more about using AKS.](/azure/aks)
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-
-<!-- LINKS - Internal -->
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
+
+<!-- LINKS - External -->
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE

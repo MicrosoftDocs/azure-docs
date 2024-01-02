@@ -324,8 +324,6 @@ Follow these steps to set up a video retrieval system and integrate it with your
         {
             "type": "AzureComputerVisionVideoIndex",
             "parameters": {
-                "endpoint": "<your_computer_vision_endpoint>",
-                "key": "<your_computer_vision_key>",
                 "computerVisionBaseUrl": "<your_computer_vision_endpoint>",
                 "computerVisionApiKey": "<your_computer_vision_key>",
                 "indexName": "<name_of_your_index>",

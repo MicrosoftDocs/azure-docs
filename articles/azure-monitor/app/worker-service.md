@@ -33,7 +33,7 @@ You must have a valid Application Insights connection string. This string is req
     
     ```xml
         <ItemGroup>
-            <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.13.1" />
+            <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.22.0" />
         </ItemGroup>
     ```
 
