@@ -1,13 +1,13 @@
 ---
 title: Remote write to Azure Monitor Managed Service
-description: Describes how to configure remote write to send data from the default Prometheus server running in your ARO cluster
+description: Describes how to configure remote write to send data from the default Prometheus server running in your ARO cluster.
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 01/02/2023
 ---
-# Send data to Azure Monitor workspace from the default Prometheus server in your Azure Red Hat OpenShift (ARO) cluster
+# Send data to Azure Monitor workspace from the Prometheus server in your Azure Red Hat OpenShift (ARO) cluster
 
 Azure Red Hat OpenShift comes preinstalled with a default Prometheus server. As per the [support policy](support-policies-v4.md), this default Prometheus server shouldn't be removed. Some scenarios need to centralize data from self-managed Prometheus clusters for long-term data retention to create a centralized view across your clusters. Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation. You can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from the in-cluster Prometheus servers to the Azure managed service.
 
