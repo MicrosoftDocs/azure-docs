@@ -88,7 +88,7 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 
 ## Azure cloud support
 
-For commercial and national cloud coverage, review [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
+For commercial and national cloud coverage, review the [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
 
 ## Next steps
 
