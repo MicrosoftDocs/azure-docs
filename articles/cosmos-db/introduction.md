@@ -19,7 +19,7 @@ Today's applications are required to be highly responsive and always online. To 
 
 Recently, the surge of AI-powered applications created another layer of complexity, because many of these applications currently integrate a multitude of data stores. For example, some teams built applications that simultaneously connect to MongoDB, Postgres, and Gremlin. These databases differ in implementation workflow and operational performances, posing extra complexity for scaling applications. Azure Cosmos DB can simplify and expedite your development by being the single AI database for your applications. Azure Cosmos DB accommodates all your operational data models, including relational, document, vector, key-value, graph, and table.
 
-Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development including; AI, digital commerce, Internet of Things, booking management, and other types of solutions. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale. Business continuity is assured with [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) availability and enterprise-grade security.
+Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development including AI, digital commerce, Internet of Things, booking management, and other types of solutions. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale. Business continuity is assured with [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) availability and enterprise-grade security.
 
 App development is faster and more productive thanks to:
 
