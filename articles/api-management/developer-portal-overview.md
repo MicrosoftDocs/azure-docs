@@ -61,9 +61,9 @@ If you're accessing the portal for the first time, the portal includes placehold
 For a step-by-step walkthrough of customizing and publishing the developer portal, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
 
 > [!IMPORTANT]
-> * Access to the developer portal by API publishers and consumers requires network connectivity to both the developer portal's endpoint (default: `https://<apim-instance-name>.portal.azure-api.net`) and the API Management instance's management endpoint (default: `https://<apim-instance-name>.management.azure-api.net`)
+> * Access to the developer portal by API publishers and consumers requires network connectivity to both the developer portal's endpoint (default: `https://<apim-instance-name>.portal.azure-api.net`) and the API Management instance's management endpoint (default: `https://<apim-instance-name>.management.azure-api.net`).
 > * Publishing the developer portal requires additional connectivity to blob storage managed by API Management in the West US region. 
-> * If the API Management instance is deployed in a VNet, ensure that the hostnames of the developer portal and management endpoint resolve properly and that you enable connectivity to required dependencies for the developer portal. [Learn more](virtual-network-reference.md)
+> * If the API Management instance is deployed in a VNet, ensure that the hostnames of the developer portal and management endpoint resolve properly and that you enable connectivity to required dependencies for the developer portal. [Learn more](virtual-network-reference.md).
 
 ### Visual editor
 
@@ -84,7 +84,7 @@ In the following image, content belonging to the layout is outlined in blue, whi
 
 :::image type="content" source="media/developer-portal-overview/pages-layouts.png" alt-text="Screenshot of layout content in the developer portal." :::
 
-The preprovisioned content in the developer portal showcases pages with commonly used features. You can modify the content of these pages or add new ones to suit your needs.
+The pre-provisioned content in the developer portal showcases pages with commonly used features. You can modify the content of these pages or add new ones to suit your needs.
 
 > [!NOTE]
 > Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.

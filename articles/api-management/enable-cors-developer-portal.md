@@ -39,7 +39,7 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 1. Under **Enable CORS**, the status of CORS policy configuration is displayed. A warning box indicates an absent or misconfigured policy.
 1. To enable CORS from the developer portal for all APIs, select **Enable CORS**.
 
-![Screenshot that shows where to check status of your CORS policy in the developer portal](media/enable-cors-developer-portal/cors-azure-portal.png)
+![Screenshot that shows where to check status of your CORS policy in the developer portal.](media/enable-cors-developer-portal/cors-azure-portal.png)
 
 
 ### Enable CORS policy manually
