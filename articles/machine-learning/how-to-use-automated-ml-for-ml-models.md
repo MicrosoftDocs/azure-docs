@@ -133,7 +133,8 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
     ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 1. The **[Optional] Limits** form allows you to do the following.
-| Feature | Description |
+
+| Option | Description |
 |---|-----|
 |**Max trials**| Maximum number of trials, each with different combination of algorithm and hyperparameters to try during the AutoML job. Must be an integer between 1 and 1000.
 |**Max concurrent trials**| Maximum number of trial jobs that can be executed in parallel. Must be an integer between 1 and 1000.
