@@ -18,11 +18,11 @@ Fluid framework periodically saves state, called summary, without any explicit b
 
 We've added following methods to AzureClient that will enable developers to recover data from corrupted containers. 
 
-[`getContainerVersions(ID, options)`](https://fluidframework.com/docs/apis/azure-client/azureclient-class#getcontainerversions-method)
+`getContainerVersions(ID, options)`
 
 `getContainerVersions` allows developers to view the previously generated versions of the container.
 
-[`copyContainer(ID, containerSchema)`](https://fluidframework.com/docs/apis/azure-client/azureclient-class#copycontainer-method)
+`copyContainer(ID, containerSchema)`
 
 `copyContainer` allows developers to generate a new detached container from a specific version of another container.
 
