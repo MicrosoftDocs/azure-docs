@@ -1081,6 +1081,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/vmware-azure-tutorial.md",
+            "redirect_url": "/azure/site-recovery/azure-to-azure-tutorial-enable-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmware-azure-tutorial-failover-failback.md",
+            "redirect_url": "/azure/site-recovery/azure-to-azure-tutorial-enable-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/physical-azure-architecture.md",
+            "redirect_url": "/azure/site-recovery/physical-server-azure-architecture-modernized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmware-azure-configuration-server-requirements.md",
+            "redirect_url": "/azure/site-recovery/vmware-physical-azure-classic-deprecation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmware-physical-azure-config-process-server-overview.md",
+            "redirect_url": "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmware-azure-about-disaster-recovery.md",
+            "redirect_url": "/azure/site-recovery/site-recovery-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmware-physical-secondary-architecture.md",
+            "redirect_url": "/azure/site-recovery/transport-layer-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/hyper-v-vmm-architecture.md",
+            "redirect_url": "/azure/site-recovery/transport-layer-security",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/container-registry/container-registry-customer-managed-keys.md",
             "redirect_url": "/azure/container-registry/tutorial-customer-managed-keys",
             "redirect_document_id": false

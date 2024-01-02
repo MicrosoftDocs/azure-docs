@@ -4,7 +4,7 @@ description: Review support requirements for the Defender for Servers plan in Mi
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 06/11/2023
+ms.date: 12/21/2023
 ---
 
 # Defender for Servers support
@@ -49,7 +49,7 @@ This table summarizes Azure cloud support for Defender for Servers features.
 [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA
 [Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA
 [Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA 
-[Agentless secret scanning](secret-scanning.md) | GA | NA | NA
+[Agentless secrets scanning](secret-scanning.md) | GA | NA | NA
 
 ## Windows machine support
 
@@ -126,7 +126,7 @@ The following table shows feature support for AWS and GCP machines.
 | Third-party vulnerability assessment | - | - |
 | [Network security assessment](protect-network-resources.md) | - | - |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | ✔ | - |
-| [Agentless secret scanning](secret-scanning.md) | ✔ | ✔ |
+| [Agentless secrets scanning](secret-scanning.md) | ✔ | ✔ |
 
 ## Endpoint protection support
 
