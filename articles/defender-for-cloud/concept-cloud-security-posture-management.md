@@ -74,16 +74,16 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
     | Storage | Microsoft.Storage/storageAccounts | Storage accounts without blob containers or file shares |
     | DBs | Microsoft.Sql/servers<br/>Microsoft.DBforPostgreSQL/servers<br/>Microsoft.DBforMySQL/servers<br/>Microsoft.Sql/managedInstances<br/>Microsoft.DBforMariaDB/servers<br/>Microsoft.Synapse/workspaces | --- |
 
-    | AWS Service | Resource types | Notes |
+    | AWS Service | Resource types | Exclusions |
     |---|---|---|
     | Compute | EC2 instances |  Deallocated VMs |
     | Storage | S3 Buckets | ---|
-    | DBs | RDS.instance| ---|
+    | DBs | RDS instances | ---|
 
-    | GCP Service | Resource types | Notes |
+    | GCP Service | Resource types | Exclusions |
     |---|---|---|
-    | Compute |  - Google Compute instances<br/>- Google Instance Group | **Including**:<br/>- GKE nodes<br/>- Instances with "Running" state<br/><br/>**Excluding**:<br/>- Instances with ‘non-Running’ state |
-    | Storage | Storage buckets | **Including**:<br/> - Buckets from class ‘standard’<br/>- Buckets from the following regions: europe-west1, us-east1, us-west1, us-central1, us-east4, asia-south1, northamerica-northeast1<br/><br/>**Excluding**:<br/>- Buckets from classes: ‘nearline’, ‘coldline’, ‘archive’<br/>- Buckets from other regions than written above |
+    | Compute |  1. Google Compute instances<br/> 2. Google Instance Group | Instances with non-running states |
+    | Storage | Storage buckets | - Buckets from classes: ‘nearline’, ‘coldline’, ‘archive’<br/>- Buckets from regions other than: europe-west1, us-east1, us-west1, us-central1, us-east4, asia-south1, northamerica-northeast1 |
     |DBs | Cloud SQL Instances | --- |
 
 ## Azure cloud support
