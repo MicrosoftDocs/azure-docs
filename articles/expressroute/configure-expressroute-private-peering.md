@@ -17,10 +17,10 @@ This tutorial walks you through how to set up a private connection from an on-pr
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> [Create an ExpressRoute circuit]
-> [Enable private peering]
-> [Create a virtual network gateway]
-> [Link virtual network gateway to ExpressRoute circuit]
+> - Create an ExpressRoute circuit
+> - Enable private peering
+> - Create a virtual network gateway
+> - Link virtual network gateway to ExpressRoute circuit
 
 ## Prerequisites
 
