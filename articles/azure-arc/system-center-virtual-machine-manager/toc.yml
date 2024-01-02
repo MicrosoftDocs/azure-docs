@@ -34,8 +34,8 @@
       href: enable-guest-management-at-scale.md
     - name: Install Arc agents using a script
       href: install-arc-agents-using-script.md
-    - name: Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed
-      href: enable-virtual-hardware.md
+    - name: Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
+      href: enable-virtual-hardware-scvmm.md
   - name: Enable Extended Security Updates
     items:
     - name: Deliver ESUs for SCVMM VMs through Arc
