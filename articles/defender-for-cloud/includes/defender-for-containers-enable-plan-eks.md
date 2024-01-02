@@ -9,7 +9,9 @@ author: dcurwin
 ## Enable the plan
 
 > [!IMPORTANT]
-> If you haven't already connected an AWS account, [connect your AWS accounts to Microsoft Defender for Cloud](../tutorial-enable-container-aws.md).
+>
+> - If you haven't already connected an AWS account, [connect your AWS accounts to Microsoft Defender for Cloud](../tutorial-enable-container-aws.md).
+> - If you have already enabled the plan on your connector, and you would like to change optional configurations or enable new capabilities, go directly to step 4.
 
 To protect your EKS clusters, enable the Containers plan on the relevant account connector:
 
@@ -35,6 +37,22 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
     - The [Agentless Container Vulnerability Assessment](../agentless-vulnerability-assessment-aws.md) provides vulnerability management for images stored in ECR and running images on your EKS clusters. To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
 
 1. Continue through the remaining pages of the connector wizard.
+
+1. If you're enabling the **Agentless Discovery for Kubernetes** feature, you need to grant control plane permissions on the cluster. You can do this in one of the following ways:
+
+    - Run [this Python script](https://github.com/Azure/Microsoft-Defender-for-Cloud/blob/main/Onboarding/AWS/ReadMe.md) to grant the permissions. The script adds the Defender for Cloud role *MDCContainersAgentlessDiscoveryK8sRole* to the *aws-auth ConfigMap* of the EKS clusters that you wish to onboard.
+    - Grant each Amazon EKS cluster the *MDCContainersAgentlessDiscoveryK8sRole* role with the ability to interact with the cluster. Sign into all existing and newly created clusters using [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) and execute the following script:
+
+        ```bash
+            eksctl create iamidentitymapping \ 
+            --cluster my-cluster \ 
+            --region region-code \ 
+            --arn arn:aws:iam::account:role/MDCContainersAgentlessDiscoveryK8sRole \ 
+            --group system:masters\ 
+            --no-duplicate-arns
+        ```
+
+        For more information, see [Enabling IAM principal access to your cluster](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
 
 1. Azure Arc-enabled Kubernetes, the Defender agent, and Azure Policy for Kubernetes should be installed and running on your EKS clusters. There is a dedicated Defender for Cloud recommendations to install these extensions (and Azure Arc if necessary):
     - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
