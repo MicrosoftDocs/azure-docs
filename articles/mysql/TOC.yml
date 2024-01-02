@@ -27,7 +27,7 @@
         href: flexible-server/whats-new.md
       - name: Release notes
         items:
-          - name: January 2024
+          - name: January 2024 (Version 20231219)
             href: flexible-server/release-notes/january-2024.md
       - name: Compute and storage
         href: flexible-server/concepts-service-tiers-storage.md
