@@ -23,14 +23,6 @@
   items:
   - name: Establish a private connection to a virtual network
     href: configure-expressroute-private-peering.md
-  - name: Configure route filters for Microsoft peering
-    items:
-    - name: Azure portal
-      href: how-to-routefilter-portal.md
-    - name: Azure PowerShell
-      href: how-to-routefilter-powershell.md
-    - name: Azure CLI
-      href: how-to-routefilter-cli.md
 - name: Concepts
   items:
   - name: Work remotely
@@ -111,7 +103,7 @@
       href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
 - name: How-to guides
   items:
-  - name: Configuring ExpressRoute with a service provider
+  - name: Configuring ExpressRoute
     items:
     - name: Create and modify peering configuration
       items:
@@ -135,6 +127,14 @@
         href: expressroute-howto-linkvnet-arm.md
       - name: Azure CLI
         href: expressroute-howto-linkvnet-cli.md
+  - name: Configure route filters for Microsoft peering
+    items:
+    - name: Azure portal
+      href: how-to-routefilter-portal.md
+    - name: Azure PowerShell
+      href: how-to-routefilter-powershell.md
+    - name: Azure CLI
+      href: how-to-routefilter-cli.md
   - name: Configuring ExpressRoute Direct
     items:
     - name: Configure ExpressRoute Direct
