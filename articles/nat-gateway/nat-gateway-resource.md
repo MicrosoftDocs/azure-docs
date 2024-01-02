@@ -40,14 +40,11 @@ The following subnet configurations can’t be used with a NAT gateway:
 
 ## Static public IP addresses
 
-A NAT gateway can be associated with static public IP addresses or public IP prefixes for providing outbound connectivity. NAT Gateway supports IPv4 addresses. A NAT gateway can use public IP addresses or prefixes in any combination up to a total of 16 IP addresses.
+A NAT gateway can be associated with static public IP addresses or public IP prefixes for providing outbound connectivity. NAT Gateway supports IPv4 addresses. A NAT gateway can use public IP addresses or prefixes in any combination up to a total of 16 IP addresses. If you assign a public IP prefix, the entire public IP prefix is used. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT gateway will groom all traffic to the range of IP addresses of the prefix.
 
 * A NAT gateway can’t be used with IPv6 public IP addresses or prefixes.
 
 * A NAT gateway can’t be used with basic SKU public IP addresses.
-
-> [!NOTE]
-> If you assign a public IP prefix, the entire public IP prefix is used. You can't assign a public IP prefix and then break out individual IP addresses to assign to other resources. If you want to assign individual IP addresses from a public IP prefix to multiple resources, you need to create individual public IP addresses and assign them as needed instead of using the public IP prefix itself.
 
 ## SNAT ports
 
