@@ -22,9 +22,7 @@ Here are few scenarios to use Artifact Streaming:
 
 **Reducing image pull latency**: Artifact Streaming can reduce time to pod readiness by over 15%, depending on the size of the image, and it works best for images < 30GB. This feature reduces image pull latency and fast container startup, which is beneficial for software developers and system architects.
 
-**Effective scaling of containerized applications**:  Artifact Streaming is a time and performance effective scaling mechanism to design, build, and deploy container applications and cloud solutions at high scale.
-
-**Supercharging the process of deploying containerized platforms**: Artifact Streaming supercharges the process of deploying and managing container images. 
+**Effective scaling of containerized applications**:  Artifact Streaming provides the opportunity to design, build, and deploy containerized applications at a high scale.
 
 ## Artifact Streaming aspects
 
@@ -32,9 +30,9 @@ Here are some brief aspects of Artifact Streaming:
 
 1. Customers with new and existing registries can enable Artifact Streaming for specific repositories or tags.
 
-1. Once Artifact Streaming is enabled, the original artifact and the Artifact Streaming artifact will be stored in the customer’s ACR.
+1. Once Artifact Streaming is started, the original and the streaming artifact will be stored in the customer’s ACR.
 
-1. If the user decides to turn off Artifact Streaming for repositories or artifacts, the Artifact Streaming artifact and the original artifact will still be present.
+1. If the user decides to turn off Artifact Streaming for repositories or artifacts, the streaming and the original artifact will still be present.
 
 1. If a customer deletes a repository or artifact with Artifact Streaming and Soft Delete enabled, then both the original and Artifact Streaming versions will be deleted. However, only the original version will be available on the soft delete blade.
 
@@ -78,7 +76,7 @@ Enable Artifact Streaming, by following these general steps:
 
 1. Create a new Azure Container Registry (ACR) using the premium SKU through:
 
-For example, run the [az group create] command to create an Azure Resource Group with name `my-streaming-test` in the West US region and then run the [az acr create] command to create a premium Azure Container Registry with name `mystreamingtest` in that resource group.
+For example, run the [az group create][az-group-create] command to create an Azure Resource Group with name `my-streaming-test` in the West US region and then run the [az acr create][az-acr-create] command to create a premium Azure Container Registry with name `mystreamingtest` in that resource group.
 
 ```azurecli-interactive
 az group create -n my-streaming-test -l westus
@@ -87,18 +85,18 @@ az acr create -n mystreamingtest -g my-streaming-test -l westus --sku premium
 
 1. Push or import an image to the registry through:
 
-For example, run the [az configure] command to configure the default ACR and [az acr import] command to import a Jupyter Notebook image from Docker Hub into the `mystreamingtest` ACR.
+For example, run the [az configure] command to configure the default ACR and [az acr import][az-acr-import] command to import a Jupyter Notebook image from Docker Hub into the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az configure --defaults acr="mystreamingtest"
 az acr import -source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
 ```
 
-1. Create a streaming Artifact from the Image
+1. Create a Artifact Streaming from the Image
 
 Initiates the creation of a streaming artifact from the specified image.
 
-For example, run the [az acr artifact-streaming create] commands to create a streaming artifact from the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
+For example, run the [az acr artifact-streaming create][az-acr-artifact-streaming-create] commands to create a streaming artifact from the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr artifact-streaming create --image jupyter/all-spark-notebook:latest
@@ -106,7 +104,7 @@ az acr artifact-streaming create --image jupyter/all-spark-notebook:latest
 
 1. Verify the generated Artifact Streaming in the Azure CLI.
 
-For example, run the [az acr manifest list-referrers] command to list the streaming artifacts for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
+For example, run the [az acr manifest list-referrers][az-acr-manifest-list-referrers] command to list the streaming artifacts for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr manifest list-referrers -n jupyter/all-spark-notebook:latest
@@ -116,7 +114,7 @@ az acr manifest list-referrers -n jupyter/all-spark-notebook:latest
 
 Cancel the streaming artifact creation if the conversion is not finished yet. It will stop the operation.
 
-For example, run the [az acr artifact-streaming operation cancel] command to cancel the conversion operation for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
+For example, run the [az acr artifact-streaming operation cancel][az-acr-artifact-streaming-operation-cancel] command to cancel the conversion operation for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr artifact-streaming operation cancel --repository jupyter/all-spark-notebook --id c015067a-7463-4a5a-9168-3b17dbe42ca3
@@ -129,7 +127,7 @@ Enables auto-conversion in the repository for newly pushed or imported images. W
 >[!NOTE]
 Auto-conversion does not apply to existing images. Existing images can be manually converted.
 
-For example, run the [az acr artifact-streaming update] command to enable auto-conversion for the `jupyter/all-spark-notebook` repository in the `mystreamingtest` ACR.
+For example, run the [az acr artifact-streaming update][az-acr-artifact-streaming-update] command to enable auto-conversion for the `jupyter/all-spark-notebook` repository in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr artifact-streaming update --repository jupyter/all-spark-notebook --enable-streaming true
@@ -137,7 +135,7 @@ az acr artifact-streaming update --repository jupyter/all-spark-notebook --enabl
 
 1. Verify the streaming conversion progress, after pushing a new image `jupyter/all-spark-notebook:newtag` to the above repository.
 
-For example, run the [az acr artifact-streaming operation show] command to check the status of the conversion operation for the `jupyter/all-spark-notebook:newtag` image in the `mystreamingtest` ACR.
+For example, run the [az acr artifact-streaming operation show][az-acr-artifact-streaming-operation-show] command to check the status of the conversion operation for the `jupyter/all-spark-notebook:newtag` image in the `mystreamingtest` ACR.
 
 ```azurecli-interactive
 az acr artifact-streaming operation show --image jupyter/all-spark-notebook:newtag
@@ -186,4 +184,12 @@ Follow the steps to create Artifact Streaming in the [Azure portal](https://port
 <!-- LINKS - External -->
 [Install Azure CLI]: /cli/azure/install-azure-cli
 [Azure Cloud Shell]: /azure/cloud-shell/quickstart
+[az-group-create]: /cli/azure/group?view=azure-cli-latest#az-group-create
+[az-acr-import]: /cli/azure/acr?view=azure-cli-latest#az-acr-import
+[az-acr-artifact-streaming-create]: /cli/azure/acr/artifact-streaming?view=azure-cli-latest#az-acr-artifact-streaming-create
+[az-acr-manifest-list-referrers]: /cli/azure/acr/manifest?view=azure-cli-latest#az-acr-manifest-list-referrers
+[az-acr-create]: /cli/azure/acr?view=azure-cli-latest#az-acr-create
+[az-acr-artifact-streaming-operation-cancel]: /cli/azure/acr/artifact-streaming/operation?view=azure-cli-latest#az-acr-artifact-streaming-operation-cancel
+[az-acr-artifact-streaming-operation-show]: /cli/azure/acr/artifact-streaming/operation?view=azure-cli-latest#az-acr-artifact-streaming-operation-show
+[az-acr-artifact-streaming-update]: /cli/azure/acr/artifact-streaming?view=azure-cli-latest#az-acr-artifact-streaming-update
 
