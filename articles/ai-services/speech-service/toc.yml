@@ -103,6 +103,8 @@ items:
             href: customize-pronunciation.md
           - name: Online transcription editor
             href: how-to-custom-speech-transcription-editor.md
+          - name: Display text format training data
+            href: how-to-custom-speech-display-text-format.md
         - name: Custom Speech model lifecycle
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
         - name: CI/CD for Custom Speech
@@ -577,19 +579,17 @@ items:
         href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
       - name: Disclosure for voice and avatar talent
         href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context
-      - name: Custom neural voice
+      - name: Disclosure design guidelines
         items:
-        - name: Responsible deployment of synthetic speech
-          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/ai-services/speech-service/context/context
-        - name: Disclosure design guidelines
+        - name: Custom neural voice
           href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/ai-services/speech-service/context/context
-        - name: Disclosure design patterns
-          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/ai-services/speech-service/context/context
-      - name: Text to speech avatar
-        items:
-        - name: Disclosure design guidelines
+        - name: Text to speech avatar
           href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines-avatar?context=/azure/ai-services/speech-service/context/context
-        - name: Disclosure design patterns
+      - name: Disclosure design patterns
+        items:
+        - name: Custom neural voice
+          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/ai-services/speech-service/context/context
+        - name: Text to speech avatar
           href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns-avatar?context=/azure/ai-services/speech-service/context/context
       - name: Data, privacy, and security
         href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/ai-services/speech-service/context/context

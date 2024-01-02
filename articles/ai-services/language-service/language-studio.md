@@ -6,7 +6,7 @@ author: aahill
 ms.author: aahi
 manager: nitinme
 ms.service: azure-ai-language
-ms.date: 01/03/2023
+ms.date: 12/19/2023
 ms.topic: quickstart
 ms.custom: ignite-fall-2021
 ---

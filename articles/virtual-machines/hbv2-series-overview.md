@@ -1,17 +1,17 @@
 ---
-title: HBv2-series VM overview - Azure Virtual Machines | Microsoft Docs 
-description: Learn about the HBv2-series VM size in Azure.  
-services: virtual-machines 
-tags: azure-resource-manager 
+title: HBv2-series VM overview - Azure Virtual Machines | Microsoft Docs
+description: Learn about the HBv2-series VM size in Azure.
+services: virtual-machines
+tags: azure-resource-manager
 ms.custom: devx-track-linux
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services 
-ms.topic: article 
-ms.date: 07/13/2023 
+ms.workload: infrastructure-services
+ms.topic: article
+ms.date: 07/13/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 --- 
 
  

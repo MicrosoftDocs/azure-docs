@@ -7,25 +7,25 @@ ms.service: machine-learning
 ms.subservice: rai
 ms.reviewer: lagayhar
 ms.topic: conceptual 
-ms.date: 11/04/2022
+ms.date: 12/30/2023
 ms.custom: responsible-ml 
 ---
 # What is "human data" and why is it important to source responsibly?
 
 [!INCLUDE [SDK/cli v2](includes/machine-learning-dev-v2.md)]
 
-Human data is data collected directly from, or about, people. Human data may include personal data such as names, age, images, or voice clips and sensitive data such as genetic data, biometric data, gender identity, religious beliefs, or political affiliations. 
+Human data is data collected directly from, or about, people. Human data might include personal data such as names, age, images, or voice clips and sensitive data such as genetic data, biometric data, gender identity, religious beliefs, or political affiliations. 
 
 Collecting this data can be important to building AI systems that work for all users. But certain practices should be avoided, especially ones that can cause physical and psychological harm to data contributors.
 
 The best practices in this article will help you conduct manual data collection projects from volunteers where everyone involved is treated with respect, and potential harms—especially those faced by vulnerable groups—are anticipated and mitigated. This means that:
 
-- People contributing data are not coerced or exploited in any way, and they have control over what personal data is collected.
-- People collecting and labeling data have adequate training. 
+- People contributing data aren't coerced or exploited in any way, and they have control over what personal data is collected.
+- People collecting and labeling data have adequate training.
 
 These practices can also help ensure more-balanced and higher-quality datasets and better stewardship of human data.
 
-These are emerging practices, and we are continually learning. The best practices below are a starting point as you begin your own responsible human data collections. These best practices are provided for informational purposes only and should not be treated as legal advice. All human data collections should undergo specific privacy and legal reviews.
+These are emerging practices, and we're continually learning. The best practices in the next section are a starting point as you begin your own responsible human data collections. These best practices are provided for informational purposes only and shouldn't be treated as legal advice. All human data collections should undergo specific privacy and legal reviews.
 
 ## General best practices
 
@@ -168,13 +168,11 @@ We suggest the following best practices for manually collecting human data direc
 
 [Download the full recommendations here](https://bit.ly/3FK8m8A)
 
-
-
 ## Best practices for collecting age, ancestry, and gender identity
 
-In order for AI systems to work well for everyone, the datasets used for training and evaluation should reflect the diversity of people who will use or be affected by those systems. In many cases, age, ancestry, and gender identity can help approximate the range of factors that might affect how well a product performs for a variety of people; however, collecting this information requires special consideration.
+In order for AI systems to work well for everyone, the datasets used for training and evaluation should reflect the diversity of people who will use or be affected by those systems. In many cases, age, ancestry, and gender identity can help approximate the range of factors that might affect how well a product performs for various people; however, collecting this information requires special consideration.
 
-If you do collect this data, always let data contributors self-identify (choose their own responses) instead of having data collectors make assumptions, which might be incorrect. Also include a "prefer not to answer" option for each question. These practices will show respect for the data contributors and yield more balanced and higher-quality data. 
+If you do collect this data, always let data contributors self-identify (choose their own responses) instead of having data collectors make assumptions, which might be incorrect. Also include a "prefer not to answer" option for each question. These practices will show respect for the data contributors and yield more balanced and higher-quality data.
  
 These best practices have been developed based on three years of research with intended stakeholders and collaboration with many teams at Microsoft: [fairness and inclusiveness working groups](https://www.microsoft.com/ai/our-approach?activetab=pivot1:primaryr5), [Global Diversity & Inclusion](https://www.microsoft.com/diversity/default.aspx), [Global Readiness](https://www.microsoft.com/security/blog/2014/09/29/microsoft-global-readiness-diverse-cultures-multiple-languages-one-world/), [Office of Responsible AI](https://www.microsoft.com/ai/responsible-ai?activetab=pivot1:primaryr6), and others.   
 

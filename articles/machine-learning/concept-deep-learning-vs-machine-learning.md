@@ -19,7 +19,7 @@ This article explains deep learning vs. machine learning and how they fit into t
 
 For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](./v1/algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
 
-Foundation Models in Azure Machine Learning are pre-trained deep learning models that can be fine-tuned for specific use cases. Learn more about [Foundation Models (preview) in Azure Machine Learning](concept-foundation-models.md), and [how to use Foundation Models in Azure Machine Learning (preview)](how-to-use-foundation-models.md).
+Foundation Models in Azure Machine Learning are pre-trained deep learning models that can be fine-tuned for specific use cases. Learn more about [Foundation Models (preview) in Azure Machine Learning](concept-model-catalog.md), and [how to use Foundation Models in Azure Machine Learning (preview)](how-to-use-foundation-models.md).
 
 ## Deep learning, machine learning, and AI
 

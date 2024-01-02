@@ -156,7 +156,7 @@ ms.topic: conceptual
 * <a id="ad-sid-to-upn"></a>
 **Is it possible to view the userPrincipalName (UPN) of a file/directory owner in File Explorer instead of the security identifier (SID)?**
 
-    File Explorer calls an RPC API directly to the server (Azure Files) to translate the SID to a UPN. Azure Files doesn't support this API, so in File Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, you can use the following PowerShell command to view all items in a directory and their owner, including UPN:
+    File Explorer calls an RPC API directly to the server (Azure Files) to translate the SID to a UPN. Azure Files doesn't support this API, so in File Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, from a domain joined client, you can use the following PowerShell command to view all items in a directory and their owner, including UPN: 
 
     ```PowerShell
     Get-ChildItem <Path> | Get-ACL | Select Path, Owner

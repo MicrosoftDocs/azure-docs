@@ -4,7 +4,8 @@ description: Azure Container Registry is introducing dedicated data endpoints av
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 12/22/2022
+ms.service: container-registry
+ms.date: 10/31/2023
 
 ---
 # Azure Container Registry mitigating data exfiltration with dedicated data endpoints
