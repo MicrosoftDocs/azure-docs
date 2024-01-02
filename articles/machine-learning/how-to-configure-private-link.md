@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022, ignite-2022
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/29/2022
+ms.date: 01/02/2024
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
