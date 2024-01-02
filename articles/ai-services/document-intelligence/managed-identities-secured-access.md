@@ -28,7 +28,7 @@ This how-to guide walks you through the process of enabling secure connections f
 
  You're setting up your environment to secure the resources:
 
-  :::image type="content" source="media/managed-identities/di-secure-config.png" alt-text="Screenshot of secure configuration with managed identity and virtual networks.":::
+  :::image type="content" source="media/managed-identities/secure-config-di.png" alt-text="Screenshot of secure configuration with managed identity and virtual networks.":::
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ Configure each of the resources to ensure that the resources can communicate wit
 
 You now have a working implementation of all the components needed to build a Document Intelligence solution with the default security model:
 
-  :::image type="content" source="media/managed-identities/di-default-config.png" alt-text="Screenshot of default security configuration.":::
+  :::image type="content" source="media/managed-identities/default-config-di.png" alt-text="Screenshot of default security configuration.":::
 
 Next, complete the following steps:
 
@@ -267,13 +267,13 @@ That's it! You can now configure secure access for your Document Intelligence re
   **Resolution**:
     1. [Configure CORS](quickstarts/try-document-intelligence-studio.md#prerequisites-for-new-users).
  
-    1. Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same VNET, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage accounts.
+    1. Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same VNET, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
 
 * **AuthorizationFailure**:
 
   :::image type="content" source="media/managed-identities/auth-failure.png" alt-text="Screenshot of authorization failure error.":::
 
-  **Resolution**: Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same VNET, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage accounts.
+  **Resolution**: Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same VNET, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
 
 * **ContentSourceNotAccessible**:
 
