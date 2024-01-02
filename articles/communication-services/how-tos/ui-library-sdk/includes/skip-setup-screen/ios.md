@@ -48,7 +48,7 @@ We recommend that you let users join a call with microphone and camera permissio
 
 Users must enable microphone permission to join a call. If users try to join a call after denying microphone permission, the UI Library drops the call in the connecting stage and throws a `microphonePermissionNotGranted` error.
 
-However, users can join a call even if they deny camera permission. The UI Library disables the camera functionality when camera permission is denied. So, the default configuration API for the camera doesn't affect the calling experience. Users can enjoy the effect of the default camera configuration API after granting the camera permission.
+However, users can join a call even if they deny camera permission. The UI Library disables the camera functionality when camera permission is denied. So, the default configuration API for the camera doesn't affect the calling experience. Users can enjoy the effect of the default configuration API for the camera after granting the camera permission.
 
 We recommend that you handle the microphone permission. If users join the call with the camera turned on by default, we recommend that you also handle the camera permission.
 

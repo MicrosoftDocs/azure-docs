@@ -15,7 +15,7 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Set screen orientation in an application
 
-Azure Communication Services UI Library enables developers to set the orientation of screens in an application. You can specify screen orientation mode on the call setup screen and on the call screen of the UI Library.
+The Azure Communication Services UI Library enables developers to set the orientation of screens in an application. You can specify screen orientation mode on the call setup screen and on the call screen of the UI Library.
 
 ## Prerequisites
 
