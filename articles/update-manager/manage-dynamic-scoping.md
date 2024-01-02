@@ -78,7 +78,7 @@ To view the list of Dynamic scopes associated to a given maintenance configurati
 ## View patch history of a Dynamic scope
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Azure Update Manager**. 
-1. Select **History** > **Browse maintenance configurations** > **Maintenance configurations** to view the patch history of a dynamic scope.
+1. Select **History** to view the patch history of a dynamic scope.
 
 ## Provide consent to apply updates
 
@@ -90,14 +90,9 @@ Obtaining consent to apply updates is an important step in the workflow of dynam
 #### [From Virtual Machine](#tab/vm)
 
 1. In [Azure portal](https://portal.azure.com), go to **+Create a resource** > **Virtual machine** > **Create**. 
-1. In **Create a virtual machine**, select **Management** tab and under the **Guest OS Updates**, in **Patch orchestration options**, you can do the following: 
-    1. Select **Customer Managed Schedules** to confirm that:
-
-       - Patch mode is set to *AutomaticByPlatform*
-       - Set the BypassPlatformSafetyChecksOnUserSchedule = *True*.
-
-       The selection allows you to provide consent to apply the update settings, ensures that auto patching isn't applied and that patching on the VM(s) runs as per the schedule you've defined.
-
+1. In **Create a virtual machine**, select **Management** tab and under the **Guest OS Updates**, in **Patch orchestration options**, select **Azure-orchestrated**. It sets the following properties:
+   - Patch mode is set to *AutomaticByPlatform* 
+   - Set the BypassPlatformSafetyChecksOnUserSchedule = *True*
 1. Complete the details under **Monitoring**, **Advanced** and **Tags** tabs.
 1. Select **Review + Create** and under the **Management** you can view the values as **Periodic assessment** - *Off* and **Patch orchestration options** - *Azure-orchestrated with user managed schedules (Preview)*.
 1. Select **Create**.
@@ -106,13 +101,14 @@ Obtaining consent to apply updates is an important step in the workflow of dynam
 #### [From Schedule updates tab](#tab/sc)
 
 1. Follow the steps from 1 to 5 listed in [Add a Dynamic scope](#add-a-dynamic-scope).
-1. In **Machines** tab, select **Add machine**, In **Select resources** page, select the machines and select **Add**
-1. In **Configure Azure VMs for schedule updates**, select **Continue  to schedule updates** option to confirm that:
+1. In **Configure Azure VMs for schedule updates**, page select **Change the required options to ensure schedule supportability** option to confirm that:
 
-   - Patch Orchestration is set to *Azure orchestration*
-   - Set the Bypass platform safety checks on user schedule = *True*.
+    - Patch mode is set to *AutomaticByPlatform*
+    - Set the BypassPlatformSafetyChecksOnUserSchedule = *True*.
 
-1. Select **Continue to schedule updates** to update the patch mode as **Azure-orchestrated** and enable the scheduled patching for the VMs after obtaining the consent.
+   The selection allows you to provide consent to apply the update settings, ensures that auto patching isn't applied and that patching on the VM(s) runs as per the schedule you've defined.
+
+1. Select **Save**.
 
 #### [From Update Settings](#tab/us)
 
