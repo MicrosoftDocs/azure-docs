@@ -4,7 +4,7 @@ description: Learn how to use Storage Analytics metrics in Azure Storage. Learn 
 author: normesta
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 01/02/2024
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
@@ -13,7 +13,7 @@ ms.custom: "monitoring, devx-track-csharp"
 
 # Azure Storage Analytics metrics (classic)
 
-On **August 31, 2023** Storage Analytics metrics, also referred to as *classic metrics* will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). If you use classic metrics, make sure to transition to metrics in Azure Monitor prior to that date. This article helps you make the transition.
+On **January 9, 2024** Storage Analytics metrics, also referred to as *classic metrics* will be retired. If you use classic metrics, make sure to transition to metrics in Azure Monitor prior to that date. This article helps you make the transition.
 
 Azure Storage uses the Storage Analytics solution to store metrics that include aggregated transaction statistics and capacity data about requests to a storage service. Transactions are reported at the API operation level and at the storage service level. Capacity is reported at the storage service level. Metrics data can be used to:
 - Analyze storage service usage.

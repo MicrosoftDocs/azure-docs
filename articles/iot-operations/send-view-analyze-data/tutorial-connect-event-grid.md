@@ -86,7 +86,7 @@ example.region-1.ts.eventgrid.azure.net
 
 ## Create an MQTT bridge connector and topic map resources
 
-In a new file named `bridge.yaml`, specify the MQTT bridge connector and topic map configuration. Replace the placeholder value in `endpoint` with the Event Grid MQTT hostname from the previous step.
+In a new file named `bridge.yaml`, specify the MQTT bridge connector and topic map configuration. Replace the example placeholder value in *remoteBrokerConnection* `endpoint` with the Event Grid MQTT hostname from the previous step. Include the port number 8883.
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1

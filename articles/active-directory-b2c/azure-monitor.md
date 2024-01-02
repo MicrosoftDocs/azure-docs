@@ -349,7 +349,7 @@ To stop collecting logs to your Log Analytics workspace, delete the diagnostic s
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. Choose the resource group that contains the Log Analytics workspace. This example uses a resource group named _azure-ad-b2c-monitor_ and a Log Analytics workspace named `AzureAdB2C`.
-1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md#azure-portal).
+1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md).
 1. Select the **Delete** button to delete the resource group.
 ## Next steps
 

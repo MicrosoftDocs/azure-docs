@@ -264,7 +264,7 @@ You may wish to leave these resources in place. If you no longer need these reso
 
 ## Next steps
 
-In this tutorial, you deployed a Kubernetes cluster and deployed a simple container application to test working with a Microsoft Entra Workload ID.
+In this tutorial, you deployed a Kubernetes cluster and then deployed a simple container application to test working with a Microsoft Entra Workload ID.
 
 This tutorial is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 

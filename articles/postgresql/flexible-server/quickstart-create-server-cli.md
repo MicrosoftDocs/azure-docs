@@ -43,10 +43,10 @@ az account set --subscription <subscription id>
 
 ## Create a flexible server
 
-Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the `az group create` command and then create your PostgreSQL flexible server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the `az group create` command and then create your PostgreSQL flexible server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `eastus` location.
 
 ```azurecli-interactive
-az group create --name myresourcegroup --location westus
+az group create --name myresourcegroup --location eastus
 ```
 
 Create a flexible server with the `az postgres flexible-server create` command. A server can contain multiple databases. The following command creates a server in the resource group you just created:
@@ -93,7 +93,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "earliestRestoreDate": null,
   "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/mydemoserver",
-  "location": "westus",
+  "location": "eastus",
   "name": "mydemoserver",
   "network": {
     "delegatedSubnetResourceId": null,

@@ -17,6 +17,10 @@ ms.author: kavitagaddam
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## **December 2023**
+**Additional capabilities added to the Export operation**
+$export operation now supports exporting versioned resources and soft deleted resources. For more information, see [Export query parameters](../../healthcare-apis/azure-api-for-fhir/export-data.md).
+
 ## **November 2023**
 **Bulk delete capability now available**
 `$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](../../healthcare-apis/azure-api-for-fhir/bulk-delete-operation.md).

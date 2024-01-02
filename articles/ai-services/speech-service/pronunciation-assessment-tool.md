@@ -2,7 +2,6 @@
 title: How to use pronunciation assessment in Speech Studio
 titleSuffix: Azure AI services
 description: The pronunciation assessment tool in Speech Studio gives you feedback on the accuracy and fluency of your speech, no coding required.
-#services: cognitive-services
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech

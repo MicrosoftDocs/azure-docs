@@ -34,13 +34,15 @@ The table in this section summarizes the locales supported for Speech to text. S
 Additional remarks for Speech to text locales are included in the [Custom Speech](#custom-speech) section below. 
 
 > [!TIP]
-> Try out the [Real-time Speech to text tool](https://speech.microsoft.com/portal/speechtotexttool) without having to use any code.
+> Try out the [real-time speech to text tool](https://speech.microsoft.com/portal/speechtotexttool) without having to use any code.
 
 [!INCLUDE [Language support include](includes/language-support/stt.md)]
 
 ### Custom Speech
 
 To improve Speech to text recognition accuracy, customization is available for some languages and base models. Depending on the locale, you can upload audio + human-labeled transcripts, plain text, structured text, and pronunciation data. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
+
+These are the locales that support the [display text format feature](./how-to-custom-speech-display-text-format.md): da-DK, de-DE, en-AU, en-CA, en-GB, en-HK, en-IE, en-IN, en-NG, en-NZ, en-PH, en-SG, en-US, es-ES, es-MX, fi-FI, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, sv-SE, tr-TR, zh-CN, zh-HK.
 
 # [Text to speech](#tab/tts)
 
@@ -52,6 +54,12 @@ Additional remarks for text to speech locales are included in the [voice styles 
 > Check the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs. 
 
 [!INCLUDE [Language support include](includes/language-support/tts.md)]
+
+### Multilingual voices
+
+Multilingual voices can support more languages. This expansion enhances your ability to express content in various languages, to overcome language barriers and foster a more inclusive global communication environment. Use this table to understand all supported speaking languages for each multilingual neural voice. If the voice doesn’t speak the language of the input text, the Speech service doesn’t output synthesized audio. The table is sorted by the number of supported languages in descending order. The primary locale for each voice is indicated by the prefix in its name, such as the voice `en-US-AndrewMultilingualNeural`, its primary locale is `en-US`.
+
+[!INCLUDE [Language support include](includes/language-support/multilingual-voices.md)]
 
 ### Voice styles and roles
 
@@ -109,7 +117,7 @@ The table in this section summarizes the 24 locales supported for pronunciation 
 
 # [Speech translation](#tab/speech-translation)
 
-The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech-to-speech and speech to text translation. The available target languages depend on whether the translation target is speech or text. 
+The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech to speech and speech to text translation. The available target languages depend on whether the translation target is speech or text. 
 
 #### Translate from language
 

@@ -1,8 +1,8 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 3.4 
 description: New runtime is in Public Preview. Try it and use Spark 3.4.1, Python 3.10, Delta Lake 2.4.
-author: winnyr
-ms.author: v-rajwinny
+author: ekote
+ms.author: eskot
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
@@ -23,8 +23,6 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Delta Lake | 2.4.0        |
 | Python | 3.10     |
 | R | 4.2.2    |
-
-As of now, creation of Spark 3.4 pools are available only through Azure Synapse Studio. In the upcoming weeks we'll add the Azure portal and ARM support.
 
 ## Libraries
 

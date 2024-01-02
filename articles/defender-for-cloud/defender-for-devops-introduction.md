@@ -8,11 +8,11 @@ ms.custom: references_regions
 
 # Overview of Microsoft Defender for Cloud DevOps Security 
 
-Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, GCP, and on-premises resources. 
+Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, GCP, and on-premises resources.
 
 DevOps security within Defender for Cloud uses a central console to empower security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, including Azure DevOps, GitHub, and GitLab. DevOps security recommendations can then be correlated with other contextual cloud security insights to prioritize remediation in code. Key DevOps security capabilities include:
 
-- **Unified visibility into DevOps security posture**: Security administrators now have full visibility into DevOps inventory and the security posture of preproduction application code across multi-pipeline and multicloud environments, which includes findings from code, secret, and open-source dependency vulnerability scans. They can also [assess the security configurations of their DevOps environment](concept-devops-posture-management-overview.md).
+- **Unified visibility into DevOps security posture**: Security administrators now have full visibility into DevOps inventory and the security posture of preproduction application code across multi-pipeline and multicloud environments, which includes findings from code, secrets, and open-source dependency vulnerability scans. They can also [assess the security configurations of their DevOps environment](concept-devops-posture-management-overview.md).
 
 - **Strengthen cloud resource configurations throughout the development lifecycle**: You can enable security of Infrastructure as Code (IaC) templates and container images to minimize cloud misconfigurations reaching production environments, allowing security administrators to focus on any critical evolving threats.
 
@@ -32,8 +32,8 @@ Here, you can add [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickst
 
 |Page section| Description |
 |--|--|
-| :::image type="content" source="media/defender-for-devops-introduction/security-overview.png" alt-text="Screenshot of the scan finding metrics sections of the page."::: | Total number of DevOps security scan findings (code, secret, dependency, infrastructure-as-code) grouped by severity level and by finding type. |
-| :::image type="content" source="media/defender-for-devops-introduction/connectors-section.png" alt-text="Screenshot of the DevOps environment posture management recommendation card."::: | Provides visibility into the number of DevOps environment posture management recommendations highlighting high severity findings and number of affected resources. |
+| :::image type="content" source="media/defender-for-devops-introduction/security-overview.png" alt-text="Screenshot of the scan finding metrics sections of the page."::: | Total number of DevOps security scan findings (code, secrets, dependency, infrastructure-as-code) grouped by severity level and by finding type. |
+| :::image type="content" source="media/defender-for-devops-introduction/posture-management.png" alt-text="Screenshot of the DevOps environment posture management recommendation card."::: | Provides visibility into the number of DevOps environment posture management recommendations highlighting high severity findings and number of affected resources. |
 | :::image type="content" source="media/defender-for-devops-introduction/advanced-security.png" alt-text="Screenshot of DevOps advanced security coverage per source code management system onboarded."::: | Provides visibility into the number of DevOps resources with advanced security capabilities out of the total number of resources onboarded by environment. |
 
 ### Review your findings
@@ -65,7 +65,7 @@ On this part of the screen you see:
     > [!NOTE]
     > Currently, this information is available only for Azure DevOps repositories.
 
-- **Findings** - Shows the total number of code, secret, dependency, and infrastructure-as-code findings identified in the DevOps resource.
+- **Findings** - Shows the total number of code, secrets, dependency, and infrastructure-as-code findings identified in the DevOps resource.
 
 This table can be viewed as a flat view at the DevOps resource level (repositories for Azure DevOps and GitHub, projects for GitLab) or in a grouping view showing organizations/projects/groups hierarchy.  Also, the table can be filtered by subscription, resource type, finding type, or severity.
 

@@ -10,7 +10,7 @@ ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 06/06/2022
 ms.topic: how-to
-ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, event-tier1-build-2022
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, event-tier1-build-2022, update-code
 ms.devlang: azurecli
 ---
 
@@ -54,7 +54,7 @@ __MLmodel__
 
 :::code language="yaml" source="~/azureml-examples-main/sdk/python/endpoints/online/mlflow/sklearn-diabetes/model/MLmodel" highlight="13-19":::
 
-You can inspect your model's signature by opening the MLmodel file associated with your MLflow model. For more information on how signatures work in MLflow, see [Signatures in MLflow](concept-mlflow-models.md#signatures).
+You can inspect your model's signature by opening the MLmodel file associated with your MLflow model. For more information on how signatures work in MLflow, see [Signatures in MLflow](concept-mlflow-models.md#model-signature).
 
 > [!TIP]
 > Signatures in MLflow models are optional but they are highly encouraged as they provide a convenient way to early detect data compatibility issues. For more information about how to log models with signatures read [Logging models with a custom signature, environment or samples](how-to-log-mlflow-models.md#logging-models-with-a-custom-signature-environment-or-samples).
