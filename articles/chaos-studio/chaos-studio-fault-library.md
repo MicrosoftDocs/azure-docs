@@ -1395,7 +1395,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 } 
 ```
 
-## Key Vault Deny Access
+## Key Vault: Deny Access
 
 | Property | Value |
 |-|-|
@@ -1424,7 +1424,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Key Vault Disable Certificate
+## Key Vault: Disable Certificate
 
 | Property  | Value |
 | ---- | --- |
@@ -1465,7 +1465,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Key Vault Increment Certificate Version
+## Key Vault: Increment Certificate Version
 	
 | Property  | Value |
 | ---- | --- |
@@ -1500,7 +1500,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Key Vault Update Certificate Policy
+## Key Vault: Update Certificate Policy
 
 | Property  | Value |        
 | ---- | --- |  
@@ -1586,7 +1586,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## App Service Stop
+## App Service: Stop
 	
 | Property  | Value |
 | ---- | --- |
@@ -1748,7 +1748,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
   "actions": [
     {
       "type": "discrete",
-      "name": "urn:csci:microsoft:serviceBus:changeQueueState/1.0",
+      "name": "urn:csci:microsoft:serviceBus:changeSubscriptionState/1.0",
       "parameters":[
           {
             "key": "desiredState",
@@ -1780,7 +1780,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | ChangeTopicState-1.0 |
 | Target type | Microsoft-ServiceBus |
 | Description | Sets the specified Topic entities within a Service Bus namespace to the desired state. You can affect specific entity names or use “*” to affect all. This can help test your messaging infrastructure for maintenance or failure scenarios. This is a discrete fault, so the entity will not be returned to the starting state automatically. |
-| Prerequisites | A Service Bus namespace with at least one [Topic entity](../service-bus-messaging/includes/service-bus-create-topic-subscription-portal.md). |
+| Prerequisites | A Service Bus namespace with at least one [Topic entity](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md). |
 | Urn | urn:csci:microsoft:serviceBus:changeTopicState/1.0 |
 | Fault type | Discrete. |
 | Parameters (key, value) | |
