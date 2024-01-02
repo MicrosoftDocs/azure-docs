@@ -7,11 +7,9 @@ ms.service: dev-box
 ms.custom: devx-track-azurepowershell
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/19/2023
+ms.date: 01/02/2024
 ms.topic: how-to
 ---
-
-<!-- Rose: In general, there seemed to be at least a 15 minute lag between commands run in PowerShell and the corresponding updates being visible in the Azure portal. Is that expected? Should this be documented? -->
 
 # Configure a dev box by using Azure VM Image Builder and Microsoft Dev Box
 
@@ -38,10 +36,8 @@ To reduce the complexity of creating VM images, VM Image Builder:
 
 To provision a custom image that you created by using VM Image Builder, you need:
 
-<!-- Rose: I had to do quite a bit of updating to get PowerShell to work as as expected as described in this topic.
-     Should PowerShell be listed as a pre'req, and anything else related to the configuration? -->
-
 - Azure PowerShell. If you don't have PowerShell installed, follow the steps in [Install Azure PowerShell on Windows](/powershell/azure/install-azps-windows).
+- PowerShell 6.0 or later. For more information, see [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 - Owner or Contributor permissions on an Azure subscription or on a specific resource group.
 - A resource group.
 - A dev center with an attached network connection. If you don't have one, follow the steps in [Connect dev boxes to resources by configuring network connections](how-to-configure-network-connections.md).
@@ -107,39 +103,6 @@ The first step is to use Azure VM Image Builder and Azure PowerShell to create a
 1. Create a user-assigned identity and set permissions on the resource group by running the following code in PowerShell.
 
    VM Image Builder uses the provided user identity to inject the image into Azure Compute Gallery. The following example creates an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
-
-   <!-- Rose: There's a problem with the following code.
-   
-      The subsequent call to New-AzUserAssignedIdentity rejects the presence of the period in the $identityName.
-
-         New-AzUserAssignedIdentity : 
-         Resource name aibIdentity1702993090.51545 is invalid for user assigned identity.
-
-      The period is introduced in the call to set the time variable: $timeInt=$(get-date -UFormat "%s").
-      The get-date topic was updated regarding the period and fractional portion about a year ago:
-      [commit](https://github.com/MicrosoftDocs/PowerShell-Docs/commit/1ad948457e1f30068acd5541308ee07f72adc556)
-
-         Windows PowerShell's behavior with `Get-Date -UFormat %s` is incorrect in two respects:
-         - The return value is based on local time instead of UTC time.
-         - The string representation of the seconds value has a fractional part.
-           The output is culture-sensitive with respect to the decimal mark.
-         - These behaviors have been fixed in PowerShell 6 and higher.
-
-        AND ..
-
-         The behavior of `-UFormat %s` was changed to fix problems with the behavior in Windows PowerShell.
-         - The return value is based on UTC time.
-         - The value is a whole number of seconds value (no fractional part).
-
-        I used PS 5.1 for the run through, and changed the command to generate a string without a period:
-
-        $timeInt=$(get-date -UFormat "%m%d%Y%S")
-        $imageRoleDefName="Azure Image Builder Image Def"+$timeInt 
-        $identityName="aibIdentity"+$timeInt 
-
-        How should this issue be addressed in this topic? Should the code be changed as I've done?
-        Should we say PS 6.0 or later is required?
-   -->
 
    ```powershell
    # Set up role definition names, which need to be unique 
@@ -326,17 +289,7 @@ To use VM Image Builder with Azure Compute Gallery, you need to have an existing
    ```
 
    > [!IMPORTANT]
-   > Creating the image and replicating it to both regions can take some time. Before you begin creating a dev box definition, wait until the process completes.
-
-   <!-- Rose: There was also significant lag between status reporting in PowerShell versus status reporting in the Azure portal.
-        
-        15 minutes after PS showed the image as successfully provisioned, the portal showed no image under creation at all!
-        
-        So, I started a process to create an image via the portal and then used the Back arrow to go back to status page.
-        At that point, the image created through PS finally showed up in the portal view with a status of "Creating."
-        After a few minutes, I refreshed again, and the status eventually changed to "Created" and also "Published."
-        
-        Should this lag or difference be documented? -->
+   > Creating the image and replicating it to both regions can take some time. You might see a difference in progress reporting between PowerShell and the Azure portal. Before you begin creating a dev box definition, wait until the process completes.
 
 1. Get information about the newly built image, including the run status and provisioning state.
 
