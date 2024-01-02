@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 12/29/2023
+ms.date: 01/02/2024
 ---
 
 # Use Bicep linter
@@ -75,7 +75,7 @@ Select the solution to fix the issue automatically.
 
 ## Use in Bicep CLI
 
-The following screenshot shows the linter in the command line. The output from the build command shows any rule violations.
+The following screenshot shows the linter in the command line. The output from the [lint command](./bicep-cli.md#lint) and the [build command](./bicep-cli.md#build) shows any rule violations.
 
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
 

@@ -3,7 +3,7 @@ title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 11/03/2023
+ms.date: 01/02/2024
 ---
 
 # Bicep CLI commands
@@ -124,6 +124,32 @@ To install a specific version:
 ```azurecli
 az bicep install --version v0.3.255
 ```
+## lint
+
+The `lint` command returns the errors and the [linter rule](./linter.md) violations of a Bicep file.
+
+```azurecli
+az bicep lint --file main.bicep
+```
+
+If your Bicep file includes a module that references an external registry, the lint command automatically calls [restore](#restore). The restore command gets the file from the registry and stores it in the local cache.
+
+> [!NOTE]
+> The restore command doesn't refresh the cache. For more information, see [restore](#restore).
+
+To not call restore automatically, use the `--no-restore` switch:
+
+```azurecli
+az bicep lint --no-restore <bicep-file>
+```
+
+The lint process with the `--no-restore` switch fails if one of the external modules isn't already cached:
+
+```error
+The module with reference "br:exampleregistry.azurecr.io/bicep/modules/storage:v1" has not been restored.
+```
+
+When you get this error, either run the `lint` command without the `--no-restore` switch or run `bicep restore` first.
 
 ## list-versions
 
