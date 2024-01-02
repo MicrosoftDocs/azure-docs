@@ -21,6 +21,8 @@
   expanded: true
 - name: Tutorials
   items:
+  - name: Establish a private connection to a virtual network
+    href: configure-expressroute-private-peering.md
   - name: Create and modify peering configuration
     items:
     - name: Azure portal
