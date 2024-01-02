@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/22/2023
+ms.date: 01/02/2024
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want dev box users to be able to hibernate their dev boxes as part of my cost management strategy and so that dev box users can resume their work where they left off.
 ---
@@ -35,11 +35,6 @@ Before you enable hibernation on your dev box, review the following consideratio
 - Currently, two SKUs support hibernation: 8 and 16 vCPU SKUs. Currently, 32 vCPU SKUs don't support hibernation.
 
 - You can enable hibernation only on new dev boxes created with hibernation-enabled dev box definitions. You can't enable hibernation on existing dev boxes.
-
-<!-- Rose: I don't see any details about working with the API.
-   I also searched for other articles that might describe this process, but didn't find any.
-   https://learn.microsoft.com/en-us/rest/api/devcenter/?view=rest-devcenter-administrator-2023-04-01
-   Should API be included in the following list? -->
 
 - You can hibernate a dev box only by using the Microsoft developer portal, the Azure CLI, PowerShell, SDKs, and the REST API. Hibernating from within the dev box in Windows isn't supported.
 
