@@ -94,7 +94,7 @@ az role assignment list --resource-group pharma-sales --output json --query '[].
 To list all role assignments at a subscription scope, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
-az role assignment list --scope "/subscriptions/{subscriptionNameOrId}"
+az role assignment list --scope "/subscriptions/{subscriptionId}"
 ```
 
 Example:
