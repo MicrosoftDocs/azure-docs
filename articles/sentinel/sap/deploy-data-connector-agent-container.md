@@ -245,6 +245,8 @@ Create a new agent through the Azure portal, authenticating with a managed ident
 
 1. Under **Create a collector agent** on the right, define the agent details:
 
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent-managed-id.png" alt-text="Screenshot of the Create a collector agent area.":::
+
     - Enter the **Agent name**. The agent name can include these characters: 
         - a-z
         - A-Z 
@@ -266,26 +268,24 @@ Create a new agent through the Azure portal, authenticating with a managed ident
 
     - To authenticate to your key vault using a managed identity, leave the default option **Managed Identity**, selected. You must have the managed identity set up ahead of time, as mentioned in the  [prerequisites](#prerequisites).
 
-    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
-
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
-1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**.
-
-   The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl). You can supply additional parameters to the script to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
-   
-1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
+1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**. After you've copied the command line, select **Close**.
 
     The relevant agent information is deployed into Azure Key Vault, and the new agent is visible in the table under **Add an API based collector agent**. 
 
-    At this stage, the agent's **Health** status is **Incomplete installation. Please follow the instructions**. If the agent is added successfully, the status changes to **Agent healthy**. This update can take up to 10 minutes. 
+    At this stage, the agent's **Health** status is **"Incomplete installation. Please follow the instructions"**. Once the agent is installed successfully, the status changes to **Agent healthy**. This update can take up to 10 minutes. 
 
     :::image type="content" source="media/deploy-data-connector-agent-container/installation-status.png" alt-text="Screenshot of the health statuses of API-based collector agents on the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/installation-status.png":::
 
-    The table displays the agent name and health status for only those agents you deploy via the Azure portal.   
-    
+    The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line will not be displayed here.
+
+1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
+
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl). You can supply additional parameters to the script to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+   
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
 # [Azure portal](#tab/azure-portal/registered-application)
@@ -311,7 +311,7 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
 
 1. Under **Create a collector agent** on the right, define the agent details:
 
-    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent-app-id.png" alt-text="Screenshot of the Create a collector agent area.":::
 
     - Enter the **Agent name**. The agent name can include these characters: 
         - a-z
@@ -338,18 +338,20 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
-1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**.
-
-1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
+1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**. After you've copied the command line, select **Close**.
 
     The relevant agent information is deployed into Azure Key Vault, and the new agent is visible in the table under **Add an API based collector agent**. 
 
-    At this stage, the agent's **Health** status is **Incomplete installation. Please follow the instructions**. If the agent is added successfully, the status changes to **Agent healthy**. This update can take up to 10 minutes. 
+    At this stage, the agent's **Health** status is **"Incomplete installation. Please follow the instructions"**. Once the agent is installed successfully, the status changes to **Agent healthy**. This update can take up to 10 minutes. 
 
     :::image type="content" source="media/deploy-data-connector-agent-container/installation-status.png" alt-text="Screenshot of the health statuses of API-based collector agents on the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/installation-status.png":::
 
-    The table displays the agent name and health status for only those agents you deploy via the Azure portal.   
-    
+    The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line will not be displayed here.
+
+1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
+
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl). You can supply additional parameters to the script to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+   
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
 # [Azure portal](#tab/azure-portal/config-file)
