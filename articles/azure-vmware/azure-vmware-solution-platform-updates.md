@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 11/28/2023
+ms.date: 12/21/2023
 ---
 
 # What's new in Azure VMware Solution
@@ -15,7 +15,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 **VMware vSphere 8.0**
 
-VMware vSphere 8.0 is targted for rollout to Azure VMware Solution starting at the end of January.
+VMware vSphere 8.0 is targeted for rollout to Azure VMware Solution starting at the end of January 2024.
 
 **AV64 SKU**
 

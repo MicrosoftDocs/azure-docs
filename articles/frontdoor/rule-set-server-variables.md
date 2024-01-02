@@ -6,7 +6,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 12/05/2022
+ms.date: 12/28/2023
 ms.author: duau
 ---
 
@@ -16,7 +16,7 @@ Rule set server variables provide access to structured information about the req
 
 When you use [Rule set match conditions](rules-match-conditions.md), server variables are available as match conditions so that you can identify requests with specific properties.
 
-When you use [Rule set actions](front-door-rules-engine-actions.md), you can use server variables to dynamically change the request and response headers, and rewrite URLs, paths, and query strings, for example, when a new page load or when a form is posted.
+When you use [Rule set actions](front-door-rules-engine-actions.md), you can use server variables to dynamically change the request and response headers, and rewrite URLs, paths, and query strings, for example, when a new page load or when a form gets posted.
 
 > [!NOTE]
 > Server variables are available with Azure Front Door Standard and Premium tiers.
@@ -32,12 +32,12 @@ When you use [Rule set actions](front-door-rules-engine-actions.md), you can use
 | `geo_country`    | Indicates the requester's country/region of origin through its country/region code. <br/> To access this server variable in a match condition, use [Remote address](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#remote-address) and configure the *Operator* to *Geo Match* or *Geo Not Match*.|
 | `http_method`    | The method used to make the URL request, such as `GET` or `POST`.<br/> To access this server variable in a match condition, use [Request method](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#request-method).|
 | `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`.<br/> To access this server variable in a match condition, use [HTTP version](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#http-version).|
-| `query_string`   | The list of variable/value pairs that follows the "?" in the requested URL.<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam`.<br/> To access this server variable in a match condition, use [Query string](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#query-string).|
+| `query_string`   | The list of variable/value pairs that follows the `?` in the requested URL.<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value is `id=123&title=fabrikam`.<br/> To access this server variable in a match condition, use [Query string](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#query-string).|
 | `request_scheme` | The request scheme: `http` or `https`.<br/> To access this server variable in a match condition, use [Request protocol](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#request-protocol).|
-| `request_uri`    | The full original request URI (with arguments).<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam`.<br/> To access this server variable in a match condition, use [Request URL](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#request-url).|
+| `request_uri`    | The full original request URI (with arguments).<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value is `/article.aspx?id=123&title=fabrikam`.<br/> To access this server variable in a match condition, use [Request URL](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#request-url).|
 | `ssl_protocol`   | The protocol of an established TLS connection.<br/> To access this server variable in a match condition, use [SSL protocol](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#ssl-protocol).|
 | `server_port`    | The port of the server that accepted a request.<br/> To access this server variable in a match condition, use [Server port](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#server-port).|
-| `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments or leading slash.<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `url_path` value will be `article.aspx`.<br/> To access this server variable in a match condition, use [Request path](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#request-path).|
+| `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments or leading slash.<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `url_path` value is `article.aspx`.<br/> To access this server variable in a match condition, use [Request path](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#request-path).|
 
 ## Server variable format 
 

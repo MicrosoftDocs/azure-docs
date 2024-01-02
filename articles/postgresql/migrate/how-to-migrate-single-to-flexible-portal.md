@@ -14,6 +14,9 @@ ms.custom: references_regions, seo-lt-2023
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
+>[!NOTE]
+> Before you begin, it is highly recommended to go through some of the [best practices to sensure a seamless migration experience](best-practices-seamless-migration-single-to-flexible.md)
+
 You can migrate an instance of Azure Database for PostgreSQL – Single Server to Azure Database for PostgreSQL – Flexible Server by using the Azure portal. In this tutorial, we perform migration of a sample database from an Azure Database for PostgreSQL single server to a PostgreSQL flexible server using the Azure portal.
 
 In this tutorial, you learn to:
@@ -24,7 +27,7 @@ In this tutorial, you learn to:
 > * Configure the migration task
 > * Monitor the migration
 > * Cancel the migration
-> * Migration best practices
+> * Conclusion
 
 ## Configure your Azure Database for PostgreSQL Flexible Server
 
@@ -93,7 +96,9 @@ The first tab is **Setup**. Just in case you missed it, allowlist necessary exte
 
 It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform pre-migration validations before running the migration. To learn more about the pre-migration validation refer to this [documentation](./concepts-single-to-flexible.md#pre-migration-validations).
 
-**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option. Online migration is currently supported in limited regions - India Central, India South, Australia Southeast and South East Asia.
+**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option.  Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+
+:::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
 
 If **Online** migration is selected, it requires Logical replication to be turned on in the source Single server. If it's not turned on, the migration tool automatically turns on logical replication at the source Single server. Replication can also be set up manually under **Replication** tab in the Single server side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
 
@@ -203,7 +208,7 @@ You can see the results of validation under the **Validation** tab and monitor t
 ### Online migration
 
 > [!NOTE]  
-> Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
+>  Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia.
 
 In case of both **Migrate** as well as **Validate and Migrate**, completion of the Online migration requires another step - a Cutover action is required from the user. After the copy/clone of the base data is complete, the migration moves to `WaitingForUserAction` state and `WaitingForCutoverTrigger` substate. In this state, user can trigger cutover from the portal by selecting the migration.
 
@@ -247,6 +252,6 @@ You can cancel any ongoing validations or migrations. The workflow must be in th
 Canceling a validation stops any further validation activity and the validation moves to a **Canceled** state.
 Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server involved in a canceled migration.
 
-## Migration best practices
+## Conclusion
 
 For a successful end-to-end migration, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#post-migration). After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.

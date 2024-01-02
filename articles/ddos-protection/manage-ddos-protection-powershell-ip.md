@@ -69,7 +69,7 @@ $publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName My
 #Checks the status of the public IP address
 $protectionMode = $publicIp.DdosSettings.ProtectionMode
 
-#Returns the status of the pubic IP address
+#Returns the status of the public IP address
 $protectionMode
 
 ```

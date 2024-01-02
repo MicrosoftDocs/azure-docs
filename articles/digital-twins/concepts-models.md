@@ -51,6 +51,8 @@ Azure Digital Twins also supports using a mix of v2 and v3 models within the sam
 
 You can also migrate existing v2 models to v3. For instructions on how to do this, see [Convert v2 models to v3](how-to-manage-model.md#convert-v2-models-to-v3).
 
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+
 ## Model overview
 
 Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension *.json*. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There's also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).

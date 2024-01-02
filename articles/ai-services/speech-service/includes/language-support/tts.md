@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-| Locale (BCP-47) | Language | Text-to-speech voices |
+| Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |
 | `af-ZA` | Afrikaans (South Africa) | `af-ZA-AdriNeural`<sup>2</sup> (Female)<br/>`af-ZA-WillemNeural`<sup>2</sup> (Male) |
 | `am-ET` | Amharic (Ethiopia) | `am-ET-MekdesNeural`<sup>2</sup> (Female)<br/>`am-ET-AmehaNeural`<sup>2</sup> (Male) |
@@ -37,7 +37,7 @@ ms.author: eur
 | `da-DK` | Danish (Denmark) | `da-DK-ChristelNeural` (Female)<br/>`da-DK-JeppeNeural` (Male) |
 | `de-AT` | German (Austria) | `de-AT-IngridNeural` (Female)<br/>`de-AT-JonasNeural` (Male) |
 | `de-CH` | German (Switzerland) | `de-CH-LeniNeural` (Female)<br/>`de-CH-JanNeural` (Male) |
-| `de-DE` | German (Germany) | `de-DE-KatjaNeural` (Female)<br/>`de-DE-ConradNeural`<sup>1</sup> (Male)<br/>`de-DE-AmalaNeural` (Female)<br/>`de-DE-BerndNeural` (Male)<br/>`de-DE-ChristophNeural` (Male)<br/>`de-DE-ElkeNeural` (Female)<br/>`de-DE-GiselaNeural` (Female, Child)<br/>`de-DE-KasperNeural` (Male)<br/>`de-DE-KillianNeural` (Male)<br/>`de-DE-KlarissaNeural` (Female)<br/>`de-DE-KlausNeural` (Male)<br/>`de-DE-LouisaNeural` (Female)<br/>`de-DE-MajaNeural` (Female)<br/>`de-DE-RalfNeural` (Male)<br/>`de-DE-SeraphinaNeural` (Female)<br/>`de-DE-TanjaNeural` (Female) |
+| `de-DE` | German (Germany) | `de-DE-KatjaNeural` (Female)<br/>`de-DE-ConradNeural`<sup>1</sup> (Male)<br/>`de-DE-AmalaNeural` (Female)<br/>`de-DE-BerndNeural` (Male)<br/>`de-DE-ChristophNeural` (Male)<br/>`de-DE-ElkeNeural` (Female)<br/>`de-DE-GiselaNeural` (Female, Child)<br/>`de-DE-KasperNeural` (Male)<br/>`de-DE-KillianNeural` (Male)<br/>`de-DE-KlarissaNeural` (Female)<br/>`de-DE-KlausNeural` (Male)<br/>`de-DE-LouisaNeural` (Female)<br/>`de-DE-MajaNeural` (Female)<br/>`de-DE-RalfNeural` (Male)<br/>`de-DE-SeraphinaNeural` (Female)<br/>`de-DE-TanjaNeural` (Female)<br/>`de-DE-FlorianMultilingualNeural`<sup>1</sup> (Male)<br/>`de-DE-SeraphinaMultilingualNeural`<sup>1</sup> (Female) |
 | `el-GR` | Greek (Greece) | `el-GR-AthinaNeural` (Female)<br/>`el-GR-NestorasNeural` (Male) |
 | `en-AU` | English (Australia) | `en-AU-NatashaNeural` (Female)<br/>`en-AU-WilliamNeural` (Male)<br/>`en-AU-AnnetteNeural` (Female)<br/>`en-AU-CarlyNeural` (Female)<br/>`en-AU-DarrenNeural` (Male)<br/>`en-AU-DuncanNeural` (Male)<br/>`en-AU-ElsieNeural` (Female)<br/>`en-AU-FreyaNeural` (Female)<br/>`en-AU-JoanneNeural` (Female)<br/>`en-AU-KenNeural` (Male)<br/>`en-AU-KimNeural` (Female)<br/>`en-AU-NeilNeural` (Male)<br/>`en-AU-TimNeural` (Male)<br/>`en-AU-TinaNeural` (Female) |
 | `en-CA` | English (Canada) | `en-CA-ClaraNeural` (Female)<br/>`en-CA-LiamNeural` (Male) |
@@ -51,7 +51,7 @@ ms.author: eur
 | `en-PH` | English (Philippines) | `en-PH-RosaNeural` (Female)<br/>`en-PH-JamesNeural` (Male) |
 | `en-SG` | English (Singapore) | `en-SG-LunaNeural` (Female)<br/>`en-SG-WayneNeural` (Male) |
 | `en-TZ` | English (Tanzania) | `en-TZ-ImaniNeural` (Female)<br/>`en-TZ-ElimuNeural` (Male) |
-| `en-US` | English (United States) | `en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AndrewNeural` (Male)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-BrianNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EmmaNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural` (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male)<br/>`en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-BlueNeural`<sup>1</sup> (Neutral)<br/>`en-US-JennyMultilingualV2Neural`<sup>1,3</sup> (Female)<br/>`en-US-RyanMultilingualNeural`<sup>1,3</sup> (Male) |
+| `en-US` | English (United States) | `en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyMultilingualV2Neural`<sup>3</sup> (Female)<br/>`en-US-RyanMultilingualNeural`<sup>3</sup> (Male)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AndrewNeural` (Male)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-BrianNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EmmaNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural` (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male)<br/>`en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-AndrewMultilingualNeural`<sup>1,3</sup> (Male)<br/>`en-US-AvaMultilingualNeural`<sup>1,3</sup> (Female)<br/>`en-US-AvaNeural`<sup>1</sup> (Female)<br/>`en-US-BlueNeural`<sup>1</sup> (Neutral)<br/>`en-US-BrianMultilingualNeural`<sup>1,3</sup> (Male)<br/>`en-US-EmmaMultilingualNeural`<sup>1,3</sup> (Female) |
 | `en-ZA` | English (South Africa) | `en-ZA-LeahNeural` (Female)<br/>`en-ZA-LukeNeural` (Male) |
 | `es-AR` | Spanish (Argentina) | `es-AR-ElenaNeural` (Female)<br/>`es-AR-TomasNeural` (Male) |
 | `es-BO` | Spanish (Bolivia) | `es-BO-SofiaNeural` (Female)<br/>`es-BO-MarceloNeural` (Male) |
@@ -83,7 +83,7 @@ ms.author: eur
 | `fr-BE` | French (Belgium) | `fr-BE-CharlineNeural` (Female)<br/>`fr-BE-GerardNeural` (Male) |
 | `fr-CA` | French (Canada) | `fr-CA-SylvieNeural` (Female)<br/>`fr-CA-JeanNeural` (Male)<br/>`fr-CA-AntoineNeural` (Male)<br/>`fr-CA-ThierryNeural` (Male) |
 | `fr-CH` | French (Switzerland) | `fr-CH-ArianeNeural` (Female)<br/>`fr-CH-FabriceNeural` (Male) |
-| `fr-FR` | French (France) | `fr-FR-DeniseNeural` (Female)<br/>`fr-FR-HenriNeural` (Male)<br/>`fr-FR-AlainNeural` (Male)<br/>`fr-FR-BrigitteNeural` (Female)<br/>`fr-FR-CelesteNeural` (Female)<br/>`fr-FR-ClaudeNeural` (Male)<br/>`fr-FR-CoralieNeural` (Female)<br/>`fr-FR-EloiseNeural` (Female, Child)<br/>`fr-FR-JacquelineNeural` (Female)<br/>`fr-FR-JeromeNeural` (Male)<br/>`fr-FR-JosephineNeural` (Female)<br/>`fr-FR-MauriceNeural` (Male)<br/>`fr-FR-VivienneNeural` (Female)<br/>`fr-FR-YvesNeural` (Male)<br/>`fr-FR-YvetteNeural` (Female) |
+| `fr-FR` | French (France) | `fr-FR-DeniseNeural` (Female)<br/>`fr-FR-HenriNeural` (Male)<br/>`fr-FR-AlainNeural` (Male)<br/>`fr-FR-BrigitteNeural` (Female)<br/>`fr-FR-CelesteNeural` (Female)<br/>`fr-FR-ClaudeNeural` (Male)<br/>`fr-FR-CoralieNeural` (Female)<br/>`fr-FR-EloiseNeural` (Female, Child)<br/>`fr-FR-JacquelineNeural` (Female)<br/>`fr-FR-JeromeNeural` (Male)<br/>`fr-FR-JosephineNeural` (Female)<br/>`fr-FR-MauriceNeural` (Male)<br/>`fr-FR-VivienneNeural` (Female)<br/>`fr-FR-YvesNeural` (Male)<br/>`fr-FR-YvetteNeural` (Female)<br/>`fr-FR-RemyMultilingualNeural`<sup>1</sup> (Male)<br/>`fr-FR-VivienneMultilingualNeural`<sup>1</sup> (Female) |
 | `ga-IE` | Irish (Ireland) | `ga-IE-OrlaNeural`<sup>2</sup> (Female)<br/>`ga-IE-ColmNeural`<sup>2</sup> (Male) |
 | `gl-ES` | Galician | `gl-ES-SabelaNeural`<sup>2</sup> (Female)<br/>`gl-ES-RoiNeural`<sup>2</sup> (Male) |
 | `gu-IN` | Gujarati (India) | `gu-IN-DhwaniNeural` (Female)<br/>`gu-IN-NiranjanNeural` (Male) |
@@ -127,7 +127,7 @@ ms.author: eur
 | `sl-SI` | Slovenian (Slovenia) | `sl-SI-PetraNeural` (Female)<br/>`sl-SI-RokNeural` (Male) |
 | `so-SO` | Somali (Somalia) | `so-SO-UbaxNeural`<sup>2</sup> (Female)<br/>`so-SO-MuuseNeural`<sup>2</sup> (Male) |
 | `sq-AL` | Albanian (Albania) | `sq-AL-AnilaNeural`<sup>2</sup> (Female)<br/>`sq-AL-IlirNeural`<sup>2</sup> (Male) |
-| `sr-LATN-RS` | Serbian (Latin, Serbia) | `sr-Latn-RS-NicholasNeural`<sup>1,2</sup> (Male)<br/>`sr-Latn-RS-SophieNeural`<sup>1,2</sup> (Female) |
+| `sr-LATN-RS` | Serbian (Latin, Serbia) | `sr-Latn-RS-NicholasNeural`<sup>2</sup> (Male)<br/>`sr-Latn-RS-SophieNeural`<sup>2</sup> (Female) |
 | `sr-RS` | Serbian (Cyrillic, Serbia) | `sr-RS-SophieNeural`<sup>2</sup> (Female)<br/>`sr-RS-NicholasNeural`<sup>2</sup> (Male) |
 | `su-ID` | Sundanese (Indonesia) | `su-ID-TutiNeural`<sup>2</sup> (Female)<br/>`su-ID-JajangNeural`<sup>2</sup> (Male) |
 | `sv-SE` | Swedish (Sweden) | `sv-SE-SofieNeural` (Female)<br/>`sv-SE-MattiasNeural` (Male)<br/>`sv-SE-HilleviNeural` (Female) |
@@ -139,7 +139,7 @@ ms.author: eur
 | `ta-SG` | Tamil (Singapore) | `ta-SG-VenbaNeural` (Female)<br/>`ta-SG-AnbuNeural` (Male) |
 | `te-IN` | Telugu (India) | `te-IN-ShrutiNeural` (Female)<br/>`te-IN-MohanNeural` (Male) |
 | `th-TH` | Thai (Thailand) | `th-TH-PremwadeeNeural` (Female)<br/>`th-TH-NiwatNeural` (Male)<br/>`th-TH-AcharaNeural` (Female) |
-| `tr-TR` | Turkish (Turkey) | `tr-TR-EmelNeural` (Female)<br/>`tr-TR-AhmetNeural` (Male) |
+| `tr-TR` | Turkish (Türkiye) | `tr-TR-EmelNeural` (Female)<br/>`tr-TR-AhmetNeural` (Male) |
 | `uk-UA` | Ukrainian (Ukraine) | `uk-UA-PolinaNeural` (Female)<br/>`uk-UA-OstapNeural` (Male) |
 | `ur-IN` | Urdu (India) | `ur-IN-GulNeural` (Female)<br/>`ur-IN-SalmanNeural` (Male) |
 | `ur-PK` | Urdu (Pakistan) | `ur-PK-UzmaNeural` (Female)<br/>`ur-PK-AsadNeural` (Male) |
@@ -147,7 +147,7 @@ ms.author: eur
 | `vi-VN` | Vietnamese (Vietnam) | `vi-VN-HoaiMyNeural` (Female)<br/>`vi-VN-NamMinhNeural` (Male) |
 | `wuu-CN` | Chinese (Wu, Simplified) | `wuu-CN-XiaotongNeural`<sup>2</sup> (Female)<br/>`wuu-CN-YunzheNeural`<sup>2</sup> (Male) |
 | `yue-CN` | Chinese (Cantonese, Simplified) | `yue-CN-XiaoMinNeural`<sup>1,2</sup> (Female)<br/>`yue-CN-YunSongNeural`<sup>1,2</sup> (Male) |
-| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)<br/>`zh-CN-YunjianNeural` (Male)<br/>`zh-CN-XiaoyiNeural` (Female)<br/>`zh-CN-YunyangNeural` (Male)<br/>`zh-CN-XiaochenNeural` (Female)<br/>`zh-CN-XiaohanNeural` (Female)<br/>`zh-CN-XiaomengNeural` (Female)<br/>`zh-CN-XiaomoNeural` (Female)<br/>`zh-CN-XiaoqiuNeural` (Female)<br/>`zh-CN-XiaoruiNeural` (Female)<br/>`zh-CN-XiaoshuangNeural` (Female, Child)<br/>`zh-CN-XiaoxuanNeural` (Female)<br/>`zh-CN-XiaoyanNeural` (Female)<br/>`zh-CN-XiaoyouNeural` (Female, Child)<br/>`zh-CN-XiaozhenNeural` (Female)<br/>`zh-CN-YunfengNeural` (Male)<br/>`zh-CN-YunhaoNeural` (Male)<br/>`zh-CN-YunxiaNeural` (Male)<br/>`zh-CN-YunyeNeural` (Male)<br/>`zh-CN-YunzeNeural` (Male)<br/>`zh-CN-XiaorouNeural`<sup>1</sup> (Female)<br/>`zh-CN-YunjieNeural`<sup>1</sup> (Male) |
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)<br/>`zh-CN-YunjianNeural` (Male)<br/>`zh-CN-XiaoyiNeural` (Female)<br/>`zh-CN-YunyangNeural` (Male)<br/>`zh-CN-XiaochenNeural` (Female)<br/>`zh-CN-XiaohanNeural` (Female)<br/>`zh-CN-XiaomengNeural` (Female)<br/>`zh-CN-XiaomoNeural` (Female)<br/>`zh-CN-XiaoqiuNeural` (Female)<br/>`zh-CN-XiaoruiNeural` (Female)<br/>`zh-CN-XiaoshuangNeural` (Female, Child)<br/>`zh-CN-XiaoxuanNeural` (Female)<br/>`zh-CN-XiaoyanNeural` (Female)<br/>`zh-CN-XiaoyouNeural` (Female, Child)<br/>`zh-CN-XiaozhenNeural` (Female)<br/>`zh-CN-YunfengNeural` (Male)<br/>`zh-CN-YunhaoNeural` (Male)<br/>`zh-CN-YunxiaNeural` (Male)<br/>`zh-CN-YunyeNeural` (Male)<br/>`zh-CN-YunzeNeural` (Male)<br/>`zh-CN-XiaochenMultilingualNeural`<sup>1</sup> (Female)<br/>`zh-CN-XiaorouNeural`<sup>1</sup> (Female)<br/>`zh-CN-XiaoxiaoDialectsNeural`<sup>1</sup> (Female)<br/>`zh-CN-YunjieNeural`<sup>1</sup> (Male)<br/>`zh-CN-YunyiMultilingualNeural`<sup>1</sup> (Male) |
 | `zh-CN-GUANGXI` | Chinese (Guangxi Accent Mandarin, Simplified) | `zh-CN-guangxi-YunqiNeural`<sup>1,2</sup> (Male) |
 | `zh-CN-henan` | Chinese (Zhongyuan Mandarin Henan, Simplified) | `zh-CN-henan-YundengNeural`<sup>2</sup> (Male) |
 | `zh-CN-liaoning` | Chinese (Northeastern Mandarin, Simplified) | `zh-CN-liaoning-XiaobeiNeural`<sup>1,2</sup> (Female)<br/>`zh-CN-liaoning-YunbiaoNeural`<sup>1,2</sup> (Male) |
@@ -162,4 +162,4 @@ ms.author: eur
 
 <sup>2</sup> [Phonemes](../../speech-synthesis-markup-pronunciation.md#phoneme-element), [custom lexicon](../../speech-synthesis-markup-pronunciation.md#custom-lexicon), and [visemes](../../speech-synthesis-markup-structure.md#viseme-element) aren't supported. For details about supported visemes, see [viseme locales](../../language-support.md?tabs=tts#viseme). 
 
-<sup>3</sup> For the multilingual voice the primary default locale is `en-US`. Additional locales are supported [using SSML](../../speech-synthesis-markup-voice.md#adjust-speaking-languages).
+<sup>3</sup> Those are TTS multilingual voices in Azure AI Speech listed under its primary locale. By default, all multilingual voices (except `en-US-JennyMultilingualNeural`) can speak in the language in primary locale of the input text without [using SSML](../../speech-synthesis-markup-voice.md#adjust-speaking-languages). However, you can still use the `<lang xml:lang>` element to adjust the speaking language for these voices to set preferred accent with non-primary locales such as British accent (`en-GB`) for English. 

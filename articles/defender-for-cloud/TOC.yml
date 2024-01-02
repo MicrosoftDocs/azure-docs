@@ -86,7 +86,7 @@
               href: tutorial-enable-container-aws.md
             - name: Protect your Google Cloud Platform (GCP) project containers
               href: tutorial-enable-container-gcp.md
-            - name: Enable Defender for Containers components
+            - name: Configure Defender for Containers components
               displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises,
                 azure arc, multicloud
               href: defender-for-containers-enable.md
@@ -109,9 +109,6 @@
     - name: Protect VMs
       displayName: manage, access, harden
       href: tutorial-protect-resources.md
-    - name: Investigate and respond to security alerts
-      displayName: triage, security, alerts, investigate,
-      href: tutorial-security-incident.md
     - name: Investigate the health of your resources
       displayName: health, resources, outstanding, security, issues,
       href: investigate-resource-health.md
@@ -394,7 +391,7 @@
           href: powershell-onboarding.md
     - name: Alerts, incidents, and threat reports
       items:
-        - name: Respond to security alerts
+        - name: Manage and respond to security alerts
           displayName: security alerts, alerts
           href: managing-and-responding-alerts.md
         - name: Create and manage alerts suppression rules
@@ -539,8 +536,8 @@
         - name: Enable just-in-time access on VMs
           displayName: jit, management, ports
           href: just-in-time-access-usage.md
-        - name: Manage secrets with agentless secret scanning
-          displayName: secrets, secret scanning, agentless
+        - name: Manage secrets with agentless secrets scanning
+          displayName: secrets, secrets scanning, agentless
           href: secret-scanning.md
         - name: Protect your endpoints with Defender for Cloud's integration with
             Microsoft Defender for Endpoint
