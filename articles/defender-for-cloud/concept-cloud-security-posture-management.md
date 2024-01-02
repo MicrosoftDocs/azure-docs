@@ -3,7 +3,7 @@ title: Cloud Security Posture Management (CSPM)
 description: Learn more about CSPM in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: ignite-2022, build-2023
-ms.date: 12/27/2023
+ms.date: 01/02/2024
 ---
 
 # Cloud security posture management (CSPM)
@@ -49,7 +49,11 @@ The following table summarizes each plan and their cloud availability.
 | EASM insights in network exposure | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | [Permissions management (Preview)](enable-permissions-management.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 
+
+Starting March 1, 2024, Defender CSPM must be enabled to have premium DevOps security capabilities which include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. Learn more about DevOps security [support and prerequisites](devops-support.md).
+
 Starting March 1, 2024, Defender CSPM must be enabled to have premium DevOps security capabilities that include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See DevOps security [support and prerequisites](devops-support.md) to learn more.
+
 
 ## Integrations (preview)
 
@@ -67,9 +71,29 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 
 - For subscriptions that use both Defender CSPM and Defender for Containers plans, free vulnerability assessment is calculated based on free image scans provided via the Defender for Containers plan, as summarized [in the Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
+- Defender CSPM protects all multicloud workloads, but billing is applied only on specific resources. The following tables list the billable resources when Defender CSPM is enabled on Azure subscriptions, AWS accounts, or GCP projects.
+
+    | Azure Service | Resource types | Exclusions |
+    |---|---|---|
+    | Compute | Microsoft.Compute/virtualMachines<br/>Microsoft.Compute/virtualMachineScaleSets/virtualMachines<br/>Microsoft.ClassicCompute/virtualMachines | - Deallocated VMs<br/>- Databricks VMs |
+    | Storage | Microsoft.Storage/storageAccounts | Storage accounts without blob containers or file shares |
+    | DBs | Microsoft.Sql/servers<br/>Microsoft.DBforPostgreSQL/servers<br/>Microsoft.DBforMySQL/servers<br/>Microsoft.Sql/managedInstances<br/>Microsoft.DBforMariaDB/servers<br/>Microsoft.Synapse/workspaces | --- |
+
+    | AWS Service | Resource types | Exclusions |
+    |---|---|---|
+    | Compute | EC2 instances |  Deallocated VMs |
+    | Storage | S3 Buckets | --- |
+    | DBs | RDS instances | --- |
+
+    | GCP Service | Resource types | Exclusions |
+    |---|---|---|
+    | Compute |  1. Google Compute instances<br/> 2. Google Instance Group | Instances with non-running states |
+    | Storage | Storage buckets | - Buckets from classes: ‘nearline’, ‘coldline’, ‘archive’<br/>- Buckets from regions other than: europe-west1, us-east1, us-west1, us-central1, us-east4, asia-south1, northamerica-northeast1 |
+    | DBs | Cloud SQL Instances | --- |
+
 ## Azure cloud support
 
-For commercial and national cloud coverage, review [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
+For commercial and national cloud coverage, review the [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
 
 ## Next steps
 
