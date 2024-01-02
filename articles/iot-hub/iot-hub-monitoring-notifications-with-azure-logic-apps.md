@@ -1,24 +1,24 @@
 ---
-title: IoT remote monitoring and notifications with Azure Logic App
+title: IoT monitoring and notifications with Azure Logic Apps
+titleSuffix: Azure IoT Hub
 description: Use Azure Logic Apps for IoT temperature monitoring on your IoT hub and automatically send email notifications to your mailbox for any anomalies detected.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/18/2019
-#I think this is out of date. I changed 'click' to select. --RobinShahan
 ---
 
 # IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox
 
 ![End-to-end diagram](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
 
-[Azure Logic Apps](../logic-apps/index.yml) can help you orchestrate workflows across on-premises and cloud services, one or more enterprises, and across various protocols. A logic app begins with a trigger, which is then followed by one or more actions that can be sequenced using built-in controls, such as conditions and iterators. This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. For example, the arrival of telemetry data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
+[Azure Logic Apps](../logic-apps/index.yml) can help you orchestrate workflows across on-premises and cloud services, multiple enterprises, and various protocols. A logic app begins with a trigger, which is then followed by actions that are sequenced using controls like conditions and iterators. This flexibility makes Logic Apps an ideal solution for IoT monitoring scenarios. For example, the arrival of telemetry data from a device at an IoT Hub endpoint can initiate logic app workflows to store the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
 
-In this article, you learn how to create a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications. The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to `true`; otherwise, it sets the property to `false`.
+In this article, you learn how to create a logic app that connects to your IoT hub for temperature monitoring and notifications. The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this alert property to `true`; otherwise, it sets the property to `false`.
 
-Messages arriving at your IoT hub look similar to the following, with the telemetry data contained in the body and the `temperatureAlert` property contained in the application properties (system properties aren't shown):
+Messages arriving at your IoT hub look similar to the following example, with the telemetry data contained in the body and the `temperatureAlert` property contained in the application properties (system properties aren't shown):
 
 ```json
 {
@@ -40,7 +40,7 @@ In this article, you set up routing on your IoT hub to send messages in which th
 
 ## Prerequisites
 
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
+* An IoT device connected to your IoT hub. You can use the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
 
   * An active Azure subscription.
   * An Azure IoT hub under your subscription.
