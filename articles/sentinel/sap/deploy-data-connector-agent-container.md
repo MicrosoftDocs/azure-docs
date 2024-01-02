@@ -1,6 +1,6 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications - deploy and configure the SAP data connector agent container
-description: This article shows you how to use the UI to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
+description: This article shows you how to use the Azure portal to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
@@ -12,12 +12,12 @@ ms.date: 01/02/2024
 
 This article shows you how to deploy the container that hosts the SAP data connector agent, and how to use it to create connections to your SAP systems. This two-step process is required to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel solution for SAP® applications.
 
-The recommended method to deploy the container and create connections to SAP systems is via the UI. This method is explained in the article, and also demonstrated in [this video on YouTube](https://www.youtube.com/watch?v=bg0vmUvcQ5Q). Also shown in this article is a way to accomplish these objectives by calling a *kickstart* script from the command line.
+The recommended method to deploy the container and create connections to SAP systems is via the Azure portal. This method is explained in the article, and also demonstrated in [this video on YouTube](https://www.youtube.com/watch?v=bg0vmUvcQ5Q). Also shown in this article is a way to accomplish these objectives by calling a *kickstart* script from the command line.
 
 Alternatively, you can deploy the data connector agent manually by issuing individual commands from the command line, as described in [this article](deploy-data-connector-agent-container-other-methods.md).
 
 > [!IMPORTANT]
-> Deploying the container and creating connections to SAP systems via the UI is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+> Deploying the container and creating connections to SAP systems via the Azure portal is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 ## Deployment milestones
 
@@ -50,7 +50,7 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 For the Microsoft Sentinel solution for SAP® applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
 
-The data connector agent runs as a container on a Linux virtual machine (VM). This VM can be hosted either in Azure, in a third-party cloud, or on-premises. We recommend that you install and configure this container using the Microsoft Sentinel portal in Azure ("the UI"); however, you can choose to deploy the container using a *kickstart* script, or to [deploy the container manually](deploy-data-connector-agent-container-other-methods.md?tabs=deploy-manually#deploy-the-data-connector-agent-container).
+The data connector agent runs as a container on a Linux virtual machine (VM). This VM can be hosted either in Azure, in a third-party cloud, or on-premises. We recommend that you install and configure this container using the Azure portal; however, you can choose to deploy the container using a *kickstart* script, or to [deploy the container manually](deploy-data-connector-agent-container-other-methods.md?tabs=deploy-manually#deploy-the-data-connector-agent-container).
 
 The agent connects to your SAP system to pull logs and other data from it, then sends those logs to your Microsoft Sentinel workspace. To do this, the agent has to authenticate to your SAP system&mdash;that's why you created a user and a role for the agent in your SAP system in the previous step. 
 
@@ -66,9 +66,9 @@ Ideally, your SAP configuration and authentication secrets can and should be sto
 
 - **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault. Select the [**Managed identity** tab](deploy-data-connector-agent-container-other-methods.md?tabs=managed-identity#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container using managed identity.
 
-    In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using an [Microsoft Entra registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a [**configuration file**](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container).
+    In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using an [Microsoft Entra ID registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a [**configuration file**](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container).
 
-- **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using an [Microsoft Entra registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). Select the [**Registered application** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
+- **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using an [Microsoft Entra ID registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). Select the [**Registered application** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
 
 - If for some reason a registered-application service principal can't be used, you can use a [**configuration file**](reference-systemconfig.md), though this is not preferred.
 
@@ -284,13 +284,13 @@ Create a new agent through the Azure portal, authenticating with a managed ident
 
     :::image type="content" source="media/deploy-data-connector-agent-container/installation-status.png" alt-text="Screenshot of the health statuses of API-based collector agents on the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/installation-status.png":::
 
-    The table displays the agent name and health status for agents you deploy via the UI only.   
+    The table displays the agent name and health status for only those agents you deploy via the Azure portal.   
     
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
 # [Azure portal](#tab/azure-portal/registered-application)
 
-Create a new agent through the Azure portal, authenticating with a Microsoft Entra registered application:
+Create a new agent through the Azure portal, authenticating with a Microsoft Entra ID registered application:
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
@@ -348,13 +348,13 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
 
     :::image type="content" source="media/deploy-data-connector-agent-container/installation-status.png" alt-text="Screenshot of the health statuses of API-based collector agents on the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/installation-status.png":::
 
-    The table displays the agent name and health status for agents you deploy via the UI only.   
+    The table displays the agent name and health status for only those agents you deploy via the Azure portal.   
     
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
 # [Azure portal](#tab/azure-portal/config-file)
 
-The UI can only be used with Azure Key Vault.
+The Azure portal can only be used with Azure Key Vault.
 
 To use the command line to create an agent using a config file, see [these instructions](?tabs=config-file%2Ccommand-line#deploy-the-data-connector-agent).
 
@@ -363,18 +363,17 @@ To use the command line to create an agent using a config file, see [these instr
 Create a new agent using the command line, authenticating with a managed identity:
 
 1. **Download and run the deployment Kickstart script**:
-    For public cloud, the command is:
+
+    For the Azure public commercial cloud, the command is:
+
     ```bash
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh
     ```
-    For Microsoft Azure operated by 21Vianet, the command is:
-    ```bash
-    wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh --cloud mooncake
-    ```
-    For Azure Government - US, the command is:
-    ```bash
-    wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh --cloud fairfax
-    ```
+
+    - For Microsoft Azure operated by 21Vianet, add `--cloud mooncake` to the end of the copied command.
+
+    - For Azure Government - US, add `--cloud fairfax` to the end of the copied command.
+
     The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
 1. **Follow the on-screen instructions** to enter your SAP and key vault details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
@@ -395,7 +394,7 @@ Create a new agent using the command line, authenticating with a managed identit
 
 # [Command line](#tab/command-line/registered-application)
 
-Create a new agent using the command line, authenticating with a Microsoft Entra registered application:
+Create a new agent using the command line, authenticating with a Microsoft Entra ID registered application:
 
 1. Run the following commands to **download the deployment Kickstart script** from the Microsoft Sentinel GitHub repository and **mark it executable**:
 
@@ -479,7 +478,7 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 1. Select which logs you want to pull from SAP, and select **Next: Review and create**.
 1. Review the settings you defined. Select **Previous** to modify any settings, or select **Deploy** to deploy the system.1. 
 
-    The system configuration you defined is deployed into Azure Key Vault. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the UI or via other methods. 
+    The system configuration you defined is deployed into Azure Key Vault. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the Azure portal or via other methods. 
 
     At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
 
