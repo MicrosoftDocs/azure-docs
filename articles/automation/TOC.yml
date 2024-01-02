@@ -16,6 +16,8 @@
   items:
     - name: Create Runtime environment - Azure portal
       href: quickstart-update-runbook-in-runtime-environment.md
+    - name: Create Runtime environment - Azure CLI
+      href: quickstart-cli-support-powershell-runbook-runtime-environment.md
     - name: Create Automation account - Azure portal
       href: quickstarts/create-azure-automation-account-portal.md
     - name: Enable managed identities - Azure portal

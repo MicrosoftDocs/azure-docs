@@ -27,9 +27,9 @@ An Azure Automation account in supported public region (except Central India, Ge
 
     :::image type="content" source="./media/manage-runtime-environment/runtime-environment-experience.png" alt-text="Screenshot shows how to try the runtime environment experience." lightbox="./media/manage-runtime-environment/runtime-environment-experience.png":::
 
-1. Here, under **Process Automation**, you have the **Runtime Environments (Preview)** and the **Modules** and **Python packages** under **Shared resources** are removed as the Runtime environment allows management of Packages required during Runbook execution.
+1. Under **Process Automation**, you have the **Runtime Environments (Preview)** and the **Modules** and **Python packages** under **Shared resources** are removed as the Runtime environment allows management of Packages required during Runbook execution.
 
-    :::image type="content" source="./media/manage-runtime-environment/view-menu-options.png" alt-text="Screenshot shows how the menu options when you switch to runtime environmet experience" lightbox="./media/manage-runtime-environment/view-menu-options.png":::
+    :::image type="content" source="./media/manage-runtime-environment/view-menu-options.png" alt-text="Screenshot shows how the menu options when you switch to runtime environmet experience." lightbox="./media/manage-runtime-environment/view-menu-options.png":::
 
 1. To revert to the old experience for managing Modules and Packages, select **Overview** in the left pane and then select **Switch to Old Experience**.
 
@@ -40,6 +40,9 @@ An Azure Automation account in supported public region (except Central India, Ge
 1. Go to your Automation account, under **Process Automation**, the **Runtime environments (preview)** is removed and under **Shared resources**, **Modules** and **Python packages** can be seen.
 
     :::image type="content" source="./media/manage-runtime-environment/view-menu-options-old-experience.png" alt-text="Screenshot shows the menu options when the default settings are restored." lightbox="./media/manage-runtime-environment/view-menu-options-old-experience.png":::
+
+> [!NOTE]
+> Runbook updates persist between new Runtime environment experience and old experience. Any changes done in the Runtime environment linked to a runbook would persist during runbook execution in old experience.
 
 
 ## Manage Runtime environment
@@ -361,7 +364,7 @@ All existing runbooks in your Azure Automation account would be automatically li
 
 ### Test update of Runbook linked to Runtime environment
 
-You can update runbooks by changing the Runtime environment linked to that runbook. We recommend you to test runbook execution before publishing the changes. It is to ensure the runbook works as expected. 
+You can update runbooks by changing the Runtime environment linked to that runbook. We recommend you to test runbook execution before publishing the changes. It's to ensure the runbook works as expected. 
 
 To test runbook execution before publishing Runtime environment changes, follow these steps:
 

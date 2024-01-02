@@ -1,23 +1,23 @@
 ---
 title: Add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environment
 titleSuffix: Azure Automation
-description: This article shows how add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environment.
+description: This article shows how to add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environment.
 services: automation
-ms.date: 12/22/2023
+ms.date: 01/02/2024
 ms.topic: conceptual
 ---
 
-# Run Azure CLI in PowerShell 7.2 runbooks in Runtime environment
+# Run Azure CLI commands 7.2 runbooks
 
-Using the Runtime environment, you can run Azure CLI commands in PowerShell 7.2 runbooks.
+You can run Azure CLI commands in runbooks linked with PowerShell 7.2 Runtime environment.
 
 > [!NOTE]
 > Azure CLI commands version 2.52.0 are available as a default package in PowerShell 7.2 Runtime environment.
 
 ## Prerequisites
 
- 1. An Azure Automation account.
- 1. A runbook in Azure Automation using the Azure portal or PowerShell.
+ - An Azure Automation account (in any supported Public regions except Central India, Germany North, Italy North, Israel Central, Poland Central, UAE Central, and Government clouds).
+ 
  
 ## Create Runtime environment
 
@@ -26,22 +26,34 @@ Using the Runtime environment, you can run Azure CLI commands in PowerShell 7.2 
 1. On **Basics** tab, provide the following details:
     1. Provide **Name** for the Runtime environment. It must begin with alphabet and can contain only alphabets, numbers, underscores, and dashes.  
     1. From the **Language** dropdown list, select  **PowerShell**.
-    1. In **Runtime version** for scripting language, select 7.2 (preview).
+    1. In **Runtime version** for scripting language, select 7.2
     1. Provide appropriate **Description**.
-1. On **Packages** tab, in the **Package version** dropdown list, select 8.0.0
-1. Select **+Add from gallery** to add a module from gallery and select **Next**.
+1. On **Packages** tab, in the **Package version** dropdown list, you would see **Az version 8.3** and **Azure CLI version 2.52.0** already present.
+1. Select **+Add from gallery** to add more packages from gallery and select **Next**.
 1. On **Review + create** tab, review the entries and select **Create**.
 
    A notification appears to confirm that a runtime environment is successfully created.
 
-## Update Runtime environment of runbook
+## Create Runbook
 
-1. In the **Automation account | Runbooks** page, select **Update**.
-1. In the **Update Runtime Environment** pop-up window, select **Runtime environment** to view the list of compatible runtime environments that you can link to the runbook. Here, select the Runtime environment - PowerShell 7.2 (preview) that you created in [Runtime environment](#create-runtime-environment).
+You can create a new PowerShell runbook that supports Azure CLI commands and is associated with PowerShell 7.2 Runtime environment.
 
-   In the **Automation | Runbooks** page, you can view the details under the **Runtime environment** column.
+To create a runbook, follow these steps:
 
+In your Automation account, under **Process Automation**, select **Runbooks**.
+1. Select **Create**.
+1. In the **Basics** tab, you can either create a new runbook or upload a file from your local computer or from PowerShell gallery.
+   1. Provide a **Name** for the runbook. It must begin with a letter and can contain only letters, numbers, underscores, and dashes.
+   1. From the **Runbook type** dropdown, select the type of runbook that you want to create.
+   1. Select PowerShell 7.2 Runtime environment created earlier.
+   1. Provide appropriate **Description**.
+   
+      :::image type="content" source="./media/manage-runtime-environment/create-runbook.png" alt-text="Screenshot shows how to create runbook in runtime environment." lightbox="./media/manage-runtime-environment/create-runbook.png":::
+
+1. Add runbook code on the **Edit Runbook page** and select **Save**.
+ 
+1. **Test** runbook execution in Test pane. After you confirm the results, select **Publish** to publish the runbook and execute it.
  
 ## Next steps
 
-1. See [manage-runtime-environment](automation-manage-send-joblogs-log-analytics.md) to view the various operations through portal and REST API.
+1. See [manage runtime environment](automation-manage-send-joblogs-log-analytics.md) to view the various operations through portal and REST API.
