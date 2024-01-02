@@ -29,7 +29,7 @@ To use an Azure Virtual Network when creating a workspace through the Azure port
 1. In the __Workspace Outbound access__ section, select __Use my own virtual network__.
 1. Continue to create the workspace as normal.
 
-## Does not have authorization to perform action 'Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read'
+## Does not have authorization to perform action 'Microsoft.MachineLearningServices<br/> /workspaces/privateEndpointConnections/read'
 
 When you create a managed virtual network, the operation can fail with an error similar to the following text:
 

@@ -6,7 +6,7 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/05/2023
 ms.author: banders
 ---
