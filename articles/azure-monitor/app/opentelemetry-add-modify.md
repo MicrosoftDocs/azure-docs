@@ -2224,7 +2224,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     class SpanFilteringProcessor(SpanProcessor):
     
         # Prevents exporting spans from internal activities.
-        def on_start(self, span):
+        def on_start(self, span, parent_context):
             # Check if the span is an internal activity.
             if span._kind is SpanKind.INTERNAL:
                 # Create a new span context with the following properties:
@@ -2237,7 +2237,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
                     span.context.trace_id,
                     span.context.span_id,
                     span.context.is_remote,
-                    TraceFlags.DEFAULT,
+                    TraceFlags(TraceFlags.DEFAULT),
                     span.context.trace_state,
                 )
     
