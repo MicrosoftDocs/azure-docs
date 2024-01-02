@@ -151,7 +151,7 @@ Search explorer accepts text strings as input and then vectorizes the text for v
 
 1. Select **JSON view** so that you can enter text for your vector query in the **text** vector query parameter. 
 
-   :::image type="content" source="media/search-get-started-portal-import-vectors/search-results.png" alt-text="Screenshot of search results.":::
+   :::image type="content" source="media/search-get-started-portal-import-vectors/select-json-view.png" alt-text="Screenshot of JSON selector.":::
 
    This wizard offers a default query that issues a vector query on the "vector" field, returning the 5 nearest neighbors. If you opted to hide vector values, your default query includes a "select" statement that excludes the vector field from search results.
 
@@ -172,6 +172,8 @@ Search explorer accepts text strings as input and then vectorizes the text for v
 1. Replace the text `"*"` with a question related to health plans, such as *"which plan has the lowest deductible"*.
 
 1. Select **Search** to run the query.
+
+   :::image type="content" source="media/search-get-started-portal-import-vectors/search-results.png" alt-text="Screenshot of search results.":::
 
    You should see 5 matches, where each document is a chunk of the original PDF. The title field shows which PDF the chunk comes from.
 
