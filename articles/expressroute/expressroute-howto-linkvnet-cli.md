@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Link a VNet to an ExpressRoute circuit - Azure CLI'
-description: This tutorial shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure CLI.
+title: 'Link a VNet to an ExpressRoute circuit - Azure CLI'
+description: This article shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure CLI.
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: duau
 ms.custom: template-tutorial, devx-track-azurecli
 ---
-# Tutorial: Connect a virtual network to an ExpressRoute circuit using Azure CLI
+# Connect a virtual network to an ExpressRoute circuit using Azure CLI
 
-This tutorial shows you how to link virtual networks (VNets) to Azure ExpressRoute circuits using Azure CLI. To link using Azure CLI, the virtual networks must be created using the Resource Manager deployment model. They can either be in the same subscription, or part of another subscription. If you want to use a different method to connect your VNet to an ExpressRoute circuit, you can select an article from the following list:
+This article shows you how to link virtual networks (VNets) to Azure ExpressRoute circuits using Azure CLI. To link using Azure CLI, the virtual networks must be created using the Resource Manager deployment model. They can either be in the same subscription, or part of another subscription. If you want to use a different method to connect your VNet to an ExpressRoute circuit, you can select an article from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -21,13 +21,6 @@ This tutorial shows you how to link virtual networks (VNets) to Azure ExpressRou
 > 
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
-
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Connect a virtual network in the same subscription to a circuit
-> - Connect a virtual network in a different subscription to a circuit
-> - Modify a virtual network connection
-> - Configure ExpressRoute FastPath
 
 ## Prerequisites
 
