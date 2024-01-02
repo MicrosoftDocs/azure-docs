@@ -1615,18 +1615,18 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Start load test (Azure load testing)
+## Azure Load Testing: Start load test
 	
 | Property  | Value |
 | ---- | --- |
 | Capability name | Start-1.0 |
 | Target type | Microsoft-AzureLoadTest |
-| Description | Starts a load test (from Azure load testing) based on the provided load test ID. |
-| Prerequisites | A load test with a valid load test ID must be created in the Azure load testing service. |
+| Description | Starts a load test (from Azure Load Testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the [Azure Load Testing service](../load-testing/quickstart-create-and-run-load-test.md). |
 | Urn | urn:csci:microsoft:azureLoadTest:start/1.0 |
 | Fault type | Discrete. |
 | Parameters (key, value) |     |    
-| testID | The ID of a specific load test created in the Azure load testing service. |
+| testID | The ID of a specific load test created in the Azure Load Testing service. |
 
 ### Sample JSON
 
@@ -1649,18 +1649,18 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Stop load test (Azure load testing)
+## Azure Load Testing: Stop load test
 	
 | Property  | Value |
 | ---- | --- |
 | Capability name | Stop-1.0 |
 | Target type | Microsoft-AzureLoadTest |
-| Description | Stops a load test (from Azure load testing) based on the provided load test ID. |
-| Prerequisites | A load test with a valid load test ID must be created in the Azure load testing service. |
+| Description | Stops a load test (from Azure Load Testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the [Azure Load Testing service](../load-testing/quickstart-create-and-run-load-test.md). |
 | Urn | urn:csci:microsoft:azureLoadTest:stop/1.0 |
 | Fault type | Discrete. |
 | Parameters (key, value) |     |    
-| testID | The ID of a specific load test created in the Azure load testing service. |
+| testID | The ID of a specific load test created in the Azure Load Testing service. |
 
 ### Sample JSON
 
@@ -1682,6 +1682,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
   ]
 }
 ```
+
 ## Service Bus: Change Queue State
 	
 | Property  | Value |
