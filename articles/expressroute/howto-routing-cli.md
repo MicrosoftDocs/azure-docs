@@ -182,7 +182,7 @@ This section helps you create, get, update, and delete the Azure private peering
 ### To create Azure private peering
 
 1. Install the latest version of Azure CLI.
-1. 
+
    ```azurecli
    az login
    ```
