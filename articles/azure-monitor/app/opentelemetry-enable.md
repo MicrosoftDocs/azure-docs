@@ -187,6 +187,9 @@ Java autoinstrumentation is enabled through configuration changes; no code chang
 Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.19.jar"` to your application's JVM args.
 
 > [!TIP]
+> Sampling is enabled by default at a rate of 5 requests per second, aiding in cost management. Telemetry data may be missing in scenarios exceeding this rate. For more information on modifying sampling configuration, see [sampling overrides](./java-standalone-sampling-overrides.md).
+
+> [!TIP]
 > For scenario-specific guidance, see [Get Started (Supplemental)](./java-get-started-supplemental.md).
 
 > [!TIP]
@@ -283,10 +286,13 @@ Run your application and open your **Application Insights Resource** tab in the 
 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of the Application Insights Overview tab with server requests and server response time highlighted.":::
 
-You've now enabled Application Insights for your application. All the following steps are optional and allow for further customization.
+Application Insights is now enabled for your application. All the following steps are optional and allow for further customization.
 
 > [!IMPORTANT]
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](opentelemetry-configuration.md#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
+
+> [!TIP]
+> Sampling is enabled by default at a rate of 5 requests per second, aiding in cost management. Telemetry data may be missing in scenarios exceeding this rate. For more information on modifying sampling configuration, see [sampling overrides](./java-standalone-sampling-overrides.md).
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
