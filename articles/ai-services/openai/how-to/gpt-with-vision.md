@@ -101,10 +101,7 @@ The API response should look like the following.
     ],
     "choices": [
         {
-            "finish_details": {
-                "type": "stop",
-                "stop": "<|fim_suffix|>"
-            },
+            "finish_reason":"stop",
             "index": 0,
             "message": {
                 "role": "assistant",
@@ -138,12 +135,10 @@ The API response should look like the following.
 }
 ```
 
-Every response includes a `"finish_details"` field. The subfield `"type"` has the following possible values:
+Every response includes a `"finish_reason"` field. It has the following possible values:
 - `stop`: API returned complete model output.
-- `max_tokens`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
+- `length`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
 - `content_filter`: Omitted content due to a flag from our content filters.
-
-If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
 ## Use Vision enhancement with images
 
@@ -231,11 +226,7 @@ The chat responses you receive from the model should now include enhanced inform
     "choices":
     [
         {
-            "finish_details":
-            {
-                "type": "stop",
-                "stop": "<|fim_suffix|>"
-            },
+            "finish_reason":"stop",
             "index": 0,
             "message":
             {
@@ -275,12 +266,10 @@ The chat responses you receive from the model should now include enhanced inform
 }
 ```
 
-Every response includes a `"finish_details"` field. The subfield `"type"` has the following possible values:
+Every response includes a `"finish_reason"` field. It has the following possible values:
 - `stop`: API returned complete model output.
-- `max_tokens`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
+- `length`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
 - `content_filter`: Omitted content due to a flag from our content filters.
-
-If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
 ## Use Vision enhancement with video
 
@@ -369,11 +358,7 @@ The chat responses you receive from the model should include information about t
     "choices":
     [
         {
-            "finish_details":
-            {
-                "type": "stop",
-                "stop": "<|fim_suffix|>"
-            },
+            "finish_reason":"stop",
             "index": 0,
             "message":
             {
@@ -391,12 +376,10 @@ The chat responses you receive from the model should include information about t
 }
 ```
 
-Every response includes a `"finish_details"` field. The subfield `"type"` has the following possible values:
+Every response includes a `"finish_reason"` field. It has the following possible values:
 - `stop`: API returned complete model output.
-- `max_tokens`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
+- `length`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
 - `content_filter`: Omitted content due to a flag from our content filters.
-
-If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
 ## Detail parameter settings in image processing: Low, High, Auto  
 
