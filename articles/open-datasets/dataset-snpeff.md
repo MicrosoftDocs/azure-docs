@@ -35,7 +35,7 @@ West Central US: 'https://datasetsnpeff-secondary.blob.core.windows.net/dataset'
 [SAS Token](../storage/common/storage-sas-overview.md): sv=2019-10-10&st=2020-09-01T00%3A00%3A00Z&se=2050-09-01T00%3A00%3A00Z&si=prod&sr=c&sig=isafOa9tGnYBAvsXFUMDGMTbsG2z%2FShaihzp7JE5dHw%3D
 
 ## Use Terms
-Data is available without restrictions. More information and citation details, see [Accessing and using data in ClinVar]().
+Data is available without restrictions. More information and citation details, see [Accessing and using data in ClinVar](https://pcingola.github.io/SnpEff/snpeff/introduction/).
 
 ## Contact
 
