@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 ---
 
@@ -107,6 +108,10 @@ You can also customize the environment used to run this flow.
 - You can easily customize the environment by adding packages in `requirements.txt` file in the flow folder. After you add more packages in this file, you can choose either save and install or save only. Save and install will trigger the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install. Save only will only save the `requirements.txt` file, you can install the packages later by yourself.
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of save and install packages for automatic runtime on flow page. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
+
+> [!NOTE]
+> You can change the location and even file name of `requirements.txt` by change it in `flow.dag.yaml` file in flow folder as well.
+> Please don't pin version of promptflow and promptflow-tools in `requirements.txt`, as we already include them in runtime base image.
 
 #### Add packages in private feed in Azure DevOps
 
