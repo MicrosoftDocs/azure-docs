@@ -146,7 +146,6 @@ Learn more about features that you can use to optimize your experience and accel
 For more information, see the following resources:
 
 - [Cost Management - Azure Blog](https://azure.microsoft.com/blog/tag/cost-management/)
-- [Microsoft Cost Management – YouTube](https://www.youtube.com/@AzureCostManagement)
 
 ## Establish governance for your new MCA
 
@@ -283,7 +282,6 @@ Learn more about features that can use to optimize your experience and accelerat
 For more information, see the following resources:
 
 - [Cost Management - Azure Blog](https://azure.microsoft.com/blog/tag/cost-management/)
-- [Microsoft Cost Management - YouTube](https://www.youtube.com/@AzureCostManagement)
 
 ## Establish governance after migration to MCA
 
