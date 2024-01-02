@@ -66,18 +66,18 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 
 - For subscriptions that use both Defender CSPM and Defender for Containers plans, free vulnerability assessment is calculated based on free image scans provided via the Defender for Containers plan, as summarized [in the Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
-- Defender CSPM protects all multicloud workloads, but billing is applied only on specific resources. The following tables list the billable resources when CSPM is enabled on Azure subscriptions, AWS accounts, or GCP projects.
+- Defender CSPM protects all multicloud workloads, but billing is applied only on specific resources. The following tables list the billable resources when Defender CSPM is enabled on Azure subscriptions, AWS accounts, or GCP projects.
 
-    | Azure Service | Resource types | Notes |
+    | Azure Service | Resource types | Exclusions |
     |---|---|---|
-    | Compute | Microsoft.Compute/virtualMachines<br/>Microsoft.Compute/virtualMachineScaleSets/virtualMachines<br/>Microsoft.ClassicCompute/virtualMachines | **Including**:<br/>- AKS nodes<br/><br/>**Excluding**:<br/>- Deallocated VMs<br/>- Databricks |
-    | Storage | Microsoft.Storage/storageAccounts | **Including**:<br/>- only storage accounts with blob containers or file shares |
+    | Compute | Microsoft.Compute/virtualMachines<br/>Microsoft.Compute/virtualMachineScaleSets/virtualMachines<br/>Microsoft.ClassicCompute/virtualMachines | - Deallocated VMs<br/>- Databricks VMs |
+    | Storage | Microsoft.Storage/storageAccounts | Storage accounts without blob containers or file shares |
     | DBs | Microsoft.Sql/servers<br/>Microsoft.DBforPostgreSQL/servers<br/>Microsoft.DBforMySQL/servers<br/>Microsoft.Sql/managedInstances<br/>Microsoft.DBforMariaDB/servers<br/>Microsoft.Synapse/workspaces | --- |
 
     | AWS Service | Resource types | Notes |
     |---|---|---|
-    | Compute | EC2/instance | **Including**:<br/>- EKS nodes<br/><br/>**Excluding**:<br/>- Deallocated VMs |
-    | Storage | S3/Bucket | ---|
+    | Compute | EC2 instances |  Deallocated VMs |
+    | Storage | S3 Buckets | ---|
     | DBs | RDS.instance| ---|
 
     | GCP Service | Resource types | Notes |
