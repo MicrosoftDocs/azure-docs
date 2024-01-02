@@ -26,9 +26,6 @@ There will be no engine version changes in this maintenance update.
 ### [Audit Log Improvement](../concepts-audit-logs.md)
 - In alignment with our users' expectations for the audit log, we have introduced wildcard support for audit log usernames and added connection status for connection logs. These modifications are now part of both the engine and fluent-bit components.
 
-### Engine Improvement
-- Enable new memory layout on Mariner
-
 ## Known Issues Fix:
 ### Support Data-in Replication in Major Version Upgrade
 - During an upgrade from 5.7 to 8.0, data-in replication encounters issues due to a known bug in the MySQL community. With this January 2024 maintenance, we have addressed this concern, enabling data-in replication support for servers upgraded from version 5.7.
