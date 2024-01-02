@@ -40,6 +40,8 @@
     items:
     - name: Deliver ESUs for SCVMM VMs through Arc
       href: deliver-esus-for-system-center-virtual-machine-manager-vms.md
+  - name: Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
+    href: enable-virtual-hardware-scvmm.md
   - name: Administer
     items:
     - name: Administer Arc-enabled SCVMM
