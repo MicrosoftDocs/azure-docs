@@ -19,7 +19,7 @@ To make changes in the Azure portal:
 
 1. Select **Configuration** from the menu.
 
-   ![Advisor configuration menu](./media/view-recommendations/configuration.png)
+    :::image type="content" source="./media/view-recommendations/configuration.png" alt-text="Screenshot of Azure Advisor showing configuration pane.":::
 
 1. Check the box in the **Include** column for any subscriptions or resource groups to receive Advisor recommendations. If the box is disabled, you may not have permission to make a configuration change on that subscription or resource group. Learn more about [permissions in Azure Advisor](permissions.md).
 
@@ -27,9 +27,12 @@ To make changes in the Azure portal:
 
 ## Filtering your view in the Azure portal
 
-Configuration settings remain active until changed. If you want to limit the view of recommendations for a single viewing, you can use the drop downs provided at the top of the Advisor panel. From the Overview, High Availability, Security, Performance, Cost, and All Recommendation panels, you can select the Subscriptions, Resource Types, and recommendation status that you want to see.
+Configuration settings remain active until changed. If you want to limit the view of recommendations for a single viewing, you can use the drop downs provided at the top of the Advisor panel. You can filter recommendations by subscription, resource group, workload, resource type, recommendation status and impact. These filters are available for Overview, Score, Cost, Security, Reliability, Operational Excellence, Performance and All Recommendations pages.
 
    :::image type="content" source="./media/view-recommendations/filtering.png" alt-text="Screenshot of Azure Advisor showing filtering options.":::
+
+> [!NOTE]
+> Contact your account team to add new workloads to the workload filter or edit workload names.   
 
 ## Dismissing and postponing recommendations
 
