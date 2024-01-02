@@ -7,7 +7,7 @@ ms.date: 01/02/2024
 ms.topic: conceptual
 ---
 
-# Run Azure CLI commands 7.2 runbooks
+# Run Azure CLI commands in PowerShell 7.2 runbooks
 
 You can run Azure CLI commands in runbooks linked with PowerShell 7.2 Runtime environment.
 
