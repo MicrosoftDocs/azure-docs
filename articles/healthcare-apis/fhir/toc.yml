@@ -63,7 +63,7 @@ items:
     - name: Da Vinci Plan Net
       href: davinci-plan-net.md
 - name: Search
-  expanded: true
+  expanded: false
   items:
     - name: FHIR search overview
       href: overview-of-search.md
@@ -74,7 +74,7 @@ items:
     - name: Search examples
       href: search-samples.md
 - name: FHIR operations
-  expanded: true
+  expanded: false
   items:
     - name: $convert-data
       expanded: false

@@ -1,6 +1,6 @@
 ---
 title: Enable single sign-on for the FHIR service by using Azure Active Directory B2C
-description: Learn how to enable single sign-on for the FHIR service in Azure Health Data Services. Set up an Azure B2C tenant, deploy the FHIR service, and validate the setup.
+description: Learn how to enable single sign-on for the FHIR service in Azure Health Data Services by using Azure Active Directory as an identity provider. Set up an Azure B2C tenant, deploy the FHIR service, and validate the setup.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -179,7 +179,7 @@ The B2C resource application handles authentication requests from your healthcar
 
    :::image type="content" source="media/b2c-setup/b2c-application-api.png" alt-text="Screenshot showing B2C application API" lightbox="media/b2c-setup/b2c-application-api.png":::
 
-1. On the left pane, select **API permissions**.
+1. On the left pane, choose **API permissions**.
 
 1. Choose  **+ Add a permission**.
 
