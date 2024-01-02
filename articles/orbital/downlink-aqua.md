@@ -173,7 +173,7 @@ To receive antenna telemetry during contacts with your selected public satellite
    | **Name** | Enter **[Satellite_Name]_Downlink**, e.g., Aqua_Downlink. |
    | **Region** | Select **West US 2**. |
    | **Minimum viable contact duration** | Enter **PT1M**. |
-   | **Minimum elevation** | Enter **5.0**. |
+   | **Minimum elevation** | Enter **15.0**. |
    | **Auto track configuration** | Select **X-band**. |
    | **Send telemetry to Event Hub?** | Select **Yes**. |
    | **Event Hubs Namespace** | Select an Azure Event Hubs **namespace** to which you'll send telemetry data for your contacts. You must select a subscription before you can select an Event Hubs namespace. |
@@ -233,7 +233,7 @@ To receive antenna telemetry during contacts with your selected public satellite
 8. Shortly before you start running the contact, start listening on port 56001 and output the data received in the file: 
 
    > [!NOTE]
-   > This command references Aqua. Edit the command to reflect the public spacecraft you're using.
+   > This command references Aqua. Edit the command to reflect the public spacecraft you're using. In addition, you may need to add sudo.
 
    ```console
    socat -u tcp-listen:56001,fork create:/media/aqua/out.bin
