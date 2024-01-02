@@ -47,7 +47,7 @@ Azure Advisor allows you to dismiss or postpone recommendations on a single reso
 
      :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Screenshot of the Use Managed Disks window showing the select column and Postpone and Dismiss actions for a single recommendation highlighted.":::
 
-### Postpone or dismiss a multiple recommendations in the Azure portal
+### Postpone or dismiss multiple recommendations in the Azure portal
 
 1. Open [Azure Advisor](https://aka.ms/azureadvisordashboard) in the Azure portal.
 1. Select a recommendation category to view your recommendations.
