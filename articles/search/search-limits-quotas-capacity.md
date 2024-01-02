@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/16/2023
+ms.date: 01/02/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -18,7 +18,7 @@ ms.custom:
 
 Maximum limits on storage, workloads, and quantities of indexes and other objects depend on whether you [provision Azure AI Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
-+ **Free** is a multi-tenant shared service that comes with your Azure subscription. 
++ **Free** is a multitenant shared service that comes with your Azure subscription. 
 
 + **Basic** provides dedicated computing resources for production workloads at a smaller scale, but shares some networking infrastructure with other tenants.
 
@@ -29,7 +29,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 ## Subscription limits
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## Storage limits
+## Service limits
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
 <a name="index-limits"></a>
@@ -59,7 +59,7 @@ You might find some variation in maximum limits if your service happens to be pr
 
 ## Document limits 
 
-There are no longer any document limits per service in Azure AI Search, however, there's a limit of approximately 24 billion documents per index on Basic, S1, S2, S3, L1, and L2 search services. For S3 HD, the limit is 2 billion documents per index. Each element of a complex collection counts as a separate document in terms of these limits.
+You can have approximately 24 billion documents per index on Basic, S1, S2, S3, L1, and L2 search services. For S3 HD, the limit is 2 billion documents per index. Each instance of a complex collection counts as a separate document in terms of these limits.
 
 ### Document size limits per API call
 
@@ -73,7 +73,7 @@ When estimating document size, remember to consider only those fields that can b
 
 When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
 
-The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
 The table describes the vector index size quota per partition across the service tiers (or SKU). For context, it includes:
 
@@ -140,7 +140,7 @@ Maximum running times exist to provide balance and stability to the service as a
 
 <sup>5</sup> AI enrichment and image analysis are computationally intensive and consume disproportionate amounts of available processing power. Running time for these workloads has been shortened to give other jobs in the queue more opportunity to run.
 
-<sup>6</sup> Indexer execution and combined indexer-skillset execution is subject to a 2-hour maximum duration.  Currently, some indexers have a longer 24-hour maximum execution window, but that behavior isn't the norm. The longer window only applies if a service or its indexers can't be internally migrated to the newer runtime behavior. If more than 2 hours are needed to complete an indexer or indexer-skillset process, [schedule the indexer](search-howto-schedule-indexers.md) to run at 2-hour intervals.
+<sup>6</sup> Indexer execution plus indexer-skillset execution is subject to a 2-hour maximum duration per job.  Currently, some indexers have a longer 24-hour maximum execution window, but that behavior isn't the norm. The longer window only applies if a service or its indexers can't be internally migrated to the newer runtime behavior. If you need more than 2 hours to complete an indexer or indexer-skillset process, [schedule the indexer](search-howto-schedule-indexers.md) to run at 2-hour intervals, where the indexer picks up where it left off at each 2-hour interval.
 
 > [!NOTE]
 > As stated in the [Index limits](#index-limits), indexers will also enforce the upper limit of 3000 elements across all complex collections per document starting with the latest GA API version that supports complex types (`2019-05-06`) onwards. This means that if you've created your indexer with a prior API version, you will not be subject to this limit. To preserve maximum compatibility, an indexer that was created with a prior API version and then updated with an API version `2019-05-06` or later, will still be **excluded** from the limits. Customers should be aware of the adverse impact of having very large complex collections (as stated previously) and we highly recommend creating any new indexers with the latest GA API version.
@@ -156,7 +156,7 @@ Indexers can access other Azure resources [over private endpoints](search-indexe
 | Maximum private endpoints | N/A | 10 or 30 | 100 | 400 | 400 | N/A | 20 | 20 |
 | Maximum distinct resource types<sup>2</sup> | N/A | 4 | 7 | 15 | 15 | N/A | 4 | 4 |
 
-<sup>1</sup> AI enrichment and image analysis are computationally intensive and consume disproportionate amounts of available processing power. For this reason, private connections are disabled on lower tiers to avoid an adverse impact on the performance and stability of the search service itself.
+<sup>1</sup> AI enrichment and image analysis are computationally intensive and consume disproportionate amounts of available processing power. For this reason, private connections are disabled on lower tiers to ensure the performance and stability of the search service itself.
 
 <sup>2</sup> The number of distinct resource types are computed as the number of unique `groupId` values used across all shared private link resources for a given search service, irrespective of the status of the resource.
 
@@ -179,7 +179,7 @@ Maximum number of [index aliases](search-how-to-alias.md) varies by tier. In all
 
 ## Data limits (AI enrichment)
 
-An [AI enrichment pipeline](cognitive-search-concept-intro.md) that makes calls to Azure AI Language resource for [entity recognition](cognitive-search-skill-entity-recognition-v3.md), [entity linking](cognitive-search-skill-entity-linking-v3.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment-v3.md), [language detection](cognitive-search-skill-language-detection.md), and [personal-information detection](cognitive-search-skill-pii-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
+An [AI enrichment pipeline](cognitive-search-concept-intro.md) that makes calls to an Azure AI Language resource for [entity recognition](cognitive-search-skill-entity-recognition-v3.md), [entity linking](cognitive-search-skill-entity-linking-v3.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment-v3.md), [language detection](cognitive-search-skill-language-detection.md), and [personal-information detection](cognitive-search-skill-pii-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Throttling limits
 
@@ -198,6 +198,7 @@ Static rate request limits for operations related to a service:
 + Service Statistics (GET /servicestats): 4 per second per search unit
 
 ## API request limits
+
 * Maximum of 16 MB per request <sup>1</sup>
 * Maximum 8 KB URL length
 * Maximum 1000 documents per batch of index uploads, merges, or deletes
@@ -213,10 +214,12 @@ Static rate request limits for operations related to a service:
 Limits on query size and composition exist because unbounded queries can destabilize your search service. Typically, such queries are created programmatically. If your application generates search queries programmatically, we recommend designing it in such a way that it doesn't generate queries of unbounded size.
 
 ## API response limits
+
 * Maximum 1000 documents returned per page of search results
 * Maximum 100 suggestions returned per Suggest API request
 
 ## API key limits
+
 API keys are used for service authentication. There are two types. Admin keys are specified in the request header and grant full read-write access to the service. Query keys are read-only, specified on the URL, and typically distributed to client applications.
 
 * Maximum of 2 admin keys per service
