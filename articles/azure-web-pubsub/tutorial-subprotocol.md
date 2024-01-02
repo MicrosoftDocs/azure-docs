@@ -11,7 +11,7 @@ ms.date: 11/01/2021
 
 # Tutorial: Publish and subscribe messages between WebSocket clients using subprotocol
 
-In [Build a chat app tutorial](./tutorial-build-chat.md), you've learned how to use WebSocket APIs to send and receive data with Azure Web PubSub. You can see there's no protocol needed when client is communicating with the service. For example, you can use `WebSocket.send()` to send any data and server will receive the data as is. This is easy to use, but the functionality is also limited. You can't, for example, specify the event name when sending the event to your server, or publish message to other clients instead of sending it to your server. In this tutorial, you'll learn how to use subprotocol to extend the functionality of client.
+In [Build a chat app tutorial](./tutorial-build-chat.md), you learned how to use WebSocket APIs to send and receive data with Azure Web PubSub. You can see there's no protocol needed when client is communicating with the service. For example, you can send any type of data using `WebSocket.send()`, and the server receives it just as it is. WebSocket APIs process is easy to use, but the functionality is limited. For example, you can't specify the event name when sending the event to your server, or publish message to other clients instead of sending it to your server. In this tutorial, you learn how to use subprotocol to extend the functionality of client.
 
 In this tutorial, you learn how to:
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
 
-Copy the fetched **ConnectionString** and it will be used later in this tutorial as the value of `<connection_string>`.
+Copy the fetched **ConnectionString** and use later in this tutorial as the value of `<connection_string>`.
 
 ## Set up the project
 
@@ -109,7 +109,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     
     # [Java](#tab/java)
     
-    We will use the [Javalin](https://javalin.io/) web framework to host the web pages。
+    You use the [Javalin](https://javalin.io/) web framework to host the web pages。
     
     1. First let's use Maven to create a new app `logstream-webserver` and switch into the *logstream-webserver* folder:
     
@@ -293,7 +293,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     }
     ```
 
-    Depending on your setup, you might need to explicitly set the language level to Java 8. This can be done in the pom.xml. Add the following snippet:
+    Depending on your setup, you might need to explicitly set the language level to Java 8 in the pom.xml. Add the following snippet:
     ```xml
     <build>
         <plugins>
@@ -393,7 +393,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     ```
     ---
 
-    If you are using Chrome, you can press F12 or right-click -> **Inspect** -> **Developer Tools**, and select the **Network** tab. Load the web page, and you can see the WebSocket connection is established. Click to inspect the WebSocket connection, you can see below `connected` event message is received in client. You can see that you can get the `connectionId` generated for this client.
+    If you're using Chrome, you can press F12 or right-click -> **Inspect** -> **Developer Tools**, and select the **Network** tab. Load the web page, and you can see the WebSocket connection is established. Select to inspect the WebSocket connection, you can see below `connected` event message is received in client. You can see that you can get the `connectionId` generated for this client.
     
     ```json
     {"type":"system","event":"connected","userId":null,"connectionId":"<the_connection_id>"}
@@ -401,13 +401,13 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
 
 You can see that with the help of subprotocol, you can get some metadata of the connection when the connection is `connected`.
 
-Also note that, instead of a plain text, client now receives a JSON message that contains more information, like what's the message type and where it is from. So you can use this information to do more processing to the message (for example, display the message in a different style if it's from a different source), which you can find in later sections.
+The client now receives a JSON message instead of a plain text. JSON message contains more information such as type and source of the message. So you can use this information to do more processing to the message (for example, display the message in a different style if it's from a different source), which you can find in later sections.
 
 ## Publish messages from client
 
-In the [Build a chat app](./tutorial-build-chat.md) tutorial, when client sends a message through WebSocket connection to the Web PubSub service, the service triggers a user event at your server side. With subprotocol, client will have more functionalities by sending a JSON message. For example, you can publish messages directly from client through the Web PubSub service to other clients.
+In the [Build a chat app](./tutorial-build-chat.md) tutorial, when client sends a message through WebSocket connection to the Web PubSub service, the service triggers a user event at your server side. With subprotocol, client has more functionalities by sending a JSON message. For example, you can publish messages directly from client through the Web PubSub service to other clients.
 
-This will be useful if you want to stream a large amount of data to other clients in real time. Let's use this feature to build a log streaming application, which can stream console logs to browser in real time.
+This is useful if you want to stream a large amount of data to other clients in real time. Let's use this feature to build a log streaming application, which can stream console logs to browser in real time.
 
 1. Creating the streaming program
  
@@ -681,7 +681,7 @@ This will be useful if you want to stream a large amount of data to other client
     
     ---
     
-    You can see there is a new concept "group" here. Group is logical concept in a hub where you can publish message to a group of connections. In a hub, you can have multiple groups and one client can subscribe to multiple groups at the same time. When using subprotocol, you can only publish to a group instead of broadcasting to the whole hub. For details about the terms, check the [basic concepts](./key-concepts.md).
+    You can see there's a new concept "group" here. Group is logical concept in a hub where you can publish message to a group of connections. In a hub, you can have multiple groups and one client can subscribe to multiple groups at the same time. When using subprotocol, you can only publish to a group instead of broadcasting to the whole hub. For details about the terms, check the [basic concepts](./key-concepts.md).
 
 2.  Since we use group here, we also need to update the web page `index.html` to join the group when the WebSocket connection is established inside `ws.onopen` callback.
     
@@ -713,7 +713,7 @@ This will be useful if you want to stream a large amount of data to other client
     };
     ```
 
-4.  For security consideration, by default a client can't publish or subscribe to a group by itself. So you may have noticed that we set `roles` to the client when generating the token:
+4.  For security consideration, by default a client can't publish or subscribe to a group by itself. So you noticed that we set `roles` to the client when generating the token:
 
     # [C#](#tab/csharp)
     Set the `roles` when `GenerateClientAccessUri` in `Startup.cs` like below:
@@ -737,7 +737,7 @@ This will be useful if you want to stream a large amount of data to other client
     
     # [Python](#tab/python)
     
-    Note that when generating the access token, we set the correct roles to the client in `server.py`:
+    Set the correct roles to the client in `server.py` during the access token generation process:
 
     ```python
     roles = ['webpubsub.sendToGroup.stream',
@@ -747,7 +747,7 @@ This will be useful if you want to stream a large amount of data to other client
     
     # [Java](#tab/java)
     
-    Note that when generating the access token, we set the correct roles to the client in `App.java`:
+    Set the correct roles to the client in `App.java` during the access token generation process:
 
     ```java
     GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
@@ -773,7 +773,7 @@ This will be useful if you want to stream a large amount of data to other client
       </head>
     ```
 
-Now run below code and type any text and they'll be displayed in the browser in real time:
+Now run below code and type any text and they're displayed in the browser in real time:
 
 # [C#](#tab/csharp)
 
@@ -814,7 +814,7 @@ The complete code sample of this tutorial can be found [here][code-js].
 
 # [Python](#tab/python)
 
-Now you can run `python stream.py`, type any text and they'll be displayed in the browser in real time.
+Now you can run `python stream.py`, type any text and they're displayed in the browser in real time.
 
 Or you can also use this app pipe any output from another console app and stream it to the browser. For example:
 
@@ -835,7 +835,7 @@ The complete code sample of this tutorial can be found [here][code-python].
 
 # [Java](#tab/java)
 
-Now you can run below code, type any text and they'll be displayed in the browser in real time.
+Now you can run below code, type any text and they're displayed in the browser in real time.
 
 ```console
 mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false
@@ -848,7 +848,7 @@ The complete code sample of this tutorial can be found [here][code-java].
 
 ## Next steps
 
-This tutorial provides you a basic idea of how to connect to the Web PubSub service and how to publish messages to the connected clients using subprotocol.
+This tutorial provides you with a basic idea of how to connect to the Web PubSub service and how to publish messages to the connected clients using subprotocol.
 
 Check other tutorials to further dive into how to use the service.
 
