@@ -368,10 +368,10 @@ items:
         href: /python/api/overview/azure/cognitiveservices-vision-face-readme
     - name: Client-side
       items:
-      - name: Java (Android)
-        href: https://aka.ms/liveness-sdk-java
+      - name: Kotlin (Android)
+        href: https://aka.ms/liveness-sample-java
       - name: Swift (iOS)
-        href: https://aka.ms/liveness-sdk-ios
+        href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme
 - name: Spatial Analysis
   items:
   - name: Spatial Analysis overview
