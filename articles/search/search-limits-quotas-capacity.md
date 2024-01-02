@@ -77,7 +77,7 @@ The service enforces a vector index size quota **for every partition** in your s
 
 The table describes the vector index size quota per partition across the service tiers (or SKU). For context, it includes:
 
-+ [Storage limits](#storage-limits) for each tier, repeated here for context.
++ [Partition storage limits](#service-limits) for each tier, repeated here for context.
 + Amount of each partition (in GB) available for vector indexes (created when you add vector fields to an index).
 + Approximate number of embeddings (floating point values) per partition.
 
