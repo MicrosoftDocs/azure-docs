@@ -48,7 +48,17 @@ Read replicas are primarily designed for scenarios where offloading queries is b
 
 A read replica can be created in the same region as the primary server and in a different one. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can also have replicas in any global region of Azure that supports Azure Database for PostgreSQL. Currently [special Azure regions](../../virtual-machines/regions.md#special-azure-regions) aren't supported.
+You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can also have replicas in any global region of Azure that supports Azure Database for PostgreSQL. Additionally, we support special regions [Azure Government](../../azure-government/documentation-government-welcome.md) and [Azure in China](https://learn.microsoft.com/azure/china/overview-operations). The special regions now supported are:
+
+- **Azure Government regions**:
+  - US Gov Arizona
+  - US Gov Texas
+  - US Gov Virginia
+
+- **Azure in China regions**:
+  - China North 3
+  - China East 3
+
 
 ### Use paired regions for disaster recovery purposes
 
