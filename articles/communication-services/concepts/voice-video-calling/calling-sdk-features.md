@@ -22,7 +22,7 @@ Once you've started development, check out the [known issues page](../known-issu
 Key features of the Calling SDK:
 
 - **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster).
-- **User Accesss Security**
+- **User Access Security**
   - **Roster** control, **Schedule** control, and user **roles/permissions** are enforced through [Virtual Rooms](../rooms/room-concept.md).
   - Ability for a user to **Initiate a new call** or to **Join an existing call** can be managed through [User Identities and Tokens](../identity-model.md) 
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire.
