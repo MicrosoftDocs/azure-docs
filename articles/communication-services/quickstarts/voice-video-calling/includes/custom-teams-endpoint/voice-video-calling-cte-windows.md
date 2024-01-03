@@ -8,8 +8,6 @@ ms.author: jesseo
 
 Get started with Azure Communication Services by using the Communication Services calling SDK to add 1:1 voice & video calling to your app. You'll learn how to start and answer a call using the Azure Communication Services Calling SDK for Windows.
 
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
-
 ## [UWP](#tab/uwp)
 
 ## Sample Code
