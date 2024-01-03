@@ -198,6 +198,7 @@ write_files:
       }
   - owner: azureuser:azureuser
     path: /home/azureuser/myapp/index.js
+    defer: true
     content: |
       var express = require('express')
       var app = express()
