@@ -1,6 +1,6 @@
 ---
-title: Azure Firewall known issues
-description: Learn about Azure Firewall known issues.
+title: Azure Firewall known issues and limitations
+description: Learn about Azure Firewall known issues and limitations.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,9 +9,11 @@ ms.date: 10/02/2023
 ms.author: victorh
 ---
 
-# Azure Firewall known issues
+# Azure Firewall known issues and limitations
 
 This article list the known issues for [Azure Firewall](overview.md). It is updated as issues are resolved.
+
+For Azure Firewall limitations, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## Azure Firewall Standard
 
