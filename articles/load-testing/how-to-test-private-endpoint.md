@@ -143,7 +143,7 @@ You can specify the virtual network configuration settings in the load test crea
     > [!IMPORTANT]
     > Make sure you have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role.
 
-1. If you do not want to allow the deployment of Public IP, Load Balancer and Network Security Group in the subnet during the load test run, check the setting 'Disable Public IP deployment'. When you select this option, ensure that there is an alternative mechanism in place to enable outbound traffic routing from the subnet. 
+1. If you do not want to allow the deployment of Public IP, Load Balancer and Network Security Group in the subnet during the load test run, check the setting 'Disable Public IP deployment'. When you select this option, ensure that there is an alternative mechanism like [Azure NAT Gateway](/azure/nat-gateway/nat-overview#outbound-connectivity), [Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal), or a [network virtual appliance (NVA)](/azure/virtual-wan/scenario-route-through-nvas-custom) to enable outbound traffic routing from the subnet. 
    
 1. Review or fill the load test information. Follow these steps to [create or manage a test](./how-to-create-manage-test.md).
 
@@ -295,7 +295,7 @@ The virtual network isn't in the same subscription and region as your Azure load
 
 ### Provisioning fails with `An azure policy is restricting engine deployment to your subscription (ALTVNET012)`
 
-An Azure policy is restricting load test engine deployment to your subscription. Check your policy restrictions and try again.
+An Azure policy is restricting load test engine deployment to your subscription. Check your policy restrictions and try again. If you have policy restrictions on deployment of Public IP, Azure Load Balancer or Network Security Group, you can disable the deployment of these resources. See [Configure your load test](#configure-your-load-test)
 
 ### Provisioning fails with `Engines could not be deployed due to an error in subnet configuration (ALTVNET013)`
 
