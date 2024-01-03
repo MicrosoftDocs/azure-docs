@@ -97,6 +97,7 @@ az extension add \
     --name cosmosdb-preview
 ```
 
+
 ---
 
 #### [API for NoSQL](#tab/nosql/azure-powershell)
@@ -176,6 +177,7 @@ az cosmosdb mongodb collection merge \
     --database-name '<cosmos-database-name>' \
     --name '<cosmos-collection-name>'
 ```
+
 
 ---
 
@@ -267,3 +269,4 @@ If you enroll in the preview, the following connectors fail.
 - Learn more about [using Azure CLI with Azure Cosmos DB.](/cli/azure/azure-cli-reference-for-cosmos-db)
 - Learn more about [using Azure PowerShell with Azure Cosmos DB.](/powershell/module/az.cosmosdb/)
 - Learn more about [partitioning in Azure Cosmos DB.](partitioning-overview.md)
+
