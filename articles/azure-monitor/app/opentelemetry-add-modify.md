@@ -401,7 +401,7 @@ describes the instruments and provides examples of when you might use each one.
 
 #### Histogram example
 
-#### [ASP.NET Core](#tab/aspnetcore-3)
+#### [ASP.NET Core](#tab/aspnetcore-2)
 
 Application startup must subscribe to a Meter by name.
 
@@ -565,7 +565,7 @@ input()
 
 #### Counter example
 
-#### [ASP.NET Core](#tab/aspnetcore-4)
+#### [ASP.NET Core](#tab/aspnetcore-3)
 
 Application startup must subscribe to a Meter by name.
 
@@ -734,7 +734,7 @@ input()
 
 #### Gauge Example
 
-#### [ASP.NET Core](#tab/aspnetcore-5)
+#### [ASP.NET Core](#tab/aspnetcore-4)
 
 Application startup must subscribe to a Meter by name.
 
@@ -929,7 +929,7 @@ However, you might want to manually report exceptions beyond what instrumentatio
 For instance, exceptions caught by your code aren't ordinarily reported. You might wish to report them
 to draw attention in relevant experiences including the failures section and end-to-end transaction views.
 
-#### [ASP.NET Core](#tab/aspnetcore-2)
+#### [ASP.NET Core](#tab/aspnetcore-5)
 
 - To log an Exception using an Activity:
   ```csharp
@@ -1119,7 +1119,7 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 
 You might want to add a custom span in two scenarios. First, when there's a dependency request not already collected by an instrumentation library. Second, when you wish to model an application process as a span on the end-to-end transaction view.
   
-#### [ASP.NET Core](#tab/aspnetcore-3)
+#### [ASP.NET Core](#tab/aspnetcore-6)
 
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
@@ -1337,7 +1337,7 @@ The OpenTelemetry Logs/Events API is still under development. In the meantime, y
 > [!CAUTION]
 > Span Events are only recommended for when you need additional diagnostic metadata associated with your span. For other scenarios, such as describing business events, we recommend you wait for the release of the OpenTelemetry Events API.
 
-#### [ASP.NET Core](#tab/aspnetcore-4)
+#### [ASP.NET Core](#tab/aspnetcore-7)
   
 Currently unavailable.
   
@@ -1383,7 +1383,7 @@ Currently unavailable.
 
 We recommend you use the OpenTelemetry APIs whenever possible, but there might be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md).
   
-#### [ASP.NET Core](#tab/aspnetcore-5)
+#### [ASP.NET Core](#tab/aspnetcore-8)
   
 ##### Events
 
@@ -1593,7 +1593,7 @@ These attributes might include adding a custom property to your telemetry. You m
 
 Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the _customDimensions_ field in the requests, dependencies, traces, or exceptions table.
 
-##### [ASP.NET Core](#tab/aspnetcore-6)
+##### [ASP.NET Core](#tab/aspnetcore-9)
 
 To add span attributes, use either of the following two ways:
 
@@ -1805,7 +1805,7 @@ class SpanEnrichingProcessor(SpanProcessor):
 
 You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
-##### [ASP.NET Core](#tab/aspnetcore-7)
+##### [ASP.NET Core](#tab/aspnetcore-10)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
 
@@ -1866,7 +1866,7 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 > [!IMPORTANT]
 > Consult applicable privacy laws before you set the Authenticated User ID.
 
-##### [ASP.NET Core](#tab/aspnetcore-8)
+##### [ASP.NET Core](#tab/aspnetcore-11)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span).
 
@@ -1938,7 +1938,7 @@ span._attributes["enduser.id"] = "<User ID>"
 
 ### Add log attributes
   
-#### [ASP.NET Core](#tab/aspnetcore-9)
+#### [ASP.NET Core](#tab/aspnetcore-12)
 
 OpenTelemetry uses .NET's `ILogger`.
 Attaching custom dimensions to logs can be accomplished using a [message template](/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
@@ -2002,7 +2002,7 @@ logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
 
 You might use the following ways to filter out telemetry before it leaves your application.
 
-### [ASP.NET Core](#tab/aspnetcore-10)
+### [ASP.NET Core](#tab/aspnetcore-13)
 
 1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
@@ -2249,7 +2249,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
 You might want to get the trace ID or span ID. If you have logs sent to a destination other than Application Insights, consider adding the trace ID or span ID. Doing so enables better correlation when debugging and diagnosing issues.
 
-### [ASP.NET Core](#tab/aspnetcore-11)
+### [ASP.NET Core](#tab/aspnetcore-14)
 
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
@@ -2335,7 +2335,7 @@ span_id = trace.get_current_span().get_span_context().span_id
 
 ## Next steps
 
-### [ASP.NET Core](#tab/aspnetcore-12)
+### [ASP.NET Core](#tab/aspnetcore-15)
 
 - To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
 - To review the source code, see the [Azure Monitor AspNetCore GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore).
