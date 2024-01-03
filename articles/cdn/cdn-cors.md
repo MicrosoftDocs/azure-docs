@@ -68,8 +68,6 @@ On Azure CDN Standard from Microsoft, you can create a rule in the [Standard rul
 > You can add additional actions to your rule to modify additional response headers, such as **Access-Control-Allow-Methods**.
 > 
 
-On **Azure CDN Standard from Akamai**, the only mechanism to allow for multiple origins without the use of the wildcard origin is to use [query string caching](cdn-query-string.md). Enable the query string setting for the CDN endpoint and then use a unique query string for requests from each allowed domain. Doing so results in the CDN caching a separate object for each unique query string. This approach isn't ideal, however, as it results in multiple copies of the same file cached on the CDN.  
-
 <a name='azure-cdn-premium-from-verizon'></a>
 
 ### Azure CDN Premium from Edgio

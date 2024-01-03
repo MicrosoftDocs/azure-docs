@@ -3,16 +3,13 @@ title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure portal.
 ms.topic: article
 ms.custom: azure-kubernetes-service
-ms.date: 12/07/2023
+ms.date: 12/27/2023
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
 # Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure portal
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster that runs Windows Server containers using the Azure portal. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
-
-> [!NOTE]
-> This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 ## Before you begin
 
@@ -76,19 +73,19 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 ### [Azure CLI](#tab/azure-cli)
 
 1. Open Cloud Shell by selecting the `>_` button at the top of the Azure portal page.
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following command downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-3. Verify the connection to your cluster using the `kubectl get nodes` command, which returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the `kubectl get nodes` command, which returns a list of the cluster nodes.
 
     ```azurecli
     kubectl get nodes
     ```
 
-    The following example output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
+    The following sample output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
     NAME                                STATUS   ROLES   AGE     VERSION
@@ -99,19 +96,19 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 ### [Azure PowerShell](#tab/azure-powershell)
 
 1. Open Cloud Shell by selecting the `>_` button at the top of the Azure portal page.
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. The following command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. The following command downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurepowershell
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
     ```
 
-3. Verify the connection to your cluster using the `kubectl get nodes` command, which returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the `kubectl get nodes` command, which returns a list of the cluster nodes.
 
     ```azurepowershell
     kubectl get nodes
     ```
 
-    The following example output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
+    The following sample output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
     NAME                                STATUS   ROLES   AGE     VERSION
@@ -181,7 +178,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
     kubectl apply -f sample.yaml
     ```
 
-    The following example output shows the deployment and service created successfully:
+    The following sample output shows the deployment and service created successfully:
 
     ```output
     deployment.apps/sample created
@@ -205,13 +202,13 @@ When the application runs, a Kubernetes service exposes the application front en
     sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
     ```
 
-    When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
+    When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following sample output shows a valid public IP address assigned to the service:
 
     ```output
     sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
     ```
 
-2. See the sample app in action by opening a web browser to the external IP address of your service.
+1. See the sample app in action by opening a web browser to the external IP address of your service.
 
     :::image type="content" source="media/quick-windows-container-deploy-portal/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application." lightbox="media/quick-windows-container-deploy-portal/asp-net-sample-app.png":::
 
@@ -223,18 +220,18 @@ When the application runs, a Kubernetes service exposes the application front en
 If you don't plan on going through the following tutorials, you should delete your cluster to avoid incurring Azure charges.
 
 1. In the Azure portal, navigate to your resource group.
-2. Select **Delete resource group**.
-3. Enter the name of your resource group to confirm deletion and select **Delete**.
-4. In the **Delete confirmation** dialog box, select **Delete**.
+1. Select **Delete resource group**.
+1. Enter the name of your resource group to confirm deletion and select **Delete**.
+1. In the **Delete confirmation** dialog box, select **Delete**.
 
     > [!NOTE]
     > The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
-In this article, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it.
+In this quickstart, you deployed a Kubernetes cluster and then deployed an ASP.NET sample application in a Windows Server container to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
-To learn more about AKS, and walk through a complete code to deployment example, continue to the following Kubernetes cluster tutorial.
+To learn more about AKS, and to walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
@@ -253,3 +250,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-service]: ../concepts-network.md#services
 [preset-config]: ../quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
