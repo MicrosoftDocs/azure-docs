@@ -233,7 +233,7 @@ Here's an example of what that `@context` field might look like with feature ext
 
 After you've added a feature extension to a model, you'll have access to that extension's *adjunct types* within the model. You can add adjunct types to the `@type` field of a DTDL element, to give the element additional capabilities. The adjunct type may add additional properties to the element.
 
-For example, here's an excerpt from a model that's using the [Annotation extension](#annotation-extension). This extension has an adjunct type called `ValueAnnotation`, which is added in the example below to a Property element. Adding this adjunct type to the Property element allows the element to have an additional `annotates` field, which is used to indicate another Property that is annotated by this element. 
+For example, here's an excerpt from a model that's using the [Annotation extension](#annotation-extension). This extension has an adjunct type called `ValueAnnotation`, which is added in the example below to a property element. Adding this adjunct type to the property element allows the element to have an additional `annotates` field, which is used to indicate another property that is annotated by this element. 
 
 ```json
 {
@@ -250,15 +250,15 @@ The rest of this section explains the Annotation extension and other DTDL v3 fea
 
 The *Annotation extension* is used to add custom metadata to a property element in a DTDL v3 model. Its context specifier is `dtmi:dtdl:extension:annotation;1`. 
 
-This extension includes the `ValueAnnotation` adjunct type, which can be added to a DTDL Property element. The `ValueAnnotation` type adds one field to the element, `annotates`, which allows you to name another property that is annotated by the current element.
+This extension includes the `ValueAnnotation` adjunct type, which can be added to a DTDL property element. The `ValueAnnotation` type adds one field to the element, `annotates`, which allows you to name another property that is annotated by the current element.
 
 For more details and examples of this extension, see [Annotation extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.annotation.v1.md).
 
 ### Historization extension
 
-The *Historization extension* is used to designate a Property in a DTDL v3 model as something that should be historized (meaning the historical sequence of its values should be recorded, along with times at which the values change). Its context specifier is `dtmi:dtdl:extension:historization;1`.
+The *Historization extension* is used to designate a property in a DTDL v3 model as something that should be historized (meaning the historical sequence of its values should be recorded, along with times at which the values change). Its context specifier is `dtmi:dtdl:extension:historization;1`.
 
-This extension includes the `Historized` adjunct type, which can be added as a co-type to a DTDL Property element to indicate that the service should persist the element's historical values and make them available for querying and analytics. The `Historized` adjunct type doesn't add any fields to the element. 
+This extension includes the `Historized` adjunct type, which can be added as a co-type to a DTDL property element to indicate that the service should persist the element's historical values and make them available for querying and analytics. The `Historized` adjunct type doesn't add any fields to the element. 
 
 For more details and examples of this extension, see [Historization extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.historization.v1.md).
 
@@ -266,7 +266,7 @@ For more details and examples of this extension, see [Historization extension in
 
 The *overriding extension* is used to override a property in a DTDL V3 model with an instance value. It's used in combination with the [annotation extension](#annotation-extension), and its context specifier is `dtmi:dtdl:extension:overriding;1`.
 
-This extension includes the `Override` adjunct type, which can be added to a DTDL Property that is *also* co-typed with `ValueAnnotation` (from the annotation extension). The `Override` type adds one field to the element, `overrides`, which allows you to name a field on the annotated element to be overridden by the current element's value.
+This extension includes the `Override` adjunct type, which can be added to a DTDL property that is *also* co-typed with `ValueAnnotation` (from the annotation extension). The `Override` type adds one field to the element, `overrides`, which allows you to name a field on the annotated element to be overridden by the current element's value.
 
 For more details and examples of this extension, see [Overriding extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.overriding.v1.md).
 
@@ -275,7 +275,7 @@ For more details and examples of this extension, see [Overriding extension in th
 
 The *QuantitativeTypes extension* is used to enable semantic types, unit types, and units in a DTDL v3 model. Its context specifier is `dtmi:dtdl:extension:quantitativeTypes;1`. 
 
-This extension enables the use of many semantic types as adjunct types, which can be added to a CommandRequest, a Field, a MapValue, or a Property in DTDL v3. Semantic types add one field to the element, `unit`, which accepts a valid unit that corresponds to the semantic type.
+This extension enables the use of many semantic types as adjunct types, which can be added to a CommandRequest, a Field, a MapValue, or a property in DTDL v3. Semantic types add one field to the element, `unit`, which accepts a valid unit that corresponds to the semantic type.
 
 For more details about the extension, including examples and a full list of supported semantic types and units, see [QuantitativeTypes extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.quantitativeTypes.v1.md).
 
