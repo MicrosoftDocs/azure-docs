@@ -92,9 +92,9 @@ It runs a series of scenarios and displays the results.
 
 ## Frequently Asked Questions
 
-**Can I copy the Troubleshooter from a newer agent to an older agent and run it on the older agent to diagnose issues with the older agent?**
+### Can I copy the Troubleshooter from a newer agent to an older agent and run it on the older agent to diagnose issues with the older agent?
 It isn't possible to use the Troubleshooter to diagnose an older version of the agent by copying it. You must have an up-to-date version of the agent for the Troubleshooter to work properly.
-
+ 
 ## Next Steps
 - [Troubleshooting guidance for the Azure Monitor agent](../agents/azure-monitor-agent-troubleshoot-linux-vm.md) on Linux virtual machines and scale sets
 - [Syslog troubleshooting guide for Azure Monitor Agent](../agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) for Linux
