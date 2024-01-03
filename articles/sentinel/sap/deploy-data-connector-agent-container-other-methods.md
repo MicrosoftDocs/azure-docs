@@ -12,7 +12,7 @@ ms.date: 01/03/2024
 
 This article shows you how to use the Azure command line interface to deploy the container that hosts the SAP data connector agent, and create new SAP systems under the agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP. 
 
-This article shows you how to deploy the container and create SAP systems via managed identity, a registered application, a configuration file, or directly on the VM. Alternatively, you can [deploy the data connector agent via the UI](deploy-data-connector-agent-container.md) (Preview).
+Other ways to deploy the container and create SAP systems using the Azure portal or a *kickstart* script are described in [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md). These other methods make use of an Azure Key Vault to store SAP credentials, and are highly preferred over the method described here. You should use the manual deployment method only if none of the other options are available to you.
 
 ## Deployment milestones
 
@@ -37,6 +37,10 @@ Deployment of the Microsoft Sentinel Solution for SAP is divided into the follow
 ## Data connector agent deployment overview
 
 Read about the [deployment process](deploy-data-connector-agent-container.md#data-connector-agent-deployment-overview).
+
+## Prerequisites
+
+Read about the [prerequisites for deploying the agent container](deploy-data-connector-agent-container.md#prerequisites).
 
 ## Deploy the data connector agent container manually
 
