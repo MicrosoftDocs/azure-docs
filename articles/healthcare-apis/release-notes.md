@@ -24,6 +24,20 @@ This article provides details about the features and enhancements made to Azure 
 
 ### Azure Health Data Services
 
+**Store and manage medical imaging data with Azure Data Lake Storage (Preview)
+
+With the integration of Azure Data Lake Storage available for preview, organizations can now enjoy full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs. By using Azure Data Lake Storage with the DICOM service, organizations are able to:
+
+- Enable direct access to medical imaging data stored by the DICOM service using Azure storage APIs and DICOMweb APIs, providing more flexibility to access and work with the data.
+- Open medical imaging data up to the entire ecosystem of tools for working with Azure storage, including AzCopy, Azure Storage Explorer, and the Data Movement library.
+- Unlock new analytics and AI/ML scenarios by using services that natively integrate with Azure Data Lake Storage, including Azure Synapse, Azure Databricks, Azure Machine Learning, and Microsoft Fabric.
+- Grant controls to manage storage permissions, access controls, tiers, and rules.
+
+Learn more: 
+
+- [Azure Data Lake Storage integration for the DICOM service in Azure Health Data Services](dicom/dicom-data-lake.md)
+- [Deploy the DICOM service with Azure Data Lake Storage](dicom/deploy-dicom-services-in-azure-data-lake.md)
+
 **Additional capabilities added to the Export operation**
 
 $export operation now supports exporting versioned resources and soft deleted resources. For more information, see [Export query parameters](fhir/export-data.md).
