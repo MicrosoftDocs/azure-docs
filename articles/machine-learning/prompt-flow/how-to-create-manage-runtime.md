@@ -50,16 +50,16 @@ Before you use Azure Machine Learning studio to create a runtime, make sure that
 
 ### Create an automatic runtime (preview) on a flow page
 
-Automatic is the default option for a runtime. You can start an automatic runtime (preview) from the runtime dropdown list on a flow page.
+Automatic is the default option for a runtime. You can start an automatic runtime (preview) by selecting an option from the runtime dropdown list on a flow page.
 
 > [!IMPORTANT]
 > Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Start creating an automatic runtime (preview) by using the environment defined in `flow.dag.yaml` in the flow folder on the virtual machine (VM) size where you have a quota in the workspace.
+- Select **Start**. Start creating an automatic runtime (preview) by using the environment defined in `flow.dag.yaml` in the flow folder on the virtual machine (VM) size where you have a quota in the workspace.
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
-2. In the advanced settings, you can:
+- Select **Start with advanced settings**. In the advanced settings, you can:
 
    - Customize the VM size that the runtime uses.
    - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.

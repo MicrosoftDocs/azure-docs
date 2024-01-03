@@ -36,13 +36,13 @@ If you have a compute instance, you can use it to build your compute instance ru
 
 ### Create an automatic runtime on a flow page
 
-Automatic is the default option for a runtime. You can start an automatic runtime from the runtime dropdown list on a flow page.
+Automatic is the default option for a runtime. You can start an automatic runtime by selecting an option from the runtime dropdown list on a flow page:
 
-1. Start creating an automatic runtime by using the environment defined in `flow.dag.yaml` in the flow folder on the virtual machine (VM) size where you have a quota in the project.
+- Select **Start**. Start creating an automatic runtime by using the environment defined in `flow.dag.yaml` in the flow folder on the virtual machine (VM) size where you have a quota in the project.
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
-2. In the advanced settings, you can:
+- Select **Start with advanced settings**. In the advanced settings, you can:
 
    - Customize the VM size that the runtime uses.
    - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
