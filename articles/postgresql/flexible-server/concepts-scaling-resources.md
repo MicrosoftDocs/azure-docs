@@ -24,7 +24,7 @@ You can scale **horizontally** by creating [read replicas](./concepts-read-repli
 
 When you change the number of vCores or the compute tier, the instance is restarted for the new server type to take effect. During this time the system is switching over to the new server type, no new connections can be established, and all uncommitted transactions are rolled back. The overall time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restart typically takes a minute or less, but it can be higher and can take several minutes, depending on transactional activity at the time the restart was initiated.
 
-If you application is sensitive to loss of in-flight transactions that may occur during compute scaling, we recommend implementing transaction [retry pattern](../single-server/concepts-connectivity.md#handling-transient-errors).
+If your application is sensitive to loss of in-flight transactions that may occur during compute scaling, we recommend implementing transaction [retry pattern](../single-server/concepts-connectivity.md#handling-transient-errors).
 
 Scaling the storage doesn't require a server restart in most cases. Similarly, backup retention period changes are an online operation. To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
 
