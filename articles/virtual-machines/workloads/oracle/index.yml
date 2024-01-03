@@ -32,9 +32,11 @@ landingContent:
         links:
           - text: Create an Oracle database
             url: oracle-database-quick-create.md
-          - text: WebLogic Server on Azure VMs
+          - text: WebLogic Server on Azure VMs overview
             url: oracle-weblogic.md
-          - text: WebLogic Server on Azure Kubernetes Service
+          - text: HOW-TO-GUIDE for WebLogic Server on Azure VMs
+            url: weblogic-server-azure-virtual-machine.md
+          - text: WebLogic Server on Azure Kubernetes Service overview
             url: weblogic-aks.md
 
   #card 5  

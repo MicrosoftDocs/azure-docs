@@ -7,9 +7,11 @@ items:
     items:
       - name: Create an Oracle DB in an Azure VM 
         href: oracle-database-quick-create.md
-      - name: WebLogic Server on Azure VMs
+      - name: WebLogic Server on Azure VMs overview
         href: oracle-weblogic.md
-      - name: WebLogic Server on Azure Kubernetes Service
+      - name: Get started with WebLogic Server on Azure VMs
+        href: weblogic-server-azure-virtual-machine.md
+      - name: WebLogic Server on Azure Kubernetes Service overview
         href: weblogic-aks.md
   - name: Configuration
     items:
