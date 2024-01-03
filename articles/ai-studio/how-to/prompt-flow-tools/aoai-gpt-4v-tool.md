@@ -10,7 +10,7 @@ ms.reviewer: eur
 ms.date: 01/02/2024
 ---
 
-# Azure OpenAI GPT-4 Turbo with Vision tool (preview)
+# Azure OpenAI GPT-4 Turbo with Vision tool (preview) in Azure AI studio
 
 Azure OpenAI GPT-4 Turbo with Vision tool enables you to leverage your AzureOpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them.
 
