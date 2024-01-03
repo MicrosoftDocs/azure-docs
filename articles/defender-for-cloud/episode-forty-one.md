@@ -11,9 +11,9 @@ ms.date: 01/01/2024
 
 > [!VIDEO https://aka.ms/docs/player?id=eb236b6c-fe8b-4662-92e6-0ae4b7531f2f]
 
-- [01:38](/shows/mdc-in-the-field/ignite-2023#time=01m38s) - Understanding the new integration with ServiceNow
-- [03:19](/shows/mdc-in-the-field/ignite-2023#time=03m19s) - ServiceNow modules that are supported by this integration
-- [04:55](/shows/mdc-in-the-field/ignite-2023#time=04m55s) - Demonstration
+- [01:38](/shows/mdc-in-the-field/native-integration-servicenow#time=01m38s) - Understanding the new integration with ServiceNow
+- [03:19](/shows/mdc-in-the-field/native-integration-servicenow#time=03m19s) - ServiceNow modules that are supported by this integration
+- [04:55](/shows/mdc-in-the-field/native-integration-servicenow#time=04m55s) - Demonstration
 
 ## Recommended resources
 
