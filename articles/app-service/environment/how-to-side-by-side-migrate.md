@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 12/7/2023
+ms.date: 1/3/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -40,7 +40,7 @@ For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use the
 
 ## 1. Select the subnet for your new App Service Environment v3
 
-Select a subnet in your App Service Environment v3 that meets the [subnet requirements for App Service Environment v3](./networking.md#subnet-requirements). Note the name of the subnet you select.
+Select a subnet in your App Service Environment v3 that meets the [subnet requirements for App Service Environment v3](./networking.md#subnet-requirements). Note the name of the subnet you select. This subnet must be different than the subnet your existing App Service Environment is in.
 
 ## 1. Get your App Service Environment ID
 
@@ -134,7 +134,7 @@ If your existing App Service Environment uses a custom domain suffix, you have t
 > If you're configuring a custom domain suffix, when adding the network permissions on your Azure Key Vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated during the IP address generation in step 3.
 >
 
-In order to set these configurations including identifying the subnet you selected earlier, create another file called "parameters.json" with the following details based on your scenario. Don't include the custom domain suffix properties if this feature doesn't apply to your migration. Be sure to update the `zoneRedundant` property based on your zone redundancy selection in the IP generation step. You must use the same value for zone redundancy that you used in the IP generation step.
+In order to set these configurations including identifying the subnet you selected earlier, create another file called "parameters.json" with the following details based on your scenario. Be sure to use the new subnet that you selected for your new App Service Environment v3. Don't include the custom domain suffix properties if this feature doesn't apply to your migration. Be sure to update the `zoneRedundant` property based on your zone redundancy selection in the IP generation step. You must use the same value for zone redundancy that you used in the IP generation step.
 
 If you're migrating without a custom domain suffix:
 
@@ -319,13 +319,3 @@ If your migration included a custom domain suffix, the domain was shown in the *
 
 > [!div class="nextstepaction"]
 > [Custom domain suffix](./how-to-custom-domain-suffix.md)
-
-<!-- TODO: add updated command for migration status
-
-Note the "operationId" that's returned after running the previous command. You need this ID to check the status of your migration.
-
-Run the following command to check the status of your migration. Replace the placeholder for operation ID with the ID you copied. For details on the statuses, see the [migration status descriptions](migrate.md#migrate-to-app-service-environment-v3).
-
-```azurecli
-az rest --method get --uri "${ASE_ID}/operations/<operation-id>/details/default?api-version=2022-09-01"
-``` -->
