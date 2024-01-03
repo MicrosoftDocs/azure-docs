@@ -216,7 +216,7 @@ When you choose a name for your service principal, make sure that the name is un
 
 ## Configure the control plane web application credentials
 
-As a part of the SAP automation framework control plane, you can optionally create an interactive web application that assists you in creating the required configuration files and deploying SAP workload zones and systems using Azure Pipelines.
+As a part of the SAP automation framework control plane, you can optionally create an interactive web application that assists you in creating the required configuration files.
 
 :::image type="content" source="./media/deployment-framework/webapp-front-page.png" alt-text="Screenshot of Web app front page.":::
 
@@ -228,26 +228,37 @@ If you would like to use the web app, you must first create an app registration 
 Replace MGMT with your environment as necessary.
 
 ```bash
+export            env_code="MGMT"
+
+
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
 
-app_registration_app_id=$(az ad app create    \
-    --display-name MGMT-webapp-registration   \
-    --enable-id-token-issuance true           \
-    --sign-in-audience AzureADMyOrg           \
-    --required-resource-access @manifest.json \
-    --query "appId" | tr -d '"')
+export TF_VAR_app_registration_app_id=$(az ad app create \
+    --display-name ${env_code}-webapp-registration       \
+    --enable-id-token-issuance true                      \
+    --sign-in-audience AzureADMyOrg                      \
+    --required-resource-access @manifest.json            \
+    --query "appId" --output tsv )
 
-webapp_client_secret=$(az ad app credential reset \
-    --id $TF_VAR_app_registration_app_id --append \
-    --query "password" | tr -d '"')
+export TF_VAR_webapp_client_secret=$(az ad app credential reset \
+    --id $TF_VAR_app_registration_app_id --append               \
+    --query "password" --output tsv )
 
-echo "App registration ID:  ${app_registration_app_id}"
-echo "App registration password:  ${webapp_client_secret}"
+export TF_use_webapp=true
+
+
+echo "App registration ID:  ${TF_VAR_app_registration_app_id}"
+echo "App registration password:  ${TF_VAR_webapp_client_secret}"
+```
 
 rm manifest.json
 ```
 
-Copy down the output details. Make sure to save the values for `appId`, `password`, and `Tenant`.
+> [!NOTE]
+>Ensure that you are logged on using a user account that has the required permissions to create application registrations. For more information about App registrations, see [Create an app registration](/cli/azure/ad/app#az-ad-app-create) for more information.
+>
+
+Copy down the output details. Make sure to save the values for `App registration ID`, `App registration password`.
 
 The output maps to the following parameters. You use these parameters in later steps, with automation commands.
 
@@ -366,12 +377,20 @@ export       ARM_TENANT_ID="<tenantId>"
 
 ```
 
-If you are running the script from a workstation that is not part of the deployment network or from the Azure Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
+If you're running the script from a workstation that isn't part of the deployment network or from the Azure Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
 
 ```bash
 export TF_VAR_Agent_IP=<your-public-ip-address>
 ```
 
+If you're deploying the configuration web application, you need to also set the following environment variables:
+
+```bash
+
+export TF_VAR_app_registration_app_id=<appRegistrationId>
+export    TF_VAR_webapp_client_secret=<appRegistrationPassword>
+export                  TF_use_webapp=true
+```
 
 1. Create the deployer and the SAP library and add the service principal details to the deployment key vault using this script.
 
@@ -414,6 +433,8 @@ You need to note some values for upcoming steps. Look for this text block in the
 #     - Key Vault: MGMTNOEUDEP00user39B                                                 #
 #     - Deployer IP: x.x.x.x                                                            #
 #     - Storage Account: mgmtnoeutfstate53e                                             #
+#     - Web Application Name: mgmt-noeu-sapdeployment39B                                #
+#     - App registration Id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx                       #
 #                                                                                       #
 #########################################################################################
 ```
@@ -552,6 +573,9 @@ Change the configuration files for the control plane to
 
     # public_network_access_enabled controls if storage account and key vaults have public network access enabled
     public_network_access_enabled = false
+    
+    #if you want to use the webapp
+    use_webapp=true 
 
 ```
 
@@ -593,6 +617,38 @@ ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
     --storageaccountname "${storage_accountname}"                  \
     --vault "${vault_name}"
 ```
+
+## Deploying the Web Application
+
+You can deploy the web application using the following script:
+
+```bash
+export            env_code="MGMT"
+export           vnet_code="DEP00"
+export         region_code="<region_code>"
+export         webapp_name="<webAppName>"
+export              app_id="<appRegistrationId>"
+export           webapp_id="<webAppId>"
+
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+
+cd $DEPLOYMENT_REPO_PATH
+cd Webapp/SDAF
+
+dotnet build SDAFWebApp.csproj
+dotnet publish SDAFWebApp.csproj --output publish
+cd publish
+
+zip -r SDAF.zip .
+
+az webapp deploy --resource-group ${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE --name $webapp_name --src-path SDAF.zip --type zip
+
+az ad app update --id $app_id --web-home-page-url https://$webapp_name.azurewebsites.net --web-redirect-uris https://$webapp_name.azurewebsites.net/ https://$webapp_name.azurewebsites.net/.auth/login/aad/callback
+az role assignment create --assignee $webapp_id --role reader --subscription $ARM_SUBSCRIPTION_ID --scope /subscriptions/$ARM_SUBSCRIPTION_ID
+az webapp restart --resource-group ${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE --name $webapp_name 
+
+```
+
 
 ## Collect workload zone information
 
@@ -838,7 +894,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     vi sap-parameters.yaml
     ```
 
-1. Update the `bom_base_name` with the name BOM amd replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault..
+1. Update the `bom_base_name` with the name BOM and replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault.
 
     Your file should look similar to the following example configuration:
 
@@ -931,7 +987,7 @@ You've now deployed and configured a standalone HANA system. If you need to conf
 
 ## Clean up installation
 
-It's important to clean up your SAP installation from this tutorial after you're finished. Otherwise, you continue to incur costs related to the resources.
+It is important to clean up your SAP installation from this tutorial after you're finished. Otherwise, you continue to incur costs related to the resources.
 
 To remove the entire SAP infrastructure you deployed, you need to:
 
