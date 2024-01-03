@@ -16,12 +16,12 @@ recommendations: false
 
 # Get started using Provisioned Deployments on the Azure OpenAI Service
 
-The following guide walks you through setting up your provisioned deployment on the Azure OpenAI service. 
+The following guide walks you through setting up a provisioned deployment with your Azure OpenAI Service resource. 
 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to the Azure OpenAI service in the desired Azure subscription.
+- Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - Obtained Quota for a provisioned deployment and purchased a commitment. 
 
@@ -37,9 +37,9 @@ After you purchase a commitment on your quota, you can create a deployment. To c
 
 
 
-1.	Sign into the [Azure OpenAI studio](https://oai.azure.com)
+1.	Sign into the [Azure OpenAI Studio](https://oai.azure.com)
 2.	Choose the subscription that was enabled for provisioned deployments & select the desired resource in a region where you have the quota.
-3.	Under Management in the left-nav select Deployments.
+3.	Under **Management** in the left-nav select **Deployments**.
 4.	Select Create new deployment and configure the following fields. Expand the ‘advanced options’ drop-down.
 5.	Fill out the values in each field. Here's an example:
 
@@ -120,7 +120,7 @@ For more information about monitoring your deployments, see the [Monitoring Azur
 
 
 ## Handling high utilization
-Provisioned deployments provide customers with an allocated amount of compute capacity to run a given model. The ‘Provisioned-Managed Utilization’ metric in Azure Monitor measures the utilization of the deployment in one-minute increments. Provisioned-Managed deployments are also optimized so that calls accepted are processed with a consistent per-call max latency. When the workload exceeds its allocated capacity, the service returns a 429 HTTP status code until the utilization drops down below 100%. The time before retrying is provided in the `retry-after` and `retry-after-ms` response headers that provide the time in seconds and milliseconds respectively.  This approach maintains the per-call latency targets while giving the developer control over how to handle high-load situations – for example retry or divert to another experience/endpoint. 
+Provisioned deployments provide you with an allocated amount of compute capacity to run a given model. The ‘Provisioned-Managed Utilization’ metric in Azure Monitor measures the utilization of the deployment in one-minute increments. Provisioned-Managed deployments are also optimized so that calls accepted are processed with a consistent per-call max latency. When the workload exceeds its allocated capacity, the service returns a 429 HTTP status code until the utilization drops down below 100%. The time before retrying is provided in the `retry-after` and `retry-after-ms` response headers that provide the time in seconds and milliseconds respectively.  This approach maintains the per-call latency targets while giving the developer control over how to handle high-load situations – for example retry or divert to another experience/endpoint. 
 
 ### What should  I do when I receive a 429 response?
 A 429 response indicates that the allocated PTUs are fully consumed at the time of the call. The response includes the `retry-after-ms` and `retry-after` headers that tell you the time to wait before the next call will be accepted. How you choose to handle a 429 response depends on your application requirements. Here are some considerations:
