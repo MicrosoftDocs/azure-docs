@@ -73,5 +73,6 @@ Untrusted customer signed certificates|Customer signed certificates aren't trust
 
 ## Next steps
 
+- [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
 - [Azure Firewall Premium features](premium-features.md)
 - [Learn more about Azure network security](../networking/security/index.yml)
