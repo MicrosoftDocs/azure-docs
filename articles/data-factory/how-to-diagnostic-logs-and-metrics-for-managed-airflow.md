@@ -16,7 +16,7 @@ This article walks you through the steps to:
 - Enable diagnostics logs and metrics for Managed Airflow.
 - View logs and metrics.
 - Run a query.
-- Monitor metrics and set the alert system in DAG failure.
+- Monitor metrics and set the alert system in directed acyclic graph (DAG) failure.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ You need an Azure subscription. If you don't have an Azure subscription, create 
 
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/02-view-logs.png" alt-text="Screenshot that shows selecting View logs." lightbox="media/diagnostics-logs-and-metrics-for-managed-airflow/02-view-logs.png":::
 
-1. You're directed to your Log Analytics workspace, where the chosen tables are imported into the workspace automatically.
+1. You're directed to your Log Analytics workspace where you can see that the tables you selected were imported into the workspace automatically.
 
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/03-log-analytics-workspace.png" alt-text="Screenshot that shows the Log Analytics workspace." lightbox="media/diagnostics-logs-and-metrics-for-managed-airflow/03-log-analytics-workspace.png":::
 

@@ -11,9 +11,9 @@ ms.date: 10/17/2023
 
 # CI/CD patterns with Managed Airflow
 
-The Azure Data Factory Managed Airflow service is a simple and efficient way to create and manage Apache Airflow environments. The service enables you to run data pipelines at scale with ease. There are two primary methods to run directed acyclic graphs (DAGs) in Managed Airflow. You can upload the DAG files in your blob storage and link them with the Airflow environment. Alternatively, you can use the Git-sync feature to automatically sync your Git repository with the Airflow environment.
+Azure Data Factory Managed Airflow is a simple and efficient way to create and manage Apache Airflow environments. The service enables you to run data pipelines at scale with ease. There are two primary methods to run directed acyclic graphs (DAGs) in Managed Airflow. You can upload the DAG files in your blob storage and link them with the Airflow environment. Alternatively, you can use the Git-sync feature to automatically sync your Git repository with the Airflow environment.
 
-Working with data pipelines in Airflow requires you to create or update your DAGs, plugins, and requirement files frequently, based on your workflow needs. Although developers can manually upload or edit DAG files in blob storage, many organizations prefer to use a continuous integration and continuous delivery (CI/CD) approach for code deployment. This article walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with the Managed Airflow service.
+Working with data pipelines in Airflow requires you to create or update your DAGs, plugins, and requirement files frequently, based on your workflow needs. Although developers can manually upload or edit DAG files in blob storage, many organizations prefer to use a continuous integration and continuous delivery (CI/CD) approach for code deployment. This article walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with Managed Airflow.
 
 ## Understand CI/CD
 
@@ -56,7 +56,7 @@ Map your Managed Airflow environment with your Git repository's production branc
 
 A best practice is to maintain a separate production environment to prevent every development feature from becoming publicly accessible.
 
-After the feature branch successfully merges into the development branch, you can create a pull request to the production branch to make your newly merged feature public. This pull request triggers the PR pipeline that conducts rapid quality checks on the development branch. QR checks ensure that all features were integrated correctly and there are no errors in the production environment.
+After the feature branch successfully merges into the development branch, you can create a pull request to the production branch to make your newly merged feature public. This pull request triggers the PR pipeline that conducts rapid quality checks on the development branch. Quality checks ensure that all features were integrated correctly and there are no errors in the production environment.
 
 ### Benefits of using the CI/CD workflow in Managed Airflow
 
@@ -65,15 +65,15 @@ After the feature branch successfully merges into the development branch, you c
 
 ## Deployment patterns in Managed Airflow
 
-Two deployment patterns are recommended.
+We recommend two deployment patterns.
 
 ### Pattern 1: Develop data pipelines directly in Managed Airflow
 
-Pattern 1 has the following prerequisites.
+You can develop data pipelines directly in Managed Airflow when you use pattern 1.
 
 ### Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Create or select an existing Data Factory in the region where the managed airflow preview is supported.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Create or select an existing Azure Data Factory instance in the region where the Managed Airflow preview is supported.
 - You need access to a [GitHub repository](https://github.com/join).
 
 ### Advantages
@@ -100,7 +100,7 @@ Pattern 1 has the following prerequisites.
 
 ### Pattern 2: Develop DAGs locally and deploy on Managed Airflow
 
-Pattern 2 has the following prerequisites.
+You can develop DAGs locally and deploy them on Managed Airflow when you use pattern 2.
 
 ### Prerequisites
 
@@ -157,7 +157,7 @@ For more information, see:
         task1 >> task2 >> task3 >> task4
     ```
 
-2. Create a CI/CD pipeline. You have two options: Azure DevOps or GitHub actions.
+1. Create a CI/CD pipeline. You have two options: Azure DevOps or GitHub actions.
 
     1. **Azure DevOps option**: Create the file `azure-devops-ci-cd.yaml` and copy the following code. The pipeline triggers on a pull request or push request to the development branch:
 
@@ -198,7 +198,7 @@ For more information, see:
     
 
 
-    1.	**GitHub actions option**: Create a `.github/workflows` directory in your GitHub repository.
+    1. **GitHub actions option**: Create a `.github/workflows` directory in your GitHub repository.
 
         1. In the `.github/workflows` directory, create a file named `github-actions-ci-cd.yml`.
 
@@ -256,13 +256,13 @@ For more information, see:
                       pytest tests/
             ```
 
-3. In the tests folder, create the tests for Airflow DAGs. Here are a few examples:
+1. In the tests folder, create the tests for Airflow DAGs. Here are a few examples:
 
     1. At the least, it's crucial to conduct initial testing by using `import_errors` to ensure the DAG's integrity and correctness. This test ensures:
 
-        - **Your DAG doesn't contain cyclicity**: Cyclicity, where a task forms a loop or circular dependency within the workflow, can lead to unexpected and infinite execution loops.
-        - **There are no import errors**: Import errors can arise because of issues like missing dependencies, incorrect module paths, or coding errors.  
-        - **Tasks are defined correctly**: Confirm that the tasks within your DAG are correctly defined.
+        - **Your DAG doesn't contain cyclicity:** Cyclicity, where a task forms a loop or circular dependency within the workflow, can lead to unexpected and infinite execution loops.
+        - **There are no import errors:** Import errors can arise because of issues like missing dependencies, incorrect module paths, or coding errors.  
+        - **Tasks are defined correctly:** Confirm that the tasks within your DAG are correctly defined.
     
             ```python
             @pytest.fixture()
@@ -310,7 +310,7 @@ For more information, see:
                     assert not set(dag.tags) - Expected_tags
         ```
 
-4. Now, when you raise a pull request to the development branch, you can see that GitHub actions trigger the CI pipeline to run all the tests.
+1. Now when you raise a pull request to the development branch, you can see that GitHub actions trigger the CI pipeline to run all the tests.
 
 ## Related content
 
