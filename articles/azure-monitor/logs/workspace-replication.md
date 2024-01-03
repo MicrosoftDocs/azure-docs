@@ -96,8 +96,10 @@ https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<res
 When you enable replication on your workspace, a System [Data Collection Endpoint](../essentials/data-collection-endpoint-overview.md) (DCE) is created. The DCE created to support replication is named by the workspace ID (For example, if your workspace ID is "e56...c373", the DCE will be named "e56...c373").
 **If you use Data Collection Rules (DCRs) to send logs to this workspace, you must connect each of your DCRs to the newly created DCE, for replication and failover to be supported.**
 
+to connect an existing DCR to a DCE, go to the DCR Overview blade, select "Configure DCE" and then choose the system DCE from the available list:
+![Diagram that shows how to configure a DCE for an existing DCR](./media/workspace-replication/configure_dce.png)
 
-To learn how to connect a DCR to a DCE, see step 5 in [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md?tabs=portal#create-a-data-collection-rule).
+To learn more about linking a DCR to a DCE during DCR creation, see step 5b in [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md?tabs=portal#create-a-data-collection-rule).
 
 > [!NOTE]
 > Only DCRs that are connected to the workspace's system DCE will enable replication and failover. This provides you with control over which log streams are replicated and which are not, which also impacts your replication costs.
@@ -108,7 +110,7 @@ To learn how to connect a DCR to a DCE, see step 5 in [Create a data collection 
 ## Monitoring your workspace and service health
 Ingestion latency or query failures are examples of issues that can often be handled by failing over to your secondary region. Such issues can be detected using Service Health notifications and log queries.
 
-While Service Health notifications are useful for service-wise issues, you can use additional measures to identify issues related to your specific workspace and setup.To do that, use can [create alerts based on the workspace resource health](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-health#view-log-analytics-workspace-health-and-set-up-health-status-alerts), set specific thresholds for [workspace health metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-health#view-log-analytics-workspace-health-metrics), or even create your own monitoring queries, serving as custom-made health indicators for your workspace. This last option is explained in detail in this article.
+While Service Health notifications are useful for service-wise issues, you can use additional measures to identify issues related to your specific workspace and setup.To do that, use can [create alerts based on the workspace resource health](./log-analytics-workspace-health.md#view-log-analytics-workspace-health-and-set-up-health-status-alerts), set specific thresholds for [workspace health metrics](/log-analytics-workspace-health.md#view-log-analytics-workspace-health-metrics), or even create your own monitoring queries, serving as custom-made health indicators for your workspace. This last option is explained in detail in this article.
 
 For example, queries allow you to:
 * Measure ingestion latency, per data type or for all types
