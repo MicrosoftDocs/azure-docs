@@ -1,5 +1,5 @@
 ---
-title: Manage APIs in Azure API Center - Azure CLI
+title: Manage API inventory in Azure API Center - Azure CLI
 description: Use the Azure CLI to create and manage APIs, API versions, and API definitions in your Azure API center.
 author: dlepow
 ms.service: api-center
@@ -12,7 +12,7 @@ ms.custom:
 
 # Use the Azure CLI to manage the API inventory
 
-This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md). You can use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
+This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md) inventory. You can use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -34,10 +34,10 @@ The following steps show how to create an API and associate a single API version
 
 Use the [az apic api create](/cli/azure/apic/api#az_apic_api_create) command to create an API in your API center. 
 
-The following example creates an API named *Petstore API* in the *myGroup* resource group and *myAPICenter* API center. The API is a REST API.
+The following example creates an API named *Petstore API* in the *myResourceGroup* resource group and *myAPICenter* API center. The API is a REST API.
 
 ```azurecli-interactive
-az apic api create  --resource-group myGroup 
+az apic api create  --resource-group myResourceGroup 
     --service myAPICenter --name petstore-api \
     --title "Petstore API" --kind "rest"
 ```
@@ -48,7 +48,7 @@ You can set more API properties using other command parameters. For example, set
 
 ```azurecli-interactive
 az apic api create \
-    --resource-group myGroup --service myAPICenter \
+    --resource-group myResourceGroup --service myAPICenter \
     --name petstore-api --title "Petstore API" --kind "rest" \
     --custom-properties '{"lifecycleStage":"Design","apiType":"OpenAPI"}'
 ```
