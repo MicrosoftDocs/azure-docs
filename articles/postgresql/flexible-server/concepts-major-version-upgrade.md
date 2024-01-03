@@ -4,7 +4,7 @@ description: Learn about the concepts of in-place major version upgrade with Azu
 author: kabharati
 ms.author: kabharati
 ms.reviewer: rajsell
-ms.date: 12/12/2023
+ms.date: 12/30/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: references_regions
@@ -98,6 +98,9 @@ VACUUM ANALYZE VERBOSE;
 >
 > The VERBOSE flag is optional, but using it shows you the progress. 
 
+> [!NOTE]  
+> If you have pg_qs enabled and collecting data on an instance of PostgreSQL running a major version <= 14, and perform an [in-place major version upgrade](./concepts-major-version-upgrade.md) to any version >= 15, know that the values returned in the query_type column of query_store.qs_view for any newly created time windows can be considered correct. However, for all the time windows which were created when the version of the engine was <= 14, where it reports `merge` it corresponds to `utility`, and when it reports `nothing` it corresponds to `utility`. The reason for that inconsistency has to do with the way [MERGE statement was implemented in PostgreSQL](https://github.com/postgres/postgres/commit/7103ebb7aae8ab8076b7e85f335ceb8fe799097c), which, instead of appending a new item to the existing ones in the CmdType enum, interleaved an item for MERGE between DELETE and UTILITY.
+ 
 ## Next steps
 
 - Learn about [business continuity](./concepts-business-continuity.md).
