@@ -7,7 +7,7 @@ ms.author: elkrieger
 ms.custom: generated
 ---
 
-There are **46** AWS recommendations in this category.
+There are **48** AWS recommendations in this category.
 
 |Recommendation |Description |Severity |
 |---|---|---|
@@ -57,4 +57,6 @@ There are **46** AWS recommendations in this category.
 |[S3 buckets public write access should be removed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/994d14f1-b8d7-4cb3-ad4e-a7ccb08065d5) |Allowing public write access to your S3 bucket can leave you vulnerable to malicious actions such as storing data at your expense, encrypting your files for ransom, or using your bucket to operate malware. |High |
 |[Secrets Manager secrets should have automatic rotation enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4aa0f6dc-40be-43b2-92f1-3a52ad9d68d1) |This control checks whether a secret stored in AWS Secrets Manager is configured with automatic rotation.<br>Secrets Manager helps you improve the security posture of your organization. Secrets include database credentials, passwords, and third-party API keys. You can use Secrets Manager to store secrets centrally, encrypt secrets automatically, control access to secrets, and rotate secrets safely and automatically.<br>Secrets Manager can rotate secrets. You can use rotation to replace long-term secrets with short-term ones. Rotating your secrets limits how long an unauthorized user can use a compromised secret. For this reason, you should rotate your secrets frequently. To learn more about rotation, see <a href='https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html'>Rotating your AWS Secrets Manager secrets</a> in the AWS Secrets Manager User Guide. |Medium |
 |[Stopped EC2 instances should be removed after a specified time period](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1a3340b3-8916-40fe-942d-a937e60f5d4c) |This control checks whether any EC2 instances have been stopped for more than the allowed number of days. An EC2 instance fails this check if it is stopped for longer than the maximum allowed time period, which by default is 30 days. <br> A failed finding indicates that an EC2 instance has not run for a significant period of time. This creates a security risk because the EC2 instance is not being actively maintained (analyzed, patched, updated). If it is later launched, the lack of proper maintenance could result in unexpected issues in your AWS environment. To safely maintain an EC2 instance over time in a nonrunning state, start it periodically for maintenance and then stop it after maintenance. Ideally this is an automated process. |Medium |
+| [AWS overprovisioned identities should have only the necessary permissions]
+| [Unused identities in your AWS environment should be removed]
 |||

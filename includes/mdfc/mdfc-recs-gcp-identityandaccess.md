@@ -7,7 +7,7 @@ ms.author: elkrieger
 ms.custom: generated
 ---
 
-There are **25** GCP recommendations in this category.
+There are **28** GCP recommendations in this category.
 
 |Recommendation |Description |Severity |
 |---|---|---|
@@ -36,4 +36,7 @@ There are **25** GCP recommendations in this category.
 |[Redis IAM role should not be assigned at the organization or folder level](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/7c20b7aa-be3d-4a4b-af45-1b432c02f86b) |This recommendation evaluates the IAM allow policy in resource metadata for principals assigned roles/redis.admin, roles/redis.editor, roles/redis.viewer at the organization or folder level. |High |
 |[Service accounts should have restricted project access in a cluster](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b73bad4f-4ea7-4d04-bab0-d400cb3ad639) |This recommendation evaluates the config property of a node pool to check if no service account is specified or if the default service account is used. |High |
 |[Users should have least privilege access with granular IAM roles](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4a7771a9-a2dd-40e8-87a2-921259d68667) |This recommendation evaluates the IAM policy in resource metadata for any principals assigned roles/Owner, roles/Writer, or roles/Reader. |High |
+| [GCP overprovisioned identities should have only the necessary permissions]
+| [Super Identities in your GCP environment should be removed]
+| [Unused identities in your GCP environment should be removed ]
 |||
