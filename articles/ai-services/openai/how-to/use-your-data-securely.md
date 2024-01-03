@@ -224,7 +224,7 @@ Configure your local machine `hosts` file to point your resources host names to 
 You should be able to use all Azure OpenAI Studio features, including both ingestion and inference, from your on-premises client machines.
 
 ## Web app
-The web app communicates with your Azure OpenAI. Since your Azure OpenAI resource has public network disabled, the web app needs to be set up to use the private endpoint in your virtual network to access your Azure OpenAI resource.
+The web app communicates with your Azure OpenAI resource. Since your Azure OpenAI resource has public network disabled, the web app needs to be set up to use the private endpoint in your virtual network to access your Azure OpenAI resource.
 
 The web app needs to resolve your Azure OpenAI host name to the private IP of the private endpoint for Azure OpenAI. So, you need to configure the private DNS zone for your virtual network first.
 
