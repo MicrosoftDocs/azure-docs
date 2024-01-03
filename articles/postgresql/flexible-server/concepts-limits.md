@@ -60,9 +60,9 @@ Below, you'll find the _default_ maximum number of connections for each pricing 
 
 ### Changing the max_connections value
 
-The default value for the maximum number of connections is calculated upon provising of the instance and cannot be changed ever after.
-
-However, it is possible to change the current value for the maximum number of connections by altering the value assigned to the `max_connections` server parameter. This parameter is static and requires a restart of the instance to take effect.
+When you first set up your Azure Postgres Flexible Server, it automatically decides the highest number of connections it can handle concurrently. This number is based on your server's configuration and cannot be changed.
+ 
+However, you can adjust how many connections are allowed at any given time. To do this, change the 'max_connections' setting. Remember, after you change this setting, you'll need to restart your server for the new limit to start working.
 
 > [!CAUTION]
 > While it is possible to increase the value of `max_connections` beyond the default setting, it is not advisable. The rationale behind this recommendation is that instances may encounter difficulties when the workload expands and demands more memory. As the number of connections increases, memory usage also rises. Instances with limited memory may face issues such as crashes or high latency. Although a higher value for `max_connections` might be acceptable when most connections are idle, it can lead to significant performance problems once they become active. Instead, if you require additional connections, we suggest utilizing pgBouncer, Azure's built-in connection pool management solution, in transaction mode. To start, it is recommended to use conservative values by multiplying the vCores within the range of 2 to 5. Afterward, carefully monitor resource utilization and application performance to ensure smooth operation. For detailed information on pgBouncer, please refer to the [PgBouncer in Azure Database for PostgreSQL - Flexible Server](concepts-pgbouncer.md).
