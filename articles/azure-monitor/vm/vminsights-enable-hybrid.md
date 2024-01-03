@@ -11,7 +11,7 @@ ms.date: 12/11/2023
 
 # Enable VM Insights on a Windows client machine
 
-This article describes how to enable VM Insights on a Windows client machine, without using Azure Arc, which doesn't currently support managing Windows client machines.
+This article describes how to enable VM Insights on a Windows client machine.
 
 ## Prerequisites
 
