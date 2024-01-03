@@ -56,7 +56,7 @@ In any of these scenarios, apply the following workflow:
 
 Some workloads don't have dominant queries that you can tune to improve overall application performance. Those workloads are typically characterized with a relatively large number of unique queries, each of them consuming a portion of system resources. Each unique query is executed infrequently, so individually their runtime consumption isn't critical. On the other hand, given that the application is generating new queries all the time, a significant portion of system resources is spent on query compilation, which isn't optimal. Usually, this situation happens if your application generates queries (instead of using stored procedures or parameterized queries) or if it relies on object-relational mapping frameworks that generate queries by default.
 
-If you are in control of the application code, you might consider rewriting the data access layer to use stored procedures or parameterized queries. However, this situation can be also be improved without application changes by forcing query parameterization for the entire database (all queries) or for the individual query templates with the same query hash.
+If you are in control of the application code, you might consider rewriting the data access layer to use stored procedures or parameterized queries. However, this situation can also be improved without application changes by forcing query parameterization for the entire database (all queries) or for the individual query templates with the same query hash.
 
 ## Next step
 
