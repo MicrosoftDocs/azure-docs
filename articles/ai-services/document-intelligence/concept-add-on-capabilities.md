@@ -204,7 +204,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 > [!NOTE]
 >
-> Document Intelligence Studio query field extraction is currently available with the Layout and Prebuilt models starting with the `2023-10-31-preview` API and later releases.
+> Document Intelligence Studio query field extraction is currently available with the Layout and Prebuilt models starting with the `2023-10-31-preview` API and later releases except for the ```us.tax.*``` models (W2, 1098s and 1099s models).
 
 ### Query field extraction
 
