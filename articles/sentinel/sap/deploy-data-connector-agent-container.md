@@ -66,9 +66,9 @@ Ideally, your SAP configuration and authentication secrets can and should be sto
 
 - **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault. Select the [**Managed identity** tab](deploy-data-connector-agent-container-other-methods.md?tabs=managed-identity#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container using managed identity.
 
-    In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using an [Microsoft Entra ID registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a [**configuration file**](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container).
+    In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using a [Microsoft Entra ID registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a [**configuration file**](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container).
 
-- **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using an [Microsoft Entra ID registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). Select the [**Registered application** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
+- **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using a [Microsoft Entra ID registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). Select the [**Registered application** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
 
 - If for some reason a registered-application service principal can't be used, you can use a [**configuration file**](reference-systemconfig.md), though this is not preferred.
 
@@ -288,6 +288,32 @@ Create a new agent through the Azure portal, authenticating with a managed ident
    
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
+#### Connect to a new SAP system
+
+1. In the **Configuration** area, select **Add new system (Preview)**.
+
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area.":::
+
+1. Under **Select an agent**, select the [agent you created in the previous step](#create-a-new-agent).
+
+1. Under **System identifier**, select the server type and provide the server details.
+
+1. Select **Next: Authentication**.
+
+1. For basic authentication, provide the user and password. If you selected an SNC connection when you [set up the agent](#create-a-new-agent), select **SNC** and provide the certificate details.
+
+1. Select **Next: Logs**.
+
+1. Select which logs you want to pull from SAP, and select **Next: Review and create**.
+
+1. Review the settings you defined. Select **Previous** to modify any settings, or select **Deploy** to deploy the system.
+
+1. The system configuration you defined is deployed into Azure Key Vault. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the Azure portal or via other methods. 
+
+    At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
+
+    Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
+
 # [Azure portal](#tab/azure-portal/registered-application)
 
 Create a new agent through the Azure portal, authenticating with a Microsoft Entra ID registered application:
@@ -353,6 +379,32 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
     The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl). You can supply additional parameters to the script to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
    
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+
+#### Connect to a new SAP system
+
+1. In the **Configuration** area, select **Add new system (Preview)**.
+
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area.":::
+
+1. Under **Select an agent**, select the [agent you created in the previous step](#create-a-new-agent).
+
+1. Under **System identifier**, select the server type and provide the server details.
+
+1. Select **Next: Authentication**.
+
+1. For basic authentication, provide the user and password. If you selected an SNC connection when you [set up the agent](#create-a-new-agent), select **SNC** and provide the certificate details.
+
+1. Select **Next: Logs**.
+
+1. Select which logs you want to pull from SAP, and select **Next: Review and create**.
+
+1. Review the settings you defined. Select **Previous** to modify any settings, or select **Deploy** to deploy the system.
+
+1. The system configuration you defined is deployed into Azure Key Vault. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the Azure portal or via other methods. 
+
+    At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
+
+    Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
 # [Azure portal](#tab/azure-portal/config-file)
 
@@ -465,26 +517,6 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
     To view a list of the available containers use the command: `docker ps -a`.
 
 ---
-
-#### Connect to a new SAP system
-
-1. In the **Configuration** area, select **Add new system (Preview)**.
-
-    :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area.":::
-
-1. Under **Select an agent**, select the [agent you created in the previous step](#create-a-new-agent).
-1. Under **System identifier**, select the server type and provide the server details.
-1. Select **Next: Authentication**.
-1. For basic authentication, provide the user and password. If you selected an SNC connection when you [set up the agent](#create-a-new-agent), select **SNC** and provide the certificate details.
-1. Select **Next: Logs**.
-1. Select which logs you want to pull from SAP, and select **Next: Review and create**.
-1. Review the settings you defined. Select **Previous** to modify any settings, or select **Deploy** to deploy the system.1. 
-
-    The system configuration you defined is deployed into Azure Key Vault. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the Azure portal or via other methods. 
-
-    At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
-
-    Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
 ## Next steps
 

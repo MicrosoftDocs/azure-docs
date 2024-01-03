@@ -1,16 +1,16 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications - deploy and configure the SAP data connector agent container
-description: This article shows you how to manually deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
-author: limwainstein
-ms.author: lwainstein
+title: Microsoft Sentinel solution for SAP® applications - deploy and configure the SAP data connector agent container using the command line
+description: This article shows you how to manually deploy the container that hosts the SAP data connector agent, using the Azure command line interface. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 01/18/2023
+ms.date: 01/03/2024
 ---
 
 # Deploy and configure the container hosting the SAP data connector agent via the command line
 
-This article shows you how to use various methods to deploy the container that hosts the SAP data connector agent, and create new SAP systems under the agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP. 
+This article shows you how to use the Azure command line interface to deploy the container that hosts the SAP data connector agent, and create new SAP systems under the agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP. 
 
 This article shows you how to deploy the container and create SAP systems via managed identity, a registered application, a configuration file, or directly on the VM. Alternatively, you can [deploy the data connector agent via the UI](deploy-data-connector-agent-container.md) (Preview).
 
@@ -38,8 +38,9 @@ Deployment of the Microsoft Sentinel Solution for SAP is divided into the follow
 
 Read about the [deployment process](deploy-data-connector-agent-container.md#data-connector-agent-deployment-overview).
 
-## Deploy the data connector agent container
+## Deploy the data connector agent container manually
 
+<!--
 # [Managed identity](#tab/managed-identity)
 
 1. Run the following command to **Create a VM** in Azure (substitute actual names for the `<placeholders>`):
@@ -244,6 +245,7 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
     To view a list of the available containers use the command: `docker ps -a`.
 
 # [Manual deployment](#tab/deploy-manually)
+-->
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 
@@ -284,7 +286,7 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
    docker start sapcon-$sid
    ```
 
----
+<!-- --- -->
 
 ## Next steps
 
