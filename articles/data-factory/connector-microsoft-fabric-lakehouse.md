@@ -30,6 +30,9 @@ This Microsoft Fabric Lakehouse connector is supported for the following capabil
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |- |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ |
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ |
 
 *&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
