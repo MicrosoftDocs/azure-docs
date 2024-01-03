@@ -265,10 +265,15 @@ In the subscriber shell, you see the messages you published.
 
 ```output
 23:17:50.802 QoS:AtMostOnce  tutorial/local     Payload( 52): This message goes all the way to the cloud and back!
+23:17:51.086 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 23:17:51.803 QoS:AtMostOnce  tutorial/local     Payload( 52): This message goes all the way to the cloud and back!
+23:17:51.888 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 23:17:52.804 QoS:AtMostOnce  tutorial/local     Payload( 52): This message goes all the way to the cloud and back!
+23:17:52.888 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 23:17:53.805 QoS:AtMostOnce  tutorial/local     Payload( 52): This message goes all the way to the cloud and back!
+23:17:53.895 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 23:17:54.807 QoS:AtMostOnce  tutorial/local     Payload( 52): This message goes all the way to the cloud and back!
+23:17:54.881 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 ```
 
 Here, you see the messages are published to the local IoT MQ broker to the `tutorial/local` topic, bridged to Event Grid MQTT broker, and then bridged back to the local IoT MQ broker again on the `tutorial/cloud` topic. The messages are then delivered to the subscriber. In this example, the round trip time is about 80 ms.
