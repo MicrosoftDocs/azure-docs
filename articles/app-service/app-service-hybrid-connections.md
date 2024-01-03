@@ -19,7 +19,7 @@ Within App Service, Hybrid Connections can be used to access application resourc
 ## How it works ##
 Hybrid Connections requires a relay agent to be deployed where it can reach both the desired endpoint and Azure. The relay agent, Hybrid Connection Manager (HCM), calls out to Azure Relay over port 443. From the web app site, the App Service infrastructure also connects to Azure Relay on your application's behalf. Through the joined connections, your app is able to access the desired endpoint. The connection uses TLS 1.2 for security and shared access signature (SAS) keys for authentication and authorization.
 
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-connectiondiagram.png" alt-text="Diagram of Hybrid Connection high-level flow":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-connection-diagram.png" alt-text="Diagram of Hybrid Connection high-level flow.":::
 
 When your app makes a DNS request that matches a configured Hybrid Connection endpoint, the outbound TCP traffic is redirected through the Hybrid Connection.  
 
@@ -54,11 +54,11 @@ Things you can't do with Hybrid Connections include:
 
 To create a Hybrid Connection, go to the [Azure portal] and select your app. Select **Networking** > **Configure your Hybrid Connection endpoints**. Here you can see the Hybrid Connections that are configured for your app.  
 
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-portal.png" alt-text="Screenshot of Hybrid Connection list":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-portal.png" alt-text="Screenshot of Hybrid Connection list.":::
 
 To add a new Hybrid Connection, select **[+] Add hybrid connection**.  You see a list of the Hybrid Connections that you already created. To add one or more of them to your app, select the ones you want, and then select **Add selected Hybrid Connection**.
 
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-addhc.png" alt-text="Screenshot of Hybrid Connection portal":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-add-hybrid-connection.png" alt-text="Screenshot of Hybrid Connection portal.":::
 
 If you want to create a new Hybrid Connection, select **Create new hybrid connection**. Specify the: 
 
@@ -67,7 +67,7 @@ If you want to create a new Hybrid Connection, select **Create new hybrid connec
 - Endpoint port.
 - Service Bus namespace you want to use.
 
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-createhc.png" alt-text="Screenshot of Create new hybrid connection dialog box":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-create-hybrid-connection.png" alt-text="Screenshot of Create new hybrid connection dialog box.":::
 
 Every Hybrid Connection is tied to a Service Bus namespace, and each Service Bus namespace is in an Azure region. It's important to try to use a Service Bus namespace in the same region as your app, to avoid network induced latency.
 
@@ -75,7 +75,7 @@ If you want to remove your Hybrid Connection from your app, right-click it and s
 
 When a Hybrid Connection is added to your app, you can see details on it simply by selecting it. 
 
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-properties.png" alt-text="Screenshot of Hybrid connections details":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-properties.png" alt-text="Screenshot of Hybrid connections details.":::
 
 ### Create a Hybrid Connection in the Azure Relay portal ###
 
@@ -97,7 +97,7 @@ App Service Hybrid Connections are only available in Basic, Standard, Premium, a
 
 The App Service plan UI shows you how many Hybrid Connections are being used and by what apps.
 
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-aspproperties.png" alt-text="Screenshot of App Service plan properties":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-app-service-plan-properties.png" alt-text="Screenshot of App Service plan properties.":::
 
 Select the Hybrid Connection to see details. You can see all the information that you saw at the app view. You can also see how many other apps in the same plan are using that Hybrid Connection.
 
@@ -115,7 +115,7 @@ This tool runs on Windows Server 2012 and later. The HCM runs as a service and c
 
 After installing HCM, you can run HybridConnectionManagerUi.exe to use the UI for the tool. This file is in the Hybrid Connection Manager installation directory. In Windows 10, you can also just search for *Hybrid Connection Manager UI* in your search box.
 
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcm.png" alt-text="Screenshot of Hybrid Connection Manager":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm.png" alt-text="Screenshot of Hybrid Connection Manager.":::
 
 When you start the HCM UI, the first thing you see is a table that lists all the Hybrid Connections that are configured with this instance of the HCM. If you want to make any changes, first authenticate with Azure. 
 
@@ -123,18 +123,18 @@ To add one or more Hybrid Connections to your HCM:
 
 1. Start the HCM UI.
 2. Select **Add a new Hybrid Connection**.
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmadd.png" alt-text="Screenshot of Configure New Hybrid Connections":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-add.png" alt-text="Screenshot of Configure New Hybrid Connections.":::
 
 1. Sign in with your Azure account to get your Hybrid Connections available with your subscriptions. The HCM doesn't continue to use your Azure account beyond this step. 
 1. Choose a subscription.
 1. Select the Hybrid Connections that you want the HCM to relay.
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmadded.png" alt-text="Screenshot of Hybrid Connections":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-added.png" alt-text="Screenshot of Hybrid Connections.":::
 
 1. Select **Save**.
 
 You can now see the Hybrid Connections you added. You can also select the configured Hybrid Connection to see details.
 
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcmdetails.png" alt-text="Screenshot of Hybrid Connection Details":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-details.png" alt-text="Screenshot of Hybrid Connection Details.":::
 
 To support the Hybrid Connections it's configured with, HCM requires:
 
@@ -154,7 +154,7 @@ Each HCM can support multiple Hybrid Connections. Also, any given Hybrid Connect
 
 To enable someone outside your subscription to host an HCM instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties in the [Azure portal]. To use that string, select **Enter Manually** in the HCM, and paste in the gateway connection string.
 
-:::image type="content" source="media/app-service-hybrid-connections/hybridconn-manual.png" alt-text="Manually add a Hybrid Connection":::
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-manual.png" alt-text="Manually add a Hybrid Connection.":::
 
 ### Upgrade ###
 
@@ -217,7 +217,7 @@ The status of "Connected" means that at least one HCM is configured with that Hy
 * Do you have a firewall between your HCM host and Azure? If so, you need to allow outbound access to both the Service Bus endpoint URL **AND** the Service Bus gateways that service your Hybrid Connection. 
     * You can find the Service Bus endpoint URL in the Hybrid Connection Manager UI.
 
-    :::image type="content" source="media/app-service-hybrid-connections/hybridconn-servicebusendpoint.png" alt-text="Screenshot of Hybrid Connection Service Bus endpoint":::
+    :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-service-bus-endpoint.png" alt-text="Screenshot of Hybrid Connection Service Bus endpoint.":::
 
     * The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through the Azure Relay. You need to allowlist all 128 of the gateways. The gateways are in the format of *G#-prod-[stamp]-sb.servicebus.windows.net* where "#" is a number between 0 and 127 and "stamp" is the name of the instance within your Azure data center where your Service Bus endpoint exists. 
         * If you can use a wildcard, you can allowlist "*.servicebus.windows.net".
@@ -225,7 +225,7 @@ The status of "Connected" means that at least one HCM is configured with that Hy
     
             You can find out the stamp using "nslookup" on the Service Bus endpoint URL.
         
-            :::image type="content" source="media/app-service-hybrid-connections/hybridconn-stampname.png" alt-text="Screenshot of terminal showing where to find the stamp name for the Service Bus":::
+            :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-stamp-name.png" alt-text="Screenshot of terminal showing where to find the stamp name for the Service Bus.":::
         
             In this example, the stamp is "sn3-010". To allowlist the Service Bus gateways, you need the following entries:
             
