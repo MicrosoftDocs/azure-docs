@@ -114,7 +114,7 @@ The storage size of one vector is determined by its dimensionality. Multiply the
 
 For `Edm.Single`, the size of the data type is 4 bytes.
 
-### Memory Overhead from the Selected Algorithm  
+### Memory overhead from the selected algorithm  
   
 Every approximate nearest neighbor (ANN) algorithm generates extra data structures in memory to enable efficient searching. These structures consume extra space within memory.  
   
