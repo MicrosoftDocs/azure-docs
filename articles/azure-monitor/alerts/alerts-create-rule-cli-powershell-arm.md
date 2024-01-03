@@ -17,8 +17,8 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**. At the prompt, use these.
 
     - To create a metric alert rule, use the [az monitor metrics alert create](/cli/azure/monitor/metrics/alert) command.
-    - To create a log alert rule, use the [az monitor scheduled-query create](/cli/azure/monitor/scheduled-query?view=azure-cli-latest#az-monitor-scheduled-query-create) command.
-    - To create an activity log alert rule, use the [az monitor activity-log alert create](cli/azure/monitor/activity-log/alert?view=azure-cli-latest#az-monitor-activity-log-alert-create) command.
+    - To create a log alert rule, use the [az monitor scheduled-query create](/cli/azure/monitor/scheduled-query) command.
+    - To create an activity log alert rule, use the [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert) command.
 
     For example, to create a metric alert rule that monitors if average Percentage CPU on a VM is greater than 90:
     ```azurecli
