@@ -87,7 +87,10 @@ Here are the attributes available in DTDL that are supported in Azure Digital Tw
 
     For more information, see [Components](#components) below.
 
-The [DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) also defines *Commands* and *Telemetry*, but neither of these are used in Azure Digital Twins. Commands are not supported, and Telemetry—although it's allowed in model definitions—has no unique use case in Azure Digital Twins. Instead of using DTDL telemetry, you should use DTDL properties for storing twin state information.
+The [DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) also defines *Commands* and *Telemetry*, but neither of these are used in Azure Digital Twins. Commands are not supported, and Telemetry—although it's allowed in model definitions—has no unique use case in Azure Digital Twins modeling. Instead of using DTDL telemetry, you should use DTDL properties for storing twin state information.
+
+> [!NOTE]
+> Although there's no need to define Telemetry fields in your DTDL models to store incoming device data, Azure Digital Twins can emit events as telemetry using the [SendTelemetry API](concepts-event-notifications.md#digital-twin-telemetry-messages). This triggers a [Digital Twin Telemetry Message event](concepts-event-notifications.md#digital-twin-telemetry-messages) that can be received by an event handler to take actions on other twins or trigger downstream services.
 
 ## Properties
 
