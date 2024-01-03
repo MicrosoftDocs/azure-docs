@@ -2,13 +2,13 @@
 title: Temperature Prebuilt entity - LUIS
 titleSuffix: Azure AI services
 description: This article contains temperature prebuilt entity information in Language Understanding (LUIS).
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
 ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: reference
 ms.date: 10/14/2019
 ---

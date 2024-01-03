@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 08/30/2023
 ms.custom: devx-track-java
@@ -319,6 +319,28 @@ public class SpeechSynthesis {
 ```
 
 You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/samples).
+
+## Use a custom endpoint
+
+The custom endpoint is functionally identical to the standard endpoint that's used for text to speech requests. 
+
+One difference is that the `EndpointId` must be specified to use your custom voice via the Speech SDK. You can start with the [text to speech quickstart](../../../get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
+
+```java
+SpeechConfig speechConfig = SpeechConfig.fromSubscription(speechKey, speechRegion);
+speechConfig.setSpeechSynthesisVoiceName("YourCustomVoiceName");
+speechConfig.setEndpointId("YourEndpointId");
+```
+
+To use a custom voice via [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup-voice.md#use-voice-elements), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="YourCustomVoiceName">
+        This is the text that is spoken. 
+    </voice>
+</speak>
+```
 
 ## Run and use a container
 

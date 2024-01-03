@@ -64,7 +64,7 @@ To ensure performance data is collected, check:
 - If Azure Migrate connection status for all SQL instances is 'Connected' in the discovered SQL instance section.
 - If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
-If any of the performance counters are missing, Azure SQL assessment recommends the smallest Azure SQL configuration for that instance/database.
+If any of the performance counters are missing, Azure SQL assessment falls back to As on-premises sizing and recommends an Azure SQL configuration based on the allocated cores, memory and total database size on-premises.
 
 ## Why is confidence rating not available for Azure App Service assessments?
 
@@ -147,7 +147,7 @@ The readiness for your web apps is computed by running series of technical check
 
 ## Why is my web app marked as Ready with conditions or Not ready in my Azure App Service assessment?
 
-This can happen when one or more technical checks fail for a given web app. You may select the readiness status for the web app to find out details and remediation for failed checks.
+This can happen when one or more technical checks fail for a given web app. You can select the readiness status for the web app to find out details and remediation for failed checks.
 
 ## Why is the readiness for all my SQL instances marked as unknown?
 
@@ -294,7 +294,7 @@ Using the 95th percentile value ensures that outliers are ignored. Outliers migh
 
 Import-based Azure VM assessments are assessments created with machines that are imported into Azure Migrate using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note:
 
- - The readiness criteria is less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it's assumed the machine has BIOS boot type, and the machine isn't marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users may not have all information on the machines in the early stages of migration planning when import-based assessments are done.
+ - The readiness criteria is less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it's assumed the machine has BIOS boot type, and the machine isn't marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users might not have all information on the machines in the early stages of migration planning when import-based assessments are done.
  - Performance-based import assessments use the utilization value provided by the user for right-sizing calculations. Since the utilization value is provided by the user, the **Performance history** and **Percentile utilization** options are disabled in the assessment properties. In assessments with discovery source as appliance, the chosen percentile value is picked from the performance data collected by the appliance.
 
 ## Why is the suggested migration tool in import-based AVS assessment marked as unknown?

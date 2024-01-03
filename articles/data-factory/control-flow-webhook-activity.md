@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Webhook activity in Azure Data Factory
@@ -150,7 +150,7 @@ When you use the **Report status on callback** property, you must add the follow
 }
 ```
 
-## Next steps
+## Related content
 
 See the following supported control flow activities:
 

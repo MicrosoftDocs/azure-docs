@@ -31,7 +31,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "eastus2"
 
 ## Get your principal ID
 
-To create a Managed HSM, you will need your Azure Active Directory principal ID.  To obtain your ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, passing your email address to the "UserPrincipalName" parameter:
+To create a Managed HSM, you will need your Microsoft Entra principal ID.  To obtain your ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, passing your email address to the "UserPrincipalName" parameter:
 
 ```azurepowershell-interactive
 Get-AzADUser -UserPrincipalName "<your@email.address>"
@@ -56,7 +56,7 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
 
 - Resource group name: **myResourceGroup**.
 - The location: **East US 2**.
-- Your principal ID: Pass the Azure Active Directory principal ID that you obtained in the last section to the "Administrator" parameter. 
+- Your principal ID: Pass the Microsoft Entra principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive
 New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName "myResourceGroup" -Location "eastus2" -Administrator "your-principal-ID" -SoftDeleteRetentionInDays "# of days to retain the managed hsm after softdelete"

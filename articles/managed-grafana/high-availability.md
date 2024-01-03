@@ -5,11 +5,13 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: conceptual
-ms.date: 3/23/2023 
+ms.date: 10/13/2023
 ms.custom: references_regions, engagement-fy23
 ---
 
 # Azure Managed Grafana service reliability
+
+This article provides information on availability zone support, disaster recovery and availability of Azure Managed Grafana for instances in the Standard plan. The Essential plan (preview) doesn't offer the same reliability and isn't recommended for use in production.
 
 An Azure Managed Grafana instance in the Standard tier is hosted on a dedicated set of virtual machines (VMs). By default, two VMs are deployed to provide redundancy. Each VM runs a Grafana server. A network load balancer distributes browser requests amongst the Grafana servers. On the backend, the Grafana servers are connected to a common database that stores the configuration and other persistent data for an entire Managed Grafana instance.
 
@@ -21,7 +23,7 @@ Microsoft is not providing or setting up disaster recovery for this service. In 
 
 ## Zone redundancy
 
-Normally the network load balancer, VMs and database that underpin a Managed Grafana instance are located in a region based on system resource availability, and could end up being in a same Azure datacenter.
+The network load balancer, VMs and database that underpin a Managed Grafana instance are located in a region based on system resource availability, and could end up being in a same Azure datacenter.
 
 ### With zone redundancy enabled
 
@@ -44,7 +46,6 @@ Zone redundancy support is enabled in the following regions:
 |------------------|-------------------|-------------------|-------------------|
 | East US          | West Europe       |                   | Australia East    |
 | South Central US |                   |                   |                   |
-
 
 For a complete list of regions where Managed Grafana is available, see [Products available by region - Azure Managed Grafana](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=managed-grafana&regions=all)
 

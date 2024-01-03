@@ -22,13 +22,6 @@ As introduced in this article, you can customize and extend the developer portal
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## Migrate from the legacy portal
-
-> [!IMPORTANT]
-> The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
-
-Migration to the new developer portal is described in the [dedicated documentation article](developer-portal-deprecated-migration.md).
-
 ## Customize and style the managed portal
 
 Your API Management service includes a built-in, always up-to-date, **managed** developer portal. You can access it from the Azure portal interface.

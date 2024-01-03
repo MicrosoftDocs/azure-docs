@@ -2,12 +2,12 @@
 title: Cookie definitions
 titleSuffix: Azure AD B2C
 description: Provides definitions for the cookies used in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 03/20/2022
 ms.author: kengaderdus
@@ -20,7 +20,7 @@ The following sections provide information about the cookies used in Azure Activ
 
 ## SameSite
 
-The Microsoft Azure AD B2C service is compatible with SameSite browser configurations, including support for `SameSite=None` with the `Secure` attribute.
+The Azure B2C service is compatible with SameSite browser configurations, including support for `SameSite=None` with the `Secure` attribute.
 
 To safeguard access to sites, web browsers will introduce a new secure-by-default model that assumes all cookies should be protected from external access unless otherwise specified. The Chrome browser is the first to implement this change, starting with [Chrome 80 in February 2020](https://www.chromium.org/updates/same-site/). For more information about preparing for the change in Chrome, see [Developers: Get Ready for New SameSite=None; Secure Cookie Settings](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html) on the Chromium Blog.
 

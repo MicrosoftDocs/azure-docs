@@ -4,12 +4,13 @@ description: Personalizer can be applied in any situation where your application
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
 ---
 # Where and how to use Personalizer
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Use Personalizer in any situation where your application needs to select the correct action (content) to display - in order to make the experience better, achieve better business results, or improve productivity.
 

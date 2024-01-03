@@ -88,8 +88,7 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | --- | --- |
 | Maximum RU/s per container | 20,000* |
 | Maximum storage across all items per (logical) partition | 20 GB |
-| Maximum storage per container (API for NoSQL, MongoDB, Table, and Gremlin)| 1 TB  |
-| Maximum storage per container (API for Cassandra)| 1 TB  |
+| Maximum storage per container | 1 TB  |
 
 *Maximum RU/sec availability is dependent on data stored in the container. See, [Serverless Performance](serverless-performance.md)
 
@@ -101,7 +100,7 @@ This management layer can also be accessed from the Azure Cosmos DB data plane S
 
 Each account for Azure Cosmos DB has a `master partition` which contains all of the metadata for an account. It also has a small amount of throughput to support control plane operations. Control plane requests that create, read, update or delete this metadata consumes this throughput. When the amount of throughput consumed by control plane operations exceeds this amount, operations are rate-limited, same as data plane operations within Azure Cosmos DB. However, unlike throughput for data operations, throughput for the master partition cannot be increased.
 
-Some control plane operations do not consume master partition throughput, such as Get or List Keys. However, unlike requests on data within your Azure Cosmos DB account, resource providers within Azure are not designed for high request volumes. **Control plane operations that exceed the documented limits at sustained levels over consecutive 5-minute periods here may experience request throttling as well failed or incomplete operations on Azure Cosmos DB resources**. 
+Some control plane operations do not consume master partition throughput, such as Get or List Keys. However, unlike requests on data within your Azure Cosmos DB account, resource providers within Azure are not designed for high request volumes. **Control plane operations that exceed the documented limits at sustained levels over consecutive 5-minute periods may experience request throttling as well as failed or incomplete operations on Azure Cosmos DB resources**. 
 
 Control plane operations can be monitored by navigating the Insights tab for an Azure Cosmos DB account. To learn more see [Monitor Control Plane Requests](use-metrics.md#monitor-control-plane-requests). Users can also customize these, use Azure Monitor and create a workbook to monitor [Metadata Requests](monitor-reference.md#request-metrics) and set alerts on them.
 
@@ -152,10 +151,8 @@ Here's a list of limits per account.
 
 | Resource | Limit |
 | --- | --- |
-| Maximum number of databases and containers per account  | 100¹ |
+| Maximum number of databases and containers per account  | 500 |
 | Maximum number of regions | 1 (Any Azure region) |
-
-¹ You can increase any of these per-account limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 
 ## Per-container limits
 

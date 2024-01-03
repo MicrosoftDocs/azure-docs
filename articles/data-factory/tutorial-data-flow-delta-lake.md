@@ -120,6 +120,6 @@ You will generate two data flows in this tutorial. The first data flow is a simp
 ### Download completed sample
 [Here is a sample solution for the Delta pipeline with a data flow for update/delete rows in the lake:](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/DeltaPipeline.zip)
 
-## Next steps
+## Related content
 
 Learn more about the [data flow expression language](data-transformation-functions.md).

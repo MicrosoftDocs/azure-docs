@@ -62,7 +62,7 @@ using './main.bicep'
 param securePassword = getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretPassword', 'exampleSecretVersion')
 ```
 
-## readEnvironmentVariable()
+## readEnvironmentVariable
 
 `readEnvironmentVariable(variableName, [defaultValue])`
 

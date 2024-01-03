@@ -30,8 +30,8 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
 
 #### Failing for all users
 
-- Review the [Create an application in Azure Active Directory](./quickstart-create-portal.md#create-an-application-in-azure-active-directory) article to verify your application registration is set up correctly.
-- Review the [Update the application in Azure Active Directory](./quickstart-create-portal.md#add-redirect-uris-for-the-application-in-azure-active-directory) article to confirm your chamber connector's redirect URIs are set up correctly.
+- Review the [Create an application in Microsoft Entra ID](./quickstart-create-portal.md#create-an-application-in-azure-active-directory) article to verify your application registration is set up correctly.
+- Review the [Update the application in Microsoft Entra ID](./quickstart-create-portal.md#add-redirect-uris-for-the-application-in-azure-active-directory) article to confirm your chamber connector's redirect URIs are set up correctly.
 - Review the application registration secrets for Modeling and Simulation Workbench and check to see if your application client secret has expired. Complete the following steps if it's expired.
     1. Generate a new secret and make note of the client secret value.
     1. Update your Key Vault app secret value with the newly generated client **secret value.**
@@ -39,12 +39,12 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
         - Make note of the network setup so you can properly configure the new connector with appropriate allowlist IPs or subnet value.
         - For the new connector, ensure you register your chamber connector's redirect URIs.
         - A new Remote Desktop URL is also provided to access the chamber workloads.
-    1. The connector creation picks up the new secret and enables the Azure AD single sign-on experience. All Chamber Admins and Chamber Users that are provisioned at the chamber level automatically have access via this new connector.
+    1. The connector creation picks up the new secret and enables the Microsoft Entra single sign-on experience. All Chamber Admins and Chamber Users that are provisioned at the chamber level automatically have access via this new connector.
 
 #### Failing for some users
 
 1. Ensure the user is provisioned as a Chamber User or a Chamber Admin on the **chamber** resource. They should be set up as an IAM role directly for that chamber, not as a parent resource with inherited permission.
-1. Ensure the user has a valid email set for their Azure AD profile, and that their Azure AD alias matches their email alias. For example, an Azure AD sign in alias of _jane.doe_ must also have an email alias of _jane.doe_. Jane Doe can't sign in to Azure AD with jadoe or any other variation.
+1. Ensure the user has a valid email set for their Microsoft Entra profile, and that their Microsoft Entra alias matches their email alias. For example, a Microsoft Entra sign-in alias of _jane.doe_ must also have an email alias of _jane.doe_. Jane Doe can't sign in to Microsoft Entra ID with jadoe or any other variation.
 1. Validate your /mount/sharehome folder has available space. The /mount/sharedhome directory is set up to store user keys to establish a secure connection. Don't store uploaded tarballs/binaries in this folder or install tools and use disk capacity, as it may create system connection errors causing an outage. Use /mount/chamberstorages/\<storage name\> directory instead for all your data storage and tool installation needs.
 1. Validate your folder permission settings are correct within your chamber. User provisioning may not work properly if the folder permission settings aren't correct. You can check folder permissions in a terminal session using the *ls -al* command for each /mount/sharedhome/\<useralias\>/.ssh folder, results should match below expectations:
 
@@ -60,7 +60,7 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
     1. Then add the user's role assignment back at chamber level.
     1. Wait 5 minutes.
     1. Advise user to sign in again.
-1. If user still can't sign in, they should clear the browser cache and attempt a new sign into the desktop dashboard URL, or try it with a different browser. When the cache is properly cleared or a sign in to new browser is attempted, your organization's sign-in Azure AD prompt displays. OAuth credentials are cached and sometimes a fresh sign in can resolve issues with cached credentials.
+1. If user still can't sign in, they should clear the browser cache and attempt a new sign into the desktop dashboard URL, or try it with a different browser. When the cache is properly cleared or a sign in to new browser is attempted, your organization's sign-in Microsoft Entra prompt displays. OAuth credentials are cached and sometimes a fresh sign in can resolve issues with cached credentials.
 
 ### License error
 

@@ -1,0 +1,34 @@
+{
+  "baseConfiguration": "docutune-unattended-default.json",
+  "onboarding": {
+    "maxInFlightPullRequests": 20,
+    "maxInFlightFiles": 200
+  },
+  "pullRequest": {
+    "title": "[BULK] [DocuTune-Remediation] - Scheduled execution to fix known issues in WAF",
+    "batchSize": 0,
+    "maxBatches": 100,
+    "body": "",
+    "newBranchNamePrefix": "",
+    "headRemote": "origin",
+    "draft": false,
+    "requestReview": true,
+    "signOff": false,
+    "properties": {},
+    "sleepInterval": 15
+  },
+  "types": [
+    {
+      "name": "Default",
+      "command": "Fix",
+      "configType": "full",
+      "stopAt": 9
+    },
+    {
+      "name": "FlagBrokenLinks",
+      "base": "Default",
+      "configType": "links-only",
+      "stopAt": 10
+    }
+  ]
+}

@@ -186,7 +186,7 @@ The template contains two parameters:
 
     :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-6.png" alt-text="Screenshot that shows the results from the control table after you run the query.":::
 
-## Next steps
+## Related content
 
 - [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md)
 - [Move files](solution-template-move-files.md)

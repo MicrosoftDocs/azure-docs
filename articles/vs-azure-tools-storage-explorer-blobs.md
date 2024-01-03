@@ -221,6 +221,15 @@ The following steps illustrate how to manage the blobs (and virtual directories)
      1. Select the blob you wish to delete.
      2. On the main pane's toolbar, select **Delete**.
      3. Select **Yes** to the confirmation dialog.
+   
+   * **Delete a blob along with snapshots**
+   
+     1. Select the blob you wish to delete.
+     2. On the main pane's toolbar, select **Delete**.
+     3. Select **Yes** to the confirmation dialog.
+     4. Under Activities the deletion of the blob will be skipped now click on retry.
+     5. Retry Azcopy window will open and from Snapshot select Delete blobs with snapshots option from dropdown then 
+        select Retry selected.
 
 ## Next steps
 

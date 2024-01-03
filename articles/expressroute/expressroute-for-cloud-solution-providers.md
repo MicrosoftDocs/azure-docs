@@ -39,7 +39,7 @@ In the connect-through model, the CSP creates a direct connection between your d
 
 If your customer has other Azure subscriptions not managed by you, they would use the public Internet or their own private connection to connect to those services provisioned under the non-CSP subscription. 
 
-For CSP managing Azure services, it's assumed that the CSP has a previously established customer identity store, which would then be replicated into Azure Active Directory for management of their CSP subscription through Administrate-On-Behalf-Of (AOBO). Key drivers for this scenario include where a given partner or service provider has an established relationship with the customer, the customer is consuming provider services currently or the partner has a desire to provide a combination of provider-hosted and Azure-hosted solutions to provide flexibility and address customer challenges that can't be satisfied by CSP alone. This model is illustrated in the following **figure**.
+For CSP managing Azure services, it's assumed that the CSP has a previously established customer identity store, which would then be replicated into Microsoft Entra ID for management of their CSP subscription through Administrate-On-Behalf-Of (AOBO). Key drivers for this scenario include where a given partner or service provider has an established relationship with the customer, the customer is consuming provider services currently or the partner has a desire to provide a combination of provider-hosted and Azure-hosted solutions to provide flexibility and address customer challenges that can't be satisfied by CSP alone. This model is illustrated in the following **figure**.
 
 ![Diagram that shows a detailed scenario for the "Connect-through" model.](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
@@ -53,15 +53,15 @@ In the Connect-To model, the service provider creates a direct connection betwee
 > For ExpressRoute the customer would need to create and maintain the ExpressRoute circuit.  
 > 
 
-This connectivity scenario requires that the customer connects directly through a customer network to access CSP-managed Azure subscription, using a direct network connection that is created, owned, and managed either wholly or in part by the customer. For these customers, it's assumed that the provider doesn't currently have a customer identity store established, and the provider would assist the customer in replicating their current identify store into Azure Active Directory for management of their subscription through AOBO. Key drivers for this scenario include where a given partner or service provider has an established relationship with the customer, the customer is consuming provider services currently, or the partner has a desire to provide services that are based solely on Azure-hosted solutions without the need for an existing provider datacenter or infrastructure.
+This connectivity scenario requires that the customer connects directly through a customer network to access CSP-managed Azure subscription, using a direct network connection that is created, owned, and managed either wholly or in part by the customer. For these customers, it's assumed that the provider doesn't currently have a customer identity store established, and the provider would assist the customer in replicating their current identify store into Microsoft Entra ID for management of their subscription through AOBO. Key drivers for this scenario include where a given partner or service provider has an established relationship with the customer, the customer is consuming provider services currently, or the partner has a desire to provide services that are based solely on Azure-hosted solutions without the need for an existing provider datacenter or infrastructure.
 
 ![Diagram that shows a detailed scenario for the "Connect-To" model.](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 The choices between these two options are based on your customer’s needs and your current need to provide Azure services. The details of these models and the associated role-based access control, networking, and identity design patterns are covered in details in the following links:
 
-* **Azure role-based access control (Azure RBAC)** – Azure RBAC is based on Azure Active Directory.  For more information on Azure RBAC, see [here](../role-based-access-control/role-assignments-portal.md).
+* **Azure role-based access control (Azure RBAC)** – Azure RBAC is based on Microsoft Entra ID.  For more information on Azure RBAC, see [here](../role-based-access-control/role-assignments-portal.md).
 * **Networking** – Covers the various articles of networking in Microsoft Azure.
-* **Azure Active Directory (Azure AD)** – Azure AD provides the identity management for Microsoft Azure and third-party SaaS applications. For more information about Azure AD, see [here](../active-directory/index.yml).  
+* **Microsoft Entra ID** – Microsoft Entra ID provides the identity management for Microsoft Azure and third-party SaaS applications. For more information about Microsoft Entra ID, see [here](../active-directory/index.yml).  
 
 ## Network speeds
 ExpressRoute supports network speeds from 50 Mb/s to 10 Gb/s. This allows customers to purchase the amount of network bandwidth needed for their unique environment.

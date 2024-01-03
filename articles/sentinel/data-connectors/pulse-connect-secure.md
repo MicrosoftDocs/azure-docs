@@ -73,13 +73,6 @@ Configure the facilities you want to collect and their severities.
  2. Select **Apply below configuration to my machines** and select the facilities and severities.
  3.  Click **Save**.
 
-
-3. Configure and connect the Pulse Connect Secure
-
-[Follow the instructions](https://docs.pulsesecure.net/WebHelp/PCS/8.3R3/Content/PCS/PCS_AdminGuide_8.3/Configuring_Syslog.htm) to enable syslog streaming of Pulse Connect Secure logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
-
-
-
 ## Next steps
 
 For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-pulseconnectsecure?tab=Overview) in the Azure Marketplace.

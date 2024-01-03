@@ -2,13 +2,12 @@
 title: Multilingual projects
 titleSuffix: Azure AI services
 description: Learn about which how to make use of multilingual projects in conversational language understanding
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---

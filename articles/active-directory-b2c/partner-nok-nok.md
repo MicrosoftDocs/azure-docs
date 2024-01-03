@@ -2,12 +2,12 @@
 title: Tutorial to configure Nok Nok Passport with Azure Active Directory B2C for passwordless FIDO2 authentication
 titleSuffix: Azure AD B2C
 description: Configure Nok Nok Passport with Azure AD B2C to enable passwordless FIDO2 authentication
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/13/2023
 ms.author: gasinh
@@ -40,9 +40,9 @@ To enable passwordless FIDO authentication for your users, enable Nok Nok as an 
   * Go to the Apple App Store for [Nok Nok Passport](https://apps.apple.com/us/app/nok-nok-passport/id1050437340)
   * Or, Google Play [Nok Nok Passport](https://play.google.com/store/apps/details?id=com.noknok.android.passport2&hl=en&gl=US)
 
-The following diagram illustrates the Nok Nok solution as IdP for Azure AD B2C using Open ID Connect (OIDC) for passwordless authentication.
+The following diagram illustrates the Nok Nok solution as IdP for Azure AD B2C using OpenID Connect (OIDC) for passwordless authentication.
 
-   ![Diagram of Nok Nok as IdP for Azure AD B2C using Open ID Connect (OIDC) for passwordless authentication.](./media/partner-nok-nok/nok-nok-architecture-diagram.png)
+   ![Diagram of Nok Nok as IdP for Azure AD B2C using OpenID Connect (OIDC) for passwordless authentication.](./media/partner-nok-nok/nok-nok-architecture-diagram.png)
 
 1. At the sign-in page, user selects sign-in or sign-up and enters the username.
 2. Azure AD B2C redirects user to the Nok Nok OIDC authentication provider.
@@ -111,7 +111,7 @@ For the following instructions, Nok Nok is a new OIDC IdP in the B2C identity pr
 9. Leave the **Multi-factor Authentication** field.
 10. Select **Enforce conditional access policies**.
 11. Under **User attributes and token claims**, in the Collect attribute option, select **Email Address**. 
-12. Add user attributes for Azure AD to collect, with claims that Azure AD B2C returns to the client application.
+12. Add user attributes for Microsoft Entra ID to collect, with claims that Azure AD B2C returns to the client application.
 13. Select **Create**.
 14. Select the new **User flow**.
 15. On the left panel, select **Application Claims**. 

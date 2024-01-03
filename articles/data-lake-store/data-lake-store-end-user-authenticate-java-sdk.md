@@ -1,6 +1,6 @@
 ---
 title: End-user authentication - Java with Data Lake Storage Gen1 - Azure
-description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Azure Active Directory with Java
+description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Microsoft Entra ID with Java
 
 author: normesta
 ms.service: data-lake-store
@@ -25,7 +25,7 @@ In this article, you learn about how to use the Java SDK to do end-user authenti
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Create a Microsoft Entra ID "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Microsoft Entra ID](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 * [Maven](https://maven.apache.org/install.html). This tutorial uses Maven for build and project dependencies. Although it is possible to build without using a build system like Maven or Gradle, these systems make is much easier to manage dependencies.
 
@@ -64,7 +64,7 @@ In this article, you learn about how to use the Java SDK to do end-user authenti
     import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
     ```
 
-4. Use the following snippet in your Java application to obtain token for the Active Directory native application you created earlier using the `DeviceCodeTokenProvider`. Replace **FILL-IN-HERE** with the actual values for the Azure Active Directory native application.
+4. Use the following snippet in your Java application to obtain token for the Active Directory native application you created earlier using the `DeviceCodeTokenProvider`. Replace **FILL-IN-HERE** with the actual values for the Microsoft Entra native application.
 
     ```java
     private static String nativeAppId = "FILL-IN-HERE";
@@ -72,7 +72,7 @@ In this article, you learn about how to use the Java SDK to do end-user authenti
     AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
     ```
 
-The Data Lake Storage Gen1 SDK provides convenient methods that let you manage the security tokens needed to talk to the Data Lake Storage Gen1 account. However, the SDK does not mandate that only these methods be used. You can use any other means of obtaining token as well, like using the [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java), or your own custom code.
+The Data Lake Storage Gen1 SDK provides convenient methods that let you manage the security tokens needed to talk to the Data Lake Storage Gen1 account. However, the SDK does not mandate that only these methods be used. You can use any other means of obtaining token as well, like using the [Azure AD SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java), or your own custom code.
 
 ## Next steps
 In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Storage Gen1 using Java SDK. You can now look at the following articles that talk about how to use the Java SDK to work with Azure Data Lake Storage Gen1.

@@ -2,11 +2,10 @@
 title: "Quickstart: Azure AI Translator REST APIs"
 titleSuffix: Azure AI services
 description: "Learn to translate text with the Translator service REST APIs. Examples are provided in C#, Go, Java, JavaScript and Python."
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: quickstart
 ms.date: 09/06/2023
 ms.author: lajanuar

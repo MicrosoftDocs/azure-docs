@@ -76,7 +76,7 @@ At this point, you have a data pipeline and are ingesting data into a central da
     - [Benefit utilization summaries](/rest/api/cost-management/generate-benefit-utilization-summaries-report) for savings plans.
   - Utilization and efficiency
     - [Resource Graph](/rest/api/azureresourcegraph/resourcegraph(2020-04-01-preview)/resources/resources) for Azure Advisor recommendations.
-    - [Monitor metrics](/rest/api/monitor/metrics-data-plane/batch) for resource usage.
+    - [Monitor metrics](/cli/azure/monitor/metrics) for resource usage.
   - Resource details
     - [Resource Graph](/rest/api/azureresourcegraph/resourcegraph(2020-04-01-preview)/resources/resources) for resource details.
     - [Resource changes](/rest/api/resources/changes/list) to list resource changes from the past 14 days.

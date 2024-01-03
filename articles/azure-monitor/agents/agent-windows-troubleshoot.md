@@ -84,7 +84,7 @@ There are several ways you can verify if the agent is successfully communicating
 
 - Another method to identify a connectivity issue is by running the **TestCloudConnectivity** tool. The tool is installed by default with the agent in the folder *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. From an elevated command prompt, go to the folder and run the tool. The tool returns the results and highlights where the test failed. For example, perhaps it was related to a particular port or URL that was blocked.
 
-    ![Screenshot that shows TestCloudConnection tool execution results.](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
+    :::image type="content" source="./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png" lightbox="./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png" alt-text="Screenshot that shows TestCloudConnection tool execution results.":::
 
 - Filter the *Operations Manager* event log by **Event sources** *Health Service Modules*, *HealthService*, and *Service Connector* and filter by **Event Level** *Warning* and *Error* to confirm if it has written events from the following table. If they are, review the resolution steps included for each possible event.
 
@@ -122,7 +122,7 @@ If the query returns results, you need to determine if a particular data type is
 1. Open an elevated command prompt on the computer and restart the agent service by entering `net stop healthservice && net start healthservice`.
 1. Open the *Operations Manager* event log and search for **event IDs** *7023, 7024, 7025, 7028*, and *1210* from **Event source** *HealthService*. These events indicate the agent is successfully receiving configuration from Azure Monitor and they're actively monitoring the computer. The event description for event ID 1210 will also specify on the last line all of the solutions and Insights that are included in the scope of monitoring on the agent.
 
-    ![Screenshot that shows an Event ID 1210 description.](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
+    :::image type="content" source="./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png" lightbox="./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png" alt-text="Screenshot that shows an Event ID 1210 description.":::
 
 1. Wait several minutes. If you don't see the expected data in the query results or visualization, depending on if you're viewing the data from a solution or Insight, from the *Operations Manager* event log, search for **Event sources** *HealthService* and *Health Service Modules*. Filter by **Event Level** *Warning* and *Error* to confirm if it has written events from the following table.
 
@@ -179,7 +179,7 @@ Both of these scripts may take a while to complete.
 # This script uses parallel processing, modify the $parallelThrottleLimit parameter to either increase or decrease the number of parallel processes
 # PS> .\UpdateMMA.ps1 GetInventory
 # The above command will generate a csv file with the details of VM's and VMSS that require MMA upgrade. 
-# The customer can modify the the csv by adding/removing rows if needed
+# The customer can modify the csv by adding/removing rows if needed
 # Update the MMA by running the script again and passing the csv file as parameter as shown below:
 # PS> .\UpdateMMA.ps1 Upgrade
 # If you don't want to check the inventory, then run the script wiht an additional -no-inventory-check

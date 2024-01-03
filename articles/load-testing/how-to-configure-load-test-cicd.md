@@ -1,7 +1,7 @@
 ---
 title: 'Manually configure CI/CD for load tests'
 titleSuffix: Azure Load Testing
-description: 'This article shows how to run your load tests with Azure Load Testing in CI/CD. Learn how to add a load test to GitHub Actions or Azure Pipelines.'
+description: 'This article shows how to run your load tests with Azure Load Testing in CI/CD. Learn how to add a load test to GitHub Actions, Azure Pipelines or other CI tools.'
 author: ntrogh
 ms.author: nicktrog
 ms.service: load-testing
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 06/05/2023
 ---
 
-# Manually configure CI/CD for load tests in GitHub Actions or Azure Pipelines
+# Manually configure your CI/CD workflow for running load tests
 
-You can automate a load test in Azure Load Testing by creating a CI/CD pipeline. In this article, you learn how to manually configure GitHub Actions or Azure Pipelines to invoke an existing test in Azure Load Testing. Automate a load test to continuously validate your application performance and stability under load. 
+You can automate a load test in Azure Load Testing by creating a CI/CD pipeline. In this article, you learn how to manually configure GitHub Actions, Azure Pipelines, or other CI tools to invoke an existing test in Azure Load Testing. Automate a load test to continuously validate your application performance and stability under load. 
 
 To add an existing load test to a CI/CD pipeline:
 
-- Configure service authentication to allow GitHub Actions or Azure Pipelines to connect to your Azure load testing resource.
-- Export the load test configuration files, such as the JMeter file and load test YAML configuration.
+- Configure service authentication to allow the CI tool to connect to your Azure load testing resource.
+- Add load test input files to your repository, such as the JMeter test script and the load test YAML configuration.
 - Update the CI/CD pipeline definition to invoke Azure Load Testing.
 
 ## Prerequisites
@@ -31,6 +31,10 @@ To add an existing load test to a CI/CD pipeline:
 - A GitHub account. If you don't have a GitHub account, you can [create one for free](https://github.com/).
 - A GitHub repository to store the load test input files and create a GitHub Actions workflow. To create one, see [Creating a new repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
+# [Other](#tab/otherci)
+- Permission to create or modify a CI pipeline.
+- A source code repository to store the load test input files.
+
 ---
 
 ## Configure service authentication
@@ -41,7 +45,7 @@ To run a load test in your CI/CD workflow, you need to grant permission to the C
 
 ### Create a service connection in Azure Pipelines
 
-In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates an Azure Active Directory service principal object.
+In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates a Microsoft Entra service principal object.
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
     
@@ -95,7 +99,7 @@ You can now use the service connection in your Azure Pipelines workflow definiti
 
 # [GitHub Actions](#tab/github)
 
-To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
+To access your Azure Load Testing resource from the GitHub Actions workflow, you first create a Microsoft Entra [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Microsoft Entra ID. 
 
 Next, you grant permissions to the service principal to create and run a load test with your Azure Load Testing resource.
 
@@ -106,12 +110,14 @@ Create a service principal in the Azure subscription and assign the Load Test Co
 1. Create a service principal and assign the `Load Test Contributor` role:
 
     ```azurecli-interactive
+    # Get the resource ID for the load testing resource - replace the text place holders.
     loadtest=$(az resource show -g <resource-group-name> -n <load-testing-resource-name> --resource-type "Microsoft.LoadTestService/loadtests" --query "id" -o tsv)
     echo $loadtest
 
+    # Create a service principal and assign the Load Test Contributor role - the scope is limited to the load testing resource.
     az ad sp create-for-rbac --name "my-load-test-cicd" --role "Load Test Contributor" \
                              --scopes $loadtest \
-                             --sdk-auth
+                             --json-auth
     ```
 
     The output is a JSON object that represents the service principal. You use this information to authenticate with Azure in the GitHub Actions workflow.
@@ -161,13 +167,67 @@ To create a GitHub Actions secret:
 
 You can now access your Azure subscription and load testing resource from your GitHub Actions workflow by using the stored credentials.
 
+# [Other](#tab/otherci)
+
+If you're using another CI/CD tool, you use the Azure CLI to interact with your Azure resources. Perform the following steps to authorize the CI tool access to your load testing resource:
+
+1. Create a Microsoft Entra [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) to connect to your Azure subscription and access your Azure load testing resource. 
+1. Grant the service principal permissions to create and run a load test by assigning the Load Test Contributor role. 
+1. Store the Azure credentials securely in the CI tool.
+
+Perform the following steps to configure the service authorization for your CI tool:
+
+1. Create a service principal and assign the Load Test Contributor role:
+
+    Replace the `<resource-group-name>` and `<load-testing-resource-name>` text placeholders.
+
+    ```azurecli-interactive
+    # Get the resource ID for the load testing resource - replace the text place holders.
+    loadtest=$(az resource show -g <resource-group-name> -n <load-testing-resource-name> --resource-type "Microsoft.LoadTestService/loadtests" --query "id" -o tsv)
+    echo $loadtest
+
+    # Create a service principal and assign the Load Test Contributor role - the scope is limited to the load testing resource.
+    az ad sp create-for-rbac --name "my-load-test-cicd" --role "Load Test Contributor" \
+                             --scopes $loadtest \
+                             --json-auth
+    ```
+
+    The output is a JSON object that represents the service principal.
+
+    ```output
+    Creating 'Load Test Contributor' role assignment under scope
+    {
+      "clientId": "00000000-0000-0000-0000-000000000000",
+      "clientSecret": "00000000-0000-0000-0000-000000000000",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "tenantId": "00000000-0000-0000-0000-000000000000",
+      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+      "resourceManagerEndpointUrl": "https://management.azure.com/",
+      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+      "galleryEndpointUrl": "https://gallery.azure.com/",
+      "managementEndpointUrl": "https://management.core.windows.net/"    
+    }
+    ```
+
+1. Copy the `clientId`, `clientSecret`, and `tenantId` values and securely store them as secrets in your CI tool.
+
+    You use these values to sign into your Azure subscription with the Azure CLI `az login` command.
+
 ---
 
-## Export load test input files
+## Add load test files in your repository
 
-To run a load test with Azure Load Testing in a CI/CD workflow, you need to add the load test configuration settings and any input files in your source control repository. If you have an existing load test, you can download the configuration settings and all input files from the Azure portal.
+To run a load test with Azure Load Testing in a CI/CD workflow, you need to add all load test input files in your source control repository.
 
-Perform the following steps to download the input files for an existing load testing in the Azure portal:
+If you don't have an existing load test, add the following files to your source code repository:
+
+- Load test configuration YAML file. Learn how you can create a [load test configuration YAML file](./reference-test-config-yaml.md).
+- Test plan file. For JMeter-based tests, add a JMeter test script (`JMX` file). For URL-based tests, add a [requests JSON file](./reference-test-config-yaml.md#requests-json-file).
+- Any [JMeter user properties files](./how-to-configure-user-properties.md).
+- Any input data files that your test plan uses. For example, CSV data files.
+
+If you have an existing load test, you can download the configuration settings and all input files directly from the Azure portal. Perform the following steps to download the input files for an existing load testing in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
 
@@ -298,6 +358,42 @@ Update your GitHub Actions workflow to run a load test for your Azure load testi
             path: ${{ github.workspace }}/loadTest
     ```
 
+# [Other](#tab/otherci)
+
+Update your CI workflow to run a load test for your Azure load testing resource by using the Azure CLI. Use the specifics of your CI tool to add the following commands to your CI workflow:
+
+1. Sign into the Azure subscription by using the service principal.
+
+    Use the `clientId`, `clientSecret`, and `tenandId` values you stored previously.
+
+    ```azurecli-interactive
+    az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
+    az account set -s $AZURE_SUBSCRIPTION_ID
+    ```
+
+1. Create a load test by using the load test configuration YAML file.
+
+    Replace the *`<load-testing-resource>`*, *`<load-testing-resource-group>`*, and *`<load-test-config-yaml>`* text placeholders with the name of the load testing resource, the resource group name, and the file name of the load test configuration YAML file you added to the repository previously.
+
+    ```azurecli-interactive
+    az load test create --load-test-resource <load-testing-resource> --resource-group <load-testing-resource-group> --test-id sample-test-id --load-test-config-file <load-test-config-yaml>
+    ```
+
+1. Run the load test.
+
+    ```azurecli-interactive
+    testRunId="run_"`date +"%Y%m%d%_H%M%S"`
+    displayName="Run"`date +"%Y/%m/%d_%H:%M:%S"`
+
+    az load test-run create --load-test-resource <load-testing-resource> --test-id sample-test-id --test-run-id $testRunId --display-name $displayName --description "Test run from CLI"
+    ```
+
+1. Retrieve and display the client-side metrics for the load test run.
+
+    ```azurecli-interactive
+    az load test-run metrics list --load-test-resource <load-testing-resource> --test-run-id $testRunId --metric-namespace LoadTestRunMetrics
+    ```
+
 ---
 
 ## View load test results
@@ -344,12 +440,22 @@ If you don't plan to use any of the resources that you created, delete them so y
     az ad sp delete --id $(az ad sp show --display-name "my-load-test-cicd" -o tsv)
     ```
 
+# [Other](#tab/otherci)
+
+1. Undo the changes in your CI workflow.
+
+1. Remove the service principal:
+
+    ```azurecli-interactive
+    az ad sp delete --id $(az ad sp show --display-name "my-load-test-cicd" -o tsv)
+    ```
+
 ---
 
 ## Next steps
 
 Advance to the next article to learn how to identify performance regressions by defining test fail criteria and comparing test runs.
 
-- [Tutorial: automate regression tests](./tutorial-identify-performance-regression-with-cicd.md)
+- [Tutorial: automate regression tests](./quickstart-add-load-test-cicd.md)
 - [Define test fail criteria](./how-to-define-test-criteria.md)
 - [View performance trends over time](./how-to-compare-multiple-test-runs.md)

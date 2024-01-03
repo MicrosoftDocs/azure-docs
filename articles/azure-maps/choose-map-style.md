@@ -21,7 +21,6 @@ Style options can be set during web control initialization. Or, you can update s
 //Set the style options when creating the map.
 var map = new atlas.Map('map', {
     renderWorldCopies: false,
-    showBuildingModels: false,
     showLogo: true,
     showFeedbackLink: true,
     style: 'road'
@@ -32,7 +31,6 @@ var map = new atlas.Map('map', {
 //Update the style options at anytime using `setStyle` function.
 map.setStyle({
     renderWorldCopies: true,
-    showBuildingModels: true,
     showLogo: false,
     showFeedbackLink: false
 });

@@ -45,11 +45,11 @@ sections:
           Customize the image to your needs by installing LOB applications and sysprep the image. When you're done customizing, upload the image to Azure with the VHD inside. After that, get Azure Virtual Desktop from the Azure Marketplace and use it to deploy a new host pool with the customized image.
           
       - question: How do I manage Windows Enterprise multi-session after deployment?
-        answer: You can use any supported configuration tool, but we recommend Configuration Manager version 1906 because it supports Windows Enterprise multi-session or [Microsoft Intune](management.md) for Azure AD-joined or Hybrid Azure AD-joined session hosts.
+        answer: You can use any supported configuration tool, but we recommend Configuration Manager version 1906 because it supports Windows Enterprise multi-session or [Microsoft Intune](management.md) for Microsoft Entra joined or Microsoft Entra hybrid joined session hosts.
 
-      - question: Can Windows Enterprise multi-session be Azure Active Directory (Azure AD)-joined?
+      - question: Can Windows Enterprise multi-session be Microsoft Entra joined?
         answer: |
-          Windows Enterprise multi-session can be Azure AD-joined. To get started, follow the steps to [Deploy Azure AD-joined virtual machines](deploy-azure-ad-joined-vm.md).
+          Windows Enterprise multi-session can be Microsoft Entra joined. To get started, follow the steps to [Deploy Microsoft Entra joined virtual machines](deploy-azure-ad-joined-vm.md).
           
       - question: Where can I find the Windows Enterprise multi-session image?
         answer: Windows Enterprise multi-session is in the Azure gallery. To find it, navigate to the Azure portal and search for the Windows Enterprise for Virtual Desktops release. For an image integrated with Microsoft 365 Apps for enterprise, go to the Azure portal and search for **Microsoft Windows + Microsoft 365 Apps for enterprise**.
@@ -97,7 +97,6 @@ sections:
       - question: Can Windows Enterprise multi-session and 11 Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
         answer: |
           Yes. You can update Windows Enterprise multi-session and Windows 11 Enterprise multi-session with the appropriate feature updates published to WSUS.
-                   
           
 additionalContent: |
 

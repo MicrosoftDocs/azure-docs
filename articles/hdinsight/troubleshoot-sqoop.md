@@ -28,7 +28,7 @@ In the example, `/user/yourlongdomainuserna/.staging` displays the truncated 20 
 
 The length of the username exceeds 20 characters in length. 
 
-Refer to [How objects and credentials are synchronized in an Azure Active Directory Domain Services managed domain](../active-directory-domain-services/synchronization.md) for further details.
+Refer to [How objects and credentials are synchronized in a Microsoft Entra Domain Services managed domain](../active-directory-domain-services/synchronization.md) for further details.
 
 ## Workaround
 

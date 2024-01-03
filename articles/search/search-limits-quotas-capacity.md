@@ -1,20 +1,22 @@
 ---
 title: Service limits for tiers and skus
-titleSuffix: Azure Cognitive Search
-description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Service limits used for capacity planning and maximum limits on requests and responses for Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/09/2023
-ms.custom: references_regions
+ms.date: 11/16/2023
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
-# Service limits in Azure Cognitive Search
+# Service limits in Azure AI Search
 
-Maximum limits on storage, workloads, and quantities of indexes and other objects depend on whether you [provision Azure Cognitive Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
+Maximum limits on storage, workloads, and quantities of indexes and other objects depend on whether you [provision Azure AI Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
 + **Free** is a multi-tenant shared service that comes with your Azure subscription. 
 
@@ -57,7 +59,7 @@ You might find some variation in maximum limits if your service happens to be pr
 
 ## Document limits 
 
-There are no longer any document limits per service in Azure Cognitive Search, however, there's a limit of approximately 24 billion documents per index on Basic, S1, S2, S3, L1, and L2 search services. For S3 HD, the limit is 2 billion documents per index. Each element of a complex collection counts as a separate document in terms of these limits.
+There are no longer any document limits per service in Azure AI Search, however, there's a limit of approximately 24 billion documents per index on Basic, S1, S2, S3, L1, and L2 search services. For S3 HD, the limit is 2 billion documents per index. Each element of a complex collection counts as a separate document in terms of these limits.
 
 ### Document size limits per API call
 
@@ -69,17 +71,21 @@ When estimating document size, remember to consider only those fields that can b
 
 ## Vector index size limits
 
-When you index documents with vector fields, we construct internal vector indexes using the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
+When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
 
 The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The table describes the vector index size quota per partition across the service tiers (or SKU). For context, it includes the [storage limits](#storage-limits) for each tier. Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota.
+The table describes the vector index size quota per partition across the service tiers (or SKU). For context, it includes:
 
-See our [documentation on vector index size](./vector-search-index-size.md) for more details.
++ [Storage limits](#storage-limits) for each tier, repeated here for context.
++ Amount of each partition (in GB) available for vector indexes (created when you add vector fields to an index).
++ Approximate number of embeddings (floating point values) per partition.
+
+Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
 
 ### Services created prior to July 1, 2023
 
-| Tier   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
 | Basic | 2                  | 0.5                                        | 115 million                  |
 | S1    | 25                 | 1                                          | 235 million                  |
@@ -90,7 +96,7 @@ See our [documentation on vector index size](./vector-search-index-size.md) for 
 
 ### Services created after July 1, 2023 in supported regions
 
-Azure Cognitive Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services can't be migrated to the new limits.
+Azure AI Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services can't be migrated to the new limits.
 
 The following regions **do not** support increased limits:
 
@@ -98,7 +104,7 @@ The following regions **do not** support increased limits:
 - Jio India West
 - Qatar Central
 
-| Tier   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
 | Basic | 2                  | 1                                          | 235 million                  |
 | S1    | 25                 | 3                                          | 700 million                  |
@@ -141,7 +147,7 @@ Maximum running times exist to provide balance and stability to the service as a
 
 ## Shared private link resource limits
 
-Indexers can access other Azure resources [over private endpoints](search-indexer-howto-access-private.md) managed via the [shared private link resource API](/rest/api/searchmanagement/2022-09-01/shared-private-link-resources). This section describes the limits associated with this capability.
+Indexers can access other Azure resources [over private endpoints](search-indexer-howto-access-private.md) managed via the [shared private link resource API](/rest/api/searchmanagement/shared-private-link-resources). This section describes the limits associated with this capability.
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -202,7 +208,7 @@ Static rate request limits for operations related to a service:
 * Maximum search term size is 1000 characters for [prefix search](query-simple-syntax.md#prefix-queries) and [regex search](query-lucene-syntax.md#bkmk_regex)
 * [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) and [Regular expression search](query-lucene-syntax.md#bkmk_regex) are limited to a maximum of 1000 states when processed by [Lucene](https://lucene.apache.org/core/7_0_1/core/org/apache/lucene/util/automaton/RegExp.html). 
 
-<sup>1</sup> In Azure Cognitive Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that aren't otherwise constrained by theoretical limits (see [Supported data types](/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
+<sup>1</sup> In Azure AI Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that aren't otherwise constrained by theoretical limits (see [Supported data types](/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
 
 Limits on query size and composition exist because unbounded queries can destabilize your search service. Typically, such queries are created programmatically. If your application generates search queries programmatically, we recommend designing it in such a way that it doesn't generate queries of unbounded size.
 

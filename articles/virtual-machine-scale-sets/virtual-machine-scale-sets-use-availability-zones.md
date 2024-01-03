@@ -30,7 +30,7 @@ Virtual Machine Scale Sets supports three zonal deployment models:
 A zone redundant or zone spanning scale set spreads instances across all selected zones, `"zones": ["1","2","3"]`. By default, the scale set performs a best effort approach to evenly spread instances across selected zones. However, you can specify that you want strict zone balance by setting `"zoneBalance": "true"` in your deployment. Each VM and its disks are zonal, so they are pinned to a specific zone. Instances between zones are connected by high-performance network with low latency. In the event of a zonal outage or connectivity issue, connectivity to instances within the affected zone may be compromised, while instances in other availability zones should be unaffected. You may add capacity to the scale set during a zonal outage, and the scale set adds more instances to the unaffected zones. When the zone is restored, you may need to scale down your scale set to the original capacity. A best practice would be to configure [autoscale](virtual-machine-scale-sets-autoscale-overview.md) rules based on CPU or memory usage. The autoscale rules would allow the scale set to respond to a loss of the VM instances in that one zone by scaling out new instances in the remaining operational zones.
 
 Spreading instances across availability zones meets the 99.99% SLA for instances spread across availability zones, and is recommended for most workloads in Azure.
-they 
+
 ### Zonal or zone aligned (single zone)
 
 A zonal or zone aligned scale set places instances in a single availability zone `"zones": ['1']`. Each VM and its disks are zonal, so they are pinned to a specific zone. This configuration is primarily used when you need lower latency between instances.
@@ -178,11 +178,12 @@ You must register for four feature flags on your subscription:
 
 ### [Azure CLI](#tab/cli-1)
 
+
 ```azurecli
 az feature register --namespace Microsoft.Compute --name VmssAllowRegionalToZonalMigration
 az feature register --namespace Microsoft.Compute --name VmssAllowExpansionOfAvailabilityZones
-az feature register --namespace Microsoft.Compute --name EnableVmssFlexExpansionOfAvailabilityZones
-az feature register --namespace Microsoft.Compute --name EnableVmssFlexRegionalToZonalMigration
+az feature register --namespace Microsoft.Compute --name VmssFlexAllowExpansionOfAvailabilityZones
+az feature register --namespace Microsoft.Compute --name VmssFlexAllowRegionalToZonalMigration
 ```
 
 You can check the registration status of each feature by using:
@@ -193,11 +194,12 @@ az feature show --namespace Microsoft.Compute --name \<feature-name\>
 
 ### [Azure PowerShell](#tab/powershell-1)
 
+
 ```powershell
 Register-AzProviderPreviewFeature -Name VmssAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
 Register-AzProviderPreviewFeature -Name VmssAllowExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name EnableVmssFlexExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name EnableVmssFlexRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
+Register-AzProviderPreviewFeature -Name VmssFlexAllowExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
+Register-AzProviderPreviewFeature -Name VmssFlexAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
 ```
 
 You can check the registration status of each feature by using:
@@ -212,6 +214,7 @@ You can update the scale set to scale out instances to one or more additional av
 
 > [!IMPORTANT]
 > When you expand the scale set to additional zones, the original instances are not migrated or changed. When you scale out, new instances will be created and spread evenly across the selected availability zones. When you scale in the scale set, any regional instances will be priorized for removal first. After that, instances will be removed based on the [scale in policy](virtual-machine-scale-sets-scale-in-policy.md). 
+
 Expanding to a zonal scale set is done in 3 steps:
 
 1. Prepare for zonal expansion
@@ -313,12 +316,4 @@ With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md)
 ## Next steps
 
 Now that you have created a scale set in an Availability Zone, you can learn how to [Deploy applications on Virtual Machine Scale Sets](tutorial-install-apps-cli.md) or [Use autoscale with Virtual Machine Scale Sets](tutorial-autoscale-cli.md).
-
-
-
-
-
-
-
-
 

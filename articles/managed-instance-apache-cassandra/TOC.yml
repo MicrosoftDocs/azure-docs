@@ -16,7 +16,9 @@
     - name: Create a multi-region cluster - CLI
       href: create-multi-region-cluster.md         
     - name: Configure a hybrid cluster
-      href: configure-hybrid-cluster.md       
+      href: configure-hybrid-cluster.md
+    - name: Configure a hybrid cluster - CLI
+      href: configure-hybrid-cluster-cli.md        
     - name: Deploy Spark Cluster with Databricks
       href: deploy-cluster-databricks.md
     - name: Search using Lucene Index
@@ -33,6 +35,8 @@
   items:
     - name: Security overview
       href: security.md
+    - name: Building resilient applications
+      href: resilient-applications.md     
     - name: Frequently asked questions
       displayName: cost, region, monitor, backup
       href: faq.md  

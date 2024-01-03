@@ -49,10 +49,10 @@ This article provides suggestions to troubleshoot common problems with the Googl
         j. MARKETPLACE_PERFORMANCE_REPORT  
         k. TOP_CONTENT_PERFORMANCE_REPORT  
 
-    2. The syntax for Google Ads query language is similar to AWQL from the AdWords API, but not identical. You can refer this [document](https://developers.google.com/google-ads/api/docs/migration/querying) for more details.  
+    2. The syntax for Google Ads query language is similar to AWQL from the AdWords API, but not identical.  
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

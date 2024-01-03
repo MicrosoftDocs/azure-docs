@@ -2,13 +2,12 @@
 title: What is sentiment analysis and opinion mining in the Language service?
 titleSuffix: Azure AI services
 description: An overview of the sentiment analysis feature in Azure AI services, which helps you find out what people think of a topic by mining text for clues.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 07/19/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---

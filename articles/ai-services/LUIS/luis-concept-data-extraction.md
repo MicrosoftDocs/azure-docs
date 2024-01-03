@@ -1,8 +1,8 @@
 ---
 title: Data extraction - LUIS
 description: Extract data from utterance text with intents and entities. Learn what kind of data can be extracted from Language Understanding (LUIS).
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.author: aahi
 author: aahill
 manager: nitinme

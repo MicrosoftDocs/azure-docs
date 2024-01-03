@@ -5,7 +5,7 @@ author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial
-ms.date: 05/05/2023
+ms.date: 01/02/2024
 ---
 
 # Tutorial: Create a serverless real-time chat app with Azure Functions and Azure Web PubSub service
@@ -203,7 +203,7 @@ In this tutorial, you learn how to:
    ```
 
    > [!NOTE]
-   > In this sample, we use [AAD](../app-service/configure-authentication-user-identities.md) user identity header `x-ms-client-principal-name` to retrieve `userId`. And this won't work in a local function. You can make it empty or change to other ways to get or generate `userId` when playing in local. For example, let client type a user name and pass it in query like `?user={$username}` when call `negotiate` function to get service connection url. And in the `negotiate` function, set `userId` with value `{query.user}`.
+   > In this sample, we use [Microsoft Entra ID](../app-service/configure-authentication-user-identities.md) user identity header `x-ms-client-principal-name` to retrieve `userId`. And this won't work in a local function. You can make it empty or change to other ways to get or generate `userId` when playing in local. For example, let client type a user name and pass it in query like `?user={$username}` when call `negotiate` function to get service connection url. And in the `negotiate` function, set `userId` with value `{query.user}`.
 
    # [JavaScript](#tab/javascript)
 
@@ -278,9 +278,6 @@ In this tutorial, you learn how to:
    ```bash
    func new -n message -t HttpTrigger
    ```
-
-   > [!NOTE]
-   > This function is actually using `WebPubSubTrigger`. However, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to initialize the function template and change trigger type in code.
 
    # [JavaScript](#tab/javascript)
 

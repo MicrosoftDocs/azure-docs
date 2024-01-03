@@ -159,8 +159,8 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
 
     ```
     az keyvault set-policy -n ${KEYVAULT_NAME} \
-   --secret-permissions get \
-   --spn ${SERVICE_PRINCIPAL_CLIENT_ID}
+       --secret-permissions get \
+       --spn ${SERVICE_PRINCIPAL_CLIENT_ID}
     ```
 
 1. Create and label a secret for Kubernetes to use to access the key vault.
@@ -170,7 +170,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
        -n my-application \
        --from-literal clientid=${SERVICE_PRINCIPAL_CLIENT_ID} \
        --from-literal clientsecret=${SERVICE_PRINCIPAL_CLIENT_SECRET}
-     kubectl -n my-application label secret \
+    kubectl -n my-application label secret \
        secrets-store-creds secrets-store.csi.k8s.io/used=true
     ```
 
@@ -199,7 +199,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
                objectType: secret
                objectVersion: ""
          tenantId: "${AZ_TENANT_ID}"
-     EOF
+    EOF
     ```
 
 1. Create a pod that uses the `SecretProviderClass` created in the previous step:
@@ -231,7 +231,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
                secretProviderClass: "azure-kvname"
              nodePublishSecretRef:
                name: secrets-store-creds
-     EOF
+    EOF
     ```
 
 1. Check that the secret is mounted:

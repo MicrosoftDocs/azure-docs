@@ -15,7 +15,7 @@ ms.author: greglin
 [Azure Cloud Shell](https://shell.azure.com/) is the most convenient way to troubleshoot any problems with your AKS
 and AGIC installation. Launch your shell from [shell.azure.com](https://shell.azure.com/) or by selecting the link:
 
-[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+[![Embed launch](./media/launch-cloud-shell/launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 > [!TIP]
 > Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.

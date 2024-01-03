@@ -14,8 +14,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Escalate a job
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 This guide shows you how to escalate a Job in a Queue by using an Exception Policy.
 
 ## Prerequisites
@@ -40,13 +38,13 @@ var classificationPolicy = await administrationClient.CreateClassificationPolicy
     new CreateClassificationPolicyOptions(classificationPolicyId: "Classify_XBOX_Voice_Jobs")
     {
         Name = "Classify XBOX Voice Jobs",
-        QueueSelectors =
+        QueueSelectorAttachments =
         {
             new ConditionalQueueSelectorAttachment(
                 condition: new ExpressionRouterRule("job.Escalated = true"),
                 queueSelectors: new List<RouterQueueSelector>
             {
-                new (key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("XBOX_Escalation_Queue"))
+                new (key: "Id", labelOperator: LabelOperator.Equal, value: new RouterValue("XBOX_Escalation_Queue"))
             })
         },
         PrioritizationRule = new ExpressionRouterRule("If(job.Escalated = true, 10, 1)"),
@@ -58,24 +56,28 @@ var classificationPolicy = await administrationClient.CreateClassificationPolicy
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-var classificationPolicy = await administrationClient.createClassificationPolicy("Classify_XBOX_Voice_Jobs", {
-    name: "Classify XBOX Voice Jobs",
-    queueSelectors: [{            
-        kind: "conditional",
-        condition: {
-            kind: "expression-rule",
-            expression: 'job.Escalated = true'
-        },
-        queueSelectors: [{
-            key: "Id",
-            labelOperator: "equal",
-            value: "XBOX_Escalation_Queue"
-        }]
-    }],
-    prioritizationRule: {
-        kind: "expression-rule",
-        expression: "If(job.Escalated = true, 10, 1)"
-    }});
+var classificationPolicy = await client.path("/routing/classificationPolicies/{classificationPolicyId}", "Classify_XBOX_Voice_Jobs").patch({
+    body: {
+        name: "Classify XBOX Voice Jobs",
+        queueSelectorAttachments: [{            
+            kind: "conditional",
+            condition: {
+                kind: "expression",
+                expression: 'job.Escalated = true'
+            },
+            queueSelectors: [{
+                key: "Id",
+                labelOperator: "equal",
+                value: "XBOX_Escalation_Queue"
+            }]
+        }],
+        prioritizationRule: {
+            kind: "expression",
+            expression: "If(job.Escalated = true, 10, 1)"
+        }
+    },
+    contentType: "application/merge-patch+json"
+});
 ```
 
 ::: zone-end
@@ -83,19 +85,18 @@ var classificationPolicy = await administrationClient.createClassificationPolicy
 ::: zone pivot="programming-language-python"
 
 ```python
-classification_policy: ClassificationPolicy = administration_client.create_classification_policy(
+classification_policy: ClassificationPolicy = administration_client.upsert_classification_policy(
     classification_policy_id = "Classify_XBOX_Voice_Jobs",
-    classification_policy = ClassificationPolicy(
-        name = "Classify XBOX Voice Jobs",
-        queue_selectors = [
-            ConditionalQueueSelectorAttachment(
-                condition = ExpressionRouterRule(expression = 'job.Escalated = true'),
-                queue_selectors = [
-                    RouterQueueSelector(key = "Id", label_operator = LabelOperator.EQUAL, value = "XBOX_Escalation_Queue")
-                ]
-            )
-        ],
-        prioritization_rule = ExpressionRouterRule(expression = "If(job.Escalated = true, 10, 1)")))
+    name = "Classify XBOX Voice Jobs",
+    queue_selector_attachments = [
+        ConditionalQueueSelectorAttachment(
+            condition = ExpressionRouterRule(expression = 'job.Escalated = true'),
+            queue_selectors = [
+                RouterQueueSelector(key = "Id", label_operator = LabelOperator.EQUAL, value = "XBOX_Escalation_Queue")
+            ]
+        )
+    ],
+    prioritization_rule = ExpressionRouterRule(expression = "If(job.Escalated = true, 10, 1)")))
 ```
 
 ::: zone-end
@@ -106,9 +107,9 @@ classification_policy: ClassificationPolicy = administration_client.create_class
 ClassificationPolicy classificationPolicy = administrationClient.createClassificationPolicy(
     new CreateClassificationPolicyOptions("Classify_XBOX_Voice_Jobs")
         .setName("Classify XBOX Voice Jobs")
-        .setQueueSelectors(List.of(new ConditionalQueueSelectorAttachment(
+        .setQueueSelectorAttachments(List.of(new ConditionalQueueSelectorAttachment(
             new ExpressionRouterRule("job.Escalated = true"),
-            List.of(new RouterQueueSelector("Id", LabelOperator.EQUAL, new LabelValue("XBOX_Escalation_Queue"))))))
+            List.of(new RouterQueueSelector("Id", LabelOperator.EQUAL, new RouterValue("XBOX_Escalation_Queue"))))))
         .setPrioritizationRule(new ExpressionRouterRule("If(job.Escalated = true, 10, 1)")));
 ```
 
@@ -123,17 +124,17 @@ Create an exception policy attached to the queue, which is time triggered and ta
 ```csharp
 var exceptionPolicy = await administrationClient.CreateExceptionPolicyAsync(new CreateExceptionPolicyOptions(
     exceptionPolicyId: "Escalate_XBOX_Policy",
-    exceptionRules: new Dictionary<string, ExceptionRule>
+    exceptionRules: new List<ExceptionRule>
     {
-        ["Escalated_Rule"] = new(
+        new(
+            id: "Escalated_Rule",
             trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(5)),
-            actions: new Dictionary<string, ExceptionAction?>
+            actions: new List<ExceptionAction>
             {
-                ["EscalateReclassifyExceptionAction"] =
-                    new ReclassifyExceptionAction(classificationPolicyId: classificationPolicy.Value.Id)
-                    {
-                        LabelsToUpsert = { ["Escalated"] = new LabelValue(true) }
-                    }
+                new ReclassifyExceptionAction(classificationPolicyId: classificationPolicy.Value.Id)
+                {
+                    LabelsToUpsert = { ["Escalated"] = new RouterValue(true) }
+                }
             }
         )
     }) { Name = "Add escalated label and reclassify XBOX Job requests after 5 minutes" });
@@ -144,16 +145,17 @@ var exceptionPolicy = await administrationClient.CreateExceptionPolicyAsync(new 
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.createExceptionPolicy("Escalate_XBOX_Policy", {
-    name: "Add escalated label and reclassify XBOX Job requests after 5 minutes",
-    exceptionRules: {
-        Escalated_Rule: {
-            trigger: { kind: "wait-time", thresholdSeconds: 5 * 60 },
-            actions: { EscalateReclassifyExceptionAction: {
-                kind: "reclassify", classificationPolicyId: classificationPolicy.id, labelsToUpsert: { Escalated: true }
-            }}
-        }
-    }
+await client.path("/routing/exceptionPolicies/{exceptionPolicyId}", "Escalate_XBOX_Policy").patch({
+    body: {
+        name: "Add escalated label and reclassify XBOX Job requests after 5 minutes",
+        exceptionRules: [
+        {
+            id: "Escalated_Rule",
+            trigger: { kind: "waitTime", thresholdSeconds: 5 * 60 },
+            actions: [{ kind: "reclassify", classificationPolicyId: classificationPolicy.body.id, labelsToUpsert: { Escalated: true }}]
+        }]
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -162,20 +164,19 @@ await administrationClient.createExceptionPolicy("Escalate_XBOX_Policy", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_exception_policy(
+administration_client.upsert_exception_policy(
     exception_policy_id = "Escalate_XBOX_Policy",
-    exception_policy = ExceptionPolicy(
-        name = "Add escalated label and reclassify XBOX Job requests after 5 minutes",
-        exception_rules = {
-            "Escalated_Rule": ExceptionRule(
-                trigger = WaitTimeExceptionTrigger(threshold_seconds = 5 * 60),
-                actions = { "EscalateReclassifyExceptionAction": ReclassifyExceptionAction(
-                    classification_policy_id = classification_policy.id,
-                    labels_to_upsert = { "Escalated": True }
-                )}
-            )
-        }
-    )
+    name = "Add escalated label and reclassify XBOX Job requests after 5 minutes",
+    exception_rules = [
+        ExceptionRule(
+            id = "Escalated_Rule",
+            trigger = WaitTimeExceptionTrigger(threshold_seconds = 5 * 60),
+            actions = [ReclassifyExceptionAction(
+                classification_policy_id = classification_policy.id,
+                labels_to_upsert = { "Escalated": True }
+            )]
+        )
+    ]
 )
 ```
 
@@ -185,10 +186,10 @@ administration_client.create_exception_policy(
 
 ```java
 administrationClient.createExceptionPolicy(new CreateExceptionPolicyOptions("Escalate_XBOX_Policy",
-    Map.of("Escalated_Rule", new ExceptionRule(new WaitTimeExceptionTrigger(5 * 60),
-        Map.of("EscalateReclassifyExceptionAction", new ReclassifyExceptionAction()
+    List.of(new ExceptionAction("Escalated_Rule", new WaitTimeExceptionTrigger(5 * 60),
+        List.of(new ReclassifyExceptionAction()
             .setClassificationPolicyId(classificationPolicy.getId())
-            .setLabelsToUpsert(Map.of("Escalated", new LabelValue(true))))))
+            .setLabelsToUpsert(Map.of("Escalated", new RouterValue(true))))))
 ).setName("Add escalated label and reclassify XBOX Job requests after 5 minutes"));
 ```
 
@@ -223,15 +224,21 @@ var escalationQueue = await administrationClient.CreateQueueAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.createQueue("XBOX_Queue", {
-    distributionPolicyId: "Round_Robin_Policy",
-    exceptionPolicyId: exceptionPolicy.id,
-    name: "XBOX Queue"
+await administrationClient.path("/routing/queues/{queueId}", "XBOX_Queue").patch({
+    body: {
+        distributionPolicyId: "Round_Robin_Policy",
+        exceptionPolicyId: exceptionPolicy.body.id,
+        name: "XBOX Queue"
+    },
+    contentType: "application/merge-patch+json"
 });
 
-await administrationClient.createQueue("XBOX_Escalation_Queue", {
-    distributionPolicyId: "Round_Robin_Policy",
-    name: "XBOX Escalation Queue"
+await administrationClient.path("/routing/queues/{queueId}", "XBOX_Escalation_Queue").patch({
+    body: {
+        distributionPolicyId: "Round_Robin_Policy",
+        name: "XBOX Escalation Queue"
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -240,18 +247,16 @@ await administrationClient.createQueue("XBOX_Escalation_Queue", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_queue(
+administration_client.upsert_queue(
     queue_id = "XBOX_Queue",
-    queue = RouterQueue(
-        distribution_policy_id = "Round_Robin_Policy",
-        exception_policy_id = exception_policy.id,
-        name = "XBOX Queue"))
+    distribution_policy_id = "Round_Robin_Policy",
+    exception_policy_id = exception_policy.id,
+    name = "XBOX Queue")
 
-administration_client.create_queue(
+administration_client.upsert_queue(
     queue_id = "XBOX_Escalation_Queue",
-    queue = RouterQueue(
-        distribution_policy_id = "Round_Robin_Policy",
-        name = "XBOX Escalation Queue"))
+    distribution_policy_id = "Round_Robin_Policy",
+    name = "XBOX Escalation Queue")
 ```
 
 ::: zone-end
@@ -280,7 +285,7 @@ await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "voic
 {
     RequestedWorkerSelectors =
     {
-        new RouterWorkerSelector(key: "XBOX_Hardware", labelOperator: LabelOperator.GreaterThanEqual, value: new LabelValue(7))
+        new RouterWorkerSelector(key: "XBOX_Hardware", labelOperator: LabelOperator.GreaterThanOrEqual, value: new RouterValue(7))
     }
 });
 ```
@@ -290,10 +295,13 @@ await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "voic
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.createJob("job1", {
-    channelId: "voice",
-    queueId: defaultQueue.id,
-    requestedWorkerSelectors: [{ key: "XBOX_Hardware", labelOperator: "GreaterThanEqual", value: 7 }]
+var job = await client.path("/routing/jobs/{jobId}", "job1").patch({
+    body: {
+        channelId: "voice",
+        queueId: defaultQueue.body.id,
+        requestedWorkerSelectors: [{ key: "XBOX_Hardware", labelOperator: "GreaterThanOrEqual", value: 7 }]
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -302,14 +310,13 @@ await client.createJob("job1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_job(
+administration_client.upsert_job(
     job_id = "job1",
-    router_job = RouterJob(
-        channel_id = "voice",
-        queue_id = default_queue.id,
-        requested_worker_selectors = [
-            RouterWorkerSelector(key = "XBOX_Hardware", label_operator = LabelOperator.GreaterThanEqual, value = 7)
-        ]))
+    channel_id = "voice",
+    queue_id = default_queue.id,
+    requested_worker_selectors = [
+        RouterWorkerSelector(key = "XBOX_Hardware", label_operator = LabelOperator.GreaterThanOrEqual, value = 7)
+    ])
 ```
 
 ::: zone-end
@@ -319,7 +326,7 @@ administration_client.create_job(
 ```java
 administrationClient.createJob(new CreateJobOptions("job1", "voice", defaultQueue.getId())
     .setRequestedWorkerSelectors(List.of(
-        new RouterWorkerSelector("XBOX_Hardware", LabelOperator.GREATER_THAN_EQUAL, new LabelValue(7)))));
+        new RouterWorkerSelector("XBOX_Hardware", LabelOperator.GREATER_THAN_OR_EQUAL, new RouterValue(7)))));
 ```
 
 ::: zone-end

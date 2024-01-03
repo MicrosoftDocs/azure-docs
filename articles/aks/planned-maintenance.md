@@ -82,7 +82,7 @@ A `Daily` schedule may look like *"every three days"*:
 ```json
 "schedule": {
     "daily": {
-        "intervalDays": 2
+        "intervalDays": 3
     }
 }
 ```
@@ -310,7 +310,9 @@ az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCl
 
 * I configured a maintenance window, but upgrade didn't happen - why?
 
-  AKS auto-upgrade needs a certain amount of time to take the maintenance window into consideration. We recommend at least 6 hours between the creation/update of the maintenance configuration, and when it's scheduled to start.
+  AKS auto-upgrade needs a certain amount of time to take the maintenance window into consideration. We recommend at least 24 hours between the creation/update of the maintenance configuration, and when it's scheduled to start.
+
+  Also, please ensure your cluster is started when the planned maintenance window is starting. If the cluster is stopped, then its control plane is deallocated and no operations can be performed.
 
 * AKS auto-upgrade didn't upgrade all my agent pools - or one of the pools was upgraded outside of the maintenance window?
 
@@ -319,6 +321,8 @@ az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCl
 *  Are there any best practices for the maintenance configurations?
    
   We recommend setting the [Node OS security updates][node-image-auto-upgrade] schedule to a weekly cadence if you're using `NodeImage` channel since a new node image gets shipped every week and daily if you opt in for `SecurityPatch` channel to receive daily security updates. Set the [auto-upgrade][auto-upgrade] schedule to a monthly cadence to stay on top of the kubernetes N-2 [support policy][aks-support-policy]. 
+
+ 
 
 ## Next steps
 

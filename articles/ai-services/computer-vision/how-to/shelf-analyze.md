@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Use the Product Understanding API to analyze a shelf image and receive rich product data.
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.author: pafarley

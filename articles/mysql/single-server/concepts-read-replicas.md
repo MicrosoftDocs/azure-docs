@@ -40,7 +40,7 @@ The read replica feature uses MySQL asynchronous replication. The feature isn't 
 
 You can create a read replica in a different region from your source server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its [paired region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) or the universal replica regions. The following picture shows which replica regions are available depending on your source region.
+You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its [paired region](../../availability-zones/cross-region-replication-azure.md#azure-paired-regions) or the universal replica regions. The following picture shows which replica regions are available depending on your source region.
 
 ### Universal replica regions
 

@@ -1,6 +1,6 @@
 ---
-title: Delegate the Azure role assignment task to others with conditions (preview) - Azure ABAC
-description: How to delegate the Azure role assignment task with conditions to other users by using Azure attribute-based access control (Azure ABAC).
+title: Delegate Azure role assignment management to others with conditions (preview) - Azure ABAC
+description: How to delegate Azure role assignment management to other users by using Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -8,23 +8,23 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/20/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 
-#Customer intent: As a dev, devops, or it admin, I want to delegate the Azure role assignment task to other users who are closer to the decision, but want to limit the scope of the role assignments.
+#Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
 ---
 
-# Delegate the Azure role assignment task to others with conditions (preview)
+# Delegate Azure role assignment management to others with conditions (preview)
 
 > [!IMPORTANT]
-> Delegating Azure role assignments with conditions is currently in PREVIEW.
+> Delegating Azure role assignment management with conditions is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-As an administrator, you might get several requests to grant access to Azure resources that you want to delegate to someone else. You could assign a user the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles, but these are highly privileged roles. This article describes a more secure way to [delegate the role assignment task](delegate-role-assignments-overview.md) to other users in your organization, but add restrictions for those role assignments. For example, you can constrain the roles that can be assigned or constrain the principals the roles can be assigned to.
+As an administrator, you might get several requests to grant access to Azure resources that you want to delegate to someone else. You could assign a user the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles, but these are highly privileged roles. This article describes a more secure way to [delegate role assignment management](delegate-role-assignments-overview.md) to other users in your organization, but add restrictions for those role assignments. For example, you can constrain the roles that can be assigned or constrain the principals the roles can be assigned to.
 
 The following diagram shows how a delegate with conditions can only assign the Backup Contributor or Backup Reader roles to only the Marketing or Sales groups.
 
-:::image type="content" source="./media/delegate-role-assignments-portal/delegate-role-assignments.png" alt-text="Diagram that shows an administrator delegating role assignments with conditions." lightbox="./media/delegate-role-assignments-portal/delegate-role-assignments.png":::
+:::image type="content" source="./media/delegate-role-assignments-portal/delegate-role-assignments.png" alt-text="Diagram that shows an administrator delegating role assignment management with conditions." lightbox="./media/delegate-role-assignments-portal/delegate-role-assignments.png":::
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ To help determine the permissions the delegate needs, answer the following quest
 - Which principals can the delegate assign roles to?
 - Can delegate remove any role assignments?
 
-Once you know the permissions that delegate needs, you use the following steps to add a condition to the delegate's role assignment. For example conditions, see [Examples to delegate Azure role assignments with conditions (preview)](delegate-role-assignments-examples.md).
+Once you know the permissions that delegate needs, you use the following steps to add a condition to the delegate's role assignment. For example conditions, see [Examples to delegate Azure role assignment management with conditions (preview)](delegate-role-assignments-examples.md).
 
 ## Step 2: Start a new role assignment
 
@@ -49,11 +49,11 @@ Once you know the permissions that delegate needs, you use the following steps t
 
 1. On the **Roles** tab, select the **Privileged administrator roles** tab.
 
-1. Select the **Role Based Access Control Administrator (Preview)** role.
+1. Select the **Role Based Access Control Administrator** role.
 
     The **Conditions** tab appears.
 
-    You can select any role that includes the `Microsoft.Authorization/roleAssignments/write` or `Microsoft.Authorization/roleAssignments/delete` actions, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator), but [Role Based Access Control Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview) has fewer permissions.
+    You can select any role that includes the `Microsoft.Authorization/roleAssignments/write` or `Microsoft.Authorization/roleAssignments/delete` actions, such as [User Access Administrator](built-in-roles.md#user-access-administrator), but [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) has fewer permissions.
 
 1. On the **Members** tab, find and select the delegate.
 
@@ -65,6 +65,11 @@ There are two ways that you can add a condition. You can use a condition templat
 
 1. On the **Conditions** tab under **Delegation type**, select the **Constrained (recommended)** option.
 
+    | Option | Select this option to |
+    | --- | --- |
+    | **Constrained (recommended)** | Pick the roles or principals the user can use in role assignments |
+    | **Not constrained** | Allow the user to assign any role to any principal |
+
     :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the Constrained option selected." lightbox="./media/shared/condition-constrained.png":::
 
 1. Select **Add condition**.
@@ -75,7 +80,7 @@ There are two ways that you can add a condition. You can use a condition templat
 
 1. Select a condition template and then select **Configure**.
 
-    | Condition template | Description |
+    | Condition template | Select this template to |
     | --- | --- |
     | Constrain roles | Constrain the roles a user can assign |
     | Constrain roles and principal types | Constrain the roles a user can assign and the types of principals the user can assign roles to |
@@ -95,6 +100,11 @@ If the condition templates don't work for your scenario or if you want more cont
 
 1. On the **Conditions** tab under **Delegation type**, select the **Constrained (recommended)** option.
 
+    | Option | Select this option to |
+    | --- | --- |
+    | **Constrained (recommended)** | Pick the roles or principals the user can use in role assignments |
+    | **Not constrained** | Allow the user to assign any role to any principal |
+
     :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the Constrained option selected." lightbox="./media/shared/condition-constrained.png":::
 
 1. Select **Add condition**.
@@ -103,7 +113,7 @@ If the condition templates don't work for your scenario or if you want more cont
 
     :::image type="content" source="./media/shared/condition-templates.png" alt-text="Screenshot of Add role assignment condition with a list of condition templates." lightbox="./media/shared/condition-templates.png":::
 
-1. Select **Go to advanced condition builder**.
+1. Select **Open advanced condition editor**.
 
     The Add role assignment condition page appears.
 
@@ -115,7 +125,7 @@ If the condition templates don't work for your scenario or if you want more cont
 
     The Select an action pane appears. This pane is a filtered list of actions based on the role assignment that will be the target of your condition.
 
-    :::image type="content" source="./media/delegate-role-assignments-portal/delegate-role-assignments-actions-select.png" alt-text="Screenshot of Select an action pane to delegate role assignments with conditions." lightbox="./media/delegate-role-assignments-portal/delegate-role-assignments-actions-select.png":::
+    :::image type="content" source="./media/delegate-role-assignments-portal/delegate-role-assignments-actions-select.png" alt-text="Screenshot of Select an action pane to delegate role assignment management with conditions." lightbox="./media/delegate-role-assignments-portal/delegate-role-assignments-actions-select.png":::
 
 1. Select the **Create or update role assignments** action you want to allow if the condition is true.
 
@@ -148,12 +158,12 @@ If the condition templates don't work for your scenario or if you want more cont
 
 1. In the **Value** box, enter one or more values for the right side of the expression.
 
-    :::image type="content" source="./media/shared/delegate-role-assignments-expression.png" alt-text="Screenshot of Build expression section to delegate role assignments with conditions." lightbox="./media/shared/delegate-role-assignments-expression.png":::
+    :::image type="content" source="./media/shared/delegate-role-assignments-expression.png" alt-text="Screenshot of Build expression section to delegate role assignment management with conditions." lightbox="./media/shared/delegate-role-assignments-expression.png":::
 
 1. Add additional expressions as needed.
 
     > [!TIP]
-    > When you add multiple expressions to delegate role assignments with conditions, you typically use the **And** operator between expressions instead of the default **Or** operator.
+    > When you add multiple expressions to delegate role assignment management with conditions, you typically use the **And** operator between expressions instead of the default **Or** operator.
 
 1. Select **Save** to add the condition to the role assignment.
 

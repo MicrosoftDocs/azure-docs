@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/27/2022
+ms.date: 10/20/2023
 ---
 
 # Create a tumbling window trigger dependency
@@ -177,6 +177,6 @@ Transparent boxes show the dependency windows for each down stream-dependent tri
 
 To rerun a window in Gantt chart view, select the solid color box for the window, and an action panel will pop up with details and rerun options
 
-## Next steps
+## Related content
 
 * Review [How to create a tumbling window trigger](how-to-create-tumbling-window-trigger.md)

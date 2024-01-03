@@ -1,30 +1,29 @@
 ---
-title: How to use streaming endpoints deployed from Prompt Flow (preview)
+title: How to use streaming endpoints deployed from prompt Flow
 titleSuffix: Azure Machine Learning
 description: Learn how use streaming when you consume the endpoints in Azure Machine Learning prompt flow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - devx-track-python
+  - ignite-2023
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
-# How to use streaming endpoints deployed from Prompt Flow (preview)
+# How to use streaming endpoints deployed from prompt Flow
 
-In Prompt Flow, you can [deploy flow to an Azure Machine Learning managed online endpoint](how-to-deploy-for-real-time-inference.md) for real-time inference.
+In prompt Flow, you can [deploy flow to an Azure Machine Learning managed online endpoint](how-to-deploy-for-real-time-inference.md) for real-time inference.
 
 When consuming the endpoint by sending a request, the default behavior is that the online endpoint will keep waiting until the whole response is ready, and then send it back to the client. This can cause a long delay for the client and a poor user experience.
 
 To avoid this, you can use streaming when you consume the endpoints. Once streaming enabled, you don't have to wait for the whole response to be ready. Instead, the server will send back the response in chunks as they're generated. The client can then display the response progressively, with less waiting time and more interactivity.
 
 This article will describe the scope of streaming, how streaming works, and how to consume streaming endpoints.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Create a streaming enabled flow
 
@@ -94,14 +93,14 @@ To understand the streaming process, consider the following steps:
     >
     > If a request lacks an `Accept` header or has empty `Accept` header, it implies that the client will accept any media type in response. The server treats it as `*/*`.
 
-- Next, the server responds based on the media type specified in the `Accept` header. It's important to note that the client may request multiple media types in the `Accept` header, and the server must consider its capabilities and format priorities to determine the appropriate response.
+- Next, the server responds based on the media type specified in the `Accept` header. It's important to note that the client might request multiple media types in the `Accept` header, and the server must consider its capabilities and format priorities to determine the appropriate response.
   - First, the server checks if `text/event-stream` is explicitly specified in the `Accept` header:
     - For a stream-enabled flow, the server returns a response with a `Content-Type` of `text/event-stream`, indicating that the data is being streamed.
     - For a non-stream-enabled flow, the server proceeds to check for other media types specified in the header.
   - If `text/event-stream` isn't specified, the server then checks if `application/json` or `*/*` is specified in the `Accept` header:
     - In such cases, the server returns a response with a `Content-Type` of `application/json`, providing the data in JSON format.
   - If the `Accept` header specifies other media types, such as `text/html`:
-    - The server returns a `424` response with a PromptFlow runtime error code `UserError` and a runtime HTTP status `406`, indicating that the server can't fulfill the request with the requested data format.
+    - The server returns a `424` response with a prompt flow runtime error code `UserError` and a runtime HTTP status `406`, indicating that the server can't fulfill the request with the requested data format.
      To learn more, see [handle errors](#handle-errors).
 - Finally, the client checks the `Content-Type` response header. If it's set to `text/event-stream`, it indicates that the data is being streamed.
 
@@ -239,7 +238,7 @@ The chat then continues in a similar way.
 
 The client should check the HTTP response code first. See [HTTP status code table](../how-to-troubleshoot-online-endpoints.md#http-status-codes) for common error codes returned by online endpoints.
 
-If the response code is "424 Model Error", it means that the error is caused by the model’s code. The error response from a Prompt Flow model always follows this format:
+If the response code is "424 Model Error", it means that the error is caused by the model’s code. The error response from a prompt flow model always follows this format:
 
 ```json
 {
@@ -252,7 +251,7 @@ If the response code is "424 Model Error", it means that the error is caused by 
 
 - It is always a JSON dictionary with only one key "error" defined.
 - The value for "error" is a dictionary, containing "code", "message".
-- "code" defines the error category. Currently, it may be "UserError" for bad user inputs and "SystemError" for errors inside the service.
+- "code" defines the error category. Currently, it might be "UserError" for bad user inputs and "SystemError" for errors inside the service.
 - "message" is a description of the error. It can be displayed to the end user.
 
 ## How to consume the server-sent events
@@ -290,7 +289,7 @@ Here's a sample chat app written in Python. (To view the source code, see [chat_
 
 ## Advance usage - hybrid stream and non-stream flow output
 
-Sometimes, you may want to get both stream and non-stream results from a flow output. For example, in the “Chat with Wikipedia” flow, you may want to get not only LLM’s answer, but also the list of URLs that the flow searched. To do this, you need to modify the flow to output a combination of stream LLM’s answer and non-stream URL list.
+Sometimes, you might want to get both stream and non-stream results from a flow output. For example, in the “Chat with Wikipedia” flow, you might want to get not only LLM’s answer, but also the list of URLs that the flow searched. To do this, you need to modify the flow to output a combination of stream LLM’s answer and non-stream URL list.
 
 In the sample "Chat With Wikipedia" flow, the output is connected to the LLM node `augmented_chat`. To add the URL list to the output, you need to add an output field with the name `url` and the value `${get_wiki_url.output}`.
 

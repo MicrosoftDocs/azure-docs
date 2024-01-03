@@ -2,12 +2,12 @@
 title: 'Quickstart: Use the Face service'
 titleSuffix: Azure AI services
 description: The Face API offers client libraries that make it easy to detect, find similar, identify, verify and more.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 zone_pivot_groups: programming-languages-set-face
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: quickstart
 ms.date: 07/04/2023
 ms.author: pafarley
@@ -17,6 +17,7 @@ keywords: face search by image, facial recognition search, facial recognition, f
 ---
 
 # Quickstart: Use the Face service
+
 [!INCLUDE [GDPR-related guidance](../includes/identity-data-notice.md)]
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
@@ -44,8 +45,3 @@ keywords: face search by image, facial recognition search, facial recognition, f
 
 ::: zone-end
 
-::: zone pivot="vision-studio"
-
-[!INCLUDE [Vision Studio quickstart](../includes/identity-studio-quickstart.md)]
-
-::: zone-end

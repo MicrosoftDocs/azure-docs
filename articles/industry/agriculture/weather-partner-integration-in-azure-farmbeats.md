@@ -1,10 +1,10 @@
 ---
 title: Weather partner integration
 description: Learn about how a weather data provider can integrate with FarmBeats.
-author: sunasing
+author: gourdsay
 ms.topic: article
-ms.date: 07/09/2020
-ms.author: sunasing
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Weather partner integration with FarmBeats
@@ -12,8 +12,10 @@ ms.author: sunasing
 This article provides information about the Azure FarmBeats Connector Docker component. As a weather data provider, you can use the Connector Docker to integrate with FarmBeats. Use its APIs to send weather data to 
 FarmBeats. In FarmBeats, the data can be used for data fusion and for building machine learning models or artificial intelligence models.
 
- > [!NOTE]
- > In this article, we use a [reference implementation](https://github.com/azurefarmbeats/noaa_docker) that was built by using Azure Open Datasets and weather data from National Oceanic and Atmospheric Administration (NOAA). We also use the corresponding [Docker image](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa).
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 You must provide a [suitable Docker image or program](#docker-specifications)
 and host the docker image in a container registry that customers can access. Provide the following information to your customers:

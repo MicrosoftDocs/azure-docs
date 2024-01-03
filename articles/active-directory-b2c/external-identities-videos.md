@@ -2,12 +2,12 @@
 title: Microsoft Azure Active Directory B2C external identity video series
 titleSuffix: Azure AD B2C
 description: Learn about external identities in Azure AD B2C in the Microsoft identity platform 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 06/08/2023
 ms.author: gasinh
@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Microsoft Azure Active Directory B2C external identity video series
 
-Learn the basics of External Identities - Azure Active Directory B2C (Azure AD B2C) and Azure Active Directory B2B (Azure AD B2B) in the Microsoft identity platform.
+Learn the basics of External Identities - Azure Active Directory B2C (Azure AD B2C) and Microsoft Entra B2B in the Microsoft identity platform.
 
 ## Azure Active Directory B2C architecture deep dive series
 
@@ -35,6 +35,6 @@ Learn how to perform various use cases in Azure AD B2C.
 
 | Video title | Video |Video title|Video|
 |:------|:------|:------|:------|
-|[Azure AD: Monitoring and reporting Azure AD B2C using Azure Monitor](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1) 6:57|[:::image type="icon" source="./media/external-identities-videos/monitoring-reporting.png" border="false":::](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2)|[Azure AD B2C user migration using Microsoft Graph API](https://www.youtube.com/watch?v=9BRXBtkBzL4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=5) 7:09| [:::image type="icon" source="./media/external-identities-videos/user-migration-msgraph-api.png" border="false":::](https://www.youtube.com/watch?v=9BRXBtkBzL4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=6)|
+|[Monitoring and reporting Azure AD B2C using Azure Monitor](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1) 6:57|[:::image type="icon" source="./media/external-identities-videos/monitoring-reporting.png" border="false":::](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2)|[Azure AD B2C user migration using Microsoft Graph API](https://www.youtube.com/watch?v=9BRXBtkBzL4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=5) 7:09| [:::image type="icon" source="./media/external-identities-videos/user-migration-msgraph-api.png" border="false":::](https://www.youtube.com/watch?v=9BRXBtkBzL4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=6)|
 | [Azure AD B2C user migration strategies](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2) 8:22| [:::image type="icon" source="./media/external-identities-videos/user-migration-stratagies.png" border="false":::](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=3)| [How to localize or customize language using Azure AD B2C](https://www.youtube.com/watch?v=yqrX5_tA7Ms&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=13) 20:41| [:::image type="icon" source="./media/external-identities-videos/language-localization.png" border="false":::](https://www.youtube.com/watch?v=yqrX5_tA7Ms&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=14) | 
 |[Configure monitoring: Azure AD B2C using Azure Monitor](https://www.youtube.com/watch?v=tF2JS6TGc3g&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=14) 17:23 | [:::image type="icon" source="./media/external-identities-videos/configure-monitoring.png" border="false":::](https://www.youtube.com/watch?v=tF2JS6TGc3g&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=15) | [Configuring custom domains in Azure AD B2C using Azure Front Door](https://www.youtube.com/watch?v=mVNB59VK-DQ&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=13) 19:45| [:::image type="icon" source="./media/external-identities-videos/configure-custom-domains.png" border="false":::](https://www.youtube.com/watch?v=mVNB59VK-DQ&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=14) |

@@ -1,6 +1,6 @@
 ---
 author: mrbullwinkle
-ms.service: cognitive-services
+ms.service: azure-ai-anomaly-detector
 ms.topic: include
 ms.date: 10/06/2022
 ms.author: mbullwin

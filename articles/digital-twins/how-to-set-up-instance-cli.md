@@ -48,7 +48,7 @@ There are several optional parameters that can be added to the command to specif
 
 ### Create the instance with a managed identity
 
-When you enable a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) on your Azure Digital Twins instance, an identity is created for it in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). That identity can then be used to authenticate to other services. You can enable a managed identity for an Azure Digital Twins instance while the instance is being created, or [later on an existing instance](#enabledisable-managed-identity-for-the-instance).
+When you enable a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) on your Azure Digital Twins instance, an identity is created for it in [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md). That identity can then be used to authenticate to other services. You can enable a managed identity for an Azure Digital Twins instance while the instance is being created, or [later on an existing instance](#enabledisable-managed-identity-for-the-instance).
 
 Use the CLI command below for your chosen type of managed identity.
 
@@ -95,7 +95,7 @@ You now have an Azure Digital Twins instance ready to go. Next, you will give th
 
 To give a user permission to manage an Azure Digital Twins instance, you must assign them the **Azure Digital Twins Data Owner** role within the instance.
 
-Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this value will match the user's email on the Azure AD account.
+Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Microsoft Entra account for the user that should be assigned the role. In most cases, this value will match the user's email on the Microsoft Entra account.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"
@@ -108,7 +108,7 @@ The result of this command is outputted information about the role assignment th
 >
 > Assign the role using the user's Object ID instead. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
 >
-> Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's **Object ID**:
+> Use the [Azure portal page of Microsoft Entra users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's **Object ID**:
 >
 > :::image type="content" source="media/includes/user-id.png" alt-text="Screenshot of the user page in Azure portal highlighting the GUID in the 'Object ID' field." lightbox="media/includes/user-id.png":::
 >

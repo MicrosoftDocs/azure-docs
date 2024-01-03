@@ -75,9 +75,9 @@ messaging:
 The following sections discuss the code that implements this architecture.
 
 ## Prerequisites
-In this tutorial, you'll use Azure Active Directory (Azure AD) authentication to create `ServiceBusClient` and `ServiceBusAdministrationClient` objects. You'll also use `DefaultAzureCredential` and to use it, you need to do the following steps to test the application locally in a development environment.
+In this tutorial, you'll use Microsoft Entra authentication to create `ServiceBusClient` and `ServiceBusAdministrationClient` objects. You'll also use `DefaultAzureCredential` and to use it, you need to do the following steps to test the application locally in a development environment.
 
-1. [Register an application in the Azure AD](../active-directory/develop/quickstart-register-app.md).
+1. [Register an application in the Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md).
 1. [Add the application to the `Service Bus Data Owner` role](../role-based-access-control/role-assignments-portal.md).
 1. Set the `AZURE-CLIENT-ID`, `AZURE-TENANT-ID`, AND `AZURE-CLIENT-SECRET` environment variables. For instructions, see [this article](/dotnet/api/overview/azure/identity-readme#environment-variables).
 

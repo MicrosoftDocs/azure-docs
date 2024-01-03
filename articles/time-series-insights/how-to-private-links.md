@@ -81,7 +81,7 @@ In this section, you'll enable Private Link with a private endpoint for an Azure
 
 1. Select **+ Private endpoint** to open the **Create a private endpoint** setup.
 
-    :::image type="content" source="media/private-links/add-private-endpoint.png" alt-text="Screenshot of the Azure portal showing the the Networking (preview) page for an Azure Time Series Insights Gen2 environment. The Private endpoint connections tab is highlighted, and the + Private endpoint button is also highlighted." lightbox="media/private-links/add-private-endpoint.png":::
+    :::image type="content" source="media/private-links/add-private-endpoint.png" alt-text="Screenshot of the Azure portal showing the Networking (preview) page for an Azure Time Series Insights Gen2 environment. The Private endpoint connections tab is highlighted, and the + Private endpoint button is also highlighted." lightbox="media/private-links/add-private-endpoint.png":::
 
 1. In the **Basics** tab, enter or select the **Subscription** and **Resource group** of your project, and a **Name** and **Region** for your endpoint. The region needs to be the same as the region for the VNet you're using.
 

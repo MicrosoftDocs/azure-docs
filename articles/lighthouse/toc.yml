@@ -79,9 +79,6 @@
   - name: View and manage customers 
     displayName: my customers
     href: ./how-to/view-manage-customers.md
-  - name: Link your partner ID
-    displayName: partner earned credit, pec, mpn
-    href: ./how-to/partner-earned-credit.md
   - name: Azure service integration
     items:
     - name: Azure Arc integration

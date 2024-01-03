@@ -40,7 +40,7 @@ Along with the resource you created for your application, there are also separat
 
 You must have Owner rights to the subscription or the resource group.
 
-The user must have a [Microsoft account][account] or access to their [organizational Microsoft account](../../active-directory/fundamentals/sign-up-organization.md). You can provide access to individuals and also to user groups defined in Azure Active Directory.
+The user must have a [Microsoft account][account] or access to their [organizational Microsoft account](../../active-directory/fundamentals/sign-up-organization.md). You can provide access to individuals and also to user groups defined in Microsoft Entra ID.
 
 #### Go to a resource group or directly to the resource itself
 

@@ -4,7 +4,7 @@ description: This article describes how you enable VM insights for a hybrid clou
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/08/2022
+ms.date: 09/28/2023
 
 ---
 
@@ -17,7 +17,7 @@ To enable hybrid VMs, first enable [Azure Arc for servers](../../azure-arc/serve
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md).
+- [Create a Log Analytics workspace](../logs/quick-create-workspace.md).
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported.
 
 ## Overview

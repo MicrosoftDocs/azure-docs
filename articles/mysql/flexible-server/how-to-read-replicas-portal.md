@@ -1,6 +1,6 @@
 ---
-title: Manage read replicas - Azure portal - Azure Database for MySQL - Flexible Server
-description: Learn how to set up and manage read replicas in Azure Database for MySQL - Flexible Server using the Azure portal.
+title: Manage read replicas with Azure portal
+description: Learn how to set up and manage read replicas in Azure Database for MySQL - Flexible Server by using the Azure portal.
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
@@ -10,11 +10,11 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# How to create and manage read replicas in Azure Database for MySQL - Flexible Server using the Azure portal
+# How to create and manage read replicas in Azure Database for MySQL - Flexible Server by using the Azure portal
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In this article, you learn how to create and manage read replicas in the Azure Database for MySQL - Flexible Server using the Azure portal.
+In this article, you learn how to create and manage read replicas in Azure Database for MySQL flexible server using the Azure portal.
 
 > [!NOTE]  
 >  
@@ -22,18 +22,16 @@ In this article, you learn how to create and manage read replicas in the Azure D
 
 ## Prerequisites
 
-- An [Azure Database for MySQL server Flexible Server](quickstart-create-server-portal.md) that is used as the source server.
+- An [Azure Database for MySQL server flexible server instance](quickstart-create-server-portal.md) that is used as the source server.
 
 ## Create a read replica
 
-> [!IMPORTANT]  
-> When you create a replica for a source that has no existing replicas, the source first restarts to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
 
 A read replica server can be created using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Select the existing Azure Database for MySQL - Flexible Server that you want to use as a source. This action opens the **Overview** page.
+1. Select the existing Azure Database for MySQL flexible server instance that you want to use as a source. This action opens the **Overview** page.
 
 1. Select **Replication** from the menu, under **SETTINGS**.
 
@@ -61,11 +59,11 @@ Once the replica server has been created, it can be viewed from the **Replicatio
 ## Stop replication to a replica server
 
 > [!IMPORTANT]  
-> Stopping replication to a server is irreversible. Once replication has stopped between a source and replica, it cannot be undone. The replica server then becomes a standalone server and now supports read and write This server cannot be made into a replica again.
+> Stopping replication to a server is irreversible. Once replication has stopped between a source and replica, it cannot be undone. The replica server then becomes a standalone server and now supports read and write. This server cannot be made into a replica again.
 
 To stop replication between a source and a replica server from the Azure portal, use the following steps:
 
-1. In the Azure portal, select your source Azure Database for MySQL - Flexible Server.
+1. In the Azure portal, select your source Azure Database for MySQL flexible server instance.
 
 1. Select **Replication** from the menu, under **SETTINGS**.
 
@@ -85,7 +83,7 @@ To stop replication between a source and a replica server from the Azure portal,
 
 To delete a read replica server from the Azure portal, use the following steps:
 
-1. In the Azure portal, select your source Azure Database for MySQL - Flexible Server.
+1. In the Azure portal, select your source Azure Database for MySQL flexible server instance.
 
 1. Select **Replication** from the menu, under **SETTINGS**.
 
@@ -108,7 +106,7 @@ To delete a read replica server from the Azure portal, use the following steps:
 
 To delete a source server from the Azure portal, use the following steps:
 
-1. In the Azure portal, select your source Azure Database for MySQL - Flexible Server.
+1. In the Azure portal, select your source Azure Database for MySQL flexible server instance.
 
 1. From the **Overview**, select **Delete**.
 
@@ -120,7 +118,7 @@ To delete a source server from the Azure portal, use the following steps:
 
 ## Monitor replication
 
-1. In the [Azure portal](https://portal.azure.com/), select the replica Azure Database for MySQL - Flexible Server you want to monitor.
+1. In the [Azure portal](https://portal.azure.com/), select the replica Azure Database for MySQL flexible server instance you want to monitor.
 
 1. Under the **Monitoring** section of the sidebar, select **Metrics**:
 
@@ -141,3 +139,4 @@ To delete a source server from the Azure portal, use the following steps:
 - Learn more about [read replicas](concepts-read-replicas.md)
 - You can also monitor the replication latency by following the steps mentioned [here](../how-to-troubleshoot-replication-latency.md).
 - To troubleshoot high replication latency observed in Metrics, visit the [link](../how-to-troubleshoot-replication-latency.md#common-scenarios-for-high-replication-latency).
+

@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop PowerShell - Azure
-description: How to troubleshoot issues with PowerShell when you set up a Azure Virtual Desktop environment.
+description: How to troubleshoot issues with PowerShell when you set up an Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 06/05/2020
@@ -29,13 +29,13 @@ This section lists PowerShell commands that are typically used while setting up 
 New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**Cause:** The user specified by the *-SignInName* parameter can't be found in the Azure Active Directory tied to the Azure Virtual Desktop environment.
+**Cause:** The user specified by the *-SignInName* parameter can't be found in the Microsoft Entra tied to the Azure Virtual Desktop environment.
 
 **Fix:** Make sure of the following things.
 
-- The user should be synced to Azure Active Directory.
+- The user should be synced to Microsoft Entra ID.
 - The user shouldn't be tied to business-to-consumer (B2C) or business-to-business (B2B) commerce.
-- The Azure Virtual Desktop environment should be tied to correct Azure Active Directory.
+- The Azure Virtual Desktop environment should be tied to correct Microsoft Entra ID.
 
 ### Error: New-AzRoleAssignment: "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)"
 
@@ -43,7 +43,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 **Fix 1:** A user with Owner permissions needs to execute the role assignment. Alternatively, the user needs to be assigned to the User Access Administrator role to assign a user to an application group.
 
-**Cause 2:** The account being used has Owner permissions but isn't part of the environment's Azure Active Directory or doesn't have permissions to query the Azure Active Directory where the user is located.
+**Cause 2:** The account being used has Owner permissions but isn't part of the environment's Microsoft Entra ID or doesn't have permissions to query the Microsoft Entra ID where the user is located.
 
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 

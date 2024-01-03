@@ -1,11 +1,10 @@
 ---
 title: "Quickstart: Analyze text content with C#"
-description: In this quickstart, get started using the Content Safety .NET SDK to analyze text content for objectionable material.
-services: cognitive-services
+description: In this quickstart, get started using the Azure AI Content Safety .NET SDK to analyze text content for objectionable material.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom:
 ms.topic: include
 ms.date: 07/04/2023
@@ -112,6 +111,11 @@ namespace Azure.AI.ContentSafety.Dotnet.Sample
 ```
 
 Replace `"Your input text"` with the text content you'd like to use.
+
+> [!TIP]
+> Text size and granularity
+>
+> The default maximum length for text submissions is **10K** characters.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 

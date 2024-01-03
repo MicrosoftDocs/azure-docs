@@ -4,7 +4,7 @@ description: Learn how to enable Profiler on your ASP.NET Core web application h
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 08/30/2023
+ms.date: 09/22/2023
 ms.reviewer: charles.weininger
 # Customer Intent: As a .NET developer, I'd like to enable Application Insights Profiler for my .NET web application hosted in Linux
 ---

@@ -344,7 +344,7 @@ For each JobOutput state change, the example schema looks similar to the followi
 
 The example schema looks similar to the following:
 
- ```json
+```json
 [{
   "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
   "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",

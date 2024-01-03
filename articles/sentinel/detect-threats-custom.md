@@ -59,8 +59,8 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     ```kusto
     AzureActivity
-    | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-    | where ActivityStatus == "Succeeded"
+    | where OperationNameValue == "MICROSOFT.COMPUTE/VIRTUALMACHINES/WRITE" or OperationNameValue == "MICROSOFT.RESOURCES/DEPLOYMENTS/WRITE"
+    | where ActivityStatusValue == "Succeeded"
     | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
     ```
 
@@ -334,9 +334,9 @@ If you operate Microsoft Sentinel in a cross-subscription or cross-tenant scenar
 
 ## Next steps
 
-When using analytics rules to detect threats from Microsoft Sentinel, make sure that you enable all rules associated with your connected data sources in order to ensure full security coverage for your environment. The most efficient way to enable analytics rules is directly from the data connector page, which lists any related rules. For more information, see [Connect data sources](connect-data-sources.md).
+When using analytics rules to detect threats from Microsoft Sentinel, make sure you enable all rules associated with your connected data sources to ensure full security coverage for your environment.
 
-You can also push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
+To automate rule enablement, push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
 
 For more information, see:
 

@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 08/01/2023
+  ms.date: 11/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -89,4 +89,6 @@ landingContent:
         url: limited-time-us-west.md
       - text: Sweden Central select Linux VMs
         url: limited-time-central-sweden.md
+      - text: Poland Central select VMs
+        url: limited-time-central-poland.md
 

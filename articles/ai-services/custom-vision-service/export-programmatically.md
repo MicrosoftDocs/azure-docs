@@ -2,12 +2,11 @@
 title: "Export a model programmatically"
 titleSuffix: Azure AI services
 description: Use the Custom Vision client library to export a trained model.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.author: pafarley
@@ -94,3 +93,4 @@ Integrate your exported model into an application by exploring one of the follow
 * See the sample for [CoreML model in an iOS application](https://go.microsoft.com/fwlink/?linkid=857726) for real-time image classification with Swift.
 * See the sample for [Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) for real-time image classification on Android.
 * See the sample for [CoreML model with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) for real-time image classification in a Xamarin iOS app.
+* See the sample for how to use the exported model [(VAIDK/OpenVino)](https://github.com/Azure-Samples/customvision-export-samples)

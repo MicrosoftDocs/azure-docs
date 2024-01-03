@@ -23,17 +23,19 @@ To query an Azure monitor workspace using PromQL, you need the following prerequ
 
 ## Authentication
 
-To query your Azure Monitor workspace, authenticate using Azure Active Directory.
-The API supports Azure Active Directory authentication using client credentials. Register a client app with Azure Active Directory and request a token.
+To query your Azure Monitor workspace, authenticate using Microsoft Entra ID.
+The API supports Microsoft Entra authentication using client credentials. Register a client app with Microsoft Entra ID and request a token.
 
-To set up Azure Active Directory authentication, follow the steps below:
+To set up Microsoft Entra authentication, follow the steps below:
 
-1. Register an app with Azure Active Directory.
+1. Register an app with Microsoft Entra ID.
 1. Grant access for the app to your Azure Monitor workspace.
 1. Request a token.
 
 
-### Register an app with Azure Active Directory
+<a name='register-an-app-with-azure-active-directory'></a>
+
+### Register an app with Microsoft Entra ID
 
 1. To register an app, follow the steps in [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md?tabs=portal)
 
@@ -193,6 +195,7 @@ The following limitations are in addition to those detailed in the Prometheus sp
 
 + Query must be scoped to a metric  
     Any time series fetch queries (/series or /query or /query_range) must contain a \_\_name\_\_ label matcher. That is, each query must be scoped to a metric. There can only be one \_\_name\_\_ label matcher in a query.
++ Query /series does not support regular expression filter
 + Supported time range  
     + /query_range API supports a time range of 32 days. This is the maximum time range allowed, including range selectors specified in the query itself.
     For example, the query `rate(http_requests_total[1h]` for last the 24 hours would actually mean data is being queried for 25 hours. This comes from the 24-hour range plus the 1 hour specified in query itself.
@@ -205,6 +208,16 @@ The following limitations are in addition to those detailed in the Prometheus sp
 For more information on Prometheus metrics limits, see [Prometheus metrics](../../azure-monitor/service-limits.md#prometheus-metrics)
 
 [!INCLUDE [prometheus-case-sensitivity.md](..//includes/prometheus-case-sensitivity.md)]
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+[!INCLUDE [prometheus-faq-i-am-missing-some-metrics](../includes/prometheus-faq-i-am-missing-some-metrics.md)]
+
+[!INCLUDE [prometheus-faq-i-am-missing-metrics-with-same-name-different-casing](../includes/prometheus-faq-i-am-missing-metrics-with-same-name-different-casing.md)]
+
+[!INCLUDE [prometheus-faq-i-see-gaps-in-metric-data](../includes/prometheus-faq-i-see-gaps-in-metric-data.md)]
 
 ## Next steps
 

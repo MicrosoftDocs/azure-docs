@@ -2,12 +2,12 @@
 title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/25/2022
 ms.author: kengaderdus
@@ -44,7 +44,7 @@ With a Microsoft Graph application registered, you're ready to configure a repos
 1. In the root directory of your repository, create a folder named `Scripts`. Create a PowerShell file *DeployToB2C.ps1*. Paste the following PowerShell script into *DeployToB2C.ps1*. 
 1. **Commit** and **Push** the changes.
 
-The following script acquires an access token from Azure AD. With the token, the script calls the MS Graph API to upload the policies in the *B2CAssets* folder. You can also change the content of the policy before uploading it. For example, replace the `tenant-name.onmicrosoft.com` with your tenant name.
+The following script acquires an access token from Microsoft Entra ID. With the token, the script calls the MS Graph API to upload the policies in the *B2CAssets* folder. You can also change the content of the policy before uploading it. For example, replace the `tenant-name.onmicrosoft.com` with your tenant name.
 
 ```PowerShell
 [Cmdletbinding()]

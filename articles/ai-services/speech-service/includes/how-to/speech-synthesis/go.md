@@ -1,6 +1,6 @@
 ---
 author: yulin-li
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 08/30/2023
 ms.author: yulili

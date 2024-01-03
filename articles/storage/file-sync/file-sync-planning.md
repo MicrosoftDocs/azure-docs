@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 02/03/2023
+ms.date: 10/02/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -156,7 +156,7 @@ The following table shows the interop state of NTFS file system features:
 | Mount points | Partially supported | Mount points might be the root of a server endpoint, but they are skipped if they are contained in a server endpoint's namespace. |
 | Junctions | Skipped | For example, Distributed File System DfrsrPrivate and DFSRoots folders. |
 | Reparse points | Skipped | |
-| NTFS compression | Fully supported | |
+| NTFS compression | Partially supported | Azure File Sync does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. |
 | Sparse files | Fully supported | Sparse files sync (are not blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
 | Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tags created by the File Classification Infrastructure are not synced. Existing classification tags on files on each of the server endpoints are left untouched. |
 
@@ -171,10 +171,14 @@ The following table shows the interop state of NTFS file system features:
 | ~$\*.\* | Office temporary file |
 | \*.tmp | Temporary file |
 | \*.laccdb | Access DB locking file|
-| 635D02A9D91C401B97884B82B3BCDAEA.* | Internal Sync file|
+| 635D02A9D91C401B97884B82B3BCDAEA.* | Internal sync file|
 | \\System Volume Information | Folder specific to volume |
 | $RECYCLE.BIN| Folder |
-| \\SyncShareState | Folder for Sync |
+| \\SyncShareState | Folder for sync |
+| .SystemShareInformation  | Folder for sync in Azure file share |
+
+> [!Note]  
+> While Azure File Sync supports syncing database files, databases are not a good workload for sync solutions (including Azure File Sync) since the log files and databases need to be synced together and they can get out of sync for various reasons which could lead to database corruption.
 
 ### Consider how much free space you need on your local disk
 When planning on using Azure File Sync, consider how much free space you need on the local disk you plan to have a server endpoint on.
@@ -196,7 +200,7 @@ We'll use an example to illustrate how to estimate the amount of free space woul
 
 1. NTFS allocates a cluster size for each of the tiered files. 1 million files * 4 KiB cluster size = 4,000,000 KiB (4 GiB)
    > [!Note]  
-   > The space occupied by tiered files is allocated by NTFS. Therefore, it will not show up in any UI.
+   > To fully benefit from cloud tiering, it is recommended to use smaller NTFS cluster sizes (less than 64KiB) since each tiered file occupies a cluster. Also, the space occupied by tiered files is allocated by NTFS. Therefore, it will not show up in any UI.
 1. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KB cluster size = 4,400,000 KiB (4.4 GiB)
 1. Azure File Sync heatstore occupies 1.1 KiB per file. 1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)
 1. Volume free space policy is 20%. 1000 GiB * 0.2 = 200 GiB

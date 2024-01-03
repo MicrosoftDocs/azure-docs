@@ -2,14 +2,14 @@
 title: Migrate applications and APIs to b2clogin.com
 titleSuffix: Azure AD B2C
 description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 05/21/2022
+ms.date: 11/21/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 When you set up an identity provider for sign-up and sign-in in your Azure Active Directory B2C (Azure AD B2C) applications, you need to specify the endpoints of the Azure AD B2C identity provider. You should no longer reference *login.microsoftonline.com* in your applications and APIs for authenticating users with Azure AD B2C. Instead, use *b2clogin.com* or a [custom domain](./custom-domain.md) for all applications.
 
-## What endpoints does this apply to
+## What endpoints does this changes apply to
 
 The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies (user flows or custom policies) to authenticate users. These endpoints have a `<policy-name>` parameter, which specifies the policy Azure AD B2C should use. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
@@ -37,9 +37,9 @@ With Azure AD B2C [custom domain](./custom-domain.md) the corresponding updated 
 
 ## Endpoints that are not affected
 
-Some customers use the shared capabilities of Azure AD enterprise tenants. For example, acquiring an access token to call the [MS Graph API](microsoft-graph-operations.md#code-discussion) of the Azure AD B2C tenant.
+Some customers use the shared capabilities of Microsoft Entra enterprise tenants. For example, acquiring an access token to call the [MS Graph API](microsoft-graph-operations.md#code-discussion) of the Azure AD B2C tenant.
 
-All endpoints, which don't contain a policy parameter aren't affected by the change. They're accessed only with the Azure AD's login.microsoftonline.com endpoints, and can't be used with the *b2clogin.com*, or custom domains. The following example shows a valid token endpoint of the Azure AD platform:
+This change doesn't affect all endpoints, which don't contain a policy parameter in the URL. They're accessed only with the Microsoft Entra ID's login.microsoftonline.com endpoints, and can't be used with the *b2clogin.com*, or custom domains. The following example shows a valid token endpoint of the Microsoft identity platform:
 
 ```http
 https://login.microsoftonline.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token
@@ -51,7 +51,7 @@ There are several modifications you might need to make to migrate your applicati
 
 * Change the redirect URL in your identity provider's applications to reference *b2clogin.com*, or custom domain. For more information, follow the [change identity provider redirect URLs](#change-identity-provider-redirect-urls) guidance.
 * Update your Azure AD B2C applications to use *b2clogin.com*, or custom domain in their user flow and token endpoint references. The change may include updating your use of an authentication library like Microsoft Authentication Library (MSAL).
-* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](customize-ui-with-html.md).
+* Update any **Allowed Origins** that you define in the CORS settings for [user interface customization](customize-ui-with-html.md).
 
 
 ## Change identity provider redirect URLs
@@ -97,7 +97,7 @@ For migrating Azure API Management APIs protected by Azure AD B2C, see the [Migr
 
 ### MSAL.NET ValidateAuthority property
 
-If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. Setting this value to `false` isn't required for MSAL.NET v3 and above.
+If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. Setting this value to `false` isn't required for MSAL.NET v3 and later.
 
 ```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication

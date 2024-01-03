@@ -92,7 +92,7 @@ As a platform, Azure Operator Nexus is designed for telco network functions and 
 
 ### Azure Operator Service Manager
 
-Azure Operator Service Manager is a service that allows network equipment providers (NEPs) to publish their NFs in Azure Marketplace. Operators can deploy the NFs by using familiar Azure APIs.
+[Azure Operator Service Manager](../operator-service-manager/azure-operator-service-manager-overview.md) is a service that allows network equipment providers (NEPs) to publish their NFs in Azure Marketplace. Operators can deploy the NFs by using familiar Azure APIs.
 
 Operator Service Manager provides a framework for NEPs and Microsoft to test and validate the basic functionality of the NFs. The validation includes lifecycle management of an NF on Azure Operator Nexus.
 

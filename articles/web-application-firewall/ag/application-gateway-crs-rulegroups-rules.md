@@ -41,19 +41,20 @@ The version number of the DRS increments when new attack signatures are added to
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 > [!NOTE]
-> We suggest you to disable some of the rules while you get started with 2.1 on Application Gateway WAF. Details of the rules are as below. 
+> Please follow the below guidance to tune WAF while you get started with 2.1 on Application Gateway WAF. Details of the rules are as below. 
 
 |Rule ID |Rule Group|Description  |Details|
 |---------|---------|---------|---------|
-|942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Replaced by MSTIC rule 99031001 |
-|942150      |SQLI|SQL Injection Attack|Replaced by MSTIC rule 99031003 |
-|942260      |SQLI|Detects basic SQL authentication bypass attempts 2/3 |Replaced by MSTIC rule 99031004 |
-|942430      |SQLI|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Too many false positives.|
-|942440      |SQLI|SQL Comment Sequence Detected|Replaced by MSTIC rule 99031002 |
+|942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Disable, Replaced by MSTIC rule 99031001 |
+|942150      |SQLI|SQL Injection Attack|Disable, Replaced by MSTIC rule 99031003 |
+|942260      |SQLI|Detects basic SQL authentication bypass attempts 2/3 |Disable, Replaced by MSTIC rule 99031004 |
+|942430      |SQLI|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Disable, Too many false positives.|
+|942440      |SQLI|SQL Comment Sequence Detected|Disable, Replaced by MSTIC rule 99031002 |
 |99005006|MS-ThreatIntel-WebShells|Spring4Shell Interaction Attempt|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001014|MS-ThreatIntel-CVEs|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001015|MS-ThreatIntel-WebShells|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001016|MS-ThreatIntel-WebShells|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|Keep the rule enabled to prevent against SpringShell vulnerability|
+|99001017|MS-ThreatIntel-CVEs|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule.|
 
 
 ## Core rule sets
@@ -100,7 +101,7 @@ If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the req
 
 For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there is a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
 
-### DRS 2.1 (preview) 
+### DRS 2.1 
 
 DRS 2.1 rules offer better protection than earlier versions of the DRS. It includes additional rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
 
@@ -230,7 +231,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 # [DRS 2.1](#tab/drs21)
 
-## <a name="drs21"></a> 2.1 rule sets (preview)
+## <a name="drs21"></a> 2.1 rule sets 
 
 ### <a name="general-21"></a> General
 |RuleId|Description|
@@ -385,9 +386,6 @@ The following rule groups and rules are available when using Web Application Fir
 |941370|JavaScript global variable found|
 |941380|AngularJS client side template injection detected|
 
->[!NOTE]
-> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
-
 ### <a name="drs942-21"></a> SQLI - SQL Injection
 |RuleId|Description|
 |---|---|
@@ -493,6 +491,9 @@ The following rule groups and rules are available when using Web Application Fir
 |99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|99001017*|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+
+*<sup>This rule's action is set to log by default. Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule.</sup>
 
 > [!NOTE]
 > When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
@@ -519,6 +520,9 @@ The following rule groups and rules are available when using Web Application Fir
 |800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|800114*|Attempted Apache Struts file upload exploitation - [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+
+*<sup>This rule's action is set to log by default. Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule.</sup>
 
 ### <a name="crs911-32"></a> REQUEST-911-METHOD-ENFORCEMENT
 |RuleId|Description|
@@ -765,6 +769,10 @@ The following rule groups and rules are available when using Web Application Fir
 |800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|800114*|Attempted Apache Struts file upload exploitation - [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+
+*<sup>Older WAFs running CRS 3.1 only support logging mode for this rule. To enable block mode you will need to upgrade to a newer ruleset version.</sup>
+
 
 
 ### <a name="crs911-31"></a> REQUEST-911-METHOD-ENFORCEMENT

@@ -129,14 +129,14 @@ You can choose from the following categories of enhanced metrics:
 |---|---|---|---|---|---|
 |**Max Connections** ^|`max_connections`|Count|Number of maximum connections. |Doesn't apply|Yes |
 
-^ **Max Connections** represents the configured value for the `_max_connections_ server` parameter. This metric is pooled every 30 minutes.
+^ **Max Connections** represents the configured value for the `max_connections` server parameter. This metric is pooled every 30 minutes.
 
 ##### Considerations for using enhanced metrics
 
 - Enhanced metrics that use the DatabaseName dimension have a *50-database* limit.
 - On the *Burstable* SKU, the limit is 10 databases for metrics that use the DatabaseName dimension.
-- The DatabaseName dimension limit is applied on the object identifier (OID) column, which reflects the order of creation for the database.
-- The DatabaseName in the metrics dimension is *case insensitive*. The metrics for database names that are the same except for case (for example, *contoso_database* and *Contoso_database*) will be merged and might not show accurate data.
+- The DatabaseName dimension limit is applied on the database identifier (datid) column of the pg_stat_database system view, which reflects the order of creation for the database.
+- The DatabaseName in the metrics dimension is *case insensitive*. That means that after querying pg_catalog.pg_stat_database, filtering out rows in which datname is either "template1" or "template0", ordering by datid, and limiting the returned rows to the first 50 (or 10 in the case of *Burstable* SKU), the metrics for database names in that result set, that are the same except for case (for example, *contoso_database* and *Contoso_database*) will be merged and might not show accurate data.
 
 ### Autovacuum metrics
 
@@ -211,7 +211,7 @@ Is-db-alive is an database server availability metric for Azure Postgres Flexibl
 
 - Aggregating this metric with `MAX()` will allow customers to determine whether the server has been up or down in the last minute.
 - Customers have option to further aggregate these metrics with any desired frequency (5m, 10m, 30m etc.) to suit their alerting requirements and avoid any false positive.
-- Other possible aggregations are `AVG()` and `MIN()`
+- Other possible aggregations are `AVG()` and `MIN()`.
 
 ### Filter and split on dimension metrics
 
@@ -228,13 +228,13 @@ For more information about setting up charts for dimensional metrics, see [Metri
 
 ### Metrics visualization
 
-There are several options to visualize Azure Monitor metrics
+There are several options to visualize Azure Monitor metrics.
 
 |Component  |Description | Required training and/or configuration|
 |---------|---------|--------|
 |Overview page|Most Azure services have an **Overview** page in the Azure portal that includes a **Monitor** section with charts that show recent critical metrics. This information is intended for owners of individual services to quickly assess the performance of the resource. |This page is based on platform metrics that are collected automatically. No configuration is required.         |
 |[Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md)|You can use Metrics Explorer to interactively work with metric data and create metric alerts. You need minimal training to use Metrics Explorer, but you must be familiar with the metrics you want to analyze. |- Once data collection is configured, no other configuration is required.<br>- Platform metrics for Azure resources are automatically available.<br>- Guest metrics for virtual machines are available after an Azure Monitor agent is deployed to the virtual machine.<br>- Application metrics are available after Application Insights is configured.         |
-| [Grafana](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) | You can use Grafana for visualizing and alerting on metrics. All versions of Grafana include the [Azure Monitor datasource plug-in](../../azure-monitor/visualize/grafana-plugin.md) to visualize your Azure Monitor metrics and logs.                                                     | Some training is required for you to become familiar with Grafana dashboards,  although you can download prebuilt [Azure PostgreSQL grafana monitoring dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) to easily all Auzre PostgreSQL srevers in your organzation.                                                                                                                                              |
+| [Grafana](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) | You can use Grafana for visualizing and alerting on metrics. All versions of Grafana include the [Azure Monitor datasource plug-in](../../azure-monitor/visualize/grafana-plugin.md) to visualize your Azure Monitor metrics and logs.                                                     | To become familiar with Grafana dashboards, some training is required. However, you can simplify the process by downloading a prebuilt [Azure PostgreSQL grafana monitoring dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/), which allows for easy monitoring of all Azure PostgreSQL servers within your organization.                                                                                                                                              |
 
 
 ## Logs

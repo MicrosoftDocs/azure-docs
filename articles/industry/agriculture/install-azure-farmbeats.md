@@ -1,10 +1,10 @@
 ---
 title: Install Azure FarmBeats
 description: This article describes how to install Azure FarmBeats in your Azure subscription
-author: usha-rathnavel
+author: gourdsay
 ms.topic: article
-ms.date: 1/17/2020
-ms.author: atinb
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Install Azure FarmBeats
@@ -13,8 +13,10 @@ This article describes how to install Azure FarmBeats in your Azure subscription
 
 Azure FarmBeats is a business-to-business offering available in Azure Marketplace. It enables aggregation of agriculture data sets across providers and generation of actionable insights. Azure FarmBeats does so by enabling you to build artificial intelligence (AI) or machine learning (ML) models based on fused data sets. The two main components of Azure FarmBeats are:
 
-> [!NOTE]
-> Azure FarmBeats is on path to be retired. We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 - **Data hub**: An API layer that enables aggregation, normalization, and contextualization of various agriculture data sets across different providers.
 
@@ -77,11 +79,11 @@ You'll need to complete the following steps before you start the actual installa
 
 You'll need the following permissions in the Azure tenant to install Azure FarmBeats:
 
-- Tenant - Azure AD app creator
+- Tenant - Microsoft Entra app creator
 - Subscription - Owner
 - Resource Group in which FarmBeats is being installed - Owner
 
-The first two permissions are needed for [creating the Azure AD application](#create-an-aad-application) step. If needed, you can get someone with the appropriate permissions to create the Azure AD application.
+The first two permissions are needed for [creating the Microsoft Entra application](#create-an-aad-application) step. If needed, you can get someone with the appropriate permissions to create the Microsoft Entra application.
 
 The person running the FarmBeats install from marketplace needs to be an owner of the Resource Group in which FarmBeats is being installed. For subscription owners, this happens automatically when Resource Group is created. For others, please pre-create the Resource Group and ask the Subscription owner to make you an owner of the Resource Group.
 
@@ -93,16 +95,18 @@ You'll need the Azure subscription ID and the region where you want to install A
 
 Make a note of the **Azure Subscription ID** and the **Azure Region**.
 
-### Create an AAD application
+<a name='create-an-aad-application'></a>
 
-Azure FarmBeats require Azure Active Directory application creation and registration. To successfully run the Azure AD creation script, the following permissions are needed:
+### Create a Microsoft Entra application
 
-- Tenant - Azure AD app creator
+Azure FarmBeats require Microsoft Entra application creation and registration. To successfully run the Microsoft Entra creation script, the following permissions are needed:
+
+- Tenant - Microsoft Entra app creator
 - Subscription - Owner
 
 Run the following steps in a Cloud Shell instance using the PowerShell environment. First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
-1. Download the Azure AD app generator script
+1. Download the Microsoft Entra app generator script
 
     ```azurepowershell-interactive
         wget -q https://aka.ms/FarmBeatsAADScript -O ./create_aad_script.ps1
@@ -114,7 +118,7 @@ Run the following steps in a Cloud Shell instance using the PowerShell environme
         cd
     ```
 
-3. Run the Azure AD script
+3. Run the Microsoft Entra ID script
 
     ```azurepowershell-interactive
         ./create_aad_script.ps1
@@ -128,7 +132,7 @@ Run the following steps in a Cloud Shell instance using the PowerShell environme
 
     - **Subscription ID**: This is the ID of the subscription in which you want to install Azure FarmBeats
 
-5. The Azure AD script takes around 2 minutes to run and outputs values on screen as well as to a json file in the same directory. If you had someone else run the script, ask them to share this output with you.
+5. The Microsoft Entra ID script takes around 2 minutes to run and outputs values on screen as well as to a json file in the same directory. If you had someone else run the script, ask them to share this output with you.
 
 ### Create Sentinel account
 
@@ -146,7 +150,7 @@ Your registration process is complete. Make a note of your **Sentinel Username**
 
 You're now ready to install FarmBeats. Follow the steps below to start the installation:
 
-1. Sign in to the Azure portal. Select your account in the top-right corner and switch to the Azure AD tenant where you want to install Azure FarmBeats.
+1. Sign in to the Azure portal. Select your account in the top-right corner and switch to the Microsoft Entra tenant where you want to install Azure FarmBeats.
 
 2. Go to Azure Marketplace within the portal and search for **Azure FarmBeats** in the Marketplace.
 
@@ -158,7 +162,7 @@ You're now ready to install FarmBeats. Follow the steps below to start the insta
 
     ![Basics Tab](./media/install-azure-farmbeats/create-azure-farmbeats-basics.png)
 
-6. Copy the individual entries from the output of [Azure AD script](#create-an-aad-application) to the inputs in the Azure AD application section.
+6. Copy the individual entries from the output of [Microsoft Entra ID script](#create-an-aad-application) to the inputs in the Microsoft Entra application section.
 
 7. Enter the [Sentinel account](#create-sentinel-account) user name and password in the Sentinel Account section. Select **Next** to move to the **Review + Create** tab.
 
@@ -202,7 +206,7 @@ To uninstall Azure FarmBeats Data hub or Accelerator, complete the following ste
 
 1. Log in to the Azure portal and **delete the resource groups** in which these components are installed.
 
-2. Go to Azure Active Directory & **delete the Azure AD application** linked to the Azure FarmBeats installation.
+2. Go to Microsoft Entra ID and **delete the Microsoft Entra application** linked to the Azure FarmBeats installation.
 
 ## Next steps
 

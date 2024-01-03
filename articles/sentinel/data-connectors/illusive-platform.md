@@ -3,7 +3,7 @@ title: "Illusive Platform connector for Microsoft Sentinel"
 description: "Learn how to install the connector Illusive Platform to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -22,7 +22,7 @@ The Illusive Platform Connector allows you to share Illusive's attack surface an
 
 ## Query samples
 
-**Number of Incidents in in the last 30 days in which Trigger Type is found**
+**Number of Incidents in the last 30 days in which Trigger Type is found**
    ```kusto
 union CommonSecurityLog 
    | where (DeviceEventClassID == "illusive:login" or DeviceEventClassID == "illusive:access" or DeviceEventClassID == "illusive:suspicious") 
@@ -71,7 +71,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
+  `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
 
 2. Forward Illusive Common Event Format (CEF) logs to Syslog agent
 

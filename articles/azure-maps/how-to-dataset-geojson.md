@@ -21,6 +21,7 @@ Azure Maps Creator enables users to import their indoor map data in GeoJSON form
 - An [Azure Maps account]
 - A [Subscription key]
 - An Azure Maps [Creator resource]
+- An [Azure storage account]
 - Basic understanding of [Creator for indoor maps]
 - Basic understanding of [Facility Ontology 2.0]
 - Zip package containing all required GeoJSON files. If you don't have GeoJSON files, you can download the [Contoso building sample].
@@ -36,33 +37,10 @@ For more information on the GeoJSON package, see the [Geojson zip package requir
 
 ### Upload the GeoJSON package
 
-Use the [Data Upload API] to upload the Drawing package to Azure Maps Creator account.
+Follow the steps outlined in the [How to create data registry] article to upload the GeoJSON package into your Azure storage account then register it in your Azure Maps account.
 
-The Data Upload API is a long running transaction that implements the pattern defined in [Creator Long-Running Operation API V2].
-
-To upload the GeoJSON package:
-
-1. Execute the following HTTP POST request that uses the [Data Upload API]:
-
-    ```http
-    https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=zip&subscription-key={Your-Azure-Maps-Subscription-key}
-    ```
-
-    1. Set `Content-Type` in the **Header** to `application/zip`.
-
-1. Copy the value of the `Operation-Location` key in the response header. The `Operation-Location` key is also known as the `status URL` and is required to check the status of the upload, which is explained in the next section.
-
-### Check the GeoJSON package upload status
-
-To check the status of the GeoJSON package and retrieve its unique identifier (`udid`):
-
-1. Execute the following HTTP GET request that uses the status URL you copied as the last step in the previous section of this article. The request should look like the following URL:
-
-```http
-https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
-```
-
-1. Copy the value of the `Resource-Location` key in the response header, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the GeoJSON package resource.
+> [!IMPORTANT]
+> Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the GeoJSON package you uploaded into your Azure storage account from your source code and HTTP requests.
 
 ### Create a dataset
 
@@ -73,7 +51,7 @@ A dataset is a collection of map features, such as buildings, levels, and rooms.
 
 To create a dataset:
 
-1. Enter the following URL to the dataset service. The request should look like the following URL (replace {udid} with the `udid` obtained in [Check the GeoJSON package upload status] section):
+1. Enter the following URL to the dataset service. The request should look like the following URL (replace {udid} with the `udid` obtained in [Upload the GeoJSON package] section):
 
   ```http
   https://us.atlas.microsoft.com/datasets?api-version=2023-03-01-preview&udid={udid}&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -154,29 +132,29 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
 [area]: creator-facility-ontology.md?pivots=facility-ontology-v2#areaelement
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Check the GeoJSON package upload status]: #check-the-geojson-package-upload-status
 [Contoso building sample]: https://github.com/Azure-Samples/am-creator-indoor-data-examples
 [Convert a drawing package]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
 [Create a dataset]: #create-a-dataset
 [Create a tileset]: tutorial-creator-indoor-maps.md#create-a-tileset
 [Creator for indoor maps]: creator-indoor-maps.md
-[Creator Long-Running Operation API V2]: creator-long-running-operation-v2.md
 [Creator resource]: how-to-manage-creator.md
-[Data Upload API]: /rest/api/maps/data-v2/upload
 [Dataset Create API]: /rest/api/maps/2023-03-01-preview/dataset/create
 [Dataset Create]: /rest/api/maps/v2/dataset/create
 [dataset]: creator-indoor-maps.md#datasets
 [Facility Ontology 2.0]: creator-facility-ontology.md?pivots=facility-ontology-v2
 [facility]: creator-facility-ontology.md?pivots=facility-ontology-v2#facility
 [Geojson zip package requirements]: #geojson-zip-package-requirements
+[How to create data registry]: how-to-create-data-registries.md
 [level]: creator-facility-ontology.md?pivots=facility-ontology-v2#level
 [line]: creator-facility-ontology.md?pivots=facility-ontology-v2#lineelement
 [Next steps]: #next-steps
 [openings]: creator-facility-ontology.md?pivots=facility-ontology-v2#opening
 [point]: creator-facility-ontology.md?pivots=facility-ontology-v2#pointelement
 [RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
+[Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
 [structures]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [units]: creator-facility-ontology.md?pivots=facility-ontology-v2#unit
+[Upload the GeoJSON package]: #upload-the-geojson-package
 [verticalPenetrations]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
 [Visual Studio]: https://visualstudio.microsoft.com/downloads/

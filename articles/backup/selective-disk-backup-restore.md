@@ -29,7 +29,7 @@ This solution is useful particularly in the following scenarios:
 
 1. If you have critical data to be backed up in only one disk, or a subset of the disks and don’t want to back up the rest of the disks attached to a VM to minimize the backup storage costs.
 2. If you've other backup solutions for part of your VM or data. For example, if you back up your databases or data using a different workload backup solution and you want to use Azure VM level backup for the rest of the data or disks to build an efficient and  robust system using the best capabilities available.
-3. If you're using [Enhanced policy](backup-azure-vms-enhanced-policy.md), you can use this solution to exclude unsupported disks (Shared Disks) and configure a VM for backup. 
+3. If you're using [Enhanced policy](backup-azure-vms-enhanced-policy.md), you can use this solution to exclude unsupported disk types and configure a VM for backup. For Shared Disks in a VM, you can exclude the disk from VM backup and use [Azure Disk Backup](disk-backup-overview.md) to take a crash consistent backup of the Shared Disk.
 
 Using PowerShell, Azure CLI, or Azure portal, you can configure selective disk backup of the Azure VM. Using a script, you can include or exclude data disks using their *LUN numbers*. The ability to configure selective disks backup via the Azure portal is limited to the *Backup OS Disk* only for the Standard policy, but can be configured for all data disks for Enhanced policy.
 

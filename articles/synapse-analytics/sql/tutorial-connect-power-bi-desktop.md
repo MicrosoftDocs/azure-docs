@@ -31,7 +31,7 @@ To complete this tutorial, you need the following prerequisites:
 
 Optional:
 
-- A SQL query tool, such as [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- A SQL query tool, such as [Azure Data Studio](/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 Values for the following parameters:
 

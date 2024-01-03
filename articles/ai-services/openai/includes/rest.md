@@ -2,10 +2,9 @@
 title: 'Quickstart: Use the OpenAI Service to make your first completions call with the REST API'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the REST API. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 02/02/2023
 keywords: 
@@ -48,10 +47,10 @@ Create and assign persistent environment variables for your key and endpoint.
 
 ## REST API
 
-In a bash shell, run the following command. You will need to replace `text-davinci-003` with the deployment name you chose when you deployed the GPT-35-Turbo. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
+In a bash shell, run the following command. You will need to replace `gpt-35-turbo-instruct` with the deployment name you chose when you deployed the `gpt-35-turbo-instruct` model. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 
 ```bash
-curl $AZURE_OPENAI_ENDPOINT/openai/deployments/text-davinci-003/completions?api-version=2023-05-15 \
+curl $AZURE_OPENAI_ENDPOINT/openai/deployments/gpt-35-turbo-instruct/completions?api-version=2023-05-15 \
   -H "Content-Type: application/json" \
   -H "api-key: $AZURE_OPENAI_KEY" \
   -d "{\"prompt\": \"Once upon a time\"}"
@@ -73,7 +72,7 @@ The output from the completions API will look as follows.
     "id": "ID of your call",
     "object": "text_completion",
     "created": 1675444965,
-    "model": "text-davinci-003",
+    "model": "gpt-35-turbo-instruct",
     "choices": [
         {
             "text": " there lived in a little village a woman who was known as the meanest",

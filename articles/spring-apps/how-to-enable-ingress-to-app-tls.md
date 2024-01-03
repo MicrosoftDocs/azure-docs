@@ -7,7 +7,7 @@ ms.author: wenhaozhang
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 04/12/2022
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-azurecli
 ---
 # Enable ingress-to-app TLS for an application
 

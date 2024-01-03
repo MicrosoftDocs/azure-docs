@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases instance backup errors
 description: This article describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA database instances.
 ms.topic: troubleshooting
-ms.date: 10/05/2022
+ms.date: 11/02/2023
 ms.service: backup
 ms.custom: ignite-2022
 author: AbhishekMallick-MS
@@ -145,6 +145,20 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 
 **Recommended action**: Upgrade the VM or use a compatible target vm for restore. For more information, see the [SAP HANA database backup troubleshooting article](https://aka.ms/HANASnapshotTSGuide).
 
+### UserErrorSnasphotRestoreContextMissingForDBRecovery 
+ 
+**Error message**: Snapshot based point in time restore operation could not be started because one of the previous restore steps is not complete
+
+**Cause**: Snapshot attach and mount or SystemDB recovery isn't done on the target VM.
+
+**Recommended action**:  Retry the operation after completing a snapshot attach and mount operation on the target machine. 
+
+### UserErrorInvalidScenarioForSnapshotPointInTimeRecovery 
+
+**Cause**:  The snapshot point-in-time restore operation failed as the underlying database on the target machine is protected with Azure Backup.
+
+**Recommended action**: Retry the restore operation after you stop protection of the databases on the target machine and ensure that the *Backint path is empty*. [Learn more about Backint path](https://aka.ms/HANABackupConfigurations).
+
 ## Appendix
 
 **Perform restoration actions in SAP HANA studio**
@@ -155,4 +169,4 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 
 ## Next steps
 
-Learn about [Azure Backup service to back up database instances (preview)](sap-hana-db-about.md#using-the-azure-backup-service-to-back-up-database-instances-preview).
+Learn about [Azure Backup service to back up database instances](sap-hana-db-about.md#using-the-azure-backup-service-to-back-up-database-instances).

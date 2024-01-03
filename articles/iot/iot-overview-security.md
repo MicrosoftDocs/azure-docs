@@ -85,7 +85,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 
 - **Protect cloud credentials**: An attacker can use the cloud authentication credentials you use to configure and operate your IoT deployment to gain access to and compromise your IoT system. Protect the credentials by changing the password frequently, and don't use these credentials on public machines.
 
-- **Define access controls for your IoT hub**: Understand and define the type of access that each component in your IoT Hub solution needs based on the required functionality. There are two ways you can grant permissions for the service APIs to connect to your IoT hub: [Azure Active Directory](../iot-hub/iot-hub-dev-guide-azure-ad-rbac.md) or [Shared Access signatures](../iot-hub/iot-hub-dev-guide-sas.md).
+- **Define access controls for your IoT hub**: Understand and define the type of access that each component in your IoT Hub solution needs based on the required functionality. There are two ways you can grant permissions for the service APIs to connect to your IoT hub: [Microsoft Entra ID](../iot-hub/iot-hub-dev-guide-azure-ad-rbac.md) or [Shared Access signatures](../iot-hub/iot-hub-dev-guide-sas.md).
 
 - **Define access controls for your IoT Central application**: Understand and define the type of access that you enable for your IoT Central application. To learn more, see:
 

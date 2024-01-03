@@ -242,6 +242,10 @@ When you don't specify a version, you get an error with a list of the newest sup
 
 #### Supported API versions
 
+> [!NOTE]
+> Version 2023-07-01 is still being rolled out, it may not be available in some regions.
+
+- 2023-07-01
 - 2021-12-13
 - 2021-11-15
 - 2021-11-01
@@ -299,9 +303,6 @@ The IMDS API contains multiple endpoint categories representing different data s
 | `/metadata/versions` | See [Versions](#versions) | N/A
 
 ## Versions
-
-> [!NOTE]
-> This feature was released alongside version 2020-10-01, which is currently being rolled out and may not yet be available in every region.
 
 ### List API versions
 
@@ -407,15 +408,18 @@ Schema breakdown:
 
 The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks, plus an additional object for the local temporary disk.
 
-The image reference object contains the following information about the OS image:
+The image reference object contains the following information about the OS image, please note that an image could come either from the platform, marketplace, community gallery, or direct shared gallery but not both:
 
-| Data | Description |
-|------|-------------|
-| `id` | Resource ID
-| `offer` | Offer of the platform or marketplace image
-| `publisher` | Image publisher
-| `sku` | Image sku
-| `version` | Version of the platform or marketplace image
+| Data | Description | Version introduced |
+|------|-------------|--------------------|
+| `id` | Resource ID | 2019-06-01
+| `offer` | Offer of the platform or marketplace image | 2019-06-01
+| `publisher` | Publisher of the platform or marketplace image | 2019-06-01
+| `sku` | Sku of the platform or marketplace image | 2019-06-01
+| `version` | Version of the image | 2019-06-01
+| `communityGalleryImageId` | Resource ID of the community image, empty otherwise | 2023-07-01
+| `sharedGalleryImageId` | Resource ID o direct shared image, empty otherwise | 2023-07-01
+| `exactVersion` | Version of the community or direct shared image | 2023-07-01
 
 The OS disk object contains the following information about the OS disk used by the VM:
 
@@ -765,7 +769,10 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "offer": "WindowsServer",
             "publisher": "MicrosoftWindowsServer",
             "sku": "2019-Datacenter",
-            "version": "latest"
+            "version": "latest",
+            "communityGalleryImageId": "/CommunityGalleries/testgallery/Images/1804Gen2/Versions/latest",
+            "sharedGalleryImageId": "/SharedGalleries/1P/Images/gen2/Versions/latest",
+            "exactVersion": "1.1686127202.30113"
         },
         "osDisk": {
             "caching": "ReadWrite",
@@ -904,7 +911,10 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "offer": "UbuntuServer",
             "publisher": "Canonical",
             "sku": "16.04.0-LTS",
-            "version": "latest"
+            "version": "latest",
+            "communityGalleryImageId": "/CommunityGalleries/testgallery/Images/1804Gen2/Versions/latest",
+            "sharedGalleryImageId": "/SharedGalleries/1P/Images/gen2/Versions/latest",
+            "exactVersion": "1.1686127202.30113"
         },
         "osDisk": {
             "caching": "ReadWrite",
@@ -1130,6 +1140,29 @@ Example document:
 }
 ```
 
+#### Signature Validation Guidance
+
+When validating the signature, you should confirm that the signature was created with a certificate from Azure. This is done by validating the certificate Subject Alternative Name (SAN).
+
+Example SAN `DNS Name=eastus.metadata.azure.com, DNS Name=metadata.azure.com`
+
+> [!NOTE]
+> The domain for the public cloud and each sovereign cloud will be different.
+
+| Cloud | Domain in SAN |
+|-------|-------------|
+| [All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
+| [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | *.metadata.azure.us
+| [Azure operated by 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
+| [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | *.metadata.microsoftazure.de
+
+> [!NOTE]
+> The certificates might not have an exact match for the domain. For this reason, the certification validation should accept any subdomain (for example, in public cloud general availability regions accept `*.metadata.azure.com`).
+
+We don't recommend certificate pinning for intermediate certs. For further guidance, see [Certificate pinning - Certificate pinning and Azure services](/azure/security/fundamentals/certificate-pinning).
+Please note that the Azure Instance Metadata Service will NOT offer notifications for future Certificate Authority changes.
+Instead, you must follow the centralized [Azure Certificate Authority details](/azure/security/fundamentals/azure-ca-details?tabs=root-and-subordinate-cas-list) article for all future updates.
+
 #### Sample 1: Validate that the VM is running in Azure
 
 Vendors in Azure Marketplace want to ensure that their software is licensed to run only in Azure. If someone copies the VHD to an on-premises environment, the vendor needs to be able to detect that. Through IMDS, these vendors can get signed data that guarantees response only from Azure.
@@ -1231,30 +1264,6 @@ openssl verify -verbose -CAfile /etc/ssl/certs/DigiCert_Global_Root.pem -untrust
 ---
 
 The `nonce` in the signed document can be compared if you provided a `nonce` parameter in the initial request.
-
-> [!NOTE]
-> The certificate for the public cloud and each sovereign cloud will be different.
-
-| Cloud | Certificate |
-|-------|-------------|
-| [All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
-| [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | *.metadata.azure.us
-| [Azure operated by 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
-| [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | *.metadata.microsoftazure.de
-
-> [!NOTE]
-> The certificates might not have an exact match of `metadata.azure.com` for the public cloud. For this reason, the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
-
-In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Azure rolls over the certificates, which is standard PKI practice. You must update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. 
-
-You can find the intermediate certificates on [this page](../security/fundamentals/azure-CA-details.md). The intermediate certificates for each of the regions can be different.
-
-> [!NOTE]
-> The intermediate certificate for Azure operated by 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
-If you pinned the intermediate certificates for Azure operated by 21Vianet as part of a root chain authority change, the intermediate certificates must be updated.
-
-> [!NOTE]
-> Starting February 2022, our Attested Data certificates will be impacted by a TLS change. Due to this, the root CA will change from Baltimore CyberTrust to DigiCert Global G2 only for Public and US Government clouds. If you have the Baltimore CyberTrust cert or other intermediate certificates listed in **[this post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953)** pinned, please follow the instructions listed there **immediately** to prevent any disruptions from using the Attested Data endpoint.
 
 ## Managed identity
 

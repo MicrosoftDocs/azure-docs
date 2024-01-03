@@ -2,11 +2,10 @@
 title: "Quickstart: Azure AI Translator SDKs"
 titleSuffix: Azure AI services
 description: "Learn to translate text with the Translator service SDks in a programming language of your choice: C#, Java, JavaScript, or Python."
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: quickstart
 ms.date: 09/06/2023
 ms.author: lajanuar

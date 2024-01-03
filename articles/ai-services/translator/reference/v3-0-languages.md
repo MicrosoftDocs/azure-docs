@@ -2,12 +2,11 @@
 title: Translator Languages Method
 titleSuffix: Azure AI services
 description: The Languages method gets the set of languages currently supported by other operations of the Translator.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
 ms.date: 09/19/2023
 ms.author: lajanuar

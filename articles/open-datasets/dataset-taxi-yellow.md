@@ -111,7 +111,7 @@ azure_storage_sas_token = r""
 container_name = "nyctlc"
 folder_name = "yellow"
 
-from azure.storage.blob import BlockBlobServicefrom azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
 if azure_storage_account_name is None or azure_storage_sas_token is None:
     raise Exception(

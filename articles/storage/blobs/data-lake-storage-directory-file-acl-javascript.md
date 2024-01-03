@@ -51,9 +51,11 @@ StorageSharedKeyCredential
 
 To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account.
 
-### Connect by using Azure Active Directory (Azure AD)
+<a name='connect-by-using-azure-active-directory-azure-ad'></a>
 
-You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Azure AD.
+### Connect by using Microsoft Entra ID
+
+You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Microsoft Entra ID.
 
 Create a [DataLakeServiceClient](/javascript/api/@azure/storage-file-datalake/datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) class.
 
@@ -89,7 +91,7 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 
 ```
 
-This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (Azure AD).
+This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Microsoft Entra ID.
 
 [!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
 

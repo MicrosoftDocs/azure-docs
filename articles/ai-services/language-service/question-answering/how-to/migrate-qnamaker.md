@@ -1,12 +1,11 @@
 ---
 title: Migrate QnA Maker knowledge bases to custom question answering
 description: Migrate your legacy QnAMaker knowledge bases to custom question answering to take advantage of the latest features.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.author: jboback
 author: jboback
-ms.date: 09/08/2023
+ms.date: 12/19/2023
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 

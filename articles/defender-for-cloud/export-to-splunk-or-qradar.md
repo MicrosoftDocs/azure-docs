@@ -9,7 +9,7 @@ ms.date: 04/04/2022
 
 # Prepare Azure resources for exporting to Splunk and QRadar
 
-In order to stream Microsoft Defender for Cloud security alerts to IBM QRadar and Splunk, you have to set up resources in Azure, such as Event Hubs and Azure Active Directory (Azure AD). Here are the instructions for configuring these resources in the Azure portal, but you can also configure them using a PowerShell script. Make sure you review [Stream alerts to QRadar and Splunk](export-to-siem.md#stream-alerts-to-qradar-and-splunk) before you configure the Azure resources for exporting alerts to QRadar and Splunk.
+In order to stream Microsoft Defender for Cloud security alerts to IBM QRadar and Splunk, you have to set up resources in Azure, such as Event Hubs and Microsoft Entra ID. Here are the instructions for configuring these resources in the Azure portal, but you can also configure them using a PowerShell script. Make sure you review [Stream alerts to QRadar and Splunk](export-to-siem.md#stream-alerts-to-qradar-and-splunk) before you configure the Azure resources for exporting alerts to QRadar and Splunk.
 
 To configure the Azure resources for QRadar and Splunk in the Azure portal:
 
@@ -92,10 +92,12 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 
     :::image type="content" source="media/export-to-siem/copy-storage-account-key.png" alt-text="Screenshot of copying storage account key." lightbox="media/export-to-siem/copy-storage-account-key.png":::
 
-## Step 6: **For streaming alerts to Splunk SIEM** - Create an Azure AD application
+<a name='step-6-for-streaming-alerts-to-splunk-siem---create-an-azure-ad-application'></a>
 
-1. In the menu search box, search for "Azure Active Directory" and go to Azure Active Directory.
-1. Go to the Azure portal, select **Create a resource**, and select **Azure Active Directory**. If that option isn't shown, search for "active directory".
+## Step 6: **For streaming alerts to Splunk SIEM** - Create a Microsoft Entra application
+
+1. In the menu search box, search for "Microsoft Entra ID" and go to Microsoft Entra ID.
+1. Go to the Azure portal, select **Create a resource**, and select **Microsoft Entra ID**. If that option isn't shown, search for "active directory".
 1. In the menu, select **App registrations**.
 1. Select **New registration**.
 1. Enter a unique name for the application and select **Register**.
@@ -113,7 +115,9 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 
 1. After the secret is created, copy the Secret ID and save it for later use together with the Application ID and Directory (tenant) ID.
 
-## Step 7: **For streaming alerts to Splunk SIEM** - Allow Azure AD to read from the event hub
+<a name='step-7-for-streaming-alerts-to-splunk-siem---allow-azure-ad-to-read-from-the-event-hub'></a>
+
+## Step 7: **For streaming alerts to Splunk SIEM** - Allow Microsoft Entra ID to read from the event hub
 
 1. Go to the Event Hubs namespace you created.
 1. In the menu, go to **Access control**.
@@ -125,7 +129,7 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 1. In the Roles tab, search for **Azure Event Hubs Data Receiver**.
 1. Select **Next**.
 1. Select **Select Members**.
-1. Search for the Azure AD application you created before and select it.
+1. Search for the Microsoft Entra application you created before and select it.
 1. Select **Close**.
 
 To continue setting up export of alerts, [install the built-in connectors](export-to-siem.md#step-2-connect-the-event-hub-to-your-preferred-solution-using-the-built-in-connectors) for the SIEM you're using.

@@ -1,6 +1,6 @@
 ---
-title: Copy data from Google AdWords
-description: Learn how to copy data from Google AdWords to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+title: Copy data from Google Ads
+description: Learn how to copy data from Google Ads to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
@@ -8,26 +8,26 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/13/2023
+ms.date: 09/14/2023
 ---
 
-# Copy data from Google AdWords using Azure Data Factory or Synapse Analytics
+# Copy data from Google Ads using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Google AdWords. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Google Ads. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
-This Google AdWords connector is supported for the following capabilities:
+This Google Ads connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
@@ -37,9 +37,9 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Google AdWords using UI
+## Create a linked service to Google Ads using UI
 
-Use the following steps to create a linked service to Google AdWords in the Azure portal UI.
+Use the following steps to create a linked service to Google Ads in the Azure portal UI.
 
 1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
 
@@ -51,76 +51,71 @@ Use the following steps to create a linked service to Google AdWords in the Azur
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Google and select the Google AdWords connector.
+2. Search for Google Ads and select the Google Ads connector.
 
-   :::image type="content" source="media/connector-google-adwords/google-adwords-connector.png" alt-text="Screenshot of the Google AdWords connector.":::    
+   :::image type="content" source="media/connector-google-adwords/google-adwords-connector.png" alt-text="Screenshot of the Google Ads connector.":::    
 
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-   :::image type="content" source="media/connector-google-adwords/configure-google-adwords-linked-service.png" alt-text="Screenshot of linked service configuration for Google AdWords.":::
+   :::image type="content" source="media/connector-google-adwords/configure-google-adwords-linked-service.png" alt-text="Screenshot of linked service configuration for Google Ads.":::
 
 ## Connector configuration details
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Google AdWords connector.
+The following sections provide details about properties that are used to define Data Factory entities specific to Google Ads connector.
 
 ## Linked service properties
 
 > [!Important]
-> Due to the sunset of Google AdWords API by **April 27, 2022**, the service has upgraded to the new Google Ads API. Please refer this [document](connector-troubleshoot-google-adwords.md#migrate-to-the-new-version-of-google-ads-api) for detailed migration steps and recommendations. Please make sure the migration to be done before **April 27, 2022**.  
+> Due to the sunset of Google AdWords API by **April 27, 2022**, the service has upgraded to the new Google Ads API.  Please recreate the linked service with the latest Google Ads API if you use the legacy version.
 
-The following properties are supported for Google AdWords linked service:
+The following properties are supported for Google Ads linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **GoogleAdWords** | Yes |
-| connectionProperties | A group of properties that defines how to connect to Google AdWords. | Yes |
-| ***Under `connectionProperties`:*** | | |
-| clientCustomerID | The Client customer ID of the AdWords account that you want to fetch report data for.  | Yes |
-| loginCustomerID | The customer ID of the Google AdWords manager account through which you want to fetch report data of specific customer.| No |
-| developerToken | The developer token associated with the manager account that you use to grant access to the AdWords API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| googleAdsApiVersion | The Google Ads API version that you use.| Yes |
+| clientCustomerID | The Client customer ID of the Ads account that you want to fetch report data for.  | Yes |
+| loginCustomerID | The customer ID of the Google Ads manager account through which you want to fetch report data of specific customer.| No |
+| developerToken | The developer token associated with the manager account that you use to grant access to the Ads API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR. <br/>Allowed values are: **ServiceAuthentication**, **UserAuthentication** | Yes |
-| refreshToken | The refresh token obtained from Google for authorizing access to AdWords for UserAuthentication. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| refreshToken | The refresh token obtained from Google for authorizing access to Ads for UserAuthentication. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | clientId | The client ID of the Google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | clientSecret | The client secret of the google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | email | The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.  | No |
-| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR.  | No |
-| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
-| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.  | No |
+| privateKey | The service private key that is used for ServiceAuthentication for recommended driver version and can only be used on self-hosted IR. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md).| No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
+| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
+| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
 
 **Example:**
 
 ```json
 {
-    "name": "GoogleAdWordsLinkedService",
+    "name": "GoogleAdsLinkedService",
     "properties": {
         "type": "GoogleAdWords",
         "typeProperties": {
-            "connectionProperties": {
-                "clientCustomerID": "<clientCustomerID>",
-                "loginCustomerID": "<loginCustomerID>",
-                "developerToken": {
-                    "type": "SecureString",
-                    "value": "<developerToken>"
-                },
-                "authenticationType": "ServiceAuthentication",
-                "refreshToken": {
-                    "type": "SecureString",
-                    "value": "<refreshToken>"
-                },
-                "clientId": {
-                    "type": "SecureString",
-                    "value": "<clientId>"
-                },
-                "clientSecret": {
-                    "type": "SecureString",
-                    "value": "<clientSecret>"
-                },
-                "email": "<email>",
-                "keyFilePath": "<keyFilePath>",
-                "trustedCertPath": "<trustedCertPath>",
-                "useSystemTrustStore": true,
-            }
+            "clientCustomerID": "<clientCustomerID>",
+            "loginCustomerID": "<loginCustomerID>",
+            "developerToken": {
+                "type": "SecureString",
+                "value": "<developerToken>"
+            },
+            "authenticationType": "UserAuthentication",
+            "refreshToken": {
+                "type": "SecureString",
+                "value": "<refreshToken>"
+            },
+            "clientId": {
+                "type": "SecureString",
+                "value": "<clientId>"
+            },
+            "clientSecret": {
+                "type": "SecureString",
+                "value": "<clientSecret>"
+            },
+            "googleAdsApiVersion": "v14"
         }
     }
 }
@@ -128,26 +123,26 @@ The following properties are supported for Google AdWords linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Google AdWords dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Google Ads dataset.
 
-To copy data from Google AdWords, set the type property of the dataset to **GoogleAdWordsObject**. The following properties are supported:
+To copy data from Google Ads, set the type property of the dataset to **GoogleAdWordsObject**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **GoogleAdWordsObject** | Yes |
-| tableName | Name of the table. | No (if "query" in activity source is specified) |
+| tableName | Name of the table. Specify this property when you use the legacy driver version.| No (if "query" in activity source is specified) |
 
 **Example**
 
 ```json
 {
-    "name": "GoogleAdWordsDataset",
+    "name": "GoogleAdsDataset",
     "properties": {
         "type": "GoogleAdWordsObject",
         "typeProperties": {},
         "schema": [],
         "linkedServiceName": {
-            "referenceName": "<GoogleAdWords linked service name>",
+            "referenceName": "<GoogleAds linked service name>",
             "type": "LinkedServiceReference"
         }
     }
@@ -157,27 +152,27 @@ To copy data from Google AdWords, set the type property of the dataset to **Goog
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Google AdWords source.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Google Ads source.
 
-### Google AdWords as source
+### Google Ads as source
 
-To copy data from Google AdWords, set the source type in the copy activity to **GoogleAdWordsSource**. The following properties are supported in the copy activity **source** section:
+To copy data from Google Ads set the source type in the copy activity to **GoogleAdWordsSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **GoogleAdWordsSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
+| query | Use the GAQL query to read data. For example: `SELECT campaign.id FROM campaign`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
 ```json
 "activities":[
     {
-        "name": "CopyFromGoogleAdWords",
+        "name": "CopyFromGoogleAds",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<GoogleAdWords input dataset name>",
+                "referenceName": "<GoogleAds input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -190,7 +185,7 @@ To copy data from Google AdWords, set the source type in the copy activity to **
         "typeProperties": {
             "source": {
                 "type": "GoogleAdWordsSource",
-                "query": "SELECT * FROM MyTable"
+                "query": "SELECT campaign.id FROM campaign"
             },
             "sink": {
                 "type": "<sink type>"
@@ -204,6 +199,61 @@ To copy data from Google AdWords, set the source type in the copy activity to **
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
+## Upgrade the Google Ads linked service
 
-## Next steps
+To upgrade your Google Ads linked service, you need update your linked service and learn how to migrate from SQL to Google Ads Query Language (GAQL).
+
+### Update the linked service configuration
+
+Create a new Google Ads linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and apply the new configuration for **Service authentication** if you use it.
+
+### Migrate from SQL to GAQL
+
+If you use SQL statements in your pipelines that refer to the old Google Ads linked service, you need to update them to GAQL statements. 
+
+In contrast to SQL, the query in GAQL is made up of six kinds of clauses:
+
+- `SELECT`
+- `FROM`
+- `WHERE`
+- `ORDER BY`
+- `LIMIT`
+- `PARAMETERS`
+
+Go to [Google Ads Query Language Grammar](https://developers.google.com/google-ads/api/docs/query/grammar) for the introduction of GAQL.
+
+Take the following SQL statement as an example:
+
+`SELECT *|FieldName FROM ResourceName WHERE FieldName Operator Value`
+
+You can follow the guidance below to convert the SQL statement to the corresponding GAQL statement:
+
+1. If `*` (asterisk) is used after the `SELECT` clause, then you need to specify all the required fields in place of the asterisk as GAQL doesn't support `SELECT *`. Go to this [article](https://developers.google.com/google-ads/api/fields/v14/ad_group) to see all the selectable fields in the specific resource.
+2. If the field name is used after the `SELECT` clause, then you need to convert the name to the corresponding field name in GAQL as they have different naming conventions. For example, the field name `campaign_id` in SQL query statement should be converted to `campaign.id` in GAQL. See [Field name](#field-name) for more details on field name conversion.
+3. The resource name can be left as it is unless its case is inconsistent with what is specified [here](https://developers.google.com/google-ads/api/fields/v14/overview#list-of-all-resources).
+4. `WHERE` clause should be updated according to the [GAQL grammar](https://developers.google.com/google-ads/api/docs/query/grammar) as the operators supported by GAQL are not consistent with SQL, and field name should also be converted as described in the second point.
+
+Here are two very useful tools offered by Google and they are highly recommended when building the corresponding GAQL query statements:
+
+- [Interactive GAQL query builder](https://developers.google.com/google-ads/api/fields/v14/overview_query_builder) 
+- [GAQL query validator](https://developers.google.com/google-ads/api/fields/v14/query_validator) 
+
+### Field name
+
+The field name used in SQL is not aligned with GAQL. You also need to learn the conversion rules from field names in SQL to field names in GAQL. The conversion rule can be summarized as follows:
+
+- If the field name belongs to a resource, the underscore (`_`) in SQL will be changed to dot (`.`) in GAQL. And for the words between the dot, the camelCase type statement used in SQL will be changed to standalone words with added underscores in between. The first string of type PascalCase in SQL will be changed to the corresponding resource name in GAQL.
+
+- If the field name belongs to segments or metrics, the prefix `segments.` or `metrics.` should be added in GAQL, then follow the same rule as described in the first point to convert the name.
+
+Here are the concrete examples of the field name conversion:
+
+| Category | Field names in SQL | Field  names in GAQL | 
+|---------| --------|---------| 
+| Resource fields | `Campaign_startDate` | `campaign.start_date` | 
+| Resource fields | `Customer_conversionTrackingSetting_conversionTrackingStatus` | `customer.conversion_tracking_setting.conversion_tracking_status` | 
+| Segments | `DayOfWeek` | `segments.day_of_week` | 
+| Metrics | `VideoViews` | `metrics.video_views` | 
+
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -2,11 +2,11 @@
 title: "Quickstart: Set up sign in for a desktop app using Azure Active Directory B2C"
 titleSuffix: Azure AD B2C
 description: In this Quickstart, run a sample WPF desktop application that uses Azure Active Directory B2C to provide account sign in.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: quickstart
 ms.custom: mvc, mode-other
 ms.date: 01/13/2022
@@ -75,7 +75,7 @@ Select **Call API** to make a request to the protected resource.
 
 ![Call API](./media/quickstart-native-app-desktop/call-api-wpf.png)
 
-The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
+The application includes the Microsoft Entra access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
 
 You've successfully used your Azure AD B2C user account to make an authorized call an Azure AD B2C protected web API.
 

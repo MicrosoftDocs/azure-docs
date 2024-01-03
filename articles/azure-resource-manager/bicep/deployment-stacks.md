@@ -325,7 +325,7 @@ Currently not implemented.
 You get a warning similar to the following:
 
 ```warning
-The deployment stack 'myStack' you're trying to create already already exists in the current subscription/management group/resource group. Do you want to overwrite it? Detaching: resources, resourceGroups (Y/N)
+The deployment stack 'myStack' you're trying to create already exists in the current subscription/management group/resource group. Do you want to overwrite it? Detaching: resources, resourceGroups (Y/N)
 ```
 
 For more information, see [Create deployment stacks](#create-deployment-stacks).
@@ -598,7 +598,7 @@ The Azure PowerShell includes these parameters to customize the deny assignment:
 - `DenySettingsMode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `None`, `DenyDelete`, and `DenyWriteAndDelete`.
 - `DenySettingsApplyToChildScopes`: Deny settings are applied to nested resources under managed resources.
 - `DenySettingsExcludedAction`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
-- `DenySettingsExcludedPrincipal`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are permitted.
+- `DenySettingsExcludedPrincipal`: List of Microsoft Entra principal IDs excluded from the lock. Up to five principals are permitted.
 
 # [CLI](#tab/azure-cli)
 
@@ -607,7 +607,7 @@ The Azure CLI includes these parameters to customize the deny assignment:
 - `deny-settings-mode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `none`, `denyDelete`, and `denyWriteAndDelete`.
 - `deny-settings-apply-to-child-scopes`: Deny settings are applied to nested resources under managed resources.
 - `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed.
-- `deny-settings-excluded-principals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are allowed.
+- `deny-settings-excluded-principals`: List of Microsoft Entra principal IDs excluded from the lock. Up to five principals are allowed.
 
 # [Portal](#tab/azure-portal)
 
@@ -626,7 +626,7 @@ New-AzResourceGroupDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
+  -DenySettingsExcludedPrincipal "<object-id> <object-id>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -638,7 +638,7 @@ az stack group create \
   --template-file '<bicep-file-name>' \
   --deny-settings-mode 'denyDelete' \
   --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
-  --deny-settings-excluded-principals '<object-id>' '<object-id>'
+  --deny-settings-excluded-principals '<object-id> <object-id>'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -658,7 +658,7 @@ New-AzSubscriptionDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
+  -DenySettingsExcludedPrincipal "<object-id> <object-id>"
 ```
 
 Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -672,7 +672,7 @@ az stack sub create \
   --template-file '<bicep-file-name>' \
   --deny-settings-mode 'denyDelete' \
   --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
-  --deny-settings-excluded-principals '<object-id>' '<object-id>'
+  --deny-settings-excluded-principals '<object-id> <object-id>'
 ```
 
 Use the `deployment-resource-group` parameter to specify the resource group at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -694,7 +694,7 @@ New-AzManagmentGroupDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
+  -DenySettingsExcludedPrincipal "<object-id> <object-id>"
 ```
 
 Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -708,7 +708,7 @@ az stack mg create \
   --template-file '<bicep-file-name>' \
   --deny-settings-mode 'denyDelete' \
   --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
-  --deny-settings-excluded-principals '<object-id>' '<object-id>'
+  --deny-settings-excluded-principals '<object-id> <object-id>'
 ```
 
 Use the `deployment-subscription ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.

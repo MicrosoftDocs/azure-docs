@@ -2,12 +2,12 @@
 title: Define a self-asserted technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a self-asserted technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 11/07/2022
 ms.author: kengaderdus
@@ -186,7 +186,7 @@ The PersistedClaims element is not used. The self-asserted technical profile doe
 
 A validation technical profile is used for validating some or all of the output claims of the referencing technical profile. The input claims of the validation technical profile must appear in the output claims of the self-asserted technical profile. The validation technical profile validates the user input and can return an error to the user.
 
-The validation technical profile can be any technical profile in the policy, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md) technical profiles. In the previous example, the `LocalAccountSignUpWithLogonEmail` technical profile validates that the signinName does not exist in the directory. If not, the validation technical profile creates a local account and returns the objectId, authenticationSource, newUser. The `SelfAsserted-LocalAccountSignin-Email` technical profile calls the `login-NonInteractive` validation technical profile to validate the user credentials.
+The validation technical profile can be any technical profile in the policy, such as [Microsoft Entra ID](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md) technical profiles. In the previous example, the `LocalAccountSignUpWithLogonEmail` technical profile validates that the signinName does not exist in the directory. If not, the validation technical profile creates a local account and returns the objectId, authenticationSource, newUser. The `SelfAsserted-LocalAccountSignin-Email` technical profile calls the `login-NonInteractive` validation technical profile to validate the user credentials.
 
 You can also call a REST API technical profile with your business logic, overwrite input claims, or enrich user data by further integrating with corporate line-of-business application. For more information, see [Validation technical profile](validation-technical-profile.md)
 

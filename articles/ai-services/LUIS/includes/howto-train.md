@@ -1,14 +1,14 @@
 ---
 title: include file
 description: include file
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 ms.author: aahi
 manager: nitinme
 ms.custom: seodec18
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.date: 01/25/2022
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: include
 
 ---
