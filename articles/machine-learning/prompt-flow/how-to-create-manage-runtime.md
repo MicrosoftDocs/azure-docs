@@ -144,10 +144,10 @@ If you want to use a private feed in Azure DevOps,  you need follow these steps:
 
 1. You need to add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
 
-```txt
--i https://{private}@{test_feed_url_in_azure_devops}
-test_package
-``` 
+    ```txt
+    -i https://{private}@{test_feed_url_in_azure_devops}
+    test_package
+    ``` 
 
 1. Specify the user assigned managed identity if `start with advanced setting` or **reset** automatic runtime in `edit`.
 
