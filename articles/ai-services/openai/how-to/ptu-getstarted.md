@@ -70,21 +70,22 @@ az cognitiveservices account deployment create \
 REST, ARM template, Bicep and Terraform can also be used to create deployments. See the section on automating deployments in the [Managing Quota](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest#automate-deployment) how-to guide and replace the `sku.name` with "Provisioned-Managed" rather than "Standard." 
 
 ## Make your first calls
-The inferencing code for provisioned deployments is the same a standard deployment type. The following code snippet shows a chat completions call to a GPT-4 model.  For your first time using these models programmatically, we recommend starting with our [quickstart start guide](../quickstart.md). 
-
+The inferencing code for provisioned deployments is the same a standard deployment type. The following code snippet shows a chat completions call to a GPT-4 model.  For your first time using these models programmatically, we recommend starting with our [quickstart start guide](../quickstart.md). Our recommendation is to use the OpenAI library with version 1.0 or greater since this includes retry logic within the library.
 
 
 ```python
-    #Note: The openai-python library support for Azure OpenAI is in preview.
+    #Note: The openai-python library support for Azure OpenAI is in preview. 
     import os
-    import openai
-    openai.api_type = "azure"
-    openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-    openai.api_version = "2023-12-01-preview"
-    openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+    from openai import AzureOpenAI
 
-    response = openai.ChatCompletion.create(
-        engine="gpt-4", # engine = "deployment_name".
+    client = AzureOpenAI(
+        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
+        api_key=os.getenv("AZURE_OPENAI_KEY"),  
+        api_version="2023-05-15"
+    )
+
+    response = client.chat.completions.create(
+        model="gpt-4", # model = "deployment_name".
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
@@ -93,8 +94,7 @@ The inferencing code for provisioned deployments is the same a standard deployme
         ]
     )
 
-    print(response['choices'][0]['message']['content'])
-
+    print(response.choices[0].message.content)
 ```
 
 > [!IMPORTANT]
@@ -102,7 +102,7 @@ The inferencing code for provisioned deployments is the same a standard deployme
 
 
 ## Understanding expected throughput
-The amount of throughput that you can achieve on the endpoint is a factor of the number of PTUs deployed, input size, output size, call rate and cache match rate. The number of concurrent calls and total tokens processed can vary based on these values. Our recommended way for determining the throughput for your deployment is as follows:
+The amount of throughput that you can achieve on the endpoint is a factor of the number of PTUs deployed, input size, output size and call rate. The number of concurrent calls and total tokens processed can vary based on these values. Our recommended way for determining the throughput for your deployment is as follows:
 1.	Use the Capacity calculator for a sizing estimate. You can find the capacity calculator in the Azure OpenAI Studio under the quotas page and Provisioned tab.  
 2.	Benchmark the load using real traffic workload. For more information about benchmarking, see the [benchmarking](#run-a-benchmark) section.
 
@@ -135,17 +135,19 @@ The Azure OpenAI SDKs retry 429 responses by default and behind the scenes in th
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from openai import OpenAI
+from openai import AzureOpenAI
 
 # Configure the default for all requests:
-client = OpenAI(
-    # default is 2
-    max_retries=5,
+client = AzureOpenAI(
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
+    api_key=os.getenv("AZURE_OPENAI_KEY"),
+    api_version="2023-05-15",
+    max_retries=5,# default is 2
 )
 
 # Or, configure per-request:
 client.with_options(max_retries=5).chat.completions.create(
-    engine="gpt-4", # engine = "deployment_name".
+    model="gpt-4", # model = "deployment_name".
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
