@@ -30,6 +30,16 @@ items:
       href: fhir-service-bicep.md
     - name: Using ARM template
       href: fhir-service-resource-manager-template.md
+  - name: Grant user access by using Azure AD B2C
+    href: azure-ad-b2c-setup.md
+- name: Authentication
+  expanded: true
+  items:
+    - name: Configure multiple service identity providers
+      href: configure-identity-providers.md
+    - name: Troubleshoot identity provider configuration
+      href: troubleshoot-identity-provider-configuration.md
+
 - name: Configuration
   expanded: true
   items:
@@ -39,12 +49,6 @@ items:
       href: configure-customer-managed-keys.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
-    - name: Enable single sign-on (B2C)
-      href: b2c-setup.md
-    - name: Configure multiple service identity providers
-      href: configure-identity-providers.md
-    - name: Troubleshoot B2C identity provider configuration
-      href: troubleshoot-b2c-identity-provider-configuration.md
     - name: Enable diagnostic settings in the FHIR service
       href: fhir-service-diagnostic-logs.md
     - name: Use Custom HTTP headers to add data to audit logs
