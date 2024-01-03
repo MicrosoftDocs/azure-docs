@@ -1,11 +1,11 @@
 ---
-title: Native Integration with ServiceNow | Defender for Cloud in the Field 
-description: Learn about the Native Integration with ServiceNow.
+title: Native integration with ServiceNow
+description: Learn about the native integration with ServiceNow.
 ms.topic: reference
 ms.date: 01/03/2024
 ---
 
-# Native Integration with ServiceNow
+# Native integration with ServiceNow
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Safeena Begum joins Yuri Diogenes to talk about the new native integration of ServiceNow with Microsoft Defender for Cloud. Safeena explains how this integration works, the prerequisites to configure this integration, the supported modules and the bidirectional synchronization between ServiceNow and Defender for Cloud. Safeena also demonstrates how to configure this integration and how to monitor tickets.
 
