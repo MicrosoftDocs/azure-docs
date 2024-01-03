@@ -4,15 +4,13 @@ description: Learn how to transition to the Microsoft Defender Vulnerability Man
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 01/03/2024
 ---
 
 # Transition to the integrated Microsoft Defender Vulnerability Management vulnerability assessment solution
 
 > [!IMPORTANT]
 > Defender for Server's vulnerability assessment solution powered by Qualys, is on a retirement path that set to complete on **May 1st, 2024**.
->
-> If you are currently using the built-in vulnerability assessment powered by Qualys, If you have not yet enabled vulnerability scanning, you should [enable Microsoft Defender Vulnerability Management vulnerability scanning](deploy-vulnerability-assessment-defender-vulnerability-management.md) solution.
 >
 > If you are a currently using the built-in vulnerability assessment powered by Qualys, you should plan to transition to the Microsoft Defender Vulnerability Management vulnerability scanning using the steps on this page. 
 >
