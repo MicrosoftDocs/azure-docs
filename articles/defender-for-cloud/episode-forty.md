@@ -1,5 +1,5 @@
 ---
-title: Live from Microsoft Ignite 2023 | Defender for Cloud in the Field 
+title: Live from Microsoft Ignite 2023
 description: Learn about the Defender for Cloud innovations released at Microsoft Ignite 2023.
 ms.topic: reference
 ms.date: 12/20/2023
