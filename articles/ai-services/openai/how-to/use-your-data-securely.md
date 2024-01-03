@@ -14,9 +14,9 @@ recommendations: false
 
 # Securely use Azure OpenAI on your data
 
-Use this article to learn how to use Azure OpenAI on Your Data securely by protecting data and resources with Microsoft Entra ID role based access control, virtual networks and private endpoints.
+Use this article to learn how to use Azure OpenAI on your data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks and private endpoints.
 
-This article is only applicable for [text data / model](/azure/ai-services/openai/concepts/use-your-data), not applicable for [image data / model](/azure/ai-services/openai/concepts/use-your-image-data).
+This article is only applicable when using [Azure OpenAI on your data with text](/azure/ai-services/openai/concepts/use-your-data). It does not apply to [Azure OpenAI on your data with images](/azure/ai-services/openai/concepts/use-your-image-data).
 
 ## Data ingestion architecture 
 
