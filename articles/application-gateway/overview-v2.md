@@ -5,14 +5,19 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 04/19/2023
+ms.date: 01/03/2024
 ms.author: greglin
 ms.custom: references_regions
 ---
 
 # What is Azure Application Gateway v2?
 
-Application Gateway is available under a Standard_v2 SKU. Web Application Firewall (WAF) is available under a WAF_v2 SKU. The v2 SKU offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features under the Standard and WAF SKU continue to be supported in the new v2 SKU, with a few exceptions listed in [comparison](#differences-from-v1-sku) section.
+Application Gateway v2 is the latest version of Application Gateway. It provides advantages over Application Gateway v1 such as performance enhancements, autoscaling, zone redundancy, and static VIPs.
+
+> [!IMPORTANT]
+> Deprecation of Application Gateway V1 was [announced on April 28, 2023](v1-retirement.md). If you use Application Gateway V1 SKU, start planning your migration to V2 now and complete your migration to Application Gateway v2 by April 28, 2026. The v1 service isn't supported after this date.
+
+## Key capabilities
 
 The new v2 SKU includes the following enhancements:
 
@@ -31,29 +36,38 @@ The new v2 SKU includes the following enhancements:
 
 ![Diagram of auto-scaling zone.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
-## Unsupported regions
+> [!NOTE]
+> Some of the capabilities listed here are dependent on the SKU type.
 
-The Standard_v2 and WAF_v2 SKU is not currently available in the following regions:
+## SKU types
 
-- UK North
-- UK South2
-- China East
-- China North
-- US DOD East
-- US DOD Central
+Application Gateway is available under two SKUs: 
+- **Basic_v2**: The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced auto scale and traffic management features. 
+- **Standard_v2 SKU**: The Standard_v2 is designed for running production workloads and high traffic. It also includes auto scale that can automatically adjust the number of instances to match your traffic needs. 
+
+See the following table for a comparison between Basic_v2 and Stadard_v2.
+
+|      Feature             | Capabilities                             |   Basic SKU    |   Standard SKU    |
+|     :---:                | :---                                     |     :---:      |     :---:         |
+| Reliability              | SLA                                      | 99.9           | 99.95             |
+| Functionality - basic    | [!div class="func_basic"]            | &#x2713;<br>&#x2713;       | &#x2713;<br>&#x2713;|
+| Functionality - advanced | URL rewrite                              |                | &#x2713;          |
+| Scale                    | Max. connections per second              | 200            | 1250              |
+| Capacity Unit            | Connections Per Second per Compute Unit  | 10             | 50                |
+
+<div class="func_basic">
+HTTP/HTTP2/HTTPS<br>Websocket
+</div>
 
 ## Pricing
 
-With the v2 SKU, the pricing model is driven by consumption and is no longer attached to instance counts or sizes. The v2 SKU pricing has two components:
+With the v2 SKU, the pricing model is driven by consumption and is no longer attached to instance counts or sizes. To learn more, see [Understanding pricing](understanding-pricing.md).
 
-- **Fixed price** - This is hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway. Please note that 0 additional minimum instances still ensures high availability of the service which is always included with fixed price.
-- **Capacity Unit price** - This is a consumption-based cost that is charged in addition to the fixed cost. Capacity unit charge is also computed hourly or partial hourly. There are three dimensions to capacity unit - compute unit, persistent connections, and throughput. Compute unit is a measure of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing. Persistent connection is a measure of established TCP connections to the application gateway in a given billing interval. Throughput is average Megabits/sec processed by the system in a given billing interval.  The billing is done at a Capacity Unit level for anything above the reserved instance count.
+## Migrate from v1 to v2
 
-Each capacity unit is composed of at most: 1 compute unit, 2500 persistent connections, and 2.22-Mbps throughput.
+An Azure PowerShell script is available in the PowerShell gallery to help you migrate from your v1 Application Gateway/WAF to the v2 Autoscaling SKU. This script helps you copy the configuration from your v1 gateway. Traffic migration is still your responsibility. For more information, see [Migrate Azure Application Gateway from v1 to v2](migrate-v1-v2.md).
 
-To learn more, see [Understanding pricing](understanding-pricing.md).
-
-## Feature comparison between v1 SKU and v2 SKU
+### Feature comparison between v1 SKU and v2 SKU
 
 The following table compares the features available with each SKU.
 
@@ -65,7 +79,7 @@ The following table compares the features available with each SKU.
 | Azure Kubernetes Service (AKS) Ingress controller |          | &#x2713; |
 | Azure Key Vault integration                       |          | &#x2713; |
 | Rewrite HTTP(S) headers                           |          | &#x2713; |
-| Enhanced Network Control (NSG, Route Table, Private IP Frontend only) |          | &#x2713; |
+| Enhanced Network Control (NSG, Route Table, Private IP Frontend only) |   | &#x2713; |
 | URL-based routing                                 | &#x2713; | &#x2713; |
 | Multiple-site hosting                             | &#x2713; | &#x2713; |
 | Mutual Authentication (mTLS)                      |          | &#x2713; |
@@ -74,7 +88,7 @@ The following table compares the features available with each SKU.
 | Web Application Firewall (WAF)                    | &#x2713; | &#x2713; |
 | WAF custom rules                                  |          | &#x2713; |
 | WAF policy associations                           |          | &#x2713; |
-| Transport Layer Security (TLS)/Secure Sockets Layer (SSL) termination            | &#x2713; | &#x2713; |
+| Transport Layer Security (TLS)/Secure Sockets Layer (SSL) termination | &#x2713; | &#x2713; |
 | End-to-end TLS encryption                         | &#x2713; | &#x2713; |
 | Session affinity                                  | &#x2713; | &#x2713; |
 | Custom error pages                                | &#x2713; | &#x2713; |
@@ -86,7 +100,7 @@ The following table compares the features available with each SKU.
 > [!NOTE]
 > The autoscaling v2 SKU now supports [default health probes](application-gateway-probe-overview.md#default-health-probe) to automatically monitor the health of all resources in its backend pool and highlight those backend members that are considered unhealthy. The default health probe is automatically configured for backends that don't have any custom probe configuration. To learn more, see [health probes in application gateway](application-gateway-probe-overview.md).
 
-## Differences from v1 SKU
+### Differences from the v1 SKU
 
 This section describes features and limitations of the v2 SKU that differ from the v1 SKU.
 
@@ -99,10 +113,6 @@ This section describes features and limitations of the v2 SKU that differ from t
 |FIPS mode|Currently not supported.|
 |Private frontend configuration only mode|Currently in public preview [Learn more](application-gateway-private-deployment.md).|
 |Microsoft Defender for Cloud integration|Not yet available.
-
-## Migrate from v1 to v2
-
-An Azure PowerShell script is available in the PowerShell gallery to help you migrate from your v1 Application Gateway/WAF to the v2 Autoscaling SKU. This script helps you copy the configuration from your v1 gateway. Traffic migration is still your responsibility. For more information, see [Migrate Azure Application Gateway from v1 to v2](migrate-v1-v2.md).
 
 ## Next steps
 
