@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Configure peering for ExpressRoute circuit - Azure portal'
-description: This tutorial shows you how to create and provision ExpressRoute private and Microsoft peering using the Azure portal.
+title: 'Configure peering for ExpressRoute circuit - Azure portal'
+description: This guide shows you how to create and provision ExpressRoute private and Microsoft peering using the Azure portal.
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: duau
-ms.custom: template-tutorial
 ---
-# Tutorial: Create and modify peering for an ExpressRoute circuit using the Azure portal
 
-This tutorial shows you  how to create and manage routing configuration for an Azure Resource Manager ExpressRoute circuit using the Azure portal. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
+# Create and modify peering for an ExpressRoute circuit using the Azure portal
+
+This article shows you  how to create and manage routing configuration for an Azure Resource Manager ExpressRoute circuit using the Azure portal. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
@@ -26,11 +26,6 @@ This tutorial shows you  how to create and manage routing configuration for an A
 You can configure private peering and Microsoft peering for an ExpressRoute circuit (Azure public peering is deprecated for new circuits). Peerings can be configured in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md). For information about public peering, see [ExpressRoute public peering](about-public-peering.md).
 
 :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit.":::
-
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Configure, update, and delete Microsoft peering for a circuit
-> - Configure, update, and delete Azure private peering for a circuit
 
 ## Prerequisites
 

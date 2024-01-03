@@ -96,7 +96,7 @@ items:
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
-    - name: Regional availability
+    - name: Azure regions supported by Dev Box
       href: https://azure.microsoft.com/regions/services/
     - name: FAQ
       href: dev-box-faq.yml

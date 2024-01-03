@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using an ARM template'
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS).
 ms.topic: quickstart
-ms.date: 10/23/2023
+ms.date: 12/27/2023
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template, devx-track-azurecli
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -13,9 +13,6 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 * Deploy an AKS cluster using an Azure Resource Manager template.
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
-
-> [!NOTE]
-> This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 :::image type="content" source="media/quick-kubernetes-deploy-rm-template/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-rm-template/aks-store-application.png":::
 
@@ -486,9 +483,9 @@ If you don't plan on going through the following tutorials, clean up unnecessary
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a sample multi-container application to it.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
-To learn more about AKS and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
+To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
@@ -510,3 +507,4 @@ To learn more about AKS and walk through a complete code to deployment example, 
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
