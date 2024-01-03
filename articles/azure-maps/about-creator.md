@@ -124,7 +124,7 @@ This section provides a high-level overview of the indoor map creation workflow.
 [Dynamic maps StylesObject]: schema-stateset-stylesobject.md
 [Edit indoor maps using the QGIS plugin]: creator-qgis-plugin.md
 [Facility Ontology]: creator-facility-ontology.md
-[Features API]: /rest/api/maps/2023-03-01-preview/features
+[Features API]: /rest/api/maps-creator/features?view=rest-maps-creator-2023-03-01-preview
 [features]: glossary.md#feature
 [How to create data registry]: how-to-create-data-registries.md
 [Implement Dynamic styling for indoor maps]: indoor-map-dynamic-styling.md
@@ -136,12 +136,12 @@ This section provides a high-level overview of the indoor map creation workflow.
 [manifest]: drawing-requirements.md#manifest-file-requirements
 [onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
 [Query datasets with WFS API]: how-to-creator-wfs.md
-[Routeset]: /rest/api/maps/2023-03-01-preview/routeset/create
+[Routeset]: /rest/api/maps-creator/routeset/create?view=rest-maps-creator-2023-03-01-preview
 [tileset]: creator-indoor-maps.md#tilesets
 [Tilesets]: creator-indoor-maps.md#tilesets
 [Use Azure Maps Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Use the Azure Maps Indoor Maps module]: how-to-use-indoor-module.md
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
-[Wayfinding service]: /rest/api/maps/2023-03-01-preview/wayfinding
+[Wayfinding service]: /rest/api/maps-creator/wayfinding?view=rest-maps-creator-2023-03-01-preview
 [Wayfinding]: creator-indoor-maps.md#wayfinding-preview
 [Work with datasets using the QGIS plugin]: creator-qgis-plugin.md
