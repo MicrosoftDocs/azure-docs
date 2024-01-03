@@ -41,7 +41,7 @@ The following prerequisites are required to continue.
 
 ## Set up Elastic SAN
 
-In this section, you create a virtual network for your Elastic SAN. Then you create the Elastic SAN that includes creating at least one volume group and one volume that becomes your VMFS datastore. Next, you set up a Private Endpoint for your Elastic SAN that allows your SDDC to connect to the Elastic SAN volume. Then you're ready to add an Elastic SAN volume as a datastore in your private cloud.
+In this section, you create a virtual network for your Elastic SAN. Then you create the Elastic SAN that includes creating at least one volume group and one volume that becomes your VMFS datastore. Next, you set up a Private Endpoint for your Elastic SAN that allows your private cloud to connect to the Elastic SAN volume. Then you're ready to add an Elastic SAN volume as a datastore in your private cloud.
 
 1. Use one of the following instruction options to set up a dedicated virtual network for your Elastic SAN:
 	- [Azure portal](../virtual-network/quick-create-portal.md)

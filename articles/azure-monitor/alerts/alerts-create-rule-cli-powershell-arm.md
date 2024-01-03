@@ -8,7 +8,7 @@ ms.date: 11/29/2023
 ms.reviewer: harelbr
 ---
 # Create a new alert rule using the CLI, PowerShell, or an ARM template
-You can create a new alert rule using the [Create a new alert rule using the CLI](#create-a-new-alert-rule-using-the-cli), [PowerShell](#create-a-new-alert-rule-using-powershell), or an [Azure Resource Manager template](#create-a-new-alert-rule-using-an-arm-template).
+You can create a new alert rule using the [the CLI](#create-a-new-alert-rule-using-the-cli), [PowerShell](#create-a-new-alert-rule-using-powershell), or an [Azure Resource Manager template](#create-a-new-alert-rule-using-an-arm-template).
 
 ## Create a new alert rule using the CLI
 
@@ -50,6 +50,6 @@ You can use an [Azure Resource Manager template (ARM template)](../../azure-reso
 1. Deploy the template using [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template) or the [CLI](../../azure-resource-manager/templates/deploy-cli.md#deploy-local-template).
 
 ## Next steps
-[Manage alert rules](alerts-manage-alert-rules.md)
-[Manage alert instances](alerts-manage-alert-instances.md)
+- [Manage alert rules](alerts-manage-alert-rules.md)
+- [Manage alert instances](alerts-manage-alert-instances.md)
  

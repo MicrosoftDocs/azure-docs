@@ -110,7 +110,7 @@ There's no requirement to configure your dev boxes to make these connections. Mi
 
 For more information on the network architecture of Azure Virtual Desktop, see [Understanding Azure Virtual Desktop network connectivity](/en-us/azure/virtual-desktop/network-connectivity).
 
-Microft Dev Box doesn't support third-party connection brokers.
+Microsoft Dev Box doesn't support third-party connection brokers.
 
 ## Related content
 
