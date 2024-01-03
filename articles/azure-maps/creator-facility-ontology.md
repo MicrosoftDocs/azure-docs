@@ -575,12 +575,12 @@ Learn more about Creator for indoor maps by reading:
 [level.Id]: #level
 [structures]: #structure
 <!---------   REST API Links     --------------->
-[conversion service]: /rest/api/maps/v2/conversion
+[conversion service]: /rest/api/maps-creator/conversion
 [dataset]: /rest/api/maps/2023-03-01-preview/dataset
-[GeoJSON Point geometry]: /rest/api/maps/v2/wfs/get-features#geojsonpoint
-[MultiPolygon]: /rest/api/maps/v2/wfs/get-features?tabs=HTTP#geojsonmultipolygon
-[Point]: /rest/api/maps/v2/wfs/get-features#geojsonpoint
-[Polygon]: /rest/api/maps/v2/wfs/get-features?tabs=HTTP#geojsonpolygon
+[GeoJSON Point geometry]: /rest/api/maps-creator/wfs/get-features#geojsonpoint
+[MultiPolygon]: /rest/api/maps-creator/wfs/get-features?tabs=HTTP#geojsonmultipolygon
+[Point]: /rest/api/maps-creator/wfs/get-features#geojsonpoint
+[Polygon]: /rest/api/maps-creator/wfs/get-features?tabs=HTTP#geojsonpolygon
 <!---------   learn.microsoft.com links     --------------->
 [Create a dataset using a GeoJson package]: how-to-dataset-geojson.md
 [Creator for indoor maps]: creator-indoor-maps.md
