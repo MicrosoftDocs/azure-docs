@@ -43,8 +43,8 @@ To enable the server logs feature, perform the following steps.
 
 4. To configure retention period (in days), choose the slider. Minimum retention 1 days and Maximum retention is 7 days.
 
-> [!NOTE]
-> In managing server logs, you should be aware of two key parameters: `logfiles.download_enable` and `logfiles.retention_days`. It is important to note that users are not required to explicitly configure these settings. The Azure portal simplifies this process through its server logs management interface. The `logfiles.download_enable` parameter, which controls the enabling or disabling of server logs, is managed via the '**Enable**' checkbox in the server logs section. Similarly, the `logfiles.retention_days` parameter, which sets the duration for retaining server logs can be easily adjusted using the '**Retention Period (in days)**' slider.
+> [!Note]
+> You can configure your server logs in the same way as above using the [Server Parameters](./howto-configure-server-parameters-using-portal.md), setting the appropriate values for these parameters: _logfiles.download_enable_ to ON to enable this feature, and _logfiles.retention_days_ to define retention in days.
 
 ## Download Server logs
 
