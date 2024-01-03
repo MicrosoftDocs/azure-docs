@@ -77,7 +77,7 @@ To get more information about your dev box:
 
 1. On the dev box that you want to view, select the actions menu (**...**) and then select **More Info**.
  
-   :::image type="content" source="media/how-to-create-dev-boxes-developer-portal/dev-box-actions-more-info.png" alt-text="Screenshot of the developer portal showing the actions menu for a dev box and More iIfo selected." border="false":::
+   :::image type="content" source="media/how-to-create-dev-boxes-developer-portal/dev-box-actions-more-info.png" alt-text="Screenshot of the developer portal showing the actions menu for a dev box and More Info selected." border="false":::
 
 1. In the dev box details pane, you see more information about your dev box, like the following example:
  
