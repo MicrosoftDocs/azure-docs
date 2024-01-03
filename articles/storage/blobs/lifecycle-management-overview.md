@@ -21,7 +21,7 @@ Data sets have unique lifecycles. Early in the lifecycle, people access some dat
 
 With the lifecycle management policy, you can:
 
-- Transition blobs from cool, or cold to hot immediately when they're accessed, to optimize for performance.
+- Transition blobs from cool to hot immediately when they're accessed, to optimize for performance.
 - Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost. 
 - Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles.
 - Define rules to be run once per day at the storage account level.
