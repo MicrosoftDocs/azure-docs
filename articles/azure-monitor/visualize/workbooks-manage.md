@@ -14,7 +14,7 @@ This article describes how to manage Azure Workbooks in the Azure portal.
 Workbooks are shared resources. They require write access to the parent resource group to be saved.
 
 1. In the Azure portal, select the workbook.
-2. select **Save**.
+2. Select **Save**.
 1. Enter the **title**, **subscription**, **resource group**, and **location**.
 1. Select **Save**.
 
