@@ -13,7 +13,7 @@ ms.date: 12/21/2023
 # Tutorial: Use Azure Cache for Redis as a Semantic Cache
 
 In this tutorial, you'll use Azure Cache for Redis as a semantic cache with an AI-based large language model (LLM). You'll use Azure Open AI Service to generate LLM responses to queries and cache those responses using Azure Cache for Redis, delievering faster responses and lowering costs.
-Because Azure Cache for Redis offers built-in vector search capability, _semantic caching_ can be achieved. This means that you can both return cached responses for identical queries and also for queries that are similar in meaning, even if the text isn't the same.
+Because Azure Cache for Redis offers built-in vector search capability, _semantic caching_ can be acomplished. This means that you can both return cached responses for identical queries and also for queries that are similar in meaning, even if the text isn't the same.
 
 In this tutorial, you learn how to:
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 ## Create an Azure Cache for Redis Instance
 
-1. Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md) guide. On the **Advanced** page, make sure that you've added the **RediSearch** module and have chosen the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
+Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md) guide. On the **Advanced** page, make sure that you've added the **RediSearch** module and have chosen the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
 
    It takes a few minutes for the cache to create. You can move on to the next step in the meantime.
 
@@ -115,7 +115,7 @@ REDIS_PASSWORD = <your-redis-password>
 > [!IMPORTANT]
 > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview.md) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
 
-1. Execute code cell 2.
+4. Execute code cell 2.
 
 ## Intialize AI models
 
@@ -158,13 +158,12 @@ set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, sc
 > The value of the `score_threshold` parameter determines how similar two queries need to be in order to return a cached result. The lower the number, the more similar the queries need to be.
 > You can play around with this value to fine-tune it to your application.
 
-1. Execute code cell 4.
+Execute code cell 4.
 
 ## Query and get responses from the LLM
 
 Finally, query the LLM to get an AI generated response. If you're using a jupyter notebook, you can add `%%time` at the top of the cell to output the amount of time taken to execute the code.
-
-1. Add the following code to a new code cell and execute it:
+Add the following code to a new code cell and execute it:
 
 ```python
 # Code cell 5
@@ -205,8 +204,7 @@ Wall time: 2.67 s
 ```
 
 Note that the `Wall time` shows a value of 2.67 seconds. That's how much real-world time it took to query the LLM and for the LLM to generate a response. 
-
-1. Execute cell 5 again. You should see the exact same output, but with a significantly smaller wall time:
+Execute cell 5 again. You should see the exact same output, but with a significantly smaller wall time:
 
 ```output
 Fluffy balls of fur,
@@ -241,14 +239,61 @@ Wall time: 575 ms
 
 The wall time has dropped by a factor of five--all the way down to 575 milliseconds. 
 
-1. Change the query from `Please write a poem about cute kittens` to `Write a poem about cute kittens` and run cell 5 again. You should see the exact same output and a lower wall time than the original query. Even though the query has changed, the _semantic meaning_ of the query remained the same so the same cached output was returned.
+Change the query from `Please write a poem about cute kittens` to `Write a poem about cute kittens` and run cell 5 again. **You should see the exact same output and a lower wall time than the original query**. Even though the query has changed, the _semantic meaning_ of the query remained the same so the same cached output was returned. This is the advantage of semantic caching!
 
+
+## Change the Similarity Threshold
+
+1. Try running a very similar query with a different meaning, like `Please write a poem about cute puppies`. You will notice that the cached result is returned here as well. The semantic meaning of the word `puppies` is close enough to the word `kittens` that the cached result is returned.
+2. The similarity threshold can be modified to determine when the semantic cache should return a cached result and when it should return a new output from the LLM. In code cell 4, change `score_threshold` from `0.05` to `0.01`:
+
+   ```python
+   # Code cell 4
+
+    redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
+    set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, score_threshold=0.01))
+    ```
+
+3. Try the query `Please write a poem about cute puppies` again. You should recieve a new output that's specific to puppies:
+
+```output
+Oh, little balls of fluff and fur
+With wagging tails and tiny paws
+Puppies, oh puppies, so pure
+The epitome of cuteness, no flaws
+
+With big round eyes that melt our hearts
+And floppy ears that bounce with glee
+Their playful antics, like works of art
+They bring joy to all they see
+
+Their soft, warm bodies, so cuddly
+As they curl up in our laps
+Their gentle kisses, so lovingly
+Like tiny, wet, puppy taps
+
+Their clumsy steps and wobbly walks
+As they explore the world anew
+Their curiosity, like a ticking clock
+Always eager to learn and pursue
+
+Their little barks and yips so sweet
+Fill our days with endless delight
+Their unconditional love, so complete
+...
+For they bring us love and laughter, year after year
+Our cute little pups, in every way.
+CPU times: total: 15.6 ms
+Wall time: 4.3 s
+```
+You will likely need to fine-tune the similarity threshold based on your application to ensure that the right sensitivity is used when determining which queries to cache. 
+
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Related Content
 
 * [Learn more about Azure Cache for Redis](cache-overview.md)
 * Learn more about Azure Cache for Redis [vector search capabilities](./cache-overview-vector-similarity.md)
-* Learn more about [embeddings generated by Azure OpenAI Service](../ai-services/openai/concepts/understand-embeddings.md)
-* Learn more about [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity)
+* [Tutorial: use vector similarity search on Azure Cache for Redis](cache-tutorial-vector-similarity.md)
 * [Read how to build an AI-powered app with OpenAI and Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
 * [Build a Q&A app with semantic answers](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna)
