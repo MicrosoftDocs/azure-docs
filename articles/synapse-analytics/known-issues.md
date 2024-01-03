@@ -4,11 +4,11 @@ titleSuffix: Azure Synapse Analytics
 description: Learn about the currently known issues with Azure Synapse Analytics, and their possible workarounds or resolutions.
 author: charithdilshan
 ms.author: ccaldera
-ms.date: 3/9/2023
+ms.reviewer: wiassaf
+ms.date: 1/3/2024
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
-ms.reviewer: wiassaf
 ---
 
 # Azure Synapse Analytics known issues
@@ -29,7 +29,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has Workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has Workaround|
 |Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has Workaround|
-|Azure Synapse Workspace|[Known Issue on Incorporating Square Brackets [] in the value of Tags](#known-issue-on-incorporating-square-brackets--in-the-value-of-tags)|Has Workaround|
+|Azure Synapse Workspace|[Known ussue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has Workaround|
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
 
@@ -113,11 +113,11 @@ When using an ARM template, Bicep template, or direct REST API PUT operation to 
 
 **Workaround**: The problem can be mitigated by using a REST API PATCH operation or the Azure Portal UI to reverse and retry the desired configuration changes. The engineering team is aware of this behavior and working on a fix.
 
-### Known Issue on Incorporating Square Brackets [] in the value of Tags
+### Known issue incorporating square brackets [] in the value of Tags
 
-In the context of updating tag values within a Synapse workspace, the inclusion of square brackets ([]) will result in an unsuccessful update operation.
+In the context of updating tag values within an Azure Synapse workspace, the inclusion of square brackets (`[]`) will result in an unsuccessful update operation.
 
-**Workaround**: The current workaround is to abstain from using the square brackets ([]) in  Synapse workspace tag values.
+**Workaround**: The current workaround is to abstain from using the square brackets (`[]`) in Azure Synapse workspace tag values.
 
 ## Recently Closed Known issues
 
