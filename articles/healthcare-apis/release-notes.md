@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Release notes: Azure Health Data Services
 
-> Azure Health Data Services is Generally Available. 
+> Azure Health Data Services is generally available. 
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
@@ -67,22 +67,22 @@ In the Azure portal, we launched a unified landing page that lets users access a
 
 **Bulk delete capability available for public preview**
 
-**`$bulk-delete' allows you to delete resources from FHIR server asynchronously**. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md).
+$bulk-delete allows you to delete resources from FHIR server asynchronously. The bulk delete operation can be executed at the system level or for individual resource types. For more information, see [bulk-delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md).
 
 **$import operation supports importing soft deleted resources**
-The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. For more details, visit [Fix SQL Import for Soft Delete and History](https://github.com/microsoft/fhir-server/pull/3530).
 
-**Performance improvement**
+The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. For more information, see [Fix SQL Import for Soft Delete and History](https://github.com/microsoft/fhir-server/pull/3530).
+
+**Performance improvement of FHIR queries**
+
 In this release we improved performance of FHIR queries with _include parameter. For more information, see [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
 
-**Bug fix: Searching with _include and wildcard resulted in query failure**
-The issue is fixed and permits only the wild character  “*” to be present for _include and _revinclude searches. For more information, see [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541).
+**Bug fixes**
+- **Searching with _include and wildcard resulted in query failure**. The issue is fixed and permits only the wild character  “*” to be present for _include and _revinclude searches. For more information, see [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541).
 
-**Bug fix: Multiple export jobs created resulting in increase data storage volume**
-Due to a bug, Export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. For more information, see [Fix export](https://github.com/microsoft/fhir-server/pull/3567).
+- **Multiple export jobs created resulting in increase data storage volume**. Due to a bug, Export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. For more information, see [Fix export](https://github.com/microsoft/fhir-server/pull/3567).
 
-**Bug Fix: Retriable exception for import operation, when using duplicate files**
-In case of duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. This fix addresses the issue. Import operations with same file are no longer retriable. For information, see [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557).
+- **Retriable exception for import operation, when using duplicate files**. In case of duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. This fix addresses the issue. Import operations with same file are no longer retriable. For information, see [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557).
 
 
 ## October 2023
