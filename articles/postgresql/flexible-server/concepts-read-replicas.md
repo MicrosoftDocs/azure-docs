@@ -78,7 +78,8 @@ For a deeper understanding of the advantages of paired regions, refer to [Azure'
 
 ## Create a replica
 
-A primary server for Azure Database for PostgreSQL - Flexible Server can be deployed in [any region that supports the service](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=postgresql&regions=all). You can create replicas of the primary server within the same region or across different global Azure regions where Azure Database for PostgreSQL - Flexible Server is available. However, it's important to note that replicas can't be created in [special Azure regions](../../virtual-machines/regions.md#special-azure-regions), regardless of whether they're in-region or cross-region.
+A primary server for Azure Database for PostgreSQL - Flexible Server can be deployed in [any region that supports the service](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=postgresql&regions=all). You can create replicas of the primary server within the same region or across different global Azure regions where Azure Database for PostgreSQL - Flexible Server is available. The capability to create replicas now extends to some special Azure regions. See the [Geo-replication section](#geo-replication) for a list of special regions where you can create replicas.
+
 
 When you start the create replica workflow, a blank Azure Database for the PostgreSQL server is created. The new server is filled with the data on the primary server. For the creation of replicas in the same region, a snapshot approach is used. Therefore, the time of creation is independent of the size of the data. Geo-replicas are created using the base backup of the primary instance, which is then transmitted over the network; therefore, the creation time might range from minutes to several hours, depending on the primary size.
 
