@@ -14,7 +14,7 @@ ms.custom: mode-other
 
 In certain situations, it might be useful to have all your client traffic proxied to a server that you can control. When the SDK is initializing, you can provide the details of your servers that you would like the traffic to route to. Once enabled, all the media traffic (audio/video/screen sharing) travel through the provided TURN servers instead of the Azure Communication Services defaults. This tutorial guides on how to have Windows SDK calling traffic be proxied to servers that you control.
 
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 >[!IMPORTANT]
 > The proxy feature will NOT be available for Teams Identities and Azure Communication Services Teams interop actions. 
