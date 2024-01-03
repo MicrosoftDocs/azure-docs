@@ -43,52 +43,71 @@ Choose to store your secrets (such as API keys) using either:
 
 #### Use workspace connection as a secret store
 
-You can create workspace connections to use in your deployment. For more information, see [Workspace Connections - Create REST API](/rest/api/azureml/2023-08-01-preview/workspace-connections/create) for more. <!-- CLI link will be added later --> For example, you can create a connection to Microsoft Azure OpenAI Service or create a custom connection.
+You can create workspace connections to use in your deployment. For example, you can create a connection to Microsoft Azure OpenAI Service or create a custom connection. You can use [Workspace Connections - Create REST API](/rest/api/azureml/2023-08-01-preview/workspace-connections/create) as described below. Alternatively, in the case of custom connections, you can use Azure Machine Learning Studio (see [How to create a custom connection for prompt flow](./prompt-flow/tools-reference/python-tool.md#create-a-custom-connection)) or Azure AI Studio (see [How to create a custom connection in AI Studio](/azure/ai-studio/how-to/connections-add.md?tabs=custom#create-a-new-connection).
 
 1. Create an Azure OpenAI connection:
-    1. Create `aoai_connection.yaml`:
 
-        ```YAML
-        name: aoai_connection
-        type: azure_openai
-        target: https://<name>.openai.azure.com
-        api_version: <version>
-        credentials:
-            type: api_key
-            key: <key>
-        ```
-
-    1. Create the connection:
-
-        ```azurecli
-        az ml connection create -f aoai_connection.yaml
-        ```
+    ```REST
+    PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.MachineLearningServices/workspaces/{{workspaceName}}/connections/{{connectionName}}?api-version=2023-08-01-preview
+    Authorization: Bearer {{token}}
+    Content-Type: application/json
+    
+    {
+        "properties": {
+            "authType": "ApiKey",
+            "category": "AzureOpenAI",
+            "credentials": {
+                "key": "<key>",
+                "endpoint": "https://<name>.openai.azure.com/",
+            },
+            "expiryTime": null,
+            "target": "https://<name>.openai.azure.com/",
+            "isSharedToAll": false,
+            "sharedUserList": [],
+            "metadata": {
+                "ApiType": "Azure"
+            }
+        }
+    }
+    ```
 
 1. Alternatively, you can create a custom connection:
 
-    1. Create `custom_connection.yaml`:
-
-        ```YAML
-        name: multi_connection_langchain
-        type: custom
-        credentials:
-            type: custom
-            OPENAI_API_KEY: <key>
-            SPEECH_KEY: <key>
-        tags:
-            OPENAI_API_BASE : <aoai endpoint>
-            OPENAI_API_VERSION : <aoai version>
-            OPENAI_API_TYPE: azure
-            SPEECH__REGION : eastus
-        ```
-
-    1. Create the connection:
-
-        ```azurecli
-        az ml connection create -f custom_connection.yaml
-        ```
+    ```REST
+    PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.MachineLearningServices/workspaces/{{workspaceName}}/connections/{{connectionName}}?api-version=2023-08-01-preview
+    Authorization: Bearer {{token}}
+    Content-Type: application/json
+    
+    {
+        "properties": {
+            "authType": "CustomKeys",
+            "category": "CustomKeys",
+            "credentials": {
+                "keys": {
+                    "OPENAI_API_KEY": "<key>",
+                    "SPEECH_API_KEY": "<key>"
+                }
+            },
+            "expiryTime": null,
+            "target": "_",
+            "isSharedToAll": false,
+            "sharedUserList": [],
+            "metadata": {
+                "OPENAI_API_BASE": "<oai endpoint>",
+                "OPENAI_API_VERSION": "<oai version>",
+                "OPENAI_API_TYPE": "azure",
+                "SPEECH_REGION": "eastus",
+            }
+        }
+    }
+    ```
 
 1. Verify that the user identity can read the secrets from the workspace connection, by using the [Workspace Connections - List Secrets REST API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets).
+
+    ```REST
+    POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.MachineLearningServices/workspaces/{{workspaceName}}/connections/{{connectionName}}/listsecrets?api-version=2023-08-01-preview
+    Authorization: Bearer {{token}}
+    ```
 
 #### (Optional) Use Azure Key Vault as a secret store
 
