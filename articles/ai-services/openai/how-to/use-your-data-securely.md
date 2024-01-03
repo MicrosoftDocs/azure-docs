@@ -201,7 +201,7 @@ To enable the developers to use these resources to build applications, the admin
 | `Contributor` | Storage Account | List Account SAS to upload files from Azure OpenAI Studio.|
 | `Contributor` | The resource group or Azure subscription where the developer need to deploy the web app to | Deploy web app to the developer's Azure subscription.|
 
-## Configure Gateway and Client
+## Configure gateway and client
 
 To access the Azure OpenAI service from your on-premises client machines, one of the approaches is to configure Azure VPN Gateway and Azure VPN Client.
 
