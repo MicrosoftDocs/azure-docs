@@ -44,11 +44,12 @@ You can explicitly set the API version used to read/write data via [`apiVersion`
 
 ## Prerequisites
 
+- API permission must be enabled in Salesforce.
 - You need configure the Connected Apps in Salesforce portal refering to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)
 
->[!IMPORTANT]
-> - API permission must be enabled in Salesforce.
-> - Access Token expire time could be changed through session policies instead of the refresh token.
+    >[!IMPORTANT]
+    > - The execution user must have the API Only permission.
+    > - Access Token expire time could be changed through session policies instead of the refresh token.
 
 ## Salesforce request limits
 
@@ -96,10 +97,10 @@ The following properties are supported for the Salesforce linked service.
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to **SalesforceV2**. |Yes |
-| environmentUrl | Specify the URL of the Salesforce instance. <br> - Default is `"https://login.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |Yes |
+| environmentUrl | Specify the URL of the Salesforce instance. <br> - Default is `"https://<MyDomainName>.my.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |Yes |
 | clientId |Specify the client ID of the Salesforce OAuth 2.0 Connected App. |Yes |
 | clientSecret |Specify the client secret of the Salesforce OAuth 2.0 Connected App. |Yes |
-| apiVersion | Specify the Salesforce Bulk API version to use, e.g. `52.0`. We support API version >= 47.0, as Bulk API 2.0 supports: <br>- Ingest Availability: 41.0 and later.<br>- Query Availability: 47.0 and later. | Yes |
+| apiVersion | Specify the Salesforce Bulk API version to use, e.g. `52.0`. The supported API version >= 47.0, as Bulk API 2.0 supports: <br>- Ingest Availability: 41.0 and later.<br>- Query Availability: 47.0 and later. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
 **Example: Store credentials**
@@ -110,13 +111,13 @@ The following properties are supported for the Salesforce linked service.
     "properties": {
         "type": "SalesforceV2",
         "typeProperties": {
-            "environmentUrl": "<environmentUrl>",
-            "clientId": "<clientId>",
+            "environmentUrl": "<environment URL>",
+            "clientId": "<client ID>",
             "clientSecret": {
                 "type": "SecureString",
-                "value": "<clientSecret>"
+                "value": "<client Secret>"
             },
-            "apiVersion": "<apiVersion>"
+            "apiVersion": "<API Version>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -134,17 +135,17 @@ The following properties are supported for the Salesforce linked service.
     "properties": {
         "type": "SalesforceV2",
         "typeProperties": {
-            "environmentUrl": "<environmentUrl>",
-            "clientId": "<clientId>",
+            "environmentUrl": "<environment URL>",
+            "clientId": "<client ID>",
             "clientSecret": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name of password in AKV>",
+                "secretName": "<secret name of client Secret in AKV>",
                 "store":{
                     "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
                 }
             },
-            "apiVersion": "<apiVersion>"
+            "apiVersion": "<API Version>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -174,7 +175,7 @@ Note that by doing so, you will no longer be able to use the UI to edit settings
             },
             "clientId": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name of clientId in AKV>",
+                "secretName": "<secret name of client ID in AKV>",
                 "store": {
                     "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
@@ -182,7 +183,7 @@ Note that by doing so, you will no longer be able to use the UI to edit settings
             },
             "clientSecret": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name of password in AKV>",
+                "secretName": "<secret name of client Secret in AKV>",
                 "store":{
                     "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
@@ -244,7 +245,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceV2Source**. | Yes |
-| SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations [Understanding Bulk API 2.0 Query](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset will be retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
+| SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset will be retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
 | readBehavior | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is the former. <br>Allowed values: **query** (default), **queryAll**.  | Yes |
 
 > [!IMPORTANT]
@@ -347,7 +348,7 @@ To query the soft deleted records from the Salesforce Recycle Bin, you can speci
 
 ### Difference between SOQL and SQL query syntax
 
-When copying data from Salesforce, you can use either SOQL query or SQL query. Note that these two has different syntax and functionality support, do not mix it. You are suggested to use the SOQL query, which is natively supported by Salesforce. The following table lists the main differences:
+When copying data from Salesforce, you can only use SOQL query. Note that SOQL query and SQL query has different syntax and functionality support. The following table lists the main differences:
 
 | Syntax | SOQL Mode | SQL Mode |
 |:--- |:--- |:--- |
@@ -360,7 +361,7 @@ When copying data from Salesforce, you can use either SOQL query or SQL query. N
 
 ### Retrieve data by using a where clause on the DateTime column
 
-When you specify the SOQL or SQL query, pay attention to the DateTime format difference. For example:
+When you specify the SOQL query, pay attention to the DateTime format difference with the SQL query. For example:
 
 * **SOQL sample**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL sample**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
