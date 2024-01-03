@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
 ms.reviewer: franksolomon
-ms.date: 11/20/2023
+ms.date: 01/02/2024
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -29,6 +29,8 @@ In the following tables, the term alphanumeric refers to:
 
 > [!NOTE]
 > All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
+>
+> Don't use `#` in a resource name. It interferes with URL parsing on Azure Resource Manager requests.
 
 ## Microsoft.AnalysisServices
 
