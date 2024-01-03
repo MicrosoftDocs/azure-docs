@@ -101,17 +101,7 @@ az ml environment create --file assets/environment/docker-image.yml
 
 The following example creates an environment from a Docker image. An image from the official PyTorch repository on Docker Hub is specified via the `image` property.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_image)]
-
-```python
-env_docker_image = Environment(
-    image="pytorch/pytorch:latest",
-    name="docker-image-example",
-    description="Environment created from a Docker image.",
-)
-ml_client.environments.create_or_update(env_docker_image)
-```
-
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_image)]
 
 ---
 
@@ -142,17 +132,7 @@ az ml environment create --file assets/environment/docker-context.yml
 
 In the following example, the local path to the build context folder is specified in the `path' parameter. Azure Machine Learning will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_context)]
-
-```python
-env_docker_context = Environment(
-    build=BuildContext(path="docker-contexts/python-and-pip"),
-    name="docker-context-example",
-    description="Environment created from a Docker context.",
-)
-ml_client.environments.create_or_update(env_docker_context)
-```
-
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_context)]
 
 ---
 
@@ -180,18 +160,7 @@ az ml environment create --file assets/environment/docker-image-plus-conda.yaml
 
 The relative path to the conda file is specified using the `conda_file` parameter.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_with_conda)]
-
-```python
-env_docker_conda = Environment(
-    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04",
-    conda_file="conda-yamls/pydata.yml",
-    name="docker-image-plus-conda-example",
-    description="Environment created from a Docker image plus Conda environment.",
-)
-ml_client.environments.create_or_update(env_docker_conda)
-```
-
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_with_conda)]
 
 ---
 
