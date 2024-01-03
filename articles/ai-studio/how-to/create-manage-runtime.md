@@ -39,11 +39,11 @@ If you have a compute instance, you can use it to build your compute instance ru
 Automatic is the default option for runtime, you can start automatic runtime in runtime dropdown in flow page. 
 
 
-1. Start creates automatic runtime using the environment defined in`flow.dag.yaml` in flow folder on the VM size you have quota in the project.
+- **Start** creates automatic runtime using the environment defined in `flow.dag.yaml` in flow folder on the VM size you have quota in the project.
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow on the start automatic with default settings on flow page. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png":::    
 
-2. Start with advanced settings, you can customize the VM size used by the runtime. You can also customize the idle time, which will delete runtime automatically if it isn't in use to save code. Meanwhile, you can set the user assigned manage identity used by automatic runtime, it's used to pull base image (please make sure user assigned manage identity have ACR pull permission) and install packages. If you don't set it, we use user identity as default. Learn more about [how to create update user assigned identities to project](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+- **Start with advanced settings**, you can customize the VM size used by the runtime. You can also customize the idle time, which will delete runtime automatically if it isn't in use to save code. Meanwhile, you can set the user assigned manage identity used by automatic runtime, it's used to pull base image (please make sure user assigned manage identity have ACR pull permission) and install packages. If you don't set it, we use user identity as default. Learn more about [how to create update user assigned identities to project](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow on the start automatic with advanced setting on flow page. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::    
 
@@ -115,17 +115,26 @@ You can also customize the environment used to run this flow.
 
 #### Add packages in private feed in Azure DevOps
 
-If you want to use a private feed in Azure DevOps, add the Managed Identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
+If you want to use a private feed in Azure DevOps,  you need follow these steps:
 
-> [!NOTE]
->  If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.
+1. Create user assigned managed identity and add this user assigned managed identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
 
-You need to add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
+    > [!NOTE]
+    >  If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.
+    
+1. [Add or update user assigned identities to project](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
-```txt
--i https://{private}@{test_feed_url_in_azure_devops}
-test_package
-```
+
+1. You need to add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
+
+    ```txt
+    -i https://{private}@{test_feed_url_in_azure_devops}
+    test_package
+    ``` 
+
+1. Specify the user assigned managed identity in `start with advanced setting` if automatic runtime is not running or `edit` button if automatic runtime is running.
+
+    :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot of specify user assigned managed identity. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
 
 ### Update compute instance runtime in runtime page
 

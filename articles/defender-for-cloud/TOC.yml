@@ -954,7 +954,9 @@
         - name: Defender for APIs reaches GA
           href: episode-thirty-nine.md
         - name: Live from Microsoft Ignite 2023
-          href: episode-forty.md    
+          href: episode-forty.md
+        - name: Native integration with ServiceNow
+          href: episode-forty-one.md    
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation
