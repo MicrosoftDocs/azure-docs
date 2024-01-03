@@ -8,7 +8,7 @@ ms.topic: how-to
 author: ositanachi  
 ms.author: osiotugo
 ms.reviewer: larryfr
-ms.date: 09/27/2022
+ms.date: 01/03/2024
 ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, devx-track-python
 ---
 
@@ -33,7 +33,7 @@ In this article, learn how to create and manage Azure Machine Learning environme
 
 ### Clone examples repository
 
-To run the training examples, first clone the examples repository. For the CLI examples, change into the `cli` directory. For the SDK examples, change into the `SDK` directory:
+To run the training examples, first clone the examples repository. For the CLI examples, change into the `cli` directory. For the SDK examples, change into the `sdk/python` directory:
 
 ```azurecli
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -59,22 +59,11 @@ az configure --defaults workspace=<Azure Machine Learning workspace name> group=
 
 To connect to the workspace, you need identifier parameters - a subscription, resource group, and workspace name. You'll use these details in the `MLClient` from the `azure.ai.ml` namespace to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
-```python
-#import required libraries for workspace
-from azure.ai.ml import MLClient
-from azure.identity import DefaultAzureCredential
+[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=libraries)]
 
-#import required libraries for environments examples
-from azure.ai.ml.entities import Environment, BuildContext
+[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=workspace_details)]
 
-#Enter details of your Azure Machine Learning workspace
-subscription_id = '<SUBSCRIPTION_ID>'
-resource_group = '<RESOURCE_GROUP>'
-workspace = '<AZUREML_WORKSPACE_NAME>'
-
-#connect to the workspace
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-```
+[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=get_workspace)]
 
 
 ---
@@ -112,6 +101,8 @@ az ml environment create --file assets/environment/docker-image.yml
 # [Python SDK](#tab/python)
 
 The following example creates an environment from a Docker image. An image from the official PyTorch repository on Docker Hub is specified via the `image` property.
+
+[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_image)]
 
 ```python
 env_docker_image = Environment(
@@ -152,6 +143,8 @@ az ml environment create --file assets/environment/docker-context.yml
 
 In the following example, the local path to the build context folder is specified in the `path' parameter. Azure Machine Learning will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
+[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_context)]
+
 ```python
 env_docker_context = Environment(
     build=BuildContext(path="docker-contexts/python-and-pip"),
@@ -181,12 +174,14 @@ The following example is a YAML specification file for an environment defined fr
 To create the environment:
 
 ```cli
-az ml environment create --file assets/environment/docker-image-plus-conda.yml
+az ml environment create --file assets/environment/docker-image-plus-conda.yaml
 ```
 
 ## [Python SDK](#tab/python)
 
 The relative path to the conda file is specified using the `conda_file` parameter.
+
+[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_with_conda)]
 
 ```python
 env_docker_conda = Environment(
