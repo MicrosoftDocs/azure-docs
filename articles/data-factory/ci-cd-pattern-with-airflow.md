@@ -11,7 +11,7 @@ ms.date: 10/17/2023
 
 # CI/CD patterns with Managed Airflow
 
-Azure Data Factory Managed Airflow is a simple and efficient way to create and manage Apache Airflow environments. The service enables you to run data pipelines at scale with ease. There are two primary methods to run directed acyclic graphs (DAGs) in Managed Airflow. You can upload the DAG files in your blob storage and link them with the Airflow environment. Alternatively, you can use the Git-sync feature to automatically sync your Git repository with the Airflow environment.
+Azure Data Factory Managed Airflow provides a simple and efficient way to create and manage Apache Airflow environments. The service enables you to run data pipelines at scale with ease. There are two primary methods to run directed acyclic graphs (DAGs) in Managed Airflow. You can upload the DAG files in your blob storage and link them with the Airflow environment. Alternatively, you can use the Git-sync feature to automatically sync your Git repository with the Airflow environment.
 
 Working with data pipelines in Airflow requires you to create or update your DAGs, plugins, and requirement files frequently, based on your workflow needs. Although developers can manually upload or edit DAG files in blob storage, many organizations prefer to use a continuous integration and continuous delivery (CI/CD) approach for code deployment. This article walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with Managed Airflow.
 
@@ -73,7 +73,7 @@ You can develop data pipelines directly in Managed Airflow when you use pattern 
 
 ### Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Create or select an existing Azure Data Factory instance in the region where the Managed Airflow preview is supported.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Create or select an existing Data Factory instance in the region where the Managed Airflow preview is supported.
 - You need access to a [GitHub repository](https://github.com/join).
 
 ### Advantages

@@ -11,7 +11,7 @@ ms.date: 12/11/2023
 
 # Apache Airflow configuration options on Managed Airflow
 
-Apache Airflow configuration options can be attached to your Managed Airflow integration runtime as key-value pairs. We don't expose the `airflow.cfg` in the Managed Airflow UI. However, users can override the Apache Airflow configurations directly on the UI as key-value pairs under the `Airflow Configuration overrides` section. They can continue using all other settings in `airflow.cfg`. In Managed Airflow, developers can override any of the Airflow configurations provided by Apache Airflow except the configurations shown in the table.
+Apache Airflow configuration options can be attached to your Azure Data Factory Managed Airflow integration runtime as key-value pairs. We don't expose the `airflow.cfg` in the Managed Airflow UI. However, users can override the Apache Airflow configurations directly on the UI as key-value pairs under the `Airflow Configuration overrides` section. They can continue using all other settings in `airflow.cfg`. In Managed Airflow, developers can override any of the Airflow configurations provided by Apache Airflow except the configurations shown in the table.
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

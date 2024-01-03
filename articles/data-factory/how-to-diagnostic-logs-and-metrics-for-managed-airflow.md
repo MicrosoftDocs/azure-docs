@@ -13,7 +13,7 @@ ms.date: 09/28/2023
 
 This article walks you through the steps to:
 
-- Enable diagnostics logs and metrics for Managed Airflow.
+- Enable diagnostics logs and metrics for Managed Airflow in Azure Data Factory.
 - View logs and metrics.
 - Run a query.
 - Monitor metrics and set the alert system in directed acyclic graph (DAG) failure.
@@ -24,7 +24,7 @@ You need an Azure subscription. If you don't have an Azure subscription, create 
 
 ## Enable diagnostics logs and metrics for Managed Airflow
 
-1. Open your Azure Data Factory resource and select **Diagnostic settings** on the leftmost pane. Then select **Add diagnostic setting**.
+1. Open your Data Factory resource and select **Diagnostic settings** on the leftmost pane. Then select **Add diagnostic setting**.
 
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/start-with-diagnostic-logs.png" alt-text="Screenshot that shows where the Diagnostic logs tab is located in Data Factory." lightbox="media/diagnostics-logs-and-metrics-for-managed-airflow/start-with-diagnostic-logs.png":::
 
