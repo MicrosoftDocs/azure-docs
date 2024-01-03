@@ -2,7 +2,7 @@
 title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 01/02/2024
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: 
   - AI-contribution
@@ -75,9 +75,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting a virtual machine. These operations require a POST method request.
 
-- A read-only lock on a **resource group** that contains a **virtual machine** prevents users from moving the VM out of the resource group.
-
-- A read-only lock on a **resource group** prevents users from moving any new **resource** into that resource group.
+- A read-only lock on a **resource group** prevents you from moving existing **resources** in or out of the resource group.
 
 - A read-only lock on a **resource group** that contains an **automation account** prevents all runbooks from starting. These operations require a POST method request.
 
