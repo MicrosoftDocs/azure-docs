@@ -35,6 +35,12 @@ sections:
           *Windows 7 SP1 non-ESU (Not supported by Microsoft) 
           *Windows OS version that were already EOL
 
+  - name: Signing 
+    questions:
+      - question: What is Azure Code Signing’s compliance level?
+        answer: | 
+          FIPS 140-2 level 3 (mHSMs)
+
 additionalContent: |
     ## Next steps
 
