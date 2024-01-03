@@ -56,8 +56,18 @@ See the following table for a comparison between Basic_v2 and Stadard_v2.
 | Capacity Unit            | Connections Per Second per Compute Unit  | 10             | 50                |
 
 <div class="func_basic">
+
 HTTP/HTTP2/HTTPS<br>Websocket
+
 </div>
+
+|      Feature             | Capabilities                             |   Basic SKU    |   Standard SKU    |
+|     :---:                | :---                                     |     :---:      |     :---:         |
+| Reliability              | SLA                                      | 99.9           | 99.95             |
+| Functionality - basic    | <ul><li>HTTP/HTTP2/HTTPS<li>Websocket</ul>            | &#x2713;<br>&#x2713;       | &#x2713;<br>&#x2713;|
+| Functionality - advanced | URL rewrite                              |                | &#x2713;          |
+| Scale                    | Max. connections per second              | 200            | 1250              |
+| Capacity Unit            | Connections Per Second per Compute Unit  | 10             | 50                |
 
 ## Pricing
 
@@ -113,6 +123,17 @@ This section describes features and limitations of the v2 SKU that differ from t
 |FIPS mode|Currently not supported.|
 |Private frontend configuration only mode|Currently in public preview [Learn more](application-gateway-private-deployment.md).|
 |Microsoft Defender for Cloud integration|Not yet available.
+
+## Unsupported regions
+
+The Standard_v2 and WAF_v2 SKU is not currently available in the following regions:
+
+- UK North
+- UK South2
+- China East
+- China North
+- US DOD East
+- US DOD Central
 
 ## Next steps
 
