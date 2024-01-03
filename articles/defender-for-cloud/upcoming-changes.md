@@ -25,7 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| [Upcoming change for the Defender for Cloud’s multi-cloud network requirements](#upcoming-change-for-the-defender-for-clouds-multi-cloud-network-requirements) | January 3, 2024 | May 2024 |
+| [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
 | [Deprecation and severity changes to security alerts](#deprecation-and-severity-changes-to-security-alerts) | December 27, 2023 | January 2024 |
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
@@ -61,7 +61,6 @@ The list is applicable to all plans and sufficient for full capability of the CS
 - North Europe (neu): 13.69.233.80/28
 - Central US (cus): 20.44.10.240/28
 - East US 2 (eus2): 20.44.19.128/28
-
 
 ## Deprecation and severity changes to security alerts
 
