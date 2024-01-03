@@ -74,7 +74,10 @@ For more information, see [Connection strings](../azure-monitor/app/sdk-connecti
 
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
-By default, [Functions proxies](functions-proxies.md) use a shortcut to send API calls from proxies directly to functions in the same function app. This shortcut is used instead of creating a new HTTP request. This setting allows you to disable that shortcut behavior.
+> [!IMPORTANT]
+> Azure Functions proxies is a legacy feature for [versions 1.x through 3.x](../articles/azure-functions/functions-versions.md) of the Azure Functions runtime. For more information about legacy support in version 4.x, see [Functions proxies](functions-proxies.md).
+
+By default, Functions proxies use a shortcut to send API calls from proxies directly to functions in the same function app. This shortcut is used instead of creating a new HTTP request. This setting allows you to disable that shortcut behavior.
 
 |Key|Value|Description|
 |-|-|-|
@@ -82,6 +85,9 @@ By default, [Functions proxies](functions-proxies.md) use a shortcut to send API
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`false`|Calls with a backend URL pointing to a function in the local function app are forwarded directly to the function. `false` is the default value. |
 
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+> [!IMPORTANT]
+> Azure Functions proxies is a legacy feature for [versions 1.x through 3.x](../articles/azure-functions/functions-versions.md) of the Azure Functions runtime. For more information about legacy support in version 4.x, see [Functions proxies](functions-proxies.md).
 
 This setting controls whether the characters `%2F` are decoded as slashes in route parameters when they're inserted into the backend URL.
 
@@ -286,6 +292,18 @@ Path to the compiler used for TypeScript. Allows you to override the default if 
 |---|------------|
 |AzureWebJobs_TypeScriptPath|`%HOME%\typescript`|
 
+## DOCKER_REGISTRY_SERVER_PASSWORD
+
+Indicates the password used to access a private container registry. This setting is only required when deploying your containerized function app from a private container registry. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md#custom-containers).
+
+## DOCKER_REGISTRY_SERVER_URL
+
+Indicates the URL of a private container registry. This setting is only required when deploying your containerized function app from a private container registry. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md#custom-containers).
+
+## DOCKER_REGISTRY_SERVER_USERNAME
+
+Indicates the account used to access a private container registry. This setting is only required when deploying your containerized function app from a private container registry. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md#custom-containers).
+
 ## DOCKER_SHM_SIZE
 
 Sets the shared memory size (in bytes) when the Python worker is using shared memory. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
@@ -308,11 +326,13 @@ Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is 
 
 ## FUNCTION\_APP\_EDIT\_MODE
 
-Dictates whether editing in the Azure portal is enabled. Valid values are `readwrite` and `readonly`.
+Dictates whether editing in the Azure portal is supported for your function app. Valid values are `readwrite` and `readonly`.
 
 |Key|Sample value|
 |---|------------|
 |FUNCTION\_APP\_EDIT\_MODE|`readonly`|
+
+The value is set by the runtime based on the language stack and deployment status of your function app. For more information, see [Development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal).  
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
@@ -593,6 +613,10 @@ Sets the DNS server used by an app when resolving IP addresses. This setting is 
 |---|------------|
 |WEBSITE\_DNS\_SERVER|`168.63.129.16`|
 
+## WEBSITES_ENABLE_APP_SERVICE_STORAGE
+
+Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container. 
+
 ## WEBSITE\_ENABLE\_BROTLI\_ENCODING
 
 Controls whether Brotli encoding is used for compression instead of the default gzip compression. When `WEBSITE_ENABLE_BROTLI_ENCODING` is set to `1`, Brotli encoding is used; otherwise gzip encoding is used.
@@ -701,6 +725,10 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_VNET\_ROUTE\_ALL|`1`|
+
+## WEBSITES_ENABLE_APP_SERVICE_STORAGE 
+
+WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 
 ## App Service site settings
 
