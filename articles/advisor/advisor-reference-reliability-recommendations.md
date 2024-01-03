@@ -647,13 +647,13 @@ Learn more about [Virtual network gateway - VNetGatewayActiveActive (Enable Acti
 
 ### Use HEAD health probes
 
-Front Door Health probes can use either the GET or HEAD HTTP method. It’s a good practice to use the HEAD method for health probes, which reduces the amount of traffic load on your origins.
+For health probes, it’s a good practice to use the HEAD method, which reduces the amount of traffic load on your origins.
 
-Learn more about [Use HEAD health probes](https://aka.ms/afd-use-health-probes).
+Learn more about [Front Door - Use HEAD health probes](https://aka.ms/afd-use-health-probes).
 
 ### Use managed TLS certificates
 
-When Front Door manages your TLS certificates, it reduces your operational costs, and helps you to avoid costly outages caused by forgetting to renew a certificate. Front Door automatically issues and rotates the managed TLS certificates.
+Front Door management of your TLS certificates reduces your operational costs and helps you to avoid costly outages caused by forgetting to renew a certificate.
 
 Learn more about [Use managed TLS certificates](https://aka.ms/afd-use-managed-tls).
 
