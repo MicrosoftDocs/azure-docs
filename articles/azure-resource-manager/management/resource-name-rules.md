@@ -855,6 +855,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
+> | privateLinkHubs | resource group | 1-45 | Lowercase letters and numbers. |
 > | workspaces | global | 1-50 | Lowercase letters, hyphens, and numbers.<br><br>Start and end with letter or number.<br><br>Can't contain `-ondemand` |
 > | workspaces / bigDataPools | workspace | 1-15 | Letters and numbers.<br><br>Start with letter. End with letter or number.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
 > | workspaces / sqlPools | workspace | 1-60 | Can't contain `<>*%&:\/?@-` or control characters. <br><br>Can't end with `.` or space. <br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
