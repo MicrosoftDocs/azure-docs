@@ -2,7 +2,7 @@
 title: Native Integration with ServiceNow | Defender for Cloud in the Field 
 description: Learn about the Native Integration with ServiceNow.
 ms.topic: reference
-ms.date: 01/02/2024
+ms.date: 01/03/2024
 ---
 
 # Native Integration with ServiceNow
