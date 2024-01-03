@@ -15,7 +15,7 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Troubleshoot the UI Library
 
-When you're troubleshooting voice or video calls, you might need to provide a call ID. This ID identifies Azure Communication Services calls. Every call can have multiple call IDs.
+When you're troubleshooting voice or video calls, you might need to provide a call ID. This ID identifies Azure Communication Services calls. Each call can have multiple call IDs.
 
 In this article, you use the Azure Communication Services UI Library to get essential debugging information.
 

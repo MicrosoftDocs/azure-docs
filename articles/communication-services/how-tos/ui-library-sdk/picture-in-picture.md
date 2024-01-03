@@ -3,7 +3,7 @@ title: Turn on picture-in-picture by using the UI Library
 titleSuffix: An Azure Communication Services how-to guide
 description: Use picture-in-picture in the Azure Communication Services UI Library.
 author: pavelprystinka
-ms.author: pavelprystinka
+ms.author: pprystinka
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 12/12/2023
