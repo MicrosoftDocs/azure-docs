@@ -1,19 +1,19 @@
 ---
 title: Enable VM Insights on a Windows client machine
-description: This article describes how you enable VM Insights on a Windows client machine.
+description: This article describes how you enable VM Insights on a Windows client machine that's not always online.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.date: 12/11/2023
-# Customer-intent: As a cloud administrator, I want to enable VM Insights on Windows client machine, so that I can monitor the performance and dependencies of my machine.
+# Customer-intent: As a cloud administrator, I want to enable VM Insights on a Windows client machine that's not always online, so that I can collect performance and dependency data when the machine comes online.
 
 ---
 
 # Enable VM Insights on a Windows client machine
 
-For Windows 10 and 11 client machines that always powered on and connected to the internet, use [Azure Arc for servers](../../azure-arc/servers/overview.md) and follow the same process as [enabling VM insights on Azure VMs](vminsights-enable-portal.md). 
+For Windows 10 and 11 client machines that are always powered on and connected to the internet, use [Azure Arc for servers](../../azure-arc/servers/overview.md) and follow the same process as [enabling VM insights on Azure VMs](vminsights-enable-portal.md). 
 
-This article describes how to enable VM Insights on a [Windows client machine that's not managed using Azure Arc](/azure/azure-arc/servers/prerequisites#client-operating-system-guidance).
+This article describes how to enable VM Insights on a [Windows client machine that's online intermittently and not managed using Azure Arc](/azure/azure-arc/servers/prerequisites#client-operating-system-guidance).
 
 ## Prerequisites
 
