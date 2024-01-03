@@ -56,7 +56,7 @@ When you delete an Azure Workbook, it is soft-deleted and can be recovered by co
 - The **Auto refresh** setting isn't saved with the workbook. Every time a user opens a workbook, **Auto refresh** is **Off** and needs to be set again.
 - Switching workbooks and going out of the gallery clears the **Auto refresh** interval.
 
-:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh.png" alt-text="Screenshot that shows workbooks with Auto refresh.":::
+:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh.png" lightbox="media/workbooks-getting-started/workbooks-auto-refresh.png" alt-text="Screenshot that shows workbooks with Auto refresh.":::
 
 :::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh-interval.png" alt-text="Screenshot that shows workbooks with Auto refresh with an interval set.":::
 

@@ -54,7 +54,7 @@ The following example shows how to set up a traffic light icon per computer base
        - **Maximum value**: `80`
 1. Select **Save and Close** to commit the changes.
 
-:::image type="content" source="media/workbooks-commonly-used-components/workbooks-traffic-light-settings.png" alt-text="Screenshot that shows the creation of a grid with traffic light icons.":::
+:::image type="content" source="media/workbooks-commonly-used-components/workbooks-traffic-light-settings.png" lightbox="media/workbooks-commonly-used-components/workbooks-traffic-light-settings.png" alt-text="Screenshot that shows the creation of a grid with traffic light icons.":::
 
 You can also pin this grid to a dashboard by using **Pin to dashboard**. The pinned grid automatically binds to the time range in the dashboard.
 
