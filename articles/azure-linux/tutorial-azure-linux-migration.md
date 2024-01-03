@@ -304,13 +304,10 @@ If you experience issues during the OS SKU migration, you can roll back to your 
 
 ## Next steps
 
-In this tutorial, you migrated existing nodes to Azure Linux. You learned how to:
+In this tutorial, you migrated existing nodes to Azure Linux using one of the following methods:
 
-> [!div class="checklist"]
->
-> * Cordon the existing nodes.
-> * Drain the existing nodes.
-> * Remove the existing nodes using the `az aks delete` command.
+* Cordon, drain, and remove the existing nodes.
+* In-place OS SKU migration (Preview).
 
 In the next tutorial, you'll learn how to enable telemetry to monitor  your clusters.
 
