@@ -8,11 +8,11 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
+For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
-## Set up push notifications
+### Set up push notifications
 
-A mobile push notification is the pop-up notification that you get in the mobile device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications. 
+A mobile push notification is the pop-up notification that you get in the mobile device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications.
 
 The following sections describe how to register for, handle, and unregister push notifications. Before you start those tasks, complete these prerequisites:
 
@@ -20,7 +20,8 @@ The following sections describe how to register for, handle, and unregister push
 2. Add another capability by selecting **+ Capability**, and then select **Background Modes**.
 3. Under **Background Modes**, select the **Voice over IP** and **Remote notifications** checkboxes.
 
-### Register for push notification
+### Register for push notifications
+
 To register for push notifications, the application needs to call `registerPushNotification()` on a `CallComposite` instance with a device registration token.
 
 You can skip `registerPushNotification` to avoid current limitation of this by using Event Grid [Current limitations with the Push Notification model](https://learn.microsoft.com/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
