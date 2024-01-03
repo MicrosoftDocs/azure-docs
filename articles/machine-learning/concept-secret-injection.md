@@ -13,7 +13,7 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: ignite-2023
-ms.date: 10/25/2023
+ms.date: 01/02/2024
 
 #CustomerIntent: As an ML Pro, I want to retrieve and inject secrets into the deployment environment easily so that deployments I create can consume the secrets in a secured manner.
 ---
@@ -78,12 +78,12 @@ In your deployment definition, you need to use the endpoint identity to call the
 
 Instead of directly calling the APIs from workspace connections and/or the Key Vault, you can map environment variables with the secrets (that you want to refer to) from workspace connections or the Key Vault, in your deployment definition. This approach doesn't require you to write any code in your scoring script or in shell scripts that you run in your BYOC container. To map environment variables with the secrets from workspace connections or the Key Vault, the following conditions must be met:
 
-- If the endpoint was defined to enforce access to default secret stores (workspace connections under the current workspace) when creating the *endpoint*, your user identity that creates the *deployment* should have the permissions to read secrets from workspace connections.
-- The endpoint identity has permissions to read secrets from either workspace connections or the Key Vault, as referenced in the deployment definition.
+- If an online endpoint was defined to enforce access to default secret stores (workspace connections under the current workspace) when the *endpoint* was created, your user identity that creates the *deployment* under the endpoint should have the permissions to read secrets from workspace connections.
+- The endpoint identity that the deployment uses should have permissions to read secrets from either workspace connections or the Key Vault, as referenced in the deployment definition.
 
 > [!NOTE]
 > - The endpoint identity might have automatically received permission for workspace connections if the endpoint was successfully created with an SAI and the flag set to enforce access to default secret stores. In other cases, for example, if the endpoint used a UAI, or the flag wasn't set, the endpoint identity might not have the permission for workspace connections. In such a situation, you need to perform the task of assigning the role for the workspace connections to the endpoint identity.
-> - The endpoint identity won't automatically receive permission for the Key Vault. You need to manually assign the role for the Key Vault to the endpoint identity.
+> - The endpoint identity won't automatically receive permission for the external Key Vault. You'll need to manually assign the role for the Key Vault to the endpoint identity, if you are using the Key Vault as a secret store.
 
 For more information on using secret injection, see [Deploy machine learning models to online endpoints with secret injection (preview)](how-to-deploy-online-endpoint-with-secret-injection.md).
 

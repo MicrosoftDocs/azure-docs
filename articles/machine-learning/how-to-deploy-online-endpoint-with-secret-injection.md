@@ -9,7 +9,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.date: 10/25/2023
+ms.date: 01/02/2024
 ms.topic: how-to
 ms.custom: how-to, ignite-2023, sdkv2
 ---
@@ -61,7 +61,7 @@ You can create workspace connections to use in your deployment. For more informa
     1. Create the connection:
 
         ```azurecli
-        az ml connections create -f aoai_connection.yaml
+        az ml connection create -f aoai_connection.yaml
         ```
 
 1. Alternatively, you can create a custom connection:
@@ -85,7 +85,7 @@ You can create workspace connections to use in your deployment. For more informa
     1. Create the connection:
 
         ```azurecli
-        az ml connections create -f custom_connection.yaml
+        az ml connection create -f custom_connection.yaml
         ```
 
 1. Verify that the user identity can read the secrets from the workspace connection, by using the [Workspace Connections - List Secrets REST API (preview)](/rest/api/azureml/2023-08-01-preview/workspace-connections/list-secrets).
