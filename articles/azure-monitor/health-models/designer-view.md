@@ -1,35 +1,40 @@
 ---
-title: Create or modify health models by using Designer view
+title: Using the health model designer view in Azure Monitor
 description: Learn how to visually create and modify health models.
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 12/12/2023
 ---
 
-# Create or modify health models by using Designer view
+# Using the health model designer view in Azure Monitor
 
-The **Designer** pane, located under the **Development** heading in the left sidebar of a health model resource, is your primary tool for visually creating and modifying health models.
+The **Designer** view in Azure Monitor health models is your primary tool for visually creating and modifying health models. This article describes the different options available in the Designer view and how to visually build a health model.
+
+Access the designer view from the **Designer** option for the health model in the Azure portal. 
 
 :::image type="content" source="./media/health-model-create-modify-with-designer/health-model-resource-designer-pane.png" lightbox="./media/health-model-create-modify-with-designer/health-model-resource-designer-pane.png" alt-text="Screenshot of a health model resource in the Azure portal with the Designer pane selected.":::
 
+When you open the designer view, you're presented with *canvas* that allows you to add a configure different *entities*. A new health model will have a single entity called the *root entity*. This entity can't be deleted or cloned, and all other entities you add to the canvas must connect to the root, either directly or indirectly through another entity.
+
+
 ## Command bar
 
-On top, you find the command bar:
+The following table describes the options available in the command bar.
 
 :::image type="content" source="./media/health-model-create-modify-with-designer/designer-pane-command-bar.png" lightbox="./media/health-model-create-modify-with-designer/designer-pane-command-bar.png" alt-text="Screenshot of the command bar for a health model resource.":::
 
 | Option | Description |
 |:-------|:------------|
-| **Add** | Lets you add new entities to the canvas. |
-| **Save** | Sends all your edits to the server for persistence and validation. Until you click Save, your changes only exist in the browser. So make sure to save changes every now and then when you do larger edits! |
-| **Discard changes** | Discards all changes up to your last save point. |
-| **Enable health model** | Starts the execution of your model. While the model isn't active, health states aren't calculated yet. On enablement, the backend validates if your model is in a consistent state that can be executed. You'll receive an error message if there are issues that prevent activation. |
+| **Add** | Add new entities to the canvas. |
+| **Save** | Sends all edits to the server for persistence and validation. Until you click **Save**, changes only exist in the browser. |
+| **Discard changes** | Discards all changes up to the last save point. |
+| **Enable health model** | Starts the execution of the model. Health states aren't calculated if the model isn't active. Once enabled, Azure Monitor validates if the model is in a consistent state that can be executed. It will send an error message if there are issues that prevent activation. |
 | **Refresh interval** | Lets you determine how often the health state of your model is getting calculated. The minimum (and default) value is 1 minute. |
-| **Clone node** and **Delete** | Apply to currently selected entities (except the root entity, which can't be cloned, or deleted). |
+| **Clone node** | Make a copy of the selected entity. Can't be performed on the root entity. | 
+| **Delete** | Delete the selected entity. Can't be performed on the root entity. | 
 
 
-## Canvas
-
-The previous screenshot shows the - almost - empty canvas of a newly created health model. The only **entity** that is already there is what we also refer to as the "root". The root is a system entity and can't be deleted. However, you can change its name by clicking on **Edit**. All other entities must, directly or through other entities, connect up to the root.
 
 ## Add new entities
 
@@ -37,10 +42,11 @@ To add one or more new entities to the model, click **Add** and select the type 
 
 :::image type="content" source="./media/health-model-create-modify-with-designer/designer-pane-command-bar.png" lightbox="./media/health-model-create-modify-with-designer/designer-pane-command-bar.png" alt-text="Screenshot of the Add dropdown within the command bar.":::
 
-| Option | Description |
+| Entity Type | Description |
 |:-------|:------------|
-| **User flow, System component, and Generic entity** | All represent a part of an application that isn't an Azure resource. Typically these entities either only aggregate the health of their child entities, without specifying any signals themselves. Or, they (also) contain log-based queries, for example, towards an Azure Log Analytics workspace for application-level logs and metrics.<ul><li>_User flows_ are business-oriented and represent a high level, overarching, set of functionality that allows users of the system to achieve specific goals. Examples would be: "add comment", "checkout", "clean data", "generate report", etc.</li><li>_System components_ are still expected to be high level, but can be broader and more technical than User flows. System components include supporting API services, backend workers, etc.</li><li>_Generic entity_ is meant to be used for maximum flexibility when neither User flow or System component have the right meaning in the model.</li></ul> |
-| **Azure resources** | Represents a part of the Azure-based infrastructure an application uses. Examples include Virtual Machines, SQL databases, Event Hubs, etc. They typically contain many metric signals, based on [Azure-provided resource metrics](../essentials/metrics-supported.md). In addition, they might contain log-based queries for [Diagnostics logs and metrics](../essentials/diagnostic-settings.md?tabs=portal), which are exported to an Azure Log Analytics workspace. |
+| Azure resources | An **Azure resource** from the current subscription or a subscription that you can access. The health model can use any metrics or logs that are associated with the resource. This includes [platform metrics](), [resource logs](), and data collected from insights such as [VM insights]() and [container insights](). |
+| Aggregate entities | Aggregate entities represent parts of an application that aren't an Azure resource. They're health is set by the aggregate of the health of their child entities. You can also add a [log query]() or [Prometheus metrics query]() to set its health state.<br><br>The functionality of the aggregate entities are identical, but each is intended to represent a different type of entity.<br><br>*User flows* - High level business-oriented set of functionality that allows users of the system to achieve specific goals. Possible examples include *add comment*, *checkout*, *clean data*, and *generate report*.<br>*System components* - Broader and more technical than user flows. Possible examples include *supporting API services* and *backend workers*.<br>- *Generic entity* - Meant to be used for maximum flexibility when neither user flow or system component have appropriate context in the model. |
+
 
 ## Edit entities
 

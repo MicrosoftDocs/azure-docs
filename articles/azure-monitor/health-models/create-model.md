@@ -7,8 +7,45 @@ ms.date: 12/12/2023
 
 # Create a health model resource in Azure Monitor
 
-As an alternative to the portal UI wizard, it's also possible to create a health model using an ARM template. You can either create just the empty resource - like the portal wizard does - or also a fully designed model with all entities (currently represented as `nodes` in the template), signals etc.
 
+## Prerequisites
+
+- In order to be able to register a resource provider, you must have either **Contributor** or **Owner** role (permission to do the `/register/action` operation) in the target subscription of each resource added to your health model.
+- In order to authorize the health model identity against Azure resources, you must be either an **Owner** or **User Access Administrator** for the resource. 
+
+    **CLI**
+    
+    ```bash
+    az provider register -n Microsoft.HealthModel
+    ```
+    
+    **Azure portal**
+    
+    1. From the **Subscriptions** menu in the Azure portal, select **Resource providers**.
+    
+    1. Search for `healthmodel`. If **Microsoft.HealthModel** shows as **NotRegistered**, select it and click **Register** in the command bar.
+
+## [Azure portal](#tab/portal)
+
+1. Select **Health Models** from the **Monitor** menu in the Azure portal.
+
+   :::image type="content" source="./media/health-model-getting-started/azure-portal-search-bar.png" lightbox="./media/health-model-getting-started/azure-portal-search-bar.png" alt-text="Screenshot of the search bar in the Azure portal with 'health models' entered in it. ":::
+
+2. Any existing health models in your subscription will be listed. Select **Create** to create a new model.
+
+   :::image type="content" source="./media/health-model-getting-started/health-model-resources-list.png" lightbox="./media/health-model-getting-started/health-model-resources-list.png" alt-text="Screenshot of the Azure portal with existing health models listed.":::
+
+1. Select a resource group, name and location for the new health model.
+
+   :::image type="content" source="./media/health-model-getting-started/create-a-new-azure-health-model-page-basics-tab.png" lightbox="./media/health-model-getting-started/create-a-new-azure-health-model-page-basics-tab.png" alt-text="Screenshot of the Create a new Azure Health Model page in the Azure portal with the Basics tab selected.":::
+
+1. Click **Next** to view the **Identity** page. Select **System Assigned** or select an existing User assigned identity. This identity is used later to make authorized requests against the Azure resources that you add to your health model.
+
+   :::image type="content" source="./media/health-model-getting-started/create-a-new-azure-health-model-page-identity-tab.png" lightbox="./media/health-model-getting-started/create-a-new-azure-health-model-page-identity-tab.png" alt-text="Screenshot of the Create a new Azure Health Model page in the Azure portal with the Identity tab selected.":::
+
+1. Click **Create** on the last page of the wizard.
+
+   :::image type="content" source="./media/health-model-getting-started/create-a-new-azure-health-model-page-review-create-tab.png" lightbox="./media/health-model-getting-started/create-a-new-azure-health-model-page-review-create-tab.png" alt-text="Screenshot of the Create a new Azure Health Model page in the Azure portal with the Review + Create tab selected.":::
 
 
 ## [ARM](#tab/arm)

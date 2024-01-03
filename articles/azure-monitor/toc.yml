@@ -1062,16 +1062,16 @@ items:
       href: logs/migrate-splunk-to-azure-monitor-logs.md 
 - name: Health models
   items:
-  - name: Getting started
-    href: health-models/getting-started.md
+  - name: Overview
+    href: health-models/overview.md
+  - name: Create a health model
+    href: health-models/create-model.md
   - name: Designer view
     href: health-models/designer-view.md
   - name: Code view
     href: health-models/code-view.md
   - name: Configure identity
     href: health-models/configure-identity.md
-  - name: Create a health model
-    href: health-models/create-model.md
   - name: Health state
     href: health-models/health-state.md
   - name: Service levels
