@@ -17,7 +17,7 @@ ms.date: 01/03/2024
 
 ## Recommended resources
 
-- [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/integration-servicenow)
+- [Learn more](integration-servicenow.md)
 - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
 - Learn more about [Microsoft Security](https://msft.it/6002T9HQY)
 
