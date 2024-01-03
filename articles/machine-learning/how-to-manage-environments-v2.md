@@ -59,11 +59,11 @@ az configure --defaults workspace=<Azure Machine Learning workspace name> group=
 
 To connect to the workspace, you need identifier parameters - a subscription, resource group, and workspace name. You'll use these details in the `MLClient` from the `azure.ai.ml` namespace to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
-[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=libraries)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=libraries)]
 
-[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=workspace_details)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=workspace_details)]
 
-[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=get_workspace)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=get_workspace)]
 
 
 ---
@@ -102,7 +102,7 @@ az ml environment create --file assets/environment/docker-image.yml
 
 The following example creates an environment from a Docker image. An image from the official PyTorch repository on Docker Hub is specified via the `image` property.
 
-[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_image)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_image)]
 
 ```python
 env_docker_image = Environment(
@@ -143,7 +143,7 @@ az ml environment create --file assets/environment/docker-context.yml
 
 In the following example, the local path to the build context folder is specified in the `path' parameter. Azure Machine Learning will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
-[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_context)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_context)]
 
 ```python
 env_docker_context = Environment(
@@ -181,7 +181,7 @@ az ml environment create --file assets/environment/docker-image-plus-conda.yaml
 
 The relative path to the conda file is specified using the `conda_file` parameter.
 
-[!notebook-pytthon[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_with_conda)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_with_conda)]
 
 ```python
 env_docker_conda = Environment(
