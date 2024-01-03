@@ -1,7 +1,7 @@
 ---
-title: LLM tool in Azure Machine Learning prompt flow
+title: Azure OpenAI GPT-4 Turbo with Vision tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: The prompt flow LLM tool enables you to take advantage of widely used large language models like OpenAI or Azure OpenAI for natural language processing.
+description: The prompt flow Azure OpenAI GPT-4 Turbo with Vision tool enables you to leverage AzureOpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
