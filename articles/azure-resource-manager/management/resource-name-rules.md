@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
 ms.reviewer: franksolomon
-ms.date: 01/02/2024
+ms.date: 01/03/2024
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -352,6 +352,15 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | services | resource group | 2-62 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with alphanumeric. |
 > | services / projects | service | 2-57 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with alphanumeric. |
+
+## Microsoft.DataProtection
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | backupVaults | resource group | 2-50 | Alphanumerics and hyphens.<br><br>Start with letter. |
+> | backupvaults / backupInstances | backup vault | 1-75 | Alphanumerics and hyphens. |
+> | backupVaults / backupPolicies  | backup vault | 1-75 | Alphanumerics and hyphens. |
 
 ## Microsoft.DBforMariaDB
 

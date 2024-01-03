@@ -18,9 +18,10 @@ You can use server logs to help monitor and troubleshoot an instance of Azure Da
 By default, the server logs feature in Azure Database for PostgreSQL - Flexible Server is disabled. However, after you enable the feature, a flexible server starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal or the Azure CLI to download the files to assist with your troubleshooting efforts. This article explains how to enable the server logs feature in Azure Database for PostgreSQL - Flexible Server and download server log files. It also provides information about how to disable the feature.
 
 In this tutorial, you’ll learn how to:
-- Enable the server logs feature.
-- Disable the server logs feature.
-- Download server log files.
+>[!div class="checklist"]
+> * Enable the server logs feature.
+> * Disable the server logs feature.
+> * Download server log files.
 
 ## Prerequisites
 
