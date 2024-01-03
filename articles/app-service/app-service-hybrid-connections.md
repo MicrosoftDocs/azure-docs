@@ -211,7 +211,9 @@ If you need to change the endpoint host or port for a Hybrid Connection, follow 
 
 The status of "Connected" means that at least one HCM is configured with that Hybrid Connection, and is able to reach Azure. If the status for your Hybrid Connection doesn't say **Connected**, your Hybrid Connection isn't configured on any HCM that has access to Azure. When your HCM shows **Not Connected**, there are a few things to check:
 
-* Does your host have outbound access to Azure on port 443? You can test from your HCM host using the PowerShell command *Test-NetConnection Destination -P Port*
+* Does your host have outbound access to Azure on port 443? You can test from your HCM host using the PowerShell command *Test-NetConnection Destination -P Port*    
+* Is your HCM potentially in a bad state? Try restarting the ‘Azure Hybrid Connection Manager Service" local service.
+* Do you have conflicting software installed? Hybrid Connection Manager can't coexist with Biztalk Hybrid Connection Manager or Service Bus for Windows Server. When you install the HCM, any versions of these packages should be removed first.
 * Do you have a firewall between your HCM host and Azure? If so, you need to allow outbound access to both the Service Bus endpoint URL **AND** the Service Bus gateways that service your Hybrid Connection. 
     * You can find the Service Bus endpoint URL in the Hybrid Connection Manager UI.
 
@@ -221,22 +223,19 @@ The status of "Connected" means that at least one HCM is configured with that Hy
         * If you can use a wildcard, you can allowlist "*.servicebus.windows.net".
         * If you can't use a wildcard, you must allowlist all 128 gateways.
     
-    You can find out the stamp using "nslookup" on the Service Bus endpoint URL.
-
-    :::image type="content" source="media/app-service-hybrid-connections/hybridconn-stampname.png" alt-text="Screenshot of terminal showing where to find the stamp name for the Service Bus":::
-
-    In this example, the stamp is "sn3-010". To allowlist the Service Bus gateways, you need the following entries:
-    
-    G0-prod-sn3-010-sb.servicebus.windows.net  
-    G1-prod-sn3-010-sb.servicebus.windows.net  
-    G2-prod-sn3-010-sb.servicebus.windows.net  
-    G3-prod-sn3-010-sb.servicebus.windows.net  
-    ...  
-    G126-prod-sn3-010-sb.servicebus.windows.net  
-    G127-prod-sn3-010-sb.servicebus.windows.net  
-    
-* Is your HCM potentially in a bad state? Try restarting the ‘Azure Hybrid Connection Manager Service" local service.
-* Do you have conflicting software installed? Hybrid Connection Manager can't coexist with Biztalk Hybrid Connection Manager or Service Bus for Windows Server. When you install the HCM, any versions of these packages should be removed first.
+            You can find out the stamp using "nslookup" on the Service Bus endpoint URL.
+        
+            :::image type="content" source="media/app-service-hybrid-connections/hybridconn-stampname.png" alt-text="Screenshot of terminal showing where to find the stamp name for the Service Bus":::
+        
+            In this example, the stamp is "sn3-010". To allowlist the Service Bus gateways, you need the following entries:
+            
+            G0-prod-sn3-010-sb.servicebus.windows.net  
+            G1-prod-sn3-010-sb.servicebus.windows.net  
+            G2-prod-sn3-010-sb.servicebus.windows.net  
+            G3-prod-sn3-010-sb.servicebus.windows.net  
+            ...  
+            G126-prod-sn3-010-sb.servicebus.windows.net  
+            G127-prod-sn3-010-sb.servicebus.windows.net 
 
 If your status says **Connected** but your app can't reach your endpoint then:
 
