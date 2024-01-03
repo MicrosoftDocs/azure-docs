@@ -14,8 +14,8 @@ ms.reviewer: jeffwo
 # Use the Azure Monitor Agent Troubleshooter
 The Azure Monitor Agent isn't a service that runs in the context of an Azure Resource Provider. It might even be running in on-premises machines within a customer network boundary. The Azure Monitor Agent Troubleshooter is designed to help diagnose issues with the agent, and general agent health checks. It can run checks to verify agent installation, connection, general heartbeat, and collect AMA-related logs automatically from the affected Windows or Linux VM. More scenarios will be added over time to increase the number of issues that can be diagnosed.
 > [!Note]
-> Note: Troubleshooter is a command line executable that is shipped with the agent for all versions newer than **1.12.0.0** for Windows and **1.25.1 for Linux**. 
-> If you have a older version of the agent, you can not copy the Troubleshooter on in to a VM to diagnose an older agent.
+> Troubleshooter is a command line executable that's shipped with the agent for all versions newer than **1.12.0.0** for Windows and **1.25.1** for Linux. 
+> You can't copy the troubleshooter to a VM to diagnose an older agent version.
 
 
 ## Prerequisites
@@ -51,7 +51,7 @@ The Azure Monitor Agent isn't a service that runs in the context of an Azure Res
    Invoke-Item $troubleshooterPath
    ```
 > [!Note]
-> Note: If the client installer is used the trouble shooter path is C:\Program Files\Azure Monitor Agent\Troubleshooter
+> Note: If you use the client installer, the troubleshooter path is `C:\Program Files\Azure Monitor Agent\Troubleshooter`.
 
 ### Evaluate the Windows Results
 The Troubleshooter runs two tests and collects several diagnostic logs.

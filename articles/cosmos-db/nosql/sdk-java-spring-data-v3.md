@@ -85,7 +85,7 @@ It's strongly recommended to use version 3.28.1 and above.
 
 ## Additional notes
 
-* Spring Data Azure Cosmos DB supports Java JDK 8 and Java JDK 11.
+* Spring Data Azure Cosmos DB supports Java JDK 8, Java JDK 11 and versions 3.8.0 and above Java JDK 17.
 
 ## FAQ
 

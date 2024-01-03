@@ -9,7 +9,7 @@ ms.custom: devx-track-python, devx-track-azurecli, devx-track-linux
 
 # Use the Azure Compute Gallery to create a custom image pool
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with a [Azure Compute Gallery image](../virtual-machines/shared-image-galleries.md).
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with an [Azure Compute Gallery image](../virtual-machines/shared-image-galleries.md).
 
 ## Benefits of the Azure Compute Gallery
 

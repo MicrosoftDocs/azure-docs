@@ -19,7 +19,7 @@ This article shows how to create rule sets and your first set of rules using the
 
 ## Configure Rule set in Azure portal
 
-1. Go your Azure Front Door profile, select **Rule sets** under *Settings* in the left side menu pane. Select **+ Add**, then give rule set a name.
+1. Go to your Azure Front Door profile, select **Rule sets** under *Settings* in the left side menu pane. Select **+ Add**, then give rule set a name.
 
    :::image type="content" source="../media/how-to-configure-rule-set/create-rule-set.png" alt-text="Screenshot of rule set landing page.":::
     
