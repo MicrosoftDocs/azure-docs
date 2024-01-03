@@ -3,7 +3,7 @@ title: App Service Access restrictions
 description: This article provides an overview of the access restriction features in App Service
 author: madsd
 ms.topic: overview
-ms.date: 09/01/2022
+ms.date: 03/01/2024
 ms.author: madsd
 ms.custom: UpdateFrequency3
 ---
@@ -95,6 +95,10 @@ For any rule, regardless of type, you can add http header filtering. Http header
 Some use cases for http header filtering are:
 * Restrict access to traffic from proxy servers forwarding the host name
 * Restrict access to a specific Azure Front Door instance with a service tag rule and X-Azure-FDID header restriction
+
+## Diagnostic logging
+
+App Service provides the ability to [send various logging categories to Azure Monitor](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor). One of those categories is called *IPSecurity Audit logs* and represent the activities in access restrictions. All requests that match a rule (except the unmatched rule), both allow and deny, will be logged and can be used to validate configuration of access restrictions. The logging capability is also a powerful tool when troubleshooting rules configuration.
 
 ## Advanced use cases
 
