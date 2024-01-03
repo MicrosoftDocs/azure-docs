@@ -24,7 +24,7 @@ This article provides details about the features and enhancements made to Azure 
 
 ### Azure Health Data Services
 
-**Store and manage medical imaging data with Azure Data Lake Storage (Preview)
+**Store and manage medical imaging data with Azure Data Lake Storage (Preview)**
 
 With the integration of Azure Data Lake Storage available for preview, organizations can now enjoy full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs. By using Azure Data Lake Storage with the DICOM service, organizations are able to:
 
