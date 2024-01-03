@@ -15,9 +15,9 @@ Container insights works with [Azure Monitor managed service for Prometheus](../
 
 
 > [!IMPORTANT]
-> Container insights collects metric data from the cluster in addition to logs. This functionality has been replaced by [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). You can analyze this data using built-in dashboards in [Managed Grafana](../../managed-grafana/overview.md) and alert on them using [prebuilt Prometheus alert rules](container-insights-metric-alerts.md).
+> Container insights collects metric data from your cluster in addition to logs. This functionality has been replaced by [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). You can analyze that data using built-in dashboards in [Managed Grafana](../../managed-grafana/overview.md) and alert on them using [prebuilt Prometheus alert rules](container-insights-metric-alerts.md).
 > 
-> You can continue to have Container insights collect metric data so you can use the Container insights monitoring experience. You can save cost by disabling this collection and using Grafana for metric analysis. See [Configure data collection in Container insights using data collection rule](container-insights-data-collection-dcr.md).
+> You can continue to have Container insights collect metric data so you can use the Container insights monitoring experience. Or you can save cost by disabling this collection and using Grafana for metric analysis. See [Configure data collection in Container insights using data collection rule](container-insights-data-collection-dcr.md) for configuration options.
 
 
 ## Access Container insights
