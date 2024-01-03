@@ -54,7 +54,7 @@ Use the following sections to configure your resources for optimal secure usage.
 
 ## Create resource group
 
-Create a resource group, so you can organize all the relevant resources. The resources in the resource group includes but not be limited to:
+Create a resource group, so you can organize all the relevant resources. The resources in the resource group include but are not limited to:
 * One Virtual network
 * Three key services: one Azure OpenAI, one Azure AI Search, one Storage Account
 * Three Private endpoints, each is linked to one key service
