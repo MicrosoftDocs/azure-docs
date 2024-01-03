@@ -1,9 +1,9 @@
 ---
 title: Soft delete for Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure.
-ms.topic: conceptual
-ms.date: 12/30/2022
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 01/03/2024
+ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -20,11 +20,13 @@ Soft delete protection is available for these services:
 - [Soft delete for Azure virtual machines](soft-delete-virtual-machines.md)
 - [Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads](soft-delete-sql-saphana-in-azure-vm.md)
 
+## Lifecycle of a soft-deleted backup item
+
 This flow chart shows the different steps and states of a backup item when Soft Delete is enabled:
 
-![Lifecycle of soft-deleted backup item](./media/backup-azure-security-feature-cloud/lifecycle.png)
+:::image type="content" source="./media/backup-azure-security-feature-cloud/lifecycle.png" alt-text="Diagram shows the lifecycle of a soft-deleted backup item." lightbox="./media/backup-azure-security-feature-cloud/lifecycle.png":::
 
-## Enabling and disabling soft delete
+## Enable and disable soft delete
 
 Soft delete is enabled by default on newly created vaults to protect backup data from accidental or malicious deletes.  Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment).
 
@@ -45,9 +47,15 @@ Soft delete is enabled on all newly created vaults by default. **Always-on soft 
 
 Additionally, you can extend the retention duration for deleted backup data, ranging from 14 to 180 days. By default, the retention duration is set to 14 days (as per basic soft delete) for the vault, and you can extend it as required. The soft delete doesn't cost you for first 14 days of retention; however, you're charged for the period beyond 14 days. [Learn more](backup-azure-enhanced-soft-delete-about.md#pricing) about pricing.
 
-### Disabling soft delete using Azure portal
+### Disabl soft delete
 
-To disable soft delete, follow these steps:
+**Choose a client**:
+
+To disable soft delete,
+
+# [Azure portal](#tab/azure-portal)
+
+Follow these steps:
 
 1. In the Azure portal, go to your *vault*, and then go to **Settings** > **Properties**.
 1. In the **Properties** pane, select **Security Settings Update**.
@@ -55,10 +63,7 @@ To disable soft delete, follow these steps:
 
 :::image type="content" source="./media/backup-azure-security-feature-cloud/disable-soft-delete-inline.png" alt-text="Screenshot shows how to disable soft delete." lightbox="./media/backup-azure-security-feature-cloud/disable-soft-delete-expanded.png":::
 
-### Disabling soft delete using Azure PowerShell
-
-> [!IMPORTANT]
-> The Az.RecoveryServices version required to use soft-delete using Azure PowerShell is minimum 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` to get the latest version.
+# [PowerShell](#tab/powershell)
 
 To disable, use the [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PowerShell cmdlet.
 
@@ -73,15 +78,20 @@ EnhancedSecurityState  : Enabled
 SoftDeleteFeatureState : Disabled
 ```
 
-### Disabling soft delete using REST API
+> [!IMPORTANT]
+> The Az.RecoveryServices version required to use soft-delete using Azure PowerShell is minimum 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` to get the latest version.
+
+# [REST API](#tab/rest-api)
 
 To disable the soft-delete functionality using REST API, refer to the steps mentioned [here](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+
+---
 
 ## Permanently deleting soft deleted backup items
 
 Backup data in soft deleted state prior disabling this feature, will remain in soft deleted state. If you wish to permanently delete these immediately, then undelete and delete them again to get permanently deleted.
 
-### Using Azure portal
+# [Azure portal](#tab/azure-portal)
 
 Follow these steps:
 
@@ -109,7 +119,7 @@ Follow these steps:
 
 7. To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 
-### Using Azure PowerShell
+# [PowerShell](#tab/power-shell)
 
 If items were deleted before soft-delete was disabled, then they'll be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
 
@@ -146,13 +156,15 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
 ```
 
-### Using REST API
+# [REST API](#tab/rest-api)
 
 If items were deleted before soft-delete was disabled, then they'll be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
 
 1. First, undo the delete operations with the steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Then disable the soft-delete functionality using REST API using the steps mentioned [here](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Then delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+
+---
 
 ## Frequently asked questions
 
