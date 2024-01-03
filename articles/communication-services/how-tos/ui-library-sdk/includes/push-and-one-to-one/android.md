@@ -33,7 +33,7 @@ To avoid current limitations, you can skip `registerPushNotification` by using A
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-    val deviceRegistrationToken = "" // from Firebase
+    val deviceRegistrationToken = "" // From Firebase
     callComposite.registerPushNotification(
         applicationContext,
         CallCompositePushNotificationOptions(
@@ -47,7 +47,7 @@ To avoid current limitations, you can skip `registerPushNotification` by using A
 #### [Java](#tab/java)
 
 ```java
-    String deviceRegistrationToken = ""; // from Firebase
+    String deviceRegistrationToken = ""; // From Firebase
     callComposite.registerPushNotification(
             applicationContext,
             new CallCompositePushNotificationOptions(tokenCredential,
@@ -69,10 +69,10 @@ To get the payload from FCM, begin by creating a new service (**File** > **New**
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-    // on Firebase onMessageReceived
+    // On Firebase onMessageReceived
     val pushNotificationInfo = CallCompositePushNotificationInfo(remoteMessage.data)
 
-    // if pushNotificationInfo.eventType is incoming call
+    // If pushNotificationInfo.eventType is an incoming call
     val remoteOptions = CallCompositeRemoteOptions(
             pushNotificationInfo,
             communicationTokenCredential,
@@ -87,11 +87,11 @@ To get the payload from FCM, begin by creating a new service (**File** > **New**
 #### [Java](#tab/java)
 
 ```java
-    // on Firebase onMessageReceived
+    // On Firebase onMessageReceived
     CallCompositePushNotificationInfo pushNotificationInfo = 
             new CallCompositePushNotificationInfo(remoteMessage.data)
 
-    // if pushNotificationInfo.eventType is incoming call
+    // If pushNotificationInfo.eventType is an incoming call
     CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
             pushNotificationInfo,
             tokenCredential,
@@ -117,24 +117,24 @@ To receive incoming call notifications after `handlePushNotification`, subscribe
 
     class IncomingCallEndEvent : CallCompositeEventHandler<CallCompositeIncomingCallEndEvent> {
         override fun handle(eventArgs: CallCompositeIncomingCallEndEvent?) {
-            // display incoming call UI to accept/decline call
+            // Display incoming call UI to accept/decline a call
         }
     }
 
     class IncomingCallEndEvent : CallCompositeEventHandler<CallCompositeIncomingCallEndEvent> {
         override fun handle(eventArgs: CallCompositeIncomingCallEndEvent?) {
-            // call ended event when call is declined or not accepted
+            // Call-ended event when a call is declined or not accepted
         }
     }
 
-    // event subscription
+    // Event subscription
     incomingCallEvent = IncomingCallEvent()
     callComposite.addOnIncomingCallEventHandler(incomingCallEvent)
 
     incomingCallEndEvent = IncomingCallEndEvent()
     callComposite.addOnIncomingCallEndEventHandler(incomingCallEndEvent)
 
-    // event unsubscribe
+    // Event unsubscribe
     callComposite.removeOnIncomingCallEventHandler(incomingCallEvent)
     callComposite.removeOnIncomingCallEndEventHandler(incomingCallEndEvent)
 ```
@@ -143,11 +143,11 @@ To receive incoming call notifications after `handlePushNotification`, subscribe
 
 ```java
     callComposite.addOnIncomingCallEventHandler((call) -> {
-        // display incoming call UI to accept/decline call
+        // Display incoming call UI to accept/decline a call
     });
 
     callComposite.addOnIncomingCallEndEventHandler((call) -> {
-        // call ended event when call is declined or not accepted
+        // Call-ended event when a call is declined or not accepted
     });
 ```
 
@@ -160,20 +160,20 @@ To accept calls, make a call to `acceptIncomingCall`. To decline calls, make a c
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-// accept call
+// Accept call
 callComposite.acceptIncomingCall(applicationContext, localOptions)
 
-// decline call
+// Decline call
 callComposite.declineIncomingCall()
 ```
 
 #### [Java](#tab/java)
 
 ```java
-// accept call
+// Accept call
 callComposite.acceptIncomingCall(applicationContext, localOptions);
 
-// decline call
+// Decline call
 callComposite.declineIncomingCall();
 ```
 
@@ -186,7 +186,7 @@ To start calls with other participants, create `CallCompositeStartCallOptions` w
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-    val participant = [] // participant identifiers raw IDs
+    val participant = [] // Participant raw IDs
     val startCallOption = CallCompositeStartCallOptions(participant)
     val remoteOptions = CallCompositeRemoteOptions(startCallOption, communicationTokenCredential, displayName)
     callComposite.launch(context, remoteOptions, localOptions)
@@ -195,7 +195,7 @@ To start calls with other participants, create `CallCompositeStartCallOptions` w
 #### [Java](#tab/java)
 
 ```java
-    List<String> participant; // participant identifiers raw IDs
+    List<String> participant; // Participant raw IDs
     CallCompositeStartCallOptions startCallOption =
             new CallCompositeStartCallOptions(participant);
     CallCompositeRemoteOptions remoteOptions = CallCompositeRemoteOptions(startCallOption,
