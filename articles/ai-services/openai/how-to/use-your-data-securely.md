@@ -50,7 +50,7 @@ If an embedding deployment is provided in the inference request, the rewritten q
 
 ## Resources configuration
 
-Use the following sections to configure your resources for optimal secure usage. If you plan to only secure part of your resources, you can skip unrelated sections.
+Use the following sections to configure your resources for optimal secure usage. If you plan to only secure part of your resources, you can skip the sections unrelated to your use case.
 
 ## Create resource group
 
