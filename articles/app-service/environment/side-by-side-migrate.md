@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the side by side migration
 description: Overview of the side by side migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 12/7/2023
+ms.date: 1/3/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -227,16 +227,3 @@ The App Service plan SKUs available for App Service Environment v3 run on the Is
 
 > [!div class="nextstepaction"]
 > [Custom domain suffix](./how-to-custom-domain-suffix.md)
-
-<!-- TODO: add migration statuses
-
-The following statuses are available during the migration process:
-
-|Status      |Description  |
-|------------|-------------|
-|Validating and preparing the migration.     |The platform is validating migration support and performing necessary checks.     |
-|Deploying App Service Environment v3 infrastructure.    |Your new App Service Environment v3 infrastructure is provisioning.          |
-|Waiting for infrastructure to complete.  |The platform is validating your new infrastructure and performing necessary checks.         |
-|Setting up networking. Migration downtime period has started. Applications are not accessible.  |The platform is deleting your old infrastructure and moving all of your apps to your new App Service Environment v3. Your apps are down and aren't accepting traffic.         |
-|Running post migration validations.  |The platform is performing necessary checks to ensure the migration succeeded.         |
-|Finalizing migration.  |The platform is finalizing the migration.         | -->
