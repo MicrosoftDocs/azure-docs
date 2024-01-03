@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/6/2023
+ms.date: 1/3/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
@@ -24,6 +24,17 @@ This article provides details about the features and enhancements made to Azure 
 
 ### Azure Health Data Services
 
+**Encryption with customer-managed keys is generally available for the FHIR and DICOM services**
+
+Data stored in Azure Health Data Services is automatically and seamlessly encrypted with service-managed keys managed by Microsoft. You can enable data encryption with customer-managed keys (CMK) for new and existing FHIR® and DICOM® services, providing your organization with improved flexibility to manage access controls.
+
+Learn more:
+
+- [Configure customer-managed keys for the FHIR service](fhir/configure-customer-managed-keys.md)
+- [Configure customer-managed keys for the DICOM service](dicom/configure-customer-managed-keys.md)
+
+### DICOM service
+
 **Store and manage medical imaging data with Azure Data Lake Storage (Preview)**
 
 With the integration of Azure Data Lake Storage available for preview, organizations can now enjoy full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs. By using Azure Data Lake Storage with the DICOM service, organizations are able to:
@@ -38,19 +49,11 @@ Learn more:
 - [Azure Data Lake Storage integration for the DICOM service in Azure Health Data Services](dicom/dicom-data-lake.md)
 - [Deploy the DICOM service with Azure Data Lake Storage](dicom/deploy-dicom-services-in-azure-data-lake.md)
 
-**Additional capabilities added to the Export operation**
+### FHIR service
 
-$export operation now supports exporting versioned resources and soft deleted resources. For more information, see [Export query parameters](fhir/export-data.md).
+**Additional capabilities added to the $export operation**
 
-**Encryption with customer-managed keys is generally available for the FHIR and DICOM services**
-
-Data stored in Azure Health Data Services is automatically and seamlessly encrypted with service-managed keys managed by Microsoft. You can enable data encryption with customer-managed keys (CMK) for new and existing FHIR® and DICOM® services, providing your organization with improved flexibility to manage access controls.
-
-Learn more:
-
-- [Configure customer-managed keys for the FHIR service](fhir/configure-customer-managed-keys.md)
-- [Configure customer-managed keys for the DICOM service](dicom/configure-customer-managed-keys.md)
-
+The $export operation supports exporting versioned resources and soft deleted resources. For more information, see [Export query parameters](fhir/export-data.md).
 
 ## November 2023
 
@@ -64,22 +67,22 @@ In the Azure portal, we launched a unified landing page that lets users access a
 
 **Bulk delete capability available for public preview**
 
-`$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md).
+**`$bulk-delete' allows you to delete resources from FHIR server asynchronously**. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md).
 
-**$import operation now supports importing soft deleted resources**
+**$import operation supports importing soft deleted resources**
 The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. For more details, visit [Fix SQL Import for Soft Delete and History](https://github.com/microsoft/fhir-server/pull/3530).
 
 **Performance improvement**
-In this release we have improved performance of FHIR queries with _include parameter. For more information, visit [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
+In this release we improved performance of FHIR queries with _include parameter. For more information, see [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
 
 **Bug fix: Searching with _include and wildcard resulted in query failure**
-The issue is fixed and permits only wild character  “*” to be present for _include and _revinclude searches. For more information, visit [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541).
+The issue is fixed and permits only the wild character  “*” to be present for _include and _revinclude searches. For more information, see [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541).
 
 **Bug fix: Multiple export jobs created resulting in increase data storage volume**
-Due to a bug, Export job was creating multiple child jobs when used with typefilter parameter. The fix addresses the issue for more information, visit [Fix export](https://github.com/microsoft/fhir-server/pull/3567).
+Due to a bug, Export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. For more information, see [Fix export](https://github.com/microsoft/fhir-server/pull/3567).
 
 **Bug Fix: Retriable exception for import operation, when using duplicate files**
-In case of duplicate files during import, the exception would be thrown This exception was considered as a retriable exception. This bug fix addresses the issue and import operation with same file will no longer be considered retriable. For information, visit [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557).
+In case of duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. This fix addresses the issue. Import operations with same file are no longer retriable. For information, see [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557).
 
 
 ## October 2023
@@ -114,7 +117,7 @@ With Incremental Load mode, customers can:
 1.	Ingest versioned FHIR resources.
 1.	Maintain the lastUpdated field value in FHIR resources during ingestion.
 1. Supports conditional references
-For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
+For details on Incremental Import, see [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
 
 **Batch-Bundle parallelization capability available in Public Preview**
 
