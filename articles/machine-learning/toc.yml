@@ -684,6 +684,8 @@
               href: ./prompt-flow/tools-reference/prompt-tool.md
             - name: Python tool
               href: ./prompt-flow/tools-reference/python-tool.md
+            - name: Azure OpenAI GPT-4 Turbo with Vision tool
+              href: ./prompt-flow/tools-reference/aoai-gpt-4v-tool.md
             - name: Embedding tool
               href: ./prompt-flow/tools-reference/embedding-tool.md
             - name: Vector Index Lookup tool
