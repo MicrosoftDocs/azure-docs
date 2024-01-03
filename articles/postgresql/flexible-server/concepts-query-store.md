@@ -217,7 +217,7 @@ This view returns all the data that has already been persisted in the supporting
 | temp_blks_written | bigint | | Total number of temp blocks written by the statement. |
 | blk_read_time | double precision | | Total time the statement spent reading blocks, in milliseconds (if track_io_timing is enabled, otherwise zero). |
 | blk_write_time | double precision | | Total time the statement spent writing blocks, in milliseconds (if track_io_timing is enabled, otherwise zero). |
-| is_system_query | boolean | | Total time the statement spent writing blocks, in milliseconds (if track_io_timing is enabled, otherwise zero). |
+| is_system_query | boolean | | Determines whether the query was executed by role with user_id = 10 (azuresu), which has superuser privileges and is used to perform control pane operations. Since this service is a managed PaaS service, only Microsoft is part of that superuser role. |
 | query_type | text | | Type of operation represented by the query. Possible values are `unknown`, `select`, `update`, `insert`, `delete`, `merge`, `utility`, `nothing`, `undefined`. |
 
 
