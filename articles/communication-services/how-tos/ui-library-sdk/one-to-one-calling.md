@@ -1,5 +1,5 @@
 ---
-title: One-to-one calling of the UI Library
+title: Set up one-to-one calling in the UI Library
 titleSuffix: An Azure Communication Services how-to guide
 description: Use the Azure Communication Services UI Library to set up one-to-one calling and push notifications.
 author: iaulakh
