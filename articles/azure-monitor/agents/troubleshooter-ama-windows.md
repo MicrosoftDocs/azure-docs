@@ -29,7 +29,7 @@ Test-Path -Path "C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindows
 
 If the directory exists, the Test-Path cmdlet returns `True`.
 
-:::image type="content" source="./media/use-azure-monitor-agent-troubleshooter/ama-win-prerequisites-powershell.png" alt-text="Screenshot of the PowerShell window, which shows the result of Test-Path PowerShell cmdlet.":::
+:::image type="content" source="./media/use-azure-monitor-agent-troubleshooter/ama-win-prerequisites-powershell.png" alt-text="Screenshot of the PowerShell window, which shows the result of Test-Path PowerShell cmdlet." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-win-prerequisites-powershell.png":::
 
 # [Windows Command Prompt](#tab/WindowsCmd)
 To verify the Agent Troubleshooter is present, copy the following command and run in Command Prompt as administrator:
@@ -39,7 +39,7 @@ cd "C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent"
 
 If the directory exists, the cd command changes directories successfully.
 
-:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-prerequisites-cmd.png" alt-text="Screenshot of the command prompt window, which shows the result of cd command.":::
+:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-prerequisites-cmd.png" alt-text="Screenshot of the command prompt window, which shows the result of cd command." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-win-prerequisites-cmd.png":::
 
 ---
 
@@ -66,7 +66,7 @@ Invoke-Item $troubleshooterPath
 
 It runs a series of activities that could take up to 15 minutes to complete. Be patient until the process completes.
 
-:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-run-troubleshooter-powershell.png" alt-text="Screenshot of the PowerShell window, which shows the result of the AgentTroubleshooter.":::
+:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-run-troubleshooter-powershell.png" alt-text="Screenshot of the PowerShell window, which shows the result of the AgentTroubleshooter." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-win-run-troubleshooter-powershell.png":::
 
 # [Windows Command Prompt](#tab/WindowsCmd)
 To start the Agent Troubleshooter, copy the following command and run in Command Prompt as administrator:
@@ -81,13 +81,13 @@ AgentTroubleshooter.exe --ama
 
 It runs a series of activities that could take up to 15 minutes to complete. Be patient until this process completes.
 
-:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-run-troubleshooter-cmd.png" alt-text="Screenshot of the command prompt window, which shows the result of the AgentTroubleshooter.":::
+:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-run-troubleshooter-cmd.png" alt-text="Screenshot of the command prompt window, which shows the result of the AgentTroubleshooter." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-win-run-troubleshooter-cmd.png":::
 
 ---
 
 Log file is created in the directory where the AgentTroubleshooter.exe is located.
 
-:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-verify-log-exists.png" alt-text="Screenshot of the Windows explorer window, which shows the output of the AgentTroubleshooter.":::
+:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-verify-log-exists.png" alt-text="Screenshot of the Windows explorer window, which shows the output of the AgentTroubleshooter." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-win-verify-log-exists.png":::
 
 ## Frequently Asked Questions
 

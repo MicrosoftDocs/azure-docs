@@ -43,7 +43,7 @@ To verify the Agent Troubleshooter is present, copy the following command and ru
 ls -ltr /var/lib/waagent | grep "Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-*"
 ```
 
-:::image type="content" source="./media/use-azure-monitor-agent-troubleshooter/ama-nix-prerequisites-shell.png" alt-text="Screenshot of the Bash window, which shows the result of ls command for the AMA installation directory.":::
+:::image type="content" source="./media/use-azure-monitor-agent-troubleshooter/ama-nix-prerequisites-shell.png" alt-text="Screenshot of the Bash window, which shows the result of ls command for the AMA installation directory." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-nix-prerequisites-shell.png":::
 
 If not, the directory doesn't exist and the installation failed. In this case, follow [Basic troubleshooting steps](azure-monitor-agent-troubleshoot-linux-vm.md#basic-troubleshooting-steps) instead.
 
@@ -68,7 +68,7 @@ Enter a path to output logs to. For instance, you might use **/tmp**.
 
 It runs a series of activities and outputs a .tgz file to the Output Directory you specified. Be patient until this process completes.
 
-:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-nix-run-the-troubleshooter-option-l-shell.png" alt-text="Screenshot of the Bash window, which shows the result of the AgentTroubleshooter running with the -L option to generate logs.":::
+:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-nix-run-the-troubleshooter-option-l-shell.png" alt-text="Screenshot of the Bash window, which shows the result of the AgentTroubleshooter running with the -L option to generate logs." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-nix-run-the-troubleshooter-option-l-shell.png":::
 
 # [Interactive Mode](#tab/Interactive)
 
@@ -87,7 +87,7 @@ It runs a series of scenarios and displays the results.
 > [!Note]
 > The interactive mode will **not** generate log files, but will **only** output results to the screen. Switch to log mode, if you need to generate log files.
 
-:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-nix-run-the-troubleshooter-option-l-shell.png" alt-text="Screenshot of the Bash window, which shows the result of the AgentTroubleshooter running with the -A option to output Troubleshooter results to the screen.":::
+:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-nix-run-the-troubleshooter-option-l-shell.png" alt-text="Screenshot of the Bash window, which shows the result of the AgentTroubleshooter running with the -A option to output Troubleshooter results to the screen." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-nix-run-the-troubleshooter-option-l-shell.png":::
 ---
 
 ## Frequently Asked Questions
