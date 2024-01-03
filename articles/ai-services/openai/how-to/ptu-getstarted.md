@@ -53,18 +53,18 @@ After you purchase a commitment on your quota, you can create a deployment. To c
 | Provisioned Throughput Units |	Choose the amount of throughput you wish to include in the deployment. |	100 |
 
 
-If you wish to deploy your endpoint programmatically, you can do so with the following Azure CLI command. Update the sku-capacity with the desired number of provisioned throughput units.
+If you wish to create your deployment programmatically, you can do so with the following Azure CLI command. Update the `sku-capacity` with the desired number of provisioned throughput units.
 
 ```cli
 az cognitiveservices account deployment create \
 --name <myResourceName> \
---resource-group  <myResourceGroupName> \
+--resource-group <myResourceGroupName> \
 --deployment-name MyModel \
 --model-name GPT-4 \
---model-version "0613"  \
+--model-version 0613  \
 --model-format OpenAI \
---sku-capacity "100" \
---sku-name "Provisioned-Managed" 
+--sku-capacity 100 \
+--sku-name Provisioned-Managed
 ```
 
 REST, ARM template, Bicep and Terraform can also be used to create deployments. See the section on automating deployments in the [Managing Quota](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest#automate-deployment) how-to guide and replace the `sku.name` with "Provisioned-Managed" rather than "Standard." 
@@ -120,11 +120,11 @@ For more information about monitoring your deployments, see the [Monitoring Azur
 
 
 ## Handling high utilization
-Provisioned deployments provide customers with an allocated amount of compute capacity to run a given model. The ‘Provisioned-Managed Utilization’ metric in Azure Monitor measures the utilization of the deployment in one-minute increments. Provisioned-Managed deployments are also optimized so that calls accepted are processed with a consistent per-call max latency. When the workload exceeds its allocated capacity, the service returns a 429 HTTP status code until the utilization drops down below 100%. The time before retrying is provided in the `retry-afte`r and `retry-after-ms` response headers that provide the time in seconds and milliseconds respectively.  This approach maintains the per-call latency targets while giving the developer control over how to handle high-load situations – for example retry or divert to another experience/endpoint. 
+Provisioned deployments provide customers with an allocated amount of compute capacity to run a given model. The ‘Provisioned-Managed Utilization’ metric in Azure Monitor measures the utilization of the deployment in one-minute increments. Provisioned-Managed deployments are also optimized so that calls accepted are processed with a consistent per-call max latency. When the workload exceeds its allocated capacity, the service returns a 429 HTTP status code until the utilization drops down below 100%. The time before retrying is provided in the `retry-after` and `retry-after-ms` response headers that provide the time in seconds and milliseconds respectively.  This approach maintains the per-call latency targets while giving the developer control over how to handle high-load situations – for example retry or divert to another experience/endpoint. 
 
 ### What should  I do when I receive a 429 response?
 A 429 response indicates that the allocated PTUs are fully consumed at the time of the call. The response includes the `retry-after-ms` and `retry-after` headers that tell you the time to wait before the next call will be accepted. How you choose to handle a 429 response depends on your application requirements. Here are some considerations:
--	If you're okay with longer per-call latencies, implement client-side retry logic to wait the `retry-after-ms` time and retry. This approach lets you maximize the throughput on the deployment. Microsoft-supplied client SDKs already handles it with reasonable defaults. You might still need further tuning based on your use-cases.
+-	If you are okay with longer per-call latencies, implement client-side retry logic to wait the `retry-after-ms` time and retry. This approach lets you maximize the throughput on the deployment. Microsoft-supplied client SDKs already handle it with reasonable defaults. You might still need further tuning based on your use-cases.
 -	Consider redirecting the traffic to other models, deployments or experiences. This approach is the lowest-latency solution because this action can be taken as soon as you receive the 429 signal.
 The 429 signal isn't an unexpected error response when pushing to high utilization but instead part of the design for managing queuing and high load for provisioned deployments. 
 
@@ -140,7 +140,7 @@ from openai import OpenAI
 # Configure the default for all requests:
 client = OpenAI(
     # default is 2
-    max_retries=5    ,
+    max_retries=5,
 )
 
 # Or, configure per-request:
