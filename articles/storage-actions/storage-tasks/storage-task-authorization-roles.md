@@ -43,7 +43,7 @@ To create an assignment, your identity must be assigned a custom role that conta
 
 - All of the RBAC actions that are available in the `Microsoft.Storage/StorageAccounts` set of RBAC action
 
-To learn how to create a custom role, see [Azure custom roles](../../role-based-access-control/custom-roles#steps-to-create-a-custom-role).
+To learn how to create a custom role, see [Azure custom roles](../../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 ## Permission for a task to perform operations
 
