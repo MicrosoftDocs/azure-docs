@@ -12,21 +12,21 @@ ms.topic: conceptual
 # Azure Database For MySQL Flexible Server January 2024 Maintenance
 
 ## Overview
-We are pleased to announce the latest maintenance for Azure Database for MySQL Flexible Server. This update upgrades the Azure MySQL Flexible Server to Version 20231219, incorporating several new features and resolving known issues for enhanced performance and reliability.
+We are pleased to announce the latest maintenance for Azure Database for MySQL Flexible Server. This update upgrades the Azure MySQL Flexible Server to our 2023 December released version, incorporating several new features and resolving known issues for enhanced performance and reliability.
 
 ## Engine version changes
 There will be no engine version changes in this maintenance update.
 
-## Features:
+## Features
 ### [Accelerated Logs V2](../concepts-accelerated-logs.md)
 - Introducing a new type of disk designed to offer superior performance in storing binary logs and redo logs.
 
-## Improvement:
+## Improvement
 
 ### [Audit Log Improvement](../concepts-audit-logs.md)
 - In alignment with our users' expectations for the audit log, we have introduced wildcard support for audit log usernames and added connection status for connection logs.
 
-## Known Issues Fix:
+## Known Issues Fix
 ### Support Data-in Replication in Major Version Upgrade
 - During an upgrade from 5.7 to 8.0, data-in replication encounters issues due to a known bug in the MySQL community. With this January 2024 maintenance, we have addressed this concern, enabling data-in replication support for servers upgraded from version 5.7.
 ### Server Operations Blockage After Moving Subscription or Resource Group
