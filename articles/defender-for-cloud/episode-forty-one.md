@@ -1,6 +1,6 @@
 ---
 title: Native integration with ServiceNow
-description: Learn about the Native Integration with ServiceNow.
+description: Learn about the native integration with ServiceNow.
 ms.topic: reference
 ms.date: 01/03/2024
 ---
