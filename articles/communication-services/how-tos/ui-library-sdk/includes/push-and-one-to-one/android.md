@@ -26,9 +26,9 @@ For the Android application to receive notification messages from FCM, it needs 
 
 To register for push notifications, the application needs to call `registerPushNotification()` on a `CallComposite` instance with a device registration token.
 
-To get the device registration token, add the Firebase SDK to your application module's `build.gradle` instance. To receive notifications from Firebase, integrate Azure Notification Hubs by following the instructions in [Communication Services notifications](https://learn.microsoft.com/azure/communication-services/concepts/notifications).
+To get the device registration token, add the Firebase SDK to your application module's `build.gradle` instance. To receive notifications from Firebase, integrate Azure Notification Hubs by following the instructions in [Communication Services notifications](/azure/communication-services/concepts/notifications).
 
-To avoid current limitations, you can skip `registerPushNotification` by using Azure Event Grid for push notifications. For more information, see [Connect calling native push notifications with Azure Event Grid](https://learn.microsoft.com/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
+To avoid current limitations, you can skip `registerPushNotification` by using Azure Event Grid for push notifications. For more information, see [Connect calling native push notifications with Azure Event Grid](/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
 
 #### [Kotlin](#tab/kotlin)
 

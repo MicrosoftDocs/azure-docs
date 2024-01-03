@@ -24,7 +24,7 @@ The following sections describe how to register for, handle, and unregister push
 
 To register for push notifications, the application needs to call `registerPushNotification()` on a `CallComposite` instance with a device registration token.
 
-To avoid current limitations, you can skip `registerPushNotification` by using Azure Event Grid for push notifications. For more information, see [Connect calling native push notifications with Azure Event Grid](https://learn.microsoft.com/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
+To avoid current limitations, you can skip `registerPushNotification` by using Azure Event Grid for push notifications. For more information, see [Connect calling native push notifications with Azure Event Grid](/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
 
 ```swift
     let deviceToken: Data = pushRegistry?.pushToken(for: PKPushType.voIP)
