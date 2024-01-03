@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
-#  Translating Chats to enable users to communicate in their preferred language
+#  Translating chats to enable users to communicate in their preferred language
 
 In this guide, learn how you can use [Azure AI APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
 
@@ -24,7 +24,7 @@ In this guide, learn how you can use [Azure AI APIs](../../../ai-services/index.
 One way to achieve the use cases above is by having your trusted service act as a participant on a chat thread. Let's say you want to enable language translation. This service (as illustrated in diagram below) is responsible for listening to the messages
 exchanged by other participants [1], calling Azure AI APIs to translate content to desired language [2 and 3] and sending the translated result as a message in the chat thread [4].
 
-[![Screen shot showing Azure AI services interacting with Communication Services.](./media/ai-services.png)](./media/ai-services.png#lightbox)
+[![Screenshot showing Azure AI services interacting with Communication Services.](./media/ai-services.png)](./media/ai-services.png#lightbox)
 
 This way, the message history contains both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](../../../ai-services/translator/quickstart-text-rest-api.md) to understand how to use AI APIs to translate text to different languages. 
 
