@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
 ms.reviewer: franksolomon
-ms.date: 11/20/2023
+ms.date: 01/03/2024
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -29,6 +29,8 @@ In the following tables, the term alphanumeric refers to:
 
 > [!NOTE]
 > All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
+>
+> Don't use `#` in a resource name. It interferes with URL parsing on Azure Resource Manager requests.
 
 ## Microsoft.AnalysisServices
 
@@ -266,6 +268,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | managedClusters | resource group | 1-63 | Alphanumerics, underscores, and hyphens.<br><br>Start and end with alphanumeric. |
+> | managedClusters / agentPools | managed cluster | 1-12 for Linux<br>1-6 for Windows | Lowercase letters and numbers.<br><br>Can't start with a number. |
 > | openShiftManagedClusters | resource group | 1-30 | Alphanumerics. |
 
 ## Microsoft.CustomerInsights
@@ -350,6 +353,15 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | services | resource group | 2-62 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with alphanumeric. |
 > | services / projects | service | 2-57 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with alphanumeric. |
+
+## Microsoft.DataProtection
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | backupVaults | resource group | 2-50 | Alphanumerics and hyphens.<br><br>Start with letter. |
+> | backupvaults / backupInstances | backup vault | 1-75 | Alphanumerics and hyphens. |
+> | backupVaults / backupPolicies  | backup vault | 1-75 | Alphanumerics and hyphens. |
 
 ## Microsoft.DBforMariaDB
 
@@ -537,9 +549,9 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | workspaces | resource group | 3-33 | Alphanumerics and hyphens |
+> | workspaces | resource group | 3-33 | Alphanumerics, hyphens, and underscores. |
 > | workspaces / computes | workspace | 3-24 for compute instance<br>3-32 for AML compute<br>2-16 for other compute types | Alphanumerics and hyphens. |
-> | workspaces / datastores | workspace | Maximum 255 characters for datastore name| Datastore name consists only of lowercase letters, digits, and underscores |
+> | workspaces / datastores | workspace | Maximum 255 characters for datastore name| Datastore name consists only of lowercase letters, digits, and underscores. |
 
 ## Microsoft.ManagedIdentity
 

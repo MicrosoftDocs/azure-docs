@@ -3,7 +3,7 @@ author: AaronMaxwell
 ms.author: aaronmax
 ms.service: azure-monitor
 ms.topic: include
-ms.date: 10/13/2023
+ms.date: 12/15/2023
 ---
 
 ## Frequently asked questions

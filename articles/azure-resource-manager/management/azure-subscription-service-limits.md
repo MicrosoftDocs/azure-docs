@@ -275,6 +275,10 @@ To learn more about the creation limits for Azure subscriptions, see [Billing ac
 
 [!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
 
+## Azure Web PubSub limits
+
+[!INCLUDE [azure-web-pubsub-limits](../../../includes/azure-web-pubsub-limits.md)]
+
 ## Backup limits
 
 [!INCLUDE [azure-backup-limits](../../../includes/azure-backup-limits.md)]
@@ -529,6 +533,10 @@ There are limits, per subscription, for deploying resources using Compute Galler
 - 100 compute galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
+
+### Managed Run Command limit
+
+The maximum number of allowed Managed Run Commands is currently limited to 25.
 
 ## Virtual Machine Scale Sets limits
 

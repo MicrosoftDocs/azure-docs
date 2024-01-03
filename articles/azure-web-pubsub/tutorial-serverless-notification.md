@@ -69,7 +69,7 @@ In this tutorial, you learn how to:
 
 ## Create and run the functions locally
 
-1. Make sure you have [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) installed. And then create an empty directory for the project. Run command under this working directory.
+1. Make sure you have [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) installed. Now, create an empty directory for the project. Run command under this working directory. Use one of the given options below.
 
     # [JavaScript](#tab/javascript)
     ```bash
@@ -91,10 +91,10 @@ In this tutorial, you learn how to:
     func init --worker-runtime python
     ```
     
-2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
+2. Follow the steps to install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
    
     # [JavaScript](#tab/javascript)
-    Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support.
+    Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support. For updating the  `host.json`, open the file in editor, and then replace the existing version extensionBundle to version _3.3.0_ or later.
     ```json
     {
         "version": "2.0",
@@ -117,7 +117,7 @@ In this tutorial, you learn how to:
 
 
     # [Python](#tab/python)
-    Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support.
+    Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support. For updating the  `host.json`, open the file in editor, and then replace the existing version extensionBundle to version _3.3.0_ or later.
     ```json
     {
         "version": "2.0",
@@ -133,7 +133,7 @@ In this tutorial, you learn how to:
     func new -n index -t HttpTrigger
     ```
     # [JavaScript](#tab/javascript)
-    - Update `index/function.json` and copy following json codes.
+    - Create a folder index and make a new file fuction.json inside the folder. Update `index/function.json` and copy following json codes. 
         ```json
         {
           "bindings": [
@@ -155,7 +155,7 @@ In this tutorial, you learn how to:
           ]
         }
         ```
-    - Update `index/index.js` and copy following codes.
+    - In the index folder, create a new file index.js. Update `index/index.js` and copy following codes.
         ```js
         var fs = require('fs');
         var path = require('path');
@@ -276,7 +276,7 @@ In this tutorial, you learn how to:
           ]
         }
         ```
-   - Update `negotiate/index.js` and copy following codes.
+   - Create a folder negotiate and update `negotiate/index.js` and copy following codes.
         ```js
         module.exports = function (context, req, connection) {
             context.res = { body: connection };
@@ -317,7 +317,7 @@ In this tutorial, you learn how to:
         ```
 
     # [Python](#tab/python)
-    - Update `negotiate/function.json` and copy following json codes.
+    - Create a folder negotiate and update `negotiate/function.json` and copy following json codes.
          ```json
          {
            "scriptFile": "__init__.py",
@@ -358,7 +358,7 @@ In this tutorial, you learn how to:
     func new -n notification -t TimerTrigger
     ```
     # [JavaScript](#tab/javascript)
-    - Update `notification/function.json` and copy following json codes.
+    - Create a folder notification and update `notification/function.json` and copy following json codes.
         ```json
         {
           "bindings": [
@@ -377,7 +377,7 @@ In this tutorial, you learn how to:
           ]
         }
         ```
-    - Update `notification/index.js` and copy following codes.
+    - Create a folder notification and update `notification/index.js` and copy following codes.
         ```js
         module.exports = function (context, myTimer) {
             context.bindings.actions = {
@@ -443,7 +443,7 @@ In this tutorial, you learn how to:
         ``` 
     
     # [Python](#tab/python)
-    - Update `notification/function.json` and copy following json codes.
+    - Create a folder notification and update `notification/function.json` and copy following json codes.
         ```json
         {
           "scriptFile": "__init__.py",
@@ -565,7 +565,7 @@ Before you can deploy your function code to Azure, you need to create three reso
 
 Use the following commands to create these items. 
 
-1. If you haven't done so already, sign in to Azure:
+1. Sign in to Azure:
 
     ```azurecli
     az login
@@ -612,7 +612,7 @@ Use the following commands to create these items.
 
 1. Deploy the function project to Azure:
 
-    After you have successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](../azure-functions/functions-run-local.md) command.
+    Once you create your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](../azure-functions/functions-run-local.md) command.
 
     ```bash
     func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings
@@ -627,7 +627,7 @@ Use the following commands to create these items.
 
 If you're not going to continue to use this app, delete all resources created by this doc with the following steps so you don't incur any charges:
 
-1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created. You may use the search box to find the resource group by its name instead.
+1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created. Use the search box to find the resource group by its name instead.
 
 1. In the window that opens, select the resource group, and then select **Delete resource group**.
 

@@ -3,8 +3,8 @@ title: Deploy Arc-enabled Azure VMware Solution
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 11/03/2023
-ms.custom: references_regions, devx-track-azurecli
+ms.date: 12/08/2023
+ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 ---
 
 # Deploy Arc-enabled Azure VMware Solution
@@ -13,7 +13,7 @@ In this article, learn how to deploy Arc for Azure VMware Solution. Once you set
 
 - Identify your VMware vSphere resources (VMs, templates, networks, datastores, clusters/hosts/resource pools) and register them with Arc at scale. 
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
-- Permit developers and application teams to use VM operations on-demand with [Role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview).
+- Permit developers and application teams to use VM operations on-demand with [Role-based access control](https://learn.microsoft.com/azure/role-based-access-control/overview).
 - Install the Arc-connected machine agent to [govern, protect, configure, and monitor](https://learn.microsoft.com/azure/azure-arc/servers/overview#supported-cloud-operations) them.
 - Browse your VMware vSphere resources (vms, templates, networks, and storage) in Azure
 
@@ -65,14 +65,14 @@ az provider register --namespace Microsoft.KubernetesConfiguration
 az provider register --namespace Microsoft.ResourceConnector 
 az provider register --namespace Microsoft.AVS
 ```
-Alternately, users can sign into their Subscription, navigate to the **Resource providers** tab, and register themselves on the resource providers mentioned previously.
+Alternately, users can sign in to their Subscription, navigate to the **Resource providers** tab, and register themselves on the resource providers mentioned previously.
 
 
 ## Onboard process to deploy Azure Arc
 
 Use the following steps to guide you through the process to onboard Azure Arc for Azure VMware Solution.
 
-1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
+1. Sign in to the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
 2. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -173,7 +173,7 @@ Once you connected your Azure VMware Solution private cloud to Azure, you can br
 2. Select the resource(s) you want to enable, then select **Enable in Azure**.
 3. Select your Azure **Subscription** and **Resource Group**, then select **Enable**.
 
-  The enable action starts a deployment and creates a resource in Azure, creating representations for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control (RBAC) granularly. 
+  The enable action starts a deployment and creates a resource in Azure, creating representations for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly. 
 
 4. Repeat the previous steps for one or more network, resource pool, and VM template resources.
 
