@@ -169,8 +169,8 @@ Make sure the admin of the security group has given your account an *Active* ass
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
-[pim-configure]: ../entra/id-governance/privileged-identity-management/pim-configure.md
-[licensing-fundamentals]: ../entra/id-governance/licensing-fundamentals.md
+[pim-configure]: /entra/id-governance/privileged-identity-management/pim-configure
+[licensing-fundamentals]: /entra/id-governance/licensing-fundamentals
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group
