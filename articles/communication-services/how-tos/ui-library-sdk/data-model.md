@@ -1,7 +1,7 @@
 ---
-title: Inject a custom data model by using the UI Library
+title: Inject a custom data model in the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use the Azure Communication Services UI library to set up custom data model injection in an application.
+description: Set up custom data model injection in the Azure Communication Services UI Library.
 author: garchiro7
 ms.author: jorgegarc
 ms.service: azure-communication-services
@@ -10,10 +10,10 @@ ms.date: 05/24/2022
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android
 
-#Customer intent: As a developer, I want to set up custom data model injection in my application.
+#Customer intent: As a developer, I want to set up custom data model injection in the UI Library for my application.
 ---
 
-# Inject a custom data model in an application
+# Inject a custom data model in the UI library for an application
 
 Azure Communication Services uses an identity-agnostic model in which developers can [bring their own identities](../../concepts/identity-model.md). Developers can get their data model and link it to Azure Communication Services identities. The data model for a user most likely includes information such as display name, profile picture or avatar, and other details. Developers use this information to build their applications and platforms.
 
