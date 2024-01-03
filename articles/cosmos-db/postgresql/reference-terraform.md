@@ -17,7 +17,7 @@ ms.date: 01/02/2024
 
 ## Managing Azure Cosmos DB for PostgreSQL using Terraform
 
-Terraform supports all management operations for Azure Cosmos DB for PostgreSQL clusters such as cluster create or update and adding worker nodes to cluster. Specifically, all management operations implemented in [the REST APIs](/rest/api/postgresqlhsc/) are supported by Terraform.
+Terraform supports all management operations for Azure Cosmos DB for PostgreSQL clusters such as cluster create or update and adding worker nodes to cluster. Specifically, Terraform supports all management operations implemented in [the REST APIs](/rest/api/postgresqlhsc/).
 
 Terraform provides documentation for all supported Azure Cosmos DB for PostgreSQL management operations.
 
