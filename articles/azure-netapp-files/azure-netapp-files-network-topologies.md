@@ -117,6 +117,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * UAE Central
 * UAE North 
 * UK South
+* UK West
 * West Europe 
 * West US 
 * West US 2*  

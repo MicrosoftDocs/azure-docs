@@ -59,7 +59,6 @@ easy API hosting.
 > * [Node.js](../app-service/quickstart-nodejs.md)
 > * [PHP](../app-service/quickstart-php.md)
 > * [Python](../app-service/quickstart-python.md)
-> * [Ruby](../app-service/quickstart-ruby.md)
 
 ## How do custom APIs differ from custom connectors?
 

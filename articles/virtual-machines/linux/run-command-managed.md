@@ -5,10 +5,10 @@ services: automation
 ms.service: virtual-machines
 ms.collection: linux
 author: nikhilpatel909
-ms.author: erd
+ms.author: jushiman
 ms.date: 10/31/2022
-ms.topic: how-to  
-ms.reviewer: erd
+ms.topic: how-to
+ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Run scripts in your Linux VM by using managed Run Commands

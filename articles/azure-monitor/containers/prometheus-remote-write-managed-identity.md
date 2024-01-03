@@ -97,7 +97,7 @@ This step isn't required if you're using an AKS identity since it will already h
     | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
 
 > [!IMPORTANT]
-> For Azure Government cloud, use *"https://monitor.azure.us//.default"* as the value for *INGESTION_AAD_AUDIENCE* in the yaml.
+> For Azure Government cloud, add the following environment variables in the "env" section of the yaml: - name: INGESTION_AAD_AUDIENCE value: https://monitoring.azure.us/
 
 3. Open Azure Cloud Shell and upload the YAML file.
 4. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands.

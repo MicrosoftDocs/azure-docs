@@ -390,7 +390,7 @@ For more information, review the following documentation:
 | Name | Limit |
 |------|-------|
 | Managed identities per logic app resource | - Consumption: Either the system-assigned identity *or* only one user-assigned identity <br><br>- Standard: The system-assigned identity *and* any number of user-assigned identities <br><br>**Note**: By default, a **Logic App (Standard)** resource has the system-assigned managed identity automatically enabled to authenticate connections at runtime. This identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this identity, connections won't work at runtime. To view this setting, on your logic app's menu, under **Settings**, select **Identity**. |
-| Number of logic apps that have a managed identity in an Azure subscription per region | - Consumption: 1,000 logic apps <br>- Standard: Per [Azure App Service limits, if any](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) |
+| Number of logic apps that have a managed identity in an Azure subscription per region | - Consumption: 5,000 logic apps <br>- Standard: Per [Azure App Service limits, if any](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) |
 
 <a name="integration-account-limits"></a>
 

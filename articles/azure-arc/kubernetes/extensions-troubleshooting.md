@@ -1,6 +1,6 @@
 ---
 title: "Troubleshoot extension issues for Azure Arc-enabled Kubernetes clusters"
-ms.date: 12/15/2023
+ms.date: 12/19/2023
 ms.topic: how-to
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes cluster extensions."
 ---
@@ -113,11 +113,36 @@ az k8s-configuration create <parameters> --debug
 
 ## Azure Monitor Container Insights
 
-[Azure Monitor Container Insights](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json&bc=%2Fazure%2Fazure-arc%2Fkubernetes%2Fbreadcrumb%2Ftoc.json&tabs=create-cli%2Cverify-portal) requires its DaemonSet to run in privileged mode. To successfully set up a Canonical Charmed Kubernetes cluster for monitoring, run the following command:
+This section provides help troubleshooting issues with [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json&bc=%2Fazure%2Fazure-arc%2Fkubernetes%2Fbreadcrumb%2Ftoc.json&tabs=create-cli%2Cverify-portal).
+
+### Enabling privileged mode for Canonical Charmed Kubernetes cluster
+
+Azure Monitor Container Insights requires its DaemonSet to run in privileged mode. To successfully set up a Canonical Charmed Kubernetes cluster for monitoring, run the following command:
 
 ```console
 juju config kubernetes-worker allow-privileged=true
 ```
+
+### Unable to install Azure Monitor Agent (AMA) on Oracle Linux 9.x
+
+When trying to install the Azure Monitor Agent (AMA) on an Oracle Linux (RHEL) 9.x Kubernetes cluster, the AMA pods and the AMA-RS pod might not work properly due to the `addon-token-adapter` container in the pod. With this error, when checking the logs of the `ama-logs-rs` pod, `addon-token-adapter container`, you see output similar to the following:
+
+```output
+Command: kubectl -n kube-system logs ama-logs-rs-xxxxxxxxxx-xxxxx -c addon-token-adapter
+ 
+Error displayed: error modifying iptable rules: error adding rules to custom chain: running [/sbin/iptables -t nat -N aad-metadata --wait]: exit status 3: modprobe: can't change directory to '/lib/modules': No such file or directory
+
+iptables v1.8.9 (legacy): can't initialize iptables table `nat': Table does not exist (do you need to insmod?)
+
+Perhaps iptables or your kernel needs to be upgraded.
+```
+
+This error occurs because installing the extension requires the `iptable_nat` module, but this module isn't automatically loaded in Oracle Linux (RHEL) 9.x distributions.
+
+To fix this issue, you must explicitly load the `iptables_nat` module on each node in the cluster, using the `modprobe` command `sudo modprobe iptables_nat`. After you have signed into each node and manually added the `iptable_nat` module, retry the AMA installation.
+
+> [!NOTE]
+> Performing this step does not make the `iptables_nat` module persistent.  
 
 ## Azure Arc-enabled Open Service Mesh
 

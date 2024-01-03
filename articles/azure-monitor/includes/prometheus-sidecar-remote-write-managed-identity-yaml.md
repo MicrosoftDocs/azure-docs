@@ -59,8 +59,6 @@ prometheus:
         value: userAssigned
       - name: AZURE_CLIENT_ID
         value: <MANAGED-IDENTITY-CLIENT-ID>
-      - name: INGESTION_AAD_AUDIENCE
-        value: https://monitor.azure.us//.default
       # Optional parameter
       - name: CLUSTER
         value: <CLUSTER-NAME>

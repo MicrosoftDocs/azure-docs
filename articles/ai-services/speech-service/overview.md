@@ -77,7 +77,7 @@ With [text to speech](text-to-speech.md), you can convert input text into humanl
 
 ### Speech translation
 
-[Speech translation](speech-translation.md) enables real-time, multilingual translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech to text translation.
+[Speech translation](speech-translation.md) enables real-time, multilingual translation of speech to your applications, tools, and devices. Use this feature for speech to speech and speech to text translation.
 
 ### Language identification
 

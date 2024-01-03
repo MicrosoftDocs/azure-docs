@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 author: varun-dhawan
 ms.author: varundhawan
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 1/2/2024
 ---
 
 # Enable, list and download server logs for Azure Database for PostgreSQL - Flexible Server
@@ -43,7 +43,7 @@ To enable the server logs feature, perform the following steps.
 4. To configure retention period (in days), choose the slider. Minimum retention 1 days and Maximum retention is 7 days.
 
 > [!Note]
-> You can configure your server logs in the same way as above using the [Server Parameters](./howto-configure-server-parameters-using-portal), setting the appropriate values for these parameters: _logfiles.download_enable_ to ON to enable this feature, and _logfiles.retention_days_ to define retention in days.
+> You can configure your server logs in the same way as above using the [Server Parameters](./howto-configure-server-parameters-using-portal.md), setting the appropriate values for these parameters: _logfiles.download_enable_ to ON to enable this feature, and _logfiles.retention_days_ to define retention in days.
 
 ## Download Server logs
 
