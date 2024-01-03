@@ -72,8 +72,9 @@ When a system has UAC/LUA in place, permissions must be granted directly and not
 
 #### Resolution
 For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders:
+
 | Folder |Permissions |
-|:--- |:--- |
+|--- | --- |
 | C:\ProgramData\AzureConnectedMachineAgent\Tokens | Read |
 | C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows | Read and Execute |
 
