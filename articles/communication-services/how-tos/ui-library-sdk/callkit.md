@@ -1,5 +1,5 @@
 ---
-title: CallKit for the UI Library
+title: Integrate CallKit into the UI Library
 titleSuffix: An Azure Communication Services how-to guide
 description: Use the Azure Communication Services UI Library to integrate CallKit.
 author: iaulakh
