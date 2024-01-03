@@ -36,14 +36,14 @@ After a user identity is created, a user is granted with the capability to parti
 
 An access token is a JSON Web Token (JWT) and has integrity protection. That is, its claims can't be changed after it's issued. So a manual change of properties such as identity, expiration, or scopes will invalidate the access token. If primitives are used with invalidated tokens, then access will be denied to the primitives. Azure Communication Services supports the following scopes for access tokens.
 
-## Chat Tokens
-Three types of chat tokens are supported. Permissions for each token are described below.
+## Chat Token Scopes
+Three types of chat token scopes are supported. Permissions for each token are described below.
 - chat
 - chat.join
 - chat.join.limited
 
-|Capability / Token type| chat | chat.join | chat.join.limited |
-|--------------------------|---|---|---|
+|Capability / Token scope| chat | chat.join | chat.join.limited |
+|---|---|---|---|
 |Create chat thread | Y | N | N |
 |Update chat thread with ID | Y | N | N |
 |Delete chat thread with ID | Y | N | N |
@@ -60,13 +60,13 @@ Three types of chat tokens are supported. Permissions for each token are describ
 |Send typing indicator | Y | Y | Y |
 |Get participant for thread ID | Y | Y | Y |
 
-## VoIP calling Tokens
-Tow types of VoIP calling tokens are supported. Permissions for each token are described below.
-- VoIP
-- VoIP.join
+## VoIP Token Scopes
+Two types of VoIP token scopes are supported. Permissions for each token are described below.
+- voip
+- voip.join
 
-|Capability / Token type| VoIP | VoIP.join |
-|--------------------------|---|---|
+|Capability / Token scope| voip | voip.join |
+|---|---|---|
 |Start a VoIP call | Y | N |
 |Start a VoIP call in Virtual Rooms, when the user is already invited to the Room| Y | Y |
 |Join an InProgress VoIP call | Y | Y |
@@ -75,7 +75,6 @@ Tow types of VoIP calling tokens are supported. Permissions for each token are d
 |All other in call operations such as mute/unmute, screen share etc. in Virtual Rooms| Y | Determined by user role |
 
 ## Revoke or Update access token
-Access token can be removed in a few ways.
 - Azure Communication Services Identity library can be used to revoke an access token before its expiration time. Token revocation isn't immediate. It can take up to 15 minutes to propagate.
 - The removal of an identity, resource, or subscription revokes all access tokens.
 - If you want to remove a user's ability to access specific functionality, revoke all access tokens. Then issue a new access token that has a more limited set of scopes.
