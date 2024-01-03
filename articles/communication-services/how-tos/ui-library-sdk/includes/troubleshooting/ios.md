@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to retrieve CallComposite debug information
+description: Learn how to retrieve CallComposite debug information.
 author: pprystinka
 
 ms.date: 11/23/2022
