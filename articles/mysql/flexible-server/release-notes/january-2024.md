@@ -12,7 +12,7 @@ ms.topic: conceptual
 # Azure Database For MySQL Flexible Server January 2024 Maintenance
 
 ## Overview
-We are pleased to announce the latest maintenance for Azure Database for MySQL Flexible Server. This update upgrades the Azure MySQL Flexible Server to our 2023 December released version, incorporating several new features and resolving known issues for enhanced performance and reliability.
+We are pleased to announce the January 2024 maintenance for Azure Database for MySQL Flexible Server. This maintenance incorporates several new features and resolves known issues for enhanced performance and reliability.
 
 ## Engine version changes
 There will be no engine version changes in this maintenance update.
