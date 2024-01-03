@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Use Azure Cache for Redis as a Semantic Cache'
-description: In this tutorial, you learn how to use Azure Cache for Redis to store and search for vector embeddings.
+description: In this tutorial, you learn how to use Azure Cache for Redis as a semantic cache.
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
@@ -142,7 +142,7 @@ embeddings = AzureOpenAIEmbeddings(
 )
 ```
 
-1. Execute code cell 3.
+Execute code cell 3.
 
 ## Set up Redis as a semantic cache
 
