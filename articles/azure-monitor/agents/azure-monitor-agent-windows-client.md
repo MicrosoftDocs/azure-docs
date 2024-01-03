@@ -56,9 +56,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 
 ## Limitations
 
-1. The data collection rules you create for Windows client machines can only target the entire Microsoft Entra tenant scope. That is, a data collection rule you associate to a monitored object applies to all Windows client machines on which you install Azure Monitor Agent using this client installer within the tenant. **Granular targeting using data collection rules is not supported** for Windows client devices yet.
-1. Azure Monitor Agent doesn't support monitoring of Windows machines connected via **Azure private links**. 
-1. The agent installed using the Windows client installer is designed mainly for Windows desktops or workstations that are **always connected**. Although you can install Azure Monitor Agent on laptops using the installer, the agent isn't optimized for battery consumption and network limitations on a laptop.
+[!INCLUDE [azure-monitor-agent-client-installer-limitations](../includes/azure-monitor-agent-client-installer-limitations.md)]
 
 ## Install the agent
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown in the following screenshot):

@@ -19,12 +19,16 @@ This article describes how to enable VM Insights on a Windows client machine.
 - A Windows device that's domain joined to your Microsoft Entra tenant. The device must be able to connect to the internet.
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported.
 
-## Firewall requirements
+### Firewall requirements
 
 - For Azure Monitor Agent firewall requirements, see [Define Azure Monitor Agent network settings](../agents/azure-monitor-agent-data-collection-endpoint.md#firewall-requirements). 
 - The VM Insights Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports.
 
 Azure Monitor Agent transmits data to Azure Monitor directly or through the [Log Analytics gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+
+## Limitations
+
+[!INCLUDE [azure-monitor-agent-client-installer-limitations](../includes/azure-monitor-agent-client-installer-limitations.md)]
 
 ## Deploy VM Insights data collection rule and install agents
 
