@@ -619,9 +619,9 @@ items:
     - name: REST
       items:
       - name: Preview
-        href: /rest/api/eventgrid/controlplane/operation-groups?view=rest-eventgrid-controlplane-2023-12-15-preview
+        href: /rest/api/eventgrid/controlplane/operation-groups?view=rest-eventgrid-controlplane-2023-12-15-preview&preserve-view=true
       - name: GA
-        href: /rest/api/eventgrid/controlplane/operation-groups?view=rest-eventgrid-controlplane-2022-06-15
+        href: /rest/api/eventgrid/controlplane/operation-groups?view=rest-eventgrid-controlplane-2022-06-15&preserve-view=true
     - name: .NET
       items:
       - name: Preview
