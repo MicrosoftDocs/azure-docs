@@ -19,8 +19,8 @@ A search service is subject to a maximum storage limit (partition size multiplie
 | Partitions | N/A |1 |12 |12 |12 |3 |12 |12 |
 | Replicas | N/A |3 |12 |12 |12 |12 |12 |12 |
 
-<sup>1</sup> Basic has one fixed partition. You can specify up to 3 more search units to add replicas for larger query volumes.
+<sup>1</sup> Basic has one fixed partition. You can specify up to 3 more search units to add replicas for larger query volumes and high availability.
 
-<sup>2</sup> Service level agreements apply to billable services having dedicated resources. Free services and preview features have no SLA. For billable services, SLAs take effect when you provision sufficient redundancy for your service. Two or more replicas are required for query (read) SLAs. Three or more replicas are required for query and indexing (read-write) SLAs. The number of partitions isn't an SLA consideration.
+<sup>2</sup> Service level agreements apply to billable services having dedicated resources. Free services and preview features have no SLA. For billable services, SLAs take effect when you provision sufficient redundancy for your service. Two or more replicas are required for query (read) SLAs. Three or more replicas are required for query and indexing (read-write) SLAs. The number of partitions isn't an SLA consideration. See [Reliability in Azure AI Search](search-reliability.md) for replicas needed for SLAs.
 
 <sup>3</sup> Free services don't have a dedicated partition. The 50-MB storage limit refers to the maximum space allocated to a free search service on infrastructure shared with other customers.
