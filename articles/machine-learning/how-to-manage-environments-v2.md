@@ -61,14 +61,9 @@ To connect to the workspace, you need identifier parameters - a subscription, re
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=libraries)]
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb?name=start-spark-session)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=workspace_details)]
 
-<!-- [!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=libraries)]
-
-[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=workspace_details)]
-
-[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=get_workspace)] -->
-
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=get_workspace)]
 
 ---
 
