@@ -472,6 +472,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | actionGroups | resource group | 1-260 | Can't use:<br>`:<>+/&%\?` or control characters <br><br>Can't end with space or period.  |
+> | autoScaleSettings | resource group | 1-260 | Can't use:<br>`:<>+/&%\?` or control characters <br><br>Can't end with space or period.  |
 > | components | resource group | 1-260 | Can't use:<br>`%&\?/` or control characters <br><br>Can't end with space or period.  |
 > | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#` or control characters <br><br>Can't end with space or period.  |
 > | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/` or control characters <br><br>Can't end with space or period.  |
