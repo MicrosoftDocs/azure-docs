@@ -33,7 +33,7 @@ In this article, learn how to create and manage Azure Machine Learning environme
 
 ### Clone examples repository
 
-To run the training examples, first clone the examples repository. For the CLI examples, change into the `cli` directory. For the SDK examples, change into the `sdk/python` directory:
+To run the training examples, first clone the examples repository. For the CLI examples, change into the `cli` directory. For the SDK examples, change into the `sdk/python/assets/environment` directory:
 
 ```azurecli
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -130,7 +130,7 @@ az ml environment create --file assets/environment/docker-context.yml
 
 # [Python SDK](#tab/python)
 
-In the following example, the local path to the build context folder is specified in the `path' parameter. Azure Machine Learning will look for a Dockerfile named `Dockerfile` at the root of the build context.
+In the following example, the local path to the build context folder is specified in the `path` parameter. Azure Machine Learning will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_context)]
 
