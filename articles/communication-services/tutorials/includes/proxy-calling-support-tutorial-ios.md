@@ -22,10 +22,10 @@ In certain situations, it might be useful to have all your client traffic proxie
 ### Proxy calling media traffic
 
 #### What is a TURN server?
-Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of many reasons: firewalls with strict rules, peers sitting behind a private network, or computers are running in a NAT environment. To solve these network connection issues, you can use a TURN server. The term stands for Traversal Using Relays around NAT, and it's a protocol for relaying network traffic. STUN and TURN servers are the relay servers here. [Learn more about how Azure Communication Services mitigates network challenges by utilizing STUN and TURN](../../concepts/network-traversal.md).
+Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of many reasons: firewalls with strict rules, peers sitting behind a private network, or computers running in a NAT environment. To solve these network connection issues, you can use a TURN server. The term stands for Traversal Using Relays around NAT, and it's a protocol for relaying network traffic. STUN and TURN servers are the relay servers here. [Learn more about how Azure Communication Services mitigates network challenges by utilizing STUN and TURN](../../concepts/network-traversal.md).
 
 #### Provide your TURN server details with the SDK
-To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing the `CallClient`. For more information how to setup a call, see [Azure Communication Services iOS SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios) for the Quickstart on how to setup Voice and Video.
+To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing the `CallClient`. For more information how to set up a call, see [Azure Communication Services iOS SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios) for the Quickstart on how to setup Voice and Video.
 
 ```swift
 let callClientOptions = new CallClientOptions()
@@ -64,13 +64,13 @@ self.callClient = CallClient(options: callClientOptions);
 > If any of the URLs provided are invalid, the `CallClient` initialization will fail and will throw errors accordingly.
 
 #### Set up a TURN server in Azure
-You can create a Linux virtual machine in the Azure portal using this [guide](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu), and deploy a TURN server using [coturn](https://github.com/coturn/coturn), a free and open source implementation of a TURN and STUN server for VoIP and WebRTC.
+You can create a Linux virtual machine in the Azure portal using this [guide](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) and deploy a TURN server using [coturn](https://github.com/coturn/coturn). Coturn is a free and open source implementation of a TURN and STUN server for VoIP and WebRTC.
 
 Once you have setup a TURN server, you can test it using the WebRTC Trickle ICE page - [Trickle ICE](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/).
 
 ### Proxy signaling traffic
 
-To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` through its property `Network` while initializing the `CallClient`. For more details how to setup a call see [Azure Communication Services iOS SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios) for the Quickstart on how to setup Voice and Video.
+To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` through its property `Network` while initializing the `CallClient`. For more information on how to set up a call, see [Azure Communication Services iOS SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios) for the Quickstart on how to setup Voice and Video.
 
 ```swift
 let callClientOptions = CallClientOptions()
