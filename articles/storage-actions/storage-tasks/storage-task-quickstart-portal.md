@@ -25,7 +25,9 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 - An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md).
 
-- A custom role assigned to your user identity which contains the RBAC actions necessary to set tags and blob immutability policies. See [storage-task-assignment-authorization-roles](storage-task-assignment-authorization-roles.md).
+- The [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role is assigned to your user identity in the context of the storage account.
+
+- A custom role assigned to your user identity which contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles.md#permissions-required-to-assign-a-task). 
 
 - A blob container that has a metadata key named `Classification` which is set to the string "Confidential". 
 
