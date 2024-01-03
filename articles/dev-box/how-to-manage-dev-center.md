@@ -1,5 +1,5 @@
 ---
-title: Manage a dev center
+title: Manage a Microsoft Dev Box dev center
 titleSuffix: Microsoft Dev Box
 description: Microsoft Dev Box dev centers help you manage dev box resources, grouping projects with similar settings. Learn how to create, delete, and manage dev centers.
 services: dev-box
@@ -15,17 +15,17 @@ ms.topic: how-to
 
 In this article, you learn how to manage a dev center in Microsoft Dev Box by using the Azure portal.
 
-Development teams vary in the way they function and might have different needs. A dev center helps you manage these scenarios by enabling you to group similar sets of projects together and apply similar settings.
+Development teams vary in the way they function and can have different needs. A dev center helps you manage these scenarios by enabling you to group similar sets of projects together and apply similar settings.
 
 ## Permissions
 
 To manage a dev center, you need the following permissions:
 
-|Action|Permissions required|
-|-----|-----|
-|Create or delete a dev center|Owner or Contributor permissions on an Azure subscription or a specific resource group.|
-|Manage a dev center|Owner or Contributor role, or specific Write permission to the dev center.|
-|Attach or remove a network connection|Network Contributor permissions on an existing network connection (Owner or Contributor).|
+| Action | Permissions required |
+|---|---|
+| _Create or delete a dev center_ | Owner or Contributor permissions on an Azure subscription or a specific resource group. |
+| _Manage a dev center_ | Owner or Contributor role, or specific Write permission to the dev center. |
+| _Attach or remove a network connection_ | Network Contributor permissions on an existing network connection (Owner or Contributor). |
 
 ## Create a dev center
 
@@ -39,28 +39,28 @@ To create a dev center in the Azure portal:
 
 1. In the search box, enter **dev centers**. In the search results, select **Dev centers** from the **Services** list.
 
-   :::image type="content" source="./media/how-to-manage-dev-center/search-dev-center.png" alt-text="Screenshot that shows the search box and list of services on the Azure portal.":::
+   :::image type="content" source="./media/how-to-manage-dev-center/search-dev-center.png" alt-text="Screenshot that shows the Azure portal with the search box and the result for dev centers." lightbox="./media/how-to-manage-dev-center/search-dev-center.png":::
 
 1. On the **Dev centers** page, select **Create**.
 
-   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center.png" alt-text="Screenshot that shows the Create button on the page for dev centers.":::
+   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center.png" alt-text="Screenshot that shows the Azure portal with the Create button on the page for dev centers." lightbox="./media/how-to-manage-dev-center/create-dev-center.png":::
 
 1. On the **Create a dev center** pane, on the **Basics** tab, enter the following values:
 
-   |Name|Value|
-   |----|----|
-   |**Subscription**|Select the subscription in which you want to create the dev center.|
-   |**ResourceGroup**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
-   |**Name**|Enter a name for the dev center.|
-   |**Location**|Select the location or region where you want to create the dev center.|
+   | Setting | Value |
+   |---|---|
+   | **Subscription** | Select the subscription in which you want to create the dev center. |
+   | **ResourceGroup** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
+   | **Name** | Enter a name for your dev center. |
+   | **Location** | Select the location or region where you want the dev center to be created. |
 
-   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center.":::
+   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="./media/how-to-manage-dev-center/create-dev-center-basics.png":::
 
-   For a list of supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
+   For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
 
 1. (Optional) On the **Tags** tab, enter a name/value pair that you want to assign.
 
-   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-tags.png" alt-text="Screenshot that shows the Tags tab on the page for creating a dev center.":::
+   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-tags.png" alt-text="Screenshot that shows the Tags tab on the page for creating a dev center." lightbox="./media/how-to-manage-dev-center/create-dev-center-tags.png":::
 
 1. Select **Review + Create**.
 
@@ -68,9 +68,9 @@ To create a dev center in the Azure portal:
 
 1. Monitor the progress of the dev center creation from any page in the Azure portal by opening the **Notifications** pane.
 
-   :::image type="content" source="./media/how-to-manage-dev-center/azure-notifications.png" alt-text="Screenshot that shows the Notifications pane in the Azure portal.":::
+   :::image type="content" source="./media/how-to-manage-dev-center/azure-notifications.png" alt-text="Screenshot that shows the Notifications pane in the Azure portal." lightbox="./media/how-to-manage-dev-center/azure-notifications.png":::
 
-1. When the deployment is complete, select **Go to resource** and confirm that the dev center appears on the **Dev centers** page.
+1. When the deployment completes, select **Go to resource**. Confirm that the dev center page appears.
 
 ## Delete a dev center
 
@@ -78,7 +78,7 @@ You might choose to delete a dev center to reflect organizational or workload ch
 
 A dev center can't be deleted while any projects are associated with it. You must delete the projects before you can delete the dev center.
 
-Attached network connections and their associated virtual networks are not deleted when you delete a dev center.
+Attached network connections and their associated virtual networks aren't deleted when you delete a dev center.
 
 When you're ready to delete your dev center, follow these steps:
 
@@ -90,9 +90,13 @@ When you're ready to delete your dev center, follow these steps:
 
 1. Select **Delete**.
 
-    :::image type="content" source="./media/how-to-manage-dev-center/delete-dev-center.png" alt-text="Screenshot of the Delete button on the page for a dev center.":::
+   :::image type="content" source="./media/how-to-manage-dev-center/delete-dev-center.png" alt-text="Screenshot of the Delete button on the page for a dev center." lightbox="./media/how-to-manage-dev-center/delete-dev-center.png":::
 
 1. In the confirmation message, select **OK**.
+
+<!-- Rose: The following two sections are also covered in the topic, how-to-configure-network-connections.md.
+     - The other topic includes images for the steps. Do you want to duplicate the images here?
+     - The other topic includes some extra info in the sections. Do you want to include that info here as well? -->
 
 ## Attach a network connection
 
@@ -130,11 +134,9 @@ You can remove network connections from dev centers. Network connections can't b
 
 You can assign multiple users permissions to a dev center to help with administrative tasks. You can assign users or groups to the following built-in roles:
 
-|**Role**|**Description**|
-|-----|-----|
-|**Owner**|Grants full access to manage all resources, including the ability to assign roles in Azure role-based access control (RBAC).|
-|**Contributor**|Grants full access to manage all resources, but doesn't allow the user to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.|
-|**Reader**|Grants the ability to view all resources, but doesn't allow the user to make any changes.|
+- **Owner**: Grants full access to manage all resources, including the ability to assign roles in Azure role-based access control (RBAC).
+- **Contributor**: Grants full access to manage all resources, but doesn't allow the user to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
+- **Reader**: Grants the ability to view all resources, but doesn't allow the user to make any changes.
 
 To make role assignments:
 
@@ -148,10 +150,10 @@ To make role assignments:
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign a role by configuring the following settings. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
     | Setting | Value |
-    | --- | --- |
+    |---|---|
     | **Role** | Select **Owner**, **Contributor**, or **Reader**. |
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups that you want to be able to access the dev center. |
@@ -159,5 +161,5 @@ To make role assignments:
 ## Related content
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
-- [2. Create a dev box definition](quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [Create a dev box definition](quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)
