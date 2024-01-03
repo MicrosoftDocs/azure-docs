@@ -1212,6 +1212,8 @@ items:
         href: logs/functions.md
       - name: Parse text data
         href: logs/parse-text.md
+      - name: Send to Excel
+        href: logs/log-excel.md
       - name: Computer groups
         href: logs/computer-groups.md
       - name: Cross-service and cross-resource queries
