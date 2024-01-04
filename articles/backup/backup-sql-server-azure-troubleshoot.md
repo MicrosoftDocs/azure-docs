@@ -232,7 +232,7 @@ The VM is not able to contact Azure Backup service due to internet connectivity 
 
 | Error message | Possible cause | Recommended action |
 | --- | --- | --- |
-| Backup of databases participating in a database mirroring session is not supported by AzureWorkloadBackup. | When you've the mirroring operation enabled on a SQL database, this error appears. Currently, Azure Backup doesn't support databases with this feature enabled.       |      You can remove the database mirroring session of the database for the operation to complete successfully. Alternatively, if the database is already protected, do *Stop backup* operation on the database. |
+| Backup of databases participating in a database mirroring session is not supported by AzureWorkloadBackup. | When you enable the mirroring operation on a SQL database, this error appears. Currently, Azure Backup doesn't support databases with this feature enabled.       |      You can remove the database mirroring session of the database for the operation to complete successfully. Alternatively, if the database is already protected, do *Stop backup* operation on the database. |
 
 ### UserErrorWindowsWLExtFailedToStartPluginService
 
