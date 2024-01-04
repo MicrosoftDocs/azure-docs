@@ -24,11 +24,11 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| January 1 | [Recommendations released for preview: Nine new Azure security recommendations](#recommendations-released-for-preview-nine-new-azure-security-recommendations) |
+| January 4 | [Recommendations released for preview: Nine new Azure security recommendations](#recommendations-released-for-preview-nine-new-azure-security-recommendations) |
 
 ### Recommendations released for preview: Nine new Azure security recommendations
 
-January 1, 2024
+January 4, 2024
 
 We have added nine new Azure security recommendations aligned with the Microsoft Cloud Security Benchmark. These new recommendations are currently in public preview.
 
@@ -205,12 +205,7 @@ For a complete list of alerts, see the [reference table for all security alerts 
 | November 15 | [General Availability release of sensitive data discovery for databases](#general-availability-release-of-sensitive-data-discovery-for-databases) |
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
 
-
-
-## Four alerts are deprecated
-
 ### Four alerts are deprecated
-
 
 November 30, 2023
 
