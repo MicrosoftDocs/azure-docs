@@ -65,7 +65,7 @@ be scaled down (decreased).
 Up to 32 TiB of storage is supported on coordinator and worker nodes in multi-node configuration. Up to 2 TiB of storage is supported for single node configurations. See [the available storage options and IOPS calculation](resources-compute.md)
 for various node and cluster sizes.
 
-### Customer managed keys for storage encryption
+### Customer-managed keys for storage encryption
 
 [Data encryption with customer-managed keys (CMK)](./concepts-customer-managed-keys.md) for Azure Cosmos DB for PostgreSQL clusters has the following limitations.
 * CMK encryption can only be enabled during the creation of a new Azure Cosmos DB for PostgreSQL cluster.
