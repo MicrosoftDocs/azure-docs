@@ -8,7 +8,7 @@ ms.author: matthewernst
 ms.service: azure-operator-nexus
 ---
 
-# Nexus Platform Cluster Runtime Upgrade Governance
+# Nexus Platform Cluster runtime upgrade governance
 
 This document details how Operator Nexus releases, manages, and supports various platform runtime upgrades for Near Edge customers. 
 
