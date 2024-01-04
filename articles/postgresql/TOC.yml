@@ -3,8 +3,8 @@
 - name: Overview
   items:
   - name: What is Azure Database for PostgreSQL - Flexible Server?
-    href: single-server/overview.md
-  - name: Choose server configuration in Azure
+    href: flexible-server/service-overview.md
+  - name: Self-hosted vs. managed service
     href: flexible-server/overview-postgres-choose-server-options.md
   - name: Compare deployment options
     href: flexible-server/concepts-compare-single-server-flexible-server.md
@@ -316,7 +316,7 @@
           href: flexible-server/how-to-restore-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restore-server-cli.md
-      - name: Stop/start a server
+      - name: Stop/Start a server
         items:
         - name: Azure portal
           href: flexible-server/how-to-stop-start-server-portal.md

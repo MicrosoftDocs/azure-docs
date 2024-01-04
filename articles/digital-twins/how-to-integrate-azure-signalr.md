@@ -130,7 +130,7 @@ At this point, you should see two event subscriptions in the **Event Grid Topic*
 
 ## Configure and run the web app
 
-In this section, you'll see the result in action. First, configure the sample client web app to connect to the Azure SignalR flow you've set up. Next, you'll start up the simulated device sample app that sends telemetry data through your Azure Digital Twins instance. After that, you'll view the sample web app to see the simulated device data updating the sample web app in real time.
+In this section, you'll see the result in action. First, configure the sample client web app to connect to the Azure SignalR flow you've set up. Next, you'll start up the simulated device sample app that sends device telemetry data through your Azure Digital Twins instance. After that, you'll view the sample web app to see the simulated device data updating the sample web app in real time.
 
 ### Configure the sample client web app
 
@@ -174,7 +174,7 @@ Now, start the simulator project located in *digital-twins-samples-main\DeviceSi
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Screenshot of the Visual Studio start button with the DeviceSimulator project open.":::
 
-A console window will open and display simulated temperature telemetry messages. These messages are being sent through your Azure Digital Twins instance, where they're then picked up by the Azure functions and SignalR.
+A console window will open and display simulated device temperature telemetry messages. These messages are being sent through your Azure Digital Twins instance, where they're then picked up by the Azure functions and SignalR.
 
 You don't need to do anything else in this console, but leave it running while you complete the next step.
 

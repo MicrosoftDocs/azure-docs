@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title:  Azure Database for PostgreSQL documentation
-summary: "Azure Database for PostgreSQL is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability."
+title:  Azure Database for PostgreSQL - Flexible Server documentation
+summary: "Azure Database for PostgreSQL - Flexible Server is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability."
 metadata:
-  description: "Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
+  description: "Azure Database for PostgreSQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: sunilagarwal
   ms.author: sunila
   ms.review: maghan
@@ -14,25 +14,23 @@ metadata:
 landingContent:
 
 # Card 1
-  - title: Azure Database for PostgreSQL
+  - title: Azure Database for PostgreSQL - Flexible Server
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Database for PostgreSQL?
-            url: flexible-server/overview.md
+          - text: What is Azure Database for PostgreSQL - Flexible Server?
+            url: flexible-server/service-overview.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
             url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
 
 # Card 2
-  - title: Flexible Server 
+  - title: Azure Database for PostgreSQL - Flexible Server
     linkLists:
-      - linkListType: overview
+      - linkListType: get-started
         links:
-          - text: What is Flexible Server?
-            url: flexible-server/overview.md
-          - text: Try Flexible Server for free
+          - text: Try Azure Database for PostgreSQL - Flexible Server for free
             url: flexible-server/how-to-deploy-on-azure-free-account.md
       - linkListType: concept
         links:
@@ -44,9 +42,9 @@ landingContent:
             url: flexible-server/concepts-limits.md
       - linkListType: quickstart
         links:
-          - text: Create a server using Portal
+          - text: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure portal
             url: flexible-server/quickstart-create-server-portal.md
-          - text: Create a server using ARM Template
+          - text: Create an Azure Database for PostgreSQL - Flexible Server instance using ARM template
             url: flexible-server/quickstart-create-server-arm-template.md
       - linkListType: tutorial
         links:
@@ -54,7 +52,7 @@ landingContent:
             url: flexible-server/tutorial-webapp-server-vnet.md
 
 # Card 3
-  - title: Manage Flexible Server
+  - title: Manage Azure Database for PostgreSQL - Flexible Server
     linkLists:
       - linkListType: concept
         links:
@@ -62,7 +60,7 @@ landingContent:
             url: flexible-server/concepts-compute-storage.md
           - text: Networking
             url: flexible-server/concepts-networking.md
-          - text: Firewall Rules
+          - text: Firewall rules
             url: flexible-server/concepts-firewall-rules.md
           - text: PostgreSQL versions
             url: flexible-server/concepts-supported-versions.md
@@ -88,7 +86,7 @@ landingContent:
             url: flexible-server/how-to-scale-compute-storage-portal.md
           - text: Restart a server
             url: flexible-server/how-to-restart-server-portal.md 
-          - text: Setup private networking 
+          - text: Set up private networking 
             url:  flexible-server/how-to-manage-virtual-network-portal.md
           - text: Connect securely using TLS
             url: flexible-server/how-to-connect-tls-ssl.md        
@@ -146,7 +144,7 @@ landingContent:
           url: flexible-server/tutorial-webapp-server-vnet.md
 
 # Card 6
-  - title: Application Development
+  - title: Application development
     linkLists:
       - linkListType: concept
         links:
@@ -154,7 +152,7 @@ landingContent:
             url: flexible-server/concepts-connectivity.md
       - linkListType: tutorial
         links:
-          - text: Design a Database on Single Server
+          - text: Design a database on Azure Database for PostgreSQL - Single Server
             url: single-server/tutorial-design-database-using-azure-portal.md
 
 # Card 7
@@ -168,17 +166,17 @@ landingContent:
             url: howto-migrate-online.md
 
 #Card 8
-  - title: Single server
+  - title: Azure Database for PostgreSQL - Single server
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Single Server?
+          - text: What is Azure Database for PostgreSQL - Single Server?
             url: single-server/overview.md
       - linkListType: quickstart
         links:
-          - text: Create a server using the Azure Portal
+          - text: Create an Azure Database for PostgreSQL - Single Server instance using the Azure portal
             url: single-server/quickstart-create-server-database-portal.md
-          - text: Create a server using Azure CLI
+          - text: Create an Azure Database for PostgreSQL - Single Server instance using Azure CLI
             url: single-server/quickstart-create-server-database-azure-cli.md
       - linkListType: concept
         links:
@@ -188,7 +186,7 @@ landingContent:
             url: flexible-server/concepts-limits.md
       - linkListType: tutorial
         links:
-          - text: Design a Database on Single Server
+          - text: Design a database on Azure Database for PostgreSQL - Single Server
             url: single-server/tutorial-design-database-using-azure-portal.md
           - text: Build Python (Django) app with PostgreSQL
             url: ../app-service/tutorial-python-postgresql-app.md?toc=/azure/postgresql/toc.json
@@ -200,7 +198,7 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: 'Learning module: Create an Azure Database for PostgreSQL server'
+          - text: 'Learning module: Create an Azure Database for PostgreSQL - Flexible Server instance'
             url: /training/modules/create-azure-db-for-postgresql-server/
       - linkListType: deploy
         links:
@@ -225,5 +223,5 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Azure Database for PostgreSQL
+          - text: Azure Database for PostgreSQL - Flexible Server
             url: /training/paths/introduction-to-azure-postgres/
