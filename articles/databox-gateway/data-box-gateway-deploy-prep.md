@@ -88,31 +88,27 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
 
     - The Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
     - The Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For details, go to [Connect to Azure Government using the portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
-    
-2. Select **+ Create a resource**.
+
+1. Select **+ Create a resource**.
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-create-a-resource-sml.png" alt-text="Screenshot of Azure Data Box Gateway's Create a Resource button." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-create-a-resource.png":::
-    ![Azure Data Box Gateway Create a Resource button](media/data-box-gateway-deploy-prep/data-box-gateway-create-a-resource.png)
 
-3. Type **Data Box Gateway** in the search box, and press Enter.
+1. Type **Data Box Gateway** in the search box, and press Enter.
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-search-box.png" alt-text="Screenshot showing the location of the Search box for the Data Box Gateway service.":::
-    ![Search for the Data Box Gateway service](media/data-box-gateway-deploy-prep/data-box-gateway-search-box.png)
 
-    Then select **Azure Data Box Gateway**.
+    Next, select **Azure Data Box Gateway**.
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-sku-sml.png" alt-text="Screenshot showing the Azure Data Box Gateway included in the Azure search results." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-sku.png":::
-    ![Select the Data Box Gateway SKU](media/data-box-gateway-deploy-prep/data-box-gateway-sku.png)
 
-4. Select **Create**.
+1. Select **Create**.
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-create.png" alt-text="Screenshot showing the location of the Create button used to create the Data Box Gateway resource.":::
-    ![Click Create to create the Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-create.png)
 
-5. On the **Basics** tab:
+1. On the **Basics** tab:
 
     Enter or select the following **Project details**.
-    
+
     |Setting  |Value  |
     |---------|---------|
     |Subscription    |Pick the subscription that you want to use for your Data Box Gateway device. The subscription is linked to your billing account.|
@@ -125,20 +121,17 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
     |Name   |A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letters, numbers, and hyphens. <br> The name must start and end with a letter or a number. |
     |Region  |Select the region where you want to deploy your resource. Choose a location close to the geographic region where you want to deploy your device. <br> For a list of all regions where Data Base Gateway/Azure Stack Edge resources are available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). <br> For the Azure Government, all the government regions listed in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) are available.|
 
-   Then select **Review + create** to review your order.
+   Finally, select **Review + create** to review your order.
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-basics-sml.png" alt-text="Sreenshot of a Project and Instance detail entry for a Data Box Gateway order." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-basics.png":::
-   ![Project and instance detail entry for a Data Box Gateway order](media/data-box-gateway-deploy-prep/data-box-gateway-basics.png)
 
-7. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select **Create**.
+1. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select **Create**.
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-resource-review-create.png" alt-text="Screenshot of the Data Box Gateway resource details displayed for review.":::
-    ![Data Box Gateway resource details displayed for review](media/data-box-gateway-deploy-prep/data-box-gateway-resource-review-create.png)
 
 The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
 :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-completed-order-sml.png" alt-text="Screenshot of a completed Data Box Gateway order" lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-completed-order.png":::
-![A completed Data Box Gateway order](media/data-box-gateway-deploy-prep/data-box-gateway-completed-order.png)
 
 ## Download the virtual device image
 
@@ -152,7 +145,6 @@ Follow these steps in the [Azure portal](https://portal.azure.com/) to download 
 1. In the resource that you created and then select **Overview**. If you have an existing Azure Data Box Gateway resource, select the resource and go to **Overview**. Select **Device setup**.
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-resource-created-sml.png" alt-text="Screenshot of a new Data Box Gateway resource." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png":::
-    ![New Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
 
 1. On the **Download image** tile, select the virtual device image corresponding to the operating system on the host server used to provision the VM. The image files are approximately 5.6 GB.
 
@@ -160,10 +152,8 @@ Follow these steps in the [Azure portal](https://portal.azure.com/) to download 
    * [VMDK for VMware ESXi 6.7, 7.0, or 8.0](https://aka.ms/dbg-rel-vmdk).
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-download-image-sml.png" alt-text="Screenshot showing the location of the link used to download a Data Box Gateway virtual device image." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png":::
-    ![Download Data Box Gateway virtual device image](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
 
 1. Download and unzip the file to a local drive, making a note of where the unzipped file is located.
-
 
 ## Get the activation key
 
@@ -177,7 +167,6 @@ After the Data Box Gateway resource is up and running, you'll need to get the ac
 2. Select **Generate key** to create an activation key. Select the copy icon to copy the key and save it for later use.
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/get-activation-key-sml.png" alt-text="Screenshot showing the location of the Activation key after it has been generated." lightbox="media/data-box-gateway-deploy-prep/get-activation-key.png":::
-    ![Get activation key](media/data-box-gateway-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.
