@@ -1,7 +1,7 @@
 ---
-title: Localize an application by using the UI Library
+title: Localize the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use the Azure Communication Services UI Library to set up localization in an application.
+description: Set up localization for the Azure Communication Services UI Library.
 author: jorgegarc
 ms.author: jorgegarc
 ms.service: azure-communication-services
@@ -10,10 +10,10 @@ ms.date: 04/03/2022
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android
 
-#Customer intent: As a developer, I want to set up the localization of my application.
+#Customer intent: As a developer, I want to set up the localization of the UI Library in my application.
 ---
 
-# Localize an application
+# Localize the UI Library in an application
 
 Localization is a key to making products that can be used across the world and by people who speak different languages. The Azure Communication Services UI Library provides out-of-the-box support for some languages and capabilities, such as right to left (RTL). Developers can provide their own localization files for the UI Library.
 

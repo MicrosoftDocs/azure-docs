@@ -1,7 +1,7 @@
 ---
-title: Theme an application by using the UI Library
+title: Theme the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use the Azure Communication Services UI Library to set up theming in an application.
+description: Set up theming for the Azure Communication Services UI Library.
 author: garchiro7
 ms.author: jorgegarc
 ms.service: azure-communication-services
@@ -10,10 +10,10 @@ ms.date: 10/27/2023
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android
 
-#Customer intent: As a developer, I want to set up the theming of my application
+#Customer intent: As a developer, I want to set up the theming of the UI Library in my application.
 ---
 
-# Theme an application
+# Theme the UI Library in an application
 
 The Azure Communication Services UI Library is a set of components, icons, and composites that make it easier for you to build high-quality user interfaces for your projects. The UI Library uses components and icons from [Fluent UI](https://developer.microsoft.com/fluentui), the cross-platform design system that Microsoft uses. As a result, the components are built with usability, accessibility, and localization in mind.
 
