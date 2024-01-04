@@ -53,7 +53,7 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
     * Doesn't lead to significant data loss.
     * Doesn't add unexpected noise to your data.  
 
-    This will impact the quality of the model response. 
+    This will affect the quality of the model response. 
 
 ## Ingesting your data
 
@@ -104,9 +104,9 @@ Upgrade to a higher pricing tier or delete unused assets.
 
 **Preprocessing Timeout Issues** 
 
-*Could not execute skill because the Web Api request failed*
+*Could not execute skill because the Web API request failed*
 
-*Could not execute skill because Web Api skill response is invalid* 
+*Could not execute skill because Web API skill response is invalid* 
 
 Resolution: 
 
@@ -186,7 +186,7 @@ Use the script [provided on GitHub](https://github.com/microsoft/sample-app-aoai
 
 To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an existing Azure Cosmos DB for MongoDB vCore index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
 
-1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, click **Select or add data source**. In the panel that appears, select **Azure Cosmos DB for MongoDB vCore** as the data source. 
+1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, select **Add your data**. In the panel that appears, select **Azure Cosmos DB for MongoDB vCore** as the data source. 
 1. Select your Azure subscription and database account, then connect to your Azure Cosmos DB account by providing your Azure Cosmos DB account username and password.
     
     :::image type="content" source="../media/use-your-data/add-mongo-data-source.png" alt-text="A screenshot showing the screen for adding Mongo DB as a data source in Azure OpenAI Studio." lightbox="../media/use-your-data/add-mongo-data-source.png":::
@@ -215,7 +215,7 @@ Currently, you can add your data from a URL/web address. Your data from a URL/we
 
 * A public website, such as [Using your data with Azure OpenAI Service - Azure OpenAI | Microsoft Learn](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search). Note that you cannot add a URL/Web address with access control, such as with password.
 
-* A HTTPS website.
+* An HTTPS website.
 
 * The size of content in each URL is smaller than 5MB.  
 
@@ -241,26 +241,6 @@ You can modify the following additional settings in the **Data parameters** sect
 |---------|---------|
 |**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 5. This is the `topNDocuments` parameter in the API.     |
 | **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
-
-## Azure Role-based access controls (Azure RBAC) for adding data sources
-
-To add a new data source to Azure OpenAI on your data, you need the following Azure RBAC roles.
-
-
-|Azure RBAC role  | Which resource needs this role? | Needed when  |
-|---------|---------|---------|
-| [Cognitive Services OpenAI Contributor](../how-to/role-based-access-control.md#cognitive-services-openai-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to use Azure OpenAI on your data.   |
-|[Search Index Data Reader](/azure/role-based-access-control/built-in-roles#search-index-data-reader) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You want to use Azure OpenAI on your data.        |
-|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You plan to create a new Azure AI Search index.        |
-|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.  | The Azure AI Search and Azure OpenAI resources, to access the storage account.       |
-| [Cognitive Services OpenAI User](../how-to/role-based-access-control.md#cognitive-services-openai-user) | The web app, to access the Azure OpenAI resource. | You want to deploy a web app.   |
-| [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
-| [Cognitive Services Contributor Role](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to deploy a [web app](#using-the-web-app).   |
-
-## Virtual network support & private endpoint support
-
-* For instructions on setting up your resources to work on a virtual private network or private endpoint, see [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md)
-* Azure OpenAI, Azure AI Search, and Azure Storage Accounts can be protected under private endpoints and virtual private networks.
 
 ## Document-level access control
 
@@ -442,7 +422,7 @@ When customizing the app, we recommend:
 
 - Resetting the chat session (clear chat) if the user changes any settings. Notify the user that their chat history will be lost.
 
-- Clearly communicating the impact on the user experience that each setting you implement will have.
+- Clearly communicating the effect on the user experience that each setting you implement will have.
 
 - When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
@@ -459,11 +439,11 @@ When customizing the app, we recommend:
 
     1. Select Microsoft as the identity provider. The default settings on this page will restrict the app to your tenant only, so you don't need to change anything else here. Then select **Add**
     
-    Now users will be asked to sign in with their Microsoft Entra account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's login information in any other way other than verifying they are a member of your tenant.
+    Now users will be asked to sign in with their Microsoft Entra account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's sign-in information in any other way other than verifying they are a member of your tenant.
 
 ### Chat history
 
-You can enable chat history for your users of the web app. By enabling the feature, your users will have access to their individual previous queries and responses. 
+You can enable chat history for your users of the web app. If you enable the feature, your users will have access to their individual previous queries and responses. 
 
 To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal)
 
@@ -588,5 +568,7 @@ token_output = TokenEstimator.estimate_tokens(input_text)
 
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)
+
+* [Securely use Azure OpenAI on your data](../how-to/use-your-data-securely.md)
 
 * [Introduction to prompt engineering](./prompt-engineering.md)
