@@ -123,7 +123,7 @@ Follow these steps:
 
 7. To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 
-# [PowerShell](#tab/power-shell)
+# [PowerShell](#tab/powershell)
 
 
 

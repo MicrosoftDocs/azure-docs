@@ -115,5 +115,5 @@ Disabling this feature isn't recommended. The only circumstance where you should
 
 ## Next steps
 
-- Read the [frequently asked questions](backup-azure-security-feature-cloud.md#frequently-asked-questions) about soft delete
+- Read the [frequently asked questions](soft-delete-azure-backup-faq.yml) about soft delete
 - Read about all the [security features in Azure Backup](security-overview.md)
