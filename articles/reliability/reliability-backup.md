@@ -40,7 +40,7 @@ The following table lists the various datasources that each vault supports:
 |Azure Virtual Machine| Azure Disks|
 |SQL in Azure VM| Azure Blobs|
 |Azure Files| Azure Database for PostgreSQL server|
-|SAP HANA in Azure V| Kubernetes services |
+|SAP HANA in Azure VM| Kubernetes services |
 |Azure Backup server| |
 |Azure Backup agent| |
 |Data Protection Manager (DPM)| |
