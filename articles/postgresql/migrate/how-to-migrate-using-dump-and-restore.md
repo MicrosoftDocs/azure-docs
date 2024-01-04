@@ -37,13 +37,21 @@ The Azure portal streamlines this process via the Connect blade by offering pre-
 
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](../single-server/quickstart-create-server-database-portal.md), including firewall rules to allow access.
-- [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed.
+- [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html), `psql` and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed.
+- **Decide on the location for the dump**: Choose the place you want to perform the dump from. It can be done from various locations, such as a separate VM, cloud shell (where the tools mentioned above are already installed, but might not be in the appropriate version, so always check the version using, for instance, psql --version), or your own laptop. Always keep in mind the distance and latency between the PostgreSQL server and the location from which you are running the dump or restore.
+
+> [!IMPORTANT]  
+> It is essential to use the `pg_dump`, `psql` and `pg_restore` utilities that are either of the same major version or a higher major version than the database server you are exporting data from or importing data to. Failing to do so may result in unsuccessful data migration. If your target server has a higher major version than the source server, use utilities that are either the same major version or higher than the target server. 
+
+
+> [!NOTE]
+> It's important to be aware that `pg_dump` can export only one database at a time. This limitation applies regardless of the method you have chosen, whether it's using a singular file or multiple cores.
 
 
 
 #### [pg_dump & psql - using singular text file](#tab/psql)
 
-#### [pg_dump & pg_restore - using multiple cores](#tab/pg_restore)
+#### [pg_dump & pg_restore - using multiple cores](#tab/pgrestore)
 
 ---
 
