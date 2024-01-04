@@ -28,11 +28,11 @@ Trusted launch guards against boot kits, rootkits, and kernel-level malware. The
 
 ### How does trusted launch compare to Hyper-V Shielded VM?
 
-Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or Virtual Machine Scale Sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
+Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are used in fabrics where the data and state of the virtual machine must be protected from a variety of actors. These actors are both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or Virtual Machine Scale Sets on Azure without other deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
 
 ### Can I disable Trusted Launch for new VM deployment?
 
-Trusted Launch VMs provide you with foundational compute security and our recommendation is not to disable same for new VM/VMSS deployments except if your deployments have dependency on:
+Trusted Launch VMs provide you with foundational compute security and our recommendation isn't to disable same for new VM/VMSS deployments except if your deployments have dependency on:
 
 - [VM Size families currently not supported with Trusted Launch](trusted-launch.md#virtual-machines-sizes)
 - [Feature currently not supported with Trusted Launch](trusted-launch.md#unsupported-features)
@@ -82,24 +82,24 @@ Trusted launch supports ephemeral OS disks. For more information, see [Trusted L
 ## Enable Trusted Launch on existing VMs
 
 ### Can virtual machine be restored using backup taken before enabling Trusted Launch?
-Backups taken before [upgrading existing Generation 2 VM to Trusted Launch](trusted-launch-existing-vm.md) can be used to restore entire virtual machine or individual data disks. They cannot be used to restore or replace OS disk only.
+Backups taken before [upgrading existing Generation 2 VM to Trusted Launch](trusted-launch-existing-vm.md) can be used to restore entire virtual machine or individual data disks. They can't be used to restore or replace OS disk only.
 
-### Will backup continue to work after enabling Trusted Launch?
+### Will Azure Backup continue working after enabling Trusted Launch?
 Backups configured with [enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) will continue to take backup of VM after enabling Trusted Launch.
 
 ## Power states (boot, reboot, etc.)
 
 ### What is VM Guest State (VMGS)?  
 
-VM Guest State (VMGS) is specific to Trusted Launch VM. It is a blob managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS Disk.
+VM Guest State (VMGS) is specific to Trusted Launch VM. It's a blob managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
 ### What are the differences between secure boot and measured boot?
 
-In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS checks a signature on the loader, and the loader checks signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature does not match, and the VM does not boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot does not halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
+In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS checks a signature on the loader, and the loader checks signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature doesn't match, and the VM doesn't boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot doesn't halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
 
 ### Why is Trusted Launch Virtual Machine not booting correctly? 
 
-If unsigned components are detected from the UEFI firmware, bootloader, operating system, or boot drivers, Trusted Launch Virtual Machine will not boot. The Secure Boot dependency in the virtual machine blocks all unsigned components or comes a untrusted driver signature.  
+If unsigned components are detected from the UEFI firmware, bootloader, operating system, or boot drivers, Trusted Launch Virtual Machine won't boot. The Secure Boot dependency in the virtual machine blocks all unsigned components or comes a untrusted driver signature.  
 
 ![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
 
@@ -112,12 +112,12 @@ Trusted launch for Azure virtual machines is monitored for advanced threats. If 
 
 Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
 
-- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This deviation indicates an untrusted module(s) have been loaded and the OS may be compromised.
+- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This deviation indicates an untrusted module(s) were loaded and the OS may be compromised.
 - The attestation quote could not be verified to originate from the vTPM of the attested VM. This verification failure indicates a malware is present and may be intercepting traffic to the TPM.
-- The attestation extension on the VM is not responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
+- The attestation extension on the VM isn't responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
 
-### How would I verify a no-boot scenario in the Azure Portal? 
-When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system (all OS boot components such as the boot loader, kernel, kernel drivers etc.) that is signed by a trusted authority blocking the booting of a Trusted Launch VM. When the VM is running, customers may see information from resource health within the Azure Portal stating that there's a validation error in secure boot.
+### How would I verify a no-boot scenario in the Azure portal? 
+When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority which blocks booting a Trusted Launch VM. When the VM is running, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
 
 To access resource health from the virtual machine configuration page, navigate to Resource Health under the 'Help' panel. 
 
@@ -129,7 +129,7 @@ To access resource health from the virtual machine configuration page, navigate 
 
 See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#virtual-machines-sizes).
 
-The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) does not support Trusted launch.
+The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) doesn't support Trusted launch.
 
 #### [CLI](#tab/cli)
 
@@ -149,7 +149,7 @@ $vmSize = "Standard_M64"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
 ```
 
-The response is similar to the following form. `TrustedLaunchDisabled True` in the output indicates that the Generation 2 VM size does not support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` is not part of the output, it implies that Trusted launch is supported for that VM size.
+The response is similar to the following form. `TrustedLaunchDisabled True` in the output indicates that the Generation 2 VM size doesn't support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` isn't part of the output, it implies that Trusted launch is supported for that VM size.
 
 ```
 Name                                         Value
@@ -255,7 +255,7 @@ The response is similar to the following form. **hyperVGeneration** `v2` and **S
 Get-AzVMImage -Skus 22_04-lts-gen2 -PublisherName Canonical -Offer 0001-com-ubuntu-server-jammy -Location westus3 -Version latest
 ```
 
-The response of above command can be used with [Virtual Machines - Get API](/rest/api/compute/virtual-machine-images/get). The response is similar to the following form. **hyperVGeneration** `v2` and **SecurityType** contains `TrustedLaunch` in the output indicates that the Generation 2 OS Image supports Trusted Launch.
+The output of this command can be used with [Virtual Machines - Get API](/rest/api/compute/virtual-machine-images/get). The response is similar to the following form. **hyperVGeneration** `v2` and **SecurityType** contains `TrustedLaunch` in the output indicates that the Generation 2 OS Image supports Trusted Launch.
 
 ```json
 {
@@ -411,7 +411,7 @@ There are several ways to verity if a driver is signed on Windows.
 
 #### [Driver file properties](#tab/fileproperties)
 1. Right click and check the properties of the file.  
-1. Go to the Digital Signature Tab. If the tab does not exist, the module/driver is not signed. 
+1. Go to the Digital Signature Tab. If the tab doesn't exist, the module/driver isn't signed. 
 ![Digital signature tab on an example file showing the name of the signer as Microsoft Windows.](./media/trusted-launch/valid-signature-example-in-file.png)
 1. If the tab is present, check the signature list. One of the signers should be Microsoft Windows.  
 1. Validate the signer entity by clicking on the signer’s name to open the digital signer detail window.
@@ -425,11 +425,11 @@ There are several ways to verity if a driver is signed on Windows.
 1. Right-click on the specific device for which you want to check the driver signing status and select "Properties" from the context menu.  
 1. In the device's properties window, go to the "Driver" tab.  
 1. Look for the "Digital Signer" information. This field displays whether the driver is digitally signed or not.  
-1. If the driver is signed with a valid digital signature, it will display the name of the signer or the certificate authority that issued the signature. If the driver is not signed or has an invalid signature, it may show "Not digitally signed" or "Unsigned."  
+1. If the driver is signed with a valid digital signature, it will display the name of the signer or the certificate authority that issued the signature. If the driver isn't signed or has an invalid signature, it may show "Not digitally signed" or "Unsigned."  
 ![Digital Signer info in the Device Manager.](./media/trusted-launch/valid-signature-example-device-manager.png)
 
 #### [Signtool.exe](#tab/signtool)
-'Signtool.exe' is a powershell tool used for verifying if a driver is signed or not. It shows signature status, timestamp, certificate chain etc.  
+'Signtool.exe' is a PowerShell tool used for verifying if a driver is signed or not. It shows signature status, timestamp, and certificate chain.
 
 [Learn more about the PowerShell utility SignTool](/windows/win32/seccrypto/signtool)
 
