@@ -10,7 +10,7 @@ ms.service: azure-operator-nexus
 
 # Nexus Platform Cluster runtime upgrade governance
 
-This document details how Operator Nexus releases, manages, and supports various platform runtime upgrades for Near Edge customers. 
+This document details how Nexus releases, manages, and supports various platform runtime upgrades for near edge customers. 
 
 Starting in 1H 2024, Operator Nexus will release platform cluster runtime versions three minor versions per year and monthly patch versions in between.
 
