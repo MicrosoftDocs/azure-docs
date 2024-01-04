@@ -85,3 +85,6 @@ conceptualContent:
             - url: ./author-api-management-policies.md
               itemType: get-started
               text: Author API Management policies
+            - url: ./troubleshoot-app-service.md
+              itemType: get-started
+              text: Troubleshoot deployed web apps

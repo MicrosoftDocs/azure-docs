@@ -39,11 +39,11 @@ In order to experience Azure Arc-enabled data services, you'll need to complete 
 
 1. [Create Azure Arc data controller in direct connectivity mode (prerequisites)](create-data-controller-direct-prerequisites.md).
 
-   For other ways to create a data controller see the links under [Next steps](#next-steps).
+   For other ways to create a data controller see the links under [Related content](#related-content).
 
 1. Create data services.
 
-   For example, [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md).
+   For example, [Create a SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md).
 
 1. Connect with Azure Data Studio.
 
@@ -69,12 +69,12 @@ Verify that:
    ```console
    kubectl cluster-info
    ```  
-- You have an Azure subscription that resources such as an Azure Arc data controller, Azure Arc-enabled SQL managed instance, or Azure Arc-enabled PostgreSQL server will be projected and billed to.
+- You have an Azure subscription that resources such as an Azure Arc data controller, SQL Managed Instance enabled by Azure Arc, or Azure Arc-enabled PostgreSQL server will be projected and billed to.
 - The Microsoft.AzureArcData provider is registered for the subscription where the Azure Arc-enabled data services will be deployed.
 
 After you're prepared the infrastructure, deploy Azure Arc-enabled data services in the following way:
 1. Create an Azure Arc-enabled data controller on one of the validated distributions of a Kubernetes cluster.
-1. Create an Azure Arc-enabled SQL managed instance and/or an Azure Arc-enabled PostgreSQL server.
+1. Create a SQL Managed Instance enabled by Azure Arc and/or an Azure Arc-enabled PostgreSQL server.
 
 > [!CAUTION]
 > Some of the data services tiers and modes are in [general availability (GA)](release-notes.md), and some are in preview. We recommend that you don't mix GA and preview services on the same data controller. If you mix GA and preview services on the same data controller, you can't upgrade in place. In that scenario, when you want to upgrade, you must remove and re-create the data controller and data services.
@@ -110,8 +110,8 @@ When you're creating Azure Arc-enabled data services, regardless of the service 
 - **Password**: The password for the Kibana/Grafana administrator user.
 - **Name of your Kubernetes namespace**: The name of the Kubernetes namespace where you want to create the data controller.
 - **Connectivity mode**: Determines the degree of connectivity from your Azure Arc-enabled data services environment to Azure. Your choice of connectivity mode determines the options for deployment methods. For more information, see [Connectivity modes and requirements](./connectivity.md).
-- **Azure subscription ID**: The Azure subscription GUID for where you want to create the data controller resource in Azure. All Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers are also created in and billed to this subscription.
-- **Azure resource group name**: The name of the resource group where you want to create the data controller resource in Azure. All Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers are also created in this resource group.
+- **Azure subscription ID**: The Azure subscription GUID for where you want to create the data controller resource in Azure. All deployments of SQL Managed Instance enabled by Azure Arc and Azure Arc-enabled PostgreSQL are also created in and billed to this subscription.
+- **Azure resource group name**: The name of the resource group where you want to create the data controller resource in Azure. All deployments of SQL Managed Instance enabled by Azure Arc and Azure Arc-enabled PostgreSQL are also created in this resource group.
 - **Azure location**: The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) page for Azure global infrastructure. The metadata and billing information about the Azure resources that are managed by your deployed data controller is stored only in the location in Azure that you specify as the location parameter. If you're deploying in direct connectivity mode, the location parameter for the data controller is the same as the location of your targeted custom location resource.
 - **Service principal information**: 
    - If you're deploying in **indirect** connectivity mode, you'll need service principal information to upload usage and metrics data. For more information, see the "Assign roles to the service principal" section of [Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md). 
@@ -139,12 +139,12 @@ As outlined in [Connectivity modes and requirements](./connectivity.md), you can
 
    You can perform all three of these steps in a single step by using the Azure Arc data controller creation wizard in the Azure portal.
 
-After you've installed the Azure Arc data controller, you can create and access data services such as Azure Arc-enabled SQL Managed Instance or Azure Arc-enabled PostgreSQL server.
+After you've installed the Azure Arc data controller, you can create and access data services such as SQL Managed Instance enabled by Azure Arc or Azure Arc-enabled PostgreSQL server.
 
 ## Known limitations
 Currently, only one Azure Arc data controller per Kubernetes cluster is supported. However, you can create multiple Arc data services, such as Arc-enabled SQL managed instances and Arc-enabled PostgreSQL servers, that are managed by the same Azure Arc data controller.
 
-## Next steps
+## Related content
 
 You have several additional options for creating the Azure Arc data controller:
 

@@ -8,7 +8,7 @@ ms.date: 11/15/2023
 ---
 
 # Configure private endpoints for Azure Event Grid namespaces
-You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to entities in your Event Grid namespaces securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the virtual network address space for your namespace. For more conceptual information, see [Network security](network-security.md).
+You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow clients from only your virtual network to connect to your Event Grid namespace securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the virtual network address space for your namespace. A client in a private network can connect to the Event Grid namespace and publish events or pull events. For more conceptual information, see [Network security](network-security-namespaces.md).
 
 This article shows you how to enable private network access for an Event Grid namespace. For complete steps for creating a namespace, see [Create and manage namespaces](create-view-manage-namespaces.md).
 
@@ -98,7 +98,7 @@ The following sections show you how to approve or reject a private endpoint conn
 1. In the search bar, type in **Event Grid Namespaces**, and select it to see the list of namespaces.
 1. Select the **namespace** that you want to manage.
 1. Select the **Networking** tab.
-1. If there are any connections that are pending, you'll see a connection listed with **Pending** in the provisioning state. 
+1. If there are any connections that are pending, you see a connection listed with **Pending** in the provisioning state. 
 
 ### To approve a private endpoint
 You can approve a private endpoint that's in the pending state. To approve, follow these steps: 
@@ -128,4 +128,4 @@ To delete a private endpoint, follow these steps:
     :::image type="content" source="./media/configure-private-endpoints-mqtt/remove-private-endpoint.png" alt-text="Screenshot showing the Private endpoint connection tab with Remove button selected.":::
 
 ## Next steps
-To learn about how to configure IP firewall settings, see [Configure IP firewall for Azure Event Grid namespaces](configure-firewall-mqtt.md).
+To learn about how to configure IP firewall settings, see [Configure IP firewall for Azure Event Grid namespaces](configure-firewall-namespaces.md).

@@ -79,6 +79,16 @@ Use the environment variable names and application properties listed below to co
 | --------------------------------- | ---------------------------- | ---------------------------------------------------------------------------- |
 | AZURE_REDIS_CONNECTIONSTRING      | node-redis connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
 
+#### [Other](#tab/none)
+
+| Default environment variable name | Description    | Example value                                   |
+| --------------------------------- | -------------- | ----------------------------------------------- |
+| AZURE_REDIS_HOST                  | Redis host     | `<redis-server-name>.redis.cache.windows.net`   |
+| AZURE_REDIS_PORT                  | Redis port     | `6380`                                          |
+| AZURE_REDIS_DATABASE              | Redis database | `0`                                             |
+| AZURE_REDIS_PASSWORD              | Redis key      | `<redis-key>`                                   |
+| AZURE_REDIS_SSL                   | SSL setting    | `true`                                          |
+
 ---
 
 #### Sample code

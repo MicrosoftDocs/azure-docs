@@ -62,7 +62,16 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network.
 
-+ You should have a minimum of Contributor permissions on both Azure AI Search and the Azure PaaS resource for which you're creating the shared private link.
++ To create a shared private link you must ensure that you have the following minimum permissions on both Azure AI Search and the data source:
+
+  a) For the data source, you should have the permission to approve private endpoint connections. For instance, if you're using an Azure Storage account as your data source (such as Blob container, Azure Files share, Azure table), you need to assign the permission `Microsoft.Storage/storageAccounts/privateEndpointConnectionsApproval/action`.
+
+  b) For the AI Search service, you need to have the permissions to read and write shared private link resources and read operation statuses. Specifically, you should have the permissions 
+     - `Microsoft.Search/searchServices/sharedPrivateLinkResources/write`
+     - `Microsoft.Search/searchServices/sharedPrivateLinkResources/read`
+     - `Microsoft.Search/searchServices/sharedPrivateLinkResources/operationStatuses/read`
+
+
 
 <a name="group-ids"></a>
 

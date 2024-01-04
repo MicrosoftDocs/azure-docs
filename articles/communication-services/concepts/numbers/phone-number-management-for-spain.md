@@ -45,8 +45,16 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Spain phone numbers are available
 | Country/Region |
 | :---------- |
+|Australia|
+|Canada|
+|France|
+|Germany|
+|Italy|
+|Japan|
+|Netherlands|
 |Spain|
-|United States*|
+|United Kingdom|
+|United States|
 
 ## Azure subscription billing locations where Spain alphanumeric sender IDs are available
 | Country/Region |

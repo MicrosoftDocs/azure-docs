@@ -3,12 +3,10 @@ title: Extensions - Azure Database for PostgreSQL - Flexible Server
 description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 author: sunilagarwal
 ms.author: sunila
-ms.reviewer: maghan
-ms.date: 11/06/2023
+ms.date: 12/18/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.custom: ignite-2023
 ---
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
@@ -119,335 +117,71 @@ After extensions are allow-listed and loaded, these must be installed in your da
 
 Azure Database for PostgreSQL supports a subset of key PostgreSQL extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL - Flexible Server. You can't create or load your own extension in Azure Database for PostgreSQL.
 
-## Postgres 15 extensions
+## Extension versions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers, which have Postgres version 15.
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers
 
-> [!div class="mx-tableFixed"]
-> | **Extension**| **Extension version** | **Description** |
-> |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.1.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.1.1           | Address Standardizer US dataset example|
-> |[amcheck](https://www.postgresql.org/docs/13/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
-> |[azure_ai](./generative-ai-azure-overview.md) | 0.1.0 |  Azure OpenAI and Cognitive Services integration for PostgreSQL |
-> |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
-> |[bloom](https://www.postgresql.org/docs/13/bloom.html)                    | 1.0             | bloom access method - signature file based index|
-> |[btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
-> |[btree_gist](https://www.postgresql.org/docs/13/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|
-> |[citext](https://www.postgresql.org/docs/13/citext.html)                       | 1.6             | data type for case-insensitive character strings|
-> |[cube](https://www.postgresql.org/docs/13/cube.html)                         | 1.4             | data type for multidimensional cubes|
-> |[dblink](https://www.postgresql.org/docs/13/dblink.html)                       | 1.2             | connect to other PostgreSQL databases from within a database|
-> |[dict_int](https://www.postgresql.org/docs/13/dict-int.html)                     | 1.0             | text search dictionary template for integers|
-> |[dict_xsyn](https://www.postgresql.org/docs/13/dict-xsyn.html)                     | 1.0             | text search dictionary template for extended synonym processing|
-> |[earthdistance](https://www.postgresql.org/docs/13/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
-> |[fuzzystrmatch](https://www.postgresql.org/docs/13/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
-> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.3.1             | extension adding support for hypothetical indexes |
-> |[hstore](https://www.postgresql.org/docs/13/hstore.html)                       | 1.7             | data type for storing sets of (key, value) pairs|
-> |[intagg](https://www.postgresql.org/docs/13/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
-> |[intarray](https://www.postgresql.org/docs/13/intarray.html)                     | 1.3             | functions, operators, and index support for 1-D arrays of integers|
-> |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | data types for international product numbering standards|
-> |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | large object maintenance |
-> |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | data type for hierarchical tree-like structures|
-> |[orafce](https://github.com/orafce/orafce)                        | 3.24            |implements in Postgres some of the functions from the Oracle database that are missing|
-> |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
-> |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4             | Job scheduler for PostgreSQL|
-> |[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)                        | 1.0.1             | logical replication slot manager for failover purposes |
-> |[pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
-> |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.7.1           | Extension to manage partitioned tables by time or ID |
-> |[pg_prewarm](https://www.postgresql.org/docs/13/pgprewarm.html)                   | 1.2             | prewarm relation data|
-> |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
-> |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
-> |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
-> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
-> |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.7           | provides auditing functionality|
-> |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions|  
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
-> |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
-> |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
-> |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
-> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.5.1             | Open-source vector similarity search for Postgres|
-> |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
-> |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
-> |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions|  
-> |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0          | PostGIS SFCGAL functions|
-> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.2.0          | PostGIS tiger geocoder and reverse geocoder|
-> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
-> |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
-> |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
-> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
-> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
-> |[tds_fdw](https://github.com/tds-fdw/tds_fdw)                    | 2.0.3            |  This is a PostgreSQL foreign data wrapper that can connect to databases that use the Tabular Data Stream (TDS) protocol, such as Sybase databases and Microsoft SQL server.|
-> |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
-> |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
-> |[unaccent](https://www.postgresql.org/docs/13/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
-> |[uuid-ossp](https://www.postgresql.org/docs/13/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
-## Postgres 14 extensions
+|**Extenssion Name**                                                                         |**Descrption**                                                                                                                                                             |**Postgres 16**|**Postgres 15**|**Postgres 14**|**Postgres 13**|**Postgres 12**|**Postgres  11**|
+|--------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|-----------|-----------|------------|
+|[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)        |Used to parse an address into constituent elements.                                                                                                                        |N/A        |3.1.1      |3.1.1      |3.1.1      |3.0.0      |2.5.1       |
+|[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)|Address Standardizer US dataset example                                                                                                                                    |N/A        |3.1.1      |3.1.1      |3.1.1      |3.0.0      |2.5.1       |
+|[amcheck](https://www.postgresql.org/docs/13/amcheck.html)                                  |Functions for verifying relation integrity                                                                                                                                 |1.3        |1.2        |1.2        |1.2        |1.2        |1.1         |
+|[bloom](https://www.postgresql.org/docs/13/bloom.html)                                      |Bloom access method - signature file based index                                                                                                                           |1          |1          |1          |1          |1          |1           |
+|[btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                              |Support for indexing common datatypes in GIN                                                                                                                               |1.3        |1.3        |1.3        |1.3        |1.3        |1.3         |
+|[btree_gist](https://www.postgresql.org/docs/13/btree-gist.html)                            |Support for indexing common datatypes in GiST                                                                                                                              |1.7        |1.5        |1.5        |1.5        |1.5        |1.5         |
+|[citext](https://www.postgresql.org/docs/13/citext.html)                                    |Data type for case-insensitive character strings                                                                                                                           |1.6        |1.6        |1.6        |1.6        |1.6        |1.5         |
+|[cube](https://www.postgresql.org/docs/13/cube.html)                                        |Data type for multidimensional cubes                                                                                                                                       |1.5        |1.4        |1.4        |1.4        |1.4        |1.4         |
+|[dblink](https://www.postgresql.org/docs/13/dblink.html)                                    |Connect to other PostgreSQL databases from within a database                                                                                                               |1.2        |1.2        |1.2        |1.2        |1.2        |1.2         |
+|[dict_int](https://www.postgresql.org/docs/13/dict-int.html)                                |Text search dictionary template for integers                                                                                                                               |1          |1          |1          |1          |1          |1           |
+|[dict_xsyn](https://www.postgresql.org/docs/13/dict-xsyn.html)                              |Text search dictionary template for extended synonym processing                                                                                                            |1          |1          |1          |1          |1          |1           |
+|[earthdistance](https://www.postgresql.org/docs/13/earthdistance.html)                      |Calculate great-circle distances on the surface of the Earth                                                                                                               |1.1        |1.1        |1.1        |1.1        |1.1        |1.1         |
+|[fuzzystrmatch](https://www.postgresql.org/docs/13/fuzzystrmatch.html)                      |Determine similarities and distance between strings                                                                                                                        |1.2        |1.1        |1.1        |1.1        |1.1        |1.1         |
+|[hstore](https://www.postgresql.org/docs/13/hstore.html)                                    |Data type for storing sets of (key, value) pairs                                                                                                                           |1.8        |1.7        |1.7        |1.7        |1.2        |1.1.2       |
+|[hypopg](https://github.com/HypoPG/hypopg)                                                  |Extension adding support for hypothetical indexes                                                                                                                          |1.3.1      |1.3.1      |1.3.1      |1.3.1      |1.3.1      |1.3.1       |
+|[intagg](https://www.postgresql.org/docs/13/intagg.html)                                    |Integer aggregator and enumerator. (Obsolete)                                                                                                                              |1.1        |1.1        |1.1        |1.1        |1.1        |1.1         |
+|[intarray](https://www.postgresql.org/docs/13/intarray.html)                                |Functions, operators, and index support for 1-D arrays of integers                                                                                                         |1.5        |1.3        |1.3        |1.3        |1.2        |1.2         |
+|[isn](https://www.postgresql.org/docs/13/isn.html)                                          |Data types for international product numbering standards                                                                                                                   |1.2        |1.2        |1.2        |1.2        |1.2        |1.2         |
+|[lo](https://www.postgresql.org/docs/13/lo.html)                                            |Large object maintenance                                                                                                                                                   |1.1        |1.1        |1.1        |1.1        |1.1        |1.1         |
+|[login_hook](https://github.com/splendiddata/login_hook)                                    |Extension to execute some code on user login, comparable to Oracle's after logon trigger                                                                                   |N/A        |1.4        |1.4        |1.4        |1.4        |1.4         |
+|[ltree](https://www.postgresql.org/docs/13/ltree.html)                                      |Data type for hierarchical tree-like structures                                                                                                                            |1.2        |1.2        |1.2        |1.2        |1.1        |1.1         |
+|[orafce](https://github.com/orafce/orafce)                                                  |Implements in Postgres some of the functions from the Oracle database that are missing                                                                                     |N/A        |3.24       |3.18       |3.18       |3.18       |3.18        |
+|[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                          |Inspect the contents of database pages at a low level                                                                                                                      |1.12       |1.8        |1.8        |1.8        |1.7        |1.7         |
+|[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)                     |Examine the shared buffer cache                                                                                                                                            |N/A        |1.3        |1.3        |1.3        |1.3        |1.3         |
+|[pg_cron](https://github.com/citusdata/pg_cron)                                             |Job scheduler for PostgreSQL                                                                                                                                               |1.5        |1.4        |1.4        |1.4        |1.4        |1.4         |
+|[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)            |Logical replication slot manager for failover purposes                                                                                                                     |N/A        |1.0.1      |1.0.1      |1.0.1      |1.0.1      |1.0.1       |
+|[pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)                   |Examine the free space map (FSM)                                                                                                                                           |1.2        |1.2        |1.2        |1.2        |1.2        |1.2         |
+|[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                                     |Makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments                                                                              |N/A        |1.4        |1.4        |1.4        |1.4        |1.4         |
+|[pg_partman](https://github.com/pgpartman/pg_partman)                                       |Extension to manage partitioned tables by time or ID                                                                                                                       |4.7.1      |4.7.1      |4.6.1      |4.5.0      |4.5.0      |4.5.0       |
+|[pg_prewarm](https://www.postgresql.org/docs/13/pgprewarm.html)                             |Prewarm relation data                                                                                                                                                      |1.2        |1.2        |1.2        |1.2        |1.2        |1.2         |
+|[pg_repack](https://reorg.github.io/pg_repack/)                                             |Lets you remove bloat from tables and indexes                                                                                                                              |1.4.7      |1.4.7      |1.4.7      |1.4.7      |1.4.7      |1.4.7       |
+|[pg_squeeze](https://github.com/cybertec-postgresql/pg_squeeze)                             |A tool to remove unused space from a relation.                                                                                                                             |1.6        |1.5        |1.5        |1.5        |1.5        |1.5         |
+|[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)              |Track execution statistics of all SQL statements executed                                                                                                                  |1.1        |1.8        |1.8        |1.8        |1.7        |1.6         |
+|[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                                   |Text similarity measurement and index searching based on trigrams                                                                                                          |1.6        |1.5        |1.5        |1.5        |1.4        |1.4         |
+|[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                       |Examine the visibility map (VM) and page-level visibility info                                                                                                             |1.2        |1.2        |1.2        |1.2        |1.2        |1.2         |
+|[pgaudit](https://www.pgaudit.org/)                                                         |Provides auditing functionality                                                                                                                                            |N/A        |1.7        |1.6.2      |1.5        |1.4        |1.3.1       |
+|[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                                |Cryptographic functions                                                                                                                                                    |1.3        |1.3        |1.3        |1.3        |1.3        |1.3         |
+|[pglogical](https://github.com/2ndQuadrant/pglogical)                                       |Logical streaming replication                                                                                                                                              |N/A        |2.3.2      |2.3.2      |2.3.2      |2.3.2      |2.3.2       |
+|[pgrouting](https://pgrouting.org/)                                                         |Geospatial database to provide geospatial routing                                                                                                                          |N/A        |3.3.0      |3.3.0      |3.3.0      |3.3.0      |3.3.0       |
+|[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                            |Show row-level locking information                                                                                                                                         |1.2        |1.2        |1.2        |1.2        |1.2        |1.2         |
+|[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                          |Show tuple-level statistics                                                                                                                                                |1.5        |1.5        |1.5        |1.5        |1.5        |1.5         |
+|[pgvector](https://github.com/pgvector/pgvector)                                            |Open-source vector similarity search for Postgres                                                                                                                          |0.5.1      |0.5.1      |0.5.1      |0.5.1      |0.5.1      |0.5.1       |
+|[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                                  |PL/pgSQL procedural language                                                                                                                                               |1          |1          |1          |1          |1          |1           |
+|[plv8](https://plv8.github.io/)                                                             |Trusted JavaScript language extension                                                                                                                                      |3.1.7      |3.0.0      |3.0.0      |3.0.0      |3.2.0      |3.0.0       |
+|[postgis](https://www.postgis.net/)                                                         |PostGIS geometry, geography                                                                                                                                                |N/A        |3.2.0      |3.2.0      |3.2.0      |3.2.0      |2.5.5       |
+|[postgis_sfcgal](https://www.postgis.net/)                                                  |PostGIS SFCGAL functions                                                                                                                                                   |N/A        |3.2.0      |3.2.0      |3.2.0      |3.2.0      |2.5.5       |
+|[postgis_tiger_geocoder](https://www.postgis.net/)                                          |PostGIS tiger geocoder and reverse geocoder                                                                                                                                |N/A        |3.2.0      |3.2.0      |3.2.0      |3.2.0      |2.5.5       |
+|[postgis_topology](https://postgis.net/docs/Topology.html)                                  |PostGIS topology spatial types and functions                                                                                                                               |N/A        |3.2.0      |3.2.0      |3.2.0      |3.2.0      |2.5.5       |
+|[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                        |Foreign-data wrapper for remote PostgreSQL servers                                                                                                                         |1.1        |1          |1          |1          |1          |1           |
+|[semver](https://pgxn.org/dist/semver/doc/semver.html)                                      |Semantic version data type                                                                                                                                                 |N/A        |0.32.0     |0.32.0     |0.32.0     |0.32.0     |0.32.0      |
+|[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                                  |Information about SSL certificates                                                                                                                                         |1.2        |1.2        |1.2        |1.2        |1.2        |1.2         |
+|[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                              |Functions that manipulate whole tables, including crosstab                                                                                                                 |1          |1          |1          |1          |1          |1           |
+|[tds_fdw](https://github.com/tds-fdw/tds_fdw)                                               |This is a PostgreSQL foreign data wrapper that can connect to databases that use the Tabular Data Stream (TDS) protocol, such as Sybase databases and Microsoft SQL server.|N/A        |2.0.3      |2.0.3      |2.0.3      |2.0.3      |2.0.3       |
+|[timescaledb](https://github.com/timescale/timescaledb)                                     |Open-source relational database for time-series and analytics                                                                                                              |N/A        |2.5.1      |2.5.1      |2.5.1      |2.5.1      |1.7.4       |
+|[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                  |TABLESAMPLE method which accepts number of rows as a limit                                                                                                                 |1          |1          |1          |1          |1          |1           |
+|[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                  |TABLESAMPLE method which accepts time in milliseconds as a limit                                                                                                           |1          |1          |1          |1          |1          |1           |
+|[unaccent](https://www.postgresql.org/docs/13/unaccent.html)                                |Text search dictionary that removes accents                                                                                                                                |1.1        |1.1        |1.1        |1.1        |1.1        |1.1         |
+|[uuid-ossp](https://www.postgresql.org/docs/13/uuid-ossp.html)                              |Generate universally unique identifiers (UUIDs)                                                                                                                            |N/A        |1.1        |1.1        |1.1        |1.1        |1.1         |
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers, which have Postgres version 14.
-
-> [!div class="mx-tableFixed"]
-> | **Extension**| **Extension version** | **Description** |
-> |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.1.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.1.1           | Address Standardizer US dataset example|
-> |[amcheck](https://www.postgresql.org/docs/13/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
-> |[azure_ai](./generative-ai-azure-overview.md) | 0.1.0 |  Azure OpenAI and Cognitive Services integration for PostgreSQL |
-> |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
-> |[bloom](https://www.postgresql.org/docs/13/bloom.html)                    | 1.0             | bloom access method - signature file based index|
-> |[btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
-> |[btree_gist](https://www.postgresql.org/docs/13/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|
-> |[citext](https://www.postgresql.org/docs/13/citext.html)                       | 1.6             | data type for case-insensitive character strings|
-> |[cube](https://www.postgresql.org/docs/13/cube.html)                         | 1.4             | data type for multidimensional cubes|
-> |[dblink](https://www.postgresql.org/docs/13/dblink.html)                       | 1.2             | connect to other PostgreSQL databases from within a database|
-> |[dict_int](https://www.postgresql.org/docs/13/dict-int.html)                     | 1.0             | text search dictionary template for integers|
-> |[dict_xsyn](https://www.postgresql.org/docs/13/dict-xsyn.html)                     | 1.0             | text search dictionary template for extended synonym processing|
-> |[earthdistance](https://www.postgresql.org/docs/13/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
-> |[fuzzystrmatch](https://www.postgresql.org/docs/13/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
-> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.3.1             | extension adding support for hypothetical indexes |
-> |[hstore](https://www.postgresql.org/docs/13/hstore.html)                       | 1.7             | data type for storing sets of (key, value) pairs|
-> |[intagg](https://www.postgresql.org/docs/13/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
-> |[intarray](https://www.postgresql.org/docs/13/intarray.html)                     | 1.3             | functions, operators, and index support for 1-D arrays of integers|
-> |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | data types for international product numbering standards|
-> |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | large object maintenance |
-> |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | data type for hierarchical tree-like structures|
-> |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
-> |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
-> |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4             | Job scheduler for PostgreSQL|
-> |[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)                        | 1.0.1             | logical replication slot manager for failover purposes |
-> |[pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
-> |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.6.1           | Extension to manage partitioned tables by time or ID |
-> |[pg_prewarm](https://www.postgresql.org/docs/13/pgprewarm.html)                   | 1.2             | prewarm relation data|
-> |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
-> |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
-> |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
-> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
-> |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.6.2            | provides auditing functionality|
-> |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions|  
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
-> |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
-> |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
-> |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
-> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.5.1             | Open-source vector similarity search for Postgres|
-> |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
-> |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
-> |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions|  
-> |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0          | PostGIS SFCGAL functions|
-> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.2.0          | PostGIS tiger geocoder and reverse geocoder|
-> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
-> |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
-> |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
-> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
-> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
-> |[tds_fdw](https://github.com/tds-fdw/tds_fdw)                    | 2.0.3            |  This is a PostgreSQL foreign data wrapper that can connect to databases that use the Tabular Data Stream (TDS) protocol, such as Sybase databases and Microsoft SQL server.|
-> |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
-> |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
-> |[unaccent](https://www.postgresql.org/docs/13/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
-> |[uuid-ossp](https://www.postgresql.org/docs/13/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
-
-## Postgres 13 extensions
-
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 13.
-
-> [!div class="mx-tableFixed"]
-> | **Extension**| **Extension version** | **Description** |
-> |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.1.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.1.1           | Address Standardizer US dataset example|
-> |[amcheck](https://www.postgresql.org/docs/13/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
-> |[azure_ai](./generative-ai-azure-overview.md) | 0.1.0 |  Azure OpenAI and Cognitive Services integration for PostgreSQL |
-> |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
-> |[bloom](https://www.postgresql.org/docs/13/bloom.html)                    | 1.0             | bloom access method - signature file based index|
-> |[btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
-> |[btree_gist](https://www.postgresql.org/docs/13/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|
-> |[citext](https://www.postgresql.org/docs/13/citext.html)                       | 1.6             | data type for case-insensitive character strings|
-> |[cube](https://www.postgresql.org/docs/13/cube.html)                         | 1.4             | data type for multidimensional cubes|
-> |[dblink](https://www.postgresql.org/docs/13/dblink.html)                       | 1.2             | connect to other PostgreSQL databases from within a database|
-> |[dict_int](https://www.postgresql.org/docs/13/dict-int.html)                     | 1.0             | text search dictionary template for integers|
-> |[dict_xsyn](https://www.postgresql.org/docs/13/dict-xsyn.html)                     | 1.0             | text search dictionary template for extended synonym processing|
-> |[earthdistance](https://www.postgresql.org/docs/13/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
-> |[fuzzystrmatch](https://www.postgresql.org/docs/13/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
-> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.3.1             | extension adding support for hypothetical indexes |
-> |[hstore](https://www.postgresql.org/docs/13/hstore.html)                       | 1.7             | data type for storing sets of (key, value) pairs|
-> |[intagg](https://www.postgresql.org/docs/13/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
-> |[intarray](https://www.postgresql.org/docs/13/intarray.html)                     | 1.3             | functions, operators, and index support for 1-D arrays of integers|
-> |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | data types for international product numbering standards|
-> |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | large object maintenance |
-> |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | data type for hierarchical tree-like structures|
-> |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
-> |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
-> |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4             | Job scheduler for PostgreSQL|
-> |[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)                        | 1.0.1             | logical replication slot manager for failover purposes |
-> |[pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
-> |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.5.0           | Extension to manage partitioned tables by time or ID |
-> |[pg_prewarm](https://www.postgresql.org/docs/13/pgprewarm.html)                   | 1.2             | prewarm relation data|
-> |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
-> |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
-> |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
-> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
-> |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | provides auditing functionality|
-> |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions|  
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
-> |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
-> |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
-> |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
-> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.5.1             | Open-source vector similarity search for Postgres|
-> |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
-> |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
-> |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions|  
-> |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0          | PostGIS SFCGAL functions|
-> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.2.0          | PostGIS tiger geocoder and reverse geocoder|
-> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
-> |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
-> |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
-> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
-> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
-> |[tds_fdw](https://github.com/tds-fdw/tds_fdw)                    | 2.0.3            |  This is a PostgreSQL foreign data wrapper that can connect to databases that use the Tabular Data Stream (TDS) protocol, such as Sybase databases and Microsoft SQL server.|
-> |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
-> |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
-> |[unaccent](https://www.postgresql.org/docs/13/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
-> |[uuid-ossp](https://www.postgresql.org/docs/13/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
-
-## Postgres 12 extensions
-
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 12.
-
-> [!div class="mx-tableFixed"]
-> | **Extension**| **Extension version** | **Description** |
-> |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.0.0           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.0.0           | Address Standardizer US dataset example|
-> |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
-> |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
-> |[bloom](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | bloom access method - signature file based index|
-> |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
-> |[btree_gist](https://www.postgresql.org/docs/12/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|
-> |[citext](https://www.postgresql.org/docs/12/citext.html)                       | 1.6             | data type for case-insensitive character strings|
-> |[cube](https://www.postgresql.org/docs/12/cube.html)                         | 1.4             | data type for multidimensional cubes|
-> |[dblink](https://www.postgresql.org/docs/12/dblink.html)                       | 1.2             | connect to other PostgreSQL databases from within a database|
-> |[dict_int](https://www.postgresql.org/docs/12/dict-int.html)                     | 1.0             | text search dictionary template for integers|
-> |[dict_xsyn](https://www.postgresql.org/docs/12/dict-xsyn.html)                     | 1.0             | text search dictionary template for extended synonym processing|
-> |[earthdistance](https://www.postgresql.org/docs/12/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
-> |[fuzzystrmatch](https://www.postgresql.org/docs/12/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
-> |[hstore](https://www.postgresql.org/docs/12/hstore.html)                       | 1.6             | data type for storing sets of (key, value) pairs|
-> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.2             | extension adding support for hypothetical indexes |
-> |[intagg](https://www.postgresql.org/docs/12/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
-> |[intarray](https://www.postgresql.org/docs/12/intarray.html)                     | 1.2             | functions, operators, and index support for 1-D arrays of integers|
-> |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | data types for international product numbering standards|
-> |[lo](https://www.postgresql.org/docs/12/lo.html)                            | 1.1             | large object maintenance |
-> |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
-> |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
-> |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
-> |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4            | Job scheduler for PostgreSQL|
-> |[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)                        | 1.0.1             | logical replication slot manager for failover purposes |
-> |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
-> |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.5.0           | Extension to manage partitioned tables by time or ID |
-> |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | prewarm relation data|
-> |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
-> |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | track execution statistics of all SQL statements executed|
-> |[pg_trgm](https://www.postgresql.org/docs/12/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
-> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
-> |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | provides auditing functionality|
-> |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
-> |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
-> |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
-> |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
-> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.5.1             | Open-source vector similarity search for Postgres|
-> |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.2.0             | Trusted JavaScript language extension|
-> |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
-> |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions|  
-> |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0           | PostGIS SFCGAL functions|
-> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.2.0           | PostGIS tiger geocoder and reverse geocoder|
-> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
-> |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
-> |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | information about SSL certificates|
-> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
-> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
-> |[tds_fdw](https://github.com/tds-fdw/tds_fdw)                    | 2.0.3            |  This is a PostgreSQL foreign data wrapper that can connect to databases that use the Tabular Data Stream (TDS) protocol, such as Sybase databases and Microsoft SQL server.|
-> |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
-> |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
-> |[unaccent](https://www.postgresql.org/docs/12/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
-> |[uuid-ossp](https://www.postgresql.org/docs/12/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
-
-## Postgres 11 extensions
-
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 11.
-
-> [!div class="mx-tableFixed"]
-> | **Extension**| **Extension version** | **Description** |
-> |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
-> |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1.1             | functions for verifying relation integrity|
-> |[bloom](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | bloom access method - signature file based index|
-> |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
-> |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|
-> |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | data type for case-insensitive character strings|
-> |[cube](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | data type for multidimensional cubes|
-> |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1.2             | connect to other PostgreSQL databases from within a database|
-> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | text search dictionary template for integers|
-> |[dict_xsyn](https://www.postgresql.org/docs/11/dict-xsyn.html)                     | 1.0             | text search dictionary template for extended synonym processing|
-> |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
-> |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
-> |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | data type for storing sets of (key, value) pairs|
-> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.1.2            | extension adding support for hypothetical indexes |
-> |[intagg](https://www.postgresql.org/docs/11/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
-> |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | functions, operators, and index support for 1-D arrays of integers|
-> |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data types for international product numbering standards|
-> |[lo](https://www.postgresql.org/docs/11/lo.html)                            | 1.1             | large object maintenance |
-> |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
-> |[orafce](https://github.com/orafce/orafce)                        | 3.18            |implements in Postgres some of the functions from the Oracle database that are missing|
-> |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
-> |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
-> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.4            | Job scheduler for PostgreSQL|
-> |[pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (preview)                        | 1.0.1             | logical replication slot manager for failover purposes |
-> |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | examine the free space map (FSM)|
-> |[pg_partman](https://github.com/pgpartman/pg_partman)         | 4.5.0           | Extension to manage partitioned tables by time or ID |
-> |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | prewarm relation data|
-> |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
-> |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | track execution statistics of all SQL statements executed|
-> |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
-> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
-> |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | provides auditing functionality|
-> |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
-> |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
-> |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
-> |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
-> |[pgvector](https://github.com/pgvector/pgvector)                    | 0.5.1             | Open-source vector similarity search for Postgres|
-> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
-> |[postgis](https://www.postgis.net/)                      | 2.5.5           | PostGIS geometry, geography, and raster spatial types and functions|
-> |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.5           | PostGIS SFCGAL functions|
-> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.5           | PostGIS tiger geocoder and reverse geocoder|
-> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.5           | PostGIS topology spatial types and functions|
-> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
-> |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1.2             | information about SSL certificates|
-> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
-> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://github.com/timescale/timescaledb)                    | 1.7.4           |  Open-source relational database for time-series and analytics|
-> |[tds_fdw](https://github.com/tds-fdw/tds_fdw)                    | 2.0.3            |  This is a PostgreSQL foreign data wrapper that can connect to databases that use the Tabular Data Stream (TDS) protocol, such as Sybase databases and Microsoft SQL server.|
-> |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
-> |[tsm_system_time](https://www.postgresql.org/docs/11/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
-> |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
-> |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
 ## dblink and postgres_fdw
 

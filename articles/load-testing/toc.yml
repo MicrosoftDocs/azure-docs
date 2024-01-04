@@ -20,10 +20,8 @@ items:
 - name: Tutorials
   items: 
     - name: Identify performance bottlenecks
+      displayName: Azure Pipelines, CI/CD, continuous integration, performance, bottleneck, issues, analyze
       href: tutorial-identify-bottlenecks-azure-portal.md
-    - name: Automate regression tests with CI/CD
-      displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
-      href: tutorial-identify-performance-regression-with-cicd.md
 - name: Concepts
   items: 
     - name: Key concepts
@@ -69,8 +67,8 @@ items:
           href: how-to-compare-multiple-test-runs.md
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md
-        - name: Troubleshoot failing load tests
-          href: how-to-troubleshoot-failing-test.md
+        - name: Diagnose failing load tests
+          href: how-to-diagnose-failing-load-test.md
         - name: Export test results
           href: how-to-export-test-results.md
     - name: Security

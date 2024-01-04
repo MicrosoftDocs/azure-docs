@@ -7,7 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 12/19/2023
 ---
 
 # Use Azure AI services with natural language processing (NLP) to enrich bot conversations

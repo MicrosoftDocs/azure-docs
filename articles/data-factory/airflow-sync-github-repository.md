@@ -280,7 +280,7 @@ Assuming your private package has already been auto synced via git-sync, all you
 
 :::image type="content" source="media/airflow-git-sync-repository/airflow-private-package.png" alt-text="Screenshot showing the Airflow requirements section on the Airflow environment setup dialog that appears during creation of an Airflow IR.":::
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)

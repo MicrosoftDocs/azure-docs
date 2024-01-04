@@ -1,7 +1,7 @@
 ---
-title: Manage read replicas - Azure portal - Azure Database for PostgreSQL - Flexible Server
-description: Learn how to manage read replicas Azure Database for PostgreSQL - Flexible Server from the Azure portal.
-author: AwdotiaRomanowna
+title: Manage read replicas - Azure portal, REST API - Azure Database for PostgreSQL - Flexible Server
+description: Learn how to manage read replicas Azure Database for PostgreSQL - Flexible Server from the Azure portal and REST API.
+author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
 ms.date: 11/06/2023
@@ -17,6 +17,15 @@ ms.topic: how-to
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
+
+
+> [!NOTE]  
+> Azure Database for PostgreSQL - Flexible Server is currently supporting the following features in Preview:
+>
+> - Promote to primary server (to maintain backward compatibility, please use promote to independent server and remove from replication, which keeps the former behavior)
+> - Virtual endpoints
+> 
+> For these features, remember to use the API version `2023-06-01-preview` in your requests. This version is necessary to access the latest, albeit preview, functionalities of these features. 
 
 ## Prerequisites
 
@@ -34,6 +43,8 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 **Premium SSD v2**: The current release doesn't support the creation of read replicas for primary servers using Premium SSD v2 storage. If your workload requires read replicas, choose a different storage option for the primary server.
 
 **Private link**: Review the networking configuration of the primary server. For the read replica creation to be allowed, the primary server must be configured with either public access using allowed IP addresses or combined public and private access using virtual network integration.
+
+#### [Portal](#tab/portal)
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server you want for the replica.
 
@@ -65,9 +76,104 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 
       :::image type="content" source="./media/how-to-read-replicas-portal/primary-compute.png" alt-text="Screenshot of server settings." lightbox="./media/how-to-read-replicas-portal/primary-compute.png":::
 
+#### [REST API](#tab/restapi)
+
+To obtain information about the configuration of a server in Azure Database for PostgreSQL - Flexible Server, especially to view settings for recently introduced features like storage auto-grow or private link, you should use the latest API version `2023-06-01-preview`. The `GET` request for this would be formatted as follows:
+
+```http request
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}?api-version=2023-06-01-preview
+```
+
+Replace `{subscriptionId}`, `{resourceGroupName}`, and `{serverName}` with your Azure subscription ID, the resource group name, and the name of the primary server you want to review, respectively. This request will give you access to the configuration details of your primary server, ensuring it is properly set up for creating a read replica.
+
+Review and note the following settings:
+
+  - Compute Tier, Processor, Size (ex `Standard_D8ads_v5`).
+  - Storage
+    - Type
+    - Storage size (ex `128`)
+    - autoGrow
+  - Network
+  - High Availability
+    - Enabled / Disabled
+    - Availability zone settings
+  - Backup settings
+    - Retention period
+    - Redundancy Options
+
+
+**Sample response**
+
+```json
+{
+    "sku": {
+        "name": "Standard_D8ads_v5",
+        "tier": "GeneralPurpose"
+    },
+    "systemData": {
+        "createdAt": "2023-11-22T16:11:42.2461489Z"
+    },
+    "properties": {
+        "replica": {
+            "role": "Primary",
+            "capacity": 5
+        },
+        "storage": {
+            "type": "",
+            "iops": 500,
+            "tier": "P10",
+            "storageSizeGB": 128,
+            "autoGrow": "Disabled"
+        },
+        "network": {
+            "publicNetworkAccess": "Enabled"
+        },
+        "dataEncryption": {
+            "type": "SystemManaged"
+        },
+        "authConfig": {
+            "activeDirectoryAuth": "Disabled",
+            "passwordAuth": "Enabled"
+        },
+        "fullyQualifiedDomainName": "{serverName}.postgres.database.azure.com",
+        "version": "15",
+        "minorVersion": "4",
+        "administratorLogin": "myadmin",
+        "state": "Ready",
+        "availabilityZone": "1",
+        "backup": {
+            "backupRetentionDays": 7,
+            "geoRedundantBackup": "Disabled",
+            "earliestRestoreDate": "2023-11-23T12:55:33.3443218+00:00"
+        },
+        "highAvailability": {
+            "mode": "Disabled",
+            "state": "NotEnabled"
+        },
+        "maintenanceWindow": {
+            "customWindow": "Disabled",
+            "dayOfWeek": 0,
+            "startHour": 0,
+            "startMinute": 0
+        },
+        "replicationRole": "Primary",
+        "replicaCapacity": 5
+    },
+    "location": "East US",
+    "tags": {},
+    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}",
+    "name": "{serverName}",
+    "type": "Microsoft.DBforPostgreSQL/flexibleServers"
+}
+```
+
+---
+
 ## Create a read replica
 
 To create a read replica, follow these steps:
+
+#### [Portal](#tab/portal)
 
 1.  Select an existing Azure Database for the PostgreSQL server to use as the primary server.
 
@@ -80,6 +186,45 @@ To create a read replica, follow these steps:
 4.  Enter the Basics form with the following information.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/basics.png" alt-text="Screenshot showing entering the basics information." lightbox="./media/how-to-read-replicas-portal/basics.png":::
+
+5.  Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Screenshot of modify firewall rules action." lightbox="./media/how-to-read-replicas-portal/networking.png":::
+
+6.  Leave the remaining defaults and then select the **Review + create** button at the bottom of the page or proceed to the next forms to add tags or change data encryption method.
+
+7.  Review the information in the final confirmation window. When you're ready, select **Create**. A new deployment will be created and executed.
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/replica-review.png" alt-text="Screenshot of reviewing the information in the final confirmation window.":::
+
+8.  During the deployment, you see the primary in `Updating` state.
+    
+    :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
+    After the read replica is created, it can be viewed from the **Replication** window.
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="Screenshot of viewing the new replica in the replication window." lightbox="./media/how-to-read-replicas-portal/list-replica.png":::
+
+#### [REST API](#tab/restapi)
+
+Initiate an `HTTP PUT` request by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
+```
+
+Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{replicaserverName}` with your specific Azure subscription ID, the name of your resource group, and the desired name for your read replica, respectively.
+
+```json
+{
+  "location": "eastus",
+  "properties": {
+    "createMode": "Replica",
+    "SourceServerResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}"
+  }
+}
+```
+
+---
 
 - Set the replica server name.
 
@@ -98,55 +243,95 @@ To create a read replica, follow these steps:
 
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-compute.png" alt-text="Screenshot of chose the compute size.":::
 
-5.  Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
 
-    :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Screenshot of modify firewall rules action." lightbox="./media/how-to-read-replicas-portal/networking.png":::
-
-6.  Leave the remaining defaults and then select the **Review + create** button at the bottom of the page or proceed to the next forms to add tags or change data encryption method.
-
-7.  Review the information in the final confirmation window. When you're ready, select **Create**. A new deployment will be created and executed.
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/replica-review.png" alt-text="Screenshot of reviewing the information in the final confirmation window.":::
-
-8.  During the deployment, you see the primary in `Updating` state.
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
-After the read replica is created, it can be viewed from the **Replication** window.
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="Screenshot of viewing the new replica in the replication window." lightbox="./media/how-to-read-replicas-portal/list-replica.png":::
 
 > [!IMPORTANT]  
 > Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
 >  
-> To avoid issues during promotion of replicas constantly change the following server parameters on the replicas first, before applying them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
+> To avoid issues during promotion of replicas constantly change the following server parameters on the replicas first, before applying them on the primary: `max_connections`, `max_prepared_transactions`, `max_locks_per_transaction`, `max_wal_senders`, `max_worker_processes`.
 
 ## Create virtual endpoints (preview)
 
-1.  In the Azure portal, select the primary server.
+> [!NOTE]
+> All operations involving virtual endpoints - like adding, editing, or removing - are executed in the context of the primary server. 
 
-2.  On the server sidebar, under **Settings**, select **Replication**.
 
-3.  Select **Create endpoint**.
+#### [Portal](#tab/portal)
+1. In the Azure portal, select the primary server.
 
-4.  In the dialog, type a meaningful name for your endpoint. Notice the DNS endpoint that is being generated.
+2. On the server sidebar, under **Settings**, select **Replication**.
+
+3. Select **Create endpoint**.
+
+4. In the dialog, type a meaningful name for your endpoint. Notice the DNS endpoint that is being generated.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/add-virtual-endpoint.png" alt-text="Screenshot of creating a new virtual endpoint with custom name.":::
 
-5.  Select **Create**.
+5. Select **Create**.
 
     > [!NOTE]  
     > If you do not create a virtual endpoint you will receive an error on the promote replica attempt.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-attempt.png" alt-text="Screenshot of promotion error when missing virtual endpoint.":::
 
+#### [REST API](#tab/restapi)
+
+To create a virtual endpoint in a preview environment using Azure's REST API, you would use an `HTTP PUT` request. The request would look like this:
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
+```
+
+The accompanying JSON body for this request is as follows:
+
+```json
+{ 
+  "Properties": { 
+    "EndpointType": "ReadWrite", 
+    "Members": ["{replicaserverName}"] 
+  }
+} 
+```
+
+Here, `{replicaserverName}` should be replaced with the name of the replica server you're including as a reader endpoint target in this virtual endpoint.
+
+---
+
+
+## List virtual endpoints (preview)
+
+To list virtual endpoints in the preview version of Azure Database for PostgreSQL - Flexible Server, use the following steps:
+
+#### [Portal](#tab/portal)
+
+1. In the Azure portal, select the **primary** server.
+
+2. On the server sidebar, under **Settings**, select **Replication**.
+
+3. At the top of the page, you will see both the reader and writer endpoints displayed, along with the names of the servers they are pointing to.
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/virtual-endpoints-show.png" alt-text="Screenshot of virtual endpoints list." lightbox="./media/how-to-read-replicas-portal/virtual-endpoints-show.png":::
+
+#### [REST API](#tab/restapi)
+
+```http request
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints?api-version=2023-06-01-preview
+```
+
+Here, `{sourceserverName}` should be the name of the primary server from which you're managing the virtual endpoints.
+
+---
+
+
 ### Modify application(s) to point to virtual endpoint
 
-Modify any applications that are using your Azure Database for PostgreSQL to use the new virtual endpoints (ex: `corp-pg-001.writer.postgres.database.azure.com` and `corp-pg-001.reader.postgres.database.azure.com`)
+Modify any applications that are using your Azure Database for PostgreSQL to use the new virtual endpoints (ex: `corp-pg-001.writer.postgres.database.azure.com` and `corp-pg-001.reader.postgres.database.azure.com`).
 
 ## Promote replicas
 
 With all the necessary components in place, you're ready to perform a promote replica to primary operation.
 
+#### [Portal](#tab/portal)
 To promote replica from the Azure portal, follow these steps:
 
 1.  In the [Azure portal](https://portal.azure.com/), select your primary Azure Database for PostgreSQL - Flexible server.
@@ -165,8 +350,34 @@ To promote replica from the Azure portal, follow these steps:
 
 6.  Select **Promote** to begin the process. Once it's completed, the roles reverse: the replica becomes the primary, and the primary will assume the role of the replica.
 
+#### [REST API](#tab/restapi)
+
+When promoting a replica to a primary server, use an `HTTP PATCH` request with a specific `JSON` body to set the promotion options. This process is crucial when you need to elevate a replica server to act as the primary server.
+
+The `HTTP` request is structured as follows:
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2023-06-01-preview
+```
+
+```json
+{
+  "Properties": {
+    "Replica": {
+      "PromoteMode": "switchover",
+      "PromoteOption": "planned"
+    }
+  }
+}
+```
+
+In this `JSON`, the promotion is set to occur in `switchover` mode with a `planned` promotion option. While there are two options for promotion - `planned` or `forced` - chose `planned` for this exercise.
+
+---
+
    > [!NOTE]  
    > The replica you are promoting must have the reader virtual endpoint assigned, or you will receive an error on promotion.
+   
 
 ### Test applications
 
@@ -174,7 +385,9 @@ Restart your applications and attempt to perform some operations. Your applicati
 
 ### Failback to the original server and region
 
-Repeat the same operations to promote the original server to the primary:
+Repeat the same operations to promote the original server to the primary.
+
+#### [Portal](#tab/portal)
 
 1.  In the [Azure portal](https://portal.azure.com/), select the replica.
 
@@ -188,6 +401,29 @@ Repeat the same operations to promote the original server to the primary:
 
 6.  Select **Promote**, the process begins. Once it's completed, the roles reverse: the replica becomes the primary, and the primary will assume the role of the replica.
 
+#### [REST API](#tab/restapi)
+
+This time, change the `{replicaserverName}` in the API request to refer to your old primary server, which is currently acting as a replica, and execute the request again.
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2023-06-01-preview
+```
+
+```json
+{
+  "Properties": {
+    "Replica": {
+      "PromoteMode": "switchover",
+      "PromoteOption": "planned"
+    }
+  }
+}
+```
+
+In this `JSON`, the promotion is set to occur in `switchover` mode with a `planned` promotion option. While there are two options for promotion - `planned` or `forced` - chose `planned` for this exercise.
+
+---
+
 ### Test applications
 
 Again, switch to one of the consuming applications. Wait for the primary and replica status to change to `Updating` and then attempt to perform some operations. During the replica promote, your application might encounter temporary connectivity issues to the endpoint:
@@ -198,6 +434,8 @@ Again, switch to one of the consuming applications. Wait for the primary and rep
 ## Add secondary read replica
 
 Create a secondary read replica in a separate region to modify the reader virtual endpoint and to allow for creating an independent server from the first replica.
+
+#### [Portal](#tab/portal)
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the primary Azure Database for PostgreSQL - Flexible Server.
 
@@ -215,9 +453,37 @@ Create a secondary read replica in a separate region to modify the reader virtua
 
 8.  Review the information in the final confirmation window. When you're ready, select **Create**. A new deployment will be created and executed.
 
-9.  During the deployment, you see the primary in `Updating` status:
+9.  During the deployment, you see the primary in `Updating` state.
+    
+    :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
+
+#### [REST API](#tab/restapi)
+
+You can create a secondary read replica by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
+```
+
+Choose a distinct name for `{replicaserverName}` to differentiate it from the primary server and any other replicas.
+
+```json
+{
+  "location": "westus3",
+  "properties": {
+    "createMode": "Replica",
+    "SourceServerResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}"
+  }
+}
+```
+
+The location is set to `westus3`, but you can adjust this based on your geographical and operational needs.
+
+---
 
 ## Modify virtual endpoint
+
+#### [Portal](#tab/portal)
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the primary Azure Database for PostgreSQL - Flexible Server.
 
@@ -233,9 +499,30 @@ Create a secondary read replica in a separate region to modify the reader virtua
 
 5.  Select **Save**. The reader endpoint will now be pointed at the secondary replica, and the promote operation will now be tied to this replica.
 
+#### [REST API](#tab/restapi)
+
+You can now modify your reader endpoint to point to the newly created secondary replica by using a `PATCH` request. Remember to replace `{replicaserverName}` with the name of the newly created read replica.
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
+```
+
+```json
+{ 
+  "Properties": { 
+    "EndpointType": "ReadWrite", 
+    "Members": ["{replicaserverName}"] 
+  }
+} 
+```
+
+---
+
 ## Promote replica to independent server
 
 Rather than switchover to a replica, it's also possible to break the replication of a replica such that it becomes its standalone server.
+
+#### [Portal](#tab/portal)
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server primary server.
 
@@ -247,16 +534,74 @@ Rather than switchover to a replica, it's also possible to break the replication
     
 4.  In the dialog, ensure the action is **Promote to independent server and remove from replication. This won't impact the primary server**.
 
-   > [!NOTE]  
-   > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
-
 5.  For **Data sync**, ensure **Planned - sync data before promoting** is selected.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-independent.png" alt-text="Screenshot of promoting the replica to independent server.":::
 
 6.  Select **Promote**, the process begins. Once completed, the server will no longer be a replica of the primary.
 
+
+#### [REST API](#tab/restapi)
+
+You can promote a replica to a standalone server using a `PATCH` request. To do this, send a `PATCH` request to the specified Azure Management REST API URL with the first `JSON` body, where `PromoteMode` is set to `standalone` and `PromoteOption` to `planned`. The second `JSON` body format, setting `ReplicationRole` to `None`, is deprecated but still mentioned here for backward compatibility.
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2023-06-01-preview
+```
+
+
+```json
+{
+  "Properties": {
+    "Replica": {
+      "PromoteMode": "standalone",
+      "PromoteOption": "planned"
+    }
+  }
+}
+```
+
+```json
+{
+  "Properties": {
+    "ReplicationRole": "None"
+  }
+}
+```
+
+---
+
+   > [!NOTE]  
+   > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
+   
+
+## Delete virtual endpoint (preview)
+
+#### [Portal](#tab/portal)
+
+1. In the Azure portal, select the **primary** server.
+
+2. On the server sidebar, under **Settings**, select **Replication**.
+
+3. At the top of the page, locate the `Virtual endpoints (Preview)` section. Navigate to the three dots (menu options) next to the endpoint name, expand it, and choose `Delete`.
+
+4. A delete confirmation dialog will appear. It will warn you: "This action will delete the virtual endpoint `virtualendpointName`. Any clients connected using these domains may lose access." Acknowledge the implications and confirm by clicking on **Delete**.
+
+
+#### [REST API](#tab/restapi)
+
+To delete a virtual endpoint in a preview environment using Azure's REST API, you would issue an `HTTP DELETE` request. The request URL would be structured as follows:
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{serverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
+```
+
+
+---
+
 ## Delete a replica
+
+#### [Portal](#tab/portal)
 
 You can delete a read replica similar to how you delete a standalone Azure Database for PostgreSQL - Flexible Server.
 
@@ -276,9 +621,20 @@ You can also delete the read replica from the **Replication** window by followin
 
 5.  Acknowledge **Delete** operation.
 
+#### [REST API](#tab/restapi)
+To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
+```
+
+---
+
 ## Delete a primary server
 
 You can only delete the primary server once all read replicas have been deleted. Follow the instructions in the [Delete a replica](#delete-a-replica) section to delete replicas and then proceed with the steps below.
+
+#### [Portal](#tab/portal)
 
 To delete a server from the Azure portal, follow these steps:
 
@@ -291,6 +647,16 @@ To delete a server from the Azure portal, follow these steps:
 3.  Enter the name of the primary server to delete. Select **Delete** to confirm the deletion of the primary server.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary-confirm.png" alt-text="Screenshot of confirming to delete the primary server.":::
+
+#### [REST API](#tab/restapi)
+To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}?api-version=2022-12-01
+```
+
+---
+
 
 ## Monitor a replica
 
@@ -324,4 +690,4 @@ The **Read Replica Lag** metric shows the time since the last replayed transacti
 
 ## Related content
 
-- [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md)
+- [Read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md)

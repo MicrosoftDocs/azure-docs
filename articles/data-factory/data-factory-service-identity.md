@@ -276,7 +276,7 @@ You can create, delete, manage user-assigned managed identities in Microsoft Ent
 
 In order to use a user-assigned managed identity, you must first [create credentials](credentials.md) in your service instance for the UAMI.
 
-## Next steps
+## Related content
 
 - [Create credentials](credentials.md).
 

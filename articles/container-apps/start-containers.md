@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 11/30/2023
 ms.author: cshoe
 ---
 
@@ -40,4 +40,4 @@ Containers package your applications in an easy-to-transport unit. Here are a fe
 - **Simplicity**: Moving shipping containers requires specific, yet standardized tools. Similarly, Azure Container Apps simplifies how you use containers, which allows you focus on app development without worrying about the details of container management.
 
 > [!div class="nextstepaction"]
-> [Build your first app using a container](quickstart-portal.md)
+> [Use serverless containers](start-serverless-containers.md)

@@ -14,7 +14,55 @@ This article lists significant changes to Azure Monitor documentation.
 > [!TIP]
 > Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 >
-> :::image type="content" source="./media//whats-new/rss.png" alt-text="An rss icon":::  https://aka.ms/azmon/rss
+> :::image type="content" source="./media//whats-new/rss.png" alt-text="An rss icon.":::  https://aka.ms/azmon/rss
+
+## [2023](#tab/2023)
+
+## December 2023
+
+|Subservice | Article | Description |
+|---|---|---|
+Alerts|[Noncommon alert schema definitions](alerts/alerts-non-common-schema-definitions.md)|Added recommendation for using the common schema|
+Alerts|[Create a metric alert in Azure Monitor Logs](alerts/alerts-metric-logs.md)|Add recommendations for alerting at scale|
+Alerts|[Create or edit an activity log, service health, or resource health alert rule](alerts/alerts-create-activity-log-alert-rule.md)|Restructured articles about creating new alert rules for better clarity. There are now separate articles dedicated to each alert rule type, and dedicated articles for specific alert rule configurations.|
+Alerts|[Create or edit a metric alert rule](alerts/alerts-create-new-alert-rule.md)|Added limitations for use of custom properties in alert rules. Added list of query plugins not supported by log alert rule queries.|
+Application-Insights|[Add, modify, and filter OpenTelemetry](app/opentelemetry-add-modify.md)|Custom events code samples and instructions have been added to .NET Core / .NET tabs.|
+Application-Insights|[Migrate availability tests](app/availability-test-migration.md)|We've clarified the URL ping tests retirement statement. Migrate your URL ping tests as soon as possible using the PowerShell scripts provided in this article.|
+Application-Insights|[Enable Azure Monitor Application Insights Real User Monitoring](app/javascript-sdk.md)|Additional guidance has been added on when to use the npm package.|
+Application-Insights|[Migrate to workspace-based Application Insights resources](app/convert-classic-resource.md)|We confirmed that migrating from classic to workspace-based resources doesn't introduce application downtime or restarts, and it does not change your existing instrumentation key or connection string.|"
+Logs|[Correlate data in Azure Data Explorer and Azure Resource Graph with data in a Log Analytics workspace](logs/azure-monitor-data-explorer-proxy.md)|Explained how to query Azure Data Explorer external tables using the `adx("")` expression. |
+Logs|[Logs Ingestion API in Azure Monitor](logs/logs-ingestion-api-overview.md)|Updated Log Ingestion API version.|
+Profiler|[Profile production applications in Azure with Application Insights Profiler](profiler/profiler-overview.md)|Add support for Java profiler and link to docs from .NET profiler overview.|
+Virtual-Machines|[Enable VM insights by using PowerShell](vm/vminsights-enable-powershell.md)|Enable VM insights with Azure monitor agent by using PowerShell|
+
+
+## November 2023
+
+|Subservice | Article | Description |
+|---|---|---|
+Agents|[Migrate to Azure Monitor Agent from Log Analytics agent](agents/azure-monitor-agent-migration.md)|Container Insights is now generally available with Azure Monitor Agent.|
+Agents|[Azure Monitor Agent overview](agents/agents-overview.md)|Azure Monitor Agent now supports AlmaLinux 9, Oracle Linux 9, and Rocky Linux 9.|
+Alerts|[Create or edit an alert rule](alerts/alerts-create-new-alert-rule.md)|Added limitations of stateful log alerts.|
+Alerts|[Troubleshoot Azure Monitor metric alerts](alerts/alerts-troubleshoot-metric.md)|Documented network error that can occur if you create a metric alert rule that uses a large number of dimensions, creating a payload that is too large for the network. We also documented possible workarounds for this issue.|
+Alerts|[Create a metric alert with dynamic thresholds](alerts/alerts-dynamic-thresholds.md)|We restructured the section on Azure Monitor alerts, so that the content is more easily findable and usable.|
+Alerts|[Create or edit an alert rule](alerts/alerts-create-new-alert-rule.md)|Corrected information about dimensions. Dimensions are retrieved from the last 24 hours, not 48 hours.|
+Alerts|[Connect Azure to ITSM tools by using IT Service Management](alerts/itsmc-definition.md)|Added documentation to note that as of October 2023, we don't support the using ITSM actions to send alerts and events to ServiceNow in the Azure portal.|
+Alerts|[Create or edit an alert rule](alerts/alerts-create-new-alert-rule.md)|When you create a log alert rule, if you're querying an ADX or ARG cluster, the data sources accessed by the query, must have the Reader role.|
+Application-Insights|[Application Insights overview](app/app-insights-overview.md)|OpenTelemetry for .NET Core reached general availability and is now fully supported.|
+Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](app/opentelemetry-enable.md)|Our OpenTelemetry FAQ section has been updated to reflect the general availability status of OpenTelemetry for .NET Core.|
+Application-Insights|[Monitor your Node.js services and apps with Application Insights](app/nodejs.md)|A dedicated troubleshooting article is now available to assist with issues related to monitoring Node.js apps.|
+Application-Insights|[Application Insights availability tests](app/availability-overview.md)|We enabled TLS 1.3 in Availability Tests and updated our troubleshooting information.|
+Containers|[Data transformations in Container insights](containers/container-insights-transformations.md)|New article describes how to transform data using a DCR transformation in Container insights|
+Containers|[Enable Container insights](containers/container-insights-onboard.md)|New article: Enable private link with Container insights|
+Essentials|[Azure Monitor managed service for Prometheus rule groups](essentials/prometheus-rule-groups.md)|Create or edit Prometheus rule group in the Azure portal (preview)|
+Logs|[Detect and mitigate potential issues using AIOps and machine learning in Azure Monitor](logs/aiops-machine-learning.md)|Microsoft Copilot for Azure now helps you write KQL queries to analyze data and troubleshoot issues based on prompts, such as "Are there any errors in container logs?". |
+Logs|[Best practices for Azure Monitor Logs](./best-practices-logs.md)|More guidance on Azure Monitor Logs features that provide enhanced resilience.|
+Logs|[Data retention and archive in Azure Monitor Logs](logs/data-retention-archive.md)|Azure Monitor Logs extended archiving of data to up to 12 years.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added Basic logs support for Network managers tables.|
+Virtual-Machines|[Enable VM insights in the Azure portal](vm/vminsights-enable-portal.md)|Azure portal no longer supports enabling VM insights using Log Analytics agent.|
+Virtual-Machines|[Azure Monitor SCOM Managed Instance](vm/scom-managed-instance-overview.md)|Azure Monitor SCOM Managed Instance is now generally available.|
+Visualizations|[Azure Workbooks](visualize/workbooks-overview.md)|We clarified that when you're viewing Azure workbooks, you can see all of the workbooks that are in your current view. In order to see all of your existing workbooks of any kind, you must Browse across galleries. |
+
 
 ## October 2023
 
@@ -326,6 +374,9 @@ Virtual-Machines|[Monitor virtual machines with Azure Monitor: Collect data](vm/
 Virtual-Machines|[Monitor virtual machines with Azure Monitor: Migrate management pack logic](vm/monitor-virtual-machine-management-packs.md)|Rewritten for Azure Monitor Agent.|
 Virtual-Machines|[Monitor virtual machines with Azure Monitor](vm/monitor-virtual-machine.md)|Rewritten for Azure Monitor Agent.|
 Virtual-Machines|[Monitor Azure virtual machines](../../articles/virtual-machines/monitor-vm.md)|VM scenario updates for Azure Monitor Agent.|
+
+
+## [2022](#tab/2022)
 
 ## December 2022
 
@@ -748,3 +799,5 @@ All references to unsupported versions of .NET and .NET CORE are scrubbed from A
 |:---|:---|
 | [Migrate from VM insights guest health (preview) to Azure Monitor log alerts](vm/vminsights-health-migrate.md) | New article: Describes process to replace VM guest health with alert rules. |
 | [VM insights guest health (preview)](vm/vminsights-health-overview.md) | Added deprecation statement. |
+
+---

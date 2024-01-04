@@ -63,6 +63,6 @@ CleanData
     ) ~> SplitByYear@(moviesBefore1960, moviesAfter1980, AllOtherMovies)
 ```
 
-## Next steps
+## Related content
 
 Common data flow transformations used with conditional split are the [join transformation](data-flow-join.md), [lookup transformation](data-flow-lookup.md), and the [select transformation](data-flow-select.md)

@@ -80,7 +80,7 @@ To create a load test using an existing JMeter script with the Azure CLI:
     Specify a unique test ID for your load test, and the name of the JMeter test script (JMX file). If you use an existing test ID, a test run will be added to the test when you run it.
 
     ```azurecli
-    $testId="<test-id>"
+    testId="<test-id>"
     testPlan="<my-jmx-file>"
     ```
 

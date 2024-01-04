@@ -1,11 +1,11 @@
 ---
-title: Overview of Azure Data Lake Storage integration for the DICOM service in Azure Health Data Services
+title: Azure Data Lake Storage integration for the DICOM service in Azure Health Data Services
 description: Learn how to use Azure Data Lake Storage with the DICOM service to store, access, and analyze medical imaging data in the cloud. Explore the benefits, architecture, and data contracts of this integration.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 11/21/2023
 ms.author: mmitrik
 ms.custom: mode-api
 ---

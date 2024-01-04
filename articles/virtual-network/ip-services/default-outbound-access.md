@@ -55,7 +55,7 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 * Loss of IP address
 
-    * Customers don't own the default outbound access IP. This IP might changit ge, and any dependency on it could cause issues in the future.
+    * Customers don't own the default outbound access IP. This IP might change, and any dependency on it could cause issues in the future.
 
 ## How can I transition to an explicit method of public connectivity (and disable default outbound access)?
  

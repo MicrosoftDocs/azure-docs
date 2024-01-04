@@ -166,6 +166,6 @@ Use the following steps to delete the entire resource group, including the newly
 For more information, see the following articles:
 
 - [Azure Pet Clinic microservices](https://github.com/Azure-Samples/spring-petclinic-microservices)
-- [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+- [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples)
 - [Azure for Spring developers](/azure/developer/java/spring/)
 - [Spring Cloud Azure documentation](/azure/developer/java/spring-framework/)

@@ -90,7 +90,7 @@ ms.author: eur
 |ta-IN|Tamil (India)|
 |te-IN|Telugu (India)|
 |th-TH|Thai (Thailand)|
-|tr-TR|Turkish (Turkey)|
+|tr-TR|Turkish (Türkiye)|
 |uk-UA|Ukrainian (Ukraine)|
 |ur-PK|Urdu (Pakistan)|
 |uz-UZ|Uzbek (Latin, Uzbekistan)|

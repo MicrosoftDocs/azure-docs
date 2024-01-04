@@ -49,6 +49,6 @@ In this example, this output indicates there is one CRD related to PostgreSQL: `
 Come back and read this article. It's updated as appropriate.
 
 
-## Next steps:
+## Related content:
 - [Read about creating Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 - [Read about getting a list of the Azure Arc-enabled PostgreSQL servers created in your Arc Data Controller](list-servers-postgresql.md)

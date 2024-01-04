@@ -4,11 +4,12 @@ titleSuffix: Azure AI Studio
 description: Learn how to create and use a vector index for performing Retrieval Augmented Generation (RAG).
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 ---
 

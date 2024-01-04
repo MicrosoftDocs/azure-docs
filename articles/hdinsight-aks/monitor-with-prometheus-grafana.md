@@ -20,8 +20,8 @@ This article covers the details of enabling the monitoring feature in HDInsight 
 
 ## Prerequisites
 
-* An Azure Managed Prometheus workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Azure Managed Prometheus workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md).
-* Azure Managed Grafana workspace. For the instructions, see [Create a Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md).
+* An Azure Managed Prometheus workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create an Azure Managed Prometheus workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md).
+* Azure Managed Grafana workspace. For the instructions, see [Create an Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md).
 * An [HDInsight on AKS cluster](./quickstart-create-cluster.md). Currently, you can use Azure Managed Prometheus with the following HDInsight on AKS cluster types:
     * Apache Spark™
     * Apache Flink®
