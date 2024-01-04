@@ -24,7 +24,7 @@ As an illustration, take a server with a storage capacity of 2 TiB ( greater tha
 
 
 > [!NOTE]  
-> Storage size always doubles in size for premium disk SSD which doubles the storage cost. Only premium SSD V2 supports incremental disk size increase.
+> Storage always doubles in size for premium disk SSD which doubles the storage cost. Only premium SSD V2 supports incremental disk size increase.
 
 ## Enable storage auto-grow for existing servers
 
