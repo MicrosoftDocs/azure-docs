@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/18/2023
+ms.date: 01/04/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
@@ -276,8 +276,11 @@ Make sure the region where your storage account is located supports all of the d
 > [!IMPORTANT]
 > [Customer-initiated conversion](#customer-initiated-conversion) from LRS to ZRS is available in all public regions that support ZRS except for the following:
 >
-> - (Europe) West Europe
+> - (Europe) Italy North
 > - (Europe) UK South
+> - (Europe) Poland Central
+> - (Europe) West Europe
+> - (Middle East) Israel Central
 > - (North America) Canada Central
 > - (North America) East US
 > - (North America) East US 2
