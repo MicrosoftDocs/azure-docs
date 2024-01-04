@@ -27,7 +27,7 @@ To self-register your subscription for public preview in Azure portal:
 
 ## Timeline of schedules for pre and post events
 
-We recommend you to go through the following table to understand the timeline of the schedule for pre and post events.
+**We recommend you to go through the following table to understand the timeline of the schedule for pre and post events.**
 
 For example, if a maintenance schedule is set to start at **3:00 PM**, with the maintenance window of 3 hours and 55 minutes for **Guest** maintenance scope, following are the details: 
 
@@ -41,7 +41,7 @@ For example, if a maintenance schedule is set to start at **3:00 PM**, with the 
 |7:15 PM| After the patch installation, the post event runs for 20 mins. </br>In this example, the post event is initiated at 6:55 PM and completed by 7:15 PM and if you have a shorter maintenance window, the post event is triggered at 5:00 PM and completed by 5:20 PM. |
 
 >[!IMPORTANT]
-> Make sure to allocate atleast 40 minutes before the scheduled maintenance run time (3:00 PM in above example) otherwise it might lead to auto-cancellation of the particular scheduled run.
+> Make sure to allocate atleast 40 minutes before the scheduled maintenance run time (3:00 PM in above example) otherwise it might lead to auto-cancellation of that particular scheduled run.
 
 ## Configure pre and post events on existing schedule
 
