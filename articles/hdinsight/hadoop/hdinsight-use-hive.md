@@ -4,7 +4,7 @@ description: Apache Hive is a data warehouse system for Apache Hadoop. You can q
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 12/09/2022
+ms.date: 01/04/2023
 ---
 
 # What is Apache Hive and HiveQL on Azure HDInsight?
