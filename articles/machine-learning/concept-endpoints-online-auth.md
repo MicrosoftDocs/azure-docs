@@ -66,17 +66,20 @@ For control plane operations, your user identity needs to have a proper Azure ro
 
 #### Additional permissions for user identity when enforcing access to default secret stores
 
-If you intend to use the secret injection feature, and while creating your endpoints, you set the flag to enforce access to the default secret stores, your user identity needs to have the permission to read secrets from workspace connections.
+If you intend to use the [secret injection](concept-secret-injection.md) feature, and while creating your endpoints, you set the flag to enforce access to the default secret stores, your _user identity_ needs to have the permission to read secrets from workspace connections.
 
-When the endpoint is created with a system-assigned identity (SAI) _and_ the flag is set to enforce access to the default secret stores, your user identity needs to have permissions to read secrets from workspace connections when creating the endpoint and creating the deployment(s) under the endpoint. This restriction ensures that only a user identity with the permission to read secrets can grant the endpoint identity the permission to read secrets.
+When the endpoint is created with a system-assigned identity (SAI) _and_ the flag is set to enforce access to the default secret stores, your user identity needs to have permissions to read secrets from workspace connections when creating the endpoint and creating the deployment(s) under the endpoint. This restriction ensures that only a _user identity_ with the permission to read secrets can grant the endpoint identity the permission to read secrets.
 
-- If a user identity doesn't have the permissions to read secrets from workspace connections, but it tries to create the endpoint with an SAI and the endpoint's flag set to enforce access to the default secret stores, the endpoint creation is rejected.
+- If a user identity doesn't have the permissions to read secrets from workspace connections, but it tries to create the _endpoint_ with an SAI and the endpoint's flag set to enforce access to the default secret stores, the endpoint creation is rejected.
 
-- Similarly, if a user identity doesn't have the permissions to read secrets from workspace connections, but tries to create a deployment under the endpoint with an SAI and the endpoint's flag set to enforce access to the default secret stores, the deployment creation is rejected.
+- Similarly, if a user identity doesn't have the permissions to read secrets from workspace connections, but tries to create a _deployment_ under the endpoint with an SAI and the endpoint's flag set to enforce access to the default secret stores, the deployment creation is rejected.
 
-When (1) the endpoint is created with a UAI, _or_ (2) the flag is _not_ set to enforce access to the default secret stores even if the endpoint uses an SAI, your user identity doesn't need to have permissions to read secrets from workspace connections. In this case, the endpoint identity won't be automatically granted the permission to read secrets, but you can still manually grant the endpoint identity this permission by assigning proper roles. Secret retrieval and injection will still be triggered if you mapped the environment variables with secret references, and it will use the current endpoint identity to do so.
+When (1) the endpoint is created with a UAI, _or_ (2) the flag is _not_ set to enforce access to the default secret stores even if the endpoint uses an SAI, your user identity doesn't need to have permissions to read secrets from workspace connections. In this case, the endpoint identity won't be automatically granted the permission to read secrets, but you can still manually grant the endpoint identity this permission by assigning proper roles if needed. Regardless whether the role assignment was done automatically or manually, the secret retrieval and injection will still be triggered if you mapped the environment variables with secret references in the deployment definition, and it will use the endpoint identity to do so.
 
 For more information on managing authorization to an Azure Machine Learning workspace, see [Manage access to Azure Machine Learning](how-to-assign-roles.md).
+
+For more information on secret injection, see [Secret injection in online endpoints](concept-secret-injection.md).
+
 
 ### Data plane operations
 
