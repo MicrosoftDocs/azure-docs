@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 12/25/2023
+ms.date: 12/29/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -66,6 +66,15 @@ You can restore data from any point in time for which a recovery point exists. A
 Azure Backup gives you the option to restore all the items that are backed up or to use granular controls to select specific items from the backups by choosing namespaces and other filter options. Also, you can do the restore on the original AKS cluster (the cluster that's backed up) or on an alternate AKS cluster. You can restore backups that are stored in Operational and Vault Tier  to a cluster in the same and different subscription. Only backups stored in Vault Tier can be used to do a restore to a cluster in a different region (Azure Paired Region). 
 
 To restore backup stored in Vault Tier, you must provide a staging location where the backup data is hydrated. This staging location includes a resource group and a storage account in it within the same region and a subscription as the target cluster for restore. During restore, specific resources (blob container, disk, and disk snapshots) are created as part of hydration, which is then cleared after the restore operation is complete.
+
+Azure Backup for AKS currently supports the following two options when doing a restore operation when resource clash happens (backed-up resource has the same name as the resource in the target AKS cluster). You can choose one of these options when defining the restore configuration.
+
+1. **Skip**: This option is selected by default. For example, if you have backed up a PVC named *pvc-azuredisk* and you're restoring it in a target cluster that has the PVC with the same name, then the backup extension skips restoring the backed-up persistent volume claim (PVC). In such scenarios, we recommend you to delete the resource from the cluster, and then do the restore operation so that the backed-up items are only available in the cluster and aren't skipped.
+
+2. **Patch**: This option allows the patching mutable variable in the backed-up resource on the resource in the target cluster. If you want to update the number of replicas in the target cluster, you can opt for patching as an operation. 
+
+>[!Note]
+>AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumess in the original location, delete the existing Persistent Volumes, and then do the restore operation.
 
 ## Use custom hooks for backup and restore
 
