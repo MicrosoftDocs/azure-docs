@@ -183,7 +183,7 @@
           href: reference-nexus-kubernetes-cluster-sku.md
         - name: Supported Kubernetes versions
           href: reference-nexus-kubernetes-cluster-supported-versions.md
-    - name: Nexus Platform Cluster Runtime Versoning
+    - name: Platform Cluster Runtime Versioning
       href: reference-nexus-platform-runtime-upgrades.md
     - name: Instance to on-premises WAN Connectivity
       href: reference-customer-edge-provider-edge-connectivity.md
