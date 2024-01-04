@@ -98,33 +98,43 @@ Before restoring your database, you might need to create a new, empty database. 
 If you are using a Single Server, your username will include the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
 
 ### Restoring the dump
+After you've created the target database, you can restore the data into this database from the dump file. During the restoration, log any errors to an `errors.log` file and check it's content for any errors after the restore is done.
+
+#### [pg_dump & psql - using singular text file](#tab/psql)
+```bash
+psql -f <database name>_dump.sql <new database name> -h <server name> -U <user name> 2> errors.log
+```
+
+For example, if you have a server named `mydemoserver`, a user named `myuser` and a new database called `testdb_copy`, run the following command:
+```bash
+psql -f testdb_dump.sql testdb_copy -h mydemoserver.postgres.database.azure.com -U myuser 2> errors.log
+```
 
 
-After you've created the target database, you can use the `pg_restore` command and the `--dbname` parameter to restore the data into the target database from the dump file.
+#### [pg_dump & pg_restore - using multiple cores](#tab/pgrestore)
+```bash
+pg_restore -Fd -j <number of cores> -d <new database name> <database name>.dump -h <server name> -U <user name> 2> errors.log
+```
+
+In these commands, the `-j` option stands for the number of cores you wish to use for the restore process. You can adjust this number based on how many cores are available on your PostgreSQL server and how many you would like to allocate for the restore process. Feel free to change this setting depending on your server's capacity and your performance requirements.
+
+For example, if you have a server named `mydemoserver`, a user named `myuser` and a new database called `testdb_copy`, and you want to use two cores for the dump, run the following command:
 
 ```bash
-pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user-name> --dbname=<target database name> <database>.dump
+pg_restore -Fd -j 2 testdb_copy -h mydemoserver.postgres.database.azure.com -U myuser -f testdb.dump
 ```
+
+---
+
+## Post-Restoration Check
+After the restoration process is complete, it's important to review the `errors.log` file for any errors that may have occurred. This step is crucial for ensuring the integrity and completeness of the restored data. Address any issues found in the log file to maintain the reliability of your database.
+
 
 Including the `--no-owner` parameter causes all objects created during the restore to be owned by the user specified with `--username`. For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
 > [!NOTE]
 > On Azure Database for PostgreSQL servers, TLS/SSL connections are on by default. If your PostgreSQL server requires TLS/SSL connections, but doesn't have them, set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error might read: "FATAL: SSL connection is required. Please specify SSL options and retry." In the Windows command line, run the command `SET PGSSLMODE=require` before running the `pg_restore` command. In Linux or Bash, run the command `export PGSSLMODE=require` before running the `pg_restore` command. 
->
 
-In this example, restore the data from the dump file **testdb.dump** into the database **mypgsqldb**, on target server **mydemoserver.postgres.database.azure.com**.
-
-Here's an example for how to use this `pg_restore` for Single Server:
-
-```bash
-pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
-```
-
-Here's an example for how to use this `pg_restore` for Flexible Server:
-
-```bash
-pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin --dbname=mypgsqldb testdb.dump
-```
 
 ## Optimize the migration process
 
@@ -132,15 +142,7 @@ One way to migrate your existing PostgreSQL database to Azure Database for Postg
 
 > [!NOTE]
 > For detailed syntax information, see [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html).
->
 
-### For the backup
-
-Take the backup with the `-Fc` switch, so that you can perform the restore in parallel to speed it up. For example:
-
-```bash
-pg_dump -h my-source-server-name -U source-server-username -Fc -d source-databasename -f Z:\Data\Backups\my-database-backup.dump
-```
 
 ### For the restore
 
@@ -150,17 +152,6 @@ pg_dump -h my-source-server-name -U source-server-username -Fc -d source-databas
 
 - Restore with the `-j N` switch (where `N` represents the number) to parallelize the restore. The number you specify is the number of cores on the target server. You can also set to twice the number of cores of the target server to see the impact.
 
-    Here's an example for how to use this `pg_restore` for Single Server:
-
-    ```bash
-     pg_restore -h my-target-server.postgres.database.azure.com -U azure-postgres-username@my-target-server -j 4 -d my-target-databasename Z:\Data\Backups\my-database-backup.dump
-    ```
-
-    Here's an example for how to use this `pg_restore` for Flexible Server:
-
-    ```bash
-     pg_restore -h my-target-server.postgres.database.azure.com -U azure-postgres-username -j 4 -d my-target-databasename Z:\Data\Backups\my-database-backup.dump
-    ```
 
 - You can also edit the dump file by adding the command `set synchronous_commit = off;` at the beginning, and the command `set synchronous_commit = on;` at the end. Not turning it on at the end, before the apps change the data, might result in subsequent loss of data.
 
