@@ -31,11 +31,11 @@ Here are a few examples of the kinds of prompts you can use to get help with App
 
 ## Examples
 
-You can tell Microsoft Copilot for Azure (preview) "my web app is down." After you select the resource that you want to troubleshoot, Microsoft Copilot for Azure opens the **App Service - Web App Down** tool so you can view diagnostics.
+You can tell Microsoft Copilot for Azure (preview) "**my web app is down**." After you select the resource that you want to troubleshoot, Microsoft Copilot for Azure opens the **App Service - Web App Down** tool so you can view diagnostics.
 
 :::image type="content" source="media/troubleshoot-app-service/app-service-down.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) opening the App Service - Web App Down tool." lightbox="media/troubleshoot-app-service/app-service-down.png":::
 
-When you say "Take a memory dump" to Microsoft Copilot for Azure (preview), Microsoft Copilot for Azure (preview) suggests opening the **Collect a Memory Dump** tool so that you can take a snapshot of the app's current state.  In this example, Microsoft Copilot for Azure (preview) continues to work with the resource selected earlier in the conversation.
+When you say "**Take a memory dump**" to Microsoft Copilot for Azure (preview), Microsoft Copilot for Azure (preview) suggests opening the **Collect a Memory Dump** tool so that you can take a snapshot of the app's current state.  In this example, Microsoft Copilot for Azure (preview) continues to work with the resource selected earlier in the conversation.
 
 :::image type="content" source="media/troubleshoot-app-service/app-service-take-memory-dump.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) opening the Collect a Memory Dump tool." lightbox="media/troubleshoot-app-service/app-service-take-memory-dump.png" :::
 

@@ -1380,6 +1380,7 @@
         "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge",
         "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
         "articles/migrate/**/*.md": "Azure Migrate",
+        "articles/mysql/flexible-server/**/*.md": "Azure Database for MySQL - Flexible Server",
         "articles/object-anchors/**/*.md": "Azure Object Anchors",
         "articles/object-anchors/**/*.yml": "Azure Object Anchors",
         "articles/open-datasets/**/*.md": "Azure Open Datasets",

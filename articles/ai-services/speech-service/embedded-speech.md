@@ -2,7 +2,6 @@
 title: Embedded Speech - Speech service
 titleSuffix: Azure AI services
 description: Embedded Speech is designed for on-device scenarios where cloud connectivity is intermittent or unavailable.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -132,7 +131,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.33.0</version>
+            <version>1.34.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -153,7 +152,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.33.0@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.34.0@aar'
 }
 ```
 ::: zone-end

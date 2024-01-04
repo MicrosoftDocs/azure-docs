@@ -27,6 +27,10 @@ In this tutorial you learn how to:
 
 The start of a machine learning project typically involves exploratory data analysis (EDA), data-preprocessing (cleaning, feature engineering), and the building of Machine Learning model prototypes to validate hypotheses. This _prototyping_ project phase is highly interactive. It lends itself to development in an IDE or a Jupyter notebook, with a _Python interactive console_. This tutorial describes these ideas.
 
+This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial. The video shows how to create a notebook, clone the notebook, create a compute instance, and download the data needed for the tutorial. The steps are also described in the following sections.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=514a29e2-0ae7-4a5d-a537-8f10681f5545]
+
 ## Prerequisites
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]

@@ -23,8 +23,6 @@
       href: quickstart-java.md
     - name: Deploy Python
       href: quickstart-python.md
-    - name: Deploy Ruby
-      href: quickstart-ruby.md
     - name: Deploy WordPress
       href: quickstart-wordpress.md
     - name: Deploy Go (experimental)
@@ -55,8 +53,6 @@
           href: configure-language-python.md
         - name: Configure Java
           href: configure-language-java.md
-        - name: Configure Ruby
-          href: configure-language-ruby.md
     - name: Deployment methods
       items:
         - name: Use ZIP or WAR
@@ -164,8 +160,6 @@
           href: tutorial-php-mysql-app.md
         - name: Node.js with MongoDB
           href: tutorial-nodejs-mongodb-app.md
-        - name: Ruby with Postgres
-          href: tutorial-ruby-postgres-app.md
         - name: Python with Postgres
           href: tutorial-python-postgresql-app.md
         - name: Java with Spring Data

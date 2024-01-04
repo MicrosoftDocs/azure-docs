@@ -299,6 +299,11 @@
             "source_path_from_root": "/articles/virtual-desktop/sandbox.md",
             "redirect_url": "/azure/virtual-desktop/publish-applications",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-web.md",
+            "redirect_url": "/azure/virtual-desktop/users/remote-desktop-clients-overview",
+            "redirect_document_id": false
         }
     ]
 }

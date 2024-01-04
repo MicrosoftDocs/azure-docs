@@ -16,6 +16,8 @@ items:
       href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
     - name: What's new
       href: whats-new.md
+    - name: Programming languages/SDKs
+      href: ./supported-languages.md
     - name: Azure OpenAI FAQ
       href: faq.yml
 - name: Quickstarts

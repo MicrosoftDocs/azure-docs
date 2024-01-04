@@ -5,7 +5,7 @@
   ms.author: htaubenfeld
   ms.service: microsoft-linux
   ms.topic: faq
-  ms.date: 11/30/2023
+  ms.date: 12/12/2023
 ---
 
 # Frequently asked questions about the Azure Linux Container Host for AKS
@@ -13,6 +13,34 @@
 This article answers common questions about the Azure Linux Container Host.
 
 ## General FAQs
+
+### What is Azure Linux?
+
+The Azure Linux Container Host is an operating system image that's optimized for running container workloads on [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md). Microsoft maintains the Azure Linux Container Host and based it on Azure Linux (also known as *Mariner*), an open-source Linux distribution created by Microsoft.
+
+### What are the benefits of using Azure Linux?
+
+For more information, see the [Azure Linux Container Host key benefits](./intro-azure-linux.md#azure-linux-container-host-key-benefits).
+
+### What's the difference between Azure Linux and Mariner?
+
+Azure Linux and Mariner are the same image with different branding. Please use the Azure Linux OS SKU when referring to the image on AKS.
+
+### Are Azure Linux container images supported on AKS?
+
+The only supported container images are the Microsoft .NET and Open JDK container images based on Azure Linux. All other images are on a best effort community support basis in our [GitHub issues page](https://github.com/microsoft/CBL-Mariner/issues).
+
+### What's the pricing for Azure Linux?
+
+Azure Linux is available at no additional cost. You only pay for the underlying Azure resources, such as virtual machines (VMs) and storage.
+
+### What GPUs does Azure Linux support?
+
+Azure Linux supports the V100 and T4 GPUs.
+
+### What certifications does Azure Linux have?
+
+Azure Linux passes all CIS level 1 benchmarks and offers a FIPS image. For more information, see [Azure Linux Container Host core concepts](./concepts-core.md).
 
 ### Is the Microsoft Azure Linux source code released?
 

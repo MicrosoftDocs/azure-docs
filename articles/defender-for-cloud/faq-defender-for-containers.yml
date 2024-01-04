@@ -1,14 +1,14 @@
 ### YamlMime:FAQ
 metadata:
-  title: Common questions - Defender for Containers
-  description: Get answers to frequently asked questions about Microsoft Defender for Containers.
+  title: Common questions about protecting containers
+  description: Get answers to common questions about protecting containers
   ms.topic: faq
   ms.service: defender-for-cloud
   author: dcurwin
   ms.author: dacurwin
-  ms.date: 06/20/2023
-title: Common questions about Defender for Containers
-summary: Get answers to common questions about Microsoft Defender for Containers.
+  ms.date: 12/12/2023
+title: Common questions about protecting containers
+summary: Get answers to common questions about protecting containers
 
 
 sections:
@@ -52,14 +52,14 @@ sections:
       - question: |
           Where is the default Log Analytics workspace located?
         answer: |
-          Depending on your region, the default Log Analytics workspace located will be located in various locations. To check your region see [Where is the default Log Analytics workspace created?](faq-data-collection-agents.yml)
+          Depending on your region, the default Log Analytics workspace might be located in various locations. To check your region see [Where is the default Log Analytics workspace created?](faq-data-collection-agents.yml)
 
       - question: |
           My organization requires me to tag my resources, and the required agent didn't get installed, what went wrong?
         answer: |
           The [Defender agent](defender-for-cloud-glossary.md#defender-agent) uses the Log analytics workspace to send data from your Kubernetes clusters to Defender for Cloud. The Defender for Cloud adds the Log analytic workspace and the resource group as a parameter for the agent to use.
 
-          However, if your organization has a policy that requires a specific tag on your resources, it migbht cause the agent installation to fail during the resource group or the default workspace creation stage. If it fails, you can either:
+          However, if your organization has a policy that requires a specific tag on your resources, it might cause the agent installation to fail during the resource group or the default workspace creation stage. If it fails, you can either:
 
           - [Assign a custom workspace](defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) and add any tag your organization requires.
 
@@ -74,7 +74,7 @@ sections:
       - question: |
           How does Defender for Containers scan an image?
         answer: |
-          Defender for Containers pulls the image from the registry and runs it in an isolated sandbox with the Qualys scanner. The scanner extracts a list of known vulnerabilities.
+          Defender for Containers pulls the image from the registry and runs it in an isolated sandbox with the Qualys scanner or with Microsoft Defender Vulnerability Management for multicloud environments. The scanner extracts a list of known vulnerabilities.
 
           Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying you when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
@@ -90,8 +90,8 @@ sections:
       - question: |
           What is the difference between Not Applicable Resources and Unverified Resources?
         answer: |
-          - **Not applicable resources** are resources for which the recommendation can't give a definitive answer. The not applicable tab includes reasons for each resource that could not be assessed.
-          - **Unverified resources** are resources that have been scheduled to be assessed, but have not been assessed yet.
+          - **Not applicable resources** are resources for which the recommendation can't give a definitive answer. The not applicable tab includes reasons for each resource that couldn't be assessed.
+          - **Unverified resources** are resources scheduled to be assessed, but not assessed yet.
 
       - question: |
           Does Microsoft share any information with Qualys in order to perform image scans?
@@ -107,7 +107,7 @@ sections:
           Does Defender for Containers scan images in Microsoft Container Registry?
         answer: |
           Currently, Defender for Containers can scan images in Azure Container Registry (ACR) and AWS Elastic Container Registry (ECR) only.
-          Docker Registry, Microsoft Artifact Registry/Microsoft Container Registry, and Microsoft Azure Red Hat OpenShift (ARO) built-in container image registry are not supported.
+          Docker Registry, Microsoft Artifact Registry/Microsoft Container Registry, and Microsoft Azure Red Hat OpenShift (ARO) built-in container image registry aren't supported.
           Images should first be imported to ACR. Learn more about [importing container images to an Azure container registry](../container-registry/container-registry-import-images.md?tabs=azure-cli).
 
       - question: |
@@ -124,9 +124,58 @@ sections:
           - For the OCI image format, the manifest media type would be **application/vnd.oci.image.manifest.v1+json**, and config media type **application/vnd.oci.image.config.v1+json**, as documented [here](https://specs.opencontainers.org/image-spec/media-types/).
 
       - question: |
-          What's the agentless discovery for Kubernetes refresh interval?
+          What are the extensions for agentless container posture management?
         answer: |
-          Agentless information in Defender for Containers is updated through a snapshot mechanism. It can take up to **6 hours** to see results in cloud security explorer.
+          There are two extensions that provide agentless CSPM functionality:
+          - **Agentless Container vulnerability assessments**: Provides agentless containers vulnerability assessments. Learn more about [Agentless Container vulnerability assessment](agentless-vulnerability-assessment-azure.md).
+          - **Agentless discovery for Kubernetes**: Provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup.
+
+      - question: |
+          How can I onboard multiple subscriptions at once?
+        answer: |
+          To onboard multiple subscriptions at once, you can use [this script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Agentless%20Container%20Posture).
+
+      - question: |
+          Why don't I see results from my clusters?
+        answer: |
+          If you don't see results from your clusters, check the following questions:
+          - Do you have stopped clusters? 
+          - Are your resource groups, subscriptions, or clusters locked? 
+          If the answer to either of these questions is yes, see the answers in the following questions.
+
+      - question: |
+          What can I do if I have stopped clusters?
+        answer: |
+          We don't support or charge stopped clusters. To get the value of agentless capabilities on a stopped cluster, you can rerun the cluster.
+
+      - question: |
+          What do I do if I have locked resource groups, subscriptions, or clusters?
+        answer: |
+          We suggest that you unlock the locked resource group/subscription/cluster, make the relevant requests manually, and then relock the resource group/subscription/cluster by doing the following:
+          1. Enable the feature flag manually via CLI by using [Trusted Access](/azure/aks/trusted-access-feature).
+              ``` CLI
+              “az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview” 
+              ```
+          1. Perform the bind operation in the CLI:
+              ``` CLI
+              az account set -s <SubscriptionId> 
+              az extension add --name aks-preview 
+              az aks trustedaccess rolebinding create --resource-group <cluster resource group> --cluster-name <cluster name> --name defender-cloudposture --source-resource-id /subscriptions/<SubscriptionId>/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator --roles  "Microsoft.Security/pricings/microsoft-defender-operator" 
+              ```
+          For locked clusters, you can also do one of the following steps:
+          - Remove the lock.
+          - Perform the bind operation manually by making an API request.
+          Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
+
+      - question: |
+          Are you using an updated version of AKS?
+        answer: |
+          Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
+
+      - question: |
+          What's the refresh interval for Agentless discovery of Kubernetes?
+        answer: |
+          It can take up to **24 hours** for changes to reflect in the security graph, attack paths, and the security explorer.
 
 additionalContent: |
 

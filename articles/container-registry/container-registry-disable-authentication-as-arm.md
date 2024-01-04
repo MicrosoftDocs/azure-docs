@@ -4,7 +4,7 @@ description: "Disabling azureADAuthenticationAsArmPolicy will force the registry
 ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: tutorial  #Don't change.
-ms.date: 11/02/2023
+ms.date: 10/31/2023
 
 ---
 

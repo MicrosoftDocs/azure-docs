@@ -72,7 +72,7 @@ The resource health page lists the recommendations for which your resource is "u
 
 - To investigate a security alert:
     1. From the right pane, select an alert.
-    1. Follow the instructions in [Respond to security alerts](managing-and-responding-alerts.md#respond-to-security-alerts).
+    1. Follow the instructions in [Respond to security alerts](managing-and-responding-alerts.md#respond-to-a-security-alert).
 
 ## Next steps
 
@@ -80,5 +80,5 @@ In this tutorial, you learned about using Defender for Cloud’s resource health
 
 To learn more, see these related pages:
 
-- [Respond to security alerts](managing-and-responding-alerts.md#respond-to-security-alerts)
+- [Respond to security alerts](managing-and-responding-alerts.md#respond-to-a-security-alert)
 - [Review your security recommendations](review-security-recommendations.md)

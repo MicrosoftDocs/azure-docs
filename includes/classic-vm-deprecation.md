@@ -1,9 +1,9 @@
 ---
-author: cynthn
+author: jushiman
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 06/08/2023
-ms.author: cynthn
+ms.author: jushiman
 ---
 
 > [!IMPORTANT]
