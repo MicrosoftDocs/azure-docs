@@ -15,37 +15,10 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 
 ## Prerequisites
 1. Create an Azure Data Manager for Energy instance using the tutorial at [How to create Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
-2. Generate the access token needed to call the Entitlements APIs.
-3. Get various parameters of your instance such as client-id, client-secret, etc.  
+2. Get various parameters of your instance such as client-id, client-secret, etc. using the tutorial at [How to generate auth token](how-to-generate-auth-token).
+3. Generate the access token needed to call the Entitlements APIs.
 4. Keep all these parameter values handy as they are needed for executing different user management requests via the Entitlements API. 
 
-## Generate client-id access token
-
-1. Run the below curl command in Azure Cloud Bash after replacing the placeholder values with the corresponding values found earlier in the above steps.
- 
-**Request format**
-
-```bash
-curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'scope=<client-id>.default' \
---data-urlencode 'client_id=<client-id>' \
---data-urlencode 'client_secret=<client-secret>' \
---data-urlencode 'resource=<client-id>'
-```
-
-**Sample response**
-
-```JSON
-    {
-        "token_type": "Bearer",
-        "expires_in": 86399,
-        "ext_expires_in": 86399,
-        "access_token": "abcdefgh123456............."
-    }
-```
-2. Copy the `access_token` value from the response. You need it to pass as one of the headers in all calls to the Entitlements APIs. 
 
 ## Fetch OID
 `object-id` (OID) is the Microsoft Entra user Object ID.
