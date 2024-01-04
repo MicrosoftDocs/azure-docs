@@ -27,10 +27,10 @@
           - name: Troubleshooting Networking and Connectivity issues
             href: migrate/troubleshooting-networking-and-connectivity-issues.md  
       - name: Migrate data with pg_dump and pg_restore
-        href: single-server/how-to-migrate-using-dump-and-restore.md
+        href: migrate/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
       - name: Migrate data with pg_dump and psql
-        href: single-server/how-to-migrate-using-export-and-import.md
+        href: migrate/how-to-migrate-using-export-and-import
         displayName: import , export
       - name: Minimal-downtime migration with DMS
         href: single-server/how-to-migrate-online.md
