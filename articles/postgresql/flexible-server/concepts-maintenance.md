@@ -39,7 +39,7 @@ When specifying preferences for the maintenance schedule, you can pick a day of 
 
 You can update scheduling settings at any time. If there's maintenance scheduled for your flexible server and you update scheduling preferences, the current rollout proceeds as scheduled and the scheduling settings change will become effective upon its successful completion for the next scheduled maintenance.
 
-## System / Custom managed maintenance schedule
+## System Vs Custom managed maintenance schedules
 
 You can define system-managed schedule or custom schedule for each flexible server in your Azure subscription:
  
