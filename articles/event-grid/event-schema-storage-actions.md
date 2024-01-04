@@ -24,20 +24,20 @@ These events are triggered when a storage task is queued and when a storage task
 
  |Event name |Description|
  |----------|-----------|
- | [Microsoft.Storage.StorageTaskQueued](#microsoftstoragestoragetaskqueued-event) | Triggered when a storage task assignment run is queued. This event provides the status of assignment execution such as when the assignment is queued, and the corresponding execution id for tracking purpose. |
- |[Microsoft.Storage.StorageTaskCompleted](#microsoftstoragestoragetaskcompleted-event) | Triggered when a storage tasks assignment run is completed. This event provides the status of assignment execution such as when the assignment is completed, the assignment's status, which task is associated with the assignment, and the link to summary report file. |
+ | [Microsoft.StorageActions.StorageTaskQueued](#microsoftstoragestoragetaskqueued-event) | Triggered when a storage task assignment run is queued. This event provides the status of assignment execution such as when the assignment is queued, and the corresponding execution id for tracking purpose. |
+ |[Microsoft.StorageActions.StorageTaskCompleted](#microsoftstoragestoragetaskcompleted-event) | Triggered when a storage tasks assignment run is completed. This event provides the status of assignment execution such as when the assignment is completed, the assignment's status, which task is associated with the assignment, and the link to summary report file. |
 
 ### Example events
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-### Microsoft.Storage.StorageTaskQueued event
+### Microsoft.StorageActions.StorageTaskQueued event
 
 ```json
 [{
-  "topic":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "topic":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.StorageActions/storageAccounts/my-storage-account",
   "subject":"DataManagement/StorageTasks",
-  "eventType":"Microsoft.Storage.StorageTaskQueued",
+  "eventType":"Microsoft.StorageActions.StorageTaskQueued",
   "id":"8eb4656c-5c4a-4541-91e0-685558acbb1d",
   "data":{
     "queuedDateTime":"2023-08-07T21:35:23Z",
@@ -50,13 +50,13 @@ These events are triggered when a storage task is queued and when a storage task
 
 ```
 
-### Microsoft.Storage.StorageTaskCompleted event
+### Microsoft.StorageActions.StorageTaskCompleted event
 
 ```json
 [{
-  "topic":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "topic":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.StorageActions/storageAccounts/my-storage-account",
   "subject":"DataManagement/StorageTasks",
-  "eventType":"Microsoft.Storage.StorageTaskCompleted",
+  "eventType":"Microsoft.StorageActions.StorageTaskCompleted",
   "id":"dee33d3b-0b39-42f2-b2be-76f2fb94b852",
   "data":{
     "status":"Succeeded",
@@ -73,13 +73,13 @@ These events are triggered when a storage task is queued and when a storage task
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-### Microsoft.Storage.StorageTaskQueued event
+### Microsoft.StorageActions.StorageTaskQueued event
 
 ```json
 [{
-  "source": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "source": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.StorageActions/storageAccounts/my-storage-account",
   "subject": "DataManagement/StorageTasks",
-  "type": "Microsoft.Storage.StorageTaskQueued",
+  "type": "Microsoft.StorageActions.StorageTaskQueued",
   "time": "2023-08-07T21:35:23Z",
   "id": "8eb4656c-5c4a-4541-91e0-685558acbb1d",
   "data": {
@@ -90,13 +90,13 @@ These events are triggered when a storage task is queued and when a storage task
 }]
 ```
 
-### Microsoft.Storage.StorageTaskCompleted event
+### Microsoft.StorageActions.StorageTaskCompleted event
 
 ```json
 [{
-  "source": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "source": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.StorageActions/storageAccounts/my-storage-account",
   "subject": "DataManagement/StorageTasks",
-  "type": "Microsoft.Storage.StorageTaskCompleted",
+  "type": "Microsoft.StorageActions.StorageTaskCompleted",
   "time": "2023-08-07T21:35:34Z",
   "id": "dee33d3b-0b39-42f2-b2be-76f2fb94b852",
   "data": {
