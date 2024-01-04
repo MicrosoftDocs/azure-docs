@@ -162,7 +162,6 @@ After the Data Box Gateway resource is up and running, you'll need to get the ac
 1. Select the resource that you created, and then select **Overview**. In the **Device setup**, go to the **Configure and activate** tile.
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate-sml.png" alt-text="Screenshot illustarting th elocation of the Configure and activate tile." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate.png":::
-    ![Configure and activate tile](media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate.png)
 
 2. Select **Generate key** to create an activation key. Select the copy icon to copy the key and save it for later use.
 
