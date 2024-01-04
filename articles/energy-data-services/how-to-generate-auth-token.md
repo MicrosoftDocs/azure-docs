@@ -205,10 +205,8 @@ The second step is to get the auth token and refresh token. Your app uses the `a
 |access_token     |The requested access token. Your app can use this token to call Microsoft Graph.         |
 |refresh_token     |An OAuth 2.0 refresh token. Your app can use this token to acquire extra access tokens after the current access token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time.|
 
-For more information, see [Generate refresh tokens](/graph/auth-v2-user#2-get-authorization).
+For more information on generating user access token and using refresh token to generate new access token, refer to the [Generate refresh tokens](/graph/auth-v2-user#2-get-authorization).
 
-### Use refresh token
-Access token expires in a small time window. You can use refresh tokens to generate new access tokens going forward. 
 
 
 
