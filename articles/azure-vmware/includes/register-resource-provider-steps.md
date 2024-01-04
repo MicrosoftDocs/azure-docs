@@ -3,8 +3,8 @@ title: Register the Azure VMware Solution resource provider
 description: Steps to register the Azure VMware Solution resource provider.
 ms.topic: include
 ms.service: azure-vmware
-ms.custom: devx-track-azurecli
-ms.date: 02/17/2021
+ms.custom: devx-track-azurecli, engagement-fy23
+ms.date: 01/04/2024
 author: suzizuber
 ms.author: v-szuber
 ---
