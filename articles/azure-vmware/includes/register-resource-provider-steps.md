@@ -29,7 +29,7 @@ To use Azure VMware Solution, you must first register the resource provider with
 
 1. Select **Resource providers** and enter **Microsoft.AVS** into the search. 
  
-1. If the resource provider is not registered, select **Register**.
+1. If the resource provider isn't registered, select **Register**.
 
 ### [Azure CLI](#tab/azure-cli)
 
