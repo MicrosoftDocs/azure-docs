@@ -43,7 +43,7 @@ Choose to store your secrets (such as API keys) using either:
 
 #### Use workspace connection as a secret store
 
-You can create workspace connections to use in your deployment. For example, you can create a connection to Microsoft Azure OpenAI Service or create a custom connection. You can use [Workspace Connections - Create REST API](/rest/api/azureml/2023-08-01-preview/workspace-connections/create) as described below. Alternatively, in the case of custom connections, you can use Azure Machine Learning Studio (see [How to create a custom connection for prompt flow](./prompt-flow/tools-reference/python-tool.md#create-a-custom-connection)) or Azure AI Studio (see [How to create a custom connection in AI Studio](../ai-studio/how-to/connections-add.md?tabs=custom#create-a-new-connection).
+You can create workspace connections to use in your deployment. For example, you can create a connection to Microsoft Azure OpenAI Service or create a custom connection. You can use [Workspace Connections - Create REST API](/rest/api/azureml/2023-08-01-preview/workspace-connections/create) as described below. Alternatively, in the case of custom connections, you can use Azure Machine Learning Studio (see [How to create a custom connection for prompt flow](./prompt-flow/tools-reference/python-tool.md#create-a-custom-connection)) or Azure AI Studio (see [How to create a custom connection in AI Studio](../ai-studio/how-to/connections-add.md?tabs=custom#create-a-new-connection)).
 
 1. Create an Azure OpenAI connection:
 
@@ -108,6 +108,9 @@ You can create workspace connections to use in your deployment. For example, you
     POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.MachineLearningServices/workspaces/{{workspaceName}}/connections/{{connectionName}}/listsecrets?api-version=2023-08-01-preview
     Authorization: Bearer {{token}}
     ```
+
+> [!NOTE]
+> Above example uses token in the Authorization header when making REST API call. You can get the token by running `az account get-access-token` command. For more information, see [Get an access token](how-to-authenticate-online-endpoint.md#get-the-microsoft-entra-token-for-control-plane-operations).
 
 #### (Optional) Use Azure Key Vault as a secret store
 
