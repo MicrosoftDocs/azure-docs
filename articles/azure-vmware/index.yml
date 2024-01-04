@@ -31,7 +31,7 @@ landingContent:
         links:
           - text: Access and identity
             url: concepts-identity.md
-          - text: API management
+          - text: API Management
             url: concepts-api-management.md
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md

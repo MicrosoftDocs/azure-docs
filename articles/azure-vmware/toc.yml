@@ -45,7 +45,7 @@ items:
   items:
   - name: Access and identity
     href: concepts-identity.md
-  - name: API management
+  - name: API Management
     href: concepts-api-management.md
   - name: Hub and spoke
     href: concepts-hub-and-spoke.md
