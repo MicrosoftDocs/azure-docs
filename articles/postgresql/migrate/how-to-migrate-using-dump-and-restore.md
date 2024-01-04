@@ -34,11 +34,12 @@ The Azure portal streamlines this process via the Connect blade by offering pre-
 4. **Copy and paste commands**: The portal provides you with ready-to-use `pg_dump` and `psql` or `pg_restore` commands. These commands come with values already substituted according to the server and database you've chosen. Simply copy and paste these commands.
 
 ## Prerequisites
+If you are using a Single Server, or do not have access to the Flexible Server portal, please read through this documentation page. It contains information that is similar to what is presented in the Connect blade for Flexible Server on the portal. 
 
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](../single-server/quickstart-create-server-database-portal.md), including firewall rules to allow access.
 - [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html), `psql` and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed.
-- **Decide on the location for the dump**: Choose the place you want to perform the dump from. It can be done from various locations, such as a separate VM, cloud shell (where the tools mentioned above are already installed, but might not be in the appropriate version, so always check the version using, for instance, psql --version), or your own laptop. Always keep in mind the distance and latency between the PostgreSQL server and the location from which you are running the dump or restore.
+- **Decide on the location for the dump**: Choose the place you want to perform the dump from. It can be done from various locations, such as a separate VM, [cloud shell](../../cloud-shell/overview.md) (where the tools mentioned above are already installed, but might not be in the appropriate version, so always check the version using, for instance, `psql --version`), or your own laptop. Always keep in mind the distance and latency between the PostgreSQL server and the location from which you are running the dump or restore.
 
 > [!IMPORTANT]  
 > It is essential to use the `pg_dump`, `psql` and `pg_restore` utilities that are either of the same major version or a higher major version than the database server you are exporting data from or importing data to. Failing to do so may result in unsuccessful data migration. If your target server has a higher major version than the source server, use utilities that are either the same major version or higher than the target server. 
@@ -47,15 +48,37 @@ To step through this how-to guide, you need:
 > [!NOTE]
 > It's important to be aware that `pg_dump` can export only one database at a time. This limitation applies regardless of the method you have chosen, whether it's using a singular file or multiple cores.
 
-
+## Create a dump file that contains the data to be loaded
+To export your existing PostgreSQL database on-premises or in a VM to a sql script file, run the following command in your existing environment:
 
 #### [pg_dump & psql - using singular text file](#tab/psql)
+```bash
+pg_dump <database name> -h <server name> -U <user name> > <database name>_dump.sql
+```
+
+For example, if you have a server named `mydemoserver`, a user named `myuser` and a database called **testdb**, run the following command:
+```bash
+pg_dump testdb -h mydemoserver.postgres.database.azure.com -U myuser > testdb_dump.sql
+```
+
+If you are using a Single Server, your username will include the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
+
 
 #### [pg_dump & pg_restore - using multiple cores](#tab/pgrestore)
+```bash
+pg_dump -Fd -j <number of cores> <database name> -h <server name> -U <user name> -f <database name>.dump
+```
+
+In these commands, the `-j` option stands for the number of cores you wish to use for the dump process. You can adjust this number based on how many cores are available on your PostgreSQL server and how many you would like to allocate for the dump process. Feel free to change this setting depending on your server's capacity and your performance requirements.
+
+For example, if you have a server named `mydemoserver`, a user named `myuser` and a database called **testdb**, and you want to use two cores for the dump, run the following command:
+```bash
+pg_dump -Fd -j 2 -h mydemoserver.postgres.database.azure.com -U myuser -f testdb.dump
+```
 
 ---
 
-## Create a dump file that contains the data to be loaded
+
 
 To back up an existing PostgreSQL database on-premises or in a VM, run the following command:
 
