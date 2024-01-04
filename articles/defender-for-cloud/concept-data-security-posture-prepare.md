@@ -44,9 +44,9 @@ The table summarizes support for data-aware posture management.
 
 ## Configuring data sensitivity settings
 
-The main steps for configuring data sensitivity setting include:
+The main steps for configuring data sensitivity settings include:
 
-- [Import custom sensitive info types/labels from Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels)
+- [Import custom sensitivity info types/labels from Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitivity-info-typeslabels)
 - [Customize sensitive data categories/types](data-sensitivity-settings.md#customize-sensitive-data-categoriestypes)
 - [Set the threshold for sensitivity labels](data-sensitivity-settings.md#set-the-threshold-for-sensitive-data-labels)
 
