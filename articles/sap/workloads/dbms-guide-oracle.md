@@ -105,7 +105,7 @@ Additional considerations that apply list like:
 4. To migrate from 512/512e sector size to 4K Native Review (Doc ID 1133713.1) – see section “Offline Migration to 4Kb Sector Disks”
 5. No support for ASM on Windows platforms
 6. No support for 4K Native sector size for Log volume on Windows platforms.  SSDv2 and Ultra Disk must be changed to 512e via the “Edit Disk” pencil icon in the Azure Portal
-7. 4K Native sector size is supported on Data volume for Windows platforms only
+7. 4K Native sector size is supported only on Data volumes for Windows platforms.  4K isn't supported for Log volumes on Windows
 8. It's recommended to review these MOS articles:
     - Oracle Linux: File System's Buffer Cache versus Direct I/O (Doc ID 462072.1)
     - Supporting 4K Sector Disks (Doc ID 1133713.1)
@@ -255,7 +255,6 @@ Oracle DBAs that aren't familiar with Oracle ASM follow the training materials a
 - [<u>What is Oracle ASM to Azure IaaS? - Simple Talk (red-gate.com)</u>](https://www.red-gate.com/simple-talk/databases/oracle-databases/what-is-oracle-asm-to-azure-iaas/)
 - [ASM Command-Line Utility (ASMCMD) (oracle.com)](https://docs.oracle.com/cd/B19306_01/server.102/b14215/asm_util.htm)
 - [Useful asmcmd commands - DBACLASS DBACLASS](https://dbaclass.com/article/useful-asmcmd-commands-oracle-cluster/)
-- [Moving your SAP Database to Oracle Automatic Storage Management 11g Release 2 - A Best Practices Guide](https://www.sap.com/documents/2016/08/f2e8c029-817c-0010-82c7-eda71af511fa.html)
 - [Installing and Configuring Oracle ASMLIB Software](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-and-configuring-oracle-asmlib-software.html#GUID-79F9D58F-E5BB-45BD-A664-260C0502D876)
 
 ## Azure NetApp Files (ANF) with Oracle dNFS (Direct NFS)

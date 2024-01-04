@@ -1,14 +1,13 @@
 ---
 title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
-author: Heidilohr
 ms.topic: release-notes
-ms.date: 12/14/2023
-ms.author: helohr
-ms.reviewer: thhickli; darank
-manager: femila
 ms.custom: references_regions
+author: Heidilohr
+ms.author: helohr
+ms.date: 01/04/2023
 ---
+
 # What's new in Azure Virtual Desktop?
 
 Azure Virtual Desktop updates regularly. This article is where you find out about:
@@ -22,6 +21,18 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## December 2023
+
+Here's what changed in December 2023:
+
+### App attach preview
+
+The preview of *app attach* is now available. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+
+### Use the new Microsoft Teams desktop client
+
+You can now use the [new Teams desktop client](/microsoftteams/new-teams-desktop-admin) on your session hosts, which provides a faster, simpler, and more flexible experience. For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
 
 ## November 2023
 

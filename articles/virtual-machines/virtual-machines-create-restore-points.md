@@ -57,12 +57,14 @@ The throttling would fail with error code 429. Please retry the operation after 
 ## Limitations
 
 - Restore points are supported only for managed disks.
-- Ultra-disks, ephemeral OS disks, and shared disks aren't supported.
-- The API version for an application-consistent restore point is March 1, 2021, or later.
-- The API version for a crash-consistent restore point is July 1, 2021, or later.
-- Crash consistent is supported only for Premium VM SKUs.
+- Ultra disks, Premium SSD v2 disks, Write-accelerated disks, Ephemeral OS disks, and shared disks aren't supported for crash consistency mode.
+- Ephemeral OS disks, and shared disks aren't supported for application consistency mode.
+- The API version for an application-consistent restore point is 2021-03-01, or later.
+- The API version for a crash-consistent restore point is 2021-07-01, or later.
+- Crash consistent restore point is supported on all Azure public regions.
+- Crash consistent restore point is supported for VM sizes that support Premium storage like DSv2.
 - Crash consistent restore points are not supported via portal. We will enable this soon.
-- A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections.
+- A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections or consistency type.
 - Concurrent creation of restore points for a VM isn't supported.
 - Restore points for virtual machine scale sets in Uniform orchestration mode aren't supported.
 - Movement of VMs between resource groups or subscriptions isn't supported when the VM has restore points. Moving the VM between resource groups or subscriptions doesn't update the source VM reference in the restore point and causes a mismatch of Resource Manager IDs between the actual VM and the restore points.

@@ -124,5 +124,5 @@ To delete a dev box pool in the Azure portal:
 ## Related content
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
-- [2. Create a dev box definition](quickstart-configure-dev-box-service.md#2-create-a-dev-box-definition)
+- [2. Create a dev box definition](quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)

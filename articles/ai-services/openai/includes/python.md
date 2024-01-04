@@ -6,7 +6,7 @@ description: Walkthrough on how to get started with Azure OpenAI and make your f
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 02/02/2023
+ms.date: 01/03/2024
 keywords: 
 ---
 
@@ -107,7 +107,7 @@ client = AzureOpenAI(
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
     
-deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
+deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. Use a gpt-35-turbo-instruct deployment. 
     
 # Send a completion call to generate an answer
 print('Sending a test completion job')

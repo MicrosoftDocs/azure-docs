@@ -7,7 +7,7 @@ items:
       href: overview.md
     - name: Multicloud monitoring
       href: best-practices-multicloud.md
-    - name: AIOps and machine learning in Azure Monitor
+    - name: AIOps and machine learning
       href: logs/aiops-machine-learning.md
     - name: What's new?
       href: whats-new.md
@@ -406,7 +406,7 @@ items:
           href: vm/vminsights-enable-resource-manager.md
         - name: Azure Policy 
           href: vm/vminsights-enable-policy.md
-        - name: Hybrid VMs
+        - name: Windows client machines
           href: vm/vminsights-enable-hybrid.md
         - name: Dependency Agent
           href: vm/vminsights-dependency-agent-maintenance.md
@@ -844,8 +844,10 @@ items:
               href: essentials/collect-custom-metrics-linux-telegraf.md
     - name: Troubleshoot
       items:
-      - name: Use AMA Troubleshooter
-        href: agents/use-azure-monitor-agent-troubleshooter.md
+      - name: Windows AMA Troubleshooter
+        href: agents/troubleshooter-ama-windows.md
+      - name: Linux AMA Troubleshooter
+        href: agents/troubleshooter-ama-linux.md
       - name: Linux VM
         href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
       - name: Linux Syslog issues
@@ -1212,6 +1214,8 @@ items:
         href: logs/functions.md
       - name: Parse text data
         href: logs/parse-text.md
+      - name: Send to Excel
+        href: logs/log-excel.md
       - name: Computer groups
         href: logs/computer-groups.md
       - name: Cross-service and cross-resource queries
@@ -1443,6 +1447,8 @@ items:
         href: alerts/resource-manager-alerts-metric.md
       - name: Activity log alert rules
         href: alerts/resource-manager-alerts-activity-log.md
+      - name: Service health alert rules
+        href: alerts/resource-manager-alerts-service-health.md
       - name: Resource health alert rules
         href: alerts/resource-manager-alerts-resource-health.md
       - name: Action groups

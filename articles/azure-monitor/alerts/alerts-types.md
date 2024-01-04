@@ -84,6 +84,11 @@ The platform metrics for these services in the following Azure clouds are suppor
 | Azure Stack Edge devices     | Yes      | Yes    | Yes |
 | Recovery Services vaults     | Yes      | No     | No  |
 | Azure Database for PostgreSQL - Flexible Server     | Yes      | Yes    | Yes |
+| Bare Metal Machines (Operator Nexus)    | Yes      | Yes    | Yes |
+| Storage Appliances (Operator Nexus)    | Yes      | Yes    | Yes |
+| Clusters (Operator Nexus)    | Yes      | Yes    | Yes |
+| Network Devices (Operator Nexus)    | Yes      | Yes    | Yes |
+| Data collection rules    | Yes      | Yes    | Yes |
 
   > [!NOTE]
   > Multi-resource metric alerts aren't supported for:
