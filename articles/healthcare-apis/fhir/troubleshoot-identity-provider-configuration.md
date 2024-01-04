@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services
-description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure AD B2C. Use API version 2023-12-01 to configure two identity providers for scoped access. Get a JSON schema with examples.
+description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure Active Directory B2C. Use API version 2023-12-01 to configure two additional identity providers for scoped access.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -10,7 +10,7 @@ ms.date: 01/15/2024
 ms.author: namalu
 ---
 
-# Troubleshoot B2C identity provider configuration for the FHIR service
+# Troubleshoot identity provider configuration for the FHIR service
 
 API version 2023-12-01 of the FHIR&reg; service in Azure Health Data Services supports two identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, you configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
 
@@ -159,7 +159,7 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 11. **Verify the fhirUser or extension_fhirUser (FHIR user claim)**. The `fhirUser` or `extension_fhirUser` claim is required. If it's missing, the request fails. This claim links the user in the identity provider with a user resource in the FHIR service. The value must be the fully qualified URL of a resource in the FHIR service that represents the individual the access token is issued to. For example, the access token issued to a patient that logged in should have a `fhirUser` or `extension_fhirUser` claim that has the fully qualified URL of a [patient](https://build.fhir.org/patient.html) resource in the FHIR service.
 
 ## Next steps
-[Enable single sign-on for the FHIR service](b2c-setup.md)
+[Grant access to the FHIR service by using Azure Active Directory B2C](azure-ad-b2c-setup.md)
 
 [Configure multiple identity providers](configure-identity-providers.md)
 

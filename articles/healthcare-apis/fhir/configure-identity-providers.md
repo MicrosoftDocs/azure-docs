@@ -1,6 +1,6 @@
 ---
 title: Configure multiple service identity providers for the FHIR service in Azure Health Data Services
-description: Learn how to configure multiple identity providers for the FHIR service in Azure Health Data Services using OpenID Connect and SMART on FHIR v1 Scopes.
+description: Learn how to configure multiple identity providers for the FHIR service in Azure Health Data Services by using OpenID Connect and SMART on FHIR v1 Scopes.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -12,7 +12,7 @@ ms.author: namalu
 
 # Configure multiple service identity providers
 
-In addition to [Microsoft Entra ID](/entra/fundamentals/whatis), the FHIR&reg; service in Azure Health Data Services supports multiple identity providers. You can configure up to two additional identity providers for a FHIR service, whether the service already exists or is newly created. Identity providers must support OpenID Connect (ODIC), and must be able to issue JSON Web Tokens (JWT) with a `fhirUser` claim, a `azp` or `appId` claim, and an `scp` claim with [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data).
+In addition to [Microsoft Entra ID](/entra/fundamentals/whatis), you can configure up to two additional identity providers for a FHIR service, whether the service already exists or is newly created. Identity providers must support OpenID Connect (OIDC), and must be able to issue JSON Web Tokens (JWT) with a `fhirUser` claim, a `azp` or `appId` claim, and an `scp` claim with [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data).
 
 ## Enable additional identity providers with Azure Resource Manager (ARM)
 
@@ -92,8 +92,8 @@ Include at least one permission string in the `allowedDataActions` array. You ca
 
 ## Next steps
 
-[Enable single sign-on for the FHIR service](b2c-setup.md)
+[Grant access to the FHIR service by using Azure Active Directory B2C](azure-ad-b2c-setup.md)
 
-[Troubleshoot B2C identity provider configuration](troubleshoot-b2c-identity-provider-configuration.md)
+[Troubleshoot identity provider configuration](troubleshoot-identity-provider-configuration.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
