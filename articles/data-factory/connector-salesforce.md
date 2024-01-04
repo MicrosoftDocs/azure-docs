@@ -115,7 +115,7 @@ The following properties are supported for the Salesforce linked service.
             "clientId": "<client ID>",
             "clientSecret": {
                 "type": "SecureString",
-                "value": "<client Secret>"
+                "value": "<client secret>"
             },
             "apiVersion": "<API Version>"
         },
@@ -139,7 +139,7 @@ The following properties are supported for the Salesforce linked service.
             "clientId": "<client ID>",
             "clientSecret": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name of client Secret in AKV>",
+                "secretName": "<secret name of client secret in AKV>",
                 "store":{
                     "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
@@ -183,12 +183,13 @@ Note that by doing so, you will no longer be able to use the UI to edit settings
             },
             "clientSecret": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name of client Secret in AKV>",
+                "secretName": "<secret name of client secret in AKV>",
                 "store":{
                     "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
                 }
-            }
+            },
+            "apiVersion": "<API Version>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
