@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 12/15/2023
+ms.date: 01/03/2024
 ---
 
 # Manage logic app workflows in the Azure portal
@@ -416,41 +416,47 @@ Deleting a Consumption logic app affects workflow instances in the following way
 
 ## Manage logic app versions
 
-You can use the Azure portal for version control of your logic apps. You can find your logic app's version history, and promote previous versions.
+For Consumption logic apps, you can use the Azure portal for version control. For example, you can find your logic app's version history and publish previous versions, if any exist.
 
 <a name="find-version-history"></a>
 
 ### Find and view previous versions
 
-1. In the Azure portal, [find and open your logic app](#find-logic-app).
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app.
 
-1. In your logic app's menu, under **Development Tools**, select **Versions**.
+1. In the logic app menu, under **Development Tools**, select **Versions**.
 
-   ![Screenshot of logic app in Azure portal, showing selection of Versions page under development tools.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+   ![Screenshot shows Azure portal and Consumption logic app menu with Versions selected, and list of previous logic app versions.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 
-1. Select the **Version** of your logic app to manage from the list. You can enter the **Version** identifier in the search bar to filter the list.
+1. From the **Version** list, select the logic app version to manage.
 
-1. On the **History version** page, you'll see the previous version's details in read-only mode. You can select between the Logic Apps **Designer** and **Code view** modes.
+   To filter the list, in the **Versions** page search bar, enter the version ID.
 
-   ![Screenshot of Logic Apps History version page, showing code view and designer view options.](./media/manage-logic-apps-with-azure-portal/history-version.png)
+   The **History version** page shows the previous version's details in read-only mode. You can select between designer view and code view.
+
+   ![Screenshot shows history version page with designer view and code view options.](./media/manage-logic-apps-with-azure-portal/history-version.png)
 
 <a name="promote-previous-versions"></a>
 
 ### Promote previous versions
 
+To publish a previous version of your Consumption logic app, you can promote that version over the current version.
+
 1. In your logic app's version history, [find and select the version that you want to promote](#find-version-history).
 
 1. On the **History version** page, select **Promote**.
 
-   ![Screenshot of logic app's version history, showing button to promote a previous version.](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+   ![Screenshot shows logic app's version history with selected Promote button.](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
-1. On the **Logic Apps Designer** page that opens, edit the version that you're promoting as needed. You can switch between **Designer** and **Code view** modes. You can also update **Parameters**, **Templates**, and **Connectors**.
+1. After the workflow designer opens, make any necessary edits to the version that you want to promote.
 
-   ![Screenshot of Logic Apps Designer, showing button to promote a previous version of a logic app.](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+   You can switch between **Designer** and **Code view** modes. You can also update **Parameters**, **Templates**, and **Connectors**.
 
-1. To save any updates and finishing promoting the previous version, select **Save**. (Or, to cancel your changes, select **Discard**.) 
+   ![Screenshot shows workflow designer with designer and code view options.](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 
-   When you [view your logic app's version history](#find-version-history) again, the promoted version appears at the top of the list and has a new identifier.
+1. To save any updates and finish promotion, on the designer toolbar, select **Save**. To cancel your changes, select **Discard**.
+
+When you next [view your logic app's version history](#find-version-history), the promoted version appears at the top of the list and has a new identifier.
 
 ## Next steps
 
