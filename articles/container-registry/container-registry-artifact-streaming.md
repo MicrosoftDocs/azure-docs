@@ -38,7 +38,7 @@ Here are some brief aspects of Artifact streaming:
 
 ## Availability and pricing information
 
-Artifact streaming is only available in the **Premium** SKU [service tiers](container-registry-skus.md). Please note that Artifact streaming may increase the overall registry storage consumption and customers may be subjected to additional storage charges as outlined in our [pricing](/pricing/details/container-registry/) if the consumption exceeds the included 500 GiB Premium SKU threshold.
+Artifact streaming is only available in the **Premium** SKU [service tiers](container-registry-skus.md). Please note that Artifact streaming may increase the overall registry storage consumption and customers may be subjected to additional storage charges as outlined in our [pricing](/pricing/details/container-registry) if the consumption exceeds the included 500 GiB Premium SKU threshold.
 
 ## Preview limitations
 
@@ -187,12 +187,12 @@ Follow the steps to create Artifact streaming in the [Azure portal](https://port
 <!-- LINKS - External -->
 [Install Azure CLI]: /cli/azure/install-azure-cli
 [Azure Cloud Shell]: /azure/cloud-shell/quickstart
-[az-group-create]: /cli/azure/group?view=azure-cli-latest#az-group-create
-[az-acr-import]: /cli/azure/acr?view=azure-cli-latest#az-acr-import
-[az-acr-artifact-streaming-create]: /cli/azure/acr/artifact-streaming?view=azure-cli-latest#az-acr-artifact-streaming-create
-[az-acr-manifest-list-referrers]: /cli/azure/acr/manifest?view=azure-cli-latest#az-acr-manifest-list-referrers
-[az-acr-create]: /cli/azure/acr?view=azure-cli-latest#az-acr-create
-[az-acr-artifact-streaming-operation-cancel]: /cli/azure/acr/artifact-streaming/operation?view=azure-cli-latest#az-acr-artifact-streaming-operation-cancel
-[az-acr-artifact-streaming-operation-show]: /cli/azure/acr/artifact-streaming/operation?view=azure-cli-latest#az-acr-artifact-streaming-operation-show
-[az-acr-artifact-streaming-update]: /cli/azure/acr/artifact-streaming?view=azure-cli-latest#az-acr-artifact-streaming-update
+[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-import]: /cli/azure/acr#az-acr-import
+[az-acr-artifact-streaming-create]: /cli/azure/acr/artifact-streaming#az-acr-artifact-streaming-create
+[az-acr-manifest-list-referrers]: /cli/azure/acr/manifest#az-acr-manifest-list-referrers
+[az-acr-create]: /cli/azure/acr#az-acr-create
+[az-acr-artifact-streaming-operation-cancel]: /cli/azure/acr/artifact-streaming/operation#az-acr-artifact-streaming-operation-cancel
+[az-acr-artifact-streaming-operation-show]: /cli/azure/acr/artifact-streaming/operation#az-acr-artifact-streaming-operation-show
+[az-acr-artifact-streaming-update]: /cli/azure/acr/artifact-streaming#az-acr-artifact-streaming-update
 

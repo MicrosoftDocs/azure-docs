@@ -1071,7 +1071,22 @@
             "redirect_document_id": false 
         },
         {
-            "source_path": "/articles/container-registry/container-registry-artifact-streaming.md",
+            "source_path": "articles/container-registry/tutorial-artifact-streaming.md",
+            "redirect_url": "/azure/container-registry/tutorial-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-cli.md",
+            "redirect_url": "/azure/container-registry/tutorial-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-portal.md",
+            "redirect_url": "/azure/container-registry/tutorial-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-troubleshoot.md",
             "redirect_url": "/azure/container-registry/tutorial-artifact-streaming",
             "redirect_document_id": false
         },
