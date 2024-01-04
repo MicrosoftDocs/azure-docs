@@ -169,6 +169,18 @@ You can view the status of the maintenance job from the ARG query mentioned abov
 
 :::image type="content" source="./media/pre-post-events-common-scenarios/view-job-status.png" alt-text="Screenshot that shows how to insert the resource group, maintenance configuration." lightbox="./media/pre-post-events-common-scenarios/view-job-status.png":::
 
+
+## Why the scheduled run was cancelled by the system?
+
+The system cancels the scheduled run if one or more of the following conditions are not met:
+
+1. If the maintenance configuration has at least one pre event subscribed and the schedule time is changed within the 40-minute window before the scheduled start time.
+2. If the pre-event was created within the 40-minute window before the scheduled start time.
+
+
+## Why the post event was not sent by the system?
+
+If the user modifies the schedule run time after the pre-event has been triggered, the post event will not be sent because the scheduled time has been replaced with a new one.
 ---
 
 ## Next steps
