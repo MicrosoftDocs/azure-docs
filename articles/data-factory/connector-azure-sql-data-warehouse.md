@@ -1057,6 +1057,6 @@ When you copy data from or to Azure Synapse Analytics, the following mappings ar
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by Copy Activity, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

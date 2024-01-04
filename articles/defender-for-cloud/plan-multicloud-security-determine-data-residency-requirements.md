@@ -63,6 +63,7 @@ Agents are used in the Defender for Servers plan as follows:
 Defender for Containers has both agent-based and agentless components.
 
 - **Agentless collection of Kubernetes audit log data**:  [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) or GCP Cloud Logging enables and collects audit log data, and sends the collected information to Defender for Cloud for further analysis. Data storage is based on the EKS cluster AWS region, in accordance with GDPR - EU and US.
+- **Agentless collection for Kubernetes inventory**: Collect data on your Kubernetes clusters and their resources, such as: Namespaces, Deployments, Pods, and Ingresses.
 - **Agent-based Azure Arc-enabled Kubernetes**: Connects your EKS and GKE clusters to Azure using [Azure Arc agents](../azure-arc/kubernetes/conceptual-agent-overview.md), so that they’re treated as Azure Arc resources.
 - **[Defender agent](defender-for-cloud-glossary.md#defender-agent)**: A DaemonSet that collects signals from hosts using eBPF technology, and provides runtime protection. The extension is registered with a Log Analytics workspace and used as a data pipeline. The audit log data isn't stored in the Log Analytics workspace.
 - **Azure Policy for Kubernetes**: configuration information is collected by Azure Policy for Kubernetes.

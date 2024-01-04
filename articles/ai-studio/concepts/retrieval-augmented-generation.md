@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 ---
 
@@ -44,16 +45,3 @@ Azure AI Index also supports [FAISS](https://github.com/facebookresearch/faiss) 
 ## Next steps
 
 - [Create a vector index](../how-to/index-add.md)
-- [Check out the Azure AI samples for RAG](https://github.com/Azure-Samples/azureai-samples/notebooks/rag)
-  
-
-
-
-
-
-
-
-
-
-
-

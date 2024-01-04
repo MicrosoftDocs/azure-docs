@@ -57,6 +57,6 @@ CleanData
 
 ```
 
-## Next steps
+## Related content
 
 Filter out columns with the [select transformation](data-flow-select.md)

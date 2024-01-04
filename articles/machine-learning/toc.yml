@@ -29,14 +29,14 @@
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: ./v1/how-to-configure-environment.md
     # end v1
-    - name: Install and setup the CLI(v2)
+    - name: Install and set up the CLI(v2)
       href: how-to-configure-cli.md
     # v1
     - name: Install and set up the CLI(v1)
       displayName: azurecli, mlops
       href: ./v1/reference-azure-machine-learning-cli.md
     # end v1
-    - name: Install and setup the SDK(v2)
+    - name: Install and set up the SDK(v2)
       href: https://aka.ms/sdk-v2-install
     - name: Set up VS Code extension
       displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
@@ -96,6 +96,8 @@
           href: tutorial-enable-recurrent-materialization-run-batch-inference.md
         - name: Enable online materialization and run online inference
           href: tutorial-online-materialization-inference.md
+        - name: Develop a feature set with a custom source
+          href: tutorial-develop-feature-set-with-custom-source.md
         - name: Network isolation with feature store
           href: tutorial-network-isolation-for-feature-store.md
     # v1
@@ -379,12 +381,14 @@
       href: concept-top-level-entities-in-managed-feature-store.md
     - name: Manage access to managed feature store
       href: how-to-setup-access-control-feature-store.md
-    - name: Develop and register a feature set
-      href: tutorial-get-started-with-feature-store.md
-    - name: Experiment and train models using features
-      href: tutorial-experiment-train-models-using-features.md
-    - name: Enable recurrent materialization
-      href: tutorial-enable-recurrent-materialization-run-batch-inference.md
+    - name: Feature transformation and best practices
+      href: feature-set-specification-transformation-concepts.md
+    - name: Offline feature retrieval and point-in-time join
+      href: offline-retrieval-point-in-time-join-concepts.md
+    - name: Feature retrieval specification
+      href: feature-retrieval-concepts.md
+    - name: Feature set materialization
+      href: feature-set-materialization-concepts.md
     - name: Troubleshoot managed feature store errors
       href: troubleshooting-managed-feature-store.md
   - name: Compliance
@@ -586,14 +590,18 @@
     href: how-to-schedule-pipeline-job.md
 - name: Work with foundation models
   items:
-    - name: Foundation models in model catalog
-      href: concept-foundation-models.md
+    - name: Model Catalog Overview
+      href: concept-model-catalog.md
     - name: Open source models curated by Azure Machine Learning
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
     - name: How to use Azure OpenAI models
       href: how-to-use-openai-models-in-azure-ml.md
+    - name: Regulate deployments using policy
+      href: how-to-regulate-registry-deployments.md
+    - name: Use Model Catalog collections with virtual network
+      href: how-to-network-isolation-model-catalog.md
 - name: Use Generative AI
   items:
     - name: Build AI solutions with prompt flow
@@ -636,11 +644,13 @@
               href: ./prompt-flow/how-to-integrate-with-langchain.md
             - name: Tune prompts using variants
               href: ./prompt-flow/how-to-tune-prompts-using-variants.md
+            - name: Incorporate images into prompt flow
+              href: ./prompt-flow/how-to-process-image.md
         - name: Evaluate flows
           items:
             - name: Submit batch run and evaluate a flow 
               href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
-            - name: Develop a customized evaluation flow
+            - name: Customize evaluation flow and metrics
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
             - name: Evaluate your Semantic Kernel with prompt flow
               href: ./prompt-flow/how-to-evaluate-semantic-kernel.md
@@ -686,8 +696,10 @@
               href: ./prompt-flow/tools-reference/vector-db-lookup-tool.md
             - name: SERP API tool
               href: ./prompt-flow/tools-reference/serp-api-tool.md
-            - name: Open Source LLM tool
-              href: ./prompt-flow/tools-reference/open-source-llm-tool.md
+            - name: Open Model LLM tool
+              href: ./prompt-flow/tools-reference/open-model-llm-tool.md
+            - name: OpenAI GPT-4V tool
+              href: ./prompt-flow/tools-reference/openai-gpt-4v-tool.md
             - name: Troubleshoot Guidance
               href: ./prompt-flow/tools-reference/troubleshoot-guidance.md
     - name: Retrieval Augmented Generation (RAG)
@@ -807,7 +819,7 @@
       href: how-to-use-parallel-job-in-pipeline.md
     - name: How to do hyperparameter sweep in pipeline
       href: how-to-use-sweep-in-pipeline.md
-  - name: How to manage inputs and ouputs in pipeline
+  - name: How to manage inputs and outputs in pipeline
     href: how-to-manage-inputs-outputs-pipeline.md
   - name: How to use pipeline components in pipeline 
     href: how-to-use-pipeline-component.md
@@ -880,8 +892,6 @@
               href: how-to-deploy-mlflow-models-online-endpoints.md
             - name: Use a custom container to deploy a model to an online endpoint
               href: how-to-deploy-custom-container.md
-            - name: Use online endpoints in studio
-              href: how-to-use-managed-online-endpoint-studio.md
             - name: High performance serving with Triton
               href: how-to-deploy-with-triton.md
             - name: Use REST to deploy a model as an online endpoint
@@ -890,7 +900,9 @@
               href: how-to-deploy-automl-endpoint.md
         - name: Security
           items:
-            - name: Authentication for endpoints
+            - name: Authentication for online endpoints
+              href: concept-endpoints-online-auth.md
+            - name: Authenticate clients for online endpoints
               href: how-to-authenticate-online-endpoint.md
             - name: Network isolation with managed online endpoints
               displayName: network, vnet, secure
@@ -904,6 +916,8 @@
       items:
         - name: Batch endpoints
           href: concept-endpoints-batch.md
+        - name: Create jobs and input data for batch endpoints
+          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Deploy models
           items:
             - name: Deploy models for scoring in batch endpoints
@@ -930,8 +944,6 @@
               href: how-to-use-batch-scoring-pipeline.md
             - name: Create batch endpoints from pipeline jobs
               href: how-to-use-batch-pipeline-from-job.md
-        - name: Create jobs and input data for batch endpoints
-          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Troubleshoot batch endpoints
           href: how-to-troubleshoot-batch-endpoints.md
         - name: Security

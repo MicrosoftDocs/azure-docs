@@ -1,6 +1,6 @@
 ---
 title: Add loops to repeat actions
-description: Create loops to repeat actions or process arrays in workflows using Azure Logic Apps.
+description: Create loops to repeat actions in workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/13/2023
 ---
 
-# Create loops that repeat actions or process arrays in workflows with Azure Logic Apps
+# Create loops to repeat actions in workflows with Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Azure Logic Apps includes the following loop actions that you can use in your workflow:
 
-* To repeat one or more actions on an array, add the [**For each** action](#foreach-loop) to your workflow.
+* To repeat one or more actions on items in an array, add the [**For each** action](#foreach-loop) to your workflow.
 
   Alternatively, if you have a trigger that receives an array and want to run an iteration for each array item, you can *debatch* that array with the [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
@@ -32,7 +32,7 @@ Azure Logic Apps includes the following loop actions that you can use in your wo
 
 ## For each
 
-The **For each** action repeats one or more actions on each array item and works only on arrays. The following list contains some considerations for when you want to use a **For each** action:
+The **For each** action works only on arrays and repeats one or more actions on each item in an array. The following list contains some considerations for when you want to use a **For each** action:
 
 * The **For each** action can process a limited number of array items. For this limit, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
@@ -48,7 +48,7 @@ The **For each** action repeats one or more actions on each array item and works
 
 The following example workflow sends a daily summary for a website RSS feed. The workflow uses a **For each** action that sends an email for each new item.
 
-Follow the steps based on whether you create a Consumption or Standard logic app workflow.
+Based on whether you have a Consumption or Standard workflow, follow the corresponding steps:
 
 ### [Consumption](#tab/consumption)
 

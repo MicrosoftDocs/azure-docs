@@ -66,7 +66,7 @@ COGNITIVE_SERVICES_ENDPOINT="<COGNITIVE_SERVICEs_ENDPOINT>"
 
 ## Make an outbound call and play media
 
-To make the outbound call from ACS, you use the phone number you provided to the environment. Ensure that the phone number is in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+To make the outbound call from Azure Communication Services, you use the phone number you provided to the environment. Ensure that the phone number is in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
 The code makes an outbound call using the target_phone_number you've provided and place an outbound call to that number: 
 

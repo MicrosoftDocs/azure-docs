@@ -1,8 +1,8 @@
 ---
 title: Confidential VM solutions
-description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD processors backed by SEV-SNP technology and on Intel processors backed by Trust Domain Extensions technology.
-author: mamccrea
-ms.author: mamccrea
+description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD and Intel processors.
+author: ju-shim
+ms.author: jushiman
 ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: confidential-computing
@@ -12,22 +12,28 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-# Azure Confidential VM options on AMD and Intel
+# Azure Confidential VM options
 
-Azure Confidential Computing offers multiple options for confidential VMs that run on AMD and Intel processors. AMD processors backed by [AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) technology. Intel Processors are backed by [Intel Trust Domain Extensions](https://www.intel.com/content/dam/develop/external/us/en/documents/tdx-whitepaper-v4.pdf) technology.
+Azure offers multiple confidential VMs options leveraging Trusted Execution Environments (TEE) technologies from both AMD and Intel to harden the virtualization environment. These technologies enable you to provision confidential computing environments with excellent price-to-performance without code changes. 
 
-
+AMD confidential VMs leverage [Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) which was introduced with 3rd Gen AMD EPYC™ processors. Intel confidential VMs use [Trust Domain Extensions (TDX)](https://www.intel.com/content/dam/develop/external/us/en/documents/tdx-whitepaper-v4.pdf) which was introduced with 4th Gen Intel® Xeon® processors.
 
 ## Sizes
 
 You can create confidential VMs in the following size families:
 
-| Size family          | Description                                                                         |
-| ------------------ | ----------------------------------------------------------------------------------- |
-| **DCasv5-series**/**DCesv5-series**| Confidential VM with remote storage only. No local temporary disk.                  |
-| **DCadsv5-series**/**DCedsv5-series** | Confidential VM with a local temporary disk.                                        |
-| **ECasv5-series**/**ECesv5-series** | Memory-optimized confidential VM with remote storage only. No local temporary disk. |
-| **ECadsv5-series**/**ECedsv5-series** | Memory-optimized confidential VM with a local temporary disk.                       |
+| Size Family          | TEE | Description                                                                         |
+| ------------------ | ------------ | ----------------------------------------------------------------------------------- |
+| **DCasv5-series** | AMD SEV-SNP | General purpose CVM with remote storage. No local temporary disk.                  |
+| **DCesv5-series** | Intel TDX | General purpose CVM with remote storage. No local temporary disk.                  |
+| **DCadsv5-series** | AMD SEV-SNP | General purpose CVM with local temporary disk.                                        |
+| **DCedsv5-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
+| **ECasv5-series** | AMD SEV-SNP | Memory-optimized CVM with remote storage. No local temporary disk. |
+| **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
+| **ECadsv5-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
+| **ECedsv5-series** | Intel TDX | Memory-optimized CVM with local temporary disk. |
+| **ECiesv5-series** | Intel TDX | Isolated memory-optimized CVM with local temporary disk.                      |
+| **ECiedsv5-series** | Intel TDX | Isolated memory-optimized CVM with local temporary disk. |
 
 > [!NOTE]
 > Memory-optimized confidential VMs offer double the ratio of memory per vCPU count.
@@ -80,7 +86,7 @@ For availability information, see which [VM products are available by Azure regi
 
 ### Resizing
 
-Confidential VMs run on specialized hardware, so you can only resize confidential VM instances to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv5-series instance. If you would like to resize your VM you must stop it before resizing.
+Confidential VMs run on specialized hardware, so you can only [resize confidential VM instances](confidential-vm-faq.yml#can-i-convert-a-dcasv5-ecasv5-cvm-into-a-dcesv5-ecesv5-cvm-or-a-dcesv5-ecesv5-cvm-into-a-dcasv5-ecasv5-cvm-) to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv5-series instance. 
 
 It's not possible to resize a non-confidential VM to a confidential VM.
 
@@ -90,8 +96,8 @@ OS images for confidential VMs have to meet certain security and compatibility r
 
 - Ubuntu 20.04 LTS (AMD SEV-SNP supported only)
 - Ubuntu 22.04 LTS
-- Windows Server 2019 Datacenter - x64 Gen 2
-- Windows Server 2019 Datacenter Server Core - x64 Gen 2
+- Windows Server 2019 Datacenter - x64 Gen 2 (AMD SEV-SNP supported only)
+- Windows Server 2019 Datacenter Server Core - x64 Gen 2 (AMD SEV-SNP supported only)
 - Windows Server 2022 Datacenter - x64 Gen 2
 - Windows Server 2022 Datacenter: Azure Edition Core - x64 Gen 2
 - Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2
@@ -126,4 +132,4 @@ Make sure to specify the following properties for your VM in the parameters sect
 ## Next steps 
 
 > [!div class="nextstepaction"]
-> [Deploy a confidential VM on AMD from the Azure portal](quick-create-confidential-vm-portal-amd.md)
+> [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal.md)

@@ -124,7 +124,7 @@ SparkJob2
 	files
 	
 ```
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

@@ -2,7 +2,6 @@
 title: Azure AI services for Call Center Overview
 titleSuffix: Azure AI services
 description: Azure AI services for Language and Speech can help you realize partial or full automation of telephony-based customer interactions, and provide accessibility across multiple channels.
-#services: cognitive-services
 author: goergenj
 ms.author: jagoerge
 ms.service: azure-ai-speech
@@ -47,7 +46,7 @@ The Speech service works well with prebuilt models. However, you might want to f
 | Speech customization | Description |
 | -------------- | ----------- |
 | [Custom Speech](./custom-speech-overview.md) | A speech to text feature used evaluate and improve the speech recognition accuracy of use-case specific entities (such as alpha-numeric customer, case, and contract IDs, license plates, and names). You can also train a custom model with your own product names and industry terminology. |
-| [Custom Neural Voice](./custom-neural-voice.md) | A text to speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. |
+| [Custom neural voice](./custom-neural-voice.md) | A text to speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. |
 
 ### Language service
 

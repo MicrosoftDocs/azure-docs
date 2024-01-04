@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -20,14 +20,15 @@ Azure service: [IoT Hub](../../../iot-hub/index.yml), [IoT Hub Device Provisioni
 > | --- | --- |
 > | Microsoft.Devices/register/action | Register the subscription for the IotHub resource provider and enables the creation of IotHub resources |
 > | Microsoft.Devices/checkNameAvailability/Action | Check If IotHub name is available |
-> | Microsoft.Devices/checkProvisioningServiceNameAvailability/Action | Check If Provisioning service name is available |
 > | Microsoft.Devices/iotHubs/Read | Gets the IotHub resource(s) |
 > | Microsoft.Devices/iotHubs/Write | Create or update IotHub Resource |
 > | Microsoft.Devices/iotHubs/Delete | Delete IotHub Resource |
 > | Microsoft.Devices/iotHubs/listkeys/Action | Get all IotHub Keys |
 > | Microsoft.Devices/iotHubs/exportDevices/Action | Export Devices |
 > | Microsoft.Devices/iotHubs/importDevices/Action | Import Devices |
+> | Microsoft.Devices/iotHubs/notifyNetworkSecurityPerimeterUpdatesAvailable/Action | Notify RP that an associated NSP has profile updates. |
 > | Microsoft.Devices/iotHubs/privateEndpointConnectionsApproval/Action | Approve or reject a private endpoint connection |
+> | Microsoft.Devices/iotHubs/networkSecurityPerimeterConfigurations/Action | Reconcile NSP configuration profile from NSP RP |
 > | Microsoft.Devices/iotHubs/certificates/Read | Gets the Certificate |
 > | Microsoft.Devices/iotHubs/certificates/Write | Create or Update Certificate |
 > | Microsoft.Devices/iotHubs/certificates/Delete | Deletes Certificate |
@@ -46,6 +47,10 @@ Azure service: [IoT Hub](../../../iot-hub/index.yml), [IoT Hub Device Provisioni
 > | Microsoft.Devices/iotHubs/jobs/Read | Get Job(s) details submitted on given IotHub |
 > | Microsoft.Devices/IotHubs/logDefinitions/read | Gets the available log definitions for the IotHub Service |
 > | Microsoft.Devices/IotHubs/metricDefinitions/read | Gets the available metrics for the IotHub service |
+> | Microsoft.Devices/iotHubs/networkSecurityPerimeterAssociationProxies/Read | List all NSP association proxies associated with the IotHub |
+> | Microsoft.Devices/iotHubs/networkSecurityPerimeterAssociationProxies/Write | Put an NSP association proxy on the IotHub to associate the resource with the NSP |
+> | Microsoft.Devices/iotHubs/networkSecurityPerimeterAssociationProxies/Delete | Delete an NSP association proxy to disassociate the IotHub resource from the NSP |
+> | Microsoft.Devices/iotHubs/networkSecurityPerimeterConfigurations/Read | List all NSP configurations associated with the IotHub |
 > | Microsoft.Devices/iotHubs/operationresults/Read | Get Operation Result (Obsolete API) |
 > | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/validate/Action | Validates private endpoint connection proxy input during create |
 > | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/Read | Gets properties for specified private endpoint connection proxy |
@@ -66,26 +71,13 @@ Azure service: [IoT Hub](../../../iot-hub/index.yml), [IoT Hub Device Provisioni
 > | Microsoft.Devices/iotHubs/securitySettings/operationResults/Read | Get the result of the Async Put operation for Iot Hub SecuritySettings |
 > | Microsoft.Devices/iotHubs/skus/Read | Get valid IotHub Skus |
 > | Microsoft.Devices/locations/operationresults/Read | Get Location based Operation Result |
-> | Microsoft.Devices/locations/provisioningserviceoperationresults/Read | Get Location Based Provisioning Service Operation Result |
 > | Microsoft.Devices/operationresults/Read | Get Operation Result |
 > | Microsoft.Devices/operations/Read | Get All ResourceProvider Operations |
-> | Microsoft.Devices/provisioningserviceoperationresults/Read | Get Provisioning Service Operation Result |
-> | Microsoft.Devices/provisioningServices/Read | Get IotDps resource |
-> | Microsoft.Devices/provisioningServices/Write | Create IotDps resource |
-> | Microsoft.Devices/provisioningServices/Delete | Delete IotDps resource |
-> | Microsoft.Devices/provisioningServices/listkeys/Action | Get all IotDps keys |
 > | Microsoft.Devices/provisioningServices/privateEndpointConnectionsApproval/Action | Approve or reject a private endpoint connection |
-> | Microsoft.Devices/provisioningServices/certificates/Read | Gets the Certificate |
-> | Microsoft.Devices/provisioningServices/certificates/Write | Create or Update Certificate |
-> | Microsoft.Devices/provisioningServices/certificates/Delete | Deletes Certificate |
-> | Microsoft.Devices/provisioningServices/certificates/generateVerificationCode/Action | Generate Verification code |
-> | Microsoft.Devices/provisioningServices/certificates/verify/Action | Verify Certificate resource |
 > | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
-> | Microsoft.Devices/provisioningServices/keys/listkeys/Action | Get IotDps Keys for key name |
 > | Microsoft.Devices/provisioningServices/logDefinitions/read | Gets the available log definitions for the provisioning Service |
 > | Microsoft.Devices/provisioningServices/metricDefinitions/read | Gets the available metrics for the provisioning service |
-> | Microsoft.Devices/provisioningServices/operationresults/Read | Get DPS Operation Result |
 > | Microsoft.Devices/provisioningServices/privateEndpointConnectionProxies/validate/Action | Validates private endpoint connection proxy input during create |
 > | Microsoft.Devices/provisioningServices/privateEndpointConnectionProxies/Read | Gets properties for specified private endpoint connection proxy |
 > | Microsoft.Devices/provisioningServices/privateEndpointConnectionProxies/Write | Creates or updates a private endpoint connection proxy |
@@ -96,7 +88,6 @@ Azure service: [IoT Hub](../../../iot-hub/index.yml), [IoT Hub Device Provisioni
 > | Microsoft.Devices/provisioningServices/privateEndpointConnections/Write | Creates or updates a private endpoint connection |
 > | Microsoft.Devices/provisioningServices/privateEndpointConnections/operationResults/Read | Get the result of an async operation on a private endpoint connection |
 > | Microsoft.Devices/provisioningServices/privateLinkResources/Read | Gets private link resources for IotHub |
-> | Microsoft.Devices/provisioningServices/skus/Read | Get valid IotDps Skus |
 > | Microsoft.Devices/usages/Read | Get subscription usage details for this provider. |
 > | **DataAction** | **Description** |
 > | Microsoft.Devices/IotHubs/cloudToDeviceMessages/send/action | Send cloud-to-device message to any device  |
@@ -141,6 +132,9 @@ Azure service: [Device Update for IoT Hub](../../../iot-hub-device-update/index.
 > | Microsoft.DeviceUpdate/accounts/read | Returns the list of Device Update Accounts |
 > | Microsoft.DeviceUpdate/accounts/write | Creates or updates a Device Update Account |
 > | Microsoft.DeviceUpdate/accounts/delete | Deletes a Device Update Account |
+> | Microsoft.DeviceUpdate/accounts/agents/read | Returns the list of Device Update Agents |
+> | Microsoft.DeviceUpdate/accounts/agents/write | Creates or updates a Device Update Agent |
+> | Microsoft.DeviceUpdate/accounts/agents/delete | Deletes a Device Update Agent |
 > | Microsoft.DeviceUpdate/accounts/instances/read | Returns the list of Device Update Instances |
 > | Microsoft.DeviceUpdate/accounts/instances/write | Creates or updates a Device Update Instance |
 > | Microsoft.DeviceUpdate/accounts/instances/delete | Deletes a Device Update Instance |
@@ -207,6 +201,7 @@ Azure service: [IoT security](../../../iot/iot-security-architecture.md)
 > | Microsoft.IoTSecurity/defenderSettings/delete | Deletes IoT Defender Settings |
 > | Microsoft.IoTSecurity/defenderSettings/packageDownloads/action | Gets downloadable IoT Defender packages information |
 > | Microsoft.IoTSecurity/defenderSettings/downloadManagerActivation/action | Download manager activation file |
+> | Microsoft.IoTSecurity/endpoints/read | Download sensor endpoints in location |
 > | Microsoft.IoTSecurity/locations/read | Gets location |
 > | Microsoft.IoTSecurity/locations/alertSuppressionRules/read | Gets alert suppression rule |
 > | Microsoft.IoTSecurity/locations/alertSuppressionRules/write | Creates alert suppression rule |
@@ -217,6 +212,7 @@ Azure service: [IoT security](../../../iot/iot-security-architecture.md)
 > | Microsoft.IoTSecurity/locations/deviceGroups/alerts/learn/action | Learn and close the alert |
 > | Microsoft.IoTSecurity/locations/deviceGroups/alerts/pcapAvailability/action | Get alert PCAP file aviability |
 > | Microsoft.IoTSecurity/locations/deviceGroups/alerts/pcapRequest/action | Request related PCAP file for alert |
+> | Microsoft.IoTSecurity/locations/deviceGroups/alerts/pcaps/write | Request related PCAP file for alert |
 > | Microsoft.IoTSecurity/locations/deviceGroups/devices/read | Get devices |
 > | Microsoft.IoTSecurity/locations/deviceGroups/devices/write | Updates device properties |
 > | Microsoft.IoTSecurity/locations/deviceGroups/devices/delete | Deletes device |
@@ -244,11 +240,6 @@ Azure service: [IoT security](../../../iot/iot-security-architecture.md)
 > | Microsoft.IoTSecurity/onPremiseSensors/downloadResetPassword/action | Downloads file for reset password of the on-premise IoT Sensor |
 > | Microsoft.IoTSecurity/onPremiseSensors/listDiagnosticsUploadDetails/action | Get details required to upload sensor diagnostics data |
 > | Microsoft.IoTSecurity/sensors/read | Gets IoT Sensors |
-> | Microsoft.IoTSecurity/sensors/write | Creates or updates IoT Sensors |
-> | Microsoft.IoTSecurity/sensors/delete | Deletes IoT Sensors |
-> | Microsoft.IoTSecurity/sensors/downloadActivation/action | Downloads activation file for IoT Sensors |
-> | Microsoft.IoTSecurity/sensors/triggerTiPackageUpdate/action | Triggers threat intelligence package update |
-> | Microsoft.IoTSecurity/sensors/downloadResetPassword/action | Downloads reset password file for IoT Sensors |
 
 ### Microsoft.NotificationHubs
 
@@ -260,6 +251,7 @@ Azure service: [Notification Hubs](../../../notification-hubs/index.yml)
 > | Microsoft.NotificationHubs/register/action | Registers the subscription for the NotificationHubs resource provider and enables the creation of Namespaces and NotificationHubs |
 > | Microsoft.NotificationHubs/unregister/action | Unregisters the subscription for the NotificationHubs resource provider and enables the creation of Namespaces and NotificationHubs |
 > | Microsoft.NotificationHubs/CheckNamespaceAvailability/action | Checks whether or not a given Namespace resource name is available within the NotificationHub service. |
+> | Microsoft.NotificationHubs/CheckNamespaceAvailability/read | Checks whether or not a given Namespace resource name is available within the NotificationHub service. |
 > | Microsoft.NotificationHubs/Namespaces/write | Create a Namespace Resource and Update its properties. Tags and Capacity of the Namespace are the properties which can be updated. |
 > | Microsoft.NotificationHubs/Namespaces/read | Get the list of Namespace Resource Description |
 > | Microsoft.NotificationHubs/Namespaces/delete | Delete Namespace Resource |
@@ -284,6 +276,7 @@ Azure service: [Notification Hubs](../../../notification-hubs/index.yml)
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/action | Notification Hub Authorization Rule Regenerate Primary/SecondaryKey, Specify the Key that needs to be regenerated |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/metricDefinitions/read | Get list of Namespace metrics Resource Descriptions |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/vapidkeys/read | Get new pair of VAPID keys for a Notification Hub |
+> | Microsoft.NotificationHubs/Namespaces/operations/read | Returns a list of supported operations for Notification Hubs namespaces provider |
 > | Microsoft.NotificationHubs/namespaces/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxy |
 > | Microsoft.NotificationHubs/namespaces/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy |
 > | Microsoft.NotificationHubs/namespaces/privateEndpointConnectionProxies/write | Create Private Endpoint Connection Proxy |
@@ -298,6 +291,7 @@ Azure service: [Notification Hubs](../../../notification-hubs/index.yml)
 > | Microsoft.NotificationHubs/namespaces/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Namespace |
 > | Microsoft.NotificationHubs/operationResults/read | Returns operation results for Notification Hubs provider |
 > | Microsoft.NotificationHubs/operations/read | Returns a list of supported operations for Notification Hubs provider |
+> | Microsoft.NotificationHubs/resourceTypes/read | Gets a list of the resource types for Notification Hubs |
 
 ### Microsoft.TimeSeriesInsights
 
@@ -336,4 +330,3 @@ Azure service: [Time Series Insights](../../../time-series-insights/index.yml)
 > | Microsoft.TimeSeriesInsights/environments/referencedatasets/write | Creates a new reference data set for an environment, or updates an existing reference data set. |
 > | Microsoft.TimeSeriesInsights/environments/referencedatasets/delete | Deletes the reference data set. |
 > | Microsoft.TimeSeriesInsights/environments/status/read | Get the status of the environment, state of its associated operations like ingress. |
-

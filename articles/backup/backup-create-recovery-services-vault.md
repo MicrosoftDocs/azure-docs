@@ -95,7 +95,7 @@ To configure your vault to encrypt with customer-managed keys:
 1. Enable soft delete and purge protection in Azure Key Vault.
 1. Assign the encryption key to the Recovery Services vault.
 
-You can find instructions for each of these steps in [this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-using-customer-managed-keys).
+You can find instructions for each of these steps in [this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-by-using-customer-managed-keys).
 
 ## Modify default settings
 

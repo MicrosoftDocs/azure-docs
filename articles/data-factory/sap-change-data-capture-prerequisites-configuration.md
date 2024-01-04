@@ -97,6 +97,6 @@ The following SAP support notes resolve known issues on SAP systems:
 - [3038236 - To resolve CDS view extractions that fail to populate ODQ](https://launchpad.support.sap.com/#/notes/3038236)
 - [3076927 - To remove unsupported callbacks when extracting from SAP BW or BW/4HANA](https://launchpad.support.sap.com/#/notes/3076927)
 
-## Next steps
+## Related content
 
 [Set up a self-hosted integration runtime for your SAP CDC solution](sap-change-data-capture-shir-preparation.md)

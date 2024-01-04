@@ -4,7 +4,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 04/14/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-custom-classification, event-tier1-build-2022
 ---

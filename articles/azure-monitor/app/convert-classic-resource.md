@@ -53,6 +53,8 @@ Your classic resource data persists and is subject to the retention settings on 
 
 If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource, see the [Workspace-based resource creation guide](create-workspace-resource.md).
 
+> [!NOTE]
+> The migration process shouldn't introduce any application downtime or restarts nor change your existing instrumentation key or connection string.
 ## Prerequisites
 
 - A Log Analytics workspace with the access control mode set to the **Use resource or workspace permissions** setting:
@@ -822,3 +824,4 @@ Legacy table: traces
 
 * [Explore metrics](../essentials/metrics-charts.md)
 * [Write Log Analytics queries](../logs/log-query-overview.md)
+

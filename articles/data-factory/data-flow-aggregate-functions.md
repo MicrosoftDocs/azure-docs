@@ -71,7 +71,7 @@ The following functions are only available in aggregate, pivot, unpivot, and win
 | [varianceSampleIf](data-flow-expressions-usage.md#varianceSampleIf) | Based on a criteria, gets the unbiased variance of a column.  |
 |||
 
-## Next steps
+## Related content
 
 - List of all [array functions](data-flow-array-functions.md).
 - List of all [cached lookup functions](data-flow-cached-lookup-functions.md).
