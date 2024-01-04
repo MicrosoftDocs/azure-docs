@@ -127,46 +127,21 @@ pg_restore -Fd -j 2 testdb_copy -h mydemoserver.postgres.database.azure.com -U m
 
 ---
 
+> [!NOTE]
+> On Azure Database for PostgreSQL servers, TLS/SSL connections are on by default. If your PostgreSQL server requires TLS/SSL connections, but doesn't have them, set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error might read: "FATAL: SSL connection is required. Please specify SSL options and retry." In the Windows command line, run the command `SET PGSSLMODE=require` before running the `pg_restore` command. In Linux or Bash, run the command `export PGSSLMODE=require` before running the `pg_restore` command. 
+
 ## Post-Restoration Check
 After the restoration process is complete, it's important to review the `errors.log` file for any errors that may have occurred. This step is crucial for ensuring the integrity and completeness of the restored data. Address any issues found in the log file to maintain the reliability of your database.
 
 
 Including the `--no-owner` parameter causes all objects created during the restore to be owned by the user specified with `--username`. For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
-> [!NOTE]
-> On Azure Database for PostgreSQL servers, TLS/SSL connections are on by default. If your PostgreSQL server requires TLS/SSL connections, but doesn't have them, set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error might read: "FATAL: SSL connection is required. Please specify SSL options and retry." In the Windows command line, run the command `SET PGSSLMODE=require` before running the `pg_restore` command. In Linux or Bash, run the command `export PGSSLMODE=require` before running the `pg_restore` command. 
-
 
 ## Optimize the migration process
 
-One way to migrate your existing PostgreSQL database to Azure Database for PostgreSQL is to back up the database on the source and restore it in Azure. To minimize the time required to complete the migration, consider using the following parameters with the backup and restore commands.
+When working with large databases, the dump and restore process can be lengthy and may require optimization to ensure efficiency and reliability. It is important to be aware of the various factors that can impact the performance of these operations and to take steps to optimize them.
 
-> [!NOTE]
-> For detailed syntax information, see [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html).
-
-
-### For the restore
-
-- Move the backup file to an Azure VM in the same region as the Azure Database for PostgreSQL server you're migrating to. Perform the `pg_restore` from that VM to reduce network latency. Create the VM with [accelerated networking](../../virtual-network/create-vm-accelerated-networking-powershell.md) enabled.
-
-- Open the dump file to verify that the create index statements are after the insert of the data. If it isn't the case, move the create index statements after the data is inserted. This should already be done by default, but it's a good idea to confirm.
-
-- Restore with the `-j N` switch (where `N` represents the number) to parallelize the restore. The number you specify is the number of cores on the target server. You can also set to twice the number of cores of the target server to see the impact.
-
-
-- You can also edit the dump file by adding the command `set synchronous_commit = off;` at the beginning, and the command `set synchronous_commit = on;` at the end. Not turning it on at the end, before the apps change the data, might result in subsequent loss of data.
-
-- On the target Azure Database for PostgreSQL server, consider doing the following before the restore:
-    
-  - Turn off query performance tracking. These statistics aren't needed during the migration. You can do this by setting `pg_stat_statements.track`, `pg_qs.query_capture_mode`, and `pgms_wait_sampling.query_capture_mode` to `NONE`.
-
-  - Use a high compute and high memory SKU, like 32 vCore Memory Optimized, to speed up the migration. You can easily scale back down to your preferred SKU after the restore is complete. The higher the SKU, the more parallelism you can achieve by increasing the corresponding `-j` parameter in the `pg_restore` command.
-
-  - More IOPS on the target server might improve the restore performance. You can provision more IOPS by increasing the server's storage size. This setting isn't reversible, but consider whether a higher IOPS would benefit your actual workload in the future.
-
-Remember to test and validate these commands in a test environment before you use them in production.
+For detailed guidance on optimizing the dump and restore process, refer to the [Best practices for pg_dump and pg_restore](../flexible-server/how-to-pgdump-restore.md) article. This resource provides comprehensive information and strategies that can be particularly beneficial for handling large databases.
 
 ## Next steps
-
-- To migrate a PostgreSQL database by using export and import, see [Migrate your PostgreSQL database using export and import](how-to-migrate-using-export-and-import.md).
 - For more information about migrating databases to Azure Database for PostgreSQL, see the [Database Migration Guide](/data-migration/).
