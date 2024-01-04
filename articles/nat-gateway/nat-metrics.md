@@ -273,7 +273,7 @@ To create the alert, use the following steps:
 
 ### Alerts for NAT gateway resource health
 
-[Azure Resource Health](/azure/service-health/overview) provides information on the health state of your NAT gateway resource. The resource health of your NAT gateway is evaluated by measing the datapath availability of your NAT gateway endpoint. You can set up alerts to notify you when the health state of your NAT gateway resource changes. To learn more about NAT gateway resource health and setting up alerts, see: 
+[Azure Resource Health](/azure/service-health/overview) provides information on the health state of your NAT gateway resource. The resource health of your NAT gateway is evaluated by measuring the datapath availability of your NAT gateway endpoint. You can set up alerts to notify you when the health state of your NAT gateway resource changes. To learn more about NAT gateway resource health and setting up alerts, see: 
 * [Azure NAT Gateway Resource Health](/azure/nat-gateway/resource-health)
 * [NAT Gateway Resource Health Alerts](/azure/nat-gateway/resource-health#resource-health-alerts)
 * [How to create Resource Health Alerts in the Azure portal](/azure/service-health/resource-health-alert-monitor-guide)
