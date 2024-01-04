@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
 ms.reviewer: franksolomon
-ms.date: 01/02/2024
+ms.date: 01/03/2024
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -129,6 +129,13 @@ In the following tables, the term alphanumeric refers to:
 
 > [!NOTE]
 > Automation account names are unique per region and resource group. Names for deleted Automation accounts might not be immediately available.
+
+## Microsoft.AVS
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | privateClouds | resource group | 1-80 | Alphanumerics, periods, hyhens, and underscores.<br>Start with alphanumeric and end with alphanumeric or underscore. |
 
 ## Microsoft.Batch
 
@@ -268,6 +275,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | managedClusters | resource group | 1-63 | Alphanumerics, underscores, and hyphens.<br><br>Start and end with alphanumeric. |
+> | managedClusters / agentPools | managed cluster | 1-12 for Linux<br>1-6 for Windows | Lowercase letters and numbers.<br><br>Can't start with a number. |
 > | openShiftManagedClusters | resource group | 1-30 | Alphanumerics. |
 
 ## Microsoft.CustomerInsights
@@ -352,6 +360,15 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | services | resource group | 2-62 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with alphanumeric. |
 > | services / projects | service | 2-57 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with alphanumeric. |
+
+## Microsoft.DataProtection
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | backupVaults | resource group | 2-50 | Alphanumerics and hyphens.<br><br>Start with letter. |
+> | backupvaults / backupInstances | backup vault | 1-75 | Alphanumerics and hyphens. |
+> | backupVaults / backupPolicies  | backup vault | 1-75 | Alphanumerics and hyphens. |
 
 ## Microsoft.DBforMariaDB
 
@@ -462,6 +479,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | actionGroups | resource group | 1-260 | Can't use:<br>`:<>+/&%\?` or control characters <br><br>Can't end with space or period.  |
+> | autoScaleSettings | resource group | 1-260 | Can't use:<br>`:<>+/&%\?` or control characters <br><br>Can't end with space or period.  |
 > | components | resource group | 1-260 | Can't use:<br>`%&\?/` or control characters <br><br>Can't end with space or period.  |
 > | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#` or control characters <br><br>Can't end with space or period.  |
 > | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/` or control characters <br><br>Can't end with space or period.  |
@@ -844,6 +862,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
+> | privateLinkHubs | resource group | 1-45 | Lowercase letters and numbers. |
 > | workspaces | global | 1-50 | Lowercase letters, hyphens, and numbers.<br><br>Start and end with letter or number.<br><br>Can't contain `-ondemand` |
 > | workspaces / bigDataPools | workspace | 1-15 | Letters and numbers.<br><br>Start with letter. End with letter or number.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
 > | workspaces / sqlPools | workspace | 1-60 | Can't contain `<>*%&:\/?@-` or control characters. <br><br>Can't end with `.` or space. <br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
