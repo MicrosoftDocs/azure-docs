@@ -234,7 +234,7 @@ To help you reduce costs on your logic aps and related resources, try these opti
 
   For example, you can call your logic app from a function that you create and run using the Azure Functions service. For example, see [Call or trigger logic apps by using Azure Functions and Azure Service Bus](logic-apps-scenario-function-sb-trigger.md).
 
-* [Disable logic apps](manage-logic-apps-with-azure-portal.md#disable-or-enable-logic-apps) that don't have to constantly run, or [delete logic apps](manage-logic-apps-with-azure-portal.md#delete-logic-apps) that you no longer need at all. If possible, disable any other resources that you don't need constantly active.
+* [Disable logic apps](manage-logic-apps-with-azure-portal.md#disable-enable-logic-apps) that don't have to constantly run, or [delete logic apps](manage-logic-apps-with-azure-portal.md#delete-logic-apps) that you no longer need at all. If possible, disable any other resources that you don't need constantly active.
 
 ## Next steps
 
