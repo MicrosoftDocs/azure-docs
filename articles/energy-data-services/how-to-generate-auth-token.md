@@ -119,9 +119,6 @@ The first step to getting an access token for many OpenID Connect (OIDC) and OAu
 
 #### Request format
 
-The authorization code flow begins with the client directing the user to the `/authorize` endpoint. This step is the interactive part of the flow, where the user takes action. 
-
-The following shows an example of an authorization request:
 ```bash
   https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/authorize?client_id={client-id}
   &response_type=code
@@ -129,7 +126,10 @@ The following shows an example of an authorization request:
   &response_mode=query
   &scope={client-id}%2f.default&state=12345&sso_reload=true
 ```
-
+1. After replacing the paramaters, you can paste the above in the URL of any browser and hit enter.
+2. It will ask you to login to your Azure portal if not logged in already.
+3. You will get the response in the URL.
+   
 | Parameter | Required? | Description |
 | --- | --- | --- |
 |tenant-id|Required|Name of your Microsoft Entra tenant|
