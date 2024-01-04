@@ -17,7 +17,9 @@ ms.author: janschietse
 This quickstart provides an overview on how to use the Radiology Insights (Preview).
 
 ## Prerequisites
-To use the Radiology Insights (Preview) model, you must have an Azure AI services account created. If you haven't already created an Azure AI services account, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
+To use the Radiology Insights (Preview) model, you must have an Azure AI services account created. 
+
+If you have no Azure AI services account, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
 
 Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI services account to see the details, including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
 
@@ -126,7 +128,9 @@ You can also find a full view of the [request parameters here](/rest/api/cogniti
 
 ### Evaluating a response that contains a case
 
-You get the status of the job by sending a request to the Radiology Insights model and adding the job ID from the initial request in the URL, as seen in the code snippet:
+You get the status of the job by sending a request to the Radiology Insights model aby adding the job ID from the initial request in the URL.
+
+Example code snippet:
 
 ```url
 GET
@@ -164,7 +168,7 @@ http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/
   "status": "succeeded"
 }
 ```
-You can find a full view of the [respone parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/get-job)
+You can find a full view of the [response parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/get-job)
 
 
 ## Data limits
@@ -177,31 +181,38 @@ Limit, Value
 
 # Request validation
 
-Every request has required and optional fields that should be provided to the Radiology Insights model. When you're sending data to the model, make sure that you take the following properties into account:
+Every request contains required and optional fields that should be provided to the Radiology Insights model. When you're sending data to the model, make sure that you take the following properties into account:
 
 Within a request:
 - patients should be set
 - patients should contain one entry
-- id in patients entry should be set
+- ID in patients entry should be set
 
 Within configuration:
-- If set, configuration locale should be one of the following values(case-insensitive): en-CA; en-US; en-AU; en-DE; en-IE; en-NZ; en-GB
+If set, configuration locale should be one of the following values (case-insensitive): 
+-  en-CA
+-  en-US
+-  en-AU
+-  en-DE
+-  en-IE
+-  en-NZ
+-  en-GB
 
 
 Within patients:
 - should contain one patientDocument entry
-- id in patientDocument should be set
-- if encounters and/or info are used, id should be set
+- ID in patientDocument should be set
+- if encounters and/or info are used, ID should be set
 
 
 For the patientDocuments within a patient:
 - createdDateTime (serviceDate) should be set
 - Patient Document language should be EN (case-insensitive) 
 - documentType should be set to Note
-- Patient Document clinicalType should be set to radiologyreport or pathologyreport
+- Patient Document clinicalType should be set to radiology report or pathology report
 - Patient Document specialtyType should be radiology or pathology
 - If set, orderedProcedures in administrativeMetadata should contain code -with code and display- and description
-- Document content should not be blank/empty/null 
+- Document content shouldn't be blank/empty/null 
 
 
 ```json
