@@ -61,6 +61,6 @@ When an instance is running an n-3 version:
 
 Platform Cluster runtime minor releases cannot be skipped due to the upgrade requirements of Kubernetes. A customer wanting to go from an n-2 version to an n version will need to perform multiple platform cluster runtime upgrades.
 
-## Related Links
+## Related links
 
 [How to Perform a Platform Cluster Runtime Upgrade](./howto-cluster-runtime-upgrade.md)
