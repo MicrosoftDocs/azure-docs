@@ -1,27 +1,27 @@
 ---
 title: How to generate a refresh token for Microsoft Azure Data Manager for Energy
-description: This article describes how to generate a auth token
+description: This article describes how to generate an auth token
 author: shikhagarg1
 ms.author: shikhagarg
 ms.service: energy-data-services
 ms.topic: how-to
 ms.date: 10/06/2022
 ms.custom: template-how-to
-#Customer intent: As a developer, I want to learn how to generate a auth token
+#Customer intent: As a developer, I want to learn how to generate an auth token
 ---
 
 # How to generate auth token
 
-In this article, you will learn how to generate the service principal auth token, user's auth token and user's refresh token. 
+In this article, you learn how to generate the service principal auth token, user's auth token and user's refresh token. 
 
 ## Register your app with Microsoft Entra ID
 To use the Azure Data Manager for Energy platform endpoint, you must register your app in the [Azure portal app registration page](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app. For steps on how to configure, see [Register your app documentation](../active-directory/develop/quickstart-register-app.md#register-an-application).
 
 To use the OAuth 2.0 authorization code grant flow, save the following values when registering the app:
 
-- The `Directory (tenant) ID` that will be used in place of `{tenant-id}`
-- The `application (client) ID` assigned by the app registration portal, which will be used instead of `client-id`.
-- A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret will be used instead of `{client-secret}` later.
+- The `Directory (tenant) ID` is used as `{tenant-id}`
+- The `application (client) ID` assigned by the app registration portal is used as `client-id`.
+- A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret is used as `{client-secret}`.
 - A `redirect URI (or reply URL)` for your app to receive responses from Microsoft Entra ID. If there's no redirect URIs specified, you can add a platform, select "Web", add `http://localhost:8080`, and select save.
   
 :::image type="content" source="media/how-to-manage-users/app-registration-uri.png" alt-text="Screenshot of adding URI to the app.":::
@@ -52,7 +52,7 @@ It's the same value that you use to register your application during the provisi
 :::image type="content" source="media/how-to-manage-users/client-id-or-app-id.png" alt-text="Screenshot of finding the client-id for your registered App.":::
 
 #### Find `client-secret`
-A `client-secret` is a string value your app can use in place of a certificate to identify itself. It is sometimes referred to as an application password. 
+A `client-secret` is a string value your app can use in place of a certificate to identify itself. It's sometimes referred to as an application password. 
 
 1. Navigate to *App Registrations*.
 2. Open 'Certificates & secrets' under the *Manage* section.
@@ -115,12 +115,12 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 Generating a user's auth token is a two step process. 
 
 ### Get authorization code
-The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID will sign the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID will return an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
+The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID signs the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID returns an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
 #### Request format
 1. After replacing the paramaters, you can paste the below in the URL of any browser and hit enter.
-2. It will ask you to login to your Azure portal if not logged in already.
-3. You will get the response in the URL.
+2. It asks you to login to your Azure portal if not logged in already.
+3. You get the response in the URL.
  
 ```bash
   https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/authorize?client_id={client-id}
@@ -135,20 +135,20 @@ The first step to getting an access token for many OpenID Connect (OIDC) and OAu
 |tenant-id|Required|Name of your Microsoft Entra tenant|
 | client-id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | response_type |Required |The response type, which must include `code` for the authorization code flow. You can receive an ID token if you include it in the response type, such as `code+id_token`, and in this case, the scope needs to include `openid`.|
-| redirect_uri |Required |The redirect URI of your app, where authentication responses are sent and received by your app. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded. |
-| scope |Required |A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application will need a *refresh token* for extended access to resources. The client-id indicates the token issued are intended for use by Azure AD B2C registered client. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. |
+| redirect_uri |Required |The redirect URI of your app, where your app sends and receives the authentication responses. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded. |
+| scope |Required |A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application need a *refresh token* for extended access to resources. The client-id indicates the token issued are intended for use by Azure AD B2C registered client. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. |
 | response_mode |Recommended |The method that you use to send the resulting authorization code back to your app. It can be `query`, `form_post`, or `fragment`. |
 | state |Recommended |A value included in the request that can be a string of any content that you want to use. Usually, a randomly generated unique value is  used, to prevent cross-site request forgery attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the user flow that was being executed. |
 
 #### Sample response
-1. The browser will redirect to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
+1. The browser redirects to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
 2. In the URL bar, you see the response of the below format.
 
 ```bash
 http://localhost:8080/?code=0.BRoAv4j5cvGGr0...au78f&state=12345&session....
 ```
 3. Copy the response and fetch the text between `code=` and `&state`
-4. This is the `authorization_code` which you can keep handy for future use.
+4. This is the `authorization_code` to keep handy for future use.
 
 > [!NOTE] 
 > The browser may say that the site can't be reached, but it should still have the authorization code in the URL bar.
@@ -162,7 +162,7 @@ http://localhost:8080/?code=0.BRoAv4j5cvGGr0...au78f&state=12345&session....
 > [!WARNING]
 > Running the URL in Postman won't work as it requires extra configuration for token retrieval.
 
-### Get a auth token and refresh token
+### Get an auth token and refresh token
 The second step is to get the auth token and refresh token. Your app uses the `authorization_code` received in the previous step to request an access token by sending a POST request to the `/token` endpoint.
 
 #### Request format
@@ -179,7 +179,7 @@ The second step is to get the auth token and refresh token. Your app uses the `a
 |---------|---------|---------|
 |tenant     | Required        | The {tenant-id} value in the path of the request can be used to control who can sign into the application.|
 |client_id     | Required         | The application ID assigned to your app upon registration         |
-|scope     | Required        | A space-separated list of scopes. The scopes that your app requests in this leg must be equivalent to or a subset of the scopes that it requested in the first (authorization) leg. If the scopes specified in this request span multiple resource server, then the v2.0 endpoint will return a token for the resource specified in the first scope.        |
+|scope     | Required        | A space-separated list of scopes. The scopes that your app requests in this leg must be equivalent to or a subset of the scopes that it requested in the first (authorization) leg. If the scopes specified in this request span multiple resource server, then the v2.0 endpoint returns a token for the resource specified in the first scope.        |
 |code    |Required         |The authorization_code that you acquired in the first step of the flow.         |
 |redirect_uri     | Required        |The same redirect_uri value that was used to acquire the authorization_code.         |
 |grant_type     | Required        | Must be authorization_code for the authorization code flow.        |
@@ -205,7 +205,7 @@ The second step is to get the auth token and refresh token. Your app uses the `a
 |access_token     |The requested access token. Your app can use this token to call Microsoft Graph.         |
 |refresh_token     |An OAuth 2.0 refresh token. Your app can use this token to acquire extra access tokens after the current access token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time.|
 
-For more information on generating user access token and using refresh token to generate new access token, refer to the [Generate refresh tokens](/graph/auth-v2-user#2-get-authorization).
+For more information on generating user access token and using refresh token to generate new access token, see the [Generate refresh tokens](/graph/auth-v2-user#2-get-authorization).
 
 
 
