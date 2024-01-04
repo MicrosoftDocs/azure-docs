@@ -15,7 +15,7 @@ ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 
 Frequently asked questions about trusted launch.
 
-## Product use case questions 
+## Product use cases
 
 ### Why should I use trusted launch? What does trusted launch guard against?
 
@@ -30,7 +30,7 @@ Trusted launch guards against boot kits, rootkits, and kernel-level malware. The
 
 Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or Virtual Machine Scale Sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
 
-### How can I disable Trusted Launch for new VM deployment using PowerShell or CLI?
+### Can I disable Trusted Launch for new VM deployment?
 
 Trusted Launch VMs provide you with foundational compute security and our recommendation is not to disable same for new VM/VMSS deployments except if your deployments have dependency on:
 
@@ -87,7 +87,7 @@ Backups taken before [upgrading existing Generation 2 VM to Trusted Launch](trus
 ### Will backup continue to work after enabling Trusted Launch?
 Backups configured with [enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) will continue to take backup of VM after enabling Trusted Launch.
 
-## Power state issues (boot, reboot, etc.)
+## Power states (boot, reboot, etc.)
 
 ### What is VM Guest State (VMGS)?  
 
@@ -101,7 +101,9 @@ In secure boot chain, each step in the boot process checks a cryptographic signa
 
 If unsigned components are detected from the UEFI firmware, bootloader, operating system, or boot drivers, Trusted Launch Virtual Machine will not boot. The Secure Boot dependency in the virtual machine blocks all unsigned components or comes a untrusted driver signature.  
 
-> [!NOTE]
+![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
+
+> [!TIP]
 > Turning off Secure Boot within the configurations can temporarily mitigate this boot issue. You to check which virtual machine component needs to be signed, then re-enable Secure Boot. [Learn more about updating Trusted Launch configurations](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal3%2Cportal2). 
 
 ### Why am I getting a boot integrity monitoring fault?
@@ -114,7 +116,14 @@ Microsoft Defender for Cloud periodically performs attestation. If the attestati
 - The attestation quote could not be verified to originate from the vTPM of the attested VM. This verification failure indicates a malware is present and may be intercepting traffic to the TPM.
 - The attestation extension on the VM is not responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
 
-## Supported Deployments
+### How would I verify a no-boot scenario in the Azure Portal? 
+When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system (all OS boot components such as the boot loader, kernel, kernel drivers etc.) that is signed by a trusted authority blocking the booting of a Trusted Launch VM. When the VM is running, customers may see information from resource health within the Azure Portal stating that there's a validation error in secure boot.
+
+To access resource health from the virtual machine configuration page, navigate to Resource Health under the 'Help' panel. 
+
+![A resource health error message alerting a failed secure boot.](./media/trusted-launch/resource-health-error.png)
+
+## Supported deployments
 
 ### How can I find VM sizes that support Trusted launch?
 
@@ -403,11 +412,11 @@ There are several ways to verity if a driver is signed on Windows.
 #### [Driver file properties](#tab/fileproperties)
 1. Right click and check the properties of the file.  
 1. Go to the Digital Signature Tab. If the tab does not exist, the module/driver is not signed. 
- IMAGE
+![Digital signature tab on an example file showing the name of the signer as Microsoft Windows.](./media/trusted-launch/valid-signature-example-in-file.png)
 1. If the tab is present, check the signature list. One of the signers should be Microsoft Windows.  
 1. Validate the signer entity by clicking on the signer’s name to open the digital signer detail window.
 1. Click 'View Certificate' to check the certificate of the issuer.  
- IMAGE
+![Extra digital signature information from the certificate tab of the file.](./media/trusted-launch/valid-signature-example-certificate.png)
 1. The certificate should be issued to the signer “Microsoft Windows” and issuer should be 'Microsoft Windows Production PCA'.  
 
 #### [Windows Device Manager](#tab/devicemanager)
@@ -417,7 +426,7 @@ There are several ways to verity if a driver is signed on Windows.
 1. In the device's properties window, go to the "Driver" tab.  
 1. Look for the "Digital Signer" information. This field displays whether the driver is digitally signed or not.  
 1. If the driver is signed with a valid digital signature, it will display the name of the signer or the certificate authority that issued the signature. If the driver is not signed or has an invalid signature, it may show "Not digitally signed" or "Unsigned."  
- IMAGE
+![Digital Signer info in the Device Manager.](./media/trusted-launch/valid-signature-example-device-manager.png)
 
 #### [Signtool.exe](#tab/signtool)
 'Signtool.exe' is a powershell tool used for verifying if a driver is signed or not. It shows signature status, timestamp, certificate chain etc.  
@@ -427,7 +436,7 @@ There are several ways to verity if a driver is signed on Windows.
 > [!NOTE]
 > This approach is primarily for understand which drivers are unsigned. You can't sign drivers using this tool.
 
- IMAGE
+![Signtool.exe verification results page.](./media/trusted-launch/signtool-verification-results.png)
 
 ---
 
