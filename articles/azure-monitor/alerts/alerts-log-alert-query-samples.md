@@ -14,7 +14,7 @@ A log alert rule monitors a resource by using a Log Analytics query to evaluate 
 
 This article provides examples of log alert rule queries that use Azure Data Explorer and Azure Resource Graph. For more information about creating a log alert rule, see [Create a log alert rule](./alerts-create-log-alert-rule.md).
 
-## Query that checks health of Virtual Machines
+## Query that checks Virtual machine health
 
 This query finds virtual machines that are marked as critical and that had a heartbeat more than 24 hours ago, but that haven't had a heartbeat in the last 2 minutes.
 
