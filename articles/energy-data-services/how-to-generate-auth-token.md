@@ -1,18 +1,18 @@
 ---
 title: How to generate a refresh token for Microsoft Azure Data Manager for Energy
-description: This article describes how to generate a refresh token
+description: This article describes how to generate a auth token
 author: elizabethhalper
 ms.author: elhalper
 ms.service: energy-data-services
 ms.topic: how-to
 ms.date: 10/06/2022
 ms.custom: template-how-to
-#Customer intent: As a developer, I want to learn how to generate a refresh token
+#Customer intent: As a developer, I want to learn how to generate a auth token
 ---
 
 # How to generate the auth token and refresh token
 
-In this article, you will learn how to generate the service principal token, user's auth token and user's refresh token. 
+In this article, you will learn how to generate the service principal auth token, user's auth token and user's refresh token. 
 
 ## Register your app with Microsoft Entra ID
 To use the Azure Data Manager for Energy platform endpoint, you must register your app in the [Azure portal app registration page](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app. For steps on how to configure, see [Register your app documentation](../active-directory/develop/quickstart-register-app.md#register-an-application).
@@ -82,8 +82,35 @@ A `client-secret` is a string value your app can use in place of a certificate t
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id-second-option-step-2.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page with the data partitions.":::
 
+## Generate client-id auth token
 
-## Get authorization
+Run the below curl command in Azure Cloud Bash after replacing the placeholder values with the corresponding values found earlier in the above steps. The access token in the reponse is the client-id auth token.
+ 
+**Request format**
+
+```bash
+curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oauth2/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'scope=<client-id>.default' \
+--data-urlencode 'client_id=<client-id>' \
+--data-urlencode 'client_secret=<client-secret>' \
+--data-urlencode 'resource=<client-id>'
+```
+
+**Sample response**
+
+```JSON
+    {
+        "token_type": "Bearer",
+        "expires_in": 86399,
+        "ext_expires_in": 86399,
+        "access_token": "abcdefgh123456............."
+    }
+```
+
+## Generate user auth token
+### Get authorization
 The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID will sign the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID will return an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
 ### Authorization request
