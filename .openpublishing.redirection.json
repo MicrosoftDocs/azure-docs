@@ -1071,6 +1071,11 @@
             "redirect_document_id": false 
         },
         {
+            "source_path": "/articles/container-registry/container-registry-artifact-streaming.md",
+            "redirect_url": "/azure/container-registry/tutorial-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/vmware-physical-secondary-disaster-recovery.md",
             "redirect_url": "/azure/site-recovery/vmware-physical-secondary-architecture",
             "redirect_document_id": false
