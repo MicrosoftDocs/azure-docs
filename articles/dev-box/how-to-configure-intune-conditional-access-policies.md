@@ -15,7 +15,7 @@ ms.topic: how-to
 
 # Restrict access to dev boxes by using conditional access policies in Microsoft Intune
 
-In this article, you learn how to configure conditional access policies in Microsoft Intune to control access to dev boxes. For Dev Box, it’s common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. To to configure conditional access policies, you can use Microsoft Intune to create dynamic device groups and conditional access policies.
+In this article, you learn how to configure conditional access policies in Microsoft Intune to control access to dev boxes. For Dev Box, it’s common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. To configure conditional access policies, you can use Microsoft Intune to create dynamic device groups and conditional access policies.
 
 Some usage scenarios for conditional access in Microsoft Dev Box include: 
 
