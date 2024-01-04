@@ -20,3 +20,15 @@ This quick start covers the process for managing domain suppression lists in Azu
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Manage Domain Suppression List with .NET Management SDK](./includes/manage-suppression-list-net.md)]
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Manage Domain Suppression List with JavaScript Management SDK](./includes/manage-suppression-list-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Manage Domain Suppression List with Java Management SDK](./includes/manage-suppression-list-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Manage Domain Suppression List with Python Management SDK](./includes/manage-suppression-list-python.md)]
+::: zone-end
