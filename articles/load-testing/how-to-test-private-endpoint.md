@@ -185,7 +185,7 @@ To configure the load test with your virtual network settings, update the [YAML 
     publicIPDisabled: False
     ```
 
-    Optionally, you can set the 'publicIPDisabled' property to True. For more information about the YAML configuration, see [test configuration YAML reference](./reference-test-config-yaml.md).
+    Optionally, you can set the `publicIPDisabled` property to `True`. For more information about the YAML configuration, see [test configuration YAML reference](./reference-test-config-yaml.md).
 
     > [!IMPORTANT]
     > Make sure you have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role.
