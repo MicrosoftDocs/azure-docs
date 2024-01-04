@@ -22,7 +22,7 @@ This query finds virtual machines that are marked as critical and that had a hea
 {
     arg("").Resources
     | where type == "microsoft.compute/virtualmachines"
-    | where tags.BusinessCriticality =~ 'critical' and subscriptionId == ‘XXX-XXX-XXX-XXX'
+    | where tags.BusinessCriticality =~ 'critical' and subscriptionId == 'XXX-XXX-XXX-XXX'
     | join kind=leftouter (
     Heartbeat
     | where TimeGenerated > ago(24h)
@@ -31,14 +31,14 @@ This query finds virtual machines that are marked as critical and that had a hea
     | summarize LastCall = max(case(isnull(TimeGenerated), make_datetime(1970, 1, 1), TimeGenerated)) by name, id
     | extend SystemDown = case(LastCall < ago(2m), 1, 0)
     | where SystemDown == 1
-    }
+}
 ```
 
 ## Query that filters virtual machines that need to be monitored
 
 ```kusto
 {
-    let RuleGroupTags = dynamic([‘Linux’]);
+    let RuleGroupTags = dynamic(['Linux']);
     Perf | where ObjectName == 'Processor' and CounterName == '% Idle Time' and (InstanceName == '_Total' or InstanceName == 'total')
     | extend CpuUtilisation = (100 - CounterValue)   
     | join kind=inner hint.remote=left (arg("").Resources
