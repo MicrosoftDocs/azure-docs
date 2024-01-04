@@ -56,12 +56,10 @@ To export your existing PostgreSQL database on-premises or in a VM to a sql scri
 pg_dump <database name> -h <server name> -U <user name> > <database name>_dump.sql
 ```
 
-For example, if you have a server named `mydemoserver`, a user named `myuser` and a database called **testdb**, run the following command:
+For example, if you have a server named `mydemoserver`, a user named `myuser` and a database called `testdb`, run the following command:
 ```bash
 pg_dump testdb -h mydemoserver.postgres.database.azure.com -U myuser > testdb_dump.sql
 ```
-
-If you are using a Single Server, your username will include the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
 
 
 #### [pg_dump & pg_restore - using multiple cores](#tab/pgrestore)
@@ -71,25 +69,15 @@ pg_dump -Fd -j <number of cores> <database name> -h <server name> -U <user name>
 
 In these commands, the `-j` option stands for the number of cores you wish to use for the dump process. You can adjust this number based on how many cores are available on your PostgreSQL server and how many you would like to allocate for the dump process. Feel free to change this setting depending on your server's capacity and your performance requirements.
 
-For example, if you have a server named `mydemoserver`, a user named `myuser` and a database called **testdb**, and you want to use two cores for the dump, run the following command:
+For example, if you have a server named `mydemoserver`, a user named `myuser` and a database called `testdb`, and you want to use two cores for the dump, run the following command:
 ```bash
-pg_dump -Fd -j 2 -h mydemoserver.postgres.database.azure.com -U myuser -f testdb.dump
+pg_dump -Fd -j 2 testdb -h mydemoserver.postgres.database.azure.com -U myuser -f testdb.dump
 ```
 
 ---
 
+If you are using a Single Server, your username will include the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
 
-
-To back up an existing PostgreSQL database on-premises or in a VM, run the following command:
-
-```bash
-pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> -f <database>.dump
-```
-For example, if you have a local server and a database called **testdb** in it, run:
-
-```bash
-pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb.dump
-```
 
 ## Restore the data into the target database
 
