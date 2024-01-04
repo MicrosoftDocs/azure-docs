@@ -145,7 +145,7 @@ You can specify the virtual network configuration settings in the load test crea
     > [!IMPORTANT]
     > Make sure you have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role.
 
-1. (Optional) Check **Disable Public IP deployment** if you don't want deploy a public IP address, load balancer, and network security group in your subnet.
+1. (Optional) Check **Disable Public IP deployment** if you don't want to deploy a public IP address, load balancer, and network security group in your subnet.
 
   When you select this option, ensure that there is an alternative mechanism like [Azure NAT Gateway](/azure/nat-gateway/nat-overview#outbound-connectivity), [Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal), or a [network virtual appliance (NVA)](/azure/virtual-wan/scenario-route-through-nvas-custom) to enable outbound traffic routing from the subnet. 
    
