@@ -13,7 +13,7 @@ ms.date: 01/02/2024
 
 This article describes how you plan for and manage costs for virtual machines. Before you deploy the service, you can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for virtual machines. Later, as you deploy Azure resources, review the estimated costs.
 
-After you've started using virtual machine resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for virtual machines are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for virtual machines, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
+After you start using virtual machine resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for virtual machines are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for virtual machines, your bill includes the costs of all Azure services and resources used in your Azure subscription, including the third-party services.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 1. Select options from the drop-downs. There are various options available to choose from. The options that have the largest impact on your estimate total are your virtual machine's operating system, the operating system license if applicable, the [VM size](sizes.md) you select under **INSTANCE**, the number of instances you choose, and the amount of time your month your instances to run.
 
-   You'll notice the total estimate changes as you select different options. The estimate appears in the upper corner and the bottom of the **Your Estimate** section.
+   Notice that the total estimate changes as you select different options. The estimate appears in the upper corner and the bottom of the **Your Estimate** section.
 
    ![Screenshot showing the your estimate section and main options available for virtual machines.](media/plan-to-manage-costs/virtual-machines-pricing-calculator-overview.png)
 
@@ -60,7 +60,7 @@ When you create or use virtual machines resources, you might get charged for the
 - **Azure DNS** - You're charged for it based on the number of DNS zones hosted in Azure and the number of DNS queries received.
 - **Load balancer, if used** - You're charged for it based on the number of rulesets, hours used, and GB of data processed.
 
-Any premium software from the Azure Marketplace will come with its own billing meters.
+Any premium software from the Azure Marketplace comes with its own billing meters.
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all virtual machines costs. There's a separate line item for each meter.
 
@@ -90,7 +90,7 @@ After you delete virtual machines resources, the following resources might conti
 - Bandwidth
 - Load balancer
 
-If your OS disk isn't deleted with your VM, it will likely incur [P10 disk costs](https://azure.microsoft.com/pricing/details/managed-disks/) even in a stopped state. The OS disk size is smaller by default for some images and will incur lower costs accordingly.
+If your OS disk isn't deleted with your VM, it likely incurs [P10 disk costs](https://azure.microsoft.com/pricing/details/managed-disks/) even in a stopped state. The OS disk size is smaller by default for some images and incurs lower costs accordingly.
 
 For virtual networks, one virtual network is billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges.
 
@@ -138,7 +138,7 @@ If your Azure subscription has a spending limit, Azure prevents you from spendin
 
 As you use Azure resources with virtual machines, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as virtual machine use starts, costs are incurred, and you can see the costs in [cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-When you use cost analysis, you view virtual machine costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends, and you can see where you might be overspending. If you've created budgets, you can also easily see where they're exceeded.
+When you use cost analysis, you view virtual machine costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends, and you can see where you might be overspending. If you create budgets, you can also easily see where they're exceeded.
 
 To view virtual machine costs in cost analysis:
 
@@ -224,4 +224,4 @@ You can also make custom policies using Azure Policy. Some examples include:
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - Learn how to create [Linux](linux/quick-create-portal.md) and [Windows](windows/quick-create-portal.md) virtual machines.
 - Take the [Microsoft Azure Well-Architected Framework - Cost Optimization training](/training/modules/azure-well-architected-cost-optimization/).
-- Review the [Well-Architected Framework cost optimization design principles](/well-architected/cost-optimization/principles.md) and how they apply to [virtual machines](/well-architected/service-guides/virtual-machines-review.md#cost-optimization).
+- Review the [Well-Architected Framework cost optimization design principles](/azure/well-architected/cost-optimization/principles.md) and how they apply to [virtual machines](/azure/well-architected/service-guides/virtual-machines-review.md#cost-optimization).
