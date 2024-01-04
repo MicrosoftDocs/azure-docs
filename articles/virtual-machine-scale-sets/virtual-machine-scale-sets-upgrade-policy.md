@@ -5,18 +5,20 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 01/02/2024
+ms.date: 01/04/2024
 ms.reviewer: ju-shim
 ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Manage Upgrade Policies for Virtual Machine Scale Sets
 
-> [!NOTE]
-> Upgrade Policy currently only applies to Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchestration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
-
 The Upgrade Policy for a Virtual Machine Scale Set determines how VMs are brought up-to-date with the latest scale set model. This includes updates such as changes to the OS version, adding or removing data disks, NIC updates, or other updates that apply to the scale set instances as a whole.  
 
+> [!IMPORTANT]
+> Upgrade Policies for Virtual Machine Scale Sets using Flexible Orchestration Mode are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+
 ## Upgrade Policy modes
+
+
 There are three different modes an Upgrade Policy can be set to. The modes are **Automatic**, **Rolling** and **Manual**. The upgrade mode you choose can impact the overall service uptime of your Virtual Machine Scale Set. 
 
 Additionally, as your application processes traffic, there can be situations where you might want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be needed to perform additional or different tasks than the other members of the scale set. You might require these 'special' VMs not to be modified with the other instances in the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the additional controls needed to protect these instances from the various upgrades discussed in this article.
@@ -29,12 +31,6 @@ In this mode, the scale set makes no guarantees about the order of VMs being bro
 
 ### Rolling
 
-> [!IMPORTANT]
-> Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
->
-> To enable this feature for your subscription, run `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute` in [Azure CloudShell](../cloud-shell/overview.md?).
-
-
 In this mode, the scale set performs updates in batches with an optional pause time in between. There are two types of Rolling Upgrade Policies that can be configured:
 
 -  **Rolling Upgrades with MaxSurge disabled**
@@ -42,7 +38,10 @@ In this mode, the scale set performs updates in batches with an optional pause t
     With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. 
 
 -  **Rolling Upgrades with MaxSurge enabled**
-    
+
+    > [!IMPORTANT]
+    > Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+        
     With MaxSurge enabled, new instances are created in the scale set using the the latest scale model in batches. Once the batch of new instances are successfully created and marked as healthy, instances matching the old scale set model will be deleted. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. 
 
 
@@ -83,13 +82,11 @@ az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
     --image Ubuntu2204 \
-    --orchestration-mode Uniform \
     --lb myLoadBalancer \
     --health-probe myProbe \
     --upgrade-policy-mode Rolling \
     --max-surge true \
     --instance-count 5 \
-    --disable-overprovision \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
@@ -106,7 +103,6 @@ New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
-  -OrchestrationMode "Uniform" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
