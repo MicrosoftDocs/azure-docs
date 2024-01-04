@@ -2,7 +2,6 @@
 title: 'Quickstart - Get started using Provisioned Deployments with Azure OpenAI Service'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started provisioned deployments on Azure OpenAI Service.
-services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.subservice: openai
