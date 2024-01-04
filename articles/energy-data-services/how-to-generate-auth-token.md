@@ -130,7 +130,7 @@ The following shows an example of an authorization request:
 
 | Parameter | Required? | Description |
 | --- | --- | --- |
-|`{tenant-id}`|Required|Name of your Microsoft Entra tenant|
+|tenant-id|Required|Name of your Microsoft Entra tenant|
 | client-id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | response_type |Required |The response type, which must include `code` for the authorization code flow. You can receive an ID token if you include it in the response type, such as `code+id_token`, and in this case, the scope needs to include `openid`.|
 | redirect_uri |Required |The redirect URI of your app, where authentication responses are sent and received by your app. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded. |
@@ -138,7 +138,7 @@ The following shows an example of an authorization request:
 | response_mode |Recommended |The method that you use to send the resulting authorization code back to your app. It can be `query`, `form_post`, or `fragment`. |
 | state |Recommended |A value included in the request that can be a string of any content that you want to use. Usually, a randomly generated unique value is  used, to prevent cross-site request forgery attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the user flow that was being executed. |
 
-#### Sample authorization response
+#### Sample response
 In the response, you'll get an `authorization code` in the URL bar.
 
 ```bash
@@ -158,10 +158,10 @@ The browser will redirect to `http://localhost:8080/?code={authorization code}&s
 > [!WARNING]
 > Running the URL in Postman won't work as it requires extra configuration for token retrieval.
 
-## Get a refresh token
-Your app uses the authorization code received in the previous step to request an access token by sending a POST request to the `/token` endpoint.
+### Get a refresh token
+The second step is to get the auth token and refresh token. Your app uses the authorization code received in the previous step to request an access token by sending a POST request to the `/token` endpoint.
 
-### Sample request
+#### Request format
 
 ```bash
   curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id={client-id}
@@ -181,7 +181,7 @@ Your app uses the authorization code received in the previous step to request an
 |grant_type     | Required        | Must be authorization_code for the authorization code flow.        |
 |client_secret | Required | The client secret that you created in the app registration portal for your app. It shouldn't be used in a native app, because client_secrets can't be reliably stored on devices. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.|
 
-### Sample response
+#### Sample response
 
 ```bash
 {
