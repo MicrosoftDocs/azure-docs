@@ -270,7 +270,7 @@ The Windows agent can be downloaded from [https://aka.ms/AzureConnectedMachineAg
 The script will return status messages letting you know if onboarding was successful after it completes.
 
 > [!TIP]
-> Network traffic from the Azure Connected Machine agent to Microsoft Entra ID and Azure Resource Manager will continue to use public endpoints. If your server needs to communicate through a proxy server to reach these endpoints, [configure the agent with the proxy server URL](manage-agent.md#update-or-remove-proxy-settings) before connecting it to Azure. You might also need to [configure a proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) for the Azure Arc services if your private endpoint is not accessible from your proxy server.
+> [Network traffic from the Azure Connected Machine agent](network-requirements.md#urls) to Microsoft Entra ID (login.windows.net, login.microsoftonline.com, pas.windows.net) and Azure Resource Manager (management.azure.com) will continue to use public endpoints. If your server needs to communicate through a proxy server to reach these endpoints, [configure the agent with the proxy server URL](manage-agent.md#update-or-remove-proxy-settings) before connecting it to Azure. You might also need to [configure a proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) for the Azure Arc services if your private endpoint is not accessible from your proxy server.
 
 ### Configure an existing Azure Arc-enabled server
 

@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 06/27/2023
+ms.date: 12/28/2023
 ms.topic: reference
 ms.custom: generated
 ms.author: davidsmatlak
@@ -139,6 +139,12 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
 - microsoft.network/securityadminconfigurations/rulecollections
 - microsoft.network/securityadminconfigurations/rulecollections/rules
 
+## orbitalresources
+
+For sample queries for this table, see [Resource Graph sample queries for orbitalresources](../samples/samples-by-table.md#orbitalresources).
+
+- microsoft.orbital/spacecrafts/contacts
+
 ## patchassessmentresources
 
 For sample queries for this table, see [Resource Graph sample queries for patchassessmentresources](../samples/samples-by-table.md#patchassessmentresources).
@@ -161,7 +167,9 @@ For sample queries for this table, see [Resource Graph sample queries for policy
 
 - microsoft.authorization/policyassignments
 - microsoft.authorization/policydefinitions
+- microsoft.authorization/policyexemptions
 - microsoft.authorization/policysetdefinitions
+- microsoft.policyinsights/componentpolicystates
 - microsoft.policyinsights/policystates
   - Sample query: [Compliance by policy assignment](../samples/samples-by-category.md#compliance-by-policy-assignment)
   - Sample query: [Compliance by resource type](../samples/samples-by-category.md#compliance-by-resource-type)

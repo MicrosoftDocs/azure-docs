@@ -9,7 +9,7 @@ author: jboback
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 12/19/2023
 ---
 
 # Prebuilt question answering

@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 05/25/2023
+ms.date: 12/29/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -15,6 +15,9 @@ ms.author: v-abhmallick
 This article describes how to restore backed-up Azure Kubernetes Service (AKS).
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
+
+>[!Note]
+>Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
 
 ## Before you start
 
@@ -32,7 +35,9 @@ To restore the backed-up AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/start-kubernetes-cluster-restore.png" alt-text="Screenshot shows how to start the restore process.":::
 
-2. On the next page, click **Select backup instance**, select the *instance* that you want to restore, and then select **Continue**.
+2. On the next page, click **Select backup instance**, and then select the *instance* that you want to restore.
+
+   If the instance is available in both *Primary* and *Secondary Region*, select the *region to restore* too, and then select **Continue**.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-backup-instance-for-restore.png" alt-text="Screenshot shows selection of backup instance for restore.":::
 
@@ -40,11 +45,16 @@ To restore the backed-up AKS cluster, follow these steps:
    
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/starting-kubernetes-restore.png" alt-text="Screenshot shows starting restore.":::
 
-3. Click **Select restore point** to select the restore point you want to restore.
+3. Click **Select restore point** to select the *restore point* you want to restore. 
+
+   If the restore point is available in both Vault and Operation datastore, select the one you want to restore from.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-restore-points-for-kubernetes.png" alt-text="Screenshot shows how to view the restore points.":::
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/choose-restore-points-for-kubernetes.png" alt-text="Screenshot shows selection of a restore point.":::
+
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/open-restore-page.png" alt-text="Screenshot shows how to go to the Restore page.":::
+
 
 4. In the **Restore parameters** section, click **Select Kubernetes Service** and select the *AKS cluster* to which you want to restore the backup to.
 
@@ -60,15 +70,18 @@ To restore the backed-up AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-resources-to-restore-page.png" alt-text="Screenshot shows the Select Resources to restore page.":::
 
-6. Select **Validate** to run validation on the backed-up cluster selections.
+6. If you have opted for restore from *Vault-standard datastore*, then provide a *snapshot resource group* and *storage account* as the staging location.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/run-validation-for-restore.png" alt-text="Screenshot shows how to run validation for restore.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/restore-parameters.png" alt-text="Screenshot shows the parameters to add for restore from Vault-standard storage.":::
 
-   If the validation shows missing permission or roles, select **Grant Permission** to assign them.
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/restore-parameter-storage.png" alt-text="Screenshot shows the storage parameter to add for restore from Vault-standard storage.":::
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/grant-permissions-for-restore.png" alt-text="Screenshot shows how to grant permissions for restore.":::
+7. Select **Validate** to run validation on the cluster selections for restore.
 
-7. Once the validation is successful, select **Review + restore** and restore the backups to the selected cluster.
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/validate-restore-parameters.png" alt-text="Screenshot shows the validation of restore parameters.":::
+
+
+8. Once the validation is successful, select **Review + restore** and restore the backups to the selected cluster.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/review-restore-tab.png" alt-text="Screenshot shows the Review + restore tab for restore.":::
 
@@ -97,6 +110,19 @@ As part of item-level restore capability of AKS backup, you can utilize multiple
      If the *Namespace* doesn't exist in the AKS cluster, it gets created. If a conflict occurs during the cluster resources restore, you can skip or patch the conflicting resources.
    
      :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-backed-up-namespace-for-migrate.png" alt-text="Screenshot shows the selection of namespace for migration.":::
+
+Azure Backup for AKS currently supports the following two options when doing a restore operation when resource clash happens (backed-up resource has the same name as the resource in the target AKS cluster). You can choose one of these options when defining the restore configuration.
+
+- **Skip**: This option is selected by default. For example, if you have backed up a PVC named *pvc-azuredisk* and you're restoring it in a target cluster that has the PVC with the same name, then the backup extension skips restoring the backed-up persistent volume claim (PVC). In such scenarios, we recommend you to delete the resource from the cluster, and then do the restore operation so that the backed-up items are only available in the cluster and aren't skipped.
+
+- **Patch**: This option allows the patching mutable variable in the backed-up resource on the resource in the target cluster. If you want to update the number of replicas in the target cluster, you can opt for patching as an operation. 
+
+>[!Note]
+>AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumess in the original location, delete the existing Persistent Volumes, and then do the restore operation.
+
+## Restore in secondary region (preview)
+
+To restore the AKS cluster in the secondary region, [configure Geo redundancy and Cross Region Restore in the Backup vault](azure-kubernetes-service-cluster-backup.md#create-a-backup-vault), and then [trigger restore](tutorial-restore-aks-backups-across-regions.md#restore-in-secondary-region-preview).
 
 ## Next steps
 

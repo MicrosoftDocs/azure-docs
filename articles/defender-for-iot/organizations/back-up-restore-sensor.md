@@ -18,7 +18,7 @@ OT sensor data can be backed up and restored from the sensor console to help pro
 
 OT sensors are automatically backed up daily at 3:00 AM, including configuration and detected data. Backup files do *not* include PCAP or log files, which must be manually backed up if needed.
 
-We recommend that you configure your system to automatically transfer backup files to your own internal network, or an [on-premises management console](back-up-sensors-from-management.md).
+We recommend that you configure your system to automatically transfer backup files to your own internal network.
 
 For more information, see [On-premises backup file capacity](references-data-retention.md#on-premises-backup-file-capacity).
 
@@ -133,5 +133,4 @@ For more information, see the [OT sensor CLI reference](cli-ot-sensor.md#start-a
 
 ## Next steps
 
-- [Maintain OT network sensors from the GUI](how-to-manage-individual-sensors.md)
-- [Backup OT network sensors from the on-premises management console](back-up-sensors-from-management.md)
+For more information, see [Maintain OT network sensors from the GUI](how-to-manage-individual-sensors.md).

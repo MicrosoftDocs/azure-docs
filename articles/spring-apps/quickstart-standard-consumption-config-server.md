@@ -30,7 +30,7 @@ Use the following command to set up Config Server with the project specified by 
 ```azurecli
 az spring config-server git set \
     --name <Azure-Spring-Apps-instance-name> \
-    --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples \
+    --uri https://github.com/Azure-Samples/azure-spring-apps-samples \
     --search-paths steeltoe-sample/config
 ```
 

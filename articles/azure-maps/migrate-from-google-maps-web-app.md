@@ -1845,7 +1845,7 @@ Learn more about migrating to Azure Maps:
 [Popup options]: /javascript/api/azure-maps-control/atlas.popupoptions
 [Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
-[Render]:  /rest/api/maps/render-v2
+[Render]: /rest/api/maps/render-v2
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
 [road tiles]: /rest/api/maps/render-v2/get-map-tile
 [satellite tiles]: /rest/api/maps/render-v2/get-map-static-image

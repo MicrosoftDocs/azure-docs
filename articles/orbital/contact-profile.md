@@ -41,7 +41,7 @@ Learn how to create a [contact profile](concepts-contact-profile.md) with Azure 
    | **Event Hubs Namespace** | Select an **Event Hubs Namespace** to which you'll send telemetry data of your contacts. Learn how to [configure Event Hubs](receive-real-time-telemetry.md#configure-event-hubs). _You must select a subscription before you can select an Event Hubs Namespace._ |
    | **Event Hubs Instance** | Select an **Event Hubs Instance** that belongs to the previously selected Namespace. _This field only appears if an Event Hubs Namespace is selected first_. |
    | **Virtual Network** | Select a **virtual network**. *This VNET must be in the same region as the contact profile.* |
-   | **Subnet** | Select a **subnet**. *The subnet must be within the previously chosen VNET, be delegated to the Microsoft.Orbital service, and have a minimum address prefix of size /24.* |
+   | **Subnet** | Select a **subnet**. *The subnet must be within the previously chosen VNET, [delegated to the Microsoft.Orbital service](prepare-network.md#create-and-prepare-subnet-for-vnet-injection), and have a minimum address prefix of size /24.* |
 
    :::image type="content" source="media/orbital-eos-contact-profile.png" alt-text="Screenshot of the contact profile basics page." lightbox="media/orbital-eos-contact-profile.png":::
 
@@ -66,7 +66,7 @@ Learn how to create a [contact profile](concepts-contact-profile.md) with Azure 
    | **Center Frequency** (MHz) | Enter the **center frequency** in MHz. |
    | **Bandwidth** (MHz) | Enter the **bandwidth** in MHz. |
    | **Endpoint name** | Enter the **name** of the data delivery endpoint, e.g. the name of a virtual machine in your resource group. |
-   | **IP Address** | Specify the **IP Address** for data retrieval/delivery in TCP/UDP **server mode**. Leave the IP Address field **blank** for TCP/UDP **client mode**. |
+   | **IP Address** | Specify the **IP Address** for data retrieval/delivery in TCP/UDP **server mode**. Leave the IP Address field **blank** for TCP/UDP **client mode**. _If referencing a public IP address, a NAT gateway must be configured on the delegated subnet._|
    | **Port** | Specify the **port** for data retrieval/delivery. *The port must be within 49152 and 65535 and must be unique across all links in the contact profile.* |
    | **Protocol** | Select **TCP** or **UDP** protocol for data retrieval/delivery. |
    | **Demodulation Configuration Type** (_downlink only_) | Select **Preset Named Modem Configuration** or **Raw XML**. |

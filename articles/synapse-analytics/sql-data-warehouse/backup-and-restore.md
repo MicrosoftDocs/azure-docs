@@ -65,12 +65,12 @@ To delete a specific user-defined restore point programmatically, verify the bel
 
 
 **Azure PowerShell**
-- For dedicated SQL pool (formerly SQL DW), use [Remove-AzSqlDatabaseRestorePoint](https://learn.microsoft.com/powershell/module/az.sql/remove-azsqldatabaserestorepoint)
-- For dedicated SQL pool (within Synapse workspace), use [Remove-AzSynapseSqlPoolRestorePoint](https://learn.microsoft.com/powershell/module/az.synapse/remove-azsynapsesqlpoolrestorepoint)
+- For dedicated SQL pool (formerly SQL DW), use [Remove-AzSqlDatabaseRestorePoint](/powershell/module/az.sql/remove-azsqldatabaserestorepoint)
+- For dedicated SQL pool (within Synapse workspace), use [Remove-AzSynapseSqlPoolRestorePoint](/powershell/module/az.synapse/remove-azsynapsesqlpoolrestorepoint)
 
 **REST APIs**
-- For dedicated SQL pool (formerly SQL DW), use [Restore Points - Delete](https://learn.microsoft.com/rest/api/sql/restore-points/delete)
-- For dedicated SQL pool (within Synapse workspace), use [Sql Pool Restore Points - Delete](https://learn.microsoft.com/rest/api/synapse/resourcemanager/sql-pool-restore-points/delete)
+- For dedicated SQL pool (formerly SQL DW), use [Restore Points - Delete](/rest/api/sql/restore-points/delete)
+- For dedicated SQL pool (within Synapse workspace), use [Sql Pool Restore Points - Delete](/rest/api/synapse/resourcemanager/sql-pool-restore-points/delete)
 
 ### Restore point retention
 

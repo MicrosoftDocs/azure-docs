@@ -21,13 +21,24 @@ landingContent:
   # Card
   - title: About API Center
     linkLists:
-      - linkListType: overview
+      - linkListType: get-started
         links:
           - text: What is API Center?
             url: overview.md
           - text: Key concepts
             url: key-concepts.md
-      - linkListType: get-started
+  # Card
+  - title: Manage your API inventory
+    linkLists:
+      - linkListType: quickstart
         links:
-          - text: Tutorial - Set up your API center
+          - text: Create your API center
             url: set-up-api-center.md
+      - linkListType: tutorial
+        links:
+          - text: 1 - Customize metadata properties
+            url: add-metadata-properties.md
+          - text: 2 - Add APIs to the inventory
+            url: register-apis.md
+          - text: 3 - Add environments and deployments
+            url: configure-environments-deployments.md

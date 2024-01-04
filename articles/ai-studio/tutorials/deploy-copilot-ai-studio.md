@@ -7,6 +7,7 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: tutorial
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 ---
 
