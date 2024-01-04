@@ -58,7 +58,7 @@ See the following table for a comparison between Basic_v2 and Stadard_v2.
 |      Feature             | Capabilities                             |   Basic SKU    |   Standard SKU    |
 |     :---:                | :---                                     |     :---:      |     :---:         |
 | Reliability              | SLA                                      | 99.9           | 99.95             |
-| Functionality - basic    | [!INCLUDE [foo](#foo)]                | &#x2713;<br>&#x2713;       | &#x2713;<br>&#x2713;|
+| Functionality - basic    | [!INCLUDE [foo](overview-v2.md#foo)]                | &#x2713;<br>&#x2713;       | &#x2713;<br>&#x2713;|
 | Functionality - advanced | URL rewrite                              |                | &#x2713;          |
 | Scale                    | Max. connections per second              | 200            | 1250              |
 | Capacity Unit            | Connections Per Second per Compute Unit  | 10             | 50                |
