@@ -23,6 +23,7 @@ To use the OAuth 2.0 authorization code grant flow, save the following values wh
 - The `application (client) ID` assigned by the app registration portal, which will be used instead of `client-id`.
 - A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret will be used instead of `{client-secret}` later.
 - A `redirect URI (or reply URL)` for your app to receive responses from Microsoft Entra ID. If there's no redirect URIs specified, you can add a platform, select "Web", then add `http://localhost:8080`, and select save.
+:::image type="content" source="media/how-to-manage-users/app-registration-uri.png" alt-text="Screenshot of adding URI to the app.":::
 
 
 ## Fetch parameters
