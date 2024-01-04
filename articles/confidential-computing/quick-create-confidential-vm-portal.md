@@ -163,7 +163,7 @@ Before you begin, make sure you have your VM's public IP address. To find the IP
 
 1. On your confidential VM's overview page, copy the **Public IP address**.
 
-    For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal?tabs=ubuntu#connect-to-virtual-machine).
+    For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
 
 1. Open your SSH client, such as PuTTY.
 
