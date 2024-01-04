@@ -53,7 +53,7 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
     * Doesn't lead to significant data loss.
     * Doesn't add unexpected noise to your data.  
 
-    This will impact the quality of the model response. 
+    This will affect the quality of the model response. 
 
 ## Ingesting your data
 
@@ -104,9 +104,9 @@ Upgrade to a higher pricing tier or delete unused assets.
 
 **Preprocessing Timeout Issues** 
 
-*Could not execute skill because the Web Api request failed*
+*Could not execute skill because the Web API request failed*
 
-*Could not execute skill because Web Api skill response is invalid* 
+*Could not execute skill because Web API skill response is invalid* 
 
 Resolution: 
 
@@ -186,7 +186,7 @@ Use the script [provided on GitHub](https://github.com/microsoft/sample-app-aoai
 
 To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an existing Azure Cosmos DB for MongoDB vCore index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
 
-1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, click **Select or add data source**. In the panel that appears, select **Azure Cosmos DB for MongoDB vCore** as the data source. 
+1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, select **Add your data**. In the panel that appears, select **Azure Cosmos DB for MongoDB vCore** as the data source. 
 1. Select your Azure subscription and database account, then connect to your Azure Cosmos DB account by providing your Azure Cosmos DB account username and password.
     
     :::image type="content" source="../media/use-your-data/add-mongo-data-source.png" alt-text="A screenshot showing the screen for adding Mongo DB as a data source in Azure OpenAI Studio." lightbox="../media/use-your-data/add-mongo-data-source.png":::
@@ -215,7 +215,7 @@ Currently, you can add your data from a URL/web address. Your data from a URL/we
 
 * A public website, such as [Using your data with Azure OpenAI Service - Azure OpenAI | Microsoft Learn](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search). Note that you cannot add a URL/Web address with access control, such as with password.
 
-* A HTTPS website.
+* An HTTPS website.
 
 * The size of content in each URL is smaller than 5MB.  
 
@@ -422,7 +422,7 @@ When customizing the app, we recommend:
 
 - Resetting the chat session (clear chat) if the user changes any settings. Notify the user that their chat history will be lost.
 
-- Clearly communicating the impact on the user experience that each setting you implement will have.
+- Clearly communicating the effect on the user experience that each setting you implement will have.
 
 - When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
@@ -439,11 +439,11 @@ When customizing the app, we recommend:
 
     1. Select Microsoft as the identity provider. The default settings on this page will restrict the app to your tenant only, so you don't need to change anything else here. Then select **Add**
     
-    Now users will be asked to sign in with their Microsoft Entra account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's login information in any other way other than verifying they are a member of your tenant.
+    Now users will be asked to sign in with their Microsoft Entra account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's sign-in information in any other way other than verifying they are a member of your tenant.
 
 ### Chat history
 
-You can enable chat history for your users of the web app. By enabling the feature, your users will have access to their individual previous queries and responses. 
+You can enable chat history for your users of the web app. If you enable the feature, your users will have access to their individual previous queries and responses. 
 
 To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal)
 
