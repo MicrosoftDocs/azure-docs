@@ -10,27 +10,78 @@ ms.custom: template-how-to
 #Customer intent: As a developer, I want to learn how to generate a refresh token
 ---
 
-# How to generate a refresh token
+# How to generate the auth token and refresh token
 
-In this article, you will learn how to generate a refresh token. The following are the basic steps to use the OAuth 2.0 authorization code grant flow to get a refresh token from the Microsoft identity platform endpoint:
-
-  1. Register your app with Microsoft Entra ID.
-  2. Get authorization.
-  3. Get a refresh token.
-
-<a name='register-your-app-with-azure-ad'></a>
+In this article, you will learn how to generate the service principal token, user's auth token and user's refresh token. 
 
 ## Register your app with Microsoft Entra ID
-To use the Azure Data Manager for Energy platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
+To use the Azure Data Manager for Energy platform endpoint, you must register your app in the [Azure portal app registration page](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app. For steps on how to configure, see [Register your app documentation](../active-directory/develop/quickstart-register-app.md#register-an-application).
 
-To configure an app to use the OAuth 2.0 authorization code grant flow, save the following values when registering the app:
+To use the OAuth 2.0 authorization code grant flow, save the following values when registering the app:
 
 - The `Directory (tenant) ID` that will be used in place of `{Tenant ID}`
 - The `application (client) ID` assigned by the app registration portal, which will be used instead of `client_id`.
 - A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret will be used instead of `{AppReg Secret}` later.
 - A `redirect URI (or reply URL)` for your app to receive responses from Microsoft Entra ID. If there's no redirect URIs specified, add a platform, select "Web", then add `http://localhost:8080`, and select save.
 
-For steps on how to configure an app in the Azure portal, see [Register your app](../active-directory/develop/quickstart-register-app.md#register-an-application).
+
+## Fetch parameters
+You can also find the parameters once the app is registered on the Azure portal. 
+
+#### Find `tenant-id`
+1. Navigate to the Microsoft Entra account for your organization. You can search for "Microsoft Entra ID" in the Azure portal's search bar.
+2. Locate `tenant-id` under the basic information section in the *Overview* tab.
+3. Copy the `tenant-id` and paste it into an editor to be used later.  
+
+:::image type="content" source="media/how-to-manage-users/azure-active-directory.png" alt-text="Screenshot of search for Microsoft Entra ID.":::
+
+:::image type="content" source="media/how-to-manage-users/tenant-id.png" alt-text="Screenshot of finding the tenant-id.":::
+
+#### Find `client-id`
+It's the same value that you use to register your application during the provisioning of your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md). It is often referred to as `app-id`.
+
+1. Find the `client-id` in the *Essentials* pane of Azure Data Manager for Energy *Overview* page.
+2. Copy the `client-id` and paste it into an editor to be used later.
+3. Currently, one Azure Data Manager for Energy instance allows one app-id to be as associated with one instance.
+
+> [!IMPORTANT]
+> The 'client-id' that is passed as values in the entitlement API calls needs to be the same that was used for provisioning your Azure Data Manager for the Energy instance.
+
+:::image type="content" source="media/how-to-manage-users/client-id-or-app-id.png" alt-text="Screenshot of finding the client-id for your registered App.":::
+
+#### Find `client-secret`
+A `client-secret` is a string value your app can use in place of a certificate to identify itself. It is sometimes referred to as an application password. 
+
+1. Navigate to *App Registrations*.
+2. Open 'Certificates & secrets' under the *Manage* section.
+3. Create a `client-secret` for the `client-id` that you used to create your Azure Data Manager for Energy instance.
+4. Add one now by clicking on *New Client Secret*.
+5. Record the `secret's value` for later use in your client application code.
+6. The access token of the `app-id` and client secret has the Infra Admin access to the instance.
+
+> [!CAUTION]
+> Don't forget to record the secret's value. This secret value is never displayed again after you leave this page of 'client secret' creation.
+
+:::image type="content" source="media/how-to-manage-users/client-secret.png" alt-text="Screenshot of finding the client secret.":::
+
+#### Find the `URL` for your Azure Data Manager for Energy instance
+1. Navigate to your Azure Data Manager for Energy *Overview* page on the Azure portal.
+2. Copy the URI from the essentials pane. 
+
+:::image type="content" source="media/how-to-manage-users/endpoint-url.png" alt-text="Screenshot of finding the URL from Azure Data Manager for Energy instance.":::
+
+#### Find the `data-partition-id` 
+1. You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance.
+2. One option is to navigate the *Data Partitions* menu item under the Advanced section of your Azure Data Manager for Energy UI.
+
+:::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance.":::
+
+3. Another option is to click on the *view* below the *data partitions* field in the essentials pane of your Azure Data Manager for Energy *Overview* page. 
+
+:::image type="content" source="media/how-to-manage-users/data-partition-id-second-option.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page.":::
+
+:::image type="content" source="media/how-to-manage-users/data-partition-id-second-option-step-2.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page with the data partitions.":::
+
 
 ## Get authorization
 The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID will sign the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID will return an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
