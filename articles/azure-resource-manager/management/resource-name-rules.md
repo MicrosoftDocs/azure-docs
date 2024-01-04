@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
 ms.reviewer: franksolomon
-ms.date: 01/03/2024
+ms.date: 01/04/2024
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -135,7 +135,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | privateClouds | resource group | 1-80 | Alphanumerics, periods, hyhens, and underscores.<br>Start with alphanumeric and end with alphanumeric or underscore. |
+> | privateClouds | resource group | 1-80 | Alphanumerics, periods, hyhens, and underscores.<br><br>Start with alphanumeric and end with alphanumeric or underscore. |
 
 ## Microsoft.Batch
 
@@ -399,6 +399,15 @@ In the following tables, the term alphanumeric refers to:
 > | servers / databases | servers | 1-63 | Alphanumerics and hyphens. |
 > | servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
 > | servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
+
+## Microsoft.DesktopVirtualization
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | applicationGroups | resource group | 3-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with letter or number. End with letter, number, or underscore. |
+> | hostPools | resource group | 3-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with letter or number. End with letter, number, or underscore. |
+> | workspaces | resource group | 3-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with letter or number. End with letter, number, or underscore. |
 
 ## Microsoft.Devices
 
