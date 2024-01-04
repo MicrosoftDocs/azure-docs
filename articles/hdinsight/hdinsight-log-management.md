@@ -4,7 +4,7 @@ description: Determine the types, sizes, and retention policies for HDInsight ac
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/07/2022
+ms.date: 01/04/2024
 ---
 
 # Manage logs for an HDInsight cluster
