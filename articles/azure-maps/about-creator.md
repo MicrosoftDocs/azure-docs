@@ -60,7 +60,6 @@ This section provides a high-level overview of the indoor map creation workflow.
     account. For more information, see [How to create data registry].
 
 1. **Convert**. Once the drawing package is uploaded into your Azure Storage account,
-1. **Convert**. Once the drawing package is uploaded into your Azure Storage account,
     use the [Conversion] service to validate the data in the uploaded drawing
     package and convert it into map data.
 
