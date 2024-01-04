@@ -13,7 +13,7 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 
 # Quickstart: Deploy an Azure IoT hub and a storage account using an ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT hub that routes messages to Azure Storage, and a storage account to hold the messages. After manually adding a virtual IoT device to the hub to submit the messages, you configure that connection information in an application called  *arm-read-write* to submit messages from the device to the hub. The hub is configured so the messages sent to the hub are automatically routed to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT hub, an Azure Storage account, and a route to send messages from the IoT hub to storage. The hub is configured so the messages sent to the hub are automatically routed to the storage account if they meet the routing condition. At the end of this quickstart, you can open the storage account and see the messages sent.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -36,9 +36,9 @@ Two Azure resources are defined in the template:
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-auto-route-messages/azuredeploy.json":::
 
-## Deploy the template and run the sample app
+## Deploy the template
 
-This section provides the steps to deploy the template, create a virtual device, and run the arm-read-write application to send the messages.
+This section provides the steps to deploy the ARM template.
 
 1. Create the resources by deploying the ARM template.
 

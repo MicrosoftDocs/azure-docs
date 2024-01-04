@@ -36,7 +36,7 @@ Two Azure resources are defined in the Bicep file:
 
 ## Deploy the Bicep file
 
-This section provides the steps to deploy the Bicep file, create a virtual device, and run the arm-read-write application to send the messages.
+This section provides the steps to deploy the Bicep file.
 
 1. Download the [main.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.devices/iothub-auto-route-messages/main.bicep) file from the Azure Quickstart Templates repo.
 
