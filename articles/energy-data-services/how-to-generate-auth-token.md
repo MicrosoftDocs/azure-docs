@@ -1,8 +1,8 @@
 ---
 title: How to generate a refresh token for Microsoft Azure Data Manager for Energy
 description: This article describes how to generate a auth token
-author: elizabethhalper
-ms.author: elhalper
+author: shikhagarg1
+ms.author: shikhagarg
 ms.service: energy-data-services
 ms.topic: how-to
 ms.date: 10/06/2022
