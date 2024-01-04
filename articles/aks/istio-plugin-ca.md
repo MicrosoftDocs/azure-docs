@@ -278,3 +278,7 @@ az provider register --namespace Microsoft.ContainerService
 
 [akv-quickstart]: ../key-vault/general/quick-create-cli.md
 [akv-addon]: ./csi-secrets-store-driver.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-provider-register]: /cli/azure/provider#az-provider-register

@@ -27,7 +27,7 @@ export LOCATION=<location>
 
 ### Verify Azure CLI and aks-preview extension versions
 The add-on requires:
-* Azure CLI version 2.49.0 or later installed. To install or upgrade, see [Install Azure CLI][install-azure-cli].
+* Azure CLI version 2.49.0 or later installed. To install or upgrade, see [Install Azure CLI][azure-cli-install].
 * `aks-preview` Azure CLI extension of version 0.5.163 or later installed
 
 You can run `az --version` to verify above versions.
