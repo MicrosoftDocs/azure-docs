@@ -94,6 +94,8 @@ items:
         href: ./how-to/quota.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
+      - name: Get started with Provisioned Deployments
+        href: ./how-to/ptu-getstarted.md
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
       - name: Role-based access control (Azure RBAC)
