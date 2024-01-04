@@ -2,7 +2,7 @@
 title: Samples of Azure Monitor log alert rule queries
 description: See examples of Azure monitor log alert rule queries.
 ms.topic: reference
-ms.date: 01/01/2024
+ms.date: 01/04/2024
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.reviewer: nolavime
@@ -14,7 +14,7 @@ A log alert rule monitors a resource by using a Log Analytics query to evaluate 
 
 This article provides examples of log alert rule queries that use Azure Data Explorer and Azure Resource Graph. For more information about creating a log alert rule, see [Create a log alert rule](./alerts-create-log-alert-rule.md).
 
-## Query that checks Virtual machine health
+## Query that checks virtual machine health
 
 This query finds virtual machines that are marked as critical and that had a heartbeat more than 24 hours ago, but that haven't had a heartbeat in the last 2 minutes.
 
@@ -33,17 +33,18 @@ This query finds virtual machines that are marked as critical and that had a hea
     | where SystemDown == 1
 }
 ```
+
 ## Query that filters virtual machines that need to be monitored
 
 ```kusto
 {
-   let RuleGroupTags = dynamic([‘Linux’]); 
-   Perf | where ObjectName == 'Processor' and CounterName == '% Idle Time' and (InstanceName == '_Total' or InstanceName == 'total')  
-   | extend CpuUtilisation = (100 - CounterValue)    
-   | join kind=inner hint.remote=left (arg("").Resources 
-   | where type =~ 'Microsoft.Compute/virtualMachines' 
+   let RuleGroupTags = dynamic([‘Linux’]);
+   Perf | where ObjectName == 'Processor' and CounterName == '% Idle Time' and (InstanceName == '_Total' or InstanceName == 'total')
+   | extend CpuUtilisation = (100 - CounterValue)   
+   | join kind=inner hint.remote=left (arg("").Resources
+   | where type =~ 'Microsoft.Compute/virtualMachines'
    | project _ResourceId=tolower(id), tags) on _ResourceId
-   | project-away _ResourceId1  
+   | project-away _ResourceId1
    | where (isnull(tags.monitored) or tolower(tostring(tags.monitored)) != 'false') and (tostring(tags.monitorRuleGroup) in (RuleGroupTags) or isnull(tags.monitorRuleGroup) or tostring(tags.monitorRuleGroup) == '')
 }
 ```
@@ -52,11 +53,11 @@ This query finds virtual machines that are marked as critical and that had a hea
 
 ```kusto
 {
-    arg("").Resources 
-    | where type == "microsoft.web/certificates" 
-    | extend ExpirationDate = todatetime(properties.expirationDate) 
-    | project ExpirationDate, name, resourceGroup, properties.expirationDate 
-    | where ExpirationDate < now() + 30d 
+    arg("").Resources
+    | where type == "microsoft.web/certificates"
+    | extend ExpirationDate = todatetime(properties.expirationDate)
+    | project ExpirationDate, name, resourceGroup, properties.expirationDate
+    | where ExpirationDate < now() + 30d
     | order by ExpirationDate asc
 }
 ```
