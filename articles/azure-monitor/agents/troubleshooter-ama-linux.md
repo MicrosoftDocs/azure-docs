@@ -88,6 +88,7 @@ It runs a series of scenarios and displays the results.
 > The interactive mode will **not** generate log files, but will **only** output results to the screen. Switch to log mode, if you need to generate log files.
 
 :::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-nix-run-the-troubleshooter-option-l-shell.png" alt-text="Screenshot of the Bash window, which shows the result of the AgentTroubleshooter running with the -A option to output Troubleshooter results to the screen." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-nix-run-the-troubleshooter-option-l-shell.png":::
+
 ---
 
 ## Frequently Asked Questions
