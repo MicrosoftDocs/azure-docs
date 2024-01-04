@@ -16,7 +16,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 ## Prerequisites
 1. Create an Azure Data Manager for Energy instance using the tutorial at [How to create Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 2. Get various parameters of your instance such as client-id, client-secret, etc. using the tutorial at [How to generate auth token](how-to-generate-auth-token).
-3. Generate the access token needed to call the Entitlements APIs.
+3. Generate the service principal access token needed to call the Entitlements APIs using the tutorial at [How to generate auth token](how-to-generate-auth-token).
 4. Keep all these parameter values handy as they are needed for executing different user management requests via the Entitlements API. 
 
 
