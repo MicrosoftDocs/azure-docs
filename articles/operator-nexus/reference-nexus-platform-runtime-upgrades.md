@@ -12,7 +12,7 @@ ms.service: azure-operator-nexus
 
 This document details how Nexus releases, manages, and supports various platform runtime upgrades for near edge customers. 
 
-Starting in 1H 2024, Operator Nexus will release platform cluster runtime versions three minor versions per year and monthly patch versions in between.
+Operator Nexus will release platform cluster runtime versions three minor versions per year and monthly patch versions in between.
 
 Operator Nexus supports n-2 platform cluster runtime releases for customers, providing approximately one year of support upon release.
 
