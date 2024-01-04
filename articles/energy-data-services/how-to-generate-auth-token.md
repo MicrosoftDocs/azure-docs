@@ -21,8 +21,8 @@ To use the OAuth 2.0 authorization code grant flow, save the following values wh
 
 - The `Directory (tenant) ID` that will be used in place of `{tenant-id}`
 - The `application (client) ID` assigned by the app registration portal, which will be used instead of `client-id`.
-- A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret will be used instead of `{AppReg Secret}` later.
-- A `redirect URI (or reply URL)` for your app to receive responses from Microsoft Entra ID. If there's no redirect URIs specified, add a platform, select "Web", then add `http://localhost:8080`, and select save.
+- A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret will be used instead of `{client-secret}` later.
+- A `redirect URI (or reply URL)` for your app to receive responses from Microsoft Entra ID. If there's no redirect URIs specified, you can add a platform, select "Web", then add `http://localhost:8080`, and select save.
 
 
 ## Fetch parameters
@@ -169,7 +169,7 @@ The second step is to get the auth token and refresh token. Your app uses the au
   &code={authorization code}
   &redirect_uri=http%3A%2F%2Flocalhost%3a8080
   &grant_type=authorization_code
-  &client_secret={AppReg Secret}' 'https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/token'
+  &client_secret={client-secret}' 'https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/token'
 ```
 |Parameter  |Required  |Description  |
 |---------|---------|---------|
