@@ -49,7 +49,7 @@ When you create or use virtual machines resources, you might get charged for the
 
 - **Virtual machines** - You're charged for it based on the number of hours per VM.
     - The price also changes based on your [VM size](sizes.md).
-    - The price also changes based on the region your virtual machine where is located.
+    - The price also changes based on the region where your virtual machine is located.
     - As virtual machine instances go through different states, they are [billed differently](states-billing.md).
 - **Storage** - You're charged for it based on the disk size in GB and the transactions per hour.
     - For more information about transactions, see the [transactions section of the Understanding billing page for storage](../storage/files/understanding-billing.md#what-are-transactions).
