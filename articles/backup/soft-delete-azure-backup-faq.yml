@@ -8,12 +8,12 @@ metadata:
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
-title: Frequently asked questions about soft delete
+title: Frequently asked questions - Soft delete
 summary: This article answers common questions about soft delete.
 
 
 sections:
-  - name:
+  - name: Manage soft delete
     questions:
       - question: |
           Do I need to enable the soft-delete feature on every vault?
@@ -60,4 +60,7 @@ sections:
         answer: |
           Soft delete operations can be performed using PowerShell. Currently, CLI isn't supported.
 
+additionalContent: |
 
+  ## Next steps
+  [Manage the soft delete features in Azure Backup](backup-azure-security-feature-cloud.md).
