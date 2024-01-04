@@ -15,31 +15,31 @@ ms.date: 01/04/2024
 
 You can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) to extract a PostgreSQL database into a dump file. Then use [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) to restore the PostgreSQL database from an archive file created by `pg_dump`.
 
-The Azure portal streamlines this process via the Connect blade by offering pre-configured commands that are tailored to your server, with values substituted with your user data. It's important to note that the Connect blade is only available for Azure Database for PostgreSQL - Flexible Server and not for Single Server. Here's how you can leverage this feature:
+The Azure portal streamlines this process via the Connect blade by offering preconfigured commands that are tailored to your server, with values substituted with your user data. It's important to note that the Connect blade is only available for Azure Database for PostgreSQL - Flexible Server and not for Single Server. Here's how you can use this feature:
 
 1. **Access Azure portal**: First, go to the Azure portal and choose the Connect blade.
 
    :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/portal-connect-blade.png" alt-text="Screenshot showing the placement of Connect blade in Azure portal." lightbox="./media/how-to-migrate-using-dump-and-restore/portal-connect-blade.png":::
 
-2. **Select your database**: In the Connect blade, you will find a dropdown list of your databases. Select the database you wish to perform a dump from.
+2. **Select your database**: In the Connect blade, you find a dropdown list of your databases. Select the database you wish to perform a dump from.
 
    :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/dropdown-list-of-databases.png" alt-text="Screenshot showing the dropdown where specific database can be chosen." lightbox="./media/how-to-migrate-using-dump-and-restore/dropdown-list-of-databases.png":::
 
 3. **Choose the appropriate method**: Depending on your database size, you can choose between two methods:
       - **`pg_dump` & `psql` - using singular text file**: Ideal for smaller databases, this option utilizes a single text file for the dump and restore process.
-      - **`pg_dump` & `pg_restore` - using multiple cores**: For larger databases, this method is more efficient as it leverages multiple cores to handle the dump and restore process.
+      - **`pg_dump` & `pg_restore` - using multiple cores**: For larger databases, this method is more efficient as it uses multiple cores to handle the dump and restore process.
 
    :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/different-dump-methods.png" alt-text="Screenshot showing two possible dump methods." lightbox="./media/how-to-migrate-using-dump-and-restore/different-dump-methods.png":::
 
-4. **Copy and paste commands**: The portal provides you with ready-to-use `pg_dump` and `psql` or `pg_restore` commands. These commands come with values already substituted according to the server and database you've chosen. Simply copy and paste these commands.
+4. **Copy and paste commands**: The portal provides you with ready-to-use `pg_dump` and `psql` or `pg_restore` commands. These commands come with values already substituted according to the server and database you've chosen. Copy and paste these commands.
 
 ## Prerequisites
-If you are using a Single Server, or do not have access to the Flexible Server portal, please read through this documentation page. It contains information that is similar to what is presented in the Connect blade for Flexible Server on the portal. 
+If you're using a Single Server, or don't have access to the Flexible Server portal, read through this documentation page. It contains information that is similar to what is presented in the Connect blade for Flexible Server on the portal. 
 
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](../single-server/quickstart-create-server-database-portal.md), including firewall rules to allow access.
 - [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html), `psql` and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed.
-- **Decide on the location for the dump**: Choose the place you want to perform the dump from. It can be done from various locations, such as a separate VM, [cloud shell](../../cloud-shell/overview.md) (where the tools mentioned above are already installed, but might not be in the appropriate version, so always check the version using, for instance, `psql --version`), or your own laptop. Always keep in mind the distance and latency between the PostgreSQL server and the location from which you are running the dump or restore.
+- **Decide on the location for the dump**: Choose the place you want to perform the dump from. It can be done from various locations, such as a separate VM, [cloud shell](../../cloud-shell/overview.md) (where the command-line utilities are already installed, but might not be in the appropriate version, so always check the version using, for instance, `psql --version`), or your own laptop. Always keep in mind the distance and latency between the PostgreSQL server and the location from which you're running the dump or restore.
 
 > [!IMPORTANT]  
 > It is essential to use the `pg_dump`, `psql` and `pg_restore` utilities that are either of the same major version or a higher major version than the database server you are exporting data from or importing data to. Failing to do so may result in unsuccessful data migration. If your target server has a higher major version than the source server, use utilities that are either the same major version or higher than the target server. 
@@ -49,7 +49,7 @@ To step through this how-to guide, you need:
 > It's important to be aware that `pg_dump` can export only one database at a time. This limitation applies regardless of the method you have chosen, whether it's using a singular file or multiple cores.
 
 ## Create a dump file that contains the data to be loaded
-To export your existing PostgreSQL database on-premises or in a VM to a sql script file, run the following command in your existing environment:
+To export your existing PostgreSQL database on-premises or in a VM to an sql script file, run the following command in your existing environment:
 
 #### [pg_dump & psql - using singular text file](#tab/psql)
 ```bash
@@ -76,7 +76,7 @@ pg_dump -Fd -j 2 testdb -h mydemoserver.postgres.database.azure.com -U myuser -f
 
 ---
 
-If you are using a Single Server, your username will include the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
+If you're using a Single Server, your username includes the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
 
 
 ## Restore the data into the target database
@@ -84,7 +84,7 @@ If you are using a Single Server, your username will include the server name com
 Before restoring your database, you might need to create a new, empty database. Here are two commonly used methods:
 
 1. **Using `createdb` utility**
-   The createdb command allows for database creation directly from the bash command line, without the need to log into PostgreSQL or leave the operating system environment. For instance:
+   The `createdb` program allows for database creation directly from the bash command line, without the need to log into PostgreSQL or leave the operating system environment. For instance:
 
    ```bash
    createdb <new database name> -h <server name> -U <user name>
@@ -95,10 +95,10 @@ Before restoring your database, you might need to create a new, empty database. 
    createdb testdb_copy -h mydemoserver.postgres.database.azure.com -U myuser
    ```
 
-If you are using a Single Server, your username will include the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
+If you're using a Single Server, your username includes the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
 
 ### Restoring the dump
-After you've created the target database, you can restore the data into this database from the dump file. During the restoration, log any errors to an `errors.log` file and check it's content for any errors after the restore is done.
+After you've created the target database, you can restore the data into this database from the dump file. During the restoration, log any errors to an `errors.log` file and check its content for any errors after the restore is done.
 
 #### [pg_dump & psql - using singular text file](#tab/psql)
 ```bash
@@ -147,7 +147,7 @@ One way to migrate your existing PostgreSQL database to Azure Database for Postg
 
 ### For the restore
 
-- Move the backup file to an Azure VM in the same region as the Azure Database for PostgreSQL server you are migrating to. Perform the `pg_restore` from that VM to reduce network latency. Create the VM with [accelerated networking](../../virtual-network/create-vm-accelerated-networking-powershell.md) enabled.
+- Move the backup file to an Azure VM in the same region as the Azure Database for PostgreSQL server you're migrating to. Perform the `pg_restore` from that VM to reduce network latency. Create the VM with [accelerated networking](../../virtual-network/create-vm-accelerated-networking-powershell.md) enabled.
 
 - Open the dump file to verify that the create index statements are after the insert of the data. If it isn't the case, move the create index statements after the data is inserted. This should already be done by default, but it's a good idea to confirm.
 
