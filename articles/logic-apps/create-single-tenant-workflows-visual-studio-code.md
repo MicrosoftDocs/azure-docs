@@ -1106,7 +1106,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
 1. Open the logic app that you want to manage. From the logic app's shortcut menu, select the task that you want to perform.
 
-   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app. You can [disable or enable a workflow by using the Azure portal](create-single-tenant-workflows-azure-portal.md#enable-standard-workflows).
+   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app. You can [disable or enable a workflow by using the Azure portal](create-single-tenant-workflows-azure-portal.md#disable-enable-standard-workflows).
 
    > [!NOTE]
    > The stop logic app and delete logic app operations affect workflow instances in different ways. 
