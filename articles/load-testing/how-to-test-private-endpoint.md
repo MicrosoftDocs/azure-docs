@@ -299,7 +299,7 @@ The virtual network isn't in the same subscription and region as your Azure load
 
 ### Provisioning fails with `An azure policy is restricting engine deployment to your subscription (ALTVNET012)`
 
-An Azure policy is restricting load test engine deployment to your subscription. Check your policy restrictions and try again. If you have policy restrictions on deployment of Public IP, Azure Load Balancer or Network Security Group, you can disable the deployment of these resources. See [Configure your load test](#configure-your-load-test)
+An Azure policy is restricting load test engine deployment to your subscription. Check your policy restrictions and try again. If you have policy restrictions on the deployment of the public IP address, Azure load balancer, or network security group, you can disable the deployment of these resources. See [Configure your load test](#configure-your-load-test).
 
 ### Provisioning fails with `Engines could not be deployed due to an error in subnet configuration (ALTVNET013)`
 
