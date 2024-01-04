@@ -147,11 +147,11 @@ jobs:
       scriptType: bash
       inlineScript: |
       
-      # submit component job and get the run name
-      job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
+        # submit component job and get the run name
+        job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
 
-      # Set output variable for next task
-      echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
+        # Set output variable for next task
+        echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
 
 ```
 # [Using generic service connection](#tab/generic)
@@ -199,16 +199,16 @@ jobs:
       scriptType: bash
       inlineScript: |
       
-      # submit component job and get the run name
-      job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
+        # submit component job and get the run name
+        job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
 
 
-      # Set output variable for next task
-      echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
+        # Set output variable for next task
+        echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
 
-      # Get a bearer token to authenticate the request in the next job
-      export aadToken=$(az account get-access-token --resource=https://management.azure.com --query accessToken -o tsv)
-      echo "##vso[task.setvariable variable=AAD_TOKEN;isOutput=true;issecret=true]$aadToken"
+        # Get a bearer token to authenticate the request in the next job
+        export aadToken=$(az account get-access-token --resource=https://management.azure.com --query accessToken -o tsv)
+        echo "##vso[task.setvariable variable=AAD_TOKEN;isOutput=true;issecret=true]$aadToken"
      
 ```
 ---
