@@ -44,7 +44,7 @@ Operator Nexus will also release patch platform cluster runtime releases address
 
 ## Platform Cluster Runtime releases out of support
 
-When a customer is on a release that has moved out of support, Microsoft will attempt to mitigate the customer tickets but it may not be possible to address. When a release has dropped support, it will no longer be an option to deploy to a new site.  
+When a customer is on a release that has moved out of support, Microsoft will attempt to mitigate the customer tickets but it may not be possible to address. When a runtime minor release has dropped support, it will no longer be an option to deploy to a new instance.  
 
  
 
