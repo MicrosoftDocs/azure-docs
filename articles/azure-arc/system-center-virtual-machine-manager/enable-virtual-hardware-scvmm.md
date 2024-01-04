@@ -2,7 +2,7 @@
 title:  Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
 description: Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
 ms.topic: how-to 
-ms.date: 02/01/2024
+ms.date: 04/01/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
 author: Farha-Bano
@@ -20,7 +20,7 @@ In this article, you learn how to enable virtual hardware management and VM CRUD
 
 ## Prerequisites
 
-- An Azure subscription and resource group where you have *Arc SCVMM VM Administrator* role. 
+- An Azure subscription and resource group where you have *Arc ScVmm VM Administrator* role. 
 - Your SCVMM management server instance must be [onboarded](quickstart-connect-system-center-virtual-machine-manager-to-arc.md) to Azure Arc.
 
 ## Enable virtual hardware management and self-service access to SCVMM VMs with Arc agent installed
@@ -33,11 +33,11 @@ In this article, you learn how to enable virtual hardware management and VM CRUD
 
 1. Choose all the machines that need to be enabled in Azure, and select **Link** to link the machines to SCVMM management server.
 
-1. After you link to SCVMM management server, the virtual hardware status will reflect as **Enabled** for all the VMs, and you can perform [virtual hardware operations](). 
+1. After you link to SCVMM management server, the virtual hardware status will reflect as **Enabled** for all the VMs, and you can perform virtual hardware operations. 
 
 ### Known issue
  
-During the first scan of the SCVMM management server inventory after onboarding to Azure Arc-enabled SCVMM, Arc-enabled Servers machines will be discovered under SCVMM management server inventory. If the Arc-enabled Server machines aren't discovered and you try to perform the **Enable in Azure** operation, you'll encounter the following error:<br>
+During the first scan of the SCVMM management server inventory after onboarding to Azure Arc-enabled SCVMM, Arc-enabled Servers machines will be discovered under SCVMM inventory. If the Arc-enabled Server machines aren't discovered and you try to perform the **Enable in Azure** operation, you'll encounter the following error:<br>
 
 *A machine '/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXXX/resourceGroups/rg-contoso/providers/Microsoft.HybridCompute/machines/testVM1' already exists with the specified virtual machine MoRefId: 'vm-4441'. The existing machine resource can be extended with private cloud capabilities by creating the VirtualMachineInstance resource under it.*
 
