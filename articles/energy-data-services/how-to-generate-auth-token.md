@@ -110,6 +110,8 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 ```
 
 ## Generate user auth token
+Generating a user's auth token is a two step process. 
+
 ### Get authorization
 The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID will sign the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID will return an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
