@@ -1,12 +1,12 @@
 ---
-title: How to enable encryption with customer managed keys in Azure Cosmos DB for PostgreSQL.
-description: How to enable data encryption with customer managed keys.
+title: How to enable encryption with customer-managed keys in Azure Cosmos DB for PostgreSQL.
+description: How to enable data encryption with customer-managed keys.
 ms.author: akashrao
 author: akashraokm
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 05/16/2023
+ms.date: 01/03/2024
 ---
 # Enable data encryption with customer-managed keys in Azure Cosmos DB for PostgreSQL
 
@@ -105,22 +105,22 @@ Make sure <b>Vault access policy</b> is selected under Permission model and then
 
    # [Portal](#tab/portal)
 
-   1. During the provisioning of a new Cosmos DB for PostgreSQL cluster, after providing the necessary information under Basics and Networking Tab, Navigate to the Encryption (Preview) Tab.
+   1. During the provisioning of a new Azure Cosmos DB for PostgreSQL cluster, after providing the necessary information under Basics and Networking tabs, navigate to the **Encryption** tab.
      [ ![Screenshot of Encrytion configuration page.](media/how-to-customer-managed-keys/encryption-tab.png)](media/how-to-customer-managed-keys/encryption-tab.png#lightbox)
 
-   1. Select Customer Managed Key under Data encryption key option.
+   1. Select **Customer-managed key** under **Data encryption key** option.
 
-   1. Select the User Assigned Managed Identity created in the previous section.
+   1. Select the user assigned managed identity created in the previous section.
      
-   1. Select the Key Vault created in the previous step, which has the access policy to the user managed identity selected in the previous step.
+   1. Select the key vault created in the previous step, which has the access policy to the user managed identity selected in the previous step.
 
-   1. Select the Key created in the previous step, and then select Review+create.
+   1. Select the key created in the previous step, and then select Review+create.
 
-   1. Verify that CMK is encryption is enabled by Navigating to the Data Encryption blade of the Cosmos DB for PostgreSQL cluster in the Azure portal.
+   1. Once cluster is created, verify that CMK encryption is enabled by navigating to the **Data Encryption** blade of the Cosmos DB for PostgreSQL cluster in the Azure portal.
       ![Screenshot of data encryption tab.](media/how-to-customer-managed-keys/data-encryption-tab-note.png)
 
    > [!NOTE]
-   > Data encryption can only be configured during the creation of a new cluster and can't be updated on an existing cluster. A workaround for updating the encryption configuration on an existing cluster is to restore an existing PITR backup to a new cluster and configure the data encryption during the creation of the newly restored cluster.
+   > Data encryption can only be configured during the creation of a new cluster and can't be updated on an existing cluster. A workaround for updating the encryption configuration on an existing cluster is to perform a [cluster restore](./howto-restore-portal.md) and configure the data encryption during the creation of the newly restored cluster.
 
    # [ARM Template](#tab/arm)
  ```json
@@ -240,14 +240,6 @@ Make sure <b>Vault access policy</b> is selected under Permission model and then
 
    When CMK encryption is enabled on the primary cluster, all standby HA replicas are automatically encrypted by the primary cluster’s CMK
 
-### Restrictions
-
-* CMK encryption can't be enabled on cross region read replicas.
-
-* CMK encryption can only be enabled during the creation of a new Azure Cosmos DB for PostgreSQL cluster.
-
-* CMK encryption isn't supported with Private access (including VNET).
-
 ### Changing encryption configuration by performing a PITR
 
 Encryption configuration can be changed from service managed encryption to CMK encryption or vice versa while performing a Point in restore operation to a new cluster.
@@ -343,5 +335,7 @@ To monitor the database state, and to enable alerting for the loss of transparen
 
 * [Action groups](../../azure-monitor/alerts/action-groups.md): Define these groups to send you notifications and alerts based on your preference.
 
+## Next steps
 
-
+- Learn about [data encryption with customer-managed keys](./concepts-customer-managed-keys.md)
+- Check out [CMK limits and limitations](./reference-limits.md#storage) in Azure Cosmos DB for PostgreSQL
