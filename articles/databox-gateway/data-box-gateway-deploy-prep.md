@@ -33,7 +33,7 @@ To deploy your Data Box Gateway, refer to the following tutorials in the prescri
 | **#** | **In this step** | **Use these documents** |
 | --- | --- | --- | 
 | 1. |**[Prepare the Azure portal for Data Box Gateway](data-box-gateway-deploy-prep.md)** |Create and configure your Data Box Gateway resource prior to provisioning a Data Box Gateway virtual device. |
-| 2. |**[Provision the Data Box Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Provision the Data Box Gateway in VMware](data-box-gateway-deploy-provision-vmware.md)**|For Hyper-V, provision and connect to a Data Box Gateway virtual device on a host system running Hyper-V on Windows Server 2016 or Windows Server 2012 R2. <br><br><br> For VMware, provision and connect to a Data Box Gateway virtual device on a host system running VMware ESXi 6.0, 6.5, or 6.7.<br></br> |
+| 2. |**[Provision the Data Box Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Provision the Data Box Gateway in VMware](data-box-gateway-deploy-provision-vmware.md)**|For Hyper-V, provision and connect to a Data Box Gateway virtual device on a host system running Hyper-V on Windows Server 2016 or Windows Server 2012 R2. <br><br><br> For VMware, provision and connect to a Data Box Gateway virtual device on a host system running VMware ESXi 6.7, 7.0, or 8.0.<br></br> |
 | 3. |**[Connect, set up, activate the Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. You can then provision SMB shares.  |
 | 4. |**[Transfer data with Data Box Gateway](data-box-gateway-deploy-add-shares.md)** |Add shares, connect to shares via SMB or NFS. |
 
@@ -58,7 +58,7 @@ Before you begin, make sure that:
 
 Before you deploy a virtual device, make sure that:
 
-- You have access to a host system running Hyper-V on Windows Server 2012 R2 or later or VMware (ESXi 6.0, 6.5, or 6.7) that can be used to a provision a device.
+- You have access to a host system running Hyper-V on Windows Server 2012 R2 or later or VMware ESXi 6.7, 7.0, or 8.0 that can be used to a provision a device.
 - The host system is able to dedicate the following resources to provision your Data Box virtual device:
   
   - A minimum of 4 virtual processors.
