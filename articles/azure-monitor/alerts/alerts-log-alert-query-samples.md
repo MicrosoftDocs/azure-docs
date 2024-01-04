@@ -22,13 +22,7 @@ This query finds virtual machines that are marked as critical and that had a hea
 {
     arg("").Resources
     | where type == "microsoft.compute/virtualmachines"
-    | where tags.BusinessCriticality =~ 'critical' 
-}
-
-```
-
-
-and subscriptionId == '123-456-123-456"
+    | where tags.BusinessCriticality =~ 'critical' and subscriptionId == '123-456-123-456"
     | join kind=leftouter (
     Heartbeat
     | where TimeGenerated > ago(24h)
@@ -37,6 +31,9 @@ and subscriptionId == '123-456-123-456"
     | summarize LastCall = max(case(isnull(TimeGenerated), make_datetime(1970, 1, 1), TimeGenerated)) by name, id
     | extend SystemDown = case(LastCall < ago(2m), 1, 0)
     | where SystemDown == 1
+}
+
+```
 
 ## Query that filters virtual machines that need to be monitored
 
@@ -78,7 +75,6 @@ and subscriptionId == '123-456-123-456"
     | project changeTime,targetResourceId,changedBy
 }
 ```
-
 
 ## Next steps
 - [Learn more about creating a log alert rule](./alerts-create-log-alert-rule.md)
