@@ -80,8 +80,27 @@ If you are using a Single Server, your username will include the server name com
 
 
 ## Restore the data into the target database
+### Create a new database
+Before restoring your database, you might need to create a new, empty database. Here are two commonly used methods:
 
-After you've created the target database, you can use the `pg_restore` command and the  `--dbname` parameter to restore the data into the target database from the dump file.
+1. **Using `createdb`utility**
+   The createdb command allows for database creation directly from the bash command line, without the need to log into PostgreSQL or leave the operating system environment. For instance:
+
+   ```bash
+   createdb <new database name> -h <server name> -U <user name>
+   ```
+   For example, if you have a server named `mydemoserver`, a user named `myuser` and the new database you want to create is `testdb_copy`, run the following command:
+
+   ```bash
+   createdb testdb_copy -h mydemoserver.postgres.database.azure.com -U myuser
+   ```
+
+If you are using a Single Server, your username will include the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
+
+### Restoring the dump
+
+
+After you've created the target database, you can use the `pg_restore` command and the `--dbname` parameter to restore the data into the target database from the dump file.
 
 ```bash
 pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user-name> --dbname=<target database name> <database>.dump
