@@ -61,7 +61,8 @@ Request and json output: age_mm_textLimited
 
 **Laterality Discrepancy**
 
-A laterality mismatch is mostly flagged when the orderedProcedure is for a body part with a laterality (for example “x-ray right foot”) and the text refers to the opposite laterality (for example “left foot is normal”).
+A laterality mismatch is mostly flagged when the orderedProcedure is for a body part with a laterality and the text refers to the opposite laterality.
+Example: “x-ray right foot”, “left foot is normal”
 - kind: RadiologyInsightsInferenceType.LateralityDiscrepancy
 - LateralityIndication: FHIR.R4.CodeableConcept
 - DiscrepancyType: LateralityDiscrepancyType
@@ -97,7 +98,7 @@ Field “sexIndication” contains one coding with a SNOMED concept for either M
 Request and json output: RadInsights_Example1Limited
 
 **Complete Order Discrepancy**
-CompleteOrderDiscrepancy is created if there's a complete orderedProcedure - meaning that a certain number of body parts need to be mentioned in the text, and possibly also measurements for some of them - and not all the body parts or their measurements are in the text.
+CompleteOrderDiscrepancy is created if there's a complete orderedProcedure - meaning that some body parts need to be mentioned in the text, and possibly also measurements for some of them - and not all the body parts or their measurements are in the text.
 - kind: RadiologyInsightsInferenceType.CompleteOrderDiscrepancy  
 - orderType: FHIR.R4.CodeableConcept 
 - MissingBodyParts: Array FHIR.R4.CodeableConcept
@@ -139,7 +140,7 @@ This inference is created for a medical problem (for example “acute infection 
         
 Finding: Section and ci_sentence
 Next to the token extensions, there can be an extension with url “section”. This extension has an inner extension with a display name that describes the section. The inner extension can also have a loinc code.
-There can also be an extension with url “ci_sentence”. This extension refers to the sentence containing the first token of the clinical indicator (i.e., the medical problem), if any. The generation of such a sentence is switchable (customer Powerscribe or mPower).
+There can also be an extension with url “ci_sentence”. This extension refers to the sentence containing the first token of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable (customer Powerscribe or mPower).
 
 Finding: fields within field “finding”
 list of fields within field “finding”, except “component”:
@@ -165,7 +166,7 @@ list of fields within field “finding”, except “component”:
 - 263730007: CONTINUAL (QUALIFIER VALUE)
 
 In this list, the string before the colon is the code, and the string after the colon is the display name.
-If the value is “NONE (QUALIFIER VALUE)”, the finding is absent. This value is for example, “no sepsis”.
+If the value is “NONE (QUALIFIER VALUE)”, the finding is absent. This value is, for example, “no sepsis”.
 category: if filled, this field contains an array with one element. It contains one of the following SNOMED concepts:
 - 439401001: DIAGNOSIS (OBSERVABLE ENTITY)
 - 404684003: CLINICAL FINDING (FINDING)
@@ -190,13 +191,13 @@ This component has SNOMED code 131195008: SUBJECT OF INFORMATION (ATTRIBUTE). It
 At least one “subject of information” component is present if and only if the “finding.code” field has 404684003: CLINICAL FINDING (FINDING). There can be several "subject of information” components, with different concepts in the “valueCodeableConcept” field.
 
 Finding: component “anatomy”
-Zero or more components with SNOMED code “722871000000108: ANATOMY (QUALIFIER VALUE)”. This component has field “valueCodeConcept” filled with a SNOMED or radlex code. for example, for “lung infection” this will have a code for the lungs.
+Zero or more components with SNOMED code “722871000000108: ANATOMY (QUALIFIER VALUE)”. This component has field “valueCodeConcept” filled with a SNOMED or radlex code. For example, for “lung infection” this component contains a code for the lungs.
 
 Finding: component “region”
 Zero or more components with SNOMED code 45851105: REGION (ATTRIBUTE). Like anatomy, this component has field “valueCodeableConcept” filled with a SNOMED or radlex code. Such a concept refers to the body region of the anatomy. for example, if the anatomy is a code for the vagina, the region may be a code for the female reproductive system.
 
 Finding: component “laterality”
-Zero or more components with code 45651917: LATERALITY (ATTRIBUTE). Each has field “valueCodeableConcept” set to a SNOMED concept pertaining to the laterality of the finding. for example, this will be filled for a finding pertaining to the right arm.
+Zero or more components with code 45651917: LATERALITY (ATTRIBUTE). Each has field “valueCodeableConcept” set to a SNOMED concept pertaining to the laterality of the finding. For example, this component is filled for a finding pertaining to the right arm.
 
 Finding: component “change values”
 Zero or more components with code 288533004: CHANGE VALUES (QUALIFIER VALUE). Each has field “valueCodeableConcept” set to a SNOMED concept pertaining to a size change in the finding (for example, a nodule that is growing or decreasing.)
@@ -237,7 +238,7 @@ Zero or more components with code 246115007, "SIZE (ATTRIBUTE)". Even if there's
 Every component has field “interpretation” set to either SNOMED code 15240007: CURRENT or 9130008: PREVIOUS, depending on whether the size was measured during this visit or in the past.
 Every component has either field “valueQuantity” or “valueRange” set.
 If “valueQuantity” is set, then “valueQuantity.value” is always set. In most cases, “valueQuantity.unit” is set. It's possible that “valueQuantity.comparator” is also set, to either “>”, “<”, “>=” or “<=”. for example, the component is set to “<=” for “the tumor is up to 2 cm”.
-If “valueRange” is set, then “valueRange.low” and “valueRange.high” are set to quantities with the same data as described in the previous paragraph. This contains for example, “The tumor is between 2.5 cm and 2.6 cm in size.
+If “valueRange” is set, then “valueRange.low” and “valueRange.high” are set to quantities with the same data as described in the previous paragraph. This field contains, for example, “The tumor is between 2.5 cm and 2.6 cm in size.
 
 **Critical Result**
 This inference is made for a new medical problem that requires attention within a specific time frame, possibly urgently.
@@ -247,7 +248,7 @@ This inference is made for a new medical problem that requires attention within 
 Field “result.description” gives a description of the medical problem, for example “MALIGNANCY”.
 Field “result.finding”, if set, contains the same information as the “finding” field in a finding inference.
 
-Next to token extensions, there can be an extension for a section. This contains the most specific section that the first token of the critical result is in (or to be precise, the first token that is in a section.) This section is in the same format as a section for a finding (see above.)
+Next to token extensions, there can be an extension for a section. This field contains the most specific section that the first token of the critical result is in (or to be precise, the first token that is in a section.) This section is in the same format as a section for a finding.
 
 Request and json output: recommendation_textCRLimited
 
@@ -272,7 +273,7 @@ Next to the token extensions, there can be an extension containing sentences. Th
 “isGuideline” means that the recommendation is in a general guideline like the following:
 
 BI-RADS CATEGORIES: 
-- (0) Incomplete: Needs additional imaging evaluation 
+- (0) Incomplete: Needs more imaging evaluation 
 - (1) Negative 
 - (2) Benign 
 - (3) Probably benign - Short interval follow-up suggested 
@@ -284,11 +285,11 @@ BI-RADS CATEGORIES:
 Field “effectiveDateTime” will be set when the procedure needs to be done (recommended) at a specific point in time. For example, “next Wednesday”. Field “effectivePeriod” will be set if a specific period is mentioned, with a start and end datetime. for example, for “within six months”, the start datetime will be the date of service, and the end datetime will be the day six months after that.
 - follow up Recommendation: findings
 If set, field “findings” contains one or more findings that have to do with the recommendation. for example, a leg scan (procedure) can be recommended because of leg pain (finding).
-Every array element of field “findings” is a RecommendationFinding. Field RecommendationFinding.finding has the same information as a FindingInference.finding field (see above).
+Every array element of field “findings” is a RecommendationFinding. Field RecommendationFinding.finding has the same information as a FindingInference.finding field.
 For field “RecommendationFinding.RecommendationFindingStatus”, see the OpenAPI specification for the possible values.
-Field “RecommendationFinding.criticalFinding” is set if a critical result is associated with the finding (see section above.) It then contains the same information as described for a critical result inference.
+Field “RecommendationFinding.criticalFinding” is set if a critical result is associated with the finding. It then contains the same information as described for a critical result inference.
 - follow up Recommendation: recommended procedure
-Field “recommendedProcedure” is either a GenericProcedureRecommendation, or an ImagingProcedureRecommendation. (Type “procedureRecommendation” given above is a supertype for these two types.)
+Field “recommendedProcedure” is either a GenericProcedureRecommendation, or an ImagingProcedureRecommendation. (Type “procedureRecommendation” is a supertype for these two types.)
 A GenericProcedureRecommendation has the following:
 -	Field “kind” has value “genericProcedureRecommendation”
 -	Field “description” has either value “MANAGEMENT PROCEDURE (PROCEDURE)” or “CONSULTATION (PROCEDURE)”
@@ -324,7 +325,7 @@ This inference is for the ordered radiology procedure(s).
 - imagingProcedures: Array ImagingProcedure
 - orderedProcedure: OrderedProcedure
         
-Field “imagingProcedures” contains one or more instances of an imaging procedure, as documented for the follow up recommendations (see above).
+Field “imagingProcedures” contains one or more instances of an imaging procedure, as documented for the follow up recommendations.
 Field “procedureCodes”, if set, contains loinc codes.
 Field “orderedProcedure” contains the description(s) and the code(s) of the ordered procedure(s) as given by the client. The descriptions are in field “orderedProcedure.description”, separated by “;;”. The codes are in “orderedProcedure.code.coding”. In every coding in the array, only field “coding” is set.
         
