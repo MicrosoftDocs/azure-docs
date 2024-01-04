@@ -20,7 +20,7 @@ ms.author: anfdocs
 
 You can save money on the storage costs for Azure NetApp Files with capacity reservations. Azure NetApp Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for one year. A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
-Azure NetApp Files reserved capacity can significantly reduce your capacity costs for storing data in your Azure NetApp Files volumes. How much you save will depend on the total capacity you choose to reserve, and the [service level](azure-netapp-files-service-levels.md) that you've chosen for your Azure NetApp Files. 
+Azure NetApp Files reserved capacity can significantly reduce your capacity costs for storing data in your Azure NetApp Files volumes. How much you save depends on the total capacity you choose to reserve, and the [service level](azure-netapp-files-service-levels.md) chosen. 
 
 For pricing information about reservation capacity for Azure NetApp Files, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
@@ -33,6 +33,7 @@ This section describes the terms of an Azure NetApp Files capacity reservation.
 You can purchase Azure NetApp Files reserved capacity in units of 100 TiB and 1 PiB per month for a one-year term for a particular service level within a region.
 
 ### Reservation scope
+
 Azure NetApp Files reserved capacity is available for a single subscription, multiple subscriptions (shared scope), and management groups. When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context. When scoped to a management group, the reservation discount is applied to subscriptions that are a part of both the management group and billing scope. A reservation applies to your usage within the purchased scope and cannot be limited to a specific NetApp account, capacity pools, container, or object within the subscription.
 
 Any capacity reservation for Azure NetApp Files covers only the capacity pools within the service level selected. Add-on features like cross-region network transfer, backup, and so on are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. 
@@ -43,7 +44,7 @@ For more information on Azure reservations, see [What are Azure Reservations](..
 
 Azure NetApp Files reserved capacity is available for Standard, Premium, and Ultra service levels in units of 100 TiB and 1 PiB.
 
-### Security requirements for purchase
+### Requirements for purchase
 
 To purchase reserved capacity:
 * You must be in the **Owner** role for at least one Enterprise or individual subscription with pay-as-you-go rates.
@@ -52,9 +53,11 @@ To purchase reserved capacity:
 
 ## Determine required capacity before purchase
 
-When you purchase an Azure NetApp Files reservation, you must choose the region, tier, and redundancy option for the reservation. Your reservation is valid only for data stored in that region and tier. For example, suppose you purchase a reservation for Azure NetApp Files *Premium* service level in US East. That reservation will not apply to *Premium* capacity pools for that subscription in US West or capacity pools for other service levels (for example, *Ultra* service level in US East). However, you can purchase another reservation for your additional needs.
+When you purchase an Azure NetApp Files reservation, you must choose the region, tier, and redundancy option for the reservation. Your reservation is valid only for data stored in that region and tier. For example, suppose you purchase a reservation for Azure NetApp Files *Premium* service level in US East. That reservation applies to neither *Premium* capacity pools for that subscription in US West nor capacity pools for other service levels (for example, *Ultra* service level in US East). Additional reservations can be purchased. 
 
 Reservations are available for 100-TiB or 1-PiB blocks, with higher discounts for 1-PiB blocks. When you purchase a reservation in the Azure portal, Microsoft might provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
+
+Purchasing an Azure NetApp Files reserved capacity does not automatically increase your regional capacity. Azure reservations for Azure NetApp Files are not an on-demand capacity guarantee. If you're capacity reservation requires a quota increase, it's recommended you complete that before making the reservation. For more information, see [Regional capacity in Azure NetApp Files](regional-capacity-quota.md).
 
 ## Purchase Azure NetApp Files reserved capacity 
 
@@ -72,16 +75,13 @@ To purchase reserved capacity:
 
 5. In the **Purchase reservations** blade, review the total cost of the reservation. You can also provide a name for the reservation.
 
-After you purchase a reservation, it is automatically applied to any existing [Azure NetApp Files capacity pools](azure-netapp-files-set-up-capacity-pool.md) that match the terms of the reservation. If you haven't created any Azure NetApp Files capacity pools, the reservation will apply whenever you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
+After you purchase a reservation, it is automatically applied to any existing [Azure NetApp Files capacity pools](azure-netapp-files-set-up-capacity-pool.md) that match the terms of the reservation. If you haven't created any Azure NetApp Files capacity pools, the reservation applies when you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
 
 ## Exchange or refund a reservation 
 
-You can exchange or refund a reservation, with certain limitations. This section describes the limitations.
+You can exchange or refund a reservation, with certain limitations. For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-To exchange or refund a reservation, navigate to the reservation details in the Azure portal. Select **Exchange** or **Refund**, and follow the instructions to submit a support request. When the request has been processed, Microsoft will send you an email to confirm completion of the request.
-
-For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
-
+<!-- 
 ### Exchange a reservation  
 
 Exchanging a reservation enables you to receive a prorated refund based on the unused portion of the reservation. You can then apply the refund to the purchase price of a new Azure NetApp Files reservation.
@@ -92,13 +92,13 @@ There's no limit on the number of exchanges you can make. Also, there's no fee a
 
 You can cancel an Azure NetApp Files reservation at any time. When you cancel, you'll receive a prorated refund based on the remaining term of the reservation, minus a 12% early termination fee. The maximum refund per year is $50,000.
 
-Cancelling a reservation immediately terminates the reservation and returns the remaining months to Microsoft. The remaining prorated balance, minus the fee, will be refunded to your original form of purchase.
+Cancelling a reservation immediately terminates the reservation and returns the remaining months to Microsoft. The remaining prorated balance, minus the fee, will be refunded to your original form of purchase. -->
 
 ## Expiration of a reservation 
 
 When a reservation expires, any Azure NetApp Files capacity that you are using under that reservation is billed at the pay-as-you go rate. Reservations don't renew automatically.
 
-You will receive an email notification 30 days prior to the expiration of the reservation, and again on the expiration date. To continue taking advantage of the cost savings that a reservation provides, renew it no later than the expiration date.
+An email notification is sent 30 days prior to the expiration of the reservation, and again on the expiration date. To continue taking advantage of the cost savings that a reservation provides, renew it no later than the expiration date.
 
 ## Need help? Contact us
 
