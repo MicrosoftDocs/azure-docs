@@ -17,7 +17,7 @@ This article shows you how to use Visual Studio 2022 to develop, debug, and depl
 
 This article includes steps for two IoT Edge development tools.
 
-* Command line interface (CLI) is preferred tool for development.
+* Command line interface (CLI) is the preferred tool for development.
 * **Azure IoT Edge tools for Visual Studio** extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 Use the tool selector button at the beginning to choose your tool option for this article. Both tools provide the following benefits:

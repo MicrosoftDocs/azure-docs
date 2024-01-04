@@ -19,7 +19,7 @@ This tutorial walks through developing, debugging and deploying your own code to
 
 This article includes steps for two IoT Edge development tools.
 
-* Command line interface (CLI) is preferred tool for development.
+* Command line interface (CLI) is the preferred tool for development.
 * **Azure IoT Edge tools for Visual Studio** extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 Use the tool selector button at the beginning of this article to select the tool version.
@@ -71,7 +71,7 @@ This tutorial walks through the development of an IoT Edge module. An *IoT Edge 
 
 When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*. For this tutorial, you'll be using your Windows host for development and the IoT Edge for Linux on Windows (EFLOW) VM for building and deploying the modules. 
 
-This tutorial targets devices running IoT Edge with Linux containers. You can use your preferred operating system as long as your development machine runs Linux containers. We recommend using Visual Studio to develop with Linux containers, so that's what this tutorial uses. You can use Visual Studio Code as well, although there are differences in support between the two tools. For more information, refer to [Develop Azure IoT Edge modules using Visual Studio Code](./tutorial-develop-for-linux.md).
+This tutorial targets devices running IoT Edge with Linux containers. You can use your preferred operating system as long as your development machine runs Linux containers. We recommend using Visual Studio to develop with Linux containers, so that's what this tutorial uses. You can use Visual Studio Code as well, although there are differences in support between the two tools. For more information, see [Develop Azure IoT Edge modules using Visual Studio Code](./tutorial-develop-for-linux.md).
 
 
 ## Set up docker-cli and Docker engine remote connection
