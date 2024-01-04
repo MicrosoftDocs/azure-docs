@@ -25,4 +25,4 @@ In the OSDU instance,
    2. The second Service Principal is used for service-to-service (S2S) communications. 
 
 ## Refresh Auth Token
-You can refresh the authorization token using the steps outlined in [Generate a refresh token](how-to-generate-refresh-token.md). 
+You can generate the authorization token using the steps outlined in [Generate auth token](how-to-generate-auth-token.md). 
