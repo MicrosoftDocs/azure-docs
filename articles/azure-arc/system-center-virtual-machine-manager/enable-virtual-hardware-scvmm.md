@@ -2,7 +2,7 @@
 title:  Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
 description: Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
 ms.topic: how-to 
-ms.date: 04/01/2024
+ms.date: 01/04/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
 author: Farha-Bano
