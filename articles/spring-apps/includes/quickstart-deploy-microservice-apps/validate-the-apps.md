@@ -3,10 +3,10 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 05/24/2022
+ms.date: 01/03/2024
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to validate the apps without managed gateway component.
 
 [!INCLUDE [prepare-spring-project](includes/quickstart-deploy-microservice-apps/validate-the-apps.md)]

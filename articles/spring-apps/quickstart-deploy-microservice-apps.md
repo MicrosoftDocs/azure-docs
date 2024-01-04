@@ -4,7 +4,7 @@ description: Learn how to deploy microservice applications to Azure Spring Apps.
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 01/03/2024
 ms.author: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-tier-selection
@@ -22,14 +22,14 @@ This article explains how to deploy microservice applications to Azure Spring Ap
 
 ::: zone pivot="sc-enterprise"
 
-The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on Azure Spring Apps Enterprise plan.
+The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on the Azure Spring Apps Enterprise plan.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-enterprise-architecture.png" alt-text="Diagram that shows the architecture of the PetClinic sample on Azure Spring Apps Enterprise plan." border="false":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-enterprise-architecture.png" alt-text="Diagram that shows the architecture of the PetClinic sample on the Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-enterprise-architecture.png" border="false":::
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
 - Uses Azure Spring Apps to manage the frontend and backend apps. The backend apps are built with Spring Boot and each app uses HSQLDB as the persistent store. The reforged frontend app builds upon Pet Clinic API Gateway App with Node.js serving as a standalone frontend web application.
-- Uses the managed components on Azure Spring Apps, including Service Registry, Application Configuration Service, Spring Cloud Gateway, and Application Live View. The Application Configuration Service reads GitHub repository configuration.
+- Uses the managed components on Azure Spring Apps, including Service Registry, Application Configuration Service, Spring Cloud Gateway, and Application Live View. The Application Configuration Service reads the Git repository configuration.
 - Exposes the URL of Spring Cloud Gateway to route request to backend service apps, and exposes the URL of the Application Live View to monitor the backend apps.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
@@ -43,14 +43,14 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 ::: zone pivot="sc-standard"
 
-The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on Azure Spring Apps Standard plan.
+The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on the Azure Spring Apps Standard plan.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on Azure Spring Apps standard plan." border="false":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on the Azure Spring Apps standard plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" border="false":::
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
 - Uses Azure Spring Apps to manage the Spring Boot apps. Each app uses HSQLDB as the persistent store.
-- Uses the managed components Spring Cloud Config Server and Eureka Service Registry on Azure Spring Apps. The Config Server reads GitHub repository configuration.
+- Uses the managed components Spring Cloud Config Server and Eureka Service Registry on Azure Spring Apps. The Config Server reads the Git repository configuration.
 - Exposes the URL of API Gateway to load balance requests to service apps, and exposes the URL of the Admin Server to manage the applications.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
@@ -150,7 +150,7 @@ The following sections describe how to validate the deployment.
 Using the endpoint assigned from Spring Cloud Gateway - for example, `
 https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io`. The application should look similar to the following screenshot:
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on the Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
 
 ### 5.2. Query the application logs
 
@@ -162,7 +162,7 @@ After you browse each function of the Pet Clinic, the Log Analytics workspace co
 
 Application Insights monitors the application dependencies, as shown by the following application tracing map:
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for the Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png":::
 
 Open the Application Live View URL exposed by the Developer Tools to monitor application runtimes, as shown in the following screenshot:
 

@@ -4,10 +4,10 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 11/06/2023
+ms.date: 01/03/2024
 ---
 
-<!-- 
+<!--
 Use the following line at the end of the heading Prerequisites, with blank lines before and after. App deployments with Spring Apps Maven plugin.
 
 [!INCLUDE [microservice-spring-apps-maven-plugin](includes/quickstart-deploy-microservice-apps/microservice-spring-apps-maven-plugin.md)]
@@ -28,4 +28,3 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
    - **Use existing Azure Spring Apps in Azure**: Press <kbd>y</kbd> to use the existing Azure Spring Apps instance.
    - **Select apps to expose public access**: Press <kbd>Enter</kbd> to select none.
    - **Confirm to save all the above configurations**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
-

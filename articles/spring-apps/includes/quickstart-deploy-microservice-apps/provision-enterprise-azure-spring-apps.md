@@ -4,10 +4,10 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 08/09/2023
+ms.date: 01/03/2024
 ---
 
-<!-- 
+<!--
 To reuse the Spring Apps instance creation steps in other articles, a separate markdown file is used to describe how to provision enterprise Spring Apps instance.
 
 [!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
@@ -73,7 +73,7 @@ Use the following steps to create the service instance:
 
 1. From the navigation pane, open **Build Service**, and then select **Add** under the **Builders** section.
 
-1. On the **Add Builder** page, for the **Builder name**, use *frontend*. Select **io.buildpacks.stacks.jammy-base** for **OS Stack**, select **tanzu-buildpacks/web-servers** for the **Name** of Buildpacks, and then select **Save** to create the builder.
+1. On the **Add Builder** page, for the **Builder name**, use *frontend*. For **OS Stack**, select **io.buildpacks.stacks.jammy-base**. For **Name**, select **tanzu-buildpacks/web-servers**. Then, select **Save** to create the builder.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png" alt-text="Screenshot of the Azure portal that shows the builder creation in Build Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png":::
 
@@ -85,8 +85,8 @@ Use the following steps to create the service instance:
 
 1. Repeat the previous step to bind the following applications:
 
-    - **vets-service**
-    - **visits-service**
+   - **vets-service**
+   - **visits-service**
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png" alt-text="Screenshot of the Azure portal that shows the bind apps in Service Registry page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png":::
 
@@ -96,10 +96,10 @@ Use the following steps to create the service instance:
 
 1. Fill out the repository with the following information, and then select **Validate**:
 
-    - **Name**: *default*.
-    - **Patterns**: *application,api-gateway,customers-service,vets-service,visits-service*.
-    - **URI**: *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git*.
-    - **Label**: *master*.
+   - **Name**: *default*.
+   - **Patterns**: *application,api-gateway,customers-service,vets-service,visits-service*.
+   - **URI**: *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git*.
+   - **Label**: *master*.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the Configuration Service page with the settings, the Validate button highlighted, and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png":::
 
@@ -109,8 +109,8 @@ Use the following steps to create the service instance:
 
 1. Repeat the previous step to bind the following applications:
 
-    - **vets-service**
-    - **visits-service**
+   - **vets-service**
+   - **visits-service**
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-configuration.png" alt-text="Screenshot of the Azure portal that shows the bind apps in Configuration Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-configuration.png":::
 
@@ -122,8 +122,8 @@ Use the following steps to create the service instance:
 
 1. Repeat the previous step to save the config file patterns for the following applications:
 
-    - **vets-service**: Select **application** and **vets-service**.
-    - **visits-service**: Select **application** and **visits-service**.
+   - **vets-service**: Select **application** and **vets-service**.
+   - **visits-service**: Select **application** and **visits-service**.
 
 #### Configure Spring Cloud Gateway
 
@@ -179,70 +179,86 @@ Use the following steps to create the service instance:
    1. Use the following command to set routing for the **customers-service** app:
 
       ```azurecli
-      az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
-        --name ${APP_CUSTOMERS_SERVICE} --service ${SPRING_APPS_NAME} \
-        --app-name ${APP_CUSTOMERS_SERVICE} --routes-json '[
-        {
-          "predicates": [
-            "Path=/api/customer/**"
-          ],
-          "filters": [
-            "StripPrefix=2"
-          ]
-        }
-      ]'
+      az spring gateway route-config create \
+          --resource-group ${RESOURCE_GROUP} \
+          --service ${SPRING_APPS_NAME} \
+          --name ${APP_CUSTOMERS_SERVICE} \
+          --app-name ${APP_CUSTOMERS_SERVICE} \
+          --routes-json \
+            '[
+              {
+                "predicates": [
+                  "Path=/api/customer/**"
+                ],
+                "filters": [
+                  "StripPrefix=2"
+                ]
+              }
+            ]'
       ```
 
    1. Use the following command to set routing for the **vets-service** app:
 
       ```azurecli
-      az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
-        --name ${APP_VETS_SERVICE} --service ${SPRING_APPS_NAME} \
-        --app-name ${APP_VETS_SERVICE} --routes-json '[
-        {
-          "predicates": [
-            "Path=/api/vet/**"
-          ],
-          "filters": [
-            "StripPrefix=2"
-          ]
-        }
-      ]'
+      az spring gateway route-config create \
+          --resource-group ${RESOURCE_GROUP} \
+          --service ${SPRING_APPS_NAME} \
+          --name ${APP_VETS_SERVICE} \
+          --app-name ${APP_VETS_SERVICE} \
+          --routes-json \
+            '[
+               {
+                 "predicates": [
+                   "Path=/api/vet/**"
+                 ],
+                 "filters": [
+                   "StripPrefix=2"
+                 ]
+               }
+             ]'
       ```
 
    1. Use the following command to set routing for the **visits-service** app:
 
       ```azurecli
-      az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
-        --name ${APP_VISITS_SERVICE} --service ${SPRING_APPS_NAME} \
-        --app-name ${APP_VISITS_SERVICE} --routes-json '[
-        {
-          "predicates": [
-            "Path=/api/visit/**"
-          ],
-          "filters": [
-            "StripPrefix=2"
-          ]
-        }
-      ]'
+      az spring gateway route-config create \
+          --resource-group ${RESOURCE_GROUP} \
+          --service ${SPRING_APPS_NAME} \
+          --name ${APP_VISITS_SERVICE} \
+          --app-name ${APP_VISITS_SERVICE} \
+          --routes-json \
+            '[
+               {
+                 "predicates": [
+                   "Path=/api/visit/**"
+                 ],
+                 "filters": [
+                   "StripPrefix=2"
+                 ]
+               }
+             ]'
       ```
 
    1. Use the following command to set routing for the **frontend** app:
 
       ```azurecli
-      az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
-        --name ${APP_FRONTEND} --service ${SPRING_APPS_NAME} \
-        --app-name ${APP_FRONTEND} --routes-json '[
-        {
-          "predicates": [
-            "Path=/**"
-          ],
-          "filters": [
-            "StripPrefix=0"
-          ],
-          "order": 1000
-        }
-      ]'
+      az spring gateway route-config create \
+          --resource-group ${RESOURCE_GROUP} \
+          --service ${SPRING_APPS_NAME} \
+          --name ${APP_FRONTEND} \
+          --app-name ${APP_FRONTEND} \
+          --routes-json \
+            '[
+               {
+                 "predicates": [
+                   "Path=/**"
+                 ],
+                 "filters": [
+                   "StripPrefix=0"
+                 ],
+                 "order": 1000
+               }
+             ]'
       ```
 
 #### Configure Developer Tools

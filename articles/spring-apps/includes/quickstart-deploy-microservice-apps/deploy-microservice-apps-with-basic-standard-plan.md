@@ -3,10 +3,10 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 06/9/2023
+ms.date: 01/03/2024
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with Basic/Standard plan.
 
 [!INCLUDE [deploy-microservice-apps-with-basic-standard-plan](includes/quickstart-deploy-microservice-apps/deploy-microservice-apps-with-basic-standard-plan.md)]
@@ -39,11 +39,11 @@ Use the following steps to initialize the Pet Clinic application using Azure Dev
 
    ```output
    Initializing a new project (azd init)
-   
+
    Downloading template code to: <your-local-path>
    (✓) Done: Initialized git repository
    Enter a new environment name: <your-env-name>
-   
+
    SUCCESS: New project initialized!
    You can view the template code in your directory: <your-local-path>
    Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
@@ -225,23 +225,23 @@ Use the following steps to package the app, provision the Azure resources requir
 
    ```output
    Deploying services (azd deploy)
-   
+
    (✓) Done: Deploying service admin-server
    - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-admin-server.azuremicroservices.io
-   
+
    (✓) Done: Deploying service api-gateway
    - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io
-   
+
    (✓) Done: Deploying service customers-service
    - No endpoints were found
-   
+
    (✓) Done: Deploying service vets-service
    - No endpoints were found
-   
+
    (✓) Done: Deploying service visits-service
    - No endpoints were found
-   
-   
+
+
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
