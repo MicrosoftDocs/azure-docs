@@ -36,7 +36,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Custom logs (text)**     |   Collection only       |    Collection only     |
 |**IIS logs**     |    Collection only      |    Collection only     |
 |**Multi-homing**     |  Collection only       |   Collection only      |
-|**Application and service logs**     |    -      |    Collection only     |
+|**Application and service logs**     |    Collection only      |    Collection only     |
 |**Sysmon**     |    Collection only      |      Collection only   |
 |**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors/dns.md) (Public preview)        |
 
