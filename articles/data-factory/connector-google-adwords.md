@@ -74,7 +74,7 @@ The following properties are supported for Google Ads linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **GoogleAdWords** | Yes |
-| googleAdsApiVersion | The Google Ads API version that you use.| Yes |
+| googleAdsApiVersion | The Google Ads API version that you use. You can refer this [article](https://developers.google.com/google-ads/api/docs/release-notes) for API version information.|  Yes |
 | clientCustomerID | The Client customer ID of the Ads account that you want to fetch report data for.  | Yes |
 | loginCustomerID | The customer ID of the Google Ads manager account through which you want to fetch report data of specific customer.| No |
 | developerToken | The developer token associated with the manager account that you use to grant access to the Ads API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
@@ -205,7 +205,7 @@ To upgrade your Google Ads driver version, you need update your linked service a
 
 ### Update the linked service configuration
 
-Create a new Google Ads linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and apply the new configuration for **Service authentication** if you use it. 
+Create a new Google Ads linked service and configure it by referring to [Linked service properties](#linked-service-properties). 
 
 ### Migrate from SQL to GAQL
 
