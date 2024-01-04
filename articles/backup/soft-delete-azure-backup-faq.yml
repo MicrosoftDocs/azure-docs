@@ -16,7 +16,7 @@ sections:
   - name: Manage soft delete
     questions:
       - question: |
-          Do I need to enable the soft-delete feature on every vault?
+          Do I need to enable the soft delete feature on every vault?
         answer: |
           No, it's a built-in feature and enabled by default for all the Recovery Services vaults.
 
@@ -48,7 +48,7 @@ sections:
       - question: |
           Can I delete my vault if there are soft-deleted items in the vault?
         answer: |
-          The Recovery Services vault can't be deleted if there are backup items in soft-deleted state in the vault. The soft-deleted items are permanently deleted 14 days after the delete operation. If you can't wait for 14 days, then [disable soft delete](#enabling-and-disabling-soft-delete), undelete the soft deleted items, and delete them again to permanently get deleted. After ensuring there are no protected items and no soft deleted items, the vault can be deleted.  
+          The Recovery Services vault can't be deleted if there are backup items in soft-deleted state in the vault. The soft-deleted items are permanently deleted 14 days after the delete operation. If you can't wait for 14 days, then [disable soft delete](backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete), undelete the soft deleted items, and delete them again to permanently get deleted. After ensuring there are no protected items and no soft deleted items, the vault can be deleted.  
 
       - question: |
           Can I delete the data earlier than the 14 days soft-delete period after deletion?

@@ -103,23 +103,23 @@ Follow these steps:
 
 2. In the **Azure portal**, go to *your vault* > **Backup Items**, and choose the *soft deleted item*.
 
-   ![Choose soft deleted item](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   :::image type="content" source="./media/backup-azure-security-feature-cloud/vm-soft-delete.png" alt-text="Screenshot shows how to choose soft deleted item." lightbox="./media/backup-azure-security-feature-cloud/vm-soft-delete.png":::
 
 3. Select **Undelete**.
 
-   ![Choose Undelete](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+   :::image type="content" source="./media/backup-azure-security-feature-cloud/choose-undelete.png" alt-text="Screenshot shows how to select Undelete." lightbox="./media/backup-azure-security-feature-cloud/choose-undelete.png":::
 
 4. A window appears. Select **Undelete**.
 
-   ![Select Undelete](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   :::image type="content" source="./media/backup-azure-security-feature-cloud/undelete-vm.png" alt-text="Screenshot shows selection of Undelete." lightbox="./media/backup-azure-security-feature-cloud/undelete-vm.png":::
 
 5. Choose **Delete backup data** to permanently delete the backup data.
 
-   ![Choose Delete backup data](./media/backup-azure-manage-vms/delete-backup-button.png)
+   :::image type="content" source="./media/backup-azure-manage-vms/delete-backup-button.png" alt-text="Screenshot shows how to choose Delete backup data." lightbox="./media/backup-azure-manage-vms/delete-backup-button.png":::
 
 6. Type the *name of the backup item* to confirm deletion of the recovery points.
 
-   ![Type the name of the backup item](./media/backup-azure-manage-vms/delete-backup-data.png)
+   :::image type="content" source="./media/backup-azure-manage-vms/delete-backup-data.png" alt-text="Screenshot shows how to enter the name of the backup item." lightbox="./media/backup-azure-manage-vms/delete-backup-data.png":::
 
 7. To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 
