@@ -43,7 +43,7 @@ items:
           href: how-to-read-csv-data.md
         - name: Customize tests with JMeter plugins
           href: how-to-use-jmeter-plugins.md
-    - name: Configure tests
+    - name: Configure test settings
       items:
         - name: Configure for high scale loads
           href: how-to-high-scale-load.md
