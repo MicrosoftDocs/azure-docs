@@ -61,7 +61,7 @@ The following Azure services and features of Azure Monitor can be used for extra
 
 
 ## Metrics
-Metrics play an important role in cluster monitoring, identifying issues, and optimizing performance in the AKS clusters. Platform metrics are captured using the out of the box metrics server installed in kube-system namespace, which periodically scrapes metrics from all Kubernetes nodes served by Kubelet. T=You should also enable Azure Managed Prometheus metrics to collect container metrics and Kubernetes object metrics, such as object state of Deployments. See [Collect Prometheus metrics from an AKS cluster](../azure-monitor/containers/prometheus-metrics-enable.md) to send data to Azure Managed service for Prometheus.
+Metrics play an important role in cluster monitoring, identifying issues, and optimizing performance in the AKS clusters. Platform metrics are captured using the out of the box metrics server installed in kube-system namespace, which periodically scrapes metrics from all Kubernetes nodes served by Kubelet. You should also enable Azure Managed Prometheus metrics to collect container metrics and Kubernetes object metrics, such as object state of Deployments. See [Collect Prometheus metrics from an AKS cluster](../azure-monitor/containers/prometheus-metrics-enable.md) to send data to Azure Managed service for Prometheus.
 
 :::image type="content" source="media/monitor-aks/prometheus.png" alt-text="Screenshot of enabling Managed Prometheus for existing cluster." lightbox="media/monitor-aks/prometheus.png":::
 

@@ -4,7 +4,7 @@ description: Use the Dapr cluster extension for Azure Kubernetes Service (AKS) o
 author: nickomang
 ms.author: nickoman
 ms.topic: quickstart
-ms.date: 06/22/2023
+ms.date: 12/27/2023
 ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022, devx-track-js, devx-track-python, devx-track-linux
 ---
 
@@ -34,7 +34,7 @@ In this quickstart, you use the [Dapr cluster extension][dapr-overview] in an AK
 
 ## Create and configure a state store
 
-Dapr can use many different state stores such as, Redis, Azure Cosmos DB, DynamoDB, and Cassandra to persist and retrieve state. For this example, we use Redis.
+Dapr can use many different state stores, such as Redis, Azure Cosmos DB, DynamoDB, and Cassandra, to persist and retrieve state. For this example, we use Redis.
 
 ### Create a Redis store
 
