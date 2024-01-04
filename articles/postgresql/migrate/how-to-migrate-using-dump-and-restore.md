@@ -15,21 +15,21 @@ ms.date: 01/04/2024
 
 You can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) to extract a PostgreSQL database into a dump file. Then use [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) to restore the PostgreSQL database from an archive file created by `pg_dump`.
 
-The Azure portal streamlines this process via the Connect blade by offering pre-configured commands that are tailored to your server, with values substituted with your user data.  Here's how you can leverage this feature:
+The Azure portal streamlines this process via the Connect blade by offering pre-configured commands that are tailored to your server, with values substituted with your user data. It's important to note that the Connect blade is only available for Azure Database for PostgreSQL - Flexible Server and not for Single Server. Here's how you can leverage this feature:
 
 1. **Access Azure portal**: First, go to the Azure portal and choose the Connect blade.
 
-   :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/portal-connect-blade.png" alt-text="Screenshot showing the placement of Connect blade in Azure portal." lightbox="../media/how-to-migrate-using-dump-and-restore/portal-connect-blade.png":::
+   :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/portal-connect-blade.png" alt-text="Screenshot showing the placement of Connect blade in Azure portal." lightbox="./media/how-to-migrate-using-dump-and-restore/portal-connect-blade.png":::
 
 2. **Select your database**: In the Connect blade, you will find a dropdown list of your databases. Select the database you wish to perform a dump from.
 
-   :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/dropdown-list-of-databases.png" alt-text="Screenshot showing the dropdown where specific database can be chosen." lightbox="../media/how-to-migrate-using-dump-and-restore/dropdown-list-of-databases.png":::
+   :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/dropdown-list-of-databases.png" alt-text="Screenshot showing the dropdown where specific database can be chosen." lightbox="./media/how-to-migrate-using-dump-and-restore/dropdown-list-of-databases.png":::
 
 3. **Choose the appropriate method**: Depending on your database size, you can choose between two methods:
       - **`pg_dump` & `psql` - using singular text file**: Ideal for smaller databases, this option utilizes a single text file for the dump and restore process.
       - **`pg_dump` & `pg_restore` - using multiple cores**: For larger databases, this method is more efficient as it leverages multiple cores to handle the dump and restore process.
 
-   :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/different-dump-methods.png" alt-text="Screenshot showing the dropdown where specific database can be chosen." lightbox="../media/how-to-migrate-using-dump-and-restore/different-dump-methods.png":::
+   :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/different-dump-methods.png" alt-text="Screenshot showing two possible dump methods." lightbox="./media/how-to-migrate-using-dump-and-restore/different-dump-methods.png":::
 
 4. **Copy and paste commands**: The portal provides you with ready-to-use `pg_dump` and `psql` or `pg_restore` commands. These commands come with values already substituted according to the server and database you've chosen. simply copy and paste these commands.
 
