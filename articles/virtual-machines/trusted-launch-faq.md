@@ -13,9 +13,9 @@ ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 
 # Trusted Launch FAQ
 
-Frequently asked questions about trusted launch.
+Frequently asked questions about trusted launch. This includes the feature's use cases, support for other Azure features, and fixes for common errors.
 
-## Product use cases
+## Use cases
 
 ### Why should I use trusted launch? What does trusted launch guard against?
 
@@ -58,10 +58,9 @@ New-AzVM -Name MyVm -Credential $vmCred -SecurityType Standard
 
 ---
 
-## Feature support
+## Supported features and deployments
 
-### Does trusted launch support Azure Compute Gallery?
-
+### Is Azure Compute Gallery supported by trusted launch?
 Trusted launch now allows images to be created and shared through the [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images) (formerly Shared Image Gallery). The image source can be:
 - an existing Azure VM that is either generalized or specialized OR,
 - an existing managed disk or a snapshot OR,
@@ -69,63 +68,23 @@ Trusted launch now allows images to be created and shared through the [Azure Com
 
 For more information about deploying Trusted Launch VM using Azure Compute Gallery, see [deploy Trusted Launch VMs](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image).
 
-### Does trusted launch support Azure Backup?
-
+### Is Azure Backup supported by trusted launch?
 Trusted launch now supports Azure Backup. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
 
-### Does trusted launch support ephemeral OS disks?
+### Will Azure Backup continue working after enabling trusted launch?
+Backups configured with [enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) will continue to take backup of VM after enabling Trusted Launch.
 
+### Are Ephemeral OS disks supported by trusted launch?
 Trusted launch supports ephemeral OS disks. For more information, see [Trusted Launch for Ephemeral OS disks](ephemeral-os-disks.md#trusted-launch-for-ephemeral-os-disks).
 > [!NOTE]
 > While using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing.
 
 
-### Can virtual machine be restored using backup taken before enabling Trusted Launch?
+### Can virtual machine be restored using backup taken before enabling trusted launch?
 Backups taken before [upgrading existing Generation 2 VM to Trusted Launch](trusted-launch-existing-vm.md) can be used to restore entire virtual machine or individual data disks. They can't be used to restore or replace OS disk only.
 
-### Will Azure Backup continue working after enabling Trusted Launch?
-Backups configured with [enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) will continue to take backup of VM after enabling Trusted Launch.
 
-## Power states (boot, reboot, etc.)
-
-### What is VM Guest State (VMGS)?  
-
-VM Guest State (VMGS) is specific to Trusted Launch VM. It's a blob managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS Disk.
-
-### What are the differences between secure boot and measured boot?
-
-In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS checks a signature on the loader, and the loader checks signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature doesn't match, and the VM doesn't boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot doesn't halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
-
-### Why is Trusted Launch Virtual Machine not booting correctly? 
-
-If unsigned components are detected from the UEFI firmware, bootloader, operating system, or boot drivers, Trusted Launch Virtual Machine won't boot. The Secure Boot dependency in the virtual machine blocks all unsigned components or comes a untrusted driver signature.  
-
-![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
-
-> [!TIP]
-> Turning off Secure Boot within the configurations can temporarily mitigate this boot issue. You to check which virtual machine component needs to be signed, then re-enable Secure Boot. [Learn more about updating Trusted Launch configurations](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal3%2Cportal2). 
-
-### Why am I getting a boot integrity monitoring fault?
-
-Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available if [Defender for Cloud's enhanced security features](../security-center/enable-enhanced-security.md) are enabled.
-
-Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
-
-- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This deviation indicates an untrusted module(s) were loaded and the OS may be compromised.
-- The attestation quote could not be verified to originate from the vTPM of the attested VM. This verification failure indicates a malware is present and may be intercepting traffic to the TPM.
-- The attestation extension on the VM isn't responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
-
-### How would I verify a no-boot scenario in the Azure portal? 
-When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority which blocks booting a Trusted Launch VM. When the VM is running, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
-
-To access resource health from the virtual machine configuration page, navigate to Resource Health under the 'Help' panel. 
-
-![A resource health error message alerting a failed secure boot.](./media/trusted-launch/resource-health-error.png)
-
-## Supported deployments
-
-### How can I find VM sizes that support Trusted launch?
-
+### How can I find VM sizes that support trusted launch?
 See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#virtual-machines-sizes).
 
 The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) doesn't support Trusted launch.
@@ -185,7 +144,7 @@ MaxNetworkInterfaces                         8
 
 ---
 
-### How can I validate if OS image supports Trusted Launch?
+### How can I validate that my OS image supports trusted launch?
 
 See the list of [OS versions supported with Trusted Launch](trusted-launch.md#operating-systems-supported),
 
@@ -394,6 +353,45 @@ Architecture      : x64
 ```
 
 ---
+
+
+## Power states
+
+Feature specific states, boot types, and common boot issues.
+
+### What is VM Guest State (VMGS)?  
+
+VM Guest State (VMGS) is specific to Trusted Launch VM. It's a blob managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS Disk.
+
+### What are the differences between secure boot and measured boot?
+
+In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS checks a signature on the loader, and the loader checks signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature doesn't match, and the VM doesn't boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot doesn't halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
+
+### Why is Trusted Launch Virtual Machine not booting correctly? 
+
+If unsigned components are detected from the UEFI firmware, bootloader, operating system, or boot drivers, Trusted Launch Virtual Machine won't boot. The Secure Boot dependency in the virtual machine blocks all unsigned components or comes a untrusted driver signature.  
+
+![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
+
+> [!TIP]
+> Turning off Secure Boot within the configurations can temporarily mitigate this boot issue. You to check which virtual machine component needs to be signed, then re-enable Secure Boot. [Learn more about updating Trusted Launch configurations](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal3%2Cportal2). 
+
+### Why am I getting a boot integrity monitoring fault?
+
+Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available if [Defender for Cloud's enhanced security features](../security-center/enable-enhanced-security.md) are enabled.
+
+Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
+
+- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This deviation indicates an untrusted module(s) were loaded and the OS may be compromised.
+- The attestation quote could not be verified to originate from the vTPM of the attested VM. This verification failure indicates a malware is present and may be intercepting traffic to the TPM.
+- The attestation extension on the VM isn't responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
+
+### How would I verify a no-boot scenario in the Azure portal? 
+When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority which blocks booting a Trusted Launch VM. When the VM is running, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
+
+To access resource health from the virtual machine configuration page, navigate to Resource Health under the 'Help' panel. 
+
+![A resource health error message alerting a failed secure boot.](./media/trusted-launch/resource-health-error.png)
 
 ## Drivers
 
