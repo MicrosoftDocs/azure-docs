@@ -22,8 +22,8 @@ sections:
 
       - question: |
           Can I configure the number of days for which my data will be retained in soft-deleted state after the delete operation is complete?
-
-No, it's fixed to 14 days of additional retention after the delete operation.
+        answer: |
+          No, it's fixed to 14 days of additional retention after the delete operation.
 
       - question: |
           Do I need to pay the cost for this additional 14-day retention?
