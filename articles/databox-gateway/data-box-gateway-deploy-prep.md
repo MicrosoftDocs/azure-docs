@@ -106,7 +106,7 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
 
 4. Select **Create**.
 
-    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-create.png" alt-text="":::
+    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-create.png" alt-text="Screenshot showing the location of the Create button used to create the Data Box Gateway resource.":::
     ![Click Create to create the Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-create.png)
 
 5. On the **Basics** tab:
@@ -127,17 +127,17 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
 
    Then select **Review + create** to review your order.
 
-    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-basics-sml.png" alt-text="" lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-basics.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-basics-sml.png" alt-text="Sreenshot of a Project and Instance detail entry for a Data Box Gateway order." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-basics.png":::
    ![Project and instance detail entry for a Data Box Gateway order](media/data-box-gateway-deploy-prep/data-box-gateway-basics.png)
 
 7. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select **Create**.
 
-    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-resource-review-create.png" alt-text="":::
+    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-resource-review-create.png" alt-text="Screenshot of the Data Box Gateway resource details displayed for review.":::
     ![Data Box Gateway resource details displayed for review](media/data-box-gateway-deploy-prep/data-box-gateway-resource-review-create.png)
 
 The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-:::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-completed-order-sml.png" alt-text="" lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-completed-order.png":::
+:::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-completed-order-sml.png" alt-text="Screenshot of a completed Data Box Gateway order" lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-completed-order.png":::
 ![A completed Data Box Gateway order](media/data-box-gateway-deploy-prep/data-box-gateway-completed-order.png)
 
 ## Download the virtual device image
@@ -151,18 +151,18 @@ Follow these steps in the [Azure portal](https://portal.azure.com/) to download 
 
 1. In the resource that you created and then select **Overview**. If you have an existing Azure Data Box Gateway resource, select the resource and go to **Overview**. Select **Device setup**.
 
-    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-resource-created-sml.png" alt-text="" lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-resource-created-sml.png" alt-text="Screenshot of a new Data Box Gateway resource." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png":::
     ![New Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
 
-2. On the **Download image** tile, select the virtual device image corresponding to the operating system on the host server used to provision the VM. The image files are approximately 5.6 GB.
+1. On the **Download image** tile, select the virtual device image corresponding to the operating system on the host server used to provision the VM. The image files are approximately 5.6 GB.
 
    * [VHDX for Hyper-V on Windows Server 2012 R2 and later](https://aka.ms/dbe-vhdx-2012).
    * [VMDK for VMware ESXi 6.7, 7.0, or 8.0](https://aka.ms/dbg-rel-vmdk).
 
-    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-download-image-sml.png" alt-text="" lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-download-image-sml.png" alt-text="Screenshot showing the location of the link used to download a Data Box Gateway virtual device image." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png":::
     ![Download Data Box Gateway virtual device image](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
 
-5. Download and unzip the file to a local drive, making a note of where the unzipped file is located.
+1. Download and unzip the file to a local drive, making a note of where the unzipped file is located.
 
 
 ## Get the activation key
@@ -171,12 +171,12 @@ After the Data Box Gateway resource is up and running, you'll need to get the ac
 
 1. Select the resource that you created, and then select **Overview**. In the **Device setup**, go to the **Configure and activate** tile.
 
-    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate-sml.png" alt-text="" lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate-sml.png" alt-text="Screenshot illustarting th elocation of the Configure and activate tile." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate.png":::
     ![Configure and activate tile](media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate.png)
 
 2. Select **Generate key** to create an activation key. Select the copy icon to copy the key and save it for later use.
 
-    :::image type="content" source="media/data-box-gateway-deploy-prep/get-activation-key-sml.png" alt-text="" lightbox="media/data-box-gateway-deploy-prep/get-activation-key.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-prep/get-activation-key-sml.png" alt-text="Screenshot showing the location of the Activation key after it has been generated." lightbox="media/data-box-gateway-deploy-prep/get-activation-key.png":::
     ![Get activation key](media/data-box-gateway-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
