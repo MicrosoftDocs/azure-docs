@@ -83,7 +83,7 @@ If you are using a Single Server, your username will include the server name com
 ### Create a new database
 Before restoring your database, you might need to create a new, empty database. Here are two commonly used methods:
 
-1. **Using `createdb`utility**
+1. **Using `createdb` utility**
    The createdb command allows for database creation directly from the bash command line, without the need to log into PostgreSQL or leave the operating system environment. For instance:
 
    ```bash
@@ -106,6 +106,7 @@ psql -f <database name>_dump.sql <new database name> -h <server name> -U <user n
 ```
 
 For example, if you have a server named `mydemoserver`, a user named `myuser` and a new database called `testdb_copy`, run the following command:
+
 ```bash
 psql -f testdb_dump.sql testdb_copy -h mydemoserver.postgres.database.azure.com -U myuser 2> errors.log
 ```
