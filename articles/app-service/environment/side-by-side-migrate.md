@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the side by side migration
 description: Overview of the side by side migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 1/3/2024
+ms.date: 1/4/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -41,7 +41,8 @@ The following App Service Environment configurations can be migrated using the s
 |[Internal Load Balancer (ILB)](create-ilb-ase.md) App Service Environment v2                       |ILB App Service Environment v3                             |
 |[External (ELB/internet facing with public IP)](create-external-ase.md) App Service Environment v2 |ELB App Service Environment v3                             |
 |ILB App Service Environment v2 with a custom domain suffix                                         |ILB App Service Environment v3 (custom domain suffix is optional) |
-|ILB/ELB zone pinned App Service Environment v2                                                     |ILB/ELB App Service Environment v3                         |
+|ILB zone pinned App Service Environment v2                                                     |ILB App Service Environment v3                         |
+|ELB zone pinned App Service Environment v2                                                     |ELB App Service Environment v3                         |
 
 App Service Environment v3 can be deployed as [zone redundant](../../availability-zones/migrate-app-service-environment.md). Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
@@ -110,8 +111,9 @@ The platform creates your new App Service Environment v3 in a different subnet t
 - The subnet must have a single delegation of `Microsoft.Web/hostingEnvironments`.
 - The subnet must have enough available IP addresses to support your new App Service Environment v3. The number of IP addresses needed depends on the number of instances you want to use for your new App Service Environment v3. For more information, see [App Service Environment v3 networking](networking.md#addresses).
 - The subnet must not have any locks applied to it. If there are locks, they must be removed before migration. The locks can be readded if needed once migration is complete. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+- There must not be any Azure Policies blocking migration or related actions. If there are policies that block the creation of App Service Environments or the modification of subnets, they must be removed before migration. The policies can be readded if needed once migration is complete. For more information on Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md).
 
-### Generate IP addresses for your new App Service Environment v3
+### Generate outbound IP addresses for your new App Service Environment v3
 
 The platform creates the [the new outbound IP addresses](networking.md#addresses). While these IPs are getting created, activity with your existing App Service Environment isn't interrupted, however, you can't scale or make changes to your existing environment. This process takes about 15 minutes to complete.
 
@@ -121,7 +123,7 @@ You receive the new inbound IP address once migration is complete but before you
 
 This step is also where you decide if you want to enable zone redundancy for your new App Service Environment v3. Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
-### Update dependent resources with new IPs
+### Update dependent resources with new outbound IPs
 
 The new outbound IPs are created and given to you before you start the actual migration. The new default outbound to the internet public addresses are given so you can adjust any external firewalls, DNS routing, network security groups, and any other resources that rely on these IPs before completing the migration. **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.** This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer, which now uses port 80.
 
@@ -149,7 +151,7 @@ If your existing App Service Environment uses a custom domain suffix, you can co
 
 After completing the previous steps, you should continue with migration as soon as possible.
 
-There's no application downtime during the migration, but as in the IP generation step, you can't scale, modify your existing App Service Environment, or deploy apps to it during this process.
+There's no application downtime during the migration, but as in the outbound IP generation step, you can't scale, modify your existing App Service Environment, or deploy apps to it during this process.
 
 > [!IMPORTANT]
 > Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete.
@@ -169,7 +171,7 @@ You get the new inbound IP address that you can use to set up new endpoints with
 
 ### Redirect customer traffic and complete migration
 
-You need to redirect traffic to your new App Service Environment v3 and complete the migration. Before you do  this step, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. You have the IPs associated with your App Service Environment v3 from the [IP generation step](#generate-ip-addresses-for-your-new-app-service-environment-v3). Once you're ready to redirect traffic, you can complete the final step of the migration. This step updates your DNS records to point to the new inbound IP address of your App Service Environment v3. Changes are effective immediately. This step shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
+The final step is to redirect traffic to your new App Service Environment v3 and complete the migration. This is handled by the platform, but only when you initiate it. Before you do this step, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. You have the IPs associated with your App Service Environment v3 from the IP generation steps. Once you're ready to redirect traffic, you can complete the final step of the migration. This step updates internal DNS records to point to the load balancer IP address of your new App Service Environment v3. Changes are effective immediately. This step also shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
 
 > [!NOTE]
 > Due to the conversion of App Service plans from Isolated to Isolated v2, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and CPU per corresponding instance size. You'll have the opportunity to [scale your environment](../manage-scale-up.md) as needed once migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
@@ -202,8 +204,8 @@ The App Service plan SKUs available for App Service Environment v3 run on the Is
 - **What if my App Service Environment has a custom domain suffix?**  
   The side by side migration feature supports this [migration scenario](#supported-scenarios).
 - **What if my App Service Environment is zone pinned?**  
-  The side by side migration feature supports this [migration scenario](#supported-scenarios). Zone pinning isn't a feature on App Service Environment v3. You can enable zone redundancy once migration completes.
-- **What if my App Service Environment has IP SSL addresses?**
+  The side by side migration feature supports this [migration scenario](#supported-scenarios). Zone pinning isn't a feature on App Service Environment v3. You can enable zone redundancy during the migration set-up.
+- **What if my App Service Environment has IP SSL addresses?**  
   IP SSL isn't supported on App Service Environment v3. You must remove all IP SSL bindings before migrating using the migration feature or one of the manual options. If you intend to use the side by side migration feature, once you remove all IP SSL bindings, you pass that validation check and can proceed with the automated migration.  
 - **What properties of my App Service Environment will change?**  
   You're on App Service Environment v3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. Both your inbound and outbound IPs change when using the side by side migration feature. Note for ELB App Service Environment, previously there was a single IP for both inbound and outbound. For App Service Environment v3, they're separate. For more information, see [App Service Environment v3 networking](networking.md#addresses). For a full comparison of the App Service Environment versions, see [App Service Environment version comparison](version-comparison.md).
