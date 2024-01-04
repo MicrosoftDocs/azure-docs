@@ -22,7 +22,7 @@ This query finds virtual machines that are marked as critical and that had a hea
 {
     arg("").Resources
     | where type == "microsoft.compute/virtualmachines"
-    | where tags.BusinessCriticality =~ 'critical' and subscriptionId == 'XXX-XXX-XXX-XXX'
+    | where tags.BusinessCriticality =~ "critical" and subscriptionId == "XXX-XXX-XXX-XXX"
     | join kind=leftouter (
     Heartbeat
     | where TimeGenerated > ago(24h)
