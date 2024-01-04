@@ -21,8 +21,8 @@ This section lists all the automatically collected platform metrics for Azure St
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Storage tasks | [Microsoft.Storage/storageTasks](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storagetasks-metrics) |
-| Storage tasks | [Microsoft.Storage/storageAccounts/storageTasks](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-storagetasks-metrics) |
+| Storage tasks | [Microsoft.StorageActions/storageTasks](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storagetasks-metrics) |
+| Storage tasks | [Microsoft.StorageActions/storageAccounts/storageTasks](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-storagetasks-metrics) |
 
 ## Metric Dimensions
 
@@ -41,15 +41,15 @@ The following table lists the operations that Azure Storage Actions might record
 
 | Namespace | Description |
 |:---|:---|
-| Microsoft.Storage/storageTasks/read | Reads an existing storage task. |
-| Microsoft.Storage/storageTasks/delete | Deletes a storage task. |
-| Microsoft.Storage/storageTasks/promote/action | Description goes here |
-| Microsoft.Storage/storageTasks/write | Edits a storage task. |
-| Microsoft.Storage/storageAccounts/storageTasks/delete | Deletes a storage task. |
-| Microsoft.Storage/storageAccounts/storageTasks/read | Reads an existing storage task. |
-| Microsoft.Storage/storageAccounts/storageTasks/executionsummary/action | Description goes here|
-| Microsoft.Storage/storageAccounts/storageTasks/assignmentexecutionsummary/action | Description goes here|
-| Microsoft.Storage/storageAccounts/storageTasks/write | Edits a storage task. |
+| Microsoft.StorageActions/storageTasks/read | Reads an existing storage task. |
+| Microsoft.StorageActions/storageTasks/delete | Deletes a storage task. |
+| Microsoft.StorageActions/storageTasks/promote/action | Description goes here |
+| Microsoft.StorageActions/storageTasks/write | Edits a storage task. |
+| Microsoft.StorageActions/storageAccounts/storageTasks/delete | Deletes a storage task. |
+| Microsoft.StorageActions/storageAccounts/storageTasks/read | Reads an existing storage task. |
+| Microsoft.StorageActions/storageAccounts/storageTasks/executionsummary/action | Description goes here|
+| Microsoft.StorageActions/storageAccounts/storageTasks/assignmentexecutionsummary/action | Description goes here|
+| Microsoft.StorageActions/storageAccounts/storageTasks/write | Edits a storage task. |
 
 See [all the possible resource provider operations in the activity log](/azure/role-based-access-control/resource-provider-operations).  
 
