@@ -16,7 +16,7 @@ Operator Nexus will release platform cluster runtime versions three minor versio
 
 Operator Nexus supports n-2 platform cluster runtime releases for customers, providing approximately one year of support upon release.
 
-## Understanding Nexus Cluster Versioning
+## Understanding Nexus Cluster versioning
 
 Nexus Platform Cluster versions use semantic versioning-based principles (https://semver.org/), which ensures that users can make informed decisions about version selection with the following rules about changes allowed in a version: 
 
