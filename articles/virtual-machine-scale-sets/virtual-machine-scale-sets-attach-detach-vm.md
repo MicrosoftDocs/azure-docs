@@ -182,6 +182,15 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm -VirtualMachin
 - The scale set must have a `platformFaultDomainCount` of **1**.
 - VMs created by the scale set must be `Stopped` prior to being detached.
 
+## Moving VMs between scale sets (Preview)
+
+To move a VM from one scale set to another, use the following steps:
+1. [Detach](#detaching-a-vm-from-a-virtual-machine-scale-set-preview) the VM from scale set A.
+2. Once the detach completes, [attach](#attach-an-existing-vm-to-a-virtual-machine-scale-set-preview) the VM to scale set B.
+
+### Limitations
+The limitations for VMs to be [attached](#limitations-for-attaching-an-existing-vm-to-a-scale-set) or [detached](#limitations-for-detaching-a-vm-from-a-scale-set) to or from a scale set remain the same. 
+
 ## Troubleshooting
 
 ### Attach an existing VM to an existing scale set troubleshooting (Preview)
