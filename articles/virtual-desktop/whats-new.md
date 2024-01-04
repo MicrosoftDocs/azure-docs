@@ -7,6 +7,7 @@ author: Heidilohr
 ms.author: helohr
 ms.date: 01/04/2023
 ---
+
 # What's new in Azure Virtual Desktop?
 
 Azure Virtual Desktop updates regularly. This article is where you find out about:
