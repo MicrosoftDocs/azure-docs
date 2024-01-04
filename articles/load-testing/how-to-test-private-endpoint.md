@@ -34,7 +34,9 @@ When you start the load test, Azure Load Testing service injects the following A
 - A network security group (NSG). 
 - An Azure Load Balancer.
 
-These resources are ephemeral and exist only during the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-virtual-network) to enable communication between these Azure Load Testing and the injected VMs. If you have restrictions on the deployment of Public IP, Azure Load Balancer or Network Security Group, see [Configure your load test](#configure-your-load-test).
+These resources are ephemeral and exist only while the load test is running. If you have restrictions on the deployment of a public IP address, Azure load balancer, or network security group in your subnet, you can disable the deployment of these resources. For more information, see [Configure your load test](#configure-your-load-test).
+
+If you restrict access to your virtual network, you need to [configure your virtual network](#configure-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
 
 ## Prerequisites
 
