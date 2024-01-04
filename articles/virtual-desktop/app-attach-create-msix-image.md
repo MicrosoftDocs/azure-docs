@@ -44,7 +44,7 @@ You should create a new folder for the destination because a CIM disk image is m
 
 1. Open command prompt as an administrator and change to the directory you extracted the MSIXMGR tool. 
 
-1. Create a new folder for the destination.
+1. Make sure the folder you use for the destination exists before you run MSIXMGR. Create a new folder if necessary.
 
 1. To create the CIM disk image, run the following command:
 
@@ -63,6 +63,8 @@ You should create a new folder for the destination because a CIM disk image is m
 Here's an example command to create a VHDX disk image from an MSIX image. A single VHDX file is created. 
 
 1. Open command prompt as an administrator and change to the directory you extracted the MSIXMGR tool. 
+
+1. Make sure the folder you use for the destination exists before you run MSIXMGR. Create a new folder if necessary.
 
 1. To create the VHDX disk image, run the following command:
 

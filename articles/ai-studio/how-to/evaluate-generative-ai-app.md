@@ -8,6 +8,7 @@ ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-python
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 zone_pivot_groups: azure-ai-studio-sdk
 ---

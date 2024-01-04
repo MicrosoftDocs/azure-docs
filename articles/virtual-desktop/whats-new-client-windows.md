@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 11/20/2023
+ms.date: 01/04/2024
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -20,19 +20,35 @@ The following table lists the current versions available for the public and Insi
 | Public  | 1.2.4763       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
 | Insider | 1.2.5018       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
+## Updates for version 1.2.5102 (Insider)
+
+*Published: December 19, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+In this release, we've made the following changes:
+
+- Improved accessibility by making the **Change the size of text and apps** drop-down menu more visible in the High Contrast theme.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
 ## Updates for version 1.2.5018 (Insider) 
 
-*Date published: November 20, 2023*
+*Published: November 20, 2023*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)   
+> [!NOTE]
+> We replaced this Insiders version with [version 1.2.5102](#updates-for-version-125102-insider). As a result, version 1.2.5018 is no longer available for download.
+
+In this release, we've made the following change:
 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.4763
 
-*Date published: November 7, 2023*
+*Published: November 7, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+In this release, we've made the following changes:
 
 - Added a link to the troubleshooting documentation to error messages to help users resolve minor issues without needing to contact Microsoft Support. 
 - Improved the connection bar user interface (UI). 
@@ -43,9 +59,11 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 ## Updates for version 1.2.4677
 
-*Date published: October 17, 2023*
+*Published: October 17, 2023*
 
 Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1d1KN), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1d1KO), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1cRm0)
+
+In this release, we've made the following changes:
 
 - Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
 - Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
@@ -57,13 +75,15 @@ Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/bi
 
 ## Updates for version 1.2.4583
 
-*Date published: October 6, 2023*
+*Published: October 6, 2023*
+
+In this release, we've made the following change:
 
 - Fixed the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability.
 
 ## Updates for version 1.2.4582
 
-*Date published: September 19, 2023*
+*Published: September 19, 2023*
 
 In this release, we've made the following changes:
 
@@ -81,7 +101,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4487
 
-*Date published: July 21, 2023*
+*Published: July 21, 2023*
 
 In this release, we've made the following changes:
 
@@ -89,7 +109,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4485
 
-*Date published: July 11, 2023*
+*Published: July 11, 2023*
 
 In this release, we've made the following changes:
 
@@ -107,7 +127,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4419
 
-*Date published: July 6, 2023*
+*Published: July 6, 2023*
 
 In this release, we've made the following changes:
 
@@ -118,7 +138,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4337
 
-*Date published: June 13, 2023*
+*Published: June 13, 2023*
 
 In this release, we've made the following changes:
 
@@ -127,7 +147,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4331
 
-*Date published: June 6, 2023*
+*Published: June 6, 2023*
 
 In this release, we've made the following changes:
 
@@ -140,7 +160,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4240
 
-*Date published: May 16, 2023*
+*Published: May 16, 2023*
 
 In this release, we've made the following changes:
 
@@ -151,7 +171,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4159
 
-*Date published: May 9, 2023*
+*Published: May 9, 2023*
 
 In this release, we've made the following changes:
 
@@ -167,7 +187,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4066
 
-*Date published: March 28, 2023*
+*Published: March 28, 2023*
 
 In this release, we've made the following changes:
 
@@ -188,7 +208,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3918
 
-*Date published: February 7, 2023*
+*Published: February 7, 2023*
 
 In this release, we've made the following changes:
 
@@ -205,7 +225,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3770
 
-*Date published: December 14, 2022*
+*Published: December 14, 2022*
 
 In this release, we've made the following changes:
 
@@ -216,7 +236,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3667
 
-*Date published: November 30, 2022*
+*Published: November 30, 2022*
 
 In this release, we've made the following changes:
 
@@ -229,7 +249,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3577
 
-*Date published: October 10, 2022*
+*Published: October 10, 2022*
 
 In this release, we've made the following change:
 
@@ -237,7 +257,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.3576
 
-*Date published: October 6, 2022*
+*Published: October 6, 2022*
 
 In this release, we've made the following change:
 
@@ -245,7 +265,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.3575
 
-*Date published: October 4, 2022*
+*Published: October 4, 2022*
 
 In this release, we've made the following change:
 
@@ -253,7 +273,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.3574
 
-*Date published: October 4, 2022*
+*Published: October 4, 2022*
 
 In this release, we've made the following changes:
 
@@ -266,7 +286,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3497
 
-*Date published: September 20, 2022*
+*Published: September 20, 2022*
 
 In this release, we've made the following changes:
 
@@ -280,7 +300,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3496
 
-*Date published: September 8, 2022*
+*Published: September 8, 2022*
 
 In this release, we've made the following change:
 
@@ -288,7 +308,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.3401
 
-*Date published: August 2, 2022*
+*Published: August 2, 2022*
 
 In this release, we've made the following changes:
 
@@ -298,7 +318,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3317
 
-*Date published: July 12, 2022*
+*Published: July 12, 2022*
 
 In this release, we've made the following change:
 
@@ -306,7 +326,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.3316
 
-*Date published: July 6, 2022*
+*Published: July 6, 2022*
 
 In this release, we've made the following changes:
 
@@ -320,7 +340,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3213
 
-*Date published: June 2, 2022*
+*Published: June 2, 2022*
 
 In this release, we've made the following changes:
 
@@ -332,7 +352,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3130
 
-*Date published: May 10, 2022*
+*Published: May 10, 2022*
 
 In this release, we've made the following changes:
 
@@ -343,7 +363,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3128
 
-*Date published: May 3, 2022*
+*Published: May 3, 2022*
 
 In this release, we've made the following changes:
 
@@ -357,7 +377,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3004
 
-*Date published: March 29, 2022*
+*Published: March 29, 2022*
 
 In this release, we've made the following changes:
 
@@ -371,7 +391,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2927
 
-*Date published: March 15, 2022*
+*Published: March 15, 2022*
 
 In this release, we've made the following change:
 
@@ -379,7 +399,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.2925
 
-*Date published: March 8, 2022*
+*Published: March 8, 2022*
 
 In this release, we've made the following changes:
 
@@ -389,7 +409,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2924
 
-*Date published: February 23, 2022*
+*Published: February 23, 2022*
 
 In this release, we've made the following changes:
 
@@ -403,7 +423,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2860
 
-*Date published: February 15, 2022*
+*Published: February 15, 2022*
 
 In this release, we've made the following changes:
 
@@ -412,7 +432,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2851
 
-*Date published: January 25, 2022*
+*Published: January 25, 2022*
 
 In this release, we've made the following changes:
 
@@ -425,7 +445,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2691
 
-*Date published: January 12, 2022*
+*Published: January 12, 2022*
 
 In this release, we've made the following changes:
 
@@ -436,7 +456,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2688
 
-*Date published: December 9, 2021*
+*Published: December 9, 2021*
 
 In this release, we've made the following change:
 
@@ -444,7 +464,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.2687
 
-*Date published: December 2, 2021*
+*Published: December 2, 2021*
 
 In this release, we've made the following changes:
 
@@ -468,7 +488,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2606
 
-*Date published: November 9, 2021*
+*Published: November 9, 2021*
 
 In this release, we've made the following changes:
 
@@ -478,7 +498,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2600
 
-*Date published: October 26, 2021*
+*Published: October 26, 2021*
 
 In this release, we've made the following changes:
 
@@ -487,7 +507,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2459
 
-*Date published: September 28, 2021*
+*Published: September 28, 2021*
 
 In this release, we've made the following changes:
 
@@ -499,7 +519,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2322
 
-*Date published: August 24, 2021*
+*Published: August 24, 2021*
 
 In this release, we've made the following changes:
 
@@ -511,7 +531,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2223
 
-*Date published: August 10, 2021*
+*Published: August 10, 2021*
 
 In this release, we've made the following change:
 
@@ -519,7 +539,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.2222
 
-*Date published: July 27, 2021*
+*Published: July 27, 2021*
 
 In this release, we've made the following changes:
 
@@ -529,7 +549,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2130
 
-*Date published: June 22, 2021*
+*Published: June 22, 2021*
 
 In this release, we've made the following changes:
 
@@ -540,7 +560,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2061
 
-*Date published: May 25, 2021*
+*Published: May 25, 2021*
 
 In this release, we've made the following changes:
 
@@ -551,7 +571,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1954
 
-*Date published: May 13, 2021*
+*Published: May 13, 2021*
 
 In this release, we've made the following change:
 
@@ -559,7 +579,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.1953
 
-*Date published: May 6, 2021*
+*Published: May 6, 2021*
 
 In this release, we've made the following changes:
 
@@ -575,7 +595,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1844
 
-*Date published: March 23, 2021*
+*Published: March 23, 2021*
 
 In this release, we've made the following changes:
 
@@ -591,7 +611,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1755
 
-*Date published: February 23, 2021*
+*Published: February 23, 2021*
 
 In this release, we've made the following changes:
 
@@ -606,7 +626,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1672
 
-*Date published: January 26, 2021*
+*Published: January 26, 2021*
 
 In this release, we've made the following changes:
 
@@ -617,7 +637,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1525
 
-*Date published: December 1, 2020*
+*Published: December 1, 2020*
 
 In this release, we've made the following changes:
 
@@ -626,7 +646,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1446
 
-*Date published: October 27, 2020*
+*Published: October 27, 2020*
 
 In this release, we've made the following changes:
 
@@ -638,7 +658,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1364
 
-*Date published: September 22, 2020*
+*Published: September 22, 2020*
 
 In this release, we've made the following changes:
 
@@ -650,7 +670,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1275
 
-*Date published: August 25, 2020*
+*Published: August 25, 2020*
 
 In this release, we've made the following changes:
 
@@ -663,7 +683,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1186
 
-*Date published: July 28, 2020*
+*Published: July 28, 2020*
 
 In this release, we've made the following changes:
 
@@ -675,7 +695,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1104
 
-*Date published: June 23, 2020*
+*Published: June 23, 2020*
 
 In this release, we've made the following changes:
 
@@ -688,7 +708,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1026
 
-*Date published: May 27, 2020*
+*Published: May 27, 2020*
 
 In this release, we've made the following changes:
 
@@ -709,7 +729,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.945
 
-*Date published: April 28, 2020*
+*Published: April 28, 2020*
 
 In this release, we've made the following changes:
 
@@ -731,7 +751,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.790
 
-*Date published: March 24, 2020*
+*Published: March 24, 2020*
 
 In this release, we've made the following changes:
 
@@ -745,7 +765,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.675
 
-*Date published: February 25, 2020*
+*Published: February 25, 2020*
 
 In this release, we've made the following changes:
 
@@ -758,7 +778,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.605
 
-*Date published: January 29, 2020*
+*Published: January 29, 2020*
 
 In this release, we've made the following changes:
 
@@ -771,7 +791,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.535
 
-*Date published: December 4, 2019*
+*Published: December 4, 2019*
 
 In this release, we've made the following changes:
 
@@ -784,7 +804,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.431
 
-*Date published: November 12, 2019*
+*Published: November 12, 2019*
 
 In this release, we've made the following changes:
 
@@ -804,7 +824,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.247
 
-*Date published: September 17, 2019*
+*Published: September 17, 2019*
 
 In this release, we've made the following changes:
 

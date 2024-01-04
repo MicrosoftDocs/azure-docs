@@ -24,7 +24,123 @@ At a high level you can break down working with functions into three steps:
 > [!IMPORTANT]
 > The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the [`tools`](../reference.md#chat-completions) parameter. The replacement for `function_call` is the [`tool_choice`](../reference.md#chat-completions) parameter.
 
-## Using function in the chat completions API
+## Parallel function calling
+
+Parallel function calls are supported with:
+
+### Supported models
+
+* `gpt-35-turbo` (1106)
+* `gpt-4` (1106-preview)
+
+### Supported API versions
+
+* [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+
+Parallel function calls allow you to perform multiple function calls together, allowing for parallel execution and retrieval of results. This reduces the number of calls to the API that need to be made and can improve overall performance.
+
+For example for a simple weather app you may want to retrieve the weather in multiple locations at the same time. This will result in a a chat completion message with three function calls in the `tool_calls` array, each with a unique `id`. If you wanted to respond to these function calls, you would add 3 new messages to the conversation, each containing the result of one function call, with a `tool_call_id` referencing the `id` from `tools_calls`.
+
+Below we provide a modified version of OpenAI's `get_current_weather` example. This example as with the original from OpenAI is to provide the basic structure, but is not a fully functioning standalone example. Attempting to execute this code without further modification would result in an error.
+
+In this example, a single function get_current_weather is defined. The model calls the function multiple times, and after sending the function response back to the model, it decides the next step. It responds with a user-facing message which was telling the user the temperature in San Francisco, Tokyo, and Paris. Depending on the query, it may choose to call a function again.
+
+To force the model to call a specific function set the `tool_choice` parameter with a specific function name. You can also force the model to generate a user-facing message by setting `tool_choice: "none"`.
+
+> [!NOTE]
+> The default behavior (`tool_choice: "auto"`) is for the model to decide on its own whether to call a function and if so which function to call.
+
+```python
+from openai import AzureOpenAI
+import json
+
+client = AzureOpenAI(
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
+  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_version="2023-12-01-preview"
+)
+
+from openai import OpenAI
+import json
+
+# Example function hard coded to return the same weather
+# In production, this could be your backend API or an external API
+def get_current_weather(location, unit="fahrenheit"):
+    """Get the current weather in a given location"""
+    if "tokyo" in location.lower():
+        return json.dumps({"location": "Tokyo", "temperature": "10", "unit": unit})
+    elif "san francisco" in location.lower():
+        return json.dumps({"location": "San Francisco", "temperature": "72", "unit": unit})
+    elif "paris" in location.lower():
+        return json.dumps({"location": "Paris", "temperature": "22", "unit": unit})
+    else:
+        return json.dumps({"location": location, "temperature": "unknown"})
+
+def run_conversation():
+    # Step 1: send the conversation and available functions to the model
+    messages = [{"role": "user", "content": "What's the weather like in San Francisco, Tokyo, and Paris?"}]
+    tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": "get_current_weather",
+                "description": "Get the current weather in a given location",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "location": {
+                            "type": "string",
+                            "description": "The city and state, e.g. San Francisco, CA",
+                        },
+                        "unit": {"type": "string", "enum": ["celsius", "fahrenheit"]},
+                    },
+                    "required": ["location"],
+                },
+            },
+        }
+    ]
+    response = client.chat.completions.create(
+        model="<REPLACE_WITH_YOUR_MODEL_DEPLOYMENT_NAME>",
+        messages=messages,
+        tools=tools,
+        tool_choice="auto",  # auto is default, but we'll be explicit
+    )
+    response_message = response.choices[0].message
+    tool_calls = response_message.tool_calls
+    # Step 2: check if the model wanted to call a function
+    if tool_calls:
+        # Step 3: call the function
+        # Note: the JSON response may not always be valid; be sure to handle errors
+        available_functions = {
+            "get_current_weather": get_current_weather,
+        }  # only one function in this example, but you can have multiple
+        messages.append(response_message)  # extend conversation with assistant's reply
+        # Step 4: send the info for each function call and function response to the model
+        for tool_call in tool_calls:
+            function_name = tool_call.function.name
+            function_to_call = available_functions[function_name]
+            function_args = json.loads(tool_call.function.arguments)
+            function_response = function_to_call(
+                location=function_args.get("location"),
+                unit=function_args.get("unit"),
+            )
+            messages.append(
+                {
+                    "tool_call_id": tool_call.id,
+                    "role": "tool",
+                    "name": function_name,
+                    "content": function_response,
+                }
+            )  # extend conversation with function response
+        second_response = client.chat.completions.create(
+            model="<REPLACE_WITH_YOUR_1106_MODEL_DEPLOYMENT_NAME>",
+            messages=messages,
+        )  # get a new response from the model where it can see the function response
+        return second_response
+print(run_conversation())
+```
+
+## Using function in the chat completions API (Deprecated)
 
 Function calling is available in the `2023-07-01-preview` API version and works with version 0613 of gpt-35-turbo, gpt-35-turbo-16k, gpt-4, and gpt-4-32k.
 

@@ -6,7 +6,7 @@ ms.author: yizha1
 ms.service: container-registry
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 6/9/2023
+ms.date: 10/31/2023
 ---
 
 # Sign container images with Notation and Azure Key Vault using a CA-issued certificate (Preview)

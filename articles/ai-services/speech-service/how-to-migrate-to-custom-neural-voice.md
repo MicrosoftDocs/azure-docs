@@ -2,7 +2,6 @@
 title: Migrate from custom voice to custom neural voice - Speech service
 titleSuffix: Azure AI services
 description: This document helps users migrate from custom voice to custom neural voice.
-#services: cognitive-services
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
