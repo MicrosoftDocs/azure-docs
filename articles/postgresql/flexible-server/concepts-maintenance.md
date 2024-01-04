@@ -20,7 +20,7 @@ Azure Database for PostgreSQL - Flexible Server performs periodic maintenance to
 
 ## Select a maintenance window
  
-You can schedule maintenance during a specific day of the week and a time window within that day. Or you can let the system pick a day and a time window time for you automatically. Either way, the system alerts you five days before running any maintenance. The system will also let you know when maintenance is started, and when it's successfully completed.
+You can schedule maintenance during a specific day of the week and a time window within that day. Or you can let the system pick a day and a time window time for you automatically. **Maintenance Notifications are sent 5 days in advance**. This ensures ample time to prepare for the scheduled maintenance.. The system will also let you know when maintenance is started, and when it's successfully completed.
  
 Notifications about upcoming scheduled maintenance can be:
  
@@ -51,7 +51,7 @@ You can define system-managed schedule or custom schedule for each flexible serv
 
 Updates are first applied to servers with system-managed schedules, followed by those with custom schedules after at least 7 days within a region. To receive early updates for development and test servers, use a system-managed schedule. This allows early testing and issue resolution before updates reach production servers with custom schedules. Updates for custom-schedule servers begin 7 days later during a defined maintenance window. Once notified, updates can't be deferred. Custom schedules are advised for production environments only.
 
-In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update is reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system creates a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you'll receive notification about it five days in advance. 
+In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update is reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system creates a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you'll receive notification about it 5 days in advance. 
 
  
 ## Next steps
