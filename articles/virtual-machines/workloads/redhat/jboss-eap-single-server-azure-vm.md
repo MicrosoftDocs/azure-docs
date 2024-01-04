@@ -4,7 +4,8 @@ description: Shows you how to quickly stand up JBoss EAP Server on an Azure virt
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 10/04/2022
+ms.date: 01/03/2024
+ms.service: virtual-machines
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, devx-track-extended-java
 ---
 
@@ -14,7 +15,7 @@ This article shows you how to quickly deploy JBoss EAP Server on an Azure virtua
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 - Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement lets the Azure portal install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
@@ -132,4 +133,4 @@ az group delete --name <resource-group-name> --yes --no-wait
 Learn more about migrating JBoss EAP applications to JBoss EAP on Azure VMs by following these links:
 
 > [!div class="nextstepaction"]
-> [Migrate JBoss EAP applications to JBoss EAP on Azure VMs](../migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms.md)
+> [Migrate JBoss EAP applications to JBoss EAP on Azure VMs](/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms.md?toc=/azure/virtual-machines/workloads/oracle/toc.json&bc=/azure/virtual-machines/workloads/oracle/breadcrumb/toc.json)
