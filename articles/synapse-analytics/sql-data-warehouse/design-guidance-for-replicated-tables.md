@@ -186,7 +186,7 @@ To trigger a rebuild, run the following statement on each table in the preceding
 SELECT TOP 1 * FROM [ReplicatedTable]
 ```
 
-To monitor the rebuild process, you can use 'sys.dm_pdw_exec_requests,' where the command will start with 'BuildReplicatedTableCache' as shown below
+To monitor the rebuild process, you can use [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true), where the `command` will start with 'BuildReplicatedTableCache'. For example:
 
 ```sql
 -- Monitor Build Replicated Cache
