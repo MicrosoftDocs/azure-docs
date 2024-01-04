@@ -90,7 +90,7 @@ To add Azure Monitor Agent to machines that are already enabled with the Log Ana
        > Selecting a data collection rule that does not use the Map feature does not uninstall Dependency Agent from the machine. If you do not need the Map feature, [uninstall Dependency Agent manually](../vm/vminsights-dependency-agent-maintenance.md#uninstall-dependency-agent).
    1.  With both agents installed, Azure Monitor displays a warning that you may be collecting duplicate data.
 
-       [Screenshot showing warning message for both agents installed]:::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot showing warning message for both agents installed":::
+       [Screenshot showing warning message for both agents installed]:::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot showing warning message for both agents installed.":::
 
        > [!WARNING]
        > Collecting duplicate data from a single machine with both the Azure Monitor agent and Log Analytics agent can result in:
