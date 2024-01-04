@@ -28,7 +28,7 @@ Nexus Cluster versions utilize the same Major.Minor.Patch scheme. Using semantic
 
 The Platform Cluster version is represented in the Nexus Cluster resource in the “clusterVersion” property. At the time of cluster creation, the version is specified in the cluster resource, and must contain a supported version. To update, the cluster updateVersion action is called with a payload specifying the desired version, which must be one of the supported update versions for that cluster. The cluster property “availableUpgradeVersions” contains the list of eligible versions specific to that cluster’s hardware and current version. 
 
-## Nexus Platform Cluster Release Cadence
+## Nexus Platform Cluster release cadence
 
 Operator Nexus will target a new minor version platform cluster release in February, June, and October every year. A customer can decide when to apply the minor version to a Nexus instance. However, these minor releases are not optional and need to be taken to stay in support. 
 
@@ -36,9 +36,9 @@ These platform cluster releases consist of new minor Kubernetes releases for the
 
 In addition to minor releases, Operator Nexus will release patch platform cluster releases in between minor releases. In general, these releases are optional to apply.
 
-## Patch Platfrom Cluster Runtime Releases
+## Patch Platform Cluster runtime releases
 
-Platfrom Cluster patch releases will be scheduled monthly to provide customers with an updated, secure version of Azure Linux. These releases will be applied to the latest minor release.
+Platform Cluster patch releases will be scheduled monthly to provide customers with an updated, secure version of Azure Linux. These releases will be applied to the latest minor release.
 
 Operator Nexus will also release patch platform cluster runtime releases addressing critical functional or high severity security issues to the latest minor release. 
 
