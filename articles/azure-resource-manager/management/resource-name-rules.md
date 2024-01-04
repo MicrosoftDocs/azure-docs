@@ -130,6 +130,13 @@ In the following tables, the term alphanumeric refers to:
 > [!NOTE]
 > Automation account names are unique per region and resource group. Names for deleted Automation accounts might not be immediately available.
 
+## Microsoft.AVS
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | privateClouds | resource group | 1-80 | Alphanumerics, periods, hyhens, and underscores.<br>Start with alphanumeric and end with alphanumeric or underscore. |
+
 ## Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
