@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 author: varun-dhawan
 ms.author: varundhawan
 ms.topic: conceptual
-ms.date: 12/18/2023
+ms.date: 1/2/2024
 ---
 
 # Enable, list and download server logs for Azure Database for PostgreSQL - Flexible Server
@@ -18,9 +18,10 @@ You can use server logs to help monitor and troubleshoot an instance of Azure Da
 By default, the server logs feature in Azure Database for PostgreSQL - Flexible Server is disabled. However, after you enable the feature, a flexible server starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal or the Azure CLI to download the files to assist with your troubleshooting efforts. This article explains how to enable the server logs feature in Azure Database for PostgreSQL - Flexible Server and download server log files. It also provides information about how to disable the feature.
 
 In this tutorial, you’ll learn how to:
-- Enable the server logs feature.
-- Disable the server logs feature.
-- Download server log files.
+>[!div class="checklist"]
+> * Enable the server logs feature.
+> * Disable the server logs feature.
+> * Download server log files.
 
 ## Prerequisites
 
@@ -42,8 +43,8 @@ To enable the server logs feature, perform the following steps.
 
 4. To configure retention period (in days), choose the slider. Minimum retention 1 days and Maximum retention is 7 days.
 
-> [!NOTE]
-> In managing server logs, you should be aware of two key parameters: `logfiles.download_enable` and `logfiles.retention_days`. It is important to note that users are not required to explicitly configure these settings. The Azure portal simplifies this process through its server logs management interface. `The logfiles.download_enable` parameter, which controls the enabling or disabling of server logs, is managed via the '**Enable**' checkbox in the server logs section. Similarly, the `logfiles.retention_days` parameter, which sets the duration for retaining server logs can be easily adjusted using the '**Retention Period (in days)**' slider.
+> [!Note]
+> You can configure your server logs in the same way as above using the [Server Parameters](./howto-configure-server-parameters-using-portal.md), setting the appropriate values for these parameters: _logfiles.download_enable_ to ON to enable this feature, and _logfiles.retention_days_ to define retention in days.
 
 ## Download Server logs
 

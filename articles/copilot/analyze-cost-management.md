@@ -30,7 +30,7 @@ Here are a few examples of the kinds of prompts you can use for Cost Management.
 - "Can you provide an estimate of our expected expenses for the next 6 months?"
 - "Show me the resource group with the highest spending in the last 6 months."
 - "How can we reduce our costs?"
-- "Which resources are covered by savings plans?
+- "Which resources are covered by savings plans?"
 
 ## Examples
 

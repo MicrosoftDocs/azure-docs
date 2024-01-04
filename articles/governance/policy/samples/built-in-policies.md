@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 12/13/2023
+ms.date: 01/02/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -153,6 +153,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Desktop Virtualization
 
 [!INCLUDE [azure-policy-reference-policies-desktop-virtualization](../../../../includes/policy/reference/bycat/policies-desktop-virtualization.md)]
+
+## ElasticSan
+
+[!INCLUDE [azure-policy-reference-policies-elasticsan](../../../../includes/policy/reference/bycat/policies-elasticsan.md)]
 
 ## Event Grid
 

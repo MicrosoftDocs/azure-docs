@@ -1,7 +1,7 @@
 ---
 title: How to remotely and securely configure servers using Run command (Preview)
 description: Learn how to remotely and securely configure servers using Run Command.
-ms.date: 12/21/2023
+ms.date: 12/22/2023
 ms.topic: conceptual
 ---
 
@@ -196,4 +196,16 @@ If you no longer need the Run Command extension, you can delete it using the fol
 ```
 DELETE https://management.azure.com/subscriptions/ aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
 ```
+
+## Disabling Run Command
+
+To disable the Run Command on Azure Arc-enabled servers, open an administrative command prompt and run the following commands. These commands use the local agent configuration capabilities for the Connected Machine agent in the Extension blocklist.
+
+**Windows**
+
+`azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerwindows"`
+
+**Linux**
+
+sudo azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerlinux"
 

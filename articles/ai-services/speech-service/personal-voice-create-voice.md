@@ -20,12 +20,16 @@ You create a speaker profile ID based on the speaker's verbal consent statement 
 
 ## Create personal voice
 
-To create a personal voice and get the speaker profile ID, use the `PersonalVoices_Create` operation of the custom voice API. Construct the request body according to the following instructions:
+To create a personal voice and get the speaker profile ID, use the `PersonalVoices_Create` operation of the custom voice API. 
+
+Before calling this API, please store audio files in Azure Blob. In the example below, audio files are https://contoso.blob.core.windows.net/voicecontainer/jessica/*.wav. 
+
+Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](./personal-voice-create-project.md).
 - Set the required `consentId` property. See [add user consent](./personal-voice-create-consent.md).
 - Set the required `audios` property. Within the `audios` property, set the following properties:
-  - Set the required `containerUrl` property to the URL of the Azure Blob Storage container that contains the audio files.
+  - Set the required `containerUrl` property to the URL of the Azure Blob Storage container that contains the audio files. Use [shared access signatures (SAS) SAS for a container](/azure/storage/blobs/sas-service-create-dotnet-container#create-a-service-sas-for-a-container) with both read and list permissions. 
   - Set the required `extensions` property to the extensions of the audio files. 
   - Optionally, set the `prefix` property to set a prefix for the blob name.
 
