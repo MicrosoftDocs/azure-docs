@@ -50,27 +50,10 @@ See the following table for a comparison between Basic_v2 and Stadard_v2.
 |      Feature             | Capabilities                             |   Basic SKU    |   Standard SKU    |
 |     :---:                | :---                                     |     :---:      |     :---:         |
 | Reliability              | SLA                                      | 99.9           | 99.95             |
-| Functionality - basic    | [!div class="func_basic"]            | &#x2713;<br>&#x2713;       | &#x2713;<br>&#x2713;|
+| Functionality - basic    | [!INCLUDE [1.md](./include/1.md)]                | &#x2713;<br>&#x2713;       | &#x2713;<br>&#x2713;|
 | Functionality - advanced | URL rewrite                              |                | &#x2713;          |
 | Scale                    | Max. connections per second              | 200            | 1250              |
 | Capacity Unit            | Connections Per Second per Compute Unit  | 10             | 50                |
-
-<func_basic>
-
-HTTP/HTTP2/HTTPS<br>Websocket
-
-</func_basic>
-
-|      Feature             | Capabilities                             |   Basic SKU    |   Standard SKU    |
-|     :---:                | :---                                     |     :---:      |     :---:         |
-| Reliability              | SLA                                      | 99.9           | 99.95             |
-| Functionality - basic    | [3]            | &#x2713;<br>&#x2713;       | &#x2713;<br>&#x2713;|
-| Functionality - advanced | URL rewrite                              |                | &#x2713;          |
-| Scale                    | Max. connections per second              | 200            | 1250              |
-| Capacity Unit            | Connections Per Second per Compute Unit  | 10             | 50                |
-
-
-[3]: HTTP/HTTP2/HTTPS<br>Websocket
 
 ## Pricing
 
