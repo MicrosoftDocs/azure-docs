@@ -10,7 +10,7 @@ ms.custom: template-how-to
 #Customer intent: As a developer, I want to learn how to generate a auth token
 ---
 
-# How to generate the auth token
+# How to generate auth token
 
 In this article, you will learn how to generate the service principal auth token, user's auth token and user's refresh token. 
 
