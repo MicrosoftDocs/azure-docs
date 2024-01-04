@@ -72,7 +72,7 @@ Two types of VoIP token scopes are supported. Permissions for each token are des
 |Join an InProgress VoIP call | Y | Y |
 |Join an InProgress VoIP call in Virtual Rooms, when the user is already invited to the Room| Y | Y |
 |All other in-call operations such as mute/unmute, screen share etc. | Y | Y |
-|All other in-call operations such as mute/unmute, screen share etc. in Virtual Rooms| Y | Determined by user role |
+|All other in-call operations such as mute/unmute, screen share etc. in Virtual Rooms| Determined by user role | Determined by user role |
 
 ## Revoke or update access token
 - Azure Communication Services Identity library can be used to revoke an access token before its expiration time. Token revocation isn't immediate. It can take up to 15 minutes to propagate.
