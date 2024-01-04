@@ -113,7 +113,7 @@ deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the
 print('Sending a test completion job')
 start_phrase = 'Write a tagline for an ice cream shop. '
 response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
-print(response.choices[0].text)
+print(start_phrase+response.choices[0].text)
 ```
 
 ---
