@@ -518,11 +518,11 @@ The following parameters are used inside of the `fieldsMapping` field.
 
 ```json
 "fieldsMapping": {
-  "titleField": "productName",
-  "urlField": "productUrl",
-  "filepathField": "productFilePath",
+  "titleField": "myTitleField",
+  "urlField": "myUrlField",
+  "filepathField": "myFilePathField",
   "contentFields": [
-    "productDescription"
+    "myContentField"
   ],
   "contentFieldsSeparator": "\n"
 }
