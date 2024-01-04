@@ -4,7 +4,7 @@ description: Learn how to about common errors returned by WebHCat on HDInsight a
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.date: 12/07/2022
+ms.date: 01/04/2024
 ---
 
 # Understand and resolve errors received from WebHCat on HDInsight
