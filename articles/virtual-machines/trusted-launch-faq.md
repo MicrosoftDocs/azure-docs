@@ -3,11 +3,11 @@ title: FAQ for Trusted Launch
 description: Get answers to the most frequently asked questions about Azure Trusted Launch virtual machines and virtual machine scale sets.
 author: AjKundnani
 ms.author: ajkundna
-ms.reviewer: jushiman
+ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: faq
-ms.date: 09/28/2023
+ms.date: 01/04/2023
 ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -15,7 +15,7 @@ ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 
 Frequently asked questions about trusted launch.
 
-## Frequently asked questions about Trusted Launch
+## Product use case questions 
 
 ### Why should I use trusted launch? What does trusted launch guard against?
 
@@ -26,19 +26,95 @@ Trusted launch guards against boot kits, rootkits, and kernel-level malware. The
 - Kernel rootkits: these kits replace a portion of the OS kernel so the rootkit can start automatically when the OS loads.
 - Driver rootkits: these kits pretend to be one of the trusted drivers that OS uses to communicate with the virtual machine's components.
 
-### What are the differences between secure boot and measured boot?
+### How does trusted launch compare to Hyper-V Shielded VM?
 
-In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS checks a signature on the loader, and the loader checks signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature does not match, and the VM does not boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot does not halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
+Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or Virtual Machine Scale Sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
+
+### How can I disable Trusted Launch for new VM deployment using PowerShell or CLI?
+
+Trusted Launch VMs provide you with foundational compute security and our recommendation is not to disable same for new VM/VMSS deployments except if your deployments have dependency on:
+
+- [VM Size families currently not supported with Trusted Launch](trusted-launch.md#virtual-machines-sizes)
+- [Feature currently not supported with Trusted Launch](trusted-launch.md#unsupported-features)
+- [OS version not supported with Trusted Launch](trusted-launch.md#operating-systems-supported)
+
+You can use parameter **securityType** with value `Standard` to disable Trusted Launch in new VM/VMSS deployments using Azure PowerShell (v10.3.0+) and CLI (v2.53.0+)
+
+#### [CLI](#tab/cli)
+
+```azurecli
+az vm create -n MyVm -g MyResourceGroup --image Ubuntu2204 `
+    --security-type 'Standard'
+```
+
+#### [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+$adminUsername = <USER NAME>
+$adminPassword = <PASSWORD> | ConvertTo-SecureString -AsPlainText -Force
+$vmCred = New-Object System.Management.Automation.PSCredential($adminUsername, $adminPassword)
+New-AzVM -Name MyVm -Credential $vmCred -SecurityType Standard
+```
+
+---
+
+## Feature support
+
+### Does trusted launch support Azure Compute Gallery?
+
+Trusted launch now allows images to be created and shared through the [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images) (formerly Shared Image Gallery). The image source can be:
+- an existing Azure VM that is either generalized or specialized OR,
+- an existing managed disk or a snapshot OR,
+- a VHD or an image version from another gallery.
+
+For more information about deploying Trusted Launch VM using Azure Compute Gallery, see [deploy Trusted Launch VMs](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image).
+
+### Does trusted launch support Azure Backup?
+
+Trusted launch now supports Azure Backup. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
+
+### Does trusted launch support ephemeral OS disks?
+
+Trusted launch supports ephemeral OS disks. For more information, see [Trusted Launch for Ephemeral OS disks](ephemeral-os-disks.md#trusted-launch-for-ephemeral-os-disks).
+> [!NOTE]
+> While using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing.
+
+## Enable Trusted Launch on existing VMs
+
+### Can virtual machine be restored using backup taken before enabling Trusted Launch?
+Backups taken before [upgrading existing Generation 2 VM to Trusted Launch](trusted-launch-existing-vm.md) can be used to restore entire virtual machine or individual data disks. They cannot be used to restore or replace OS disk only.
+
+### Will backup continue to work after enabling Trusted Launch?
+Backups configured with [enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) will continue to take backup of VM after enabling Trusted Launch.
+
+## Power state issues (boot, reboot, etc.)
 
 ### What is VM Guest State (VMGS)?  
 
 VM Guest State (VMGS) is specific to Trusted Launch VM. It is a blob managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
-### How does trusted launch compare to Hyper-V Shielded VM?
+### What are the differences between secure boot and measured boot?
 
-Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or Virtual Machine Scale Sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
+In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS checks a signature on the loader, and the loader checks signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature does not match, and the VM does not boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot does not halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
 
-## Deployment
+### Why is Trusted Launch Virtual Machine not booting correctly? 
+
+If unsigned components are detected from the UEFI firmware, bootloader, operating system, or boot drivers, Trusted Launch Virtual Machine will not boot. The Secure Boot dependency in the virtual machine blocks all unsigned components or comes a untrusted driver signature.  
+
+> [!NOTE]
+> Turning off Secure Boot within the configurations can temporarily mitigate this boot issue. You to check which virtual machine component needs to be signed, then re-enable Secure Boot. [Learn more about updating Trusted Launch configurations](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal3%2Cportal2). 
+
+### Why am I getting a boot integrity monitoring fault?
+
+Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available if [Defender for Cloud's enhanced security features](../security-center/enable-enhanced-security.md) are enabled.
+
+Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
+
+- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This deviation indicates an untrusted module(s) have been loaded and the OS may be compromised.
+- The attestation quote could not be verified to originate from the vTPM of the attested VM. This verification failure indicates a malware is present and may be intercepting traffic to the TPM.
+- The attestation extension on the VM is not responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
+
+## Supported Deployments
 
 ### How can I find VM sizes that support Trusted launch?
 
@@ -105,11 +181,11 @@ MaxNetworkInterfaces                         8
 
 See the list of [OS versions supported with Trusted Launch](trusted-launch.md#operating-systems-supported),
 
-**Marketplace OS Image**
+#### Marketplace OS Images
 
 The following commands can be used to check if a Marketplace OS image supports Trusted Launch.
 
-#### [CLI](#tab/cli)
+##### [CLI](#tab/cli)
 
 ```azurecli
 az vm image show --urn "MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest"
@@ -164,7 +240,7 @@ The response is similar to the following form. **hyperVGeneration** `v2` and **S
 }
 ```
 
-#### [PowerShell](#tab/PowerShell)
+##### [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 Get-AzVMImage -Skus 22_04-lts-gen2 -PublisherName Canonical -Offer 0001-com-ubuntu-server-jammy -Location westus3 -Version latest
@@ -220,11 +296,11 @@ The response of above command can be used with [Virtual Machines - Get API](/res
 
 ---
 
-**Azure Compute Gallery OS Image**
+#### Azure Compute Gallery OS Image
 
 The following commands can be used to check if a [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images) OS image supports Trusted Launch.
 
-#### [CLI](#tab/cli)
+##### [CLI](#tab/cli)
 
 ```azurecli
 az sig image-definition show `
@@ -272,7 +348,7 @@ The response is similar to the following form. **hyperVGeneration** `v2` and **S
 }
 ```
 
-#### [PowerShell](#tab/PowerShell)
+##### [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 Get-AzGalleryImageDefinition -ResourceGroupName myImageGalleryRg `
@@ -311,74 +387,49 @@ Architecture      : x64
 
 ---
 
-### How can I disable Trusted Launch for new VM deployment using PowerShell or CLI?
 
-Trusted Launch VMs provide you with foundational compute security and our recommendation is not to disable same for new VM/VMSS deployments except if your deployments have dependency on:
+## Drivers
 
-- [VM Size families currently not supported with Trusted Launch](trusted-launch.md#virtual-machines-sizes)
-- [Feature currently not supported with Trusted Launch](trusted-launch.md#unsupported-features)
-- [OS version not supported with Trusted Launch](trusted-launch.md#operating-systems-supported)
+### Linux
+Certain Linux components that aren't included in the kernel may require signing. For example, the NVIDIA driver requires signing. To verify if a driver is signed, use the ['modinfo' command](https://www.man7.org/linux/man-pages/man8/modinfo.8.html):
 
-You can use parameter **securityType** with value `Standard` to disable Trusted Launch in new VM/VMSS deployments using Azure PowerShell (v10.3.0+) and CLI (v2.53.0+)
-
-#### [CLI](#tab/cli)
-
-```azurecli
-az vm create -n MyVm -g MyResourceGroup --image Ubuntu2204 `
-    --security-type 'Standard'
+```bash
+modinfo <driver_name>
 ```
 
-#### [PowerShell](#tab/PowerShell)
+### Windows
+There are several ways to verity if a driver is signed on Windows.
 
-```azurepowershell
-$adminUsername = <USER NAME>
-$adminPassword = <PASSWORD> | ConvertTo-SecureString -AsPlainText -Force
-$vmCred = New-Object System.Management.Automation.PSCredential($adminUsername, $adminPassword)
-New-AzVM -Name MyVm -Credential $vmCred -SecurityType Standard
-```
+#### [Driver file properties](#tab/fileproperties)
+1. Right click and check the properties of the file.  
+1. Go to the Digital Signature Tab. If the tab does not exist, the module/driver is not signed. 
+ IMAGE
+1. If the tab is present, check the signature list. One of the signers should be Microsoft Windows.  
+1. Validate the signer entity by clicking on the signer’s name to open the digital signer detail window.
+1. Click 'View Certificate' to check the certificate of the issuer.  
+ IMAGE
+1. The certificate should be issued to the signer “Microsoft Windows” and issuer should be 'Microsoft Windows Production PCA'.  
+
+#### [Windows Device Manager](#tab/devicemanager)
+1. Open 'Device Manager' 
+1. In Device Manager, expand the category for which you want to check the driver signing status.
+1. Right-click on the specific device for which you want to check the driver signing status and select "Properties" from the context menu.  
+1. In the device's properties window, go to the "Driver" tab.  
+1. Look for the "Digital Signer" information. This field displays whether the driver is digitally signed or not.  
+1. If the driver is signed with a valid digital signature, it will display the name of the signer or the certificate authority that issued the signature. If the driver is not signed or has an invalid signature, it may show "Not digitally signed" or "Unsigned."  
+ IMAGE
+
+#### [Signtool.exe](#tab/signtool)
+'Signtool.exe' is a powershell tool used for verifying if a driver is signed or not. It shows signature status, timestamp, certificate chain etc.  
+
+[Learn more about the PowerShell utility SignTool](/windows/win32/seccrypto/signtool)
+
+> [!NOTE]
+> This approach is primarily for understand which drivers are unsigned. You can't sign drivers using this tool.
+
+ IMAGE
 
 ---
-
-## Feature support
-
-### Does trusted launch support Azure Compute Gallery?
-
-Trusted launch now allows images to be created and shared through the [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images) (formerly Shared Image Gallery). The image source can be:
-- an existing Azure VM that is either generalized or specialized OR,
-- an existing managed disk or a snapshot OR,
-- a VHD or an image version from another gallery.
-
-For more information about deploying Trusted Launch VM using Azure Compute Gallery, see [deploy Trusted Launch VMs](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image).
-
-### Does trusted launch support Azure Backup?
-
-Trusted launch now supports Azure Backup. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
-
-### Does trusted launch support ephemeral OS disks?
-
-Trusted launch supports ephemeral OS disks. For more information, see [Trusted Launch for Ephemeral OS disks](ephemeral-os-disks.md#trusted-launch-for-ephemeral-os-disks).
-> [!NOTE]
-> While using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing.
-
-## Enable Trusted Launch on existing VMs
-
-### Can virtual machine be restored using backup taken before enabling Trusted Launch?
-Backups taken before [upgrading existing Generation 2 VM to Trusted Launch](trusted-launch-existing-vm.md) can be used to restore entire virtual machine or individual data disks. They cannot be used to restore or replace OS disk only.
-
-### Will backup continue to work after enabling Trusted Launch?
-Backups configured with [enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) will continue to take backup of VM after enabling Trusted Launch.
-
-## Boot integrity monitoring
-
-### What happens when an integrity fault is detected?
-
-Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available if [Defender for Cloud's enhanced security features](../security-center/enable-enhanced-security.md) are enabled.
-
-Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
-
-- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This deviation indicates an untrusted module(s) have been loaded and the OS may be compromised.
-- The attestation quote could not be verified to originate from the vTPM of the attested VM. This verification failure indicates a malware is present and may be intercepting traffic to the TPM.
-- The attestation extension on the VM is not responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
 
 ## Certificates
 
