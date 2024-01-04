@@ -33,7 +33,7 @@ Azure Database for PostgreSQL - Flexible Server provides for Private Link connec
 - An Azure Database for PostgreSQL - Flexible Server instance that's [privately networked via Azure Private Link](../flexible-server/concepts-networking-private-link.md)
 - An Azure integration runtime within a [Data Factory managed virtual network](../../data-factory/data-factory-private-link.md)
 
-## Create a private endpoint in Azure Data Factory
+## Create a private endpoint in Data Factory
 
 An Azure Database for PostgreSQL connector currently supports *public connectivity only*. When you use an Azure Database for PostgreSQL connector in Azure Data Factory, you might get an error when you try to connect to a privately networked instance of Azure Database for PostgreSQL - Flexible Server.
 
