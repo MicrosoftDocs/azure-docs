@@ -148,11 +148,11 @@ Choose the user identity to use to create the online endpoint and online deploym
 
 #### (Optional) Assign role to the user identity
 
-- If your user identity wants the endpoint's system-assigned identity (SAI) to be automatically granted permission to read secrets from workspace connections, the user identity __needs__ to be assigned the `Azure Machine Learning Workspace Connection Secret Reader` role (or higher) on the scope of the workspace.
+- If your user identity wants the endpoint's system-assigned identity (SAI) to be automatically granted permission to read secrets from workspace connections, the user identity __needs__ to be assigned the `Azure Machine Learning Workspace Connection Secrets Reader` role (or higher) on the scope of the workspace.
     - An admin that has the `Microsoft.Authorization/roleAssignments/write` permission can run a CLI command to assign the role to the _user identity_:
 
         ```azurecli
-        az role assignment create --assignee <UserIdentityID> --role "Azure Machine Learning Workspace Connection Secret Reader" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
+        az role assignment create --assignee <UserIdentityID> --role "Azure Machine Learning Workspace Connection Secrets Reader" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
         ```
 
     > [!NOTE]
@@ -164,7 +164,7 @@ Choose the user identity to use to create the online endpoint and online deploym
     __For workspace connections__:
 
     ```azurecli
-    az role assignment create --assignee <EndpointIdentityID> --role "Azure Machine Learning Workspace Connection Secret Reader" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
+    az role assignment create --assignee <EndpointIdentityID> --role "Azure Machine Learning Workspace Connection Secrets Reader" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
     ```
 
     __For key vaults__:
@@ -202,7 +202,7 @@ If you're using a system-assigned identity (SAI) as the endpoint identity, speci
 
 If you don't specify the `identity` property in the endpoint definition, the endpoint will use an SAI by default.
 
-If the following conditions are met, the endpoint identity will automatically be granted the `Azure Machine Learning Workspace Connection Secret Reader` role (or higher) on the scope of the workspace:
+If the following conditions are met, the endpoint identity will automatically be granted the `Azure Machine Learning Workspace Connection Secrets Reader` role (or higher) on the scope of the workspace:
   
 - The user identity that creates the endpoint has the permissions to read secrets from workspace connections.
 - The endpoint uses an SAI.

@@ -24,9 +24,13 @@ A _user identity_ is a Microsoft Entra ID that you can use to create an endpoint
 
 An _endpoint identity_ is a Microsoft Entra ID that runs the user container in deployments. In other words, if the identity is associated with the endpoint and used for the user container for the deployment, then it's called an endpoint identity. The endpoint identity would also need proper permissions for the user container to interact with resources as needed. For example, the endpoint identity would need the proper permissions to pull images from the Azure Container Registry or to interact with other Azure services.
 
+In general, the user identity and endpoint identity would have separate permission requirements. For more information on managing identities and permissions, see [How to authenticate online endpoint](how-to-authenticate-online-endpoint.md). For more information on the special case of automatically adding extra permission for secrets, see [Additional permissions for user identity](#additional-permissions-for-user-identity-when-enforcing-access-to-default-secret-stores).
+
+
 ## Limitation
 
 Microsoft Entra ID authentication (`aad_token`) is supported for managed online endpoints __only__. For Kubernetes online endpoints, you can use either a key or an Azure Machine Learning token (`aml_token`).
+
 
 ## Permissions needed for user identity
 
@@ -60,6 +64,19 @@ For control plane operations, your user identity needs to have a proper Azure ro
 > [!NOTE]
 > You can fetch your Microsoft Entra token (`aad_token`) directly from Microsoft Entra ID once you're signed in, and you don't need extra Azure RBAC permission on the workspace.
 
+#### Additional permissions for user identity when enforcing access to default secret stores
+
+If you intend to use the secret injection feature, and while creating your endpoints, you set the flag to enforce access to the default secret stores, your user identity needs to have the permission to read secrets from workspace connections.
+
+When the endpoint is created with a system-assigned identity (SAI) _and_ the flag is set to enforce access to the default secret stores, your user identity needs to have permissions to read secrets from workspace connections when creating the endpoint and creating the deployment(s) under the endpoint. This restriction ensures that only a user identity with the permission to read secrets can grant the endpoint identity the permission to read secrets.
+
+- If a user identity doesn't have the permissions to read secrets from workspace connections, but it tries to create the endpoint with an SAI and the endpoint's flag set to enforce access to the default secret stores, the endpoint creation is rejected.
+
+- Similarly, if a user identity doesn't have the permissions to read secrets from workspace connections, but tries to create a deployment under the endpoint with an SAI and the endpoint's flag set to enforce access to the default secret stores, the deployment creation is rejected.
+
+When (1) the endpoint is created with a UAI, _or_ (2) the flag is _not_ set to enforce access to the default secret stores even if the endpoint uses an SAI, your user identity doesn't need to have permissions to read secrets from workspace connections. In this case, the endpoint identity won't be automatically granted the permission to read secrets, but you can still manually grant the endpoint identity this permission by assigning proper roles. Secret retrieval and injection will still be triggered if you mapped the environment variables with secret references, and it will use the current endpoint identity to do so.
+
+For more information on managing authorization to an Azure Machine Learning workspace, see [Manage access to Azure Machine Learning](how-to-assign-roles.md).
 
 ### Data plane operations
 
@@ -96,18 +113,19 @@ An online deployment runs your user container with the _endpoint identity_, that
 
 ### Automatic role assignment for endpoint identity
 
-Online endpoints require Azure Container Registry (ACR) pull permission on the ACR associated with the workspace. They also require Storage Blob Data Reader permission on the default datastore of the workspace. By default, these permissions are automatically granted to the endpoint identity if the endpoint identity is a system-assigned identity.
+If the endpoint identity is a system-assigned identity, some roles are assigned to the endpoint identity for convenience.
 
-Also, when creating an endpoint, if you set the flag to enforce access to the default secret stores, the endpoint identity is automatically granted the permission to read secrets from workspace connections.
+Role | Description | Condition for the automatic role assignment
+-- | -- | --
+`AcrPull` | Allows the endpoint identity to pull images from the Azure Container Registry (ACR) associated with the workspace. | The endpoint identity is a system-assigned identity (SAI).
+`Storage Blob Data Reader` | Allows the endpoint identity to read blobs from the default datastore of the workspace. | The endpoint identity is a system-assigned identity (SAI).
+`AzureML Metrics Writer (preview)` | Allows the endpoint identity to write metrics to the workspace. | The endpoint identity is a system-assigned identity (SAI).
+`Azure Machine Learning Workspace Connection Secrets Reader` <sup>1</sup> | Allows the endpoint identity to read secrets from workspace connections. | The endpoint identity is a system-assigned identity (SAI). The endpoint is created with a flag to enforce access to the default secret stores. The _user identity_ that creates the endpoint has the same permission to read secrets from workspace connections. <sup>2</sup>
 
-There's no automatic role assignment if the endpoint identity is a user-assigned identity.
+> 1. For more information on the `Azure Machine Learning Workspace Connection Secrets Reader` role, see [Assign permissions to the identity](how-to-authenticate-online-endpoint.md#assign-permissions-to-the-identity).
+> 2. Even if the endpoint identity is SAI, if the enforce flag is not set or the user identity doesn't have the permission, there's no automatic role assignment for this role. For more information, see [How to deploy online endpoint with secret injection](how-to-deploy-online-endpoint-with-secret-injection.md#create-an-endpoint).
 
-In more detail:
-- If you use a system-assigned identity (SAI) for the endpoint, roles with fundamental permissions (such as Azure Container Registry pull permission, and Storage Blob Data Reader) are automatically assigned to the endpoint identity. Also, you can set a flag on the endpoint to allow its SAI have the permission to read secrets from workspace connections. To have this permission, the `Azure Machine Learning Workspace Connection Secret Reader` role would be automatically assigned to the endpoint identity. For this role to be automatically assigned to the endpoint identity, the following conditions must be met:
-  - Your _user identity_, that is, the identity that creates the endpoint, has the permissions to read secrets from workspace connections when creating the endpoint.
-  - The endpoint uses an SAI.
-  - The endpoint is defined with a flag to enforce access to default secret stores (workspace connections under the current workspace) when creating the endpoint.
-- If your endpoint uses a UAI, or it uses the Key Vault as the secret store with an SAI. In these cases, you need to manually assign to the endpoint identity the role with the proper permissions to read secrets from the Key Vault.
+If the endpoint identity is a user-assigned identity, there's no automatic role assignment. In this case, you need to manually assign roles to the endpoint identity as needed.
 
 
 ## Choosing the permissions and scope for authorization
