@@ -20,20 +20,19 @@ This query finds virtual machines that are marked as critical and that had a hea
 
 ```kusto
 {
-   arg("").Resources 
-   | where type == "microsoft.compute/virtualmachines" 
-   | where tags.BusinessCriticality =~ 'critical' and subscriptionId == ‘XXX-XXX-XXX-XXX' 
-   | join kind=leftouter ( 
-   Heartbeat 
-   | where TimeGenerated > ago(24h) 
-   ) 
-    on $left.name == $right.Resource 
-    | summarize LastCall = max(case(isnull(TimeGenerated), make_datetime(1970, 1, 1), TimeGenerated)) by name, id 
-    | extend SystemDown = case(LastCall < ago(2m), 1, 0) 
+    arg("").Resources
+    | where type == "microsoft.compute/virtualmachines"
+    | where tags.BusinessCriticality =~ 'critical' and subscriptionId == ‘XXX-XXX-XXX-XXX'
+    | join kind=leftouter (
+    Heartbeat
+    | where TimeGenerated > ago(24h)
+    )
+    on $left.name == $right.Resource
+    | summarize LastCall = max(case(isnull(TimeGenerated), make_datetime(1970, 1, 1), TimeGenerated)) by name, id
+    | extend SystemDown = case(LastCall < ago(2m), 1, 0)
     | where SystemDown == 1
 }
 ```
-
 ## Query that filters virtual machines that need to be monitored
 
 ```kusto
