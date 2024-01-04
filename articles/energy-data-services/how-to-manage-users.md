@@ -15,8 +15,8 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 
 ## Prerequisites
 1. Create an Azure Data Manager for Energy instance using the tutorial at [How to create Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
-2. Get various parameters of your instance such as client-id, client-secret, etc. using the tutorial at [How to generate auth token](how-to-generate-auth-token).
-3. Generate the service principal access token needed to call the Entitlements APIs using the tutorial at [How to generate auth token](how-to-generate-auth-token).
+2. Get various parameters of your instance such as client-id, client-secret, etc. using the tutorial at [How to generate auth token](how-to-generate-auth-token.md).
+3. Generate the service principal access token needed to call the Entitlements APIs using the tutorial at [How to generate auth token](how-to-generate-auth-token.md).
 4. Keep all these parameter values handy as they are needed for executing different user management requests via the Entitlements API. 
 
 
@@ -32,7 +32,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 
 ## First time addition of users in a new data partition
 1. In order to add first admin to a new data partition of Azure Data Manager for Energy instance, use the access token of the `client-id` that was used to provision the instance.
-2. Get the `client-id` access token using [Generate client-id access token](how-to-manage-users.md#generate-client-id-access-token).
+2. Get the `client-id` access token using [Generate client-id access token](how-to-generate-aut-token.md#generate-client-id-access-token).
 3. If you try to directly use your own access token for adding entitlements, it results in 401 error. The client-id access token must be used to add first set of users in the system and those users (with admin access) can then manage more users with their own access token.
 4. Use the client-id access token to do these three steps using the commands outlined in the following sections:
    1. Add the user to the `users@<data-partition-id>.<domain>` OSDU group.
