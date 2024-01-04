@@ -37,8 +37,8 @@ The [Radiology Insights](./radiology-insights/overview.md) model receives patien
 
 ![Diagram that shows Azure AI Health Insights architecture.](media/architecture.png) 
 
-Azure AI Health Insights service receives patient data through multiple input channels. This can be unstructured healthcare data, FHIR resources or specific JSON format data. This in combination with the correct model configuration, such as ```includeEvidence```. 
-With these input channels and configuration, the service can run the data through several health insights AI models, such as Trial Matcher, Onco-Phenotype or Radiology Insights.  
+Azure AI Health Insights service receives patient data in different modalities, such as unstructured healthcare data, FHIR resources or specific JSON format data. In addition, the service receives a model configuration, such as ```includeEvidence``` parameter. 
+With these input patient data and configuration, the service can run the data through the selected health insights AI model, such as Trial Matcher, Onco-Phenotype or Radiology Insights.  
 
 ## Next steps
 
