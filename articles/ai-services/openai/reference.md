@@ -504,7 +504,7 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `endpoint` | string | Required | null | Azure AI Search only. The data source endpoint. |
 | `key` | string | Required | null | Azure AI Search only. One of the Azure AI Search admin keys for your service. |
 | `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure AI Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
-| `fieldsMapping` | dictionary | Optional for Azure AI Search.  | null | [Index field mapping](./concepts/use-your-data.md?tabs=ai-search#index-field-mapping).  |
+| `fieldsMapping` | dictionary | Optional for Azure AI Search.  | null | defines which [fields](./concepts/use-your-data.md?tabs=ai-search#index-field-mapping) you want to map when you add your data source. |
 
 The following parameters are used inside of the `fieldsMapping` field.
 
