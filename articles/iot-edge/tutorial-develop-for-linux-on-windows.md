@@ -49,15 +49,10 @@ This article assumes that you use a machine running Windows as your development 
 
 After your Visual Studio 2022 is ready, you also need the following tools and components:
 
-* Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio. You can use the Azure IoT Edge Tools extension to create and build your IoT Edge solution. The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*. The extension includes the Azure IoT Edge project templates used create the Visual Studio project. Currently, you need the extension installed regardless of the development tool you use.
+* Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace. You can use the Azure IoT Edge Tools extension to create and build your IoT Edge solution. The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*. The extension includes the Azure IoT Edge project templates used create the Visual Studio project. Currently, you need the extension installed regardless of the development tool you use.
 
     > [!IMPORTANT]
     > The *Azure IoT Edge Tools for VS 2022* extension is in [maintenance mode](https://aka.ms/edgetool-dep). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
-
-    * Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace.
-    * Or, in Visual Studio go to **Extensions > Manage Extensions**. The **Manage Extensions** popup opens. In the search box in the upper right, add the text **Azure IoT Edge Tools for VS 2022**, then select **Download**. Close the popup when finished.
-
-    You may have to restart Visual Studio.
 
    > [!TIP]
    > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace.
