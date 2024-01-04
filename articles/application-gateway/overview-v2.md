@@ -55,6 +55,14 @@ See the following table for a comparison between Basic_v2 and Stadard_v2.
 | Scale                    | Max. connections per second              | 200            | 1250              |
 | Capacity Unit            | Connections Per Second per Compute Unit  | 10             | 50                |
 
+|      Feature             | Capabilities                             |   Basic SKU    |   Standard SKU    |
+|     :---:                | :---                                     |     :---:      |     :---:         |
+| Reliability              | SLA                                      | 99.9           | 99.95             |
+| Functionality - basic    | [!INCLUDE [foo](#foo)]                | &#x2713;<br>&#x2713;       | &#x2713;<br>&#x2713;|
+| Functionality - advanced | URL rewrite                              |                | &#x2713;          |
+| Scale                    | Max. connections per second              | 200            | 1250              |
+| Capacity Unit            | Connections Per Second per Compute Unit  | 10             | 50                |
+
 ## Pricing
 
 With the v2 SKU, the pricing model is driven by consumption and is no longer attached to instance counts or sizes. To learn more, see [Understanding pricing](understanding-pricing.md).
@@ -120,6 +128,9 @@ The Standard_v2 and WAF_v2 SKU is not currently available in the following regio
 - China North
 - US DOD East
 - US DOD Central
+
+## foo
+HTTP/HTTP2/HTTPS<br>Websocket
 
 ## Next steps
 
