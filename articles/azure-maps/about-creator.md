@@ -111,7 +111,7 @@ This section provides a high-level overview of the indoor map creation workflow.
 
 [Azure Maps Creator onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
 [Azure Maps Creator REST API]: /rest/api/maps-creator
-[Conversion]: /rest/api/maps/v2/conversion
+[Conversion]: /rest/api/maps-creator/conversion
 [Create a feature stateset]: how-to-creator-feature-stateset.md
 [Create custom styles for indoor maps]: how-to-create-custom-styles.md
 [Create dataset using GeoJson package]: how-to-dataset-geojson.md

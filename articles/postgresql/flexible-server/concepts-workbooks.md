@@ -1,10 +1,10 @@
 ---
 title: Monitor by using Azure Monitor workbooks
 description: This article describes how you can monitor Azure Database for PostgreSQL - Flexible Server by using Azure Monitor workbooks.
-author: varun-dhawan
-ms.author: varundhawan
+author: GennadNY
+ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 02/23/2023
+ms.date: 12/22/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -43,11 +43,11 @@ You can also edit and customize these templates according to your requirements. 
 
 To view the templates in the Azure portal, go to the **Monitoring** pane for Azure Database for PostgreSQL Flexible Server, and then select **Workbooks**.
 
-:::image type="content" source="./media/concepts-workbooks/monitor-workbooks-all.png" alt-text="Screenshot showing the Overview, Enhanced Metrics templates on the Workbooks pane.":::
+:::image type="content" source="./media/concepts-workbooks/monitor-workbooks-all.png" alt-text="Screenshot showing the Overview, Enhanced Metrics templates on the Workbooks pane." lightbox="media/concepts-workbooks/monitor-workbooks-all.png":::
 
-## Next steps
+## Related content
 
-- Learn about [Azure workbooks access control](../../azure-monitor/visualize/workbooks-overview.md#access-control).
-- Learn about [Azure workbooks visualization options](../../azure-monitor/visualize/workbooks-visualizations.md).
-- Learn about [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics) for Azure Database for PostgreSQL – Flexible Server.
-- Learn about [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics) for Azure Database for PostgreSQL – Flexible Server.
+- [Azure workbooks access control](../../azure-monitor/visualize/workbooks-overview.md#access-control)
+- [Azure workbooks visualization options](../../azure-monitor/visualize/workbooks-visualizations.md)
+- [Enhanced Metrics](concepts-monitoring.md#enhanced-metrics)
+- [Autovacuum Metrics](concepts-monitoring.md#autovacuum-metrics)
