@@ -20,32 +20,32 @@ This query finds virtual machines that are marked as critical and that had a hea
 
 ```kusto
 {
-arg("").Resources
-| where type == "microsoft.compute/virtualmachines"
-| where tags.BusinessCriticality =~ 'critical' and subscriptionId == ‘XXX-XXX-XXX-XXX'
-| join kind=leftouter (
-Heartbeat
-| where TimeGenerated > ago(24h)
-)
-on $left.name == $right.Resource
-| summarize LastCall = max(case(isnull(TimeGenerated), make_datetime(1970, 1, 1), TimeGenerated)) by name, id
-| extend SystemDown = case(LastCall < ago(2m), 1, 0)
-| where SystemDown == 1
-}
+    arg("").Resources
+    | where type == "microsoft.compute/virtualmachines"
+    | where tags.BusinessCriticality =~ 'critical' and subscriptionId == ‘XXX-XXX-XXX-XXX'
+    | join kind=leftouter (
+    Heartbeat
+    | where TimeGenerated > ago(24h)
+    )
+    on $left.name == $right.Resource
+    | summarize LastCall = max(case(isnull(TimeGenerated), make_datetime(1970, 1, 1), TimeGenerated)) by name, id
+    | extend SystemDown = case(LastCall < ago(2m), 1, 0)
+    | where SystemDown == 1
+    }
 ```
 
 ## Query that filters virtual machines that need to be monitored
 
 ```kusto
 {
-   let RuleGroupTags = dynamic([‘Linux’]);
-   Perf | where ObjectName == 'Processor' and CounterName == '% Idle Time' and (InstanceName == '_Total' or InstanceName == 'total')
-   | extend CpuUtilisation = (100 - CounterValue)   
-   | join kind=inner hint.remote=left (arg("").Resources
-   | where type =~ 'Microsoft.Compute/virtualMachines'
-   | project _ResourceId=tolower(id), tags) on _ResourceId
-   | project-away _ResourceId1
-   | where (isnull(tags.monitored) or tolower(tostring(tags.monitored)) != 'false') and (tostring(tags.monitorRuleGroup) in (RuleGroupTags) or isnull(tags.monitorRuleGroup) or tostring(tags.monitorRuleGroup) == '')
+    let RuleGroupTags = dynamic([‘Linux’]);
+    Perf | where ObjectName == 'Processor' and CounterName == '% Idle Time' and (InstanceName == '_Total' or InstanceName == 'total')
+    | extend CpuUtilisation = (100 - CounterValue)   
+    | join kind=inner hint.remote=left (arg("").Resources
+    | where type =~ 'Microsoft.Compute/virtualMachines'
+    | project _ResourceId=tolower(id), tags) on _ResourceId
+    | project-away _ResourceId1
+    | where (isnull(tags.monitored) or tolower(tostring(tags.monitored)) != 'false') and (tostring(tags.monitorRuleGroup) in (RuleGroupTags) or isnull(tags.monitorRuleGroup) or tostring(tags.monitorRuleGroup) == '')
 }
 ```
 
