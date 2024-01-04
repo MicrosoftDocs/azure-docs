@@ -51,8 +51,9 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     d. For **Region**, select the Azure region in which to deploy your VM. 
 
-        > [!NOTE]
-        > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+    > [!NOTE]
+    > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+        
     e. For **Availability options**, select **No infrastructure redundancy required** for singular VMs or [**Virtual machine scale set**](/azure/virtual-machine-scale-sets/overview) for multiple VMs.
 
     f. For **Security Type**, select **Confidential virtual machines**.
@@ -76,8 +77,8 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     o. For **Select inbound ports**, select your inbound ports from the drop-down menu. For Windows VMs, select **HTTP (80)** and **RDP (3389)**. For Linux VMs, select **SSH (22)** and **HTTP (80)**.
 
-        > [!NOTE]
-        > It's not recommended to allow RDP/SSH ports for production deployments.
+    > [!NOTE]
+    > It's not recommended to allow RDP/SSH ports for production deployments.
 
 1. On the tab **Disks**, configure the following settings:
 
@@ -162,7 +163,7 @@ Before you begin, make sure you have your VM's public IP address. To find the IP
 
 1. On your confidential VM's overview page, copy the **Public IP address**.
 
-    For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal#connect-to-virtual-machine).
+    For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal?tabs=ubuntu#connect-to-virtual-machine).
 
 1. Open your SSH client, such as PuTTY.
 
