@@ -15,11 +15,7 @@ zone_pivot_groups: iotedge-dev
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-Use Visual Studio 2022 to develop, debug and deploy code to devices running IoT Edge for Linux on Windows.
-
-This tutorial walks through developing, debugging and deploying your own code to an IoT Edge device using IoT Edge for Linux on Windows. This article is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
-
-This tutorial uses the example of deploying a **C# module to a Linux device**. This example was chosen because it's the most common developer scenario for IoT Edge solutions. Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts. Complete this introduction to the development process, then choose your preferred language or Azure service to dive into the details.
+This tutorial walks through developing, debugging and deploying your own code to an IoT Edge device using IoT Edge for Linux on Windows and Visual Studio 2022. You'll learn the most common developer scenario for IoT Edge solutions to deploy a **C# module to a Linux device**. You'll deploy and debug a custom Azure IoT Edge module running in a Linux container on Windows (EFLOW). Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts.
 
 This article includes steps for two IoT Edge development tools.
 
