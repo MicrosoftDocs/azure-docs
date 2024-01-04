@@ -3,8 +3,9 @@ title: Add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environme
 titleSuffix: Azure Automation
 description: This article shows how to add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environment.
 services: automation
-ms.date: 01/02/2024
+ms.date: 01/03/2024
 ms.topic: conceptual
+ms.custom: references_regions
 ---
 
 # Run Azure CLI commands in PowerShell 7.2 runbooks
@@ -20,6 +21,9 @@ You can run Azure CLI commands in runbooks linked with PowerShell 7.2 Runtime en
  
  
 ## Create Runtime environment
+
+> [!NOTE]
+> Instead of creating a new PowerShell 7.2 Runtime environment, you can use the System-generated PowerShell-7.2 Runtime environment.
 
 1. Sign in to the Azure [portal](https://portal.azure.com) and select your Automation account.
 1. Under **Process Automation**, select **Runtime Environments (preview)** and then select **Create**.
@@ -55,5 +59,4 @@ In your Automation account, under **Process Automation**, select **Runbooks**.
 1. **Test** runbook execution in Test pane. After you confirm the results, select **Publish** to publish the runbook and execute it.
  
 ## Next steps
-
-1. See [manage runtime environment](automation-manage-send-joblogs-log-analytics.md) to view the various operations through portal and REST API.
+- See [manage runtime environment](manage-runtime-environment.md) to view the various operations through portal and REST API.

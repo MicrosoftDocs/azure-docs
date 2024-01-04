@@ -1,11 +1,11 @@
 ---
-title: Manage runtime environment and associated runbooks in Azure Automation.
+title: Manage Runtime environment and associated runbooks in Azure Automation
 description: This article tells how to manage runbooks in Runtime environment and associated runbooks Azure Automation
 services: automation
 ms.subservice: process-automation
 ms.date: 12/29/2023
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 
@@ -29,7 +29,7 @@ An Azure Automation account in supported public region (except Central India, Ge
 
 1. Under **Process Automation**, you have the **Runtime Environments (Preview)** and the **Modules** and **Python packages** under **Shared resources** are removed as the Runtime environment allows management of Packages required during Runbook execution.
 
-    :::image type="content" source="./media/manage-runtime-environment/view-menu-options.png" alt-text="Screenshot shows how the menu options when you switch to runtime environmet experience." lightbox="./media/manage-runtime-environment/view-menu-options.png":::
+    :::image type="content" source="./media/manage-runtime-environment/view-menu-options.png" alt-text="Screenshot shows how the menu options when you switch to runtime environment experience." lightbox="./media/manage-runtime-environment/view-menu-options.png":::
 
 1. To revert to the old experience for managing Modules and Packages, select **Overview** in the left pane and then select **Switch to Old Experience**.
 
@@ -55,7 +55,7 @@ An Azure Automation account in supported public region (except Central India, Ge
 1. On **Basics**, provide the following details:
     1. **Name** for the Runtime environment. It must begin with alphabet and can contain only alphabets, numbers, underscores, and dashes.  
     1. From the **Language** drop-down, select the scripting language for Runtime environment.
-    1. Choose **PowerShell** for PowerShell scripting language or **Python** for Python scripting language.
+        - Choose **PowerShell** for PowerShell scripting language or **Python** for Python scripting language.
     1. Select **Runtime version** for scripting language.
         - For PowerShell - choose 5.1, 7.2
         - For Python - choose 3.8, 3.10 (preview)
@@ -308,16 +308,27 @@ Run a test job for a runbook with a different Runtime environment. This scenario
 
 #### [Azure portal](#tab/test-update-portal)
 
-1. In the **Automation account | Runbooks** page, select the runbook that you want to update.
-1. Select **Runtime environment** from the dropdown to view the list of compatible Runtime environments that you can link to the runbook and select the new Runtime environment to which you want to link the runbook.
-1. Make changes in the runbook code to ensure compatibility with updated Runtime version.
-1. Select **Test pane** to test the updated runbook before publishing it.
-1. After you confirm the test results, select **Publish** to publish the runbook to production.
-1. On **Runbooks** list page, you would see the same runbook linked to the new Runtime environment.
+You can update runbooks by changing the Runtime environment linked to that runbook. We recommend you to test runbook execution before publishing the changes. It's to ensure the runbook works as expected. 
+
+To test runbook execution before publishing Runtime environment changes, follow these steps:
+
+1. Go to **Runbooks** page, and select runbook for which you want to update the Runtime environment.
+
+   :::image type="content" source="./media/manage-runtime-environment/access-runbook.png" alt-text="Screenshot shows how to go to Runbooks page to select runbook." lightbox="./media/manage-runtime-environment/access-runbook.png":::
+
+1. In the **Edit runbook** page, select **Edit in Portal** to open the text editor.
+1. The Runtime environment field shows the existing configuration. Select the new Runtime environment from the dropdown list .
+
+   :::image type="content" source="./media/manage-runtime-environment/edit-runbook.png" alt-text="Screenshot shows how to select new Runtime environment." lightbox="./media/manage-runtime-environment/edit-runbook.png":::
+1. Select **Test pane** to test runbook execution with the updated Runtime environment. Select **Start** to begin the test run.
+1. Close the test pane and make the required changes in Runbook code or Runtime environment if necessary.
+1. Select **Publish** to update the Runtime environment linked to the runbook. 
+1. Select **Yes** to override the previously published version and confirm the changes.
+
 
 #### [REST API](#tab/test-update-api)
 
-Run a test job for a runbook with a different Runtime environment. This scenario is useful when a runbook needs to be tested with a Runtime environment before update
+Run a test job for a runbook with a different Runtime environment. This scenario is useful when a runbook needs to be tested with a Runtime environment before update.
 
 ```rest
 PUT 
@@ -357,29 +368,10 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 
 ---
 
-
 ### Link existing runbooks to System-generated Runtime environments
 
-All existing runbooks in your Azure Automation account would be automatically linked to System-generated Runtime environments. These system-generated Runtime environments are created based on Runtime language, version and Modules/Packages present in your respective Azure Automation account. [Learn more](runtime-environment-overview.md#system-generated-runtime-environments). To update existing runbooks, change the Runtime environment by following the steps mentioned here:
+All existing runbooks in your Azure Automation account would be automatically linked to System-generated Runtime environments. These system-generated Runtime environments are created based on Runtime language, version and Modules/Packages present in your respective Azure Automation account. [Learn more](runtime-environment-overview.md#system-generated-runtime-environments). To update existing runbooks, change the Runtime environment by following the steps mentioned [here](#test-runbook-update).
 
-### Test update of Runbook linked to Runtime environment
-
-You can update runbooks by changing the Runtime environment linked to that runbook. We recommend you to test runbook execution before publishing the changes. It's to ensure the runbook works as expected. 
-
-To test runbook execution before publishing Runtime environment changes, follow these steps:
-
-1. Go to **Runbooks** page, and select runbook for which you want to update the Runtime environment.
-
-   :::image type="content" source="./media/manage-runtime-environment/access-runbook.png" alt-text="Screenshot shows how to go to Runbooks page to select runbook." lightbox="./media/manage-runtime-environment/access-runbook.png":::
-
-1. In the **Edit runbook** page, select **Edit in Portal** to open the text editor.
-1. The Runtime environment field shows the existing configuration. Select the new Runtime environment from the dropdown.
-
-   :::image type="content" source="./media/manage-runtime-environment/edit-runbook.png" alt-text="Screenshot shows how to select new Runtime environment." lightbox="./media/manage-runtime-environment/edit-runbook.png":::
-1. Select **Test pane** to test runbook execution with the updated Runtime environment. Select **Start** to begin the test run.
-1. Close the test pane and make the required changes in Runbook code or Runtime environment if necessary.
-1. Select **Publish** to update the Runtime environment linked to the runbook. 
-1. Select **Yes** to override the previously published version and confirm the changes.
    
 ## Next steps
 
