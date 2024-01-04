@@ -1,8 +1,8 @@
 ---
 title: Extensions - Azure Database for PostgreSQL - Flexible Server
 description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
-author: sunilagarwal
-ms.author: sunila
+author: varun-dhawan
+ms.author: varundhawan
 ms.date: 12/18/2023
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -121,7 +121,7 @@ Azure Database for PostgreSQL supports a subset of key PostgreSQL extensions as 
 
 The following extensions are available in Azure Database for PostgreSQL - Flexible Servers
 
-|**Extenssion Name**                                                                         |**Descrption**                                                                                                                                                             |**Postgres 16**|**Postgres 15**|**Postgres 14**|**Postgres 13**|**Postgres 12**|**Postgres  11**|
+|**Extension Name**                                                                         |**Description**                                                                                                                                                             |**Postgres 16**|**Postgres 15**|**Postgres 14**|**Postgres 13**|**Postgres 12**|**Postgres  11**|
 |--------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|-----------|-----------|------------|
 |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)        |Used to parse an address into constituent elements.                                                                                                                        |N/A        |3.1.1      |3.1.1      |3.1.1      |3.0.0      |2.5.1       |
 |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)|Address Standardizer US dataset example                                                                                                                                    |N/A        |3.1.1      |3.1.1      |3.1.1      |3.0.0      |2.5.1       |
