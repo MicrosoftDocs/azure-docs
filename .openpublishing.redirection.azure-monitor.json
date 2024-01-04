@@ -1186,6 +1186,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/agents/use-azure-monitor-agent-troubleshooter.md",
+            "redirect_url": "/azure/azure-monitor/agents/troubleshooter-ama-windows",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/azure/azure-monitor/agents/agents-overview.md#log-analytics-agent",
             "redirect_url": "/azure/azure-monitor/agents/log-analytics-agent",
             "redirect_document_id": true

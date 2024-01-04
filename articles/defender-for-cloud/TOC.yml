@@ -853,7 +853,7 @@
     - name: How Microsoft secures customer data
       href: data-security.md
     - name: REST APIs documentation
-      href: /rest/api/defenderforcloud/
+      href: /rest/api/defenderforcloud/operation-groups?view=rest-defenderforcloud-2020-01-01&preserve-view=true
     - name: Security baseline
       href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
     - name: Azure Policy built-ins
