@@ -113,7 +113,7 @@ To reprotect and fail back VMware machines and physical servers from Azure to on
 - Replication appliance doesn’t require additional network connection/ports (as compared with forward protection) during failback. Same appliance can be used for forward and backward protections if it is in healthy state. It should not impact the performance of the replications.
 - When selecting the appliance, ensure that the target datastore where the source machine is located, is accessible by the appliance. The datastore of the source machine should always be accessible by the appliance. Even if the machine and appliance are located in different ESX servers, as long as the data store is shared between them, reprotection succeeds. 
   > [!NOTE]
-  > - Storage vMotion of replication appliance is not supported after re-protect operation.
+  > - Storage vMotion of replicated items is not supported. Storage vMotion of replication appliance is not supported after re-protect operation.
   > - When selecting the appliance, ensure that the target datastore where the source machine is located, is accessible by the appliance.
 
 

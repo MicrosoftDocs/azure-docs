@@ -630,7 +630,7 @@
         "articles/deployment-environments/**/*.md": "https://feedback.azure.com/d365community/forum/7a13c6c1-2546-ed11-bba2-000d3a4e3927",
         "articles/dev-box/**/*.md": "https://feedback.azure.com/d365community/forum/dbaa0c2b-4e1d-ed11-b83d-000d3a4d97ea",
         "articles/dev-spaces/**/*.md": "https://github.com/Azure/dev-spaces/issues",
-        "articles/devtest-lab/**/*.md": "https://feedback.azure.com/d365community/forum/502dba10-7726-ec11-b6e6-000d3a4f032c",
+        "articles/devtest-labs/**/*.md": "https://feedback.azure.com/d365community/forum/502dba10-7726-ec11-b6e6-000d3a4f032c",
         "articles/digital-twins/**/*.md": "https://feedback.azure.com/d365community/forum/9d500f96-f124-ec11-b6e6-000d3a4f0da0",
         "articles/dms/**/*.md": "https://feedback.azure.com/d365community/forum/2dd7eb75-ef24-ec11-b6e6-000d3a4f0da0",
         "articles/dns/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=9c429912-8326-ec11-b6e6-000d3a4f0789",
@@ -742,8 +742,22 @@
         "articles/ai-services/LinguisticAnalysisAPI/**/*.md": "None",
         "articles/ai-services/Recommendations/**/*.md": "None",
         "articles/ai-services/Web-Language-Model/**/*.md": "None",
+        "articles/devtest-labs/**/*": "Standard",
+        "articles/lab-services/**/*": "Standard",
+        "articles/load-testing/**/*": "Standard",
+        "articles/playwright-testing/**/*": "Standard",
         "articles/virtual-machines/linux/classic/**/*": "None",
         "articles/virtual-machines/windows/classic/**/*": "None"
+      },
+      "feedback_help_link_url": {
+        "articles/devtest-labs/**/*": "https://learn.microsoft.com/en-us/answers/tags/104/azure-devtest-labs",
+        "articles/lab-services/**/*": "https://learn.microsoft.com/en-us/answers/tags/186/azure-lab-services",
+        "articles/load-testing/**/*": "https://learn.microsoft.com/en-us/answers/tags/439/azure-load-testing"
+      },
+      "feedback_help_link_type": {
+        "articles/devtest-labs/**/*": "get-help-at-qna",
+        "articles/lab-services/**/*": "get-help-at-qna",
+        "articles/load-testing/**/*": "get-help-at-qna"
       },
       "learn_banner_products": {
         "articles/**/*.md": [

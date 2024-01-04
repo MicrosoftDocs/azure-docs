@@ -196,7 +196,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
    >The managed identity is the value you assigned to the `USER_ASSIGNED_IDENTITY_NAME` variable.
 
    >[!NOTE]
-   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator (preview)][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac],or [Owner][owner-rbac].
+   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac],or [Owner][owner-rbac].
 
    Run the following command to set the scope:
 
@@ -443,7 +443,7 @@ kubectl delete pod pod-name
 [azure-managed-hsm]: ../key-vault/managed-hsm/overview.md
 [provision-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
 [assign-key-vault-access-cli]: ../key-vault/general/rbac-guide.md#assign-role
-[key-vault-data-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator-preview
+[key-vault-data-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator
 [user-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#user-access-administrator
 [owner-rbac]: ../role-based-access-control/built-in-roles.md#owner
 [az-attestation-show]: /cli/azure/attestation#az-attestation-show

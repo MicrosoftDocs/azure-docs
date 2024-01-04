@@ -238,11 +238,11 @@ sections:
         answer: No. Azure Firewall doesn't need a subnet bigger than /26.
 
       - question: How can I increase my firewall throughput?
-        answer: Azure Firewall's initial throughput capacity is 2.5 - 3 Gbps and it scales out to 30 Gbps for Standard SKU and 100 Gbps for Premium SKU. It scales out automatically based on CPU usage and throughput.
+        answer: Azure Firewall's initial throughput capacity is 2.5 - 3 Gbps and it scales out to 30 Gbps for Standard SKU and 100 Gbps for Premium SKU. It scales out automatically based on CPU usage, throughput, and the number of connections.
 
       - question: How long does it take for Azure Firewall to scale out?
         answer: |
-          Azure Firewall gradually scales when average throughput or CPU consumption is at 60%. It starts to scale out when it reaches 60% of its maximum throughput. Maximum throughput numbers vary based on Firewall SKU and enabled features. For more information, see [Azure Firewall performance](firewall-performance.md).
+          Azure Firewall gradually scales when average throughput or CPU consumption is at 60%, or the number of connections usage is at 80%. For example, it starts to scale out when it reaches 60% of its maximum throughput.  Maximum throughput numbers vary based on Firewall SKU and enabled features. For more information, see [Azure Firewall performance](firewall-performance.md).
           
           Scale out takes five to seven minutes.
 
