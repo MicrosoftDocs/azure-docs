@@ -23,7 +23,7 @@ You can run Azure CLI commands in runbooks linked with PowerShell 7.2 Runtime en
 ## Create Runtime environment
 
 > [!NOTE]
-> Instead of creating a new PowerShell 7.2 Runtime environment, you can use the System-generated PowerShell-7.2 Runtime environment.
+> Instead of creating a new PowerShell 7.2 Runtime environment, you can use the System-generated PowerShell 7.2 Runtime environment.
 
 1. Sign in to the Azure [portal](https://portal.azure.com) and select your Automation account.
 1. Under **Process Automation**, select **Runtime Environments (preview)** and then select **Create**.
@@ -36,7 +36,7 @@ You can run Azure CLI commands in runbooks linked with PowerShell 7.2 Runtime en
 1. Select **+Add from gallery** to add more packages from gallery and select **Next**.
 1. On **Review + create** tab, review the entries and select **Create**.
 
-   A notification appears to confirm that a runtime environment is successfully created.
+   A notification appears to confirm that a Runtime environment is successfully created.
 
 ## Create Runbook
 
@@ -59,4 +59,4 @@ In your Automation account, under **Process Automation**, select **Runbooks**.
 1. **Test** runbook execution in Test pane. After you confirm the results, select **Publish** to publish the runbook and execute it.
  
 ## Next steps
-- See [manage runtime environment](manage-runtime-environment.md) to view the various operations through portal and REST API.
+- See [Manage Runtime environment](manage-runtime-environment.md) to view the various operations through portal and REST API.

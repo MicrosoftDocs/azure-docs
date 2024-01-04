@@ -23,7 +23,7 @@ Using the Runtime environment, you can upgrade a runbook from one Runtime versio
 ## Create Runtime environment
 
 > [!NOTE]
-> Instead of creating a new PowerShell 7.2 Runtime environment, you can use the System-generated PowerShell-7.2 Runtime environment.
+> Instead of creating a new PowerShell 7.2 Runtime environment, you can use the System-generated PowerShell 7.2 Runtime environment.
 
 1. Sign in to the Azure [portal](https://portal.azure.com) and select your Automation account.
 1. Under **Process Automation**, select **Runtime Environments (preview)**. If you don't find Runtime Environments (preview) in the list, select **Try Runtime environment experience** to switch to the new portal interface.
@@ -37,7 +37,7 @@ Using the Runtime environment, you can upgrade a runbook from one Runtime versio
 1. Select **+Add from gallery** to add more packages from gallery and select **Next**.
 1. On **Review + create** tab, review the entries and select **Create**.
 
-   A notification appears to confirm that a runtime environment is successfully created.
+   A notification appears to confirm that a Runtime environment is successfully created.
 
 
 ## Update Runtime environment of runbook
@@ -59,4 +59,4 @@ Using the Runtime environment, you can upgrade a runbook from one Runtime versio
  
 ## Next steps
 
-- See [manage runtime environment](manage-runtime-environment.md) to view the various operations through portal and REST API.
+- See [Manage Runtime environment](manage-runtime-environment.md) to view the various operations through portal and REST API.
