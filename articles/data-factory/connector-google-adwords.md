@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/14/2023
+ms.date: 12/22/2023
 ---
 
 # Copy data from Google Ads using Azure Data Factory or Synapse Analytics
@@ -17,6 +17,9 @@ ms.date: 09/14/2023
 
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Google Ads. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!Important]
+> It is highly recommended to [upgrade your Google Ads driver version](#upgrade-the-google-ads-driver-version).
 
 ## Supported capabilities
 
@@ -66,15 +69,12 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-> [!Important]
-> Due to the sunset of Google AdWords API by **April 27, 2022**, the service has upgraded to the new Google Ads API.  Please recreate the linked service with the latest Google Ads API if you use the legacy version.
-
 The following properties are supported for Google Ads linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **GoogleAdWords** | Yes |
-| googleAdsApiVersion | The Google Ads API version that you use.| Yes |
+| googleAdsApiVersion | The Google Ads API version that you use. You can refer this [article](https://developers.google.com/google-ads/api/docs/release-notes) for API version information.|  Yes |
 | clientCustomerID | The Client customer ID of the Ads account that you want to fetch report data for.  | Yes |
 | loginCustomerID | The customer ID of the Google Ads manager account through which you want to fetch report data of specific customer.| No |
 | developerToken | The developer token associated with the manager account that you use to grant access to the Ads API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
@@ -199,17 +199,21 @@ To copy data from Google Ads set the source type in the copy activity to **Googl
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Google Ads linked service
+## Upgrade the Google Ads driver version
 
-To upgrade your Google Ads linked service, you need update your linked service and learn how to migrate from SQL to Google Ads Query Language (GAQL).
+To upgrade your Google Ads driver version, you need update your linked service and learn how to migrate from SQL to Google Ads Query Language (GAQL).
 
 ### Update the linked service configuration
 
-Create a new Google Ads linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and apply the new configuration for **Service authentication** if you use it.
+Create a new Google Ads linked service and configure it by referring to [Linked service properties](#linked-service-properties). 
 
 ### Migrate from SQL to GAQL
 
-If you use SQL statements in your pipelines that refer to the old Google Ads linked service, you need to update them to GAQL statements. 
+Convert your query statements and field names when migrating from SQL to GAQL. 
+
+#### Query statements
+
+If you use SQL query in the copy activity source or the lookup activity that refers to the legacy Google Ads linked service, you need to update them to GAQL query.
 
 In contrast to SQL, the query in GAQL is made up of six kinds of clauses:
 
@@ -238,7 +242,7 @@ Here are two very useful tools offered by Google and they are highly recommended
 - [Interactive GAQL query builder](https://developers.google.com/google-ads/api/fields/v14/overview_query_builder) 
 - [GAQL query validator](https://developers.google.com/google-ads/api/fields/v14/query_validator) 
 
-### Field name
+#### Field name
 
 The field name used in SQL is not aligned with GAQL. You also need to learn the conversion rules from field names in SQL to field names in GAQL. The conversion rule can be summarized as follows:
 
@@ -248,7 +252,7 @@ The field name used in SQL is not aligned with GAQL. You also need to learn the 
 
 Here are the concrete examples of the field name conversion:
 
-| Category | Field names in SQL | Field  names in GAQL | 
+| Category | Field names in SQL | Field names in GAQL | 
 |---------| --------|---------| 
 | Resource fields | `Campaign_startDate` | `campaign.start_date` | 
 | Resource fields | `Customer_conversionTrackingSetting_conversionTrackingStatus` | `customer.conversion_tracking_setting.conversion_tracking_status` | 
