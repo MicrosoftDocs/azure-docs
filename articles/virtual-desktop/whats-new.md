@@ -26,13 +26,17 @@ Make sure to check back here often to keep up with new updates.
 
 Here's what changed in December 2023:
 
-### App attach preview
+### New app attach features for Azure Virtual Desktop in public preview
 
-The preview of *app attach* is now available. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+The preview of *app attach* is now available. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host.
 
-### Use the new Microsoft Teams desktop client
+For more information, see [New app attach features for Azure Virtual Desktop in public preview](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-app-attach-features-for-azure-virtual-desktop-in-public/ba-p/4002826) and [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
 
-You can now use the [new Teams desktop client](/microsoftteams/new-teams-desktop-admin) on your session hosts, which provides a faster, simpler, and more flexible experience. For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
+### The new Microsoft Teams desktop client is now generally available to use with Azure Virtual Desktop
+
+The [new Microsoft Teams desktop client](/microsoftteams/new-teams-desktop-admin) is now generally available to use with Azure Virtual Desktop. The new Teams desktop client has feature parity with the classic Teams app and improved performance, reliability, and security.
+
+For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
 
 ## November 2023
 
@@ -56,7 +60,9 @@ Windows 11 Enterprise multi-session, versions 23H2 and 22H2 with Microsoft 365 a
 
 ### Autoscale for personal host pools is now generally available
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. Autoscale now also supports the hibernate feature (preview), which can pause session hosts you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. Autoscale now also supports the hibernate feature (preview), which can pause session hosts you aren't using.
+
+For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
 
 ### Updated preview of Azure Virtual Desktop on Azure Stack HCI
 
@@ -64,11 +70,15 @@ We've updated the preview of Azure Virtual Desktop on Azure Stack HCI. You can n
 
 ### Single sign-on using Microsoft Entra authentication is now generally available
 
-Single sign-on using Microsoft Entra authentication is now generally available. Single sign-on enables users to automatically sign the user into Windows, without prompting them for their credentials for every connection. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
+Single sign-on using Microsoft Entra authentication is now generally available. Single sign-on enables users to automatically sign the user into Windows, without prompting them for their credentials for every connection.
+
+For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
 
 ### In-session passwordless authentication is now generally available
 
-In-session passwordless authentication is now generally available. Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-authentication).
+In-session passwordless authentication is now generally available. Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices like FIDO keys.
+
+For more information, see [In-session passwordless authentication](authentication.md#in-session-authentication).
 
 ### Windows App preview
 
