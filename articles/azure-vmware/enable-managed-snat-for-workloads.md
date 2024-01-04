@@ -13,12 +13,12 @@ In this article, learn how to turn on Source Network Address Translation (SNAT) 
 
 A SNAT service translates from an RFC 1918 space to the public internet for simple outbound internet access. Internet Control Message Protocol (ICMP) is turned off by design so that users can't ping an internet host. The SNAT service doesn't work when you have a default route from Azure.  
 
-With this capability, you have:
+With Managed SNAT service in Azure VMware Solution, you have:
 
 - A basic SNAT service with outbound internet connectivity from your Azure VMware Solution private cloud.
 - A limit of 128,000 concurrent connections.
 
-With this capability, you *don't* have:
+With the Managed SNAT service, you *don't* have:
 
 - Control of outbound SNAT rules.
 - Control of the public IP address that's used.
@@ -27,21 +27,21 @@ With this capability, you *don't* have:
 
 ## Reference architecture
 
-The following reference architecture shows internet access that's outbound from your Azure VMware Solution private cloud via the Managed SNAT service in Azure VMware Solution.
+The following figure shows internet access that's outbound from your Azure VMware Solution private cloud via the Managed SNAT service in Azure VMware Solution.
 
-:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat.png" alt-text="Diagram that shows the architecture of internet access to and from your Azure VMware Solution private cloud via public IP directly to the SNAT edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat-expanded.png":::
+:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat.png" alt-text="Diagram that shows the architecture of internet access to and from your Azure VMware Solution private cloud via public IP address directly to the SNAT edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat-expanded.png":::
 
 ## Set up outbound internet access by using the Managed SNAT service
 
-You can set up outbound internet access via Managed SNAT by using the Azure portal.
+To set up outbound internet access via Managed SNAT, use the Azure portal:
 
 1. Sign in to the Azure portal. Search for **Azure VMware Solution**, and then select it in the search results.
-1. Select the Azure VMware Solution private cloud.
-1. In the resource menu under **Workload networking**, select **Internet connectivity**.
+1. Select your Azure VMware Solution private cloud.
+1. On the resource menu under **Workload networking**, select **Internet connectivity**.
 1. Select **Connect using SNAT**, and then select **Save**.
 
 ## Related content
 
 - [Internet connectivity design considerations (preview)](concepts-design-public-internet-access.md)
-- [Enable public IP to the NSX edge for Azure VMware Solution (preview)](enable-public-ip-nsx-edge.md)
-- [Disable Internet access or enable a default route](disable-internet-access.md)
+- [Turn on public IP addresses on an NSX-T Edge node for NSX-T Data Center (preview)](enable-public-ip-nsx-edge.md)
+- [Set a default internet route or disable internet access](disable-internet-access.md)

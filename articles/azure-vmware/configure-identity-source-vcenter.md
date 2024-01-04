@@ -177,7 +177,7 @@ Users in a CloudAdmin group have user rights that are equal to the CloudAdmin (`
    | **GroupName**  | The name of the group to add. For example, **VcAdminGroup**.  |
    | **Retain up to**  | The retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | An alphanumeric name. For example, **addADgroup**.  |
-   | **Timeout**  |  The period after which a cmdlet exits if it hasn't finished running.  |
+   | **Timeout**  |  The period after which a cmdlet exits if it isn't finished running.  |
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
@@ -202,7 +202,7 @@ To list all external identity sources already integrated with vCenter Server SSO
    | --- | --- |
    | **Retain up to**  | The retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | An alphanumeric name. For example, **getExternalIdentity**.  |
-   | **Timeout**  |  The period after which a cmdlet exits if it hasn't finished running.  |
+   | **Timeout**  |  The period after which a cmdlet exits if it isn't finished running.  |
 
 1. To see the progress, check **Notifications** or the **Run Execution Status** pane.
 
@@ -288,6 +288,6 @@ Now that you learned how to configure LDAP and LDAPS, explore the following arti
 
 - [Configure storage policy](configure-storage-policy.md) - Each virtual machine (VM) that's deployed to a vSAN datastore is assigned at least one VM storage policy. Learn how to assign a VM storage policy during an initial deployment of a VM or other VM operations, such as cloning or migrating.
 - [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter Server to manage VM workloads, and use NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX-T Manager.
-- [Configure an external identity source for NSX-T](configure-external-identity-source-nsx-t.md).
-- [Azure VMware Solution identity concepts](concepts-identity.md).
-- [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).
+- Learn how to [configure an external identity source for NSX-T](configure-external-identity-source-nsx-t.md).
+- Review [Azure VMware Solution identity concepts](concepts-identity.md).
+- Read the [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).
