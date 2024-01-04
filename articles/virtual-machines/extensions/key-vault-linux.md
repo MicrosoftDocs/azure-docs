@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ---
 # Key Vault virtual machine extension for Linux
 
-The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults.  The extension retrieves and installs the corresponding certificates after detecting a change. The Key Vault VM extension is published and supported by Microsoft, currently on Linux VMs. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Linux. 
+The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults.  The extension retrieves and installs the corresponding certificates after detecting a change. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Linux. 
 
 ### Operating system
 
@@ -33,8 +33,8 @@ The Key Vault VM extension supports these Linux distributions:
 
 ## Prerequisites
   - Key Vault instance with certificate. See [Create a Key Vault](../../key-vault/general/quick-create-portal.md)
-  - VM/VMSS must have assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md)
-  - The **Key Vault Secrets User** role must be assigned at the Key Vault scope level for VMs and Azure Virtual Machine Scale Sets managed identity. This role retrieves a secret's portion of a certificate. For more information, see the following articles:
+  - Assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) on VM/VMSS
+  - The **Key Vault Secrets User** role at the Key Vault scope level for VMs and Azure Virtual Machine Scale Sets managed identity. This role retrieves a secret's portion of a certificate. For more information, see the following articles:
     - [Authentication in Azure Key Vault](/azure/key-vault/general/authentication)
     - [Use Azure RBAC secret, key, and certificate permissions with Azure Key Vault](/azure/key-vault/general/rbac-guide#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault)
     - [Key Vault scope role assignment](/azure/key-vault/general/rbac-guide?tabs=azure-cli#key-vault-scope-role-assignment)
@@ -57,16 +57,16 @@ The Key Vault VM extension supports these Linux distributions:
    `
 ## Key Vault VM extension version
 
-* Users can chose to upgrade their Key Vault vm extension version to `V2.0` to use full certificate chain download feature. Issuer certificates (intermediate and root) will be appended to the leaf certificate in the PEM file.
+* Users can chose to upgrade their Key Vault vm extension version to `V2.0` to use full certificate chain download feature. Issuer certificates (intermediate and root) are included with leaf certificate in the PEM file.
 
 * If you prefer to upgrade to `v2.0`, you would need to delete `v1.0` first, then install `v2.0`.
 ```azurecli
   az vm extension delete --name KeyVaultForLinux --resource-group ${resourceGroup} --vm-name ${vmName}
   az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 2.0
 ```  
-  The flag --version 2.0 is optional because the latest version will be installed by default.	
+  The flag --version 2.0 is optional because the latest version is installed by default.	
 
-* If the VM has certificates downloaded by v1.0, deleting the v1.0 AKVVM extension will NOT delete the downloaded certificates.  After installing v2.0, the existing certificates will NOT be modified.  You would need to delete the certificate files or roll-over the certificate to get the PEM file with full-chain on the VM.
+* If the VM has certificates downloaded by v1.0, deleting the v1.0 AKVVM extension does not delete the downloaded certificates.  After installing v2.0, the existing certificates are not modified.  You would need to delete the certificate files or roll-over the certificate to get the PEM file with full-chain on the VM.
 
 ## Extension schema
 
@@ -110,7 +110,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> The 'authenticationSettings' property is **required** for VMs with any **user assigned identities**. Even if you want to use a system assigned identity this is still required otherwise the VM extension will not know which identity to use. Without this section, a VM with user assigned identities will result in the Key Vault extension failing and being unable to download certificates.
+> The 'authenticationSettings' property is **required** for VMs with any **user assigned identities**. Even if you want to use a system assigned identity this is still required otherwise the VM extension does not know which identity to use. Without this section, a VM with user assigned identities will result in the Key Vault extension failing and being unable to download certificates.
 > Set msiClientId to the identity that will authenticate to Key Vault.
 > 
 > Also **required** for **Azure Arc-enabled VMs**.
@@ -171,7 +171,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
 ```
 
 ### Extension Dependency Ordering
-The Key Vault VM extension supports extension ordering if configured. By default the extension reports that it has successfully started as soon as it has started polling. However, it can be configured to wait until it has successfully downloaded the complete list of certificates before reporting a successful start. If other extensions depend on having the full set of certificates installed before they start, then enabling this setting will allow those extensions to declare a dependency on the Key Vault extension. This will prevent those extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
+The Key Vault VM extension supports extension ordering if configured. By default the extension reports successful start as soon as polling starts. However, you can configure it to wait until it successfully downloadd the complete list of certificates before reporting a successful start. If other extensions depend on installed certificates before they start, then enabling this setting will allow those extensions to declare a dependency on the Key Vault extension. This will prevent those extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
 
 To turn on extension dependency, set the following:
 ```
