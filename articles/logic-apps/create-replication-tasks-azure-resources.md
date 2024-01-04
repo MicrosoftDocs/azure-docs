@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ms.custom: ignite-fall-2021
 ---
 
@@ -23,7 +23,7 @@ To reduce the effect that unpredictable events can have on your Azure resources 
 > You can also use replication tasks to move content between entities in the same region, but if the 
 > entire region becomes unavailable or experiences disruption, both source and target are affected.
 
-This article provides an overview about replication tasks powered by Azure Logic Apps and shows how to create an example replication task for Azure Service Bus queues. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+This article provides an overview about replication tasks powered by Azure Logic Apps and shows how to create an example replication task for Azure Service Bus queues. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
 
 <a name="replication-task"></a>
 

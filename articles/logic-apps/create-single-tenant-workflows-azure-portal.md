@@ -37,7 +37,7 @@ As you progress, you'll complete these high-level tasks:
 * Enable or open the Application Insights after deployment.
 * Enable run history for stateless workflows.
 
-In single-tenant Azure Logic Apps, workflows in the same logic app resource and tenant run in the same process as the runtime, so they share the same resources and provide better performance. For more information about single-tenant Azure Logic Apps, see [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md). 
+In single-tenant Azure Logic Apps, workflows in the same logic app resource and tenant run in the same process as the runtime, so they share the same resources and provide better performance. For more information about single-tenant Azure Logic Apps, see [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md). 
 
 ## Prerequisites
 
@@ -92,7 +92,7 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
    | Plan type | Description |
    |-----------|-------------|
    | **Standard** | This logic app type is the default selection. Workflows run in single-tenant Azure Logic Apps and use the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-   | **Consumption** | This logic app type and workflow runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+   | **Consumption** | This logic app type and workflow runs in global, multitenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
