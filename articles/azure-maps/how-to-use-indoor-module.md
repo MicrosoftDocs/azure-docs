@@ -322,9 +322,9 @@ Learn more about how to add more data to your map:
 [Drawing package requirements]: drawing-requirements.md
 [dynamic map styling]: indoor-map-dynamic-styling.md
 [Indoor Maps dynamic styling]: indoor-map-dynamic-styling.md
-[map configuration API]: /rest/api/maps/2023-03-01-preview/map-configuration
+[map configuration API]: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview
 [map configuration]: creator-indoor-maps.md#map-configuration
-[Style Rest API]: /rest/api/maps/2023-03-01-preview/style
+[Style Rest API]: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview
 [style-loader]: https://webpack.js.org/loaders/style-loader
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Tileset List API]: /rest/api/maps-creator/tileset/list
