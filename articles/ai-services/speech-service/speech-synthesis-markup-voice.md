@@ -2,7 +2,6 @@
 title: Voice and sound with Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure AI services
 description: Learn about how you can use Speech Synthesis Markup Language (SSML) elements to customize what your Speech service voice sounds like.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -65,7 +64,7 @@ This example alternates between the `en-US-JennyNeural` and `en-US-ChristopherNe
 
 #### Custom neural voice example
 
-To use your [custom neural voice](how-to-deploy-and-use-endpoint.md#use-your-custom-voice), specify the model name as the voice name in SSML. 
+To use your [custom neural voice](professional-voice-deploy-endpoint.md#use-your-custom-voice), specify the model name as the voice name in SSML. 
 
 This example uses a custom voice named **my-custom-voice**. 
 
@@ -94,7 +93,7 @@ You use the `effect` attribute to optimize the auditory experience for scenarios
 By default, neural voices have a neutral speaking style. You can adjust the speaking style, style degree, and role at the sentence level.
 
 > [!NOTE]
-> The Speech service supports styles, style degree, and roles for a subset of neural voices as described in [Voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine the supported styles and roles for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
+> The Speech service supports styles, style degree, and roles for a subset of neural voices as described in the [voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine the supported styles and roles for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [audio content creation](https://aka.ms/audiocontentcreation) web application.
 
 The following table describes the usage of the `mstts:express-as` element's attributes:
 
@@ -199,7 +198,7 @@ This SSML snippet illustrates how the `role` attribute is used to change the rol
 
 #### Custom neural voice style example
 
-You can train your custom neural voice to speak with some preset styles such as `cheerful`, `sad`, and `whispering`. You can also [train a custom neural voice](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) to speak in a custom style as determined by your training data. To use your custom neural voice style in SSML, specify the style name that you previously entered in Speech Studio.
+You can train your custom neural voice to speak with some preset styles such as `cheerful`, `sad`, and `whispering`. You can also [train a custom neural voice](professional-voice-train-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) to speak in a custom style as determined by your training data. To use your custom neural voice style in SSML, specify the style name that you previously entered in Speech Studio.
 
 This example uses a custom voice named **my-custom-voice**. The custom voice speaks with the `cheerful` preset style and style degree of `2`, and then with a custom style named **my-custom-style** and style degree of `0.01`. 
 
@@ -216,15 +215,27 @@ This example uses a custom voice named **my-custom-voice**. The custom voice spe
 </speak>
 ```
 
+## Speaker profile ID
+
+You use the `mstts:ttsembedding` element to specify the `speakerProfileId` property for a [personal voice](./personal-voice-overview.md). Personal voice is a custom neural voice that's trained on your own voice or your customer's voice. For more information, see [create a personal voice](./personal-voice-create-voice.md).
+
+The following SSML example uses the `<mstts:ttsembedding>` element with a voice name and speaker profile ID.
+
+```xml
+<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'>
+    <voice xml:lang='en-US' xml:gender='Male' name='PhoenixV2Neural'> 
+    <mstts:ttsembedding speakerProfileId='your speaker profile ID here'> 
+    I'm happy to hear that you find me amazing and that I have made your trip planning easier and more fun. 我很高兴听到你觉得我很了不起，我让你的旅行计划更轻松、更有趣。Je suis heureux d'apprendre que vous me trouvez incroyable et que j'ai rendu la planification de votre voyage plus facile et plus amusante.  
+    </mstts:ttsembedding> 
+    </voice> 
+</speak> 
+```
+
 ## Adjust speaking languages
 
-By default, all neural voices are fluent in their own language and English without using the `<lang xml:lang>` element. For example, if the input text in English is, "I'm excited to try text to speech," and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, the Speech service doesn't support setting a specific speaking language with the `<lang xml:lang>` element at the sentence or word level.
+By default, multilingual voices can autodetect the language of the input text and speak in the language in primary locale of the input text without using SSML. However, you can still use the `<lang xml:lang>` element to adjust the speaking language for these voices to set preferred accent with non-primary locales such as British accent (`en-GB`) for English. You can adjust the speaking language at both the sentence level and word level. For information about the supported languages for multilingual voice, see [Multilingual voices with the lang element](#multilingual-voices-with-the-lang-element) for a table showing the `<lang>` syntax and attribute definitions. 
 
-The `<lang xml:lang>` element is primarily intended for multilingual neural voices. You can adjust the speaking language for the multilingual neural voice at the sentence level and word level. For information about the supported languages for multilingual voice, see [Multilingual voices with the lang element](#multilingual-voices-with-the-lang-element) for a table showing the `<lang>` syntax and attribute definitions.
-
-The multilingual voices `en-US-JennyMultilingualV2Neural` and `en-US-RyanMultilingualNeural` autodetect the language of the input text. However, you can still use the `<lang>` element to adjust the speaking language for these voices.
-
-The following table describes the usage of the `lang` element's attributes:
+The following table describes the usage of the `<lang xml:lang>` element's attributes:
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
@@ -235,17 +246,15 @@ The following table describes the usage of the `lang` element's attributes:
 
 ### Multilingual voices with the lang element
 
-Use this table to determine which speaking languages the Speech service supports for each neural voice. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+Use the [multilingual voices section](language-support.md?tabs=tts#multilingual-voices) to determine which speaking languages the Speech service supports for each neural voice, as demonstrated in the example table below. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
-| Voice | Supported locales |
-| ---------- | ---------- |
-| `en-US-JennyMultilingualNeural`<sup>1</sup> | `de-DE`, `en-AU`, `en-CA`, `en-GB`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN` |
-| `en-US-JennyMultilingualV2Neural`<sup>2</sup> | `ar-EG`, `ar-SA`, `ca-ES`, `cs-CZ`, `da-DK`, `de-AT`, `de-CH`, `de-DE`, `en-AU`, `en-CA`, `en-GB`, `en-HK`, `en-IE`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fi-FI`, `fr-BE`, `fr-CA`, `fr-CH`, `fr-FR`, `hi-IN`, `hu-HU`, `id-ID`, `it-IT`, `ja-JP`, `ko-KR`, `nb-NO`, `nl-BE`, `nl-NL`, `pl-PL`, `pt-BR`, `pt-PT`, `ru-RU`, `sv-SE`, `th-TH`, `tr-TR`, `zh-CN`, `zh-HK`, `zh-TW`. |
-| `en-US-RyanMultilingualNeural` | `ar-EG`, `ar-SA`, `ca-ES`, `cs-CZ`, `da-DK`, `de-AT`, `de-CH`, `de-DE`, `en-AU`, `en-CA`, `en-GB`, `en-HK`, `en-IE`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fi-FI`, `fr-BE`, `fr-CA`, `fr-CH`, `fr-FR`, `hi-IN`, `hu-HU`, `id-ID`, `it-IT`, `ja-JP`, `ko-KR`, `nb-NO`, `nl-BE`, `nl-NL`, `pl-PL`, `pt-BR`, `pt-PT`, `ru-RU`, `sv-SE`, `th-TH`, `tr-TR`, `zh-CN`, `zh-HK`, `zh-TW`. |
+| Voice | Supported language number | Supported languages | Supported locales |
+|-------------|---------------------------|-----------------------|----------------|
+|`en-US-AndrewMultilingualNeural`<sup>1,2</sup> (Male)<br/>`en-US-AvaMultilingualNeural`<sup>1,2</sup> (Female)<br/>`en-US-BrianMultilingualNeural`<sup>1,2</sup> (Male)<br/>`en-US-EmmaMultilingualNeural`<sup>1,2</sup> (Female)| 76 | Afrikaans, Albanian, Amharic, Arabic, Armenian, Azerbaijani, Bahasa Indonesian, Bangla, Basque, Bengali, Bosnian, Bulgarian, Burmese, Catalan, Chinese Cantonese, Chinese Mandarin, Croatian, Czech, Danish, Dutch, English, Estonian, Filipino, Finnish, French, Galician, Georgian, German, Greek, Hebrew, Hindi, Hungarian, Icelandic, Irish, Italian, Japanese, Javanese, Kannada, Kazakh, Khmer, Korean, Lao, Latvian, Lithuanian, Macedonian, Malay, Malayalam, Maltese, Mongolian, Nepali, Norwegian Bokmål, Pashto, Persian, Polish, Portuguese, Romanian, Russian, Serbian, Sinhala, Slovak, Slovene, Somali, Spanish, Sundanese, Swahili, Swedish，Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu, Uzbek, Vietnamese, Welsh, Zulu |`af-ZA`, `am-ET`, `ar-SA`, `az-AZ`, `bg-BG`, `bn-BD`, `bn-IN`, `bs-BA`, `ca-ES`, `cs-CZ`, `cy-GB`, `da-DK`, `de-DE`, `el-GR`, `en-US`, `es-ES`, `et-EE`, `eu-ES`, `fa-IR`, `fi-FI`, `fil-PH`, `fr-FR`, `ga-IE`, `gl-ES`, `he-IL`, `hi-IN`, `hr-HR`, `hu-HU`, `hy-AM`, `id-ID`, `is-IS`, `it-IT`, `ja-JP`, `jv-ID`, `ka-GE`, `kk-KZ`, `km-KH`, `kn-IN`, `ko-KR`, `lo-LA`, `lt-LT`, `lv-LV`, `mk-MK`, `ml-IN`, `mn-MN`, `ms-MY`, `mt-MT`, `my-MM`, `nb-NO`, `ne-NP`, `nl-NL`, `pl-PL`, `ps-AF`, `pt-BR`, `ro-RO`, `ru-RU`, `si-LK`, `sk-SK`, `sl-SI`, `so-SO`, `sq-AL`, `sr-RS`, `su-ID`, `sv-SE`, `sw-KE`, `ta-IN`, `te-IN`, `th-TH`, `tr-TR`, `uk-UA`, `ur-PK`, `uz-UZ`, `vi-VN`, `zh-CN`, `zh-HK`, `zu-ZA`.|
 
-<sup>1</sup> In order to speak in a language other than English, the current implementation of the `en-US-JennyMultilingualNeural` voice requires that you set the `<lang xml:lang>` element. We anticipate that during Q4 calendar year 2023, the `en-US-JennyMultilingualNeural` voice will be updated to speak in the language of the input text without the `<lang xml:lang>` element. This update will be in parity with the `en-US-JennyMultilingualV2Neural` voice.
+<sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](regions.md): East US, West Europe, and Southeast Asia. 
 
-<sup>2</sup> The `en-US-JennyMultilingualV2Neural` voice is provided temporarily in public preview solely for evaluation purposes. It will be removed in the future. 
+<sup>2</sup> Those are TTS multilingual voices in Azure AI Speech. By default, all multilingual voices (except `en-US-JennyMultilingualNeural`) can speak in the language in primary locale of the input text without [using SSML](speech-synthesis-markup-voice.md#adjust-speaking-languages). However, you can still use the `<lang xml:lang>` element to adjust the speaking language for these voices to set preferred accent with non-primary locales such as British accent (`en-GB`) for English. The primary locale for each voice is indicated by the prefix in its name, such as the voice `en-US-AndrewMultilingualNeural`, its primary locale is `en-US`.
 
 > [!NOTE] 
 > Multilingual voices don't fully support certain SSML elements, such as `break`, `emphasis`, `silence`, and `sub`.

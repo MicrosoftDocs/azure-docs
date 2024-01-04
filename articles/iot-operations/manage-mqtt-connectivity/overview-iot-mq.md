@@ -24,7 +24,7 @@ IoT MQ features a standards-compliant MQTT Broker that supports both MQTT v3.1.1
 
 Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* among protocols in the IoT space. MQTT's simple design allows a single broker to serve tens of thousands of clients simultaneously, with a lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
-IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer.
+IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer. For more information about supported MQTT features, see [MQTT feature support in Azure IoT MQ](../reference/mqtt-support.md).
 
 ## Highly available and scalable
 
@@ -53,7 +53,7 @@ You might have different messaging requirements for your cloud scenario. For exa
 
 To provide flexibility, Azure IoT MQ provides built-in Azure Connectors to Event Hubs (with Kafka endpoint), [Event Grid's MQTT broker capability](../../event-grid/mqtt-overview.md), Microsoft Fabric and Blob Storage. IoT MQ is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
 
-Building on top of Azure Arc allows the connectors to be configured to use Azure Managed Identity for accessing the cloud services with powerful Azure Role-based Access Control (RBAC). No manual, insecure, and cumbersome credential management required!
+Building on top of Azure Arc allows the connectors to be configured to use Azure Managed Identity for accessing the cloud services with powerful Azure Role-based Access Control (RBAC). No manual, insecure, and cumbersome credential management is required.
 
 ## Dapr programming model
 

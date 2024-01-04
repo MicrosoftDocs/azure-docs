@@ -133,4 +133,4 @@ To check the status of the AzResourceProvider registration, you can run the Azur
 
 ## Next steps
 
-- [Azure Structured Firewall Logs (preview)](firewall-structured-logs.md)
+- [Azure Structured Firewall Logs](firewall-structured-logs.md)

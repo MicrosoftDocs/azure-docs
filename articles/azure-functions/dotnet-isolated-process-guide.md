@@ -240,7 +240,7 @@ This section outlines options you can enable that improve performance around [co
 In general, your app should use the latest versions of its core dependencies. At a minimum, you should update your project as follows:
 
 - Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later.
-- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.2 or later.
+- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.4 or later.
 - Add a framework reference to `Microsoft.AspNetCore.App`, unless your app targets .NET Framework.
 
 The following example shows this configuration in the context of a project file:
@@ -249,7 +249,7 @@ The following example shows this configuration in the context of a project file:
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" />
   </ItemGroup>
 ```
 
@@ -275,7 +275,7 @@ az functionapp config set -g <groupName> -n <appName> --use-32bit-worker-process
 
 ### Optimized executor 
 
-The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.2 of the SDK. No additional configuration is required.
+The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.3 of the SDK. No additional configuration is required.
 
 ### ReadyToRun
 

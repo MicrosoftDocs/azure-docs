@@ -57,7 +57,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
 
-- [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure)
+- [Fidelis Cybersecurity](https://fidelissecurity.com/)
 
 - [Flowmon](https://www.flowmon.com/en/blog/azure-vtap)
 

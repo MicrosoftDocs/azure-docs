@@ -87,13 +87,11 @@ Private Link with Azure Virtual Desktop has the following limitations:
 
 - Before you use Private Link for Azure Virtual Desktop, you need to [enable the feature](private-link-setup.md#enable-the-feature) on each Azure subscription you want to Private Link with Azure Virtual Desktop.
 
-- All [Remote Desktop clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link, but we currently only offer troubleshooting support for the web client with Private Link.
+- All [Remote Desktop clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link. If you're using the [Remote Desktop client for Windows](./users/connect-windows.md) on a private network without internet access and you're subscribed to both public and private feeds, you aren't able to access your feed.
 
 - After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (*RDAgentBootLoader*) service on each session host in the host pool. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart each session host.
 
 - Using both Private Link and [RDP Shortpath](./shortpath.md) at the same time isn't currently supported.
-
-- If you're using the [Remote Desktop client for Windows](./users/connect-windows.md) on a network without public internet access, you aren't able to subscribe to a workspace with a private endpoint if you're also assigned to a workspace that doesn't have a private endpoint configured.
 
 - Early in the preview of Private Link with Azure Virtual Desktop, the private endpoint for the initial feed discovery (for the *global* sub-resource) shared the private DNS zone name of `privatelink.wvd.microsoft.com` with other private endpoints for workspaces and host pools. In this configuration, users are unable to establish private endpoints exclusively for host pools and workspaces. Starting September 1, 2023, sharing the private DNS zone in this configuration will no longer be supported. You need to create a new private endpoint for the *global* sub-resource to use the private DNS zone name of `privatelink-global.wvd.microsoft.com`. For the steps to do this, see [Initial feed discovery](private-link-setup.md#initial-feed-discovery).
 

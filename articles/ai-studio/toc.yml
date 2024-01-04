@@ -8,6 +8,8 @@
   - name: What are AI services?
     href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
     displayName: applied, cognitive, form recognizer
+  - name: Region support
+    href: reference/region-support.md
   - name: Azure AI FAQ
     href: faq.yml
 - name: Quickstarts
@@ -18,6 +20,8 @@
     href: quickstarts/playground-completions.md
   - name: Moderate text and images with content safety
     href: quickstarts/content-safety.md
+  - name: Analyze images and video with GPT-4 for Vision in the playground
+    href: quickstarts/multimodal-vision.md
 - name: Tutorials
   items:
   - name: Deploy a chat web app
@@ -35,6 +39,18 @@
       href: how-to/model-catalog.md
     - name: Azure AI capabilities
       href: how-to/models-foundation-azure-ai.md
+  - name: SDK and CLI
+    items:  
+    - name: Azure AI Generative SDK
+      items:
+      - name: Overview
+        href: how-to/sdk-generative-overview.md
+      - name: Get started with the Azure AI SDK
+        href: how-to/sdk-install.md
+    - name: Get started with the Azure AI CLI
+      href: how-to/cli-install.md
+    - name: Get started with projects in VS Code (Web)
+      href: how-to/vscode-web.md
   - name: Create Azure AI projects and resources
     items:
     - name: Azure AI resources overview
@@ -43,6 +59,8 @@
       href: how-to/create-azure-ai-resource.md
     - name: Create an Azure AI project
       href: how-to/create-projects.md
+    - name: Create and manage compute
+      href: how-to/create-manage-compute.md
   - name: Data and connections
     items:
     - name: Connections
@@ -57,8 +75,12 @@
         href: concepts/retrieval-augmented-generation.md
       - name: Create an index
         href: how-to/index-add.md
-    - name: Add and manage data
-      href: how-to/data-add.md
+    - name: Add and manage your data
+      items:
+      - name: Add data to your project
+        href: how-to/data-add.md
+      - name: Use your image data with Azure OpenAI
+        href: how-to/data-image-add.md
     - name: Generate synthetic data
       items:
       - name: Generate samples from your dataset
@@ -123,26 +145,26 @@
       href: how-to/evaluate-prompts-playground.md
     - name: View evaluation results in Azure AI Studio
       href: how-to/evaluate-flow-results.md
+  - name: Fine-tune models
+    items:
+    - name: Fine-tune Llama 2 family models
+      href: how-to/fine-tune-model-llama.md
   - name: Deploy and monitor
     items:
     - name: Deployments overview
       href: concepts/deployments-overview.md
-    - name: Deploy large language models
-      href: how-to/deploy-models.md
+    - name: Deploy Azure OpenAI models
+      href: how-to/deploy-models-openai.md
+    - name: Deploy Llama 2 family models
+      href: how-to/deploy-models-llama.md
+      displayName: maas, as a service
+    - name: Deploy open models
+      href: how-to/deploy-models-open.md
+      displayName: oss, open source
     - name: Monitor quality and safety of deployed applications
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
       href: how-to/troubleshoot-deploy-and-monitor.md
-  - name: Set up your development environment
-    items:
-    - name: Get started with the Azure AI SDK
-      href: how-to/sdk-install.md
-    - name: Get started with the Azure AI CLI
-      href: how-to/cli-install.md
-    - name: Get started with projects in VS Code (Web)
-      href: how-to/vscode-web.md
-    - name: Create and manage compute
-      href: how-to/create-manage-compute.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
@@ -187,6 +209,7 @@
   items:
   - name: Azure AI SDK for Python
     href: /python/api/overview/azure/ai
+    displayName: reference
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../ai-services/policy-reference.md?context=/azure/ai-studio/context/context

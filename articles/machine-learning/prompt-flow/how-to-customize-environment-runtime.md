@@ -106,13 +106,28 @@ az ml environment create -f environment.yaml --subscription <sub-id> -g <resourc
 > [!NOTE]
 > Building the image may take several minutes.
 
-Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a runtime in your prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui).
+Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a compute instance runtime in your prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-runtime-page).
+
+You can also find the image in environment detail page and use it as base image in automatic runtime (preview) in `flow.dag.yaml` file in prompt flow folder. This image will also be used to build environment for flow deployment from UI.
+
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-image-environment.png" alt-text="Screenshot of image name in environment detail page. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-image-environment.png":::
 
 To learn more about environment CLI, see [Manage environments](../how-to-manage-environments-v2.md#manage-environments).
 
-## Create a custom application on compute instance that can be used as prompt flow runtime
 
-A prompt flow runtime is a custom application that runs on a compute instance. You can create a custom application on a compute instance and then use it as a prompt flow runtime. To create a custom application for this purpose, you need to specify the following properties:
+## Customize environment with flow folder for automatic runtime (preview)
+
+In `flow.dag.yaml` file in prompt flow folder, you can use `environment` section we can define the environment for the flow. It includes two parts:
+- image: which is the base image for the flow, if omitted, it uses the latest version of prompt flow base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If you want to customize the environment, you can use the image you created in previous section.
+- You can also specify packages `requirements.txt`, Both automatic runtime and flow deployment from UI will use the environment defined in `flow.dag.yaml` file.
+
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-automatic-image-flow-dag.png":::
+
+If you want to use private feeds in Azure devops, see [Add packages in private feed in Azure devops](./how-to-create-manage-runtime.md#add-packages-in-private-feed-in-azure-devops).
+
+## Create a custom application on compute instance that can be used as prompt flow compute instance runtime
+
+A compute instance runtime is a custom application that runs on a compute instance. You can create a custom application on a compute instance and then use it as a prompt flow runtime. To create a custom application for this purpose, you need to specify the following properties:
 
 | UI             | SDK                         | Note                                                                           |
 |----------------|-----------------------------|--------------------------------------------------------------------------------|
@@ -120,7 +135,7 @@ A prompt flow runtime is a custom application that runs on a compute instance. Y
 | Target port    | EndpointsSettings.target    | Port where you want to access the application, the port inside the container   |
 | published port | EndpointsSettings.published | Port where your application is running in the image, the publicly exposed port |
 
-### Create custom application as prompt flow runtime via SDK v2
+### Create custom application as prompt flow compute instance runtime via SDK v2
 
 ```python
 # import required libraries
@@ -159,7 +174,7 @@ ml_client.begin_create_or_update(ci_basic)
 > [!NOTE]
 > Change `newest_version`, `compute_instance_name` and `instance_type` to your own value.
 
-### Create custom application as prompt flow runtime via Azure Resource Manager template
+### Create custom application as compute instance runtime via Azure Resource Manager template
 
 You can use this Azure Resource Manager template to create compute instance with custom application.
 
@@ -167,56 +182,11 @@ You can use this Azure Resource Manager template to create compute instance with
 
 To learn more, see [Azure Resource Manager template for custom application as prompt flow runtime on compute instance](https://github.com/cloga/azure-quickstart-templates/tree/lochen/promptflow/quickstarts/microsoft.machinelearningservices/machine-learning-prompt-flow/create-compute-instance-with-custom-application). 
 
-## Create custom application as prompt flow runtime via Compute instance UI
+### Create custom application as prompt flow compute instance runtime via Compute instance UI
 
 Follow [this document to add custom application](../how-to-create-compute-instance.md#setup-other-custom-applications).
 
 :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png" alt-text="Screenshot of compute showing custom applications. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png":::
-
-## Leverage `requirements.txt` in flow folder to dynamic your environment - quick test only
-
-In promptflow `flow.dag.yaml`, you can also specify define `requirements.txt`, which will be used when you deploy your flow as deployment.
-
-:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-requirements.png" alt-text="Screenshot of flow dag yaml file showing requirements txt file. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-requirements.png":::
-
-### Add packages in private pypi repository - optional
-
-Use the following command to download your packages to local: `pip wheel <package_name> --index-url=<private pypi> --wheel-dir <local path to save packages>`
-
-### Create a python tool to install `requirements.txt` to runtime
-
-:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-tool-add-custom-packages.png" alt-text="Screenshot of python tool showing how to add custom packages. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-tool-add-custom-packages.png":::
-
-```python
-from promptflow import tool
-
-import subprocess
-import sys
-
-# Run the pip install command
-def add_custom_packages():
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-
-import os
-# List the contents of the current directory
-files = os.listdir()
-# Print the list of files
-
-# The inputs section will change based on the arguments of the tool function, after you save the code
-# Adding type to arguments and return value will help the system show the types properly
-# Please update the function name/signature per need
-
-# In Python tool you can do things like calling external services or
-# pre/post processing of data, pretty much anything you want
-
-
-@tool
-def echo(input: str) -> str:
-    add_custom_packages()
-    return files
-```
-
-We would recommend to put the common packages (include private wheel) in the `requirements.txt` when building the image. Put the packages (include private wheel) in flow folder that are only used in flow or change more rapidly in the `requirements.txt` in the flow folder, the later approach is not recommended for production.
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Create a Windows VM using the Azure CLI
 description: In this quickstart, you learn how to use the Azure CLI to create a Windows virtual machine
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 02/23/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 

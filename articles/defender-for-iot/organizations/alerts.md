@@ -150,4 +150,4 @@ Review alert types and messages to help you understand and plan remediation acti
 > [View and manage alerts on your OT sensor](how-to-view-alerts.md)
 
 > [!div class="nextstepaction"]
-> [View and manage alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+> [View and manage alerts on the on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md)

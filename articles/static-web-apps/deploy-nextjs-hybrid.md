@@ -16,7 +16,7 @@ ms.custom: devx-track-js
 In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to [Azure Static Web Apps](overview.md), leveraging the support for Next.js features such as Server-Side Rendering (SSR) and API routes.
 
 >[!NOTE]
-> Next.js hybrid support is in preview.
+> Next.js hybrid support is in preview, with limited support for Next.js versions 13 and above.
 
 ## Prerequisites
 

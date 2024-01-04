@@ -314,26 +314,26 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Upload a drawing package]: #upload-a-drawing-package
 
 <!-----	REST API Links	------->
-[Alias API]: /rest/api/maps/v2/alias
-[Conversion service]: /rest/api/maps/v2/conversion
+[Alias API]: /rest/api/maps-creator/alias
+[Conversion service]: /rest/api/maps-creator/conversion
 [Creator - map configuration Rest API]: /rest/api/maps/2023-03-01-preview/map-configuration
-[Dataset Create]: /rest/api/maps/v2/dataset/create
-[Dataset service]: /rest/api/maps/v2/dataset
-[Feature State service]: /rest/api/maps/v2/feature-state
-[Feature State Update API]: /rest/api/maps/v2/feature-state/update-states
+[Dataset Create]: /rest/api/maps-creator/dataset/create
+[Dataset service]: /rest/api/maps-creator/dataset
+[Feature State service]: /rest/api/maps-creator/feature-state
+[Feature State Update API]: /rest/api/maps-creator/feature-state/update-states
 [Geofence service]: /rest/api/maps/spatial/postgeofence
 [Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
 [routeset]: /rest/api/maps/2023-03-01-preview/routeset
 [Style - Create]: /rest/api/maps/2023-03-01-preview/style/create
 [style]: /rest/api/maps/2023-03-01-preview/style
-[Tileset Create]: /rest/api/maps/v2/tileset/create
-[Tileset List]: /rest/api/maps/v2/tileset/list
-[Tileset service]: /rest/api/maps/v2/tileset
+[Tileset Create]: /rest/api/maps-creator/tileset/create
+[Tileset List]: /rest/api/maps-creator/tileset/list
+[Tileset service]: /rest/api/maps-creator/tileset
 [tileset]: /rest/api/maps/2023-03-01-preview/tileset
 [wayfinding path]: /rest/api/maps/2023-03-01-preview/wayfinding/get-path
 [wayfinding service]: /rest/api/maps/2023-03-01-preview/wayfinding
 [wayfinding]: /rest/api/maps/2023-03-01-preview/wayfinding
-[Web Feature service]: /rest/api/maps/v2/wfs
+[Web Feature service]: /rest/api/maps-creator/wfs
 
 <!--- learn.microsoft.com Links ------------>
 [Authorization with role-based access control]: azure-maps-authentication.md#authorization-with-role-based-access-control

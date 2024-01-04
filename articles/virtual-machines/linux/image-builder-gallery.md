@@ -3,7 +3,7 @@ title: Use Azure Image Builder & Azure Compute Gallery for Linux VMs
 description: Learn how to use the Azure Image Builder, and the Azure CLI, to create an image version in an Azure Compute Gallery, and then distribute the image globally.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines
