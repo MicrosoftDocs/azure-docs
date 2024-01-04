@@ -173,4 +173,4 @@ If items were deleted before soft-delete was disabled, then they'll be in a soft
 ## Next steps
 
 - [Overview of security features in Azure Backup](security-overview.md)
-- [Frequently asked questions](soft-delete-azure-backup.yml).
+- [Frequently asked questions](soft-delete-azure-backup-faq.yml).
