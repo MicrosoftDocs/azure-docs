@@ -327,7 +327,7 @@ Learn more about how to add more data to your map:
 [Style Rest API]: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview
 [style-loader]: https://webpack.js.org/loaders/style-loader
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Tileset List API]: /rest/api/maps/v2/tileset/list
+[Tileset List API]: /rest/api/maps-creator/tileset/list
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [Webpack]: https://webpack.js.org
