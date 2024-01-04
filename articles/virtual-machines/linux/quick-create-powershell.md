@@ -62,6 +62,8 @@ Private key is saved to /home/user/.ssh/1234567891
 Public key is saved to /home/user/.ssh/1234567891.pub
 ```
 
+Cost information isn't presented during the virtual machine creation process for PowerShell like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
+
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 
 ## Install NGINX
