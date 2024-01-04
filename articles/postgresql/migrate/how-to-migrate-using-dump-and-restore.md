@@ -31,13 +31,21 @@ The Azure portal streamlines this process via the Connect blade by offering pre-
 
    :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/different-dump-methods.png" alt-text="Screenshot showing two possible dump methods." lightbox="./media/how-to-migrate-using-dump-and-restore/different-dump-methods.png":::
 
-4. **Copy and paste commands**: The portal provides you with ready-to-use `pg_dump` and `psql` or `pg_restore` commands. These commands come with values already substituted according to the server and database you've chosen. simply copy and paste these commands.
+4. **Copy and paste commands**: The portal provides you with ready-to-use `pg_dump` and `psql` or `pg_restore` commands. These commands come with values already substituted according to the server and database you've chosen. Simply copy and paste these commands.
 
 ## Prerequisites
 
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](../single-server/quickstart-create-server-database-portal.md), including firewall rules to allow access.
 - [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed.
+
+
+
+#### [pg_dump & psql - using singular text file](#tab/psql)
+
+#### [pg_dump & pg_restore - using multiple cores](#tab/pg_restore)
+
+---
 
 ## Create a dump file that contains the data to be loaded
 
