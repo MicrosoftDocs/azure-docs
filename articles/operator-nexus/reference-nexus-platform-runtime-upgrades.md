@@ -42,7 +42,7 @@ Platfrom Cluster patch releases will be scheduled monthly to provide customers w
 
 Operator Nexus will also release patch platform cluster runtime releases addressing critical functional or high severity security issues to the latest minor release. 
 
-## Platform Cluster Runtime Releases Out of Support
+## Platform Cluster Runtime releases out of support
 
 When a customer is on a release that has moved out of support, Microsoft will attempt to mitigate the customer tickets but it may not be possible to address. When a release has dropped support, it will no longer be an option to deploy to a new site.  
 
