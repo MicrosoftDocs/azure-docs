@@ -128,7 +128,7 @@ To create a virtual machine and view the estimated price:
 
 1. On the right side, you see a summary of the estimated costs. Adjust the options in the creation settings to see how the price changes and review the estimated costs.
 
-   ![Screenshot of virtual machines estimated costs on creation page in the Azure portal](media/plan-to-manage-costs/virtual-machines-pricing-portal-estimate.png)
+   ![Screenshot of virtual machines estimated costs on creation page in the Azure portal.](media/plan-to-manage-costs/virtual-machines-pricing-portal-estimate.png)
 
 1. Finish creating the resource.
 
@@ -153,13 +153,13 @@ To view virtual machine costs in cost analysis:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-![Screenshot of all monthly costs projections in cost analysis in the Azure portal](media/plan-to-manage-costs/virtual-machines-pricing-all-monthly-costs.png)
+:::image type="content" source="media/plan-to-manage-costs/virtual-machines-pricing-all-monthly-costs.png" alt-text="Example of all monthly costs projections in cost analysis in the Azure portal." lightbox="media/plan-to-manage-costs/virtual-machines-pricing-all-monthly-costs.png" :::
 
 To narrow costs for a single service, like virtual machines, select **Add filter** and then select **Service name**. Then, select **Virtual Machines**.
 
 Here's an example showing costs for just virtual machines.
 
-![Screenshot of montly costs for virtual machines in cost analysis in the Azure portal](media/plan-to-manage-costs/virtual-machines-pricing-costs-service-filter.png)
+:::image type="content" source="media/plan-to-manage-costs/virtual-machines-pricing-costs-service-filter.png" alt-text="Example of monthly costs for virtual machines in cost analysis in the Azure portal." lightbox="media/plan-to-manage-costs/virtual-machines-pricing-costs-service-filter.png" :::
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and virtual machines costs by resource group are also shown. From here, you can explore costs on your own.
 
@@ -195,7 +195,7 @@ The following are some best practices you can use to reduce the cost of your vir
 - Minimize idle instances by configuring [autoscaling](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)
 - Configure Azure Bastion for operational access
 
-### Using policies to help manage and reduce costs for virtual machines
+### Use policies to help manage and reduce costs for virtual machines
 
 You can use [Azure Policy](../governance/policy/overview.md) to help govern and optimize the costs of your resources.
 
