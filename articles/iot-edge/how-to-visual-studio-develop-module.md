@@ -17,7 +17,7 @@ This article shows you how to use Visual Studio 2022 to develop, debug, and depl
 
 This article includes steps for two IoT Edge development tools.
 
-* **Azure IoT Edge Dev Tool** CLI. This tool is preferred for development.
+* Command line interface (CLI) is preferred tool for development.
 * **Azure IoT Edge tools for Visual Studio** extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 Use the tool selector button at the beginning to choose your tool option for this article. Both tools provide the following benefits:
@@ -32,9 +32,7 @@ This article assumes that you use a machine running Windows as your development 
 
 * Install or modify Visual Studio 2022 on your development machine. Choose the **Azure development** and **Desktop development with C++** workloads options.
 
-::: zone pivot="iotedge-dev-ext"
-
-* Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
+* Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio. You can use the Azure IoT Edge Tools extension to create and build your IoT Edge solution. The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*. The extension includes the Azure IoT Edge project templates used create the Visual Studio project. Currently, you need the extension installed regardless of the development tool you use.
 
     > [!IMPORTANT]
     > The *Azure IoT Edge Tools for VS 2022* extension is in [maintenance mode](https://aka.ms/edgetool-dep). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
@@ -45,16 +43,11 @@ This article assumes that you use a machine running Windows as your development 
     You may have to restart Visual Studio.
 
    > [!TIP]
-   > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace
-
-::: zone-end
+   > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace.
 
 ::: zone pivot="iotedge-dev-cli"
 
-* Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to create your IoT Edge solution. There are two options:
-
-    * Use the prebuilt [IoT Edge Dev Container](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/run-devcontainer-docker.md)
-    * Install the tool using the [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md)
+* Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 ::: zone-end
 
@@ -483,7 +476,7 @@ In Visual Studio, open *deployment.debug.template.json* deployment manifest file
 
 1. Replace the *image* property value with the module image name you pushed to the registry. For example, if you pushed an image tagged `myacr.azurecr.io/iotedgemodule1:0.0.1-amd64` for custom module *IotEdgeModule1*, replace the image property value with the tag value.
 
-1. Add or replace the *createOptions* value with stringified content for each system and custom module in the deployment template.
+1. Add or replace the *createOptions* value with stringified content *for each system and custom module in the deployment template*.
 
     For example, the IotEdgeModule1's *image* and *createOptions* settings would be similar to the following:
     

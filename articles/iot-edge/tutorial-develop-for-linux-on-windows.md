@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: PatAltimore
 
 ms.author: fcabrera
-ms.date: 12/12/2023
+ms.date: 01/04/2024
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -23,7 +23,7 @@ This tutorial uses the example of deploying a **C# module to a Linux device**. T
 
 This article includes steps for two IoT Edge development tools.
 
-* **Azure IoT Edge Dev Tool** CLI. This tool is preferred for development.
+* Command line interface (CLI) is preferred tool for development.
 * **Azure IoT Edge tools for Visual Studio** extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 Use the tool selector button at the beginning of this article to select the tool version.
@@ -49,9 +49,7 @@ This article assumes that you use a machine running Windows as your development 
 
 After your Visual Studio 2022 is ready, you also need the following tools and components:
 
-::: zone pivot="iotedge-dev-ext"
-
-* Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
+* Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio. You can use the Azure IoT Edge Tools extension to create and build your IoT Edge solution. The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*. The extension includes the Azure IoT Edge project templates used create the Visual Studio project. Currently, you need the extension installed regardless of the development tool you use.
 
     > [!IMPORTANT]
     > The *Azure IoT Edge Tools for VS 2022* extension is in [maintenance mode](https://aka.ms/edgetool-dep). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
@@ -62,19 +60,13 @@ After your Visual Studio 2022 is ready, you also need the following tools and co
     You may have to restart Visual Studio.
 
    > [!TIP]
-   > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace
-
-::: zone-end
+   > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace.
 
 ::: zone pivot="iotedge-dev-cli"
 
-* Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to create your IoT Edge solution. There are two options:
-
-    * Use the prebuilt [IoT Edge Dev Container](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/run-devcontainer-docker.md)
-    * Install the tool using the [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md)
+* Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 ::: zone-end
-
 
 Cloud resources:
 
@@ -336,8 +328,6 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. In **Solution Explorer**, select and highlight the module project folder (for example, *myIotEdgeModule*). Set the custom module as the startup project. Select **Project** > **Set as StartUp Project** from the menu.
 
-   ![Screenshot of setting the start-up project](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
-
 1. To debug the C# Linux module, we need to update *Dockerfile.amd64.debug* file to enable SSH service. Update the *Dockerfile.amd64.debug* file to use the following template: [Dockerfile for Azure IoT Edge AMD64 C# Module with Remote Debug Support](https://raw.githubusercontent.com/Azure/iotedge-eflow/main/debugging/Dockerfile.amd64.debug).
 
    > [!NOTE]
@@ -484,7 +474,7 @@ In Visual Studio, open *deployment.debug.template.json* deployment manifest file
 
 1. Replace the *image* property value with the module image name you pushed to the registry. For example, if you pushed an image tagged `myacr.azurecr.io/iotedgemodule1:0.0.1-amd64` for custom module *IotEdgeModule1*, replace the image property value with the tag value.
 
-1. Add or replace the *createOptions* value with stringified content for each system and custom module in the deployment template.
+1. Add or replace the *createOptions* value with stringified content *for each system and custom module in the deployment template*.
 
     For example, the IotEdgeModule1's *image* and *createOptions* settings would be similar to the following:
     
@@ -547,13 +537,13 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
    | **Port**                | 10022 (Or the one you used in your deployment configuration)  |
    | **Username**            | root                                                          |
    | **Authentication type** | Private Key                                                   |
-   | **Private Key File**    | Full path to the id_rsa that was previously created in Step 5 |
-   | **Passphrase**          | The one used for the key created in Step 5                    |
+   | **Private Key File**    | Full path to the id_rsa that created in a previous step       |
+   | **Passphrase**          | Passphrase used for the key created in a previous step        |
 
 
    ![Screenshot of how to connect to a remote system](./media/tutorial-develop-for-linux-on-windows/connect-remote-system.png)
 
-1. After successfully connecting to the module using SSH, then you can choose the process and select Attach. For the C# module you need to choose process dotnet and **Attach to** to Managed (CoreCLR). It may take 10/C20 seconds the first time you do so.
+1. After successfully connecting to the module using SSH, then you can choose the process and select Attach. For the C# module you need to choose process dotnet and **Attach to** to Managed (CoreCLR). It may take 10 to 20 seconds the first time.
 
    [ ![Screenshot of how to attach an edge module process.](./media/tutorial-develop-for-linux-on-windows/attach-process.png) ](./media/tutorial-develop-for-linux-on-windows/attach-process.png#lightbox)
 
