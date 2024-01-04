@@ -128,7 +128,7 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 
 6. **Verify the JSON web token (JWT) claims**. If the access token is available, decode it by using online tools such as [jwt.ms](https://jwt.ms). After the token is decoded, the claims can be inspected for correctness.
 
-   :::image type="content" source="media/troubleshoot-b2c-identity-provider-configuration/json-web-token-claims.png" alt-text="Screenshot showing jwt web token claims" lightbox="media/troubleshoot-b2c-identity-provider-configuration/json-web-token-claims.png":::
+   :::image type="content" source="media/troubleshoot-identity-provider-configuration/json-web-token-claims.png" alt-text="Screenshot showing jwt web token claims" lightbox="media/troubleshoot-identity-provider-configuration/json-web-token-claims.png":::
 
 ---
 
@@ -159,6 +159,7 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 11. **Verify the fhirUser or extension_fhirUser (FHIR user claim)**. The `fhirUser` or `extension_fhirUser` claim is required. If it's missing, the request fails. This claim links the user in the identity provider with a user resource in the FHIR service. The value must be the fully qualified URL of a resource in the FHIR service that represents the individual the access token is issued to. For example, the access token issued to a patient that logged in should have a `fhirUser` or `extension_fhirUser` claim that has the fully qualified URL of a [patient](https://build.fhir.org/patient.html) resource in the FHIR service.
 
 ## Next steps
+
 [Grant access to the FHIR service by using Azure Active Directory B2C](azure-ad-b2c-setup.md)
 
 [Configure multiple identity providers](configure-identity-providers.md)
