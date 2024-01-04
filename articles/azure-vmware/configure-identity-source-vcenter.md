@@ -288,6 +288,5 @@ Now that you learned how to configure LDAP and LDAPS, explore the following arti
 
 - [Configure storage policy](configure-storage-policy.md) - Each virtual machine (VM) that's deployed to a vSAN datastore is assigned at least one VM storage policy. Learn how to assign a VM storage policy during an initial deployment of a VM or other VM operations, such as cloning or migrating.
 - [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter Server to manage VM workloads, and use NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX-T Manager.
-- Learn how to [configure an external identity source for NSX-T](configure-external-identity-source-nsx-t.md).
-- Review [Azure VMware Solution identity concepts](concepts-identity.md).
-- Read the [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).
+- Learn how to [set up an external identity source for NSX-T](configure-external-identity-source-nsx-t.md).
+- Review the [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).

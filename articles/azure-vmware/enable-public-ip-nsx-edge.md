@@ -1,20 +1,20 @@
 ---
-title: Turn on public IP addresses on an NSX-T Edge node for NSX-T Data Center
-description: Learn how to turn on internet access for NSX-T Data Center in Azure VMware Solution. Learn how to turn on public IP addresses on an NSX-T Edge node and set internet access rules.
+title: Turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center
+description: Learn how to turn on internet access for NSX-T Data Center in Azure VMware Solution. Learn how to turn on public IP addresses to an NSX-T Edge node and set internet access rules.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ---
 
-# Turn on public IP addresses on an NSX-T Edge node for NSX-T Data Center
+# Turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center
 
 In this article, learn how to turn on public IP addresses on a VMware NSX-T Edge node to run VMware NSX-T Data Center for your instance of Azure VMware Solution.
 
 > [!TIP]
 > Before you turn on internet access to your instance of Azure VMware Solution, review [Internet connectivity design considerations](concepts-design-public-internet-access.md).
 
-Public IP addresses on an NSX-T Edge node for NSX-T Data Center is a feature in Azure VMware Solution that turns on inbound and outbound internet access for your Azure VMware Solution environment.
+Public IP addresses to an NSX-T Edge node for NSX-T Data Center is a feature in Azure VMware Solution that turns on inbound and outbound internet access for your Azure VMware Solution environment.
 
 > [!IMPORTANT]
 > IPv4 public IP address usage can be consumed directly in Azure VMware Solution and charged based on the IPv4 public IP address prefix that's shown in [Pricing - Virtual machine IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses/). No charges for data ingress or egress are related to this service.
@@ -173,5 +173,5 @@ The distributed firewall can be used to filter traffic to VMs. This feature is o
 
 - [Internet connectivity design considerations](concepts-design-public-internet-access.md)
 - [Turn on Managed SNAT for Azure VMware Solution workloads](enable-managed-snat-for-workloads.md)
-- [Turn off internet access or set a default route](disable-internet-access.md)
+- [Set a default internet route or turn off internet access](disable-internet-access.md)
 - [Turn on VMware HCX access over the internet](enable-hcx-access-over-internet.md)

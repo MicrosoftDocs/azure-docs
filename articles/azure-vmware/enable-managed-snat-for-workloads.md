@@ -43,5 +43,5 @@ To set up outbound internet access via Managed SNAT, use the Azure portal:
 ## Related content
 
 - [Internet connectivity design considerations](concepts-design-public-internet-access.md)
-- [Turn on public IP addresses on an NSX-T Edge node for NSX-T Data Center](enable-public-ip-nsx-edge.md)
+- [Turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center](enable-public-ip-nsx-edge.md)
 - [Set a default internet route or disable internet access](disable-internet-access.md)
