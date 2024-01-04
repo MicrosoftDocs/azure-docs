@@ -49,4 +49,5 @@ If you have existing instances hosted on the `stv1` platform, follow our **[migr
 
 ## Related content
 
-See all [upcoming breaking changes and feature retirements](overview.md).
+* [Migrate from stv1 platform to stv2](../api-management/migrate-stv1-to-stv2.md)
+* See all [upcoming breaking changes and feature retirements](overview.md).
