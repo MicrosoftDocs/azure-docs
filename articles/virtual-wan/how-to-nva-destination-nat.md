@@ -45,7 +45,7 @@ The following configurations are performed:
 
 The list below corresponds to the diagram above and describes the packet flow for the inbound connection:
 
-1. The user initiates a connection with one of the Public IP's used for DNAT associated to the NVA. 
+1. The user initiates a connection with one of the Public IPs used for DNAT associated to the NVA. 
 1. Azure load balances the connection request to one of the Firewall NVA instances.
 1. NVA inspects the traffic and translates the packet based on rule configuration. In this case, the NVA is configured to NAT and forward inbound traffic to 10.60.0.4:443. The source of the packet is also translated to the private IP of the chosen Firewall instance to ensure flow symmetry. The NVA forwards the packet and Virtual WAN routes the packet to the final destination.
 
@@ -64,10 +64,10 @@ The list below corresponds to the diagram above and describes the packet flow fo
 * Public IPs that are used for Destination NAT must meet the following requirements:
   * Destination NAT Public IPs  must be from the same region as the NVA resource. For example, if the NVA is deployed in the East US region, the public IP must also be from the East US region.
   * Destination NAT Public IPs can't be in use by another Azure resource. For example, you can't use an IP address in use by a Virtual Machine network interface IP Configuration or a Standard Load Balancer front-end configuration.
-  * Public IPs must be from IPv4 address spaces. Virtual WAN does not support IPv6 addresses.
-* Destination NAT is only supported on new NVA deployments that are created with at least one Destination NAT Public IP. Existing NVA deployments or NVA deployments that didn't have a Destination NAT Public IP associated at NVA creation time are not eligible to use Destination NAT.
+  * Public IPs must be from IPv4 address spaces. Virtual WAN doesn't support IPv6 addresses.
+* Destination NAT is only supported on new NVA deployments that are created with at least one Destination NAT Public IP. Existing NVA deployments or NVA deployments that didn't have a Destination NAT Public IP associated at NVA creation time aren't eligible to use Destination NAT.
 * Programming Azure infrastructure components to support DNAT scenarios is done automatically by NVA orchestration software when a DNAT rule is created. Therefore, you can't program NVA rules through Azure portal. However, you can view the inbound security rules associated to each internet inbound Public IP.
-* DNAT traffic in Virtual WAN can only be routed  to connections to the same hub as the NVA. Inter-hub traffic patterns with DNAT are not supported.
+* DNAT traffic in Virtual WAN can only be routed  to connections to the same hub as the NVA. Inter-hub traffic patterns with DNAT aren't not supported.
 
 ### Considerations
 
@@ -95,7 +95,7 @@ The list below corresponds to the diagram above and describes the packet flow fo
 1. Navigate to your Virtual WAN Hub. Select **Network Virtual Appliances** under Third Party Providers. Click on **Manage Configurations** next to the NVA.
 1. Select **Internet Inbound** under NVA.
 1. Select the IP you want to remove from the grid.
-1. Cick **Delete**.
+1. Click **Delete**.
 
 ## Programming DNAT Rules
 
@@ -111,7 +111,7 @@ The following section describes some common troubleshooting scenarios.
 
 ### Public IP Association/Disassociation
 
-* **Option to associate IP to NVA resource not available through Azure portal** : Only NVA's that are created with DNAT/Internet Inbound IP's at deployment time are eligible to use DNAT capabilities. Delete and re-create the NVA with an Internet Inbound IP assigned at deployment time.
+* **Option to associate IP to NVA resource not available through Azure portal** : Only NVAs that are created with DNAT/Internet Inbound IPs at deployment time are eligible to use DNAT capabilities. Delete and re-create the NVA with an Internet Inbound IP assigned at deployment time.
 * **IP address not showing up in dropdown Azure portal**: Public IPs only show up in the dropdown menu if the IP address is IPv4, in the same region as the NVA and isn't in use/assigned to another Azure resource. Ensure the IP address you're trying to use meets the above requirements, or create a new IP address.
 * **Can't delete/disassociate Public IP from NVA**: Only IP addresses that have no rules associated with them can be deleted. Use the NVA orchestration software to remove any DNAT rules associated to that IP address.
 * **NVA provisioning state not succeeded**: If there are on-going operations on the NVA or if the provisioning status of the NVA is **not successful**, IP address association fails. Wait for any existing operations to terminate.
