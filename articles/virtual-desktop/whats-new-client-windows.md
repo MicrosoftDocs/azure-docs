@@ -30,7 +30,6 @@ In this release, we've made the following changes:
 
 - Improved accessibility by making the **Change the size of text and apps** drop-down menu more visible in the High Contrast theme.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Fixed the vulnerability 
 
 ## Updates for version 1.2.5018 (Insider) 
 
