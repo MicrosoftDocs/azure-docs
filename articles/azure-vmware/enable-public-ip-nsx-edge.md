@@ -41,12 +41,14 @@ With this capability, you have the following features:
 
 The following figure shows internet access to and from your Azure VMware Solution private cloud via a public IP address directly to the NSX-T Edge node for NSX-T Data Center.
 
-:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows the architecture of internet access to and from your Azure VMware Solution private cloud using a public IP address directly to the NSX-T Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
+:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows internet access to and from an Azure VMware Solution private cloud and a public IP address directly to the NSX-T Edge node." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
 
 > [!IMPORTANT]
 > Using a public IP address at the NSX-T Edge node for NSX-T Data Center is not compatible with reverse DNS lookup. If you use this scenario, you can't host a mail server in Azure VMware Solution.
 
-## Set up a public IP address or range in the Azure portal
+## Set up a public IP address or range
+
+To set up a public IP address or range, use the Azure portal:
 
 1. Sign in to the Azure portal, and then go to your Azure VMware Solution private cloud.
 1. On the resource menu under **Workload networking**, select **Internet connectivity**.
@@ -169,7 +171,7 @@ The distributed firewall can be used to filter traffic to VMs. This feature is o
 
 ## Related content
 
-- [Internet connectivity design considerations (preview)](concepts-design-public-internet-access.md)
-- [Turn on Managed SNAT for Azure VMware Solution workloads (preview)](enable-managed-snat-for-workloads.md)
+- [Internet connectivity design considerations](concepts-design-public-internet-access.md)
+- [Turn on Managed SNAT for Azure VMware Solution workloads](enable-managed-snat-for-workloads.md)
 - [Turn off internet access or set a default route](disable-internet-access.md)
-- [Enable VMware HCX access over the internet](enable-hcx-access-over-internet.md)
+- [Turn on VMware HCX access over the internet](enable-hcx-access-over-internet.md)
