@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     > Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see [Create virtual machines in an availability zone](../create-portal-availability-zone.md).
     > :::image type="content" source="../media/create-portal-availability-zone/preview.png" alt-text="Screenshot showing that you have the option to create virtual machines in multiple availability zones.":::
 
-1. On the right side, you see a summary of the estimated costs. This updates as you select options that effect the cost, such as choosing *Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2* for your **Image**.
+1. On the right side, you see a summary of the estimated costs. This updates as you select options that affect the cost, such as choosing *Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2* for your **Image**.
 
    ![Screenshot of Windows virtual machine estimated cost on creation page in the Azure portal.](./media/quick-create-portal/windows-estimated-monthly-cost.png)
 
