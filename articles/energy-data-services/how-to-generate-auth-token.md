@@ -118,7 +118,10 @@ Generating a user's auth token is a two step process.
 The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID will sign the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID will return an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
 #### Request format
-
+1. After replacing the paramaters, you can paste the below in the URL of any browser and hit enter.
+2. It will ask you to login to your Azure portal if not logged in already.
+3. You will get the response in the URL.
+ 
 ```bash
   https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/authorize?client_id={client-id}
   &response_type=code
@@ -126,10 +129,7 @@ The first step to getting an access token for many OpenID Connect (OIDC) and OAu
   &response_mode=query
   &scope={client-id}%2f.default&state=12345&sso_reload=true
 ```
-1. After replacing the paramaters, you can paste the above in the URL of any browser and hit enter.
-2. It will ask you to login to your Azure portal if not logged in already.
-3. You will get the response in the URL.
-   
+  
 | Parameter | Required? | Description |
 | --- | --- | --- |
 |tenant-id|Required|Name of your Microsoft Entra tenant|
@@ -141,12 +141,14 @@ The first step to getting an access token for many OpenID Connect (OIDC) and OAu
 | state |Recommended |A value included in the request that can be a string of any content that you want to use. Usually, a randomly generated unique value is  used, to prevent cross-site request forgery attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the user flow that was being executed. |
 
 #### Sample response
-In the response, you'll get an `authorization code` in the URL bar.
+1. The browser will redirect to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
+2. In the URL bar, you see the response of the below format.
 
 ```bash
 http://localhost:8080/?code=0.BRoAv4j5cvGGr0...au78f&state=12345&session....
 ```
-The browser will redirect to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication. Copy the code between `code=` and `&state`which is the authorization code.
+3. Copy the response and fetch the text between `code=` and `&state`
+4. This is the `authorization_code` which you can keep handy for future use.
 
 > [!NOTE] 
 > The browser may say that the site can't be reached, but it should still have the authorization code in the URL bar.
@@ -160,8 +162,8 @@ The browser will redirect to `http://localhost:8080/?code={authorization code}&s
 > [!WARNING]
 > Running the URL in Postman won't work as it requires extra configuration for token retrieval.
 
-### Get a refresh token
-The second step is to get the auth token and refresh token. Your app uses the authorization code received in the previous step to request an access token by sending a POST request to the `/token` endpoint.
+### Get a auth token and refresh token
+The second step is to get the auth token and refresh token. Your app uses the `authorization_code` received in the previous step to request an access token by sending a POST request to the `/token` endpoint.
 
 #### Request format
 
@@ -178,7 +180,7 @@ The second step is to get the auth token and refresh token. Your app uses the au
 |tenant     | Required        | The {tenant-id} value in the path of the request can be used to control who can sign into the application.|
 |client_id     | Required         | The application ID assigned to your app upon registration         |
 |scope     | Required        | A space-separated list of scopes. The scopes that your app requests in this leg must be equivalent to or a subset of the scopes that it requested in the first (authorization) leg. If the scopes specified in this request span multiple resource server, then the v2.0 endpoint will return a token for the resource specified in the first scope.        |
-|code    |Required         |The authorization_code that you acquired in the first leg of the flow.         |
+|code    |Required         |The authorization_code that you acquired in the first step of the flow.         |
 |redirect_uri     | Required        |The same redirect_uri value that was used to acquire the authorization_code.         |
 |grant_type     | Required        | Must be authorization_code for the authorization code flow.        |
 |client_secret | Required | The client secret that you created in the app registration portal for your app. It shouldn't be used in a native app, because client_secrets can't be reliably stored on devices. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.|
@@ -204,6 +206,11 @@ The second step is to get the auth token and refresh token. Your app uses the au
 |refresh_token     |An OAuth 2.0 refresh token. Your app can use this token to acquire extra access tokens after the current access token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time.|
 
 For more information, see [Generate refresh tokens](/graph/auth-v2-user#2-get-authorization).
+
+### Use refresh token
+Access token expires in a small time window. You can use refresh tokens to generate new access tokens going forward. 
+
+
 
 OSDU&trade; is a trademark of The Open Group.
 
