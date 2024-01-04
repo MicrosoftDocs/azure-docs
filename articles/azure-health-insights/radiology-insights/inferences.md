@@ -165,7 +165,7 @@ list of fields within field “finding”, except “component”:
 - 263730007: CONTINUAL (QUALIFIER VALUE)
 
 In this list, the string before the colon is the code, and the string after the colon is the display name.
-If the value is “NONE (QUALIFIER VALUE)”, the finding is absent. This value is for for example, “no sepsis”.
+If the value is “NONE (QUALIFIER VALUE)”, the finding is absent. This value is for example, “no sepsis”.
 category: if filled, this field contains an array with one element. It contains one of the following SNOMED concepts:
 - 439401001: DIAGNOSIS (OBSERVABLE ENTITY)
 - 404684003: CLINICAL FINDING (FINDING)
@@ -186,7 +186,7 @@ Component description:
 (some of the components are optional)
 
 Finding: component “subject of information”
-This component has SNOMED code 131195008: SUBJECT OF INFORMATION (ATTRIBUTE) . It also has the “valueCodeableConcept” field filled. The value is a SNOMED code describing the medical problem that the finding pertains to.
+This component has SNOMED code 131195008: SUBJECT OF INFORMATION (ATTRIBUTE). It also has the “valueCodeableConcept” field filled. The value is a SNOMED code describing the medical problem that the finding pertains to.
 At least one “subject of information” component is present if and only if the “finding.code” field has 404684003: CLINICAL FINDING (FINDING). There can be several "subject of information” components, with different concepts in the “valueCodeableConcept” field.
 
 Finding: component “anatomy”
@@ -227,7 +227,7 @@ Zero or more components with code 362981000: QUALIFIER VALUE (QUALIFIER VALUE). 
 Every component has either:
 -	Field “valueString” set with token strings from the text, separated by “;;”
 -	Or field “valueCodeableConcept” set to a SNOMED code
--	Or no field set (then the meaning can be retrieved from the token extensions (rare occurance))
+-	Or no field set (then the meaning can be retrieved from the token extensions (rare occurrance))
 
 Finding: component “multiple”
 Exactly one component with code 46150521: MULTIPLE (QUALIFIER VALUE). It has field “valueBoolean” set to true or false. This component indicates the difference between, for example, one nodule (multiple is false) or several nodules (multiple is true). This component has no token extensions.
@@ -237,7 +237,7 @@ Zero or more components with code 246115007, "SIZE (ATTRIBUTE)". Even if there's
 Every component has field “interpretation” set to either SNOMED code 15240007: CURRENT or 9130008: PREVIOUS, depending on whether the size was measured during this visit or in the past.
 Every component has either field “valueQuantity” or “valueRange” set.
 If “valueQuantity” is set, then “valueQuantity.value” is always set. In most cases, “valueQuantity.unit” is set. It's possible that “valueQuantity.comparator” is also set, to either “>”, “<”, “>=” or “<=”. for example, the component is set to “<=” for “the tumor is up to 2 cm”.
-If “valueRange” is set, then “valueRange.low” and “valueRange.high” are set to quantities with the same data as described in the previous paragraph. This contains for for example, “The tumor is between 2.5 cm and 2.6 cm in size.
+If “valueRange” is set, then “valueRange.low” and “valueRange.high” are set to quantities with the same data as described in the previous paragraph. This contains for example, “The tumor is between 2.5 cm and 2.6 cm in size.
 
 **Critical Result**
 This inference is made for a new medical problem that requires attention within a specific time frame, possibly urgently.
@@ -267,18 +267,18 @@ recommendedProcedure: ProcedureRecommendation
 - follow up Recommendation: sentences
 Next to the token extensions, there can be an extension containing sentences. This behavior is switchable; (only mPower or Powerscribe).
 - follow up Recommendation: boolean fields
-“isHedging” means that the recommendation is uncertain, for example, “a follow-up could be done”. “isConditional” is for input like “If the patient continues having pain, an MRI should be performed.”
+“isHedging” mean that the recommendation is uncertain, for example, “a follow-up could be done”. “isConditional” is for input like “If the patient continues having pain, an MRI should be performed.”
 “isOptions”: is also for conditional input
 “isGuideline” means that the recommendation is in a general guideline like the following:
 
 BI-RADS CATEGORIES: 
-- (0)Incomplete: Needs additional imaging evaluation 
-- (1)Negative 
-- (2)Benign 
-- (3)Probably benign - Short interval follow-up suggested 
-- (4)Suspicious abnormality - Biopsy should be considered 
-- (5)Highly suggestive of malignancy - Appropriate action should be taken. 
-- (6)Known biopsy-proven malignancy
+- (0) Incomplete: Needs additional imaging evaluation 
+- (1) Negative 
+- (2) Benign 
+- (3) Probably benign - Short interval follow-up suggested 
+- (4) Suspicious abnormality - Biopsy should be considered 
+- (5) Highly suggestive of malignancy - Appropriate action should be taken. 
+- (6) Known biopsy-proven malignancy
 
 - follow up Recommendation: effectiveDateTime and effectivePeriod
 Field “effectiveDateTime” will be set when the procedure needs to be done (recommended) at a specific point in time. For example, “next Wednesday”. Field “effectivePeriod” will be set if a specific period is mentioned, with a start and end datetime. for example, for “within six months”, the start datetime will be the date of service, and the end datetime will be the day six months after that.
@@ -328,7 +328,7 @@ Field “imagingProcedures” contains one or more instances of an imaging proce
 Field “procedureCodes”, if set, contains loinc codes.
 Field “orderedProcedure” contains the description(s) and the code(s) of the ordered procedure(s) as given by the client. The descriptions are in field “orderedProcedure.description”, separated by “;;”. The codes are in “orderedProcedure.code.coding”. In every coding in the array, only field “coding” is set.
         
-Request and json output: ContrastMismatch1Limited
+Request and json output: ContrastMismatch 1Limited
 
 ## Next steps
 
