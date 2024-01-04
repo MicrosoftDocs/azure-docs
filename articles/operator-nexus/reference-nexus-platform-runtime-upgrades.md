@@ -57,7 +57,7 @@ When an instance is running an n-3 version:
 - Platform Cluster Runtime versions past support may continue to run but Microsoft does not guarantee all functionality to be compatible with the newest version of software in the Cluster Manager.  An upgrade path will be supported for customers on supported releases. Upgrading from a n-3 version or greater are not supported and will require a re-pave of the site.  Customers need to execute a platfrom cluster runtime upgrade before a site gets to n-3, this is usually within four months of the EOS date.   
 - From a certificate perspective, there is currently a requirement for the customer to update their platfrom cluster runtime within a year of the most recent platfrom cluster runtime upgrade or first deployment to ensure certificates are kept valid and can connect to Azure. Instances with invalid certificates will require a new deployment.
 
-## Skipping Minor Releases
+## Skipping minor releases
 
 Today, Platform Cluster runtime minor releases cannot be skipped due to the upgrade requirements of Kubernetes. A customer wanting to go from an n-2 version to an n version will need to perform multiple platform cluster runtime upgrades.
 
