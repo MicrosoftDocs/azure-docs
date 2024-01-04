@@ -57,7 +57,7 @@ The Key Vault VM extension supports these Linux distributions:
    `
 ## Key Vault VM extension version
 
-* Users can chose to upgrade their Key Vault vm extension version to `V2.0` to use full certificate chain download feature. Issuer certificates (intermediate and root) are included with leaf certificate in the PEM file.
+* Users can choose to upgrade their Key Vault vm extension version to `V2.0` to use full certificate chain download feature. Issuer certificates (intermediate and root) are included with leaf certificate in the PEM file.
 
 * If you prefer to upgrade to `v2.0`, you would need to delete `v1.0` first, then install `v2.0`.
 ```azurecli
@@ -66,11 +66,11 @@ The Key Vault VM extension supports these Linux distributions:
 ```  
   The flag --version 2.0 is optional because the latest version is installed by default.	
 
-* If the VM has certificates downloaded by v1.0, deleting the v1.0 AKVVM extension does not delete the downloaded certificates.  After installing v2.0, the existing certificates are not modified.  You would need to delete the certificate files or roll-over the certificate to get the PEM file with full-chain on the VM.
+* If the VM has certificates downloaded by v1.0, deleting the v1.0 AKVVM extension doesn't delete the downloaded certificates.  After installing v2.0, the existing certificates aren't modified.  You would need to delete the certificate files or roll-over the certificate to get the PEM file with full-chain on the VM.
 
 ## Extension schema
 
-The following JSON shows the schema for the Key Vault VM extension. The extension does not require protected settings - all its settings are considered information without security impact. The extension requires a list of monitored secrets, polling frequency, and the destination certificate store. Specifically:  
+The following JSON shows the schema for the Key Vault VM extension. The extension doesn't require protected settings - all its settings are considered information without security impact. The extension requires a list of monitored secrets, polling frequency, and the destination certificate store. Specifically:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -89,7 +89,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
       "settings": {
         "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
-          "certificateStoreName": <It is ignored on Linux>,
+          "certificateStoreName": <It's ignored on Linux>,
           "linkOnRenewal": <Not available on Linux e.g.: false>,
           "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
@@ -107,10 +107,10 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > [!NOTE]
 > Your observed certificates URLs should be of the form `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
+> This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path doesn't. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> The 'authenticationSettings' property is **required** for VMs with any **user assigned identities**. Even if you want to use a system assigned identity this is still required otherwise the VM extension does not know which identity to use. Without this section, a VM with user assigned identities will result in the Key Vault extension failing and being unable to download certificates.
+> The 'authenticationSettings' property is **required** for VMs with any **user assigned identities**. Even if you want to use a system assigned identity this is still required otherwise the VM extension doesn't know which identity to use. Without this section, a VM with user assigned identities will result in the Key Vault extension failing and being unable to download certificates.
 > Set msiClientId to the identity that will authenticate to Key Vault.
 > 
 > Also **required** for **Azure Arc-enabled VMs**.
@@ -125,7 +125,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | type | KeyVaultForLinux | string |
 | typeHandlerVersion | 2.0 | int |
 | pollingIntervalInS | 3600 | string |
-| certificateStoreName | It is ignored on Linux | string |
+| certificateStoreName | It's ignored on Linux | string |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault.Store | string |
 | requireInitialSync | true | boolean |
@@ -171,7 +171,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
 ```
 
 ### Extension Dependency Ordering
-The Key Vault VM extension supports extension ordering if configured. By default the extension reports successful start as soon as polling starts. However, you can configure it to wait until it successfully downloadd the complete list of certificates before reporting a successful start. If other extensions depend on installed certificates before they start, then enabling this setting will allow those extensions to declare a dependency on the Key Vault extension. This will prevent those extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
+The Key Vault VM extension supports extension ordering if configured. By default the extension reports successful start as soon as polling starts. However, you can configure it to wait until it successfully download the complete list of certificates before reporting a successful start. If other extensions depend on installed certificates before they start, then enabling this setting will allow those extensions to declare a dependency on the Key Vault extension. This will prevent those extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
 
 To turn on extension dependency, set the following:
 ```
@@ -207,7 +207,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     
     ```
 
-* To deploy the extension on a virtual machine scale set :
+* To deploy the extension on a virtual machine scale set:
 
     ```powershell
     
@@ -246,7 +246,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
-* To deploy the extension on a virtual machine scale set :
+* To deploy the extension on a virtual machine scale set:
 
    ```azurecli
         # Start the deployment
@@ -287,7 +287,7 @@ The Key Vault VM extension logs only exist locally on the VM and are most inform
 |Location|Description|
 |--|--|
 | /var/log/waagent.log	| Shows when an update to the extension occurred. |
-| /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*	| Examine the Key Vault VM Extension service logs to determine the status of the akvvm_service service and certificate download. The download location of PEM files are also found in these files with an entry called certificate file name. If certificateStoreLocation is not specified, it will default to /var/lib/waagent/Microsoft.Azure.KeyVault.Store/ |
+| /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*	| Examine the Key Vault VM Extension service logs to determine the status of the akvvm_service service and certificate download. You can find the download location of PEM files in files with an entry called certificate file name. If certificateStoreLocation is not specified, it will default to /var/lib/waagent/Microsoft.Azure.KeyVault.Store/ |
 | /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-\<most recent version\>/config/*	| The configuration and binaries for Key Vault VM Extension service. |
 |||
 
@@ -297,7 +297,7 @@ Symbolic links or Symlinks are advanced shortcuts. To avoid monitoring the folde
 
 ### Frequently Asked Questions
 
-* Is there is a limit on the number of observedCertificates you can setup?
+* Is there's a limit on the number of observedCertificates you can configure?
   No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
   
 
