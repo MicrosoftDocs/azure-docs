@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: service-bus-messaging
  ms.topic: include
- ms.date: 10/28/2022
+ ms.date: 11/28/2023
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -27,7 +27,6 @@
     :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/add-subscription-button.png" alt-text="Screenshot of the Subscriptions page with the Add subscription button selected.":::
 3. On the **Create subscription** page, follow these steps:
     1. Enter **S1** for **name** of the subscription.
-    1. Enter **3** for **Max delivery count**.
     1. Then, select **Create** to create the subscription. 
 
         :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/create-subscription-page.png" alt-text="Screenshot of the Create subscription page.":::

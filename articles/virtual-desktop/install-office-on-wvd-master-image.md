@@ -1,6 +1,6 @@
 ---
 title: Install Office on a custom VHD image - Azure
-description: How to install and customize Office on a Azure Virtual Desktop custom image to Azure.
+description: How to install and customize Office on an Azure Virtual Desktop custom image to Azure.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/02/2019
@@ -16,13 +16,13 @@ This article assumes you've already created a virtual machine (VM). If not, see 
 This article also assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager. If not, see [Elevate access to manage all Azure subscription and management groups](../role-based-access-control/elevate-access-global-admin.md).
 
 >[!NOTE]
->These instructions are for a Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+>These instructions are for an Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 ## Install Office in shared computer activation mode
 
 Shared computer activation lets you to deploy Microsoft 365 Apps for enterprise to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Microsoft 365 Apps](/deployoffice/overview-shared-computer-activation).
 
-Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports the following versions of Office:
+Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session and Windows 11 Enterprise-multi-session only support the following versions of Office:
 
    - Microsoft 365 Apps for enterprise
    - Microsoft 365 Apps for business that comes with a Microsoft 365 Business Premium subscription

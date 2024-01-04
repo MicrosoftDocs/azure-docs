@@ -280,4 +280,4 @@ conn.connect(function(err) {
 ## Next steps
 
 * To learn about certificate expiry and rotation, refer [certificate rotation documentation](concepts-certificate-rotation.md)
-* Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
+* Review various application connectivity options following [Connection libraries for Azure Database for MySQL](../flexible-server/concepts-connection-libraries.md)

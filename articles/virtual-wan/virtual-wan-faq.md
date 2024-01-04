@@ -460,7 +460,49 @@ The SLA for each component is calculated individually. For example, if ExpressRo
 
 Yes, this can be done automatically with no update or reset required on the peering connection. You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.md).
 
-[!INCLUDE [customer-controlled network gateway maintenance](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
+## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
+
+### Which services are included in the Maintenance Configuration scope of Network Gateways? 
+
+For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways and ExpressRoute gateways.
+
+### Which maintenance is supported or not supported by customer-controlled maintenance?
+
+Azure services go through periodic maintenance updates to improve functionality, reliability, performance, and security. Once you configure a maintenance window for your resources, Guest OS and Service maintenance are performed during that window. These updates account for most of the maintenance items that cause concern for customers. 
+
+Underlying host hardware and datacenter infrastructure updates are not covered by customer-controlled maintenance. Additionally, if there's a high-severity security issue that might endanger our customers, Azure might need to override customer control of the maintenance window and roll out the change. These are rare occurrences that would only be used in extreme cases. 
+
+### Can I get advanced notification of the maintenance?
+
+At this time, advanced notification can't be enabled for the maintenance of Network Gateway resources.
+
+### Can I configure a maintenance window shorter than five hours?
+
+At this time, you need to configure a minimum of a five hour window in your preferred time zone.
+
+### Can I configure a maintenance schedule that does not repeat daily?
+
+At this time, you need to configure a daily maintenance window.
+
+### Do Maintenance Configuration resources need to be in the same region as the gateway resource?
+
+Yes.
+
+### Do I need to deploy a minimum gateway scale unit to be eligible for customer-controlled maintenance?
+
+No.
+
+### How long does it take for maintenance configuration policy to become effective after it gets assigned to the gateway resource?
+
+It might take up to 24 hours for Network Gateways to follow the maintenance schedule after the maintenance policy is associated with the gateway resource.  
+
+### How should I plan maintenance windows when using VPN and ExpressRoute in a coexistence scenario?
+
+When working with VPN and ExpressRoute in a coexistence scenario or whenever you have resources acting as backups, we recommend setting up separate maintenance windows. This approach ensures that maintenance doesn't affect your backup resources at the same time.
+
+### I've scheduled a maintenance window for a future date for one of my resources. Will maintenance activities be paused on this resource until then?
+
+No, maintenance activities won't be paused on your resource during the period before the scheduled maintenance window. For the days not covered in your maintenance schedule, maintenance continues as usual on the resource.
 
 ## Next steps
 

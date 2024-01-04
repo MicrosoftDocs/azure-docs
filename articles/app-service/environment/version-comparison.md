@@ -12,7 +12,12 @@ ms.topic: article
 App Service Environment has three versions. App Service Environment v3 is the latest version and provides advantages and feature differences over earlier versions.
 
 > [!IMPORTANT]
-> App Service Environment v1 and v2 [will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024/). After that date, those versions will no longer be supported and any remaining App Service Environment v1 and v2s and the applications running on them will be deleted.
+> App Service Environment v1 and v2 [will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). After that date, those versions will no longer be supported and any remaining App Service Environment v1 and v2s and the applications running on them will be deleted. 
+
+There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1 or v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+
+As of 15 January 2024, you can no longer create new App Service Environment v1 or v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
+>
 
 ## Comparison between versions
 
@@ -181,5 +186,3 @@ Due to hardware changes between the versions, there are some regions where App S
 
 > [!div class="nextstepaction"]
 > [Using an App Service Environment v3](using.md)
-
-

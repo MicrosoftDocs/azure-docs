@@ -3,7 +3,7 @@ title: Azure VM Image Builder service DevOps task (preview)
 description: In this article, you use an Azure DevOps task to inject build artifacts into a VM image so that you can install and configure your application and operating system.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 07/31/2023
 ms.topic: article
 ms.service: virtual-machines
@@ -42,8 +42,8 @@ Before you begin, you must:
 * Have an Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) account, and a Build Pipeline created.
 
 * Register and enable the VM Image Builder feature requirements in the subscription that's used by the pipelines:
-  * [Azure PowerShell](../windows/image-builder-powershell.md#register-features)
-  * [The Azure CLI](../windows/image-builder.md#register-the-features)
+  * [Azure PowerShell](../windows/image-builder-powershell.md#register-providers)
+  * [The Azure CLI](../windows/image-builder.md#register-the-providers)
 
 * Create a standard Azure storage account in the source image resource group. You can use other resource groups or storage accounts. The storage account is used transfer the build artifacts from the DevOps task to the image.
 

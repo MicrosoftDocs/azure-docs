@@ -23,8 +23,6 @@ Once backup is configured, you can monitor the status of your Backup Jobs for bo
 
 If you have already configured Backup from Azure Backup Center for your SAP VMs and HANA DB, then VIS resource automatically detects this and enables you to monitor the status of Backup jobs.
 
-Before you can go ahead and use this feature in preview, register for it from the Backup (preview) tab on the Virtual Instance for SAP solutions resource on the Azure portal.
-
 ## Prerequisites
 - A Virtual Instance for SAP solutions (VIS) resource representing your SAP system on Azure Center for SAP solutions.
 - An Azure account with **Contributor** role access on the Subscription in which your SAP system exists.

@@ -3457,5 +3457,5 @@ And returns this result: `"Paris"`
 > [!NOTE]
 > One can add comments to data flow expressions, but not in pipeline expressions.
 
-## Next steps
+## Related content
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

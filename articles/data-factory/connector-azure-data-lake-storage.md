@@ -34,7 +34,7 @@ This Azure Data Lake Storage Gen2 connector is supported for the following capab
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ |
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For Copy activity, with this connector you can:
 
@@ -877,6 +877,6 @@ When you debug the pipeline, the **Enable change data capture** works as well. B
 
 In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changes are always gotten from the checkpoint record in your selected pipeline run. 
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

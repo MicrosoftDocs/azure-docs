@@ -58,7 +58,7 @@ Use **SLA** and **Help** controls to show additional information:
 The workbook offers best practices for Azure services including:
 *	**Compute**: Virtual Machines, Virtual Machine Scale Sets
 *	**Containers**: Azure Kubernetes service
-*	**Databases**: SQL Database, Synapse SQL Pool, Cosmos DB, Azure Database for MySQL, Azure Cache for Redis
+*	**Databases**: SQL Database, Synapse SQL Pool, Cosmos DB, Azure Database for MySQL, PostgreSQL, Azure Cache for Redis
 *	**Integration**: Azure API Management
 *	**Networking**: Azure Firewall, Azure Front Door & CDN, Application Gateway, Load Balancer, Public IP, VPN & Express Route Gateway
 *	**Storage**: Storage Account

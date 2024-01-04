@@ -20,6 +20,9 @@ This article provides an overview of how to enable VM insights to monitor the he
 - On-premises virtual machines.
 - Virtual machines hosted in another cloud environment.
 
+> [!NOTE]
+> Configuring a Log Analytics workspace for using VM insights by using the Log Analytics agent is no longer supported.
+
 ## Installation options and supported machines
 
 The following table shows the installation methods available for enabling VM insights on supported machines.
@@ -119,8 +122,6 @@ If you associate a data collection rule with the Map feature enabled to a machin
     > - Inaccuracy in the Map feature of VM insights because the feature doesn't check for duplicate data.
 
 - You must remove the Log Analytics agent yourself from any machines that are using it. Before you do this step, ensure that the machine isn't relying on any other solutions that require the Log Analytics agent. For more information, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
-
-- After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, you can [remove the VM Insights solution from the workspace](vminsights-configure-workspace.md#remove-the-vminsights-solution-from-a-workspace). It's no longer needed.
 
     > [!NOTE]
     > To check if you have any machines with both agents sending data to your Log Analytics workspace, run the following [log query](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md). This query will show the last heartbeat for each computer. If a computer has both agents, it will return two records, each with a different `category`. The Azure Monitor agent will have a `category` of *Azure Monitor Agent*. The Log Analytics agent will have a `category` of *Direct Agent*.

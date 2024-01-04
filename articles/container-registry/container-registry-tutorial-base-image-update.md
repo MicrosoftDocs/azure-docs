@@ -4,8 +4,9 @@ description: In this tutorial, you learn how to configure an Azure Container Reg
 ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.custom: seodec18, mvc, devx-track-azurecli
+ms.service: container-registry
 # Customer intent: As a developer or devops engineer, I want container images to be built automatically when the base image of a container is updated in the registry.
 ---
 

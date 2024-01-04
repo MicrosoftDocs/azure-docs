@@ -61,7 +61,7 @@ In Data Factory and Synapse pipelines, use date and time functions to express da
 | [year](data-flow-expressions-usage.md#year) | Gets the year value of a date.  |
 |||
 
-## Next steps
+## Related content
 
 - [Aggregate functions](data-flow-aggregate-functions.md)
 - [Array functions](data-flow-array-functions.md)

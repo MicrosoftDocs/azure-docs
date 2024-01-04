@@ -9,14 +9,13 @@ ms.author: franlanglois
 ms.custom: devx-track-azurepowershell
 
 ---
+
 # Manage Azure Cache for Redis with Azure PowerShell
 
 > [!div class="op_single_selector"]
-
 > * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Azure CLI](cache-manage-cli.md)
->
->
+> 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -116,8 +115,6 @@ To create a cache in the Azure operated by 21Vianet Cloud, use one of the follow
 * China East
 * China North
 
-For more information about the Azure operated by 21Vianet Cloud, see [AzureChinaCloud for Azure operated by 21Vianet in China](https://www.windowsazure.cn/).
-
 ### To connect to Microsoft Azure Germany
 
 To connect to Microsoft Azure Germany, use one of the following commands.
@@ -148,7 +145,7 @@ The following table contains Azure PowerShell properties and descriptions for co
 | Name |Name of the cache | |
 | Location |Location of the cache | |
 | ResourceGroupName |Resource group name in which to create the cache | |
-| Size |The size of the cache. Valid values are: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
+| Size |The size of the cache. Valid values are: P1, P2, P3, P4, P5, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
 | ShardCount |The number of shards to create when creating a premium cache with clustering enabled. Valid values are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Specifies the SKU of the cache. Valid values are: Basic, Standard, Premium |Standard |
 | RedisConfiguration |Specifies Redis configuration settings. For details on each setting, see the following [RedisConfiguration properties](#redisconfiguration-properties) table. | |

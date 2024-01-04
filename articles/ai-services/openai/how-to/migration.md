@@ -5,9 +5,9 @@ description: Learn about migrating to the latest release of the OpenAI Python li
 author: mrbullwinkle 
 ms.author: mbullwin 
 ms.service: azure-ai-openai
-ms.custom: 
+ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 11/10/2023
+ms.date: 11/15/2023
 manager: nitinme
 ---
 
@@ -28,7 +28,7 @@ OpenAI has just released a new version of the [OpenAI Python API library](https:
 
 ## Known issues
 
-- The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) doesn't currently support DALL-E when used with Azure OpenAI. DALL-E with Azure OpenAI is still supported with `0.28.1`. For those who can't wait for native support for DALL-E and Azure OpenAI we're providing [two code examples](#dall-e-fix) which can be used as a workaround.
+- **`DALL-E3` is [fully supported with the latest 1.x release](../dall-e-quickstart.md).** `DALL-E2` can be used with 1.x by making the [following modifications to your code](#dall-e-fix).
 - `embeddings_utils.py` which was used to provide functionality like cosine similarity for semantic text search is [no longer part of the OpenAI Python API library](https://github.com/openai/openai-python/issues/676).
 - You should also check the active [GitHub Issues](https://github.com/openai/openai-python/issues/) for the OpenAI Python library.
 
@@ -147,9 +147,9 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2023-10-01-preview",
+    api_version="2023-12-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-    )
+)
     
 deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
     
@@ -211,16 +211,21 @@ Additional examples including how to handle semantic text search without `embedd
 OpenAI doesn't support calling asynchronous methods in the module-level client, instead you should instantiate an async client.
 
 ```python
+import os
+import asyncio
 from openai import AsyncAzureOpenAI
 
-client = AsyncAzureOpenAI(  
-  api_key = os.getenv("AZURE_OPENAI_KEY"),  
-  api_version = "2023-10-01-preview",
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-)
-response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}])
+async def main():
+    client = AsyncAzureOpenAI(  
+      api_key = os.getenv("AZURE_OPENAI_KEY"),  
+      api_version = "2023-12-01-preview",
+      azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+    response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}])
 
-print(response.model_dump_json(indent=2))
+    print(response.model_dump_json(indent=2))
+
+asyncio.run(main())
 ```
 
 ## Authentication
@@ -231,7 +236,7 @@ from openai import AzureOpenAI
 
 token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
 
-api_version = "2023-10-01-preview"
+api_version = "2023-12-01-preview"
 endpoint = "https://my-resource.openai.azure.com"
 
 client = AzureOpenAI(

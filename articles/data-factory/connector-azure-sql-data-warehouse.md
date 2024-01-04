@@ -30,7 +30,7 @@ This Azure Synapse Analytics connector is supported for the following capabiliti
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
 |[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For Copy activity, this Azure Synapse Analytics connector supports these functions:
 
@@ -1057,6 +1057,6 @@ When you copy data from or to Azure Synapse Analytics, the following mappings ar
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by Copy Activity, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

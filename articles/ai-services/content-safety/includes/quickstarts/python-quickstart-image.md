@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Analyze image content with Python"
-description: In this quickstart, get started using the Content Safety Python SDK to analyze image content for objectionable material.
-services: cognitive-services
+description: In this quickstart, get started using the Content Azure AI Safety Python SDK to analyze image content for objectionable material.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
@@ -45,7 +45,7 @@ The following section walks through a sample request with the Python SDK.
         key = os.environ.get('CONTENT_SAFETY_KEY')
         image_path = os.path.join("sample_data", "image.jpg")
     
-        # Create an Content Safety client
+        # Create an Azure AI Content Safety client
         client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
     
         

@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 01/03/2024
 ---
 
 # Tag support for Azure resources
@@ -2659,6 +2659,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | backupProtectedItems | No | No |
 > | vaults | Yes | Yes |
+> | vaults / backupPolicies | Yes | Yes |
 
 ## Microsoft.RedHatOpenShift
 
@@ -3095,13 +3096,15 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / usages | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / vulnerabilityAssessments | No | No |
-> | virtualClusters | No | No |
+> | virtualClusters | Yes | No |
 
 <a id="sqlnote"></a>
 
 > [!NOTE]
 > The Master database doesn't support tags, but other databases, including Azure Synapse Analytics databases, support tags. Azure Synapse Analytics databases must be in Active (not Paused) state.
 
+> [!NOTE]
+> Only Virtual Clusters with version 2.0 support tags. Minimal required API version for configuring tags is 2022-05-01.
 
 ## Microsoft.SqlVirtualMachine
 
