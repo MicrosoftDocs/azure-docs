@@ -22,7 +22,7 @@ The EMS E5 or Microsoft Entra ID P2 license must be held by the managing tenant,
 
 Any extra costs associated with an eligible role will apply only during the period of time in which the user elevates their access to that role.
 
-For information about licenses for users, see [Microsoft Entra ID Governance licensing fundamentals]((/entra/id-governance/licensing-fundamentals).
+For information about licenses for users, see [Microsoft Entra ID Governance licensing fundamentals](/entra/id-governance/licensing-fundamentals).
 
 ## How eligible authorizations work
 
@@ -251,7 +251,7 @@ Each entry within the `eligibleAuthorizations` parameter contains [three element
 `justInTimeAccessPolicy` specifies three elements:
 
 - `multiFactorAuthProvider` can either be set to **Azure**, which will require authentication using Microsoft Entra multifactor authentication, or to **None** if no multifactor authentication will be required.
-- `maximumActivationDuration` sets the total length of time for which the user will have the eligible role. This value must use the ISO 8601 duration format. The minimum value is PT30M (30 minutes) and the maximum value is PT8H (8 hours). For simplicity, we recommend using values in half-hour increments only (for example, PT6H for 6 hours or PT6H30M for 6.5 hours).
+- `maximumActivationDuration` sets the total length of time for which the user will have the eligible role. This value must use the ISO 8601 duration format. The minimum value is PT30M (30 minutes) and the maximum value is PT8H (8 hours). For simplicity, we recommend using values in half-hour increments only, such as PT6H for 6 hours or PT6H30M for 6.5 hours.
 - `managedByTenantApprovers` is optional. If you include it, it must contain one or more combinations of a principalId and a principalIdDisplayName who will be required to approve any activation of the eligible role.
 
 For more information about these elements, see the [Eligible authorization elements](#eligible-authorization-elements) section.
