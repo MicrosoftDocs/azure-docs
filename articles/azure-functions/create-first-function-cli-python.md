@@ -342,7 +342,7 @@ In a separate terminal window or in the browser, call the remote function again.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to Azure Cosmos DB](functions-add-output-binding-azure-cosmos-db-vs-code.md?pivots=programming-language-python)
+> [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python)
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
 
 
