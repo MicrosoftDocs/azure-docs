@@ -1146,11 +1146,18 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 
 ## Microsoft.Maintenance
 
-> [!div class="mx-tableFixed"]
+<!-- > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | configurationassignments | No | No | **Yes**. [Learn more](../../virtual-machines/move-region-maintenance-configuration.md) |
 > | maintenanceconfigurations | **Yes** | **Yes** | **Yes**. [Learn more](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
+> | updates | No | No | No | -->
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | configurationassignments | No | No | No |
+> | maintenanceconfigurations | No | No | No |
 > | updates | No | No | No |
 
 ## Microsoft.ManagedIdentity

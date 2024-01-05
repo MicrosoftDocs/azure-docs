@@ -19,15 +19,14 @@ highlightedContent:
   items:
     # Card
     - title: What's Azure VMware Solution? 
-      itemType: concept
+      itemType: overview
       url: /azure/azure-vmware/introduction
     - title: Plan and get started 
-      itemType: concept
+      itemType: get-started
       url: /azure/azure-vmware/plan-private-cloud-deployment
-
-    - title: Tutorials 
-      itemType: tutorial
-      url: /azure/azure-vmware/tutorial-network-checklist
+    - title: What's new?
+      itemType: whats-new
+      url: /azure/azure-vmware/azure-vmware-solution-platform-updates
     - title: Azure VMware Solution concepts 
       itemType: concept
       url: /azure/azure-vmware/concepts-identity
