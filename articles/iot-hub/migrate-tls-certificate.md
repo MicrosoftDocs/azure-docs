@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 01/05/2024
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -25,7 +25,7 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 
 The IoT Hub team began migrating IoT hubs in February, 2023 and the migration is complete except for hubs that have already been approved for a later migration. If your IoT hub is found to be using the Baltimore certificate without an agreement in place with the product team, your hub will be migrated without any further notice.
 
-After all IoT hubs have migrated, DPS will perform its migration between January 15 and February 15, 2024.
+After all IoT hubs have migrated, DPS will perform its migration between January 15 and September 30, 2024.
 
 For each IoT hub with an extension agreement in place, you can expect the following:
 
@@ -45,6 +45,8 @@ To prepare for the migration, take the following steps:
 
    It's important to have all three certificates on your devices until the IoT Hub and DPS migrations are complete. Keeping the Baltimore CyberTrust Root ensures that your devices will stay connected until the migration, and adding the DigiCert Global Root G2 ensures that your devices will seamlessly switch over and reconnect after the migration. The Microsoft RSA Root Certificate Authority 2017 helps prevent future disruptions in case the DigiCert Global Root G2 is retired unexpectedly.
 
+   For more information about IoT Hub's recommended certificate practices, see [TLS support](./iot-hub-tls-support.md).
+
 2. Make sure that you aren't pinning any intermediate or leaf certificates, and are using the public roots to perform TLS server validation.
 
    IoT Hub and DPS occasionally roll over their intermediate certificate authority (CA). In these instances, your devices will lose connectivity if they explicitly look for an intermediate CA or leaf certificate. However, devices that perform validation using the public roots will continue to connect regardless of any changes to the intermediate CA.
@@ -59,9 +61,9 @@ To know whether an IoT hub has been migrated or not, check the active certificat
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 
-1. Select **Certificates** in the **Security settings** section of the navigation menu.
+1. Select **Export template** in the **Automation** section of the navigation menu.
 
-1. If the **Certificate root** is listed as Baltimore CyberTrust, then the hub has not been migrated yet. If it is listed as DigiCert Global G2, then the migration is complete.
+1. Wait for the template to generate, then navigate to the **resources.properties.features** property in the JSON template. If **RootCertificateV2** is listed as a feature, then your hub has been migrated to DigiCert Global G2.
 
 # [Azure CLI](#tab/cli)
 
