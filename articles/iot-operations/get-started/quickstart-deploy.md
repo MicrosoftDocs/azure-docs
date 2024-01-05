@@ -42,7 +42,7 @@ For this quickstart, we recommend GitHub Codespaces as a quick way to get starte
 
 # [Windows](#tab/windows)
 
-* You will use the `AksEdgeQuickStartForAio.ps1` script to set up an AKS Edge Essentials single-machine K3S Linux-only cluster. See the [AKS Edge Essentials system requirements](/azure/aks/hybrid/aks-edge-system-requirements). For this quickstart, ensure that you have a minimum of 10 GB RAM free, 4 vCPUs and 40 GB free disk space.
+* In this quickstart, you use the `AksEdgeQuickStartForAio.ps1` script to set up an AKS Edge Essentials single-machine K3S Linux-only cluster. To learn more, see the [AKS Edge Essentials system requirements](/azure/aks/hybrid/aks-edge-system-requirements). For this quickstart, ensure that your machine has a minimum of 10 GB RAM, 4 vCPUs, and 40 GB free disk space.
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
