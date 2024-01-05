@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 01/05/2024
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
