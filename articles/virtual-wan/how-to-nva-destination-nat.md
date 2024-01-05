@@ -54,8 +54,9 @@ The list below corresponds to the diagram above and describes the packet flow fo
 
 The list below corresponds to the diagram above and describes the packet flow for the outbound response:
 
-1. The server responds and sends the reply packets to the NVA Firewall instance over the Firewall private IP. 
-1. NVA reverses the NAT translation and sends the response out the untrusted interface. Azure then directly sends the packet back to the user. 
+1. The server responds and sends the reply packets to the NVA Firewall instance over the Firewall private IP.
+1. The NAT translation is reversed and the response is sent out the untrusted interface. Azure then directly sends the packet back to the user.
+
 ## Known Limitations and Considerations
 
 ### Limitations
@@ -104,6 +105,7 @@ The following section describes how to manage NVA configurations related to inte
 :::image type="content" source="./media/virtual-wan-nva-dnat/nva-rules.png"alt-text="Screenshot showing displayed rules associated to NVA."lightbox="./media/virtual-wan-nva-dnat/nva-rules.png":::
  
 ### Remove Internet Inbound public IP from existing NVA
+
 > [!NOTE]
 > IP addresses can only be removed if there are no rules associated to that IP is 0. Remove all rules associated to the IP by removing DNAT rules assigned to that IP from your NVA management software.
 
@@ -138,7 +140,7 @@ The following section describes some common troubleshooting scenarios.
 
 |NVA Provider| Port|
 |--|--|
-|fortinet|placeholderport| 
+|fortinet|8008| 
 |checkpoint| placeholderport|
 
 * **Destination server doesn't see packets after NVA translation**: consider the following troubleshooting mechanisms if packets aren't being forwarded to the final destination server.
