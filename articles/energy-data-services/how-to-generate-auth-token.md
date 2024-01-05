@@ -24,7 +24,7 @@ To use the OAuth 2.0 authorization code grant flow, save the following values wh
 - A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret is used as `{client-secret}`.
 - A `redirect URI (or reply URL)` for your app to receive responses from Microsoft Entra ID. If there's no redirect URIs specified, you can add a platform, select "Web", add `http://localhost:8080`, and select save.
   
-:::image type="content" source="media/how-to-manage-users/app-registration-uri.png" alt-text="Screenshot of adding URI to the app.":::
+:::image type="content" source="media/how-to-generate-auth-token/app-registration-uri.png" alt-text="Screenshot of adding URI to the app.":::
 
 
 ## Fetch parameters
@@ -35,9 +35,9 @@ You can also find the parameters once the app is registered on the Azure portal.
 2. Locate `tenant-id` under the basic information section in the *Overview* tab.
 3. Copy the `tenant-id` and paste it into an editor to be used later.  
 
-:::image type="content" source="media/how-to-manage-users/azure-active-directory.png" alt-text="Screenshot of search for Microsoft Entra ID.":::
+:::image type="content" source="media/how-to-generate-auth-token/azure-active-directory.png" alt-text="Screenshot of search for Microsoft Entra ID.":::
 
-:::image type="content" source="media/how-to-manage-users/tenant-id.png" alt-text="Screenshot of finding the tenant-id.":::
+:::image type="content" source="media/how-to-generate-auth-token/tenant-id.png" alt-text="Screenshot of finding the tenant-id.":::
 
 #### Find `client-id`
 It's the same value that you use to register your application during the provisioning of your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md). It is often referred to as `app-id`.
@@ -49,7 +49,7 @@ It's the same value that you use to register your application during the provisi
 > [!IMPORTANT]
 > The 'client-id' that is passed as values in the entitlement API calls needs to be the same that was used for provisioning your Azure Data Manager for the Energy instance.
 
-:::image type="content" source="media/how-to-manage-users/client-id-or-app-id.png" alt-text="Screenshot of finding the client-id for your registered App.":::
+:::image type="content" source="media/how-to-generate-auth-token/client-id-or-app-id.png" alt-text="Screenshot of finding the client-id for your registered App.":::
 
 #### Find `client-secret`
 A `client-secret` is a string value your app can use in place of a certificate to identify itself. It's sometimes referred to as an application password. 
@@ -64,25 +64,25 @@ A `client-secret` is a string value your app can use in place of a certificate t
 > [!CAUTION]
 > Don't forget to record the secret's value. This secret value is never displayed again after you leave this page of 'client secret' creation.
 
-:::image type="content" source="media/how-to-manage-users/client-secret.png" alt-text="Screenshot of finding the client secret.":::
+:::image type="content" source="media/how-to-generate-auth-token/client-secret.png" alt-text="Screenshot of finding the client secret.":::
 
 #### Find the `URL` for your Azure Data Manager for Energy instance
 1. Navigate to your Azure Data Manager for Energy *Overview* page on the Azure portal.
 2. Copy the URI from the essentials pane. 
 
-:::image type="content" source="media/how-to-manage-users/endpoint-url.png" alt-text="Screenshot of finding the URL from Azure Data Manager for Energy instance.":::
+:::image type="content" source="media/how-to-generate-auth-token/endpoint-url.png" alt-text="Screenshot of finding the URL from Azure Data Manager for Energy instance.":::
 
 #### Find the `data-partition-id` 
 You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance.
 - One option is to navigate the *Data Partitions* menu item under the Advanced section of your Azure Data Manager for Energy UI.
 
-:::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance.":::
+:::image type="content" source="media/how-to-generate-auth-token/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance.":::
 
 - Another option is to click on the *view* below the *data partitions* field in the essentials pane of your Azure Data Manager for Energy *Overview* page. 
 
-:::image type="content" source="media/how-to-manage-users/data-partition-id-second-option.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page.":::
+:::image type="content" source="media/how-to-generate-auth-token/data-partition-id-second-option.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page.":::
 
-:::image type="content" source="media/how-to-manage-users/data-partition-id-second-option-step-2.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page with the data partitions.":::
+:::image type="content" source="media/how-to-generate-auth-token/data-partition-id-second-option-step-2.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page with the data partitions.":::
 
 ## Generate client-id auth token
 
