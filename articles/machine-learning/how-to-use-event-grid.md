@@ -172,15 +172,14 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 
 1. Next, add a step to consume this event and search for email. There are several different mail accounts you can use to receive events. You can also configure conditions on when to send an email alert.
 
-    ![Screenshot shows the Choose an action dialog box with email entered in the search line.](./media/how-to-use-event-grid/select-email-action.png)
+    :::image type="content" source="./media/how-to-use-event-grid/select-email-action.png" alt-text="Screenshot shows the Choose an action dialog box with email entered in the search line.":::
 
-1. Select __Send an email__ and fill in the parameters. In the subject, you can include the __Event Type__ and __Topic__ to help filter events. You can also include a link to the workspace page for runs in the message body. 
+1. Select __Send an email__ and fill in the parameters. In the subject, you can include the __Event Type__ and __Topic__ to help filter events. You can also include a link to the workspace page for runs in the message body.
 
-    ![Screenshot shows the Send an email dialog box with Topic and Event Type added to the subject line from the list to the right.](./media/how-to-use-event-grid/configure-email-body.png)
+    To save this action, select **Save As** on the left corner of the page.
 
-1. To save this action, select **Save As** on the left corner of the page. From the right bar  that appears, confirm creation of this action.
+    :::image type="content" source="./media/how-to-use-event-grid/configure-email-body.png" alt-text="Screenshot shows the Send an email dialog box with Topic and Event Type added to the subject line from the list to the right.":::
 
-    ![Screenshot shows the Save As and Create buttons in the Logic Apps Designer.](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 :::moniker range="azureml-api-1"
 ### Example: Data drift triggers retraining
