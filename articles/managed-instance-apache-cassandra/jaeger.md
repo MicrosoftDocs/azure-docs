@@ -1,5 +1,5 @@
 ---
-title: Using Jaeger with Azure Managed Instance for Apache Cassandra
+title: Run Jaeger with Azure Managed Instance for Apache Cassandra
 description: Learn how to integrate Jaeger with Azure Managed Instance for Apache Cassandra for efficient storage monitoring.
 author: IriaOsara
 ms.author: IriaOsara
@@ -9,19 +9,19 @@ ms.date: 12/08/2023
 
 ---
 
-# Using Jaeger with Azure Managed Instance for Apache Cassandra
+# Run Jaeger with Azure Managed Instance for Apache Cassandra
 
 Jaeger, a distributed tracing platform for monitoring microservices, enables the fast identification of performance challenges and optimization. Through features, like tracing instrumentation and logging integration.
 
 The article specifically details the use of the sample application HotROD and Jaeger alongside Azure Managed Instance for Apache Cassandra for efficient storage monitoring.
 
 
-## Prerequisites and Setup
+## Prerequisites and setup
 * [Create an Azure Managed Instance for Apache Cassandra cluster](create-cluster-cli.md).
 * [Ensure Docker is installed](https://www.docker.com/get-started/).
 
 
-## Running Jaeger with Azure Managed Instance for Apache Cassandra
+## Use Jaeger with Azure Managed Instance for Apache Cassandra
 1. [Download the Jaeger repository](https://github.com/jaegertracing/jaeger.git).
 1. Navigate to the docker-compose folder `cd jaeger\docker-compose`.
 1. Add your Azure Managed Instance Cassandra cluster credentials to the `jaeger-collector and jaeger-query` section within the `jaeger-docker-compose.yml` file:
@@ -59,13 +59,13 @@ The article specifically details the use of the sample application HotROD and Ja
     > Five containers are created, and you should be able to access the test application at http://localhost:8080/ to generate traces that can be viewed at http://localhost:16686/search.
 
 1. Once the containers are running, access the Jaeger UI to view traces from the application.
-    :::image type="content" source="./media/jaeger/jaeger-page-1.png" alt-text="Screenshot Jaeger web interface." lightbox="./media/jaeger/jaeger-page-1.png" border="true":::
+    :::image type="content" source="./media/jaeger/jaeger-page-1.png" alt-text="Screenshot of jaeger web interface." lightbox="./media/jaeger/jaeger-page-1.png" border="true":::
 
 1. Verify by inspecting your Azure Managed Instance cluster.
-    :::image type="content" source="./media/jaeger/jaeger-table-1.png" alt-text="Screenshot Jaeger tables in managed instance cluster" lightbox="./media/jaeger/jaeger-table-1.png" border="true":::
+    :::image type="content" source="./media/jaeger/jaeger-table-1.png" alt-text="Screenshot of jaeger tables in managed instance cluster." lightbox="./media/jaeger/jaeger-table-1.png" border="true":::
 
 1.  Refer to the traces table to view the data related to step 7.
-    :::image type="content" source="./media/jaeger/jaeger-table-2.png" alt-text="Screenshot Jaeger trace table." lightbox="./media/jaeger/jaeger-table-2.png" border="true":::
+    :::image type="content" source="./media/jaeger/jaeger-table-2.png" alt-text="Screenshot of jaeger trace table." lightbox="./media/jaeger/jaeger-table-2.png" border="true":::
 
 
 ## FAQs
