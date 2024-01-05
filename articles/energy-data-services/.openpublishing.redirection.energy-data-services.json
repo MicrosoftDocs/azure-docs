@@ -1,8 +1,8 @@
 {
     "redirections": [
         {
-            "source_path": "articles/energy-data-services/how-to-generate-refresh-token.md",
-            "redirect_url": "articles/energy-data-services/how-to-generate-auth-token.md",
+            "source_path": "how-to-generate-refresh-token.md",
+            "redirect_url": "how-to-generate-auth-token.md",
             "redirect_document_id": true
         }
     ]
