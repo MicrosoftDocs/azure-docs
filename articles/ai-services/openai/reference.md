@@ -649,7 +649,7 @@ The following parameters are used inside of the `fieldsMapping` field.
 | `urlField` | string | Optional  | null | The field in your index that contains the original URL of each document. |
 | `filepathField` | string | Optional  | null | The field in your index that contains the original file name of each document. |
 | `contentFields` | dictionary | Optional  | null | The fields in your index that contain the main text content of each document. |
-| `contentFieldsSeparator` | string | Optional  | null | The separator for the your content fields. Use `\n` by default.  |
+| `contentFieldsSeparator` | string | Optional  | null | The separator for the content fields. Use `\n` by default.  |
 
 ```json
 "fieldsMapping": {
@@ -689,7 +689,7 @@ The following parameters are used for Azure Cosmos DB for MongoDB vCore.
 | `containerName` | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The Azure Cosmos Mongo vCore container name in the database. |
 | `type` (found inside of`embeddingDependencyType`) | string | Required | null | Indicates the embedding model dependency. |
 | `deploymentName` (found inside of`embeddingDependencyType`) | string | Required | null | The embedding model deployment name. |
-| `fieldsMapping` | dictionary | Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
+| `fieldsMapping` | dictionary | Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When you use Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
 
 The following parameters are used inside of the optional `embeddingDependency` parameter, which contains details of a vectorization source that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
 
@@ -725,7 +725,7 @@ The following parameters are used inside of the `fieldsMapping` field.
 | `urlField` | string | Optional  | null | The field in your index that contains the original URL of each document. |
 | `filepathField` | string | Optional  | null | The field in your index that contains the original file name of each document. |
 | `contentFields` | dictionary | Optional  | null | The fields in your index that contain the main text content of each document. |
-| `contentFieldsSeparator` | string | Optional  | null | The separator for the your content fields. Use `\n` by default.  |
+| `contentFieldsSeparator` | string | Optional  | null | The separator for the content fields. Use `\n` by default.  |
 | `vectorFields` | dictionary | Optional  | null | The names of fields that represent vector data |
 
 ```json
