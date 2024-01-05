@@ -151,7 +151,7 @@ items:
       - name: Connect to MQTT or Event Grid
         href: connect-to-cloud/howto-configure-mqtt-bridge.md
       - name: Bridge MQTT data between IoT MQ and Azure Event Grid
-        href: view-analyze-data/tutorial-connect-event-grid.md
+        href: connect-to-cloud/tutorial-connect-event-grid.md
       - name: Send data to a data lake
         href: connect-to-cloud/howto-configure-data-lake.md
       - name: Send data to Kafka or Azure Event Hubs
