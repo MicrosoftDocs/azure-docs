@@ -42,7 +42,7 @@ To run the deployment automatically, select the following button:
 
 ## Variables for names
 This template uses variables to construct names for the resources. It uses the [uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) function to construct a value based on the
-resource group id.
+resource group ID.
 
 ```json
 "variables": {
