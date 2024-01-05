@@ -131,7 +131,7 @@ Create the geofence JSON file using the following geofence data. You'll upload t
    }
    ```
 
-Follow the steps outlined in the [How to create data registry] article to upload the geofence JSON file into your Azure storage account then register it in your Azure Maps account.
+Follow the steps outlined in the [How to create data registry] article to upload the geofence JSON file into your Azure storage account and register it in your Azure Maps account.
 
 > [!IMPORTANT]
 > Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the geofence you uploaded into your Azure storage account from your source code and HTTP requests.
@@ -158,29 +158,29 @@ To create the logic apps:
 
     For the purposes of this tutorial, keep all other values on their default settings.
 
-    :::image type="content" border=false source="./media/tutorial-geofence/logic-app-create.png" alt-text="Screenshot of create a logic app.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Screenshot of create a logic app.":::
 
-6. Select **Review + Create**. Review your settings and select **Create**.
+6. When you're done, select **Review + Create**. After Azure validates the information about your logic app resource, select **Create**.
 
 7. When the deployment completes successfully, select **Go to resource**.
 
-8. In the **Logic App Designer**, scroll down to the **Start with a common trigger** section. Select **When an HTTP request is received**.
+8. Select **Logic app designer** in the **Development Tools** section in the menu of the left, scroll down to the **Start with a common trigger** section. Select **When an HTTP request is received**.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Screenshot of create a logic app HTTP trigger.":::
+     :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Screenshot of create a logic app HTTP trigger.":::
 
 9. In the upper-right corner of Logic App Designer, select **Save**. The **HTTP POST URL** is automatically generated. Save the URL. You need it in the next section to create an event endpoint.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Screenshot of Logic App HTTP Request URL and JSON.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Screenshot of Logic App HTTP Request URL and JSON.":::
 
 10. Select **+ New Step**.
 
 11. In the search box, type `outlook.com email`. In the **Actions** list, scroll down and select **Send an email (V2)**.
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Screenshot of create a logic app designer.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Screenshot of create a logic app designer.":::
 
 12. Sign in to your Outlook account. Make sure to select **Yes** to allow the logic app to access the account. Fill in the fields for sending an email.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot of create a logic app send email step.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot of create a logic app send email step.":::
 
     >[!TIP]
     > You can retrieve GeoJSON response data, such as `geometryId` or `deviceId`, in your email notifications. You can configure Logic Apps to read the data sent by Event Grid. For information on how to configure Logic Apps to consume and pass event data into email notifications, see [Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps].
@@ -218,7 +218,7 @@ Create geofence exit and enter event subscriptions:
     * For **Endpoint Type**, choose `Web Hook`.
     * For **Endpoint**, copy the HTTP POST URL for the logic app enter endpoint that you created in the previous section. If you forgot to save it, you can just go back into Logic App Designer and copy it from the HTTP trigger step.
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot of Azure Maps events subscription details.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot of Azure Maps events subscription details.":::
 
 6. Select **Create**.
 
@@ -478,7 +478,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 In the preceding GeoJSON response, the equipment has exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true`, and the Operations Manager receives an email notification indicating that the equipment has exited a geofence.
 
-You can also [Send email notifications using Event Grid and Logic Apps] and check [Supported Events Handlers in Event Grid] using Azure Maps.
+You can also [Send email notifications using Event Grid and Logic Apps]. For more information,see [Event handlers in Azure Event Grid].
 
 ## Clean up resources
 
@@ -506,7 +506,7 @@ There are no resources that require cleanup.
 [Send email notifications using Event Grid and Logic Apps]: ../event-grid/publish-iot-hub-events-to-logic-apps.md
 [Spatial Geofence Get API]: /rest/api/maps/spatial/getgeofence
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Supported Events Handlers in Event Grid]: ../event-grid/event-handlers.md
+[Event handlers in Azure Event Grid]: ../event-grid/event-handlers.md
 [three event types]: ../event-grid/event-schema-azure-maps.md
 [Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps]: ../event-grid/publish-iot-hub-events-to-logic-apps.md
 [Upload Geofencing GeoJSON data section]: #upload-geofencing-geojson-data
