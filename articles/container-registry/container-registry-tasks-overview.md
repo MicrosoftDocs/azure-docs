@@ -4,7 +4,7 @@ description: An introduction to ACR Tasks, a suite of features in Azure Containe
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.service: container-registry
 ---
 
@@ -82,7 +82,7 @@ The power of ACR Tasks to truly enhance your container build workflow comes from
 You can set up an ACR task to track a dependency on a base image when it builds an application image. When the updated base image is pushed to your registry, or a base image is updated in a public repo such as in Docker Hub, ACR Tasks can automatically build any application images based on it.
 With this automatic detection and rebuilding, ACR Tasks saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
 
-Learn more about [base image update triggers](container-registry-tasks-base-images.md) for ACR Tasks. And learn how to trigger an image build when a base image is pushed to a container registry in the tutorial [Automate container image builds when a base image is updated in a Azure container registry](container-registry-tutorial-base-image-update.md)
+Learn more about [base image update triggers](container-registry-tasks-base-images.md) for ACR Tasks. And learn how to trigger an image build when a base image is pushed to a container registry in the tutorial [Automate container image builds when a base image is updated in an Azure container registry](container-registry-tutorial-base-image-update.md)
 
 ## Schedule a task
 

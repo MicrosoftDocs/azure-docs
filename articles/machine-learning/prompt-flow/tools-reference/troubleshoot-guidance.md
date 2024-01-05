@@ -94,12 +94,6 @@ You might experience timeout issues.
 
 #### Request timeout error shown in the UI
 
-**MIR runtime request timeout error in the UI:**
-
-:::image type="content" source="../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot that shows an MIR runtime timeout error in the studio UI." lightbox = "../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
-
-The error in the example says "UserError: Upstream request timeout."
-
 **Compute instance runtime request timeout error:**
 
 :::image type="content" source="../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot that shows a compute instance runtime timeout error in the studio UI." lightbox = "../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::

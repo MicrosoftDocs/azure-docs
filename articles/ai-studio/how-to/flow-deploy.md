@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 ---
 
@@ -82,7 +83,7 @@ You can use the Azure AI Generative SDK to deploy a prompt flow as an online end
 
 ```python
 # Import required dependencies 
-from azure.ai.generative import AIClient 
+from azure.ai.resources.client import AIClient 
 from azure.ai.generative.entities.deployment import Deployment 
 from azure.ai.generative.entities.models import PromptflowModel 
 from azure.identity import InteractiveBrowserCredential as Credential 

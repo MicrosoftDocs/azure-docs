@@ -269,4 +269,4 @@ To help troubleshoot any issues with SSH connectivity to your clusters nodes, yo
 [node-image-upgrade]: node-image-upgrade.md
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
 [network-security-group-rules-overview]: concepts-security.md#azure-network-security-groups
-[kubelet-debug-node-access]: node-access.md 
+[kubelet-debug-node-access]: node-access.md
