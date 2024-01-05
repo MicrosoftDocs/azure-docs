@@ -742,7 +742,10 @@
         "articles/ai-services/LinguisticAnalysisAPI/**/*.md": "None",
         "articles/ai-services/Recommendations/**/*.md": "None",
         "articles/ai-services/Web-Language-Model/**/*.md": "None",
+        "articles/deployment-environments/**/*": "Standard",
+        "articles/dev-box/**/*": "Standard",
         "articles/devtest-labs/**/*": "Standard",
+        "articles/devtest/offer/**/*": "Standard",
         "articles/lab-services/**/*": "Standard",
         "articles/load-testing/**/*": "Standard",
         "articles/playwright-testing/**/*": "Standard",
@@ -750,11 +753,15 @@
         "articles/virtual-machines/windows/classic/**/*": "None"
       },
       "feedback_help_link_url": {
+        "articles/deployment-environments/**/*": "https://developercommunity.microsoft.com/deploymentenvironments",
+        "articles/dev-box/**/*": "https://developercommunity.microsoft.com/devbox",
         "articles/devtest-labs/**/*": "https://learn.microsoft.com/en-us/answers/tags/104/azure-devtest-labs",
         "articles/lab-services/**/*": "https://learn.microsoft.com/en-us/answers/tags/186/azure-lab-services",
         "articles/load-testing/**/*": "https://learn.microsoft.com/en-us/answers/tags/439/azure-load-testing"
       },
       "feedback_help_link_type": {
+        "articles/deployment-environments/**/*": "ask-the-community", 
+        "articles/dev-box/**/*": "ask-the-community",
         "articles/devtest-labs/**/*": "get-help-at-qna",
         "articles/lab-services/**/*": "get-help-at-qna",
         "articles/load-testing/**/*": "get-help-at-qna"

@@ -486,7 +486,6 @@ The following parameters can be used inside of the `parameters` field inside of 
 |--|--|--|--|--|
 | `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure AI Search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. |
 | `indexName` | string | Required | null | The search index to be used. |
-| `fieldsMapping` | dictionary | Optional for Azure AI Search. Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
 | `inScope` | boolean | Optional | true | If set, this value will limit responses specific to the grounding data content.  |
 | `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio.   |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only required when `queryType` is set to `semantic` or  `vectorSemanticHybrid`.  |
@@ -498,13 +497,36 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. |
 
 
-**The following parameters are used for Azure AI Search only**
+**The following parameters are used for Azure AI Search**
 
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `endpoint` | string | Required | null | Azure AI Search only. The data source endpoint. |
 | `key` | string | Required | null | Azure AI Search only. One of the Azure AI Search admin keys for your service. |
 | `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure AI Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
+| `fieldsMapping` | dictionary | Optional for Azure AI Search.  | null | defines which [fields](./concepts/use-your-data.md?tabs=ai-search#index-field-mapping) you want to map when you add your data source. |
+
+The following parameters are used inside of the `fieldsMapping` field.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `titleField` | string | Optional  | null | The field in your index that contains the original title of each document. |
+| `urlField` | string | Optional  | null | The field in your index that contains the original URL of each document. |
+| `filepathField` | string | Optional  | null | The field in your index that contains the original file name of each document. |
+| `contentFields` | dictionary | Optional  | null | The fields in your index that contain the main text content of each document. |
+| `contentFieldsSeparator` | string | Optional  | null | The separator for the your content fields. Use `\n` by default.  |
+
+```json
+"fieldsMapping": {
+  "titleField": "myTitleField",
+  "urlField": "myUrlField",
+  "filepathField": "myFilePathField",
+  "contentFields": [
+    "myContentField"
+  ],
+  "contentFieldsSeparator": "\n"
+}
+```
 
 **The following parameters are used for Azure Cosmos DB for MongoDB vCore**
 
@@ -516,6 +538,7 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `containerName` | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The Azure Cosmos Mongo vCore container name in the database. |
 | `type` (found inside of`embeddingDependencyType`) | string | Required | null | Indicates the embedding model dependency. |
 | `deploymentName` (found inside of`embeddingDependencyType`) | string | Required | null | The embedding model deployment name. |
+| `fieldsMapping` | dictionary | Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
 
 ### Start an ingestion job 
 
