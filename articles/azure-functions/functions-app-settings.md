@@ -121,7 +121,7 @@ Configures the runtime [hosting environment](/dotnet/api/microsoft.extensions.ho
 | Value | Description |
 | --- | --- | 
 | `Production` | Represents a production environment, with reduced logging and full performance optimizations. This is the default when `AZURE_FUNCTIONS_ENVIRONMENT` either isn't set or is set to an unsupported value.  | 
-| `Staging` | Represents a staging enviromnment, such as when running in a [staging slot](functions-deployment-slots.md). |
+| `Staging` | Represents a staging environment, such as when running in a [staging slot](functions-deployment-slots.md). |
 | `Development` | A development environment supports more verbose logging and other reduced performance optimizations. The Azure Functions Core Tools sets `AZURE_FUNCTIONS_ENVIRONMENT` to `Development` when running on your local computer. This setting can't be overridden in the local.settings.json file.  | 
 
 Use this setting instead of `ASPNETCORE_ENVIRONMENT` when you need to change the runtime environment in Azure to something other than `Production`. For more information, see [Environment-based Startup class and methods](/aspnet/core/fundamentals/environments#environments).
@@ -368,7 +368,7 @@ Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is 
 
 ## FUNCTION\_APP\_EDIT\_MODE
 
-Indicates whether you are able to edit your function app in the Azure portal. Valid values are `readwrite` and `readonly`.
+Indicates whether you're able to edit your function app in the Azure portal. Valid values are `readwrite` and `readonly`.
 
 |Key|Sample value|
 |---|------------|
@@ -718,7 +718,7 @@ Valid values are either a URL that resolves to the location of a deployment pack
 
 ## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
 
-The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnectionstring) and [WEBSITE_CONTENTSHARE](#website_contentshare) settings have extra validation checks to ensure that the app can be properly started. Creation of application settings fail when the function app can't properly call out to the downstream Storage Account or Key Vault due to networking constraints or other limiting factors. When WEBSITE_SKIP_CONTENTSHARE_VALIDATION is set to `1`, the validation check is skipped; otherwise the value defaults to `0` and the validation will take place. 
+The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnectionstring) and [WEBSITE_CONTENTSHARE](#website_contentshare) settings have extra validation checks to ensure that the app can be properly started. Creation of application settings fail when the function app can't properly call out to the downstream Storage Account or Key Vault due to networking constraints or other limiting factors. When WEBSITE_SKIP_CONTENTSHARE_VALIDATION is set to `1`, the validation check is skipped; otherwise the value defaults to `0` and the validation takes place. 
 
 |Key|Sample value|
 |---|------------|
