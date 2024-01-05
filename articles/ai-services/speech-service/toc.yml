@@ -449,7 +449,11 @@ items:
       href: swagger-documentation.md
       displayName: rest, swagger
     - name: Embedded Speech
-      href: embedded-speech.md
+      items:
+        - name: Overview
+          href: embedded-speech.md
+        - name: Performance evaluations
+          href: embedded-speech-performance-evaluations.md
     - name: Power automate batch transcription
       href: power-automate-batch-transcription.md
     - name: Containers
