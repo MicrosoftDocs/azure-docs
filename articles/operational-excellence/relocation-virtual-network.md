@@ -31,6 +31,54 @@ Before you begin relocation, make sure that you include the following considerat
 - **To move Network Watcher NSG logs**, you'll need to make sure that you move the diagnostic storage account prior to relocation of the virtual network and the NSG flow log.
 
 
+## Disconnected and connected scenarios
+
+To plan your relocation of an Azure Virtual Network, you must understand whether the virtual network is being used in either a connected or disconnected scenario. In a connected scenario, the virtual network has a routed IP connection to an on-premise datacenter using a hub, VPN Gateway or an ExpressRoute connection. In a disconnected scenario, the virtual network is used by workload components to communicate with each other.
+
+
+:::image type="content" source="media/relocation/vnet-connected-scenarios.png" alt-text="Diagrams showing both connect scenario and disconnect scenarios for virtual network.":::
+
+
+### Disconnected Scenario
+
+| Relocation with no IP Address Change  | Relocation with IP Address Change    |
+| -----------------------------|-----------|
+| No additional IP address ranges are needed.      | Additional IP Address ranges are needed.     |
+| No IP Address change for resources after relocation.        | IP Address change of resources after relocation         |
+| All workloads in a virtual network must relocated together.     | Workload relocation without considering dependencies or partial relocation is possible (Take communication latency into account)    |
+| Virtual Network in the source region needs to be disconnect or removed before the Virtual Network in the target region can be connected. | Enable communication shortcuts between source and target region using vNetwork peering.                                                                              |
+| No support for data migration scenarios where communication between source and target region is needed. | Enable data migration scenarios where communication between source and target region is needed by establishing a network peering for the duration of the relocation. |
+
+#### Disconnected relocation with the same IP-address range
+
+:::image type="content" source="media/relocation/vnet-disconnected-relocation-no-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with no vNet IP address range change.":::
+
+
+#### Disconnected relocation with  a new IP-address range
+
+:::image type="content" source="media/relocation/vnet-disconnected-relocation-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with vNet IP address range change..":::
+
+### Connected Scenario
+
+| Relocation with no IP Address Change                                                                                                                                                     | Relocation with IP Address Change                                                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No additional IP address ranges are needed.                                                                                                                                              | Additional IP Address ranges are needed.                                                                                                                             |
+| No IP Address change for resources after relocation.                                                                                                                                     | IP Address change of resources after relocation.                                                                                                                     |
+| All workloads with dependencies on each other need to be relocated together.                                                                                                             | Workload relocation without considering dependencies possible (Take communication latency into account).                                                             |
+| No communication between the two virtual networks in the source and target regions is possible.                                                                                          | Possible to enable communication between source and target region using vNetwork peering.                                                                            |
+| Data migrations scenarios where an communication between source and target region is needed, are not possible (using virtual networks) or can only established through public endpoints. | Enable data migration scenarios where communication between source and target region is needed by establishing a network peering for the duration of the relocation. |
+
+#### Connected relocation with the same IP-address range
+
+:::image type="content" source="media/relocation/vnet-connected-relocation-no-ip-address-change.png" alt-text="Diagram showing connected workload relocation with no vNet IP address range change.":::
+
+#### Connected relocation with a new IP-address range
+
+:::image type="content" source="media/relocation/vnet-connected-relocation-ip-address-change.png" alt-text="Diagram showing connected workload relocation with vNet IP address range change..":::
+
+
+
+
 ## Relocation strategies
 
 To move Azure Virtual Network to a new region, you can choose either migration or redeployment. However, it's highly recommended that you use the [redeployment method](#redeployment-strategy-recommended) to move your network.
@@ -50,13 +98,13 @@ Redeployment is the recommended way to move your virtual network to a new region
 
 #### How to redeploy
 
-1. If you want virtual networking peering to be redeployed along with the virtual network, create a separate export template for the peering. 
+If you want virtual networking peering to be redeployed along with the virtual network, create a separate export template for the peering. 
 
 **To create a separate peering template:**
 
-    1. Copy the details of the peering to create a peering template.
-    1. Remove the peering information from the primary export template.
-    1. Use the peering template to reestablish the peering after the relocation of the network.
+1. Copy the details of the peering to create a peering template.
+1. Remove the peering information from the primary export template.
+1. Use the peering template to reestablish the peering after the relocation of the network.
     
 1. Redeploy your virtual network to another region by choosing the appropriate guides:
 
@@ -127,51 +175,5 @@ Once the relocation is completed, the Virtual Network needs to be tested and val
 
 - Validate all virtual network components and integration.
 
--  If you relocated source peering, use Network Watcher to validate connectivity and communication once the peering is reconfigured. 
-
-## Disconnected and connected scenarios
-
-To plan your relocation of an Azure Virtual Network, you must understand whether the virtual network is being used in either a connected or disconnected scenario. In the connect scenario the virtual network has a routed IP connection to an on-premise datacenter using an hub, VPN Gateway or an ExpressRoute connection. In the disconnected scenario the virtual network is used by workload components to communicate with each other.
-
-
-:::image type="content" source="media/relocation/vnet-connected-scenarios.png" alt-text="Diagrams showing both connect scenario and disconnect scenarios for virtual network.":::
-
-
-### Disconnected Scenario
-
-| Relocation with no IP Address Change  | Relocation with IP Address Change    |
-| -----------------------------|-----------|
-| No additional IP address ranges are needed.      | Additional IP Address ranges are needed.     |
-| No IP Address change for resources after relocation.        | IP Address change of resources after relocation         |
-| All workloads in a virtual network must relocated together.     | Workload relocation without considering dependencies or partial relocation is possible (Take communication latency into account)    |
-| Virtual Network in the source region needs to be disconnect or removed before the Virtual Network in the target region can be connected. | Enable communication shortcuts between source and target region using vNetwork peering.                                                                              |
-| No support for data migration scenarios where communication between source and target region is needed. | Enable data migration scenarios where communication between source and target region is needed by establishing a network peering for the duration of the relocation. |
-
-#### Disconnected relocation with the same IP-address range
-
-:::image type="content" source="media/relocation/vnet-disconnected-relocation-no-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with no vNet IP address range change.":::
-
-
-#### Disconnected relocation with  a new IP-address range
-
-:::image type="content" source="media/relocation/vnet-disconnected-relocation-ip-address-change.png" alt-text="Diagram showing disconnected workload relocation with vNet IP address range change..":::
-
-### Connected Scenario
-
-| Relocation with no IP Address Change                                                                                                                                                     | Relocation with IP Address Change                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No additional IP address ranges are needed.                                                                                                                                              | Additional IP Address ranges are needed.                                                                                                                             |
-| No IP Address change for resources after relocation.                                                                                                                                     | IP Address change of resources after relocation.                                                                                                                     |
-| All workloads with dependencies on each other need to be relocated together.                                                                                                             | Workload relocation without considering dependencies possible (Take communication latency into account).                                                             |
-| No communication between the two virtual networks in the source and target regions is possible.                                                                                          | Possible to enable communication between source and target region using vNetwork peering.                                                                            |
-| Data migrations scenarios where an communication between source and target region is needed, are not possible (using virtual networks) or can only established through public endpoints. | Enable data migration scenarios where communication between source and target region is needed by establishing a network peering for the duration of the relocation. |
-
-#### Connected relocation with the same IP-address range
-
-:::image type="content" source="media/relocation/vnet-connected-relocation-no-ip-address-change.png" alt-text="Diagram showing connected workload relocation with no vNet IP address range change.":::
-
-#### Connected relocation with a new IP-address range
-
-:::image type="content" source="media/relocation/vnet-connected-relocation-ip-address-change.png" alt-text="Diagram showing connected workload relocation with vNet IP address range change..":::
-
+- If you relocated source peering, use Network Watcher to validate connectivity and communication once the peering is reconfigured. 
 
