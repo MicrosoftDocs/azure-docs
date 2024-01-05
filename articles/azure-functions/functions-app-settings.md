@@ -640,7 +640,7 @@ This setting is required for Consumption and Premium plan apps on both Windows a
 
 Changing or removing this setting can cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-The following considerations apply when using an Azure Resource Manager (ARM) template to create a function app during deployment: 
+The following considerations apply when using an Azure Resource Manager (ARM) template or Bicep file to create a function app during deployment: 
 
 + When you don't set a `WEBSITE_CONTENTSHARE` value for the main function app or any apps in slots, unique share values are generated for you. Not setting `WEBSITE_CONTENTSHARE` _is the recommended approach_ for an ARM template deployment.
 + There are scenarios where you must set the `WEBSITE_CONTENTSHARE` value to a predefined share, such as when you [use a secured storage account in a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network). In this case, you must set a unique share name for the main function app and the app for each deployment slot.  
