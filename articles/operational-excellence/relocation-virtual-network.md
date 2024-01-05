@@ -15,7 +15,7 @@ ms.custom:
 
 # Relocation guidance for Azure Virtual Network
 
-This article covers the recommended approaches, guidelines and practices for Azure Virtual Network.
+This article covers the recommended approaches, guidelines and practices for relocating an Azure Virtual Network.
 
 
 ## Prepare for relocation
@@ -30,14 +30,10 @@ Before you begin relocation, make sure that you include the following considerat
 
 - **To move Network Watcher NSG logs**, you'll need to make sure that you move the diagnostic storage account prior to relocation of the virtual network and the NSG flow log.
 
-## Dependencies
-
-None.
-
 
 ## Relocation strategies
 
-To move Azure Virtual Network to a new region, you can choose either migration or redeployment. However, it's highly recommended that you use the [redeployment method](#redeployment-strategy-recommended).
+To move Azure Virtual Network to a new region, you can choose either migration or redeployment. However, it's highly recommended that you use the [redeployment method](#redeployment-strategy-recommended) to move your network.
 
 
 ### Redeployment strategy (Recommended)
@@ -49,9 +45,8 @@ Redeployment is the recommended way to move your virtual network to a new region
 
 - [Peered Virtual networks](/azure/virtual-network/virtual-network-peering-overview) can't be re-created in the new region, even if they're defined in the exported template. To have virtual networking peering in the new region, you need to create a separate export template for the peering.
 - If you enable private IP address range change, multiple workloads in a virtual network can be relocated independently of each other, 
-- Supports option to enable and disable private IP address range change in the target region.
-- If you don't enable private IP address change in the target region, data migration scenarios that require
-communication between source and target region can only be established using public endpoints (public IP addresses).
+- The redeployment method supports the option to enable and disable private IP address range change in the target region.
+- If you don't enable private IP address change in the target region, data migration scenarios that require communication between source and target region can only be established using public endpoints (public IP addresses).
 
 #### How to redeploy
 

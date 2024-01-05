@@ -40,18 +40,18 @@ Relocation for Azure Database for PostgreSQL is based on logical backup and rest
 
 ## Dependencies
 
-Depending on your Azure Database for PostgreSQL instance design, the following dependent resources may need to be created in the target region prior to re-location:
+Depending on your Azure Database for PostgreSQL instance design, the following dependent resources may need to be created and configured in the target region prior to re-location:
 
 - [Public IP address](./relocation-public-ip.md)
 - [Azure Private Link](./relocation-private-link.md)
 - [Azure Service Endpoint](./not-yet.md)
-- [Virtual Network]()
+- [Virtual Network](./relocation-virtual-network.md)
 - Network Peering
 - Azure Private DNS
 
 ## Workload architectures types
 
-To successfully relocate Azure Database for PostgreSQL, the following options might be adapted.
+To relocate Azure Database for PostgreSQL, the following options might be adapted.
 
 ### Migration over public endpoint
 
