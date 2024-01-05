@@ -15,9 +15,9 @@ zone_pivot_groups: iotedge-dev
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-This tutorial walks through developing, debugging and deploying your own code to an IoT Edge device using IoT Edge for Linux on Windows and Visual Studio 2022. You'll learn the most common developer scenario for IoT Edge solutions to deploy a **C# module to a Linux device**. You'll deploy and debug a custom Azure IoT Edge module running in a Linux container on Windows (EFLOW). Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts.
+This tutorial walks through developing, debugging and deploying your own code to an IoT Edge device using IoT Edge for Linux on Windows and Visual Studio 2022. You'll learn the most common developer scenario for IoT Edge solutions by deploying a **C# module to a Linux device**. You'll deploy and debug a custom Azure IoT Edge module running in a Linux container on Windows (EFLOW). Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts.
 
-This article includes steps for two IoT Edge development tools.
+This article includes steps for two IoT Edge development tools:
 
 * Command line interface (CLI) is the preferred tool for development.
 * **Azure IoT Edge tools for Visual Studio** extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
@@ -293,7 +293,7 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
 
 ### Set up Visual Studio 2022 remote Docker engine instance
 
-Use the Azure IoT Edge tools extensions for Visual Studio Code to IoT Edge modules and configure it to use the remote Docker engine running inside the EFLOW virtual machine. 
+Use the Azure IoT Edge tools extension and configure it to use the remote Docker engine running inside the EFLOW virtual machine. 
 
 1. Select **Tools** -> **Azure IoT Edge tools** -> **IoT Edge tools settings...**
 
