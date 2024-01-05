@@ -25,11 +25,11 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 * Connection timeouts
 
 **How to troubleshoot**
-1. Check the [datapath availability metric](/azure/nat-gateway/nat-metrics#datapath-availability) to assess the health of the NAT gateway.
-2. Check the SNAT Connection Count metric and [split the connection state](/azure/nat-gateway/nat-metrics#snat-connection-count) by attempted and failed connections. More than zero failed connections may indicate SNAT port exhaustion or reaching the SNAT connection count limit of NAT gateway.
-3. Verify the [Total SNAT Connection Count metric](/azure/nat-gateway/nat-metrics#total-snat-connection-count) to ensure it is within limits. NAT gateway supports 50,000 simultaneous connections per IP address to a unique destination and up to 2 million connections in total. For more information, see [NAT Gateway Performance](/azure/nat-gateway/nat-gateway-resource#performance).
-4. Check the [dropped packets metric](/azure/nat-gateway/nat-metrics#dropped-packets) for any packet drops that align with connection failures or high connection volume.
-5. Adjust the [TCP idle timeout timer](./nat-gateway-resource.md#tcp-idle-timeout) settings as needed. An idle timeout timer set higher than the default (4 minutes) holds on to flows longer, and can create [extra pressure on SNAT port inventory](./nat-gateway-resource.md#timers). 
+* Check the [datapath availability metric](/azure/nat-gateway/nat-metrics#datapath-availability) to assess the health of the NAT gateway.
+* Check the SNAT Connection Count metric and [split the connection state](/azure/nat-gateway/nat-metrics#snat-connection-count) by attempted and failed connections. More than zero failed connections may indicate SNAT port exhaustion or reaching the SNAT connection count limit of NAT gateway.
+* Verify the [Total SNAT Connection Count metric](/azure/nat-gateway/nat-metrics#total-snat-connection-count) to ensure it is within limits. NAT gateway supports 50,000 simultaneous connections per IP address to a unique destination and up to 2 million connections in total. For more information, see [NAT Gateway Performance](/azure/nat-gateway/nat-gateway-resource#performance).
+* Check the [dropped packets metric](/azure/nat-gateway/nat-metrics#dropped-packets) for any packet drops that align with connection failures or high connection volume.
+* Adjust the [TCP idle timeout timer](./nat-gateway-resource.md#tcp-idle-timeout) settings as needed. An idle timeout timer set higher than the default (4 minutes) holds on to flows longer, and can create [extra pressure on SNAT port inventory](./nat-gateway-resource.md#timers). 
 
 ### Possible solutions for SNAT port exhaustion or hitting simultaneous connection limits
 * Add public IP addresses to your NAT gateway up to a total of 16 to scale your outbound connectivity. Each public IP provides 64,512 SNAT ports and supports up to 50,000 simultaneous connections per unique destination endpoint for NAT gateway.  
@@ -89,11 +89,11 @@ You observe no outbound connectivity on your NAT gateway.
 * DNS misconfiguration
 
 **How to troubleshoot**
-1. Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway isn't operational without a public IP and subnet attached. For more information, see [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics).
-2. Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to an NVA, ExpressRoute, or VPN Gateway will take priority over NAT gateway. For more information, see [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
-3. Check if there are any NSG rules configured for the NIC on your virtual machine that blocks internet access.
-4. Check if the datapath availability of NAT gateway is in a degraded state. Refer to [connection failure troubleshooting guidance](#datapath-availability-drop-on-nat-gateway-with-connection-failures) if NAT gateway is in a degraded state.
-5. Check your DNS settings if DNS isn't resolving properly.
+* Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway isn't operational without a public IP and subnet attached. For more information, see [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics).
+* Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to an NVA, ExpressRoute, or VPN Gateway will take priority over NAT gateway. For more information, see [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
+* Check if there are any NSG rules configured for the NIC on your virtual machine that blocks internet access.
+* Check if the datapath availability of NAT gateway is in a degraded state. Refer to [connection failure troubleshooting guidance](#datapath-availability-drop-on-nat-gateway-with-connection-failures) if NAT gateway is in a degraded state.
+* Check your DNS settings if DNS isn't resolving properly.
 
 ### Possible solutions for loss of outbound connectivity
 * Attach a public IP address or prefix to NAT gateway. Also make sure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](/azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
@@ -118,12 +118,12 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 * Internet traffic is being redirected away from NAT gateway and force-tunneled to an NVA or firewall.
 
 **How to troubleshoot**
-1. Check that your NAT gateway has at least one public IP address or prefix associated and at least one subnet. 
-2. Check if any previous outbound connectivity method that you previously used before deploying NAT gateway, like a public Load balancer, is still deployed. 
-3. Check if connections being made to other Azure services is coming from a private IP address in your Azure virtual network.
-4. Check if you have [Private Link](/azure/private-link/manage-private-endpoint?tabs=manage-private-link-powershell#manage-private-endpoint-connections-on-azure-paas-resources) or [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) enabled for connecting to other Azure services.
-5. If connecting to Azure storage, check if your VM is in the same region as Azure storage.
-6. Check if the public IP address being used to make connections is coming from another Azure service in your Azure virtual network, such as an NVA. 
+* Check that your NAT gateway has at least one public IP address or prefix associated and at least one subnet.
+* Check if any previous outbound connectivity method that you previously used before deploying NAT gateway, like a public Load balancer, is still deployed.
+* Check if connections being made to other Azure services is coming from a private IP address in your Azure virtual network.
+* Check if you have [Private Link](/azure/private-link/manage-private-endpoint?tabs=manage-private-link-powershell#manage-private-endpoint-connections-on-azure-paas-resources) or [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) enabled for connecting to other Azure services.
+* If connecting to Azure storage, check if your VM is in the same region as Azure storage.
+* Check if the public IP address being used to make connections is coming from another Azure service in your Azure virtual network, such as an NVA. 
 
 ### Possible solutions for NAT gateway public IP not used to connect outbound
 * Attach a public IP address or prefix to NAT gateway. Also make sure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](/azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
@@ -152,12 +152,12 @@ NAT gateway connections to internet destinations fail or time out.
 * The destination endpoint responds with fragmented packets
 
 **How to troubleshoot**
-1. Validate connectivity to an endpoint in the same region or elsewhere for comparison.
-2. Conduct packet capture from source and destination sides.
-3. Look at [packet count](/azure/nat-gateway/nat-metrics#packets) at the source and the destination (if available) to determine how many connection attempts were made.
-4. Look at [dropped packets](/azure/nat-gateway/nat-metrics#dropped-packets) to see how many packets dropped by NAT gateway.
-5. Analyze the packets. TCP packets with fragmented IP protocol packets indicate IP fragmentation. **NAT gateway does not support IP fragmentation** and so connections with fragmented packets fail. 
-6. Check that the NAT gateway public IP is allow listed at partner destinations with Firewalls or other traffic management components
+* Validate connectivity to an endpoint in the same region or elsewhere for comparison.
+* Conduct packet capture from source and destination sides.
+* Look at [packet count](/azure/nat-gateway/nat-metrics#packets) at the source and the destination (if available) to determine how many connection attempts were made.
+* Look at [dropped packets](/azure/nat-gateway/nat-metrics#dropped-packets) to see how many packets dropped by NAT gateway.
+* Analyze the packets. TCP packets with fragmented IP protocol packets indicate IP fragmentation. **NAT gateway does not support IP fragmentation** and so connections with fragmented packets fail.
+* Check that the NAT gateway public IP is allow listed at partner destinations with Firewalls or other traffic management components
 
 ### Possible solutions for connection failures at internet destination
 * Verify if NAT gateway public IP is allow listed at destination. 
