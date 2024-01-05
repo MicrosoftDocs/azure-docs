@@ -145,7 +145,7 @@ o The terms are based on Mass Coalition for the Prevention of Medical Errors
 Healthcare organizations and radiology teams must have visibility into trends and outcomes specific to radiology operations and performance, with constant attention to quality.
 The Radiology Insights model extracts valuable information from radiology documents for a radiologist.
 
-The scope of each of these use cases is always the current document the radiologist is dictating. there's no image analysis nor patient record information involved. The metadata provides administrative context for the current report and is limited to patient age, patient sex, and the procedure that was ordered. (for example,: CT of abdomen, MRI of the brain,…)
+The scope of each of these use cases is always the current document the radiologist is dictating. there's no image analysis nor patient record information involved. The metadata provides administrative context for the current report and is limited to patient age, patient sex, and the procedure that was ordered. (for example: CT of abdomen, MRI of the brain,…)
 
 Microsoft is providing this functionality as an API with the model that allows for the information in scope to be identified or extracted.  The customer would incorporate the model into their own or third-party radiology reporting software and would determine the user interface for the information.  Customers could be an ISV or a health system developing or modifying radiology reporting software for use within the health system.  
 
@@ -154,7 +154,7 @@ Thus, the specific use cases by customers and how the information would be prese
 • **Use Case 1 – Identifying Mismatches**: A radiologist is provided with possible mismatches that are identified by the model between what the radiologist has documented in the radiology report and the information that was present in the metadata of the report. Mismatches can be identified for sex, age and body site laterality. Mismatches identify potential discrepancies between the dictated text and the provided metadata. They also identify potential inconsistencies within the dictated/written text. Inconsistencies are limited to gender, age, laterality and type of imaging.  This is only to allow the radiologist to rectify any potential inconsistencies during reporting. The system isn't aware of the image the radiologist is reporting on. In no way does this model provides any clinical judgment of the radiologist's interpretation of the image. The radiologist is responsible for the diagnosis and treatment of patient and the correct documentation thereof.
 
 • **Use Case 2 – Providing Clinical Findings**: The model extracts as structured data two types of clinical findings: critical findings and actionable findings.  Only clinical findings that are explicitly documented in the report by the radiologist are extracted by the model. Clinical findings produced by the model aren't deduced from pieces of information in the report nor from the image. These merely serve as a potential reminder for the radiologist to communicate with the provider.
-The model produces two categories of clinical findings, Actionable Finding and Critical Result, and is based on the clinical finding, explicitly stated in the report, and criteria formulated by ACR (American College of Radiology). The model will always extract all findings explicitly documented by the radiologist.  The extracted findings may be used to alert a radiologist of possible clinical findings that need to be clearly communicated and acted on in a timely fashion by a healthcare professional. Customers may also utilize the extracted findings to populate downstream or related systems (such as EHRs or auto-schedule functions).
+The model produces two categories of clinical findings, Actionable Finding and Critical Result, and is based on the clinical finding, explicitly stated in the report, and criteria formulated by ACR (American College of Radiology). The model will always extract all findings explicitly documented by the radiologist.  The extracted findings may be used to alert a radiologist of possible clinical findings that need to be clearly communicated and acted on in a timely fashion by a healthcare professional. Customers may also utilize the extracted findings to populate downstream or related systems (such as EHRs or autoschedule functions).
 
 • **Use Case 3 – Communicating Follow-up Recommendations**: A radiologist uncovers findings for which in some cases a follow-up is recommended. The documented recommendation is extracted and normalized by the model for communication to a healthcare professional (physician).
 Follow-up recommendations aren't generated, deduced or proposed. The model merely extracts follow-up recommendation statements documented explicitly by the radiologist. Follow-up recommendations are normalized by coding to SNOMED.
@@ -208,10 +208,10 @@ The main reasons for Radiology Insights to trigger False Positive / False Negati
 
 ### Evaluation methods
 
-Radiology insight logic is developed and evaluated using a large set of real world clinical radiology documents. A trainset of 5000+ docs  annotated by human experts and is used to implement and refine the logic triggering the RI inferences. Part of this set is randomly sampled from a corpus provided by a US medical center and focused mostly on adult patients.
+Radiology insight logic is developed and evaluated using a large set of real world clinical radiology documents. A train set of 5000+ docs  annotated by human experts and is used to implement and refine the logic triggering the RI inferences. Part of this set is randomly sampled from a corpus provided by a US medical center and focused mostly on adult patients.
 
-The set used provides almost equal representation of US based male and female patients, and adequate representation of every age group.   It should be noted that no further analysis of the training data representativeness (for example, geographic, demographic, or ethnographic representation) is done since the data doesn't includes that type of meta data. The trainset and other evaluation sets used are constructed making sure that all types of inferences are present for different types of patient characteristics (Age, Sex).
-Accuracy or regression of the logic is tested using unit and functional tests covering the complete logic scope. Generalization of RI models is assessed by using left-out sets of documents sharing the same characteristics of the trainset.
+The set used provides almost equal representation of US based male and female patients, and adequate representation of every age group.   It should be noted that no further analysis of the training data representativeness (for example, geographic, demographic, or ethnographic representation) is done since the data doesn't includes that type of meta data. The train set and other evaluation sets used are constructed making sure that all types of inferences are present for different types of patient characteristics (Age, Sex).
+Accuracy or regression of the logic is tested using unit and functional tests covering the complete logic scope. Generalization of RI models is assessed by using left-out sets of documents sharing the same characteristics of the train set.
 
 Targeted minimum performance levels for each inference across the complete population are evaluated, tracked and reviewed with Subject matter experts.
 All underlying core NLP & NLU components are separately checked and reviewed using specific testsets.
@@ -220,7 +220,7 @@ All underlying core NLP & NLU components are separately checked and reviewed usi
 
 Evaluation metrics used are precision, recall and f1 scoring when manual golden truth annotations are present.
 Regression testing is done via discrepancy analysis and human expert feedback cycles.
-It was observed that the inferences, and the medical info surfaced do add value in the intended use use cases targeted, and have positive effect on the radiology workflow.
+It was observed that the inferences, and the medical info surfaced do add value in the intended use cases targeted, and have positive effect on the radiology workflow.
 
 Evaluating and integrating Radiology Insights for your use
 When you're getting ready to deploy Radiology Insights, the following activities help set you up for success:
@@ -233,7 +233,7 @@ When you're getting ready to deploy Radiology Insights, the following activities
 
 • Legal review: Obtain appropriate legal review of your solution, particularly if you use it in sensitive or high-risk applications. Understand what restrictions you might need to work within and any risks that need to be mitigated prior to use. It's your responsibility to mitigate such risks and resolve any issues that might come up.
 
-• System review: If you plan to integrate and responsibly use an AI-powered product or feature into an existing system for software or customer or organizational processes, take time to understand how each part of your system are affected. Consider how your AI solution aligns with Microsoft Responsible AI principles.
+• System review: If you plan to integrate and responsibly use an AI-powered product or feature into an existing system for software or customer or organizational processes, take time to understand how each part of your system is affected. Consider how your AI solution aligns with Microsoft Responsible AI principles.
 
 • Human in the loop: Keep a human in the loop and include human oversight as a consistent pattern area to explore. This means constant human oversight of the AI-powered product or feature and ensuring humans making any decisions that are based on the model’s output. To prevent harm and to manage how the AI model performs, ensure that humans have a way to intervene in the solution in real time.
 
