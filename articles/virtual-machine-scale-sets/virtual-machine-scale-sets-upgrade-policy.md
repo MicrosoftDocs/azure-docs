@@ -9,7 +9,7 @@ ms.date: 01/04/2024
 ms.reviewer: ju-shim
 ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
-# Manage Upgrade Policies for Virtual Machine Scale Sets
+# Upgrade Policies for Virtual Machine Scale Sets
 
 The Upgrade Policy for a Virtual Machine Scale Set determines how VMs are brought up-to-date with the latest scale set model. This includes updates such as changes to the OS version, adding or removing data disks, NIC updates, or additional updates that apply to the scale set instances as a whole.  
 

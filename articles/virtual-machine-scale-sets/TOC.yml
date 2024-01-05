@@ -123,8 +123,20 @@
       href: azure-hybrid-benefit-linux.md
 - name: Management
   items: 
-  - name: Manage Upgrade Policies
-    href: virtual-machine-scale-sets-upgrade-policy.md
+  - name: Upgrade Policies
+    items:
+    - name: Overview
+      href: virtual-machine-scale-sets-upgrade-policy.md
+    - name: Setting the Upgrade Policy
+      href: virtual-machine-scale-sets-set-upgrade-policy.md
+    - name: Changing the Upgrade Policy
+      href: virtual-machine-scale-sets-change-upgrade-policy.md
+    - name: Performing Manual upgrades
+      href: virtual-machine-scale-sets-perform-manual-upgrade.md
+    - name: Performing Rolling upgrades
+      href: virtual-machine-scale-sets-perform-rolling-upgrade.md
+    - name: Performing Automatic upgrades
+      href: virtual-machine-scale-sets-perform-automatic-upgrade.md
   - name: Common management tasks
     items:
     - name: Use the Azure CLI
