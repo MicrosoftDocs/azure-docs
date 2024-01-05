@@ -1,6 +1,6 @@
 ---
-title: Grant access to the FHIR service by using Azure AD B2C instead of Microsoft Entra ID
-description: Learn how to enable single sign-on for the FHIR service in Azure Health Data Services by using Azure Active Directory as an identity provider. Set up an Azure B2C tenant, deploy the FHIR service, and validate the setup.
+title: Grant user access to the FHIR service by using Azure AD B2C instead of Microsoft Entra ID
+description: Learn how to enable single sign-on for the FHIR service in Azure Health Data Services by using Azure Active Directory as an identity provider. Set up an Azure AD B2C tenant, deploy the FHIR service, and validate the setup.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -10,21 +10,21 @@ ms.date: 01/15/2024
 ms.author: namalu
 ---
 
-# Grant access to the FHIR service by using Azure AD B2C
+# Grant user access to the FHIR service by using Azure AD B2C
 
 Healthcare organizations can enable user access by using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the [FHIR&reg; service](../overview.md) in Azure Health Data Services. Using Azure AD B2C is useful when an organization needs to grant access to resources for users who aren't in their [Microsoft Entra ID](/entra/fundamentals/whatis) tenant.
 
-## Step 1: Create an Azure B2C tenant for the FHIR service
+## Step 1: Create an Azure AD B2C tenant for the FHIR service
 
-Creating an Azure B2C tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare applications. 
+Creating an Azure AD B2C tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare applications. 
 
-#### Deploy an Azure B2C tenant by using an ARM template
+#### Deploy an Azure AD B2C tenant by using an ARM template
 
 Use PowerShell or Azure CLI to deploy the [ARM template](templates/b2c-arm-template.json) programmatically to an Azure subscription. For more information about syntax, properties, and usage of the template, see [Deploy an instance of Azure Active Directory B2C](/azure/templates/microsoft.azureactivedirectory/b2cdirectories?pivots=deployment-language-arm-template). 
 
 #### [PowerShell](#tab/powershell)
 
-- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure B2C tenant.
+- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure AD B2C tenant.
 
 - Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `Get-AzContext` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
@@ -53,7 +53,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFil
 
 #### [Azure CLI](#tab/command-line)
 
-- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure B2C tenant.
+- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure AD B2C tenant.
 
 - Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
@@ -80,7 +80,7 @@ az deployment group create --resource-group $resourcegroupname --template-file '
 
 ---
 
-#### Add a test B2C user to the Azure B2C tenant
+#### Add a test B2C user to the Azure AD B2C tenant
 
 You need a test B2C user to associate with a specific patient resource in the FHIR service, and to verify that the authentication flow works as expected. 
 
@@ -207,11 +207,11 @@ The B2C resource application handles authentication requests from your healthcar
 
 ## Step 2: Deploy the FHIR service with Azure Active Directory B2C as the identity provider
 
-Deploying the FHIR service with Azure Active Directory B2C as the identity provider allows the FHIR service to authenticate users based on their Azure B2C credentials, ensuring that only authorized users can access sensitive patient information
+Deploying the FHIR service with Azure Active Directory B2C as the identity provider allows the FHIR service to authenticate users based on their Azure AD B2C credentials, ensuring that only authorized users can access sensitive patient information
 
 #### Obtain the B2C authority and client ID 
 
-Use the **authority** and **client ID** (or application ID) parameters to configure the FHIR service to use an Azure B2C tenant as an identity provider.
+Use the **authority** and **client ID** (or application ID) parameters to configure the FHIR service to use an Azure AD B2C tenant as an identity provider.
 
 1. Create the authority string by using the name of the B2C tenant and the name of the user flow.
 
@@ -235,7 +235,7 @@ Use an [ARM template](templates/fhir-service-arm-template.json) to simplify depl
 
 #### [PowerShell](#tab/powershell)
 
-- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure B2C tenant.
+- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure AD B2C tenant.
 
 - Use `Connect-AzAccount` to sign in to Azure. Use `Get-AzContext` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
@@ -268,7 +268,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFil
 
 #### [Azure CLI](#tab/command-line)
 
-- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure B2C tenant.
+- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure AD B2C tenant.
 
 - Use `az login` to sign in to Azure. Use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
@@ -299,9 +299,9 @@ az deployment group create --resource-group $resourcegroupname --template-file '
 
 ---
 
-## Step 3: Validate Azure B2C users are able to access FHIR resources
+## Step 3: Validate Azure AD B2C users are able to access FHIR resources
 
-The validation process involves creating a patient resource in the FHIR service, linking the patient resource to the Azure B2C user, and configuring Postman to get an access token for B2C users. After the validation process is complete, you can fetch the patient resource by using the B2C test user.
+The validation process involves creating a patient resource in the FHIR service, linking the patient resource to the Azure AD B2C user, and configuring Postman to get an access token for B2C users. After the validation process is complete, you can fetch the patient resource by using the B2C test user.
 
 #### Run Postman to get an access token
 
@@ -332,7 +332,7 @@ It's important to note that users in the B2C tenant aren't able to create, read 
 
 2. Verify the patient is created by changing the method back to `GET` and verifying that a request to `{{fhirurl}}/Patient` returns the newly created patient.
 
-#### Link the patient resource to the Azure B2C user
+#### Link the patient resource to the Azure AD B2C user
 
 You need to create an explicit link between the test user in the B2C tenant and the resource in the FHIR service. Create the link by using Extension Attributes in Microsoft Graph. For more information, see [Define custom attributes in Azure Active Directory B2C](../../active-directory-b2c/user-flow-custom-attributes.md).
 
@@ -438,7 +438,7 @@ Obtain an access token to test the authentication flow.
 
 #### Fetch the patient resource by using the B2C user
 
-Verify that Azure B2C users can access FHIR resources.
+Verify that Azure AD B2C users can access FHIR resources.
 
 1. When the authorization configuration in Postman is set up to launch the B2C user flow, choose **Get New Access Token** to get an access token.
 
