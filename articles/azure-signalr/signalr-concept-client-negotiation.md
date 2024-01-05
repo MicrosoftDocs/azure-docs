@@ -216,6 +216,32 @@ public SignalRConnectionInfo Negotiate([HttpTrigger(AuthorizationLevel.Anonymous
 
 Then your clients can request the function endpoint `https://<Your Function App Name>.azurewebsites.net/api/negotiate` to get the service URL and access token. You can find a full sample on [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat).
 
+### Self-exposing `/negotiate` endpoint
+
+You could also expose the negotiation endpoint in your own server and return the negotiation response by yourself if you are using other languages. Below is a pseudo code in JavaScript showing how to implement the negotiation endpoint for hub `chat`.
+
+```js
+import express from 'express';
+const connectionString = '<your-connection-string>';
+const hub = 'chat';
+let app = express();
+app.post('/chat/negotiate', (req, res) => {
+  let endpoint = /Endpoint=(.*?);/.exec(connectionString)[1];
+  let accessKey = /AccessKey=(.*?);/.exec(connectionString)[1];
+  let url = `${endpoint}/client/?hub=${hub}`;
+  let token = jwt.sign({ aud: url }, accessKey, { expiresIn: 3600 });
+  res.json({ url: url, accessToken: token });
+});
+app.listen(8080, () => console.log('server started'));
+```
+
+A JavaScript SignalR client then connects with URL `/chat`:
+
+```js
+let connection = new signalR.HubConnectionBuilder().withUrl('/chat').build();
+connection.start();
+```
+
 ## Next steps
 
 To learn more about how to use default and serverless modes, see the following articles:
