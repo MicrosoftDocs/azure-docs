@@ -117,7 +117,11 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |originalRequestUriWithArgs| This field contains the original request URL |
 |requestUri| This field contains the URL after the rewrite operation on Application Gateway |
 |upstreamSourcePort| The source port used by Application Gateway when initiating a connection to the backend target|
-|originalHost| This field contains the original request host name
+|originalHost| This field contains the original request host name|
+|error_info|The reason for the 4xx and 5xx error. If the request failed, one of the error codes described in Error Info codes below is stored in this field of access log|
+|contentType|The type of content or data that is being processed or delivered by the application gateway
+
+
 ```json
 {
     "timeStamp": "2021-10-14T22:17:11+00:00",
@@ -158,6 +162,8 @@ The access log is generated only if you've enabled it on each Application Gatewa
         "upstreamSourcePort": "21564",
         "originalHost": "20.110.30.194",
         "host": "20.110.30.194"
+         "error_info":"ERRORINFO_NO_ERROR"
+         "contentType":"application/json"
     }
 }
 ```
@@ -209,7 +215,29 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
+### Error info codes
+If the application gateway cannot complete the request, it stores one of the following reason codes in the error_info field of the access log. 
+|4XX Errors  |Description  |
+|---------|---------|
+|    ERRORINFO_INVALID_METHOD|	The client has sent a request  using an HTTP method that is not recognized or supported by the server Possible reasons : client using HTTP method not supported by server, Misspelled Method , incompatible HTTP protocol version etc|
+  |  ERRORINFO_INVALID_REQUEST	| The server cannot fulfill the request because of incorrect syntax.|
+  | ERRORINFO_INVALID_VERSION|	The application gateway received a request with an invalid or unsupported HTTP version|
+   | ERRORINFO_INVALID_09_METHOD|	The client sent request with HTTP Protocol version 0.9|
+   | ERRORINFO_INVALID_HOST	|The value provided in the "Host" header is either missing, improperly formatted, or does not match the expected host value.Possible reasons: There is no Basic listener configured and none of the hostnames of the Multisite listener is matching with the host| 
+   | ERRORINFO_INVALID_CONTENT_LENGTH |	The length of the content specified by the client in the Content-Length header does not match the actual length of the content in the request|
+   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method which is currently not supported |
+   |  ERRORINFO_CLIENT_CLOSED_REQUEST |	The connection was prematurely closed by the client |
+   | ERRORINFO_REQUEST_URI_INVALID	|Indicates issue with the Uniform Resource Identifier (URI) provided in the client's request |
+   |  ERRORINFO_HTTP_NO_HOST_HEADER	| Client sent a request without Host header |
+   | ERRORINFO_HTTP_TO_HTTPS_PORT	| The client sent plain HTTP request to HTTPS port |
+   | ERRORINFO_HTTPS_NO_CERT | 	Indicates client is not sending a valid and properly configured SSL certificate during MTLS Authentication |
 
+
+|5XX Errors  |Description  |
+|---------|---------|
+  |  ERRORINFO_UPSTREAM_NO_LIVE	| The application gateway is unable to find any active or reachable backend servers to handle incoming requests       |
+  |  ERRORINFO_UPSTREAM_CLOSED_CONNECTION	| The backend server closed the connection unexpectedly or before the request was fully processed.This could happen due to server reaching its limits ,crashing etc|
+  | ERRORINFO_UPSTREAM_TIMED_OUT	| The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
 ### Performance log
 
 The performance log is generated only if you have enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
