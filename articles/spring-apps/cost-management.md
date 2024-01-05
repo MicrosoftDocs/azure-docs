@@ -22,9 +22,9 @@ This article describes the cost-saving options and capabilities that Azure Sprin
 
 The Enterprise plan now offers further discount on both Microsoft and VMware (by Broadcom) parts of pricing. For more information, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-For the Microsoft part, the Enterprise plan is now available with 20% discount when you sign up for one year, and 47% discount when you sign up for three years. For more information, see [What is Azure savings plans for compute?](https://learn.microsoft.com/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
+For the Microsoft part, the Enterprise plan is now available with a 20% discount when you sign up for one year, and 47% discount when you sign up for three years. For more information, see [What is Azure savings plans for compute?](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
  
-For the VMware by Broadcom part, the discount varies based on the number of years you've signed up for. For more information, reach out to your sales reprensentative.
+For the VMware by Broadcom part, the discount varies based on the number of years you signed up for. For more information, reach out to your sales representative.
 
 ## Monthly free grants
 
