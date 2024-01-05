@@ -4,7 +4,7 @@ description: Learn how to increase the size of an Azure Elastic SAN Preview and 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 01/05/2024
 ms.author: rogarana
 ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -41,7 +41,7 @@ az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBase
 
 ## Expand volume size
 
-Once you've expanded the size of your SAN, you can either create an additional volume, or expand the size of an existing volume. In Preview, you can expand the volume when there is no active connection to the volume.
+Once you've expanded the size of your SAN, you can either create an additional volume, or expand the size of an existing volume.
 
 # [PowerShell](#tab/azure-powershell)
 
