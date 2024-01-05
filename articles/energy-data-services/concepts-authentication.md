@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Authentication concepts in Azure Data Manager for Energy 
 
-## Service Principals
+## Service principals
 In the Azure Data Manager for Energy instance, 
 1. No Service Principals are created. 
 2. The app-id is used for API access. The same app-id is used to provision ADME instance.
@@ -24,5 +24,5 @@ In the OSDU instance,
    1. The first Service Principal is used for API access. It can also manage infrastructure resources. 
    2. The second Service Principal is used for service-to-service (S2S) communications. 
 
-## Refresh Auth Token
+## Generate authorization token
 You can generate the authorization token using the steps outlined in [Generate auth token](how-to-generate-auth-token.md). 
