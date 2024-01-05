@@ -146,7 +146,7 @@ To create a backend pool, set the `type` property of the backend to `pool`  and 
 
 ### Example
 
-Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a pool consisting of two existing backends. Backends in the pool have IDs *backend-1* and *backend-2*. 
+Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a pool consisting of two existing backends. Example backends in the pool are named *backend-1* and *backend-2*. 
 
 #### [Bicep](#tab/bicep)
 
