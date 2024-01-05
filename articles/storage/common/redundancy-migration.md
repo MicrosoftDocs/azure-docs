@@ -30,8 +30,6 @@ Four aspects of the redundancy configuration of a storage account determine how 
 
 For a detailed overview of all of the redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
-<!--You can change how your storage account is replicated from any redundancy configuration to any other with some limitations. Before making any changes, review those [limitations](#limitations-for-changing-replication-types) along with the [downtime requirements](#downtime-requirements) to ensure you have a plan that will produce the best end result within a time frame that suits your needs, and that satisfies your uptime requirements.-->
-
 You can change redundancy configurations when necessary, though some configurations are subject to [limitations](#limitations-for-changing-replication-types) and [downtime requirements](#downtime-requirements). To ensure that the limitations and requirements don't affect your timeframe and uptime requirements, always review these limitations and requirements before making any changes.
 
 There are three ways to change the replication settings:
@@ -39,8 +37,6 @@ There are three ways to change the replication settings:
 - [Add or remove geo-replication or read access](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) to the secondary region.
 - [Add or remove zone-redundancy](#perform-a-conversion) by performing a conversion.
 - [Perform a manual migration](#manual-migration) in scenarios where the first two options aren't supported, or to ensure the change is completed within a specific timeframe.
-
-<!--If you want to change both zone-redundancy and either geo-replication or read-access, a two-step process is required. While both geo-redundancy and read-access can be changed at the same time, a zone-redundancy conversion must be performed separately. These steps can be performed in any order.-->
 
 Geo-redundancy and read-access can be changed at the same time. However, any change that also involves zone-redundancy requires a conversion and must be performed separately using a two-step process. These two steps can be performed in any order.
 
@@ -84,7 +80,7 @@ To change the redundancy option for your storage account in the Azure portal, fo
 1. Update the **Redundancy** setting.
 1. Select **Save**.
 
-    :::image type="content" source="media/redundancy-migration/change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/redundancy-migration/change-replication-option.png":::
+    :::image type="content" source="media/redundancy-migration/change-replication-option-sml.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/redundancy-migration/change-replication-option.png":::
 
 # [PowerShell](#tab/powershell)
 
@@ -183,7 +179,7 @@ Customer-initiated conversion isn't available in all regions. For more informati
 
 The status of your customer-initiated conversion is displayed on the **Redundancy** page of the storage account:
 
-:::image type="content" source="media/redundancy-migration/change-replication-status.png" alt-text="Screenshot showing the status of the conversion request on the Redundancy page of the Azure portal." lightbox="media/redundancy-migration/change-replication-status.png":::
+:::image type="content" source="media/redundancy-migration/change-replication-status-sml.png" alt-text="Screenshot showing the status of the conversion request on the Redundancy page of the Azure portal." lightbox="media/redundancy-migration/change-replication-status.png":::
 
 As the conversion request is evaluated and processed, the status should progress through the list shown in the following table:
 
@@ -221,20 +217,20 @@ Follow these steps to request a conversion from Microsoft:
     - **Problem type**: Choose **Data Migration**.
     - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-problem-desc-portal.png" alt-text="Screenshot showing how to request a conversion - Problem description tab." lightbox="media/redundancy-migration/request-live-migration-problem-desc-portal.png":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-problem-desc-portal-sml.png" alt-text="Screenshot showing how to request a conversion - Problem description tab." lightbox="media/redundancy-migration/request-live-migration-problem-desc-portal.png":::
 
 1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage account(s) for conversion:
     - **Target replication type**: (choose the desired option from the drop-down)
     - **Storage accounts from**: (enter a single storage account name or a list of accounts separated by semicolons)
     - Select **Submit**.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page." lightbox="media/redundancy-migration/request-live-migration-solutions-portal.png":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal-sml.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page." lightbox="media/redundancy-migration/request-live-migration-solutions-portal.png":::
 
 1. Take the appropriate action if the results indicate your storage account isn't eligible for conversion. Otherwise, select **Return to support request**.
 
 1. Select **Next**. If you have more than one storage account to migrate, on the **Details** tab, specify the name for each account, separated by a semicolon.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot showing how to request a conversion - Additional details tab." lightbox="media/redundancy-migration/request-live-migration-details-portal.png":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal-sml.png" alt-text="Screenshot showing how to request a conversion - Additional details tab." lightbox="media/redundancy-migration/request-live-migration-details-portal.png":::
 
 1. Provide the required information on the **Additional details** tab, then select **Review + create** to review and submit your support ticket. An Azure support agent reviews your case and contacts you to provide assistance.
 
