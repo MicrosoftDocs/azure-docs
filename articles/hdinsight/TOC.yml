@@ -245,8 +245,6 @@ items:
         href: ./hdinsight-use-oozie-linux-mac.md
       - name: Cluster and service ports and URIs
         href: ./hdinsight-hadoop-port-settings-for-services.md
-      - name: Migrate to Resource Manager development tools
-        href: ./hdinsight-hadoop-development-using-azure-resource-manager.md
       - name: Upgrade HDInsight cluster to newer version
         href: ./hdinsight-upgrade-cluster.md
       - name: OS patching for HDInsight cluster
