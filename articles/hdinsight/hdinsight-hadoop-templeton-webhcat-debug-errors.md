@@ -51,8 +51,8 @@ If the following default values are exceeded, it can degrade WebHCat performance
 
 | Cause | Resolution |
 | --- | --- |
-| The job history cleaner  cleaned job details  | The default retention period for job history is seven days. The default retention period can be changed by modifying `mapreduce.jobhistory.max-age-ms`. For more information, see [Modifying configuration](#modifying-configuration) |
-| Job has killed because of a failover |Retry job submission for up to two minutes |
+| Job details have cleaned up by the job history cleaner  | The default retention period for job history is seven days. The default retention period can be changed by modifying `mapreduce.jobhistory.max-age-ms`. For more information, see [Modifying configuration](#modifying-configuration) |
+| Job killed because of a failover |Retry job submission for up to two minutes |
 | An Invalid job ID was used |Check if the job ID is correct |
 
 ## Bad gateway
