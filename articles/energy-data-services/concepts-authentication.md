@@ -10,6 +10,7 @@ ms.custom: template-concept
 ---
 
 # Authentication concepts in Azure Data Manager for Energy 
+Authentication confirms the identity of the users. The access flows can be user triggered, system triggered, or system API communication. In this article, you learn about service principals and authorization token.
 
 ## Service principals
 In the Azure Data Manager for Energy instance, 
