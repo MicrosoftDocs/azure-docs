@@ -10,17 +10,23 @@ ms.custom: contperf-fy21q4, devx-track-linux
 
 # Connect to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting
 
-Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you might need to access an AKS node. This access could be for maintenance, log collection, or troubleshooting operations. You can securely authenticate against AKS Linux and Windows nodes using SSH, and you can also [connect to Windows Server nodes using remote desktop protocol (RDP)][aks-windows-rdp]. For security reasons, the AKS nodes aren't exposed to the internet. To connect to the AKS nodes, you use `kubectl debug` or the private IP address.
+Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you eventually need to directly access an AKS node. This access could be for maintenance, log collection, or troubleshooting operations. 
 
-This article shows you how to create a connection to an AKS node and update the SSH key on an existing AKS cluster.
+You access a node through authenthication, which methods vary depending on your Node OS and method of connection. You securely authenticate against AKS Linux and Windows nodes using SSH. Alternatively, for Windows Servers you can also connect to Windows Server nodes using the [remote desktop protocol (RDP)][aks-windows-rdp]. 
+
+For security reasons, AKS nodes aren't exposed to the internet. Instead, to connect directly to any AKS nodes, you need to use either `kubectl debug` or the host's private IP address.
+
+This guide shows you how to create a connection to an AKS node and update the SSH key of your AKS cluster.
 
 ## Before you begin
 
-This article assumes you have an SSH key. If not, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows], to know more refer [Manage SSH configuration][manage-ssh-node-access]. Make sure you save the key pair in an OpenSSH format, other formats like .ppk aren't supported.
+To follow along the steps, you need to use Azure CLI that supports version 2.0.64 or later. Run `az --version` to check the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+Complete these steps if you don't have an SSH key. Create an SSH key depending on your Node OS Image, for [macOS and Linux][ssh-nix], or [Windows][ssh-windows]. Make sure you save the key pair in the OpenSSH format. Other formats such as `.ppk` aren't supported by AKS. Next, refer to [Manage SSH configuration][manage-ssh-node-access] to add the key to your cluster. 
 
-## Create an interactive shell connection to a Linux node using kubectl
+## MacOS and Linux
+
+### Create an interactive shell connection to a Linux node using kubectl
 
 To create an interactive shell connection to a Linux node, use the `kubectl debug` command to run a privileged container on your node.
 
@@ -58,14 +64,17 @@ To create an interactive shell connection to a Linux node, use the `kubectl debu
     > [!NOTE]
     > You can interact with the node session by running `chroot /host` from the privileged container.
 
-### Remove Linux node access
+### Exit kubectl debug mode
 
 When you're done with a debugging pod, enter the `exit` command to end the interactive shell session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`.
 
 ```bash
 kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
-## Create an interactive shell connection to a node using private IP
+
+## Private IP Method
+
+### Create an interactive shell connection to a node using private IP
 
 If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS Agent Pool Preview API][agent-pool-rest-api] (preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node, you need to be in the cluster's virtual network. 
 
@@ -105,7 +114,9 @@ aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
 ssh azureuser@10.224.0.33
 ```
 
-## Create the SSH connection to a Windows node
+## Windows Server node
+
+### Connect with SSH
 
 At this time, you can't connect to a Windows Server node directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster, then connect to the Windows Server node from that node using SSH. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH or use SSH with 'machines API' presented at the start of this document. 
 
