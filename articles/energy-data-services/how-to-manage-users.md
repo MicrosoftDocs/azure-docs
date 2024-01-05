@@ -37,7 +37,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 4. Use the client-id access token to do these three steps using the commands outlined in the following sections:
    1. Add the user to the `users@<data-partition-id>.<domain>` OSDU group.
    2. Add the user to the `users.datalake.ops@<data-partition-id>.<domain>` OSDU group.
-5. The user becomes the admin of the data partion. The admin can then add or remove more users to the required entitlement groups:
+5. The user becomes the admin of the data partition. The admin can then add or remove more users to the required entitlement groups:
    1. Get admin's auth token using [Generate user access token](how-to-generate-auth-token.md#generate-user-auth-token) using the same client-id and client-secret.
    2. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add more users to using the admin's access token.
    3. Add more users to that OSDU group using the admin's access token.
