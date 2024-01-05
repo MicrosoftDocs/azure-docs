@@ -136,4 +136,4 @@ In this walkthrough, you learned how to upload MQTT messages from IoT MQ directl
 
 ## Next steps
 
-[Bridge MQTT data between IoT MQ and Azure Event Grid](tutorial-connect-event-grid.md)
+[Bridge MQTT data between IoT MQ and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
