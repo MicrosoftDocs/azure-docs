@@ -41,7 +41,7 @@ The following configurations are performed:
 
 #### Inbound traffic flow
 
-:::image type="content" source="./media/virtual-wan-nva-dnat/dnat-example-inbound.png"alt-text="Screenshot showing inbound traffic flow."lightbox="./media/virtual-wan-nva-dnat/dnat-example-inbound.png":::
+:::image type="content" source="./media/virtual-wan-nva-dnat/dnat-example-inbound-flow.png"alt-text="Screenshot showing inbound traffic flow."lightbox="./media/virtual-wan-nva-dnat/dnat-example-inbound-flow.png":::
 
 The list below corresponds to the diagram above and describes the packet flow for the inbound connection:
 
@@ -50,7 +50,7 @@ The list below corresponds to the diagram above and describes the packet flow fo
 1. NVA inspects the traffic and translates the packet based on rule configuration. In this case, the NVA is configured to NAT and forward inbound traffic to 10.60.0.4:443. The source of the packet is also translated to the private IP of the chosen Firewall instance to ensure flow symmetry. The NVA forwards the packet and Virtual WAN routes the packet to the final destination.
 
 #### Outbound traffic flow
-:::image type="content" source="./media/virtual-wan-nva-dnat/dnat-example-outbound.png"alt-text="Screenshot showing outbound traffic flow."lightbox="./media/virtual-wan-nva-dnat/dnat-example-outbound.png":::
+:::image type="content" source="./media/virtual-wan-nva-dnat/dnat-example-outbound-flow.png"alt-text="Screenshot showing outbound traffic flow."lightbox="./media/virtual-wan-nva-dnat/dnat-example-outbound-flow.png":::
 
 The list below corresponds to the diagram above and describes the packet flow for the outbound response:
 
