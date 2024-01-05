@@ -3,7 +3,7 @@ title: Manage SSH access on Azure Kubernetes Service cluster nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH and manage SSH keys on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
-ms.date: 12/20/2023
+ms.date: 01/04/2024
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
@@ -127,6 +127,9 @@ When you disable SSH at cluster creation time, it takes effect after the cluster
 |-----|-----|
 |`disabled` |The SSH service is disabled. |
 |`localuser` |The SSH service is enabled and users with SSH key can securely access the node. |
+
+>[!NOTE]
+>[kubectl debug node][kubelet-debug-node-access] continues to work after you disable SSH because it doesn't depend on the SSH service.
 
 ### Disable SSH on a new cluster deployment
 
@@ -266,3 +269,4 @@ To help troubleshoot any issues with SSH connectivity to your clusters nodes, yo
 [node-image-upgrade]: node-image-upgrade.md
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
 [network-security-group-rules-overview]: concepts-security.md#azure-network-security-groups
+[kubelet-debug-node-access]: node-access.md 
