@@ -102,7 +102,7 @@ To learn how to migrate your virtual network to a new region using Azure Resourc
 
 DDoS Protection Plan doesn't have any client specific data and the instance itself can be moved alone.
 
-**To relocating a DDOS Protection plan to a new region:**
+**To relocate a DDOS Protection plan to a new region:**
 
 1. Prepare the Source DDOS Protection plan for the move by using a Resource Manager template:
     1. Export the Source DDOS Protection plan template from Azure portal.
