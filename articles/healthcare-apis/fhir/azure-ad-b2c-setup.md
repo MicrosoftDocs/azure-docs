@@ -12,11 +12,11 @@ ms.author: namalu
 
 # Grant access to the FHIR service by using Azure AD B2C
 
-Healthcare organizations can enable user access by using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) with the [FHIR&reg; service](../overview.md)  in Azure Health Data Services. Using Azure AD B2C is useful when an organization needs to grant access to resources for users who aren't in their [Microsoft Entra ID](/entra/fundamentals/whatis) tenant.
+Healthcare organizations can enable user access by using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the [FHIR&reg; service](../overview.md) in Azure Health Data Services. Using Azure AD B2C is useful when an organization needs to grant access to resources for users who aren't in their [Microsoft Entra ID](/entra/fundamentals/whatis) tenant.
 
 ## Step 1: Create an Azure B2C tenant for the FHIR service
 
-Creating an Azure B2C tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare application. 
+Creating an Azure B2C tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare applications. 
 
 #### Deploy an Azure B2C tenant by using an ARM template
 
@@ -98,7 +98,7 @@ You need a test B2C user to associate with a specific patient resource in the FH
 
 #### Add the `fhirUser` custom user attribute
 
-The `fhirUser` custom user attribute is used to link a B2C user with a user resource in the FHIR service. In this example, a user named **Test Patient1** is created in the B2C tenant, and then a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is linked to the patient resource by setting the `fhirUser` attribute value to the patient resource identifier. For more information, see [User flow custom attributes in Azure Active Directory B2C](/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow).
+The `fhirUser` custom user attribute is used to link a B2C user with a user resource in the FHIR service. In this example, a user named **Test Patient1** is created in the B2C tenant, and in a later step a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is linked to the patient resource by setting the `fhirUser` attribute value to the patient resource identifier. For more information about custom user attributes, see [User flow custom attributes in Azure Active Directory B2C](/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow).
 
 1. On the **Azure AD B2C** page in the left pane, choose **User attributes**.
 
@@ -195,7 +195,7 @@ The B2C resource application handles authentication requests from your healthcar
 
    :::image type="content" source="media/azure-ad-b2c-setup/b2c-api-permission2-sml.png" alt-text="Screenshot showing B2C API permissions" lightbox="media/azure-ad-b2c-setup/b2c-api-permission2-lrg.png":::
 
-1. On the **Request API permissions** pane in the **Patient** section, select at least one permission. In this example, the permission `patient.all.all` is selected, which means a user that requests an access token with the scope `patient.all.all` has Read, Write, and Delete privileges (patient.all.**all**) for all FHIR resources (patient.**all**.all) in the (**patient**.all.all) For more information, see [Patient compartment](https://build.fhir.org/compartmentdefinition-patient.html).
+1. On the **Request API permissions** pane in the **Patient** section, select at least one permission. In this example, the permission `patient.all.all` is selected, which means a user that requests an access token with the scope `patient.all.all` has Read, Write, and Delete privileges (patient.all.**all**) for all FHIR resources (patient.**all**.all) in the Patient compartment (**patient**.all.all) For more information, see [Patient compartment](https://build.fhir.org/compartmentdefinition-patient.html).
 
 1. Choose **Add permissions**.
 
