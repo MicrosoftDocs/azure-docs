@@ -1,23 +1,23 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client'
 description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis and Redisson as Redis client
-author: majguo
-ms.author: jiangma
-ms.date: 12/05/2023
+author: majguo, backwind1233
+ms.author: jiangma, zhihaoguo
+ms.date: 01/05/2024
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
-ms.custom: mvc, seo-java-august2019, seo-java-september2019, mode-api, devx-track-java, devx-track-javaee 
+ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-track-java, devx-track-javaee 
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client
 
-In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Redisson](https://redisson.org/) Redis client to have access to a secure, dedicated cache that is accessible from any application within Azure.
+In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Redisson](https://redisson.org/) Redis client and [JCache](https://redisson.org/glossary/jcache.html) to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Skip to the code on GitHub
 
-If you want to skip straight to the code, see the [Java quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java-redisson) on GitHub.
+If you want to skip straight to the code, see the [Java quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java-redisson-jcache) on GitHub.
 
 ## Prerequisites
 
@@ -163,7 +163,7 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure Cache for Redis from a Java application with Redisson Redis client. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
+In this quickstart, you learned how to use Azure Cache for Redis from a Java application with Redisson Redis client and JCache. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
