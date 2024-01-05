@@ -31,6 +31,9 @@ If you're using CMK-based data encryption or Microsoft Purview, you must set up 
 #### Set up Azure Key Vault
 
 Azure key Vault Resource is used to store your Customer Managed Key (CMK) for data encryption. Data Product uses this key to encrypt your data over and above the standard storage encryption. You need to have Subscription/Resource group owner permissions to perform this step.
+
+# [Portal](#tab/azure-portal)
+
 1. [Create an Azure Key Vault resource](../key-vault/general/quick-create-portal.md) in the same subscription and resource group where you intend to deploy the Data Product resource.
 1. Provide your user account with the Key Vault Administrator role on the Azure Key Vault resource. This is done via the **Access Control (IAM)** tab on the Azure Key Vault resource.
 1. Navigate to the object and select **Keys**. Select **Generate/Import**.
@@ -38,15 +41,47 @@ Azure key Vault Resource is used to store your Customer Managed Key (CMK) for da
 1. Select the newly created key and select the current version of the key.
 1. Copy the Key Identifier URI to your clipboard to use when creating the Data Product.
 
+# [Azure CLI](#tab/azure-cli)
+
+Azure CLI...
+
+<!-- CLI link is [Create an Azure Key Vault resource](../key-vault/general/quick-create-cli.md) in the same subscription and resource group where you intend to deploy the Data Product resource. --> 
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+PowerShell....
+
+<!-- PowerShell link is  [Create an Azure Key Vault resource](../key-vault/general/quick-create-powershell.md) in the same subscription and resource group where you intend to deploy the Data Product resource. --> 
+
+---
+
 #### Set up user-assigned managed identity
+
+# [Portal](#tab/azure-portal)
 
 1. [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) using Microsoft Entra ID for CMK-based encryption. The Data Product also uses the user-assigned managed identity (UAMI) to interact with the Microsoft Purview account.
 1. Navigate to the Azure Key Vault resource that you created earlier and assign the UAMI with **Key Vault Administrator** role.
+
+# [Azure CLI](#tab/azure-cli)
+
+Azure CLI...
+
+<!-- Managed identity link for the CLI: /entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli -->
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+PowerShell....
+
+<!-- Managed identity link for PowerShell: /entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell -->
+
+---
 
 
 ## Create an Azure Operator Insights Data Product resource in the Azure portal
 
 You create the Azure Operator Insights Data Product resource.
+
+# [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search bar, search for Operator Insights and select **Azure Operator Insights - Data Products**.
@@ -73,6 +108,16 @@ You create the Azure Operator Insights Data Product resource.
 1. In the Tags tab of the **Create a Data Product** page, select or enter the name/value pair used to categorize your data product resource.
 1. Select **Review + create**.
 1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time, all the underlying components are provisioned. After this process completes, you can work with your data ingestion, explore sample dashboards and queries, and so on.
+
+# [Azure CLI](#tab/azure-cli)
+
+Azure CLI...
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+PowerShell....
+
+---
 
 ## Deploy Sample Insights
 
@@ -139,7 +184,19 @@ The consumption URL also allows you to write your own Kusto query to get insight
 
 When you have finished exploring Azure Operator Insights Data Product, you should delete the resources you've created to avoid unnecessary Azure costs.
 
+# [Portal](#tab/azure-portal)
+
 1. On the **Home** page of the Azure portal, select **Resource groups**.
 1. Select the resource group for your Azure Operator Insights Data Product and verify that it contains the Azure Operator Insights Data Product instance.
 1. At the top of the Overview page for your resource group, select **Delete resource group**.
 1. Enter the resource group name to confirm the deletion, and select **Delete**.
+
+# [Azure CLI](#tab/azure-cli)
+
+Azure CLI...
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+PowerShell....
+
+---
