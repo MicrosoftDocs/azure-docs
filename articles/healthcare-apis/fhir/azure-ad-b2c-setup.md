@@ -452,9 +452,9 @@ Verify that Azure AD B2C users can access FHIR resources.
 
    :::image type="content" source="media/azure-ad-b2c-setup/postman-use-token.png" alt-text="Screenshot showing Postman use token" lightbox="media/azure-ad-b2c-setup/postman-use-token.png":::
 
-1. Create a new request to search for patient resources in the FHIR service. Select the ellipsis button (...) next to the name of the collection, and then choose ***Add request**.
+1. Create a new request to search for patient resources in the FHIR service. Select the ellipsis button (...) next to the name of the collection, and then choose **Add request**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/postman-request1.png" alt-text="Screenshot showing Postman request1" lightbox="media/azure-ad-b2c-setup/postman-request1.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/postman-request1-sml.png" alt-text="Screenshot showing Postman request1" lightbox="media/azure-ad-b2c-setup/postman-request1-lrg.png":::
 
 1. Set the method to `GET`, enter the fully qualified FHIR service URL, and then add the path `/Patient`. 
 
