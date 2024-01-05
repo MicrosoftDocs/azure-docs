@@ -80,6 +80,8 @@
   - name: Predictive autoscale
     href: ../azure-monitor/autoscale/autoscale-predictive.md
     maintainContext: true
+  - name: Autoscale using guest metrics
+    href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scale-In Policy
@@ -149,8 +151,6 @@
       href: virtual-machine-scale-sets-dsc.md
     - name: Scale set templates
       href: virtual-machine-scale-sets-mvss-start.md
-    - name: Autoscale using guest metrics
-      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
     - name: Deploy your application
       href: virtual-machine-scale-sets-deploy-app.md
     - name: Custom image templates
