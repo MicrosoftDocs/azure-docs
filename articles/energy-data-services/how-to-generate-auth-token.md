@@ -5,7 +5,7 @@ author: shikhagarg1
 ms.author: shikhagarg
 ms.service: energy-data-services
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 01/03/2024
 ms.custom: template-how-to
 #Customer intent: As a developer, I want to learn how to generate an auth token
 ---
@@ -73,12 +73,12 @@ A `client-secret` is a string value your app can use in place of a certificate t
 :::image type="content" source="media/how-to-manage-users/endpoint-url.png" alt-text="Screenshot of finding the URL from Azure Data Manager for Energy instance.":::
 
 #### Find the `data-partition-id` 
-1. You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance.
-2. One option is to navigate the *Data Partitions* menu item under the Advanced section of your Azure Data Manager for Energy UI.
+You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance.
+- One option is to navigate the *Data Partitions* menu item under the Advanced section of your Azure Data Manager for Energy UI.
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance.":::
 
-3. Another option is to click on the *view* below the *data partitions* field in the essentials pane of your Azure Data Manager for Energy *Overview* page. 
+- Another option is to click on the *view* below the *data partitions* field in the essentials pane of your Azure Data Manager for Energy *Overview* page. 
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id-second-option.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page.":::
 
@@ -86,7 +86,7 @@ A `client-secret` is a string value your app can use in place of a certificate t
 
 ## Generate client-id auth token
 
-Run the below curl command in Azure Cloud Bash after replacing the placeholder values with the corresponding values found earlier in the above steps. The access token in the reponse is the client-id auth token.
+Run the below curl command in Azure Cloud Bash after replacing the placeholder values with the corresponding values found earlier in the above steps. The access token in the response is the client-id auth token.
  
 **Request format**
 
@@ -115,11 +115,11 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 Generating a user's auth token is a two step process. 
 
 ### Get authorization code
-The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID signs the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID returns an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
+The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID signs the user in and requests their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID returns an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
 #### Request format
-1. After replacing the paramaters, you can paste the below in the URL of any browser and hit enter.
-2. It asks you to login to your Azure portal if not logged in already.
+1. After replacing the parameters, you can paste the below in the URL of any browser and hit enter.
+2. It asks you to log in to your Azure portal if not logged in already.
 3. You get the response in the URL.
  
 ```bash
@@ -136,7 +136,7 @@ The first step to getting an access token for many OpenID Connect (OIDC) and OAu
 | client-id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | response_type |Required |The response type, which must include `code` for the authorization code flow. You can receive an ID token if you include it in the response type, such as `code+id_token`, and in this case, the scope needs to include `openid`.|
 | redirect_uri |Required |The redirect URI of your app, where your app sends and receives the authentication responses. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded. |
-| scope |Required |A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application need a *refresh token* for extended access to resources. The client-id indicates the token issued are intended for use by Azure AD B2C registered client. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. |
+| scope |Required |A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application needs a *refresh token* for extended access to resources. The client-id indicates the token issued are intended for use by Azure AD B2C registered client. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. |
 | response_mode |Recommended |The method that you use to send the resulting authorization code back to your app. It can be `query`, `form_post`, or `fragment`. |
 | state |Recommended |A value included in the request that can be a string of any content that you want to use. Usually, a randomly generated unique value is  used, to prevent cross-site request forgery attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the user flow that was being executed. |
 
