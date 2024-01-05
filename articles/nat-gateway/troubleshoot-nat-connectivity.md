@@ -26,8 +26,8 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 
 **How to troubleshoot**
 1. Check the [datapath availability metric](/azure/nat-gateway/nat-metrics#datapath-availability) to assess the health of the NAT gateway.
-2. Check the SNAT Connection Count metric and [split the connection state](/azure/nat-gateway/nat-metrics#snat-connection-count) by attempted and failed connections. More than zero failed connections may be caused by SNAT port exhaustion or reaching the SNAT connection count limit of NAT gateway.
-3. Verify the [Total SNAT Connection Count metric](/azure/nat-gateway/nat-metrics#total-snat-connection-count) to ensure it is within limits. NAT gateway supports 50,000 simultaneous connections per IP address to a unique destination and up to 2 million connections in total. See [NAT Gateway Performance](/azure/nat-gateway/nat-gateway-resource#performance) for more details.
+2. Check the SNAT Connection Count metric and [split the connection state](/azure/nat-gateway/nat-metrics#snat-connection-count) by attempted and failed connections. More than zero failed connections may indicate SNAT port exhaustion or reaching the SNAT connection count limit of NAT gateway.
+3. Verify the [Total SNAT Connection Count metric](/azure/nat-gateway/nat-metrics#total-snat-connection-count) to ensure it is within limits. NAT gateway supports 50,000 simultaneous connections per IP address to a unique destination and up to 2 million connections in total. For more information, see [NAT Gateway Performance](/azure/nat-gateway/nat-gateway-resource#performance).
 4. Check the [dropped packets metric](/azure/nat-gateway/nat-metrics#dropped-packets) for any packet drops that align with connection failures or high connection volume.
 5. Adjust the [TCP idle timeout timer](./nat-gateway-resource.md#tcp-idle-timeout) settings as needed. An idle timeout timer set higher than the default (4 minutes) holds on to flows longer, and can create [extra pressure on SNAT port inventory](./nat-gateway-resource.md#timers). 
 
@@ -37,10 +37,10 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 * Reduce the [TCP idle timeout timer](./nat-gateway-resource.md#idle-timeout-timers) to a lower value to free up SNAT port inventory earlier. The TCP idle timeout timer can't be set lower than 4 minutes.
 *  Consider **[asynchronous polling patterns](/azure/architecture/patterns/async-request-reply)** to free up connection resources for other operations.
 * Make connections to Azure PaaS services over the Azure backbone using [Private Link](/azure/private-link/private-link-overview). Private link frees up SNAT ports for outbound connections to the internet.
-* If your investigation is inconclusive, open a support case for [additional troubleshooting](#additional-troubleshooting-guidance).
+* If your investigation is inconclusive, open a support case to [further troubleshoot](#additional-troubleshooting-guidance).
 
 >[!NOTE] 
->It is important to understand why SNAT port exhaustion occurs. Make sure you use the right patterns for scalable and reliable scenarios. Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns. For more information, see [best practices for efficient use of outbound connections](#outbound-connectivity-best-practices).
+>It is important to understand why SNAT port exhaustion occurs. Make sure you use the right patterns for scalable and reliable scenarios. Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns. For more informations, see [best practices for efficient use of outbound connections](#outbound-connectivity-best-practices).
 
 ### Possible solutions for TCP connection timeouts 
 
@@ -69,7 +69,7 @@ Transient drop in datapath availability caused by noise in the datapath.
 
 **How to troubleshoot**
 
-If you see no impact on your outbound connectivity but see a drop in datapath availability, this is likely a transient drop that is picking up noise in the datapath. 
+If you observe no impact on your outbound connectivity but see a drop in datapath availability, NAT gateway may be picking up noise in the datapath that shows as a transient drop. 
 
 ### Recommended alert setup
 
@@ -79,7 +79,7 @@ Set up an [alert for datapath availability drops](/azure/nat-gateway/nat-metrics
 
 **Scenario**
 
-You have deployed NAT gateway in your Azure virtual network but no outbound connectivity is observed. 
+You observe no outbound connectivity on your NAT gateway.
 
 **Possible causes**
 * NAT gateway misconfiguration
@@ -89,11 +89,11 @@ You have deployed NAT gateway in your Azure virtual network but no outbound conn
 * DNS misconfiguration
 
 **How to troubleshoot**
-1. Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway is not operational without a public IP and subnet attached. See [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics) for more information.
-2. Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to an NVA, ExpressRoute, or VPN Gateway will take priority over NAT gateway. See [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) for more information.
+1. Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway isn't operational without a public IP and subnet attached. For more information, see [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics).
+2. Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to an NVA, ExpressRoute, or VPN Gateway will take priority over NAT gateway. For more information, see [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
 3. Check if there are any NSG rules configured for the NIC on your virtual machine that blocks internet access.
-4. Check if the datapath availability of NAT gateway is in a degraded state. Refer to [troubleshooting guidance above](#datapath-availability-drop-on-nat-gateway-with-connection-failures) if NAT gateway is in a degraded state.
-5. Check your DNS settings if DNS is not resolving properly.
+4. Check if the datapath availability of NAT gateway is in a degraded state. Refer to [connection failure troubleshooting guidance](#datapath-availability-drop-on-nat-gateway-with-connection-failures) if NAT gateway is in a degraded state.
+5. Check your DNS settings if DNS isn't resolving properly.
 
 ### Possible solutions for loss of outbound connectivity
 * Attach a public IP address or prefix to NAT gateway. Also make sure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
@@ -101,10 +101,10 @@ You have deployed NAT gateway in your Azure virtual network but no outbound conn
   * [Add a custom route](/azure/virtual-network/manage-route-table#create-a-route)
   * [Change a route](/azure/virtual-network/manage-route-table#change-a-route)
   * [Delete a route](/azure/virtual-network/manage-route-table#delete-a-route) 
-* Update NSG security rules that block internet access for any of your VMs. See [manage network security groups](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal) for more information. 
+* Update NSG security rules that block internet access for any of your VMs. For more information, see [manage network security groups](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal). 
 * DNS not resolving correctly can happen for many reasons. Refer to the [DNS troubleshooting guide](/azure/dns/dns-troubleshoot) to help investigate why DNS resolution may be failing. 
 
-## NAT gateway public IP is not used to connect outbound
+## NAT gateway public IP isn't used to connect outbound
 
 **Scenario**
 
@@ -112,9 +112,9 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
 **Possible causes**
 * NAT gateway misconfiguration
-* Active connection with another Azure outbound connectivity method such as Azure Load balancer or instance-level public IPs on virtual machines. If a virtual machine has an established outbound connection before NAT gateway is deployed, the connection continues to use the old public IP address that was assigned when the connection was established.
+* Active connection with another Azure outbound connectivity method such as Azure Load balancer or instance-level public IPs on virtual machines. Active connection flows continue to use the old public IP address that was assigned when the connection was established. When NAT gateway is deployed, new connections start using NAT gateway right away. 
 * Private IPs are used to connect to Azure services by service endpoints or Private Link
-* Connections to storage accounts come from the same region as the VM you are making a connection from.
+* Connections to storage accounts come from the same region as the VM you're making a connection from.
 * Internet traffic is being redirected away from NAT gateway and force-tunneled to an NVA or firewall.
 
 **How to troubleshoot**
@@ -128,14 +128,14 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 ### Possible solutions for NAT gateway public IP not used to connect outbound
 * Attach a public IP address or prefix to NAT gateway. Also make sure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
 * Test and resolve issues with VMs holding on to old SNAT IP addresses from another outbound connectivity method by:
-  * Ensure you've established a new connection and that existing connections aren't being reused in the OS or that the browser is caching the connections. For example, when using curl in PowerShell, make sure to specify the -DisableKeepalive parameter to force a new connection. If you're using a browser, connections may also be pooled.
-  * It isn't necessary to reboot a virtual machine in a subnet configured to NAT gateway. However, if a virtual machine is rebooted, the connection state is flushed. When the connection state has been flushed, all connections begin using the NAT gateway resource's IP address(es). This behavior is a side effect of the virtual machine reboot and not an indicator that a reboot is required.
+  * Ensure you establish a new connection and that existing connections aren't being reused in the OS or that the browser is caching the connections. For example, when using curl in PowerShell, make sure to specify the -DisableKeepalive parameter to force a new connection. If you're using a browser, connections may also be pooled.
+  * It isn't necessary to reboot a virtual machine in a subnet configured to NAT gateway. However, if a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all connections begin using the NAT gateway resource's IP address(es). This behavior is a side effect of the virtual machine reboot and not an indicator that a reboot is required.
   * If you're still having trouble, [open a support case](#additional-troubleshooting-guidance) for further troubleshooting. 
-* Custom routes directing 0.0.0.0/0 traffic to an NVA will take precedence over NAT gateway for routing traffic to the internet. To have NAT gateway route traffic to the internet instead of the NVA, [remove the custom route](/azure/virtual-network/manage-route-table#delete-a-route) for 0.0.0.0/0 traffic going to the virtual appliance. The 0.0.0.0/0 traffic will resume using the default route to the internet and NAT gateway will be used instead. 
+* Custom routes directing 0.0.0.0/0 traffic to an NVA will take precedence over NAT gateway for routing traffic to the internet. To have NAT gateway route traffic to the internet instead of the NVA, [remove the custom route](/azure/virtual-network/manage-route-table#delete-a-route) for 0.0.0.0/0 traffic going to the virtual appliance. The 0.0.0.0/0 traffic resumes using the default route to the internet and NAT gateway is used instead. 
 > [!IMPORTANT]
 > Consider the routing requirements of your cloud architecture before making any changes to how traffic is routed.
-* Services deployed in the same region as an Azure storage account use private Azure IP addresses for communication. You can't restrict access to specific Azure services based on their public outbound IP address range. See [restrictions for IP network rules](/azure/storage/common/storage-network-security?tabs=azure-portal#restrictions-for-ip-network-rules) for more information.
-* Private Link and service endpoints use the private IP addresses of virtual machine instances in your virtual network to connect to Azure platform services instead of the public IP of NAT gateway. It is recommended to use Private Link to connect to other Azure services over the Azure backbone instead of over the internet with NAT gateway. 
+* Services deployed in the same region as an Azure storage account use private Azure IP addresses for communication. You can't restrict access to specific Azure services based on their public outbound IP address range. For more information, see [restrictions for IP network rules](/azure/storage/common/storage-network-security?tabs=azure-portal#restrictions-for-ip-network-rules).
+* Private Link and service endpoints use the private IP addresses of virtual machine instances in your virtual network to connect to Azure platform services instead of the public IP of NAT gateway. It's recommended to use Private Link to connect to other Azure services over the Azure backbone instead of over the internet with NAT gateway. 
 >[!NOTE] 
 >Private Link is the recommended option over Service endpoints for private access to Azure hosted services. 
 
@@ -156,7 +156,7 @@ NAT gateway connections to internet destinations fail or time out.
 2. Conduct packet capture from source and destination sides.
 3. Look at [packet count](/azure/nat-gateway/nat-metrics#packets) at the source and the destination (if available) to determine how many connection attempts were made.
 4. Look at [dropped packets](/azure/nat-gateway/nat-metrics#dropped-packets) to see how many packets dropped by NAT gateway.
-5. Analyze the packets. If fragmentation has occurred, you will see TCP packets along with fragmented IP protocol packets. **NAT gateway does not support IP fragmentation** and so connections with fragmented packets will fail. 
+5. Analyze the packets. TCP packets with fragmented IP protocol packets indicate IP fragmentation. **NAT gateway does not support IP fragmentation** and so connections with fragmented packets fail. 
 6. Check that the NAT gateway public IP is whitelisted at partner destinations with Firewalls or other traffic management components
 
 ### Possible solutions for connection failures at internet destination
@@ -186,7 +186,7 @@ An alternative solution to active FTP mode is to use passive FTP mode instead. H
 
 ### Possible solution for Passive FTP mode
 
-In passive FTP mode, the client establishes connections on both the command and data channels. The client requests that the server start listening on a port rather than try to establish a connection back to the client.  
+In passive FTP mode, the client establishes connections on both the command and data channels. The client requests that the server listen on a port rather than try to establish a connection back to the client.  
 
 Outbound Passive FTP may not work for NAT gateway with multiple public IP addresses, depending on your FTP server configuration. When a NAT gateway with multiple public IP addresses sends traffic outbound, it randomly selects one of its public IP addresses for the source IP address. FTP may fail when data and control channels use different source IP addresses, depending on your FTP server configuration.
 
@@ -211,9 +211,9 @@ The Azure platform blocks outbound SMTP connections on TCP port 25 for deployed 
 
 ### Recommended guidance for sending email
 
-It is recommended you use authenticated SMTP relay services to send email from Azure VMs or from Azure App Service. For more information see [troubleshoot outbound SMTP connectivity problems](/azure/virtual-network/troubleshoot-outbound-smtp-connectivity). 
+It's recommended you use authenticated SMTP relay services to send email from Azure VMs or from Azure App Service. For more information, see [troubleshoot outbound SMTP connectivity problems](/azure/virtual-network/troubleshoot-outbound-smtp-connectivity). 
 
-## Additional troubleshooting guidance
+## More troubleshooting guidance
 
 ### Extra network captures 
 
