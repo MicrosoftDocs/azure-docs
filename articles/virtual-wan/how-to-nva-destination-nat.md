@@ -86,7 +86,7 @@ The following section describes how to manage NVA configurations related to inte
 1. Select **Internet Inbound** under NVA.
 :::image type="content" source="./media/virtual-wan-nva-dnat/nva-select-internet-inbound.png"alt-text="Screenshot showing how to add IP to NVA."lightbox="./media/virtual-wan-nva-dnat/nva-select-internet-inbound.png":::
 
-### Associating an IP address to a NVA for Internet Inbound
+### Associating an IP address to an NVA for Internet Inbound
 
 1. If the NVA is eligible for internet inbound and there are no current internet inbound IP addresses associated to the NVA, select **Enable Internet Inbound (Destination NAT) by associating a public IP to this Network Virtual Appliance**. If IPs are already associated to this NVA, select **Add**.
 :::image type="content" source="./media/virtual-wan-nva-dnat/nva-add-inbound-ip.png"alt-text="Screenshot showing how to add IP to NVA."lightbox="./media/virtual-wan-nva-dnat/nva-add-inbound-ip.png".png":::
