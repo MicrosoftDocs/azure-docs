@@ -1,14 +1,14 @@
 ---
-title: Azure Code Signing Overview #Required; page title is displayed in search results. Include the brand.
-description: Learn how to sign with Azure Code Signing #Required; article description that is displayed in search results. 
+title: Trusted Signing Overview #Required; page title is displayed in search results. Include the brand.
+description: Learn how to sign with Trusted Signing #Required; article description that is displayed in search results. 
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.
-ms.date: 03/28/2023 #Required; mm/dd/yyyy format.
+ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
-# What is Azure Code Signing
+# What is Trusted Signing
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 

@@ -1,15 +1,15 @@
 ---
-title: Quickstart Azure Code Signing #Required; page title displayed in search results. Include the word "quickstart". Include the brand.
-description: Quickstart onboarding to Azure Code Signing to sign your files #Required; article description that is displayed in search results. Include the word "quickstart".
+title: Quickstart Trusted Signing #Required; page title displayed in search results. Include the word "quickstart". Include the brand.
+description: Quickstart onboarding to Trusted Signing to sign your files #Required; article description that is displayed in search results. Include the word "quickstart".
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.service: azure-code-signing #Required; service per approved list. service slug assigned to your service by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
-ms.date: 03/29/2023 #Required; mm/dd/yyyy format.
+ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
 ---
 
 
-# Quickstart: Onboarding to Azure Code Signing
+# Quickstart: Onboarding to Trusted Signing
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 
@@ -29,7 +29,7 @@ in your Azure account.
 
 -->
 
-Azure Code Signing is a service with an intuitive experience for developers and IT professionals. It supports both public and private trust signing scenarios and includes a timestamping service that is publicly trusted in Windows. In our current preview state we support publicly trusted and private trusted certificates. Completing this quickstart guides gives you an overview of the service and how to join our preview!
+Trusted Signing is a service with an intuitive experience for developers and IT professionals. It supports both public and private trust signing scenarios and includes a timestamping service that is publicly trusted in Windows. We currently support public trust, private trust, VBS enclave, and test trust signing. Completing this quickstart guides gives you an overview of the service and onboarding steps!
 
 <!-- - Avoid links, which are generally invitations for the reader to leave the article and
 not complete the experience of the quickstart. The exception are links to alternate versions
@@ -53,7 +53,7 @@ and other diagrams count as conceptual material that is best in a linked overvie
 of applicable links for companion content at the end of the introduction. Don't use the line
 if there's only a single link. In general, these links are more important for SDK-based quickstarts. -->
 
-Azure Code Signing overview | Reference documentation | Sample source code
+Trusted Signing overview | Reference documentation | Sample source code
 
 <!-- 5. Prerequisites --------------------------------------------------------------------
 
@@ -162,7 +162,7 @@ procedure.
 
 ## Task 2
 
-TODO:Include a sentence or two to explain only what is needed to complete the procedure.
+TODO: Include a sentence or two to explain only what is needed to complete the procedure.
 
 1. Step 1 of the procedure
 1. Step 2 of the procedure
@@ -170,7 +170,7 @@ TODO:Include a sentence or two to explain only what is needed to complete the pr
 
 ## Task 3
 
-TODO:Include a sentence or two to explain only what is needed to complete the procedure.
+TODO: Include a sentence or two to explain only what is needed to complete the procedure.
 
 <!-- 7. Code blocks ------------------------------------------------------------------------------
 
@@ -215,10 +215,7 @@ so that a reader doesn't need to recreate those resources.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete <resources> with the following steps:
-
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+If you're not going to continue to use this application, delete <resources> with the following steps
 
 
 <!-- 9. Next steps ------------------------------------------------------------------------

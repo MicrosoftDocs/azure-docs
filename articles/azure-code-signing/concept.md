@@ -45,13 +45,13 @@ Follow the H2 headings with a sentence about how the section contributes to the 
 -->
 
 ## Resource Types
-Azure Code Signing has the following resource types: 
+Trusted Signing has the following resource types: 
 
-*Code Signing Account – Logical container holding certificate profiles and considered the Azure Code Signing resource. 
-*Certificate Profile – Template with the information that is used in the issued certificates, and a sub-resource to a Code Signing Account resource. 
+*Code Signing Account – Logical container holding certificate profiles and considered the Trusted Signing resource. 
+*Certificate Profile – Template with the information that is used in the issued certificates, and a subresource to a Code Signing Account resource. 
 
  
-In the below example structure you’ll notice that an Azure Subscription has a resource group and under that resource group you can have one or many Code Signing Account resources with one or many Certificate Profiles. This ability to have multiple Code Signing Accounts and Certificate Profiles will be useful as Azure Code Signing expands the types of signing scenarios and types of certificates offered. For now, we recommend you create a single Code Signing Account with a single Certificate Profile.
+In the below example structure, you notice that an Azure Subscription has a resource group and under that resource group you can have one or many Code Signing Account resources with one or many Certificate Profiles. This ability to have multiple Code Signing Accounts and Certificate Profiles is useful as the service supports Public Trust, Private Trust, VBS Enclave, and Test signing. 
 
 ![Diagram of Azure Code Signing resource group and cert profiles](./media/acs-cert-diagram.png)
 

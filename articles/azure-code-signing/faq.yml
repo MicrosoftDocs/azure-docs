@@ -1,15 +1,15 @@
 ### YamlMime:FAQ
 metadata:
   title: Frequently Asked Questions #Required; The page title is displayed in search results. Include "FAQ" or "Frequently asked questions".
-  description: FAQ for Azure Code Signing #Required; Article description that's displayed in search results. Use 100 to 160 characters. Include "FAQ" or "Frequently asked questions".
+  description: FAQ for Trusted Signing #Required; Article description that's displayed in search results. Use 100 to 160 characters. Include "FAQ" or "Frequently asked questions".
   author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
   ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
   ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
   ms.topic: faq #Required
-  ms.date: 03/30/2023 #Required; mm/dd/yyyy format.
+  ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
 title: Trusted Signing #Required. This appears as the headline in the article as displayed.
 summary: |
-  This article includes FAQ about Azure Code Signing. 
+  This article includes FAQ about Trusted Signing. 
 
 # Remove all the comments in this template before you sign-off or merge to the main branch.
 
@@ -33,7 +33,7 @@ sections:
           *Windows 10 1507  
           Not Supported 
           *Windows 7 SP1 non-ESU (Not supported by Microsoft) 
-          *Windows OS version that were already EOL
+          *Windows OS version that were already end of life
 
   - name: Signing 
     questions:

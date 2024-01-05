@@ -1,11 +1,11 @@
 ---
 title: Public Trust Signing Tutorial #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
-description: Tutorial on getting started with Public Trust Signing in Azure Code Signing #Required; article description that is displayed in search results. Include the word "tutorial".
+description: Tutorial on getting started with Public Trust Signing in Trusted Signing #Required; article description that is displayed in search results. Include the word "tutorial".
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 03/29/2023 #Required; mm/dd/yyyy format.
+ms.date: 01/05/2023 #Required; mm/dd/yyyy format.
 ---
 
 
@@ -78,8 +78,7 @@ The procedure should be introduced with a brief sentence or two.
 Multiple procedures should be organized in H2 level sections.
 Procedure steps use ordered lists.
 
--->
-
+--
 ## 1 - [Doing the first thing]
 TODO: Add introduction sentence(s)
 [Include a sentence or two to explain only what is needed to complete the procedure.]
@@ -152,9 +151,6 @@ Clean up resources (H2) should come just before Next steps (H2)
 
 If you're not going to continue to use this application, delete
 \<resources\> with the following steps:
-
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
 
 TODO: Add steps for cleaning up the resources created in this tutorial.
 

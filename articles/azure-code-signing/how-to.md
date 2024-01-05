@@ -1,6 +1,6 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
+title: Signing with Trusted Signing #Required; page title is displayed in search results. Include the brand.
+description: Learn how to set up signing with Trusted Signing #Required; article description that is displayed in search results. 
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
@@ -18,14 +18,8 @@ This template provides the basic structure of a How-to article pattern. See the
 
 You can provide feedback about this template at: https://aka.ms/patterns-feedback
 
-<!-- 1. H1 -----------------------------------------------------------------------------
 
-Required: Start your H1 with a verb. Pick an H1 that clearly conveys the task the user 
-will complete.
-
--->
-
-# [H1 heading]
+# Creating Accounts
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
@@ -51,7 +45,7 @@ Visual Studio 2019 or later).
 
 -->
 
-## Prerequisites
+## Prerequisites and Dependencies
 TODO: Determine if prerequisites are appropriate
 TODO: List the prerequisites if appropriate
 
