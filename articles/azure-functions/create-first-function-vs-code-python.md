@@ -171,6 +171,7 @@ You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=python) to 
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python)
+> [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
 
 [Having issues? Let us know.](https://aka.ms/python-functions-qs-survey)
