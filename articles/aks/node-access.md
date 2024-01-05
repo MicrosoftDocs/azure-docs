@@ -1,8 +1,8 @@
 ---
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
-ms.topic: article
-ms.date: 12/20/2023
+ms.topic: troubleshooting
+ms.date: 01/04/2024
 ms.reviewer: mattmcinnes
 ms.custom: contperf-fy21q4, devx-track-linux
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -67,7 +67,7 @@ kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 ## Create an interactive shell connection to a node using private IP
 
-If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the AKS Agentpool Preview API(preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node, you need to be in the cluster's virtual network. 
+If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the AKS Agent Pool Preview API(preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node, you need to be in the cluster's virtual network. 
 
 1. To get the private IP via CLI, use az cli version 2.53 or above with aks-preview extension installed.
 
@@ -192,18 +192,18 @@ To create the SSH connection to the Windows Server node from another node, use t
 
 ## Next steps
 
-If you need more troubleshooting data, you can [view the kubelet logs][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
+If you need more troubleshooting data, you can [view the kubelet logs][view-kubelet-logs] or [view the Kubernetes control plane logs][view-control-plane-logs].
 
 See [Manage SSH configuration][manage-ssh-node-access] to learn about managing the SSH key on an AKS cluster or node pools.
 
 <!-- INTERNAL LINKS -->
 [view-kubelet-logs]: kubelet-logs.md
-[view-master-logs]: monitor-aks-reference.md#resource-logs
+[view-control-plane-logs]: monitor-aks-reference.md#resource-logs
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-windows-rdp]: rdp.md
 [azure-bastion]: ../bastion/bastion-overview.md 
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
-[agentpool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
+[agent-pool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
 [manage-ssh-node-access]: manage-ssh-node-access.md
 
