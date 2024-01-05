@@ -356,6 +356,8 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 
 - Trying to connect from the Azure portal console is an unsupported scenario where you see a connection failure.
 - Private links can't be added to caches that are already geo-replicated. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
+- Zone Redundant caches.
+- Caches with Availability Zones.
 
 ### How do I verify if my private endpoint is configured correctly?
 
