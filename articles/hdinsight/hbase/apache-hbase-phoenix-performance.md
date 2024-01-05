@@ -145,7 +145,7 @@ The main considerations in query design are:
 
 ### Understand the query plan
 
-In [SQLLine](http://sqlline.sourceforge.net/), use EXPLAIN followed by your SQL query to view the plan of operations that Phoenix perform. Check that the plan:
+In [SQLLine](http://sqlline.sourceforge.net/), use EXPLAIN followed by your SQL query to view the plan of operations that Phoenix performs. Check that the plan:
 
 * Uses your primary key when appropriate.
 * Uses appropriate secondary indexes, rather than the data table.
