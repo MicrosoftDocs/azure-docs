@@ -318,7 +318,9 @@ Optionally, do the following tests:
 
 Once you're done, if you're not going to use these Azure resources any longer, delete them by running the `az group delete` command. This command deletes your resource group and all the resources within it.
 
-`az group delete -n <myResourceGroupName> --yes`
+```azurecli
+az group delete -n <myResourceGroupName> --yes`
+```
 
 ## Next steps
 
