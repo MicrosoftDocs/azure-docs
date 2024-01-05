@@ -1,13 +1,13 @@
 ---
-title: Set up an external identity source for NSX-T Data Center
-description: Learn how to use Azure VMware Solution to set up an external identity source for VMware NSX-T Data Center.
+title: Set an external identity source for NSX-T Data Center
+description: Learn how to use Azure VMware Solution to set an external identity source for VMware NSX-T Data Center.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 11/06/2023
 ms.custom: engagement-fy23
 ---
 
-# Set up an external identity source for NSX-T Data Center
+# Set an external identity source for NSX-T Data Center
 
 In this article, learn how to set up an external identity source for VMware NSX-T Data Center in an instance of Azure VMware Solution.
 
@@ -24,13 +24,13 @@ You can set up NSX-T Data Center to use an external Lightweight Directory Access
    We recommend that you use two domain controllers that are located in the same Azure region as the Azure VMware Solution software-defined datacenter.
 
    > [!NOTE]
-   > Self-sign certificates are not recommended for production environments.
+   > Self-signed certificates are not recommended for production environments.
 
 - An account that has Administrator permissions.
-- Correctly configured Azure VMware Solution DNS zones and DNS servers. For more information, see [Configure NSX-T Data Center DNS for resolution to your Windows Server Active Directory domain and set up DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md).
+- Azure VMware Solution DNS zones and DNS servers that are correctly configured. For more information, see [Configure NSX-T Data Center DNS for resolution to your Windows Server Active Directory domain and set up DNS forwarder](configure-dns-azure-vmware-solution.md).
 
 > [!NOTE]
-> For more information about Secure LDAP (LDAPS) and certificate issuance, contact your security or identity management team.
+> For more information about Secure LDAP (LDAPS) and certificate issuance, contact your security team or your identity management team.
 
 ## Use Windows Server Active Directory as an LDAPS identity source
 
@@ -43,9 +43,9 @@ You can set up NSX-T Data Center to use an external Lightweight Directory Access
    The base DN is the container where your user accounts are kept. The base DN is the starting point that an LDAP server uses when it searches for users in an authentication request. For example, **CN=users,dc=azfta,dc=com**.
 
    > [!NOTE]
-   > You can use more than one directory as an LDAP provider. For example, if you have multiple Windows Server Azure Directory domains and you use Azure VMware Solution as a way to consolidate workloads.
+   > You can use more than one directory as an LDAP provider. An example is if you have multiple Windows Server Azure Directory domains, and you use Azure VMware Solution as a way to consolidate workloads.
 
-   :::image type="content" source="media/nsxt/configure-nsx-t-pic-2.png" alt-text="Screenshot that shows the User Management Add Identity Source page in NSX Manager.":::
+   :::image type="content" source="media/nsxt/configure-nsx-t-pic-2.png" alt-text="Screenshot that shows the User Management Add Identity Source page in NSX Manager." lightbox="media/nsxt/configure-nsx-t-pic-2.png":::
 
 1. Next, under **LDAP Servers**, select **Set** as shown in the preceding screenshot.
 
@@ -53,13 +53,13 @@ You can set up NSX-T Data Center to use an external Lightweight Directory Access
 
     | Name                | Action |
     |----------------------|------------|
-    | **Hostname/IP**          | Enter the LDAP server’s FQDN or IP address. For example, `azfta-dc01.azfta.com` or `10.5.4.4`. |
+    | **Hostname/IP**          | Enter the LDAP server’s FQDN or IP address. For example, **azfta-dc01.azfta.com** or **10.5.4.4**. |
     | **LDAP Protocol**        | Select **LDAPS**. |
     | **Port**     | Leave the default secure LDAP port. |
     | **Enabled**              | Leave as **Yes**. |
-    | **Use Start TLS**        | Required only if you use standard (nonsecure) LDAP. |
+    | **Use Start TLS**        | Required only if you use standard (unsecured) LDAP. |
     | **Bind Identity**        | Use your account that has domain Administrator permissions. For example, `<admin@contoso.com>`. |
-    | **Password**            | Enter the password for the LDAP server. The password that you use with the example `<admin@contoso.com>` account. |
+    | **Password**            | Enter the password for the LDAP server. This password is the one that you use with the example `<admin@contoso.com>` account. |
     | **Certificate**          | Leave empty (see step 6). |
 
    :::image type="content" source="media/nsxt/configure-nsx-t-pic-3.png" alt-text="Screenshot that shows the Set LDAP Server page to add an LDAP server.":::
@@ -81,30 +81,28 @@ After you add an external identity, you can assign NSX-T Data Center roles to Wi
 
 1. In NSX Manager, go to **System** > **User Management** > **User Role Assignment** > **Add**.
 
-   :::image type="content" source="media/nsxt/configure-nsx-t-pic-5.png" alt-text="Screenshot that shows the User Management page in NSX Manager.":::
+   :::image type="content" source="media/nsxt/configure-nsx-t-pic-5.png" alt-text="Screenshot that shows the User Management page in NSX Manager." lightbox="media/nsxt/configure-nsx-t-pic-5.png":::
 
 1. Select **Add** > **Role Assignment for LDAP**.  
 
-   1. Select the external identity provider. The identity provider that you selected in step 3 in the preceding section. For example, **NSX-T External Identity Provider**.
+   1. Select the external identity provider that you selected in step 3 in the preceding section. For example, **NSX-T External Identity Provider**.
 
    1. Enter the first few characters of the user's name, the user's sign-in ID, or a group name to search the LDAP directory. Then select a user or group from the list of results.
 
-   1. Select a role. In this example, assign the FTAdmin user the role **CloudAdmin**.
+   1. Select a role. In this example, assign the FTAdmin user the CloudAdmin role.
 
    1. Select **Save**.
 
-   :::image type="content" source="media/nsxt/configure-nsx-t-pic-6.png" alt-text="Screenshot that shows the Add User page in NSX Manager.":::
+   :::image type="content" source="media/nsxt/configure-nsx-t-pic-6.png" alt-text="Screenshot that shows the Add User page in NSX Manager." lightbox="media/nsxt/configure-nsx-t-pic-6.png":::
 
 1. Under **User Role Assignment**, verify that the permissions assignment appears.
 
-   :::image type="content" source="media/nsxt/configure-nsx-t-pic-7.png" alt-text="Screenshot that shows the User Management page confirming that the user was added.":::
+   :::image type="content" source="media/nsxt/configure-nsx-t-pic-7.png" alt-text="Screenshot that shows the User Management page confirming that the user was added." lightbox="media/nsxt/configure-nsx-t-pic-7.png":::
 
 Your users should now be able to sign in to NSX Manager by using their Windows Server Active Directory credentials.
 
 ## Related content
 
-Now that your external identity source is set up, learn more:
-
-- [Configure an external identity source for vCenter Server](configure-identity-source-vcenter.md)
 - [Azure VMware Solution identity concepts](concepts-identity.md)
+- [Set an external identity source for vCenter Server](configure-identity-source-vcenter.md)
 - [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)

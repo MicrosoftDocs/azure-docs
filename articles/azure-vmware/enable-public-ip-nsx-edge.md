@@ -30,7 +30,7 @@ With this capability, you have the following features:
 - VMware HCX migration support over the public internet.
 
 > [!IMPORTANT]
-> You can set up a maximum of 64 total public IP addresses across these network blocks. If you want to configure more than 64 public IP addresses, please submit a support ticket that indicates the number of addresses.
+> You can set up a maximum of 64 total public IP addresses across these network blocks. If you want to configure more than 64 public IP addresses, please submit a support ticket that indicates the number of addresses you need.
 
 ## Prerequisites
 
@@ -63,11 +63,11 @@ To set up a public IP address or range, use the Azure portal:
 
 1. Enter a value for **Public IP name**. In the **Address space** dropdown list, select a subnet size. Then, select **Configure**.
 
-   This public IP address should be available within 20 minutes. Check that the subnet is listed.
+   This public IP address is available within approximately 20 minutes.
+
+   Check that the subnet is listed. If you don't see the subnet, refresh the list. If the refresh fails to display the subnet, try the configuration again.
 
    :::image type="content" source="media/public-ip-nsx-edge/public-ip-subnet-internet-connectivity.png" alt-text="Diagram that shows internet connectivity in Azure VMware Solution.":::
-
-   If you don't see the subnet, refresh the list. If the refresh fails, try the configuration again.
 
 1. After you set the public IP address, select the **Connect using the public IP down to the NSX-T Edge** checkbox to turn off all other internet options.
 
@@ -114,7 +114,7 @@ For more information on NSX-T Data Center NAT configuration and options, see the
 
 #### Create a No-NAT rule
 
-You can create a No-SNAT rule in NSX Manager to exclude certain matches from performing NAT. This policy can be used to allow private IP address traffic to bypass existing network translation rules.
+You can create a No-NAT or No-SNAT rule in NSX Manager to exclude certain matches from performing NAT. This policy can be used to allow private IP address traffic to bypass existing network translation rules.
 
 1. In your Azure VMware Solution private cloud, select **vCenter Server Credentials**.
 1. Sign in to NSX Manager, and then select **NAT Rules**.
@@ -138,9 +138,9 @@ A Destination Network Translation (DNAT) service is used to expose a VM on a spe
 1. For the translated IP, enter the VM private IP address.
 1. Select **Save**.
 
-   Optionally, configure the translated port or the source IP for more specific matches.
+   Optionally, configure the translated port or the source IP address for more specific matches.
 
-The VM is now exposed to the internet on the specific public IP or on specific ports.
+The VM is now exposed to the internet on the specific public IP address or on specific ports.
 
 ### Set up a gateway firewall to filter traffic to VMs at T1 gateways
 
@@ -152,7 +152,7 @@ You can provide security protection for your network traffic in and out of the p
 1. Select **Gateway Specific Rules**, choose the T1 gateway, and then select **Add Policy**.
 1. Select **New Policy** and enter a policy name.
 1. Select the policy and select **Add Rule**.
-1. Configure the rule
+1. Configure the rule:
 
     1. Select **New Rule**.
     1. Enter a descriptive name.
@@ -160,14 +160,14 @@ You can provide security protection for your network traffic in and out of the p
 
 1. Select **Match External Address** to apply firewall rules to the external address of a NAT rule.
 
-   For example, the following rule is set to **Match External Address**. The setting allows SSH traffic inbound to the public IP.
+   For example, the following rule is set to **Match External Address**. The setting allows Secure Shell (SSH) traffic inbound to the public IP address.
 
    :::image type="content" source="media/public-ip-nsx-edge/gateway-specific-rules-match-external-connectivity.png" alt-text="Screenshot that shows internet connectivity inbound to the public IP address." lightbox="media/public-ip-nsx-edge/gateway-specific-rules-match-external-connectivity-expanded.png":::
 
 If **Match Internal Address** was specified, the destination is the internal or private IP address of the VM.
 
 For more information on the NSX-T Data Center gateway firewall, see the [NSX-T Data Center Gateway Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html).
-The distributed firewall can be used to filter traffic to VMs. This feature is outside the scope of this article. For more information, see [NSX-T Data Center Distributed Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-6AB240DB-949C-4E95-A9A7-4AC6EF5E3036.html).
+The distributed firewall can be used to filter traffic to VMs. For more information, see [NSX-T Data Center Distributed Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-6AB240DB-949C-4E95-A9A7-4AC6EF5E3036.html).
 
 ## Related content
 

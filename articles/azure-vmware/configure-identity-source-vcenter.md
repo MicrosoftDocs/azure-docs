@@ -1,18 +1,15 @@
 ---
-title: Set up an external identity source for vCenter Server
-description: Learn how to set up Windows Server Active Directory over LDAP or LDAPS for VMware vCenter Server as an external identity source.
+title: Set an external identity source for vCenter Server
+description: Learn how to set Windows Server Active Directory over LDAP or LDAPS for VMware vCenter Server as an external identity source.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/06/2023
 ms.custom: engagement-fy23
 ---
 
-# Set up an external identity source for vCenter Server
+# Set an external identity source for vCenter Server
 
 [!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
-
-> [!NOTE]
-> Run commands one at a time in the order that's described in the article.
 
 In this article, you learn how to:
 
@@ -21,7 +18,7 @@ In this article, you learn how to:
 > - Export a certificate for LDAPS authentication. (Optional)
 > - Upload the LDAPS certificate to blob storage and generate a shared access signature (SAS) URL. (Optional)
 > - Configure NSX-T DNS for resolution to your Windows Server Active Directory domain.
-> - Add Windows Server Active Directory by using LDAPS (secure) or LDAP (nonsecure).
+> - Add Windows Server Active Directory by using LDAPS (secure) or LDAP (unsecured).
 > - Add an existing Windows Server Active Directory group to the CloudAdmin group.
 > - List all existing external identity sources that are integrated with vCenter Server SSO.
 > - Assign additional vCenter Server roles to Windows Server Active Directory identities.
@@ -29,7 +26,10 @@ In this article, you learn how to:
 > - Remove all existing external identity sources.
 
 > [!NOTE]
-> [Export the certificate for LDAPS authentication](#optional-export-the-certificate-for-ldaps-authentication) and [Upload the LDAPS certificate to blob storage and generate an SAS URL](#optional-upload-the-ldaps-certificate-to-blob-storage-and-generate-an-sas-url) are optional steps. The certificate will be downloaded from the domain controller automatically through the **PrimaryUrl** and/or **SecondaryUrl** parameters if the **SSLCertificatesSasUrl** parameter is not provided. You can still provide **SSLCertificatesSasUrl** and follow the optional steps to manually export and upload the certificate.
+>
+> - The steps to [export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication-optional) and [upload the LDAPS certificate to blob storage and generate an SAS URL](#upload-the-ldaps-certificate-to-blob-storage-and-generate-an-sas-url-optional) are optional. If the `SSLCertificatesSasUrl` parameter is not provided, the certificate is downloaded from the domain controller automatically through the `PrimaryUrl` or `SecondaryUrl` parameters. To manually export and upload the certificate, you can provide the `SSLCertificatesSasUrl` parameter and complete the optional steps.
+>
+> - Run commands one at a time in the order that's described in the article.
 
 ## Prerequisites
 
@@ -37,69 +37,71 @@ In this article, you learn how to:
 
 - For Windows Server Active Directory authentication with LDAPS:
 
-  - Obtain access to the Windows Server Active Directory domain controller with Administrator permissions.
-  - Enable LDAPS on your Windows Server Active Directory domain controllers by using a valid certificate. You can obtain the certificate from an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party or public CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
-  - To obtain a valid certificate, complete the steps in [Create a certificate for secure LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Ensure that the certificate meets the listed requirements.
+  1. Get access to the Windows Server Active Directory domain controller with Administrator permissions.
+  1. Enable LDAPS on your Windows Server Active Directory domain controllers by using a valid certificate. You can obtain the certificate from an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party or public CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
+  1. To obtain a valid certificate, complete the steps in [Create a certificate for secure LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Ensure that the certificate meets the listed requirements.
 
-   > [!NOTE]
-   > Avoid using self-signed certificates in production environments.  
+     > [!NOTE]
+     > Avoid using self-signed certificates in production environments.  
   
-  - Optional: If you don't provide the `SSLCertificatesSasUrl` parameter, the certificate is automatically downloaded from the domain controller via the `PrimaryUrl` or the `SecondaryUrl` parameters. Alternatively, you can manually [export the certificate for LDAPS authentication](#optional-export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, [grant access to Azure Storage resources using a shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
+  1. Optional: If you don't provide the `SSLCertificatesSasUrl` parameter, the certificate is automatically downloaded from the domain controller via the `PrimaryUrl` or the `SecondaryUrl` parameters. Alternatively, you can manually [export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication-optional) and upload it to an Azure Storage account as blob storage. Then, [grant access to Azure Storage resources by using an SAS](../storage/common/storage-sas-overview.md).  
 
-- Configure DNS resolution for Azure VMware Solution to your on-premises Windows Server Active Directory. Enable DNS Forwarder in the Azure portal. For more information, see [configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md).
+- Configure DNS resolution for Azure VMware Solution to your on-premises Windows Server Active Directory. Set up a DNS forwarder in the Azure portal. For more information, see [Configure a DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md).
 
 > [!NOTE]
-> For more information about LDAPS and certificate issuance, contact your security or identity management team.
+> For more information about LDAPS and certificate issuance, contact your security team or your identity management team.
 
-## (Optional) Export the certificate for LDAPS authentication
+## Export the certificate for LDAPS authentication (Optional)
 
-First, verify that the certificate used for LDAPS is valid. If you don't have a certificate, complete the steps to [create a certificate for LDAPS](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap) before you continue.
+First, verify that the certificate that's used for LDAPS is valid. If you don't have a certificate, complete the steps to [create a certificate for LDAPS](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap) before you continue.
 
-1. Sign in to a domain controller where LDAPS is enabled by using Administrator permissions.
-1. Open the **Run command**, type **mmc**, and then select **OK**.
+To verify that the certificate is valid:
+
+1. Sign in to a domain controller on which LDAPS is active by using Administrator permissions.
+1. Open the **Run** tool, enter **mmc**, and then select **OK**.
 1. Select **File** > **Add/Remove Snap-in**.
 1. In the list of snap-ins, select **Certificates**, and then select **Add**.
 1. In the **Certificates snap-in** pane, select **Computer account**, and then select **Next**.
 1. Keep **Local computer** selected, select **Finish**, and then select **OK**.
-1. Expand the **Personal** folder under the **Certificates (Local Computer)** management console and select the **Certificates** folder to view the installed certificates.
+1. In the **Certificates (Local Computer)** management console, expand the **Personal** folder and select the **Certificates** folder to view the installed certificates.
 
    :::image type="content" source="media/run-command/ldaps-certificate-personal-certficates.png" alt-text="Screenshot that shows the list of certificates in the management console." lightbox="media/run-command/ldaps-certificate-personal-certficates.png":::
 
-1. Double-click the certificate for LDAPS purposes. Ensure that the certificate date **Valid from** and **Valid to** is current and that the certificate has a private key that corresponds to the certificate.
+1. Double-click the certificate for LDAPS. Ensure that the certificate date **Valid from** and **Valid to** is current and that the certificate has a private key that corresponds to the certificate.
 
    :::image type="content" source="media/run-command/ldaps-certificate-personal-general.png" alt-text="Screenshot that shows the properties of the LDAPS certificate." lightbox="media/run-command/ldaps-certificate-personal-general.png":::
 
-1. On the same page, select the **Certification Path** tab and verify that the value for **Certification path** is valid. It should include the certificate chain of root CA and optional intermediate certificates. Check that the **Certificate Status** is **OK**.
+1. In the same dialog, select the **Certification Path** tab and verify that the value for **Certification path** is valid. It should include the certificate chain of root CA and optional intermediate certificates. Check that the **Certificate status** is **OK**.
 
    :::image type="content" source="media/run-command/ldaps-certificate-cert-path.png" alt-text="Screenshot that shows the certificate chain on the Certification Path tab." lightbox="media/run-command/ldaps-certificate-cert-path.png":::
 
-1. Close the window.
+1. Select **OK**.
 
-Next, export the certificate:
+To export the certificate:
 
-1. In the Certificates console, right-click the LDAPS certificate and select **All Tasks** > **Export**. The Certificate Export Wizard appears. Select **Next**.
+1. In the Certificates console, right-click the LDAPS certificate and select **All Tasks** > **Export**. The Certificate Export Wizard opens. Select **Next**.
 1. In the **Export Private Key** section, select **No, do not export the private key**, and then select **Next**.
 1. In the **Export File Format** section, select **Base-64 encoded X.509(.CER)**, and then select **Next**.
 1. In the **File to Export** section, select **Browse**. Select a folder location to export the certificate, and enter a name. Then select **Save**.
 
 > [!NOTE]
-> If more than one domain controller is set to use LDAPS, repeat the export procedure for each additional domain controller to export their corresponding certificates. Note that you can reference only two LDAPS servers in the `New-LDAPSIdentitySource` Run command. If the certificate is a wildcard certificate, such as `.avsdemo.net`, export the certificate from only one of the domain controllers.
+> If more than one domain controller is set to use LDAPS, repeat the export procedure for each additional domain controller to export their corresponding certificates. Note that you can reference only two LDAPS servers in the `New-LDAPSIdentitySource` Run tool. If the certificate is a wildcard certificate, such as `.avsdemo.net`, export the certificate from only one of the domain controllers.
 
-## (Optional) Upload the LDAPS certificate to blob storage and generate an SAS URL
+## Upload the LDAPS certificate to blob storage and generate an SAS URL (Optional)
 
-- Upload the certificate file (.cer format) you just exported to an Azure Storage account as blob storage. Then, [grant access to Azure Storage resources using a shared access signature (SAS)](../storage/common/storage-sas-overview.md).
+Next, upload the certificate file (in *.cer* format) you exported to an Azure Storage account as blob storage. Then, [grant access to Azure Storage resources by using an SAS](../storage/common/storage-sas-overview.md).
 
-- If you need multiple certificates, upload each one individually and generate a SAS URL for each.
+If you need multiple certificates, upload each one individually and generate an SAS URL for each certificate.
 
 > [!IMPORTANT]
 > Remember to copy all SAS URL strings. The strings aren't accessible after you leave the page.
 
 > [!TIP]
-> An alternative method for consolidating certificates involves storing all the certificate chains in one file, as detailed in [this VMware KB article](https://kb.vmware.com/s/article/2041378). Then, generate a single SAS URL for the file that contains all the certificates.
+> An alternative method to consolidate certificates involves storing all the certificate chains in one file, as detailed in a [VMware knowledge base article](https://kb.vmware.com/s/article/2041378). Then, generate a single SAS URL for the file that contains all the certificates.
 
 ## Set up NSX-T DNS for Windows Server Active Directory domain resolution
 
-Create a DNS zone and add it to the DNS service. Follow the instructions in [configure a DNS forwarder in the Azure portal](./configure-dns-azure-vmware-solution.md).
+Create a DNS zone and add it to the DNS service. Complete the steps in [Configure a DNS forwarder in the Azure portal](./configure-dns-azure-vmware-solution.md).
 
 After you complete these steps, verify that your DNS service includes your DNS zone.
 
@@ -124,9 +126,9 @@ To add Windows Server Active Directory over LDAP with SSL as an external identit
    | **BaseDNUsers** |  The location to search for valid users. For example, **CN=users,DC=avsldap,DC=local**. Base DN is required for LDAP authentication.  |
    | **PrimaryUrl** | The primary URL of the external identity source. For example, `ldaps://yourserver.avslab.local:636`.  |
    | **SecondaryURL** | The secondary fallback URL if the primary fails. For example, `ldaps://yourbackupldapserver.avslab.local:636`. |
-   | **DomainAlias** | For Windows Server Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the Windows Server Active Directory domain as an alias of the identity source, typically in the **avsldap\** format.    |
+   | **DomainAlias** | For Windows Server Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the Windows Server Active Directory domain as an alias of the identity source, typically in the **avsldap\\** format.    |
    | **DomainName** | The domain's fully qualified domain name (FQDN). For example, **avslab.local**.  |
-   | **Name** | A name for the external identity source. For example,**avslab.local**. |
+   | **Name** | A name for the external identity source. For example, **avslab.local**. |
    | **Retain up to** | The retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution** | An alphanumeric name. For example, **addexternalIdentity**.  |
    | **Timeout** | The period after which a cmdlet exits if it isn't finished running.  |
@@ -183,7 +185,7 @@ Users in a CloudAdmin group have user rights that are equal to the CloudAdmin (`
 
 ## List external identity sources
 
-To list all external identity sources already integrated with vCenter Server SSO, run the Get-ExternalIdentitySources cmdlet:
+To list all external identity sources that are already integrated with vCenter Server SSO, run the Get-ExternalIdentitySources cmdlet.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -233,7 +235,7 @@ Users can now sign in to vCenter Server by using their Windows Server Active Dir
 
 ## Remove a Windows Server Active Directory group from the CloudAdmin role
 
-To remove a specific Windows Server Active Directory group from the CloudAdmin role, run the Remove-GroupFromCloudAdmins cmdlet:
+To remove a specific Windows Server Active Directory group from the CloudAdmin role, run the Remove-GroupFromCloudAdmins cmdlet.
 
 1. Select **Run command** > **Packages** > **Remove-GroupFromCloudAdmins**.
 
@@ -279,14 +281,12 @@ To remove all existing external identity sources at once, run the Remove-Externa
 
 1. To see the progress, check **Notifications** or the **Run Execution Status** pane.
 
-> [!IMPORTANT]
+> [!WARNING]
 > If you don't provide a value for **DomainName**, all external identity sources are removed. Run the cmdlet Update-IdentitySourceCredential only after the password is rotated in the domain controller.
 
 ## Related content
 
-Now that you learned how to configure LDAP and LDAPS, explore the following articles:
-
-- [Configure storage policy](configure-storage-policy.md) - Each virtual machine (VM) that's deployed to a vSAN datastore is assigned at least one VM storage policy. Learn how to assign a VM storage policy during an initial deployment of a VM or other VM operations, such as cloning or migrating.
-- [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter Server to manage VM workloads, and use NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX-T Manager.
-- Learn how to [set up an external identity source for NSX-T](configure-external-identity-source-nsx-t.md).
-- Review the [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html).
+- [Create a storage policy](configure-storage-policy.md)
+- [Azure VMware Solution identity concepts](concepts-identity.md)
+- [Set an external identity source for NSX-T Data Center](configure-external-identity-source-nsx-t.md)
+- [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)
