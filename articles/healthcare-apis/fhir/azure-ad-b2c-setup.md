@@ -227,7 +227,7 @@ Use the **authority** and **client ID** (or application ID) parameters to config
 
 3. Retrieve the client ID from the resource application overview page.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-client-id-sml.png" alt-text="Screenshot showing B2C app list" lightbox="media/azure-ad-b2c-setup/b2c-client-id-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-client-id-sml.png" alt-text="Screenshot showing B2C application overview page" lightbox="media/azure-ad-b2c-setup/b2c-client-id-lrg.png":::
 
 #### Deploy the FHIR service by using an ARM Template
 
@@ -376,7 +376,7 @@ You need to create an explicit link between the test user in the B2C tenant and 
 
    - Change the method to `PATCH`.
    
-   - Change the URL to [https://graph.microsoft.com/v1.0/users/{USER_OBJECT_ID}](#link-the-patient-resource-to-the-azure-b2c-user).
+   - Change the URL to [https://graph.microsoft.com/v1.0/users/{USER_OBJECT_ID}](#link-the-patient-resource-to-the-azure-ad-b2c-user).
    
    - Create the `PATCH` body. A `PATCH` body is a single key-value-pair, where the key format is `extension_{B2C_EXTENSION_APP_ID_NO_HYPHENS}_fhirUser` and the value is the fully qualified FHIR resource ID for the patient `https://{YOUR_FHIR_SERVICE}.azurehealthcareapis.com/Patient/1"`.
 
@@ -390,7 +390,7 @@ You need to create an explicit link between the test user in the B2C tenant and 
 
 Obtain an access token to test the authentication flow.
 
-1. Launch the Postman application and then create a new **Blank collection**. In this example, the collection is named **FHIR Patient**.
+1. Launch the Postman application, and then create a new **Blank collection**. In this example, the collection is named **FHIR Patient**.
 
    :::image type="content" source="media/azure-ad-b2c-setup/postman-new-collection-sml.png" alt-text="Screenshot showing Postman new collection" lightbox="media/azure-ad-b2c-setup/postman-new-collection-lrg.png":::
 
@@ -442,7 +442,7 @@ Verify that Azure AD B2C users can access FHIR resources.
 
 1. When the authorization configuration in Postman is set up to launch the B2C user flow, choose **Get New Access Token** to get an access token.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/postman-get-token1.png" alt-text="Screenshot showing Postman get token1" lightbox="media/azure-ad-b2c-setup/postman-get-token1.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/postman-get-token3.png" alt-text="Screenshot showing Postman get access token" lightbox="media/azure-ad-b2c-setup/postman-get-token3.png":::
 
 1. Use the **Test Patient** credentials to sign in.
 
@@ -452,7 +452,7 @@ Verify that Azure AD B2C users can access FHIR resources.
 
    :::image type="content" source="media/azure-ad-b2c-setup/postman-use-token.png" alt-text="Screenshot showing Postman use token" lightbox="media/azure-ad-b2c-setup/postman-use-token.png":::
 
-1. Create a new request to search for patient resources in the FHIR service. Choose the 3 dots (...) next to the name of the collection, and then choose ***Add request**.
+1. Create a new request to search for patient resources in the FHIR service. Select the ellipsis button (...) next to the name of the collection, and then choose ***Add request**.
 
    :::image type="content" source="media/azure-ad-b2c-setup/postman-request1.png" alt-text="Screenshot showing Postman request1" lightbox="media/azure-ad-b2c-setup/postman-request1.png":::
 

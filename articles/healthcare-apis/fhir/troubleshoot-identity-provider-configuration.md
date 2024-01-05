@@ -160,7 +160,7 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 
 ## Next steps
 
-[Grant access to the FHIR service by using Azure Active Directory B2C](azure-ad-b2c-setup.md)
+[Grant user access to the FHIR service by using Azure Active Directory B2C](azure-ad-b2c-setup.md)
 
 [Configure multiple identity providers](configure-identity-providers.md)
 
