@@ -8,28 +8,27 @@ ms.custom:
 author: laujan
 manager: nitinme
 ms.topic: reference
-ms.date: 11/15/2023
+ms.date: 12/13/2023
 ms.author: lajanuar
 ---
 
 
-# Containers in disconnected environments
+# Containers in disconnected (offline) environments
 
-::: moniker range="doc-intel-4.0.0"
-[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
-::: moniker-end
+:::moniker range="doc-intel-2.1.0 || doc-intel-3.1.0||doc-intel-4.0.0"
 
-::: moniker range="doc-intel-3.1.0"
-[!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
-::: moniker-end
+Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)`:
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
-::: moniker-end
+* [REST API `2022-08-31 (GA)`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+* [SDKs targeting `REST API 2022-08-31 (GA)`](../sdk-overview-v3-0.md)
 
-::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
-::: moniker-end
+✔️ See [**Document Intelligence v3.0 containers in disconnected environments**](?view=doc-intel-3.0.0&preserve-view=true) for supported container documentation.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)**
 
 ## What are disconnected containers?
 
@@ -89,23 +88,9 @@ Both the endpoint URL and API key are needed when you first run the container to
 
 Download the Docker container that is approved to run in a disconnected environment. For example:
 
-::: moniker range=">=doc-intel-3.0.0"
-
 |Docker pull command | Value |Format|
 |----------|-------|------|
 |&#9679; **`docker pull [image]`**</br></br> &#9679; **`docker pull [image]latest`**|The latest container image.|&#9679; `mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest`</br>  </br>&#9679; `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.0:latest` |
-
-::: moniker-end
-
-::: moniker range="doc-intel-2.1.0"
-
-|Docker pull command | Value |Format|
-|----------|-------|------|
-|&bullet; **`docker pull [image]`**</br>&bullet; **`docker pull [image]:latest`**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout</br>  </br>&bullet; `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:latest` |
-|||
-|&bullet; **`docker pull [image]:[version]`** | A specific container image |dockers pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt:2.1-preview |
-
-::: moniker-end
 
 **Example Docker pull command**
 
@@ -199,8 +184,6 @@ Mounts:License={CONTAINER_LICENSE_DIRECTORY}
 Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
 ```
 
-::: moniker range=">=doc-intel-3.0.0"
-
 Starting a disconnected container is similar to [starting a connected container](install-run.md). Disconnected containers require an added license parameter. Here's a sample docker-compose.yml file for starting a custom container in disconnected mode. Add the CUSTOM_LICENSE_MOUNT_PATH environment variable with a value set to the folder containing the downloaded license file, and the `OUTPUT_MOUNT_PATH` environment variable with a value set to the folder that holds the usage logs.
 
 ```yml
@@ -285,8 +268,6 @@ services:
   user: "1000:1000" # echo $(id -u):$(id -g)
 ```
 
-::: moniker-end
-
 ## Other parameters and commands
 
 Here are a few more parameters and commands you need to run the container.
@@ -368,3 +349,5 @@ Run the container with an output mount and logging enabled. These settings enabl
 
 * [Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](../deploy-label-tool.md#deploy-with-azure-container-instances-aci)
 * [Change or end a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments)
+
+:::moniker-end

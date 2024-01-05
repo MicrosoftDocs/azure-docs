@@ -2,9 +2,9 @@
 title: Configure DHCP for Azure VMware Solution
 description: Learn how to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
 ms.topic: how-to
-ms.custom: contperf-fy21q2, contperf-fy22q1
+ms.custom: contperf-fy21q2, contperf-fy22q1, engagement-fy23
 ms.service: azure-vmware
-ms.date: 6/26/2023
+ms.date: 12/05/2023
 
 # Customer intent: As an Azure service administrator, I want to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
 
@@ -14,7 +14,7 @@ ms.date: 6/26/2023
 
 [!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
-In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMware Solution in one of the following ways: 
+In this article, learn how to use NSX-T Manager to configure DHCP for Azure VMware Solution in one of the following ways: 
 
 
 - [Use the Azure portal to create a DHCP server or relay](#use-the-azure-portal-to-create-a-dhcp-server-or-relay)
@@ -34,7 +34,7 @@ In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMw
 
 ## Use the Azure portal to create a DHCP server or relay
 
-You can create a DHCP server or relay directly from Azure VMware Solution in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway created when you deployed Azure VMware Solution. All the segments where you gave DHCP ranges will be part of this DHCP. After you've created a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
+You can create a DHCP server or relay directly from Azure VMware Solution in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway created when you deployed Azure VMware Solution. All the segments where you gave DHCP ranges are part of this DHCP. After you create a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP** > **Add**.
 
@@ -50,25 +50,25 @@ You can create a DHCP server or relay directly from Azure VMware Solution in the
 
 
 ## Use NSX-T Data Center to host your DHCP server
-If you want to use NSX-T Data Center to host your DHCP server, you'll create a DHCP server and a relay service. Then you'll add a network segment and specify the DHCP IP address range.
+If you want to use NSX-T Data Center to host your DHCP server, create a DHCP server and a relay service. Next add a network segment and specify the DHCP IP address range.
 
 ### Create a DHCP server
 
-1. In NSX-T Manager, select **Networking** > **DHCP**, and then select **Add DHCP Profile**.
+1. In NSX-T Manager, select **Networking** > **DHCP**, then select **Add DHCP Profile**.
 
-1. Select **Add DHCP Profile**, enter a name, and select **Save**. NOTE: An IP address is not required if none is entered NSX-T Manager will set one.
+1. Select **Add DHCP Profile**, enter a name, and select **Save**. NOTE: An IP address isn't required so if none is entered, NSX-T Manager sets one.
 
    :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Screenshot showing how to add a DHCP Profile in NSX-T Manager." border="true":::
 
 1. Under **Networking** > **Tier-1 Gateways**, select the gateway where the segments are connected that DHCP is required. Edit the Tier-1 Gateway by clicking on the three ellipses and choose **Edit**.
 
-1. Select **Set DHCP Configuration**, select **DHCP Server** and then select the DHCP Server Profile created earlier. Click **Save**, then **Close Editing**.
+1. Select **Set DHCP Configuration**, select **DHCP Server** and then select the DHCP Server Profile created earlier. Select **Save**, then **Close Editing**.
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Screenshot showing how to edit the NSX-T Data Center Tier-1 Gateway for using a DHCP server." border="true":::
 
-1. Navigate to **Networking** > **Segments** and find the segment where DHCP is required. Click on **Edit** then **Set DHCP Config**. 
+1. Navigate to **Networking** > **Segments** and find the segment where DHCP is required. Select on **Edit** then **Set DHCP Config**. 
    
-1. Select **Gateway DHCP Server** for DHCP Type, add a DHCP range, and click **Apply**.
+1. Select **Gateway DHCP Server** for DHCP Type, add a DHCP range, and select **Apply**.
 
    :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Screenshot showing how to add a subnet to the NSX-T Data Center Tier-1 Gateway for using a DHCP server." border="true":::
 
@@ -78,7 +78,7 @@ If you want to use NSX-T Data Center to host your DHCP server, you'll create a D
 
 ### Specify the DHCP IP address range
  
-When you create a relay to a DHCP server, you'll also specify the DHCP IP address range.
+When you create a relay to a DHCP server, you need to specify the DHCP IP address range.
 
 >[!NOTE]
 >The IP address range shouldn't overlap with the IP range used in other virtual networks in your subscription and on-premises networks.
@@ -102,7 +102,7 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
 
 ## Use a third-party external DHCP server
 
-If you want to use a third-party external DHCP server, you'll create a DHCP relay service in NSX-T Manager. You'll also specify the DHCP IP address range.
+If you want to use a third-party external DHCP server, create a DHCP relay service in NSX-T Manager. You need to specify the DHCP IP address range.
 
 
 >[!IMPORTANT]
@@ -136,7 +136,7 @@ Use a DHCP relay for any non-NSX-based DHCP service. For example, a VM running D
 
 ### Specify the DHCP IP address range
 
-When you create a relay to a DHCP server, you'll also specify the DHCP IP address range.
+When you create a relay to a DHCP server, you need to specify the DHCP IP address range.
 
 >[!NOTE]
 >The IP address range shouldn't overlap with the IP range used in other virtual networks in your subscription and on-premises networks.

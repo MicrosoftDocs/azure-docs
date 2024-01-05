@@ -5,9 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: orchestrator
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
-ms.date: 11/07/2023
+ms.custom: ignite-2023, devx-track-azurecli
+ms.date: 12/07/2023
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
@@ -75,13 +74,25 @@ Set up an AKS Edge Essentials cluster on your machine.
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS-Edge/main/samples/storage/local-path-provisioner/local-path-storage.yaml
     ```
 
+## Arc-enable your cluster
+
+To connect your cluster to Azure Arc, complete the steps in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+
 # [Ubuntu](#tab/ubuntu)
 
 [!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
 
+## Arc-enable your cluster
+
+[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
+
 # [Codespaces](#tab/codespaces)
 
 [!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
+
+## Arc-enable your cluster
+
+[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
 
 # [WSL Ubuntu](#tab/wsl-ubuntu)
 
@@ -118,23 +129,23 @@ To set up your WSL Ubuntu environment:
 
 [!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
 
----
-
 ## Arc-enable your cluster
 
 [!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
+
+---
 
 ## Verify your cluster
 
 To verify that your Kubernetes cluster is now Azure Arc-enabled, run the following command:
 
-```bash/powershell
+```console
 kubectl get deployments,pods -n azure-arc
 ```
 
 The output looks like the following example:
 
-```text
+```output
 NAME                                         READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/clusterconnect-agent         1/1     1            1           10m
 deployment.apps/extension-manager            1/1     1            1           10m
@@ -162,8 +173,6 @@ pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0           
 pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
 ```
 
-
-
 ## Next steps
 
-Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](../get-started/quickstart-deploy.md).
+Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).

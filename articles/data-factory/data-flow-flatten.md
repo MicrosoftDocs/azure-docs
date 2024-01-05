@@ -195,7 +195,7 @@ source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
     skipDuplicateMapOutputs: false) 
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Pivot transformation](data-flow-pivot.md) to pivot rows to columns.
 * Use the [Unpivot transformation](data-flow-unpivot.md) to pivot columns to rows.

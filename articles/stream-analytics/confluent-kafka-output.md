@@ -4,6 +4,7 @@ description: Learn about how to set up an Azure Stream Analytics job as a produc
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/09/2023
 ---
@@ -75,7 +76,7 @@ To upload certificates, you must have "**Key Vault Administrator**"  access to y
 > Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job.
 
 Make sure you have Azure CLI configured and installed locally with PowerShell.
-You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
+You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
 
 **Login to Azure CLI:**
 ```PowerShell

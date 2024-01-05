@@ -62,6 +62,13 @@ You can also check past API usage by enabling [Container Insights][container-ins
     > [!NOTE]
     > `Z` is the zone designator for the zero UTC/GMT offset, also known as 'Zulu' time. This example sets the end of the window to `13:00:00` GMT. For more information, see [Combined date and time representations](https://wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
 
+* Once the previous command has succeeded, you can retry the upgrade operation.
+
+    ```azurecli-interactive
+    az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version <KUBERNETES_VERSION>
+    ```
+
+
 ## Next steps
 
 This article showed you how to stop AKS cluster upgrades automatically on API breaking changes. To learn more about more upgrade options for AKS clusters, see [Upgrade options for Azure Kubernetes Service (AKS) clusters](./upgrade-cluster.md).

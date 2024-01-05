@@ -95,7 +95,7 @@ For Operator Connect and Teams Phone Mobile:
 
 |**Value**|**Field name(s) in Azure portal**|
 |---------|---------|
-|A name for the test line. |**Name**|
+|A name for the test line.  We recommend names of the form OC1 and OC2 (for Operator Connect) and TPM1 and TPM2 (for Teams Phone Mobile). |**Name**|
 |The phone number for the test line, in E.164 format and including the country code. |**Phone Number**|
 |The purpose of the test line (always **Automated**).|**Testing purpose**|
 
@@ -154,7 +154,7 @@ Once your resource has been provisioned, a message appears saying **Your deploym
 
 ## Wait for provisioning to complete
 
-Wait for your resource to be provisioned and connected. When your resource is ready, your onboarding team contacts you and the Provisioning Status field on the resource overview changes to "Complete." We recommend that you check in periodically to see if the Provisioning Status field has changed. This step might take up to two weeks.
+Wait for your resource to be provisioned. When your resource is ready, the **Provisioning Status** field on the resource overview changes to "Complete." We recommend that you check in periodically to see if the Provisioning Status field is "Complete." This step might take up to two weeks.
 
 ## Connect Azure Communications Gateway to your networks
 

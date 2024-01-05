@@ -3,7 +3,7 @@ title: Supported scenarios for SAP HANA on Azure (Large Instances)| Microsoft Do
 description: Learn about scenarios supported for SAP HANA on Azure (Large Instances) and their architectural details.
 services: virtual-machines-linux
 documentationcenter:
-author: lauradolan
+author: ju-shim
 manager: juergent
 editor:
 ms.service: sap-on-azure
@@ -12,9 +12,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-
 ---
 # Supported scenarios for HANA Large Instances
 This article describes the supported scenarios and architectural details for HANA Large Instances (HLI).

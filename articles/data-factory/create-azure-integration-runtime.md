@@ -101,7 +101,7 @@ Once an Azure IR is created, you can reference it in your Linked Service definit
 
 ```
 
-## Next steps
+## Related content
 See the following articles on how to create other types of integration runtimes:
 
 - [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md)

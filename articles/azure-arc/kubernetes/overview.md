@@ -39,17 +39,18 @@ Once your Kubernetes clusters are connected to Azure, at scale you can:
 * Deploy machine learning workloads using [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
 * Deploy services that allow you to take advantage of specific hardware, comply with data residency requirements, or enable new scenarios. Examples of services include:
-
   * [Azure Arc-enabled data services](../data/overview.md)
   * [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json)
   * [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
   * [App Services on Azure Arc](../../app-service/overview-arc-integration.md)
-  * [Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
+   - [Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
+   * Deploy and manage Kubernetes applications targeted for Azure Arc-Enabled Kubernetes clusters from Azure Marketplace.
+   
+   [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
-[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
-
-## Next steps
+   ## Next steps
 
 * Learn about best practices and design patterns through the [Cloud Adoption Framework for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-identity-access-management).
 * Try out Arc-enabled Kubernetes without provisioning a full environment by using the [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s).
 * [Connect an existing Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md).
+

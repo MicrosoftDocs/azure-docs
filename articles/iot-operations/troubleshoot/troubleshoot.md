@@ -56,3 +56,33 @@ Status:
     Status:        Failed
 Events:            <none>
 ```
+
+## Data is corrupted in the Microsoft Fabric lakehouse table
+
+If data is corrupted in the Microsoft Fabric lakehouse table that your Data Processor pipeline is writing to, make sure that no other processes are writing to the table. If you write to the Microsoft Fabric lakehouse table from multiple sources, you might see corrupted data in the table.
+
+## Deployment issues with Data Processor
+
+If you see deployment errors with Data Processor pods, make sure that when you created your Azure Key Vault you chose **Vault access policy** as the **Permission model**.
+
+## Data Processor pipeline edits aren't applied to messages
+
+If edits you make to a pipeline aren't applied to messages, run the following commands to propagate the changes:
+
+```bash
+kubectl rollout restart deployment aio-dp-operator -n azure-iot-operations 
+
+kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations 
+
+kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
+```
+
+## Data Processor pipeline processing pauses unexpectedly
+
+It's possible a momentary loss of communication with IoT MQ broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
+
+```bash
+kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
+kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
+```
+

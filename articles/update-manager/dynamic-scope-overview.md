@@ -41,7 +41,7 @@ For Dynamic Scoping and configuration assignment, ensure that you have the follo
 
 ## Service limits
 
-The following are the Dynamic scope limits for **each dynamic scope**.
+The following are the Dynamic scope recommended limits for **each dynamic scope**.
 
 | Resource    | Limit          |
 |----------|----------------------------|

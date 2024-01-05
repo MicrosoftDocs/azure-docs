@@ -3,11 +3,11 @@ title: Install Arc agent at scale for your SCVMM VMs
 description: Learn how to enable guest management at scale for Arc-enabled SCVMM VMs. 
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
-author: PriskeyJeronika-MS
-ms.author: v-gjeronika
+author: Farha-Bano
+ms.author: v-farhabano
 manager: jsuri
 ms.topic: how-to 
-ms.date: 11/15/2023
+ms.date: 12/01/2023
 keywords: "VMM, Arc, Azure"
 
 #Customer intent: As an IT infrastructure admin, I want to install arc agents to use Azure management services for SCVMM VMs.
@@ -51,4 +51,4 @@ An admin can install agents for multiple machines from the Azure portal if the m
 
 ## Next steps
 
-[Recover from accidental deletion of resource bridge virtual machine](disaster-recovery.md).
+[Manage VM extensions to use Azure management services for your SCVMM VMs](../servers/manage-vm-extensions.md).

@@ -25,6 +25,8 @@ Once you're there, start the conversation by letting Microsoft Copilot for Azure
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
 The prompts you use can vary depending on the type of workload you want to deploy, and the stage of the conversation that you're in. Here are a few examples of the kinds of prompts you might use. Modify these prompts based on your real-life scenarios, or try additional prompts as the conversation continues.
@@ -54,7 +56,7 @@ The prompts you use can vary depending on the type of workload you want to deplo
 
 ## Examples
 
-From the **More virtual machines and related solutions** page, you can tell Microsoft Copilot for Azure (preview) "I want to deploy a website on Azure." Microsoft Copilot for Azure (preview) responds with a series of questions to better understand your scenario.
+From the **More virtual machines and related solutions** page, you can tell Microsoft Copilot for Azure (preview) "**I want to deploy a website on Azure**." Microsoft Copilot for Azure (preview) responds with a series of questions to better understand your scenario.
 
 :::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-deploy-website.png" lightbox="media/build-infrastructure-deploy-workloads/workloads-deploy-website.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing options to deploy a website.":::
 

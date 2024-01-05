@@ -75,7 +75,6 @@ Here are the details for the Mellanox card:
 For a full list of supported cables, switches, and transceivers for these network cards, go to:
 
 - [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
 ## Storage specifications
 

@@ -40,7 +40,7 @@ highlightedContent:
       itemType: overview
       url: ./data/overview.md
     # Card
-    - title: Azure Arc-enabled SQL Server
+    - title: SQL Server enabled by Azure Arc
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 
@@ -98,7 +98,7 @@ conceptualContent:
         url: ./data/index.yml
         text: See more
     # Card
-    - title: Azure Arc-enabled SQL Server
+    - title: SQL Server enabled by Azure Arc
       links:
         - url: /sql/sql-server/azure-arc/connect
           itemType: deploy

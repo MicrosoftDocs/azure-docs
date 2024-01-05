@@ -2,7 +2,6 @@
 title: CI/CD for Custom Speech - Speech service
 titleSuffix: Azure AI services
 description: Apply DevOps with Custom Speech and CI/CD workflows. Implement an existing DevOps solution for your own project.
-#services: cognitive-services
 author: nitinme
 manager: cmayomsft
 ms.service: azure-ai-speech
@@ -31,7 +30,7 @@ Along the way, the workflows should name and store data, tests, test files, mode
 
 ### CI workflow for testing data updates
 
-The principal purpose of the CI/CD workflows is to build a new model using the training data, and to test that model using the testing data to establish whether the [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate) (WER) has improved compared to the previous best-performing model (the "benchmark model"). If the new model performs better, it becomes the new benchmark model against which future models are compared.
+The principal purpose of the CI/CD workflows is to build a new model using the training data, and to test that model using the testing data to establish whether the [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate-wer) (WER) has improved compared to the previous best-performing model (the "benchmark model"). If the new model performs better, it becomes the new benchmark model against which future models are compared.
 
 The CI workflow for testing data updates should retest the current benchmark model with the updated test data to calculate the revised WER. This ensures that when the WER of a new model is compared to the WER of the benchmark, both models have been tested against the same test data and you're comparing like with like.
 
@@ -79,7 +78,7 @@ The [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Servic
 - Copy the template repository to your GitHub account, then create Azure resources and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the GitHub Actions CI/CD workflows.
 - Walk through the "[dev inner loop](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)." Update training and testing data from a feature branch, test the changes with a temporary development model, and raise a pull request to propose and review the changes.
 - When training data is updated in a pull request to *main*, train models with the GitHub Actions CI workflow.
-- Perform automated accuracy testing to establish a model's [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate) (WER). Store the test results in Azure Blob.
+- Perform automated accuracy testing to establish a model's [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate-wer) (WER). Store the test results in Azure Blob.
 - Execute the CD workflow to create an endpoint when the WER improves.
 
 ## Next steps

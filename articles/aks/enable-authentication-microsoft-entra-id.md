@@ -1,13 +1,13 @@
 ---
-title: Enable Managed Identity Authentication
-description: Learn how to enable Microsoft Entra ID on AKS with kubelogin. Connect your clusters to authenticate Azure users with credentials or managed roles.
+title: Enable managed identity authentication on Azure Kubernetes Service
+description: Learn how to enable Microsoft Entra ID on Azure Kubernetes Service with kubelogin and authenticate Azure users with credentials or managed roles.
 ms.topic: article
-ms.date: 11/13/2023
+ms.date: 11/22/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
 
-# Enable Azure Managed Identity authentication for Kubernetes clusters with kubelogin
+# Enable Azure managed identity authentication for Kubernetes clusters with kubelogin
 
 The AKS-managed Microsoft Entra integration simplifies the Microsoft Entra integration process. Previously, you were required to create a client and server app, and the Microsoft Entra tenant had to grant Directory Read permissions. Now, the AKS resource provider manages the client and server apps for you.
 
@@ -15,16 +15,18 @@ Cluster administrators can configure Kubernetes role-based access control (Kuber
 
 Learn more about the Microsoft Entra integration flow in the [Microsoft Entra documentation](concepts-identity.md#azure-ad-integration).
 
-## Limitations of integration
+## Limitations
 
-Azure Managed ID on AKS has certain limits to account for before you make a decision.
-* The integration can't be disabled once added.
+The following are constraints integrating Azure managed identity authentication on AKS.
+
+* Integration can't be disabled once added.
 * Downgrades from an integrated cluster to the legacy Microsoft Entra ID clusters aren't supported.
 * Clusters without Kubernetes RBAC support are unable to add the integration.
 
 ## Before you begin
 
-There are a few requirements to properly install the aks addon for managed identity.
+The following requirements need to be met in order to properly install the AKS addon for managed identity.
+
 * You have Azure CLI version 2.29.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`][kubelogin]. With the Azure CLI and the Azure PowerShell module, these two commands are included and automatically managed. Meaning, they're upgraded by default and running `az aks install-cli` isn't required or recommended. If you're using an automated pipeline, you need to manage upgrades for the correct or latest version. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. Otherwise,  authentication issues occur on the wrong version.
 * If you're using [helm](https://github.com/helm/helm), you need a minimum version of helm 3.3.
@@ -174,9 +176,9 @@ There are some non-interactive scenarios that don't support `kubectl`. In these 
 ## Troubleshoot access issues
 
 > [!IMPORTANT]
-> The steps described in this section bypass the normal Microsoft Entra group authentication. Use them only in an emergency.
+> The step described in this section suggests an alternative authentication method compared to the normal Microsoft Entra group authentication. Use this option only in an emergency.
 
-If you lack admin access to a valid Microsoft Entra group, you can follow this workaround. Sign in through the [Azure Kubernetes Service Cluster Admin](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) role and grant your group or tenant admin credentials to access your cluster.
+If you lack administrative access to a valid Microsoft Entra group, you can follow this workaround. Sign in with an account that is a member of the [Azure Kubernetes Service Cluster Admin](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) role and grant your group or tenant admin credentials to access your cluster.
 
 ## Next steps
 

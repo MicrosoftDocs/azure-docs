@@ -225,6 +225,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
+  - name: Frequently asked questions
+    href: frequently-asked-questions.yml
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-resource-manager
   - name: Azure Roadmap

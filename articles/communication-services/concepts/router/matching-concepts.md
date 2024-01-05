@@ -55,7 +55,7 @@ var worker = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "w
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-const worker = await client.path("/routing/workers/{workerId}", "worker-1").patch({
+let worker = await client.path("/routing/workers/{workerId}", "worker-1").patch({
     body: {
         availableForOffers: true,
         capacity: 2,
@@ -235,7 +235,7 @@ If a worker would like to stop receiving offers, it can be deregistered by setti
 
 ```csharp
 worker.AvailableForOffers = false;
-await client.UpdateWorkerAsync(worker);
+worker = await client.UpdateWorkerAsync(worker);
 ```
 
 ::: zone-end
@@ -243,7 +243,7 @@ await client.UpdateWorkerAsync(worker);
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.path("/routing/workers/{workerId}", "worker-1").patch({
+worker = await client.path("/routing/workers/{workerId}", worker.body.id).patch({
     body: { availableForOffers: false },
     contentType: "application/merge-patch+json"
 });
@@ -254,7 +254,7 @@ await client.path("/routing/workers/{workerId}", "worker-1").patch({
 ::: zone pivot="programming-language-python"
 
 ```python
-client.upsert_worker(worker_id = "worker-1", available_for_offers = False)
+worker = client.upsert_worker(worker_id = worker.id, available_for_offers = False)
 ```
 
 ::: zone-end
@@ -262,7 +262,7 @@ client.upsert_worker(worker_id = "worker-1", available_for_offers = False)
 ::: zone pivot="programming-language-java"
 
 ```java
-client.updateWorkerWithResponse("worker-1", worker.setAvailableForOffers(false));
+worker = client.updateWorkerWithResponse(worker.getId(), worker.setAvailableForOffers(false));
 ```
 
 ::: zone-end

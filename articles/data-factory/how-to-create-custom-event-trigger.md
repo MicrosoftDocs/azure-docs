@@ -155,7 +155,7 @@ Specifically, you need `Microsoft.EventGrid/EventSubscriptions/Write` permission
 - When authoring in the data factory (in the development environment for instance), the Azure account signed in needs to have the above permission
 - When publishing through [CI/CD](continuous-integration-delivery.md), the account used to publish the ARM template into the testing or production factory needs to have the above permission.
 
-## Next steps
+## Related content
 
 * Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * Learn how to [reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

@@ -2,12 +2,12 @@
 title: Create a user account by using Azure Active Directory B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to create a user account in Azure AD B2C storage by using a custom policy. 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
 ms.date: 11/06/2023

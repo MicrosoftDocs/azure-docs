@@ -250,7 +250,7 @@ We want to hear from you! If you see this pop-up, please let us know your though
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-19.png" alt-text="Screenshot of the feedback survey where user can select between one and five stars.":::
 
 
-## Next steps
+## Related content
 
 - [What's New in Azure Data Factory](whats-new.md)
 - [How to manage Azure Data Factory Settings](how-to-manage-settings.md)

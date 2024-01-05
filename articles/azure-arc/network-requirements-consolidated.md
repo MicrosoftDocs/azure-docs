@@ -36,7 +36,7 @@ For more information, see [Connectivity modes and requirements](data/connectivit
 
 Connectivity to Arc-enabled server endpoints is required for:
 
-- Azure Arc-enabled SQL Server
+- SQL Server enabled by Azure Arc
 - Azure Arc-enabled VMware vSphere (preview) <sup>*</sup>
 - Azure Arc-enabled System Center Virtual Machine Manager (preview) <sup>*</sup>
 - Azure Arc-enabled Azure Stack (HCI) (preview) <sup>*</sup>

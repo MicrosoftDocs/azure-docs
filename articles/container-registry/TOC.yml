@@ -171,8 +171,10 @@
         href: allow-access-trusted-services.md
       - name: Access behind a firewall
         href: container-registry-firewall-access-rules.md
-      - name: Enable conditional access policy
-        href: container-registry-enable-conditional-access-policy.md
+      - name: Configure conditional access to your Azure Container Registry.
+        href: container-registry-configure-conditional-access.md
+      - name: Disable authentication as ARM template
+        href: container-registry-disable-authentication-as-arm.md
       - name: Authentication
         items:
         - name: Authentication overview

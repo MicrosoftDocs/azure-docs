@@ -128,11 +128,11 @@ items:
           href: troubleshoot-guide.md
         - name: Get logs
           href: troubleshooting-get-logs.md
-- name: Azure Arc-enabled SQL Managed Instance
+- name: SQL Managed Instance enabled by Azure Arc
   items:
     - name: Overview
       items:
-        - name: What is Azure Arc-enabled SQL Managed Instance
+        - name: SQL Managed Instance enabled by Azure Arc
           href: managed-instance-overview.md
         - name: Features
           href: managed-instance-features.md
@@ -310,7 +310,7 @@ items:
               href: restore-adventureworks-sample-db-into-postgresql-server.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-server.md
-- name: Azure Arc-enabled SQL Server >
+- name: SQL Server enabled by Azure Arc >
   href: /sql/sql-server/azure-arc/overview
 - name: Reference
   items:

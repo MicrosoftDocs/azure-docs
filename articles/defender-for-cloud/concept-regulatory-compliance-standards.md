@@ -3,7 +3,7 @@ title: Regulatory compliance standards in Microsoft Defender for Cloud
 description: Learn about regulatory compliance standards in Microsoft Defender for Cloud
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 01/10/2023
+ms.date: 11/27/2023
 ---
 
 # Regulatory compliance standards
@@ -61,7 +61,7 @@ You can drill down into controls to get information about resources that have pa
 By default, when you enable Defender for Cloud, the following standards are enabled:
 
 - **Azure**: The [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) is enabled for Azure subscriptions.
-- **AWS**: AWS accounts get the [AWS Foundational Security Best Practices standard](https://docs.aws.amazon.com/securityhub/latest/userguide/fsbp-standard.html) assigned. This standard contains AWS-specific guidelines for security and compliance best practices based on common compliance frameworks. AWS accounts also have MCSB assigned by default.
+- **AWS**: AWS accounts get the [AWS Foundational Security Best Practices standard](https://docs.aws.amazon.com/securityhub/latest/userguide/fsbp-standard.html) and [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) assigned by default. AWS Foundational Security Best Practices standard contains AWS-specific guidelines for security and compliance best practices based on common compliance frameworks.
 - **GCP**: GCP projects get the GCP Default standard assigned.
 
 

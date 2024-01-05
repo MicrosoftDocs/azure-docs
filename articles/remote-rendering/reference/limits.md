@@ -27,10 +27,10 @@ The following limitations apply to the frontend API (C++ and C#):
 
 * **Animation:** Animations are limited to animating individual transforms of [game objects](../concepts/entities.md). Skeletal animations with skinning or vertex animations aren't supported. Animation tracks from the source asset file aren't preserved. Instead, object transform animations have to be driven by client code.
 * **Custom shaders:** Authoring of custom shaders isn't supported. Only built-in [Color materials](../overview/features/color-materials.md) or [PBR materials](../overview/features/pbr-materials.md) can be used.
-* **Maximum number of distinct materials** in a singular triangular mesh asset: 65,535. For more information about automatic material count reduction, see the [material de-duplication](../how-tos/conversion/configure-model-conversion.md#material-deduplication) chapter.
+* **Maximum number of distinct materials** in a singular triangular mesh asset: 65,535. For more information about automatic material count reduction, see the [material deduplication](../how-tos/conversion/configure-model-conversion.md#material-deduplication) chapter.
 * **Maximum number of distinct textures**: There's no hard limit on the number of distinct textures. The only constraint is overall GPU memory and the number of distinct materials.
-* **Maximum dimension of a single texture**: 16,384 x 16,384. Larger textures can't be used by the renderer. The conversion process can sometimes reduce larger textures in size, but in general it will fail to process textures larger than this limit.
-* **Maximum number of points in a single point cloud asset**: 2.5 billion.
+* **Maximum dimension of a single texture**: 16,384 x 16,384. Larger textures can't be used by the renderer. The conversion process can sometimes reduce larger textures in size, but in general it fails to process textures larger than this limit.
+* **Maximum number of points in a single point cloud asset**: 12.5 billion.
 
 ### Overall number of primitives
 

@@ -22,8 +22,6 @@ monikerRange: '>=doc-intel-3.0.0'
 
 [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service in your applications. You can get started by exploring the pretrained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and other quickstarts.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE56n49]
-
 ## Prerequisites for new users
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
@@ -31,6 +29,14 @@ monikerRange: '>=doc-intel-3.0.0'
 
 > [!TIP]
 > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Microsoft Entra authentication](../../../active-directory/authentication/overview-authentication.md).
+
+#### Azure role assignments
+
+For document analysis and prebuilt models, following role assignments are required for different scenarios.
+* Basic
+  * **Cognitive Services User**: you need this role to Document Intelligence or Azure AI services resource to enter the analyze page.
+* Advanced
+  * **Contributor**: you need this role to create resource group, Document Intelligence service, or Azure AI services resource.
 
 ## Models
 
@@ -81,6 +87,17 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 * [**Create a storage account**](../../../storage/common/storage-account-create.md). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
 * [**Create a container**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
 
+### Azure role assignments
+
+For custom projects, the following role assignments are required for different scenarios.
+
+* Basic
+  * **Cognitive Services User**: You need this role for Document Intelligence or Azure AI services resource to train the custom model or do analysis with trained models.
+  * **Storage Blob Data Contributor**: You need this role for the Storage Account to create a project and label data.
+* Advanced
+  * **Storage Account Contributor**: You need this role for the Storage Account to set up CORS settings (this is a one-time effort if the same storage account is reused).
+  * **Contributor**: You need this role to create a resource group and resources.
+
 ### Configure CORS
 
 [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Document Intelligence Studio. To configure CORS in the Azure portal, you need access to the CORS tab of your storage account.
@@ -91,7 +108,7 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 1. Start by creating a new CORS entry in the Blob service.
 
-1. Set the **Allowed origins** to `https://formrecognizer.appliedai.azure.com`.
+1. Set the **Allowed origins** to `https://documentintelligence.ai.azure.com`.
 
    :::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 

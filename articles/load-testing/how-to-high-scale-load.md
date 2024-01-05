@@ -220,7 +220,7 @@ For example, if application latency is 20 milliseconds (0.02 seconds), and you'r
 To achieve a target number of requests per second, configure the total number of virtual users for your load test.
 
 > [!NOTE]
-> Apache JMeter only reports requests that made it to the server and back, either successful or not. If Apache JMeter is unable to connect to your application, the actual number of requests per second will be lower than the maximum value. Possible causes might be that the server is too busy to handle the request, or that a TLS/SSL certificate is missing. To diagnose connection problems, you can check the **Errors** chart in the load testing dashboard and [download the load test log files](./how-to-troubleshoot-failing-test.md).
+> Apache JMeter only reports requests that made it to the server and back, either successful or not. If Apache JMeter is unable to connect to your application, the actual number of requests per second will be lower than the maximum value. Possible causes might be that the server is too busy to handle the request, or that a TLS/SSL certificate is missing. To diagnose connection problems, you can check the **Errors** chart in the load testing dashboard and [download the load test log files](./how-to-diagnose-failing-load-test.md).
 
 ## Test engine instances and virtual users
 
