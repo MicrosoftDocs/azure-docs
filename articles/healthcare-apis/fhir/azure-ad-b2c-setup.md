@@ -12,7 +12,7 @@ ms.author: namalu
 
 # Grant access to the FHIR service by using Azure AD B2C
 
-Healthcare organizations can enable user access by using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) with the [FHIR&reg; service](../overview.md)  in Azure Health Data Services. Using Azure AD B2C is useful when an organization needs to grant access to resources for users who aren't in their [Microsoft Entra ID](/entra/fundamentals/whatis) tenant.
+Healthcare organizations can enable user access by using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the [FHIR&reg; service](../overview.md) in Azure Health Data Services. Using Azure AD B2C is useful when an organization needs to grant access to resources for users who aren't in their [Microsoft Entra ID](/entra/fundamentals/whatis) tenant.
 
 ## Step 1: Create an Azure B2C tenant for the FHIR service
 
