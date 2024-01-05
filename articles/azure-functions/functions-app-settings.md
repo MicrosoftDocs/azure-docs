@@ -75,7 +75,7 @@ For more information, see [Connection strings](../azure-monitor/app/sdk-connecti
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
 > [!IMPORTANT]
-> Azure Functions proxies is a legacy feature for [versions 1.x through 3.x](../articles/azure-functions/functions-versions.md) of the Azure Functions runtime. For more information about legacy support in version 4.x, see [Functions proxies](functions-proxies.md).
+> Azure Functions proxies is a legacy feature for [versions 1.x through 3.x](functions-versions.md) of the Azure Functions runtime. For more information about legacy support in version 4.x, see [Functions proxies](functions-proxies.md).
 
 By default, Functions proxies use a shortcut to send API calls from proxies directly to functions in the same function app. This shortcut is used instead of creating a new HTTP request. This setting allows you to disable that shortcut behavior.
 
@@ -87,7 +87,7 @@ By default, Functions proxies use a shortcut to send API calls from proxies dire
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
 > [!IMPORTANT]
-> Azure Functions proxies is a legacy feature for [versions 1.x through 3.x](../articles/azure-functions/functions-versions.md) of the Azure Functions runtime. For more information about legacy support in version 4.x, see [Functions proxies](functions-proxies.md).
+> Azure Functions proxies is a legacy feature for [versions 1.x through 3.x](functions-versions.md) of the Azure Functions runtime. For more information about legacy support in version 4.x, see [Functions proxies](functions-proxies.md).
 
 This setting controls whether the characters `%2F` are decoded as slashes in route parameters when they're inserted into the backend URL.
 
@@ -278,11 +278,53 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsStorage
 
-The Azure Functions runtime uses this storage account connection string for normal operation. Some uses of this storage account include key management, timer trigger management, and Event Hubs checkpoints. The storage account must be a general-purpose one that supports blobs, queues, and tables. For more information, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
+Specifies the connection string for an Azure Storage account that the Functions runtime uses for normal operations. Some uses of this storage account by Functions include key management, timer trigger management, and Event Hubs checkpoints. The storage account must be a general-purpose one that supports blobs, queues, and tables. For more information, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsStorage|`DefaultEndpointsProtocol=https;AccountName=...`|
+
+Instead of a connection string, you can use an identity based connection for this storage account. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+
+## AzureWebJobsStorage__accountName
+
+When using an identity-based storage connection, sets the account name of the storage account instead of using the connection string in `AzureWebJobsStorage`. This syntax is unique to `AzureWebJobsStorage` and can't be used for other identity-based connections. 
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsStorage__accountName|`<STORAGE_ACCOUNT_NAME>`|
+
+For sovereign clouds or when using a custom DNS, you must instead use the service-specific `AzureWebJobsStorage__*ServiceUri` settings.
+
+## AzureWebJobsStorage__blobServiceUri
+
+When using an identity-based storage connection, sets the data plane URI of the blob service of the storage account. 
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsStorage__blobServiceUri|`https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`|
+
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+
+## AzureWebJobsStorage__queueServiceUri
+
+When using an identity-based storage connection, sets the data plane URI of the queue service of the storage account.
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsStorage__queueServiceUri|`https://<STORAGE_ACCOUNT_NAME>.queue.core.windows.net`|
+
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+
+## AzureWebJobsStorage__tableServiceUri
+
+When using an identity-based storage connection, sets data plane URI of a table service of the storage account.
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsStorage__tableServiceUri|`https://<STORAGE_ACCOUNT_NAME>.table.core.windows.net`|
+
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
 
 ## AzureWebJobs_TypeScriptPath
 
@@ -326,7 +368,7 @@ Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is 
 
 ## FUNCTION\_APP\_EDIT\_MODE
 
-Dictates whether editing in the Azure portal is supported for your function app. Valid values are `readwrite` and `readonly`.
+Indicates whether you are able to edit your function app in the Azure portal. Valid values are `readwrite` and `readonly`.
 
 |Key|Sample value|
 |---|------------|
@@ -613,10 +655,6 @@ Sets the DNS server used by an app when resolving IP addresses. This setting is 
 |---|------------|
 |WEBSITE\_DNS\_SERVER|`168.63.129.16`|
 
-## WEBSITES_ENABLE_APP_SERVICE_STORAGE
-
-Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container. 
-
 ## WEBSITE\_ENABLE\_BROTLI\_ENCODING
 
 Controls whether Brotli encoding is used for compression instead of the default gzip compression. When `WEBSITE_ENABLE_BROTLI_ENCODING` is set to `1`, Brotli encoding is used; otherwise gzip encoding is used.
@@ -726,9 +764,9 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 |---|------------|
 |WEBSITE\_VNET\_ROUTE\_ALL|`1`|
 
-## WEBSITES_ENABLE_APP_SERVICE_STORAGE 
+## WEBSITES_ENABLE_APP_SERVICE_STORAGE
 
-WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
+Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container. d 
 
 ## App Service site settings
 
