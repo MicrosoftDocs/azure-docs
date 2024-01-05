@@ -32,7 +32,7 @@ Update-AzElasticSan -ResourceGroupName $resourceGroupName -Name $sanName -BaseSi
 
 ```azurecli
 # You can either update the base size or the additional size.
-# This command updates the base size, to update the additional size, replace -base-size-tib $newBaseSizeTib with –extended-capacity-size-tib $newExtendedCapacitySizeTib
+# This command updates the base size, to update the additional size, replace -base-size-tib $newBaseSizeTib with -extended-capacity-size-tib $newExtendedCapacitySizeTib
 
 az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBaseSizeTib
 ```
