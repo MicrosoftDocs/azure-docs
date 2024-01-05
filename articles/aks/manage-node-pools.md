@@ -183,47 +183,12 @@ AKS offers a separate feature to automatically scale node pools with a feature c
 
 For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
-## Associate capacity reservation groups to node pools (preview)
+## Associate capacity reservation groups to node pools 
 
 As your workload demands change, you can associate existing capacity reservation groups to node pools to guarantee allocated capacity for your node pools.  
 
 For more information, see [capacity reservation groups][capacity-reservation-groups].
 
-### Register preview feature
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-1. Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
-
-    ```azurecli-interactive
-    az extension add --name aks-preview
-    ```
-
-2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
-
-    ```azurecli-interactive
-    az extension update --name aks-preview
-    ```
-
-3. Register the `CapacityReservationGroupPreview` feature flag using the [`az feature register`][az-feature-register] command.
-
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "CapacityReservationGroupPreview"
-    ```
-
-    It takes a few minutes for the status to show *Registered*.
-
-4. Verify the registration status using the [`az feature show][az-feature-show`] command.
-
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "CapacityReservationGroupPreview"
-    ```
-
-5. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
 
 ### Manage capacity reservations
 
@@ -248,6 +213,9 @@ For more information, see [capacity reservation groups][capacity-reservation-gro
 
 > [!NOTE]
 > Deleting a node pool implicitly dissociates that node pool from any associated capacity reservation group before the node pool is deleted. Deleting a cluster implicitly dissociates all node pools in that cluster from their associated capacity reservation groups.
+
+> [!NOTE]
+> To disassociate a nodepool from a capacity reservation group, or to update an existing nodepool to a capacity reservation group - You need to scale down the target nodepool to zero nodes first. The recommended approach is to associate a capacity reservation group during the nodepool create/ add time.  
 
 ## Specify a VM size for a node pool
 
