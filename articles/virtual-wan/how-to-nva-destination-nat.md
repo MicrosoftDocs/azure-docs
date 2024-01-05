@@ -73,29 +73,42 @@ The list below corresponds to the diagram above and describes the packet flow fo
 
 * Inbound Traffic is automatically load-balanced across all healthy instances of the Network Virtual Appliance.
 * In most cases, NVAs must perform source-NAT to the Firewall private IP in addition to  destination-NAT to ensure flow symmetry. Certain NVA types may not require source-NAT. Contact your NVA provider for best practices around source-NAT.
-* Timeout for DNAT flows is automatically set to ___ seconds 
+* Timeout for DNAT flows is automatically set to ___ seconds.
 * You can assign individual IP address resources generated from an IP address prefix to the NVA as internet inbound IPs. Assign each IP address from the prefix individually.
 
+## Managing DNAT/Internet Inbound configurations
 
-
-## Associating a new Internet Inbound Public IP to an existing NVA
+The following section describes how to manage NVA configurations related to internet inbound and DNAT.
 
 1. Navigate to your Virtual WAN Hub. Select **Network Virtual Appliances** under Third Party Providers. Click on **Manage Configurations** next to the NVA.
+:::image type="content" source="./media/virtual-wan-nva-dnat/nva-manage-configurations.png"alt-text="Screenshot showing how to manage configurations for NVA."lightbox="./media/virtual-wan-nva-dnat/nva-manage-configurations.png":::
+
 1. Select **Internet Inbound** under NVA.
+:::image type="content" source="./media/virtual-wan-nva-dnat/nva-select-internet-inbound.png"alt-text="Screenshot showing how to add IP to NVA."lightbox="./media/virtual-wan-nva-dnat/nva-select-internet-inbound.png":::
+
+### Associating an IP address to a NVA for Internet Inbound
+
 1. If the NVA is eligible for internet inbound and there are no current internet inbound IP addresses associated to the NVA, select **Enable Internet Inbound (Destination NAT) by associating a public IP to this Network Virtual Appliance**. If IPs are already associated to this NVA, select **Add**.
-1. Select the resource group and the IP address resource that you want to use for internet inbound from the dropdown.
-1. Click **save**.
+:::image type="content" source="./media/virtual-wan-nva-dnat/nva-add-inbound-ip.png"alt-text="Screenshot showing how to add IP to NVA."lightbox="./media/virtual-wan-nva-dnat/nva-add-inbound-ip.png".png":::
 
-## View existing rules using an Internet Inbound Public IP
-1. Navigate to your Virtual WAN Hub. Select **Network Virtual Appliances** under Third Party Providers. Click on **Manage Configurations** next to the NVA.
-1. Select **Internet Inbound** under NVA.
+1. Select the resource group and the IP address resource that you want to use for internet inbound from the dropdown.
+:::image type="content" source="./media/virtual-wan-nva-dnat/nva-select-ip.png"alt-text="Screenshot showing how to select an IP."lightbox="./media/virtual-wan-nva-dnat/nva-select-ip.png".png":::
+1. Click **save**.
+:::image type="content" source="./media/virtual-wan-nva-dnat/nva-save-ip.png"alt-text="Screenshot showing how to save IP."lightbox="./media/virtual-wan-nva-dnat/nva-save-ip.png".png":::
+
+### View active inbound security rules using an Internet Inbound Public IP
+
 1. Find the Public IP you want to view and click **View rules**.
+:::image type="content" source="./media/virtual-wan-nva-dnat/nva-view-rules.png"alt-text="Screenshot showing how to view rules associated to NVA."lightbox="./media/virtual-wan-nva-dnat/nva-view-rules.png":::
+1. View the rules associated to the public IP.
+:::image type="content" source="./media/virtual-wan-nva-dnat/nva-rules.png"alt-text="Screenshot showing how to view rules associated to NVA."lightbox="./media/virtual-wan-nva-dnat/nva-rules.png":::
  
-## Remove Internet Inbound public IP from existing NVA
-1. Navigate to your Virtual WAN Hub. Select **Network Virtual Appliances** under Third Party Providers. Click on **Manage Configurations** next to the NVA.
-1. Select **Internet Inbound** under NVA.
-1. Select the IP you want to remove from the grid.
-1. Click **Delete**.
+### Remove Internet Inbound public IP from existing NVA
+> [!NOTE]
+> IP addresses can only be removed if there are no rules associated to that IP is 0. Remove all rules associated to the IP by removing DNAT rules assigned to that IP from your NVA management software.
+
+1. Select the IP you want to remove from the grid and click **Delete**.
+:::image type="content" source="./media/virtual-wan-nva-dnat/nva-delete-ip.png"alt-text="Screenshot showing how to add IP to NVA."lightbox="./media/virtual-wan-nva-dnat/nva-delete-ip.png":::
 
 ## Programming DNAT Rules
 
