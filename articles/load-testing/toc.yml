@@ -43,6 +43,8 @@ items:
           href: how-to-read-csv-data.md
         - name: Customize tests with JMeter plugins
           href: how-to-use-jmeter-plugins.md
+        - name: Use JMeter user properties
+          href: how-to-configure-user-properties.md
     - name: Configure test settings
       items:
         - name: Configure for high scale loads
@@ -51,9 +53,7 @@ items:
           href: how-to-define-test-criteria.md
         - name: Parameterize load tests
           href: how-to-parameterize-load-tests.md
-        - name: Use JMeter user properties
-          href: how-to-configure-user-properties.md
-        - name: Use virtual networking for private endpoints
+        - name: Test private endpoints
           displayName: virtual network, vnet, hybrid, on-premises, onprem, private link, subnet
           href: how-to-test-private-endpoint.md
         - name: Test secure endpoints
