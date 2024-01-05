@@ -98,7 +98,7 @@ You need a test B2C user to associate with a specific patient resource in the FH
 
 #### Add the `fhirUser` custom user attribute
 
-The `fhirUser` custom user attribute is used to link a B2C user with a user resource in the FHIR service. In this example, a user named **Test Patient1** is created in the B2C tenant, and then a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is linked to the patient resource by setting the `fhirUser` attribute value to the patient resource identifier. For more information, see [User flow custom attributes in Azure Active Directory B2C](/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow).
+The `fhirUser` custom user attribute is used to link a B2C user with a user resource in the FHIR service. In this example, a user named **Test Patient1** is created in the B2C tenant, and in a later step a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is linked to the patient resource by setting the `fhirUser` attribute value to the patient resource identifier. For more information about custom user attributes, see [User flow custom attributes in Azure Active Directory B2C](/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow).
 
 1. On the **Azure AD B2C** page in the left pane, choose **User attributes**.
 
