@@ -16,7 +16,7 @@ Healthcare organizations can enable user access by using [Azure Active Directory
 
 ## Step 1: Create an Azure B2C tenant for the FHIR service
 
-Creating an Azure B2C tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare application. 
+Creating an Azure B2C tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare applications. 
 
 #### Deploy an Azure B2C tenant by using an ARM template
 
