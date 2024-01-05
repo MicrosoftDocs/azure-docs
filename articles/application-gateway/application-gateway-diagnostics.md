@@ -224,9 +224,9 @@ If the application gateway cannot complete the request, it stores one of the fol
   | ERRORINFO_INVALID_VERSION|	The application gateway received a request with an invalid or unsupported HTTP version|
    | ERRORINFO_INVALID_09_METHOD|	The client sent request with HTTP Protocol version 0.9|
    | ERRORINFO_INVALID_HOST	|The value provided in the "Host" header is either missing, improperly formatted, or does not match the expected host value.Possible reasons: There is no Basic listener configured and none of the hostnames of the Multisite listener is matching with the host| 
-   | ERRORINFO_INVALID_CONTENT_LENGTH |	The length of the content specified by the client in the Content-Length header does not match the actual length of the content in the request|
-   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method which is currently not supported |
-   |  ERRORINFO_CLIENT_CLOSED_REQUEST |	The connection was prematurely closed by the client |
+   | ERRORINFO_INVALID_CONTENT_LENGTH |	The length of the content specified by the client in the content-Length header does not match the actual length of the content in the request|
+   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method which is not supported by the application gateway|
+   |  ERRORINFO_CLIENT_CLOSED_REQUEST |	The client closed the connection with the application gateway before the idle timeout period elapsed.Check whether the client timeout period is greater than the [idle timeout period](./application-gateway-faq#what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout) for the application gateway |
    | ERRORINFO_REQUEST_URI_INVALID	|Indicates issue with the Uniform Resource Identifier (URI) provided in the client's request |
    |  ERRORINFO_HTTP_NO_HOST_HEADER	| Client sent a request without Host header |
    | ERRORINFO_HTTP_TO_HTTPS_PORT	| The client sent plain HTTP request to HTTPS port |
