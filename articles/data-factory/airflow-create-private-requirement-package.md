@@ -75,13 +75,13 @@ Use the steps described in [Manage blob containers using the Azure portal](/azur
 1. Add your private package as a requirement in the `requirements.txt` file. Add this file if it doesn't already exist.
 1. Be sure to prepend the prefix `/opt/airflow` to the package path. For instance, if your private package resides at `/dats/test/private.wht`, your `requirements.txt` file should feature the requirement `/opt/airflow/dags/test/private.wht`.
 
-## Import your folder to an Airflow IR environment
+## Import your folder to an Airflow integration runtime environment
 
-When you import your folder into an Airflow integrated runtime (IR) environment, select the **Import requirements** checkbox to load your requirements inside your Airflow environment.
+When you import your folder into an Airflow integration runtime environment, select the **Import requirements** checkbox to load your requirements inside your Airflow environment.
 
-:::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-checkbox.png" alt-text="Screenshot that shows the Import dialog for an Airflow integrated runtime environment with the Import requirements checkbox selected.":::
+:::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-checkbox.png" alt-text="Screenshot that shows the Import dialog for an Airflow integration runtime environment with the Import requirements checkbox selected.":::
 
-:::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-airflow-environment.png" alt-text="Screenshot that shows the imported requirements dialog in an Airflow integrated runtime environment." lightbox="media/airflow-create-private-requirement-package/import-requirements-airflow-environment.png":::
+:::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-airflow-environment.png" alt-text="Screenshot that shows the imported requirements dialog in an Airflow integration runtime environment." lightbox="media/airflow-create-private-requirement-package/import-requirements-airflow-environment.png":::
 
 ### Check the import
 
