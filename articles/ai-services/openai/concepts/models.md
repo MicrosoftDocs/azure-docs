@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 01/03/2024
+ms.date: 01/05/2024
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -145,7 +145,7 @@ These models can only be used with Embedding API requests.
 
 |  Model ID  |  Model Availability  | Max Request (tokens) | Training Data (up to)  | Output Dimensions |
 |---|---| :---:|:---:|:---:|
-| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe |8,191 | Sep 2021 | 1,536 |
+| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> Norway East <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe <br> West US |8,191 | Sep 2021 | 1,536 |
 | `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | Sep 2021 | 1,536 |
 
 ### DALL-E models (Preview)

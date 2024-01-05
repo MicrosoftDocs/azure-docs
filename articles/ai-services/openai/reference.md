@@ -379,9 +379,9 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
         {
             "type": "AzureCognitiveSearch",
             "parameters": {
-                "endpoint": "'YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT'",
-                "key": "'YOUR_AZURE_COGNITIVE_SEARCH_KEY'",
-                "indexName": "'YOUR_AZURE_COGNITIVE_SEARCH_INDEX_NAME'"
+                "endpoint": "YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT",
+                "key": "YOUR_AZURE_COGNITIVE_SEARCH_KEY",
+                "indexName": "YOUR_AZURE_COGNITIVE_SEARCH_INDEX_NAME"
             }
         }
     ],
