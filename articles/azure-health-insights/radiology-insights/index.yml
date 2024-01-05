@@ -22,7 +22,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Radiology Insights?
+          - text: What is the Radiology Insights model?
             url: overview.md
       - linkListType: concept
         links:

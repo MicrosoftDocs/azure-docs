@@ -139,8 +139,8 @@ This inference is created for a medical problem (for example “acute infection 
 - finding: FHIR.R4.Observation
         
 Finding: Section and ci_sentence
-Next to the token extensions, there can be an extension with url “section”. This extension has an inner extension with a display name that describes the section. The inner extension can also have a loinc code.
-There can also be an extension with url “ci_sentence”. This extension refers to the sentence containing the first token of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable (customer Powerscribe or mPower).
+Next to the token extensions, there can be an extension with url “section”. This extension has an inner extension with a display name that describes the section. The inner extension can also have a LOINC code.
+There can also be an extension with url “ci_sentence”. This extension refers to the sentence containing the first token of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable (customer Power scribe or mPower).
 
 Finding: fields within field “finding”
 list of fields within field “finding”, except “component”:
@@ -228,7 +228,7 @@ Zero or more components with code 362981000: QUALIFIER VALUE (QUALIFIER VALUE). 
 Every component has either:
 -	Field “valueString” set with token strings from the text, separated by “;;”
 -	Or field “valueCodeableConcept” set to a SNOMED code
--	Or no field set (then the meaning can be retrieved from the token extensions (rare occurrance))
+-	Or no field set (then the meaning can be retrieved from the token extensions (rare occurrence))
 
 Finding: component “multiple”
 Exactly one component with code 46150521: MULTIPLE (QUALIFIER VALUE). It has field “valueBoolean” set to true or false. This component indicates the difference between, for example, one nodule (multiple is false) or several nodules (multiple is true). This component has no token extensions.
@@ -266,7 +266,7 @@ This inference is created when the text recommends a specific medical procedure 
 
 recommendedProcedure: ProcedureRecommendation
 - follow up Recommendation: sentences
-Next to the token extensions, there can be an extension containing sentences. This behavior is switchable; (only mPower or Powerscribe).
+Next to the token extensions, there can be an extension containing sentences. This behavior is switchable; (only mPower or Power scribe).
 - follow up Recommendation: boolean fields
 “isHedging” mean that the recommendation is uncertain, for example, “a follow-up could be done”. “isConditional” is for input like “If the patient continues having pain, an MRI should be performed.”
 “isOptions”: is also for conditional input
@@ -326,7 +326,7 @@ This inference is for the ordered radiology procedure(s).
 - orderedProcedure: OrderedProcedure
         
 Field “imagingProcedures” contains one or more instances of an imaging procedure, as documented for the follow up recommendations.
-Field “procedureCodes”, if set, contains loinc codes.
+Field “procedureCodes”, if set, contains LOINC codes.
 Field “orderedProcedure” contains the description(s) and the code(s) of the ordered procedure(s) as given by the client. The descriptions are in field “orderedProcedure.description”, separated by “;;”. The codes are in “orderedProcedure.code.coding”. In every coding in the array, only field “coding” is set.
         
 Request and json output: ContrastMismatch 1Limited
