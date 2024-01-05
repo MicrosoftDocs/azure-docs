@@ -17,11 +17,11 @@ BCDR strategies include availability zone redundancy and user-managed recovery
 
 Azure Operator Insights is powered by resource provider (RP) Microsoft.NetworkAnalytics which is resilient both to software errors and failure of an Availability Zone. The ability to create and manage Data Products is not affected by such failure modes. 
 
-The Resource Provider is not region redundant. During a given Azure region outage, you can neither create new Data Products in that region nor access/manage existing ones. 
+The Resource Provider is not region redundant. During a given Azure region outage, you can neither create new Data Products in that region nor access/manage existing ones. Once the Azure region recovers from the outage, you will be able to access and manage existing Data Products again.
 
 ## Data Plane
 
-Data Products are resilient to software or hardware failures.. For example, if a software bug causes the service to crash, or a hardware failure causes the loss of a VM driving enrichment queries, service will automatically recover and you will notice no impact beyond a slight delay in transformation.
+Data Products are resilient to software or hardware failures.For example, if a software bug causes the service to crash, or a hardware failure causes the loss of a VM driving enrichment queries, service will automatically recover and you will notice no impact beyond a slight delay in newly ingested data becoming available in storage endpoint and in KQL consumption URL.
 
 ### Zone redundancy
 
