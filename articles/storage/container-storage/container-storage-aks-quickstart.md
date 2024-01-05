@@ -136,7 +136,7 @@ The deployment will take 10-15 minutes to complete.
 To get the list of available storage pools, run the following command:
 
 ```azurecli-interactive
-kubectl get sp –n acstor
+kubectl get sp -n acstor
 ```
 
 > [!IMPORTANT]
