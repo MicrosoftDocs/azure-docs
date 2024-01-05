@@ -1,6 +1,6 @@
 ---
-title: REST APIs for the Managed Airflow integrated runtime
-description: This article documents the REST APIs for the Managed Airflow integrated runtime.
+title: REST APIs for the Managed Airflow integration runtime
+description: This article documents the REST APIs for the Managed Airflow integration runtime.
 ms.service: data-factory
 ms.topic: reference
 author: nabhishek
@@ -8,11 +8,11 @@ ms.author: abnarain
 ms.date: 08/09/2023
 ---
 
-# REST APIs for the Managed Airflow integrated runtime
+# REST APIs for the Managed Airflow integration runtime
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article documents the REST APIs for the Managed Airflow integrated runtime.
+This article documents the REST APIs for the Managed Airflow integration runtime.
 
 > [!NOTE]
 > Managed Airflow for Azure Data Factory relies on the open-source Apache Airflow application. You can find documentation and more tutorials for Airflow on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) webpages.
@@ -56,7 +56,7 @@ This article documents the REST APIs for the Managed Airflow integrated runtime.
 
   |Name  |Type  |Description  |
   |---------|---------|---------|
-  |location     |string         |The Airflow integrated runtime location defaults to the data factory region. To create an integrated runtime in a different region, create a new data factory in the required region.         |
+  |location     |string         |The Airflow integration runtime location defaults to the data factory region. To create an integration runtime in a different region, create a new data factory in the required region.         |
   | computeSize | string |The size of the compute node you want your Airflow environment to run on. Examples are Large or Small. Three nodes are allocated initially. |
   | extraNodes | integer |Each extra node adds three more workers. |
 
