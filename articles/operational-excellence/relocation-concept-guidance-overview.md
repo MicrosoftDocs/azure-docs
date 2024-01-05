@@ -28,6 +28,9 @@ Each service specific guide includes service-specific information such as:
 
 ## Azure services relocation guides
 
+ 
+[!INCLUDE [Service categories across region types](../../includes/service-categories/service-category-definitions.md)]
+
 The following tables provide links to each Azure service relocation document.
 
 ### ![An icon that signifies this service is foundational.](./media/relocation/icon-foundational.svg) Foundational services 
@@ -48,7 +51,6 @@ The following tables provide links to each Azure service relocation document.
 
 ## Additional information
 
-- [Cloud migration in the Cloud Adoption Framework](/azure/cloud-adoption-framework/migrate/).
 - [Azure Resources Mover documentation](/azure/resource-mover/)
 - [Azure Resource Manager (ARM) documentation](/azure/azure-resource-manager/templates/)
 

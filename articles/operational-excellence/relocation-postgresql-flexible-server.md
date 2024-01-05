@@ -19,7 +19,7 @@ ms.custom:
 
 This article covers relocation guidance for Azure Database for PostgreSQL, Single Server and Flexible Servers across geographies, where region pairs aren't available for replication and geo-restore. 
 
-For an overview of the region pairs supported by native replication, see [cross-region replication](../postgresql/concepts-read-replicas#cross-region-replication).
+For an overview of the region pairs supported by native replication, see [cross-region replication](../postgresql/concepts-read-replicas.md#cross-region-replication).
 
 The relocation process is based on [Azure region relocation architectural patterns](relocation-overview.md#relocation-architectural-patterns). 
 
