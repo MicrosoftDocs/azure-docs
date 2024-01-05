@@ -219,6 +219,8 @@ The following table shows the supported log types and descriptions:
 
 ## Networking considerations
 
+- App Service logs aren't supported using Regional VNet integration, our recommendation is to use the Diagnostic settings feature.
+
 If you secure your Azure Storage account by [only allowing selected networks](../storage/common/storage-network-security.md#change-the-default-network-access-rule), it can receive logs from App Service only if both of the following are true:
 
 - The Azure Storage account is in a different Azure region from the App Service app.
