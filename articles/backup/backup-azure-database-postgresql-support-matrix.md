@@ -15,7 +15,7 @@ You can use [Azure Backup](./backup-overview.md) to protect Azure Database for P
 
 ## Supported regions
 
-Azure Database for PostgreSQL server backup is available in all public regions.
+Azure Database for PostgreSQL server backup is available in all regions, except for Germany Central (Sovereign), Germany Northeast (Sovereign) and China regions.
 
 ## Support scenarios
 
