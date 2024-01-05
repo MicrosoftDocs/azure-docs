@@ -114,9 +114,9 @@ Make sure <b>Vault access policy</b> is selected under Permission model and then
      
    1. Select the key vault created in the previous step, which has the access policy to the user managed identity selected in the previous step.
 
-   1. Select the key created in the previous step, and then select Review+create.
+   1. Select the key created in the previous step, and then select **Review + create**.
 
-   1. Once cluster is created, verify that CMK encryption is enabled by navigating to the **Data Encryption** blade of the Cosmos DB for PostgreSQL cluster in the Azure portal.
+   1. Once the cluster is created, verify that CMK encryption is enabled by navigating to the **Data Encryption** blade of the Azure Cosmos DB for PostgreSQL cluster in the Azure portal.
       ![Screenshot of data encryption tab.](media/how-to-customer-managed-keys/data-encryption-tab-note.png)
 
    > [!NOTE]
