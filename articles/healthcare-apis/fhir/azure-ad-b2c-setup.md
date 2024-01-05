@@ -195,7 +195,7 @@ The B2C resource application handles authentication requests from your healthcar
 
    :::image type="content" source="media/azure-ad-b2c-setup/b2c-api-permission2-sml.png" alt-text="Screenshot showing B2C API permissions" lightbox="media/azure-ad-b2c-setup/b2c-api-permission2-lrg.png":::
 
-1. On the **Request API permissions** pane in the **Patient** section, select at least one permission. In this example, the permission `patient.all.all` is selected, which means a user that requests an access token with the scope `patient.all.all` has Read, Write, and Delete privileges (patient.all.**all**) for all FHIR resources (patient.**all**.all) in the (**patient**.all.all) For more information, see [Patient compartment](https://build.fhir.org/compartmentdefinition-patient.html).
+1. On the **Request API permissions** pane in the **Patient** section, select at least one permission. In this example, the permission `patient.all.all` is selected, which means a user that requests an access token with the scope `patient.all.all` has Read, Write, and Delete privileges (patient.all.**all**) for all FHIR resources (patient.**all**.all) in the Patient compartment (**patient**.all.all) For more information, see [Patient compartment](https://build.fhir.org/compartmentdefinition-patient.html).
 
 1. Choose **Add permissions**.
 
