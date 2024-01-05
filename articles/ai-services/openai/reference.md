@@ -668,7 +668,7 @@ The following parameters are used inside of the optional `embeddingDependency` p
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `deploymentName` | string | Optional  | null | The type of vectorization source to use. |
-| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without Azure OpenAI API key and without Azure OpenAI public network access. |
+| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without an Azure OpenAI API key and without Azure OpenAI public network access. |
 
 ```json
 "embeddingDependency": {
@@ -696,7 +696,7 @@ The following parameters are used inside of the optional `embeddingDependency` p
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `deploymentName` | string | Optional  | null | The type of vectorization source to use. |
-| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without Azure OpenAI API key and without Azure OpenAI public network access. |
+| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without an Azure OpenAI API key and without Azure OpenAI public network access. |
 
 ```json
 "embeddingDependency": {
@@ -748,7 +748,7 @@ The following parameters are used inside of the optional `embeddingDependency` p
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `deploymentName` | string | Optional  | null | The type of vectorization source to use. |
-| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without Azure OpenAI API key and without Azure OpenAI public network access. |
+| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without an Azure OpenAI API key and without Azure OpenAI public network access. |
 
 ```json
 "embeddingDependency": {
@@ -772,7 +772,7 @@ The following parameters are used inside of the optional `embeddingDependency` p
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `deploymentName` | string | Optional  | null | The type of vectorization source to use. |
-| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without Azure OpenAI API key and without Azure OpenAI public network access. |
+| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without an Azure OpenAI API key and without Azure OpenAI public network access. |
 
 ```json
 "embeddingDependency": {
@@ -806,7 +806,7 @@ The following parameters are used inside of the optional `embeddingDependency` p
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `deploymentName` | string | Optional  | null | The type of vectorization source to use. |
-| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without Azure OpenAI API key and without Azure OpenAI public network access. |
+| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without an Azure OpenAI API key and without Azure OpenAI public network access. |
 
 ```json
 "embeddingDependency": {
