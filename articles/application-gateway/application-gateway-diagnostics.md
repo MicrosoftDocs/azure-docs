@@ -118,7 +118,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |requestUri| This field contains the URL after the rewrite operation on Application Gateway |
 |upstreamSourcePort| The source port used by Application Gateway when initiating a connection to the backend target|
 |originalHost| This field contains the original request host name|
-|error_info|The reason for the 4xx and 5xx error. If the request failed, one of the error codes described in [Error Info codes](./application-gateway-diagnostics#error-info-codes)  is stored in this field of access log|
+|error_info|The reason for the 4xx and 5xx error. If the request failed, one of the error codes described in [Error Info codes](./application-gateway-diagnostics.md#error-info-codes)  is stored in this field of access log|
 |contentType|The type of content or data that is being processed or delivered by the application gateway
 
 
