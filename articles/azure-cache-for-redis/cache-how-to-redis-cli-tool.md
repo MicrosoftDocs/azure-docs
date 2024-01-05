@@ -9,7 +9,7 @@ ms.date: 01/04/2024
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 
-Use the popular [redis-cli command-line too](https://redis.io/docs/connect/cli/) to interact with an Azure Cache for Redis as a client. This tool allows you to directly interact with your Azure Cache for Redis instance and is useful for debugging and troubleshooting.
+Use the [redis-cli command-line tool](https://redis.io/docs/connect/cli/) to interact with an Azure Cache for Redis as a client. Use this tool to directly interact with your Azure Cache for Redis instance and for debugging and troubleshooting.
 
 ## Install redis-cli
 
@@ -31,8 +31,6 @@ The best way to use _redis-cli_ on a Windows computer is to install the [Windows
 Once WSL is installed, you can install _redis-cli_ using whatever package management is available in the Linux distro you chose for WSL.
 
 ## Gather cache access information
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 You can gather the information needed to access the cache using these methods:
 
