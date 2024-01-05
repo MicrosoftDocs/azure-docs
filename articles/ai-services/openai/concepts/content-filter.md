@@ -628,40 +628,39 @@ For details on the inference REST API endpoints for Azure OpenAI and how to crea
 }
 ```
 
-## Streaming
+## Content streaming
 
-Azure OpenAI Service includes a content filtering system that works alongside core models. The following section describes the AOAI streaming experience and options in the context of content filters. 
+This section describes the Azure OpenAI content streaming experience and options. With approval, you have the option to receive content from the API as it's generated, instead of waiting for chunks of content that have been verified to pass your content filters.
 
-### Default
+### Default filtering
 
-The content filtering system is integrated and enabled by default for all customers. In the default streaming scenario, completion content is buffered, the content filtering system runs on the buffered content, and – depending on content filtering configuration – content is either returned to the user if it does not violate the content filtering policy (Microsoft default or custom user configuration), or it’s immediately blocked which returns a content filtering error, without returning harmful completion content. This process is repeated until the end of the stream. Content was fully vetted according to the content filtering policy before returned to the user. Content is not returned token-by-token in this case, but in “content chunks” of the respective buffer size. 
+The content filtering system is integrated and enabled by default for all customers. In the default streaming scenario, completion content is buffered, the content filtering system runs on the buffered content, and – depending on the content filtering configuration – content is either returned to the user if it does not violate the content filtering policy (Microsoft's default or a custom user configuration), or it’s immediately blocked and returns a content filtering error, without returning the harmful completion content. This process is repeated until the end of the stream. Content is fully vetted according to the content filtering policy before it's returned to the user. Content is not returned token-by-token in this case, but in “content chunks” of the respective buffer size.
 
 ### Asynchronous modified filter
 
-Customers who have been approved for modified content filters can choose Asynchronous Modified Filter as an additional option, providing a new streaming experience. In this case, content filters are run asynchronously, completion content is returned immediately with a smooth token-by-token streaming experience. No content is buffered, the content filters run asynchronously, which allows for zero latency in this context.  
+Customers who have been approved for modified content filters can choose the asynchronous modified filter as an additional option, providing a new streaming experience. In this case, content filters are run asynchronously, and completion content is returned immediately with a smooth token-by-token streaming experience. No content is buffered, which allows for zero latency.
 
-> [!NOTE]
-> Customers must be aware that while the feature improves latency, it can bring a trade-off in terms of the safety and real-time vetting of smaller sections of model output. Because content filters are run asynchronously, content moderation messages and the content filtering signal in case of a policy violation are delayed, which means some sections of harmful content that would otherwise have been filtered immediately could be displayed to the user. 
+Customers must be aware that while the feature improves latency, it is a trade-off against the safety and real-time vetting of smaller sections of model output. Because content filters are run asynchronously, content moderation messages and policy violation signals are delayed, which means some sections of harmful content that would otherwise have been filtered immediately could be displayed to the user.
  
-**Annotations**: Annotations and content moderation messages are continuously returned during the stream. We strongly recommend to consume annotations and implement additional AI content safety mechanisms, such as redacting content or returning additional safety information to the user. 
+**Annotations**: Annotations and content moderation messages are continuously returned during the stream. We strongly recommend you consume annotations in your app and implement additional AI content safety mechanisms, such as redacting content or returning additional safety information to the user.
 
-**Content filtering signal**: The content filtering error signal is delayed; in case of a policy violation, it’s returned as soon as it’s available, and the stream is stopped. The content filtering signal is guaranteed within ~1,000-character windows in case of a policy violation. 
+**Content filtering signal**: The content filtering error signal is delayed. In case of a policy violation, it’s returned as soon as it’s available, and the stream is stopped. The content filtering signal is guaranteed within a ~1,000-character window of the policy-violating content. 
 
-Approval for Modified Content Filtering is required for access to Streaming – Asynchronous Modified Filter. The application can be found [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu). To enable it via Azure OpenAI Studio please follow the instructions [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/content-filters) to create a new content filtering configuration, and select “Asynchronous Modified Filter” in the Streaming section, as shown in the below screenshot. 
+Approval for modified content filtering is required for access to the asynchronous modified filter. The application can be found [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu). To enable it in Azure OpenAI Studio, follow the [Content filter how-to guide](/azure/ai-services/openai/how-to/content-filters) to create a new content filtering configuration, and select **Asynchronous Modified Filter** in the Streaming section.
 
-### Overview tbd
+### Comparison of content filtering modes
 
 | | Streaming - Default | Streaming - Asynchronous Modified Filter |
 |---|---|---|
 |Status |GA |Public Preview |
-| Access | Enabled by default, no action needed |Customers approved for Modified Content Filtering can configure directly via Azure OpenAI Studio (as part of a content filtering configuration; applied on deployment-level) |
-| Eligibility |All customers |Customers approved for Modified Content Filtering |
-|Modality and Availability |Text; all GPT-models |Text; all GPT-models except gpt-4-vision |
+| Eligibility |All customers |Customers approved for modified content filtering |
+| How to enable | Enabled by default, no action needed |Customers approved for modified content filtering can configure it directly in Azure OpenAI Studio (as part of a content filtering configuration, applied at the deployment level) |
+|Modality and availability |Text; all GPT models |Text; all GPT models except gpt-4-vision |
 |Streaming experience |Content is buffered and returned in chunks |Zero latency (no buffering, filters run asynchronously) |
-|Content filtering signal |Immediate filtering signal |Delayed filtering signal (in up to ~1,000 char increments) |
-|Content filtering configurations |Supports default and any customer-defined filter setting (including optional models) |Supports default and any customer-defined filter setting (including optional models) | Supports default and any customer-defined filter setting (including optional models) |
+|Content filtering signal |Immediate filtering signal |Delayed filtering signal (in up to ~1,000-character increments) |
+|Content filtering configurations |Supports default and any customer-defined filter setting (including optional models) |Supports default and any customer-defined filter setting (including optional models) |
 
-### Annotations and sample response stream
+### Annotations and sample responses
 
 #### Prompt annotation message
 
@@ -709,11 +708,11 @@ data: {
 
 #### Annotation message
 
-The text field will always be an empty string, indicating no new tokens. Annotations will only be relevant to already-sent tokens. There may be multiple Annotation Messages referring to the same tokens.  
+The text field will always be an empty string, indicating no new tokens. Annotations will only be relevant to already-sent tokens. There may be multiple annotation messages referring to the same tokens.  
 
-“start_offset” and “end_offset” are low-granularity offsets in text (with 0 at beginning of prompt) which the annotation is relevant to. 
+`"start_offset"` and `"end_offset"` are low-granularity offsets in text (with 0 being beginning of prompt) to mark which text the annotation is relevant to. 
 
-“check_offset” represents how much text has been fully moderated. It is an exclusive lower bound on the end_offsets of future annotations. It is nondecreasing. 
+`"check_offset"` represents how much text has been fully moderated. It is an exclusive lower bound on the `"end_offset"` values of future annotations. It is non-decreasing.
 
 ```json
 data: { 
@@ -739,9 +738,9 @@ data: {
 ```
 
 
-### Sample response stream
+#### Sample response stream (passes filters)
 
-Below is a real chat completion response using  Asynchronous Modified Filter. Note how prompt annotations are not changed; completion tokens are sent without annotations; and new annotation messages are sent without tokens, instead associated with certain content filter offsets. 
+Below is a real chat completion response using asynchronous modified filter. Note how the prompt annotations are not changed, completion tokens are sent without annotations, and new annotation messages are sent without tokens&mdash;they are instead associated with certain content filter offsets. 
 
 `{"temperature": 0, "frequency_penalty": 0, "presence_penalty": 1.0, "top_p": 1.0, "max_tokens": 800, "messages": [{"role": "user", "content": "What is color?"}], "stream": true}`
 
@@ -769,7 +768,7 @@ data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_
 data: [DONE] 
 ```
 
-### Sample response stream (blocking)
+#### Sample response stream (blocked by filters)
 
 `{"temperature": 0, "frequency_penalty": 0, "presence_penalty": 1.0, "top_p": 1.0, "max_tokens": 800, "messages": [{"role": "user", "content": "Tell me the lyrics to \"Hey Jude\"."}], "stream": true}`
 
@@ -796,6 +795,7 @@ data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_
 
 data: [DONE] 
 ```
+
 ## Best practices
 
 As part of your application design, consider the following best practices to deliver a positive experience with your application while minimizing potential harms:
