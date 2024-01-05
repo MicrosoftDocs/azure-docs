@@ -1,23 +1,29 @@
 ---
 title: What is Azure Virtual Desktop? - Azure
-description: An overview of Azure Virtual Desktop.
+description: Azure Virtual Desktop is a desktop and app virtualization service that runs on Azure. Deliver a full Windows experience with Windows 11 or Windows 10. Offer full desktops or use RemoteApp to deliver individual apps to users.
 author: dknappettmsft
 ms.topic: overview
-ms.date: 08/04/2023
+ms.date: 01/04/2024
 ms.author: daknappe
 ---
 
 # What is Azure Virtual Desktop?
 
-Azure Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
+Azure Virtual Desktop is a desktop and app virtualization service that runs on Azure. Here's some of the key highlights:
 
-Here's what you can do when you run Azure Virtual Desktop on Azure:
+- Deliver a full Windows experience with Windows 11, Windows 10, or Windows Server. Use single-session to assign devices to a single user, or use multi-session for scalability.
 
-- Set up a multi-session Windows 11 or Windows 10 deployment that delivers a full Windows experience with scalability
-- Present Microsoft 365 Apps for enterprise and optimize it to run in multi-user virtual scenarios
-- Bring your existing Remote Desktop Services (RDS) and Windows Server desktops and apps to any computer
-- Virtualize both desktops and apps
-- Manage desktops and apps from different Windows and Windows Server operating systems with a unified management experience
+- Offer full desktops or use RemoteApp to deliver individual apps. You can also use RemoteApp to stream apps as software as a service (SaaS) for users inside and outside your organization.
+
+- Present Microsoft 365 Apps for enterprise and optimize it to run in multi-user virtual scenarios.
+
+- Install your line-of-business or custom apps you can run from anywhere, including apps in the formats Win32, MSIX, and Appx.
+
+- Replace existing Remote Desktop Services (RDS) deployments.
+
+- Manage desktops and apps from different Windows and Windows Server operating systems with a unified management experience.
+
+- Host desktops and apps on-premises in a hybrid configuration with Azure Stack HCI.
 
 ## Introductory video
 
@@ -32,11 +38,11 @@ You can find more videos about Azure Virtual Desktop from [Microsoft Mechanics](
 With Azure Virtual Desktop, you can set up a scalable and flexible environment:
 
 - Create a full desktop virtualization environment in your Azure subscription without running any gateway servers.
-- Publish host pools as you need to accommodate your diverse workloads.
+- Flexible configurations to accommodate your diverse workloads.
 - Bring your own image for production workloads or test from the Azure Gallery.
 - Reduce costs with pooled, multi-session resources. With the new Windows 11 and Windows 10 Enterprise multi-session capability, exclusive to Azure Virtual Desktop, or Windows Server, you can greatly reduce the number of virtual machines and operating system overhead while still providing the same resources to your users.
 - Provide individual ownership through personal (persistent) desktops.
-- Use autoscale to automatically increase or decrease capacity based on time of day, specific days of the week, or as demand changes, helping to manage cost.
+- Automatically increase or decrease capacity based on time of day, specific days of the week, or as demand changes with autoscale, helping to manage cost. 
 
 You can deploy and manage virtual desktops and applications:
 

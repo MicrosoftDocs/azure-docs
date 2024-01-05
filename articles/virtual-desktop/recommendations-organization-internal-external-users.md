@@ -1,17 +1,13 @@
 ---
-title: Azure Virtual Desktop architecture recommendations - Azure
-description: Architecture recommendations for Azure Virtual Desktop for app developers.
-services: virtual-desktop
-author: Heidilohr
-
-ms.service: virtual-desktop
+title: Recommendations for deploying Azure Virtual Desktop to users inside or outside your organization
+description: Learn about recommendations for deploying Azure Virtual Desktop to users inside or outside your organization, such as using RemoteApp to deliver software-as-a-service applications.
 ms.topic: conceptual
-ms.date: 07/14/2021
+author: Heidilohr
 ms.author: helohr
-manager: femila
+ms.date: 07/14/2021
 ---
 
-# Architecture recommendations
+# Recommendations for deploying Azure Virtual Desktop to users inside or outside your organization
 
 Azure Virtual Desktop deployments come in many different shapes and sizes depending on many factors like end-user needs, the existing infrastructure of the organization deploying the service, and so on. How do you make sure you're using the right architecture that meets your organization's needs?
 
