@@ -32,7 +32,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-event-driven-with-dapr.md",
-            "redirect_url": "/azure/iot-operations/developer/tutorial-event-driven-with-dapr",
+            "redirect_url": "/azure/iot-operations/develop/tutorial-event-driven-with-dapr",
             "redirect_document_id": false
         }
     ]
