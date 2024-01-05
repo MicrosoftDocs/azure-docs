@@ -101,11 +101,11 @@ az stack sub create \
   --name '<deployment-stack-name>' \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
-  --deployment-resource-group-name' <resource-group-name>' \
+  --deployment-resource-group' <resource-group-name>' \
   --deny-settings-mode 'none'
 ```
 
-The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the subscription scope.
+The `deployment-resource-group` parameter specifies the resource group used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the subscription scope.
 
 # [Portal](#tab/azure-portal)
 
@@ -280,7 +280,7 @@ az stack sub create \
   --name '<deployment-stack-name>' \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
-  --deployment-resource-group-name '<resource-group-name>' \
+  --deployment-resource-group '<resource-group-name>' \
   --deny-settings-mode 'none'
 ```
 
