@@ -24,11 +24,11 @@ To follow along the steps, you need to use Azure CLI that supports version 2.0.6
 
 Complete these steps if you don't have an SSH key. Create an SSH key depending on your Node OS Image, for [macOS and Linux][ssh-nix], or [Windows][ssh-windows]. Make sure you save the key pair in the OpenSSH format. Other formats such as `.ppk` aren't supported by AKS. Next, refer to [Manage SSH configuration][manage-ssh-node-access] to add the key to your cluster. 
 
-## MacOS and Linux
+## Linux and macOS
 
-### Create an interactive shell connection to a Linux node using kubectl
+### SSH to a Linux using kubectl
 
-To create an interactive shell connection to a Linux node, use the `kubectl debug` command to run a privileged container on your node.
+To create an interactive shell connection, use the `kubectl debug` command to run a privileged container on your node.
 
 1. To list your nodes, use the `kubectl get nodes` command:
 
@@ -36,7 +36,7 @@ To create an interactive shell connection to a Linux node, use the `kubectl debu
     kubectl get nodes -o wide
     ```
     
-    The following example resembles output from the command:
+    Sample output:
     
     ```output
     NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE    
@@ -45,13 +45,13 @@ To create an interactive shell connection to a Linux node, use the `kubectl debu
     aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter  
     ```
 
-2. Use the `kubectl debug` command to run a container image on the node to connect to it. The following command starts a privileged container on your node and connects to it.
+2. Use the `kubectl debug` command to start a privileged container on your node and connect to it.
 
     ```bash
     kubectl debug node/aks-nodepool1-37663765-vmss000000 -it --image=mcr.microsoft.com/cbl-mariner/busybox:2.0
     ```
 
-    The following example resembles output from the command:
+    Sample output:
 
     ```output
     Creating debugging pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx with container debugger on node aks-nodepool1-37663765-vmss000000.
@@ -74,18 +74,20 @@ kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 
 ## Private IP Method
 
-### Create an interactive shell connection to a node using private IP
+If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS Agent Pool Preview API][agent-pool-rest-api] (preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. 
 
-If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS Agent Pool Preview API][agent-pool-rest-api] (preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node, you need to be in the cluster's virtual network. 
+### Create an interactive shell connection to a node using the IP address
 
-1. To get the private IP via CLI, use az cli version 2.53 or above with aks-preview extension installed.
+For convenience, the nodepools are exposed when the node has a public IP assigned. However, you need to be in the cluster's virtual network to SSH into the node.
+
+1. To get the private IP use the Agent pool preview to list out the VMs installed.
 
 ```bash
     az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
    
  ```
 
-The following example resembles output from the command:
+Sample output:
 
  ```output
    Name                               Ip 
@@ -94,13 +96,13 @@ aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
 aks-nodepool1-33555069-vmss000001  10.224.0.6,family:IPv4;
 aks-nodepool1-33555069-vmss000002  10.224.0.4,family:IPv4;            
 ```
-To target a specific node inside the nodepool, use this command:
+To target a specific node inside the nodepool, add a `--machine-name` flag:
 
 ```bash
     az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
    
  ```
- The following example resembles output from the command:
+Sample output:
 
 ```output
     Name                               Ip 
@@ -108,7 +110,7 @@ To target a specific node inside the nodepool, use this command:
 aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
    ```
 
-2. Use the private IP to SSH into the node. [Azure Bastion][azure-bastion] also provides you with information for securely connecting to virtual machines via private IP address. Make sure that you configure an Azure Bastion host for the virtual network in which the VM resides.
+2. SSH into the private IP address to access your node. You can also try [Azure Bastion][azure-bastion] to test connections to your virtual machines through the private IP address. Make sure that the Azure Bastion is hosted in the same virtual network as your VM.
 
 ```bash
 ssh azureuser@10.224.0.33
