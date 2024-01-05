@@ -56,7 +56,7 @@ Azure Machine Learning provides events in the various points of machine learning
 
 These events are published through Azure Event Grid. Using Azure portal, PowerShell or Azure CLI, customers can easily subscribe to events by [specifying one or more event types, and filtering conditions](../event-grid/event-filtering.md). 
 
-When setting up your events, you can apply filters to only trigger on specific event data. In the example below, for run status changed events, you can filter by run types. The event only triggers when the criteria is met. Refer to the [Azure Machine Learning event grid schema](../event-grid/event-schema-machine-learning.md) to learn about event data you can filter by. 
+When setting up your events, you can apply filters to only trigger on specific event data. In the example below, for run status changed events, you can filter by run types. The event only triggers when the criteria is met. Refer to the [Azure Machine Learning Event Grid schema](../event-grid/event-schema-machine-learning.md) to learn about event data you can filter by. 
 
 Subscriptions for Azure Machine Learning events are protected by Azure role-based access control (Azure RBAC). Only [contributor or owner](how-to-assign-roles.md#default-roles) of a workspace can create, update, and delete event subscriptions.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription) of the event subscription or at a later time. 
 
@@ -189,7 +189,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 
 Models go stale over time, and not remain useful in the context it is running in. One way to tell if it's time to retrain the model is detecting data drift. 
 
-This example shows how to use event grid with an Azure Logic App to trigger retraining. The example triggers an Azure Data Factory pipeline when data drift occurs between a model's training and serving datasets.
+This example shows how to use Event Grid with an Azure Logic App to trigger retraining. The example triggers an Azure Data Factory pipeline when data drift occurs between a model's training and serving datasets.
 
 Before you begin, perform the following actions:
 
