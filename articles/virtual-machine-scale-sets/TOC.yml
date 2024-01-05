@@ -123,6 +123,8 @@
       href: azure-hybrid-benefit-linux.md
 - name: Management
   items: 
+  - name: Modify a scale set
+    href: virtual-machine-scale-sets-upgrade-scale-set.md
   - name: Upgrade Policies
     items:
     - name: Overview
@@ -143,8 +145,6 @@
       href: virtual-machine-scale-sets-manage-cli.md
     - name: Use Azure PowerShell
       href: virtual-machine-scale-sets-manage-powershell.md
-    - name: Modify a scale set
-      href: virtual-machine-scale-sets-upgrade-scale-set.md
     - name: Using DSC and scale sets
       href: virtual-machine-scale-sets-dsc.md
     - name: Scale set templates
