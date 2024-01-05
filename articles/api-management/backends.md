@@ -59,7 +59,6 @@ Include a snippet similar to the following in your Bicep template:
 ```bicep
 resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-preview' = {
   name: 'myAPIM/myBackend'
-  parent: resourceSymbolicName
   properties: {
     url: 'https://mybackend.com'
     protocol: 'http'
@@ -135,7 +134,7 @@ Include a JSON snippet similar to the following in your ARM template:
 
 ## Load-balanced pool (preview)
 
-Starting in API version 2023-05-01 preview, API Management supports backends of the *pool* type, when you want to implement multiple backends for an API and load balance requests across the backends in the pool. Currently, the backend pool supports round-robin load balancing.
+Starting in API version 2023-05-01 preview, API Management supports backends of the *pool* type, when you want to implement multiple backends for an API and load balance requests across those backends. Currently, the backend pool supports round-robin load balancing.
 
 Use a backend pool for scenarios such as the following:
 
