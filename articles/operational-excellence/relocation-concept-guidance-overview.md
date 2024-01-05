@@ -26,10 +26,11 @@ Each service specific guide includes service-specific information such as:
 - Links to how-tos and relevant product-specific relocation information.
 
 
-## Azure services relocation guides
+## Service categories across region types
 
- 
 [!INCLUDE [Service categories across region types](../../includes/service-categories/service-category-definitions.md)]
+
+## Azure services relocation guides
 
 The following tables provide links to each Azure service relocation document.
 
