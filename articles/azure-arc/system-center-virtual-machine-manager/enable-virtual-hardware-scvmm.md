@@ -2,7 +2,7 @@
 title:  Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
 description: Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
 ms.topic: how-to 
-ms.date: 01/04/2024
+ms.date: 01/05/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
 author: Farha-Bano
@@ -34,19 +34,6 @@ In this article, you learn how to enable virtual hardware management and VM CRUD
 1. Choose all the machines that need to be enabled in Azure, and select **Link** to link the machines to SCVMM management server.
 
 1. After you link to SCVMM management server, the virtual hardware status will reflect as **Enabled** for all the VMs, and you can perform virtual hardware operations. 
-
-### Known issue
- 
-During the first scan of the SCVMM management server inventory after onboarding to Azure Arc-enabled SCVMM, Arc-enabled Servers machines will be discovered under SCVMM inventory. If the Arc-enabled Server machines aren't discovered and you try to perform the **Enable in Azure** operation, you'll encounter the following error:<br>
-
-*A machine '/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXXX/resourceGroups/rg-contoso/providers/Microsoft.HybridCompute/machines/testVM1' already exists with the specified virtual machine MoRefId: 'vm-4441'. The existing machine resource can be extended with private cloud capabilities by creating the VirtualMachineInstance resource under it.*
-
-When you encounter this error message, try performing the **Link to SCVMM management server** operation again after a few minutes (5-10 minutes). Alternatively, you can use the following Azure CLI command to link an existing Arc-enabled Server machine to SCVMM management server:<br>
-
-
-```azurecli-interactive
-az scvmm vm create --subscription <subscription-id> --location <Azure region of the machine> --resource-group <resource-group-name> --custom-location /providers/microsoft.extendedlocation/customlocations/<custom-location-name> --name <machine-name> --inventory-item /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ScVmm/<vmmserver-name>/contoso-vm/InventoryItems/<machine-name>
-```
 
 ## Next steps
 
