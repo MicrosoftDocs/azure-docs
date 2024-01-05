@@ -15,29 +15,18 @@ ms.custom:
 ---
 
 
-# Relocation guidance for Azure Public IP
+# Relocation dependency guidance - Azure Public IP
 
-This article shows you how to relocate Azure Public IP when moving a Platform as a Service (PaaS) service to another region. When you relocate a PaaS service to another region, the public IP address and the URL changes. As result, you must also update the Azure Public IP in the dependent services.
+This article contains information that can help you update [Azure Public IP](/azure/virtual-network/ip-services/ip-services-overview) when moving a Platform as a Service (PaaS) service to another region. When you relocate a PaaS service to another region, the public IP address and the URL changes. As result, you must also update the Azure Public IP in the dependent services.
 
+To learn how to create a public IP address, see [Create a public IP address](/azure/virtual-network/ip-services/create-public-ip-portal?tabs=option-1-create-public-ip-standard).
 
-
-## Relocate Azure Public IP
-
-To successfully relocate your PaaS service, you must:
-
-1. Create a dependency map that includes all the Azure services used by Azure Public IP. 
-
-1. Select the relocation strategy for each service that uses the Azure Public IP. To learn how to orchestrate and sequence multiple relocation procedures, see [automation guidelines]().
-
->[!IMPORTANT]
-> When your move the Azure Public IP and corresponding PaaS service to a new region, the public IP address changes. You must make sure to update your DNS configuration or the endpoint configuration of the connecting services or clients.
-
-### Public IP Addresses
+## Public IP Addresses
 
 - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msclkid=46a2185ca6a611ec9a4eb6de3c2c4589)
 - [Azure CND](/azure/cdn/cdn-pop-list-api)
 
-### Calling IP Addresses
+## Calling IP Addresses
 
 - [Azure Logic App](/azure/app-service-logic/app-service-logic-limits-and-config#configuration)
 - [Traffic Manager](/azure/traffic-manager/traffic-manager-monitoring#faq)
