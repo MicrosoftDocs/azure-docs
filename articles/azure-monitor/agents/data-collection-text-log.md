@@ -44,9 +44,11 @@ To complete this procedure, you need:
 The table created in the script has two columns: 
 
 - `TimeGenerated` (datetime)
-- `RawData` (string
+- `RawData` (string)
 
-This is the default table schema for log data collected from text and JSON files. If you know your final schema, you can add columns in the script before creating the table. If you don't, you can [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column).  
+This is the default table schema for log data collected from text files. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
+
+Your columns names and JSON attributes must exactly match to be automatically parse into the table. Both columns and JSON attributes are case sensitive. For example `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column. 
 
 The easiest way to make the REST call is from an Azure Cloud PowerShell command line (CLI). To open the shell, go to the Azure portal, press the Cloud Shell button, and select PowerShell. If this is your first time using Azure Cloud PowerShell, you'll need to walk through the one-time configuration wizard.
 
@@ -77,9 +79,6 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 ```
 
 You should receive a 200 response and details about the table you just created. 
-
-> [!Note]
-> The column names are case sensitive. For example `Rawdata` will not correctly collect the event data. It must be `RawData`.
 
 ## Create a data collection rule to collect data from a text or JSON file
 
@@ -173,46 +172,14 @@ To create the data collection rule in the Azure portal:
         {
             "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
             "contentVersion": "1.0.0.0",
-            "parameters": {
-                "dataCollectionRuleName": {
-                    "type": "string",
-                    "metadata": {
-                        "description": "Specifies the name of the Data Collection Rule to create."
-                    }
-                },
-                "location": {
-                    "type": "string",
-                    "metadata": {
-                        "description": "Specifies the location in which to create the Data Collection Rule."
-                    }
-                },
-                "workspaceName": {
-                    "type": "string",
-                    "metadata": {
-                        "description": "Name of the Log Analytics workspace to use."
-                    }
-                },
-                "workspaceResourceId": {
-                    "type": "string",
-                    "metadata": {
-                        "description": "Specifies the Azure resource ID of the Log Analytics workspace to use."
-                    }
-                },
-                "endpointResourceId": {
-                    "type": "string",
-                    "metadata": {
-                        "description": "Specifies the Azure resource ID of the Data Collection Endpoint to use."
-                    }
-                }
-            },
             "resources": [
                 {
                     "type": "Microsoft.Insights/dataCollectionRules",
-                    "name": "[parameters('dataCollectionRuleName')]",
-                    "location": "[parameters('location')]",
+                    "name": `DataCollectionRuleName`,
+                    "location": `location`,
                     "apiVersion": "2021-09-01-preview",
                     "properties": {
-                        "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
+                        "dataCollectionEndpointId":  `endpointResourceId`,
                         "streamDeclarations": {
                             "Custom-MyLogFileFormat": {
                                 "columns": [
@@ -234,7 +201,7 @@ To create the data collection rule in the Azure portal:
                                         "Custom-MyLogFileFormat"
                                     ],
                                     "filePatterns": [
-                                        "C:\\JavaLogs\\*.log"
+                                        `filePatterns`
                                     ],
                                     "format": "text",
                                     "settings": {
@@ -243,29 +210,14 @@ To create the data collection rule in the Azure portal:
                                         }
                                     },
                                     "name": "myLogFileFormat-Windows"
-                                },
-                                {
-                                    "streams": [
-                                        "Custom-MyLogFileFormat" 
-                                    ],
-                                    "filePatterns": [
-                                        "//var//*.log"
-                                    ],
-                                    "format": "text",
-                                    "settings": {
-                                        "text": {
-                                            "recordStartTimestampFormat": "ISO 8601"
-                                        }
-                                    },
-                                    "name": "myLogFileFormat-Linux"
                                 }
                             ]
                         },
                         "destinations": {
                             "logAnalytics": [
                                 {
-                                    "workspaceResourceId": "[parameters('workspaceResourceId')]",
-                                    "name": "[parameters('workspaceName')]"
+                                    "workspaceResourceId": `workspaceResourceId`,
+                                    "name": `workspaceName`
                                 }
                             ]
                         },
@@ -275,7 +227,7 @@ To create the data collection rule in the Azure portal:
                                     "Custom-MyLogFileFormat"
                                 ],
                                 "destinations": [
-                                    "[parameters('workspaceName')]"
+                                    `workspaceName`
                                 ],
                                 "transformKql": "source",
                                 "outputStream": "Custom-MyTable_CL"
@@ -315,7 +267,11 @@ To create the data collection rule in the Azure portal:
                                         "type": "datetime"
                                     },
                                     {
-                                        "name": "RawData",
+                                        "name": `"YourFirstAttribute"` ,
+                                        "type": "string"
+                                    },
+                                    {
+                                        "name": `"YourSecondAttribute"` ,
                                         "type": "string"
                                     }
                                 ]
@@ -328,12 +284,12 @@ To create the data collection rule in the Azure portal:
                                         "Custom-JSONLog"
                                     ],
                                     "filePatterns": [
-                                        "C:\\JavaLogs\\*.log"
+                                        `filePatterns`
                                     ],
                                     "format": "json",
                                     "settings": {
                                     },
-                                    "name": "myLogFileFormat "
+                                    "name": "myLogFileFormat"
                                 }
                             ]
                         },
@@ -341,7 +297,7 @@ To create the data collection rule in the Azure portal:
                             "logAnalytics": [
                                 {
                                     "workspaceResourceId":  `workspaceResourceId` ,
-                                    "name": "`workspaceName`"
+                                    "name": `workspaceName`
                                 }
                             ]
                         },
@@ -351,9 +307,9 @@ To create the data collection rule in the Azure portal:
                                     "Custom-JSONLog"
                                 ],
                                 "destinations": [
-                                    "`workspaceName`"
+                                    `workspaceName`
                                 ],
-                                "transformKql": "source",
+                                "transformKql": `"source"`,
                                 "outputStream": "`Table-Name_CL`"
                             }
                         ]
@@ -372,8 +328,8 @@ To create the data collection rule in the Azure portal:
 
 1. Update the following values in the Resource Manager template:
 
-    - `streamDeclarations`: Defines the columns of the incoming data. This must match the structure of the log file.
-    - `filePatterns`: Specifies the location and file pattern of the log files to collect. This defines a separate pattern for Windows and Linux agents.
+    - `streamDeclarations`: Defines the columns of the incoming data. This must match the structure of the log file. Your columns names and JSON attributes must exactly match to be automatically parse into the table. Both column names and JSON attribute are case sensitive. For example `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column.
+    - `filePatterns`: Specifies the location and file pattern of the log files to collect. This can defines a separate pattern for Windows and Linux agents. For example, C:\\JavaLogs\\*.log for windows or  //var//*.log for Linux
     - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace.
 
     See [Structure of a data collection rule in Azure Monitor](../essentials/data-collection-rule-structure.md) if you want to modify the  data collection rule.
