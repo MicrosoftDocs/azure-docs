@@ -13,22 +13,22 @@ Use the popular [redis-cli command-line too](https://redis.io/docs/connect/cli/)
 
 ## Install redis-cli
 
-The redis-cli tool is installed automatically with the Redis package available for multiple operating systems. See the open source [install redis](https://redis.io/docs/install/install-redis/) guide for the most detailed documentation on your preferred operating system.
+The _redis-cli_ tool is installed automatically with the _Redis package_, which is available for multiple operating systems. See the open source [install Redis](https://redis.io/docs/install/install-redis/) guide for the most detailed documentation on your preferred operating system.
 
 ### Linux
 
-The redis-cli runs natively on Linux, and most distributions include a `redis` package that contains the `redis-cli` tool. On Ubuntu, for instance, `redis` can be installed with the following commands:
+The _redis-cli_ runs natively on Linux, and most distributions include a _Redis package_ that contains the _redis-cli_ tool. On Ubuntu, for instance, you install the _Redis package_  with the following commands:
 
-```shell
+```linux
 sudo apt-get update
 sudo apt-get install redis
 ```
 
 ### Windows
 
-The best way to use `redis-cli` on a Windows computer is to install the [Windows Subsystem for Linux (WSL)](/windows/wsl/about), which allows you to run linux tools directly on Windows. To install WSL, follow the [WSL installation instructions](/windows/wsl/install).
+The best way to use _redis-cli_ on a Windows computer is to install the [Windows Subsystem for Linux (WSL)](/windows/wsl/about). The Linux subsystem allows you to run linux tools directly on Windows. To install WSL, follow the [WSL installation instructions](/windows/wsl/install).
 
-Once WSL is installed, you can install redis-cli using whatever package management is available in the Linux distro you chose for WSL.
+Once WSL is installed, you can install _redis-cli_ using whatever package management is available in the Linux distro you chose for WSL.
 
 ## Gather cache access information
 
@@ -46,7 +46,7 @@ In this section, you retrieve the keys from the Azure portal.
 
 ## Connect using redis-cli
 
-Open up a shell or terminal on a computer with the `redis` image installed. If using WSL, you can [use the Windows Terminal](/windows/wsl/install#ways-to-run-multiple-linux-distributions-with-wsl) to open a Linux command line. Before connecting with redis-cli, check:
+Open up a shell or terminal on a computer with the _Redis package_ installed. If using WSL, you can [use the Windows Terminal](/windows/wsl/install#ways-to-run-multiple-linux-distributions-with-wsl) to open a Linux command line. Before connecting with redis-cli, check:
 
 1. Whether TLS access is needed - By default, Azure Cache for Redis instances use [TLS](cache-remove-tls-10-11.md) encryption for connections. Whenever TLS is used on the server side, TLS on redis-cli must be enabled using the `--tls` option.
 1. The port used - All Enterprise and Enterprise Flash tier caches use port `10000`. Basic, Standard, and Premium tier caches, however, use either port `6379` for non-TLS connections or port `6380` for TLS connections.
@@ -102,11 +102,11 @@ yourcachename.redis.cache.windows.net:6380> GET hello
 "world"
 ```
 
-You're now connected to your Azure Cache for Redis instance using `redis-cli`.
+You're now connected to your Azure Cache for Redis instance using the _redis-cli_.
 
 ## redis-cli alternatives
 
-While redis-cli is a useful tool, you can connect to your cache in other ways for troubleshooting or testing:
+While the _redis-cli_ is a useful tool, you can connect to your cache in other ways for troubleshooting or testing:
 
 - Azure Cache for Redis offers a [Redis Console](cache-configure.md#redis-console) built into the Azure portal where you can issue commands without needing to install the command-line tool. The Redis Console feature is currently only available in the Basic, Standard, and Premium tiers.
 - [RedisInsight](https://redis.com/redis-enterprise/redis-insight/) is a rich open source graphical tool for issuing Redis commands and viewing the contents of a Redis instance. It works with Azure Cache for Redis and is supported on Linux, Windows, and macOS.
