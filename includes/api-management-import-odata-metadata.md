@@ -41,7 +41,7 @@ You can access an editor in the portal to view your API's OData schema. If the A
 1. In the left menu, select **APIs** > your OData API.
 1. On the **Entity sets and functions** tab, select the context menu (**...**) next to an entity set or function, and select **Test**.
 
-    :::image type="content" source="media/api-management-import-odata-from-metadata/test-entity.png" alt-text="Screenshot of Test option on context menu for an OData entity set in the portal." :::
+    :::image type="content" source="media/api-management-import-odata-from-metadata/test-entity.png" alt-text="Screenshot of Test option on context menu for an OData entity set in the portal." lightbox="media/api-management-import-odata-from-metadata/test-entity.png":::
 
 1. In the test console, enter template parameters, query parameters, and headers for your test, and select **Test**. [Learn more](../articles/api-management/import-api-from-oas.md#test-the-new-api-in-the-portal) about testing an API in the portal.
 
