@@ -10,3 +10,10 @@ ms.reviewer: ju-shim
 ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Performing Rolling Upgrades on Virtual Machine Scale Sets
+
+
+
+
+
+## Next steps
+You can also perform common management tasks on Virtual Machine Scale Sets using the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
