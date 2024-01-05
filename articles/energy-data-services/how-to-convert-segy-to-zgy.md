@@ -122,7 +122,7 @@ The user needs to be part of the `users.datalake.admins` group. Validate the cur
 Later in this tutorial, you need at least one `owner` and at least one `viewer`. These user groups look like `data.default.owners` and `data.default.viewers`. Make sure to note one of each in your list.
 
 If the user isn't part of the required group, you can add the required entitlement using the following sample call:
-    email-id: Is the value "Id" returned from the call above.
+    email-id: Is the value "ID" returned from the call above.
 
 [![Screenshot that shows the API call to get register a user as an admin in Postman.](media/how-to-convert-segy-to-zgy/postman-api-add-user-to-admins.png)](media/how-to-convert-segy-to-zgy/postman-api-add-user-to-admins.png#lightbox)
 
@@ -226,7 +226,7 @@ Insert the contents of your `all_records.json` file in storage for work-product,
 
 1. Trigger the ZGY Conversion DAG to convert your data using the execution context values you had saved above.
 
-    Fetch the id token from sdutil for the uploaded file or use an access/bearer token from Postman.
+    Fetch the ID token from sdutil for the uploaded file or use an access/bearer token from Postman.
 
 ```markdown
 python sdutil auth idtoken
