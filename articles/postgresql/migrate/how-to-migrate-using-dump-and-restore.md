@@ -40,15 +40,46 @@ If you're using a Single Server, or don't have access to the Flexible Server por
 
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](../single-server/quickstart-create-server-database-portal.md), including firewall rules to allow access.
-- [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html), `psql` and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed.
+- [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html), [psql](https://www.postgresql.org/docs/current/app-psql.html), [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) and [pg_dumpall](https://www.postgresql.org/docs/current/app-pg-dumpall.html) in case you want migrate with roles and permissions, command-line utilities installed.
 - **Decide on the location for the dump**: Choose the place you want to perform the dump from. It can be done from various locations, such as a separate VM, [cloud shell](../../cloud-shell/overview.md) (where the command-line utilities are already installed, but might not be in the appropriate version, so always check the version using, for instance, `psql --version`), or your own laptop. Always keep in mind the distance and latency between the PostgreSQL server and the location from which you're running the dump or restore.
 
 > [!IMPORTANT]  
-> It is essential to use the `pg_dump`, `psql` and `pg_restore` utilities that are either of the same major version or a higher major version than the database server you are exporting data from or importing data to. Failing to do so may result in unsuccessful data migration. If your target server has a higher major version than the source server, use utilities that are either the same major version or higher than the target server. 
+> It is essential to use the `pg_dump`, `psql`, `pg_restore` and `pg_dumpall` utilities that are either of the same major version or a higher major version than the database server you are exporting data from or importing data to. Failing to do so may result in unsuccessful data migration. If your target server has a higher major version than the source server, use utilities that are either the same major version or higher than the target server. 
 
 
 > [!NOTE]
 > It's important to be aware that `pg_dump` can export only one database at a time. This limitation applies regardless of the method you have chosen, whether it's using a singular file or multiple cores.
+
+
+## Dumping users and roles with `pg_dumpall -r`
+`pg_dump` is used to extract a PostgreSQL database into a dump file. However, it's crucial to understand that `pg_dump` does not dump roles or users, as these are considered global objects within the PostgreSQL environment. For a comprehensive migration, including users and roles, you need to use `pg_dumpall -r`. 
+This command allows you to capture all role and user information from your PostgreSQL environment.
+
+```bash
+pg_dumpall -r -h <server name> -U <user name> > roles.sql
+```
+
+For example, if you have a server named `mydemoserver` and a user named `myuser` run the following command:
+```bash
+pg_dumpall -r -h mydemoserver.postgres.database.azure.com -U myuser > roles.sql
+```
+
+If you're using a Single Server, your username includes the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
+
+### Cleaning up the roles dump from Single Server
+When migrating from a Single Server, the output file `roles.sql` might include certain roles and attributes that are not applicable or permissible in the new environment. Here's what you need to consider:
+
+1. **Removing attributes that can be set only by superusers**: If migrating to an environment where you don't have superuser privileges, remove attributes like `NOSUPERUSER` and `NOBYPASSRLS` from the roles dump.
+
+2. **Excluding service-specific users**: Exclude Single Server service users, such as `azure_superuser` or `azure_pg_admin`. These are specific to the service and will be created automatically in the new environment.
+
+Use the following `sed` command to clean up your roles dump:
+
+```bash
+sed -i '/azure_superuser/d; /azure_pg_admin/d; /^ALTER ROLE/ {s/NOSUPERUSER//; s/NOBYPASSRLS//;}' roles.sql
+```
+
+This command deletes lines containing `azure_superuser` and `azure_pg_admin`, and removes the `NOSUPERUSER` and `NOBYPASSRLS` attributes from `ALTER ROLE` statements.
 
 ## Create a dump file that contains the data to be loaded
 To export your existing PostgreSQL database on-premises or in a VM to an sql script file, run the following command in your existing environment:
@@ -128,9 +159,6 @@ pg_restore -Fd -j 2 testdb_copy -h mydemoserver.postgres.database.azure.com -U m
 ```
 
 ---
-
-> [!NOTE]
-> On Azure Database for PostgreSQL servers, TLS/SSL connections are on by default. If your PostgreSQL server requires TLS/SSL connections, but doesn't have them, set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error might read: "FATAL: SSL connection is required. Please specify SSL options and retry." In the Windows command line, run the command `SET PGSSLMODE=require` before running the `pg_restore` command. In Linux or Bash, run the command `export PGSSLMODE=require` before running the `pg_restore` command. 
 
 ## Post-Restoration Check
 After the restoration process is complete, it's important to review the `errors.log` file for any errors that may have occurred. This step is crucial for ensuring the integrity and completeness of the restored data. Address any issues found in the log file to maintain the reliability of your database.
