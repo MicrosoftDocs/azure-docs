@@ -1,21 +1,21 @@
 ---
-title: Planning for an Azure Elastic SAN Preview
+title: Planning for an Azure Elastic SAN
 description: Understand planning for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 06/09/2023
+ms.date: 01/05/2024
 ms.author: rogarana
 ms.custom:
   - ignite-2022
   - ignite-2023-elastic-SAN
 ---
 
-# Plan for deploying an Elastic SAN Preview
+# Plan for deploying an Elastic SAN
 
 There are three main aspects to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes. When deploying a SAN, you make selections while configuring the SAN, including the redundancy of the entire SAN, and how much performance and storage the SAN has. Then you create volume groups that are used to manage volumes at scale. Any settings applied to a volume group are inherited by volumes inside that volume group. Finally, you partition the storage capacity that was allocated at the SAN-level into individual volumes.
 
-Before deploying an Elastic SAN Preview, consider the following:
+Before deploying an Elastic SAN, consider the following:
 
 - How much storage do you need?
 - What level of performance do you need?
@@ -41,7 +41,7 @@ Using the same example of a 100 TiB SAN that has 500,000 IOPS and 20,000 MB/s. S
 
 ## Networking
 
-In the Elastic SAN Preview, you can enable or disable public network access at the Elastic SAN level. You can also configure access to volume groups in the SAN over both public [Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) and [private endpoints](../../private-link/private-endpoint-overview.md) from selected virtual network subnets. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints, regardless of individual configurations for the volume group.
+In the Elastic SAN, you can enable or disable public network access at the Elastic SAN level. You can also configure access to volume groups in the SAN over both public [Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) and [private endpoints](../../private-link/private-endpoint-overview.md) from selected virtual network subnets. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints, regardless of individual configurations for the volume group.
 
 To allow network access or an individual volume group, you must [enable a service endpoint for Azure Storage](elastic-san-networking.md#configure-an-azure-storage-service-endpoint) or a [private endpoint](elastic-san-networking.md#configure-a-private-endpoint) in your virtual network, then [setup a network rule](elastic-san-networking.md#configure-virtual-network-rules) on the volume group for any service endpoints. You don't need a network rule to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints. You can then mount volumes from [AKS](elastic-san-connect-aks.md), [Linux](elastic-san-connect-linux.md), or [Windows](elastic-san-connect-windows.md) clients in the subnet with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.
 
@@ -97,7 +97,7 @@ The following iSCSI features aren't currently supported:
 
 ## Next steps
 
-- [Networking options for Elastic SAN Preview](elastic-san-networking-concepts.md)
-- [Deploy an Elastic SAN Preview](elastic-san-create.md)
+- [Networking options for Elastic SAN](elastic-san-networking-concepts.md)
+- [Deploy an Elastic SAN](elastic-san-create.md)
 
 For a video that goes over the general planning and deployment with a few example scenarios, see [Getting started with Azure Elastic SAN](/shows/inside-azure-for-it/getting-started-with-azure-elastic-san).

@@ -1,15 +1,15 @@
 ---
-title: Create an Azure Elastic SAN Preview
-description: Learn how to deploy an Azure Elastic SAN Preview with the Azure portal, Azure PowerShell module, or Azure CLI.
+title: Create an Azure Elastic SAN
+description: Learn how to deploy an Azure Elastic SAN with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 01/05/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Deploy an Elastic SAN Preview
+# Deploy an Elastic SAN
 
 This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out this optional survey [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp). 
 
@@ -205,4 +205,4 @@ az elastic-san volume create --elastic-san-name $EsanName -g $RgName -v $EsanVgN
 
 ## Next steps
 
-Now that you've deployed an Elastic SAN, Connect to Elastic SAN (preview) volumes from either [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-linux.md) clients.
+Now that you've deployed an Elastic SAN, Connect to Elastic SAN volumes from either [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-linux.md) clients.
