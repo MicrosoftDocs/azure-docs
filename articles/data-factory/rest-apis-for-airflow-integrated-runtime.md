@@ -12,7 +12,7 @@ ms.date: 08/09/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article documents the REST APIs for the Managed Airflow integration runtime.
+This article documents the REST APIs for the Azure Data Factory Managed Airflow integration runtime.
 
 > [!NOTE]
 > Managed Airflow for Azure Data Factory relies on the open-source Apache Airflow application. You can find documentation and more tutorials for Airflow on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) webpages.
