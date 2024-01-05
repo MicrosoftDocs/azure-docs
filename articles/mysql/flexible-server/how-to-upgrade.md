@@ -121,7 +121,7 @@ To perform a major version upgrade of an Azure Database for MySQL flexible serve
 
 5.	Check replication status to ensure that the replica has caught up with the primary so that all data is in sync and that no new operations are being performed on the primary.
 
-6.	Confirm with the show slave status command on the replica server to view the replication status.
+6.	Confirm with the show replica status command on the replica server to view the replication status.
 
     ```azurecli
      SHOW SLAVE STATUS\G
