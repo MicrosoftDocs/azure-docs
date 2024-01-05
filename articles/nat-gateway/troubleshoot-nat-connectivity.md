@@ -37,7 +37,7 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 * Reduce the [TCP idle timeout timer](./nat-gateway-resource.md#idle-timeout-timers) to a lower value to free up SNAT port inventory earlier. The TCP idle timeout timer can't be set lower than 4 minutes.
 *  Consider **[asynchronous polling patterns](/azure/architecture/patterns/async-request-reply)** to free up connection resources for other operations.
 * Make connections to Azure PaaS services over the Azure backbone using [Private Link](/azure/private-link/private-link-overview). Private link frees up SNAT ports for outbound connections to the internet.
-* If your investigation is inconclusive, open a support case to [further troubleshoot](#additional-troubleshooting-guidance).
+* If your investigation is inconclusive, open a support case to [further troubleshoot](#more-troubleshooting-guidance).
 
 >[!NOTE] 
 >It is important to understand why SNAT port exhaustion occurs. Make sure you use the right patterns for scalable and reliable scenarios. Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns. For more informations, see [best practices for efficient use of outbound connections](#outbound-connectivity-best-practices).
@@ -130,7 +130,7 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 * Test and resolve issues with VMs holding on to old SNAT IP addresses from another outbound connectivity method by:
   * Ensure you establish a new connection and that existing connections aren't being reused in the OS or that the browser is caching the connections. For example, when using curl in PowerShell, make sure to specify the -DisableKeepalive parameter to force a new connection. If you're using a browser, connections may also be pooled.
   * It isn't necessary to reboot a virtual machine in a subnet configured to NAT gateway. However, if a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all connections begin using the NAT gateway resource's IP address(es). This behavior is a side effect of the virtual machine reboot and not an indicator that a reboot is required.
-  * If you're still having trouble, [open a support case](#additional-troubleshooting-guidance) for further troubleshooting. 
+  * If you're still having trouble, [open a support case](#more-troubleshooting-guidance) for further troubleshooting. 
 * Custom routes directing 0.0.0.0/0 traffic to an NVA will take precedence over NAT gateway for routing traffic to the internet. To have NAT gateway route traffic to the internet instead of the NVA, [remove the custom route](/azure/virtual-network/manage-route-table#delete-a-route) for 0.0.0.0/0 traffic going to the virtual appliance. The 0.0.0.0/0 traffic resumes using the default route to the internet and NAT gateway is used instead. 
 > [!IMPORTANT]
 > Consider the routing requirements of your cloud architecture before making any changes to how traffic is routed.
