@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
-  ms.date: 05/13/2021
+  ms.date: 01/05/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -53,7 +53,7 @@ landingContent:
           - text: Import a SOAP API
             url: import-soap-api.md
           - text: Import a WebSocket API
-            url: import-websocket-api.md
+            url: websocket-api.md
           - text: Import a GraphQL API
             url: graphql-apis-overview.md
           - text: Import an App Service web API 
@@ -66,9 +66,9 @@ landingContent:
            url: api-management-api-import-restrictions.md
          - text: API Management policies
            url: api-management-policies.md
-         - text: API authentication and authorization options
+         - text: API authentication and authorization 
            url: authentication-authorization-overview.md
-         - text: Logging and monitoring capabilities
+         - text: Logging and monitoring 
            url: observability.md
 
 # Card
@@ -112,18 +112,7 @@ landingContent:
         links:
           - text: Networking options
             url: virtual-network-concepts.md
-  # Card
-  - title: Samples
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: API Management policy snippets
-            url: https://github.com/Azure/api-management-policy-snippets
-          - text: Azure PowerShell
-            url: powershell-samples.md
-          - text: Azure Policy built-ins
-            url: ./policy-reference.md
-
+  
 # Card
   - title: Enable hybrid and multi-cloud management
     linkLists:
@@ -138,12 +127,22 @@ landingContent:
           - text: Host gateway on Kubernetes
             url: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
 # Card
+  - title: Samples
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: API Management policy snippets
+            url: https://github.com/Azure/api-management-policy-snippets
+          - text: Azure PowerShell
+            url: powershell-samples.md
+          - text: Azure Policy built-ins
+            url: ./policy-reference.md
+
+# Card
   - title: Related services
     linkLists:
       - linkListType: concept
         links:
           - text: Azure API Center
             url: ../api-center/overview.md
-          - text: Azure OpenAI
-            url: ../ai-services/openai/overview.md
   
