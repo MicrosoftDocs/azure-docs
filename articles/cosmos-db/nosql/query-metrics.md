@@ -17,9 +17,8 @@ ms.custom: devx-track-csharp, ignite-2022
 Azure Cosmos DB provides a [API for NoSQL for querying data](query/getting-started.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
 * High-level details on how Azure Cosmos DB's SQL query execution works
-* Details on query request and response headers, and client SDK options
 * Tips and best practices for query performance
-* Examples of how to utilize SQL execution statistics to debug query performance
+* Examples of how to utilize SQL query execution metrics to debug query performance
 
 ## About SQL query execution
 

@@ -61,7 +61,7 @@ ServerSideCumulativeMetrics metrics = feedResponse.Diagnostics.GetQueryMetrics()
 ServerSideMetrics cumulativeMetrics = metrics.CumulativeMetrics;
 ```
 
-You can also aggregate these metrics across all round trips for the query. The following is an example of how to aggregate query execution time across all round trips for a given query using LINQ.
+You can also aggregate these metrics across all round trips for the query. The following is an example of how to aggregate query execution time across all round trips for a given query using LINQ:
 
 ```csharp
 QueryDefinition query = new QueryDefinition("SELECT TOP 5 * FROM c");
@@ -95,7 +95,7 @@ ServerSideCumulativeMetrics metrics = feedResponse.Diagnostics.GetQueryMetrics()
 List<ServerSidePartitionedMetrics> partitionedMetrics = metrics.PartitionedMetrics;
 ```
 
-When accumulated over all round trips, per partition metrics allow you to see if a specific partition is causing performance issues when compared to others. The following is an example of how to group partition metrics for each trip using LINQ.
+When accumulated over all round trips, per partition metrics allow you to see if a specific partition is causing performance issues when compared to others. The following is an example of how to group partition metrics for each trip using LINQ:
 
 ```csharp
 QueryDefinition query = new QueryDefinition("SELECT TOP 5 * FROM c");
