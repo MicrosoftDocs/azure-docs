@@ -95,6 +95,9 @@ Tabular fields support **cross page tables** by default. To label a table that s
 
 Tabular fields are also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
 
+> [!NOTE]
+> Table field when labeled are extracted as part of the `documents` section of the response. The response also contains a `tables` section which contains the tables extracted from the document by the layout model. If you have labeled a field as a table, look for the field in the documents section of the response.
+
 ## Labeling guidelines
 
 * **Labeling values is required.** Don't include the surrounding text. For example when labeling a checkbox, name the field to indicate the check box selection for example ```selectionYes``` and ```selectionNo``` rather than labeling the yes or no text in the document.

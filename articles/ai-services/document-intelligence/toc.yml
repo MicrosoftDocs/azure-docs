@@ -58,7 +58,7 @@ items:
     - name: Document Intelligence Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-document-intelligence-studio.md
-    - name: "Get started with Document Intelligence"
+    - name: "Get started with Document Intelligence SDKs"
       displayName: formRecognizerClient, Document Intelligence client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
     - name: Sample Labeling tool
@@ -185,7 +185,7 @@ items:
     displayName: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
     href: concept-business-card.md?view<=doc-intel-3.1.0&preserve-view=true
   - name: Query field extraction
-    displayName: queries, fields, OpenAI, chat
+    displayName: queries, fields
     href: concept-query-fields.md
   - name: Custom models
     items:
@@ -262,7 +262,7 @@ items:
 - name: Reference
   items:
     - name: REST API v4.0
-      href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
+      href: /rest/api/aiservices/operation-groups?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
     - name: REST API v3.1
       href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
     - name: REST API v3.0

@@ -45,27 +45,40 @@ ms.author: lajanuar
 
 The following table shows the available models for each current preview and stable API:
 
-|Model|[2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
-|----------------|-----------|---|--|---|
-|[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
-|[Business card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
-|[Contract](concept-contract.md)                          | ✔️| ✔️| n/a| n/a|
-|[Custom classifier](concept-custom-classifier.md)        | ✔️| ✔️| n/a| n/a|
-|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
-|[Custom neural](concept-custom-neural.md)                | ✔️| ✔️| ✔️| n/a|
-|[Custom template](concept-custom-template.md)            | ✔️| ✔️| ✔️| ✔️|
-|[General document](concept-general-document.md)          | deprecated| ✔️| ✔️| n/a|
-|[Health insurance card](concept-health-insurance-card.md)| ✔️| ✔️| ✔️| n/a|
-|[ID document](concept-id-document.md)                    | ✔️| ✔️| ✔️| ✔️|
-|[Invoice](concept-invoice.md)                            | ✔️| ✔️| ✔️| ✔️|
-|[Layout](concept-layout.md)                              | ✔️| ✔️| ✔️| ✔️|
-|[Read](concept-read.md)                                  | ✔️| ✔️| ✔️| n/a|
-|[Receipt](concept-receipt.md)                            | ✔️| ✔️| ✔️| ✔️|
-|[US 1098 Tax](concept-tax-document.md)                   | ✔️| ✔️| n/a| n/a|
-|[US 1098-E Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
-|[US 1098-T Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
-|[US 1099 Tax](concept-tax-document.md)                 | ✔️| n/a| n/a| n/a|
-|[US W2 Tax](concept-tax-document.md)                     | ✔️| ✔️| ✔️| n/a|
+|Model Type| Model|[2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|----------------|-----------|---|--|---|---|
+|Document analysis models|[Read](concept-read.md)                                  | ✔️| ✔️| ✔️| n/a|
+|Document analysis models|[Layout](concept-layout.md)                              | ✔️| ✔️| ✔️| ✔️|
+|Document analysis models|[General document](concept-general-document.md)          |moved to layout| ✔️| ✔️| n/a|
+|Prebuilt models|[Business card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
+|Prebuilt models|[Contract](concept-contract.md)                          | ✔️| ✔️| n/a| n/a|
+|Prebuilt models|[Health insurance card](concept-health-insurance-card.md)| ✔️| ✔️| ✔️| n/a|
+|Prebuilt models|[ID document](concept-id-document.md)                    | ✔️| ✔️| ✔️| ✔️|
+|Prebuilt models|[Invoice](concept-invoice.md)                            | ✔️| ✔️| ✔️| ✔️|
+|Prebuilt models|[Receipt](concept-receipt.md)                            | ✔️| ✔️| ✔️| ✔️|
+|Prebuilt models|[US 1098 Tax](concept-tax-document.md)                   | ✔️| ✔️| n/a| n/a|
+|Prebuilt models|[US 1098-E Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
+|Prebuilt models|[US 1098-T Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
+|Prebuilt models|[US 1099 Tax](concept-tax-document.md)                 | ✔️| n/a| n/a| n/a|
+|Prebuilt models|[US W2 Tax](concept-tax-document.md)                     | ✔️| ✔️| ✔️| n/a|
+|Prebuilt models|[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
+|Custom models|[Custom classifier](concept-custom-classifier.md)        | ✔️| ✔️| n/a| n/a|
+|Custom models|[Custom neural](concept-custom-neural.md)                | ✔️| ✔️| ✔️| n/a|
+|Custom models|[Custom template](concept-custom-template.md)            | ✔️| ✔️| ✔️| ✔️|
+|Custom models|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
+
+|Add-on Capability| Add-On/Free|[2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|----------------|-----------|---|--|---|---|
+|Font property extraction|Add-On| ✔️| ✔️| n/a| n/a|
+|Formula extraction|Add-On| ✔️| ✔️| n/a| n/a|
+|High resolution extraction|Add-On| ✔️| ✔️| n/a| n/a|
+|Barcode extraction|Free| ✔️| ✔️| n/a| n/a|
+|Language detection|Free| ✔️| ✔️| n/a| n/a|
+|Key value pairs|Free| ✔️|n/a|n/a| n/a|
+|Query fields|Add-On*| ✔️|n/a|n/a| n/a|
+
+
+Add-On* - Query fields are priced differently than the other add on features. See [pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/) for details.
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -96,31 +109,11 @@ For all models, except Business card model, Document Intelligence now supports a
 * [`barcodes`](concept-add-on-capabilities.md#barcode-property-extraction)
 * [`languages`](concept-add-on-capabilities.md#language-detection)
 * [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2023-10-31-preview)
-* [`queryFields`](concept-add-on-capabilities.md#query-fields) (2023-31-preview)
+* [`queryFields`](concept-add-on-capabilities.md#query-fields) (2023-10-31-preview). `Not available with the US.Tax models`
 
 ## Analysis features
 
-|Model ID|Content Extraction|Query fields|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|
-|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
-|prebuilt-read|✓| | | | | |O|O| |O|O|O|
-|prebuilt-layout|✓|✓|✓|✓|✓|✓| |O|O| |O|O|O|
-|prebuilt-document|✓|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
-|prebuilt-businessCard|✓|✓| | | | | | | |✓| | | |
-|prebuilt-idDocument|✓|✓|| | | | |O|O|✓|O|O|O|
-|prebuilt-invoice|✓|✓| | |✓|✓|O|O|O|✓|O|O|O|
-|prebuilt-receipt|✓|✓| | | | | |O|O|✓|O|O|O|
-|prebuilt-healthInsuranceCard.us|✓|✓| | | | | |O|O|✓|O|O|O|
-|prebuilt-tax.us.w2|✓|✓| | |✓| | |O|O|✓|O|O|O|
-|prebuilt-tax.us.1098|✓|✓| | |✓| | |O|O|✓|O|O|O|
-|prebuilt-tax.us.1098E|✓|✓| | |✓| | |O|O|✓|O|O|O|
-|prebuilt-tax.us.1098T|✓|✓| | |✓| | |O|O|✓|O|O|O|
-|prebuilt-tax.us.1099(variations)|✓|✓| | |✓| | |O|O|✓|O|O|O|
-|prebuilt-contract|✓|✓|✓|✓| | |O|O|✓|O|O|O|
-|{ customModelName }|✓|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|
-
-✓ - Enabled</br>
-O - Optional</br>
-\* - Premium features incur extra costs
+[!INCLUDE [input requirements](./includes/model-analysis-features.md)]
 
 ### Read OCR
 

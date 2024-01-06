@@ -40,7 +40,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker range="doc-intel-4.0.0"
  > [!IMPORTANT]
-> Starting with Document Intelligence **v4.0 (preview)**, and going forward, the business card model (prebuilt-businessCard) is deprecated. To extract data from business card formats, use the following:
+> Starting with Document Intelligence **v4.0 (preview)**, and going forward, the business card model (prebuilt-businessCard) is deprecated. To extract data from business cards, use the following:
 
 | Feature   | version| Model ID |
 |----------  |---------|--------|
@@ -67,7 +67,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ## Contract
 
-:::moniker range="doc-intel-4.0.0 ||doc-intel-3.1.0"
+:::moniker range="doc-intel-4.0.0 || doc-intel-3.1.0"
 
 ***Model ID: prebuilt-contract***
 
@@ -108,7 +108,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ::: moniker-end
 
-:::moniker range=">=doc-intel-2.1.0"
+:::moniker range="doc-intel-2.1.0"
 
 | Region | Document types |
 |--------|----------------|
@@ -154,8 +154,8 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; Serbian (sr-Latn) | Serbia (latn-rs)|
 | &bullet; Albanian (`sq`) | Albania (`al`)|
 | &bullet; Swedish (`sv`) | Sweden (`se`)|
-| &bullet; Chinese (simplified (zh-hans)) | China (zh-hans-cn)|
-| &bullet; Chinese (traditional (zh-hant)) | Hong Kong SAR (zh-hant-hk), Taiwan (zh-hant-tw)|
+| &bullet; Chinese (simplified (`zh-hans`)) | China (`zh-hans-cn`)|
+| &bullet; Chinese (traditional (`zh-hant`)) | Hong Kong SAR (`zh-hant-hk`), Taiwan (`zh-hant-tw`)|
 
 ### [Supported Currency Codes](#tab/currency)
 

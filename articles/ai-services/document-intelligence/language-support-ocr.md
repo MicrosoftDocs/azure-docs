@@ -66,48 +66,6 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ##### Model ID: **prebuilt-read**
 
-### [**Read: handwritten text**](#tab/read-hand)
-
-:::moniker range="doc-intel-4.0.0"
-
-The following table lists read model language support for extracting and analyzing **handwritten** text.</br>
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`| Russian (preview) | `ru` |
-|Thai (preview) | `th` | Arabic (preview) | `ar` |
-:::moniker-end
-
-::: moniker range="doc-intel-3.1.0"
-
-The following table lists read model language support for extracting and analyzing **handwritten** text.</br>
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`|
-:::moniker-end
-
-::: moniker range="doc-intel-3.0.0"
-The following table lists read model language support for extracting and analyzing **handwritten** text.</br>
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`|
-
-:::moniker-end
-
 ### [**Read: printed text**](#tab/read-print)
 
 :::moniker range=">=doc-intel-3.1.0"
@@ -623,6 +581,48 @@ The following table lists read model language support for extracting and analyzi
 
 :::moniker-end
 
+### [**Read: handwritten text**](#tab/read-hand)
+
+:::moniker range="doc-intel-4.0.0"
+
+The following table lists read model language support for extracting and analyzing **handwritten** text.</br>
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`| Russian (preview) | `ru` |
+|Thai (preview) | `th` | Arabic (preview) | `ar` |
+:::moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+The following table lists read model language support for extracting and analyzing **handwritten** text.</br>
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
+:::moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+The following table lists read model language support for extracting and analyzing **handwritten** text.</br>
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
+
+:::moniker-end
+
 ### [**Read: language detection**](#tab/read-detection)
 
 The [Read model API](concept-read.md) supports **language detection** for the following languages in your documents. This list can include languages not currently supported for text extraction.
@@ -768,58 +768,6 @@ The [Read model API](concept-read.md) supports **language detection** for the fo
 ## Layout
 
 ##### Model ID: **prebuilt-layout**
-
-### [**Layout: handwritten text**](#tab/layout-hand)
-
-:::moniker range="doc-intel-4.0.0"
-
-The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`| Russian (preview) | `ru` |
-|Thai (preview) | `th` | Arabic (preview) | `ar` |
-:::moniker-end
-
-:::moniker range="doc-intel-3.1.0"
-
-##### Model ID: **prebuilt-layout**
-
-The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`|
-
-:::moniker-end
-
-:::moniker range="doc-intel-2.1.0"
-   > [!NOTE]
-   > Document Intelligence v2.1 does not support handwritten text extraction.
-
-:::moniker-end
-
-:::moniker range="doc-intel-3.0.0"
-
-The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`| Russian (preview) | `ru` |
-|Thai (preview) | `th` | Arabic (preview) | `ar` |
-:::moniker-end
 
 ### [**Layout: printed text**](#tab/layout-print)
 
@@ -1423,6 +1371,59 @@ The following table lists layout model language support for extracting and analy
 :::row-end:::
 :::moniker-end
 
+
+### [**Layout: handwritten text**](#tab/layout-hand)
+
+:::moniker range="doc-intel-4.0.0"
+
+The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`| Russian (preview) | `ru` |
+|Thai (preview) | `th` | Arabic (preview) | `ar` |
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+##### Model ID: **prebuilt-layout**
+
+The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
+
+:::moniker-end
+
+:::moniker range="doc-intel-2.1.0"
+   > [!NOTE]
+   > Document Intelligence v2.1 does not support handwritten text extraction.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+The following table lists layout model language support for extracting and analyzing **handwritten** text. </br>
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`| Russian (preview) | `ru` |
+|Thai (preview) | `th` | Arabic (preview) | `ar` |
+:::moniker-end
+
 ---
 
 ## General document
@@ -1430,12 +1431,12 @@ The following table lists layout model language support for extracting and analy
 :::moniker range="doc-intel-4.0.0"
 
 > [!IMPORTANT]
-> Starting with Document Intelligence **v4.0:2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
+> Starting with Document Intelligence **v4.0:2023-10-31-preview** and going forward, the general document model (prebuilt-document) is being added to layout (prebuilt-layout). To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
 
-| Feature   | version| Model ID |
+| Key value pairs   | version| Model ID |
 |----------  |---------|--------|
-|Layout model with **`features=keyValuePairs`** specified.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
-|General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-document`**|
+|Layout model with query string **`features=keyValuePairs`** specified.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
+|General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)|**`prebuilt-document`**|
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"

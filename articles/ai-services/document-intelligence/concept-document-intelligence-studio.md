@@ -30,11 +30,23 @@ monikerRange: '>=doc-intel-3.0.0'
 **This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1 (preview)**](?view=doc-intel-3.1.0&preserve-view=true)
 ::: moniker-end
 
-[Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications. Use the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md) to get started analyzing documents with pretrained models. Build custom template models and reference the models in your applications using the [Python SDK v3.0](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and other quickstarts.
+[Document Intelligence Studio](https://documentintelligence.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications. Use the Document Intelligence Studio to:
+* Learn more about the different capabilities in Document Intelligence.
+* Use your Document Intelligence resource to test models on sample documents or upload your own documents.
+* Experiment with different add-on and preview features to adapt the output to your needs.
+* Train custom classifcation models to classify documents.
+* Train custom extraction models to extract fields from documents.
+* Get sample code for the language spcific SDKs to integrate into y9our applications.
+
+Use the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md) to get started analyzing documents with document analysis or prebuilt models. Build custom models and reference the models in your applications using one of the [language specific SDKs](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and other quickstarts.
 
 The following image shows the landing page for Document Intelligence Studio.
 
 :::image border="true" type="content" source="media/studio/welcome-to-studio.png" alt-text="Document Intelligence Studio Homepage":::
+
+## Getting started
+
+If this is the first time you are visiting the Studio, follow the [getting started guide](studio-overview.md#get-started-using-document-intelligence-studio) to setup the Studio for use.
 
 ## Analyze options
 

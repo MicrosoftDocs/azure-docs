@@ -67,11 +67,17 @@ A custom classification model can replace [a composed model](concept-composed-mo
 
 ## Language support
 
+:::moniker range="doc-intel-3.1.0"
 Classification models currently only support English language documents.
+:::moniker-end
+
+::: moniker range=">=doc-intel-4.0.0"
+Classification models can now be trained on documents of different languages. See [supported languages](language-support-custom.md) for a complete list.
+::: moniker-end
 
 ## Input requirements
 
-* For best results, provide one clear photo or high-quality scan per document.
+* For best results, provide five clear photos or high-quality scans per document type.
 
 * Supported file formats:
 
@@ -83,7 +89,7 @@ Classification models currently only support English language documents.
     |Prebuilt        |  ✔  | ✔ |   |
     |Custom          |  ✔  | ✔ |   |
 
-    &#x2731; Microsoft Office files are currently not supported for other models or versions.
+   
 
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 
@@ -101,13 +107,27 @@ Classification models currently only support English language documents.
 
 * For custom classification model training, the total size of training data is `1GB`  with a maximum of 10,000 pages.
 
+
+## Document splitting
+
+When you have more than one document in a file, the classifier can identify the different document types contained within the input file. The classifier response will contain the page ranges for each of the identified document types contined within a file. This can include multiple instances of the same document type.
+
+::: moniker range=">=doc-intel-4.0.0"
+The analyze operation now includes a `splitMode` property that gives you granular control over the splitting behavior. 
+* To trat the entire input file as a single document for classification set the splitMode to `none`. When you do this, the service returns just one class for the entire input file.
+* To classify each page of the input file, set the splitMode to `perPage`. The service will attept to classify each page as an individual document.
+* Set the splitMode to `auto` and the service will identify the documents and associated page ranges.
+::: moniker-end
+
 ## Best practices
 
 Custom classification models require a minimum of five samples per class to train. If the classes are similar, adding extra training samples improves model accuracy.
 
+The classifier will attempt to assign each document to one of the classes, if you expect the model will see document types not in the classes that are part of the training dataset, you should plan to set a threshold on the classification score or add a few representative samples of the document types to an ```"other"``` class. Adding an ```"other"``` class will ensure that the documents not needed do not impact your classifier quality.
+
 ## Training a model
 
-Custom classification models are supported by **v4.0:2023-10-31-preview** and **v3.1:2023-07-31 (GA)** APIs. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
+Custom classification models are supported by **v4.0:2023-10-31-preview** and **v3.1:2023-07-31 (GA)** APIs. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier. Follow the [how to guide](how-to-guides/build-a-custom-classifier.md) to get started.
 
 When using the REST API, if you organize your documents by folders, you can use the ```azureBlobSource``` property of the request to train a classification model.
 
@@ -158,19 +178,19 @@ https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-07-
     "car-maint": {
         "azureBlobSource": {
             "containerUrl": "SAS URL to container",
-            "prefix": "sample1/car-maint/"
+            "prefix": "{path to dataset root}/car-maint/"
             }
     },
     "cc-auth": {
         "azureBlobSource": {
             "containerUrl": "SAS URL to container",
-            "prefix": "sample1/cc-auth/"
+            "prefix": "{path to dataset root}/cc-auth/"
             }
     },
     "deed-of-trust": {
         "azureBlobSource": {
             "containerUrl": "SAS URL to container",
-            "prefix": "sample1/deed-of-trust/"
+            "prefix": "{path to dataset root}/deed-of-trust/"
             }
     }
   }
@@ -190,19 +210,19 @@ Alternatively, if you have a flat list of files or only plan to use a few select
     "car-maint": {
       "azureBlobFileListSource": {
         "containerUrl": "SAS URL to container",
-        "fileList": "sample1/car-maint.jsonl"
+        "fileList": "{path to dataset root}/car-maint.jsonl"
       }
     },
     "cc-auth": {
       "azureBlobFileListSource": {
         "containerUrl": "SAS URL to container",
-        "fileList": "sample1/cc-auth.jsonl"
+        "fileList": "{path to dataset root}/cc-auth.jsonl"
       }
     },
     "deed-of-trust": {
       "azureBlobFileListSource": {
         "containerUrl": "SAS URL to container",
-        "fileList": "sample1/deed-of-trust.jsonl"
+        "fileList": "{path to dataset root}/deed-of-trust.jsonl"
       }
     }
   }
@@ -210,14 +230,14 @@ Alternatively, if you have a flat list of files or only plan to use a few select
 
 ```
 
-File list `car-maint.jsonl` contains the following files.
+As an example, the file list `car-maint.jsonl` contains the following files.
 
 ```json
-{"file":"sample1/car-maint/Commercial Motor Vehicle - Adatum.pdf"}
-{"file":"sample1/car-maint/Commercial Motor Vehicle - Fincher.pdf"}
-{"file":"sample1/car-maint/Commercial Motor Vehicle - Lamna.pdf"}
-{"file":"sample1/car-maint/Commercial Motor Vehicle - Liberty.pdf"}
-{"file":"sample1/car-maint/Commercial Motor Vehicle - Trey.pdf"}
+{"file":"classifier/car-maint/Commercial Motor Vehicle - Adatum.pdf"}
+{"file":"classifier/car-maint/Commercial Motor Vehicle - Fincher.pdf"}
+{"file":"classifier/car-maint/Commercial Motor Vehicle - Lamna.pdf"}
+{"file":"classifier/car-maint/Commercial Motor Vehicle - Liberty.pdf"}
+{"file":"classifier/car-maint/Commercial Motor Vehicle - Trey.pdf"}
 ```
 
 ## Model response
@@ -227,7 +247,7 @@ Analyze an input file with the document classification model
 :::moniker range="doc-intel-4.0.0"
 
 ```rest
-https://{endpoint}/documentintelligence/documentClassifiers:build?api-version=2023-10-31-preview
+https://{endpoint}/documentintelligence/documentClassifiers/{classifier}:analyze?api-version=2023-10-31-preview
 ```
 
 :::moniker-end

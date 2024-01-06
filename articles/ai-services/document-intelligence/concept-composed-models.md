@@ -57,13 +57,15 @@ With the introduction of [**custom classification models**](./concept-custom-cla
 
 ### Composed model compatibility
 
-|Custom model type|Models trained with v2.1 and v2.0 | Custom template models v3.0 |Custom neural models v3.0 (preview) |Custom neural models 3.0 (GA)|
+|Custom model type|Models trained with v2.1 and v2.0 | Custom template models v3.0 |Custom neural models 3.0|Custom Neural models v3.1|
 |--|--|--|--|--|
 |**Models trained with version 2.1 and v2.0** |Supported|Supported|Not Supported|Not Supported|
-|**Custom template models v3.0** |Supported|Supported|Not Supported|NotSupported|
-|**Custom template models v3.0 (GA)** |Not Supported|Not Supported|Supported|Not Supported|
-|**Custom neural models v3.0 (preview)**|Not Supported|Not Supported|Supported|Not Supported|
-|**Custom Neural models v3.0 (GA)**|Not Supported|Not Supported|Not Supported|Supported|
+|**Custom template models v3.0** |Supported|Supported|Not Supported|Not Supported|
+|**Custom template models v3.0** |Not Supported|Not Supported|Not Supported|Not Supported|
+|**Custom template models v3.1** |Not Supported|Not Supported|Not Supported|Not Supported|
+|**Custom Neural models v3.0**|Not Supported|Not Supported|Supported|Supported|
+|**Custom Neural models v3.1**|Not Supported|Not Supported|Supported|Supported|
+
 
 * To compose a model trained with a prior version of the API (v2.1 or earlier), train a model with the v3.0 API using the same labeled dataset. That addition ensures that the v2.1 model can be composed with other models.
 
