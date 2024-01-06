@@ -61,9 +61,9 @@ Create the following security groups for your workspace:
 You'll assign Synapse roles to these groups at the workspace scope shortly.  
 
 Also create this security group:
-- **`workspace1_SQLAdmins`**, group for users who need SQL Active Directory Admin authority, within SQL pools in the workspace.
+- **`workspace1_SQLAdmins`**, for users who need SQL Active Directory Admin authority, within SQL pools in the workspace.
 
-The `workspace1_SQLAdmins` group to configure SQL permissions when you create SQL pools.
+The `workspace1_SQLAdmins` group to  is used to configure SQL permissions when you create SQL pools.
 
 These five groups are sufficient for a basic setup. Later, you can add security groups to handle users who need more specialized access or restrict access to individual resources only.
 
