@@ -239,7 +239,8 @@ az network front-door waf-policy managed-rules add \
     --policy-name contosoWAF \
     --resource-group myRGFD \
     --type Microsoft_DefaultRuleSet \
-    --version 1.2 
+    --action Block \
+    --version 2.1 
 ```
 
 ```azurecli-interactive
