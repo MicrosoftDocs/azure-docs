@@ -38,39 +38,52 @@ The following table describes the options available in the command bar.
 
 ## Add new entities
 
-To add one or more new entities to the model, click **Add** and select the type of entity you would like to add.
-
-:::image type="content" source="./media/health-model-create-modify-with-designer/designer-pane-command-bar.png" lightbox="./media/health-model-create-modify-with-designer/designer-pane-command-bar.png" alt-text="Screenshot of the Add dropdown within the command bar.":::
+To add one or more new entities to the model, click **Add** and select the type of entity to add.
 
 | Entity Type | Description |
 |:-------|:------------|
 | Azure resources | An **Azure resource** from the current subscription or a subscription that you can access. The health model can use any metrics or logs that are associated with the resource. This includes [platform metrics](), [resource logs](), and data collected from insights such as [VM insights]() and [container insights](). |
-| Aggregate entities | Aggregate entities represent parts of an application that aren't an Azure resource. They're health is set by the aggregate of the health of their child entities. You can also add a [log query]() or [Prometheus metrics query]() to set its health state.<br><br>The functionality of the aggregate entities are identical, but each is intended to represent a different type of entity.<br><br>*User flows* - High level business-oriented set of functionality that allows users of the system to achieve specific goals. Possible examples include *add comment*, *checkout*, *clean data*, and *generate report*.<br>*System components* - Broader and more technical than user flows. Possible examples include *supporting API services* and *backend workers*.<br>- *Generic entity* - Meant to be used for maximum flexibility when neither user flow or system component have appropriate context in the model. |
+| Aggregate entities | Aggregate entities represent parts of an application that aren't an Azure resource. The functionality of the aggregate entities are identical, but each is intended to represent a different type of entity. Their health is set by the aggregate of the health of their child entities. You can also add a [log query]() or [Prometheus metrics query]() to set its health state.<br><br>- **User flows** - High level business-oriented set of functionality that allows users of the system to achieve specific goals. Possible examples include *add comment*, *checkout*, *clean data*, and *generate report*.<br>- **System components** - Broader and more technical than user flows. Possible examples include *supporting API services* and *backend workers*.<br>- **Generic entity** - Meant to be used for maximum flexibility when neither user flow or system component have appropriate context in the model. |
 
 
-## Edit entities
+## Entity properties
 
-### Azure Resource entity
-
-When you edit an Azure Resource entity for the first time, the **Entity editor** opens on the **General** tab and looks like this:
+### General tab
+The **General** tab allows you to configure the name and health propogation of the entity.
 
 :::image type="content" source="./media/health-model-create-modify-with-designer/entity-editor-general-tab.png" lightbox="./media/health-model-create-modify-with-designer/entity-editor-general-tab.png" alt-text="Screenshot of the Entity editor in the Azure portal with the General tab selected.":::
 
-The **General** tab offers the ability to configure an entity's display name and its impact. **Display Name** defaults to the name of the Azure resource, but you can modify it.
 
-The **Impact** setting determines how the health state of this entity is being propagated to its parent(s):
+| Setting | Description |
+|:---|:---|
+| Display name | The name of the entity as it appears in the health model. You can modify this name later. |
+| Impact | Determines how the health state of this entity is propagated to its parent(s) as described below. |
+| Signals<br>(Aggregate entities only) | Select either a Log Analytics workspace or an Azure Monitor workspace if you want to add signals to the current entity in addition to the health impact of any child entities. This option enables the **Signals** tab for the entity. |
 
-| Option | Description |
-|:-------|:------------|
-| **Standard** | Standard impact propagates the entity state upwards as-is. If the entity is unhealthy, it propagates unhealthy. For degraded state respectively. |
-| **Limited** | Limited impact doesn't propagate a degraded state and propagates an unhealthy state as degraded. |
-| **Suppressed** | Suppressed doesn't propagate any degraded or unhealthy state (for the parents the entity appears as if it was healthy). |
-
-The next tab is called **Signals** changing the selected Azure resource, verify or set the access of the health model to the selected resource and configuration both metric and log signals.
+### Signals tab
+The **Signals** taballows you to set the access of the health model to the selected resource and configuration both metric and log signals.
 
 :::image type="content" source="./media/health-model-create-modify-with-designer/entity-editor-signals-tab.png" lightbox="./media/health-model-create-modify-with-designer/entity-editor-signals-tab.png" alt-text="Screenshot of the Entity editor in the Azure portal with the Signals tab selected.":::
 
-**Select Azure resource** to change the resource association. 
+| Setting | Description |
+|:---|:---|
+| Azure resource | Path to the Azure resource represented by this entity. Click on **Select Azure resource** to change the entity to represent another resource. Will also specify whether the health model has required access to the resource. |
+| Metric signals | List of metric signals used to calculate the entity's health and their threshold for each health state. Click on a metric name to edit its details. |
+| Log signals | |
+
+
+## Alert rules
+
+The **Alert rules** section displays any alert rules configured on the Azure resource represented by the entity or on the entity itself. You can click on the rule name to edit it. These alert rules can be created either within the health model designer or externally using the standard Azure Alerts configuration. 
+
+| Setting | Description |
+|:---|:---|
+| Health entity | Alert rules configured for this health model entity based on the **Health score per node** metric. |
+| Azure resources | Alert rules configured for this individual Azure resource. | 
+
+
+
+
 
 > [!IMPORTANT] 
 > Be aware that if you change to a different resource type, any configured Metric signals are probably no longer valid.
@@ -87,12 +100,7 @@ The last tab in the Entity editor is the **Alert rules** tab.
 
 :::image type="content" source="./media/health-model-create-modify-with-designer/entity-editor-alert-rules-tab.png" lightbox="./media/health-model-create-modify-with-designer/entity-editor-alert-rules-tab.png" alt-text="Screenshot of the Entity editor in the Azure portal with the Alert rules tab selected.":::
 
-The **Alert rules** section displays any Azure alert rules that may be configured on the resource itself (Azure resource) or on the entity (Health entity) and provides direct links to access these rules.
 
-- **Health entity** contains Azure alerts configured for this health model entity based on the **Health score per node** metric.
-- **Azure resource** contains Azure alerts configured for this individual Azure resource.
-
-You have the flexibility to configure alert rules either within the health model designer or externally using the standard Azure Alerts configuration. The latter also applies to Infra-as-Code scenarios.
 
 Clicking **Create alert rule for health of this entity** guides you to the creation wizard for setting up new alert rules.
 

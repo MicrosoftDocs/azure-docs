@@ -7,7 +7,7 @@ ms.author: bwren
 ms.date: 12/12/2023
 ---
 
-# View the health of you model
+# View the current status of a health model in Azure Monitor
 There are multiple views in Azure Monitor to analyze the current health of your model. 
 
 ## Graph view
