@@ -33,7 +33,7 @@ When you issue a query to Azure Cosmos DB, the SDK performs these logical steps:
 * The query is executed within each partition in series or parallel, based on client configuration. Within each partition, the query might make one or more round trips depending on the query complexity, configured page size, and provisioned throughput of the collection. Each execution returns the number of [request units](../request-units.md) consumed by query execution and query execution statistics. 
 * The SDK performs a summarization of the query results across partitions. For example, if the query involves an ORDER BY across partitions, then results from individual partitions are merge-sorted to return results in globally sorted order. If the query is an aggregation like `COUNT`, the counts from individual partitions are summed to produce the overall count.
 
-The SDKs provide various options for query execution. For example, in .NET these options are available in the [`QueryRequestOptions`](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions) class. The following table describes these options and how they effect query execution time. 
+The SDKs provide various options for query execution. For example, in .NET these options are available in the [`QueryRequestOptions`](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions) class. The following table describes these options and how they affect query execution time. 
 
 | Option | Description |
 | ------ | ----------- |
