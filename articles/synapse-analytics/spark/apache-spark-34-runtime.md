@@ -6,6 +6,7 @@ ms.author: eskot
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
+ms.custom: devx-track-python
 ms.date: 11/17/2023 
 ---
 
@@ -477,6 +478,3 @@ The following table lists all the default level packages for R and their respect
 ## Migration between Apache Spark versions - support
 
 For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.4, refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
-
-
-

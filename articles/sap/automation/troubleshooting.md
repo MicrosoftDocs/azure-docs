@@ -8,7 +8,7 @@ ms.date: 12/05/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-ansible
+ms.custom:
 ---
 
 # Troubleshooting the SAP Deployment Automation Framework
