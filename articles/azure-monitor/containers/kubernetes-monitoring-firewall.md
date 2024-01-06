@@ -28,7 +28,7 @@ The following table lists the proxy and firewall configuration information requi
 | Endpoint| Purpose | Port |
 |:---|:---|:---|
 | `*.ods.opinsights.azure.cn` | Data ingestion | 443 |
-| `*.oms.opinsights.azure.cn` | OMS onboarding | 443 |
+| `*.oms.opinsights.azure.cn` | Azure Monitor agent (AMA) onboarding | 443 |
 | `dc.services.visualstudio.com` | For agent telemetry that uses Azure Public Cloud Application Insights | 443 |
 | `global.handler.control.monitor.azure.cn` | Access control service | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.cn` | Fetch data collection rules for specific cluster | 443 |
@@ -38,7 +38,7 @@ The following table lists the proxy and firewall configuration information requi
 | Endpoint| Purpose | Port |
 |:---|:---|:---|
 | `*.ods.opinsights.azure.us` | Data ingestion | 443 |
-| `*.oms.opinsights.azure.us` | OMS onboarding | 443 |
+| `*.oms.opinsights.azure.us` | Azure Monitor agent (AMA) onboarding | 443 |
 | `dc.services.visualstudio.com` | For agent telemetry that uses Azure Public Cloud Application Insights | 443 |
 | `global.handler.control.monitor.azure.us` | Access control service | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.us` | Fetch data collection rules for specific cluster | 443 |

@@ -58,8 +58,7 @@ The following resources provide you with support:
 
 ### Prerequisites-VM
 
-- Cluster administrator access to the Nexus Kubernetes cluster. See [documentation](/azure-stack/aks-hci/create-aks-hybrid-preview-cli#connect-to-the-nexus-kubernetes-cluster) on
-  connecting to the Nexus Kubernetes cluster.
+- Cluster administrator access to the Nexus Kubernetes cluster.
 
 - To use Azure Arc-enabled servers, register the following Azure resource providers in your subscription:
   - Microsoft.HybridCompute

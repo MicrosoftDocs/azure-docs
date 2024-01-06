@@ -127,12 +127,12 @@
         href: ./samples/irs-1075-sept2016.md
       - name: ISO 27001:2013
         href: ./samples/iso-27001.md
+      - name: Microsoft cloud security benchmark
+        href: ./samples/azure-security-benchmark.md
       - name: Microsoft Cloud for Sovereignty Confidential
         href: ./samples/mcfs-baseline-confidential.md
       - name: Microsoft Cloud for Sovereignty Global
         href: ./samples/mcfs-baseline-global.md
-      - name: Microsoft cloud security benchmark
-        href: ./samples/azure-security-benchmark.md
       - name: New Zealand ISM Restricted
         href: ./samples/new-zealand-ism.md
       - name: New Zealand ISM Restricted v3.5

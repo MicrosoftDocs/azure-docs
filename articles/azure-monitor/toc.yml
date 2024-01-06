@@ -406,7 +406,7 @@ items:
           href: vm/vminsights-enable-resource-manager.md
         - name: Azure Policy 
           href: vm/vminsights-enable-policy.md
-        - name: Hybrid VMs
+        - name: Windows client machines
           href: vm/vminsights-enable-hybrid.md
         - name: Dependency Agent
           href: vm/vminsights-dependency-agent-maintenance.md
@@ -823,8 +823,10 @@ items:
               href: essentials/collect-custom-metrics-linux-telegraf.md
     - name: Troubleshoot
       items:
-      - name: Use AMA Troubleshooter
-        href: agents/use-azure-monitor-agent-troubleshooter.md
+      - name: Windows AMA Troubleshooter
+        href: agents/troubleshooter-ama-windows.md
+      - name: Linux AMA Troubleshooter
+        href: agents/troubleshooter-ama-linux.md
       - name: Linux VM
         href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
       - name: Linux Syslog issues
@@ -1458,6 +1460,8 @@ items:
     items:
       - name: Alerts payloads
         href: alerts/alerts-payload-samples.md
+      - name: Log alert rule queries with ADX and ARG
+        href: alerts/alerts-log-alert-query-samples.md
       - name: Log alert payloads with webhooks
         href: alerts/alerts-log-webhook.md
   - name: Data collection rules

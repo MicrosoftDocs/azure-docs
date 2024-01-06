@@ -25,7 +25,7 @@ Specific configuration you can perform with the ConfigMap includes:
 > See [Configure data collection in Container insights using data collection rule](./container-insights-data-collection-dcr.md) to configure data collection using a DCR which allows you to configure different settings.
 
 ## Prerequisites 
-- ConfigMap is a global list and there can be only one ConfigMap applied to the agent for Container insights. You can't have another ConfigMap overruling the collections.
+- ConfigMap is a global list and there can be only one ConfigMap applied to the agent for Container insights. Applying another ConfigMap will overrule the previous ConfigMap collection settings.
 - The minimum agent version supported to collect stdout, stderr, and environmental variables from container workloads is **ciprod06142019** or later. To verify your agent version, on the **Node** tab, select a node. On the **Properties** pane, note the value of the **Agent Image Tag** property. For more information about the agent versions and what's included in each release, see [Agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
 
 ## Configure and deploy ConfigMap

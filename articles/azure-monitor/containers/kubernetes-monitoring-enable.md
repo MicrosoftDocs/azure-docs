@@ -336,7 +336,7 @@ Use one of the following commands to enable monitoring of your AKS and Arc-enabl
 - Managed identity authentication is default in CLI version 2.49.0 or higher.
 - Azure k8s-extension version 1.3.7 or higher
 - Managed identity authentication is the default in k8s-extension version 1.43.0 or higher.
-- Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
+- Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with ARO (Azure Red Hat Openshift) or Windows nodes. Use legacy authentication.
 - For CLI version 2.54.0 or higher, the logging schema will be configured to [ContainerLogV2](container-insights-logs-schema.md) using [ConfigMap](container-insights-data-collection-configmap.md).
 
 #### AKS cluster
@@ -451,8 +451,10 @@ Both ARM and Bicep templates are provided in this section.
     - Parameter file (No Syslog): [https://aka.ms/enable-monitoring-msi-bicep-parameters](https://aka.ms/enable-monitoring-msi-bicep-parameters)
 
     **Arc-enabled cluster ARM**
-    - Template file: [https://aka.ms/arc-k8s-azmon-extension-arm-template](https://aka.ms/arc-k8s-azmon-extension-arm-template)
-    - Parameter file: [https://aka.ms/arc-k8s-azmon-extension-arm-template-params](https://aka.ms/arc-k8s-azmon-extension-arm-template-params)
+    - Template file: [https://aka.ms/arc-k8s-azmon-extension-msi-arm-template](https://aka.ms/arc-k8s-azmon-extension-msi-arm-template)
+    - Parameter file: [https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params](https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params)
+    - Template file (legacy authentication): [https://aka.ms/arc-k8s-azmon-extension-arm-template](https://aka.ms/arc-k8s-azmon-extension-arm-template)
+    - Parameter file (legacy authentication): [https://aka.ms/arc-k8s-azmon-extension-arm-template-params](https://aka.ms/arc-k8s-azmon-extension-arm-template-params)
 
 2. Edit the following values in the parameter file. The same set of values are used for both the ARM and Bicep templates. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
 
@@ -618,7 +620,7 @@ This option enables Prometheus metrics on a cluster without enabling Container i
 1. Select **Containers** from the **Monitor** menu, **Monitored clusters** tab, and click **Configure** next to a cluster in the **Managed Prometheus** column.
 
 
-## Enable Windows metrics collection
+## Enable Windows metrics collection (preview)
 
 > [!NOTE]
 > There is no CPU/Memory limit in windows-exporter-daemonset.yaml so it may over-provision the Windows nodes  

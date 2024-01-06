@@ -109,6 +109,8 @@
         href: how-to/prompt-flow-tools/prompt-tool.md
       - name: Python tool
         href: how-to/prompt-flow-tools/python-tool.md
+      - name: Azure OpenAI GPT-4 Turbo with Vision tool
+        href: how-to/prompt-flow-tools/azure-open-ai-gpt-4v-tool.md
       - name: Vector Index Lookup tool
         href: how-to/prompt-flow-tools/vector-index-lookup-tool.md
       - name: Content Safety tool
