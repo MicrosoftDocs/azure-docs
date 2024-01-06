@@ -15,14 +15,8 @@ ms.custom: template-how-to
 In this article, you learn how to generate the service principal auth token, user's auth token and user's refresh token. 
 
 ## Register your app with Microsoft Entra ID
-To use the Azure Data Manager for Energy platform endpoint, you must register your app in the [Azure portal app registration page](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app. For steps on how to configure, see [Register your app documentation](../active-directory/develop/quickstart-register-app.md#register-an-application).
-
-To use the OAuth 2.0 authorization code grant flow, save the following values when registering the app:
-
-- The `Directory (tenant) ID` is used as `{tenant-id}`
-- The `application (client) ID` assigned by the app registration portal is used as `client-id`.
-- A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret is used as `{client-secret}`.
-- A `redirect URI (or reply URL)` for your app to receive responses from Microsoft Entra ID. If there's no redirect URIs specified, you can add a platform, select "Web", add `http://localhost:8080`, and select save.
+1. To provision the Azure Data Manager for Energy platform, you must create and register your app in the [Azure portal app registration page](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app. For steps on how to configure, see [Register your app documentation](../active-directory/develop/quickstart-register-app.md#register-an-application).
+2. Fetch the `redirect URI (or reply URL)` for your app to receive responses from Microsoft Entra ID. If there's no redirect URIs specified, you can add a platform, select "Web", add `http://localhost:8080`, and select save.
   
 :::image type="content" source="media/how-to-generate-auth-token/app-registration-uri.png" alt-text="Screenshot of adding URI to the app.":::
 
@@ -67,8 +61,9 @@ A `client-secret` is a string value your app can use in place of a certificate t
 :::image type="content" source="media/how-to-generate-auth-token/client-secret.png" alt-text="Screenshot of finding the client secret.":::
 
 #### Find the `URL` for your Azure Data Manager for Energy instance
-1. Navigate to your Azure Data Manager for Energy *Overview* page on the Azure portal.
-2. Copy the URI from the essentials pane. 
+1. Create [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
+2. Navigate to your Azure Data Manager for Energy *Overview* page on the Azure portal.
+3. Copy the URI from the essentials pane. 
 
 :::image type="content" source="media/how-to-generate-auth-token/endpoint-url.png" alt-text="Screenshot of finding the URL from Azure Data Manager for Energy instance.":::
 
@@ -120,7 +115,9 @@ The first step to getting an access token for many OpenID Connect (OIDC) and OAu
 #### Request format
 1. After replacing the parameters, you can paste the below in the URL of any browser and hit enter.
 2. It asks you to log in to your Azure portal if not logged in already.
-3. You get the response in the URL.
+3. You might see 'can't reach this page' error in the browser. You can ignore that. 
+:::image type="content" source="media/how-to-generate-auth-token/localhost_redirection.png" alt-text="Screenshot of localhost redirection.":::
+4. You can fetch the response in the URL of the browser in the below format.
  
 ```bash
   https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/authorize?client_id={client-id}
