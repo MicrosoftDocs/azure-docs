@@ -15,7 +15,7 @@ ms.custom: template-how-to
 In this article, you learn how to generate the service principal auth token, user's auth token and user's refresh token. 
 
 ## Register your app with Microsoft Entra ID
-1. To provision the Azure Data Manager for Energy platform, you must create and register your app in the [Azure portal app registration page](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app. For steps on how to configure, see [Register your app documentation](../active-directory/develop/quickstart-register-app.md#register-an-application).
+1. To provision the Azure Data Manager for Energy platform, you must register your app in the [Azure portal app registration page](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app. For steps on how to configure, see [Register your app documentation](../active-directory/develop/quickstart-register-app.md#register-an-application).
 2. Fetch the `redirect URI (or reply URL)` for your app to receive responses from Microsoft Entra ID. If there's no redirect URIs specified, you can add a platform, select "Web", add `http://localhost:8080`, and select save.
   
 :::image type="content" source="media/how-to-generate-auth-token/app-registration-uri.png" alt-text="Screenshot of adding URI to the app.":::
