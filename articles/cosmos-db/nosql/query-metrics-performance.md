@@ -5,7 +5,7 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 12/29/2023
+ms.date: 1/5/2023
 ms.author: girobins
 ms.custom: devx-track-csharp, ignite-2022, devx-track-dotnet
 ---
@@ -16,7 +16,7 @@ This article presents how to profile SQL query performance on Azure Cosmos DB us
 
 ## Get query metrics
 
-Query metrics are available as a strongly typed object in the .NET SDK beginning in [version 3.36.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.36.0). Prior to this version or if you're using a different SDK language, you can retrieve query metrics by parsing the `Diagnostics`. The following code sample shows how to retrieve `ServerSideCumulativeMetrics` from the `Diagnostics` in a [FeedResponse](/dotnet/api/microsoft.azure.cosmos.feedresponse-1):
+Query metrics are available as a strongly typed object in the .NET SDK beginning in [version 3.36.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.36.0). Prior to this version, or if you're using a different SDK language, you can retrieve query metrics by parsing the `Diagnostics`. The following code sample shows how to retrieve `ServerSideCumulativeMetrics` from the `Diagnostics` in a [FeedResponse](/dotnet/api/microsoft.azure.cosmos.feedresponse-1):
 
 ```csharp
 CosmosClient client = new CosmosClient(myCosmosEndpoint, myCosmosKey);
@@ -51,7 +51,7 @@ while (feedIterator.HasMoreResults)
 
 ### Cumulative Metrics
 
-`ServerSideCumulativeMetrics` contains a `CumulativeMetrics` property that represents the query metric aggregated over all partitions for the single round trip.
+`ServerSideCumulativeMetrics` contains a `CumulativeMetrics` property that represents the query metrics aggregated over all partitions for the single round trip.
 
 ```csharp
 // Retrieve the ServerSideCumulativeMetrics object from the FeedResponse
@@ -61,9 +61,31 @@ ServerSideCumulativeMetrics metrics = feedResponse.Diagnostics.GetQueryMetrics()
 ServerSideMetrics cumulativeMetrics = metrics.CumulativeMetrics;
 ```
 
+You can also aggregate these metrics across all round trips for the query. The following is an example of how to aggregate query execution time across all round trips for a given query using LINQ.
+
+```csharp
+QueryDefinition query = new QueryDefinition("SELECT TOP 5 * FROM c");
+FeedIterator<MyClass> feedIterator = container.GetItemQueryIterator<MyClass>(query);
+
+List<ServerSideCumulativeMetrics> metrics = new List<ServerSideCumulativeMetrics>();
+TimeSpan cumulativeTime;
+while (feedIterator.HasMoreResults)
+{
+    // Execute one continuation of the query
+    FeedResponse<MyClass> feedResponse = await feedIterator.ReadNextAsync();
+
+    // Store the ServerSideCumulativeMetrics object to aggregate values after all round trips
+    metrics.Add(response.Diagnostics.GetQueryMetrics());
+}
+
+// Aggregate values across trips for metrics of interest
+TimeSpan totalTripsExecutionTime = metrics.Aggregate(TimeSpan.Zero, (currentSum, next) => currentSum + next.CumulativeMetrics.TotalTime);
+DoSomeLogging(totalTripsExecutionTime);
+```
+
 ### Partitioned Metrics
 
-`ServerSideCumulativeMetrics` contains a `PartitionedMetrics` property that is a list of per-partition metrics for the round trip. If multiple physical partitions are reached in a single round trip, then they all appear in the list. Partitioned metrics are represented as [ServerSidePartitionedMetrics](/dotnet/api/microsoft.azure.cosmos.serversidepartitionedmetrics) with a unique identifier for each physical partition. When accumulated over all round trips, they allow you to see if a specific partition is causing performance issues when compared to others.
+`ServerSideCumulativeMetrics` contains a `PartitionedMetrics` property that is a list of per-partition metrics for the round trip. If multiple physical partitions are reached in a single round trip, then metrics for each of them appear in the list. Partitioned metrics are represented as [ServerSidePartitionedMetrics](/dotnet/api/microsoft.azure.cosmos.serversidepartitionedmetrics) with a unique identifier for each physical partition. 
 
 ```csharp
 // Retrieve the ServerSideCumulativeMetrics object from the FeedResponse
@@ -71,6 +93,33 @@ ServerSideCumulativeMetrics metrics = feedResponse.Diagnostics.GetQueryMetrics()
 
 // PartitionedMetrics is a list of per-partition metrics for this continuation
 List<ServerSidePartitionedMetrics> partitionedMetrics = metrics.PartitionedMetrics;
+```
+
+When accumulated over all round trips, per partition metrics allow you to see if a specific partition is causing performance issues when compared to others. The following is an example of how to group partition metrics for each trip using LINQ.
+
+```csharp
+QueryDefinition query = new QueryDefinition("SELECT TOP 5 * FROM c");
+FeedIterator<MyClass> feedIterator = container.GetItemQueryIterator<MyClass>(query);
+
+List<ServerSideCumulativeMetrics> metrics = new List<ServerSideCumulativeMetrics>();
+while (feedIterator.HasMoreResults)
+{
+    // Execute one continuation of the query
+    FeedResponse<MyClass> feedResponse = await feedIterator.ReadNextAsync();
+
+    // Store the ServerSideCumulativeMetrics object to aggregate values after all round trips
+    metrics.Add(response.Diagnostics.GetQueryMetrics());
+}
+
+// Group metrics by partition key range id
+var groupedPartitionMetrics = metrics.SelectMany(m => m.PartitionedMetrics).GroupBy(p => p.PartitionKeyRangeId);
+foreach(var partitionGroup in groupedPartitionMetrics)
+{
+    foreach(var tripMetrics in partitionGroup)
+    {
+        DoSomethingWithMetrics();
+    }
+}
 ```
 
 ## Get the query request charge
@@ -94,23 +143,23 @@ while (feedIterator.HasMoreResults)
 
 ## Get the query execution time
 
-When calculating the time required to execute a client-side query, make sure that you only include the time to call the `ExecuteNextAsync` method and not other parts of your code base. The following example shows how to calculate the query execution time for a single round trip:
+You can capture query execution time for each trip from the query metrics. When looking at request latency, it's important to differentiate query execution time from other sources of latency, such as network transit time. The following example shows how to get cumulative query execution time for each round trip:
 
 ```csharp
 QueryDefinition query = new QueryDefinition("SELECT TOP 5 * FROM c");
 FeedIterator<MyClass> feedIterator = container.GetItemQueryIterator<MyClass>(query);
-Stopwatch queryExecutionTimeEndToEndTotal = new Stopwatch();
 
+TimeSpan cumulativeTime;
 while (feedIterator.HasMoreResults)
 {
     // Execute one continuation of the query
-    queryExecutionTimeEndToEndTotal.Start();
     FeedResponse<MyClass> feedResponse = await feedIterator.ReadNextAsync();
-    queryExecutionTimeEndToEndTotal.Stop();
+    ServerSideCumulativeMetrics metrics = response.Diagnostics.GetQueryMetrics();
+    cumulativeTime = metrics.CumulativeMetrics.TotalTime;
 }
 
 // Log the elapsed time
-DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
+DoSomeLogging(cumulativeTime);
 ```
 
 ## Get the index utilization

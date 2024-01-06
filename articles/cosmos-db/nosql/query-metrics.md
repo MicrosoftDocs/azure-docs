@@ -7,7 +7,7 @@ ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 12/29/2023
+ms.date: 1/5/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp, ignite-2022
 ---
@@ -103,9 +103,9 @@ See [query performance tips](performance-tips-query-sdk.md) and [performance tes
 
 ### Network latency
 
-See [Azure Cosmos DB global distribution](tutorial-global-distribution.md) for how to set up global distribution, and connect to the closest region. Network latency has a significant effect on query performance when you need to make multiple round-trips or retrieve a large result set from the query. 
+See [Azure Cosmos DB global distribution](tutorial-global-distribution.md) for how to set up global distribution and connect to the closest region. Network latency has a significant effect on query performance when you need to make multiple round-trips or retrieve a large result set from the query. 
 
-The section on query execution metrics explains how to retrieve the server execution time of queries, allowing you to differentiate time spent in query execution from time spent in network transit.
+You can use [query execution metrics](#query-execution-metrics) to retrieve the server execution time of queries, allowing you to differentiate time spent in query execution from time spent in network transit.
 
 ### Indexing policy
 
