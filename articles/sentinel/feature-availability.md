@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel feature support for Azure clouds
+title: Microsoft Sentinel feature support for Azure commercial/other clouds
 description: This article describes feature availability in Microsoft Sentinel across different Azure environments.
 author: cwatson-cat
 ms.author: cwatson
@@ -9,7 +9,7 @@ ms.service: microsoft-sentinel
 ms.date: 07/25/2023
 ---
 
-# Microsoft Sentinel feature support for Azure clouds
+# Microsoft Sentinel feature support for Azure commercial/other clouds
 
 This article describes the features available in Microsoft Sentinel across different Azure environments. Features are listed as GA (generally available), public preview, or shown as not available.
 
