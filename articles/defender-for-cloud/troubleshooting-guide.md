@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 06/18/2023
 ---
+
 # Microsoft Defender for Cloud Troubleshooting Guide
 
 This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations need to troubleshoot Defender for Cloud related issues.
@@ -52,18 +53,115 @@ AWS connector issues:
 - Make sure that EKS clusters are successfully connected to Arc-enabled Kubernetes.
 - If you don't see AWS data in Defender for Cloud, make sure that the AWS resources required to send data to Defender for Cloud exist in the AWS account.
 
-GCP connector issues:
+Defender API calls to AWS:
 
-- Make sure that the GCP Cloud Shell script completed successfully.
-- Make sure that GKE clusters are successfully connected to Arc-enabled Kubernetes.
-- Make sure that Azure Arc endpoints are in the firewall allowlist. The GCP connector makes API calls to these endpoints to fetch the necessary onboarding files.
-- If the onboarding of GCP projects failed, make sure you have “compute.regions.list” permission and Microsoft Entra permission to create the service principle used as part of the onboarding process. Make sure that the GCP resources `WorkloadIdentityPoolId`, `WorkloadIdentityProviderId`, and `ServiceAccountEmail` are created in the GCP project.
+- Cost impact - When you onboard your AWS single or management account, our Discovery service initiates an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that we secure.
 
-## Troubleshooting the Log Analytics agent
+Following this initial scan, the service will continue to periodically scan your environment at the interval that you configured during onboarding. It's important to note that in AWS, each API call to the account generates a lookup event that is recorded in the CloudTrail resource.
 
-Defender for Cloud uses the Log Analytics agent to [collect and store data](./monitoring-components.md#log-analytics-agent). The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
+The CloudTrail resource incurs costs, and the pricing details can be found in [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-Alert types:
+Furthermore, if you have connected your CloudTrail to GuardDuty, you're also responsible for associated costs, which can be found in the [GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html).
+
+- *Getting the number of native API calls executed by Defender for Cloud*
+
+- There are two ways to get the number of calls made by Defender for Cloud and both rely on querying AWS CloudTrail logs: 
+
+
+- **CloudTrail and Athena tables**:  
+
+
+   1. Use an existing or create a new *Athena table*. For more information, see [Querying AWS CloudTrail logs](https://docs.aws.amazon.com/athena/latest/ug/cloudtrail-logs.html).
+
+      1. Navigate to the above Athena table and use one of the below predefined queries per your needs. 
+
+      - **CloudTrail lake**:  
+
+
+      1. Use an existing or create a new *Event Data Store*. For more information, see [Working with AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html). 
+
+      1. Navigate to the above lake and use one of the below predefined queries per your needs. 
+
+      - Sample Queries:
+
+
+      - List the number of overall API calls by MDC:
+
+            
+            ```sql
+            SELECT COUNT(*) AS overallApiCallsCount FROM <TABLE-NAME> 
+            WHERE userIdentity.arn LIKE 'arn:aws:sts::<YOUR-ACCOUNT-ID>:assumed-role/CspmMonitorAws/MicrosoftDefenderForClouds_<YOUR-AZURE-TENANT-ID>' 
+            AND eventTime > TIMESTAMP '<DATETIME>' 
+            
+            ```
+
+      - List the number of overall API calls by MDC aggregated by day:
+
+            
+            ```sql
+            SELECT DATE(eventTime) AS apiCallsDate, COUNT(*) AS apiCallsCountByRegion FROM <TABLE-NAME> 
+            WHERE userIdentity.arn LIKE 'arn:aws:sts:: <YOUR-ACCOUNT-ID>:assumed-role/CspmMonitorAws/MicrosoftDefenderForClouds_<YOUR-AZURE-TENANT-ID>' 
+            AND eventTime > TIMESTAMP '<DATETIME>' GROUP BY DATE(eventTime)
+            
+            ```
+
+      - List the number of overall API calls by Defender for Cloud aggregated by event name:
+
+      
+            ```sql
+      SELECT eventName, COUNT(*) AS apiCallsCountByEventName FROM <TABLE-NAME> 
+      WHERE userIdentity.arn LIKE 'arn:aws:sts::<YOUR-ACCOUNT-ID>:assumed-role/CspmMonitorAws/MicrosoftDefenderForClouds_<YOUR-AZURE-TENANT-ID>' 
+      AND eventTime > TIMESTAMP '<DATETIME>' GROUP BY eventName
+      
+      ```
+
+      - List the number of overall API calls by Defender for Cloud aggregated by region:
+
+      
+            ```sql
+      SELECT awsRegion, COUNT(*) AS apiCallsCountByRegion FROM <TABLE-NAME> 
+      WHERE userIdentity.arn LIKE 'arn:aws:sts::120589537074:assumed-role/CspmMonitorAws/MicrosoftDefenderForClouds_<YOUR-AZURE-TENANT-ID>' 
+      AND eventTime > TIMESTAMP '<DATETIME>' GROUP BY awsRegion
+      
+      ```
+
+      - *The TABLE-NAME is Athena table or Event data store ID
+
+
+      GCP connector issues:
+
+      - Make sure that the GCP Cloud Shell script completed successfully.
+      - Make sure that GKE clusters are successfully connected to Arc-enabled Kubernetes.
+      - Make sure that Azure Arc endpoints are in the firewall allowlist. The GCP connector makes API calls to these endpoints to fetch the necessary onboarding files.
+      - If the onboarding of GCP projects failed, make sure you have “compute.regions.list” permission and Microsoft Entra permission to create the service principle used as part of the onboarding process. Make sure that the GCP resources `WorkloadIdentityPoolId`, `WorkloadIdentityProviderId`, and `ServiceAccountEmail` are created in the GCP project.
+      
+      Defender API calls to GCP:
+
+      - When you onboard your GCP single project or organization, our Discovery service initiates an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that we secure.
+
+            Following this initial scan, the service will continue to periodically scan your environment at the interval that you configured during onboarding.
+
+      - *Getting Number of Native API calls executed by Defender for Cloud:*
+
+   1. Go to “Logging” => “Log Explorer” 
+
+   1. Filter the dates as you wish (e.g., 1d)
+
+   1. To show API calls executed by MDC, run this query:
+
+      
+```
+      protoPayload.authenticationInfo.principalEmail : "microsoft-defender"
+      
+      ```
+
+      Refer to the histogram to see the number of calls over time.
+
+   ## Troubleshooting the Log Analytics agent
+
+   Defender for Cloud uses the Log Analytics agent to [collect and store data](./monitoring-components.md#log-analytics-agent). The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
+
+   Alert types:
 
 - Virtual Machine Behavioral Analysis (VMBA)
 - Network Analysis
@@ -170,3 +268,4 @@ In this page, you learned about troubleshooting steps for Defender for Cloud. To
 - Learn how to [manage and respond to security alerts](managing-and-responding-alerts.md) in Microsoft Defender for Cloud
 - [Alert validation](alert-validation.md) in Microsoft Defender for Cloud
 - Review [common questions](faq-general.yml) about using Microsoft Defender for Cloud
+
