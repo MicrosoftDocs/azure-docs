@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 12/27/2023
+ms.date: 01/07/2024
 ---
 
 # Enable agentless scanning for VMs
@@ -38,6 +38,11 @@ When you enable agentless vulnerability assessment:
 When you enable [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) or [Defender for Servers P2](defender-for-servers-introduction.md), agentless scanning is enabled on by default.
 
 If you have Defender for Servers P2 already enabled and agentless scanning is turned off, you need to turn on agentless scanning manually.
+
+You can enable agentless scanning on
+- [Azure](#agentless-vulnerability-assessment-on-azure)
+- [AWS](#agentless-vulnerability-assessment-on-aws)
+- [GCP](#enable-agentless-scanning-in-gcp)
 
 > [!NOTE]
 > Agentless malware scanning is only available if you have [enabled Defender for Servers plan 2](tutorial-enable-servers-plan.md#select-a-defender-for-servers-plan)
@@ -86,7 +91,7 @@ If you have Defender for Servers P2 already enabled and agentless scanning is tu
 
 After you enable agentless scanning, software inventory and vulnerability information are updated automatically in Defender for Cloud.
 
-## Enable agentless scanning in GCP
+### Enable agentless scanning in GCP
 
 1. From Defender for Cloud's menu, select **Environment settings**. 
 1. Select the relevant project or organization. 
@@ -103,6 +108,60 @@ After you enable agentless scanning, software inventory and vulnerability inform
 1. Run the onboarding script in the GCP organization/project scope (GCP portal or gcloud CLI).
 1. Select  **Next: Review and generate**. 
 1. Select  **Update**. 
+
+## Verify agentless scanner deployment
+
+To verify that the device is properly onboarded and reporting to Defender for Cloud, you can create an European Institute for Computer Antivirus Research (EICAR) test file.
+
+### Create an EICAR test file for Linux
+
+Before you start, ensure that you [enable the Defender for Endpoint agent](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration) and that you have [excluded EICAR threat](/microsoft-365/security/defender-endpoint/linux-exclusions?view=o365-worldwide).
+
+**To create an EICAR test file for Linux**:
+
+1. Open a terminal window.
+
+1. Execute the following command:
+
+    ```bash
+    # EICAR test string 
+    EICAR_STRING='X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-CLOUD-TEST-FILE!$H+H*' 
+       
+    # File to be created 
+    FILE_PATH="/tmp/eicar_test_file.txt" 
+       
+    # Write the EICAR string to the file 
+    echo $EICAR_STRING > $FILE_PATH 
+       
+    # Check if the file was created and contains the correct string 
+    if [ -f "$FILE_PATH" ]; then 
+        if grep -Fq "$EICAR_STRING" "$FILE_PATH"; then 
+            echo "EICAR test file created and validated successfully." 
+        else 
+            echo "EICAR test file does not contain the correct string." 
+        fi 
+    else 
+        echo "Failed to create EICAR test file." 
+    fi 
+    ```
+
+### Create an EICAR test file for Windows
+
+Before starting you will need to: 
+- [Install Windows PowerShell](/powershell/scripting/install/installing-powershell-on-windows).
+- Ensure that you [enable the Defender for Endpoint agent](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+- [Exclude EICAR threat](/microsoft-365/security/defender-endpoint/configure-exclusions-microsoft-defender-antivirus?view=o365-worldwide).
+
+**To create an EICAR test file for Windows**:
+
+1. Open Windows PowerShell.
+
+1. Execute the following command:
+
+    ```bash
+    $EICAR_STRING = 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-CLOUD-TEST-FILE!$H+H*' 
+    ```
+
 
 ## Exclude machines from scanning
 
