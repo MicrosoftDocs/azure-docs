@@ -91,15 +91,28 @@ We recommend saving your OT sensor backup files on your internal network. To do 
     ```
 
 1. Configure your backup directory on the SMB server to use the shared file on the OT sensor. Run:
-
-    ```bash
+    
+```bash
     sudo dpkg-reconfigure iot-sensor
     ```
 
-    Follow the instructions on screen and validate the settings are correct on each step.
-    To move to the next step without making changes, press the `Enter` button.
-    When you get to the step that prompts to `Enter path to the mounted backups folder`, set the value to be the folder you created in the first few steps - `/<backup_folder_name>` (the factory default value is `/opt/sensor/persist/backups`).
-    Confirm the change by pressing the `Enter` button and continue with the rest of the steps until the end.
+1.  Follow the instructions on screen and validate the settings are correct on each step.
+
+1.  To move to the next step without making changes, press the `Enter` button.
+
+1.  When you get to the step that prompts to `Enter path to the mounted backups folder`:
+
+1.  ![User's image](media/back-up-restore-sensor/image.png)
+
+
+1.  (the factory default value is `/opt/sensor/persist/backups`)
+
+1.  Set the value to be the folder you created in the first few steps - `/<backup_folder_name>`:
+
+1.  ![User's image](media/back-up-restore-sensor/image1.png)
+
+
+1.  Confirm the change by pressing the `Enter` button and continue with the rest of the steps until the end.
 
 ## Restore an OT sensor
 
@@ -114,6 +127,7 @@ The following procedures describe how to restore your sensor using a backup file
 
     > [!IMPORTANT]
     > 
+
 - Make sure that the backup file you select uses the same OT sensor software version that's currently installed on your OT sensor.
 
     > 
@@ -130,7 +144,6 @@ The following procedures describe how to restore your sensor using a backup file
 To restore your OT sensor from the latest, automatically generated backup file via CLI:
 
 1. Make sure that your backup file has the same OT sensor software version as the current software version on the OT sensor.
-
 1. Use the `cyberx-xsense-system-restore` CLI command to restore your OT sensor.
 
 For more information, see the [OT sensor CLI reference](cli-ot-sensor.md#start-an-immediate-unscheduled-backup).
