@@ -64,11 +64,11 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
 1. Edit the `fstab` file with details about your backup folder. Run:
     
-   ```bash
+    ```bash
     sudo nano /etc/fstab
 
     add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=X.X,file_mode=0777,dir_mode=0777
-   ```
+    ```
    Make sure you replace vers=X.X with the correct version of your external SMB server, for example vers=3.0
 
 1. Edit and create credentials to share for the SMB server. Run:
