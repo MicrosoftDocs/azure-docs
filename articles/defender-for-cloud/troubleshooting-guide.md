@@ -105,7 +105,7 @@ Furthermore, if you have connected your CloudTrail to GuardDuty, you're also res
             
             ```
 
-      - List the number of overall API calls by MDC aggregated by event name:
+      - List the number of overall API calls by Defender for Cloud aggregated by event name:
 
       
 ```sql
