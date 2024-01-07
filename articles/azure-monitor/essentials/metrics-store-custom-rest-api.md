@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.reviewer: priyamishra
 ms.topic: how-to
-ms.date: 10/18/2023
+ms.date: 01/07/2024
 ms.author: edbaynash
 ---
 # Send custom metrics for an Azure resource to the Azure Monitor metrics store by using a REST API
@@ -15,7 +15,20 @@ This article shows you how to send custom metrics for Azure resources to the Azu
 > [!NOTE]
 > The REST API only permits sending custom metrics for Azure resources. To send metrics for resources in other environments or on-premises, use [Application Insights](../app/api-custom-events-metrics.md).
 
+## Send REST requests to ingest custom metrics
+
 When you send custom metrics to Azure Monitor, each data point, or value, reported in the metrics must include the following information.
+
++ Authentication token
++ Subject
++ Region
++ Timestamp
++ Namespace
++ Name
++ Dimension keys
++ Dimension values
++ Metric values
+
 
 ### Authentication
 
@@ -28,6 +41,36 @@ To submit custom metrics to Azure Monitor, the entity that submits the metric ne
 
 > [!TIP]
 > When you request a Microsoft Entra token to emit custom metrics, ensure that the audience or resource that the token is requested for is `https://monitoring.azure.com/`. Be sure to include the trailing slash.
+
+### Get an authorization token
+
+Once you have created your managed identity or service principal and assigned **Monitoring Metrics Publisher** permissions, you can get an authorization token by using the following request:
+
+```console
+curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id=<your apps client ID>' \
+--data-urlencode 'client_secret=<your apps client secret' \
+--data-urlencode 'resource=https://monitor.azure.com'
+```
+
+The response body appears in the following format:
+
+```JSON
+{
+    "token_type": "Bearer",
+    "expires_in": "86399",
+    "ext_expires_in": "86399",
+    "expires_on": "1672826207",
+    "not_before": "1672739507",
+    "resource": "https://monitoring.azure.com",
+    "access_token": "eyJ0eXAiOiJKV1Qi....gpHWoRzeDdVQd2OE3dNsLIvUIxQ"
+}
+```
+
+Save the access token from the response for use in the following HTTP requests.
+
 
 ### Subject
 
@@ -115,11 +158,13 @@ With this process, you can emit multiple values for the same metric/dimension co
 
 ### Sample custom metric publication
 
-In the following example, you create a custom metric called **Memory Bytes in Use** under the metric namespace **Memory Profile** for a virtual machine. The metric has a single dimension called **Process**. For the timestamp, metric values are emitted for two processes.
+In the following example, create a custom metric called **Memory Bytes in Use** under the metric namespace **Memory Profile** for a virtual machine. The metric has a single dimension called **Process**. For the timestamp, metric values are emitted for two processes.
+
+Store the following JSON in a file called *custommetric.json* on your local computer. Update the time parameter so that it's within the last 20 minutes. You can't put a metric into the store that's more than 20 minutes old. 
 
 ```json
 {
-    "time": "2018-08-20T11:25:20-7:00",
+    "time": "2024-01-07T11:25:20-7:00",
     "data": {
 
       "baseData": {
@@ -154,88 +199,10 @@ In the following example, you create a custom metric called **Memory Bytes in Us
   }
 ```
 
-
-
-
-
-
-__________________
-
-## Create and authorize a service principal to emit metrics
-
-A service principal is an application whose tokens can be used to authenticate and grant access to specific Azure resources by using Microsoft Entra ID (formerly _Azure Active Directory_). Resources include user apps, services, or automation tools.
-
-1. [Create a Microsoft Entra application and service principal](../../active-directory/develop/howto-create-service-principal-portal.md) that can access resources.
-
-1. Save the tenant ID, new client ID, and client secret value for your app for use in token requests.
-
-1. The app must be assigned the **Monitoring Metrics Publisher** role for the resources you want to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can assign the role at the resource group or subscription level. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-
-## Get an authorization token
-
-Send the following request in the command prompt or by using a client like Postman.
-
-```console
-curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
--H 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=<your apps client ID>' \
---data-urlencode 'client_secret=<your apps client secret' \
---data-urlencode 'resource=https://monitor.azure.com'
-```
-
-The response body appears:
-
-```JSON
-{
-    "token_type": "Bearer",
-    "expires_in": "86399",
-    "ext_expires_in": "86399",
-    "expires_on": "1672826207",
-    "not_before": "1672739507",
-    "resource": "https://monitoring.azure.com",
-    "access_token": "eyJ0eXAiOiJKV1Qi....gpHWoRzeDdVQd2OE3dNsLIvUIxQ"
-}
-```
-
-Save the access token from the response for use in the following HTTP requests.
-
-## Send a metric via the REST API
-
-1. Paste the following JSON into a file. Save it as *custommetric.json* on your local computer. Update the time parameter so that it's within the last 20 minutes. You can't put a metric into the store that's more than 20 minutes old. The metrics store is optimized for alerting and real-time charting.
-    
-    ```JSON
-    { 
-        "time": "2023-01-03T11:00:20", 
-        "data": { 
-            "baseData": { 
-                "metric": "QueueDepth", 
-                "namespace": "QueueProcessing", 
-                "dimNames": [ 
-                  "QueueName", 
-                  "MessageType" 
-                ], 
-                "series": [ 
-                  { 
-                    "dimValues": [ 
-                      "ImagesToProcess", 
-                      "JPEG" 
-                    ], 
-                    "min": 3, 
-                    "max": 20, 
-                    "sum": 28, 
-                    "count": 3 
-                  } 
-                ] 
-            } 
-        } 
-    } 
-    ```
-
-1. Submit the following HTTP POST request by using the following variables:
-   - **location**: Deployment region of the resource you're emitting metrics for.
-   - **resourceId**: Resource ID of the Azure resource you're tracking the metric against.
-   - **accessToken**: The authorization token acquired from the previous step.
+Submit the following HTTP POST request by using the following variables:
++ `location`: Deployment region of the resource you're emitting metrics for.
++ `resourceId`: Resource ID of the Azure resource you're tracking the metric against.
++ `accessToken`: The authorization token acquired from the *Get an authorization token* step.
     
     ```console
     curl -X POST 'https://<location>/.monitoring.azure.com<resourceId>/metrics' \
@@ -244,17 +211,6 @@ Save the access token from the response for use in the following HTTP requests.
     -d @custommetric.json 
     ```
 
-1. Change the timestamp and values in the JSON file. The 'time' value in the JSON file is expected to be in UTC.
-
-1. Repeat the previous two steps a few times to create data for several minutes.
-
-## Troubleshooting
-
-If you receive an error message with some part of the process, consider the following troubleshooting information:
-
-- If you can't issue metrics against a subscription or resource group, or resource, check that your application or service principal has the **Monitoring Metrics Publisher** role assigned in **Access control (IAM)**.
-- Check that the number of dimension names matches the number of values.
-- Check that you aren't emitting metrics against a region that doesn't support custom metrics. For more information, see [supported regions](./metrics-custom-overview.md#supported-regions).
 
 ## View your metrics
 
@@ -270,9 +226,9 @@ If you receive an error message with some part of the process, consider the foll
 
 1. In the **Scope** dropdown list, select the resource you send the metric for.
 
-1. In the **Metric Namespace** dropdown list, select **queueprocessing**.
+1. In the **Metric Namespace** dropdown list, select **Memory Profile**.
 
-1. In the **Metric** dropdown list, select **QueueDepth**.
+1. In the **Metric** dropdown list, select **Memory Bytes in Use**.
 
 ## Next steps
 
