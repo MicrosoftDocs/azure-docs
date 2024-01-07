@@ -180,7 +180,7 @@ Virtual Machine Name: "devsap01app01": Code="OverconstrainedAllocationRequest" M
 
 This error indicates that the selected VM size isn't available using the provided constraints.  To resolve this issue, select a different VM size or a different availability zone.
 
-### The client 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' with object ID error
+### The client 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' with object id error
 If you see an error similar to the following message when running the deployment:
 
 ```text
