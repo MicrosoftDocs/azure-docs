@@ -63,7 +63,7 @@ The CloudTrail resource incurs costs, and the pricing details can be found in [A
 
 Furthermore, if you have connected your CloudTrail to GuardDuty, you're also responsible for associated costs, which can be found in the [GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html).
 
-- *Getting Number of Native API calls executed by MDC:*
+- *Getting the number of native API calls executed by Defender for Cloud*
 
 - There’re two ways to get the number of calls made by MDC and both rely on Querying AWS CloudTrail logs: 
 
