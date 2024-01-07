@@ -96,23 +96,23 @@ We recommend saving your OT sensor backup files on your internal network. To do 
     sudo dpkg-reconfigure iot-sensor
     ```
 
-1.  Follow the instructions on screen and validate the settings are correct on each step.
+    Follow the instructions on screen and validate the settings are correct on each step.
 
-1.  To move to the next step without making changes, press the `Enter` button.
+    To move to the next step without making changes, press the `Enter` button.
 
-1.  When you get to the step that prompts to `Enter path to the mounted backups folder`:
+    When you get to the step that prompts to `Enter path to the mounted backups folder`:
 
-1.  ![Enter path to the mounted backups folder before change](media/back-up-restore-sensor/image.png)
-
-
-1.  (the factory default value is `/opt/sensor/persist/backups`)
-
-1.  Set the value to be the folder you created in the first few steps - `/<backup_folder_name>`:
-
-1.  ![Enter path to the mounted backups folder after change](media/back-up-restore-sensor/image1.png)
+    ![Enter path to the mounted backups folder before change](media/back-up-restore-sensor/image.png)
 
 
-1.  Confirm the change by pressing the `Enter` button and continue with the rest of the steps until the end.
+    (the factory default value is `/opt/sensor/persist/backups`)
+
+    Set the value to be the folder you created in the first few steps - `/<backup_folder_name>`:
+
+    ![Enter path to the mounted backups folder after change](media/back-up-restore-sensor/image1.png)
+
+
+    Confirm the change by pressing the `Enter` button and continue with the rest of the steps until the end.
 
 ## Restore an OT sensor
 
