@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications - deploy and configure the SAP data connector agent container using the command line
-description: This article shows you how to manually deploy the container that hosts the SAP data connector agent, using the Azure command line interface. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
+title: Microsoft Sentinel solution for SAP® applications - manually deploy and configure the SAP data connector agent container using the command line
+description: This article shows you how to manually deploy the container that hosts the SAP data connector agent, using the Azure command line interface, in order to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
@@ -8,9 +8,9 @@ ms.custom: devx-track-azurecli
 ms.date: 01/03/2024
 ---
 
-# Deploy and configure the container hosting the SAP data connector agent via the command line
+# Manually deploy and configure the container hosting the SAP data connector agent
 
-This article shows you how to use the Azure command line interface to deploy the container that hosts the SAP data connector agent, and create new SAP systems under the agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP. 
+This article shows you how to use the Azure command line interface to deploy the container that hosts the SAP data connector agent, and create new SAP systems under the agent. You use this connector agent to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP. 
 
 Other ways to deploy the container and create SAP systems using the Azure portal or a *kickstart* script are described in [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md). These other methods make use of an Azure Key Vault to store SAP credentials, and are highly preferred over the method described here. You should use the manual deployment method only if none of the other options are available to you.
 
@@ -255,14 +255,19 @@ Read about the [prerequisites for deploying the agent container](deploy-data-con
 
 1. Install [Docker](https://www.docker.com/) on the VM, following the [recommended deployment steps](https://docs.docker.com/engine/install/) for the chosen operating system.
 
-1. Use the following commands (replacing `<SID>` with the name of the SAP instance) to create a folder to store the container configuration and metadata, and to download a sample systemconfig.ini file into that folder.
+1. Use the following commands (replacing `<SID>` with the name of the SAP instance) to create a folder to store the container configuration and metadata, and to download a sample systemconfig.json file (for older versions use the systemconfig.ini file) into that folder.
 
    ```bash
    sid=<SID>
    mkdir -p /opt/sapcon/$sid
    cd /opt/sapcon/$sid
-   wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.ini 
+   wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.json
+   ```
 
+   For agent versions released before June 22, 2023, use systemconfig.ini instead of systemconfig.json. Substitute the following line for the last line in the previous code block.
+
+   ```bash
+   wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.ini 
    ```
 
 1. Edit the systemconfig.ini file to [configure the relevant settings](reference-systemconfig.md).

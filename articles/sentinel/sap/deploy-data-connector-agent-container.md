@@ -1,6 +1,6 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications - deploy and configure the SAP data connector agent container
-description: This article shows you how to use the Azure portal to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
+description: This article shows you how to use the Azure portal to deploy the container that hosts the SAP data connector agent, in order to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
@@ -326,8 +326,8 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
 
 1. To collect data from a SAP system, you must follow these two steps:
     
-    1. [Create a new agent](#create-a-new-agent)
-    1. [Connect the agent to a new SAP system](#connect-to-a-new-sap-system)
+    1. [Create a new agent](#create-a-new-agent-1)
+    1. [Connect the agent to a new SAP system](#connect-to-a-new-sap-system-1)
 
 #### Create a new agent
 
@@ -412,7 +412,7 @@ The Azure portal can only be used with Azure Key Vault.
 
 To use the command line to create an agent using a config file, see [these instructions](?tabs=config-file%2Ccommand-line#deploy-the-data-connector-agent).
 
-# [Command line](#tab/command-line/managed-identity)
+# [Command line script](#tab/command-line/managed-identity)
 
 Create a new agent using the command line, authenticating with a managed identity:
 
@@ -446,7 +446,7 @@ Create a new agent using the command line, authenticating with a managed identit
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-# [Command line](#tab/command-line/registered-application)
+# [Command line script](#tab/command-line/registered-application)
 
 Create a new agent using the command line, authenticating with a Microsoft Entra ID registered application:
 
@@ -481,7 +481,7 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-# [Command line](#tab/command-line/config-file)
+# [Command line script](#tab/command-line/config-file)
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 
