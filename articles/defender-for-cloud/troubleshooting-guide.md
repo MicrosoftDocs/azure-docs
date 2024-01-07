@@ -141,7 +141,7 @@ Furthermore, if you have connected your CloudTrail to GuardDuty, you're also res
 
             Following this initial scan, the service will continue to periodically scan your environment at the interval that you configured during onboarding.
 
-      - *Getting Number of Native API calls executed by MDC:*
+      - *Getting Number of Native API calls executed by Defender for Cloud:*
 
    1. Go to “Logging” => “Log Explorer” 
 
