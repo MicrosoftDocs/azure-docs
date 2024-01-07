@@ -88,7 +88,7 @@ Furthermore, if you have connected your CloudTrail to GuardDuty, you're also res
       - List the number of overall API calls by MDC:
 
             
-```sql
+            ```sql
             SELECT COUNT(*) AS overallApiCallsCount FROM <TABLE-NAME> 
             WHERE userIdentity.arn LIKE 'arn:aws:sts::<YOUR-ACCOUNT-ID>:assumed-role/CspmMonitorAws/MicrosoftDefenderForClouds_<YOUR-AZURE-TENANT-ID>' 
             AND eventTime > TIMESTAMP '<DATETIME>' 
