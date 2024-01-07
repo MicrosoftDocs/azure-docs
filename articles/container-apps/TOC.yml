@@ -338,7 +338,7 @@
     - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
       href: /azure/compliance/offerings/
     - name: Azure security baseline for Azure Container Apps
-      href: https://learn.microsoft.com/security/benchmark/azure/baselines/azure-container-apps-security-baseline
+      href: /security/benchmark/azure/baselines/azure-container-apps-security-baseline
 - name: Samples & FAQs
   items:
     - name: Samples
