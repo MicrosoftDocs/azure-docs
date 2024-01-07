@@ -139,7 +139,7 @@ Furthermore, if you have connected your CloudTrail to GuardDuty, you're also res
 
       - When you onboard your GCP single project or organization, our Discovery service initiates an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that we secure.
 
-            _Following this initial scan, the service will continue to periodically scan your environment at the interval that you configured during onboarding._
+            Following this initial scan, the service will continue to periodically scan your environment at the interval that you configured during onboarding.
 
       - *Getting Number of Native API calls executed by MDC:*
 
