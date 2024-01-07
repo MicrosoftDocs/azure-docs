@@ -55,7 +55,7 @@ AWS connector issues:
 
 Defender API calls to AWS:
 
-- _Cost impact - When you onboard your AWS single or management account, our Discovery service initiates an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that we secure._
+- Cost impact - When you onboard your AWS single or management account, our Discovery service initiates an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that we secure.
 
 _Following this initial scan, the service will continue to periodically scan your environment at the interval that you configured during onboarding. It's important to note that in AWS, each API call to the account generates a lookup event that is recorded in the CloudTrail resource._
 
