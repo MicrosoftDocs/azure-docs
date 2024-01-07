@@ -108,7 +108,10 @@ This event contextualizes any changes to VM availability, by detailing necessary
 
 - Downtime Annotations: These annotations are emitted when the platform detects VM availability transitioning to Unavailable. (For example, during unexpected host crashes, rebootful repair operations).
 - Informational Annotations: These annotations are emitted during control plane activities with no impact to VM availability. (Such as VM allocation/Stop/Delete/Start). Usually, no additional customer action is required in response.
-- Degraded Annotations: These annotations are emitted when VM availability is detected to be at risk. (For example, when [failure prediction models](https://azure.microsoft.com/blog/advancing-failure-prediction-and-mitigation-introducing-narya) predict a degraded hardware component that can cause the VM to reboot at any given time). We strongly urge users to redeploy by the deadline specified in the annotation message, to avoid any unanticipated loss of data or downtime.
+- Degraded Annotations: These annotations are emitted when VM availability is detected to be at risk. (For example, when [failure prediction models](https://azure.microsoft.com/blog/advancing-failure-prediction-and-mitigation-introducing-narya) predict a degraded hardware component that can cause the VM to reboot at any given time). We strongly urge users to redeploy by the deadline specified in the annotation message, to avoid any unanticipated loss of data or downtime. You may receive an alert in Azure VMSS Resource Health or Activity log in one of the following scenarios:
+   - VMs in the Azure VMSS are in the process of being stopped, deallocated, deleted, or started.
+   - You have performed scaling in or out operations on the VMSS.
+   - The alert indicates that the aggregated platform health of [the VMSS is in a transient state of "Degraded."](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state)
 
 To poll the associated VM availability annotations for a resource, if any, refer to the properties field which contains the following details:
 
