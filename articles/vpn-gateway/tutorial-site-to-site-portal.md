@@ -58,6 +58,20 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
+### Create the gateway subnet
+
+Create the gateway subnet using the following values:
+
+* **Gateway subnet address range:** 10.1.255.0/27. It's best to specify /27 or larger (/26,/25 etc.). This allows enough IP addresses for future changes, such as adding an ExpressRoute gateway.
+
+Within the virtual network (VNet) go into Subnets and click on Gateway subnet.
+
+:::image type="content" source="./media/tutorial-site-to-site-portal/add-gateway-subnet.png" alt-text="Add gateway subnet on the VNet." lightbox="./media/tutorial-site-to-site-portal/add-gateway-subnet.png":::
+
+Within the Add subnet dialog configure the subnet address range to be 10.1.255.0/27.
+
+:::image type="content" source="./media/tutorial-site-to-site-portal/add-subnet-dialog.png" alt-text="Add subnet dialog to add the gateway subnet to the VNet." lightbox="./media/tutorial-site-to-site-portal/add-subnet-dialog.png":::
+
 ### Create the gateway
 
 Create a virtual network gateway (VPN gateway) using the following values:
@@ -68,7 +82,6 @@ Create a virtual network gateway (VPN gateway) using the following values:
 * **SKU:** VpnGw2
 * **Generation:** Generation 2
 * **Virtual network:** VNet1
-* **Gateway subnet address range:** 10.1.255.0/27
 * **Public IP address:** Create new
 * **Public IP address name:** VNet1GWpip
 * **Enable active-active mode:** Disabled
