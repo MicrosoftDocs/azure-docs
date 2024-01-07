@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 12/27/2023
+ms.date: 01/07/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,15 +24,15 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| January 5 | [Public preview of agentless malware detection](#public-preview-of-agentless-malware-detection) |
+| January 5 | [Public preview of agentless malware scanning for servers](#public-preview-of-agentless-malware-scanning-for-servers)|
 
-### Public preview of agentless malware detection
+### Public preview of agentless malware scanning for servers
 
-We're announcing the release of Defender for Cloud's agentless malware detection for for Azure virtual machines (VM), AWS EC2 instances and GCP VM instances, as a new feature included in [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features).
+We're announcing the release of Defender for Cloud's agentless malware detection for Azure virtual machines (VM), AWS EC2 instances and GCP VM instances, as a new feature included in [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features).
 
-Agentless malware detection for virtual machines uses [Microsoft Defender for Endpoint's](integration-defender-for-endpoint.md) engine to scan and detect malware and virus threats on your virtual machines. Any detected threats, trigger security alerts in Defender for Cloud, which allow you to investigate and remediate the detected threats. The agentless detector extends your malware detection coverage with frictionless onboarding, results within hours, no effect on a device's performance, no footprint on the machine and more.
+Agentless malware detection for virtual machines uses [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows?view=o365-worldwide) engine to scan and detect malware and virus threats on your virtual machines. Any detected threats, trigger security alerts in Defender for Cloud, which allow you to investigate and remediate the detected threats. The Agentless malware scanner extends your malware detection coverage with frictionless onboarding and provides results within hours. The scanner doesn't leave a footprint and has no effect on your machine's performance.
 
-Learn more about [Agentless malware scanning](agentless-malware-scanning.md).
+Learn more about [Agentless malware scanning](agentless-malware-scanning.md) for servers.
 
 ## December 2023
 
@@ -54,7 +54,7 @@ Learn more about [Agentless malware scanning](agentless-malware-scanning.md).
 
 December 24, 2023
 
-It is now possible to manage Defender for Servers on specific resources within your subscription, giving you full control over your protection strategy. With this capability, you can configure specific resources with custom configurations that differ from the settings configured at the subscription level.
+It's now possible to manage Defender for Servers on specific resources within your subscription, giving you full control over your protection strategy. With this capability, you can configure specific resources with custom configurations that differ from the settings configured at the subscription level.
 
 Learn more about [enabling Defender for Servers at the resource level](tutorial-enable-servers-plan.md#enable-the-plan-at-the-resource-level).
 
@@ -454,8 +454,8 @@ Microsoft Defender for Cloud now supports the latest [CIS Azure Security Foundat
 
 |Date |Update  |
 |----------|----------|
-| September 27 | [Data security dashboard available in public preview](#data-security-dashboard-available-in-public-preview)
-| September 21 | [Preview release: New autoprovisioning process for SQL Server on machines plan](#preview-release-new-autoprovisioning-process-for-sql-server-on-machines-plan) |
+| September 27 | [Data security dashboard available in public preview](#data-security-dashboard-available-in-public-preview) |
+| September 21 | [Preview release: New autoprovisioning process for SQL Server on machines plan] |(#preview-release-new-autoprovisioning-process-for-sql-server-on-machines-plan) |
 | September 20 | [GitHub Advanced Security for Azure DevOps alerts in Defender for Cloud](#github-advanced-security-for-azure-devops-alerts-in-defender-for-cloud) |
 | September 11 | [Exempt functionality now available for Defender for APIs recommendations](#exempt-functionality-now-available-for-defender-for-apis-recommendations) |
 | September 11 | [Create sample alerts for Defender for APIs detections](#create-sample-alerts-for-defender-for-apis-detections) |
