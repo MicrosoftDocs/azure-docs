@@ -135,6 +135,39 @@ az role assignment create --assignee ${appId} \
    --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
+### Private DNS Zone Name 'xxx' wasn't found
+
+If you see an error similar to the following error when running the deployment:
+
+```text
+Private DNS Zone Name: "privatelink.file.core.windows.net" was not found
+
+or
+
+Private DNS Zone Name: "privatelink.blob.core.windows.net" was not found
+
+or
+
+Private DNS Zone Name: "privatelink.vaultcore.azure.net" was not found
+
+```
+
+This error indicates that the Private DNS zone listed in the error isn't available. You can resolve this issue by either creating the Private DNS or providing the configuration for an existing private DNS Zone. For more information on how to create the Private DNS Zone, see [Create a private DNS zone](/azure/dns/private-dns-getstarted-cli#create-a-private-dns-zone).
+
+You can specify the details for an existing private DNS zone by using the following variables:
+
+```terraform
+# Resource group name for resource group that contains the private DNS zone
+management_dns_resourcegroup_name="<resource group name for the Private DNS Zone>"
+
+# Subscription ID name for resource group that contains the private DNS zone
+management_dns_subscription_id="<subscription id for resource group name for the Private DNS Zone>"
+
+use_custom_dns_a_registration=false
+
+```
+
+Rerun the deployment after you made these changes.
 
 ### OverconstrainedAllocationRequest error
 If you see an error similar to the following error when running the deployment:
@@ -170,7 +203,7 @@ If you see an error similar to the following message when running the deployment
 ERROR! this task 'ansible.builtin.command' has extra params, which is only allowed in the following modules: set_fact, shell, include_tasks, win_shell, import_tasks, import_role, include, win_command, command, include_role, meta, add_host, script, group_by, raw, include_vars
 ```
 
-This error indicates that the task isn't supported by the version of Ansible installed on the agent. To resolve this issue, upgrade to the latest version of Ansible on the agent virtual machine.
+This error indicates that the version of Ansible installed on the agent doesn't support this task. To resolve this issue, upgrade to the latest version of Ansible on the agent virtual machine.
 
 ## Software download
 
