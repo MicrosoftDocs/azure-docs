@@ -37,6 +37,10 @@
       href: geographical-availability-data-residency.md          
     - name: Support for data types in different clouds
       href: data-type-cloud-support.md
+    - name: Feature support in different clouds
+      href: feature-availability.md
+    - name: Regional availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
     - name: Security baseline
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
 - name: Deploy
@@ -1260,12 +1264,8 @@
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog
     href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
-  - name: Feature availability
-    href: feature-availability.md
   - name: Build your skills for Microsoft Sentinel
     items: 
     - name: Microsoft Applied Skill - Configure SIEM security operations using Microsoft Sentinel
