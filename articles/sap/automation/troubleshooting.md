@@ -64,6 +64,78 @@ Agent_IP                      = "10.0.0.5"
 public_network_access_enabled = true
 ```
 
+### Failed to get existing workspaces error
+
+If you see an error similar to the following when running the deployment:
+
+```text
+Error: : Error retrieving keys for Storage Account "mgmtweeutfstate###": azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to
+https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MGMT-WEEU-SAP_LIBRARY/providers/Microsoft.Storage/storageAccounts/mgmtweeutfstate###/listKeys?api-version=2021-01-01
+: StatusCode=400 -- Original Error: adal: Refresh request failed. Status Code = '400'. Response body: {"error":"invalid_request","error_description":"Identity not found"} Endpoint
+http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy&resource=https%3A%2F%2Fmanagement.azure.com%2F
+```
+
+This error indicates that the credentials used to do the deployment doesn't have access to the storage account. To resolve this issue, assign the 'Storage Account Contributor' role to the deployment credential on the terraform state storage account, the resource group or the subscription (if feasible). 
+
+You can verify if the deployment is being performed using a service principal or a managed identity by checking the output of the deployment. If the deployment is using a service principal, the output will contain the following:
+
+```text
+	[set_executing_user_environment_variables]: Identifying the executing user and client
+		[set_azure_cloud_environment]: Identifying the executing cloud environment
+		[set_azure_cloud_environment]: Azure cloud environment: public
+		[set_executing_user_environment_variables]: User type: servicePrincipal
+		[set_executing_user_environment_variables]: client id: yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
+	[set_executing_user_environment_variables]: Identified login type as 'service principal'
+	[set_executing_user_environment_variables]: Initializing state with SPN named: <SPN Name>
+	[set_executing_user_environment_variables]: exporting environment variables
+	[set_executing_user_environment_variables]: ARM environment variables:
+		ARM_CLIENT_ID: yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
+		ARM_SUBSCRIPTION_ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+		ARM_USE_MSI: false
+```
+
+Look for the following line in the output: "ARM_USE_MSI: false"
+
+If the deployment is using a managed identity, the output will contain the following:
+
+```text
+
+	[set_executing_user_environment_variables]: Identifying the executing user and client
+		[set_azure_cloud_environment]: Identifying the executing cloud environment
+		[set_azure_cloud_environment]: Azure cloud environment: public
+		[set_executing_user_environment_variables]: User type: servicePrincipal
+		[set_executing_user_environment_variables]: client id: systemAssignedIdentity
+	[set_executing_user_environment_variables]: logged in using 'servicePrincipal'
+	[set_executing_user_environment_variables]: unset ARM_CLIENT_SECRET
+	[set_executing_user_environment_variables]: ARM environment variables:
+		ARM_CLIENT_ID: zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz
+		ARM_SUBSCRIPTION_ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+		ARM_USE_MSI: true
+```
+
+Look for the following line in the output: "ARM_USE_MSI: true"
+
+You can assign the 'Storage Account Contributor' role to the deployment credential on the terraform state storage account, the resource group or the subscription (if feasible). Use the ARM_CLIENT_ID from the deployment output.
+
+```cloudshell-interactive
+export appId="<ARM_CLIENT_ID>"
+
+az role assignment create --assignee ${appId} \
+   --role "Storage Account Contributor" \
+   --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MGMT-WEEU-SAP_LIBRARY/providers/Microsoft.Storage/storageAccounts/mgmtweeutfstate###
+```
+
+You may also need to assign the reader role to the deployment credential on the subscription containing the resource group with the Terrafrom state file. You can do that with the following command:
+
+```cloudshell-interactive
+export appId="<ARM_CLIENT_ID>"
+
+az role assignment create --assignee ${appId} \
+   --role "Reader" \
+   --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+
 ### OverconstrainedAllocationRequest error
 If you see an error similar to the following when running the deployment:
 
