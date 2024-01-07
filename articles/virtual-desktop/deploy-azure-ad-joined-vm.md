@@ -22,7 +22,7 @@ The following configurations are currently supported with Azure AD-joined VMs:
 - Personal desktops with local user profiles.
 - Pooled desktops used as a jump box. In this configuration, users first access the Azure Virtual Desktop VM before connecting to a different PC on the network. Users shouldn't save data on the VM.
 - Pooled desktops or apps where users don't need to save data on the VM. For example, for applications that save data online or connect to a remote database.
-- Personal or pooled desktops with FSLogix user profiles with synced users from Active Directory.
+- Personal or pooled desktops with FSLogix user profiles.
 
 User accounts can be cloud-only or synced users from the same Azure AD tenant.
 

@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 09/22/2022
+ms.date: 11/15/2022
 ms.author: alkohli
 ---
 
@@ -83,7 +83,7 @@ These series are optimized for computational workloads and run on Intel Xeon pro
 | **Standard_F4s**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
 | **Standard_F8s**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
 | **Standard_F16s**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |
-| **Standard_F4s_v1**| 4       | 4            | 32                  | 6400                             | 8000                              | 8000                             | 8               | 2         |
+| **Standard_F4s_v1**| 4       | 4            | 8                  | 2000                             | 8000                              | 2300                             | 8               | 4         |
 
 For more information, see [Fsv2-series](../articles/virtual-machines/fsv2-series.md).
 

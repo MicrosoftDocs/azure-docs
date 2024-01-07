@@ -6,13 +6,16 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 01/13/2023
 ms.custom: fasttrack-edit
 ---
 
 # Microsoft Purview network architecture and best practices
 
-Microsoft Purview is a platform as a service (PaaS) solution for data governance. Microsoft Purview accounts have public endpoints that are accessible through the internet to connect to the service. However, all endpoints are secured through Azure Active Directory (Azure AD) logins and role-based access control (RBAC).
+Microsoft Purview data governance solutions are a platform as a service (PaaS) solution for data governance. Microsoft Purview accounts have public endpoints that are accessible through the internet to connect to the service. However, all endpoints are secured through Azure Active Directory (Azure AD) logins and role-based access control (RBAC).
+
+>[!NOTE]
+>These best practices cover the network architecture for [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions). For more information about Microsoft Purview risk and compliance solutions, [go here](/microsoft-365/compliance/). For more information about Microsoft Purview in general, [go here](/purview/purview).
 
 For an added layer of security, you can create private endpoints for your Microsoft Purview account. You then get a private IP address from your virtual network in Azure to the Microsoft Purview account and its managed resources. This address will restrict all traffic between your virtual network and the Microsoft Purview account to a private link for user interaction with the APIs and Microsoft Purview governance portal, or for scanning and ingestion. 
 
@@ -25,6 +28,7 @@ This guide covers the following network options:
 - Use [Azure public endpoints](#option-1-use-public-endpoints). 
 - Use [private endpoints](#option-2-use-private-endpoints). 
 - Use [private endpoints and allow public access on the same Microsoft Purview account](#option-3-use-both-private-and-public-endpoints). 
+- Use Azure [public endpoints to access Microsoft Purview governance portal and private endpoints for ingestion](#option-4-use-private-endpoints-for-ingestion-only).
 
 This guide describes a few of the most common network architecture scenarios for Microsoft Purview. Though you're not limited to those scenarios, keep in mind the [limitations](#current-limitations) of the service when you're planning networking for your Microsoft Purview accounts. 
 
@@ -85,7 +89,7 @@ Here are some best practices:
 
 When you're scanning a data source in Microsoft Purview, you need to provide a credential. Microsoft Purview can then read the metadata of the assets by using the Azure integration runtime in the destination data source. When you're using a public network, authentication options and requirements vary based on the following factors: 
 
-- **Data source type**. For example, if the data source is Azure SQL Database, you need to use SQL authentication with db_datareader access to each database. This can be a user-managed identity or a Microsoft Purview managed identity. Or it can be a service principal in Azure Active Directory added to SQL Database as db_datareader. 
+- **Data source type**. For example, if the data source is Azure SQL Database, you need to use a login with db_datareader access to each database. This can be a user-managed identity or a Microsoft Purview managed identity. Or it can be a service principal in Azure Active Directory added to SQL Database as db_datareader. 
 
   If the data source is Azure Blob Storage, you can use a Microsoft Purview managed identity, or a service principal in Azure Active Directory added as a Blob Storage Data Reader role on the Azure storage account. Or use the storage account's key.  
 
@@ -226,7 +230,7 @@ You might choose an option in which a subset of your data sources uses private e
 If you need to scan some data sources by using an ingestion private endpoint and some data sources by using public endpoints or a service endpoint, you can:
 
 1. Use private endpoints for your Microsoft Purview account.
-1. Set **Public network access** to **allow** on your Microsoft Purview account.
+1. Set **Public network access** to **Enabled from all networks** on your Microsoft Purview account.
 
 ### Integration runtime options 
 
@@ -251,6 +255,27 @@ If you need to scan some data sources by using an ingestion private endpoint and
   - Make sure that your credentials are stored in an Azure key vault and registered inside Microsoft Purview.
 
   - You must create a credential in Microsoft Purview based on each secret that you create in Azure Key Vault. At minimum, assign _get_ and _list_ access for secrets for Microsoft Purview on the Key Vault resource in Azure. Otherwise, the credentials won't work in the Microsoft Purview account. 
+
+## Option 4: Use private endpoints for ingestion only
+
+You might choose this option if you need to:
+
+- Scan all data sources using ingestion private endpoint. 
+- Managed resources must be configured to disable public network.
+- Enable access to Microsoft Purview governance portal through public network.  
+
+To enable this option:
+
+1. Configure ingestion private endpoint for your Microsoft Purview account.
+1. Set **Public network access** to **Disabled for ingestion only (Preview)** on your [Microsoft Purview account](catalog-firewall.md).
+
+### Integration runtime options 
+
+Follow recommendation for option 2.
+
+### Authentication options  
+
+Follow recommendation for option 2.
 
 ## Self-hosted integration runtime network and proxy recommendations
 

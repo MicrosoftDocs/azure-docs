@@ -38,7 +38,7 @@ From here, select the **create new deployment** button in the banner at the top.
 
 ## Deployments
 
-Before you can generate text or inference, you need to deploy a model. This is done by selecting the **create new deployment** on the deployments page. From here, you can select from one of our many available models. For getting started we recommend `text-davinci-002`.
+Before you can generate text or inference, you need to deploy a model. This is done by selecting the **create new deployment** on the deployments page. From here, you can select from one of our many available models. For getting started we recommend `text-davinci-003`.
 
 Once this is complete, select the 'Playground' button on the left nav to start experimenting.
 

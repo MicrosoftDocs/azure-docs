@@ -42,17 +42,18 @@ Speech feature summaries are provided below with links for more information.
 
 Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in real time or asynchronously. 
 
+> [!TIP]
+> You can try speech-to-text in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
+
 Convert audio to text from a range of sources, including microphones, audio files, and blob storage. Use speaker diarisation to determine who said what and when. Get readable transcripts with automatic formatting and punctuation. 
 
 The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train [custom speech models](custom-speech-overview.md) with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
-
-You can try speech to text with [this demo web app](https://azure.microsoft.com/services/cognitive-services/speech-to-text/#features) or in the [Speech Studio](https://aka.ms/speechstudio/speechtotexttool).
 
 ### Text-to-speech
 
 With [text to speech](text-to-speech.md), you can convert input text into humanlike synthesized speech. Use neural voices, which are humanlike voices powered by deep neural networks. Use the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to fine-tune the pitch, pronunciation, speaking rate, volume, and more.
 
-- Prebuilt neural voice: Highly natural out-of-the-box voices. Check the prebuilt neural voice samples [here](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs.
+- Prebuilt neural voice: Highly natural out-of-the-box voices. Check the prebuilt neural voice samples the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs.
 - Custom neural voice: Besides the pre-built neural voices that come out of the box, you can also create a [custom neural voice](custom-neural-voice.md) that is recognizable and unique to your brand or product. Custom neural voices are private and can offer a competitive advantage. Check the custom neural voice samples [here](https://aka.ms/customvoice).
 
 ### Speech translation
@@ -101,8 +102,6 @@ We offer quickstarts in many popular programming languages. Each quickstart is d
 * [Speech-to-text quickstart](get-started-speech-to-text.md)
 * [Text-to-speech quickstart](get-started-text-to-speech.md)
 * [Speech translation quickstart](./get-started-speech-translation.md)
-* [Intent recognition quickstart](./get-started-intent-recognition.md)
-* [Speaker recognition quickstart](./get-started-speaker-recognition.md)
 
 ## Code samples
 

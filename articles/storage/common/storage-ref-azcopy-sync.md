@@ -1,5 +1,5 @@
 ---
-title: azcopy sync | Microsoft Docs
+title: azcopy sync
 description: This article provides reference information for the azcopy sync command.
 author: normesta
 ms.service: storage

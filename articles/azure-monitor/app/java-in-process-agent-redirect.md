@@ -2,7 +2,7 @@
 title: Azure Monitor Application Insights Java (redirect to OpenTelemetry)
 description: Redirect to OpenTelemetry agent
 ms.topic: conceptual
-ms.date: 07/22/2022
+ms.date: 11/15/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc

@@ -39,13 +39,14 @@ Collect each of the values in the table below for your SIM policy.
 | The subscriber profile ID for RAT/Frequency Priority ID (RFSP ID) for this SIM policy, as defined in TS 36.413. If you want to set an RFSP ID, you must specify an integer between 1 and 256. | **RFSP index** |No. Defaults to no value.|
 
 ## Collect information for the network scope
+
 Within each SIM policy, you'll have a *network scope*. The network scope represents the data network to which SIMs assigned to the SIM policy will have access. It allows you to define the QoS policy settings used for the default QoS flow for PDU sessions involving these SIMs. These settings include the session aggregated maximum bit rate (Session-AMBR), 5G QoS identifier (5QI) or QoS class identifier (QCI) value, and Allocation and Retention Policy (ARP) priority level. You can also determine the services that will be offered to SIMs.
 
 Collect each of the values in the table below for the network scope.
 
 | Value | Azure portal field name | Included in example ARM template |
 |--|--|--|
-|The Data Network Name (DNN) of the data network. The DNN must match the one you used when creating the private mobile network.     | **Data network** | Yes |
+|The name of the data network. This must match the name you used when creating the data network.     | **Data network** | Yes |
 |The names of the services permitted on the data network. You must have already configured your chosen services. For more information on services, see [Policy control](policy-control.md).    | **Service configuration**        | No. The SIM policy will only use the service you configure using the same template. |
 |The maximum bitrate for traffic traveling away from UEs across all non-GBR QoS flows or EPS bearers of a given PDU session or PDN connection. The bitrate must be given in the following form: `<Quantity>` `<Unit>` </br></br>`<Unit>` must be one of the following: </br></br>- *bps* </br>- *Kbps* </br>- *Mbps* </br>- *Gbps* </br>- *Tbps* </br></br>`<Quantity>` is the quantity of your chosen unit. </br></br>For example, `10 Gbps`.    | **Session aggregate maximum bit rate - Uplink**        | Yes |
 |The maximum bitrate for traffic traveling towards UEs across all non-GBR QoS flows or EPS bearers of a given PDU session or PDN connection. The bitrate must be given in the following form: `<Quantity>` `<Unit>` </br></br>`<Unit>` must be one of the following: </br></br>- *bps* </br>- *Kbps* </br>- *Mbps* </br>- *Gbps* </br>- *Tbps* </br></br>`<Quantity>` is the quantity of your chosen unit. </br></br>For example, `10 Gbps`.     | **Session aggregate maximum bit rate - Downlink**        | Yes |

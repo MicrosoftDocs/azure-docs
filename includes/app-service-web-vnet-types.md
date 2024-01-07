@@ -1,9 +1,10 @@
 ---
 author: madsd
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.date: 04/08/2022
 ms.author: madsd
+ms.subservice: web-apps
 ---
 
 * The dedicated compute pricing tiers, which include the Basic, Standard, Premium, Premium v2, and Premium v3.

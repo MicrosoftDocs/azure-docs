@@ -1,20 +1,20 @@
 ---
 title: Create an Azure scale set that uses Availability Zones
-description: Learn how to create Azure virtual machine scale sets that use Availability Zones for increased redundancy against outages
+description: Learn how to create Azure Virtual Machine Scale Sets that use Availability Zones for increased redundancy against outages
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: availability
-ms.date: 08/08/2018
+ms.date: 11/22/2022
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
-# Create a virtual machine scale set that uses Availability Zones
+# Create a Virtual Machine Scale Set that uses Availability Zones
 
-To protect your virtual machine scale sets from datacenter-level failures, you can create a scale set across Availability Zones. Azure regions that support Availability Zones have a minimum of three separate zones, each with their own independent power source, network, and cooling. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md).
+To protect your Virtual Machine Scale Sets from datacenter-level failures, you can create a scale set across Availability Zones. Azure regions that support Availability Zones have a minimum of three separate zones, each with their own independent power source, network, and cooling. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md).
 
 ## Availability considerations
 
@@ -34,7 +34,7 @@ With max spreading, the scale set spreads your VMs across as many fault domains 
 ### Placement groups
 
 > [!IMPORTANT]
-> Placement groups only apply to virtual machine scale sets running in Uniform orchestration mode.
+> Placement groups only apply to Virtual Machine Scale Sets running in Uniform orchestration mode.
 
 When you deploy a scale set, you also have the option to deploy with a single [placement group](./virtual-machine-scale-sets-placement-groups.md) per Availability Zone, or with multiple per zone. For regional (non-zonal) scale sets, the choice is to have a single placement group in the region or to have multiple in the region. If the scale set property called `singlePlacementGroup` is set to false, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. When set to the default value of true, the scale set is composed of a single placement group, and has a range of 0-100 VMs. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional (non-zonal) scale sets.
 
@@ -59,7 +59,7 @@ To use best-effort zone balance, set *zoneBalance* to *false*. This setting is t
 
 ## Single-zone and zone-redundant scale sets
 
-When you deploy a virtual machine scale set, you can choose to use a single Availability Zone in a region, or multiple zones.
+When you deploy a Virtual Machine Scale Set, you can choose to use a single Availability Zone in a region, or multiple zones.
 
 When you create a scale set in a single zone, you control which zone all those VM instances run in, and the scale set is managed and autoscales only within that zone. A zone-redundant scale set lets you create a single scale set that spans multiple zones. As VM instances are created, by default they are evenly balanced across zones. Should an interruption occur in one of the zones, a scale set does not automatically scale out to increase capacity. A best practice would be to configure autoscale rules based on CPU or memory usage. The autoscale rules would allow the scale set to respond to a loss of the VM instances in that one zone by scaling out new instances in the remaining operational zones.
 
@@ -230,4 +230,4 @@ For a complete example of a zone-redundant scale set and network resources, see 
 
 ## Next steps
 
-Now that you have created a scale set in an Availability Zone, you can learn how to [Deploy applications on virtual machine scale sets](tutorial-install-apps-cli.md) or [Use autoscale with virtual machine scale sets](tutorial-autoscale-cli.md).
+Now that you have created a scale set in an Availability Zone, you can learn how to [Deploy applications on Virtual Machine Scale Sets](tutorial-install-apps-cli.md) or [Use autoscale with Virtual Machine Scale Sets](tutorial-autoscale-cli.md).

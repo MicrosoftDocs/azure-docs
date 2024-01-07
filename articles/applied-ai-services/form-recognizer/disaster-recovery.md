@@ -36,7 +36,7 @@ If your app or business depends on the use of a Form Recognizer custom model, we
 ## Prerequisites
 
 1. Two Form Recognizer Azure resources in different Azure regions. If you don't have them, go to the Azure portal and [create a new Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer).
-1. The key, endpoint URL, and subscription ID for your Form Recognizer resource. You can find these values on the resource's **Overview** tab in the [Azure portal](https://ms.portal.azure.com/#home).
+1. The key, endpoint URL, and subscription ID for your Form Recognizer resource. You can find these values on the resource's **Overview** tab in the [Azure portal](https://portal.azure.com/#home).
 
 ::: moniker-end
 
@@ -70,14 +70,14 @@ Request body
 
 You'll get a `200` response code with response body that contains the JSON payload required to initiate the copy.
 
-```http
+```json
 {
-    "targetResourceId": "/subscriptions/{targetSub}/resourceGroups/{targetRG}/providers/Microsoft.CognitiveServices/accounts/{targetService}",
-    "targetResourceRegion": "region",
-    "targetModelId": "target-model-name",
-    "targetModelLocation": "model path",
-    "accessToken": "access token",
-    "expirationDateTime": "timestamp"
+  "targetResourceId": "/subscriptions/{targetSub}/resourceGroups/{targetRG}/providers/Microsoft.CognitiveServices/accounts/{targetService}",
+  "targetResourceRegion": "region",
+  "targetModelId": "target-model-name",
+  "targetModelLocation": "model path",
+  "accessToken": "access token",
+  "expirationDateTime": "timestamp"
 }
 ```
 
@@ -94,12 +94,12 @@ The body of your request is the response from the previous step.
 
 ```json
 {
-    "targetResourceId": "/subscriptions/{targetSub}/resourceGroups/{targetRG}/providers/Microsoft.CognitiveServices/accounts/{targetService}",
-    "targetResourceRegion": "region",
-    "targetModelId": "target-model-name",
-    "targetModelLocation": "model path",
-    "accessToken": "access token",
-    "expirationDateTime": "timestamp"
+  "targetResourceId": "/subscriptions/{targetSub}/resourceGroups/{targetRG}/providers/Microsoft.CognitiveServices/accounts/{targetService}",
+  "targetResourceRegion": "region",
+  "targetModelId": "target-model-name",
+  "targetModelLocation": "model path",
+  "accessToken": "access token",
+  "expirationDateTime": "timestamp"
 }
 ```
 
@@ -142,37 +142,37 @@ The following code snippets use cURL to make API calls outlined in the steps abo
 
 ### Generate Copy authorization
 
-  **Request**
+**Request**
 
-  ```bash
-  curl -i -X POST "{YOUR-ENDPOINT}formrecognizer/documentModels:authorizeCopy?api-version=2022-08-31"
-  -H "Content-Type: application/json"
-  -H "Ocp-Apim-Subscription-Key: {YOUR-KEY}"
-  --data-ascii "{
-   'modelId': '{modelId}',
-    'description': '{description}'
-  }"
-  ```
+```bash
+curl -i -X POST "{YOUR-ENDPOINT}formrecognizer/documentModels:authorizeCopy?api-version=2022-08-31"
+-H "Content-Type: application/json"
+-H "Ocp-Apim-Subscription-Key: {YOUR-KEY}"
+--data-ascii "{
+  'modelId': '{modelId}',
+  'description': '{description}'
+}"
+```
 
-  **Successful response**
+**Successful response**
 
-  ```http
-  {
+```json
+{
   "targetResourceId": "string",
   "targetResourceRegion": "string",
   "targetModelId": "string",
   "targetModelLocation": "string",
   "accessToken": "string",
   "expirationDateTime": "string"
-  }
-  ```
+}
+```
 
 ### Begin Copy operation
 
-  **Request**
+**Request**
 
-  ```bash
-  curl -i -X POST "{YOUR-ENDPOINT}/formrecognizer/documentModels/{modelId}:copyTo?api-version=2022-08-31"
+```bash
+curl -i -X POST "{YOUR-ENDPOINT}/formrecognizer/documentModels/{modelId}:copyTo?api-version=2022-08-31"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {YOUR-KEY}"
 --data-ascii "{
@@ -184,14 +184,14 @@ The following code snippets use cURL to make API calls outlined in the steps abo
   'expirationDateTime': '{expirationDateTime}'
 }"
 
-  ```
+```
 
-  **Successful response**
+**Successful response**
 
-  ```http
-  HTTP/1.1 202 Accepted
-  Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-08-31
-  ```
+```http
+HTTP/1.1 202 Accepted
+Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-08-31
+```
 
 ### Track copy operation progress
 

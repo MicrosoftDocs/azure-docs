@@ -72,6 +72,9 @@ Use the **az keyvault key create** command to create KEK with key operations set
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
 ```
 
+> [!NOTE]
+> Services support different KEK lengths; Azure SQL, for instance, only supports key lengths of [2048 or 3072 bytes](/azure/azure-sql/database/transparent-data-encryption-byok-overview#requirements-for-configuring-customer-managed-tde). Consult the documentation for your service for specifics.
+
 ### Step 2: Retrieve the public key of the KEK
 
 Download the public key portion of the KEK and store it into a PEM file.

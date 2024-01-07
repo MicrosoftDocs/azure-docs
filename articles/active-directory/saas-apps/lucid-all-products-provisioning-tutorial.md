@@ -12,7 +12,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 
@@ -98,7 +98,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select **Save**.
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Lucid (All Products)**.
+1. Under the **Mappings** section, select **Provision Azure Active Directory Users**.
 
 1. Review the user attributes that are synchronized from Azure AD to Lucid (All Products) in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Lucid (All Products) for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Lucid (All Products) API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
@@ -116,7 +116,7 @@ This section guides you through the steps to configure the Azure AD provisioning
     |urn:ietf:params:scim:schemas:extension:lucid:2.0:User:productLicenses.LucidscaleCreator|String||
 
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Lucid (All Products)**.
+1. Under the **Mappings** section, select **Provision Azure Active Directory Groups**.
 
 1. Review the group attributes that are synchronized from Azure AD to Lucid (All Products) in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Lucid (All Products) for update operations. Select the **Save** button to commit any changes.
 

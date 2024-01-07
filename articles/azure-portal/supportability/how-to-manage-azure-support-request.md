@@ -92,7 +92,7 @@ To reopen a closed support request, create a [new message](#send-a-message), whi
 
 ## Cancel a support plan
 
-To cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
+To cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-subscription-in-the-azure-portal).
 
 ## Next steps
 

@@ -76,7 +76,9 @@ Signaling flows through the signaling controller. Media flows through the Media 
 
 :::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagram showing Communication Services SDK and Teams Client in a scheduled Teams meeting.":::
 
+### Case 6: Early media
 
+Refers to media (e.g., audio and video) that is exchanged   before a particular session is accepted by the called user. If there is early media flow, the SBC must latch to the first endpoint that starts streaming media; media flow can start before candidates are nominated. The SBC should have support for sending DTMF during this phase to enable IVR/voicemail scenarios. The SBC should use the highest priority path on which it has received checks if nominations have not completed.
 
 ## Next steps
 

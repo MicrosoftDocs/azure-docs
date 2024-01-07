@@ -190,7 +190,7 @@ This example shows how to use event grid with an Azure Logic App to trigger retr
 
 Before you begin, perform the following actions:
 
-* Set up a dataset monitor to [detect data drift](v1/how-to-monitor-datasets.md) in a workspace
+* Set up a dataset monitor to [detect data drift (SDK/CLI v1)](v1/how-to-monitor-datasets.md) in a workspace
 * Create a published [Azure Data Factory pipeline](../data-factory/index.yml).
 
 In this example, a simple Data Factory pipeline is used to copy files into a blob store and run a published Machine Learning pipeline. For more information on this scenario, see how to set up a [Machine Learning step in Azure Data Factory](../data-factory/transform-data-machine-learning-service.md)

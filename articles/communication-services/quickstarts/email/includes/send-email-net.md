@@ -212,7 +212,7 @@ var bccRecipients = new List<EmailAddress>
     new EmailAddress("<bccemailalias@emaildomain.com>"),
 };
 
-EmailRecipient emailRecipients = new EmailRecipients(toRecipients, ccRecipients, bccRecipients);
+EmailRecipients emailRecipients = new EmailRecipients(toRecipients, ccRecipients, bccRecipients);
 ```
 
 You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailToMultipleRecipients)
@@ -228,11 +228,11 @@ string attachmentFileInBytes = Convert.ToBase64String(bytes);
 
 var emailAttachment = new EmailAttachment(
     "<your-attachment-name>",
-    "<your-attachment-name>",
+    <EmailAttachmentType>,
     attachmentFileInBytes
 );
 
-emailMessage.Add(emailAttachment);
+emailMessage.Attachments.Add(emailAttachment);
 ```
 
 You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithAttachments)

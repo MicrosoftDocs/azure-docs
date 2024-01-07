@@ -58,7 +58,7 @@ To enable security defaults in your directory:
 
 ### Require all users to register for Azure AD Multi-Factor Authentication
 
-All users in your tenant must register for multifactor authentication (MFA) in the form of the Azure AD Multi-Factor Authentication. Users have 14 days to register for Azure AD Multi-Factor Authentication by using the Microsoft Authenticator app. After the 14 days have passed, the user can't sign in until registration is completed. A user's 14-day period begins after their first successful interactive sign-in after enabling security defaults.
+All users in your tenant must register for multifactor authentication (MFA) in the form of the Azure AD Multi-Factor Authentication. Users have 14 days to register for Azure AD Multi-Factor Authentication by using the [Microsoft Authenticator app](../authentication/concept-authentication-authenticator-app.md) or any app supporting [OATH TOTP](../authentication/concept-authentication-oath-tokens.md). After the 14 days have passed, the user can't sign in until registration is completed. A user's 14-day period begins after their first successful interactive sign-in after enabling security defaults.
 
 ### Require administrators to do multifactor authentication
 
@@ -140,7 +140,7 @@ This policy applies to all users who are accessing Azure Resource Manager servic
 
 ### Authentication methods
 
-Security defaults users are required to register for and use Azure AD Multi-Factor Authentication **using the Microsoft Authenticator app using notifications**. Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option. 
+Security defaults users are required to register for and use Azure AD Multi-Factor Authentication using the [Microsoft Authenticator app using notifications](../authentication/concept-authentication-authenticator-app.md). Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option. Users can also use any third party application using [OATH TOTP](../authentication/concept-authentication-oath-tokens.md) to generate codes.
 
 > [!WARNING]
 > Do not disable methods for your organization if you are using security defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).

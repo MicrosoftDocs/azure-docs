@@ -14,6 +14,11 @@
             "source_path": "tutorial-managed-identities-mysql.md",
             "redirect_url": "/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "how-to-enterprise-deploy-non-java-apps.md",
+            "redirect_url": "/azure/spring-apps/how-to-enterprise-deploy-polyglot-apps",
+            "redirect_document_id": false
         }
     ]
 }

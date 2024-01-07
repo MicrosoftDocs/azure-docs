@@ -136,9 +136,16 @@ If you can see a fired alert in the portal, but its configured action did not tr
     1. **Are you calling Slack or Microsoft Teams?**  
     Each of these endpoints expects a specific JSON format. Follow [these instructions](../alerts/action-groups-logic-app.md) to configure a logic app action instead.
 
-    1. **Did your webhook became unresponsive or returned errors?** 
+    1. **Did your webhook become unresponsive or return errors?** 
 
-        Our timeout period for a webhook response is 10 seconds. The webhook call will be retried up to two additional times when the following HTTP status codes are returned: 408, 429, 503, 504, or when the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and final retry happens after 100 seconds. If the second retry fails, the endpoint will not be called again for 30 minutes for any action group.
+        The webhook response timeout period is 10 seconds. When the HTTP endpoint does not respond or when the following HTTP status codes are returned, the webhook call is retried up to two times:
+        
+    - `408`
+    -  `429`
+    - `503`
+    - `504`
+   
+        One retry occurs after 10 seconds and another retry occurs after 100 seconds. If the second retry fails, the endpoint is not called again for 15 minutes for any action group.
 
 ## Action or notification happened more than once 
 

@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/27/2022
+ms.date: 12/06/2022
 ms.author: radeltch
 
 ---
@@ -54,6 +54,8 @@ This article describes how to deploy and configure Azure virtual machines (VMs),
 
 -  [NFS on Azure Files](../../../storage/files/files-nfs-protocol.md) 
 -  [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md)        
+
+The simple mount configuration is expected to be the [default](https://documentation.suse.com/sbp/sap/single-html/SAP-S4HA10-setupguide-simplemount-sle15/#id-introduction) for new implementations on SLES for SAP Applications 15.
 
 ## Prerequisites  
 
@@ -96,7 +98,7 @@ The example configurations and installation commands use the following instance 
 | Instance name | Instance number |
 | ---------------- | ------------------ |
 | ASCS | 00 |
-| Evaluated Receipt Settlement (ERS) | 01 |
+| Enqueue Replication Server (ERS) | 01 |
 | Primary Application Server (PAS) | 02 |
 | Additional Application Server (AAS) | 03 |
 | SAP system identifier | NW1 |
@@ -118,7 +120,7 @@ This article assumes that you've already deployed an [Azure virtual network](../
    > If you need additional IP addresses for your VMs, deploy and attach a second network interface controller (NIC). Don't add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../../load-balancer/load-balancer-multivip-overview.md#limitations).  
  
 2. For your virtual IPs, deploy and configure an [Azure load balancer](../../../load-balancer/load-balancer-overview.md). We recommend that you use a [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
-   1. Create front-end IP address 0.27.0.9 for the ASCS instance:
+   1. Create front-end IP address 10.27.0.9 for the ASCS instance:
       1. Open the load balancer, select **Frontend IP pool**, and then select **Add**.
       1. Enter the name of the new front-end IP pool (for example, **frontend.NW1.ASCS**).
       1. Set **Assignment** to **Static** and enter the IP address (for example, **10.27.0.9**).
@@ -128,21 +130,23 @@ This article assumes that you've already deployed an [Azure virtual network](../
    1. Create a single back-end pool: 
       1. Open the load balancer, select **Backend pools**, and then select **Add**.
       1. Enter the name of the new back-end pool (for example, **backend.NW1**).
+      2. Select **NIC** for Backend Pool Configuration. 
       1. Select **Add a virtual machine**.
-      1. Select **Virtual machine**.
-      1. Select the virtual machines of the ASCS cluster and their IP addresses.
-      1. Select **Add**.      
+      1. Select the virtual machines of the ASCS cluster.
+      1. Select **Add**.     
+      2. Select **Save**.   
    1. Create a health probe for port 62000 for ASCS:
       1. Open the load balancer, select **Health probes**, and then select **Add**.
       1. Enter the name of the new health probe (for example, **health.NW1.ASCS**).
       1. Select **TCP** as the protocol and **62000** as the port. Keep the interval of **5**.  
-      1. Select **OK**.
+      1. Select **Add**.
    1. Create a health probe for port 62101 for the ERS instance:  
       * Repeat the preceding steps to create a health probe for ERS (for example, **62101** and **health.NW1.ERS**).
    1. Create load-balancing rules for ASCS:     
       1. Open the load balancer, select **Load-balancing rules**, and then select **Add**.
       1. Enter the name of the new load-balancing rule (for example, **lb.NW1.ASCS**).
       1. Select the front-end IP address for ASCS, back-end pool, and health probe that you created earlier (for example, **frontend.NW1.ASCS**, **backend.NW1**, and **health.NW1.ASCS**).
+      2. Increase idle timeout to 30 minutes
       1. Select **HA ports**.
       1. Enable Floating IP.
       1. Select **OK**.
@@ -524,10 +528,11 @@ The instructions in this section are applicable only if you're using Azure NetAp
       params ip=10.27.0.9 \
       op monitor interval=10 timeout=20
     
-    sudo crm configure primitive nc_NW1_ASCS azure-lb port=62000
+    sudo crm configure primitive nc_NW1_ASCS azure-lb port=62000 \
+      op monitor timeout=20s interval=10
     
     sudo crm configure group g-NW1_ASCS nc_NW1_ASCS vip_NW1_ASCS \
-       meta resource-stickiness=3000
+      meta resource-stickiness=3000
     ```
 
    Make sure that the cluster status is OK and that all resources are started. It isn't important which node the resources are running on.
@@ -573,7 +578,8 @@ The instructions in this section are applicable only if you're using Azure NetAp
       params ip=10.27.0.10 \
       op monitor interval=10 timeout=20
    
-    sudo crm configure primitive nc_NW1_ERS azure-lb port=62101
+    sudo crm configure primitive nc_NW1_ERS azure-lb port=62101 \
+      op monitor timeout=20s interval=10
     
     sudo crm configure group g-NW1_ERS nc_NW1_ERS vip_NW1_ERS
     ```
@@ -650,7 +656,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
     
     # Remove Autostart from the ERS profile.
-    Autostart = 1
+    # Autostart = 1
     ```
 
 6. **[A]** Configure `keepalive`.
@@ -695,10 +701,10 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="true"
     
     sudo crm configure primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ASCS00_nw1ascs
+     params InstanceName=NW1_ASCS00_sapascs
 
     sudo crm configure primitive rsc_sapstartsrv_NW1_ERS01 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ERS01_nw1ers
+     params InstanceName=NW1_ERS01_sapers
 
 	# If you're using NFS on Azure Files or NFSv3 on Azure NetApp Files:
     sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
@@ -728,7 +734,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
      AUTOMATIC_RECOVER=false IS_ERS=true MINIMAL_PROBE=true \
      meta priority=1000
 
-    sudo crm configure modgroup g-NW1_ASCS add rsc_sapstartsrv_NW1_ERS01
+    sudo crm configure modgroup g-NW1_ASCS add rsc_sapstartsrv_NW1_ASCS00
     sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
     sudo crm configure modgroup g-NW1_ERS add rsc_sapstartsrv_NW1_ERS01
     sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01
@@ -749,10 +755,10 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="true"
    
     sudo crm configure primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ASCS00_nw1ascs
+     params InstanceName=NW1_ASCS00_sapascs
 
     sudo crm configure primitive rsc_sapstartsrv_NW1_ERS01 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ERS01_nw1ers
+     params InstanceName=NW1_ERS01_sapers
 
 	# If you're using NFS on Azure Files or NFSv3 on Azure NetApp Files:
     sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
@@ -780,7 +786,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
      params InstanceName=NW1_ERS01_sapers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS01_sapers" \
      AUTOMATIC_RECOVER=false IS_ERS=true MINIMAL_PROBE=true
 
-    sudo crm configure modgroup g-NW1_ASCS add rsc_sapstartsrv_NW1_ERS01
+    sudo crm configure modgroup g-NW1_ASCS add rsc_sapstartsrv_NW1_ASCS00
     sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
     sudo crm configure modgroup g-NW1_ERS add rsc_sapstartsrv_NW1_ERS01
     sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01

@@ -51,7 +51,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
     import datetime
     
     ci_basic_name = "basic-ci" + datetime.datetime.now().strftime("%Y%m%d%H%M")
-    ci_basic = ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2")
+    ci_basic = ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
     ml_client.begin_create_or_update(ci_basic)
     ```
 

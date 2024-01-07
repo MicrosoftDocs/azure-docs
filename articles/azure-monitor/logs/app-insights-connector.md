@@ -74,17 +74,17 @@ This solution does not install any management packs in connected management grou
 
 ## Use the solution
 
-The following sections describe how you can use the blades shown in the Application Insights dashboard to view and interact with data from your apps.
+The following sections describe how you can use the sections shown in the Application Insights dashboard to view and interact with data from your apps.
 
 ### View Application Insights Connector information
 
-Click the **Application Insights** tile to open the **Application Insights** dashboard to see the following blades.
+Click the **Application Insights** tile to open the **Application Insights** dashboard to see the following sections.
 
-![Screenshot of the Application Insights dashboard showing the blades for Applications, Data Volume, and Availability.](./media/app-insights-connector/app-insights-dash01.png)
+![Screenshot of the Application Insights dashboard showing the sections for Applications, Data Volume, and Availability.](./media/app-insights-connector/app-insights-dash01.png)
 
-![Screenshot of the Application Insights dashboard showing the blades for Server Requests, Failures, and Exceptions.](./media/app-insights-connector/app-insights-dash02.png)
+![Screenshot of the Application Insights dashboard showing the sections for Server Requests, Failures, and Exceptions.](./media/app-insights-connector/app-insights-dash02.png)
 
-The dashboard includes the blades shown in the table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the blade or when you click the blade header.
+The dashboard includes the sections shown in the table. Each section lists up to 10 items matching that section's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the section or when you click the section header.
 
 
 | **Column** | **Description** |
@@ -100,23 +100,23 @@ The dashboard includes the blades shown in the table. Each blade lists up to 10 
 
 When you click any item in the dashboard, you see an Application Insights perspective shown in search. The perspective provides an extended visualization, based on the telemetry type that selected. So, visualization content changes for different telemetry types.
 
-When you click anywhere in the Applications blade, you see the default **Applications** perspective.
+When you click anywhere in the Applications section, you see the default **Applications** perspective.
 
 ![Application Insights Applications perspective](./media/app-insights-connector/applications-blade-drill-search.png)
 
 The perspective shows an overview of the application that you selected.
 
-The **Availability** blade shows a different perspective view where you can see web test results and related failed requests.
+The **Availability** section shows a different perspective view where you can see web test results and related failed requests.
 
 ![Application Insights Availability perspective](./media/app-insights-connector/availability-blade-drill-search.png)
 
-When you click anywhere in the **Server Requests** or **Failures** blades, the perspective components change to give you a visualization that related to requests.
+When you click anywhere in the **Server Requests** or **Failures** sections, the perspective components change to give you a visualization that related to requests.
 
-![Application Insights Failures blade](./media/app-insights-connector/server-requests-failures-drill-search.png)
+![Application Insights Failures section](./media/app-insights-connector/server-requests-failures-drill-search.png)
 
-When you click anywhere in the **Exceptions** blade, you see a visualization that's tailored to exceptions.
+When you click anywhere in the **Exceptions** section, you see a visualization that's tailored to exceptions.
 
-![Application Insights Exceptions blade](./media/app-insights-connector/exceptions-blade-drill-search.png)
+![Application Insights Exceptions section](./media/app-insights-connector/exceptions-blade-drill-search.png)
 
 Regardless of whether you click something one the **Application Insights Connector** dashboard, within the **Search** page itself, any query returning Application Insights data shows the Application Insights perspective. For example, if you are viewing Application Insights data, a **&#42;** query also shows the perspective tab like the following image:
 
@@ -130,7 +130,7 @@ Perspective components are updated depending on the search query. This means tha
 
 ### Pivot to an app in the Azure portal
 
-Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the Azure portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in Log Analytics search or you can pivot directly to the Application Insights app.
+Application Insights Connector sections are designed to enable you to pivot to the selected Application Insights app *when you use the Azure portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in Log Analytics search or you can pivot directly to the Application Insights app.
 
 To pivot, click the ellipses (**…**) that appears at the end of each line, and select **Open in Application Insights**.
 

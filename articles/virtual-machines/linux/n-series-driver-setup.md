@@ -8,7 +8,7 @@ ms.subservice: sizes
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/11/2019
+ms.date: 12/16/2022
 ms.author: vikancha
 ---
 

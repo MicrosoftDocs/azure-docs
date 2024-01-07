@@ -15,7 +15,7 @@ VM insights includes a set of performance charts that target several key perform
 ## Limitations
 Following are limitations in performance collection with VM insights.
 
-- **Available memory** is not available for virtual machines running Red Hat Linux (RHEL) 6. This metric is calculated from **MemAvailable** which was introduced in [kernel version 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html).
+- **Available memory** is not available in all Linux versions including Red Hat Linux (RHEL) 6 and CentOS 6. It will be available in Linux versions that use [kernel version 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html) or higher. It may be available in some kernel versions between 3.0 and 3.14.
 - Metrics are only available for data disks on Linux virtual machines using XFS filesystem or EXT filesystem family (EXT2, EXT3, EXT4).
 
 ## Multi-VM perspective from Azure Monitor

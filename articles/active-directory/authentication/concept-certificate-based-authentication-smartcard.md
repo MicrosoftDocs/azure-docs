@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2022
+ms.date: 11/10/2022
 
 ms.author: justinha
 author: vimrang
@@ -77,7 +77,7 @@ The Windows smart card sign-in works with the latest preview build of Windows 11
 
 ## Restrictions and caveats  
 
-- Azure AD CBA is supported on Windows Hybrid or Azure AD Joined.  
+- Azure AD CBA is supported on Windows devices that are hybrid or Azure AD joined.  
 - Users must be in a managed domain or using Staged Rollout and can't use a federated authentication model.
 
 ## Next steps

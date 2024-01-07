@@ -26,7 +26,7 @@ Any organization can deploy Azure AD joined devices no matter the size or indust
 |   | Applicable to all users in an organization |
 | **Device ownership** | Organization |
 | **Operating Systems** | All Windows 11 and Windows 10 devices except Home editions |
-|   | [Windows Server 2019 Virtual Machines running in Azure](howto-vm-sign-in-azure-ad-windows.md) (Server core isn't supported) |
+|   | [Windows Server 2019 and newer Virtual Machines running in Azure](howto-vm-sign-in-azure-ad-windows.md) (Server core isn't supported) |
 | **Provisioning** | Self-service: Windows Out of Box Experience (OOBE) or Settings |
 |   | Bulk enrollment |
 |   | Windows Autopilot |

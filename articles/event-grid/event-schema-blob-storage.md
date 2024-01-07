@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 12/02/2022
 ---
 
 # Azure Blob Storage as an Event Grid source

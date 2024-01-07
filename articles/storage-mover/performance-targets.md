@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 01/10/2023
 ---
 
 <!-- 
@@ -53,7 +53,7 @@ Different agent resource configurations are tested:
 
 ### [4 CPU / 8-GiB RAM](#tab/minspec)
 
-4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent. 
+4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
 
 |Test                      | Single file, 1 TiB|&tilde;3.3M files, &tilde;200-K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
 |--------------------------|-------------------|------------------------------------------------------|--------------------------------------------------|
@@ -66,7 +66,7 @@ Different agent resource configurations are tested:
 
 ### [8 CPU / 16 GiB RAM](#tab/boostspec)
 
-8 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
+8 virtual CPU cores at 2.7 GHz each and 16 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
 
 |Test                      | Single file, 1 TiB| &tilde;3.3M files, &tilde;200 K folders, &tilde;45 GiB  |
 |--------------------------|-------------------|--------------------------------------------------------|

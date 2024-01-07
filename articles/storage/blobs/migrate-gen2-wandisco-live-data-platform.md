@@ -1,7 +1,9 @@
 ---
 title: Data Lake Storage and WANdisco LiveData Platform for Azure
+titleSuffix: Azure Storage
 description: Learn how to migrate petabytes of on-premises Hadoop data to Azure Data Lake Storage Gen2 file systems without interrupting data operations or requiring downtime.
 author: normesta
+
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls

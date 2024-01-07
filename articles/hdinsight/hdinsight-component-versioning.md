@@ -34,32 +34,32 @@ Support is defined as a time period that an HDInsight version is supported by Mi
 Standard support provides updates and support on HDInsight clusters. Microsoft recommends building solutions using the most recent fully supported version. 
 
 Standard support includes
-- Ability to create support requests on HDInsight 4.0 clusters.
-- Support for troubleshooting solutions built on 4.0 clusters. 
+- Ability to create support requests for the cluster.
+- Support for troubleshooting solutions built on the cluster(s). 
 - Requests to restart services or nodes.
 - Root cause analysis investigations on support requests.
 - Root cause analysis or fixes to improve job or query performance.
 - Root cause analysis or fixes to improve customer-initiated changes, for example, changing service configurations or issues due to custom script actions.
 - Product updates for critical security fixes until version retirement.
 - Scoped product updates to the HDInsight Resource provider.
-- Selective fixes or changes to HDInsight 4.0 images or open-source software (OSS) component versions.
+- Selective fixes or changes to HDInsight images or open-source software (OSS) component versions.
 
 ### Basic support
 
 Basic support provides limited servicing to the HDInsight Resource provider. HDInsight images and open-source software (OSS) components won't be serviced. Only critical security fixes will be patched on HDInsight clusters. 
 
 Basic support includes
-- Continued use of existing HDInsight 3.6 clusters.
-- Ability for existing HDInsight 3.6 customers to create new 3.6 clusters.
-- Ability to scale HDInsight 3.6 clusters up and down via autoscale or manual scale.
+- Continued use of existing clusters.
+- Ability for existing HDInsight customers to create new clusters in the same version.
+- Ability to scale clusters up and down via autoscale or manual scale.
 - Scoped product updates to the HDInsight Resource provider.
 - Product updates for critical security fixes until version retirement.
-- Ability to create support requests on HDInsight 3.6 clusters.
+- Ability to create support requests for the cluster.
 - Requests to restart services or nodes.
 
 Basic support doesn't include
-- Fixes or changes to HDInsight 3.6 images or open-source software (OSS) component versions.
-- Support for troubleshooting solutions built on 3.6 clusters. 
+- Fixes or changes to HDInsight images or open-source software (OSS) component versions.
+- Support for troubleshooting solutions built on the cluster version. 
 - Adding new features or functionality.
 - Support for advice or ad-hoc queries.
 - Root cause analysis investigations on support requests.

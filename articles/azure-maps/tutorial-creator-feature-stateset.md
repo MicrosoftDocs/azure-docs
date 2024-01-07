@@ -44,7 +44,7 @@ To create a stateset:
 3. Enter the following URL to the [Stateset API](/rest/api/maps/v2/feature-state/create-stateset). The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 4. Select the **Headers** tab.
@@ -95,7 +95,7 @@ To update the `occupied` state of the unit with feature `id` "UNIT26":
 3. Enter the following URL to the [Feature Statesets API](/rest/api/maps/v2/feature-state/create-stateset). The request should look like the following URL (replace `{statesetId`} with the `statesetId` obtained in [Create a feature stateset](#create-a-feature-stateset)):
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 4. Select the **Headers** tab.

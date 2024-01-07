@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 06/20/2022
+ms.date: 01/05/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -133,10 +133,11 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Disable device | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) |  |
-> | Enable device | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) |  |
+> | Delete device | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) | [Intune Administrator](permissions-reference.md#intune-administrator) |
+> | Disable device | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) | [Intune Administrator](permissions-reference.md#intune-administrator) |
+> | Enable device | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) | [Intune Administrator](permissions-reference.md#intune-administrator) |
 > | Read basic configuration | [Default user role](../fundamentals/users-default-permissions.md) |  |
-> | Read BitLocker keys | [Security Reader](permissions-reference.md#security-reader) | [Password Administrator](permissions-reference.md#password-administrator)<br/>[Security Administrator](permissions-reference.md#security-administrator) |
+> | Read BitLocker keys | [Cloud Device Administrator](permissions-reference.md#cloud-device-administrator) | [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator)<br/>[Intune Administrator](permissions-reference.md#intune-administrator)<br/>[Security Administrator](permissions-reference.md#security-administrator)<br/>[Security Reader](permissions-reference.md#security-reader) |
 
 ## Enterprise applications
 
@@ -365,6 +366,13 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Create, delete, or view a Temporary Access Pass for members (except themselves) | [Authentication Administrator](permissions-reference.md#authentication-administrator) |  |
 > | View a Temporary Access Pass details for a user (without reading the code itself) | [Global Reader](permissions-reference.md#global-reader) |  |
 > | Configure or update the Temporary Access Pass authentication method policy | [Authentication Policy Administrator](permissions-reference.md#authentication-policy-administrator) |  |
+
+## Tenant Creation
+
+> [!div class="mx-tableFixed"]
+> | Task | Least privileged role | Additional roles |
+> | ---- | --------------------- | ---------------- |
+> | Create Azure AD or Azure AD B2C Tenant | [Tenant Creator](permissions-reference.md#tenant-creator) |  [Global Administrator](permissions-reference.md#global-administrator) |
 
 ## Users
 

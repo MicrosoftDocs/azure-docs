@@ -416,5 +416,5 @@ If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-e
 
 ## Next steps
 
-* [Deploy machine learning models to Azure](../how-to-deploy-managed-online-endpoints.md)
+* [Deploy machine learning models to Azure](../how-to-deploy-online-endpoints.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

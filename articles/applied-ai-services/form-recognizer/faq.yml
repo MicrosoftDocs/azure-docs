@@ -222,13 +222,13 @@ sections:
             - If no page range is provided, the entire document will be processed.
 
       - question: |
-            Both Form Recognizer Studio and the FOTT sample labeling tool are available. Which one should I use?
+            Both Form Recognizer Studio and the FOTT Sample Labeling tool are available. Which one should I use?
         answer:  |
            Most of time [Form Recognizer Studio]() is recommended since it can reduce your time for configuring Form Recognizer resource and storage services.
 
            Consider using FOTT (Form OCR Testing Tool) for the following scenarios:
 
-              - Your data must remain within a single machine. Use the [FOTT sample labeling tool]() and [Form Recognizer container]().
+              - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool]() and [Form Recognizer container]().
 
               - Your project is highly dependent on [Form Recognizer v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) and you intend to continue using the v2.1 APIs.
 

@@ -1,18 +1,16 @@
 ---
-title: Azure Traffic Analytics supported regions | Microsoft Docs
+title: Azure Traffic Analytics supported regions
 description: This article provides the list of Traffic Analytics supported regions.
 services: network-watcher
 documentationcenter: na
-author: jyothisuri
-
+author: halkazwini
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2022
-ms.author: jsuri
-ms.custon: references_regions
-
+ms.date: 06/15/2022
+ms.author: halkazwini
+ms.custom: references_regions, engagement-fy23
 ---
 # Supported regions: NSG 
 

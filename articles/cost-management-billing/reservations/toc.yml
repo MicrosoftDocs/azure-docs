@@ -29,6 +29,8 @@
       href: understand-cosmosdb-reservation-charges.md
     - name: Azure Cosmos DB for PostgreSQL
       href: ../../cosmos-db/postgresql/resources-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure SQL Edge
+      href: discount-sql-edge.md
     - name: Database for MariaDB
       href: understand-reservation-charges-mariadb.md
     - name: Database for MySQL
@@ -98,6 +100,8 @@
       href: ../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
       href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure SQL Edge
+      href: prepay-sql-edge.md
     - name: Databricks
       href: prepay-databricks-reserved-capacity.md
     - name: Data Explorer

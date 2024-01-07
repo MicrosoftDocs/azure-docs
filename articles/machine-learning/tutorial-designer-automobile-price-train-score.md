@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Train a regression model that predicts car prices using the Azure Machine Learning designer.
 author: likebupt
 ms.author: keli19
+ms.reviewer: lagayhar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

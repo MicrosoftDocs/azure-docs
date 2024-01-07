@@ -3,7 +3,8 @@ title: Configure VMware HCX in Azure VMware Solution
 description: Configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. 
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 09/07/2021
+ms.date: 12/05/2022
+ms.custom: engagement-fy23
 ---
 
 # Configure on-premises VMware HCX Connector
@@ -26,7 +27,7 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - If you plan to [enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html), make sure you have:  
 
-   - NSX-T or VDS on-premises for HCX Network Extension (no standard switch)
+   - NSX-T Data Center or vSphere Distributed Switch (vDS) on-premises for HCX Network Extension (vSphere Standard Switch not supported)
 
    - One or more active stretched network segment
 
@@ -47,7 +48,7 @@ After you complete these steps, you'll have a production-ready environment for c
 In your data center, you can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution with the VMware HCX Connector.
 
 > [!IMPORTANT]
-> As per the VMware Configuration Maximum tool the maximum site pairs is 25 in a single HCX manager system, this includes inbound and outbound site pairings.
+> As per the [Azure VMware Solution limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits) the maximum site pairs is 25 and maximum service meshes is 10 in a single HCX manager system, this includes inbound and outbound site pairings.
 
 1. Sign in to your on-premises vCenter Server, and under **Home**, select **HCX**.
 
@@ -64,8 +65,6 @@ In your data center, you can connect or pair the VMware HCX Cloud Manager in Azu
    You'll see a screen showing that your VMware HCX Cloud Manager in Azure VMware Solution and your on-premises VMware HCX Connector are connected (paired).
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot showing the site pairing of the HCX Manager in Azure VMware Solution and the VMware HCX Connector.":::
-
-For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Site Pairing](https://www.youtube.com/embed/jXOmYUnbWZY?rel=0&amp;vq=hd720) video.
 
 ## Create network profiles
 
@@ -103,9 +102,6 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
    :::image type="content" source="media/tutorial-vmware-hcx/name-compute-profile.png" alt-text="Screenshot that shows the entry of a compute profile name and the Continue button." lightbox="media/tutorial-vmware-hcx/name-compute-profile.png":::
 
 1. Select the services to enable, such as migration, network extension, or disaster recovery, and then select **Continue**.
-
-   > [!NOTE]
-   > Generally, nothing changes here.
 
 1. In **Select Service Resources**, select one or more service resources (clusters) to enable the selected VMware HCX services.
 

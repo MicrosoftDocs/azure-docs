@@ -149,7 +149,7 @@ You need to make sure you have the names of the resource group and host pool you
 
 ## Troubleshooting
 
-If you run into any issues with Start VM On Connect, we recommend you use the Azure Virtual Desktop [diagnostics feature](diagnostics-log-analytics.md) to check for problems. If you receive an error message, make sure to pay close attention to the message content and make a note of the error name for reference. You can also use [Azure Monitor for Azure Virtual Desktop](azure-monitor.md) to get suggestions for how to resolve issues.
+If you run into any issues with Start VM On Connect, we recommend you use the Azure Virtual Desktop [diagnostics feature](diagnostics-log-analytics.md) to check for problems. If you receive an error message, make sure to pay close attention to the message content and make a note of the error name for reference. You can also use [Azure Virtual Desktop Insights](insights.md) to get suggestions for how to resolve issues.
 
 If the session host VM doesn't turn on, you'll need to check the health of the VM you tried to turn on as a first step.
 

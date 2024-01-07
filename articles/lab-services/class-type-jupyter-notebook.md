@@ -1,10 +1,9 @@
 ---
 title: Set up a lab to teach data science with Python and Jupyter Notebooks | Microsoft Docs
 description: Learn how to set up a lab to teach data science using Python and Jupyter Notebooks. 
-author: emaher
 ms.topic: how-to
 ms.date: 01/04/2022
-ms.author: enewman
+ms.service: lab-services
 ---
 
 # Set up a lab to teach data science with Python and Jupyter Notebooks

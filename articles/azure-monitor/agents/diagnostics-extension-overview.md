@@ -34,9 +34,9 @@ The Log Analytics agent in Azure Monitor can also be used to collect monitoring 
 
 The key differences to consider are:
 
-- Azure Diagnostics extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
-- Azure Diagnostics extension sends data to Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md) (Windows only), and Azure Event Hubs. The Log Analytics agent collects data to [Azure Monitor Logs](../logs/data-platform-logs.md).
-- The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-curated-visualizations), [VM insights](../vm/vminsights-overview.md), and other services such as [Microsoft Defender for Cloud](../../security-center/index.yml).
+- Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
+- Azure Diagnostics extension sends data to Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md) (Windows only) and Azure Event Hubs. The Log Analytics agent collects data to [Azure Monitor Logs](../logs/data-platform-logs.md).
+- The Log Analytics agent is required for retired [solutions](../insights/solutions.md), [VM insights](../vm/vminsights-overview.md), and other services such as [Microsoft Defender for Cloud](../../security-center/index.yml).
 
 ## Costs
 

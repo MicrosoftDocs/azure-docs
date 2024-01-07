@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
-ms.date: 11/22/2021
+ms.date: 01/24/2023
 ROBOTS: NOINDEX
 ms.author: henrymbugua
 ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Python", mode-api

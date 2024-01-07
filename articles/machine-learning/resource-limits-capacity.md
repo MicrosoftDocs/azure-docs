@@ -5,7 +5,7 @@ description: Service limits used for capacity planning and maximum limits on req
 services: machine-learning
 author: blackmist
 ms.author: larryfr
-ms.reviewer: mldocs
+ms.reviewer: larryfr
 ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
@@ -25,6 +25,16 @@ This section lists basic limits and throttling thresholds in Azure Machine Learn
 | Limit | Value |
 | --- | --- |
 | Workspace name | 2-32 characters |
+
+## Experiments
+| Limit | Value |
+| --- | --- |
+| Name | 256 characters |
+| Description | 5,000 characters |
+| Number of tags | 50 |
+| Length of tag key | 250 characters |
+| Length of tag value | 1000 characters |
+| Artifact location | 1024 characters |
 
 ## Runs
 | Limit | Value |
@@ -46,12 +56,11 @@ This section lists basic limits and throttling thresholds in Azure Machine Learn
 | Number of input datasets |200 |
 | Number of output datasets |20 |
 
-
 ## Metrics
 | Limit | Value |
 | --- | --- |
 | Metric names per run |50|
-| Metric rows per metric name |10 million|
+| Metric rows per metric name |1 million|
 | Columns per metric row |15|
 | Metric column name length |255 characters |
 | Metric column value length |255 characters |

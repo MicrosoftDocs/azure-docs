@@ -99,7 +99,7 @@ As a first step, use the following recommended configuration settings below. The
 | Configuration option       | Default | Recommended | Details |
 | :------------------:       | :-----: | :---------: | :-----: |
 | maxConnectionPoolSize      | "1000"  | "1000"      | This represents the upper bound size of the connection pool size for underlying http client, which is the maximum number of connections that SDK will create for requests going to Gateway mode. SDK reuses these connections when sending requests to the Gateway. |
-| idleConnectionTimeout      | "PT60S" | "PT60S"     | This represents the idle connection timeout duration for a *single connection* to the Gateway. After this time, the connection will be automatically closed and will be released back to connection pool for reusability. |
+| idleConnectionTimeout      | "PT60S" | "PT60S"     | This represents the idle connection timeout duration for a *single connection* to the Gateway. After this time, the connection will be automatically closed and will be removed from the connection pool. |
 
 
 ## Next steps

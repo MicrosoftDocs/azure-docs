@@ -3,13 +3,14 @@ title: Authorize access to blob or queue data from a native or web application
 titleSuffix: Azure Storage
 description: Use Azure Active Directory to authenticate from within a client application, acquire an OAuth 2.0 access token, and authorize requests to Azure Blob storage and Queue storage.
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/28/2022
-ms.author: tamram
+ms.author: pauljewell
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: "devx-track-csharp"
 ---
 
@@ -247,7 +248,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform supports incremental consent, meaning that an application can request a minimum set of permissions initially and request more permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs. For more information about incremental consent, see [Incremental and dynamic consent](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform supports incremental consent, meaning that an application can request a minimum set of permissions initially and request more permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs. For more information about incremental consent, see [Incremental and dynamic consent](../../active-directory/develop/permissions-consent-overview.md#consent).
 
 ## View and run the completed sample
 

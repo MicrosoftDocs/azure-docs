@@ -1,5 +1,5 @@
 ---
-title: Review access to groups & applications in access reviews - Azure AD
+title: Review access to groups & applications in access reviews
 description: Learn how to review access of group members or application access in Azure Active Directory access reviews.
 services: active-directory
 author: amsliu
@@ -16,9 +16,9 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Review access to groups and applications in Azure AD access reviews
+# Review access to groups and applications in access reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft web services with a feature called Azure AD access reviews. This article will cover how a designated reviewer performs an access review for members of a group or users with access to an application. If you want to review access to an access package, read [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md).
+Microsoft Entra simplifies how enterprises manage access to groups and applications in Microsoft Entra and other Microsoft web services with a feature called access reviews. This article will cover how a designated reviewer performs an access review for members of a group or users with access to an application. If you want to review access to an access package, read [Review access of an access package in entitlement management](entitlement-management-access-reviews-review-access.md).
 
 ## Perform access review by using My Access
 You can review access to groups and applications via My Access. My Access is a user-friendly portal for granting, approving, and reviewing access needs.

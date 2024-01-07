@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial – Create & manage a VPN gateway – Azure portal'
 titleSuffix: Azure VPN Gateway
-description: In this tutorial, learn how to create, deploy, and manage an Azure VPN gateway using the portal.
+description: In this tutorial, learn how to create and manage an Azure VPN gateway using the Azure portal.
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 06/13/2022
+ms.date: 12/20/2022
 
 ---
 
 # Tutorial: Create and manage a VPN gateway using the Azure portal
 
-Azure VPN gateways provide cross-premises connectivity between customer premises and Azure. This tutorial covers basic Azure VPN Gateway deployment items, such as creating and managing a VPN gateway. You can also create a gateway using [Azure CLI](create-routebased-vpn-gateway-cli.md) or [Azure PowerShell](create-routebased-vpn-gateway-powershell.md). If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
+This tutorial helps you create and manage an Azure VPN gateway using the Azure portal. You can also create and manage a gateway using [Azure CLI](create-routebased-vpn-gateway-cli.md) or [Azure PowerShell](create-routebased-vpn-gateway-powershell.md). If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about VPN Gateway, see [What is VPN Gateway?](vpn-gateway-about-vpngateways.md)
 
 In this tutorial, you learn how to:
 

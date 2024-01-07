@@ -4,7 +4,7 @@ description: Use the Autoscale feature to automatically scale Azure HDInsight cl
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
-ms.date: 02/11/2022
+ms.date: 11/30/2022
 ---
 
 # Automatically scale Azure HDInsight clusters
@@ -66,12 +66,12 @@ For scale-down, Autoscale issues a request to remove a certain number of nodes. 
 
 The following table describes the cluster types and versions that are compatible with the Autoscale feature.
 
-| Version | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
-|---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | Yes* | No | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | Yes* | No | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | Yes* | No | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | Yes* | No | No | No | No |
+| Version | Spark | Hive | Interactive Query | HBase | Kafka |
+|---|---|---|---|---|---|---|
+| HDInsight 3.6 without ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | Yes* | No | No |
 
 \* Interactive Query clusters can only be configured for schedule-based scaling, not load-based.
 

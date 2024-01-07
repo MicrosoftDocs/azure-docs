@@ -6,7 +6,6 @@ documentationcenter:
 author: lauradolan
 manager: bburns
 ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

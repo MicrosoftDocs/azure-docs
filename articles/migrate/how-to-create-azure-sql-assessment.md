@@ -4,8 +4,8 @@ description: Learn how to assess SQL instances for migration to Azure SQL Manage
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 06/27/2022
-
+ms.date: 08/05/2022
+ms.custom: engagement-fy23
 ---
 
 # Create an Azure SQL assessment
@@ -49,9 +49,15 @@ Run an assessment as follows:
         - You can avail additional discount by applying reserved capacity and Azure Hybrid Benefit on top of Pay-as-you-go offer. 
         - You can apply Azure Hybrid Benefit on top of the Pay-as-you-go offer and Dev/Test environment. The assessment does not support applying Reserved Capacity on top of the Pay-as-you-go offer and Dev/Test environment.
         - If the offer is set to *Pay-as-you-go* and Reserved capacity is set to *No reserved instances*, the monthly cost estimates are calculated by multiplying the number of hours chosen in the VM uptime field with the hourly price of the recommended SKU.
-    - In **Reserved Capacity**, specify whether you want to use reserved capacity for the SQL server after migration.
-        - If you select a reserved capacity option, you can't specify "Discount (%)" or "VM uptime".
-        - If the Reserved capacity is set to *1 year reserved* or *3 years reserved*, the monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
+    - In **Savings options - Azure SQL MI and DB (PaaS)**, Specify the reserved capacity savings option that you want the assessment to consider to help optimize your Azure compute cost.
+            - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
+            - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
+            -  You need to select pay-as-you-go in **offer/licensing program** setting to be able to use Reserved Instances. When you select any savings option other than 'None', the 'Discount (%)' and "VM uptime" settings are not applicable.
+    - In **Savings options - SQL Server on Azure VM (IaaS)**, specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. 
+            - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
+            - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+            - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
+            - You need to select pay-as-you-go in **offer/licensing program** setting to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.
     - In **Currency**, select the billing currency for your account.
     - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
     - In **VM uptime**, specify the duration (days per month/hour per day) that servers/VMs will run. This is useful for computing cost estimates for SQL Server on Azure VM where you are aware that Azure VMs might not run continuously.
@@ -69,7 +75,7 @@ Run an assessment as follows:
         --- | --- | ---
         Cores | 2  | 4
         Memory | 8 GB | 16 GB
-
+    - In **Optimization preference**, specify the preference for the recommended assessment report. Selecting *Minimize cost* would result in the Recommended assessment report recommending those deployment types that have least migration issues and are most cost effective, whereas selecting *Modernize to PaaS* would result in Recommended assessment report recommending PaaS(Azure SQL MI or DB) deployment types over IaaS Azure(VMs), wherever the SQL Server instance is ready for migration to PaaS irrespective of cost.
 1. In **Assessment settings** > **Azure SQL Managed Instance sizing**,
     - In **Service Tier**, choose the most appropriate service tier option to accommodate your business needs for migration to Azure SQL Managed Instance: 
         - Select *Recommended* if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical.
@@ -94,8 +100,6 @@ Run an assessment as follows:
     - **Compute tier** - Default value is *Provisioned*.
 
     - Select **Save** if you made changes.
-
-     :::image type="content" source="./media/tutorial-assess-sql/view-all-inline.png" alt-text="Screenshot to save the assessment properties." lightbox="./media/tutorial-assess-sql/view-all-expanded.png":::
 
 8. In **Assess Servers**, select **Next**.
 9.  In **Select servers to assess** > **Assessment name** > specify a name for the assessment.

@@ -8,10 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 01/04/2023
 ---
 
-# REST code samples for Azure Cognitive Search
+# REST samples for Azure Cognitive Search
 
 Learn about the REST API samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Search REST APIs**](/rest/api/searchservice).
 

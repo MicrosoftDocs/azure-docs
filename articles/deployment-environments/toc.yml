@@ -4,18 +4,18 @@ items:
 - name: Overview
   expanded: true
   items: 
-    - name: What is Azure Deployment Environments?
+    - name: What is Azure Deployment Environments Preview?
       displayName: ADE Overview
       href: overview-what-is-azure-deployment-environments.md
 - name: Quickstarts
   displayName: Quickstarts
   expanded: true
   items:
-    - name: Create and configure a Dev center
+    - name: Create and configure a dev center
       href: quickstart-create-and-configure-devcenter.md
-    - name: Create and configure a Project
+    - name: Create and configure a project
       href: quickstart-create-and-configure-projects.md
-    - name: Create and access Environments
+    - name: Create and access an environment
       href: quickstart-create-access-environments.md
 - name: Concepts
   expanded: true
@@ -27,9 +27,9 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Configure a catalog
+    - name: Add and configure a catalog
       href: how-to-configure-catalog.md
-    - name: Configure a catalog item
+    - name: Add and configure a catalog item
       href: configure-catalog-item.md
     - name: Configure a managed identity
       href: how-to-configure-managed-identity.md

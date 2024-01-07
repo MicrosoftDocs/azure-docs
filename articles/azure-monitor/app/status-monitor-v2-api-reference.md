@@ -608,7 +608,7 @@ The full path will be displayed during script execution.
 
 #### Example of application startup logs
 ```powershell
-PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -ColectRedfieldEvents
+PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -CollectRedfieldEvents
 Starting...
 Log File: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\logs\20190627_144217_ApplicationInsights_ETW_Trace.etl
 Tracing enabled, waiting for events.

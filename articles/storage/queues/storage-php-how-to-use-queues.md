@@ -1,5 +1,6 @@
 ---
-title: How to use Queue Storage from PHP - Azure Storage
+title: How to use Queue Storage from PHP
+titleSuffix: Azure Storage
 description: Learn how to use the Azure Queue Storage service to create and delete queues, and insert, get, and delete messages. Samples are written in PHP.
 author: normesta
 ms.author: normesta

@@ -4,8 +4,8 @@ description: Summarizes the supported components and requirements for Hyper-V VM
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-author: v-pgaddala
-ms.author: v-pgaddala
+author: ankitaduttaMSFT
+ms.author: ankitadutta
 ---
 
 
@@ -145,6 +145,9 @@ Azure Storage accounts with firewall enabled | Yes. For target storage and cache
 Modify storage account | No. The target Azure Storage account can't be modified after enabling replication. To modify, disable and then re-enable disaster recovery. | No
 Secure transfer option | Yes | Yes
 UEFI Secure boot | No | No
+
+> [!NOTE]
+> Striped volumes and dynamic disks are not supported for app-consistent snapshots. Ensure that the frequency for app-consistent snapshot is set to zero in the selected replication policy. 
 
 ## Azure compute features
 

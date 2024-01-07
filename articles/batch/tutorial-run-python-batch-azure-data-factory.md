@@ -114,7 +114,7 @@ In this section, you'll create and validate a pipeline using your Python script.
     1. In the **Azure Batch** tab, add the **Batch Account** that was created in the previous steps and **Test connection** to ensure that it is successful.
     ![In the Azure Batch tab, add the Batch Account that was created in the previous steps, then test connection](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
     1. In the **Settings** tab:
-        1. Set the **Command** as `python main.py`.
+        1. Set the **Command** as `cmd /C python main.py`.
         1. For the **Resource Linked Service**, add the storage account that was created in the previous steps. Test the connection to ensure it is successful.
         1. In the **Folder Path**, select the name of the **Azure Blob Storage** container that contains the Python script and the associated inputs. This will download the selected files from the container to the pool node instances before the execution of the Python script.
 

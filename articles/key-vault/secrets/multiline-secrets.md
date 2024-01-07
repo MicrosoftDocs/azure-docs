@@ -39,11 +39,13 @@ You can then view the stored secret using the Azure CLI [az keyvault secret show
 az keyvault secret show --name "MultilineSecret" --vault-name "<your-unique-keyvault-name>" --query "value"
 ```
 
-The secret will be returned with newlines embedded:
+The secret will be returned with `\n` in place of newline:
 
 ```bash
 "This is\nmy multi-line\nsecret"
 ```
+
+The `\n` above is a `\` and `n` character, not the newline character. Quotes `"` are included in the string.
 
 ## Set the secret using Azure Powershell
 
@@ -66,11 +68,13 @@ You can then view the stored secret using the Azure CLI [az keyvault secret show
 az keyvault secret show --name "MultilineSecret" --vault-name "<your-unique-keyvault-name>" --query "value"
 ```
 
-The secret will be returned with newlines embedded:
+The secret will be returned with `\n` in place of newline:
 
 ```bash
 "This is\nmy multi-line\nsecret"
 ```
+
+The `\n` above is a `\` and `n` character, not the newline character. Quotes `"` are included in the string.
 
 ## Next steps
 

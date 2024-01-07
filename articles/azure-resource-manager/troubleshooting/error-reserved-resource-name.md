@@ -2,7 +2,7 @@
 title: Reserved resource name errors
 description: Describes how to resolve errors when providing a resource name that includes a reserved word.
 ms.topic: troubleshooting
-ms.date: 09/12/2022
+ms.date: 01/03/2023
 ---
 
 # Resolve errors for reserved resource names

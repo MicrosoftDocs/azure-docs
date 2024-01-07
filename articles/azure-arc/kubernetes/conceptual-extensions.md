@@ -1,10 +1,8 @@
 ---
 title: "Cluster extensions - Azure Arc-enabled Kubernetes"
-services: azure-arc
-ms.service: azure-arc
 ms.date: 07/12/2022
 ms.topic: conceptual
-description: "This article provides a conceptual overview of cluster extensions capability of Azure Arc-enabled Kubernetes"
+description: "This article provides a conceptual overview of the Azure Arc-enabled Kubernetes cluster extensions capability."
 ---
 
 # Cluster extensions
@@ -14,7 +12,7 @@ description: "This article provides a conceptual overview of cluster extensions 
 A cluster operator or admin can use the cluster extensions feature to:
 
 - Install and manage key management, data, and application offerings on your Kubernetes cluster. List of available extensions can be found [here](extensions.md#currently-available-extensions)
-- Use Azure Policy to automate at-scale deployment of cluster extensions across all clusters in your environment. 
+- Use Azure Policy to automate at-scale deployment of cluster extensions across all clusters in your environment.
 - Subscribe to release trains (for example, preview or stable) for each extension.
 - Set up auto-upgrade for extensions or pin to a specific version and manually upgrade versions.
 - Update extension properties or delete extension instances.

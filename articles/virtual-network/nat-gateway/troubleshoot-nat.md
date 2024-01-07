@@ -81,17 +81,7 @@ You may experience outbound connectivity failure if your NAT gateway resource is
 
 ### Can't delete NAT gateway
 
-NAT gateway must be detached from all subnets within a virtual network before the resource can be removed or deleted. Follow these steps to remove subnets from your NAT gateway before you delete it: 
-
-**Recommended Steps**
-
-1. In the portal, navigate to your NAT gateway resource Overview page 
-
-2. Under Settings on the left-hand navigation pane, select Subnets 
-
-3. Uncheck all boxes next to subnets that are associated to your NAT gateway 
-
-4. Save your Subnet configuration changes 
+NAT gateway must be detached from all subnets within a virtual network before the resource can be removed or deleted. See [Remove NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step by step guidance.
 
 ## Add or remove subnet 
 
@@ -163,7 +153,7 @@ To get your virtual machine NIC out of a failed state, you can use one of the tw
 
 NAT gateway can't be associated with more than 16 public IP addresses. You can use any combination of public IP addresses and prefixes with NAT gateway up to a total of 16 IP addresses. The following IP prefix sizes can be used with NAT gateway: 
 
-* /28 (16 addresses) 
+* /28 (sixteen addresses) 
 
 * /29 (eight addresses) 
 
@@ -181,7 +171,7 @@ NAT gateway is a standard SKU resource and can't be used with basic SKU resource
 
 ### Can't mismatch zones of public IP addresses and NAT gateway 
 
-NAT gateway is a zonal resource and can either be designated to a specific zone or to ‘no zone’. When NAT gateway is placed in ‘no zone’, Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
+NAT gateway is a [zonal resource](./nat-availability-zones.md) and can either be designated to a specific zone or to ‘no zone’. When NAT gateway is placed in ‘no zone’, Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
 
 NAT gateway can be used with public IP addresses designated to a specific zone, no zone, all zones (zone-redundant) depending on its own availability zone configuration. Follow guidance below: 
 
@@ -202,5 +192,7 @@ To learn more about NAT gateway, see:
 * [Virtual Network NAT](nat-overview.md)
 
 * [NAT gateway resource](nat-gateway-resource.md)
+
+* [Manage NAT gateway](./manage-nat-gateway.md)
 
 * [Metrics and alerts for NAT gateway resources](nat-metrics.md).

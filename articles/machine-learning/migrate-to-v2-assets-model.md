@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 author: AbeOmor
 ms.author: osomorog
-ms.date: 09/16/2022
+ms.date: 12/01/2022
 ms.reviewer: sgilley
 ms.custom: migration
 ---
@@ -33,11 +33,11 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
     
     ```python
     from azure.ai.ml.entities import Model
-    from azure.ai.ml.constants import ModelType
+    from azure.ai.ml.constants import AssetTypes
     
     file_model = Model(
         path="mlflow-model/model.pkl",
-        type=ModelType.CUSTOM,
+        type=AssetTypes.CUSTOM_MODEL,
         name="local-file-example",
         description="Model created from local file."
     )
@@ -58,13 +58,13 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
     ```python
     from azure.ai.ml.entities import Model
-    from azure.ai.ml.constants import ModelType
+    from azure.ai.ml.constants import AssetTypes
     
     run_model = Model(
-        path="azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/"
+        path="azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/",
         name="run-model-example",
         description="Model created from run.",
-        type=ModelType.CUSTOM
+        type=AssetTypes.CUSTOM_MODEL
     )
     
     ml_client.models.create_or_update(run_model)
@@ -85,5 +85,5 @@ For more information, see the documentation here:
 * [Create a model in v1](v1/how-to-deploy-and-where.md?tabs=python#register-a-model-from-a-local-file)
 * [Deploy a model in v1](v1/how-to-deploy-and-where.md?tabs=azcli#workflow-for-deploying-a-model)
 * [Create a model in v2](how-to-manage-models.md)
-* [Deploy a model in v2](how-to-deploy-managed-online-endpoints.md)
+* [Deploy a model in v2](how-to-deploy-online-endpoints.md)
 

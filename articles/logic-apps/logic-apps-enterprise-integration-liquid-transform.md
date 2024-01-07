@@ -77,7 +77,7 @@ Before you can perform a Liquid transformation in your logic app workflow, you m
    The JSON to JSON transformation example in this article uses the following sample Liquid template:
 
    ```
-   { %- assign deviceList = content.devices | Split: ', ' -% }
+   {%- assign deviceList = content.devices | Split: ', ' -%}
 
    {
       "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",

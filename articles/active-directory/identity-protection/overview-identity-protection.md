@@ -96,8 +96,7 @@ Conditional Access administrators can create policies that factor in user or sig
 
 | Capability | Details | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1 | Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Risk policies | User risk policy (via Identity Protection) | No | No | Yes | 
-| Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access) | No | No | Yes |
+| Risk policies | Sign-in and user risk policies (via Identity Protection or Conditional Access) | No | No | Yes |
 | Security reports | Overview | No | No | Yes |
 | Security reports | Risky users | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Full access|
 | Security reports | Risky sign-ins | Limited Information. No risk detail or risk level is shown. | Limited Information. No risk detail or risk level is shown. | Full access |

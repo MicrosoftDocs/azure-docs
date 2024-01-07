@@ -24,11 +24,7 @@ Before you can enable RDP Shortpath, you'll need to meet the prerequisites. Sele
 # [Public networks](#tab/public-networks)
 
 > [!TIP]
-> RDP Shortpath for public networks is currently rolling out now it is generally available. It will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
->
-> While it is rolling out, it may still be necessary to configure a registry value to enable RDP Shortpath for public networks. For more information, see [Enable the preview of RDP Shortpath for public networks](#enable-the-preview-of-rdp-shortpath-for-public-networks).
->
-> The steps to configure RDP Shortpath for public networks are provided for session hosts and clients in case these defaults have been changed. 
+> RDP Shortpath for public networks will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values. The steps to configure RDP Shortpath for public networks are provided for session hosts and clients in case these defaults have been changed. 
 
 - A client device running the [Remote Desktop client for Windows](users/connect-windows.md), version 1.2.3488 or later. Currently, non-Windows clients aren't supported.
 - Internet access for both clients and session hosts. Session hosts require outbound UDP connectivity from your session hosts to the internet. To reduce the number of ports required, you can [limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md). For more information you can use to configure firewalls and Network Security Group, see [Network configurations for RDP Shortpath](rdp-shortpath.md#network-configuration).
@@ -298,22 +294,6 @@ To configure managed Windows clients using Intune:
 1. Select the setting **Turn Off UDP On Client** and set it to **Enabled**. Select **OK**, then select **Next**.
 
 1. Apply the configuration profile, then restart your clients.
-
-## Enable the preview of RDP Shortpath for public networks
-
-RDP Shortpath for public networks is currently rolling out now it is generally available. While it is rolling out, it may still be necessary to configure a registry value to enable RDP Shortpath for public networks. Open an elevated PowerShell prompt on your session hosts and run the following command:
-
-```powershell
-New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name ICEControl -PropertyType DWORD -Value 2
-```
-
-## Disable the preview of RDP Shortpath for public networks
-
-If you've participated in the preview of RDP Shortpath for public networks, you need to delete the following registry value as it is no longer required. Open an elevated PowerShell prompt on your session hosts and run the following command:
-
-```powershell
-Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name ICEControl -Force
-```
 
 ## Next steps
 

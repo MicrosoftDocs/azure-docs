@@ -44,7 +44,7 @@ You also need to complete the following items as part of prerequisite setup. The
 
 This article uses Logic Apps to update a twin in your Azure Digital Twins instance. To continue, you should add at least one twin in your instance. 
 
-You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), or the [Azure Digital Twins CLI](/cli/azure/dt). For detailed steps on how to create twins using these methods, see [Manage digital twins](how-to-manage-twin.md).
+You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme), or the [Azure Digital Twins CLI](/cli/azure/dt). For detailed steps on how to create twins using these methods, see [Manage digital twins](how-to-manage-twin.md).
 
 You'll need the Twin ID of a twin in your instance that you've created.
 

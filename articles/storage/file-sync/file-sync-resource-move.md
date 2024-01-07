@@ -114,7 +114,7 @@ This assignment is typically done automatically through the user context of the 
         :::image type="content" source="media/storage-sync-resource-move/storage-sync-resource-move-assign-rbac.png" alt-text="An image displaying the Microsoft.StorageSync service principal assigned to the Reader and Data access role on a storage account":::
     :::column-end:::
     :::column:::
-        In the Azure portal, navigate to the storage account you need to reauthorize sync access to. <ol><li>Select **Access control (IAM)** on the left-hand table of contents.</li><li>Select the Role assignments tab to the list the users and applications (service principals) that have access to your storage account.</li><li>Select **Add**</li><li>In the **Role field**, select **Reader and Data Access**.</li><li>In the **Select field**, type *Microsoft.StorageSync*, select the role and click **Save**.</li></ol>
+        In the Azure portal, navigate to the storage account you need to reauthorize sync access to. <ol><li>Select **Access control (IAM)** on the left-hand table of contents.</li><li>Select the Role assignments tab to the list the users and applications (service principals) that have access to your storage account.</li><li>Select **Add**</li><li>In the **Role field**, select **Reader and Data Access**.</li><li>In the **Select field**, type *Microsoft.StorageSync*, select the role and click **Save**. If the **Microsoft.StorageSync** service principal is not found, type **Hybrid File Sync Service** (old service principal name), select the role and click **Save**.</li></ol>
     :::column-end:::
 :::row-end:::
 
@@ -138,6 +138,6 @@ A regional failover can be started by Microsoft in a catastrophic event that wil
 
 ## See also
 
-- [Overview of Azure file share and sync migration guides](../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)
+- [Overview of Azure file share and sync migration guides](../files/storage-files-migration-overview.md?toc=/azure/storage/filesync/toc.json)
 - [Troubleshoot Azure File Sync](file-sync-troubleshoot.md)
 - [Planning for an Azure File Sync deployment](file-sync-planning.md)

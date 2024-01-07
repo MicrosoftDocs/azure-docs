@@ -90,7 +90,7 @@ To make sure you don't lose access to your encrypted data after accidental delet
 
 If you create a new Azure Key Vault instance, enable these properties during creation:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="Enable soft delete and purge protection for a new Azure Key Vault instance":::
+:::image type="content" source="./media/how-to-always-encrypted/key-vault-properties.png" alt-text="Screenshot of the soft delete and purge protection properties for a new Azure Key Vault instance.":::
 
 If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If any of these properties isn't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 

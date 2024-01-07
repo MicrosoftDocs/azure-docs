@@ -1,9 +1,8 @@
 ---
 title: 'Troubleshoot error: Azure Functions Runtime is unreachable'
 description: Learn how to troubleshoot an invalid storage account.
-
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/13/2022
 ---
 
 # Troubleshoot error: "Azure Functions Runtime is unreachable"

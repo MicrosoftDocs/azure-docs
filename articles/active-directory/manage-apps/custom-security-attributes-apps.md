@@ -2,13 +2,14 @@
 title: Assign or remove custom security attributes for an application (Preview) - Azure Active Directory
 description: Assign or remove custom security attributes for an application that has been registered with your Azure Active Directory (Azure AD) tenant.
 services: active-directory
-author: rolyon
+author: omondiatieno
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/03/2022
-ms.author: rolyon
+ms.author: jomondi
+ms.reviewer: rolyon
 ---
 
 # Assign or remove custom security attributes for an application (Preview)

@@ -4,7 +4,7 @@ description: Learn how to set up a lab for engineering courses using SOLIDWORKS.
 author: nicolela
 ms.topic: how-to
 ms.date: 01/05/2022
-ms.author: nicolela
+ms.service: lab-services
 ---
 
 # Set up a lab for engineering classes using SOLIDWORKS

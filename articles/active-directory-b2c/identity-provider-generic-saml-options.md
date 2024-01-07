@@ -3,7 +3,7 @@ title: Set sign-in with SAML identity provider options
 titleSuffix: Azure Active Directory B2C
 description: Configure sign-in SAML identity provider (IdP) options in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/13/2022
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---

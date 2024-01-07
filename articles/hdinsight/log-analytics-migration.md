@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.author: sairamyeturi
 author: yeturis
-ms.date: 09/02/2022
+ms.date: 11/17/2022
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters
@@ -267,13 +267,6 @@ The following charts show the table mappings from the classic Azure Monitoring I
 | HDInsightHBaseMetrics | <ul><li>**Description**: This table contains JMX metrics from HBase. It contains all the same JMX metrics from the tables listed in the Old Schema column. In contrast from the old tables, each row contains one metric.</li><li>**Old table**: metrics\_regionserver\_CL, metrics\_regionserver\_wal\_CL, metrics\_regionserver\_ipc\_CL, metrics\_regionserver\_os\_CL, metrics\_regionserver\_replication\_CL, metrics\_restserver\_CL, metrics\_restserver\_jvm\_CL, metrics\_hmaster\_assignmentmanager\_CL, metrics\_hmaster\_ipc\_CL, metrics\_hmaser\_os\_CL, metrics\_hmaster\_balancer\_CL, metrics\_hmaster\_jvm\_CL, metrics\_hmaster\_CL,metrics\_hmaster\_fs\_CL</li></ul>|
 | HDInsightHBaseLogs | <ul><li>**Description**: This table contains logs from HBase and its related components: Phoenix and HDFS.</li><li>**Old table**: log\_regionserver\_CL, log\_restserver\_CL, log\_phoenixserver\_CL, log\_hmaster\_CL, log\_hdfsnamenode\_CL, log\_garbage\_collector\_CL</li></ul>|
 
-## Storm workload
-
-| New Table | Details |
-| --- | --- |
-| HDInsightStormMetrics | <ul><li>**Description**: This table contains the same JMX metrics as the tables in the Old Tables section. Its rows contain one metric per record.</li><li>**Old table**: metrics\_stormnimbus\_CL, metrics\_stormsupervisor\_CL</li></ul>|
-| HDInsightStormTopologyMetrics | <ul><li>**Description**: This table contains topology level metrics from Storm. It's the same shape as the table listed in Old Tables section.</li><li>**Old table**: metrics\_stormrest\_CL</li></ul>|
-| HDInsightStormLogs | <ul><li>**Description**: This table contains all logs generated from Storm.</li><li>**Old table**: log\_supervisor\_CL, log\_nimbus\_CL</li></ul>|
 
 ## Oozie workload
 

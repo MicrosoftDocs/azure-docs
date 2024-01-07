@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 11/01/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -41,7 +41,7 @@ When setting up scan, you can choose to scan an entire Teradata server, or scope
 
 ### Required permissions for scan
 
-Microsoft Purview supports basic authentication (username and password) for scanning Teradata. The Teradata user must have read access to system tables in order to access advanced metadata.
+Microsoft Purview supports basic authentication (username and password) for scanning Teradata. The Teradata user must have read access to system tables in order to access advanced metadata. For classification, user also needs to have read permission on the tables/views to retrieve sample data.
 
 To retrieve data types of view columns, Microsoft Purview issues a prepare statement for `select * from <view>` for each of the view queries and parse the metadata that contains the data type details for better performance. It requires the SELECT data permission on views. If the permission is missing, view column data types will be skipped.
 
@@ -143,6 +143,8 @@ Follow the steps below to scan Teradata to automatically identify assets. For mo
         :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="setup scan" border="true":::
 
 1. Select **Continue**.
+
+1. Select a **scan rule set** for classification. You can choose between the system default, existing custom rule sets, or [create a new rule set](create-a-scan-rule-set.md) inline.
 
 1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
 

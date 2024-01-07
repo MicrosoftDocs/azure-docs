@@ -38,6 +38,13 @@ git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.g
 
 -----
 
+Go to the application folder:
+
+```bash
+cd msdocs-python-flask-webapp-quickstart
+```
+
+
 Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
 ```
@@ -47,19 +54,21 @@ DBUSER=<db-user-name>
 DBPASS=<db-password>
 ```
 
+Create a virtual environment for the app:
+
+[!INCLUDE [Virtual environment setup](<./includes/quickstart-python/virtual-environment-setup.md>)]
+
+Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
 Run the sample application with the following commands:
 
 ### [Flask](#tab/flask)
 
 ```bash
-# Clone the sample
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
-cd msdocs-flask-postgresql-sample-app
-# Activate a virtual environment
-python3 -m venv .venv # In CMD on Windows, run "py -m venv .venv" instead
-.venv/scripts/activate
-# Install dependencies
-pip install -r requirements.txt
 # Run database migration
 flask db upgrade
 # Run the app at http://127.0.0.1:5000
@@ -69,14 +78,6 @@ flask run
 ### [Django](#tab/django)
 
 ```bash
-# Clone the sample
-git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
-cd msdocs-django-postgresql-sample-app
-# Activate a virtual environment
-python3 -m venv .venv # In CMD on Windows, run "py -m venv .venv" instead
-.venv/scripts/activate
-# Install dependencies
-pip install -r requirements.txt
 # Run database migration
 python manage.py migrate
 # Run the app at http://127.0.0.1:8000
@@ -155,7 +156,7 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the **Application settings** tab of the **Configuration** page, verify that (`DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS`) are present. They'll be injected into the runtime environment as environment variables.
+        **Step 2.** In the **Application settings** tab of the **Configuration** page, verify that `DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS` are present. They'll be injected into the runtime environment as environment variables.
         App settings are a good way to keep connection secrets out of your code repository.
     :::column-end:::
     :::column:::
@@ -325,7 +326,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 4.** Back in the App Service page, in the left menu, select **Deployment Center**. 
+        **Step 1.** Back in the App Service page, in the left menu, select **SSH**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png":::
@@ -347,7 +348,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 4.** Back in the App Service page, in the left menu, select **Deployment Center**. 
+        **Step 1.** Back in the App Service page, in the left menu, select **SSH**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png":::

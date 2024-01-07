@@ -36,6 +36,8 @@ Data Estate Insights is billed on two dimensions:
 > 
 > \* At this time automatic refresh is weekly.
 
+If you want to reschedule or reduce how often your reports are refreshed, you can [schedule your Data Estate Insights reports](how-to-schedule-data-estate-insights.md).
+
 If you don't plan on using Data Estate Insights for a while, a **[data curator](catalog-permissions.md#roles) on the [root collection](reference-azure-purview-glossary.md#root-collection)** can disable Data Estate Insights features in one of two ways:
 
 - [Disable the Data Estate Insights application](#disable-the-data-estate-insights-application) - this will stop billing from both report generation and report consumption.
@@ -44,9 +46,18 @@ If you don't plan on using Data Estate Insights for a while, a **[data curator](
 > [!NOTE]
 > The application or report refresh can be enabled again later at any time.
 
-A **[data curator](catalog-permissions.md#roles) on your account's [root collection](reference-azure-purview-glossary.md#root-collection)** can make these changes in the Management section of the Microsoft Purview governance portal in **Overview**, under **Feature options**. For specific steps, see the [enable or disable Data Estates Insights article](enable-disable-data-estate-insights.md)
+A **[data curator](catalog-permissions.md#roles) on your account's [root collection](reference-azure-purview-glossary.md#root-collection)** can make these changes in the Management section of the Microsoft Purview governance portal in **Overview**, under **Feature options**. For specific steps, see the [disable Data Estates Insights article](disable-data-estate-insights.md)
 
 :::image type="content" source="media/concept-guidelines-pricing/disable-data-estate-insights.png" alt-text="Screenshot of the Overview window in the Management section of the Microsoft Purview governance portal. Under feature options, the data estate insights option is highlighted." :::
+
+### Schedule Report Refresh
+
+Your reports can be scheduled to refresh weekly or monthly depending on your needs, and this will affect billing.
+
+Billing is calculated based on the amount of compute power that is used to generate the report, and is billed at the time of report generation.
+For more information about pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/purview/) **under Data Map Enrichment.**
+
+For more information about setting your refresh schedule, see [the schedule Data Estate Insights reports article](how-to-schedule-data-estate-insights.md).
 
 ### Disable the Data Estate Insights application
 
@@ -60,7 +71,7 @@ Disabling Data Estate Insights will disable the entire application, including th
 
 The application icon will still show in the menu, but insights readers won't have access to reports at all, and report generation jobs will be stopped. The Microsoft Purview account won't receive any bill for Data Estate Insights.
 
-For steps to disable the Data Estate Insights application, see the [disable article.](enable-disable-data-estate-insights.md#disable-the-data-estate-insights-application)
+For steps to disable the Data Estate Insights application, see the [disable article.](disable-data-estate-insights.md#disable-the-data-estate-insights-application)
 
 ### Disable report refresh
 
@@ -70,11 +81,12 @@ When you disable report refreshes, insight readers will be able view reports but
 
 In this case, graphs showing data from last 30 days will appear blank after 30 days. Graphs showing snapshot of the data map will continue to show graph and details. When an [insights readers](catalog-permissions.md#roles) accesses an insight report, report consumption meter will be triggered, and the Microsoft Purview account will be billed.
 
-For steps to disable report refresh see the [disable article.](enable-disable-data-estate-insights.md#disable-report-refresh)
+For steps to disable report refresh see the [disable article.](disable-data-estate-insights.md#disable-report-refresh)
 
 ## Next steps
 
-- [Enable or disable Data Estate Insights](enable-disable-data-estate-insights.md)
+- [Schedule Data Estate Insights reports](how-to-schedule-data-estate-insights.md)
+- [Disable Data Estate Insights](disable-data-estate-insights.md)
 - [Microsoft Purview, formerly Azure Purview, pricing page](https://azure.microsoft.com/pricing/details/azure-purview/)
 - [Pricing guideline overview](concept-guidelines-pricing.md)
 - [Pricing guideline Data Map](concept-guidelines-pricing-data-map.md)

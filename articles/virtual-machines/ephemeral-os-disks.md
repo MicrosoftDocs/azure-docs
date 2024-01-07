@@ -93,7 +93,7 @@ For the same example above, if you create a standard Ephemeral OS disk VM you wo
 > 
 For more information on [how to deploy a trusted launch VM](trusted-launch-portal.md)
 
-## Confidential VMs using Ephemeral OS disks (preview)
+## Confidential VMs using Ephemeral OS disks
 AMD-based Confidential VMs cater to high security and confidentiality requirements of customers. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. There are limitations to use Confidential VMs. Check the [region](../confidential-computing/confidential-vm-overview.md#regions), [size](../confidential-computing/confidential-vm-overview.md#size-support) and [OS supported](../confidential-computing/confidential-vm-overview.md#os-support) limitations for confidential VMs.
 Virtual machine guest state (VMGS) blob contains the security information of the confidential VM. 
 Confidential VMs using Ephemeral OS disks by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.

@@ -1,8 +1,8 @@
 ---
 title: 'Configure package repository for package updates | Microsoft Docs'
 description: Follow an example to configure package repository for package updates.
-author: eross-msft 
-ms.author: lizross
+author: kgremban 
+ms.author: kgremban
 ms.date: 8/8/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update

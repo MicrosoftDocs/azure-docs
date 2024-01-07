@@ -6,7 +6,7 @@ ms.author: msangapu
 ms.topic: article
 ms.service: app-service
 ms.custom: subject-monitoring
-ms.date: 04/16/2021
+ms.date: 11/18/2022
 ---
 
 # Monitoring App Service

@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/10/2022
+ms.date: 11/15/2022
 ms.author: radeltch
 
 ---
@@ -170,7 +170,7 @@ To meet the SAP minimum throughput requirements for data and log, and the guidel
 | --- | --- | --- | --- |
 | /hana/log/ | 4 TiB | 2 TiB | v4.1 |
 | /hana/data | 6.3 TiB | 3.2 TiB | v4.1 |
-| /hana/shared | Max (512 GB, 1xRAM) per 4 worker nodes | Max (512 GB, 1xRAM) per 4 worker nodes | v3 or v4.1 |
+| /hana/shared | 1xRAM per 4 worker nodes | 1xRAM per 4 worker nodes | v3 or v4.1 |
 
 The SAP HANA configuration for the layout that's presented in this article, using Azure NetApp Files Ultra Storage tier, would be:
 
@@ -445,6 +445,8 @@ Configure and prepare your OS by doing the following steps:
     # Mount all volumes
     sudo mount -a 
     </code></pre>
+
+   For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.  
 
 7. **[1]** Mount the node-specific volumes on **hanadb1**.  
 

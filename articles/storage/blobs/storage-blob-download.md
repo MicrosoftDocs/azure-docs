@@ -1,5 +1,6 @@
 ---
-title: Download a blob with .NET - Azure Storage
+title: Download a blob with .NET
+titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the .NET client library.
 services: storage
 author: pauljewellmsft
@@ -8,8 +9,8 @@ ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Download a blob in Azure Storage using the .NET client library
@@ -19,7 +20,7 @@ You can download a blob by using any of the following methods:
 - [DownloadTo](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadto)
 - [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync)
 - [DownloadContent](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadcontent)
--[DownloadContentAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadcontentasync)
+- [DownloadContentAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadcontentasync)
 
 You can also open a stream to read from a blob. The stream will only download the blob as the stream is read from. Use either of the following methods:
 

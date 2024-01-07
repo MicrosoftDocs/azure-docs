@@ -868,6 +868,7 @@ The following limitations apply to tags:
    >     * Azure Automation
    >     * Azure Content Delivery Network (CDN)
    >     * Azure DNS (Zone and A records)
+   >     * Azure Log Analytics Saved Search
 
 ## Next steps
 

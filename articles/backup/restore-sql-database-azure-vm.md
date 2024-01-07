@@ -2,7 +2,7 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 11/08/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -148,24 +148,27 @@ For eg., when you have a backup policy of weekly fulls, daily differentials and 
 
 #### Excluding backup file types
 
-The **ExtensionSettingOverrides.json** is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field ` RecoveryPointsToBeExcludedForRestoreAsFiles ` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
+The **ExtensionSettingsOverrides.json** is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For "Partial Restore as files" operation, a new JSON field `RecoveryPointTypesToBeExcludedForRestoreAsFiles` must be added. This field holds a string value that denotes which recovery point types should be excluded in the next restore as files operation.
 
 1. In the target machine where files are to be downloaded, go to "C:\Program Files\Azure Workload Backup\bin" folder
-2. Create a new JSON file named "ExtensionSettingOverrides.JSON", if it doesn't already exist.
+2. Create a new JSON file named "ExtensionSettingsOverrides.JSON", if it doesn't already exist.
 3. Add the following JSON key value pair
 
     ```json
     {
-    "RecoveryPointsToBeExcludedForRestoreAsFiles": "ExcludeFull"
+    "RecoveryPointTypesToBeExcludedForRestoreAsFiles": "ExcludeFull"
     }
     ```
 
 4. No restart of any service is required. The Azure Backup service will attempt to exclude backup types in the restore chain as mentioned in this file.
 
-The ``` RecoveryPointsToBeExcludedForRestoreAsFiles ``` only takes specific values which denote the recovery points to be excluded during restore. For SQL, these values are:
+The `RecoveryPointTypesToBeExcludedForRestoreAsFiles` only takes specific values which denote the recovery points to be excluded during restore. For SQL, these values are:
 
 - ExcludeFull (Other backup types such as differential and logs will be downloaded, if they are present in the restore point chain)
 - ExcludeFullAndDifferential (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndIncremental (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
+- ExcludeFullAndDifferentialAndIncremental (Other backup types such as logs will be downloaded, if they are present in the restore point chain)
+
 
 ### Restore to a specific restore point
 

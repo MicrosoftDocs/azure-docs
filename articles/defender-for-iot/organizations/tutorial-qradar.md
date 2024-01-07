@@ -72,6 +72,8 @@ A **QID** is a QRadar event identifier. Since all Defender for IoT reports are t
 
 Create a forwarding rule from your on-premises management console to forward alerts to QRadar.
 
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
+
 **To create a QRadar forwarding rule**:
 
 1. Sign in to the on-premises management console and select **Forwarding** on the left.

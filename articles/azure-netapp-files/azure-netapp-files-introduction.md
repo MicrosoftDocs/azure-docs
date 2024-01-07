@@ -12,13 +12,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 10/04/2021
+ms.date: 01/24/2023
 ms.author: anfdocs
 ---
 
 # What is Azure NetApp Files
 
-The Azure NetApp Files service is an enterprise-class, high-performance, metered file storage service. Azure NetApp Files supports any workload type and is highly available by default. You can select service and performance levels, create NetApp accounts, capacity pools, volumes, and manage data protection. 
+Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. You can select service and performance levels, create NetApp accounts, capacity pools, volumes, and manage data protection. 
 
 The Azure NetApp Files documentation provides instructions on creating and managing volumes by using Azure NetApp Files. 
 

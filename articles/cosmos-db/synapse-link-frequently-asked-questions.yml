@@ -6,7 +6,7 @@ metadata:
   ms.author: rosouz
   ms.service: cosmos-db
   ms.topic: faq
-  ms.date: 09/29/2022
+  ms.date: 01/05/2023
   ms.custom: synapse-cosmos-db, ignite-2022
 title: Frequently asked questions about Azure Synapse Link for Azure Cosmos DB
 summary: |
@@ -63,6 +63,11 @@ sections:
           Can I enable analytical store on existing containers?
         answer: |
           Currently you can only enable analytical store for existing API for NoSQL containers.
+
+      - question: |
+          Can I see analytical store files using Azure Data Explorer?
+        answer: |
+          No. Analytical store is persisted in a storage account, in an internal subscription, that is fully managed by Azure Cosmos DB. Customers don't have access to this storage account and have to use Azure Synapse runtimes to read the data.
 
       - question: |
           Can I disable analytical store on my Azure Cosmos DB containers?

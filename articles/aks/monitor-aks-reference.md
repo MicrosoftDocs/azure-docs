@@ -1,7 +1,7 @@
 ---
 title: Monitoring AKS data reference
 description: Important reference material needed when you monitor AKS 
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.custom: subject-monitoring, ignite-2022
 ms.date: 07/18/2022
 ms.topic: conceptual

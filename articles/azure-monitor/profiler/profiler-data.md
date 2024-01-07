@@ -27,7 +27,7 @@ If your Azure service already has incoming traffic or if you just want to manual
 1. From the Application Insights overview page for your Azure service, select **Performance** from the left menu. 
 1. On the **Performance** pane, select **Profiler** from the top menu for Profiler settings.
 
-   :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/profiler-settings/profiler-button.png":::
+   :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance pane." lightbox="media/profiler-settings/profiler-button.png":::
 
 1. Once the Profiler settings page loads, select **Profile Now**. 
 

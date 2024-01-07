@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Configure DocuSign for automatic user provisioning

@@ -71,9 +71,20 @@ If the provisioned range is being advertised to the Internet by another network,
 
 * Alternatively, the ranges can be commissioned first and then changed. This process won't work for all resource types with public IPs. In those cases, a new resource with the provisioned public IP must be created.
 
-### Use the regional commissioning feature (PowerShell only)
+### Use the regional commissioning feature
 
-When a custom IP prefix transitions to a fully **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network.  If the range is currently being advertised to the Internet from a location other than Microsoft at the same time, there is the potential for BGP routing instability or traffic loss.  In order to ease the transition for a range that is currently "live" outside of Azure, you can utilize a *regional commissioning* feature, which will put an onboarded range into a **CommissionedNoInternetAdvertise** state where it is only advertised from within a single Azure region.  This allows for testing of all the attached infrastructure from within this region before advertising this range to the Internet, and fits well with Method 1 in the section above.
+When a custom IP prefix transitions to a fully **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network.  If the range is currently being advertised to the Internet from a location other than Microsoft at the same time, there's the potential for BGP routing instability or traffic loss.  In order to ease the transition for a range that is currently "live" outside of Azure, you can utilize a *regional commissioning* feature, which will put an onboarded range into a **CommissionedNoInternetAdvertise** state where it's only advertised from within a single Azure region.  This state allows for testing of all the attached infrastructure from within this region before advertising this range to the Internet, and fits well with Method 1 in the section above.
+
+Use the following steps in the Azure portal to put a custom IP prefix into this state:
+
+1. In the search box at the top of the Azure portal, enter **Custom IP** and select **Custom IP Prefixes**.
+1. In **Custom IP Prefixes**, verify your custom IP prefix is listed in a **Provisioned** state. Refresh the status if needed until state is correct.
+
+1. Select your custom IP prefix from the list of resources.
+
+1. In **Overview** for your custom IP prefix, select the **Commission** dropdown menu, and choose **<Resource_Region> only**.
+
+The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
 
 Use the following example PowerShell to put a custom IP prefix range into this state.
 
@@ -162,45 +173,45 @@ If a custom IP prefix is unable to be fully advertised, it moves to a **Commissi
 
 ### I’m unable to decommission a custom IP prefix
 
-Before you decommission a custom IP prefix, ensure it has no public IP prefixes or public IP addresses.
+Before decommissioning a custom IP prefix, ensure it has no public IP prefixes or public IP addresses.
 
 ### How can I migrate a range from one region to another
 
 To migrate a custom IP prefix, it must first be deprovisioned from one region. A new custom IP prefix with the same CIDR can then be created in another region.
 
-### Any special considerations using IPv6
+### Are there any special considerations when using IPv6
 
-Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  Please see [Create a custom IP address prefix - IPv6](create-custom-ip-address-prefix-ipv6.md) for more details.
+Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  See [Create a custom IPv6 address prefix - PowerShell](create-custom-ip-address-prefix-ipv6-powershell.md) for more details.
 
 ### Status messages
 
 When onboarding or removing a custom IP prefix from Azure, the **FailedReason** attribute of the resource will be updated. If the Azure portal is used, the message will be shown as a top-level banner. The following tables list the status messages when onboarding or removing a custom IP prefix.
 
 > [!NOTE]
-> If the FailedReason is OperationNotFailed -- then the custom IP prefix is in a stable state (e.g. Provisioned, Commissioned) with no apparent issues.
+> If the **FailedReason** is **OperationNotFailed**, the custom IP prefix is in a stable state (e.g. Provisioned, Commissioned) with no apparent issues.
 
 #### Validation failures
 
 | Failure message | Explanation |
 | --------------- | ----------- |
-| CustomerSignatureNotVerified | The signed message cannot be verified against the authentication message using the Whois/RDAP record for the prefix. |
-| NotAuthorizedToAdvertiseThisPrefix </br> or </br> ASN8075NotAllowedToAdvertise | ASN8075 is not authorized to advertise this prefix. Make sure your route origin authorization (ROA) is submitted correctly. |
-| PrefixRegisteredInAfricaAndSouthAmericaNotAllowedInOtherRegion | IP prefix is registered with AFRINIC or LACNIC. This prefix is not allowed to be used outside Africa/South America. |
-| NotFindRoutingRegistryToGetCertificate | Cannot find the public key for the IP prefix using the registration data access protocol (RDAP) of the regional internet registry (RIR). |
-| CIDRInAuthorizationMessageNotMatchCustomerIP | The CIDR in the authorization message does not match the submitted IP address. |
+| CustomerSignatureNotVerified | The signed message can't be verified against the authentication message using the Whois/RDAP record for the prefix. |
+| NotAuthorizedToAdvertiseThisPrefix </br> or </br> ASN8075NotAllowedToAdvertise | ASN8075 isn't authorized to advertise this prefix. Make sure your route origin authorization (ROA) is submitted correctly. |
+| PrefixRegisteredInAfricaAndSouthAmericaNotAllowedInOtherRegion | IP prefix is registered with AFRINIC or LACNIC. These prefixes can't be used outside Africa/South America. |
+| NotFindRoutingRegistryToGetCertificate | Can't find the public key for the IP prefix using the registration data access protocol (RDAP) of the regional internet registry (RIR). |
+| CIDRInAuthorizationMessageNotMatchCustomerIP | The CIDR in the authorization message doesn't match the submitted IP address. |
 | ExpiryDateFormatInvalidOrNotInThefuture | The expiration date provided in the authorization message is in the wrong format or expired. Expected format is yyyymmdd. |
-| AuthMessageFormatInvalid | Authorization message format is not valid. Expected format is xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx1.2.3.0/24yyyymmdd. |
-| CannotParseValidCertificateFromRIRPage | Cannot parse the public key for the IP prefix using the registration data access protocol (RDAP) of the regional internet registry (RIR). |
+| AuthMessageFormatInvalid | Authorization message format isn't valid. Expected format is xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx1.2.3.0/24yyyymmdd. |
+| CannotParseValidCertificateFromRIRPage | Can't parse the public key for the IP prefix using the registration data access protocol (RDAP) of the regional internet registry (RIR). |
 | ROANotFound | Unable to find route origin authorization (ROA) for validation. |
 | CertFromRIRPageExpired | The public key provided by the registration data access protocol (RDAP) of the regional internet registry (RIR) is expired. |
-| InvalidPrefixLengthInROA | The prefix length provided does not match the prefix in the route origin authorization (ROA). |
+| InvalidPrefixLengthInROA | The prefix length provided doesn't match the prefix in the route origin authorization (ROA). |
 | RIRNotSupport | Only prefixes registered at ARIN, RIPE, APNIC, AFRINIC, and LACNIC are supported. |
-| InvalidCIDRFormat | The CIDR format is not valid. Expected format is 10.10.10.0/16. |
-| InvalidCIDRFormatInAuthorizationMessage | The format of the CIDR in the authorization message is not valid. Expected format is xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx1.2.3.0/24yyyymmdd. |
+| InvalidCIDRFormat | The CIDR format isn't valid. Expected format is 10.10.10.0/16. |
+| InvalidCIDRFormatInAuthorizationMessage | The format of the CIDR in the authorization message isn't valid. Expected format is xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx1.2.3.0/24yyyymmdd. |
 | OperationFailedPleaseRetryLaterOrContactSupport | Unknown error. Contact support. |
 
 > [!NOTE]
-> Not all the messages shown during the commissioning or decommissioning process indicate failure-- some simply provide more granular status.
+> Not all the messages shown during the commissioning or decommissioning process indicate failure--some simply provide more granular status.
 
 #### Commission status
 

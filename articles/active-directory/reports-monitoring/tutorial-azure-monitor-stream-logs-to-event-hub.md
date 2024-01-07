@@ -2,23 +2,18 @@
 title: Tutorial - Stream logs to an Azure event hub | Microsoft Docs
 description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to an event hub
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
-ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
 ms.service: active-directory
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
+ms.collection: M365-identity-device-management
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an event hub so I can integrate it with my third party SIEM system.
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Stream Azure Active Directory logs to an Azure event hub
 
@@ -30,7 +25,7 @@ To use this feature, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * An Azure AD tenant.
-* A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
+* A user who's a *Global Administrator* or *Security Administrator* for the Azure AD tenant.
 * An Event Hubs namespace and an event hub in your Azure subscription. Learn how to [create an event hub](../../event-hubs/event-hubs-create.md).
 
 ## Stream logs to an event hub
@@ -95,6 +90,5 @@ After data is displayed in the event hub, you can access and read the data in tw
 * [Integrate Azure Active Directory logs with ArcSight using Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)
 * [Integrate Azure AD logs with SumoLogic by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
-* [Integrate Azure AD logs with Elastic using an event hub](https://github.com/Microsoft/azure-docs/blob/master/articles/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)

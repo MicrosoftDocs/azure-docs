@@ -15,13 +15,14 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
-Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance.
+Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance, while limiting the blast radius of VMs.
 
 Automatic VM guest patching has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
 - Patches are applied during off-peak hours in the VM's time zone.
 - Patch orchestration is managed by Azure and patches are applied following [availability-first principles](#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
+- Application health can be monitored through the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md).
 - Works for all VM sizes.
 
 ## How does automatic VM guest patching work?
@@ -34,9 +35,11 @@ Patches are installed within 30 days of the monthly patch releases, following av
 
 Definition updates and other patches not classified as *Critical* or *Security* will not be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
 
+For IaaS VMs, customers can choose to configure VMs to enable automatic VM guest patching. This will limit the blast radius of VMs getting the updated patch and do an orchestrated update of the VMs. The service also provides [health monitoring](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) to detect issues any issues with the update. 
+
 ### Availability-first Updates
 
-The patch installation process is orchestrated globally by Azure for all VMs that have automatic VM guest patching enabled. This orchestration follows availability-first principles across different levels of availability provided by Azure.
+The patch installation process is orchestrated globally by Azure for all VMs that have automatic VM guest patching enabled. This orchestration follows availability-first principles across different levels of availability provided by Azure. 
 
 For a group of virtual machines undergoing an update, the Azure platform will orchestrate updates:
 
@@ -53,6 +56,8 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 **Within an availability set:**
 - All VMs in a common availability set are not updated concurrently.
 -	VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains are not updated concurrently.
+
+Narrowing the scope of VMs that are patched across regions, within a region, or an availability set, limit the blast radius of the patch. With health monitoring, any potential issues are flagged without impacting the entire fleet.
 
 The patch installation date for a given VM may vary month-to-month, as a specific VM may be picked up in a different batch between monthly patching cycles.
 
@@ -165,7 +170,8 @@ VMs on Azure now support the following patch orchestration modes:
 - Custom images are not currently supported.
 
 ## Enable automatic VM guest patching
-Automatic VM guest patching can be enabled on any Windows or Linux VM that is created from a supported platform image. To enable automatic VM guest patching on a Windows VM, ensure that the property *osProfile.windowsConfiguration.enableAutomaticUpdates* is set to *true* in the VM template definition. This property can only be set when creating the VM. This additional property is not applicable for Linux VMs.
+Automatic VM guest patching can be enabled on any Windows or Linux VM that is created from a supported platform image.  
+
 
 ### REST API for Linux VMs
 The following example describes how to enable automatic VM guest patching:
@@ -214,11 +220,19 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 }
 ```
 
-### Azure PowerShell for Windows VMs
-Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet to enable automatic VM guest patching when creating or updating a VM.
+### Azure PowerShell when creating a Windows VM
+Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet to enable automatic VM guest patching when creating a VM.
 
 ```azurepowershell-interactive
 Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate -PatchMode "AutomaticByPlatform"
+```
+### Azure PowerShell when updating a Windows VM
+Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet to enable automatic VM guest patching on an existing VM.
+
+```azurepowershell-interactive
+Get-AzVM -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential
+Set-AzVMOperatingSystem -VM $VirtualMachine -PatchMode "AutomaticByPlatform"
+Update-AzVM -VM $VirtualMachine
 ```
 
 ### Azure CLI for Windows VMs

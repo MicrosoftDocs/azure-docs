@@ -6,7 +6,7 @@ manager: rgarcia
 services: azure-object-anchors
 
 ms.author: crtreasu
-ms.date: 07/23/2021
+ms.date: 12/01/2022
 ms.topic: conceptual
 ms.service: azure-object-anchors
 ---
@@ -227,7 +227,7 @@ query.MaxScaleChange = 0.1f;
 query.SearchAreas.Add(searchArea);
 
 // Detection could take a while, so we run it in a background thread.
-IList<ObjectInstance> detectedObjects = await observer.DetectAsync(query);
+IReadOnlyList<ObjectInstance> detectedObjects = await observer.DetectAsync(query);
 ```
 
 By default, each detected instance will be tracked automatically by the **observer**. We can optionally manipulate these

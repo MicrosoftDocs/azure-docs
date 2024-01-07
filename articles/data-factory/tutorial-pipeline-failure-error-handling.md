@@ -7,23 +7,29 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: tutorial
-ms.date: 09/22/2022
+ms.date: 01/09/2023
 ---
 
-# Understanding pipeline failure
+# Conditional execution
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-## Error handling
+## Conditional paths
 
 Azure Data Factory and Synapse Pipeline orchestration allows conditional logic and enables user to take different based upon outcomes of a previous activity. Using different paths allow users to build robust pipelines and incorporates error handling in ETL/ELT logic. In total, we allow four conditional paths,
 
-* Upon Success (default pass)
-* Upon Failure
-* Upon Completion
-* Upon Skip
+|  Name | Explanation |
+|  --- | --- |
+| Upon Success | (Default Pass) Execute this path if the current activity succeeded | 
+| Upon Failure | Execute this path if the current activity failed | 
+| Upon Completion | Execute this path after the current activity completed, regardless if it succeeded or not | 
+| Upon Skip | Execute this path if the activity itself didn't run |
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/pipeline-error-1-four-branches.png" alt-text="Screenshot showing the four branches out of an activity.":::
+
+You may add multiple branches following an activity, with one exception: _Upon Completion_ path can't co-exist with either _Upon Success_ or _Upon Failure_ path. For each pipeline run, at most one path will be activated, based on the execution outcome of the activity.
+
+## Error Handling
 
 ### Common error handling mechanism
 

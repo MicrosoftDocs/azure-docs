@@ -7,6 +7,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: deeikele
+ms.reviewer: larryfr
 ms.date: 9/30/2022
 ms.topic: reference
 ---

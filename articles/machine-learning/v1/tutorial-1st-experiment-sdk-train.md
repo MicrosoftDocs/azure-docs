@@ -164,7 +164,7 @@ First you'll create a file with the package dependencies.
         - defaults
         - pytorch
     dependencies:
-        - python=3.6.2
+        - python=3.7
         - pytorch
         - torchvision
     ```
@@ -357,7 +357,7 @@ channels:
     - defaults
     - pytorch
 dependencies:
-    - python=3.6.2
+    - python=3.7
     - pytorch
     - torchvision
     - pip

@@ -12,7 +12,7 @@ ms.author: v-erinkelly
 
 If you want to host more HPC Caches than your subscription currently allows, use the support request form in the Azure portal to request a quota increase.
 
-You also can use the [quotas page](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/overview) in the Azure portal to check your current quotas and request increases.
+You also can use the [quotas page](https://portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/overview) in the Azure portal to check your current quotas and request increases.
 
 ## Quota information
 

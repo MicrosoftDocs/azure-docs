@@ -5,7 +5,7 @@ tags: azure-service-management
 
 ms.assetid: 1e5ecfa8-4ab1-47d3-ab23-97abf723516d
 ms.topic: sample
-ms.date: 08/10/2020
+ms.date: 11/18/2022
 author: ericgre
 ms.author: ericg
 ms.service: app-service

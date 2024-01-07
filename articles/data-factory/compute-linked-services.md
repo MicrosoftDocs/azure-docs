@@ -371,7 +371,7 @@ See following articles if you are new to Azure Batch service:
 
 [!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
 
-You create an Machine Learning Studio (classic) linked service to register a Machine Learning Studio (classic) batch scoring endpoint to a data factory or Synapse workspace.
+You create a Machine Learning Studio (classic) linked service to register a Machine Learning Studio (classic) batch scoring endpoint to a data factory or Synapse workspace.
 
 ### Example
 
@@ -573,6 +573,10 @@ You create an Azure Synapse Analytics linked service and use it with the [Stored
 ## SQL Server linked service
 
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a pipeline. See [SQL Server connector](connector-sql-server.md#linked-service-properties) article for details about this linked service.
+
+## Azure Synapse Analytics (Artifacts) linked service
+
+You create an Azure Synapse Analytics (Artifacts) linked service and use it with the [Synapse Notebook Activity](transform-data-synapse-notebook.md) and [Synapse Spark job definition Activity](transform-data-synapse-spark-job-definition.md) to invoke a stored procedure from a pipeline. See [Azure Synapse Analytics (Artifacts) Connector](connector-azure-synapse-analytics-artifacts.md) article for details about this linked service.
 
 ## Azure Function linked service
 

@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 12/06/2021
+ms.date: 01/04/2023
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -85,7 +85,7 @@ You can manage your key vault with Azure CLI using the [az keyvault](/cli/azure/
 You can create a key vault by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create).
 
 1. On the Azure quickstart template, click **Deploy to Azure**.
-2. Select the subscription, resource group, resource group location, Key Vault name, Object ID,  legal terms, and agreement, and then click **Purchase**.
+2. Select the subscription, resource group, resource group location, Key Vault name, Object ID,  legal terms, and agreement, and then select **Purchase**.
 
 
 ## <a name="bkmk_ADapp"></a> Set up an Azure AD app and service principal
@@ -118,7 +118,7 @@ You can manage your service principals with Azure CLI using the [az ad sp](/cli/
      ```
 3.  The appId returned is the Azure AD ClientID used in other commands. It's also the SPN you'll use for az keyvault set-policy. The password is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
 
-### <a name="bkmk_ADappRM"></a> Set up an Azure AD app and service principal though the Azure portal
+### <a name="bkmk_ADappRM"></a> Set up an Azure AD app and service principal through the Azure portal
 Use the steps from the [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md) article to create an Azure AD application. Each step listed below will take you directly to the article section to complete.
 
 1. [Verify required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
@@ -159,11 +159,11 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 ### <a name="bkmk_KVAPRM"></a> Set the key vault access policy for the Azure AD app with the portal
 
 1. Open the resource group with your key vault.
-2. Select your key vault, go to **Access Policies**, then click **Add new**.
+2. Select your key vault, go to **Access Policies**, then select **Add new**.
 3. Under **Select principal**, search for the Azure AD application you created and select it.
 4. For **Key permissions**, check **Wrap Key** under **Cryptographic Operations**.
 5. For **Secret permissions**, check **Set** under **Secret Management Operations**.
-6. Click **OK** to save the access policy.
+6. Select **OK** to save the access policy.
 
 ![Azure Key Vault cryptographic operations - Wrap Key](./media/disk-encryption/keyvault-portal-fig3.png)
 
@@ -218,7 +218,7 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 1. Select your keyvault, go to **Access Policies**, and **Click to show advanced access policies**.
 2. Select the box labeled **Enable access to Azure Disk Encryption for volume encryption**.
 3. Select **Enable access to Azure Virtual Machines for deployment** and/or **Enable Access to Azure Resource Manager for template deployment**, if needed.
-4. Click **Save**.
+4. Select **Save**.
 
 ![Azure key vault advanced access policies](./media/disk-encryption/keyvault-portal-fig4.png)
 

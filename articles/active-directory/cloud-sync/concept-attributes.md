@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/25/2021
+ms.date: 01/11/2023
 ms.subservice: hybrid
 ms.author: billmath
 

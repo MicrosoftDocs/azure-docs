@@ -1,11 +1,9 @@
 ---
 title: "Azure Arc-enabled Kubernetes cluster extensions"
-services: azure-arc
-ms.service: azure-arc
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.date: 10/12/2022
 ms.topic: how-to
-description: "Deploy and manage lifecycle of extensions on Azure Arc-enabled Kubernetes"
+description: "Deploy and manage lifecycle of extensions on Azure Arc-enabled Kubernetes clusters."
 ---
 
 # Deploy and manage Azure Arc-enabled Kubernetes cluster extensions
@@ -311,7 +309,6 @@ Learn more about the cluster extensions currently available for Azure Arc-enable
 * [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
 * [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
 * [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
-* [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
 * [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)
 * [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
 * [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md)

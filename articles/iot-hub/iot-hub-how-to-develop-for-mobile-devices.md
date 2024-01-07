@@ -1,6 +1,6 @@
 ---
 title: Develop for mobile devices using Azure IoT SDKs | Microsoft Docs
-description: Developer guide - Learn about how to develop for mobile devices using Azure IoT Hub SDKs.
+description: In this artcile, learn about how to develop for mobile devices using Azure IoT Hub SDKs.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub

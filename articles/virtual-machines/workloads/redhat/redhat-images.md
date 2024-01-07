@@ -1,7 +1,7 @@
 ---
 title: Overview of Red Hat Enterprise Linux images in Azure
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure.
-author: asinn826
+author: mathapli
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
@@ -109,6 +109,16 @@ Details for RHEL 8 image types are below.
 |RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](../../generation-2.md).
 |RedHat | RHEL | RHEL-SAP-APPS | Concatenated values of the RHEL minor version and the date published (for example, 8.1.2021012201) | These images are RHEL for SAP Applications images. They're entitled to access SAP Applications repositories and base RHEL repositories.
 |RedHat | RHEL | RHEL-SAP-HA | Concatenated values of the RHEL minor version and the date published (for example, 8.1.2021010602) | These images are RHEL for SAP with High Availability and Update Services images. They're entitled to access the SAP Solutions and Applications repositories and the High Availability repositories as well as RHEL E4S repositories. Billing includes the RHEL premium, SAP premium, and High Availability premium on top of the base compute fee.
+
+
+Details for RHEL 9 image types are below.
+
+|Publisher | Offer | SKU value | Version | Details
+|----------|-------|------------|---------|--------
+|RedHat | RHEL | 9 | Concatenated values of the RHEL minor version and the date published (for example, 9.0.2022090613) | These images are RHEL 9 LVM-partitioned images connected to standard Red Hat repositories.
+|RedHat | RHEL | 9-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 9.0.2022090613) | These images are Hyper-V Generation 2 RHEL 9 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](../../generation-2.md).
+|RedHat | RHEL | RHEL-SAP-APPS (Not yet published) | Concatenated values of the RHEL minor version and the date published | These images are RHEL for SAP Applications images. They're entitled to access SAP Applications repositories and base RHEL repositories.
+|RedHat | RHEL | RHEL-SAP-HA (Not yet published) | Concatenated values of the RHEL minor version and the date published | These images are RHEL for SAP with High Availability and Update Services images. They're entitled to access the SAP Solutions and Applications repositories and the High Availability repositories as well as RHEL E4S repositories. Billing includes the RHEL premium, SAP premium, and High Availability premium on top of the base compute fee.
 
 ## RHEL Extended Support add-ons
 

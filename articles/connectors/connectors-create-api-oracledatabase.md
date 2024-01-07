@@ -18,7 +18,6 @@ Using the Oracle Database connector, you create organizational workflows that us
 
 This connector doesn't support the following items:
 
-* Views 
 * Any table with composite keys
 * Nested object types in tables
 * Database functions with non-scalar values

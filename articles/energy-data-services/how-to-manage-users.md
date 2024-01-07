@@ -82,7 +82,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
         "token_type": "Bearer",
         "expires_in": 86399,
         "ext_expires_in": 86399,
-        "access_token": abcdefgh123456............."
+        "access_token": "abcdefgh123456............."
     }
 ```
 Copy the `access_token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements API of your Microsoft Energy Data Services Preview instance. 
@@ -125,10 +125,12 @@ The value to be sent for the param **"email"** is the **Object_ID (OID)** of the
 
 **Sample request**
 
+Consider a Microsoft Energy Data Services instance named "medstest" with a data partition named "dp1"
+
 ```bash
-    curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/users@<instance>-<data-partition-name>.dataservices.energy/members' \
-    --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer <access_token>' \
+    curl --location --request POST 'https://medstest.energy.azure.com/api/entitlements/v2/groups/users@medstest-dp1.dataservices.energy/members' \
+    --header 'data-partition-id: medstest-dp1' \
+    --header 'Authorization: Bearer abcdefgh123456.............' \
     --header 'Content-Type: application/json' \
     --data-raw '{
                     "email": "90e0d063-2f8e-4244-860a-XXXXXXXXXX",
@@ -163,10 +165,12 @@ The value to be sent for the param **"email"** is the **Object_ID (OID)** of the
 
 **Sample request**
 
+Consider a Microsoft Energy Data Services instance named "medstest" with a data partition named "dp1"
+
 ```bash
-    curl --location --request POST 'https://<instance>.energy.azure.com/api/entitlements/v2/groups/service.search.user@<instance>-<data-partition-name>.dataservices.energy/members' \
-    --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer <access_token>' \
+    curl --location --request POST 'https://medstest.energy.azure.com/api/entitlements/v2/groups/service.search.user@medstest-dp1.dataservices.energy/members' \
+    --header 'data-partition-id: medstest-dp1' \
+    --header 'Authorization: Bearer abcdefgh123456.............' \
     --header 'Content-Type: application/json' \
     --data-raw '{
                 "email": "90e0d063-2f8e-4244-860a-XXXXXXXXXX",
@@ -195,10 +199,12 @@ Run the below curl command in Azure Cloud Bash to get all the groups associated 
 
 **Sample request**
 
+Consider a Microsoft Energy Data Services instance named "medstest" with a data partition named "dp1"
+
 ```bash
-    curl --location --request GET 'https://<instance>.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX/groups?type=none' \
-    --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer <access_token>'
+    curl --location --request GET 'https://medstest.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX/groups?type=none' \
+    --header 'data-partition-id: medstest-dp1' \
+    --header 'Authorization: Bearer abcdefgh123456.............'
 ```
 **Sample response**
 
@@ -210,12 +216,12 @@ Run the below curl command in Azure Cloud Bash to get all the groups associated 
         {
         "name": "users",
         "description": "Datalake users",
-        "email": "users@<instance>-<data-partition-name>.dataservices.energy"
+        "email": "users@medstest-dp1.dataservices.energy"
         },
         {
         "name": "service.search.user",
         "description": "Datalake Search users",
-        "email": "service.search.user@<instance>-<data-partition-name>.dataservices.energy"
+        "email": "service.search.user@medstest-dp1.dataservices.energy"
         }
     ]
     }
@@ -235,10 +241,12 @@ As stated above, **DO NOT** delete the OWNER of a group unless you have another 
 
 **Sample request**
 
+Consider a Microsoft Energy Data Services instance named "medstest" with a data partition named "dp1"
+
 ```bash
-    curl --location --request DELETE 'https://<instance>.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX' \
-    --header 'data-partition-id: <instance>-<data-partition-name>' \
-    --header 'Authorization: Bearer <access_token>'
+    curl --location --request DELETE 'https://medstest.energy.azure.com/api/entitlements/v2/members/90e0d063-2f8e-4244-860a-XXXXXXXXXX' \
+    --header 'data-partition-id: medstest-dp1' \
+    --header 'Authorization: Bearer abcdefgh123456.............'
 ```
 
 **Sample response**

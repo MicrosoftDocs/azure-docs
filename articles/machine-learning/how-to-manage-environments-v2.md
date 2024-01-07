@@ -252,7 +252,7 @@ Get the details of a specific environment:
 # [Azure CLI](#tab/cli)
 
 ```cli
-az ml environment list --name docker-image-example --version 1
+az ml environment show --name docker-image-example --version 1
 ```
 
 # [Python SDK](#tab/python)
@@ -348,7 +348,7 @@ For more information on how to use environments in jobs, see [Train models](how-
 
 You can also use environments for your model deployments for both online and batch scoring. To do so, specify the `environment` field in the deployment YAML configuration.
 
-For more information on how to use environments in deployments, see [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md).
+For more information on how to use environments in deployments, see [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
 
 # [Python SDK](#tab/python)
 
@@ -359,5 +359,5 @@ You can also use environments for your model deployments. For more information, 
 ## Next steps
 
 - [Train models (create jobs)](how-to-train-model.md)
-- [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
+- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Environment YAML schema reference](reference-yaml-environment.md)

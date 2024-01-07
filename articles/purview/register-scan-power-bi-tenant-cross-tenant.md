@@ -1,8 +1,8 @@
 ---
 title: Connect to and manage a Power BI tenant (cross-tenant)
 description: This guide describes how to connect to a Power BI tenant in a cross-tenant scenario. You use Microsoft Purview to scan and manage your Power BI tenant source.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
@@ -144,7 +144,10 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. Validate the following self-hosted runtime settings:
    1. The latest version of the [self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
-   1. Network connectivity from the self-hosted runtime to the Power BI tenant is enabled.
+   1. Network connectivity from the self-hosted runtime to the Power BI tenant is enabled. The following endpoints must be reachable from self-hosted runtime VM:
+      - `*.powerbi.com` 
+      - `*.analysis.windows.net` 
+   
    1. Network connectivity from the self-hosted runtime to Microsoft services is enabled.
    1. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
 1. In Power BI tenant, In Azure Active Directory create a security group.

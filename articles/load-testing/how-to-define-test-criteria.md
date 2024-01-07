@@ -50,7 +50,7 @@ The following table describes the different components:
 |`Aggregate function` | *Required.* The aggregate function to be applied on the client metric.  |
 |`Condition`          | *Required.* The comparison operator, such as `greater than`, or `less than`. |
 |`Threshold`          | *Required.* The numeric value to compare with the client metric. |
-|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script.  |
+|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script. <br /> Don't include any Personally Identifiable Information (PII) in the sampler name in your JMeter script. The sampler names appear in the Azure Load Testing test run results dashboard. |
 
 ### Supported client metrics for fail criteria
 
@@ -60,7 +60,7 @@ Azure Load Testing supports the following client metrics:
 |---------|---------|---------|---------|-------------|
 |`response_time_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Response time or elapsed time, in milliseconds. Learn more about [elapsed time in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
 |`latency_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Latency, in milliseconds. Learn more about [latency in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
-|`error`     |  `percentage`       | Numerical value in the range 0-100, representing a percentage.      |   `>` (greater than) <BR> `<` (less than)      | Percentage of failed requests. |
+|`error`     |  `percentage`       | Numerical value in the range 0-100, representing a percentage.      |   `>` (greater than)      | Percentage of failed requests. |
 |`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     | Number of requests per second. |
 |`requests`     |  `count`       | Integer value.      |   `>` (greater than) <BR> `<` (less than)     | Total number of requests. |
 

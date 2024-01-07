@@ -1,6 +1,6 @@
 ---
 title: Get started with manual deployment of automation framework
-description: Manually deploy the SAP deployment automation framework on Azure using an example configuration and sample parameter files.
+description: Manually deploy the SAP on Azure Deployment Automation Framework using an example configuration and sample parameter files.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Get started with manual deployment
 
-Along with [automated deployment](automation-get-started.md), you can also do manual deployment of the [SAP deployment automation framework on Azure](automation-deployment-framework.md). Use this example configuration and sample parameter files to get started.
+Along with [automated deployment](automation-get-started.md), you can also do manual deployment of the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md). Use this example configuration and sample parameter files to get started.
 
 > [!TIP]
 > This guide covers only how to perform a **manual** deployment. If you want to get started quickly, see the [**automated** deployment guide](automation-get-started.md) instead.

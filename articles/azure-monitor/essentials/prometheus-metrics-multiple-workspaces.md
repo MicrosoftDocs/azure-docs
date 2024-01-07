@@ -13,7 +13,7 @@ Routing metrics to more Azure Monitor Workspaces can be done through the creatio
 
 ## Send same metrics to multiple Azure Monitor workspaces
 
-You can create multiple Data Collection Rules that point to the same Data Collection Endpoint for metrics to be sent to additional Azure Monitor Workspaces from the same Kubernetes cluster. Currently, this is only available through onboarding through Resource Manager templates. You can follow the [regular onboarding process](../containers/container-insights-prometheus-metrics-addon.md#enable-prometheus-metric-collection) and then edit the same Resource Manager templates to add additional DCRs for your additional Azure Monitor Workspaces. You'll need to edit the template to add an additional parameters for every additional Azure Monitor workspace, add another DCR for every additional Azure Monitor workspace, and add an additional Azure Monitor workspace integration for Grafana.
+You can create multiple Data Collection Rules that point to the same Data Collection Endpoint for metrics to be sent to additional Azure Monitor Workspaces from the same Kubernetes cluster. Currently, this is only available through onboarding through Resource Manager templates. You can follow the [regular onboarding process](prometheus-metrics-enable.md) and then edit the same Resource Manager templates to add additional DCRs for your additional Azure Monitor Workspaces. You'll need to edit the template to add an additional parameters for every additional Azure Monitor workspace, add another DCR for every additional Azure Monitor workspace, and add an additional Azure Monitor workspace integration for Grafana.
 
 - Add the following parameters:
   ```json
@@ -197,4 +197,4 @@ scrape_configs:
 ## Next steps
 
 - [Learn more about Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md).
-- [Collect Prometheus metrics from AKS cluster](../containers/container-insights-prometheus-metrics-addon.md).
+- [Collect Prometheus metrics from AKS cluster](prometheus-metrics-enable.md).

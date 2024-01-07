@@ -1,5 +1,5 @@
 ---
-title: Azure Files monitoring data reference | Microsoft Docs
+title: Azure Files monitoring data reference
 description: Log and metrics reference for monitoring data from Azure Files.
 author: normesta
 services: storage

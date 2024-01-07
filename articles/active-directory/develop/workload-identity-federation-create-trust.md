@@ -2,15 +2,15 @@
 title: Create a trust relationship between an app and an external identity provider
 description: Set up a trust relationship between an app in Azure AD and an external identity provider.  This allows a software workload outside of Azure to access Azure AD protected resources without using secrets or certificates. 
 services: active-directory
-author: rwike77
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/27/2022
-ms.author: ryanwi
+ms.date: 01/19/2023
+ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: shkhalid, udayh, vakarand
 zone_pivot_groups: identity-wif-apps-methods
@@ -26,6 +26,8 @@ You can then configure an external software workload to exchange a token from th
 In this article, you learn how to create, list, and delete federated identity credentials on an application in Azure AD.
 
 ## Important considerations and restrictions
+
+To create, update, or delete a federated identity credential, the account performing the action must have the [Application Administrator](../roles/permissions-reference.md#application-administrator), [Application Developer](../roles/permissions-reference.md#application-developer), [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator), or Application Owner role.  The [microsoft.directory/applications/credentials/update permission](../roles/custom-available-permissions.md#microsoftdirectoryapplicationscredentialsupdate) is required to update a federated identity credential.
 
 [!INCLUDE [federated credential configuration](./includes/federated-credential-configuration-considerations.md)]
 
@@ -43,21 +45,37 @@ Get the *subject* and *issuer* information for your external IdP and software wo
 ## Configure a federated identity credential on an app
 
 ### GitHub Actions
-Find your app registration in the [App Registrations](https://aka.ms/appregistrations) experience of the Azure portal.  Select **Certificates & secrets** in the left nav pane, select the **Federated credentials** tab, and select **Add credential**.
 
-In the **Federated credential scenario** drop-down box, select **GitHub actions deploying Azure resources**.
+To add a federated identity for GitHub actions, follow these steps:
 
-Specify the **Organization** and **Repository** for your GitHub Actions workflow.  
+1. Find your app registration in the [App Registrations](https://aka.ms/appregistrations) experience of the Azure portal.  Select **Certificates & secrets** in the left nav pane, select the **Federated credentials** tab, and select **Add credential**.
 
-For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value. The values must exactly match the configuration in the [GitHub workflow](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#on).  For more info, read the [examples](#entity-type-examples).
+1. In the **Federated credential scenario** drop-down box, select **GitHub actions deploying Azure resources**.
 
-Add a **Name** for the federated credential.
+1. Specify the **Organization** and **Repository** for your GitHub Actions workflow.  
 
-The **Issuer**, **Audiences**, and **Subject identifier** fields autopopulate based on the values you entered.
+1. For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value. The values must exactly match the configuration in the [GitHub workflow](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#on). Pattern matching isn't supported for branches and tags. Specify an environment if your on-push workflow runs against many branches or tags. For more info, read the [examples](#entity-type-examples).
 
-Click **Add** to configure the federated credential.
+1. Add a **Name** for the federated credential.
 
-:::image type="content" source="media/workload-identity-federation-create-trust/add-credential.png" alt-text="Screenshot of the Add a credential window, showing sample values." :::
+1. The **Issuer**, **Audiences**, and **Subject identifier** fields autopopulate based on the values you entered.
+
+1. Select **Add** to configure the federated credential.
+
+    :::image type="content" source="media/workload-identity-federation-create-trust/add-credential.png" alt-text="Screenshot of the Add a credential window, showing sample values." :::
+
+
+Use the following values from your Azure AD application registration for your GitHub workflow:
+
+- `AZURE_CLIENT_ID` the **Application (client) ID** 
+
+- `AZURE_TENANT_ID` the **Directory (tenant) ID**
+    
+    The following screenshot demonstrates how to copy the application ID and tenant ID.
+
+    ![Screenshot that demonstrates how to copy the application ID and tenant ID from Microsoft Entra portal.](./media/workload-identity-federation-create-trust/copy-client-id.png)
+
+- `AZURE_SUBSCRIPTION_ID` your subscription ID. To get the subscription ID, open **Subscriptions** in Azure portal and find your subscription. Then, copy the **Subscription ID**.
 
 #### Entity type examples
 
@@ -163,7 +181,7 @@ To delete a federated identity credential, select the **Delete** icon for the cr
 
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - [Create an app registration](quickstart-register-app.md) in Azure AD.  Grant your app access to the Azure resources targeted by your external software workload.
 - Find the object ID, app (client) ID, or identifier URI of the app, which you need in the following steps.  You can find these values in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, get the **Object ID**, **Application (client) ID**, or **Application ID URI** value, which you need in the following steps.
@@ -173,7 +191,7 @@ To delete a federated identity credential, select the **Delete** icon for the cr
 
 Run the [az ad app federated-credential create](/cli/azure/ad/app/federated-credential) command to create a new federated identity credential on your app.  
 
-The *id* parameter specifies the identifier URI, application ID, or object ID of the application.  *parameters* specifies the parameters, in JSON format, for creating the federated identity credential.
+The `id` parameter specifies the identifier URI, application ID, or object ID of the application. The `parameters` parameter specifies the parameters, in JSON format, for creating the federated identity credential.
 
 ### GitHub Actions example
 

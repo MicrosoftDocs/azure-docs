@@ -377,4 +377,4 @@ In JavaScript correlation is turned off by default in order to minimize the tele
 - Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [NPM Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
 - Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). For more information, see [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871).
-- Build a [Workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md#integrating-queries) to create custom visualizations of click data.
+- Build a [Workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md#integrate-queries) to create custom visualizations of click data.

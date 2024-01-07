@@ -4,7 +4,7 @@ description: Learn about the Microsoft cloud security benchmark and the benefits
 titleSuffix: Microsoft cloud security benchmark
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/21/2022
+ms.date: 01/10/2023
 ---
 
 # Microsoft cloud security benchmark in Defender for Cloud

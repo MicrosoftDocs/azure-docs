@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/15/2021
+ms.date: 11/28/2022
 ms.author: jeedes
 ---
 
@@ -158,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     1. In the **SAML Attributes Mapping** section, fill in the required fields with the source attribute values:
   
-       `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
+       `http://schemas.microsoft.com/identity/claims/objectidentifier`
        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`

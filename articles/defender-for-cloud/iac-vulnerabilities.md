@@ -2,7 +2,7 @@
 title: Discover misconfigurations in Infrastructure as Code
 titleSuffix: Defender for Cloud
 description: Learn how to use Defender for DevOps to discover misconfigurations in Infrastructure as Code (IaC)
-ms.date: 09/20/2022
+ms.date: 01/24/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -242,11 +242,11 @@ API apps should require the latest TLS version.
 
 **Severity level**: 1
 
-#### TA-000006: CORS should not allow every resource to access your API App
+#### TA-000006: CORS shouldn't allow every resource to access your API App
 
-Cross-Origin Resource Sharing (CORS) should not allow all domains to access your API app. Allow only required domains to interact with your API app.
+Cross-Origin Resource Sharing (CORS) shouldn't allow all domains to access your API app. Allow only required domains to interact with your API app.
 
-**Recommendation**: To allow only required domains to interact with your API app, in the [Microsoft.Web/sites/config resource cors settings object](/azure/templates/microsoft.web/sites/config-web?tabs=json#corssettings-object), add (or update) the *allowedOrigins* property, setting its value to an array of allowed origins. Ensure it is *not* set to "*" (asterisks allows all origins).
+**Recommendation**: To allow only required domains to interact with your API app, in the [Microsoft.Web/sites/config resource cors settings object](/azure/templates/microsoft.web/sites/config-web?tabs=json#corssettings-object), add (or update) the *allowedOrigins* property, setting its value to an array of allowed origins. Ensure it isn't* set to "*" (asterisks allows all origins).
 
 **Severity level**: 3
 
@@ -254,7 +254,7 @@ Cross-Origin Resource Sharing (CORS) should not allow all domains to access your
 
 For enhanced authentication security, use a managed identity. On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
-**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
+**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if necessary.
 
 **Severity level**: 2
 
@@ -290,11 +290,11 @@ Function apps should require the latest TLS version.
 
 **Severity level**: 1
 
-#### TA-000012: CORS should not allow every resource to access your Function Apps
+#### TA-000012: CORS shouldn't allow every resource to access your Function Apps
 
-Cross-Origin Resource Sharing (CORS) should not allow all domains to access your function app. Allow only required domains to interact with your function app.
+Cross-Origin Resource Sharing (CORS) shouldn't allow all domains to access your function app. Allow only required domains to interact with your function app.
 
-**Recommendation**: To allow only required domains to interact with your function app, in the [Microsoft.Web/sites/config resource cors settings object](/azure/templates/microsoft.web/sites/config-web?tabs=json#corssettings-object), add (or update) the *allowedOrigins* property, setting its value to an array of allowed origins. Ensure it is *not* set to "*" (asterisks allows all origins).
+**Recommendation**: To allow only required domains to interact with your function app, in the [Microsoft.Web/sites/config resource cors settings object](/azure/templates/microsoft.web/sites/config-web?tabs=json#corssettings-object), add (or update) the *allowedOrigins* property, setting its value to an array of allowed origins. Ensure it isn't* set to "*" (asterisks allows all origins).
 
 **Severity level**: 3
 
@@ -302,7 +302,7 @@ Cross-Origin Resource Sharing (CORS) should not allow all domains to access your
 
 For enhanced authentication security, use a managed identity. On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
-**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
+**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if necessary.
 
 **Severity level**: 2
 
@@ -339,11 +339,11 @@ To [enforce the latest TLS version](../app-service/configure-ssl-bindings.md#enf
 
 **Severity level**: 1
 
-#### TA-000018: CORS should not allow every resource to access your Web Applications
+#### TA-000018: CORS shouldn't allow every resource to access your Web Applications
 
-Cross-Origin Resource Sharing (CORS) should not allow all domains to access your Web application. Allow only required domains to interact with your web app.
+Cross-Origin Resource Sharing (CORS) shouldn't allow all domains to access your Web application. Allow only required domains to interact with your web app.
 
-**Recommendation**: To allow only required domains to interact with your web app, in the [Microsoft.Web/sites/config resource cors settings object](/azure/templates/microsoft.web/sites/config-web?tabs=json#corssettings-object), add (or update) the *allowedOrigins* property, setting its value to an array of allowed origins. Ensure it is *not* set to "*" (asterisks allows all origins).
+**Recommendation**: To allow only required domains to interact with your web app, in the [Microsoft.Web/sites/config resource cors settings object](/azure/templates/microsoft.web/sites/config-web?tabs=json#corssettings-object), add (or update) the *allowedOrigins* property, setting its value to an array of allowed origins. Ensure it isn't* set to "*" (asterisks allows all origins).
 
 **Severity level**: 3
 
@@ -351,7 +351,7 @@ Cross-Origin Resource Sharing (CORS) should not allow all domains to access your
 
 For enhanced authentication security, use a managed identity. On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
-**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
+**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if necessary.
 
 **Severity level**: 2
 
@@ -365,7 +365,7 @@ Audit built-in roles such as 'Owner, Contributer, Reader' instead of custom RBAC
 
 #### TA-000021: Automation account variables should be encrypted
 
-It is important to enable encryption of Automation account variable assets when storing sensitive data. This step can only be taken at creation time. If you have Automation Account Variables storing sensitive data that are not already encrypted, then you will need to delete them and recreate them as encrypted variables. To apply encryption of the Automation account variable assets, in Azure PowerShell - run [the following command](/powershell/module/az.automation/set-azautomationvariable?view=azps-5.4.0&viewFallbackFrom=azps-1.4.0): `Set-AzAutomationVariable -AutomationAccountName '{AutomationAccountName}' -Encrypted $true -Name '{VariableName}' -ResourceGroupName '{ResourceGroupName}' -Value '{Value}'`
+It's important to enable encryption of Automation account variable assets when storing sensitive data. This step can only be taken at creation time. If you have Automation Account Variables storing sensitive data that aren't already encrypted, then you'll need to delete them and recreate them as encrypted variables. To apply encryption of the Automation account variable assets, in Azure PowerShell - run [the following command](/powershell/module/az.automation/set-azautomationvariable?view=azps-5.4.0&viewFallbackFrom=azps-1.4.0): `Set-AzAutomationVariable -AutomationAccountName '{AutomationAccountName}' -Encrypted $true -Name '{VariableName}' -ResourceGroupName '{ResourceGroupName}' -Value '{Value}'`
 
 **Recommendation**: [Enable encryption of Automation account variable assets](../automation/shared-resources/variables.md?tabs=azure-powershell)
 
@@ -381,7 +381,7 @@ Enable only connections via SSL to Redis Cache. Use of secure connections ensure
 
 #### TA-000023: Authorized IP ranges should be defined on Kubernetes Services
 
-To ensure that only applications from allowed networks, machines, or subnets can access your cluster, restrict access to your Kubernetes Service Management API server. It is recommended to limit access to authorized IP ranges to ensure that only applications from allowed networks can access the cluster.
+To ensure that only applications from allowed networks, machines, or subnets can access your cluster, restrict access to your Kubernetes Service Management API server. It's recommended to limit access to authorized IP ranges to ensure that only applications from allowed networks can access the cluster.
 
 **Recommendation**: [Restrict access by defining authorized IP ranges](../aks/api-server-authorized-ip-ranges.md) or [set up your API servers as private clusters](../aks/private-clusters.md)
 
@@ -397,7 +397,7 @@ To provide granular filtering on the actions that users can perform, use Role-Ba
 
 #### TA-000025: Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version
 
-Upgrade your Kubernetes service cluster to a later Kubernetes version to protect against known vulnerabilities in your current Kubernetes version. [Vulnerability CVE-2019-9946](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9946) has been patched in Kubernetes versions 1.11.9+, 1.12.7+, 1.13.5+, and 1.14.0+. Running on older versions could mean you are not using latest security classes. Usage of such old classes and types can make your application vulnerable.
+Upgrade your Kubernetes service cluster to a later Kubernetes version to protect against known vulnerabilities in your current Kubernetes version. [Vulnerability CVE-2019-9946](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9946) has been patched in Kubernetes versions 1.11.9+, 1.12.7+, 1.13.5+, and 1.14.0+. Running on older versions could mean you aren't using latest security classes. Usage of such old classes and types can make your application vulnerable.
 
 **Recommendation**: To [upgrade Kubernetes service clusters](../aks/upgrade-cluster.md), in the [Microsoft.ContainerService/managedClusters resource properties](/azure/templates/microsoft.containerservice/managedclusters?tabs=json#managedclusterproperties-object), update the *kubernetesVersion* property, setting its value to one of the following versions (making sure to specify the minor version number): 1.11.9+, 1.12.7+, 1.13.5+, or 1.14.0+.
 
@@ -423,7 +423,7 @@ Transparent data encryption should be enabled to protect data-at-rest and meet c
 
 Set the data retention for your SQL Server's auditing to storage account destination to at least 90 days.
 
-**Recommendation**: For incident investigation purposes, we recommend setting the data retention for your SQL Server's auditing to storage account destination to at least 90 days, in the [Microsoft.Sql/servers/auditingSettings resource properties](/azure/templates/microsoft.sql/2020-11-01-preview/servers/auditingsettings?tabs=json#serverblobauditingpolicyproperties-object), using the *retentionDays* property. Confirm that you are meeting the necessary retention rules for the regions in which you are operating. This is sometimes required for compliance with regulatory standards.
+**Recommendation**: For incident investigation purposes, we recommend setting the data retention for your SQL Server's auditing to storage account destination to at least 90 days, in the [Microsoft.Sql/servers/auditingSettings resource properties](/azure/templates/microsoft.sql/2020-11-01-preview/servers/auditingsettings?tabs=json#serverblobauditingpolicyproperties-object), using the *retentionDays* property. Confirm that you're meeting the necessary retention rules for the regions in which you're operating. This is sometimes required for compliance with regulatory standards.
 
 **Severity level**: 3
 
@@ -431,7 +431,7 @@ Set the data retention for your SQL Server's auditing to storage account destina
 
 Set the protocols property to only include HTTPS.
 
-**Recommendation**: To use encrypted protocols only, add (or update) the *protocols* property in the [Microsoft.ApiManagement/service/apis resource properties](/azure/templates/microsoft.apimanagement/service/apis?tabs=json), to only include HTTPS. Allowing any additional protocols (for example, HTTP, WS) is insecure.
+**Recommendation**: To use encrypted protocols only, add (or update) the *protocols* property in the [Microsoft.ApiManagement/service/apis resource properties](/azure/templates/microsoft.apimanagement/service/apis?tabs=json), to only include HTTPS. Allowing any other protocols (for example, HTTP, WS) is insecure.
 
 **Severity level**: 1
 

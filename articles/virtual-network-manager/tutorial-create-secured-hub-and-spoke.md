@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: tutorial
-ms.date: 09/21/2022
-ms.custom: ignite-fall-2021
+ms.date: 01/10/2023
+ms.custom: ignite-fall-2021, FY23 content-maintenance
 ---
 
 # Tutorial: Create a secured hub and spoke network
@@ -107,11 +107,11 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 1. Go to your Azure Virtual Network Manager instance. This tutorial assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
-1. Select **Network groups** under *Settings*, and then select **+ Add** to create a new network group.
+1. Select **Network groups** under *Settings*, and then select **+ Create** to create a new network group.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-network-group.png" alt-text="Screenshot of add a network group button.":::
 
-1. On the *Basics* tab, enter the following information:
+1. On the **Create a network group** screen, enter the following information:
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-basics.png" alt-text="Screenshot of the Basics tab on Create a network group page.":::
 
@@ -120,7 +120,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Name | Enter **myNetworkGroupB** for the network group name. |
     | Description | Provide a description about this network group. |
 
-1. Select **Add** to create the virtual network group.
+1. Select **Create** to create the virtual network group.
 
 1. From the **Network groups** page, select the created network group from above to configure the network group.
 
@@ -150,7 +150,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 1. Select **Configuration** under *Settings*, then select **+ Add a configuration**. Select **Connectivity** from the drop-down menu.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-configuration.png"   alt-text="Screenshot of add a configuration button for Network Manager.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration-dropdown.png" alt-text="Screenshot of configuration drop-down menu.":::
 
 1. On the **Basics** tab, enter and select the following information for the connectivity configuration:
 

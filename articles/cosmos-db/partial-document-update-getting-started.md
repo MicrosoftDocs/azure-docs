@@ -208,7 +208,7 @@ Support for Partial document update (Patch API) in the [Azure Cosmos DB Java v4 
 
 ## [Node.js](#tab/nodejs)
 
-Support for Partial document update (Patch API) in the [Azure Cosmos DB JavaScript SDK](nosql/sdk-nodejs.md) is available from version *3.15.0* onwards. You can download it from the [npm Registry](https://www.npmjs.com/package/@azure/cosmos/v/3.15.0)
+Support for Partial document update (Patch API) in the [Azure Cosmos DB JavaScript SDK](nosql/sdk-nodejs.md) is available from version *3.15.0* onwards. You can download it from the [npm Registry](https://www.npmjs.com/package/@azure/cosmos)
 
 > [!NOTE]
 > A complete partial document update sample can be found in the [.js v3 samples repository](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cosmosdb/cosmos/samples/v3/typescript/src/ItemManagement.ts#L167) on GitHub. In the sample, as the container is created without a partition key specified, the JavaScript SDK

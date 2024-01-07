@@ -8,6 +8,8 @@ ms.date: 05/30/2018
 ---
 # Configure user access to job information to job information in Azure Data Lake Analytics 
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 In Azure Data Lake Analytics, you can use multiple user accounts or service principals to run jobs. 
 
 In order for those same users to see the detailed job information, the users need to be able to read the contents of the job folders. The job folders are located in `/system/` directory. 

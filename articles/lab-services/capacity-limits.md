@@ -40,6 +40,9 @@ Azure Lab Services hosts lab resources, including VMs, within special Microsoft-
 
 Before you set up a large number of VMs across your labs, we recommend that you open a support ticket to pre-request VM capacity. Requests should include VM size, number, and location. Requesting capacity before lab creation helps us to ensure that you create your labs in a region that has a sufficient number of VM cores for the VM size that you need for your labs.
 
+## Best practices for requesting a limit increase
+[!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
+
 ## Next steps
 
 See the following articles:

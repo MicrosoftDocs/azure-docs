@@ -761,7 +761,7 @@ addProperty(<object>, '<property>', <value>)
 To add a parent property to an existing property, use the `setProperty()` function, not the `addProperty()` function. Otherwise, the function returns only the child object as output.
 
 ```
-setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>, '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
 | Parameter | Required | Type | Description |
@@ -4050,7 +4050,7 @@ setProperty(<object>, '<property>', <value>)
 To set the child property in a child object, use a nested `setProperty()` call instead. Otherwise, the function returns only the child object as output.
 
 ```
-setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
+setProperty(<object>, '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
 ```
 
 | Parameter | Required | Type | Description |
@@ -4226,7 +4226,7 @@ And returns this array: `[0,1,2,3]`
 This example sorts an array of objects by key:
 
 ```
-sort(createArray(json('{ "first": "Amalie", "last": "Rose" }'), json('{ "first": "Elise", "last": "Renee" }'), "last")
+sort(createArray(json('{ "first": "Amalie", "last": "Rose" }'), json('{ "first": "Elise", "last": "Renee" }')), 'last')
 ```
 
 And returns this array: `[{ "first": "Elise", "last": "Renee" }, {"first": "Amalie", "last": "Rose" }')]`
@@ -5481,9 +5481,9 @@ In this example, suppose your `items` XML string also contains these attributes:
 </produce>
 ```
 
-This example passes in the XPath expression, `'//name[price>35]'`, to find all the `name` elements that have `price > 35`:
+This example passes in the XPath expression, `'//name[@price>35]'`, to find all the `name` elements that have `price > 35`:
 
-`xpath(xml(parameters('items')), '//name[price>35]')`
+`xpath(xml(parameters('items')), '//name[@price>35]')`
 
 Here's the result: `Honeycrisp`
 

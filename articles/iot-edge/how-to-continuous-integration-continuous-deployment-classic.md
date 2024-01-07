@@ -12,7 +12,7 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge devices (classic editor)
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure Pipelines includes a built-in Azure IoT Edge task that helps you adopt DevOps with your Azure IoT Edge applications. This article demonstrates how to use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge using the classic editor. Alternatively, you can [use YAML](how-to-continuous-integration-continuous-deployment.md).
 
@@ -163,7 +163,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
 This pipeline is now configured to run automatically when you push new code to your repo. The last task, publishing the pipeline artifacts, triggers a release pipeline. Continue to the next section to build the release pipeline.
 
-[!INCLUDE [iot-edge-create-release-pipeline-for-continuous-deployment](../../includes/iot-edge-create-release-pipeline-for-continuous-deployment.md)]
+[!INCLUDE [iot-edge-create-release-pipeline-for-continuous-deployment](includes/iot-edge-create-release-pipeline-for-continuous-deployment.md)]
 
 >[!NOTE]
 >Layered deployments are not yet supported in Azure IoT Edge tasks in Azure DevOps.
@@ -174,7 +174,7 @@ This pipeline is now configured to run automatically when you push new code to y
 >az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
 >```
 
-[!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](../../includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
+[!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
 
 ## Next steps
 

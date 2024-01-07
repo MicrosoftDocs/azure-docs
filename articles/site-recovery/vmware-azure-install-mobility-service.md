@@ -2,12 +2,12 @@
 title: Prepare source machines to install the Mobility Service through push installation for disaster recovery of VMware VMs and physical servers to Azure | Microsoft Docs
 description: Learn how to prepare your server to install Mobility agent through push installation for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
 services: site-recovery
-author: v-pgaddala
-manager: gaggupta
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: v-pgaddala
-ms.date: 05/27/2021
+ms.author: ankitadutta
+ms.date: 12/20/2022
+ms.custom: engagement-fy23
 ---
 
 # Prepare source machine for push installation of mobility agent
@@ -43,7 +43,7 @@ On each Windows machine you want to protect, do the following:
 On each Linux machine that you want to protect, do the following:
 
 1. Ensure that there's network connectivity between the Linux machine and the process server.
-2. Create an account that the process server can use to access the computer. The account should be a **root** user on the source Linux server. Use this account only for the push installation and for updates.
+2. Use the built-in **root** user account which the process server will use to access the computer. This account should be a **root** user on the source Linux server. Use this account only for the push installation and for updates.
 3. Check that the /etc/hosts file on the source Linux server has entries that map the local hostname to IP addresses associated with all network adapters.
 4. Install the latest openssh, openssh-server, and openssl packages on the computer that you want to replicate.
 5. Ensure that Secure Shell (SSH) is enabled and running on port 22.
@@ -55,7 +55,7 @@ On each Linux machine that you want to protect, do the following:
       ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 
 8. Restart the **sshd** service.
-9. Add the account that you created in CSPSConfigtool. To do this, sign in to your configuration server.
+9. Add the root user account in CSPSConfigtool. To do this, sign in to your configuration server.
 10. Open **cspsconfigtool.exe**. It's available as a shortcut on the desktop and in the %ProgramData%\home\svsystems\bin folder.
 11. On the **Manage Accounts** tab, select **Add Account**.
 12. Add the account you created.

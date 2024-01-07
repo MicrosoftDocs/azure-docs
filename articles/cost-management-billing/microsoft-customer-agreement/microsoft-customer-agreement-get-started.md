@@ -51,16 +51,16 @@ When you move from a pay-as-you-go or an enterprise agreement to a Microsoft Cus
 
 | MCA purchase method | Previous payment method - Credit card | Previous payment method - Invoice | New payment method under MCA - Credit card | New payment method under MCA - Invoice |
 | --- | --- | --- |--- |--- |
-| Through a Microsoft representative |  | ✔  |  ✔ <sup>4</sup> | ✔ <sup>2</sup> |
-| Azure website | ✔ | ✔ <sup>1</sup> | ✔ | ✔ <sup>3</sup> |
+| Through a Microsoft representative |  | ✔  |  ✔ ⁴ | ✔ ² |
+| Azure website | ✔ | ✔ ¹ | ✔ | ✔ ³ |
 
-<sup>1</sup> By request.
+¹ By request.
 
-<sup>2</sup> You continue to pay by invoice/wire transfer under the MCA but will need to send your payments to a different bank account. For information about where to send your payment, see [Pay your bill](../understand/pay-bill.md#wire-bank-details) after you select your country in the list.
+² You continue to pay by invoice/wire transfer under the MCA but will need to send your payments to a different bank account. For information about where to send your payment, see [Pay your bill](../understand/pay-bill.md#wire-bank-details) after you select your country in the list.
 
-<sup>3</sup> For more information, see [Pay for your Azure subscription by invoice](../manage/pay-by-invoice.md).
+³ For more information, see [Pay for your Azure subscription by invoice](../manage/pay-by-invoice.md).
 
-<sup>4</sup> For more information, see [Pay your bill for Microsoft Azure](../understand/pay-bill.md#pay-now-in-the-azure-portal).
+⁴ For more information, see [Pay your bill for Microsoft Azure](../understand/pay-bill.md#pay-now-in-the-azure-portal).
 
 ## Complete outstanding payments
 

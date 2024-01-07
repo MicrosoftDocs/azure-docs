@@ -8,7 +8,6 @@ ms.author: nicktrog
 author: ntrogh
 ms.date: 04/27/2022
 ms.topic: how-to
-zone_pivot_groups: load-testing-config
 ---
 
 # Use JMeter user properties with Azure Load Testing Preview
@@ -33,7 +32,14 @@ Alternately, you can also [use environment variables and secrets in Azure Load T
 
 ## Add a JMeter user properties file to your load test
 
-You can define user properties for your JMeter test script by uploading a *.properties* file to the load test. The following code snippet shows an example user properties file:
+You can define user properties for your JMeter test script by uploading a *.properties* file to the load test. Azure Load Testing supports using a single properties file per load test. Additional property files are ignored.
+
+You can also specify [JMeter configuration settings](https://jmeter.apache.org/usermanual/properties_reference.html) in user properties file to override default behavior.
+
+> [!NOTE]
+> Azure Load Testing overrides specific JMeter properties. Learn more about the list of [JMeter properties that Azure Load Testing overrides](./resource-jmeter-property-overrides.md).
+
+The following code snippet shows an example user properties file that defines three user properties and configures the `jmeter.save.saveservice.thread_name` configuration setting:
 
 ```properties
 # peak-load.properties
@@ -46,11 +52,7 @@ durationSeconds=600
 jmeter.save.saveservice.thread_name=false
 ```
 
-Azure Load Testing supports using a single properties file per load test. Additional property files are ignored.
-
-You can also specify [JMeter configuration settings](https://jmeter.apache.org/usermanual/properties_reference.html) in user properties file to override default behavior. For example, you can modify any of the `jmeter.save.saveservice.*` settings to configure the JMeter results file.
-
-::: zone pivot="experience-azp"
+# [Azure portal](#tab/portal)
 
 To add a user properties file to your load test by using the Azure portal, follow these steps:
 
@@ -69,9 +71,8 @@ To add a user properties file to your load test by using the Azure portal, follo
     You can select only one file as a user properties file for a load test.
 
 1. Select **Apply** to modify the test, or **Review + create**, and then **Create** to create the new test.
-::: zone-end
 
-::: zone pivot="experience-pipelines,experience-ghactions"
+# [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
 If you run a load test within your CI/CD workflow, you add the user properties file to the source control repository. You then specify this properties file in the [load test configuration YAML file](./reference-test-config-yaml.md).
 
@@ -100,7 +101,7 @@ To add a user properties file to your load test, follow these steps:
 
     The next time the CI/CD workflow runs, it will use the updated configuration.
 
-::: zone-end
+---
 
 ## Reference properties in JMeter
 
@@ -132,5 +133,6 @@ You can [download the JMeter errors logs](./how-to-find-download-logs.md) to tro
 
 ## Next steps
 
+- Learn more about [JMeter properties that Azure Load Testing overrides](./resource-jmeter-property-overrides.md).
 - Learn more about [parameterizing a load test by using environment variables and secrets](./how-to-parameterize-load-tests.md).
 - Learn more about [troubleshooting load test execution errors](./how-to-find-download-logs.md).

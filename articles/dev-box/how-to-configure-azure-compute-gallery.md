@@ -87,7 +87,7 @@ Follow these steps to manually assign each role:
 1. On the Review + assign tab, select **Review + assign**.
 
 #### Dev center Managed Identity
-1. Open the gallery you want to attach to the dev center from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can also search for Azure Compute Galleries to find your gallery.
+1. Open the gallery you want to attach to the dev center from the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can also search for Azure Compute Galleries to find your gallery.
 
 1. Select **Access Control (IAM)** from the left menu.
 

@@ -1,8 +1,7 @@
 ---
 title: 'Quickstart: Create a CI/CD pipeline for the Go programming language by using Azure DevOps Starter'
 description: DevOps Starter makes it easy to get started on Azure. It helps you launch a Go programming language web app on an Azure service in a few quick steps.
-ms.prod: devops
-ms.technology: devops-cicd
+ms.service: azure-devops-pipelines
 services: vsts
 documentationcenter: vs-devops-build
 author: georgewallace

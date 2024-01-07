@@ -80,7 +80,7 @@ static void translateSpeech() {
 }
 ```
 
-The [`setSpeechRecognitionLanguage`][recognitionlang] function expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
+The [`setSpeechRecognitionLanguage`][recognitionlang] function expects a language-locale format string. Refer to the [list of supported speech translation locales](../../../language-support.md?tabs=speech-translation).
 
 ## Add a translation language
 

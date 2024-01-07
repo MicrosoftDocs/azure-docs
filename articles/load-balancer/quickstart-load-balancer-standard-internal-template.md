@@ -5,9 +5,9 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, FY23 content-maintenance
 ms.author: mbender
-ms.date: 09/14/2020
+ms.date: 12/15/2022
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs by using an ARM template

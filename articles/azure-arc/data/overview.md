@@ -52,6 +52,8 @@ Many of the services such as self-service provisioning, automated backups/restor
 
 To see the regions that currently support Azure Arc-enabled data services, go to [Azure Products by Region - Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable&products=azure-arc).
 
+[!INCLUDE [arc-region-note](../includes/arc-region-note.md)]
+
 ## Next steps
 
 > **Just want to try things out?**  

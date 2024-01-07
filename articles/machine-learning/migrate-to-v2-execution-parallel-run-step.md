@@ -33,7 +33,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 ## Prerequisites
 
  - Prepare your SDK v2 environment: [Install the Azure ML SDK v2 for Python](/python/api/overview/azure/ml/installv2)
- - Understand the basis of SDK v2 pipeline: [How to create Azure ML pipeline with python SDK v2](how-to-create-component-pipeline-python.md)
+ - Understand the basis of SDK v2 pipeline: [How to create Azure ML pipeline with Python SDK v2](how-to-create-component-pipeline-python.md)
 
 
 ## Create parallel step
@@ -207,4 +207,4 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 For more information, see the documentation here:
 
 * [Parallel run step SDK v1 examples](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)
-* [Parallel job SDK v2 examples](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb)
+* [Parallel job SDK v2 examples](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb)

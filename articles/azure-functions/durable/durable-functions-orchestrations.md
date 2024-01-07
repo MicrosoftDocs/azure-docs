@@ -3,7 +3,7 @@ title: Durable Orchestrations - Azure Functions
 description: Introduction to the orchestration feature for Azure Durable Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 05/06/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
@@ -121,14 +121,12 @@ $output
 ```java
 @FunctionName("HelloCities")
 public String helloCitiesOrchestrator(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        String result = "";
-        result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
-        result += ctx.callActivity("SayHello", "Seattle", String.class).await() + ", ";
-        result += ctx.callActivity("SayHello", "London", String.class).await();
-        return result;
-    });
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String result = "";
+    result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
+    result += ctx.callActivity("SayHello", "Seattle", String.class).await() + ", ";
+    result += ctx.callActivity("SayHello", "London", String.class).await();
+    return result;
 }
 ```
 
@@ -446,14 +444,12 @@ param($location)
 ```java
 @FunctionName("GetWeatherOrchestrator")
 public String getWeatherOrchestrator(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            var location = new Location();
-            location.city = "Seattle";
-            location.state = "WA";
-            String weather = ctx.callActivity("GetWeather", location, String.class).await();
-            return weather;
-        });
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    var location = new Location();
+    location.city = "Seattle";
+    location.state = "WA";
+    String weather = ctx.callActivity("GetWeather", location, String.class).await();
+    return weather;
 }
 
 @FunctionName("GetWeather")

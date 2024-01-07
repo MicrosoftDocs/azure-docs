@@ -5,10 +5,10 @@ description: The AutoMLStep allows you to use automated machine learning in your
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: larryfr
-author: blackmist
-manager: cgronlun
-ms.date: 10/21/2021
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado
+ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: devx-track-python, automl, sdkv1, event-tier1-build-2022
 ---

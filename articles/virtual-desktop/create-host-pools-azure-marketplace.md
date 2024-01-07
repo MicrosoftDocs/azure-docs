@@ -25,6 +25,7 @@ You can create host pools in the following Azure regions:
 - Australia East
 - Canada Central
 - Canada East
+- Central India
 - Central US
 - East US
 - East US 2
@@ -38,6 +39,8 @@ You can create host pools in the following Azure regions:
 - West Europe
 - West US
 - West US 2
+
+This list refers to the list of regions where the *metadata* for the host pool will be stored. Session hosts added to a host pool can be located in any region, as well as on-premises when using [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md).
 
 ## Prerequisites
 
@@ -104,7 +107,7 @@ To start creating your new host pool:
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 After you sign in, use the [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az-desktopvirtualization-hostpool-create) command to create the new host pool, optionally creating a registration token for session hosts to join the host pool:
 

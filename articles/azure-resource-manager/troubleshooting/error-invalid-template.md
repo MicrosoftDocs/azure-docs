@@ -2,7 +2,7 @@
 title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Bicep files or Azure Resource Manager templates (ARM templates).
 ms.topic: troubleshooting
-ms.date: 09/12/2022
+ms.date: 01/03/2023
 ---
 
 # Resolve errors for invalid template
@@ -85,19 +85,19 @@ You may see this error in earlier deployments because you were limited to five t
 
 ## Solution 5: Circular dependency detected
 
-You receive this error when resources depend on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 depends on resource3, resource2 depends on resource1, and resource3 depends on resource2. You can usually solve this problem by removing unnecessary dependencies.
+You receive this error when resources depend on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resources wait for other resources that are also waiting. For example, `resource1` depends on `resource3`, `resource2` depends on `resource1`, and `resource3` depends on `resource2`. You can usually solve this problem by removing unnecessary dependencies.
 
 Bicep creates an implicit dependency when one resource uses the symbolic name of another resource. An explicit dependency using `dependsOn` usually isn't necessary. For more information, see Bicep [dependencies](../bicep/resource-dependencies.md).
 
 To solve a circular dependency:
 
 1. In your template, find the resource identified in the circular dependency.
-1. For that resource, examine the `dependsOn` property and any uses of the `reference` function to see which resources it depends on.
+1. For that resource, examine the `dependsOn` property and any uses of the `reference` or `resourceId` functions to see which resources it depends on.
 1. Examine those resources to see which resources they depend on. Follow the dependencies until you notice a resource that depends on the original resource.
-1. For the resources involved in the circular dependency, carefully examine all uses of the `dependsOn` property to identify any dependencies that aren't needed. Remove those dependencies. If you're unsure that a dependency is needed, try removing it.
+1. For the resources involved in the circular dependency, carefully examine all uses of the `dependsOn` property to identify any dependencies that aren't needed. To troubleshoot the deployment, remove the circular dependencies. Rather than delete the code, you can use comments so that the code doesn't run during the next deployment. You can use single-line comments (`//`) or multi-line comments (`/* ... */`) in [ARM templates](../templates/syntax.md#comments-and-metadata) or [Bicep](../bicep/file.md#comments) files.
 1. Redeploy the template.
 
-Removing values from the `dependsOn` property can cause errors when you deploy the template. If you get an error, add the dependency back into the template.
+Removing values from the `dependsOn` property can cause errors when you deploy the template. If you get an error, add the dependency back into the template. If you used comments to bypass code in your template, you can remove the comments to restore the code.
 
 If that approach doesn't solve the circular dependency, consider moving part of your deployment logic into child resources (such as extensions or configuration settings). Configure those child resources to deploy after the resources involved in the circular dependency. For example, suppose you're deploying two virtual machines but you must set properties on each one that refer to the other. You can deploy them in the following order:
 

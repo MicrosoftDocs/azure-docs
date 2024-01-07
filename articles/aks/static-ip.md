@@ -2,8 +2,11 @@
 title: Use static IP with load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create and use a static IP address with the Azure Kubernetes Service (AKS) load balancer.
-services: container-service
-ms.topic: article
+author: asudbring
+ms.author: allensu
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.date: 11/14/2020
 
 

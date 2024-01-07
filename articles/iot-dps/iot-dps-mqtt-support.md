@@ -9,6 +9,7 @@ ms.date: 02/25/2022
 ms.author: ravokkar
 ms.custom:  [amqp, mqtt]
 ---
+
 # Communicate with your DPS using the MQTT protocol
 
 DPS enables devices to communicate with the DPS device endpoint using:

@@ -15,31 +15,18 @@ Container security protects the entire end-to-end pipeline from build to the app
 The Secure Supply Chain includes the build environment and registry.
 
 Kubernetes includes security components, such as *pod security standards* and *Secrets*. Meanwhile, Azure includes components like Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups and orchestrated cluster upgrades. AKS combines these security components to:
+
 * Provide a complete Authentication and Authorization story.
 * Leverage AKS Built-in Azure Policy to secure your applications.
 * End-to-End insight from build through your application with Microsoft Defender for Containers.
 * Keep your AKS cluster running the latest OS security updates and Kubernetes releases.
 * Provide secure pod traffic and access to sensitive credentials.
 
-This article introduces the core concepts that secure your applications in AKS:
-
-- [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
-  - [Build security](#build-security)
-  - [Registry security](#registry-security)
-  - [Cluster security](#cluster-security)
-  - [Node security](#node-security)
-    - [Compute isolation](#compute-isolation)
-  - [Cluster upgrades](#cluster-upgrades)
-    - [Cordon and drain](#cordon-and-drain)
-  - [Network security](#network-security)
-    - [Azure network security groups](#azure-network-security-groups)
-  - [Application Security](#application-security)
-  - [Kubernetes Secrets](#kubernetes-secrets)
-  - [Next steps](#next-steps)
+This article introduces the core concepts that secure your applications in AKS.
 
 ## Build Security
 
-As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that will break development. It is about looking at the "Vendor Status" to segment based on vulnerabilities that are actionable by the development teams. Also leverage "Grace Periods" to allow developers time to remediate identified issues. 
+As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that will break development. It is about looking at the "Vendor Status" to segment based on vulnerabilities that are actionable by the development teams. Also leverage "Grace Periods" to allow developers time to remediate identified issues.
 
 ## Registry Security
 

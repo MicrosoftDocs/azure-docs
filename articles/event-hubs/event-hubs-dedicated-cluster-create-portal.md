@@ -119,4 +119,4 @@ In this article, you created an Event Hubs cluster. For step-by-step instruction
     - [Python](event-hubs-python-get-started-send.md)
     - [JavaScript](event-hubs-node-get-started-send.md)
 - [Use Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
-- [Use Azure Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+- [Use Azure Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md)

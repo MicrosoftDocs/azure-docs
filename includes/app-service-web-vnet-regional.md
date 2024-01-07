@@ -1,9 +1,10 @@
 ---
 author: ccompy
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
+ms.subservice: web-apps
 ---
 Using regional VNet Integration enables your app to access:
 

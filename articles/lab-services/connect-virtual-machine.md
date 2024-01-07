@@ -43,7 +43,7 @@ To connect *to a Linux VM using RDP*, follow the instructions based on the type 
 
 ### Connect to a Linux lab VM Using X2Go
 
-Linux VMs can have X2Go enabled and a graphical desktop installed.  For more information, see [X2Go Setup](how-to-enable-remote-desktop-linux.md#x2go-setup) and [Using GNOME or MATE graphical desktops](how-to-enable-remote-desktop-linux.md#using-gnome-or-mate-graphical-desktops).  
+Linux VMs can have X2Go enabled and a graphical desktop installed.  For more information, see [X2Go Setup](how-to-enable-remote-desktop-linux.md#setting-up-x2go) and [Using GNOME or MATE graphical desktops](how-to-enable-remote-desktop-linux.md#using-gnome-or-mate-graphical-desktops).  
 
 For instructions to connect *to a Linux VM using X2Go*, see [Connect to a VM using X2Go](connect-virtual-machine-linux-x2go.md).
 

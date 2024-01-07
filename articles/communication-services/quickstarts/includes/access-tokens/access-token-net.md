@@ -118,7 +118,7 @@ Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 ```
 Store the received identity with mapping to your application's users (for example, by storing it in your application server database).
 
-## Issue access tokens
+## Issue an access token
 
 After you have a Communication Services identity, use the `GetToken` method to issue an access token for it. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of `communicationUser` based on a string representation of an Azure Communication Service identity.
 
@@ -163,7 +163,7 @@ Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {
 Console.WriteLine(token);
 ```
 
-## Refresh access tokens
+## Refresh an access token
 
 To refresh an access token, pass an instance of the `CommunicationUserIdentifier` object into `GetTokenAsync`. If you've stored this `Id` and need to create a new `CommunicationUserIdentifier`, you can do so by passing your stored `Id` into the `CommunicationUserIdentifier` constructor as follows:
 

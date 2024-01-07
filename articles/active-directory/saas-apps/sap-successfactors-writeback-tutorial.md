@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/11/2021
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
 # Tutorial: Configure attribute write-back from Azure AD to SAP SuccessFactors

@@ -2,14 +2,15 @@
 title: Configure the admin consent workflow
 description: Learn how to configure a way for end users to request access to applications that require admin consent. 
 services: active-directory
-author: eringreenlee
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/02/2022
-ms.author: ergreenl
+ms.author: jomondi
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy22q2
 #customer intent: As an admin, I want to configure the admin consent workflow.
@@ -59,4 +60,4 @@ To configure the admin consent workflow programmatically, use the [Update adminC
 
 [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
 
-[Reivew admin consent requests](review-admin-consent-requests.md)
+[Review admin consent requests](review-admin-consent-requests.md)

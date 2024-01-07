@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
 ms.date: 10/13/2022
-ROBOTS: NOINDEX
 ---
 
 # Frequently asked questions about NC2 on Azure

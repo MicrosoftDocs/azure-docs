@@ -22,6 +22,8 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to
 - [Node.js](https://nodejs.org) installed.
 - [Next.js CLI](https://nextjs.org/docs/getting-started) installed. Refer to the [Next.js Getting Started guide](https://nextjs.org/docs/getting-started) for details.
 
+[!INCLUDE [Unsupported Next.js features](../../includes/static-web-apps-nextjs-unsupported.md)]
+
 ## Set up a Next.js app
 
 Begin by initializing a new Next.js application.
@@ -204,6 +206,15 @@ Begin by adding an API route.
 1. The result from the API route will be displayed on the page.
 
 :::image type="content" source="media/deploy-nextjs/nextjs-api-route-display.png" alt-text="Display the output from the API route":::
+
+## Enable logging for Next.js
+
+Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom start up script. To learn more:
+
+* [Example preload script for Application Insights + Next.js](https://medium.com/microsoftazure/enabling-the-node-js-application-insights-sdk-in-next-js-746762d92507)
+* [GitHub issue](https://github.com/microsoft/ApplicationInsights-node.js/issues/808)
+* [Preloading with Next.js](https://jake.tl/notes/2021-04-04-nextjs-preload-hack)
+
 
 ## Clean up resources
 

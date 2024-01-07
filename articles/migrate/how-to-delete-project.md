@@ -5,8 +5,8 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 10/22/2019
-
+ms.date: 04/14/2021
+ms.custom: engagement-fy23
 ---
 
 # Delete an Azure Migrate project

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 11/21/2022
 ms.author: sarahlipsey
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -60,7 +60,7 @@ There are six categories of profile details you may be able to edit.
 
 - **Settings:** Decide whether the user can sign in to the Azure Active Directory tenant. You can also specify the user's global location.
 
-- **On-premises:** Accounts synced from Windows Server Active Directory include additional values not applicable to Azure AD accounts.
+- **On-premises:** Accounts synced from Windows Server Active Directory include other values not applicable to Azure AD accounts.
 
     >[!Note]
     >You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
@@ -77,6 +77,47 @@ All your changes are saved for the user.
 In the **User settings** area of Azure AD, you can adjust several settings that affect all users, such as restricting access to the Azure AD administration portal, how external collaboration is managed, and providing users the option to connect their LinkedIn account. Some settings are managed in a separate area of Azure AD and linked from this page.
 
 Go to **Azure AD** > **User settings**.
+
+### Learn about the 'Stay signed in?' prompt
+
+The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, the KMSI service gives them a persistent [refresh token](../develop/developer-glossary.md#refresh-token). For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
+
+The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device.
+
+KMSI setting is available in User settings. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
+
+![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/customize-branding/kmsi-workflow.png)
+
+Configuring the 'keep me signed in' (KMSI) option requires one of the following licenses:
+
+- Azure AD Premium 1
+- Azure AD Premium 2
+- Office 365 (for Office apps)
+- Microsoft 365
+
+#### Troubleshoot 'Stay signed in?' issues
+
+If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Azure AD **Sign-ins** page. The prompt the user sees is called an "interrupt."
+
+![Sample 'Stay signed in?' prompt](media/customize-branding/kmsi-stay-signed-in-prompt.png)
+
+Details about the sign-in error are found in the **Sign-in logs** in Azure AD. Select the impacted user from the list and locate the details below in the **Basic info** section.
+
+* **Sign in error code**: 50140
+* **Failure reason**: This error occurred due to "Keep me signed in" interrupt when the user was signing in.
+
+You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the user settings. This setting disables the KMSI prompt for all users in your Azure AD directory.
+
+You also can use the [persistent browser session controls in Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md) to prevent users from seeing the KMSI prompt. This option allows you to disable the KMSI prompt for a select group of users (such as the global administrators) without affecting sign-in behavior for everyone else in the directory.
+
+To ensure that the KMSI prompt is shown only when it can benefit the user, the KMSI prompt is intentionally not shown in the following scenarios:
+
+* User is signed in via seamless SSO and integrated Windows authentication (IWA)
+* User is signed in via Active Directory Federation Services and IWA
+* User is a guest in the tenant
+* User's risk score is high
+* Sign-in occurs during user or admin consent flow
+* Persistent browser session control is configured in a conditional access policy
 
 ## Next steps
 - [Add or delete users](add-users-azure-active-directory.md)

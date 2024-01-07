@@ -12,7 +12,7 @@ services: iot-edge
 
 # Give modules access to a device's local storage
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 ::: moniker range=">=iotedge-1.4"
 

@@ -21,7 +21,7 @@ This article discusses the installation of the following CRs:
 
 |CR |Required/optional |Description |
 |---------|---------|---------|
-|NPLK900271 |Required |This CR creates and configures a role. Alternatively, you can can load the authorizations directly from a file. [Review how to create and configure a role](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).  |
+|NPLK900271 |Required |This CR creates and configures a role. Alternatively, you can load the authorizations directly from a file. [Review how to create and configure a role](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).  |
 |NPLK900201 or NPLK900202 |Optional |[Retrieves additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional). You select one of these CRs according to your SAP version. |
 
 ## Prerequisites
@@ -56,6 +56,7 @@ Track your SAP solution deployment journey through this series of articles:
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
    - [Configure data connector to use SNC](configure-snc.md)
+   - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
 To deploy the CRs, follow the steps outlined below. The steps below may differ according to the version of the SAP system and should be considered for demonstration purposes only.
 

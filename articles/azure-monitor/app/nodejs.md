@@ -2,7 +2,7 @@
 title: Monitor Node.js services with Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 11/15/2022
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc

@@ -101,7 +101,7 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 > Azure Machine Learning only supports Docker images that provide the following software:
 > * Ubuntu 18.04 or greater.
 > * Conda 4.7.# or greater.
-> * Python 3.6+.
+> * Python 3.7+.
 > * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
 For more information about creating and managing Azure Machine Learning environments, see [Create and use software environments](how-to-use-environments.md). 

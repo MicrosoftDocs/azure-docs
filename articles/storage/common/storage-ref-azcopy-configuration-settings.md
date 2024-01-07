@@ -1,5 +1,5 @@
 ---
-title: AzCopy v10 configuration setting (Azure Storage) | Microsoft Docs
+title: AzCopy v10 configuration setting (Azure Storage)
 description: This article provides reference information for AzCopy V10 configuration settings.
 author: normesta
 ms.service: storage

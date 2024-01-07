@@ -281,7 +281,7 @@ az spring app-insights update \
 
 This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.
 
-Azure Enterprise tier uses [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`.
+Azure Enterprise tier uses buildpack bindings to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 To create an Application Insights buildpack binding, use the following command:
 
