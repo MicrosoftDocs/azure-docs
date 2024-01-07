@@ -93,10 +93,13 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 1. Configure your backup directory on the SMB server to use the shared file on the OT sensor. Run:
 
     ```bash
-    sudo nano /var/cyberx/properties/backup.properties`
+    sudo dpkg-reconfigure iot-sensor
     ```
 
-    Set the `backup_directory_path` to the folder on your OT sensor where you want to save your backup files.
+    Follow the instructions on screen and validate the settings are correct on each step.
+    To move to the next step without making changes, press the `Enter` button.
+    When you get to the step that prompts to `Enter path to the mounted backups folder`, set the value to be the folder you created in the first few steps - `/<backup_folder_name>` (the factory default value is `/opt/sensor/persist/backups`).
+    Confirm the change by pressing the `Enter` button and continue with the rest of the steps until the end.
 
 ## Restore an OT sensor
 
