@@ -92,7 +92,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
 1. Configure your backup directory on the SMB server to use the shared file on the OT sensor. Run:
     
-```bash
+    ```bash
     sudo dpkg-reconfigure iot-sensor
     ```
 
