@@ -41,7 +41,7 @@ You can enable preview features by adding:
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "userDefinedTypes": true,
+    "userDefinedFunctions": true,
     "extensibility": true
   }
 }
