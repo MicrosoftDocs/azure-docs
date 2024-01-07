@@ -55,8 +55,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
 1. Create a shared folder on the external SMB server, and make sure that you have the folder's path and the credentials required to access the SMB server.
 
-1. Sign into your OT sensor via SFTP and create a directory for your backup files. Run:
-
+1. Sign into your OT sensor via SSH using the cyberx_host user and create a directory for your backup files. Run:
     ```bash
     sudo mkdir /<backup_folder_name>
 
@@ -70,6 +69,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
     add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifsrw,credentials=/etc/samba/user,vers=X.X,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0
     ```
+   Make sure you replace vers=X.X with the correct version of your external SMB server, for example vers=3.0
 
 1. Edit and create credentials to share for the SMB server. Run:
 
@@ -105,16 +105,17 @@ The following procedures describe how to restore your sensor using a backup file
 ### Restore an OT sensor from the sensor GUI
 
 1. Sign into the OT sensor via SFTP and download the backup file you want to use to a location accessible from the OT sensor GUI. 
-
     Backup files are saved on your OT sensor machine, at `/var/cyberx/backups`, and are named using the following syntax: `<sensor name>-backup-version-<version>-<date>.tar`.
 
     For example: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`
 
     > [!IMPORTANT]
-    > - Make sure that the backup file you select uses the same OT sensor software version that's currently installed on your OT sensor.
-    >
-    > - Your backup file must be one that had been generated automatically or manually via the CLI. If you're using a backup file generated manually by the GUI, you'll need to contact support to use it to restore your sensor.
- 
+    > 
+- Make sure that the backup file you select uses the same OT sensor software version that's currently installed on your OT sensor.
+
+    > 
+- Your backup file must be one that had been generated automatically or manually via the CLI. If you're using a backup file generated manually by the GUI, you'll need to contact support to use it to restore your sensor.
+
 1. Sign into the OT sensor GUI and select **System settings** > **Sensor management** > **Health and troubleshooting** > **Backup & restore** > **Restore**.
 
 1. Select **Browse** to select your downloaded backup file. The sensor will start to restore from the selected backup file.
