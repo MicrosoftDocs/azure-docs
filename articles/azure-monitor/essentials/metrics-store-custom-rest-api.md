@@ -227,6 +227,17 @@ Submit the following HTTP POST request by using the following variables:
 
 1. In the **Metric** dropdown list, select **Memory Bytes in Use**.
 
+## Troubleshooting
+
+If you receive an error message with some part of the process, consider the following troubleshooting information:
+
+- If you can't issue metrics against a subscription or resource group, or resource, check that your application or service principal has the **Monitoring Metrics Publisher** role assigned in **Access control (IAM)**.
+- Check that the number of dimension names matches the number of values.
+- Check that you're emitting metrics to the correct Azure Monitor regional endpoint. For example, if your resource is deployed in West US, you must emit metrics to the West US regional endpoint.
+- Check that the timestamp is within the last 20 minutes.
+- Check that the timestamp is in ISO 8601 format.
+- Check that the metric name is valid. For example, it can't contain spaces.
+
 ## Next steps
 
 Learn more about [custom metrics](./metrics-custom-overview.md).
