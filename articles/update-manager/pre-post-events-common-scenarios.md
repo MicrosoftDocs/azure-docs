@@ -169,6 +169,7 @@ You can view the status of the maintenance job from the ARG query mentioned abov
 
 :::image type="content" source="./media/pre-post-events-common-scenarios/view-job-status.png" alt-text="Screenshot that shows how to insert the resource group, maintenance configuration." lightbox="./media/pre-post-events-common-scenarios/view-job-status.png":::
 
+---
 
 ## Why the scheduled run was cancelled by the system?
 
@@ -184,9 +185,6 @@ If the user modifies the schedule run time after the pre-event has been triggere
 
 > [!NOTE]
 > Azure Event Grid adheres to an at-least-once delivery paradigm. This implies that, in exceptional circumstances, there is a chance of the event handler being invoked more than once for a given event. Customers are advised to ensure that their event handler actions are idempotent. In other words, if the event handler is executed multiple times, it should not have any adverse effects. Implementing idempotency ensures the robustness of your application in the face of potential duplicate event invocations.
-
-
----
 
 ## Next steps
 - For an overview on [pre and post scenarios](pre-post-scripts-overview.md)
