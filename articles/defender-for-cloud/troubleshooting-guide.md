@@ -118,7 +118,7 @@ Furthermore, if you have connected your CloudTrail to GuardDuty, you're also res
       - List the number of overall API calls by Defender for Cloud aggregated by region:
 
       
-```sql
+            ```sql
       SELECT awsRegion, COUNT(*) AS apiCallsCountByRegion FROM <TABLE-NAME> 
       WHERE userIdentity.arn LIKE 'arn:aws:sts::120589537074:assumed-role/CspmMonitorAws/MicrosoftDefenderForClouds_<YOUR-AZURE-TENANT-ID>' 
       AND eventTime > TIMESTAMP '<DATETIME>' GROUP BY awsRegion
