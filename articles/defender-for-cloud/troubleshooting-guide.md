@@ -63,7 +63,7 @@ The CloudTrail resource incurs costs, and the pricing details can be found in [A
 
 Furthermore, if you have connected your CloudTrail to GuardDuty, you're also responsible for associated costs, which can be found in the [GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html).
 
-### Getting the number of native API calls executed by Defender for Cloud
+**Getting the number of native API calls executed by Defender for Cloud**:
 
 There are two ways to get the number of calls made by Defender for Cloud and both rely on querying AWS CloudTrail logs:
 
@@ -126,7 +126,7 @@ Defender API calls to GCP:
 
 Following this initial scan, the service will continue to periodically scan your environment at the interval that you configured during onboarding.
 
-**Getting the number of native API calls executed by Defender for Cloud:**
+**Getting the number of native API calls executed by Defender for Cloud**:
 
    1. Go to **Logging** -> **Log Explorer**
 
