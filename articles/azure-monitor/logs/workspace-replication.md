@@ -109,7 +109,7 @@ To learn more about linking a DCR to a DCE during DCR creation, see step 5b in [
 ## Monitoring your workspace and service health
 Ingestion latency or query failures are examples of issues that can often be handled by failing over to your secondary region. Such issues can be detected using Service Health notifications and log queries.
 
-While Service Health notifications are useful for service-wise issues, you can use additional measures to identify issues related to your specific workspace and setup.To do that, use can [create alerts based on the workspace resource health](./log-analytics-workspace-health.md#view-log-analytics-workspace-health-and-set-up-health-status-alerts), set specific thresholds for [workspace health metrics](/log-analytics-workspace-health.md#view-log-analytics-workspace-health-metrics), or even create your own monitoring queries, serving as custom-made health indicators for your workspace. This last option is explained in detail in this article.
+While Service Health notifications are useful for service-wise issues, you can use additional measures to identify issues related to your specific workspace and setup.To do that, use can [create alerts based on the workspace resource health](./log-analytics-workspace-health.md#view-log-analytics-workspace-health-and-set-up-health-status-alerts), set specific thresholds for [workspace health metrics](./log-analytics-workspace-health.md#view-log-analytics-workspace-health-metrics), or even create your own monitoring queries, serving as custom-made health indicators for your workspace. This last option is explained in detail in this article.
 
 For example, queries allow you to:
 * Measure ingestion latency, per data type or for all types
