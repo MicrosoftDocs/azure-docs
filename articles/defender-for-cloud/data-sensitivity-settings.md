@@ -84,4 +84,4 @@ If you're using Microsoft Purview sensitivity labels, make sure that:
 
 ## Next steps
 
-[Review risks](data-security-review-risks.md) to sensitive data
+[Review risks](data-security-review-risks.md) to sensitive data.
