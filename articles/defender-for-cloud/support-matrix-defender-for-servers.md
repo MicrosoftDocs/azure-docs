@@ -4,7 +4,7 @@ description: Review support requirements for the Defender for Servers plan in Mi
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 12/26/2023
+ms.date: 01/07/2024
 ---
 
 # Defender for Servers support

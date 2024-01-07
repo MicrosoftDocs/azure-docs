@@ -86,17 +86,10 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 ```
 
 >[!NOTE]
-> Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
+> Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with ARO (Azure Red Hat Openshift) or Windows nodes.
 >
 
-To use legacy/non-managed identity authentication to create an extension instance on **Arc K8S connected clusters with ARO**, use the commands below that don't use managed identity. Non-cli onboarding is not supported for Arc-enabled Kubernetes clusters with **ARO**. Currently, only k8s-extension version 1.3.7 or below is supported. 
-
-If you are using k8s-extension version above 1.3.7, downgrade the version.
-
-```azurecli
-Install the extension with **amalogs.useAADAuth=false**.
-az extension add --name k8s-extension --version 1.3.7
-```
+To use legacy/non-managed identity authentication to create an extension instance on **Arc K8S connected clusters with ARO**, use the commands below that don't use managed identity. Non-cli onboarding is not supported for Arc-enabled Kubernetes clusters with **ARO**.
 
 Install the extension with **amalogs.useAADAuth=false**.
 
@@ -174,7 +167,9 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 6. Select the 'Configure' button to continue.
 
-## [Resource Manager](#tab/create-arm)
+## [ARM](#tab/create-arm)
+
+This sections has instructions for onboarding with legacy authentication. For MSI based onboarding, see next tab. 
 
 1. Download Azure Resource Manager template and parameter:
 
@@ -193,6 +188,26 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
     ```
 
+## [ARM (with MSI)](#tab/create-arm-msi)
+
+Onboard using an ARM template with MSI based authentication enabled
+
+1. Download Azure Resource Manager template and parameter:
+
+    ```console
+    curl -L https://aka.ms/arc-k8s-azmon-extension-msi-arm-template -o arc-k8s-azmon-extension-arm-template.json
+    curl -L https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params -o  arc-k8s-azmon-extension-arm-template-params.json
+    ```
+
+2. Update parameter values in arc-k8s-azmon-extension-arm-template-params.json file. For Azure public cloud, `opinsights.azure.com` needs to be used as the value of workspaceDomain and for AzureUSGovernment, `opinsights.azure.us` needs to be used as the value of workspaceDomain.
+
+3. Deploy the template to create Azure Monitor Container Insights extension 
+
+    ```azurecli
+    az login
+    az account set --subscription "Subscription Name"
+    az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
+    ```
 
 ---
 
