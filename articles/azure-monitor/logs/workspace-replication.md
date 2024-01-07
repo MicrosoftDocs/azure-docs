@@ -11,7 +11,7 @@ ms.date: 03/30/2023
 # Workspace replication across regions
 
 ## What is workspace replication
-Workspace replication is a new capability that provides higher availability to Log Analytics workspace and service by allowing you to create a replication of your workspace on another region, and fail over and back between these regions. The original region of your workspace is referred to as the primary region, and the region you choose for your replication is referred to as secondary.
+Workspace replication is a new capability that provides higher resilience to Log Analytics workspace and service by allowing you to create a replication of your workspace in another region, and use it when needed. The original region of your workspace is referred to as the primary region, and the region you choose for your replication is referred to as secondary.
 
 ### How it works
 When workspace replication is enabled, a second instance of your workspace is created in another region. This secondary workspace is created with the same configuration as your primary workspace. Any changes to your workspace configuration are automatically synced to the secondary workspace. The second workspace created for you is a "shadow" workspace - you can’t see in the Azure portal, manage it or access it directly. It’s only used for resiliency purposes.
@@ -29,7 +29,7 @@ If you choose to fail over, the secondary workspace becomes active, and your pri
 When enabled, the workspace itself is replicated to another region, including its set configuration. Later, all new logs coming in can be replicated as they're being ingested.
 * Platform logs (Diagnostic logs) - all platform logs targeting a workspace are replicated if workspace replication is enabled on the target workspace.
 * Logs collected through MMA (the classic Microsoft Monitoring Agent) - all MMA logs are replicated if workspace replication is enabled on the target workspace.
-* Logs collected through AMA (Azure Monitoring agent) - logs coming from AMA are managed via Data Collection Rules (DCR). This provides better control over the scope of replication, as replication can be set **per DCR**. In other words, you can configure replication for one stream of logs (such as Security logs) while not replicating others (such as Perf logs). Replicating AMA logs requires enabling replication both on the target workspace, and per relevant DCR, as explained later.
+* Logs collected through AMA (Azure Monitoring agent) - logs coming from AMA are managed via Data Collection Rules (DCR). Using a DCR provides better control over the scope of replication, as replication can be set **per DCR**. In other words, you can configure replication for one stream of logs (such as Security logs) while not replicating others (such as Perf logs). Replicating AMA logs requires enabling replication both on the target workspace, and per relevant DCR, as explained later.
 * Custom logs (v1) - logs sent through the Data Collector API are replicated if workspace replication is enabled on the target workspace.
 * Custom logs (v2) - custom logs and transformation logs configured through DCRs require enabling replication both on the target workspace and per DCR.
 
@@ -37,7 +37,7 @@ When enabled, the workspace itself is replicated to another region, including it
 ### Supported regions and region groups
 Each workspace has a primary location, which is the region in which the workspace resides. When enabling replication, you choose a secondary location - another region in which a "shadow" workspace is created, and that you can later switch to.
 
-Workspace replication is currently supported for workspaces in a limited set of regions, organized by region groups (groups of geographically adjacent regions). When you enable replication, you select a secondary location from the list of supported regions, and from the same region group as the workspace primary location. For example, for a workspace in West Europe you can enable replication to North Europe, but you can't replicate it to Central US (the region isn't supported yet) or to West US 2 (the region is in another region group). 
+Workspace replication is currently supported for workspaces in a limited set of regions, organized by region groups (groups of geographically adjacent regions). When you enable replication, you select a secondary location from the list of supported regions, and from the same region group as the workspace primary location. For example, a workspace in West Europe can have a replication in North Europe, but not in West US 2, since these regions are in different region groups. 
 
 The following regions and groups are currently supported.
 * Region group: US regions
@@ -50,7 +50,7 @@ The following regions and groups are currently supported.
     * North Europe (JSON value: `northeurope`)
 
 #### Data residency
-Different customers have different data residency requirements, which is why it’s important that **you** control where your data is stored. Workspace logs are only stored in primary and secondary locations you chose, and processed in the Azure geography(s) of your select regions. See [Supported regions and region groups](#supported-regions-and-region-groups) for more details.
+Different customers have different data residency requirements, which is why it’s important that **you** control where your data is stored. Workspace logs are only stored in primary and secondary locations you chose, and processed in the Azure geography(s) of your select regions. For more information, see [Supported regions and region groups](#supported-regions-and-region-groups).
 
 
 ## Enabling workspace replication
@@ -92,10 +92,10 @@ https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<res
 > For Sentinel enabled workspaces, it may take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace.
 
 ### How to enable replication of Data Collection Rules (DCRs)
-When you enable replication on your workspace, a System [Data Collection Endpoint](../essentials/data-collection-endpoint-overview.md) (DCE) is created. The DCE created to support replication is named by the workspace ID (For example, if your workspace ID is "e56...c373", the DCE is named "e56...c373").
+When you enable replication on your workspace, a System [Data Collection Endpoint](../essentials/data-collection-endpoint-overview.md) (DCE) is created. The name of the new DCE created is identical to the workspace ID.
 **If you use Data Collection Rules (DCRs) to send logs to this workspace, you must connect each of your DCRs to the newly created DCE, for replication and failover to be supported.**
 
-to connect an existing DCR to a DCE, go to the DCR Overview blade, select "Configure DCE" and then choose the system DCE from the available list:
+to connect an existing DCR to a DCE, go to the DCR Overview page, select "Configure DCE" and then choose the system DCE from the available list:
 ![Diagram that shows how to configure a DCE for an existing DCR](./media/workspace-replication/configure_dce.png)
 
 To learn more about linking a DCR to a DCE during DCR creation, see step 5b in [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md?tabs=portal#create-a-data-collection-rule).
@@ -109,20 +109,21 @@ To learn more about linking a DCR to a DCE during DCR creation, see step 5b in [
 ## Monitoring your workspace and service health
 Ingestion latency or query failures are examples of issues that can often be handled by failing over to your secondary region. Such issues can be detected using Service Health notifications and log queries.
 
-While Service Health notifications are useful for service-wise issues, you can use additional measures to identify issues related to your specific workspace and setup.To do that, use can [create alerts based on the workspace resource health](./log-analytics-workspace-health.md#view-log-analytics-workspace-health-and-set-up-health-status-alerts), set specific thresholds for [workspace health metrics](./log-analytics-workspace-health.md#view-log-analytics-workspace-health-metrics), or even create your own monitoring queries, serving as custom-made health indicators for your workspace. This last option is explained in detail in this article.
+Service Health notifications are useful for service-wise issues. To identify issues impacting your specific workspace (and possibly not the entire service), you can use more other measures:
+* [Create alerts based on the workspace resource health](./log-analytics-workspace-health.md#view-log-analytics-workspace-health-and-set-up-health-status-alerts)
+* Set your own thresholds for [workspace health metrics](./log-analytics-workspace-health.md#view-log-analytics-workspace-health-metrics).
+* Create your own monitoring queries, serving as custom-made health indicators for your workspace.  Custom-made monitoring queries allow you to:
+    * Measure ingestion latency, per data type or for all types
+    * Identify the cause of latency - agents vs ingestion pipeline
+    * Monitor ingestion volume anomalies, per data type and resource
+    * Monitor query success rate, per data type, user or resource
+    * Create alerts based on your queries.
 
-For example, queries allow you to:
-* Measure ingestion latency, per data type or for all types
-* Identify the cause of latency - agents vs ingestion pipeline
-* Monitor ingestion volume anomalies, per data type and resource
-* Monitor query success rate, per data type, per user or resource
-* Create alerts based on your queries.
-
-For more information about monitoring your workspace, see [Using queries to monitor workspace performance](#using-queries-to-monitor-workspace-performance).
+**This last option is explained in detail in [Using queries to monitor workspace performance](#using-queries-to-monitor-workspace-performance).**
 
 
 > [!NOTE]
-> You can use queries to monitor your secondary workspace before you trigger failover. Since logs replication is done in batch operations, the measured latency may fluctuate and doesn’t indicate any health issue with your secondary workspace. For more information, see [Querying the inactive workspace](#querying-the-inactive-workspace).
+> You can use queries to monitor your secondary workspace. Yet, logs replication is done in batch operations, meaning the measured latency can fluctuate and doesn’t indicate any health issue with your secondary workspace. For more information, see [Querying the inactive workspace](#querying-the-inactive-workspace).
 
 
 ## Failover
@@ -223,10 +224,10 @@ By default, queries targeting your workspace are sent to its active region. The 
 Yet, in some cases you may want to intentionally query the inactive region. For example, before triggering failover you may want to ensure your secondary workspace has logs ingested to it.
 
 ### How to query the inactive workspace
-To see which logs are available on the inactive workspace, go to the Azure portal and open your Workspace's Logs blade.
+To see which logs are available on the inactive workspace, go to the Azure portal and open your Workspace's Logs page.
 Select the ‘…’ on the upper right area and turn on the “Query inactive region” option.
 
-![Diagram that shows how to query the inactive region through the workspace Logs blade](./media/workspace-replication/query_inactive_region.png)
+![Diagram that shows how to query the inactive region through the workspace Logs page](./media/workspace-replication/query_inactive_region.png)
 
 If the workspace is in failover mode (meaning failover was triggered), queries are sent to the secondary region, since it's  now the active region.
 
@@ -251,7 +252,7 @@ Ingestion latency measures how much time it takes for logs to be ingested to the
 1.	Agent latency – the time it took the agent to report an event.
 2.	Pipeline (backend) latency – the time it took for the ingestion pipeline to process the logs and write them to your workspace.
 
-Different data types have different ingestion latency, so a general measurement may not be what you want. Instead, you can measure ingestion for each data type separately, or create a generic query for all types, and a more fine-grained query for specific types that are of higher priority to you. Prefer to measure the 90th percentile of the ingestion latency, which is more sensitive to changes than the average or the 50th percentile (median).
+Different data types have different ingestion latency, so a general measurement might not be what you want. Instead, you can measure ingestion for each data type separately, or create a generic query for all types, and a more fine-grained query for specific types that are of higher priority to you. Prefer to measure the 90th percentile of the ingestion latency, which is more sensitive to changes than the average or the 50th percentile (median).
 
 #### Monitor end-to-end ingestion latency
 ##### Evaluate the baseline ingestion latency
@@ -384,7 +385,7 @@ Usage
 
 ### Query monitoring
 #### Monitor query success and failure
-Queries return response codes, which indicate whether they succeeded or failed, and what types of error occurred. A high surge of errors may indicate a problem with the workspace availability or service performance. The following query counts how many queries returned a server error code.
+Queries return response codes, which indicate whether they succeeded or failed, and what types of error occurred. A high surge of errors can indicate a problem with the workspace availability or service performance. The following query counts how many queries returned a server error code.
 ```
 LAQueryLogs | where ResponseCode>=500 and ResponseCode<600 | count
 ```
