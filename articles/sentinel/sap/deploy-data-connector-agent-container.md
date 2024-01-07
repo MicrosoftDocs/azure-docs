@@ -222,7 +222,10 @@ Now that you've created a VM and a Key Vault, your next step is to create a new 
 
 1. **Download or transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download)** to the machine.
 
-# [Azure portal](#tab/azure-portal/managed-identity)
+# [Azure portal (Preview)](#tab/azure-portal/managed-identity)
+
+> [!NOTE]
+> If you previously installed SAP connector agents manually or using the kickstart scripts, you can't configure or manage those agents in the Azure portal. If you want to use the portal to configure and update agents, you must reinstall your existing agents using the portal.
 
 Create a new agent through the Azure portal, authenticating with a managed identity:
 
@@ -232,7 +235,7 @@ Create a new agent through the Azure portal, authenticating with a managed ident
 
 1. Select **Microsoft Sentinel for SAP** from the search results, and select **Open connector page**.
 
-1. To collect data from a SAP system, you must follow these two steps:
+1. To collect data from an SAP system, you must follow these two steps:
     
     1. [Create a new agent](#create-a-new-agent)
     1. [Connect the agent to a new SAP system](#connect-to-a-new-sap-system)
@@ -290,6 +293,8 @@ Create a new agent through the Azure portal, authenticating with a managed ident
 
 #### Connect to a new SAP system
 
+Anyone adding a new connection to an SAP system must have write permission to the [Key Vault where the SAP credentials are stored](#create-key-vault). See [Prerequisites](#prerequisites).
+
 1. In the **Configuration** area, select **Add new system (Preview)**.
 
     :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area.":::
@@ -314,7 +319,10 @@ Create a new agent through the Azure portal, authenticating with a managed ident
 
     Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
-# [Azure portal](#tab/azure-portal/registered-application)
+# [Azure portal (Preview)](#tab/azure-portal/registered-application)
+
+> [!NOTE]
+> If you previously installed SAP connector agents manually or using the kickstart scripts, you can't configure or manage those agents in the Azure portal. If you want to use the portal to configure and update agents, you must reinstall your existing agents using the portal.
 
 Create a new agent through the Azure portal, authenticating with a Microsoft Entra ID registered application:
 
@@ -324,7 +332,7 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
 
 1. Select **Microsoft Sentinel for SAP** from the search results, and select **Open connector page**.
 
-1. To collect data from a SAP system, you must follow these two steps:
+1. To collect data from an SAP system, you must follow these two steps:
     
     1. [Create a new agent](#create-a-new-agent-1)
     1. [Connect the agent to a new SAP system](#connect-to-a-new-sap-system-1)
@@ -382,6 +390,8 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
 
 #### Connect to a new SAP system
 
+Anyone adding a new connection to an SAP system must have write permission to the [Key Vault where the SAP credentials are stored](#create-key-vault). See [Prerequisites](#prerequisites).
+
 1. In the **Configuration** area, select **Add new system (Preview)**.
 
     :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area.":::
@@ -406,9 +416,9 @@ Create a new agent through the Azure portal, authenticating with a Microsoft Ent
 
     Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
-# [Azure portal](#tab/azure-portal/config-file)
+# [Azure portal (Preview)](#tab/azure-portal/config-file)
 
-The Azure portal can only be used with Azure Key Vault.
+**The Azure portal can only be used with Azure Key Vault.**
 
 To use the command line to create an agent using a config file, see [these instructions](?tabs=config-file%2Ccommand-line#deploy-the-data-connector-agent).
 
@@ -523,3 +533,5 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 Once the connector is deployed, proceed to deploy Microsoft Sentinel solution for SAP® applications content:
 > [!div class="nextstepaction"]
 > [Deploy the solution content from the content hub](deploy-sap-security-content.md)
+
+See this [YouTube video](https://youtu.be/FasuyBSIaQM), on the [Microsoft Security Community YouTube channel](https://www.youtube.com/@MicrosoftSecurityCommunity), for guidance on checking the health and connectivity of the SAP connector.
