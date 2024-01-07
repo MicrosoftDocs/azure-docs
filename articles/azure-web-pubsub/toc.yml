@@ -27,8 +27,6 @@
 - name: Tutorials
   expanded: false
   items:
-    - name: Build a real-time chat app with client authentication
-      href: quickstart-serverless.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
@@ -37,6 +35,8 @@
       href: tutorial-subprotocol.md
     - name: Authentication and permissions
       href: tutorial-permission.md
+    - name: Build a serverless chat app with Azure Functions
+      href: quickstart-serverless.md
 - name: How-to guides
   expanded: false
   items:

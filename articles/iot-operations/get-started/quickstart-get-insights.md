@@ -43,7 +43,7 @@ This section prepares your lakehouse data to be a source for Power BI. You'll cr
 
     :::image type="content" source="media/quickstart-get-insights/new-semantic-model.png" alt-text="Screenshot of a Fabric lakehouse showing the New Semantic Model button.":::
 
-1. Select *OPCUA*, the contextualized telemetry table from the previous quickstart, and confirm. This action creates a new dataset and opens a new page.
+1. Enter a memorable name for your dataset, select *OPCUA* (the contextualized telemetry table from the previous quickstart), and confirm. This action creates a new dataset and opens a new page.
 
 1. In this new page, create four measures. **Measures** in Power BI are custom calculators that perform math or summarize data from your table, to help you find answers from your data. To learn more, see [Create measures for data analysis in Power BI Desktop](/power-bi/transform-model/desktop-measures).
 
@@ -59,10 +59,6 @@ This section prepares your lakehouse data to be a source for Power BI. You'll cr
     Make sure you're selecting **New measure** each time, so the measures are not overwriting each other.
     
     :::image type="content" source="media/quickstart-get-insights/power-bi-new-measure.png" alt-text="Screenshot of Power BI showing the creation of a new measure.":::
-
-1. Select the name of the dataset in the top left, and rename it to something memorable. You will use this dataset in the next section:
-
-    :::image type="content" source="media/quickstart-get-insights/power-bi-name-dataset.png" alt-text="Screenshot of Power BI showing a dataset being renamed.":::
 
 ## Configure Power BI report
 

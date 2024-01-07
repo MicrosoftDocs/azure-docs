@@ -2081,6 +2081,10 @@
     href: /azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+- name: Cost optimization
+  items:
+  - name: Overview
+    href: ./plan-to-manage-costs.md
 - name: Resources
   items:
   - name: Cloud adoption framework

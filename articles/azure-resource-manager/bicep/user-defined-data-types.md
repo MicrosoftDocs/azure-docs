@@ -256,7 +256,7 @@ param serviceConfig ServiceConfig = { type: 'bar', value: true }
 output config object = serviceConfig
 ```
 
-The parameter value is validated based on the discriminated property value.  In the preceeding example, if the *serviceConfig* parameter value is of type *foo*, it undergoes validation using the *FooConfig*type. Likewise, if the parameter value is of type *bar*, validation is performed using the *BarConfig* type, and this pattern continues for other types as well.
+The parameter value is validated based on the discriminated property value.  In the preceding example, if the *serviceConfig* parameter value is of type *foo*, it undergoes validation using the *FooConfig*type. Likewise, if the parameter value is of type *bar*, validation is performed using the *BarConfig* type, and this pattern continues for other types as well.
 
 ## Import types between Bicep files (Preview)
 
