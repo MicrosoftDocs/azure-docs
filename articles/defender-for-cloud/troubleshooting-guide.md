@@ -65,7 +65,7 @@ Furthermore, if you have connected your CloudTrail to GuardDuty, you're also res
 
 - *Getting the number of native API calls executed by Defender for Cloud*
 
-- There’re two ways to get the number of calls made by MDC and both rely on Querying AWS CloudTrail logs: 
+- There are two ways to get the number of calls made by Defender for Cloud and both rely on querying AWS CloudTrail logs: 
 
 
 - **CloudTrail and Athena tables**:  
