@@ -19,15 +19,15 @@ This article shows you how to send custom metrics for Azure resources to the Azu
 
 When you send custom metrics to Azure Monitor, each data point, or value, reported in the metrics must include the following information.
 
-+ Authentication token
-+ Subject
-+ Region
-+ Timestamp
-+ Namespace
-+ Name
-+ Dimension keys
-+ Dimension values
-+ Metric values
++ [Authentication token](#authentication)
++ [Subject](#subject)
++ [Region](#region)
++ [Timestamp](#timestamp)
++ [Namespace](#namespace)   
++ [Name](#name)
++ [Dimension keys](#dimension-keys)
++ [Dimension values](#dimension-values)
++ [Metric values](#metric-values)
 
 
 ### Authentication
@@ -52,7 +52,7 @@ curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'client_id=<your apps client ID>' \
 --data-urlencode 'client_secret=<your apps client secret' \
---data-urlencode 'resource=https://monitor.azure.com'
+--data-urlencode 'resource=https://monitoring.azure.com'
 ```
 
 The response body appears in the following format:
