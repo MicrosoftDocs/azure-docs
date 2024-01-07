@@ -77,7 +77,9 @@ There are two ways to get the number of calls made by Defender for Cloud and bot
 
 1. Use an existing or create a new *Event Data Store*. For more information, see [Working with AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html).
 
-1. Navigate to the above lake and use one of the below predefined queries per your needs. Sample Queries:
+1. Navigate to the above lake and use one of the below predefined queries per your needs.
+
+   Sample Queries:
 
     - List the number of overall API calls by Defender for Cloud:
 
