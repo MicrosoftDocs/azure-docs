@@ -44,7 +44,7 @@ This section describes how to troubleshoot issues that you can encounter when pe
 
 ### Unable to access keyvault: XXXXX error
 
-If you see an error similar to the following when running the deployment:
+If you see an error similar to the following error when running the deployment:
 
 ```text
 Unable to access keyvault: XXXXYYYYDEP00userBEB                             
@@ -55,7 +55,7 @@ This error indicates that the specified key vault doesn't exist or that the depl
 
 Depending on the deployment stage, you can resolve this issue in the following ways:
 
-You can either add the IP of the environment from which you're executing the deployment (recommended) or you can allow public access to the key vault. See [Allow public access to a key vault](/azure/key-vault/general/network-security#allow-public-access-to-a-key-vault) for more information.
+You can either add the IP of the environment from which you're executing the deployment (recommended) or you can allow public access to the key vault. For more information about controlling access to the key vault, see [Allow public access to a key vault](/azure/key-vault/general/network-security#allow-public-access-to-a-key-vault).
 
 The following variables are used to configure the key vault access:
 
@@ -66,7 +66,7 @@ public_network_access_enabled = true
 
 ### Failed to get existing workspaces error
 
-If you see an error similar to the following when running the deployment:
+If you see an error similar to the following error when running the deployment:
 
 ```text
 Error: : Error retrieving keys for Storage Account "mgmtweeutfstate###": azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to
@@ -77,7 +77,7 @@ http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&cli
 
 This error indicates that the credentials used to do the deployment doesn't have access to the storage account. To resolve this issue, assign the 'Storage Account Contributor' role to the deployment credential on the terraform state storage account, the resource group or the subscription (if feasible). 
 
-You can verify if the deployment is being performed using a service principal or a managed identity by checking the output of the deployment. If the deployment is using a service principal, the output will contain the following:
+You can verify if the deployment is being performed using a service principal or a managed identity by checking the output of the deployment. If the deployment is using a service principal, the output contains the following section:
 
 ```text
 	[set_executing_user_environment_variables]: Identifying the executing user and client
@@ -96,7 +96,7 @@ You can verify if the deployment is being performed using a service principal or
 
 Look for the following line in the output: "ARM_USE_MSI: false"
 
-If the deployment is using a managed identity, the output will contain the following:
+If the deployment is using a managed identity, the output contains the following section:
 
 ```text
 
@@ -125,7 +125,7 @@ az role assignment create --assignee ${appId} \
    --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MGMT-WEEU-SAP_LIBRARY/providers/Microsoft.Storage/storageAccounts/mgmtweeutfstate###
 ```
 
-You may also need to assign the reader role to the deployment credential on the subscription containing the resource group with the Terrafrom state file. You can do that with the following command:
+You may also need to assign the reader role to the deployment credential on the subscription containing the resource group with the Terraform state file. You can do that with the following command:
 
 ```cloudshell-interactive
 export appId="<ARM_CLIENT_ID>"
@@ -137,7 +137,7 @@ az role assignment create --assignee ${appId} \
 
 
 ### OverconstrainedAllocationRequest error
-If you see an error similar to the following when running the deployment:
+If you see an error similar to the following error when running the deployment:
 
 ```text
 Virtual Machine Name: "devsap01app01": Code="OverconstrainedAllocationRequest" Message="Allocation failed. VM(s) with the following constraints cannot be allocated, because the condition is too restrictive. Please remove some constraints and try again. Constraints applied are:
@@ -170,7 +170,7 @@ If you see an error similar to the following message when running the deployment
 ERROR! this task 'ansible.builtin.command' has extra params, which is only allowed in the following modules: set_fact, shell, include_tasks, win_shell, import_tasks, import_role, include, win_command, command, include_role, meta, add_host, script, group_by, raw, include_vars
 ```
 
-This error indicates that the task isn't supported by the version of Ansible that is installed. To resolve this issue, upgrade to the latest version of Ansible on the agent virtual machine.
+This error indicates that the task isn't supported by the version of Ansible installed on the agent. To resolve this issue, upgrade to the latest version of Ansible on the agent virtual machine.
 
 ## Software download
 
@@ -193,7 +193,7 @@ If you see an error similar to the following message when running the Azure Pipe
 ##[error]Bash exited with code '2'.
 ```
 
-This error indicates that the configured personal access token doesn't have permissions to access the variable group. Ensure that the personal access token has the **Read & manage** permission for the variable group and that it hasn't expired. The personal access token is configured in the Azure DevOps pipeline variable groups either as 'PAT' in the control plane variable group or as WZ_PAT in the workload zone variable group.
+This error indicates that the configured personal access token doesn't have permissions to access the variable group. Ensure that the personal access token has the **Read & manage** permission for the variable group and that it's still valid. The personal access token is configured in the Azure DevOps pipeline variable groups either as 'PAT' in the control plane variable group or as 'WZ_PAT' in the workload zone variable group.
 
 
 ## Next step
