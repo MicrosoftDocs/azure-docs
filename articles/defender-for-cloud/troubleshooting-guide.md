@@ -78,7 +78,7 @@ Furthermore, if you have connected your CloudTrail to GuardDuty, you're also res
       - **CloudTrail lake**:  
 
 
-      1. Use an existing or create a new *Event Data Store* – for more details you can refer to this [documentation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) 
+      1. Use an existing or create a new *Event Data Store*. For more information, see [Working with AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html). 
 
       1. Navigate to the above lake and use one of the below predefined queries per your needs. 
 
