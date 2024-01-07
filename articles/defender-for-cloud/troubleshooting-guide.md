@@ -57,7 +57,7 @@ Defender API calls to AWS:
 
 - Cost impact - When you onboard your AWS single or management account, our Discovery service initiates an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that we secure.
 
-_Following this initial scan, the service will continue to periodically scan your environment at the interval that you configured during onboarding. It's important to note that in AWS, each API call to the account generates a lookup event that is recorded in the CloudTrail resource._
+Following this initial scan, the service will continue to periodically scan your environment at the interval that you configured during onboarding. It's important to note that in AWS, each API call to the account generates a lookup event that is recorded in the CloudTrail resource.
 
 _The CloudTrail resource incurs costs, and the pricing details can be found here: [https://aws.amazon.com/cloudtrail/pricing/](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faws.amazon.com%2Fcloudtrail%2Fpricing%2F&data=05%7C02%7Cinbalsilis%40microsoft.com%7Cf63d6a9db4494b3706e208dc0b616268%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638397760119801488%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=ohKhaJtmA3i8%2B4AqjH2g5atGwsQsUlXmAzmFa5CKOHk%3D&reserved=0)._
 
