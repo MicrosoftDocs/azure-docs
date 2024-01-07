@@ -83,9 +83,6 @@ The subject property captures which Azure resource ID the custom metric is repor
 
 The region property captures the Azure region where the resource you're emitting metrics for is deployed. Metrics must be emitted to the same Azure Monitor regional endpoint as the region where the resource is deployed. For example, custom metrics for a VM deployed in West US must be sent to the WestUS regional Azure Monitor endpoint. The region information is also encoded in the URL of the API call.
 
-> [!NOTE]
-> During the public preview, custom metrics are available in only a subset of Azure regions. A list of supported regions is documented in a [later section of this article](#supported-regions).
-
 ### Timestamp
 
 Each data point sent to Azure Monitor must be marked with a timestamp. This timestamp captures the date and time at which the metric value is measured or collected. Azure Monitor accepts metric data with timestamps as far as 20 minutes in the past and 5 minutes in the future. The timestamp must be in ISO 8601 format.
