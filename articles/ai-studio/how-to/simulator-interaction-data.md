@@ -37,7 +37,7 @@ First we set up the system large language model, which acts as the "agent" simul
 
 ```python
 from azure.identity import DefaultAzureCredential
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import AzureOpenAIModelConfiguration
 
 credential = DefaultAzureCredential()
