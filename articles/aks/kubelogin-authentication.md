@@ -19,7 +19,7 @@ This article provides an overview of the following authentication methods and ex
 * Interactive web browser
 * Service principal
 * Managed identity
-* Workflow identity
+* Workload identity
 
 ## Limitations
 

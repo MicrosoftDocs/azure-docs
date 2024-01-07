@@ -79,4 +79,4 @@ You should get an email at the specified address. Also, you can use the **Get em
 
 ## Clean up workflow resources
 
-To clean up your logic app workflow and related resources, review [how to clean up Consumption logic app resources](../../../../logic-apps/quickstart-create-example-consumption-workflow.md#clean-up-resources) or [how to clean up Standard logic app resources](../../../../logic-apps/create-single-tenant-workflows-azure-portal.md#delete-logic-apps).
+To clean up your logic app resource, workflow, and related resources, review [how to clean up Consumption logic app resources](../../../../logic-apps/manage-logic-apps-with-azure-portal.md?tabs=consumption#delete-logic-apps) or [how to clean up Standard logic app resources](../../../../logic-apps/manage-logic-apps-with-azure-portal.md?tabs=standard#delete-logic-apps).
