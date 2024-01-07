@@ -217,9 +217,8 @@ Use [`az servicebus namespace network-rule-set`](/cli/azure/servicebus/namespace
 ## Use Azure PowerShell
 Use the following Azure PowerShell commands to add, list, remove, update, and delete network rules for a Service Bus namespace. 
 
-- [`Add-AzServiceBusVirtualNetworkRule`](/powershell/module/az.servicebus/add-azservicebusvirtualnetworkrule) to add a virtual network rule.
+- [`Set-AzServiceBusNetworkRuleSet`](/powershell/module/az.storage/add-azstorageaccountnetworkrule) to add a virtual network rule.
 - [`New-AzServiceBusVirtualNetworkRuleConfig`](/powershell/module/az.servicebus/new-azservicebusipruleconfig) and [`Set-AzServiceBusNetworkRuleSet`](/powershell/module/az.servicebus/set-azservicebusnetworkruleset) together to add a virtual network rule.
-- [`Remove-AzServiceBusVirtualNetworkRule`](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) to remove s virtual network rule.
 
 
 ## default action and public network access 

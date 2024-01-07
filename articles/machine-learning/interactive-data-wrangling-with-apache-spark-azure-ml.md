@@ -88,7 +88,7 @@ You can access and wrangle data stored in Azure Data Lake Storage (ADLS) Gen 2 s
 - Service principal-based data access
 
 > [!TIP]
-> Data wrangling with a serverless Spark compute, and user identity passthrough to access data in a Azure Data Lake Storage (ADLS) Gen 2 storage account, requires the smallest number of configuration steps.
+> Data wrangling with a serverless Spark compute, and user identity passthrough to access data in an Azure Data Lake Storage (ADLS) Gen 2 storage account, requires the smallest number of configuration steps.
 
 To start interactive data wrangling with the user identity passthrough:
 

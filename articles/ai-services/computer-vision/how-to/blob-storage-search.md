@@ -2,7 +2,7 @@
 title: Configure your blob storage for image retrieval and video search in Vision Studio
 titleSuffix: Azure AI services
 description: To get started with the **Search photos with natural language** or with **Video summary and frame locator** in Vision Studio, you will need to select or create a new storage account.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

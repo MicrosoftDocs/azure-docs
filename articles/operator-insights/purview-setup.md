@@ -1,8 +1,9 @@
 ﻿---
 title: Use Microsoft Purview with an Azure Operator Insights Data Product
 description: In this article, learn how to set up Microsoft Purview to explore an Azure Operator Insights Data Product.
-author: HollyCl
-ms.author: HollyCl
+author: rcdun
+ms.author: rdunstan
+ms.reviewer: sergeyche
 ms.service: operator-insights
 ms.topic: how-to
 ms.date: 11/02/2023
@@ -119,7 +120,7 @@ When the Data Product creation process is complete, you can see the catalog deta
 :::image type="content" source="media/purview-setup/data-map-collections.png" alt-text="A screenshot of Data map collections in Purview.":::
 
 > [!NOTE]
-> The Microsoft Purview integration with Azure Operator Insights Data Products only features the Data catalog and Data map of the Purview portal.
+> The Microsoft Purview integration with Azure Operator Insights Data Products only features the Data catalog and Data map of the Microsoft Purview compliance portal.
 
 Select **Assets** to view the data product catalog and to list all assets of your data product.
 

@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # Overview of the MedTech service device data processing stages 
 
-This article provides an overview of the device data processing stages within the [MedTech service](overview.md). The MedTech service transforms device data into [FHIR Observations](https://www.hl7.org/fhir/observation.html) for persistence in the [FHIR service](../fhir/overview.md).
+This article provides an overview of the device data processing stages within the [MedTech service](overview.md). The MedTech service transforms device data into [FHIR&reg; Observations](https://www.hl7.org/fhir/observation.html) for persistence in the [FHIR service](../fhir/overview.md).
 
 The MedTech service device data processing follows these stages and in this order:
 

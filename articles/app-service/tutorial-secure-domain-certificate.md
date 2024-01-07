@@ -69,7 +69,7 @@ For more information on app scaling, see [Scale up an app in Azure App Service](
         1. Don't select **Validate** yet.        
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-secure-domain-certificate/configure-custom-domain.png" alt-text="A screenshot showing how to configure a new custom domain, along with a managed certificate." lightbox="./media/tutorial-secure-domain-certificate/add-custom-domain.png" border="true":::
+        :::image type="content" source="./media/tutorial-secure-domain-certificate/configure-custom-domain.png" alt-text="A screenshot showing how to configure a new custom domain, along with a managed certificate." lightbox="./media/tutorial-secure-domain-certificate/configure-custom-domain.png" border="true":::
     :::column-end:::
 :::row-end:::
 

@@ -52,23 +52,18 @@ Managed Airflow in Azure Data Factory offers a range of powerful features, inclu
 * East Us
 * South Central Us
 * West Us
+* Brazil South
 * UK South  
 * North Europe  
 * West Europe  
 * SouthEast Asia
-* East US2 (coming soon)
-* West US2 (coming soon)
-* Germany West Central (coming soon)
-* AustraliaEast (coming soon)
 
 > [!NOTE]
 > By GA, all ADF regions will be supported. The Airflow environment region is defaulted to the Data Factory region and is not configurable, so ensure you use a Data Factory in the above supported region to be able to access the Managed Airflow preview.  
 
 ## Supported Apache Airflow versions
 
-* 1.10.14
-* 2.2.2
-* 2.4.3
+* 2.6.3
 
 > [!NOTE]
 > Changing the Airflow version within an existing IR is not supported. Instead, the recommended solution is to create a new Airflow IR with the desired version
@@ -84,14 +79,13 @@ You can install any provider package by editing the airflow environment from the
 ## Limitations
 
 * Managed Airflow in other regions is available by GA.
-* Data Sources connecting through airflow should be publicly accessible. 
-* Blob Storage behind VNet is not supported during the public preview.
-* DAGs that are inside a Blob Storage in VNet/behind Firewall is currently not supported.
-* Azure Key Vault isn't supported in LinkedServices to import dags.
-* Airflow supports officially Blob Storage and ADLS with some limitations.
+* Data Sources connecting through airflow should be accessible through public endpoint (network).
+* DAGs that are inside a Blob Storage in VNet/behind Firewall is currently not supported. Instead we recommend using Git sync feature of Managed Airflow. See, [Sync a GitHub repository in Managed Airflow](airflow-sync-github-repository.md)
+* Importing Dags from Azure Key Vault isn't supported in LinkedServices.
 
-## Next steps
+## Related content
 
+- [Get Started with Managed Airflow](get-started-with-managed-airflow.md)
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)
 - [How to change the password for Managed Airflow environments](password-change-airflow.md)

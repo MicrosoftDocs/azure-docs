@@ -272,7 +272,7 @@ function InitMap()
         message: 'This point doesn\'t have a template defined, fallback to title and table of properties.',
         randomValue: 10,
         url: 'https://samples.azuremaps.com/',
-        imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
+        imageLink: 'https://samples.azuremaps.com/images/Pike_Market.jpg',
         email: 'info@microsoft.com'
       }),
 
@@ -354,7 +354,7 @@ function InitMap()
           subValue: 'Pizza'
         },
         arrayValue: [3, 4, 5, 6],
-        imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
+        imageLink: 'https://samples.azuremaps.com/images/Pike_Market.jpg',
         popupTemplate: {
           content: [
             'This template has two pieces of content; a string template with placeholders and a array of property info which renders a full width image.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',

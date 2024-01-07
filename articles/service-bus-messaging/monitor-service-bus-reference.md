@@ -264,13 +264,13 @@ AzureDiagnostics:
 ```json
 {
     "ActivityId": "<activity id>",
-    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
     "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
     "Time": "1/1/2021 8:40:06 PM +00:00",
     "Status": "Success | Failure",
     "Protocol": "AMQP | HTTP | SBMP", 
     "AuthType": "SAS | AAD", 
-    "AuthId": "<AAD Application Name| SAS policy name>",
+    "AuthKey": "<AAD Application Name| SAS policy name>",
     "NetworkType": "Public | Private", 
     "ClientIp": "x.x.x.x",
     "Count": 1, 
@@ -282,7 +282,7 @@ Resource specific table entry:
 ```json
 {
     "ActivityId": "<activity id>",
-    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
     "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
     "TimeGenerated (UTC)": "1/1/2021 8:40:06 PM +00:00",
     "Status": "Success | Failure",

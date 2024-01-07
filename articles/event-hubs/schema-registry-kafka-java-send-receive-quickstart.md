@@ -6,7 +6,7 @@ ms.date: 04/26/2023
 ms.devlang: java
 ms.custom: devx-track-extended-java
 author: kasun04
-ms.author: kindrasiri
+ms.author: spelluru
 ---
 
 # Validate schemas for Apache Kafka applications using Avro (Java)

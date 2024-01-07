@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 11/12/2019
+ms.date: 12/14/2023
 ---
 
 # Exclude disks from replication

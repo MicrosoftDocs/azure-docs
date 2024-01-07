@@ -106,6 +106,6 @@ Let's look back at the entire pipeline logic.
 
 :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png" alt-text="Screenshot that shows the logic of the entire pipeline.":::
 
-## Next steps
+## Related content
 
 Build the rest of your data flow logic by using mapping data flow [transformations](concepts-data-flow-overview.md).

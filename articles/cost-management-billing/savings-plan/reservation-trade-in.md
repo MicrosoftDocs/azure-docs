@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 

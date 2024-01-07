@@ -120,5 +120,5 @@ To assign administrative access to a project, select the DevCenter Project Admin
 ## Next steps
 
 - [Manage dev box pools](./how-to-manage-dev-box-pools.md)
-- [3. Create a dev box definition](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition)
+- [2. Create a dev box definition](quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
 - [Configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)

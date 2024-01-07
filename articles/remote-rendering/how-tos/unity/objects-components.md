@@ -1,8 +1,8 @@
 ---
 title: Unity game objects and components
 description: Describes Unity specific methods to work with Remote Rendering entities and components.
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.custom: devx-track-csharp

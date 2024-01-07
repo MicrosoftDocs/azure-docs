@@ -12,9 +12,9 @@ ms.custom: mode-api
 
 # Get started with the MedTech service 
 
-This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These steps may help you to assess the [MedTech service deployment methods](deploy-choose-method.md) and determine which deployment method is best for you.
+This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These steps might help you to assess the [MedTech service deployment methods](deploy-choose-method.md) and determine which deployment method is best for you.
 
-As a prerequisite, you need an Azure subscription and have been granted the proper permissions to deploy Azure resource groups and resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in Azure PowerShell, Azure CLI, or REST API scripts.
+As a prerequisite, you need an Azure subscription and granted the proper permissions to deploy Azure resource groups and resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in Azure PowerShell, Azure CLI, or REST API scripts.
 
 > [!TIP]
 > See the MedTech service article, [Choose a deployment method for the MedTech service](deploy-choose-method.md), for a description of the different deployment methods that can help to simplify and automate the deployment of the MedTech service. 
@@ -28,7 +28,7 @@ After you obtain the required subscription prerequisites, the first step is to d
 * Azure resource group.
 * Azure Event Hubs namespace and event hub.
 * Azure Health Data Services workspace.
-* Azure Health Data Services FHIR service.
+* Azure Health Data Service FHIR&reg; service.
 
 Once the prerequisite resources are available, deploy:
  
@@ -52,7 +52,7 @@ Deploy a [FHIR service](../fhir/fhir-portal-quickstart.md) into your resource gr
 
 ### Deploy a MedTech service
 
-If you have successfully deployed the prerequisite resources, you're now ready to deploy the [MedTech service](deploy-manual-portal.md) using your workspace.
+If you successfully deployed the prerequisite resources, you're now ready to deploy the [MedTech service](deploy-manual-portal.md) using your workspace.
 
 ## Next steps
 

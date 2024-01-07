@@ -10,7 +10,9 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
-    - name: 2308 - Current
+    - name: '2310 - Current'
+      href: azure-private-5g-core-release-notes-2310.md
+    - name: '2308'
       href: azure-private-5g-core-release-notes-2308.md
     - name: '2307'
       href: azure-private-5g-core-release-notes-2307.md  
@@ -64,7 +66,7 @@ items:
       href: monitor-private-5g-core-with-platform-metrics.md
     - name: Cloud monitoring with Azure Monitor Workbooks
       href: monitor-private-5g-core-workbooks.md
-    - name: Cloud monitoring of UE usage with Event Hubs (preview)
+    - name: Cloud monitoring of UE usage with Event Hubs
       href: ue-usage-event-hub.md
     - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md

@@ -172,3 +172,6 @@ In this tutorial, you deployed Bastion to a virtual network and connected to a V
 
 > [!div class="nextstepaction"]
 > [VM connections and features](vm-about.md)
+
+> [!div class="nextstepaction"]
+> [Configure Azure DDos protection for your virtual network](../ddos-protection/manage-ddos-protection.md)

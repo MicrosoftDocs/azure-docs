@@ -89,10 +89,13 @@ The _ConversionWarningsAndErrors.json_ contains a list of your drawing package e
 Learn more by reading:
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
 > [Creator for indoor maps]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps Conversion API]: /rest/api/maps/v2/conversion
+[Azure Maps Conversion API]: /rest/api/maps-creator/conversion
 [Convert a drawing package]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
 [Creator for indoor maps]: creator-indoor-maps.md
 [Creator resource]: how-to-manage-creator.md
@@ -101,3 +104,4 @@ Learn more by reading:
 [How to create data registry]: how-to-create-data-registries.md
 [Postman]: https://www.postman.com/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[What is Azure Maps Creator?]: about-creator.md

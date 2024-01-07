@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Image Analysis client library for Java"
 description: In this quickstart, get started with the Image Analysis client library for Java.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
