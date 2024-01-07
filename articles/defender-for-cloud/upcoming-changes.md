@@ -25,7 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| Defender for Servers built-in vulnerability assessment (Qualys) retirement path | January 8, 2024 | May 2024 |
+| [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 8, 2024 | May 2024 |
 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
 | [Deprecation and severity changes to security alerts](#deprecation-and-severity-changes-to-security-alerts) | December 27, 2023 | January 2024 |
@@ -49,7 +49,7 @@ The Defender for Servers built-in vulnerability assessment solution powered by Q
  
 For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can ead [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 
-For common questions about the transition to Microsoft Defender Vulnerability Management, see [Common questions about the Microsoft Defender Vulnerability Management solution](common-questions).
+You can also check out [common questions about the transition to Microsoft Defender Vulnerability Management solution](faq-scanner-detection.yml).
 
 ## New version of Defender Agent for Defender for Containers
 
