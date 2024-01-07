@@ -122,7 +122,7 @@ GCP connector issues:
 
 Defender API calls to GCP:
 
-- When you onboard your GCP single project or organization, our Discovery service initiates an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that we secure.
+When you onboard your GCP single project or organization, our Discovery service initiates an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that we secure.
 
 Following this initial scan, the service will continue to periodically scan your environment at the interval that you configured during onboarding.
 
