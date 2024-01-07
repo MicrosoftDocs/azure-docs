@@ -115,7 +115,7 @@ Furthermore, if you have connected your CloudTrail to GuardDuty, you're also res
       
       ```
 
-      - List the number of overall API calls by MDC aggregated by region:
+      - List the number of overall API calls by Defender for Cloud aggregated by region:
 
       
 ```sql
