@@ -188,8 +188,7 @@ kubectl logs -n kube-system <worker-pod-name> -c trivy-scanner
 kubectl logs -n kube-system <worker-pod-name> -c remover
 ```
 
-- when `eraser-aks-xxxxx` was deleted, you can follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table to view historical pod logs.
-- `eraser-aks-xxxxx` pod will be deleted in 10 minutes after work completion. To store and view the historical pod logs, you can follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table. After that, logs will be collected and you can review it even `eraser-aks-xxxxx` is deleted
+- `eraser-aks-xxxxx` pod will be deleted in 10 minutes after work completion. You can follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table. After that, historical logs will be stored and you can review them even `eraser-aks-xxxxx` is deleted
   
   1. Ensure Azure Monitoring is enabled on your cluster. For detailed steps, see [Enable Container Insights on AKS clusters](../azure-monitor/containers/container-insights-enable-aks.md#existing-aks-cluster).
 
