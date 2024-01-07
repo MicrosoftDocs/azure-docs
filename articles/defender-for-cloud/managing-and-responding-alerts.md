@@ -4,7 +4,7 @@ description: This document helps you to use Microsoft Defender for Cloud capabil
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 12/24/2023
+ms.date: 01/07/2024
 ---
 # Manage and respond to security alerts
 

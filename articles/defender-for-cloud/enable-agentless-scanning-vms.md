@@ -109,9 +109,9 @@ After you enable agentless scanning, software inventory and vulnerability inform
 1. Select  **Next: Review and generate**. 
 1. Select  **Update**. 
 
-## Verify agentless scanner deployment
+##  Validate onboarding of the agentless malware scanning capability
 
-To verify that the device is properly onboarded and reporting to Defender for Cloud, you can create an European Institute for Computer Antivirus Research (EICAR) test file.
+Security alerts appear on the portal only in cases where threats are detected on your environment. If you do not have any alerts it may be because there are no threats on your environment. You can validate that the device is properly onboarded and reporting to Defender for Cloud by creating an European Institute for Computer Antivirus Research (EICAR) test file.
 
 ### Create an EICAR test file for Linux
 
@@ -145,6 +145,8 @@ Before you start, ensure that you [enable the Defender for Endpoint agent](integ
     fi 
     ```
 
+The alert `EICAR_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
+
 ### Create an EICAR test file for Windows
 
 Before starting you will need to: 
@@ -162,6 +164,7 @@ Before starting you will need to:
     $EICAR_STRING = 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-CLOUD-TEST-FILE!$H+H*' 
     ```
 
+The alert `EICAR_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
 
 ## Exclude machines from scanning
 
