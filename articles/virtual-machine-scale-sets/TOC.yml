@@ -135,7 +135,9 @@
       href: virtual-machine-scale-sets-set-upgrade-policy.md
     - name: Changing the Upgrade Policy
       href: virtual-machine-scale-sets-change-upgrade-policy.md
-    - name: Performing Upgrades
+    - name: Configure Rolling Upgrades
+      href: virtual-machine-scale-sets-rolling-upgrades.md 
+    - name: Performing Manual Upgrades
       href: virtual-machine-scale-sets-perform-upgrades.md
   - name: Common management tasks
     items:
