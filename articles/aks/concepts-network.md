@@ -26,18 +26,18 @@ This article introduces the core concepts that provide networking to your applic
 ## Kubernetes basics
 Kubernetes employs a virtual networking layer to manage access within and between your applications or their components. This involves the following key aspects:
 
-- **Kubernetes Nodes and Virtual Network**: Kubernetes nodes are connected to a virtual network. This setup enables pods (basic units of deployment in Kubernetes) to have both inbound and outbound connectivity.
+- **Kubernetes nodes and virtual network**: Kubernetes nodes are connected to a virtual network. This setup enables pods (basic units of deployment in Kubernetes) to have both inbound and outbound connectivity.
 
-- **Kube-proxy Component**: Running on each node, kube-proxy is responsible for providing the necessary network features.
+- **Kube-proxy component**: Running on each node, kube-proxy is responsible for providing the necessary network features.
 
 Regarding specific Kubernetes functionalities:
 
 - **Services**: These are used to logically group pods, allowing direct access to them through a specific IP address or DNS name on a designated port.
-- **Service Types**: This feature lets you specify the kind of Service you wish to create.
-- **Load Balancer**: You can use a load balancer to distribute network traffic evenly across various resources.
-- **Ingress Controllers**: These facilitate Layer 7 routing, which is essential for directing application traffic.
-- **Egress Traffic Control**: Kubernetes allows you to manage and control outbound traffic from cluster nodes.
-- **Network Policies**: These policies enable security measures and filtering for network traffic in pods.
+- **Service types**: This feature lets you specify the kind of Service you wish to create.
+- **Load balancer**: You can use a load balancer to distribute network traffic evenly across various resources.
+- **Ingress controllers**: These facilitate Layer 7 routing, which is essential for directing application traffic.
+- **Egress traffic control**: Kubernetes allows you to manage and control outbound traffic from cluster nodes.
+- **Network policies**: These policies enable security measures and filtering for network traffic in pods.
 
 In the context of the Azure platform:
 
