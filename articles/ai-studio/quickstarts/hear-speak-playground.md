@@ -2,14 +2,15 @@
 title: Hear and speak with chat models in the Azure AI Studio playground
 titleSuffix: Azure AI Studio
 description: Hear and speak with chat models in the Azure AI Studio playground.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Quickstart: Hear and speak with chat models in the Azure AI Studio playground
@@ -32,7 +33,7 @@ The speech to text and text to speech features can be used together or separatel
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An Azure AI resource with a chat model deployed. For more information about model deployment, see the [resource deployment guide](../../ai-services/openai/how-to/create-resource.md).
+- An [Azure AI resource](../how-to/create-azure-ai-resource.md) with a chat model deployed. For more information about model deployment, see the [resource deployment guide](../../ai-services/openai/how-to/create-resource.md).
 
 
 ## Configure the playground

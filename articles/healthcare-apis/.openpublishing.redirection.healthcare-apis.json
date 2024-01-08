@@ -491,6 +491,10 @@
        "redirect_url": "/azure/healthcare-apis/dicom/export-files",
        "redirect_document_id": true     
     },     
+    {  "source_path_from_root": "/articles/healthcare-apis/dicom/update-files.md",
+       "redirect_url": "/azure/healthcare-apis/dicom/overview",
+       "redirect_document_id": false     
+    },
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/configure-azure-rbac-for-fhir.md",
           "redirect_url": "/azure/healthcare-apis/configure-azure-rbac",
@@ -768,7 +772,11 @@
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-configure-metrics.md",
             "redirect_url": "/azure/healthcare-apis/iot/configure-metrics",
-            "redirect_document_id": false          
+            "redirect_document_id": false 
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/iot-metrics-display.md",
+          "redirect_url": "/azure/healthcare-apis/iot/configure-metrics",
+          "redirect_document_id": false           
       },
       {   "source_path_from_root": "/articles/healthcare-apis/events/events-display-metrics.md",
           "redirect_url": "/azure/healthcare-apis/events/events-use-metrics",

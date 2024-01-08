@@ -6,6 +6,7 @@ ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 12/01/2023
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
@@ -52,8 +53,8 @@ The main differences between these options are listed in the following table:
 | Reserved Instance Pricing | Supported | Supported | Supported |
 | Stop/Start Server for development | Server can be stopped up to seven days | Server can be stopped up to 30 days | Supported |
 | Low cost Burstable SKU | Not Supported | Supported | Supported |
-| [[**Networking/Security**](single-server/concepts-security.md) | | | |
-| Network Connectivity | - Public endpoints with server firewall.<br />- Private access with Private Link support. | - Public endpoints with server firewall.<br />- Private access with Virtual Network integration. | - Public endpoints with server firewall.<br />- Private access with Private Link support. |
+| [**Networking/Security**](single-server/concepts-security.md) | | | |
+| Network Connectivity | - Public endpoints with server firewall.<br />- Private access with Private Link support. | - Public endpoints with server firewall.<br />- Private access with Private Link support. <br />- Private access with Virtual Network integration. | - Public endpoints with server firewall.<br />- Private access with Private Link support.  |
 | SSL/TLS | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Supported with TLS v1.2, 1.1 and 1.0 |
 | Data Encryption at rest | Supported with customer-managed keys (BYOK) | Supported with service managed keys | Not Supported |
 | Microsoft Entra authentication | Supported | Supported | Not Supported |

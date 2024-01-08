@@ -1,12 +1,12 @@
 ---
-title: Windows in-place upgrade 
+title: Windows in-place upgrade
 description: This article describes how to do an in-place upgrade for VMs running Windows Server in Azure.
 services: virtual-machines
-author: cynthn
+author: ju-shim
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 07/05/2023
-ms.author: cynthn
+ms.author: jushiman
 ---
 
 # In-place upgrade for VMs running Windows Server in Azure
@@ -57,7 +57,7 @@ To start an in-place upgrade the upgrade media must be attached to the VM as a M
 | diskName | Name of the Managed Disk that will contain the upgrade media |
 | sku | Windows Server upgrade media version. This must be either:  `server2016Upgrade` or `server2019Upgrade` or `server2022Upgrade` or `server2012Upgrade` |
 
-If you have more than one subscription, you should run `Set-AzsSubscription -SubscriptionId <String>` to specify which subscription to use.
+If you have more than one subscription, you should run `Set-AzContext -Subscription '<subscription name or id>` to specify which subscription to use.
 
 ### PowerShell script 
 

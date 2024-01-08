@@ -68,8 +68,9 @@ items:
             href: security-controls-policy.md
           - name: Azure Policy built-ins
             displayName: samples, policies, definitions
+            href: ./policy-reference.md
           - name: Network security (MQTT)
-            href: network-security-mqtt.md
+            href: network-security-namespaces.md
         - name: Use cases
           items:
           - name: Automotive Messaging
@@ -97,9 +98,9 @@ items:
         - name: Secure
           items:
           - name: Allow access from specific IP addresses
-            href: configure-firewall-mqtt.md
+            href: mqtt-configure-firewall.md
           - name: Allow access via private endpoints
-            href: configure-private-endpoints-mqtt.md
+            href: mqtt-configure-private-endpoints.md
     - name: Namespace topics
       items:
       - name: Pull delivery overview
@@ -153,7 +154,8 @@ items:
           - name: Security controls by Azure Policy
             href: security-controls-policy.md
           - name: Azure Policy built-ins
-            displayName: samples, policies, definitions          
+            displayName: samples, policies, definitions
+            href: ./policy-reference.md
           - name: Network security
             href: network-security-namespaces.md            
       - name: How-to
@@ -383,6 +385,18 @@ items:
               href: outlook-events.md
             - name: Microsoft Teams
               href: teams-events.md
+            - name: One Drive
+              href: one-drive-events.md
+            - name: SharePoint
+              href: share-point-events.md
+            - name: ToDo
+              href: to-do-events.md
+            - name: Security alerts
+              href: security-alert-events.md
+            - name: Cloud printing
+              href: cloud-printing-events.md
+            - name: Conversations
+              href: conversation-events.md
       - name: Event Domains
         href: event-domains.md
       - name: Event schema formats
@@ -603,15 +617,35 @@ items:
     - name: PowerShell
       href: /powershell/module/az.eventgrid
     - name: REST
-      href: /rest/api/eventgrid
+      items:
+      - name: Preview
+        href: /rest/api/eventgrid/controlplane/operation-groups?view=rest-eventgrid-controlplane-2023-12-15-preview&preserve-view=true
+      - name: GA
+        href: /rest/api/eventgrid/controlplane/operation-groups?view=rest-eventgrid-controlplane-2022-06-15&preserve-view=true
     - name: .NET
-      href: /dotnet/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
+      - name: GA
+        href: /dotnet/api/overview/azure/event-grid
     - name: Java
-      href: /java/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /java/api/overview/azure/messaging-eventgrid-readme?view=azure-java-preview&preserve-view=true
+      - name: GA
+        href: /java/api/overview/azure/event-grid
     - name: Python
-      href: /python/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /python/api/overview/azure/eventgrid-readme?view=azure-python-preview&preserve-view=true
+      - name: GA
+        href: /python/api/overview/azure/event-grid
     - name: Node.js
-      href: /javascript/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /javascript/api/overview/azure/eventgrid-readme?view=azure-node-preview&preserve-view=true
+      - name: GA
+        href: /javascript/api/overview/azure/event-grid      
     - name: Quotas and limits
       href: quotas-limits.md
   - name: Resources

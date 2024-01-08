@@ -91,9 +91,9 @@ user = identity_client.create_user()
 Call the Azure Communication token service to exchange the user access token for a TURN service token
 
 ```python
-relay_configuration = relay_client.get_relay_configuration(user)
+relay_configuration = relay_client.get_relay_configuration()
 
-for iceServer in config.ice_servers:
+for iceServer in relay_configuration.ice_servers:
     assert iceServer.username is not None
     print('Username: ' + iceServer.username)
 

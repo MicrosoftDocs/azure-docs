@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Azure Synapse Analytics, 
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: joanpo, wiassaf
-ms.date: 05/19/2023
+ms.date: 01/05/2024
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
@@ -296,7 +296,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     
     2. Otherwise, enable public network access by setting **Public network access** option to **Selected networks** on Azure SQL Database **Networking** setting page.
     
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

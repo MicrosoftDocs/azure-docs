@@ -2,7 +2,7 @@
 title: Overview of Log Analytics in Azure Monitor
 description: This overview describes Log Analytics, which is a tool in the Azure portal used to edit and run log queries for analyzing data in Azure Monitor logs.
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 12/28/2023
 
 ---
 
@@ -53,14 +53,14 @@ The top bar has controls for working with a query in the query window.
 | Scope | Specifies the scope of data used for the query. This could be all the data in a Log Analytics workspace or data for a particular resource across multiple workspaces. See [Query scope](./scope.md). |
 | Run button | Run the selected query in the query window. You can also select **Shift+Enter** to run a query. |
 | Time picker | Select the time range for the data available to the query. This action is overridden if you include a time filter in the query. See [Log query scope and time range in Azure Monitor Log Analytics](./scope.md). |
-| Save button | Save the query to a [query pack](./query-packs.md). Saved queries are available from: <ul><li> The **Other** section in the **Query Explorer** for the workspace</li><li>The **Other** section in the **Queries** tab in the [left sidebar](#left-sidebar) for the workspace</ul> |
+| Save button | Save the query to a [query pack](./query-packs.md). Saved queries are available from: <ul><li> The **Other** section in the **Queries** dialog for the workspace</li><li>The **Other** section in the **Queries** tab in the [left sidebar](#left-sidebar) for the workspace</ul> |
  Share button | Copy a link to the query, the query text, or the query results to the clipboard. |
 | New alert rule button | Open the Create an alert rule page. Use this page to [create an alert rule](../alerts/alerts-create-new-alert-rule.md?tabs=log) with an alert type of [log alert](../alerts/alerts-types.md#log-alerts). The page opens with the [Conditions tab](../alerts/alerts-create-new-alert-rule.md?tabs=log#set-the-alert-rule-conditions) selected, and your query is added to the **Search query** field. |
 | Export button | Export the results of the query to a CSV file or the query to Power Query Formula Language format for use with Power BI. |
 | Pin to button | Pin the results of the query to an Azure dashboard or add them to an Azure workbook. |
 | Format query button | Arrange the selected text for readability. |
 | Search job mode toggle | [Run search jobs](./search-jobs.md).
-| Queries button | Open **Query Explorer**, which provides access to saved queries in the workspace. |
+| Queries button | Open the **Queries** dialog, which provides access to saved queries in the workspace. |
 
 ### Left sidebar
 

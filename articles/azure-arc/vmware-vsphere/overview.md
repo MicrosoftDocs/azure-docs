@@ -6,6 +6,9 @@ ms.date: 11/06/2023
 ms.custom: references_regions
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
+author: Farha-Bano
+ms.author: v-farhabano
+manager: jsuri
 ---
 
 # What is Azure Arc-enabled VMware vSphere?

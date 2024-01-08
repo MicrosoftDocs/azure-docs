@@ -204,7 +204,7 @@ Let’s test the setup by making some changes in the development Data Factory in
 
 4. You can also navigate to the target Data Factory instance to which you deployed changes to and make sure it reflects the latest changes.
 
-## Next steps
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Manually promote a Resource Manager template to each environment](continuous-integration-delivery-manual-promotion.md)

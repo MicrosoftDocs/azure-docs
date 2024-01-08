@@ -56,6 +56,6 @@ If your data flow has any join, lookup, exists, or union transformations, data f
 
 :::image type="content" source="media/data-flow/hide-reference-nodes.png" alt-text="Hide reference nodes":::
 
-## Next steps
+## Related content
 
 After completing your data flow logic, turn on [debug mode](concepts-data-flow-debug-mode.md) and test it out in a data preview.

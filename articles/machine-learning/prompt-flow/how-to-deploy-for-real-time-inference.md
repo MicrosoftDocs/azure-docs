@@ -58,6 +58,17 @@ When you deploy prompt flow to managed online endpoint in UI, by default the dep
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of flow requirements-text. " lightbox = "./media/how-to-deploy-for-real-time-inference/requirements-text.png":::
 
+If you are using the customer environment to create compute instance runtime, you can find the image in environment detail page in Azure Machine Learning studio. To learn more, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/runtime-creation-image-environment.png" alt-text="Screenshot of image name in environment detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/runtime-creation-image-environment.png":::
+
+Then you need also specify the image to the `environment` in the `flow.dag.yaml` in flow folder.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png":::
+
+> [!NOTE]
+> If you are using private feeds in Azure devops, you need [build the image with private feeds](./how-to-create-manage-runtime.md#add-packages-in-private-feed-in-azure-devops) first and select custom environment to deploy in UI.
+
 ## Create an online deployment
 
 Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 
@@ -132,9 +143,49 @@ See detailed guidance about how to grant permissions to the endpoint identity in
 
 In this step, except tags, you can also specify the environment used by the deployment. 
 
-By default the deployment will use the environment created based on the latest prompt flow image and dependencies specified in the `requirements.txt` of the flow.
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deployment-environment.png" alt-text="Screenshot of deployment environment. " lightbox = "./media/how-to-deploy-for-real-time-inference/deployment-environment.png":::
 
-If you have already built custom environment, you can also select customized environment.
+#### Use environment of current flow definition
+
+By default the deployment will use the environment created based on the base image specified in the `flow.dag.yaml` and dependencies specified in the `requirements.txt`.
+
+- You can specify the base image in the `flow.dag.yaml` by selecting `Raw file mode` of the flow. If there is no image specified, the default base image is the latest prompt flow base image.
+    
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/flow-environment-image.png" alt-text="Screenshot of specifying base image in raw yaml file of the flow. " lightbox = "./media/how-to-deploy-for-real-time-inference/flow-environment-image.png":::
+
+- You can find `requirements.txt` in the root folder of your flow folder, and add dependencies within it.
+
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of flow requirements text. " lightbox = "./media/how-to-deploy-for-real-time-inference/requirements-text.png":::
+
+#### Use customized environment
+
+You can also create customized environment and use it for the deployment. 
+
+> [!NOTE]
+> Your custom environment must satisfy following requirements:
+> - the docker image must be created based on prompt flow base image, `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. You can find the newest version [here](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list).
+> - the environment definition must include the `inference_config`.
+
+Following is an example of customized environment definition.
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: pf-customized-test
+build:
+  path: ./image_build
+  dockerfile_path: Dockerfile
+description: promptflow customized runtime
+inference_config:
+  liveness_route:
+    port: 8080
+    path: /health
+  readiness_route:
+    port: 8080
+    path: /health
+  scoring_route:
+    port: 8080
+    path: /score
+```
 
 ### Advanced settings - Outputs & Connections
 
@@ -259,6 +310,55 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png" alt-text="Screenshot of prompt flow endpoint metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png":::
 
 ## Troubleshoot endpoints deployed from prompt flow
+
+### MissingDriverProgram Error
+
+If you deploy your flow with custom environment and encounter the following error, it might be because you didn't specify the `inference_config` in your custom environment definition.
+
+```text
+'error': 
+{
+    'code': 'BadRequest', 
+    'message': 'The request is invalid.', 
+    'details': 
+         {'code': 'MissingDriverProgram', 
+          'message': 'Could not find driver program in the request.', 
+          'details': [], 
+          'additionalInfo': []
+         }
+}
+```
+
+There are 2 ways to fix this error.
+
+1. You can fix this error by adding `inference_config` in your custom environment definition. Learn more about [how to use customized environment](#use-customized-environment).
+
+    Following is an example of customized environment definition.
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: pf-customized-test
+build:
+  path: ./image_build
+  dockerfile_path: Dockerfile
+description: promptflow customized runtime
+inference_config:
+  liveness_route:
+    port: 8080
+    path: /health
+  readiness_route:
+    port: 8080
+    path: /health
+  scoring_route:
+    port: 8080
+    path: /score
+```
+
+2. You can find the container image uri in your custom environment detail page, and set it as the flow base image in the flow.dag.yaml file. When you deploy the flow in UI, you just select **Use environment of current flow definition**, and the backend service will create the customized environment based on this base image and `requirement.txt` for your deployment. Learn more about [the environment specified in the flow definition](#use-environment-of-current-flow-definition). 
+
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png" alt-text="Screenshot of custom environment detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png":::
+
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/flow-environment-image.png" alt-text="Screenshot of specifying base image in raw yaml file of the flow. " lightbox = "./media/how-to-deploy-for-real-time-inference/flow-environment-image.png":::
 
 ### Model response taking too long
 
