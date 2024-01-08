@@ -37,6 +37,39 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 
 #### LRS
 
+Different regions have varying levels of base storage capacity available. We'll break them down into two sets, regions with a higher base storage capacity available, and regions with a lower base storage capacity available. Other than the base storage capacity differences, which directly affect the available performance that a SAN can distribute to its volumes and volume groups, there are no differences between these sets of regions.
+
+##### Higher available base storage capacity
+
+The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: Australia East,Brazil South, Canada Central, Germany West, North Europe, West Europe, UK South, East US, East US 2, South Central US, US Central, and West US 2.
+
+
+|  |Values  |
+|---------|---------|
+|Maximum number of Elastic SANs that can be deployed per subscription per region     | 5         |
+|Maximum total capacity (TiB)     | 600         |
+|Maximum base capacity (TiB)     | 400         |
+|Minimum total capacity (TiB)     | 1         |
+|Maximum total IOPS     |2,000,000         |
+|Maximum total throughput (MB/s)     |32,000         |
+
+
+##### Lower available base storage capacity
+
+
+The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: East Asia, Korea Central, South Africa North, France Central, Southeast Asia, Qatar Central, West US 3, Sweden Central, Switzerland North.
+
+
+|  |Values  |
+|---------|---------|
+|Maximum number of Elastic SANs that can be deployed per subscription per region     | 5         |
+|Maximum total capacity (TiB)     | 100         |
+|Maximum base capacity (TiB)     | 100         |
+|Minimum total capacity (TiB)     | 1         |
+|Maximum total IOPS     |500,000         |
+|Maximum total throughput (MB/s)     |8,000         |
+
+
 |Resource  |France Central   |Southeast Asia |Australia East |North Europe | West Europe | UK South | East US | East US 2 | South Central US| West US 2   | West US 3 | Sweden Central |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5        |5        |5        |5        |5        |5        |5        | 5 | 5|5|
