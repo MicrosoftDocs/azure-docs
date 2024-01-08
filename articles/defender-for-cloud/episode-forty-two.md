@@ -7,7 +7,7 @@ ms.date: 01/08/2024
 
 # Agentless secrets scanning for virtual machines
 
-**Episode description**: In this episode of Defender for Cloud in the Field, Ortal Parpara joins Yuri Diogenes to talk about agentless secrets scanning for virtual machines in Microsoft Defender for Cloud. Ortal explains the use case scenario for this feature, how this feature works, and the prerequisites for this feature to work. Ortal also demonstrates how the attack path uses this feature to provide more insights about secrets that are located in virtual machines, and how this can be used to detect potential cross-cloud attacks.
+**Episode description**: In this episode of Defender for Cloud in the Field, Ortal Parpara joins Yuri Diogenes to talk about agentless secrets scanning for virtual machines in Microsoft Defender for Cloud. Ortal explains the use case scenario for this feature, how the feature works, and the prerequisites for this feature to work. The demonstration shows how the attack path uses this feature to provide more insights about secrets that are located in virtual machines, and how it can be used to detect potential cross-cloud attacks.
 
 > [!VIDEO https://aka.ms/docs/player?id=eb236b6c-fe8b-4662-92e6-0ae4b7531f2f]
 
