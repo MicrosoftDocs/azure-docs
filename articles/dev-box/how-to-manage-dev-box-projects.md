@@ -97,7 +97,7 @@ You can delete a Microsoft Dev Box project when you're no longer using it. Delet
  
    :::image type="content" source="./media/how-to-manage-dev-box-projects/delete-project.png" alt-text="Screenshot of the overview page for a dev box project and the Delete option highlighted." lightbox="./media/how-to-manage-dev-box-projects/delete-project.png":::
 
-1.  In the confirmation message, select **OK**.
+1. In the confirmation message, select **OK**.
 
    :::image type="content" source="./media/how-to-manage-dev-box-projects/confirm-delete-project.png" alt-text="Screenshot of the Delete dev box pool confirmation message.":::
 
