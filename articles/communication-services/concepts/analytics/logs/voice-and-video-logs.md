@@ -186,8 +186,7 @@ There are two types of calls, as represented by `callType`:
 
   :::image type="content" source="../media/call-logs-azure-monitor/group-call-version-a.png" alt-text="Diagram that shows a group call across multiple endpoints.":::
 
-## Log structure
-<!-- @ankeshni Does participant information for the log vary based on tenant? You mentioned you needed to test this -->
+## Log structure 
 
 Azure Communication Services creates four types of logs:
 
