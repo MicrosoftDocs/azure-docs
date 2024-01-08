@@ -109,9 +109,7 @@ The newly created service principal needs **Secret** `list` and `get` access pol
 Run the following to assign **secret** `get` and `list` permissions to the service principal.
 
 ```bash
-
 az keyvault set-policy --name "<your unique key vault name>" --resource-group "<the name of the resource group>" --object-id <Object ID copied from Enterprise Application SP in Microsoft Entra ID> --secret-permissions get list --key-permissions get list
-
 ```
 
 ### Pass service principal and Key Vault arguments to Azure IoT Operations deployment
@@ -121,14 +119,12 @@ When following the guide [Deploy Azure IoT Operations extensions](./howto-deploy
 The following example shows how to prepare the cluster for Azure IoT Operations without fully deploying it by using `--no-deploy` flag. You can also run the command without this argument for a default Azure IoT Operations deployment.
 
 ```bash
-
 az iot ops init --name "<your unique key vault name>" --resource-group "<the name of the resource group>" \
     --kv-id <Key Vault Resource ID> \
     --sp-app-id <Application registration App ID (client ID) from Microsoft Entra ID> \
     --sp-object-id <Object ID copied from Enterprise Application in Microsoft Entra ID> \
     --sp-secret "<Client Secret from App registration in Microsoft Entra ID>" \
     --no-deploy
-
 ```
 
 ## Add a secret to an Azure IoT Operations component
