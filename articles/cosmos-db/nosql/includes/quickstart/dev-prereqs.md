@@ -4,7 +4,7 @@ ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: include
-ms.date: 01/08/2023
+ms.date: 01/08/2024
 ms.custom: include file
 zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
