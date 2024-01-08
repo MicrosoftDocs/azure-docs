@@ -401,7 +401,7 @@ You can now create a job that uses to use the container image. In this section, 
         --polling-interval 30 \
         --scale-rule-name "github-runner" \
         --scale-rule-type "github-runner" \
-        --scale-rule-metadata "github-runner=https://api.github.com" "owner=$REPO_OWNER" "runnerScope=repo" "repos=$REPO_NAME" "targetWorkflowQueueLength=1" \
+        --scale-rule-metadata "githubAPIURL=https://api.github.com" "owner=$REPO_OWNER" "runnerScope=repo" "repos=$REPO_NAME" "targetWorkflowQueueLength=1" \
         --scale-rule-auth "personalAccessToken=personal-access-token" \
         --cpu "2.0" \
         --memory "4Gi" \
@@ -424,7 +424,7 @@ You can now create a job that uses to use the container image. In this section, 
         --polling-interval 30 `
         --scale-rule-name "github-runner" `
         --scale-rule-type "github-runner" `
-        --scale-rule-metadata "github-runner=https://api.github.com" "owner=$REPO_OWNER" "runnerScope=repo" "repos=$REPO_NAME" "targetWorkflowQueueLength=1" `
+        --scale-rule-metadata "githubAPIURL=https://api.github.com" "owner=$REPO_OWNER" "runnerScope=repo" "repos=$REPO_NAME" "targetWorkflowQueueLength=1" `
         --scale-rule-auth "personalAccessToken=personal-access-token" `
         --cpu "2.0" `
         --memory "4Gi" `
