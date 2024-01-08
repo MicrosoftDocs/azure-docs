@@ -102,16 +102,32 @@ Create an item in the container using `container.UpsertItem`. This method "upser
 
 ### Read an item
 
-Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use 
+Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use TODO.
 
-:::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/cosmos.go" id="" highlight="":::
+:::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/cosmos.go" id="read_item" highlight="7":::
 
 ### Query items
 
-:::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/cosmos.go" id="" highlight="":::
+TODO
 
-:::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/cosmos.go" id="" highlight="":::
+:::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/cosmos.go" id="query_items" highlight="3,11":::
+
+TODO
+
+:::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/cosmos.go" id="parse_results" highlight="7-8":::
 
 ## Clean up resources
 
 [!INCLUDE[Developer Quickstart cleanup](includes/quickstart/dev-cleanup.md)]
+
+## Related content
+
+- [.NET Quickstart](quickstart-dotnet.md)
+- [JavaScript/Node.js Quickstart](quickstart-nodejs.md)
+- [Java Quickstart](quickstart-java.md)
+- [Python Quickstart](quickstart-python.md)
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Go package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos)
