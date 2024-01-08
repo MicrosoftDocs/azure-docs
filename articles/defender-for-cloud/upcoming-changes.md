@@ -41,7 +41,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 ## Defender for Servers built-in vulnerability assessment (Qualys) retirement path
 
-**Announcement date: January 8, 2024**
+**Announcement date: January 9, 2024**
 
 **Estimated date for change: May 2024**
 
