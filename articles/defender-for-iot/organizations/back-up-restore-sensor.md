@@ -69,7 +69,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
     add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=X.X,file_mode=0777,dir_mode=0777
     ```
-   Make sure you replace vers=X.X with the correct version of your external SMB server, for example vers=3.0
+   Make sure you replace `vers=X.X` with the correct version of your external SMB server. For example `vers=3.0`.
 
 1. Edit and create credentials to share for the SMB server. Run:
 
