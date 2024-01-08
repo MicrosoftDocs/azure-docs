@@ -15,7 +15,7 @@ This article describes how to enable complete monitoring of your Kubernetes clus
 - [Container insights](./container-insights-overview.md) for log collection
 - [Managed Grafana](../../managed-grafana/overview.md) for visualization.
 
-Using the Azure portal, you can enable all of the features at the same time. You can also enable them individually by using the Azure CLI, Azure Resource Manager template, Bicep, Terraform, or Azure Policy. Each of these methods is described in this article.
+[Using the Azure portal](#enable-full-monitoring-with-azure-portal), you can enable all of the features at the same time. You can also enable them individually by using the [Azure CLI](#enable-prometheus-and-grafana?tabs=cli), [Azure Resource Manager template](#enable-prometheus-and-grafana?tabs=arm), [Terraform](#enable-prometheus-and-grafana?tabs=terraform), or [Azure Policy](#enable-prometheus-and-grafana?tabs=policy). Each of these methods is described in this article.
 
 > [!IMPORTANT]
 > This article describes onboarding using default configuration settings including managed identity authentication. See [Configure agent data collection for Container insights](container-insights-data-collection-configmap.md) and [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](prometheus-metrics-scrape-configuration.md) to customize your configuration to ensure that you aren't collecting more data than you require. See [Authentication for Container Insights](container-insights-authentication.md) for guidance on migrating from legacy authentication models.
@@ -47,7 +47,7 @@ This article provides onboarding guidance for the following types of clusters. A
 
   - Prerequisites for [Azure Arc-enabled Kubernetes cluster extensions](../../azure-arc/kubernetes/extensions.md#prerequisites).
   - Verify the [firewall requirements](kubernetes-monitoring-firewall.md) in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
-  - If you previously installed monitoring for AKS, ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install.
+  - If you previously installed monitoring for AKS, ensure that you have [disabled monitoring](kubernetes-monitoring-disable.md) before proceeding to avoid issues during the extension install.
   - If you previously installed monitoring on a cluster using a script without cluster extensions, follow the instructions at [Disable Container insights on your hybrid Kubernetes cluster](container-insights-optout-hybrid.md) to delete this Helm chart.
 
 

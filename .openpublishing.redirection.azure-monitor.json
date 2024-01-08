@@ -6375,6 +6375,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-openshift-v3.md",
             "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
             "redirect_document_id": false

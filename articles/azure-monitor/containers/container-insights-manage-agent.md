@@ -22,7 +22,7 @@ If the agent upgrade fails for a cluster hosted on AKS, this article also descri
 
 ### Upgrade the agent on an AKS cluster
 
-The process to upgrade the agent on an AKS cluster consists of two steps. The first step is to disable monitoring with Container insights by using the Azure CLI. Follow the steps described in [Disable Container insights on your Kubernetes cluster](container-insights-optout.md) article. By using the Azure CLI, you can remove the agent from the nodes in the cluster without affecting the solution and the corresponding data that's stored in the workspace.
+The process to upgrade the agent on an AKS cluster consists of two steps. The first step is to disable monitoring with Container insights by using the Azure CLI. Follow the steps described in [Disable Container insights on your Kubernetes cluster](kubernetes-monitoring-disable.md) article. By using the Azure CLI, you can remove the agent from the nodes in the cluster without affecting the solution and the corresponding data that's stored in the workspace.
 
 >[!NOTE]
 >While you're performing this maintenance activity, the nodes in the cluster aren't forwarding collected data. Performance views won't show data between the time you removed the agent and installed the new version.
@@ -150,7 +150,7 @@ If you manually enabled Container Insights using custom methods prior to October
     kubectl delete -f omsagent.yaml
     ```
 
-5.	Disable Container insights to clean all related resources using the guidance at [Disable Container insights on your Kubernetes cluster](../containers/container-insights-optout.md)
+5.	Disable Container insights to clean all related resources using the guidance at [Disable Container insights on your Kubernetes cluster](../containers/kubernetes-monitoring-disable.md)
 
 
 6.	Re-onboard to Container insights using the guidance at [Enable Container insights on your Kubernetes cluster](kubernetes-monitoring-enable.md)

@@ -547,7 +547,7 @@ items:
         - name: Send Prometheus metrics to Logs
           href: containers/container-insights-prometheus-logs.md
       - name: Disable monitoring
-        href: containers/container-insights-optout.md
+        href: containers/kubernetes-monitoring-disable.md
     - name: Monitor
       items:
       - name: Monitor performance
