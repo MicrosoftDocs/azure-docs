@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services
-description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure Active Directory B2C. Use API version 2023-12-01 to configure two additional identity providers for scoped access.
+description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure Active Directory B2C. Use API version 2023-12-01 to configure two third-party identity providers for scoped access.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -12,7 +12,7 @@ ms.author: namalu
 
 # Troubleshoot identity provider configuration for the FHIR service
 
-API version 2023-12-01 of the FHIR&reg; service in Azure Health Data Services supports two identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, you configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
+API version 2023-12-01 of the FHIR&reg; service in Azure Health Data Services supports two third-party identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, you configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
 
 ## Schema for configuring identity providers
 

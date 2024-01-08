@@ -1,6 +1,6 @@
 ---
-title: Grant user access to the FHIR service by using Azure AD B2C instead of Microsoft Entra ID
-description: Learn how to enable single sign-on for the FHIR service in Azure Health Data Services by using Azure Active Directory as an identity provider. Set up an Azure AD B2C tenant, deploy the FHIR service, and validate the setup.
+title: Use a third-party identity provider to grant user access to the FHIR service
+description: Learn how to use Azure AD B2C as a third-party identity provider to allow seamless user access to the FHIR service in Azure Health Data Services. Set up and configure this integration for secure user authentication.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -10,9 +10,9 @@ ms.date: 01/15/2024
 ms.author: namalu
 ---
 
-# Grant user access to the FHIR service by using Azure AD B2C
+# Use a third-party identity provider to grant user access to the FHIR service
 
-Healthcare organizations can enable user access by using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the [FHIR&reg; service](../overview.md) in Azure Health Data Services. Using Azure AD B2C is useful when an organization needs to grant access to resources for users who aren't in their [Microsoft Entra ID](/entra/fundamentals/whatis) tenant.
+Healthcare organizations can enable a third-party identifier by using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the [FHIR&reg; service](../overview.md) in Azure Health Data Services. Using Azure AD B2C is useful when an organization needs to grant access to resources for users who aren't in their [Microsoft Entra ID](/entra/fundamentals/whatis) tenant.
 
 ## Step 1: Create an Azure AD B2C tenant for the FHIR service
 
@@ -96,7 +96,7 @@ You need a test B2C user to associate with a specific patient resource in the FH
 
    :::image type="content" source="media/azure-ad-b2c-setup/b2c-add-user-sml.png" alt-text="Screenshot showing adding new user" lightbox="media/azure-ad-b2c-setup/b2c-add-user-lrg.png":::
 
-#### Add the `fhirUser` custom user attribute
+#### Link a B2C user with the `fhirUser` custom user attribute
 
 The `fhirUser` custom user attribute is used to link a B2C user with a user resource in the FHIR service. In this example, a user named **Test Patient1** is created in the B2C tenant, and in a later step a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is linked to the patient resource by setting the `fhirUser` attribute value to the patient resource identifier. For more information about custom user attributes, see [User flow custom attributes in Azure Active Directory B2C](/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow).
 
