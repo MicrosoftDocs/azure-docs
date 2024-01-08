@@ -3,7 +3,7 @@ title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 12/27/2023
+ms.date: 01/08/2024
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
@@ -16,7 +16,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../concepts-clusters-workloads.md).
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-- [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
 - This article requires version 2.0.64 or later of the Azure CLI. If you are using Azure Cloud Shell, then the latest version is already installed.
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account](/cli/azure/account) command.
@@ -25,7 +27,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're asked to specify a location. This location is where resource group metadata is stored and where your resources run in Azure if you don't specify another region during resource creation.
 
-- Create a resource group using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+- Create a resource group using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location. Enter this command and other commands in this article into a BASH shell:
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
@@ -51,20 +53,20 @@ An [Azure resource group](../../azure-resource-manager/management/overview.md) i
 
 In this section, we create an AKS cluster with the following configuration:
 
-- The cluster is configured with two nodes to ensure it operates reliably.
+- The cluster is configured with two nodes to ensure it operates reliably. A [node](../concepts-clusters-workloads.md#nodes-and-node-pools) is an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime.
 - The `--windows-admin-password` and `--windows-admin-username` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet [Windows Server password requirements][windows-server-password].
 - The node pool uses `VirtualMachineScaleSets`.
 
 > [!NOTE]
 > To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI (advanced)][azure-cni] network plugin.
 
-1. Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and set it to *WINDOWS_USERNAME* for use in a later command (remember the commands in this article are entered into a BASH shell).
+1. Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and set it to *WINDOWS_USERNAME* for use in a later command.
 
     ```azurecli
     echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
     ```
 
-1. Create a password for the administrator username you created in the previous step.
+1. Create a password for the administrator username you created in the previous step. The password must be a minimum of 14 characters.
 
     ```azurecli
     echo "Please enter the password to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_PASSWORD
@@ -99,7 +101,7 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
 
 Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. If you don't specify a particular OS SKU, Azure creates the new node pool with the default SKU for the version of Kubernetes used by the cluster.
 
-### [Add a Windows node pool (default SKU)](#tab/add-windows-node-pool)
+### [Windows node pool (default SKU)](#tab/add-windows-node-pool)
 
 To use the default OS SKU, create the node pool without specifying an OS SKU. The node pool is configured for the default operating system based on the Kubernetes version of the cluster.
 
@@ -114,29 +116,7 @@ az aks nodepool add \
     --node-count 1
 ```
 
-### [Add a Windows Server 2019 node pool](#tab/add-windows-server-2019-node-pool)
-
-To use Windows Server 2019, specify the following parameters:
-
-- `os-type` set to `Windows`
-- `os-sku` set to `Windows2019`
-
-> [!NOTE]
-> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
-
-Add a Windows Server 2019 node pool using the `az aks nodepool add` command:
-
-```azurecli
-az aks nodepool add \
-    --resource-group myResourceGroup \
-    --cluster-name myAKSCluster \
-    --os-type Windows \
-    --os-sku Windows2019 \
-    --name npwin \
-    --node-count 1
-```
-
-### [Add a Windows Server 2022 node pool](#tab/add-windows-server-2022-node-pool)
+### [Windows Server 2022 node pool](#tab/add-windows-server-2022-node-pool)
 
 To use Windows Server 2022, specify the following parameters:
 
@@ -158,11 +138,33 @@ az aks nodepool add \
     --node-count 1
 ```
 
+### [Windows Server 2019 node pool](#tab/add-windows-server-2019-node-pool)
+
+To use Windows Server 2019, specify the following parameters:
+
+- `os-type` set to `Windows`
+- `os-sku` set to `Windows2019`
+
+> [!NOTE]
+> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+
+Add a Windows Server 2019 node pool using the `az aks nodepool add` command:
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-type Windows \
+    --os-sku Windows2019 \
+    --name npwin \
+    --node-count 1
+```
+
 ---
 
 ## Connect to the cluster
 
-You use [kubectl][kubectl], the Kubernetes command-line client, to manage your Kubernetes clusters. If you use Azure Cloud Shell, `kubectl` is already installed. To you want to install `kubectl` locally, you can use the [az aks install-cli][az-aks-install-cli] command.
+You use [kubectl][kubectl], the Kubernetes command-line client, to manage your Kubernetes clusters. If you use Azure Cloud Shell, `kubectl` is already installed. If you want to install `kubectl` locally, you can use the [az aks install-cli][az-aks-install-cli] command.
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 

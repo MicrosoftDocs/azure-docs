@@ -54,7 +54,7 @@ In this section, we create an AKS cluster with the following configuration:
 > [!NOTE]
 > To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI (advanced)][azure-cni-about] network plugin.
 
-1. Create the administrator credentials for your Windows Server containers using the following command. This command prompts you to enter a `WindowsProfileAdminUserName` and `WindowsProfileAdminUserPassword`.
+1. Create the administrator credentials for your Windows Server containers using the following command. This command prompts you to enter a `WindowsProfileAdminUserName` and `WindowsProfileAdminUserPassword`. The password must be a minimum of 14 characters.
 
     ```azurepowershell
     $AdminCreds = Get-Credential `
@@ -88,7 +88,7 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
 
 Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. If you don't specify a particular OS SKU, Azure creates the new node pool with the default SKU for the version of Kubernetes used by the cluster.
 
-### [Add a Windows node pool (default SKU)](#tab/add-windows-node-pool)
+### [Windows node pool (default SKU)](#tab/add-windows-node-pool)
 
 To use the default OS SKU, create the node pool without specifying an OS SKU. The node pool is configured for the default operating system based on the Kubernetes version of the cluster.
 
@@ -102,30 +102,7 @@ New-AzAksNodePool -ResourceGroupName myResourceGroup `
     -Name npwin
 ```
 
-### [Add a Windows Server 2019 node pool](#tab/add-windows-server-2019-node-pool)
-
-To use Windows Server 2019, specify the following parameters:
-
-- `OsType` set to `Windows`
-- `OsSKU` set to `Windows2019`
-
-> [!NOTE]
->
-> - `OsSKU` requires PowerShell Az module version 9.2.0 or higher.
-> - Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
-
-To add a Windows Server 2019 node pool, call the [New-AzAksNodePool][new-azaksnodepool] cmdlet:
-
-```azurepowershell
-New-AzAksNodePool -ResourceGroupName myResourceGroup `
-    -ClusterName myAKSCluster `
-    -VmSetType VirtualMachineScaleSets `
-    -OsType Windows `
-    -OsSKU Windows2019 `
-    -Name npwin
-```
-
-### [Add a Windows Server 2022 node pool](#tab/add-windows-server-2022-node-pool)
+### [Windows Server 2022 node pool](#tab/add-windows-server-2022-node-pool)
 
 To use Windows Server 2022, specify the following parameters:
 
@@ -145,6 +122,29 @@ New-AzAksNodePool -ResourceGroupName myResourceGroup `
     -VmSetType VirtualMachineScaleSets `
     -OsType Windows `
     -OsSKU Windows2022 `
+    -Name npwin
+```
+
+### [Windows Server 2019 node pool](#tab/add-windows-server-2019-node-pool)
+
+To use Windows Server 2019, specify the following parameters:
+
+- `OsType` set to `Windows`
+- `OsSKU` set to `Windows2019`
+
+> [!NOTE]
+>
+> - `OsSKU` requires PowerShell Az module version 9.2.0 or higher.
+> - Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+
+To add a Windows Server 2019 node pool, call the [New-AzAksNodePool][new-azaksnodepool] cmdlet:
+
+```azurepowershell
+New-AzAksNodePool -ResourceGroupName myResourceGroup `
+    -ClusterName myAKSCluster `
+    -VmSetType VirtualMachineScaleSets `
+    -OsType Windows `
+    -OsSKU Windows2019 `
     -Name npwin
 ```
 
