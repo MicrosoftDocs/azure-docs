@@ -123,7 +123,7 @@ For each endpoint within a call, a distinct call diagnostic log is created for o
 |     `RecvFreezeDurationPerMinuteInMs`     |    The average freeze duration in milliseconds per minute for incoming video/screensharing stream. Freezes are typically due to bad network condition and can degrade the stream quality.  <br><br> The stream quality is considered poor when this value is greater than 6,000 ms for video stream, or greater than 25,000 ms for screensharing stream. 
 
 ### Call client operations log schema
-
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 The **call client operations** log provides client-side information about the calling endpoints and participants involved in a call. These logs show client events that occurred in a call and what actions a customer may have taken during a call.  
 
 This log provides more detailed information than the Call Diagnostic log on actions taken during a call and can be used to visualize and investigate call issues though Call Diagnostics for your Azure Communication Services Resource. [Learn More](../../voice-video-calling/call-diagnostics.md)
