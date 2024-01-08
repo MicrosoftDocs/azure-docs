@@ -38,7 +38,7 @@ Here are some brief aspects of artifact streaming:
 
 ## Availability and pricing information
 
-Artifact streaming is only available in the **Premium** SKU [service tiers](container-registry-skus.md). Please note that artifact streaming may increase the overall registry storage consumption and customers may be subjected to additional storage charges as outlined in our [pricing](/pricing/details/container-registry) if the consumption exceeds the included 500 GiB Premium SKU threshold.
+Artifact streaming is only available in the **Premium** SKU [service tiers](container-registry-skus.md). Please note that artifact streaming may increase the overall registry storage consumption and customers may be subjected to additional storage charges as outlined in our [pricing](https://azure.microsoft.com/pricing/details/container-registry/) if the consumption exceeds the included 500 GiB Premium SKU threshold.
 
 ## Preview limitations
 

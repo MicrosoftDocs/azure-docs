@@ -65,4 +65,4 @@ If you deploy the streaming artifact using digest instead of tag (for example, m
 ## Related content
 
 > [!div class="nextstepaction"]
-> [Artifact streaming](/container-registry-artifact-streaming.md)
+> [Artifact streaming](./container-registry-artifact-streaming.md)
