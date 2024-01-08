@@ -99,10 +99,10 @@ In summary, here are the minimum provisioned RU limits when using provisioned th
 
 | Provisioning Type | Resource | Limit |
 | --- | --- | --- |
-| Manual throughput | Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./set-throughput#set-throughput-on-a-container)) | 400 |
-| Manual throughput | Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./set-throughput#set-throughput-on-a-database) | 400 RU/s for first 25 containers. |
-| Autoscale throughput | Minimum max RUs per container ([dedicated throughput provisioned mode with autoscale throughput](./provision-throughput-autoscale#autoscale-throughput-working)) | 1000 |
-| Autoscale throughput | Minimum max RUs per database ([shared throughput provisioned mode with autoscale throughput](./provision-throughput-autoscale#autoscale-throughput-working)) | 1000 RU/s for first 25 containers. |
+| Manual throughput | Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./set-throughput.md#set-throughput-on-a-container)) | 400 |
+| Manual throughput | Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./set-throughput.md#set-throughput-on-a-database) | 400 RU/s for first 25 containers. |
+| Autoscale throughput | Minimum max RUs per container ([dedicated throughput provisioned mode with autoscale throughput](./provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works)) | 1000 |
+| Autoscale throughput | Minimum max RUs per database ([shared throughput provisioned mode with autoscale throughput](./provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works)) | 1000 RU/s for first 25 containers. |
 
 Azure Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.
 
