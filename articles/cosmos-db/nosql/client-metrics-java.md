@@ -1,5 +1,5 @@
 ---
-title: Use Micrometer metrics for Java
+title: Use Micrometer metrics for Java SDK in Azure Cosmos DB
 description: Learn how to consume Micrometer metrics in the Java SDK for Azure Cosmos DB.
 author: TheovanKraay
 ms.author: thvankra
@@ -61,7 +61,7 @@ scrape_configs:
 
 Now you can consume metrics from Prometheus:  
 
-:::image type="content" source="./media/client-metrics-java/prometheus.png" alt-text="View metrics graph in Prometheus explorer." lightbox="./media/client-metrics-java/prometheus.png" border="true":::
+:::image type="content" source="./media/client-metrics-java/prometheus.png" alt-text="Screenshot of metrics graph in Prometheus explorer." lightbox="./media/client-metrics-java/prometheus.png" border="true":::
 
 
 ## Next steps
