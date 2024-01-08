@@ -21,7 +21,7 @@ For help with setting up or troubleshooting the Live Data feature, see the [Setu
 ## View AKS resource live logs
 
 > [!NOTE]
-> - You must be on a machine on the same private network to access live logs from a private cluster.
+> You must be on a machine on the same private network to access live logs from a private cluster.
 
 To view the live logs for pods, deployments, replica sets, stateful sets, daemon sets, and jobs with or without Container insights from the AKS resource view:
 

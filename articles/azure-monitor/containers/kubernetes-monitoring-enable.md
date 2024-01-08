@@ -124,7 +124,7 @@ Any of the commands can use the following optional parameters:
 
 ### [Azure Resource Manager](#tab/arm)
 
-Both ARM and Bicep templates are provided in this sections.
+Both ARM and Bicep templates are provided in this section.
 
 #### Prerequisites
 
@@ -159,7 +159,7 @@ If the Azure Managed Grafana instance is already linked to an Azure Monitor work
 
 #### Download and edit template and parameter file
 
-1. Download the required files for the type of Kubernetes cluster you're working withs.
+1. Download the required files for the type of Kubernetes cluster you're working with.
 
     **AKS cluster ARM**
 
@@ -313,7 +313,7 @@ Note: Pass the variables for `annotations_allowed` and `labels_allowed` keys in 
       `az policy definition create --name "Prometheus Metrics addon" --display-name "Prometheus Metrics addon" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules AddonPolicyMetricsProfile.rules.json --params AddonPolicyMetricsProfile.parameters.json`
 
 1. After you create the policy definition, in the Azure portal, select **Policy** and then **Definitions**. Select the policy definition you created.
-1. Select **Assign** and fill in the details on the **Parameters** tab,. Select **Review + Create**.
+1. Select **Assign** and fill in the details on the **Parameters** tab. Select **Review + Create**.
 1. If you want to apply the policy to an existing cluster, create a **Remediation task** for that cluster resource from **Policy Assignment**.
 
 After the policy is assigned to the subscription, whenever you create a new cluster without Prometheus enabled, the policy will run and deploy to enable Prometheus monitoring.

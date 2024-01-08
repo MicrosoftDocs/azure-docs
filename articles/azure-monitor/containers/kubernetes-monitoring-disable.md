@@ -1,6 +1,6 @@
 ---
-title: Disable Container insights on your Kubernetes cluster
-description: This article describes how you can discontinue monitoring of your Kubernetes cluster with Container insights.
+title: Disable monitoring of your Kubernetes cluster
+description: Describes how to remove Container insights and scraping of Prometheus metrics from your Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 12/14/2023
 ms.custom: devx-track-azurecli, devx-track-arm-template
@@ -8,7 +8,7 @@ ms.devlang: azurecli
 ms.reviewer: aul
 ---
 
-# Disable Container insights on your Kubernetes cluster
+# Disable monitoring of your Kubernetes cluster
 
 This article shows you how to stop monitoring your Kubernetes cluster and Remove Container insights.
 
@@ -17,6 +17,25 @@ This article shows you how to stop monitoring your Kubernetes cluster and Remove
 
 ### [CLI](#tab/cli)
 
+#### Prometheus
+Currently, the Azure CLI is the only option to remove the metrics add-on from your AKS cluster, and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus.  
+
+The `az aks update --disable-azure-monitor-metrics` command:
+
++ Removes the ama-metrics agent from the cluster nodes. 
++ Deletes the recording rules created for that cluster.  
++ Deletes the data collection endpoint (DCE).  
++ Deletes the data collection rule (DCR).
++ Deletes the DCRA and recording rules groups created as part of onboarding.
+
+> [!NOTE]
+> This action doesn't remove any existing data stored in your Azure Monitor workspace.
+
+```azurecli
+az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
+```
+
+#### Container insights
 Use the [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) command to disable Container insights. The command removes the agent from the cluster nodes. It doesn't remove the solution or the data already collected and stored in your Azure Monitor resource.
 
 ```azurecli

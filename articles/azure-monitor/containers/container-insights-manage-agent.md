@@ -84,14 +84,14 @@ This command opens your default text editor. After you set the variable, save th
 To verify the configuration change took effect, select a container in the **Containers** view in Container insights. In the property pane, expand **Environment Variables**. The section should show only the variable created earlier, which is `AZMON_COLLECT_ENV=FALSE`. For all other containers, the **Environment Variables** section should list all the environment variables discovered.
 
 To reenable discovery of the environmental variables, apply the same process you used earlier and change the value from `False` to `True`. Then rerun the `kubectl` command to update the container.
-
+$$
 ```yaml
 - name: AZMON_COLLECT_ENV  
   value: "True"  
 ```  
 ## Semantic version update of container insights agent version
 
-Container Insights has shifted the image version and naming convention to [semver format] (https://semver.org/). SemVer helps developers keep track of every change made to a software during its development phase and ensures that the software versioning is consistent and meaningful. The old version was in format of ciprod\<timestamp\>-\<commitId\> and win-ciprod\<timestamp\>-\<commitId\>, our first image versions using the Semver format are 3.1.4 for Linux and win-3.1.4 for Windows. 
+Container Insights has shifted the image version and naming convention to [semver format] (https://semver.org/). SemVer helps developers keep track of every change made to software during its development phase and ensures that the software versioning is consistent and meaningful. The old version was in format of ciprod\<timestamp\>-\<commitId\> and win-ciprod\<timestamp\>-\<commitId\>, our first image versions using the Semver format are 3.1.4 for Linux and win-3.1.4 for Windows. 
 
 Semver is a universal software versioning schema that's defined in the format MAJOR.MINOR.PATCH, which follows the following constraints: 
 
