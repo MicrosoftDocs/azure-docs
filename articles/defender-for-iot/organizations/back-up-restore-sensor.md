@@ -100,7 +100,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
     To move to the next step without making changes, press **ENTER**.
 
-    When you get to the step that prompts to `Enter path to the mounted backups folder`:
+    You'll be prompted to `Enter path to the mounted backups folder`. For example:
 
     ![Enter path to the mounted backups folder before change](media/back-up-restore-sensor/image.png)
 
