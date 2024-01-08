@@ -112,7 +112,7 @@ Retrieve the existing *`products`* container using `database.NewContainer`.
 
 ### Create an item
 
-Build a Go type with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and clearance.
+Build a Go type with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and sale.
 
 :::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/item.go" id="model":::
 

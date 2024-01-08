@@ -113,7 +113,7 @@ Retrieve the existing *`products`* container using `database.container`.
 
 ### Create an item
 
-Build a new object with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and clearance. Create an item in the container using `container.items.upsert`. This method "upserts" the item effectively replacing the item if it already exists.
+Build a new object with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and sale. Create an item in the container using `container.items.upsert`. This method "upserts" the item effectively replacing the item if it already exists.
 
 :::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="create_item" highlight="10":::
 
