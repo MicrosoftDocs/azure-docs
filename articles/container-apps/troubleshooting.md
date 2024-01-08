@@ -28,7 +28,7 @@ The following table lists issues you might encounter while using Azure Container
 | A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly-azure-portal) |
 | The container app endpoint doesn't respond to requests. | [Review ingress configuration.](#review-ingress-configuration) |
 | The container app endpoint responds to requests with HTTP error 403 (access denied). |  [Verify networking configuration is correct.](#verify-networking-configuration-is-correct) |
-| The container app endpoint responds to requests, but the responses are not as expected. | [Verify traffic is routed to correct revision.](#verify-traffic-is-routed-to-correct-revision) |
+| The container app endpoint responds to requests, but the responses are not as expected. | [Verify traffic is routed to correct revision.](#verify-traffic-is-routed-to-correct-revision)<br>[Verify you are using unique tags when deploying images to the container registry.](/azure/container-registry/container-registry-image-tag-version) |
 | You receive the error message `Dapr sidecar is not present`. | [Ensure Dapr is enabled in your environment.](#ensure-dapr-is-enabled-in-your-environment) |
 | You receive a Dapr configuration error message regarding the `app-port` value. | [Verify your Dapr configuration has the correct app-port value.](#verify-app-port-value-in-dapr-configuration) |
 
@@ -47,9 +47,9 @@ Your container app's console logs capture the app's `stdout` and `stderr` stream
 1. In the *Revision details* pane, next to *Console logs*, select the **View details** link.
 1. The **View details** link takes you to the *Logs* page, with the following query.
     ```
-	ContainerAppConsoleLogs_CL
-	| where RevisionName_s == "<YOUR_REVISION_NAME>"
-	```
+    ContainerAppConsoleLogs_CL
+    | where RevisionName_s == "<YOUR_REVISION_NAME>"
+    ```
 1. In the results pane at the bottom, make sure *Results* is selected. By default, the results are sorted by time in descending order. The time range defaults to **Last 24 hours**.
 1. Examine the *Log_s* column, which shows the console log output from your container app revision.
 1. Optionally, select the *Export* button, which allows you to view the logs as a .csv file, or in Excel or Power BI.
@@ -57,19 +57,19 @@ Your container app's console logs capture the app's `stdout` and `stderr` stream
 You might also want to narrow your query to view your container app revision's output to `stdout` or `stderr`.
 
 - To view `stdout`, change your query to the following.
-	```
-	ContainerAppConsoleLogs_CL
-	| where RevisionName_s == "<YOUR_REVISION_NAME>"
-	and Stream_s == "stdout"
-	```
-	Then select **Run**.
+    ```
+    ContainerAppConsoleLogs_CL
+    | where RevisionName_s == "<YOUR_REVISION_NAME>"
+    and Stream_s == "stdout"
+    ```
+    Then select **Run**.
 - To view `stderr`, change your query to the following.
-	```
-	ContainerAppConsoleLogs_CL
-	| where RevisionName_s == "<YOUR_REVISION_NAME>"
-	and Stream_s == "stderr"
-	```
-	Then select **Run**.
+    ```
+    ContainerAppConsoleLogs_CL
+    | where RevisionName_s == "<YOUR_REVISION_NAME>"
+    and Stream_s == "stderr"
+    ```
+    Then select **Run**.
 
 When you type in a query, after you enter the `where` keyword, a drop-down list appears that shows the columns available to query. You can also expand the *Schema and Filter* pane at the left, expand **Custom Logs**, and expand **ContainerAppConsoleLogs_CL**.
 
@@ -80,9 +80,9 @@ Container Apps generates [system logs](./logging.md#system-logs) for service lev
 1. In the *Revision details* pane, next to *System logs*, select the **View details** link.
 1. The **View details** link takes you to the *Logs* page, with the following query.
     ```
-	ContainerAppSystemLogs_CL
+    ContainerAppSystemLogs_CL
     | where RevisionName_s == "<YOUR_REVISION_NAME>"
-	```
+    ```
 1. In the results pane at the bottom, make sure *Results* is selected. By default, the results are sorted by time in descending order. The time range defaults to **Last 24 hours**.
 1. Examine the contents of the *Error_s*, *Log_s*, *Type_s*, *Reason_s*, and *EventSource_s* columns.
 
@@ -125,7 +125,7 @@ You can expect a response like the following example:
       "replicas": 0,
       "runningState": "ScaledToZero",
       ...
-	  "trafficWeight": 100
+      "trafficWeight": 100
     },
     "resourceGroup": "<YOUR_RESOURCE_GROUP_NAME>",
     "type": "Microsoft.App/containerapps/revisions"
@@ -231,9 +231,9 @@ For more information, see [Observability in Azure Container Apps](./observabilit
 ## Verify accessibility of container image
 
 - Verify you can pull your container image publicly. For example, for a Docker container that can run as a console application, run:
-	```
-	docker run --rm <YOUR_CONTAINER_IMAGE>
-	```
+    ```
+    docker run --rm <YOUR_CONTAINER_IMAGE>
+    ```
 - Verify your container environment firewall is not blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
 - If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry does not fail. For more information, see [DNS](./networking.md#dns).
 
@@ -249,9 +249,7 @@ For more information, see [Networking in Azure Container Apps environment] (./ne
 1. In the navigation bar at the left, expand **Settings** and select **Ingress**.
 
 - Verify the **Enabled** checkbox is checked.
-- If you want to allow external ingress, verify that:
-	- **Ingress Traffic** is set to **Accepting traffic from anywhere**.
-	- Your Container Apps environment has *internalOnly* set to *false*.
+- If you want to allow external ingress, verify that **Ingress Traffic** is set to **Accepting traffic from anywhere**. If your container app does not listen for HTTP traffic, set **Ingress Traffic** to **Limited to Container Apps Environment**.
 - Verify **Ingress type** is set to the protocol (**HTTP** or **TCP**) your client uses to access your container app.
 - Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [Environment level network encryption](./networking.md#mtls)
 - If your client uses HTTP/1, verify **Transport** is set to **HTTP/1**. If your client uses HTTP/2, verify **Transport** is set to **HTTP/2**.
@@ -363,31 +361,35 @@ If ingress is enabled, Container Apps sends an HTTP request to your container ap
 
 ### Verify external ingress is allowed
 
-If you want to allow external ingress, verify `external` is set to `true`. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
+- If you want to allow external ingress:
 
-```json
-{
-  "allowInsecure": false,
-  "clientCertificateMode": null,
-  "corsPolicy": null,
-  "customDomains": null,
-  "exposedPort": 0,
-  "external": true,
-  "fqdn": "<YOUR_CONTAINER_APP_FQDN>",
-  "ipSecurityRestrictions": null,
-  "stickySessions": null,
-  "targetPort": 3500,
-  "traffic": [
-  {
-    "latestRevision": true,
-    "weight": 100
-  }
-  ],
-  "transport": "Auto"
-}
-```
+    1. Verify `external` is set to `true`. Use the [`az containerapp ingress show`](/cli/azure/containerapp/ingress#az-containerapp-ingress-show(containerapp)) command, as described previously. You can expect output like the following example:
 
-If `external` is `false`, run the [`az containerapp ingress update`](/cli/azure/containerapp/ingress#az-containerapp-ingress-update(containerapp)) command with `--type external`. 
+    ```json
+    {
+      "allowInsecure": false,
+      "clientCertificateMode": null,
+      "corsPolicy": null,
+      "customDomains": null,
+      "exposedPort": 0,
+      "external": true,
+      "fqdn": "<YOUR_CONTAINER_APP_FQDN>",
+      "ipSecurityRestrictions": null,
+      "stickySessions": null,
+      "targetPort": 3500,
+      "traffic": [
+      {
+        "latestRevision": true,
+        "weight": 100
+      }
+      ],
+      "transport": "Auto"
+    }
+    ```
+
+    1. If `external` is `false`, run the [`az containerapp ingress update`](/cli/azure/containerapp/ingress#az-containerapp-ingress-update(containerapp)) command with `--type external`. 
+
+- If your container app does not listen for HTTP traffic, verify `external` is set to `false`, as described previously.
 
 # [Bash](#tab/bash)
 
@@ -484,19 +486,27 @@ For more information, see [Ingress in Azure Container Apps](./ingress-overview.m
 
 For more information, see [Networking in Azure Container Apps environment](./networking.md).
 
-## Verify health probes are configured correctly (Azure Portal)
+## Verify health probes are configured correctly
+
+1. For all health probe types (liveness, readiness, and startup) that use TCP as their transport, verify their port numbers match the ingress target port you configured for your container app.
+
+1. If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
+
+    | Probe type | Default values |
+    | -- | -- |
+    | Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 3 seconds<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1<br>Failure threshold: 240 |
+    | Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: 48 |
+    | Liveness | Protocol: TCP<br>Port: ingress target port |
+
+    If your container app takes an extended amount of time to start (which is common in Java) you might need to customize your liveness and readiness probes' *Initial delay seconds* accordingly.
+
+::: zone pivot="portal"
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar at the top, enter your Azure Container Apps application name.
 1. In the search results, under *Resources*, select your container app name.
 1. In the navigation bar at the left, expand *Application* and select **Containers**.
 1. In the *Containers* page, select **Health probes**.
-
-For all health probe types (liveness, readiness, and startup) that use TCP as their transport, verify their port numbers match the ingress target port you configured for your container app.
-
-If your container app takes an extended amount of time to start, verify you configured your liveness and readiness probes' *Initial delay seconds* settings accordingly.
-
-If your health probes are not configured correctly:
 
 1. Select **Edit and deploy** to create a new revision.
 
@@ -506,7 +516,86 @@ If your health probes are not configured correctly:
 
 1. In the *Create and deploy new revision* page, select the **Create** button.
 
-If ingress is enabled, Container Apps sends an HTTP request to your container app to determine if it's healthy. If your container app doesn't listen for HTTP traffic, you should disable ingress.
+If ingress is enabled, Container Apps sends an HTTP request to your container app to determine if it's healthy.
+
+::: zone-end
+
+::: zone pivot="console"
+
+The following code listing shows how you can configure the liveness and readiness probes in order to extend the startup times. The `...` placeholders denote omitted code. Refer to [Azure Container Apps ARM and YAML template specifications](./azure-resource-manager-api-spec.md) for more details.
+
+# [ARM template](#tab/arm-template)
+
+```json
+...
+"probes": [
+  {
+    "type": "liveness",
+    "failureThreshold": 3,
+    "periodSeconds": 10,
+    "successThreshold": 1,
+    "tcpSocket": {
+      "port": 80
+    },
+    "timeoutSeconds": 1
+  },
+  {
+    "type": "readiness",
+    "failureThreshold": 48,
+    "initialDelaySeconds": 3,
+    "periodSeconds": 5,
+    "successThreshold": 1,
+    "tcpSocket": {
+      "port": 80
+    },
+    "timeoutSeconds": 5
+  }
+]
+...
+```
+
+# [YAML](#tab/yaml)
+
+```yml
+...
+probes:
+  - type: liveness
+    failureThreshold: 3
+	periodSeconds: 10
+    successThreshold: 1
+	tcpSocket:
+	  port: 80
+    timeoutSeconds: 1
+  - type: readiness
+    failureThreshold: 48
+	initialDelaySeconds: 3
+	periodSeconds: 3
+	successThreshold: 1
+	tcpSocket:
+	  port: 80
+	timeoutSeconds: 5
+...
+```
+
+Use the [`az containerapp update`](cli/azure/containerapp?view=azure-cli-latest#az-containerapp-update) command with the `--yaml` flag to update your container app.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az containerapp update \
+  --yaml <PATH_TO_YAML_FILE>
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```powershell
+az containerapp update `
+  --yaml <PATH_TO_YAML_FILE> `
+```
+
+---
+
+::: zone-end
 
 For more information, see [Use Health Probes](./health-probes.md).
 
@@ -556,7 +645,7 @@ You can expect output like the following example:
   "properties": {
     "configuration": {
       "activeRevisionsMode": "Multiple",
-	  ...
+      ...
       "ingress": {
         ...
         "traffic": [
@@ -570,10 +659,10 @@ You can expect output like the following example:
           }
         ],
         ...
-	  }
-	  ...
-	}
-	...
+      }
+      ...
+    }
+    ...
   }
   ...
 }
