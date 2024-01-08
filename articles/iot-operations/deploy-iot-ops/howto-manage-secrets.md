@@ -114,7 +114,7 @@ az keyvault set-policy --name "<your unique key vault name>" --resource-group "<
 
 ```
 
-### Passing in service principal and Azure Key Vault arguments when running Azure IoT Operations deployment
+### Pass service principal and Key Vault arguments to Azure IoT Operations deployment
 
 When following the guide [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli), you will need to pass in additional flags to the `az iot ops init` command in order to use the pre-configured service principal and key vault.
 
