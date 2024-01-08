@@ -98,7 +98,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
     Follow the instructions on screen and validate that the settings are correct on each step.
 
-    To move to the next step without making changes, press the `Enter` button.
+    To move to the next step without making changes, press **ENTER**.
 
     When you get to the step that prompts to `Enter path to the mounted backups folder`:
 
