@@ -6,7 +6,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/azure/postgresql/migrate/how-to-migrate-using-export-and-import.md",
+        "source_path_from_root": "/articles/postgresql/migrate/how-to-migrate-using-export-and-import.md",
         "redirect_url": "/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore",
         "redirect_document_id": false
     },
