@@ -102,7 +102,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
     You'll be prompted to `Enter path to the mounted backups folder`. For example:
 
-    ![Enter path to the mounted backups folder before change](media/back-up-restore-sensor/image.png)
+    ![Screenshot of the Enter path to the mounted backups folder prompt.](media/back-up-restore-sensor/image.png)
 
 
     The factory default value is `/opt/sensor/persist/backups`.
