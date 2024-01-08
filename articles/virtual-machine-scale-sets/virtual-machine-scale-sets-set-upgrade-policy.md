@@ -22,6 +22,7 @@ During the Virtual Machine Scale Set creation in the Azure portal, under the **M
 ### [CLI](#tab/cli)
 Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and the =`upgrade-policy-mode` parameter. Choose `Automatic`, `Manual` or `Rolling`. If using Rolling Upgrade Policy, you can also enable MaxSurge. For more information, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades). 
 
+```azurecli-interactive
 # Create the scale set
 az vmss create \
     --resource-group myResourceGroup \
