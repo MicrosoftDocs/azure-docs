@@ -1,0 +1,35 @@
+---
+title: Agentless secrets scanning for virtual machines | Defender for Cloud in the field
+description: Learn about agentless secrets scanning for virtual machines
+ms.topic: reference
+ms.date: 01/08/2024
+---
+
+# Native integration with ServiceNow
+
+**Episode description**: In this episode of Defender for Cloud in the Field, Ortal Parpara joins Yuri Diogenes to talk about agentless secrets scanning for virtual machines in Microsoft Defender for Cloud. Ortal explains the use case scenario for this feature, how this feature works and the prerequisites for this feature to work. Ortal also demonstrates how attack path leverages this feature to provide additional insights about secrets that are located in virtual machines and how this can be used to detect potential cross-cloud attacks.
+
+> [!VIDEO https://aka.ms/docs/player?id=eb236b6c-fe8b-4662-92e6-0ae4b7531f2f]
+
+- [01:18](/shows/mdc-in-the-field/native-integration-servicenow#time=01m18s) - Understanding secret scanning capability for VMs in Defender for Cloud
+- [02:40](/shows/mdc-in-the-field/native-integration-servicenow#time=02m40s) -  How agentless scanning capability for VMs works
+- [04:30](/shows/mdc-in-the-field/native-integration-servicenow#time=04m30s) - Secrets detection
+- [06:50](/shows/mdc-in-the-field/native-integration-servicenow#time=06m50s) - Performance considerations
+- [08:32](/shows/mdc-in-the-field/native-integration-servicenow#time=08m32s) - Demonstration
+
+## Recommended resources
+
+- Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
+- Learn more about [Microsoft Security](https://msft.it/6002T9HQY)
+
+- Follow us on social media:
+
+  - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
+  - [Twitter](https://twitter.com/msftsecurity)
+
+- Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
