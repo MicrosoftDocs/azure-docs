@@ -64,7 +64,7 @@ Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECT
 The connection string for Application Insights. Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. While the use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended in all cases, it's required in the following cases:
 
 + When your function app requires the added customizations supported by using the connection string.  
-+ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.  
++ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.
 
 For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md).
 
@@ -410,16 +410,8 @@ For Node.js v18 or lower, the app setting can be used and the default behavior d
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
-This setting enables your function app to run in a version 2.x compatible mode on the version 3.x runtime. Use this setting only if encountering issues after upgrading your function app from version 2.x to 3.x of the runtime.
-
 >[!IMPORTANT]
-> This setting is intended only as a short-term workaround while you update your app to run correctly on version 3.x. This setting is supported as long as the [2.x runtime is supported](functions-versions.md). If you encounter issues that prevent your app from running on version 3.x without using this setting, please [report your issue](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
-
-You must also set [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version) to `~3`.
-
-|Key|Sample value|
-|---|------------|
-|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|`true`|
+> This setting is no longer supported. It was originally provided to enable a short-term workaround for apps that targeted the v2.x runtime to be able to instead run on the v3.x runtime while it was still supported. Except for legacy apps that run on version 1.x, all function apps must run on version 4.x of the Functions runtime: `FUNCTIONS_EXTENSION_VERSION=~4`. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
 
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
@@ -431,7 +423,7 @@ Overrides the default limit on the body size of requests sent to HTTP endpoints.
 
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
-Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes isn't the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all language runtimes, except for .NET running in process (`dotnet`).
+Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by `FUNCTIONS_WORKER_PROCESS_COUNT` is reached. Using multiple language worker processes isn't the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all language runtimes, except for .NET running in process (`FUNCTIONS_WORKER_RUNTIME=dotnet`).
 
 |Key|Sample value|
 |---|------------|
@@ -439,7 +431,7 @@ Specifies the maximum number of language worker processes, with a default value 
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This corresponds to the language being used in your application (for example, `dotnet`). Starting with version 2.x of the Azure Functions runtime, a given function app can only support a single language.
+The language or language stack of the worker runtime to load in the function app. This corresponds to the language being used in your application (for example, `python`). Starting with version 2.x of the Azure Functions runtime, a given function app can only support a single language.
 
 |Key|Sample value|
 |---|------------|
@@ -447,7 +439,7 @@ The language worker runtime to load in the function app.  This corresponds to th
 
 Valid values:
 
-| Value | Language |
+| Value | Language/language stack |
 |---|---|
 | `dotnet` | [C# (class library)](functions-dotnet-class-library.md)<br/>[C# (script)](functions-reference-csharp.md) |
 | `dotnet-isolated` | [C# (isolated worker process)](dotnet-isolated-process-guide.md) |
@@ -614,9 +606,11 @@ Connection string for storage account where the function app code and configurat
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-This setting is required for Consumption plan apps on Windows and for Elastic Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+This setting is required for Consumption and Elastic Premium plan apps running on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
 Changing or removing this setting can cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+Azure Files doesn't support using managed identity when accessing the file share. For more information, see [Azure Files supported authentication scenarios](../storage/files/storage-files-active-directory-overview.md#supported-authentication-scenarios). 
 
 ## WEBSITE\_CONTENTOVERVNET
 
@@ -630,7 +624,7 @@ Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) p
 
 ## WEBSITE\_CONTENTSHARE
 
-The file path to the function app code and configuration in an event-driven scaling plans. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string generated by the runtime that begins with the function app name. For more information, see [Storage account connection setting](storage-considerations.md#storage-account-connection-setting).
+The name of the share that hosts function app code and configuration required by event-driven scaling plans. Used with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`. Default is a unique string generated by the runtime, which begins with the function app name. For more information, see [Storage account connection setting](storage-considerations.md#storage-account-connection-setting).
 
 |Key|Sample value|
 |---|------------|
