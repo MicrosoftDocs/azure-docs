@@ -2,30 +2,32 @@
   href: index.yml
 - name: Quickstarts
   items:
-    - name: Develop app - .NET
+    - name: .NET
       href: quickstart-dotnet.md
-    - name: Develop app - Node.js
+      displayName: Quickstart, ASP.NET, Blazor, AZD, Azure Developer CLI
+    - name: Node.js
       href: quickstart-nodejs.md
-    - name: Develop app - Java
+      displayName: Quickstart, Node.js, JavaScript, Express, AZD, Azure Developer CLI
+    - name: Java
       href: quickstart-java.md
-    - name: Develop app - Spring Data
-      href: quickstart-java-spring-data.md
-    - name: Develop app - Python
+      displayName: Quickstart, Spring, Spring Data, AZD, Azure Developer CLI
+    - name: Python
       href: quickstart-python.md
-    - name: Develop app - Spark v3
-      href: quickstart-spark.md
-    - name: Develop app - Go
+      displayName: Quickstart, Spark, AZD, Azure Developer CLI
+    - name: Go
       href: quickstart-go.md
-    - name: Create resources - Azure portal
+      displayName: Quickstart, AZD, Azure Developer CLI
+    - name: Portal
       href: quickstart-portal.md
-    - name: Create resources - Bicep template
-      displayName: ARM, Resource Manager, Template, Bicep
+      displayName: Quickstart, Azure portal
+    - name: Bicep
+      displayName: Quickstart, ARM, Azure Resource Manager, Template, Bicep
       href: quickstart-template-bicep.md
-    - name: Create resources - JSON template
-      displayName: ARM, Resource Manager, Template, JSON
+    - name: ARM template
+      displayName: Quickstart, ARM, Azure Resource Manager, Template, JSON
       href: quickstart-template-json.md
-    - name: Create resources - Terraform template
-      displayName: ARM, Resource Manager, Template, Terraform
+    - name: Terraform
+      displayName: Quickstart, ARM, Azure Resource Manager, Template, Terraform
       href: quickstart-terraform.md
 - name: Tutorials
   items:
