@@ -36,8 +36,7 @@ To reduce the complexity of creating VM images, VM Image Builder:
 
 To provision a custom image that you created by using VM Image Builder, you need:
 
-- Azure PowerShell. If you don't have PowerShell installed, follow the steps in [Install Azure PowerShell on Windows](/powershell/azure/install-azps-windows).
-- PowerShell 6.0 or later. For more information, see [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
+- Azure PowerShell 6.0 or later. If you don't have PowerShell installed, follow the steps in [Install Azure PowerShell on Windows](/powershell/azure/install-azps-windows).
 - Owner or Contributor permissions on an Azure subscription or on a specific resource group.
 - A resource group.
 - A dev center with an attached network connection. If you don't have one, follow the steps in [Connect dev boxes to resources by configuring network connections](how-to-configure-network-connections.md).
