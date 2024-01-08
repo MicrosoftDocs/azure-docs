@@ -96,7 +96,7 @@ If you have an existing key vault, you can change the permission model by execut
 ```bash
 az keyvault update --name "<your unique key vault name>" --resource-group "<the name of the resource group>" --enable-rbac-authorization false 
 ```
-You will need the Key Vault Resource ID below, to retrieve it run:
+You will need the Key Vault resource ID when you run `az iot ops init`. To retrieve the resource ID, run:
 
 ```bash
 az keyvault show --name "<your unique key vault name>" --resource-group "<the name of the resource group>" --query id  -o tsv
