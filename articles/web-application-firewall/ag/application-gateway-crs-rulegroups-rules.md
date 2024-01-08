@@ -54,6 +54,7 @@ The Microsoft Threat Intelligence Collection rules are written in partnership wi
 |99001014|MS-ThreatIntel-CVEs|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001015|MS-ThreatIntel-WebShells|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001016|MS-ThreatIntel-WebShells|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|Keep the rule enabled to prevent against SpringShell vulnerability|
+|99001017|MS-ThreatIntel-CVEs|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule.|
 
 
 ## Core rule sets
@@ -490,6 +491,9 @@ The following rule groups and rules are available when using Web Application Fir
 |99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|99001017*|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+
+*<sup>This rule's action is set to log by default. Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule.</sup>
 
 > [!NOTE]
 > When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
@@ -516,6 +520,9 @@ The following rule groups and rules are available when using Web Application Fir
 |800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|800114*|Attempted Apache Struts file upload exploitation - [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+
+*<sup>This rule's action is set to log by default. Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule.</sup>
 
 ### <a name="crs911-32"></a> REQUEST-911-METHOD-ENFORCEMENT
 |RuleId|Description|
@@ -762,6 +769,10 @@ The following rule groups and rules are available when using Web Application Fir
 |800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
 |800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|800114*|Attempted Apache Struts file upload exploitation - [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+
+*<sup>Older WAFs running CRS 3.1 only support logging mode for this rule. To enable block mode you will need to upgrade to a newer ruleset version.</sup>
+
 
 
 ### <a name="crs911-31"></a> REQUEST-911-METHOD-ENFORCEMENT

@@ -65,7 +65,7 @@ If data is corrupted in the Microsoft Fabric lakehouse table that your Data Proc
 
 If you see deployment errors with Data Processor pods, make sure that when you created your Azure Key Vault you chose **Vault access policy** as the **Permission model**.
 
-## Data Processor pipeline edits aren't applied
+## Data Processor pipeline edits aren't applied to messages
 
 If edits you make to a pipeline aren't applied to messages, run the following commands to propagate the changes:
 
@@ -85,3 +85,4 @@ It's possible a momentary loss of communication with IoT MQ broker pods can paus
 kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
+

@@ -305,7 +305,7 @@ Supported API definitions for the Azure Stack Hub cluster can be found in the ex
 
 ## Configure agent data collection
 
-Starting with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. For more information on agent data collection settings, see [Configure agent data collection for Container insights](container-insights-agent-config.md).
+Starting with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. For more information on agent data collection settings, see [Configure agent data collection for Container insights](container-insights-data-collection-configmap.md).
 
 After you've successfully deployed the chart, you can review the data for your hybrid Kubernetes cluster in Container insights from the Azure portal.
 
@@ -335,7 +335,7 @@ If you specify the protocol as **http**, the HTTP requests are created by using 
 
 ## Troubleshooting
 
-If you encounter an error while you attempt to enable monitoring for your hybrid Kubernetes cluster, copy the PowerShell script [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) and save it to a folder on your computer. This script is provided to help you detect and fix the issues you encounter. It's designed to detect and attempt correction of the following issues:
+If you encounter an error while you attempt to enable monitoring for your hybrid Kubernetes cluster, use the PowerShell script [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) to help you detect and fix the issues you encounter. It's designed to detect and attempt correction of the following issues:
 
 - The specified Log Analytics workspace is valid.
 - The Log Analytics workspace is configured with the Container insights solution. If not, configure the workspace.
@@ -344,7 +344,7 @@ If you encounter an error while you attempt to enable monitoring for your hybrid
 - The Azure Monitor Agent Health service is running.
 - The Log Analytics workspace ID and key configured on the containerized agent match with the workspace that the insight is configured with.
 - Validate that all the Linux worker nodes have the `kubernetes.io/role=agent` label to the schedulers pod. If it doesn't exist, add it.
-- Validate that `cAdvisor secure port:10250` or `unsecure port: 10255` is opened on all nodes in the cluster.
+- Identify conditions that may indicate `cAdvisor secure port:10250` or `unsecure port: 10255` is not opened on all nodes in the cluster.
 
 To execute with Azure PowerShell, use the following commands in the folder that contains the script:
 

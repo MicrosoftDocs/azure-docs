@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/07/2023
+ms.date: 01/04/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -16,7 +16,7 @@ ms.custom: contperf-fy21q1
 This article explains the common tasks that an administrator accomplishes in the Azure EA portal (https://ea.azure.com). The Azure EA portal is an online management portal that helps customers manage the cost of their Azure EA services. For introductory information about the Azure EA portal, see the [Get started with the Azure EA portal](ea-portal-get-started.md) article.
 
 > [!NOTE]
-> On November 15, 2023, the Azure Enterprise portal is retiring for EA enrollments in the Commercial cloud and is becoming read-only for EA enrollments in the Azure Government cloud.
+> On February 15, 2024, the Azure Enterprise portal is retiring for EA enrollments in the Azure Government cloud. The Azure Enterprise portal is already retired for EA enrollments in the commercial cloud. 
 > Customers and Partners should use Cost Management + Billing in the Azure portal to manage their enrollments. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
 
 ## Activate your enrollment

@@ -2,7 +2,6 @@
 title: Neural text to speech containers - Speech service
 titleSuffix: Azure AI services
 description: Install and run neural text to speech containers with Docker to perform speech synthesis and more on-premises.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

@@ -502,7 +502,7 @@ items:
     - name: Disaster recovery
       items:
       - name: Redundancy and high availability
-        href: how-to-enable-redundancy-and-disaster-recovery.md
+        href: ../reliability/reliability-spring-apps.md?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Troubleshoot
       items:
       - name: Self-diagnose and solve problems
@@ -568,7 +568,7 @@ items:
   - name: Landing zone accelerator
     href: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Deploy to multiple regions
-    href: /azure/architecture/reference-architectures/microservices/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+    href: /azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Reference
   items:
   - name: API breaking changes

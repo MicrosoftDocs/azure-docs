@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 04/05/2022
+ms.date: 12/19/2023
 ms.author: aahi
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: About Azure confidential VMs
 description: Learn about Azure confidential virtual machines. These series are for tenants with high security and confidentiality requirements.
-author: mamccrea
+author: ju-shim
 ms.author: mmcrey
 ms.service: virtual-machines
 ms.subservice: confidential-computing
@@ -129,3 +129,5 @@ Confidential VMs *don't support*:
 
 > [!div class="nextstepaction"]
 > [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal.md)
+
+For more information see our [Confidential VM FAQ](confidential-vm-faq.yml).

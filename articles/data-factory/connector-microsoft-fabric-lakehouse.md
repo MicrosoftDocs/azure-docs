@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/03/2023
+ms.date: 12/08/2023
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse (Preview) using Azure Data Factory or Azure Synapse Analytics
@@ -29,7 +29,7 @@ This Microsoft Fabric Lakehouse connector is supported for the following capabil
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
-|[Mapping data flow](concepts-data-flow-overview.md) (-/sink)|&#9312; |- |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |- |
 
 *&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
@@ -514,7 +514,7 @@ For more information, see the [source transformation](data-flow-source.md) and [
 
 To use Microsoft Fabric Lakehouse Files dataset as a source or sink dataset in mapping data flow, go to the following sections for the detailed configurations.
 
-#### Microsoft Fabric Lakehouse Files as a sink type
+#### Microsoft Fabric Lakehouse Files as a source or sink type
 
 Microsoft Fabric Lakehouse connector supports the following file formats. Refer to each article for format-based settings.
 
@@ -527,6 +527,12 @@ Microsoft Fabric Lakehouse connector supports the following file formats. Refer 
 ### Microsoft Fabric Lakehouse Table in mapping data flow
 
 To use Microsoft Fabric Lakehouse Table dataset as a source or sink dataset in mapping data flow, go to the following sections for the detailed configurations.
+
+#### Microsoft Fabric Lakehouse Table as a source type
+
+There are no configurable properties under source options.
+> [!NOTE]
+> CDC support for Lakehouse table source is currently not available.
 
 #### Microsoft Fabric Lakehouse Table as a sink type
 

@@ -31,7 +31,7 @@ You receive events from a partner in a [partner topic](concepts.md#partner-topic
 3. After the partner creates a partner topic in your Azure subscription and resource group, [activate](subscribe-to-partner-events.md#activate-a-partner-topic) your partner topic. 
 4. [Subscribe to events](subscribe-to-partner-events.md#subscribe-to-events) by creating one or more event subscriptions on the partner topic.
 
-    :::image type="content" source="./media/partner-events-overview/receive-events-from-partner.svg" alt-text="Diagram showing the steps to receive events from a partner.":::
+    :::image type="content" source="./media/partner-events-overview/receive-events-from-partner.png" alt-text="Diagram showing the steps to receive events from a partner.":::
 
     > [!NOTE]
     > You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.

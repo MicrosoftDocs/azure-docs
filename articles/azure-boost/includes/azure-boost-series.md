@@ -24,7 +24,6 @@ ms.custom:
 | [Esv5](../../virtual-machines/ev5-esv5-series.md)              | Memory Optimized               | Production |
 | [Ebsv5](../../virtual-machines/ebdsv5-ebsv5-series.md)         | Managed disks optimized        | Production |
 | [Lsv3](../../virtual-machines/lsv3-series.md)                  | Local storage optimized        | Production |
-| [Lasv3](../../virtual-machines/lasv3-series.md)                | Local storage optimized        | Production |
 | [Dplsv5](../../virtual-machines/dplsv5-dpldsv5-series.md)      | General Purpose                | Production |
 | [Dpsv5](../../virtual-machines/dpsv5-dpdsv5-series.md)         | General Purpose                | Production |
 | [Epsv5](../../virtual-machines/epsv5-epdsv5-series.md)         | Memory Optimized               | Production |

@@ -6,7 +6,7 @@ manager: chrhoder
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: include
-ms.date: 09/04/2020
+ms.date: 12/19/2023
 ms.author: v-jawe
 ms.custom: ignite-fall-2021
 ---

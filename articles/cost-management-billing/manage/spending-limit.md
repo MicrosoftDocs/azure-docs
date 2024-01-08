@@ -7,13 +7,13 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 12/12/2023
 ms.author: banders
 ---
 
 # Azure spending limit
 
-The spending limit in Azure prevents spending over your credit amount. All new customers who sign up for an Azure free account or subscription types that include credits over multiple months have the spending limit turned on by default. The spending limit is equal to the amount of credit. You can't change the amount of the spending limit. For example, if you signed up for Azure free account, your spending limit is $200 and you can't change it to $500. However, you can remove the spending limit. So, you either have no limit, or you have a limit equal to the amount of credit. The limit prevents you from most kinds of spending.
+The spending limit in Azure prevents spending over your credit amount. All new customers who sign up for an Azure free account or subscription types that include credits over multiple months have the spending limit turned on by default. The spending limit is equal to the amount of credit. You can't change the amount of the spending limit. For example, if you signed up for an Azure free account, your spending limit is USD 200 and you can't change it to USD 500. However, you can remove the spending limit. So, you either have no limit, or you have a limit equal to the amount of credit. The limit prevents you from most kinds of spending.
 
 The spending limit isn’t available for subscriptions with commitment plans or with pay-as-you-go pricing. For those types of subscriptions, a spending limit isn't shown in the Azure portal and you can't enable one. See the [full list of Azure subscription types and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
