@@ -55,7 +55,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
 1. Create a shared folder on the external SMB server, and make sure that you have the folder's path and the credentials required to access the SMB server.
 
-1. Sign into your OT sensor via SSH **using the cyberx_host user** and create a directory for your backup files. Run:
+1. Sign into your OT sensor via SSH using the *cyberx_host* user and create a directory for your backup files. Run:
     ```bash
     sudo mkdir /<backup_folder_name>
 
