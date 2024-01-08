@@ -2,6 +2,7 @@ items:
 - name: Service Connector documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
     - name: About Service Connector
       href: overview.md
@@ -9,7 +10,7 @@ items:
       href: faq.yml
 - name: Quickstarts
   expanded: true
-  items: 
+  items:
     - name: Azure App Service
       expanded: false
       items: 
