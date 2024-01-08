@@ -109,7 +109,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
     Set the value to the folder you created in the first few steps, using the following syntax: `/<backup_folder_name>`. For example:
 
-    ![Enter path to the mounted backups folder after change](media/back-up-restore-sensor/image1.png)
+    ![Screenshot of the Enter path to the mounted backups folder with an updated value.](media/back-up-restore-sensor/image1.png)
 
 
     Confirm the change by pressing the `Enter` button and continue with the rest of the steps until the end.
