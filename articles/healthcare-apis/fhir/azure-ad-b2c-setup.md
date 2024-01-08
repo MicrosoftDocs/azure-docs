@@ -90,7 +90,7 @@ You need a test B2C user to associate with a specific patient resource in the FH
 
 2. On the left pane, choose **Users**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-home-user-sml.png" alt-text="Screenshot showing home user" lightbox="media/azure-ad-b2c-setup/b2c-home-user-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-home-user2-sml.png" alt-text="Screenshot showing home user" lightbox="media/azure-ad-b2c-setup/b2c-home-user2-lrg.png":::
 
 3. Choose **+ New user**.
 
@@ -350,7 +350,7 @@ You need to create an explicit link between the test user in the B2C tenant and 
 
 1. Navigate back to the B2C tenant home page, on the left pane select **Users**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-home-user2-sml.png" alt-text="Screenshot showing B2C home user" lightbox="media/azure-ad-b2c-setup/b2c-home-user2-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-home-user5-sml.png" alt-text="Screenshot showing B2C home user" lightbox="media/azure-ad-b2c-setup/b2c-home-user5-lrg.png":::
 
 1. Select **Test Patient1**.
 
