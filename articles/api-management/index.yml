@@ -46,7 +46,7 @@ landingContent:
    # Card 
   - title: Get started
     linkLists:
-      - linkListType: Quickstart
+      - linkListType: quickstart
         links:
           - text: Create instance - Azure CLI
             url: get-started-create-service-instance-cli.md
@@ -73,7 +73,7 @@ landingContent:
          - text: API Management gateways
            url: api-management-gateways-overview.md
          - text: Caching
-           url: api-management-caching.md
+           url: api-management-howto-cache.md
   # Card 
   - title: Manage APIs
     linkLists:
