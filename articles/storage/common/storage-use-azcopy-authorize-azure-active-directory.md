@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 11/03/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Authorize access to blobs and files with AzCopy and Microsoft Entra ID
