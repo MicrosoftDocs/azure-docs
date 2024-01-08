@@ -1,6 +1,7 @@
 ---
 title: include file
 description: include file
+author: sloanster
 services: azure-communication-services
 ms.date: 08/14/2023
 ms.topic: include
@@ -31,21 +32,14 @@ To provide the details of your TURN servers, you need to pass details of what TU
 let callClientOptions = new CallClientOptions()
 let callNetworkOptions = new CallNetworkOptions()
 
-let iceServer1 = IceServer()
-iceServer1.urls = ["turn:turn.azure.com", "turn:20.202.255.255"]
-iceServer1.udpPort = 3478
-iceServer1.realm = "turn.azure.com"
-iceServer1.username = "turnserver1username"
-iceServer1.password = "turnserver1password"
+let iceServer = IceServer()
+iceServer.urls = ["turn:20.202.255.255"]
+iceServer.udpPort = 3478
+iceServer.realm = "turn.azure.com"
+iceServer.username = "turnserver1username"
+iceServer.password = "turnserver1password"
 
-let iceServer2 = IceServer()
-iceServer2.urls = ["turn:turn1.azure.com"]
-iceServer2.tcpPort = 3478
-iceServer2.realm = "turn1.azure.com"
-iceServer2.username = "turnserver2username"
-iceServer2.password = "turnserver2password"
-
-callNetworkOptions.iceServers = [iceServer1, iceServer2]
+callNetworkOptions.iceServers = [iceServer]
 
 // Supply the network options when creating an instance of the CallClient
 callClientOptions.network = callNetworkOptions
@@ -58,7 +52,8 @@ self.callClient = CallClient(options: callClientOptions);
 > Note that if you have provided your TURN server details while initializing the `CallClient`, all the media traffic will <i>exclusively</i> flow through these TURN servers. Any other ICE candidates that are normally generated when creating a call won't be considered while trying to establish connectivity between peers i.e. only 'relay' candidates will be considered. To learn more about different types of Ice candidates click [here](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
 
 > [!NOTE]
-> If UDP and TCP ports are not provided, the default behaviour will be using UDP port 3478.
+> Currently, iOS SDK only supports <b>one IPv4 address</b> and <b>UDP</b> protocol for media proxy. Any URLs in non-ipv4 format will be ignored. When multiple URLs are provided, only the last one will be used by the SDK.
+> If UDP port is not provided, a default UDP port 3478 will be used. 
 
 > [!NOTE]
 > If any of the URLs provided are invalid, the `CallClient` initialization will fail and will throw errors accordingly.

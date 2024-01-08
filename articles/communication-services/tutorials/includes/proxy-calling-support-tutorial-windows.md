@@ -1,6 +1,7 @@
 ---
 title: include file
 description: include file
+author: sloanster
 services: azure-communication-services
 ms.date: 08/14/2023
 ms.topic: include
@@ -31,21 +32,14 @@ To provide the details of your TURN servers, you need to pass details of what TU
 CallClientOptions callClientOptions = new CallClientOptions();
 CallNetworkOptions callNetworkOptions = new CallNetworkOptions();
 
-IceServer iceServer1 = new IceServer();
-iceServer1.Uris = new List<Uri>() { new Uri("turn:turn.azure.com"), new Uri("turn:20.202.255.255") }.AsReadOnly();
-iceServer1.UdpPort = 3478;
-iceServer1.Realm = "turn.azure.com";
-iceServer1.Username = "turnserver1username";
-iceServer1.Password = "turnserver1password";
+IceServer iceServer = new IceServer();
+iceServer.Uris = new List<Uri>() { new Uri("turn:20.202.255.255") }.AsReadOnly();
+iceServer.UdpPort = 3478;
+iceServer.Realm = "turn.azure.com";
+iceServer.Username = "turnserver1username";
+iceServer.Password = "turnserver1password";
 
-IceServer iceServer2 = new IceServer();
-iceServer2.Uris = new List<Uri>() { new Uri("turn:turn1.azure.com") }.AsReadOnly();
-iceServer2.TcpPort = 3478;
-iceServer2.Realm = "turn1.azure.com";
-iceServer2.Username = "turnserver2username";
-iceServer2.Password = "turnserver2password";
-
-callNetworkOptions.IceServers = new List<IceServer>() { iceServer1, iceServer2 }.AsReadOnly();
+callNetworkOptions.IceServers = new List<IceServer>() { iceServer }.AsReadOnly();
 
 // Supply the network options when creating an instance of the CallClient
 callClientOptions.Network = callNetworkOptions;
@@ -58,7 +52,8 @@ CallClient callClient = new CallClient(callClientOptions);
 > Note that if you have provided your TURN server details while initializing the `CallClient`, all the media traffic will <i>exclusively</i> flow through these TURN servers. Any other ICE candidates that are normally generated when creating a call won't be considered while trying to establish connectivity between peers i.e. only 'relay' candidates will be considered. To learn more about different types of Ice candidates click [here](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
 
 > [!NOTE]
-> If UDP and TCP ports are not provided, the default behaviour will be using UDP port 3478.
+> Currently, Windows SDK only supports <b>one IPv4 address</b> and <b>UDP</b> protocol for media proxy. Any URLs in non-ipv4 format will be ignored. When multiple URLs are provided, only the last one will be used by the SDK.
+> If UDP port is not provided, a default UDP port 3478 will be used. 
 
 > [!NOTE]
 > If any of the URLs provided are invalid, the `CallClient` initialization will fail and will throw errors accordingly.
