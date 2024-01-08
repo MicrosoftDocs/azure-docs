@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 12/11/2023
 ms.service: virtual-network
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - references_regions
   - subject-reliability
@@ -32,6 +32,7 @@ Before you begin relocation, make sure that you include the following considerat
 
 > [!IMPORTANT]
 > Starting July 1, 2021, you won't be able to add new tests in an existing workspace or enable a new workspace with Network performance monitor. You can continue to use the tests created prior to July 1, 2021. To minimize service disruption to your current workloads, migrate your tests from Network performance monitor to the new Connection monitor in Azure Network Watcher before February 29, 2024.
+
 
 ## Disconnected and connected scenarios
 
@@ -77,8 +78,6 @@ To plan your relocation of an Azure Virtual Network, you must understand whether
 #### Connected relocation with a new IP-address range
 
 :::image type="content" source="media/relocation/vnet-connected-relocation-ip-address-change.png" alt-text="Diagram showing connected workload relocation with vNet IP address range change..":::
-
-
 
 
 ## Relocation strategies
@@ -154,16 +153,15 @@ DDoS Protection Plan doesn't have any client specific data and the instance itse
 
 **To relocate a DDOS Protection plan to a new region:**
 
-1. Prepare the Source DDOS Protection plan for the move by using a Resource Manager template:
+1. Prepare the Source DDOS Protection plan for the move by using a [Resource Manager template](/azure/templates/microsoft.network/ddosprotectionplans?pivots=deployment-language-bicep):
     1. Export the Source DDOS Protection plan template from Azure portal.
     1. Make the necessary changes to the template, such as updating all occurrences of the name and the location for the relocated DDOS Protection plan.
 
-1. Once redeployment completes,  reconfigure DDOS Protection plan with the target virtual network.
-
+1. Once redeployment completes, reconfigure DDOS Protection plan with the target virtual network.
 
 ### Relocate Network Watcher
 
-As soon as the virtual network get deployed in a specific region,  Network Watcher is automatically enabled. However, you'll need to perform some configuration:
+As soon as the virtual network get deployed in a specific region, Network Watcher is automatically enabled. However, you'll still need to perform some configuration steps:
 
 - To get a centralized view of the Network Monitoring, you'll need to enable Network Performance Monitor (NPM). 
 
@@ -171,9 +169,9 @@ As soon as the virtual network get deployed in a specific region,  Network Watch
 
 ## Relocation validation
 
-Once the relocation is completed, the Virtual Network needs to be tested and validated. Below are some of the recommended guidelines.
+Once the entire relocation is completed, you need to test and validate the virtual network by doing the following:
 
-- Once the virtual network is relocated to the target region, it's highly advisable to run a smoke test and integration test (either through a script or manually) to validate and ensure all configurations and dependent resources have been properly linked and all configured data are accessible.
+- Once the virtual network is relocated to the target region, run a smoke test and integration test (either through a script or manually) to validate and ensure that all configurations and dependent resources have been properly linked and all configured data are accessible.
 
 - Validate all virtual network components and integration.
 
