@@ -126,7 +126,9 @@ The following procedures describe how to restore your sensor using a backup file
     For example: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`
 
     > [!IMPORTANT]
-    > 
+    > Make sure that the backup file you select uses the same OT sensor software version that's currently installed on your OT sensor.
+    >
+    > Your backup file must be one that had been generated automatically or manually via the CLI. If you're using a backup file generated manually by the GUI, contact support to use it to restore your sensor.
 
 - Make sure that the backup file you select uses the same OT sensor software version that's currently installed on your OT sensor.
 
