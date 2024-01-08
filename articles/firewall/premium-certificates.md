@@ -58,6 +58,9 @@ Ensure your CA certificate complies with the following requirements:
 - The Path Length must be greater than or equal to one.
 - It must be exportable.
 
+> [!NOTE]
+> Whenever you import a new Firewall CA certificate into Azure Key Vault (either for the first time or replacing an expired CA certification), you should *explicitly* update the Azure Firewall Policy TLS setting with the new certificate.
+
 ## Azure Key Vault
 
 [Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Firewall Premium supports integration with Key Vault for server certificates that are attached to a Firewall Policy.
