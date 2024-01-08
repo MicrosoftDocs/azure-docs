@@ -99,7 +99,7 @@ Use the following Azure CLI command to change the state of a Network Service Des
   az aosm publisher network-service-design version update-state \
     --resource-group <myResourceGroup> \
     --publisher-name <myPublisherName> \
-    --group-name <myNetworkFunctionDefinitionGroupName> \
-    --version-name <myNetworkFunctionDefinitionVersionName> \
+    --group-name <myNetworkServiceDesignGroupName> \
+    --version-name <myNetworkServiceDesignVersionName> \
     --version-state Active | Deprecated
 ```
