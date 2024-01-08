@@ -431,6 +431,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-retrieve-legacy-workbooks.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/workbooks-retrieve-legacy-workbooks",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-view-designer-conversions.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/visualize/workbooks-view-designer-conversions",
             "redirect_document_id": false
@@ -6056,7 +6061,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-using-migration-tool.md",
-            "redirect_url": "previous-versions/azure/azure-monitor/alerts/alerts-using-migration-tool",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-using-migration-tool",
             "redirect_document_id": false
         },
         {
@@ -6077,6 +6082,21 @@
         {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-filters.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer-filters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-configurations.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-getting-started.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-commonly-used-components.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-visualizations",
             "redirect_document_id": false
         },
         {

@@ -8,6 +8,7 @@ ms.date: 12/15/2023
 ms.topic: tutorial
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Enterprise scale for SAP Deployment Automation Framework
