@@ -14,7 +14,7 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 # CustomerIntent: As a developer, I want to learn the basics of the Go library so that I can build applications with Azure Cosmos DB for NoSQL.
 ---
 
-# Quickstart: Azure Cosmos DB for NoSQl library for Go
+# Quickstart: Azure Cosmos DB for NoSQL library for Go
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
@@ -22,7 +22,7 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 
 Get started with the Azure Cosmos DB for NoSQL client library for Go to query data in your containers and perform common operations on individual items. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
-[API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/cosmos/azcosmos) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos#readme) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos)
+[API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/cosmos/azcosmos) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos#readme) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 
 ## Prerequisites
 
