@@ -102,17 +102,21 @@ Create an item in the container using `container.UpsertItem`. This method "upser
 
 ### Read an item
 
-Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use TODO.
+Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use `container.ReadItem` to efficiently retrieve the specific item.
 
 :::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/cosmos.go" id="read_item" highlight="7":::
 
 ### Query items
 
-TODO
+Perform a query over multiple items in a container using `container.NewQueryItemsPager`. Find all items within a specified category using this parameterized query:
+
+```nosql
+SELECT * FROM products p WHERE p.category = @category
+```
 
 :::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/cosmos.go" id="query_items" highlight="3,11":::
 
-TODO
+Parse the paginated results of the query by looping through each page of results using `pager.NextPage`. Use `pager.More` to determine if there are any results left at the start of each loop.
 
 :::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/cosmos.go" id="parse_results" highlight="7-8":::
 
