@@ -68,12 +68,6 @@ landingContent:
             url: mock-api-responses.md
           - text: 4. Transform and protect your API
             url: transform-api.md
-      - linkListType: concept
-        links:
-         - text: API Management gateways
-           url: api-management-gateways-overview.md
-         - text: Caching
-           url: api-management-howto-cache.md
   # Card 
   - title: Manage APIs
     linkLists:
@@ -101,7 +95,8 @@ landingContent:
            url: authentication-authorization-overview.md
          - text: Logging and monitoring 
            url: observability.md
-
+         - text: Caching
+           url: api-management-howto-cache.md
 # Card
   - title: Publish APIs to developers
     linkLists:
