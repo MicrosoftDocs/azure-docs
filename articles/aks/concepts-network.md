@@ -26,9 +26,9 @@ This article introduces the core concepts that provide networking to your applic
 ## Kubernetes basics
 Kubernetes employs a virtual networking layer to manage access within and between your applications or their components. This involves the following key aspects:
 
-1. **Kubernetes Nodes and Virtual Network**: Kubernetes nodes are connected to a virtual network. This setup enables pods (basic units of deployment in Kubernetes) to have both inbound and outbound connectivity.
+- **Kubernetes Nodes and Virtual Network**: Kubernetes nodes are connected to a virtual network. This setup enables pods (basic units of deployment in Kubernetes) to have both inbound and outbound connectivity.
 
-2. **Kube-proxy Component**: Running on each node, kube-proxy is responsible for providing the necessary network features.
+- **Kube-proxy Component**: Running on each node, kube-proxy is responsible for providing the necessary network features.
 
 Regarding specific Kubernetes functionalities:
 
