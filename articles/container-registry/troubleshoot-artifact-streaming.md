@@ -1,6 +1,6 @@
 ---
-title: "Troubleshoot Artifact streaming"
-description: "Troubleshoot Artifact streaming in Azure Container Registry to diagnose and resolve with managing, scaling, and deploying artifacts through containerized platforms."
+title: "Troubleshoot artifact streaming"
+description: "Troubleshoot artifact streaming in Azure Container Registry to diagnose and resolve with managing, scaling, and deploying artifacts through containerized platforms."
 ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: troubleshooting-general #Don't change.
@@ -8,9 +8,9 @@ ms.date: 10/31/2023
 
 ---
 
-# Troubleshoot Artifact streaming
+# Troubleshoot artifact streaming
 
-The troubleshooting steps in this article can help you resolve common issues that you might encounter when using Artifact streaming in Azure Container Registry (ACR). These steps and recommendations can help diagnose and resolve issues related to Artifact streaming as well as provide insights into the underlying processes and logs for debugging purposes.
+The troubleshooting steps in this article can help you resolve common issues that you might encounter when using artifact streaming in Azure Container Registry (ACR). These steps and recommendations can help diagnose and resolve issues related to artifact streaming as well as provide insights into the underlying processes and logs for debugging purposes.
 
 ## Symptoms
 
