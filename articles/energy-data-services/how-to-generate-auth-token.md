@@ -120,9 +120,9 @@ The first step to getting an access token for many OpenID Connect (OIDC) and OAu
    
 :::image type="content" source="media/how-to-generate-auth-token/localhost_redirection.png" alt-text="Screenshot of localhost redirection.":::
 
-5. The browser redirects to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
-6. Copy the response from the URL bar of the browser and fetch the text between `code=` and `&state`
-4. This is the `authorization_code` to keep handy for future use.
+4. The browser redirects to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
+5. Copy the response from the URL bar of the browser and fetch the text between `code=` and `&state`
+6. This is the `authorization_code` to keep handy for future use.
    
 #### Request format
  ```bash
