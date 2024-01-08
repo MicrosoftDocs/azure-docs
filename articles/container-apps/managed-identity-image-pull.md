@@ -38,13 +38,13 @@ The following steps describe the process to configure your container app to use 
     Use the following command to check if ARM tokens are allowed to access your ACR:
 
     ```azurecli
-    az acr config authentication-as-arm show -r <registry>
+    az acr config authentication-as-arm show -r <REGISTRY>
     ```
 
     If ARM tokens are disallowed, you can allow them with the following command:
 
     ```azurecli
-    az acr config authentication-as-arm update -r <registry> --status [enabled/disable
+    az acr config authentication-as-arm update -r <REGISTRY> --status enabled
     ```
 - Create a user-assigned managed identity. For more information, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
