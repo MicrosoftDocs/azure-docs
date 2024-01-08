@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: mopeakande
+author: msakande
 ---
 
 # Monitor quality and safety of deployed applications 
@@ -97,7 +97,7 @@ Test your deployment in the deployment **Test** tab.
 
  
 > [!NOTE]
-> Monitoring requires the endpoint to be used at least 10 times to collect enough data to provide insights. If you’d like to test sooner, manually send about 50 rows in the ‘test’ tab before running the monitor.
+> Monitoring requires the endpoint to be used at least 10 times to collect enough data to provide insights. If you'd like to test sooner, manually send about 50 rows in the 'test' tab before running the monitor.
 
 Create your monitor by either enabling from the deployment details page, or the **Monitoring** tab.
 

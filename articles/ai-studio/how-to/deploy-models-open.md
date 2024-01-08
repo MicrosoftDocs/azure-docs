@@ -7,8 +7,8 @@ ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: mopeakande
+author: msakande
 ---
 
 # How to deploy large language models with Azure AI Studio 
