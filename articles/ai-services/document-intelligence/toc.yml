@@ -206,7 +206,7 @@ items:
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
     - name: Custom model lifecycle
-      displayName: custom, train, modelId, model ID
+      displayName: custom, train, modelId, model ID, expiration, train, build
       href: concept-custom-lifecycle.md
     - name: Custom template model
       displayName: structure, selection, labels, tables, tabular, train, template, neural, build mode, signatures, custom
@@ -226,9 +226,6 @@ items:
     - name: Composed models
       displayName: custom, assign, modelId, model ID
       href:  concept-composed-models.md
-    - name: Custom model lifecycle
-      displayName: custom, model, expiration, train, build
-      href:  concept-custom-lifecycle.md
 - name: Samples
   items:
   - name: "C#/.NET"
