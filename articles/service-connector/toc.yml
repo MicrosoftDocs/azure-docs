@@ -39,7 +39,7 @@ items:
         - name: Azure CLI
           href: quickstart-cli-container-apps.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items: 
     - name: Azure App Service
       expanded: false
@@ -82,7 +82,7 @@ items:
       - name: Spring app to MySQL
         href: tutorial-java-spring-mysql.md
 - name: Concepts
-  expanded: true
+  expanded: false
   items: 
     - name: Service Connector internals
       href: concept-service-connector-internals.md
@@ -93,7 +93,7 @@ items:
     - name: Permission requirements
       href: concept-permission.md
 - name: How-to guides
-  expanded: true
+  expanded: false
   items: 
     - name: Manage authentication
       href: how-to-manage-authentication.md
@@ -156,7 +156,7 @@ items:
     - name: Apache Kafka on Confluent Cloud
       href: how-to-integrate-confluent-kafka.md
 - name: Reference
-  expanded: true
+  expanded: false
   items: 
     - name: REST API
       href: /rest/api/serviceconnector?toc=/azure/service-connector/TOC.json&bc=/azure/service-connector/breadcrumb/toc.json
