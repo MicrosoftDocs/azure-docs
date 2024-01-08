@@ -46,8 +46,8 @@ Update your Azure Cosmos DB account to enable "Delete by partition key" feature 
        $capabilities = ($cosmosdb | ConvertFrom-Json).capabilities 
     ```
 - Step 3: Add "Delete items by partition key" capability in the list of capabilities if it doesn't exist already. 
-    >!Note 
-    The list of capabilities must always specify all capabilities that you want to enable, inclusively. This includes capabilities that are already enabled for the account that you want to keep. 
+    > [!NOTE]
+    > The list of capabilities must always specify all capabilities that you want to enable, inclusively. This includes capabilities that are already enabled for the account that you want to keep. 
 
     ```azurecli-interactive
        $capabilities += $DeleteByPk
