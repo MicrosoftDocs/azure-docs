@@ -498,7 +498,7 @@ az vmss update-instances \
 
 ## Troubleshoot
 
-## View VMHealth - single instance
+### View VMHealth - single instance
 ```azurepowershell-interactive
 Get-AzVmssVM 
   -InstanceView `

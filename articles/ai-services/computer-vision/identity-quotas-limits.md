@@ -27,6 +27,8 @@ This article contains a reference and a detailed description of the quotas and l
 | Free (F0) | 20 transactions per minute |
 | Standard (S0),</br>Enterprise (E0) | 10 transactions per second, and 200 TPS across all resources in a single region.</br>See the next section if you want to increase this limit. |
 
+> [!NOTE]
+> If you exceed the default rate limit, you'll receive a `429` error. To address this issue, refer to the [Performance guide](/azure/ai-services/computer-vision/how-to/mitigate-latency#handle-errors-effectively).
 
 **Default Face resource quantity limits**
 
@@ -41,7 +43,8 @@ This article contains a reference and a detailed description of the quotas and l
 
 To increase rate limits and resource limits, you can submit a support request. However, for other quota limits, you need to switch to a higher pricing tier to increase those quotas. 
 
-[Submit a support request](/azure/ai-services/cognitive-services-support-options?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and answer the following questions: 
+[Submit a support request](/azure/ai-services/cognitive-services-support-options?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) and provide the following information: 
+- A description of your Face use case.
 - The reason for requesting an increase in your current limits. 
 - Which of your subscriptions or resources are affected? 
 - What limits would you like to increase? (rate limits or resource limits) 

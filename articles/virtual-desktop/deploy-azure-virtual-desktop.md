@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/06/2023
+ms.date: 11/16/2023
 ---
 
 # Deploy Azure Virtual Desktop
@@ -13,7 +13,15 @@ ms.date: 11/06/2023
 > [!IMPORTANT]
 > Using Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Stack HCI by using the Azure portal, Azure CLI, or Azure PowerShell. You create a host pool, workspace, application group, and session hosts and can optionally enable diagnostics settings. You also assign users or groups to the application group for users to get access to their desktops and applications. You can do all these tasks in the same process when using the Azure portal, but you can also do them separately.
+This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Stack HCI by using the Azure portal, Azure CLI, or Azure PowerShell. To deploy Azure Virtual Desktop you:
+- Create a host pool.
+- Create a workspace.
+- Create an application group.
+- Create session host virtual machines.
+- Enable diagnostics settings (*optional*).
+- Assign users or groups to the application group for users to get access to desktops and applications.
+
+You can do all these tasks in a single process when using the Azure portal, but you can also do them separately.
 
 The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [getting started feature](getting-started-feature.md).
 
@@ -40,6 +48,8 @@ In addition, you need:
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
 
    For ongoing management of host pools, workspaces, and application groups, you can use more granular roles for each resource type. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
+
+- To assign users to the application group, you'll also need `Microsoft.Authorization/roleAssignments/write` permissions on the application group. Built-in RBAC roles that include this permission are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Owner](../role-based-access-control/built-in-roles.md#owner).
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as [PowerShell DSC](/powershell/dsc/overview) requires it.
 
@@ -116,7 +126,7 @@ Here's how to create a host pool using the Azure portal.
    | Host pool name | Enter a name for the host pool, for example **hp01**. |
    | Location | Select the Azure region where you want to create your host pool. |
    | Validation environment | Select **Yes** to create a host pool that is used as a [validation environment](create-validation-host-pool.md).<br /><br />Select **No** (*default*) to create a host pool that isn't used as a validation environment. |
-   | Preferred app group type | Select the preferred [application group type](environment-setup.md#app-groups) for this host pool from *Desktop* or *RemoteApp*. |   
+   | Preferred app group type | Select the preferred [application group type](environment-setup.md#app-groups) for this host pool from *Desktop* or *RemoteApp*. A Desktop application group is created automatically when using the Azure portal, with whichever application group type you set as the preferred. |
    | Host pool type | Select whether you want your host pool to be Personal or Pooled.<br /><br />If you select **Personal**, a new option appears for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host. |
 
    > [!TIP]
@@ -137,10 +147,10 @@ Here's how to create a host pool using the Azure portal.
       | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
       | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.md). |
       | Virtual machine size | Select a SKU. If you want to use different SKU, select **Change size**, then select from the list. |
-      | Hibernate (preview) | Check the box to enable hibernate. Hibernate is only available for personal host pools. You will need to [self-register your subscription](../virtual-machines/hibernate-resume.md) to use the hibernation feature.<br /><br />For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). |   
+      | Hibernate (preview) | Check the box to enable hibernate. Hibernate is only available for personal host pools. You will need to self-register your subscription to use the hibernation feature. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Teams media optimizations you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).|   
       | Number of VMs | Enter the number of virtual machines you want to deploy. You can deploy up to 400 session hosts at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
       | OS disk type | Select the disk type to use for your session hosts. We recommend only **Premium SSD** is used for production workloads. |
-      | OS disk size | If you have hibernate enabled, the OS disk size needs to be larger than the amount of memory for the VM. Check the box if you need this for your session hosts. |
+      | OS disk size | Select a size for the OS disk.<br /><br />If you enable hibernate, ensure the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |
       | Confidential computing encryption | If you're using a confidential VM, you must select the **Confidential compute encryption** check box to enable OS disk encryption.<br /><br />This check box only appears if you selected **Confidential virtual machines** as your security type. |
       | Boot Diagnostics | Select whether you want to enable [boot diagnostics](../virtual-machines/boot-diagnostics.md). |
       | **Network and security** |  |
@@ -220,7 +230,7 @@ If you also added session hosts to your host pool, there's some extra configurat
 [!INCLUDE [include-session-hosts-post-deployment](includes/include-session-hosts-post-deployment.md)]
 
 > [!NOTE]
-> - If you created a host pool, workspace, and registered the default desktop application group from this host pool in the same process, go to the section [Assign users to an application group](#assign-users-to-an-application-group) and complete the rest of the article.
+> - If you created a host pool, workspace, and registered the default desktop application group from this host pool in the same process, go to the section [Assign users to an application group](#assign-users-to-an-application-group) and complete the rest of the article. A Desktop application group is created automatically when using the Azure portal, whichever application group type you set as the preferred.
 >
 > - If you created a host pool and workspace in the same process, but didn't register the default desktop application group from this host pool, go to the section [Create an application group](#create-an-application-group) and complete the rest of the article.
 >
@@ -432,7 +442,7 @@ Here's how to create an application group using the Azure portal.
    > [!TIP]
    > Once you've completed this tab, select **Next: Review + create**. You don't need to complete the other tabs to create an application group, but you'll need to [create a workspace](#create-a-workspace), [add an application group to a workspace](#add-an-application-group-to-a-workspace) and [assign users to the application group](#assign-users-to-an-application-group) before users can access the resources.
    >
-   > If you created an application group for RemoteApp, you will also need to add applications. For more information, see [Add applications to an application group](manage-app-groups.md)
+   > If you created an application group for RemoteApp, you will also need to add applications to it. For more information, see [Publish applications](publish-applications.md).
 
 1. *Optional*: If you selected to create a RemoteApp application group, you can add applications to this application group. On the **Application groups** tab, select **+ Add applications**, then select an application. For more information on the application parameters, see [Publish applications with RemoteApp](manage-app-groups.md). At least one session host in the host pool must be powered on and available in Azure Virtual Desktop.
 

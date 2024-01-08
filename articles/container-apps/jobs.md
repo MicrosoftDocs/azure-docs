@@ -347,7 +347,7 @@ To authenticate the request, replace `<TOKEN>` in the `Authorization` header wit
 
 # [Azure portal](#tab/azure-portal)
 
-Starting a job execution using the Azure portal isn't supported.
+To start a job execution in the Azure portal, select **Run now** in the job's overview page.
 
 ---
 
@@ -421,7 +421,7 @@ Replace `<SUBSCRIPTION_ID>` with your subscription ID and `<TOKEN>` in the `Auth
 
 # [Azure portal](#tab/azure-portal)
 
-Starting a job execution using the Azure portal isn't supported.
+Starting a job execution with an overridden configuration isn't supported in the Azure portal.
 
 ---
 

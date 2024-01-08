@@ -3,7 +3,7 @@ title: What is pipeline partitioning?
 description: Understand how to use partitioning in pipelines to enable parallelism. Partitioning can improve throughput and reduce latency
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: concept-article
 ms.custom:
   - ignite-2023

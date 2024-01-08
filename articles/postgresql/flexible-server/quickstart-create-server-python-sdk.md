@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create an Azure Database for PostgreSQL Flexible Server - Azure libraries (SDK) for Python'
 description: In this Quickstart, learn how to create an Azure Database for PostgreSQL Flexible server using Azure libraries (SDK) for Python.
-author: AwdotiaRomanowna
+author: AlicjaKucharczyk
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-python-sdk
@@ -61,11 +61,12 @@ def create_postgres_flexible_server(subscription_id, resource_group, server_name
 
     # Create PostgreSQL Flexible Server
     server_params = Server(
+        location='<location>',
         sku=Sku(name='Standard_D4s_v3', tier='GeneralPurpose'),
         administrator_login='pgadmin',
         administrator_login_password='<mySecurePassword>',
         storage=Storage(storage_size_gb=32),
-        version="14",
+        version="16",
         create_mode="Create"
     )
 
@@ -82,7 +83,6 @@ if __name__ == '__main__':
     subscription_id = '<subscription_id>'
     resource_group = '<resource_group>'
     server_name = '<servername>'
-    location = 'eastus'
 
     create_postgres_flexible_server(subscription_id, resource_group, server_name, location)
 
@@ -92,11 +92,12 @@ Replace the following parameters with your data:
 
 - **subscription_id**: Your own [subscription ID](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-subscription).
 - **resource_group**: The name of the resource group you want to use. The script will create a new resource group if it doesn't exist.   
-- **server_name**: A unique name that identifies your Azure Database for PostgreSQL server. The domain name `postgres.database.azure.com` is appended to the server name you provide. The server name must be at least 3 characters and at most 63 characters, and can only contain lowercase letters, numbers, and hyphens.
+- **server_name**: A unique name that identifies your Azure Database for PostgreSQL - Flexible Server. The domain name `postgres.database.azure.com` is appended to the server name you provide. The server name must be at least 3 characters and at most 63 characters, and can only contain lowercase letters, numbers, and hyphens.
+- **location**: The Azure region where you want to create your Azure Database for PostgreSQL - Flexible Server. It defines the geographical location where your server and its data reside. Choose a region close to your users for reduced latency. The location should be specified in the format of Azure region short names, like `westus2`, `eastus`, or `northeurope`.
 - **administrator_login**: The primary administrator username for the server. You can create additional users after the server has been created.
 - **administrator_login_password**: A password for the primary administrator for the server. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
 
-You can also customize other parameters like location, storage size, engine version, etc.
+You can also customize other parameters like storage size, engine version, etc.
 
 
 > [!NOTE]

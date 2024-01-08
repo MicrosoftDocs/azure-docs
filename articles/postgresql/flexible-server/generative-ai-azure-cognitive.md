@@ -17,18 +17,18 @@ Azure AI extension gives the ability to invoke the [language services](../../ai-
 
 ## Prerequisites
 
-1. [Create a Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal to get your key and endpoint.  
-1. After it deploys, select **Go to resource**.
+1. [Create a Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal to get your key and endpoint.  
+1. After it deploys, select **Go to resource**.
 
 > [!NOTE]
 > You will need the key and endpoint from the resource you create to connect the extension to the API.
 
 ## Configure Azure Cognitive Services endpoint and key 
 
-In the Azure AI services under **Resource Management** > **Keys and Endpoints** you can find the **Endpoint and Keys** for your Azure AI resource. Use the endpoint and key to enable `azure_ai` extension to invoke the model deployment.
+In the Language resource, under **Resource Management** > **Keys and Endpoints** you can find the endpoint and keys for your language resource. Use the endpoint and key to enable `azure_ai` extension to invoke the model deployment.
 
 ```postgresql
-select azure_ai.set_setting('azure_cognitive.endpoint','https://<endpoint>.openai.azure.com'); 
+select azure_ai.set_setting('azure_cognitive.endpoint','https://<endpoint>.cognitiveservices.azure.com'); 
 select azure_ai.set_setting('azure_cognitive.subscription_key', '<API Key>'); 
 ```
 
@@ -50,17 +50,17 @@ azure_cognitive.analyze_sentiment(text text, language text, timeout_ms integer D
 
 `text` two-letter ISO 639-1 representation of the language that the input text is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `timeout_ms`
+##### `timeout_ms`
 
 `integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
 
-#### `throw_on_error`
+##### `throw_on_error`
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `disable_service_logs`
+##### `disable_service_logs`
 
-`boolean DEFAULT false` The Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
+`boolean DEFAULT false` the Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -83,23 +83,23 @@ azure_cognitive.detect_language(text TEXT, timeout_ms INTEGER DEFAULT 3600000, t
 
 `text` input to be processed.
 
-#### `timeout_ms`
+##### `timeout_ms`
 
 `integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
 
-#### `throw_on_error`
+##### `throw_on_error`
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `disable_service_logs`
+##### `disable_service_logs`
 
-`boolean DEFAULT false` The Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
+`boolean DEFAULT false` the Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
 #### Return type
 
-`azure_cognitive.language_detection_result`, a result containing the detected language name, its two-letter ISO 639-1 representation and the confidence score for the detection. 
+`azure_cognitive.language_detection_result`, a result containing the detected language name, its two-letter ISO 639-1 representation and the confidence score for the detection. For example in `(Portuguese,pt,0.97)`, the language is `Portuguese`, and detection confidence is `0.97`.
 
 ### `azure_cognitive.extract_key_phrases`
 
@@ -119,23 +119,23 @@ azure_cognitive.extract_key_phrases(text TEXT, language TEXT, timeout_ms INTEGER
 
 `text` two-letter ISO 639-1 representation of the language that the input text is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `timeout_ms`
+##### `timeout_ms`
 
 `integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
 
-#### `throw_on_error`
+##### `throw_on_error`
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `disable_service_logs`
+##### `disable_service_logs`
 
-`boolean DEFAULT false` The Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
+`boolean DEFAULT false` the Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
 #### Return type
 
-`text[]`, a collection of key phrases identified in the text. 
+`text[]`, a collection of key phrases identified in the text. For example, if invoked with a `text` set to `'For more information, see Cognitive Services Compliance and Privacy notes.'`, and `language` set to `'en'`, it could return `{"Cognitive Services Compliance","Privacy notes",information}`.
 
 ### `azure_cognitive.linked_entities`
 
@@ -155,23 +155,26 @@ azure_cognitive.linked_entities(text text, language text, timeout_ms integer DEF
 
 `text` two-letter ISO 639-1 representation of the language that the input text is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `timeout_ms`
+##### `timeout_ms`
 
 `integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
 
-#### `throw_on_error`
+##### `throw_on_error`
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `disable_service_logs`
+##### `disable_service_logs`
 
-`boolean DEFAULT false` The Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
+`boolean DEFAULT false` the Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
 #### Return type
 
-`azure_cognitive.linked_entity[]`, a collection of linked entities, where each defines the name, data source entity identifier, language, data source, URL, collection of `azure_cognitive.linked_entity_match` (defining the text and confidence score) and finally a Bing entity search API identifier.
+`azure_cognitive.linked_entity[]`, a collection of linked entities, where each defines the name, data source entity identifier, language, data source, URL, collection of `azure_cognitive.linked_entity_match` (defining the text and confidence score) and finally a Bing entity search API identifier. For example, if invoked with a `text` set to `'For more information, see Cognitive Services Compliance and Privacy notes.'`, and `language` set to `'en'`, it could return `{"(\"Cognitive computing\",\"Cognitive computing\",en,Wikipedia,https://en.wikipedia.org/wiki/Cognitive_computing,\"{\"\"(\\\\\"\"Cognitive Services\\\\\"\",0.78)\
+"\"}\",d73f7d5f-fddb-0908-27b0-74c7db81cd8d)","(\"Regulatory compliance\",\"Regulatory compliance\",en,Wikipedia,https://en.wikipedia.org/wiki/Regulatory_compliance
+,\"{\"\"(Compliance,0.28)\"\"}\",89fefaf8-e730-23c4-b519-048f3c73cdbd)","(\"Information privacy\",\"Information privacy\",en,Wikipedia,https://en.wikipedia.org/wiki
+/Information_privacy,\"{\"\"(Privacy,0)\"\"}\",3d0f2e25-5829-4b93-4057-4a805f0b1043)"}`.
 
 ### `azure_cognitive.recognize_entities`
 
@@ -191,23 +194,23 @@ azure_cognitive.recognize_entities(text text, language text, timeout_ms integer 
 
 `text` two-letter ISO 639-1 representation of the language that the input text is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `timeout_ms`
+##### `timeout_ms`
 
 `integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
 
-#### `throw_on_error`
+##### `throw_on_error`
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `disable_service_logs`
+##### `disable_service_logs`
 
-`boolean DEFAULT false` The Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
+`boolean DEFAULT false` the Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
 #### Return type
 
-`azure_cognitive.entity[]`, a collection of entities, where each defines the text identifying the entity, category of the entity and confidence score of the match.
+`azure_cognitive.entity[]`, a collection of entities, where each defines the text identifying the entity, category of the entity and confidence score of the match. For example, if invoked with a `text` set to `'For more information, see Cognitive Services Compliance and Privacy notes.'`, and `language` set to `'en'`, it could return `{"(\"Cognitive Services\",Skill,\"\",0.94)"}`.
 
 ### `azure_cognitive.recognize_pii_entities`
 
@@ -227,27 +230,27 @@ azure_cognitive.recognize_pii_entities(text text, language text, timeout_ms inte
 
 `text` two-letter ISO 639-1 representation of the language that the input text is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `timeout_ms`
+##### `timeout_ms`
 
 `integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
 
-#### `throw_on_error`
+##### `throw_on_error`
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `domain`
+##### `domain`
 
 `text DEFAULT 'none'::text`, the personal data domain used for personal data Entity Recognition. Valid values are `none` for no domain specified and `phi` for Personal Health Information.
 
-#### `disable_service_logs`
+##### `disable_service_logs`
 
-`boolean DEFAULT true` The Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
+`boolean DEFAULT true` the Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
 #### Return type
 
-`azure_cognitive.pii_entity_recognition_result`, a result containing the redacted text and entities as `azure_cognitive.entity[]`. Each entity contains the nonredacted text, personal data category, subcategory and a score indicating the confidence that the entity correctly matches the identified substring.
+`azure_cognitive.pii_entity_recognition_result`, a result containing the redacted text and entities as `azure_cognitive.entity[]`. Each entity contains the nonredacted text, personal data category, subcategory and a score indicating the confidence that the entity correctly matches the identified substring. For example, if invoked with a `text` set to `'My phone number is +1555555555, and the address of my office is 16255 NE 36th Way, Redmond, WA 98052.'`, and `language` set to `'en'`, it could return `("My phone number is ***********, and the address of my office is ************************************.","{""(+1555555555,PhoneNumber,\\""\\"",0.8)"",""(\\""16255 NE 36th Way, Redmond, WA 98052\\"",Address,\\""\\"",1)""}")`.
 
 ### `azure_cognitive.summarize_abstractive`
 
@@ -267,28 +270,28 @@ azure_cognitive.summarize_abstractive(text text, language text, timeout_ms integ
 
 `text` two-letter ISO 639-1 representation of the language that the input text is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `timeout_ms`
+##### `timeout_ms`
 
 `integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
 
-#### `throw_on_error`
+##### `throw_on_error`
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `sentence_count`
+##### `sentence_count`
 
 `integer DEFAULT 3`, maximum number of sentences that the summarization should contain.
 
-#### `disable_service_logs`
+##### `disable_service_logs`
 
-`boolean DEFAULT false` The Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
+`boolean DEFAULT false` the Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
 
 #### Return type
 
-`text[]`, a collection of summaries with each one not exceeding the defined `sentence_count`.
+`text[]`, a collection of summaries with each one not exceeding the defined `sentence_count`. For example, if invoked with a `text` set to `'PostgreSQL features transactions with atomicity, consistency, isolation, durability (ACID) properties, automatically updatable views, materialized views, triggers, foreign keys, and stored procedures. It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users. It was the default database for macOS Server and is also available for Linux, FreeBSD, OpenBSD, and Windows.'`, and `language` set to `'en'`, it could return `{"PostgreSQL is a database system with advanced features such as atomicity, consistency, isolation, and durability (ACID) properties. It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users. PostgreSQL was the default database for macOS Server and is available for Linux, BSD, OpenBSD, and Windows."}`.
 
 ### `azure_cognitive.summarize_extractive`
 
@@ -308,31 +311,31 @@ azure_cognitive.summarize_extractive(text text, language text, timeout_ms intege
 
 `text` two-letter ISO 639-1 representation of the language that the input text is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
-#### `timeout_ms`
+##### `timeout_ms`
 
 `integer DEFAULT 3600000` timeout in milliseconds after which the operation is stopped.
 
-#### `throw_on_error`
+##### `throw_on_error`
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-#### `sentence_count`
+##### `sentence_count`
 
 `integer DEFAULT 3`, maximum number of sentences to extract.
 
-#### `sort_by`
+##### `sort_by`
 
 `text DEFAULT ``offset``::text`, order of extracted sentences. Valid values are `rank` and `offset`.
 
-#### `disable_service_logs`
+##### `disable_service_logs`
 
-`boolean DEFAULT false` The Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
+`boolean DEFAULT false` the Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
 #### Return type
 
-`azure_cognitive.sentence[]`, a collection of extracted sentences along with their rank score.
+`azure_cognitive.sentence[]`, a collection of extracted sentences along with their rank score. For example, if invoked with a `text` set to `'PostgreSQL features transactions with atomicity, consistency, isolation, durability (ACID) properties, automatically updatable views, materialized views, triggers, foreign keys, and stored procedures. It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users. It was the default database for macOS Server and is also available for Linux, FreeBSD, OpenBSD, and Windows.'`, and `language` set to `'en'`, it could return `{"(\"PostgreSQL features transactions with atomicity, consistency, isolation, durability (ACID) properties, automatically updatable views, materialized views, triggers, foreign keys, and stored procedures.\",0.16)","(\"It is designed to handle a range of workloads, from single machines to data warehouses or web services with many concurrent users.\",0)","(\"It was the default database for macOS Server and is also available for Linux, FreeBSD, OpenBSD, and Windows.\",1)"}`.
 
 ## Next steps
 

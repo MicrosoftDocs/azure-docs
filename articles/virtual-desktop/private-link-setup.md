@@ -16,7 +16,7 @@ This article shows you how to set up Private Link with Azure Virtual Desktop to 
 
 In order to use Private Link with Azure Virtual Desktop, you need the following things:
 
-- An existing [host pool](create-host-pool.md) with [session hosts](add-session-hosts-host-pool.md), [application group, and workspace](create-application-group-workspace.md).
+- An existing [host pool](create-host-pool.md) with [session hosts](add-session-hosts-host-pool.md), an [application group, and workspace](create-application-group-workspace.md).
 
 - An existing [virtual network](../virtual-network/manage-virtual-network.md) and [subnet](../virtual-network/virtual-network-manage-subnet.md) you want to use for private endpoints.
 
@@ -33,9 +33,9 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 To use Private Link with Azure Virtual Desktop, you need to re-register the *Microsoft.DesktopVirtualization* resource provider on each subscription you want to use Private Link with Azure Virtual Desktop.
 
 > [!IMPORTANT]
-> For Azure US Gov and Azure operated by 21Vianet, you also need to register the feature for each subscription.
+> For Azure for US Government and Azure operated by 21Vianet, you also need to register the feature for each subscription.
 
-### Register the feature (Azure US Gov and Azure operated by 21Vianet only)
+### Register the feature (Azure for US Government and Azure operated by 21Vianet only)
 
 To register the *Azure Virtual Desktop Private Link* feature:
 

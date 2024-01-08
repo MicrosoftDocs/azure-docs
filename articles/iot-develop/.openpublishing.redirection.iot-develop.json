@@ -332,8 +332,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-iot-pnp-bridge.md",
-      "redirect_url": "/azure/iot-develop/concepts-iot-pnp-bridge",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-develop/overview-iot-plug-and-play",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/concepts-iot-pnp-bridge.md",
+      "redirect_url": "/azure/iot-develop/overview-iot-plug-and-play",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-model-discovery.md",

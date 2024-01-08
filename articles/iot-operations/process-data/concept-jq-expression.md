@@ -3,7 +3,7 @@ title: Data Processor jq expressions
 description: Understand the jq expressions used by Azure IoT Data Processor to operate on messages in the pipeline.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.custom:
   - ignite-2023

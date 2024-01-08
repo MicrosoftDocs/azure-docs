@@ -49,8 +49,6 @@ For any questions or feedback about this dataset, contact clinvar@ncbi.nlm.nih.g
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=genomics-clinvar -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=genomics-clinvar)**.
 
 ## Getting the ClinVar data from Azure Open Dataset
 

@@ -4,6 +4,7 @@ description: Learn how to configure a connection with user-delegated permissions
 services: api-management
 author: dlepow
 ms.service: api-management
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/14/2023
 ms.author: danlep

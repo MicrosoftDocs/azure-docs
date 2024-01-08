@@ -12,7 +12,7 @@ ms.date: 11/15/2023
 keywords:
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.OpenAI/) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)| [Enterprise chat app template](/dotnet/azure/ai/get-started-app-chat-template) |
+[Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.OpenAI/) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)| [Retrieval Augmented Generation (RAG) enterprise chat template](/dotnet/azure/ai/get-started-app-chat-template) |
 
 ## Prerequisites
 
@@ -59,10 +59,10 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
     DeploymentName = "gpt-35-turbo", //This must match the custom deployment name you chose for your model
     Messages =
     {
-        new ChatMessage(ChatRole.System, "You are a helpful assistant."),
-        new ChatMessage(ChatRole.User, "Does Azure OpenAI support customer managed keys?"),
-        new ChatMessage(ChatRole.Assistant, "Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatMessage(ChatRole.User, "Do other Azure AI services support this too?"),
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("Does Azure OpenAI support customer managed keys?"),
+        new ChatRequestAssistantMessage("Yes, customer managed keys are supported by Azure OpenAI."),
+        new ChatRequestUserMessage("Do other Azure AI services support this too?"),
     },
     MaxTokens = 100
 };
@@ -106,10 +106,10 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
     DeploymentName= "gpt-35-turbo", //This must match the custom deployment name you chose for your model
     Messages =
     {
-        new ChatMessage(ChatRole.System, "You are a helpful assistant."),
-        new ChatMessage(ChatRole.User, "Does Azure OpenAI support customer managed keys?"),
-        new ChatMessage(ChatRole.Assistant, "Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatMessage(ChatRole.User, "Do other Azure AI services support this too?"),
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("Does Azure OpenAI support customer managed keys?"),
+        new ChatRequestAssistantMessage("Yes, customer managed keys are supported by Azure OpenAI."),
+        new ChatRequestUserMessage("Do other Azure AI services support this too?"),
     },
     MaxTokens = 100
 };

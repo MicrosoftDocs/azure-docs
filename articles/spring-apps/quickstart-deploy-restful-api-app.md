@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 10/02/2023
 ms.author: v-shilichen
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-enterprise-or-consumption-plan-selection
 ---
 
@@ -284,6 +284,6 @@ Use the following steps to access the RESTful APIs of the `ToDo` app in the Swag
 
 For more information, see the following articles:
 
-- [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+- [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 - [Spring on Azure](/azure/developer/java/spring/)
 - [Spring Cloud Azure](/azure/developer/java/spring-framework/)

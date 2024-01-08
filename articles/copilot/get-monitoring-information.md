@@ -21,7 +21,9 @@ When you ask Microsoft Copilot for Azure (preview) about logs, it automatically 
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
-### Sample prompts
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
+## Sample prompts
 
 Here are a few examples of the kinds of prompts you can use to get information about Azure Monitor logs. Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
 

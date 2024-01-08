@@ -172,6 +172,6 @@ If you see a message about insufficient CPU or memory, you should add more nodes
 
 [View logs and metrics using Kibana and Grafana](monitor-grafana-kibana.md)
 
-## Next steps
+## Related content
 
 [Scenario: View inventory of your instances in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)

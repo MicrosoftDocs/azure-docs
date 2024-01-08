@@ -391,7 +391,7 @@ If you run the container with an output [mount](luis-container-configuration.md#
 
 ## Billing
 
-The LUIS container sends billing information to Azure, using a _Azure AI services_ resource on your Azure account.
+The LUIS container sends billing information to Azure, using an _Azure AI services_ resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

@@ -27,6 +27,7 @@ The current alert rule wizard is different from the earlier experience:
     - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to trigger an alert of the desired resource by using the resource ID column.
     - For more advanced customizations, [use Azure Logic Apps](alerts-logic-apps.md).
 
+
 ## Manage alert rules created in previous versions in the Azure portal
 1. In the [Azure portal](https://portal.azure.com/), select the resource you want.
 1. Under **Monitoring**, select **Alerts**.
@@ -70,10 +71,7 @@ The current alert rule wizard is different from the earlier experience:
    <!-- convertborder later -->
    :::image type="content" source="media/alerts-log/AlertsPreviewSuppress.png" lightbox="media/alerts-log/AlertsPreviewSuppress.png" alt-text="Screenshot that shows the Alert Details pane." border="false":::
 1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
-1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md) when the alert condition is met.
-    > [!NOTE]
-    > * For limits on the actions that can be performed, see [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-    > * Search results were included in the payload of the triggered alert and its associated notifications. **Notice that**: The **email** included only **10 rows** from the unfiltered results while the **webhook payload** contained **1,000 unfiltered results**.
+1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md) when the alert condition is met. For limits on the actions that can be performed, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
 1. (Optional) Customize actions in log alert rules:
     - **Custom email subject**: Overrides the *email subject* of email actions. You can't modify the body of the mail and this field *isn't for email addresses*.
     - **Include custom Json payload for webhook**: Overrides the webhook JSON used by action groups, assuming that the action group contains a webhook action. Learn more about [webhook actions for log alerts](./alerts-log-webhook.md).

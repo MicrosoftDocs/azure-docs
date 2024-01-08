@@ -12,7 +12,7 @@ ms.date: 11/15/2023
 keywords: 
 ---
 
-[Library source code](https://github.com/openai/openai-python?azure-portal=true) | [Package (PyPi)](https://pypi.org/project/openai?azure-portal=true) | [Enterprise chat app template](/azure/developer/python/get-started-app-chat-template) |
+[Library source code](https://github.com/openai/openai-python?azure-portal=true) | [Package (PyPi)](https://pypi.org/project/openai?azure-portal=true) | [Retrieval Augmented Generation (RAG) enterprise chat template](/azure/developer/python/get-started-app-chat-template) |
 
 ## Prerequisites
 

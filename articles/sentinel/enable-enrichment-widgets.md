@@ -1,5 +1,5 @@
 ---
-title: Visualize data with enrichment widgets in Microsoft Sentinel
+title: Enable enrichment widgets in Microsoft Sentinel
 description: This article shows you how to enable the enrichment widgets experience, allowing you to better visualize entity data and insights and make better, faster decisions.
 author: yelevin
 ms.author: yelevin
@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 11/15/2023
 ---
 
-# Visualize data with enrichment widgets in Microsoft Sentinel 
+# Enable enrichment widgets in Microsoft Sentinel 
 
-This article shows you how to enable the enrichment widgets experience, allowing you to better visualize entity data and insights and make better, faster decisions.
+Enrichment widgets are dynamic components that provide you with in-depth, actionable intelligence about entities. They integrate external and internal content and data from various sources, allowing you a better understanding of potential security threats.
 
-Enrichment widgets are components that help you retrieve, visualize, and understand more information about entities. These widgets take data presentation to the next level by integrating external content, enhancing your ability to make informed decisions quickly.
+This article shows you how to enable the enrichment widgets experience, allowing you to take advantage of this new capability and helping you make better, faster decisions.
 
 > [!IMPORTANT]
 >

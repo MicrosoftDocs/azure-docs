@@ -5,6 +5,7 @@ description: Use this Quickstart to install and configure the necessary prerequi
 author: HollyCl
 ms.author: hollycl
 ms.service: azure-operator-service-manager
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 09/08/2023
 ---
