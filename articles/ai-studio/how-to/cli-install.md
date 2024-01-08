@@ -2,7 +2,6 @@
 title: Get started with the Azure AI CLI
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to install and get started with the Azure AI CLI.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -11,6 +10,7 @@ ms.topic: how-to
 ms.date: 11/15/2023
 ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Get started with the Azure AI CLI
