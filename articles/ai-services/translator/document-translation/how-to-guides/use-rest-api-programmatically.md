@@ -45,7 +45,7 @@ To get started, you need:
 
   1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](create-use-managed-identities.md) for authentication, choose a **geographic** region like **West US**.
 
-  1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
+  1. **Name**. Enter the name you chose for your resource. The name you choose must be unique within Azure.
 
      > [!NOTE]
      > Document Translation requires a custom domain endpoint. The value that you enter in the Name field will be the custom domain name parameter for your endpoint.
@@ -56,13 +56,13 @@ To get started, you need:
 
   1. Review the service terms and select **Create** to deploy your resource.
 
-  1. After your resource has successfully deployed, select **Go to resource**.
+  1. After your resource successfully deploys, select **Go to resource**.
 
 ### Retrieve your key and custom domain endpoint
 
 *Requests to the Translator service require a read-only key and custom endpoint to authenticate access. The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories and is available in the Azure portal.
 
-1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
+1. If you created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 
@@ -76,7 +76,7 @@ To get started, you need:
 
 Requests to the Translator service require a read-only key for authenticating access.
 
-1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
+1. If you created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 1. Copy and paste your key in a convenient location, such as *Microsoft Notepad*.
 1. You paste it into the code sample to authenticate your request to the Document Translation service.
@@ -97,9 +97,9 @@ You need to  [**create containers**](../../../../storage/blobs/storage-quickstar
 
 The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](create-sas-tokens.md).
 
-* Your **source** container or blob must have designated  **read** and **list** access.
-* Your **target** container or blob must have designated  **write** and **list** access.
-* Your **glossary** blob must have designated  **read** and **list** access.
+* Your **source** container or blob must designate  **read** and **list** access.
+* Your **target** container or blob must designate  **write** and **list** access.
+* Your **glossary** blob must designate  **read** and **list** access.
 
 > [!TIP]
 >
@@ -158,8 +158,8 @@ The following headers are included with each Document Translation API request:
 ### Translate a specific document in a container
 
 * Specify `"storageType": "File"`
-* If you aren't using a [**system-assigned managed identity**](create-use-managed-identities.md) for authentication, make sure you've created source URL & SAS token for the specific blob/document (not for the container)
-* Ensure you've specified the target filename as part of the target URL – though the SAS token is still for the container.
+* If you aren't using a [**system-assigned managed identity**](create-use-managed-identities.md) for authentication, make sure you created source URL & SAS tokens for the specific blob/document (not for the container)
+* Ensure you specified the target filename as part of the target URL – though the SAS token is still for the container.
 * This sample request returns a single document translated into two target languages
 
 ```json
@@ -1097,7 +1097,7 @@ func main() {
 
 ### Brief overview
 
-Cancel currently processing or queued job. Only documents for which translation hasn't started are canceled.
+Cancel currently processing or queued job. Only documents for which translation isn't started are canceled.
 
 ### [C#](#tab/csharp)
 
@@ -1280,8 +1280,8 @@ func main() {
 | 200 | OK | The request was successful. |
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
 | 401 | Unauthorized | The request isn't authorized. Check to make sure your key or token is valid and in the correct region. When managing your subscription on the Azure portal, make sure you're using the **Translator** single-service resource  _not_ the **Azure AI services** multi-service resource.
-| 429 | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription. |
-| 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
+| 429 | Too Many Requests | You exceeded the quota or rate of requests allowed for your subscription. |
+| 502 | Bad Gateway    | Network or server-side issue. Can also indicate invalid headers. |
 
 ## Learn more
 
