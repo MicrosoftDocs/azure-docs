@@ -38,7 +38,7 @@ To view your Azure Maps authentication details:
 
 3. Select **Authentication** in the settings section of the left pane.
 
-   :::image type="content" border="true" source="./media/how-to-manage-authentication/view-authentication-keys.png" alt-text="Authentication details.":::
+   :::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 ## Choose an authentication category
 
@@ -85,15 +85,15 @@ This table outlines common authentication and authorization scenarios in Azure M
 > [!IMPORTANT]
 > For production applications, we recommend implementing Microsoft Entra ID with Azure role-based access control (Azure RBAC).
 
-| Scenario                                             | Authentication | Authorization | Development effort | Operational effort |
-| -----------------------------------------------------| -------------- | ------------- | ------------------ | ------------------ |
-| [Trusted daemon app or non-interactive client app]   | Shared Key     | N/A           | Medium             | High               |
-| [Trusted daemon or non-interactive client app]       | Microsoft Entra ID       | High          | Low                | Medium             |
-| [Web single page app with interactive single-sign-on]| Microsoft Entra ID       | High          | Medium             | Medium             |
-| [Web single page app with non-interactive sign-on]   | Microsoft Entra ID       | High          | Medium             | Medium             |
-| [Web app, daemon app, or non-interactive sign-on app]| SAS Token      | High          | Medium             | Low                |
-| [Web application with interactive single-sign-on]    | Microsoft Entra ID       | High          | High               | Medium             |
-| [IoT device or an input constrained application]     | Microsoft Entra ID       | High          | Medium             | Medium             |
+| Scenario                                             | Authentication     | Authorization | Development effort | Operational effort |
+| -----------------------------------------------------| ------------------ | ------------- | ------------------ | ------------------ |
+| [Trusted daemon app or non-interactive client app]   | Shared Key         | N/A           | Medium             | High               |
+| [Trusted daemon or non-interactive client app]       | Microsoft Entra ID | High          | Low                | Medium             |
+| [Web single page app with interactive single-sign-on]| Microsoft Entra ID | High          | Medium             | Medium             |
+| [Web single page app with non-interactive sign-on]   | Microsoft Entra ID | High          | Medium             | Medium             |
+| [Web app, daemon app, or non-interactive sign-on app]| SAS Token          | High          | Medium             | Low                |
+| [Web application with interactive single-sign-on]    | Microsoft Entra ID | High          | High               | Medium             |
+| [IoT device or an input constrained application]     | Microsoft Entra ID | High          | Medium             | Medium             |
 
 ## View built-in Azure Maps role definitions
 
@@ -127,7 +127,7 @@ The results display the current Azure Maps role assignments.
 
 Request a token from the Microsoft Entra token endpoint. In your Microsoft Entra ID request, use the following details:
 
-| Azure environment      | Microsoft Entra token endpoint             | Azure resource ID              |
+| Azure environment      | Microsoft Entra token endpoint      | Azure resource ID              |
 | ---------------------- | ----------------------------------- | ------------------------------ |
 | Azure public cloud     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Azure Government cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
@@ -172,9 +172,9 @@ Explore samples that show how to integrate Microsoft Entra ID with Azure Maps:
 > [Microsoft Entra authentication samples]
 
 [Azure portal]: https://portal.azure.com/
-[Azure AD authentication samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
+[Microsoft Entra authentication samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
 [View usage metrics]: how-to-view-api-usage.md
-[Authentication scenarios for Azure AD]: ../active-directory/develop/authentication-vs-authorization.md
+[Authentication scenarios for Microsoft Entra ID]: ../active-directory/develop/authentication-vs-authorization.md
 [the table of scenarios]: how-to-manage-authentication.md#choose-an-authentication-and-authorization-scenario
 [Trusted daemon app or non-interactive client app]: how-to-secure-daemon-app.md
 [Trusted daemon or non-interactive client app]: how-to-secure-daemon-app.md
@@ -185,7 +185,7 @@ Explore samples that show how to integrate Microsoft Entra ID with Azure Maps:
 [IoT device or an input constrained application]: how-to-secure-device-code.md
 [Shared access signature (SAS) token authentication]: azure-maps-authentication.md#shared-access-signature-token-authentication
 [application categories]: ../active-directory/develop/authentication-flows-app-scenarios.md#application-categories
-[Azure Active Directory (Azure AD)]: ../active-directory/fundamentals/active-directory-whatis.md
+[Microsoft Entra ID]: ../active-directory/fundamentals/active-directory-whatis.md
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
 [free account]: https://azure.microsoft.com/free/
 [managed identities for Azure resources]: ../active-directory/managed-identities-azure-resources/overview.md

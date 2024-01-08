@@ -223,14 +223,17 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
     ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
     ```
 
-1. Use the ID [18814]( https://grafana.com/grafana/dashboards/18814/) to import the dashboard from Grafana's public dashboard repo.
+1. Select **Dashboards** from the left navigation menu, open **Kubernetes / Networking** dashboard under **Managed Prometheus** folder.
 
-1. Verify the Grafana dashboard is visible.
+1. Check if the Metrics in **Kubernetes / Networking** Grafana dashboard are visible. If metrics aren't shown, change time range to last 15 minutes in top right dropdown box.
 
 # [**Cilium**](#tab/cilium)
 
 > [!NOTE]
 > The following section requires deployments of Azure managed Prometheus and Grafana.
+
+>[!WARNING]
+> File should only be named as **`prometheus-config`**. Do not add any extensions like .yaml or .txt.
 
 1. Use the following example to create a file named **`prometheus-config`**. Copy the code in the example into the file created.
 
@@ -278,7 +281,7 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 
 1. Azure Monitor pods should restart themselves, if they don't, rollout restart with following command:
     
-```azurecli-interactive
+    ```azurecli-interactive
     kubectl rollout restart deploy -n kube-system ama-metrics
     ```
 
@@ -288,9 +291,9 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
     kubectl port-forward -n kube-system $(kubectl get po -n kube-system -l rsName=ama-metrics -oname | head -n 1) 9090:9090
     ```
 
-1. In **Targets** of prometheus, verify the **cilium-pods** are present.
+1. Open `http://localhost:9090` in your browser and navigate to **Status** > **Targets**, verify if **cilium-pods** are present and state says up.
 
-1. Sign in to Grafana and import dashboards with the following ID [16611-cilium-metrics](https://grafana.com/grafana/dashboards/16611-cilium-metrics/).
+1. Sign in to Azure Managed Grafana and import dashboard with the ID: [16611](https://grafana.com/grafana/dashboards/16611-cilium-metrics/). Also, select **Dashboards** from the left navigation menu, open **Kubernetes / Networking** dashboard under **Managed Prometheus** folder. Metrics should be visible in both these dashboards.
 
 ---
 

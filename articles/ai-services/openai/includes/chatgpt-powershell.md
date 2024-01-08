@@ -2,7 +2,7 @@
 title: "Quickstart: Use Azure OpenAI Service with PowerShell"
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with PowerShell.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
@@ -45,29 +45,20 @@ Create and assign persistent environment variables for your key and endpoint.
 
 ```powershell-interactive
 $Env:AZURE_OPENAI_KEY = 'YOUR_KEY_VALUE'
-```
-
-```powershell-interactive
 $Env:AZURE_OPENAI_ENDPOINT = 'YOUR_ENDPOINT'
 ```
 
-# [Command Line](#tab/command-line)
+# [Command line](#tab/command-line)
 
-```CMD
+```cmd
 setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
-```
-
-```CMD
 setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 # [Bash](#tab/bash)
 
-```Bash
+```bash
 echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
-```
-
-```Bash
 echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 

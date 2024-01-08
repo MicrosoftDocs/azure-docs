@@ -1,5 +1,5 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: glharper
 ms.author: glharper
@@ -37,7 +37,7 @@ Open a command prompt where you want the new project, and create a new file name
 const { OpenAIClient } = require("@azure/openai");
 const { DefaultAzureCredential } = require("@azure/identity")
 
-// Set the Azure and Cognitive Search values from environment variables
+// Set the Azure and AI Search values from environment variables
 const endpoint = process.env["AOAIEndpoint"];
 const azureApiKey = process.env["AOAIKey"];
 const searchEndpoint = process.env["SearchEndpoint"];
@@ -53,7 +53,7 @@ async function main() {
     { role: "user", content: "What are the differences between Azure Machine Learning and Azure AI services?" },
   ];
 
-  // Get chat responses from Azure OpenAI deployment using your own data via Azure Cognitive Search
+  // Get chat responses from Azure OpenAI deployment using your own data via Azure AI Search
   const events = client.listChatCompletions(deploymentId, messages, { 
     azureExtensionOptions: {
       extensions: [

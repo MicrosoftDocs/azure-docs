@@ -24,7 +24,7 @@ You'll need the latest versions of the following software:
 
 If your existing continuous integration (CI) pipeline relies on [MSBuild](/visualstudio/msbuild/msbuild), you can use MSBuild tasks and CLI packages to convert Bicep files into ARM template JSON.
 
-The functionality relies on the following NuGet packages. The latest NuGet package versions match the latest Bicep version.
+The functionality relies on the following NuGet packages. The latest NuGet package versions match the latest Bicep CLI version.
 
 | Package Name | Description |
 | ----  |---- |

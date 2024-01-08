@@ -1,18 +1,18 @@
 ---
-title: Table API and SQL - Use Iceberg Catalog type with Hive in HDInsight on AKS - Apache Flink
-description: Learn how to create Apache Flink-Iceberg Catalog in HDInsight on AKS - Apache Flink
+title: Table API and SQL - Use Iceberg Catalog type with Hive in Apache Flink® on HDInsight on AKS
+description: Learn how to create Iceberg Catalog in Apache Flink® on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Create Apache Flink-Iceberg Catalog
+# Create Iceberg Catalog in Apache Flink® on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-[Apache Iceberg](https://iceberg.apache.org/) is an open table format for huge analytic datasets. Iceberg adds tables to compute engines like Flink, using a high-performance table format that works just like a SQL table. Apache Iceberg [supports](https://iceberg.apache.org/multi-engine-support/#apache-flink) both Apache Flink’s DataStream API and Table API.
+[Apache Iceberg](https://iceberg.apache.org/) is an open table format for huge analytic datasets. Iceberg adds tables to compute engines like Apache Flink, using a high-performance table format that works just like a SQL table. Apache Iceberg [supports](https://iceberg.apache.org/multi-engine-support/#apache-flink) both Apache Flink’s DataStream API and Table API.
 
-In this article, we learn how to use Iceberg Table managed in Hive catalog, with HDInsight on AKS - Flink
+In this article, we learn how to use Iceberg Table managed in Hive catalog, with Apache Flink on HDInsight on AKS cluster
 
 ## Prerequisites
 - You're required to have an operational Flink cluster with secure shell, learn how to [create a cluster](../flink/flink-create-cluster-portal.md)
@@ -86,3 +86,8 @@ With the following steps, we illustrate how you can create Flink-Iceberg Catalog
 You can view the Iceberg Table output on the ABFS container 
 
 :::image type="content" source="./media/flink-catalog-iceberg-hive/flink-catalog-iceberg-hive-output.png" alt-text="Screenshot showing output of the Iceberg table in ABFS.":::
+
+### Reference
+
+- [Apache Flink Website](https://flink.apache.org/)
+- Apache, Apache Hive, Hive, Apache Iceberg, Iceberg, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

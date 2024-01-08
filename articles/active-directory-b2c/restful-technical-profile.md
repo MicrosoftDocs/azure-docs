@@ -2,12 +2,12 @@
 title: Define a RESTful technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a RESTful technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 06/08/2022
 ms.author: kengaderdus
@@ -65,7 +65,7 @@ The following example `TechnicalProfile` sends a verification email by using a t
 
 ```xml
 <TechnicalProfile Id="SendGrid">
-  <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
+  <DisplayName>Use SendGrid's email API to send the code to the user</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
     <Item Key="ServiceUrl">https://api.sendgrid.com/v3/mail/send</Item>

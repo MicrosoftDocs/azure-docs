@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.custom: build-2023, build-2023-dataai
 ms.topic: quickstart
 recommendations: false
-ms.date: 01/30/2023
+ms.date: 10/01/2023
 ---
 
 # Fundamental concepts for scaling in Azure Cosmos DB for PostgreSQL
@@ -20,7 +20,7 @@ quick overview of the terms and concepts involved.
 
 ## Architectural overview
 
-Azure Cosmos DB for PostgreSQL gives you the power to distribute tables across multiple
+Azure Cosmos DB for PostgreSQL gives you the power to distribute tables and/or schemas across multiple
 machines in a cluster and transparently query them the same you query
 plain PostgreSQL:
 
@@ -30,7 +30,7 @@ In the Azure Cosmos DB for PostgreSQL architecture, there are multiple kinds of 
 
 * The **coordinator** node stores distributed table metadata and is responsible
   for distributed planning.
-* By contrast, the **worker** nodes store the actual data and do the computation.
+* By contrast, the **worker** nodes store the actual data, metadata and do the computation.
 * Both the coordinator and workers are plain PostgreSQL databases, with the
   `citus` extension loaded.
 
@@ -38,6 +38,8 @@ To distribute a normal PostgreSQL table, like `campaigns` in the diagram above,
 run a command called `create_distributed_table()`.  Once you run this
 command, Azure Cosmos DB for PostgreSQL transparently creates shards for the table across
 worker nodes. In the diagram, shards are represented as blue boxes.
+
+To distribute a normal PostgreSQL schema, you run the `citus_schema_distribute()` command. Once you run this command, Azure Cosmos DB for PostgreSQL transparently turns tables in such schemas into a single shard colocated tables that can be moved as a unit between nodes of the cluster.
 
 > [!NOTE]
 >
@@ -103,6 +105,8 @@ rows with `site_id=1` are stored on worker 1. Similarly for other site IDs.
 Colocation helps optimize JOINs across these tables. If you join the two tables
 on `site_id`, Azure Cosmos DB for PostgreSQL can perform the join locally on worker nodes
 without shuffling data between nodes.
+
+Tables within a distributed schema are always colocated with each other. 
 
 ## Next steps
 

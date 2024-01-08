@@ -607,7 +607,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     ```pythonS
     environment = Environment(
         conda_file="sklearn-diabetes/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+        image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04:latest",
     )
     ```
 
@@ -623,7 +623,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     1. Select the tab __Custom environments__ > __Create__.
     1. Enter the name of the environment, in this case `sklearn-mlflow-online-py37`.
     1. On __Select environment type__ select __Use existing docker image with conda__.
-    1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04`.
+    1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04`.
     1. On __Customize__ section copy the content of the file `sklearn-diabetes/environment/conda.yml` we introduced before. 
     1. Click on __Next__ and then on __Create__.
     1. The environment is ready to be used.   
@@ -642,7 +642,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     endpoint_name: my-endpoint
     model: azureml:sklearn-diabetes@latest
     environment: 
-      image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+      image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04
       conda_file: sklearn-diabetes/environment/conda.yml
     code_configuration:
       code: sklearn-diabetes/src

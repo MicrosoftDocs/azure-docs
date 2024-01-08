@@ -160,8 +160,7 @@ spec:
         cpu: 4.0
         memory: 16Gi
   nodeSelector:
-      hardware:
-      values: highmem
+      hardware: highmem
 ```
 
 When you use these scheduler options, work with your application developers and owners to allow them to correctly define their pod specifications.

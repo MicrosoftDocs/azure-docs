@@ -2,7 +2,6 @@
 title: Speech to text REST API for short audio - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use Speech to text REST API for short audio to convert speech to text.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

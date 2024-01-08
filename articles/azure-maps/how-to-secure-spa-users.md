@@ -25,7 +25,7 @@ Create the web application in Microsoft Entra ID for users to sign in. The web a
 
 1. In the Azure portal, in the list of Azure services, select **Microsoft Entra ID** > **App registrations** > **New registration**.  
 
-    :::image type="content" source="./media/how-to-manage-authentication/app-registration.png" alt-text="Screenshot showing the new registration page in the App registrations blade in Microsoft Entra ID.":::
+    :::image type="content" border="false" source="./media/how-to-manage-authentication/app-registration.png" lightbox="./media/how-to-manage-authentication/app-registration.png" alt-text="A screenshot showing application registration in Microsoft Entra ID.":::
 
 2. Enter a **Name**, choose a **Support account type**, provide a redirect URI that represents the url which Microsoft Entra ID issues the token and is the url where the map control is hosted. For a detailed sample, see [Azure Maps Microsoft Entra ID samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Then select **Register**.  
 
@@ -41,7 +41,7 @@ Create the web application in Microsoft Entra ID for users to sign in. The web a
 
 6. Copy the Microsoft Entra app ID and the Microsoft Entra tenant ID from the app registration to use in the Web SDK. Add the Microsoft Entra app registration details and the `x-ms-client-id` from the Azure Map account to the Web SDK.
 
-    ```javascript
+    ```html
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js" />
         <script>

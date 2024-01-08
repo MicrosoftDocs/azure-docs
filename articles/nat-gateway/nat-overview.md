@@ -23,12 +23,13 @@ NAT Gateway provides dynamic SNAT port functionality to automatically scale outb
 *Figure: Azure NAT Gateway*
 
 Azure NAT Gateway provides outbound connectivity for many Azure resources, including: 
-* Azure virtual machine (VM) instances in a private subnet
+* Azure virtual machines or virtual machine scale-sets in a private subnet
 * [Azure Kubernetes Services (AKS) clusters](/azure/aks/nat-gateway)
+* [Azure Container group](/azure/container-instances/container-instances-nat-gateway)
 * [Azure Function Apps](/azure/azure-functions/functions-how-to-use-nat-gateway)
 * [Azure Firewall subnet](/azure/firewall/integrate-with-nat-gateway)
 * [Azure App Services instances](/azure/app-service/networking/nat-gateway-integration) (web applications, REST APIs, and mobile backends) through [virtual network integration](/azure/app-service/overview-vnet-integration)
-* [Azure Databricks with secure cluster connectivity and a default VNet](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-default-managed-vnet) or with [VNet injection](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-vnet-injection).
+* [Azure Databricks](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-default-managed-vnet) or with [VNet injection](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-vnet-injection).
 
 ## Azure NAT Gateway benefits
 
@@ -69,6 +70,9 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 
 * NAT gateway is the recommended method for outbound connectivity.
    * To migrate outbound access to a NAT gateway from default outbound access or load balancer outbound rules, see [Migrate outbound access to Azure NAT Gateway](./tutorial-migrate-outbound-nat.md).
+
+>[!NOTE]
+>On September 30th, 2025, [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) for new deployments will be retired. It is recommended to use an explicit form of outbound connectivity instead, like NAT gateway. 
 
 * Outbound connectivity with NAT gateway is defined at a per subnet level. NAT gateway replaces the default Internet destination of a subnet.
 
@@ -135,7 +139,7 @@ Virtual appliance UDR / VPN Gateway / ExpressRoute >> NAT gateway >> Instance-le
 
 * Basic SKU resources, such as basic load balancer or basic public IPs aren't compatible with NAT gateway.  NAT gateway can't be used with subnets where basic SKU resources exist. Basic load balancer and basic public IP can be upgraded to standard to work with a NAT gateway
   
-  * Upgrade a load balancer from basic to standard, see [Upgrade a public basic Azure Load Balancer](../load-balancer/upgrade-basic-standard.md).
+  * Upgrade a load balancer from basic to standard, see [Upgrade a public basic Azure Load Balancer](/azure/load-balancer/upgrade-basic-standard-with-powershell).
 
   * Upgrade a public IP from basic to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md).
   

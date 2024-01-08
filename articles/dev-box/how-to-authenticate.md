@@ -18,7 +18,7 @@ ms.date: 09/07/2023
 
 ## Using Microsoft Entra authentication for REST APIs
 
-Use the following procedures to authenticate with Microsoft Entra ID. You can follow along in [Azure Cloud Shell](../../articles/cloud-shell/quickstart.md), on an Azure virtual machine, or on your local machine.
+Use the following procedures to authenticate with Microsoft Entra ID. You can follow along in [Azure Cloud Shell](../cloud-shell/get-started.md), on an Azure virtual machine, or on your local machine.
 
 ### Sign in to the user's Azure subscription
 

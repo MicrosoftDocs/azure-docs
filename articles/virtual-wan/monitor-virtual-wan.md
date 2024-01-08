@@ -99,6 +99,6 @@ Virtual WAN uses Network Insights to provide users and operators with the abilit
 
 * See [Monitoring Virtual WAN data reference](monitor-virtual-wan-reference.md) for a data reference of the metrics, logs, and other important values created by Virtual WAN.
 * See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
-* See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for additional details on **Azure Monitor Metrics**. 
+* See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for additional details on **Azure Monitor Metrics**. 
 * See [All resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md) for a list of all supported metrics.
 * See [Create diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) for more information and troubleshooting on creating diagnostic settings via Azure portal, CLI, PowerShell, etc., you can visit 

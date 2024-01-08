@@ -31,7 +31,7 @@ This page is a partial list of the Azure domains in use. Some of them are REST A
 |[Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) and [Azure Virtual Machines](../../virtual-machines/index.yml)|*.cloudapp.net|
 |[Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) and [Azure Virtual Machines](../../virtual-machines/index.yml)|*.cloudapp.azure.com|
 |[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)|*.azurecr.io|
-|Azure Container Service (ACS) (deprecated)|*.azurecontainer.io|
+|Azure Container Service (deprecated)|*.azurecontainer.io|
 |[Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn/)|*.vo.msecnd.net|
 |[Azure Cosmos DB](../../cosmos-db/index.yml)|*.cosmos.azure.com|
 |[Azure Cosmos DB](../../cosmos-db/index.yml)|*.documents.azure.com|

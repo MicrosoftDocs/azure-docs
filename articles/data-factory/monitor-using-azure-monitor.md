@@ -30,7 +30,7 @@ Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor if you
   - You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
 * **Partner Solution:** Diagnostic logs could be sent to Partner solutions through integration. For potential partner integrations, [click to learn more about partner integration.](../partner-solutions/overview.md)
    You can also use a storage account or event-hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate Azure role-based access control (Azure RBAC) access to both subscriptions.
-## Next steps
+## Related content
 
 - [Azure Data Factory metrics and alerts](monitor-metrics-alerts.md)
 - [Monitor and manage pipelines programmatically](monitor-programmatically.md)

@@ -246,10 +246,13 @@ This message type is not supported.
 - Types defined recursively aren't supported by API Management.
 - For example, refer to an array of themselves.
 
-### Multiple Namespaces
+### Multiple namespaces
 While multiple namespaces can be used in a schema, only the target namespace can be used to define message parts. These namespaces are used to define other input or output elements.
 
 Namespaces other than the target aren't preserved on export. While you can import a WSDL document defining message parts with other namespaces, all message parts will have the WSDL target namespace on export.
+
+### Multiple endpoints
+WSDL files can define multiple services and endpoints (ports) by one or more `wsdl:service` and `wsdl:port` elements. However, the API Management gateway is able to import and proxy requests to only a single service and endpoint. If multiple services or endpoints are defined in the WSDL file, identify the target service name and endpoint when importing the API by using the [wsdlSelector](/rest/api/apimanagement/apis/create-or-update#wsdlselector) property.
 
 ### Arrays 
 SOAP-to-REST transformation supports only wrapped arrays shown in the example below:

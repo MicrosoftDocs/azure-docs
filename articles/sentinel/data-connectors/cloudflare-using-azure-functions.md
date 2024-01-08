@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # Cloudflare (Preview) (using Azure Functions) connector for Microsoft Sentinel
 
-The Cloudflare data connector provides the capability to ingest [Cloudflare logs](https://developers.cloudflare.com/logs/) into Microsoft Sentinel using the Cloudflare Logpush and Azure Blob Storage. Refer to [Cloudflare  documentation](https://developers.cloudflare.com/logs/logpush) for more information.
+The Cloudflare data connector provides the capability to ingest [Cloudflare logs](https://developers.cloudflare.com/logs/) into Microsoft Sentinel using the Cloudflare Logpush and Azure Blob Storage. Refer to [Cloudflare  documentation](https://developers.cloudflare.com/logs/about/) for more information.
 
 ## Connector attributes
 
@@ -56,7 +56,7 @@ To integrate with Cloudflare (Preview) (using Azure Functions) make sure you hav
 
 **STEP 1 - Configuration of the Cloudflare Logpush**
 
-See documentation to [setup Cloudflare Logpush to Microsoft Azure](https://developers.cloudflare.com/logs/logpush/logpush-dashboard)
+See documentation to [setup Cloudflare Logpush to Microsoft Azure](https://developers.cloudflare.com/logs/get-started/enable-destinations/azure/)
 
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**

@@ -1,12 +1,12 @@
 ---
-title: How to use Apache Flink CLI to submit jobs
-description: Learn how to use Apache Flink CLI to submit jobs
+title: How to use Apache Flink® CLI to submit jobs
+description: Learn how to use Apache Flink® CLI to submit jobs
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Apache Flink Command-Line Interface (CLI)
+# Apache Flink® Command-Line Interface (CLI) on HDInsight on AKS clusters
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -31,7 +31,7 @@ Both installing and updating the CLI require rerunning the install script. Insta
 curl -L https://aka.ms/hdionaksflinkcliinstalllinux | bash
 ```
 
-This command installs Flink CLI in the user's home directory (`$HOME/flink-cli`). The script can also be downloaded and run locally. You may have to restart your shell in order for changes to take effect.
+This command installs Flink CLI in the user's home directory (`$HOME/flink-cli`). The script can also be downloaded and run locally. You might have to restart your shell in order for changes to take effect.
 
 ## Run an Apache Flink command to test
 
@@ -85,7 +85,7 @@ Here are some examples of actions supported by Flink’s CLI tool:
 | run | This action executes jobs. It requires at least the jar containing the job. Flink- or job-related arguments can be passed if necessary. |
 | info | This action can be used to print an optimized execution graph of the passed job. Again, the jar containing the job needs to be passed. |
 | list | This action *lists all running or scheduled jobs*.|
-| savepoint | This action can be used to *create or disposing savepoints* for a given job. It may be necessary to specify a savepoint directory besides the JobID. |
+| savepoint | This action can be used to *create or disposing savepoints* for a given job. It might be necessary to specify a savepoint directory besides the JobID. |
 | cancel | This action can be used to *cancel running jobs* based on their JobID. |
 | stop | This action combines the *cancel and savepoint actions to stop* a running job but also creates a savepoint to start from again. |
 
@@ -104,3 +104,8 @@ bin/flink <action> --help
 > [!TIP]
 > * If you have a Proxy blocking the connection: In order to get the installation scripts, your proxy needs to allow HTTPS connections to the following addresses: `https://aka.ms/` and `https://hdiconfigactions.blob.core.windows.net`
 > * To resolve the issue, add the user or group to the [authorization profile](../hdinsight-on-aks-manage-authorization-profile.md).
+
+### Reference
+
+- [Apache Flink Website](https://flink.apache.org/)
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ms.custom: synapse
 ---
 
@@ -397,7 +397,7 @@ An event-based trigger runs pipelines in response to an event. There are two fla
 
 For more information about event-based triggers, see [Storage Event Trigger](how-to-create-event-trigger.md) and [Custom Event Trigger](how-to-create-custom-event-trigger.md).
 
-## Next steps
+## Related content
 
 See the following tutorials:
 

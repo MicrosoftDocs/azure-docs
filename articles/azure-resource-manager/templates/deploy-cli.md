@@ -180,7 +180,7 @@ For more information, see [Azure Resource Manager template specs](template-specs
 
 ## Preview changes
 
-Before deploying your ARM template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+Before deploying your ARM template, you can preview the changes the template makes to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 ## Parameters
 
@@ -214,20 +214,20 @@ The _arrayContent.json_ format is:
 
 ```json
 [
-    "value1",
-    "value2"
+  "value1",
+  "value2"
 ]
 ```
 
 To pass in an object, for example, to set tags, use JSON. For example, your template might include a parameter like this one:
 
 ```json
-    "resourceTags": {
-      "type": "object",
-      "defaultValue": {
-        "Cost Center": "IT Department"
-      }
-    }
+"resourceTags": {
+  "type": "object",
+  "defaultValue": {
+    "Cost Center": "IT Department"
+  }
+}
 ```
 
 In this case, you can pass in a JSON string to set the parameter as shown in the following Bash script:
@@ -258,21 +258,19 @@ However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShe
 
 Rather than passing parameters as inline values in your script, you might find it easier to use a parameters file, either a `.bicepparam` file or a JSON parameters file, that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI.
 
-To pass a local parameter file, use `@` to specify a local file named _storage.parameters.json_.
-
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
-  --parameters '@storage.parameters.json'
+  --parameters 'storage.parameters.json'
 ```
 
 For more information about the parameter file, see [Create Resource Manager parameter file](./parameter-files.md).
 
 ### Bicep parameter files
 
-With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
+With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch results in an "Only a .bicep template is allowed with a .bicepparam file" error.
 
 ```azurecli-interactive
 az deployment group create \
@@ -282,7 +280,6 @@ az deployment group create \
 ```
 
 The parameters file must be a local file. External parameters files aren't supported with Azure CLI. For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
-
 
 ## Comments and the extended JSON format
 
@@ -295,7 +292,7 @@ az deployment group create \
   --template-file storage.json \
   --parameters '@storage.parameters.jsonc'
 ```
-For more details about comments and metadata see [Understand the structure and syntax of ARM templates](./syntax.md#comments-and-metadata).
+For more details about comments and metadata, see [Understand the structure and syntax of ARM templates](./syntax.md#comments-and-metadata).
 
 If you are using Azure CLI with version 2.3.0 or older, you can deploy a template with multi-line strings or comments using the `--handle-extended-json-format` switch.  For example:
 

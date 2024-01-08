@@ -17,7 +17,7 @@ This article describes how to collect events and performance counters from virtu
 To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 - Associate the data collection rule to specific virtual machines.
 
 ## Create a data collection rule
@@ -137,7 +137,7 @@ When you paste the XPath query into the field on the **Add data source** screen,
 
 
 > [!TIP]
-> You can use the PowerShell cmdlet `Get-WinEvent` with the `FilterXPath` parameter to test the validity of an XPath query locally on your machine first. The following script shows an example:
+> You can use the PowerShell cmdlet `Get-WinEvent` with the `FilterXPath` parameter to test the validity of an XPath query locally on your machine first. For more information, see the tip provided in the [Windows agent-based connections](../../sentinel/connect-services-windows-based.md) instructions. The [`Get-WinEvent`](/powershell/module/microsoft.powershell.diagnostics/get-winevent) PowerShell cmdlet supports up to 23 expressions. Azure Monitor data collection rules support up to 20. Also, `>` and `<` characters must be encoded as `&gt;` and `&lt;` in your data collection rule. The following script shows an example:
 >
 > ```powershell
 > $XPath = '*[System[EventID=1035]]'
@@ -161,6 +161,30 @@ Examples of using a custom XPath to filter events:
 > [!NOTE]
 > For a list of limitations in the XPath supported by Windows event log, see [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations).  
 > For instance, you can use the "position", "Band", and "timediff" functions within the query but other functions like "starts-with" and "contains" are not currently supported.
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How can I collect Windows security events by using Azure Monitor Agent?
+
+There are two ways you can collect Security events using the new agent, when sending to a Log Analytics workspace:
+- You can use Azure Monitor Agent to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace. 
+- If you have Microsoft Sentinel enabled on the workspace, the security events flow via Azure Monitor Agent into the [`SecurityEvent`](/azure/azure-monitor/reference/tables/SecurityEvent) table instead (the same as using the Log Analytics agent). This scenario always requires the solution to be enabled first.
+
+### Will I duplicate events if I use Azure Monitor Agent and the Log Analytics agent on the same machine? 
+
+If you're collecting the same events with both agents, duplication occurs. This duplication could be the legacy agent collecting redundant data from the [workspace configuration](./agent-data-sources.md) data, which is collected by the data collection rule. Or you might be collecting security events with the legacy agent and enable Windows security events with Azure Monitor Agent connectors in Microsoft Sentinel.
+          
+Limit duplication events to only the time when you transition from one agent to the other. After you've fully tested the data collection rule and verified its data collection, disable collection for the workspace and disconnect any Microsoft Monitoring Agent data connectors.
+
+### Does Azure Monitor Agent offer more granular event filtering options other than Xpath queries and specifying performance counters?
+
+For Syslog events on Linux, you can select facilities and the log level for each facility.
+
+### If I create data collection rules that contain the same event ID and associate them to the same VM, will events be duplicated?
+
+Yes. To avoid duplication, make sure the event selection you make in your data collection rules doesn't contain duplicate events.
 
 ## Next steps
 

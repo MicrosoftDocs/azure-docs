@@ -1,12 +1,12 @@
 ---
-title: What is Apache Flink in Azure HDInsight on AKS? (Preview)
-description: An introduction to Apache Flink in Azure HDInsight on AKS.
+title: What is Apache Flink® in Azure HDInsight on AKS? (Preview)
+description: An introduction to Apache Flink® in Azure HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/28/2023
 ---
 
-# What is Apache Flink in Azure HDInsight on AKS? (Preview)
+# What is Apache Flink® in Azure HDInsight on AKS? (Preview)
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -40,8 +40,28 @@ Apache Flink is an excellent choice to develop and run many different types of a
   
 Read more on common use cases described on [Apache Flink Use cases](https://flink.apache.org/use-cases/#use-cases)
 
-## Apache Flink Cluster Deployment Types
-Flink can execute applications in Session mode or Application mode. Currently HDInsight on AKS supports only Session clusters. You can run multiple Flink jobs on a Session cluster. 
+Apache Flink clusters in HDInsight on AKS are a fully managed service. Benefits of creating a Flink cluster in HDInsight on AKS are listed here.
+
+| Feature | Description |
+| --- | --- |
+| Ease creation |You can create a new Flink cluster in HDInsight in minutes using the Azure portal, Azure PowerShell, or the SDK. See [Get started with Apache Flink cluster in HDInsight on AKS](flink-create-cluster-portal.md). |
+| Ease of use | Flink clusters in HDInsight on AKS include portal based configuration management, and scaling. In addition to this with job management API, you use the REST API or Azure portal for job management.|
+| REST APIs | Flink clusters in HDInsight on AKS include [Job management API](flink-job-management.md), a REST API-based Flink job submission method to remotely submit and monitor jobs on Azure portal.|
+| Deployment Type | Flink can execute applications in Session mode or Application mode. Currently HDInsight on AKS supports only Session clusters. You can run multiple Flink jobs on a Session cluster. App mode is on the roadmap for HDInsight on AKS clusters| 
+| Support for Metastore | Flink clusters in HDInsight on AKS can support catalogs with [Hive Metastore](hive-dialect-flink.md) in different open file formats with remote checkpoints to Azure Data Lake Storage Gen2.|
+| Support for Azure Storage | Flink clusters in HDInsight can use Azure Data Lake Storage Gen2 as File sink. For more information on Data Lake Storage Gen2, see [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).|
+| Integration with Azure services | Flink cluster in HDInsight on AKS comes with an integration to Kafka along with [Azure Event Hubs](flink-how-to-setup-event-hub.md) and [Azure HDInsight](process-and-consume-data.md). You can build streaming applications using the Event Hubs or HDInsight. |
+| Adaptability | HDInsight on AKS allows you to scale the Flink cluster nodes based on schedule with the Autoscale feature. See [Automatically scale Azure HDInsight on AKS clusters](../hdinsight-on-aks-autoscale-clusters.md). |
+| State Backend | HDInsight on AKS uses the [RocksDB](http://rocksdb.org) as default StateBackend. RocksDB is an embeddable persistent key-value store for fast storage.|
+| Checkpoints | Checkpointing is enabled in HDInsight on AKS clusters by default. Default settings on HDInsight on AKS maintain the last five checkpoints in persistent storage. In case, your job fails, the job can be restarted from the latest checkpoint.|
+| Incremental Checkpoints | RocksDB supports Incremental Checkpoints. We encourage the use of incremental checkpoints for large state, you need to enable this feature manually. Setting a default in your `flink-conf.yaml: state.backend.incremental: true` enables incremental checkpoints, unless the application overrides this setting in the code. This statement is true by default. You can alternatively configure this value directly in the code (overrides the config default) ``EmbeddedRocksDBStateBackend` backend = new `EmbeddedRocksDBStateBackend(true);`` . By default, we preserve the last five checkpoints in the checkpoint dir configured.  This value can be changed by changing the configuration on configuration management section `state.checkpoints.num-retained: 5`|
+
+Apache Flink clusters in HDInsight on AKS include the following components, they are available on the clusters by default.
+
+* [DataStreamAPI](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/dev/datastream/overview/#what-is-a-datastream)
+* [TableAPI & SQL](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/dev/table/overview/#table-api--sql). 
+
+Refer to the [Roadmap](../whats-new.md#coming-soon) on what's coming soon!
 
 ## Apache Flink Job Management
 
@@ -59,80 +79,7 @@ Flink schedules jobs using three distributed components, Job manager, Task manag
 
 :::image type="content" source="./media/flink-overview/flink-process.png" alt-text="Flink process diagram showing how the job, Job manager, Task manager, and Job client work together.":::
 
-## Checkpoints in Apache Flink
-
-Every function and operator in Flink can be stateful. Stateful functions store data across the processing of individual elements/events, making state a critical building block for any type of more elaborate operation. In order to make state fault tolerant, Flink needs to **checkpoint the state**. Checkpoints allow Flink to recover state and positions in the streams to give the application the same semantics as a failure-free execution that means they play an important role for Flink to recover from failure both its state and the corresponding stream positions.
-
-Checkpointing is enabled in HDInsight on AKS Flink by default. Default settings on HDInsight on AKS maintain the last five checkpoints in persistent storage. In case, your job fails, the job can be restarted from the latest checkpoint. 
-
-## State Backends
-
-Backends determine where state is stored. Stream processing applications are often stateful, *remembering* information from processed events and using it to influence further event processing. In Flink, the remembered information, that is, state, is stored locally in the configured state backend. 
-
-When checkpointing is activated, such state is persisted upon checkpoints to guard against data loss and recover consistently. How the state is represented internally, and how and where it's persisted upon checkpoints depends on the chosen **State Backend**. HDInsight on AKS uses the RocksDB  as default StateBackend.
-
-**Supported state backends:**
-
-* HashMapStateBackend
-* EmbeddedRocksDBStateBackend
-
-### The HashMapStateBackend
-
-The `HashMapStateBackend` holds data internally as objects on the Java heap. Key/value state and window operators hold hash tables that store the values, triggers, etc.
-
-The HashMapStateBackend is encouraged for:
-
-* Jobs with large state, long windows, large key/value states.
-* All high-availability setups.
-
-it 's also recommended to set managed memory to zero. This value ensures that the maximum amount of memory is allocated for user code on the JVM.
-Unlike `EmbeddedRocksDBStateBackend`, the `HashMapStateBackend` stores data as objects on the heap so that it 's unsafe to reuse objects.
-
-### The EmbeddedRocksDBStateBackend
-
-The `EmbeddedRocksDBStateBackend` holds in-flight data in a [RocksDB](http://rocksdb.org) database that is (per default). Unlike storing java objects in `HashMapStateBackend`, data is stored as serialized byte arrays, which mainly define the type serializer, resulting in key comparisons being byte-wise instead of using Java’s `hashCode()` and `equals()` methods.
-
-By default, we use RocksDb as the state backend. RocksDB is an embeddable persistent key-value store for fast storage.
-
-```
-state.backend: rocksdb
-state.checkpoints.dir: <STORAGE_LOCATION>
-```
-By default, HDInsight on AKS stores the checkpoints in the storage account configured by the user, so that the checkpoints are persisted.
-
-### Incremental Checkpoints
-
-RocksDB supports Incremental Checkpoints, which can dramatically reduce the checkpointing time in comparison to full checkpoints. Instead of producing a full, self-contained backup of the state backend, incremental checkpoints only record the changes that happened since the latest completed checkpoint. An incremental checkpoint builds upon (typically multiple) previous checkpoints. 
-
-Flink applies RocksDB’s internal compaction mechanism in a way that is self-consolidating over time. As a result, the incremental checkpoint history in Flink doesn't grow indefinitely, and old checkpoints are eventually subsumed and pruned automatically. Recovery time of incremental checkpoints may be longer or shorter compared to full checkpoints. If your network bandwidth is the bottleneck, it may take a bit longer to restore from an incremental checkpoint, because it implies fetching more data (more deltas). 
-
-Restore from an incremental checkpoint is faster, if the bottleneck is your CPU or IOPs, because restore from an incremental checkpoint means not to rebuild the local RocksDB tables from Flink’s canonical key value snapshot format (used in savepoints and full checkpoints).
-
-While we encourage the use of incremental checkpoints for large state, you need to enable this feature manually:
-
-* Setting a default in your `flink-conf.yaml: state.backend.incremental: true` enables incremental checkpoints, unless the application overrides this setting in the code. This statement is true by default.
-* You can alternatively configure this value directly in the code (overrides the config default): 
-
-```
-EmbeddedRocksDBStateBackend` backend = new `EmbeddedRocksDBStateBackend(true);
-```
-
-By default, we preserve the last five checkpoints in the checkpoint dir configured. 
-
-This value can be changed by changing the following config"
-
-`state.checkpoints.num-retained: 5`
-
-## Windowing in Flink
-
-Windowing is a key feature in stream processing systems such as Apache Flink. Windowing splits the continuous stream into finite batches on which computations can be performed. In Flink, windowing can be done on the entire steam or per-key basis.
-
-Windowing refers to the process of dividing a stream of events into finite, nonoverlapping  segments called windows. This feature allows users to perform computations on specific subsets of data based on time or key-based criteria. 
-
-Windows allow users to split the streamed data into segments that can be processed. Due to the unbounded nature of data streams, there's no situation where all the data is available, because users would be waiting indefinitely for new data points to arrive - so instead, windowing offers a way to define a subset of data points that you can then process and analyze. The trigger defines when the window is considered ready for processing, and the function set for the window specifies how to process the data. 
-
-Learn [more](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/datastream/operators/windows/)
-
 ### Reference
 
-[Apache Flink](https://flink.apache.org/)
+- [Apache Flink Website](https://flink.apache.org/)
+- Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

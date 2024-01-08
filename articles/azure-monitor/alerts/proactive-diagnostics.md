@@ -21,13 +21,13 @@ You can access the detections issued by smart detection from the emails you rece
 You can discover detections in two ways:
 
 * **You receive an email** from Application Insights. Here's a typical example:
-  
-    ![Screenshot that shows an email alert.](./media/proactive-diagnostics/03.png)
+    <!-- convertborder later -->
+    :::image type="content" source="./media/proactive-diagnostics/03.png" lightbox="./media/proactive-diagnostics/03.png" alt-text="Screenshot that shows an email alert." border="false":::
   
     Select **See the analysis of this issue** to see more information in the portal.
 * **The smart detection pane** in Application Insights. Under the **Investigate** menu, select **Smart Detection** to see a list of recent detections.
-
-   ![Screenshot that shows recent detections.](./media/proactive-diagnostics/04.png)
+   <!-- convertborder later -->
+   :::image type="content" source="./media/proactive-diagnostics/04.png" lightbox="./media/proactive-diagnostics/04.png" alt-text="Screenshot that shows recent detections." border="false":::
 
 Select a detection to view its details.
 
@@ -53,7 +53,7 @@ Alternatively, you can change the configuration by using Azure Resource Manager 
 These diagnostic tools help you inspect the telemetry from your app:
 
 * [Metric explorer](../essentials/metrics-charts.md)
-* [Search explorer](../app/search-and-transaction-diagnostics.md?tabs=transaction-search)
+* [Search explorer](../app/transaction-search-and-diagnostics.md?tabs=transaction-search)
 * [Analytics: Powerful query language](../logs/log-analytics-tutorial.md)
 
 Smart detection is automatic, but if you want to set up more alerts, see:

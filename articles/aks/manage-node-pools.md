@@ -253,7 +253,7 @@ For more information, see [capacity reservation groups][capacity-reservation-gro
 
 You may need to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory or a node pool that provides GPU support. In the next section, you [use taints and tolerations](#set-node-pool-taints) to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
 
-In the following example, we create a GPU-based node pool that uses the *Standard_NC6* VM size. These VMs are powered by the NVIDIA Tesla K80 card. For information, see [Available sizes for Linux virtual machines in Azure][vm-sizes].
+In the following example, we create a GPU-based node pool that uses the *Standard_NC6s_v3* VM size. These VMs are powered by the NVIDIA Tesla K80 card. For information, see [Available sizes for Linux virtual machines in Azure][vm-sizes].
 
 1. Create a node pool using the [`az aks node pool add`][az-aks-nodepool-add] command. Specify the name *gpunodepool* and use the `--node-vm-size` parameter to specify the *Standard_NC6* size.
 
@@ -263,7 +263,7 @@ In the following example, we create a GPU-based node pool that uses the *Standar
         --cluster-name myAKSCluster \
         --name gpunodepool \
         --node-count 1 \
-        --node-vm-size Standard_NC6 \
+        --node-vm-size Standard_NC6s_v3 \
         --no-wait
     ```
 
@@ -286,7 +286,7 @@ In the following example, we create a GPU-based node pool that uses the *Standar
         ...
         "provisioningState": "Creating",
         ...
-        "vmSize": "Standard_NC6",
+        "vmSize": "Standard_NC6s_v3",
         ...
       },
       {

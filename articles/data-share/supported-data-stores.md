@@ -5,17 +5,17 @@ ms.service: data-share
 author:  sidontha
 ms.author: sidontha
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 12/19/2023
 ---
 # Supported data stores in Azure Data Share
 
-Azure Data Share provides open and flexible data sharing, including the ability to share from and to different data stores. Data providers can share data from one type of data store, and data consumers can choose a data store to receive the data. 
+Azure Data Share provides open and flexible data sharing, including the ability to share from and to different data stores. Data providers can share data from one type of data store, and data consumers can choose a data store to receive the data.
 
-In this article, you'll learn about the set of Azure data stores that Azure Data Share supports. You'll also learn about how data providers and data consumers can combine different data stores. 
+In this article, you'll learn about the set of Azure data stores that Azure Data Share supports. You'll also learn about how data providers and data consumers can combine different data stores.
 
-## Supported data stores 
+## Supported data stores
 
-The following table explains the data stores that Azure Data Share supports. 
+The following table explains the data stores that Azure Data Share supports.
 
 | Data store | Sharing based on full snapshots | Sharing based on incremental snapshots | Sharing in place |
 |:--- |:--- |:--- |:--- |
@@ -29,7 +29,7 @@ The following table explains the data stores that Azure Data Share supports.
 
 ## Data store support matrix
 
-Azure Data Share lets data consumers choose a data store to accept data. For example, data that's shared from Azure SQL Database can be received into Azure Data Lake Storage Gen2, Azure SQL Database, or Azure Synapse Analytics. When customers set up a receiving data share, they can choose the format to receive the data. 
+Azure Data Share lets data consumers choose a data store to accept data. For example, data that's shared from Azure SQL Database can be received into Azure Data Lake Storage Gen2, Azure SQL Database, or Azure Synapse Analytics. When customers set up a receiving data share, they can choose the format to receive the data.
 
 The following table explains the combinations and options that data consumers can choose when they accept and configure a data share. For more information, see [Configure a dataset mapping](how-to-configure-mapping.md).
 
@@ -47,9 +47,9 @@ The following table explains the combinations and options that data consumers ca
 
 Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. You can share block, append, or page blobs, and they're received as block blobs.
 
-When file systems, containers, or folders are shared in snapshot-based sharing, data consumers can choose to make a full copy of the shared data. Or they can use the incremental snapshot capability to copy only new files or updated files. 
+When file systems, containers, or folders are shared in snapshot-based sharing, data consumers can choose to make a full copy of the shared data. Or they can use the incremental snapshot capability to copy only new files or updated files.
 
-An incremental snapshot is based on the last-modified time of the files. Existing files that have the same name as files in the received data are overwritten in a snapshot. Files that are deleted from the source aren't deleted on the target. 
+An incremental snapshot is based on the last-modified time of the files. Existing files that have the same name as files in the received data are overwritten in a snapshot. Files that are deleted from the source aren't deleted on the target.
 
 If a snapshot is interrupted and fails, for example, due to a cancel action, networking issue, or disaster, the next incremental snapshot copies files that have a last-modified time greater than the time of the last successful snapshot.
 
@@ -73,11 +73,11 @@ Azure Data Share supports the ability to share databases in-place from Azure Dat
 
 When data is shared at the database level, data consumers can access only the databases that the data provider shared. When a provider shares data at the cluster level, data consumers can access all of the databases from the provider's cluster, including any future databases that the data provider creates.
 
-To access shared databases, data consumers need their own Azure Data Explorer cluster. Their cluster must be in the same Azure datacenter as the data provider's Azure Data Explorer cluster. 
+To access shared databases, data consumers need their own Azure Data Explorer cluster. Their cluster must be in the same Azure datacenter as the data provider's Azure Data Explorer cluster.
 
 When a sharing relationship is established, Azure Data Share creates a symbolic link between the provider's cluster and the consumer's cluster. Data that's ingested into the source cluster by using batch mode appears on the target cluster within a few minutes.
 
-For more information, see: [share and receive data from Azure Data Explorer](/azure/data-explorer/data-share). 
+For more information, see: [share and receive data from Azure Data Explorer](/azure/data-explorer/data-share).
 
 ## Next steps
 

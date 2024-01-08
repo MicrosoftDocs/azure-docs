@@ -17,10 +17,7 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 :::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Mesh connectivity configurations and security admin rules remain in public preview.
->
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]ps://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Bicep Template Modules
 

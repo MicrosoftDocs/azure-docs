@@ -9,12 +9,14 @@ metadata:
   services: event-grid
   ms.service: event-grid
   ms.subservice:
-  ms.custom: build-2023
+  ms.custom:
+    - build-2023
+    - ignite-2023
   ms.topic: landing-page
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 05/23/2023
+  ms.date: 11/15/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -31,14 +33,14 @@ landingContent:
         links:
           - text: Pull delivery
             url: pull-delivery-overview.md
-          - text: MQTT Messaging
+          - text: MQTT broker
             url: mqtt-overview.md
  # Card
-  - title: MQTT messaging (Preview)
+  - title: MQTT broker in Namespaces
     linkLists:
       - linkListType: overview
         links:
-          - text: MQTT support overview
+          - text: MQTT broker overview
             url: mqtt-overview.md
       - linkListType: quickstart
         links:
@@ -64,7 +66,7 @@ landingContent:
             url: mqtt-routing.md
 
  # Card
-  - title: Push delivery
+  - title: Event Grid Basic
     linkLists:
       - linkListType: concept
         links:
@@ -102,18 +104,22 @@ landingContent:
             url: onboard-partner.md
 
  # Card
-  - title: Pull delivery (Preview)
+  - title: Pull & Push delivery in Namespaces
     linkLists:
       - linkListType: concept
         links:
           - text: Pull delivery
             url: pull-delivery-overview.md
-          - text: Concepts
-            url: concepts-pull-delivery.md
+          - text: Concepts 
+            url: concepts-event-grid-namespaces.md
+          - text: Push delivery
+            url: namespace-push-delivery-overview.md
       - linkListType: quickstart
         links:
-          - text: Publish and subscribe to events using namespace topics
+          - text: Publish and subscribe to events using namespace topics (Pull)
             url: publish-events-using-namespace-topics.md
+          - text: Publish and deliver events using namespace topics (Push)
+            url: publish-deliver-events-with-namespace-topics.md           
       - linkListType: how-to-guide
         links:
           - text: Create, view, and manage namespaces

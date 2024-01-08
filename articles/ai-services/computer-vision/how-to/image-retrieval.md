@@ -2,7 +2,7 @@
 title: Do image retrieval using multi-modal embeddings - Image Analysis 4.0
 titleSuffix: Azure AI services
 description: Learn how to call the image retrieval API to vectorize image and search terms.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

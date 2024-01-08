@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
+ms.date: 12/19/2023
 ms.topic: overview
 ms.custom: references_regions 
 ---
@@ -91,12 +91,14 @@ Brazil | Brazil South
 Canada | Canada Central </br> Canada East
 Europe | North Europe </br> West Europe
 France | France Central
+Germany | Germany West Central
 India | Central India
 Japan | Japan East
 Korea | Korea Central
 Norway | Norway East
 Sweden | Sweden Central
 Switzerland | Switzerland North
+UAE | UAE North 
 United Kingdom | UK South </br> UK West
 United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
 
@@ -104,11 +106,18 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 
 ## Supported operating systems
 
-All operating systems are assumed to be x64. For this reason, x86 isn't supported for any operating system.
-Update Manager doesn't support CIS-hardened images.
+>[!NOTE]
+> 1. All operating systems are assumed to be x64. For this reason, x86 isn't supported for any operating system.
+> 1. Update Manager doesn't support VMs created from CIS-hardened images.
 
-> [!NOTE]
-> Currently, schedule patching and periodic assessment on [specialized images](../virtual-machines/linux/imaging.md) and **VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery** are supported in preview.
+### Support for automatic VM Guest patching
+
+- For marketplace images, see the list of [supported OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images).
+- For VMs created from customized images even if the Patch orchestration mode is set to `Azure Orchestrated/AutomaticByPlatform`, automatic VM guest patching doesn't work. We recommend that you use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
+
+### Support for all other Azure Update Manager operations
+
+The support for all Azure Update Manager operations like periodic assessment, scheduled patching, on-demand assessment, and patching is described in the sections below.
 
 # [Azure VMs](#tab/azurevm-os)
 
@@ -121,9 +130,9 @@ The Azure Marketplace image has the following attributes:
 - **SKU**: An instance of an offer, such as a major release of a distribution. Examples are `18.04LTS` and `2019-Datacenter`.
 - **Version**: The version number of an image SKU.
 
-Update Manager supports the following operating system versions. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
+Update Manager supports the following operating system versions on VMs for all operations except automatic VM guest patching. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
 
-#### Windows operating systems
+#### Supported Windows OS versions
 
 | **Publisher**| **Versions**
 |----------|-------------|
@@ -137,7 +146,7 @@ Update Manager supports the following operating system versions. You might exper
 |Microsoft Power BI | 2016, 2017, 2019, 2022 |
 |Microsoft SharePoint | sp* |
 
-#### Linux operating systems
+#### Supported Linux OS versions
 
 | **Publisher**| **Versions**
 |----------|-------------|
@@ -149,15 +158,16 @@ Update Manager supports the following operating system versions. You might exper
 |Oracle Linux | 7*, ol7*, ol8*, ol9* |
 |Oracle Database | 21, 19-0904, 18.*|
 
-#### Unsupported operating systems
+#### Unsupported operating system images
 
-The following table lists the operating systems for Azure Marketplace images that aren't supported.
+The following table lists the images (from which the VMs are created) that aren't supported:
 
 | **Publisher**| **OS offer** | **SKU**|
 |----------|-------------|-----|
 |OpenLogic | CentOS | 8* |
 |OpenLogic | centos-hpc| * |
 |Oracle | Oracle-Linux | 8, 8-ci, 81, 81-ci , 81-gen2, ol82, ol8_2-gen2,ol82-gen2, ol83-lvm, ol83-lvm-gen2, ol84-lvm,ol84-lvm-gen2 |
+|Red Hat | RHEL-BYOS | *|
 |Red Hat | RHEL | 74-gen2 |
 |Red Hat | RHEL-HANA | 7.4, 7.5, 7.6, 8.1, 81_gen2 |
 |Red Hat | 	RHEL-SAP | 7.4, 7.5, 7.7 |
@@ -170,9 +180,7 @@ The following table lists the operating systems for Azure Marketplace images tha
 
 ### Custom images
 
-We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Currently, scheduled patching and periodic assessment on [specialized images](../virtual-machines/linux/imaging.md#specialized-images) and VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery are supported in preview. 
-
-The following table lists the operating systems that we support for customized images. For instructions on how to use Update Manager to manage updates on custom images, see [Custom images (preview)](manage-updates-customized-images.md).
+We support VMs created from customized images, and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
 
    |**Windows operating system**|
    |---|
@@ -211,17 +219,17 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 
 ---
 
-## Unsupported operating systems
+## Unsupported workloads
 
-The following table lists the operating systems that aren't supported.
+The following table lists the workloads that aren't supported.
 
-   | **Operating system**| **Notes**
+   | **Workloads**| **Notes**
    |----------|-------------|
    | Windows client | For client operating systems such as Windows 10 and Windows 11, we recommend [Microsoft Intune](/mem/intune/) to manage updates.|
-   | Virtual machine scale sets| We recommend that you use [Automatic upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to patch the virtual machine scale sets.|
+   | Virtual Machine Scale Sets| We recommend that you use [Automatic upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to patch the Virtual Machine Scale Sets.|
    | Azure Kubernetes Service nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).|
 
-Because Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
+As Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
 
 ## Next steps
 

@@ -5,7 +5,7 @@ description: Learn about Point-to-Site VPN.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/26/2023
+ms.date: 10/25/2023
 ms.author: cherylmc
 
 ---
@@ -88,6 +88,8 @@ The following table shows gateway SKUs by tunnel, connection, and throughput. Fo
 >
 
 ## <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?
+
+The tables in this section show the values for the default policies. However, they don't reflect the available supported values for custom policies. For custom policies, see the **Accepted values** listed in the [New-AzVpnClientIpsecParameter](/powershell/module/az.network/new-azvpnclientipsecparameter) PowerShell cmdlet.
 
 **IKEv2**
 

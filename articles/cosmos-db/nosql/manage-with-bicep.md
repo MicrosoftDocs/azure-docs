@@ -56,7 +56,7 @@ Create an Azure Cosmos DB account in two regions with options for consistency an
 
 ## Azure Cosmos DB container with server-side functionality
 
-Create an Azure Cosmos DB account, database and container with with a stored procedure, trigger, and user-defined function.
+Create an Azure Cosmos DB account, database and container with a stored procedure, trigger, and user-defined function.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-sql-container-sprocs/main.bicep":::
 

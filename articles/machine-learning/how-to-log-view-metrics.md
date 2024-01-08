@@ -200,7 +200,7 @@ MLflow introduces the concept of "models" as a way to package all the artifacts 
 To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For more details about how to log MLflow models see [Logging MLflow models](how-to-log-mlflow-models.md) For migrating existing models to MLflow, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
 
 > [!TIP]
-> When __logging large models__, you may encounter the error `Failed to flush the queue within 300 seconds`. Usually, it means the operation is timing out before the upload of the model artifacts is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_VALUE`.
+> When __logging large models__, you may encounter the error `Failed to flush the queue within 300 seconds`. Usually, it means the operation is timing out before the upload of the model artifacts is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_TIMEOUT`.
 
 ## Automatic logging
 

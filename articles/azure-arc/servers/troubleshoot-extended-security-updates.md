@@ -1,7 +1,7 @@
 ---
 title: How to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 09/14/2023
+ms.date: 01/02/2024
 ms.topic: conceptual
 ---
 
@@ -29,11 +29,56 @@ If you're unable to successfully link your Azure Arc-enabled server to an activa
 
 - **Operating system:** Only Azure Arc-enabled servers running the Windows Server 2012 and 2012 R2 operating system are eligible to enroll in Extended Security Updates.
 
-- **Environment:** The connected machine should not be running on Azure Stack HCI, Azure VMware solution, or as an Azure virtual machine. In these scenarios, WS2012 ESUs are available for free.
+- **Environment:** The connected machine should not be running on Azure Stack HCI, Azure VMware solution (AVS), or as an Azure virtual machine. **In these scenarios, WS2012 ESUs are available for free**. For information about no-cost ESUs through Azure Stack HCI, see [Free Extended Security Updates through Azure Stack HCI](/azure-stack/hci/manage/azure-benefits-esu?tabs=windows-server-2012).
 
 - **License properties:** Verify the license is activated and has been allocated sufficient physical or virtual cores to support the intended scope of servers.
 
+## Resource providers
+
+If you're unable to enable this service offering, review the resource providers registered on the subscription as noted below. If you receive an error while attempting to register the resource providers, validate the role assignment/s on the subscription. Also review any potential Azure policies that may be set with a Deny effect, preventing the enablement of these resource providers.
+
+- **Microsoft.HybridCompute:** This resource provider is essential for Azure Arc-enabled servers, allowing you to onboard and manage on-premises servers in the Azure portal.
+
+- **Microsoft.GuestConfiguration:** Enables Guest Configuration policies, which are used to assess and enforce configurations on your Arc-enabled servers for compliance and security.
+
+- **Microsoft.UpdateManagement:** This resource provider is required for Azure Update Management, which is used to manage updates and patches on your on-premises servers, including ESU updates.
+
+- **Microsoft.Security:** Enabling this resource provider is crucial for implementing security-related features and configurations for both Azure Arc and on-premises servers.
+
+- **Microsoft.OperationalInsights:** This resource provider is associated with Azure Monitor and Log Analytics, which are used for monitoring and collecting telemetry data from your hybrid infrastructure, including on-premises servers.
+
+- **Microsoft.Sql:** If you're managing on-premises SQL Server instances and require ESU for SQL Server, enabling this resource provider is necessary.
+
+- **Microsoft.Storage:** Enabling this resource provider is important for managing storage resources, which may be relevant for hybrid and on-premises scenarios.
+
 ## ESU patches issues
 
-If you have issues receiving ESUs after successfully enrolling the server through Arc-enabled servers, or you need additional information related to issues affecting ESU deployment, see [Troubleshoot issues in ESU](/troubleshoot/windows-client/windows-7-eos-faq/troubleshoot-extended-security-updates-issues).
+Ensure that both the licensing package and servicing stack update (SSU) are downloaded for the Azure Arc-enabled server as documented at [KB5031043: Procedure to continue receiving security updates after extended support has ended on October 10, 2023](https://support.microsoft.com/topic/kb5031043-procedure-to-continue-receiving-security-updates-after-extended-support-has-ended-on-october-10-2023-c1a20132-e34c-402d-96ca-1e785ed51d45). Ensure you are following all of the networking prerequisites as recorded at [Prepare to deliver Extended Security Updates for Windows Server 2012](prepare-extended-security-updates.md?tabs=azure-cloud#networking).
+
+If installing the Extended Security Update enabled by Azure Arc fails with errors such as "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12029)" or "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12002)", there is a known remediation approach:
+
+1. Download this [intermediate CA published by Microsoft](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2001%20-%20xsign.crt).
+1. Install the downloaded certificate as Local Computer under `Intermediate Certificate Authorities\Certificates`. Use the following command to install the certificate correctly:
+
+   `certutil -addstore CA 'Microsoft Azure TLS Issuing CA 01 - xsign.crt'`
+
+1. Install security updates. If it fails, reboot the machine and install security updates again.
+
+If you're working with Azure Government Cloud, use the following instructions instead of those above:
+
+1. Download this [intermediate CA published by Microsoft](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2002%20-%20xsign.crt).
+
+1. Install the downloaded certificate as Local Computer under `Intermediate Certificate Authorities\Certificates`. Use the following command to install the certificate correctly:
+
+    `certutil -addstore CA 'Microsoft Azure TLS Issuing CA 02 - xsign.crt'`
+
+1. Install security updates. If it fails, reboot the machine and install security updates again.
+
+If you encounter the error "ESU: not eligible HRESULT_FROM_WIN32(1633)", follow these steps:
+
+`Remove-Item “$env:ProgramData\AzureConnectedMachineAgent\Certs\license.json” -Force`
+
+`Restart-Service himds`
+
+If you have other issues receiving ESUs after successfully enrolling the server through Arc-enabled servers, or you need additional information related to issues affecting ESU deployment, see [Troubleshoot issues in ESU](/troubleshoot/windows-client/windows-7-eos-faq/troubleshoot-extended-security-updates-issues).
 

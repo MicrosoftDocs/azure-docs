@@ -3,7 +3,7 @@ title: Log Analytics agent overview
 description: This article helps you understand how to collect data and monitor computers hosted in Azure, on-premises, or other cloud environments with Log Analytics.
 ms.topic: conceptual
 author: guywi-ms
-ms.author: guywi
+ms.author: guywild
 ms.date: 07/06/2023
 ms.reviewer: luki
 
@@ -14,7 +14,7 @@ ms.reviewer: luki
 This article provides a detailed overview of the Log Analytics agent and the agent's system and network requirements and deployment methods.
 
 >[!IMPORTANT]
->The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.
+>The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. Any new data centers brought online after January 1 2024 will not support the Log Analytics agent. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.
 
 You might also see the Log Analytics agent referred to as Microsoft Monitoring Agent (MMA).
 

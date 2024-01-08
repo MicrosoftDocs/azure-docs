@@ -5,7 +5,7 @@ description: Learn about managing model deployment life cycle, updates, & retire
 ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 10/04/2023
-ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai, devx-track-azurepowershell
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -17,7 +17,7 @@ keywords:
 
 Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. [Model availability varies by region](../concepts/models.md).
 
-You can get a list of models that are available for both inference and fine-tuning by your Azure OpenAI resource by using the [Models List API](/rest/api/cognitiveservices/azureopenaistable/models/list).
+You can get a list of models that are available for both inference and fine-tuning by your Azure OpenAI resource by using the [Models List API](/rest/api/azureopenai/models/list).
 
 ## Model updates
 
@@ -51,15 +51,79 @@ To view deprecation/expiration dates for all available models in a given region 
 
 ## Model deployment upgrade configuration
 
-There are three distinct model deployment upgrade options which are configurable via REST API:
+You can check what model upgrade options are set for previously deployed models in [Azure OpenAI Studio](https://oai.azure.com). Select **Deployments** > Under the deployment name column select one of the deployment names that are highlighted in blue.
+
+:::image type="content" source="../media/how-to/working-with-models/deployments.png" alt-text="Screenshot of the deployments pane with a deployment name highlighted." lightbox="../media/how-to/working-with-models/deployments.png":::
+
+This will open the **Properties** for the model deployment. You can view what upgrade options are set for your deployment under **Version update policy**:
+
+:::image type="content" source="../media/how-to/working-with-models/update-policy.png" alt-text="Screenshot of the model deployments property UI." lightbox="../media/how-to/working-with-models/update-policy.png":::
+
+The corresponding property can also be accessed via [REST](../how-to/working-with-models.md#model-deployment-upgrade-configuration), [Azure PowerShell](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccountdeployment), and [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-show).
+
+|Option| Read | Update |
+|---|---|---|
+| [REST](../how-to/working-with-models.md#model-deployment-upgrade-configuration) | Yes. If `versionUpgradeOption` is not returned it means it is `null` |Yes |
+| [Azure PowerShell](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccountdeployment) | Yes.`VersionUpgradeOption` can be checked for `$null`| Yes |
+| [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-show) | Yes. It shows `null` if `versionUpgradeOption` is not set.| *No.* It is currently not possible to update the version upgrade option.|
+
+There are three distinct model deployment upgrade options:
 
 | Name | Description |
 |------|--------|
 | `OnceNewDefaultVersionAvailable` | Once a new version is designated as the default, the model deployment will automatically upgrade to the default version within two weeks of that designation change being made. |
 |`OnceCurrentVersionExpired` | Once the retirement date is reached the model deployment will automatically upgrade to the current default version. |
-|`NoAutoUpgrade` | The model deployment will never automatically upgrade. Once the retirement date is reached the model deployment will stop working. You will need to update your code referencing that deployment to point to a non-expired model deployment. |
+|`NoAutoUpgrade` | The model deployment will never automatically upgrade. Once the retirement date is reached the model deployment will stop working. You will need to update your code referencing that deployment to point to a nonexpired model deployment. |
 
-To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0)  
+> [!NOTE]
+> `null` is equivalent to `AutoUpgradeWhenExpired`. If the **Version update policy** option is not present in the properties for a model that supports model upgrades this indicates the value is currently `null`. Once you explicitly modify this value the property will be visible in the studio properties page as well as via the REST API.
+
+### Examples
+
+# [PowerShell](#tab/powershell)
+
+Review the Azure PowerShell [getting started guide](/powershell/azure/get-started-azureps) to install Azure PowerShell locally or you can use the [Azure Cloud Shell](/azure/cloud-shell/overview).
+
+The steps below demonstrate checking the `VersionUpgradeOption` option property as well as updating it:
+
+```powershell
+// Step 1: Get Deployment
+$deployment = Get-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} -AccountName {AccountName} -Name {DeploymentName}
+ 
+// Step 2: Show Deployment VersionUpgradeOption
+$deployment.Properties.VersionUpgradeOption
+ 
+// VersionUpgradeOption can be null - one way to check is
+$null -eq $deployment.Properties.VersionUpgradeOption
+ 
+// Step 3: Update Deployment VersionUpgradeOption
+$deployment.Properties.VersionUpgradeOption = "NoAutoUpgrade"
+New-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} -AccountName {AccountName} -Name {DeploymentName} -Properties $deployment.Properties -Sku $deployment.Sku
+ 
+// repeat step 1 and 2 to confirm the change.
+// If not sure about deployment name, use this command to show all deployments under an account
+Get-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} -AccountName {AccountName}
+```
+
+```powershell
+// To update to a new model version
+
+// Step 1: Get Deployment
+$deployment = Get-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} -AccountName {AccountName} -Name {DeploymentName}
+
+// Step 2: Show Deployment Model properties
+$deployment.Properties.Model.Version
+
+// Step 3: Update Deployed Model Version
+$deployment.Properties.Model.Version = "0613"
+New-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} -AccountName {AccountName} -Name {DeploymentName} -Properties $deployment.Properties -Sku $deployment.Sku
+
+// repeat step 1 and 2 to confirm the change.
+```
+
+# [REST](#tab/rest)
+
+To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0). If the value is null you won't see a `versionUpgradeOption` property.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments?api-version=2023-05-01
@@ -78,27 +142,30 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 - `2023-05-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/1e71ad94aeb8843559d59d863c895770560d7c93/specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2023-05-01/cognitiveservices.json)
 
+
 ### Example response
 
 ```json
 {
-      "id": "/subscriptions/{Subcription-GUID}/resourceGroups/{Resource-Group-Name}/providers/Microsoft.CognitiveServices/accounts/{Resource-Name}/deployments/text-davinci-003",
+  "value": [
+    {
+      "id": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeeb/resourceGroups/az-test-openai/providers/Microsoft.CognitiveServices/accounts/aztestopenai001/deployments/gpt-35-turbo",
       "type": "Microsoft.CognitiveServices/accounts/deployments",
-      "name": "text-davinci-003",
+      "name": "gpt-35-turbo",
       "sku": {
         "name": "Standard",
-        "capacity": 60
+        "capacity": 80
       },
       "properties": {
         "model": {
           "format": "OpenAI",
-          "name": "text-davinci-003",
-          "version": "1"
+          "name": "gpt-35-turbo",
+          "version": "0301"
         },
         "versionUpgradeOption": "OnceNewDefaultVersionAvailable",
         "capabilities": {
           "completion": "true",
-          "search": "true"
+          "chatCompletion": "true"
         },
         "raiPolicyName": "Microsoft.Default",
         "provisioningState": "Succeeded",
@@ -106,18 +173,32 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
           {
             "key": "request",
             "renewalPeriod": 10,
-            "count": 60
+            "count": 80
           },
           {
             "key": "token",
             "renewalPeriod": 60,
-            "count": 60000
+            "count": 80000
           }
         ]
-      }
+      },
+      "systemData": {
+        "createdBy": "docs@contoso.com",
+        "createdByType": "User",
+        "createdAt": "2023-07-31T16:45:32.622404Z",
+        "lastModifiedBy": "docs@contoso.com",
+        "lastModifiedByType": "User",
+        "lastModifiedAt": "2023-10-31T13:59:34.4978286Z"
+      },
+      "etag": "\"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\""
+    }
+  ]
+}
 ```
 
 You can then take the settings from this list to construct an update model REST API call as described below if you want to modify the deployment upgrade configuration.
+
+---
 
 ## Update & deploy models via the API
 
@@ -151,10 +232,10 @@ This is only a subset of the available request body parameters. For the full lis
 #### Example request
 
 ```Bash
-curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1?api-version=2023-05-01 \
+curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/gpt-35-turbo?api-version=2023-05-01 \
   -H "Content-Type: application/json" \
   -H 'Authorization: Bearer YOUR_AUTH_TOKEN' \
-  -d '{"sku":{"name":"Standard","capacity":1},"properties": {"model": {"format": "OpenAI","name": "text-embedding-ada-002","version": "2"},"versionUpgradeOption":"OnceCurrentVersionExpired"}}'
+  -d '{"sku":{"name":"Standard","capacity":120},"properties": {"model": {"format": "OpenAI","name": "gpt-35-turbo","version": "0613"},"versionUpgradeOption":"OnceCurrentVersionExpired"}}'
 ```
 
 > [!NOTE]
@@ -163,48 +244,47 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
 #### Example response
 
 ```json
-{
-  "id": "/subscriptions/{subscription-id}/resourceGroups/resource-group-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1",
+ {
+  "id": "/subscriptions/{subscription-id}/resourceGroups/resource-group-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/gpt-35-turbo",
   "type": "Microsoft.CognitiveServices/accounts/deployments",
-  "name": "text-embedding-ada-002-test-1",
+  "name": "gpt-35-turbo",
   "sku": {
     "name": "Standard",
-    "capacity": 1
+    "capacity": 120
   },
   "properties": {
     "model": {
       "format": "OpenAI",
-      "name": "text-embedding-ada-002",
-      "version": "2"
+      "name": "gpt-35-turbo",
+      "version": "0613"
     },
     "versionUpgradeOption": "OnceCurrentVersionExpired",
     "capabilities": {
-      "embeddings": "true",
-      "embeddingsMaxInputs": "1"
+      "chatCompletion": "true"
     },
     "provisioningState": "Succeeded",
-    "ratelimits": [
+    "rateLimits": [
       {
         "key": "request",
         "renewalPeriod": 10,
-        "count": 2
+        "count": 120
       },
       {
         "key": "token",
         "renewalPeriod": 60,
-        "count": 1000
+        "count": 120000
       }
     ]
   },
   "systemData": {
     "createdBy": "docs@contoso.com",
     "createdByType": "User",
-    "createdAt": "2023-06-13T00:12:38.885937Z",
+    "createdAt": "2023-02-28T02:57:15.8951706Z",
     "lastModifiedBy": "docs@contoso.com",
     "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-06-13T02:41:04.8410965Z"
+    "lastModifiedAt": "2023-10-31T15:35:53.082912Z"
   },
-  "etag": "\"{GUID}\""
+  "etag": "\"GUID\""
 }
 ```
 

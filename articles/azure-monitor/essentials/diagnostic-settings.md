@@ -5,7 +5,7 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
 ms.date: 10/19/2023
 ms.reviewer: lualderm
 ---
@@ -29,7 +29,7 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), create multiple settings. Each resource can have up to five diagnostic settings.
 
 > [!WARNING]
-> If you need to delete a resource or migrate it across resource groups or subscriptions, you should first delete its diagnostic settings. Otherwise, if you recreate this resource, the diagnostic settings for the deleted resource could be included with the new resource, depending on the resource configuration for each resource. If the diagnostics settings are included with the new resource, this resumes the collection of resource logs as defined in the diagnostic setting and sends the applicable metric and log data to the previously configured destination. 
+> If you need to delete a resource, rename, or move a resource, or migrate it across resource groups or subscriptions, first delete its diagnostic settings. Otherwise, if you recreate this resource, the diagnostic settings for the deleted resource could be included with the new resource, depending on the resource configuration for each resource. If the diagnostics settings are included with the new resource, this resumes the collection of resource logs as defined in the diagnostic setting and sends the applicable metric and log data to the previously configured destination. 
 >
 > Also, it's a good practice to delete the diagnostic settings for a resource you're going to delete and don't plan on using again to keep your environment clean.
 
@@ -149,7 +149,7 @@ The following table provides unique requirements for each destination including 
 
 ## Controlling costs
 
-There's a cost for collecting data in a Log Analytics workspace, so you should only collect the categories you require for each service. The data volume for resource logs varies significantly between services. 
+There's a cost for collecting data in a Log Analytics workspace, so only collect the categories you require for each service. The data volume for resource logs varies significantly between services. 
 
 You might also not want to collect platform metrics from Azure resources because this data is already being collected in Metrics. Only configure your diagnostic data to collect metrics if you need metric data in the workspace for more complex analysis with log queries. Diagnostic settings don't allow granular filtering of resource logs.
 
@@ -158,5 +158,5 @@ You might also not want to collect platform metrics from Azure resources because
 ## Next steps
 
 - [Create diagnostic settings for Azure Monitor platform metrics and logs](./create-diagnostic-settings.md)
-
+- [Migrate diagnostic settings storage retention to Azure Storage lifecycle management](./migrate-to-azure-storage-lifecycle-policy.md)
 - [Read more about Azure platform logs](./platform-logs-overview.md)

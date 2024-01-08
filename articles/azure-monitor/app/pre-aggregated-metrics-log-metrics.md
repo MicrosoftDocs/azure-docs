@@ -10,6 +10,8 @@ ms.reviewer: vitalyg
 
 This article explains the difference between "traditional" Application Insights metrics that are based on logs and pre-aggregated metrics. Both types of metrics are available to users of Application Insights. Each one brings a unique value in monitoring application health, diagnostics, and analytics. The developers who are instrumenting applications can decide which type of metric is best suited to a particular scenario. Decisions are based on the size of the application, expected volume of telemetry, and business requirements for metrics precision and alerting.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 ## Log-based metrics
 
 In the past, the application monitoring telemetry data model in Application Insights was solely based on a few predefined types of events, such as requests, exceptions, dependency calls, and page views. Developers can use the SDK to emit these events manually by writing code that explicitly invokes the SDK. Or they can rely on the automatic collection of events from autoinstrumentation. In either case, the Application Insights back end stores all collected events as logs. The Application Insights panes in the Azure portal act as an analytical and diagnostic tool for visualizing event-based data from logs.
@@ -69,7 +71,7 @@ There are several [ways of sending custom metrics from the Application Insights 
 
 ## Custom metrics dimensions and pre-aggregation
 
-All metrics that you send by using [trackMetric](./api-custom-events-metrics.md#trackmetric) or [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric) API calls are automatically stored in both logs and metrics stores. Although the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](../usage-estimated-costs.md#usage-and-estimated-costs) tab by selecting the **Enable alerting on custom metric dimensions** checkbox.
+All metrics that you send by using [trackMetric](./api-custom-events-metrics.md#trackmetric) or [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric) API calls are automatically stored in both logs and metrics stores. Although the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](../cost-usage.md#usage-and-estimated-costs) tab by selecting the **Enable alerting on custom metric dimensions** checkbox.
 
 :::image type="content" source="./media/pre-aggregated-metrics-log-metrics/001-cost.png" lightbox="./media/pre-aggregated-metrics-log-metrics/001-cost.png" alt-text="Screenshot that shows usage and estimated costs.":::
 

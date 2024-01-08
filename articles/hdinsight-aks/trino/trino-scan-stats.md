@@ -3,7 +3,7 @@ title: Use scan statistics
 description: How to enable, understand and query scan statistics using  query log tables for Trino clusters for HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Enable scan statistics for queries
@@ -12,7 +12,7 @@ ms.date: 08/29/2023
 
 Often data teams are required to investigate performance or optimize queries to improve resource utilization or meet business requirements. 
 
-A new capability has been added in HDInsight on AKS Trino that allows user to capture Scan statistics for any connector. This capability provides deeper insights into query performance profile beyond what is available in statistics produced by Trino.
+A new capability has been added in Trino for HDInsight on AKS that allows user to capture Scan statistics for any connector. This capability provides deeper insights into query performance profile beyond what is available in statistics produced by Trino.
 
 You can enable this feature using [session property](https://trino.io/docs/current/sql/set-session.html#session-properties.) `collect_raw_scan_statistics`, and by following Trino command:
 ```

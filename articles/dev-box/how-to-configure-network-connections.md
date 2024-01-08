@@ -1,7 +1,7 @@
 ---
 title: Configure network connections
 titleSuffix: Microsoft Dev Box
-description: Learn how to create, delete, attach, and remove Microsoft Dev Box network connections.
+description: Learn how to manage network connections for a dev center in Microsoft Dev Box. Use network connections to connect to virtual network or enable connecting to on-premises resources from a dev box.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -13,7 +13,11 @@ ms.topic: how-to
 
 # Connect dev boxes to resources by configuring network connections
 
-Network connections allow dev boxes to connect to existing virtual networks. They also determine the region into which dev boxes are deployed.
+In this article, you learn how to manage network connections for a dev center in Microsoft Dev Box. Network connections enable dev boxes to connect to existing virtual networks. In addition, you can configure the network settings to enable connecting to on-premises resources from your dev box. The location, or Azure region, of the network connection determines where associated dev boxes are hosted.
+
+You can choose to deploy dev boxes to a Microsoft-hosted network associated with a [dev box pool](how-to-manage-dev-box-pools.md#create-a-dev-box-pool) or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first configure a network connection.
+
+You need to add at least one network connection to a dev center in Microsoft Dev Box.
 
 When you're planning network connectivity for your dev boxes, you must:
 
@@ -29,7 +33,7 @@ To manage a network connection, you need the following permissions:
 |Action|Permissions required|
 |-----|-----|
 |Create and configure a virtual network and subnet|Network Contributor permissions on an existing virtual network (Owner or Contributor), or permission to create a new virtual network and subnet.|
-|Create or delete a network connection|Owner or Contributor permissions on an Azure subscription or on a specific resource group.|
+|Create or delete a network connection|Owner or Contributor permissions on an Azure subscription or on a specific resource group, which includes permission to create a resource group.|
 |Add or remove a network connection |Write permission on the dev center.|
 
 ## Create a virtual network and subnet
@@ -48,7 +52,7 @@ To create a network connection, you need an existing virtual network and subnet.
     | ------- | ----- |
     | **Subscription** | Select your subscription. |
     | **Resource group** | Select an existing resource group. Or create a new one by selecting **Create new**, entering **rg-name**, and then selecting **OK**. |
-    | **Name** | Enter **VNet-name**. |
+    | **Name** | Enter *VNet-name*. |
     | **Region** | Select the region for the virtual network and dev boxes. |
 
     :::image type="content" source="./media/how-to-manage-network-connection/example-basics-tab.png" alt-text="Screenshot of the Basics tab on the pane for creating a virtual network in the Azure portal." border="true":::
@@ -64,7 +68,7 @@ To create a network connection, you need an existing virtual network and subnet.
 
 1. Select **Create**.
 
-## Allow access to Dev Box endpoints from your network
+## Allow access to Microsoft Dev Box endpoints from your network
 
 An organization can control network ingress and egress by using a firewall, network security groups, and even Microsoft Defender.
 
@@ -76,7 +80,7 @@ The following sections show you how to create and configure a network connection
 
 ### Types of Active Directory join
 
-The Dev Box service requires a configured and working Active Directory join, which defines how dev boxes join your domain and access resources. There are two choices:
+Microsoft Dev Box requires a configured and working Active Directory join, which defines how dev boxes join your domain and access resources. There are two choices:
 
 - **Microsoft Entra join**: If your organization uses Microsoft Entra ID, you can use a Microsoft Entra join (sometimes called a native Microsoft Entra join). Dev box users sign in to Microsoft Entra joined dev boxes by using their Microsoft Entra account and access resources based on the permissions assigned to that account. Microsoft Entra join enables access to cloud-based and on-premises apps and resources.
 
@@ -159,6 +163,9 @@ Follow the steps on the relevant tab to create your network connection.
 
 ---
 
+>[!NOTE]
+> Microsoft Dev Box automatically creates a resource group for each network connection, which holds the network interface cards (NICs) that use the virtual network assigned to the network connection. The resource group has a fixed name based on the name and region of the network connection. You can't change the name of the resource group, or specify an existing resource group.
+
 ## Attach a network connection to a dev center
 
 You need to attach a network connection to a dev center before you can use it in projects to create dev box pools.
@@ -201,7 +208,7 @@ You can remove a network connection from a dev center if you no longer want to u
 
 The network connection is no longer available for use in the dev center.
 
-## Next steps
+## Related content
 
 - [Manage a dev box definition](how-to-manage-dev-box-definitions.md)
 - [Manage a dev box pool](how-to-manage-dev-box-pools.md)

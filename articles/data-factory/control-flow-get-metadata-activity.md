@@ -240,7 +240,7 @@ The Get Metadata results are shown in the activity output. Following are two sam
 }
 ```
 
-## Next steps
+## Related content
 Learn about other supported control flow activities:
 
 - [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)

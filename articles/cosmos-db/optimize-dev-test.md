@@ -39,7 +39,7 @@ Azure Cosmos DB is included in the [Azure free account](https://azure.microsoft.
 
 ## Use shared throughput databases
 
-In a [shared throughput database](set-throughput.md#set-throughput-on-a-database), all containers inside the database share the provisioned throughput (RU/s) of the database. For example, if you provision a database with 400 RU/s and have four containers, all four containers will share the 400 RU/s. In a development or testing environment, where each container may be be accessed less frequently and thus require lower than the minimum of 400 RU/s,  putting containers in a shared throughput database can help optimize cost.
+In a [shared throughput database](set-throughput.md#set-throughput-on-a-database), all containers inside the database share the provisioned throughput (RU/s) of the database. For example, if you provision a database with 400 RU/s and have four containers, all four containers will share the 400 RU/s. In a development or testing environment, where each container may be accessed less frequently and thus require lower than the minimum of 400 RU/s,  putting containers in a shared throughput database can help optimize cost.
 
 For example, suppose your development or test account has four containers. If you create four containers with dedicated throughput (minimum of 400 RU/s), your total RU/s will be 1600 RU/s. In contrast, if you create a shared throughput database (minimum 400 RU/s) and put your containers there, your total RU/s will be just 400 RU/s. In general, shared throughput databases are great for scenarios where you don't need guaranteed throughput on any individual container.  Learn more about [shared throughput databases.](set-throughput.md#set-throughput-on-a-database)
 

@@ -233,7 +233,7 @@ The Token obtained from the Token Provider is wrong
 This message indicates either that the credentials configured in Notification Hubs are invalid or that there's an issue with the registrations in the hub. Delete this registration and let the client re-create the registration before sending the message.
 
 > [!NOTE]
-> Use of the `EnableTestSend` property is heavily throttled. Use this option only in a development/test environment and with a limited set of registrations. Debug notifications are sent to only 10 devices. There's also a limit on processing debug sends, at 10 per minute. Debug notifications are also excluded the the Azure Notification Hubs SLA.
+> Use of the `EnableTestSend` property is heavily throttled. Use this option only in a development/test environment and with a limited set of registrations. Debug notifications are sent to only 10 devices. There's also a limit on processing debug sends, at 10 per minute. Debug notifications are also excluded from the Azure Notification Hubs SLA.
 
 ### Review telemetry
 

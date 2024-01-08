@@ -12,9 +12,6 @@ ms.author: jasteppe
 
 # Troubleshoot errors using the MedTech service logs
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
 This article provides troubleshooting steps and fixes for errors found in the MedTech service logs. 
 
 > [!TIP]
@@ -28,7 +25,7 @@ This property represents the severity of the occurred error. Here's a list of po
 
 |Severity|Description|
 |--------|-----------|
-|Non-blocking|An issue exists in the data flow process, but processing of device messages doesn't stop.|
+|Nonblocking|An issue exists in the data flow process, but processing of device messages doesn't stop.|
 |Blocking|An issue exists in the data flow process, and no device messages are expected to process.|
 
 ## Operation being performed by the MedTech service
@@ -78,7 +75,7 @@ The health checks' names are listed in the following table, and the fixes for an
 
 ### FhirService:IsAuthenticated
 
-**Description**: Checks that the FHIR destination is valid and that the MedTech service has write access to it.
+**Description**: Checks that the FHIR&reg; destination is valid and that the MedTech service has write access to it.
 
 **Severity**: Blocking
 
@@ -135,23 +132,23 @@ The errors' names are listed in the following table, and the fixes for them are 
 
 ### FhirResourceNotFoundException
 
-**Description**: This error occurs when a FHIR resource with the identifier given in the device message can't be found in the FHIR destination. If the FHIR resource’s type is Patient, then the error may be that the Device FHIR resource with the device identifier given in the device message doesn't reference a Patient FHIR resource. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error can only occur when the MedTech service’s resolution type is set to **Lookup**.
+**Description**: This error occurs when a FHIR resource with the identifier given in the device message can't be found in the FHIR destination. If the FHIR resource’s type is Patient, then the error might be that the Device FHIR resource with the device identifier given in the device message doesn't reference a Patient FHIR resource. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error can only occur when the MedTech service’s resolution type is set to **Lookup**.
 
-**Severity**: Non-blocking
+**Severity**: Nonblocking
 
 **Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `{FHIR resource’s type specified in the error message}IdExpression` (for example, `deviceIdExpression`) value in the device mapping exists and correctly references the identifier’s key in your device messages.
 
 ### IncompatibleDataException
 
-**Description**: There's an incompatibility between the device message and the device mapping (for example, a required property may be missing or blank in the device message and/or in the device mapping). The device mapping property with the error is specified in the error message.
+**Description**: There's an incompatibility between the device message and the device mapping (for example, a required property might be missing or blank in the device message and/or in the device mapping). The device mapping property with the error is specified in the error message.
 
-**Severity**: Non-blocking
+**Severity**: Nonblocking
 
 **Fix**: Ensure that your device messages contain:
  
 * The key that is referenced by the device mapping property specified in the error message.
 
-* A non-blank value for the key. 
+* A nonblank value for the key. 
 
 Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the device mapping property specified in the error message has a value that correctly references the corresponding key in your device messages.
 
@@ -159,7 +156,7 @@ Also, on the Azure portal, go to the **Device mapping** blade of your MedTech se
 
 **Description**: A device message isn't in a format that can be parsed into a JSON object.
 
-**Severity**: Non-blocking
+**Severity**: Nonblocking
 
 **Fix**: Ensure that your device messages are in JSON format. One way to confirm JSON format is to use an online JSON validator.
 
@@ -189,9 +186,9 @@ Also, on the Azure portal, go to the **Device mapping** blade of your MedTech se
 
 ### InvalidQuantityFhirValueException
 
-**Description**: The value with a Quantity resource data type is invalid (for example, it may be in a format that isn’t supported). The value with the error is specified in the error message.
+**Description**: The value with a Quantity resource data type is invalid (for example, it might be in a format that isn’t supported). The value with the error is specified in the error message.
 
-**Severity**: Non-blocking
+**Severity**: Nonblocking
 
 **Fix**: Ensure that the values in your device messages are in supported datatypes according to the [FHIR Quantity.value specifications](https://build.fhir.org/datatypes-definitions.html#Quantity.value).
 
@@ -215,7 +212,7 @@ The template’s type and line with the error are specified in the error message
 
 ### ManagedIdentityCredentialNotFound
 
-**Description**: When the MedTech service is connecting to the event hub, the MedTech service’s system-assigned managed identity is disabled or doesn't exist, or a user-assigned managed identity isn't configured for the MedTech service. **Note**: This error may occur if the MedTech service was deployed using a misconfigured Azure Resource Manager (ARM) template.
+**Description**: When the MedTech service is connecting to the event hub, the MedTech service’s system-assigned managed identity is disabled or doesn't exist, or a user-assigned managed identity isn't configured for the MedTech service. **Note**: This error might occur if the MedTech service was deployed using a misconfigured Azure Resource Manager (ARM) template.
 
 **Severity**: Blocking
 
@@ -243,7 +240,7 @@ If you'd like to use a user-assigned managed identity:
 
 **Description**: Multiple FHIR resources with the same identifier, which is taken from the device message, are found in the FHIR destination, but only one FHIR resource should have been found. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message.
 
-**Severity**: Non-blocking
+**Severity**: Nonblocking
 
 **Fix**: Ensure that an identifier isn't assigned to more than one FHIR resource that has the type specified in the error message.
 
@@ -259,7 +256,7 @@ If you'd like to use a user-assigned managed identity:
 
 **Description**: A Device resource in the FHIR destination references a Patient FHIR resource with an identifier that doesn’t match the patient identifier given in the device message (meaning, the device is linked to another patient).
 
-**Severity**: Non-blocking
+**Severity**: Nonblocking
 
 **Fix**: Ensure that a patient identifier isn't assigned to more than one device.
 
@@ -267,7 +264,7 @@ If you'd like to use a user-assigned managed identity:
 
 **Description**: This error occurs when the FHIR resource’s identifier isn’t present in a device message, or when the expression to parse the FHIR resource’s identifier from the device message isn’t configured in the device mapping. The FHIR resource’s type (for example, Device, Patient, Encounter, or Observation) is specified in the error message. **Note**: This error can only occur when the MedTech service’s resolution type is set to **Create**.
 
-**Severity**: Non-blocking
+**Severity**: Nonblocking
 
 **Fix**: Ensure that your device messages contain the identifier for the FHIR resource that has the type specified in the error message. Also, on the Azure portal, go to the **Device mapping** blade of your MedTech service, and ensure that the `{FHIR resource’s type specified in the error message}IdExpression` (for example, `deviceIdExpression`) value in the device mapping exists and correctly references the identifier’s key in your device messages.
 
@@ -291,7 +288,7 @@ The expression and line with the error are specified in the error message.
 
 **Description**: A template in the device mapping doesn't have a matching template with the same type within the FHIR destination mapping. The template’s type is specified in the error message.
 
-**Severity**: Non-blocking
+**Severity**: Nonblocking
 
 **Fix**: On the Azure portal, go to the **Device mapping** blade and the **Destination** blade of your MedTech service, and ensure that, for each template in the device mapping, there's a template with the same `typeName` value within the FHIR destination mapping.
 
@@ -316,11 +313,6 @@ The expression and line with the error are specified in the error message.
 
 ## Next steps
 
-In this article, you learned how to troubleshoot and fix errors using the MedTech service logs. 
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-To learn about the MedTech service frequently asked questions (FAQs), see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

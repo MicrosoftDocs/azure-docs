@@ -44,7 +44,7 @@ This tutorial uses the [Postman] application, but you can use a different API de
 Follow the steps outlined in the [How to create data registry] article to upload the GeoJSON package into your Azure storage account then register it in your Azure Maps account.
 
 > [!IMPORTANT]
-> Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the GeoJSON package you uploaded into your Azure storage account from your source code and HTTP requests.
+> Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the GeoJSON package you uploaded into your Azure storage account from your source code and HTTP requests.
 
 ## Convert a drawing package
 
@@ -268,6 +268,12 @@ For more information, see [Map configuration] in the article about indoor map co
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps]
+
+> [!div class="nextstepaction"]
 > [Use the Azure Maps Indoor Maps module with custom styles](how-to-use-indoor-module.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
@@ -279,13 +285,15 @@ For more information, see [Map configuration] in the article about indoor map co
 [Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
 [Create a dataset using a GeoJSON package (Preview)]: how-to-dataset-geojson.md
 [How to create data registry]: how-to-create-data-registries.md
-[Conversion API]: /rest/api/maps/v2/conversion
-[Conversion service]: /rest/api/maps/v2/conversion/convert
+[Conversion API]: /rest/api/maps-creator/conversion
+[Conversion service]: /rest/api/maps-creator/conversion/convert
 [Creator Long-Running Operation]: creator-long-running-operation-v2.md
 [Drawing error visualizer]: drawing-error-visualizer.md
 [Drawing conversion errors and warnings]: drawing-conversion-error-codes.md
-[Dataset Create API]: /rest/api/maps/v2/dataset/create
-[Dataset service]: /rest/api/maps/v2/dataset
-[Tileset service]: /rest/api/maps/2023-03-01-preview/tileset
-[tileset get]: /rest/api/maps/2023-03-01-preview/tileset/get
+[Dataset Create API]: /rest/api/maps-creator/dataset/create
+[Dataset service]: /rest/api/maps-creator/dataset
+[Tileset service]: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview
+[tileset get]: /rest/api/maps-creator/tileset/get?view=rest-maps-creator-2023-03-01-preview
 [Map configuration]: creator-indoor-maps.md#map-configuration
+[What is Azure Maps Creator?]: about-creator.md
+[Creator for indoor maps]: creator-indoor-maps.md

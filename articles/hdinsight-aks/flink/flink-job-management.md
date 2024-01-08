@@ -1,18 +1,18 @@
 ---
-title: Flink job management in HDInsight on AKS
+title: Apache Flink® job management in HDInsight on AKS
 description: HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal
 ms.service: hdinsight-aks
 ms.topic: tutorial
 ms.date: 09/07/2023
 ---
 
-# Flink job management
+# Apache Flink® job management in HDInsight on AKS clusters
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal (user-friendly interface) and ARM Rest APIs. 
+HDInsight on AKS provides a feature to manage and submit Apache Flink® jobs directly through the Azure portal (user-friendly interface) and ARM Rest APIs. 
 
-This feature empowers users to efficiently control and monitor their Flink jobs without requiring deep cluster-level knowledge.
+This feature empowers users to efficiently control and monitor their Apache Flink jobs without requiring deep cluster-level knowledge.
 
 ## Benefits
 
@@ -157,7 +157,7 @@ Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flin
 
 ### <a id="arm-rest-api">Job Management Using Rest API</a>
 
-HDInsight on AKS - Flink supports user friendly ARM Rest APIs to submit job and manage job. Using this Flink REST API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps and empowers you to manage your Flink cluster efficiently.
+HDInsight on AKS supports user friendly ARM Rest APIs to submit job and manage job. Using this Flink REST API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps and empowers you to manage your Flink cluster efficiently.
 
 #### Base URL format for Rest API
 
@@ -225,7 +225,7 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    
    | Property | Description | Default Value | Mandatory | 
    | -------- | ----------- | ------------- | --------- |
-   | jobType  | Type of Job.It should be “FlinkJob” | | Yes|
+   | jobType  | Type of Job. It should be “FlinkJob” | | Yes|
    | jobName  | Unique name for job. This is displayed on portal. Job name should be in small latter.| | Yes |
    | action   | It indicates operation type on job. It should be “NEW” always for new job launch. | | Yes |
    | jobJarDirectory |	Storage path for job jar directory. Users should create directory in cluster storage and upload job jar.| Yes |
@@ -544,3 +544,9 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
 
 > [!NOTE]
 > When any action is in progress, actionResult will indicate it with the value 'IN_PROGRESS' On successful completion, it will show 'SUCCESS', and in case of failure, it will be 'FAILED'.
+
+### Reference
+
+- [Apache Flink Job Scheduling](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/internals/job_scheduling/)
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+

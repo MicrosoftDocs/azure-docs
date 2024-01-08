@@ -76,6 +76,8 @@ After you enable customer-managed keys, you need to associate the customer manag
     >   * If you are looking to enable Geo-DR on a Service Bus namespace where customer managed key is already set up, then -
     >     * [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for the secondary namespace to the key vault.
     >     * Pair the primary and secondary namespaces.
+    >    
+    >   * Once paired, the secondary namespace will use the key vault configured for the primary namespace. If the key vault for both namespaces is different before Geo-DR pairing, the user must delegate an access policy or RBAC role for the managed identity of the secondary namespace in the key vault associated with primary namespace.
 
 ## Managed identities
 There are two types of managed identities that you can assign to a Service Bus namespace.

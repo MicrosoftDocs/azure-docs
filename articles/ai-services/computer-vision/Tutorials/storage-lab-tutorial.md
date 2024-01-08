@@ -2,7 +2,7 @@
 title: "Tutorial: Generate metadata for Azure images"
 titleSuffix: Azure AI services
 description: In this tutorial, you'll learn how to integrate the Azure AI Vision service into a web app to generate metadata for images.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

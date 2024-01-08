@@ -2,6 +2,7 @@
 title: Export ARM template in Azure HDInsight on AKS
 description: How to create an ARM template to cluster using script in Azure HDInsight on AKS
 ms.service: hdinsight-aks
+ms.custom: devx-track-arm-template
 ms.topic: how-to 
 ms.date: 08/29/2023
 ---

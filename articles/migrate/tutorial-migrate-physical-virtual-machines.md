@@ -158,42 +158,13 @@ Mobility service agent needs to be installed on the servers to get them discover
 > It is recommended to perform discovery and asessment prior to the migration using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For detailed steps, see [Discover physical servers](tutorial-discover-physical.md).
 
 
-## Install the Mobility service
+## Install the Mobility service agent
 
-On machines you want to migrate, you need to install the Mobility service agent. The agent installers are available on the replication appliance. You find the right installer, and install the agent on each machine you want to migrate. Do this as follows:
+A Mobility service agent must be pre-installed on the source physical machines to be migrated before you can initiate replication. The approach you choose to install the Mobility service agent may depend on your organization's preferences and existing tools, but be aware that the "push" installation method built into Azure Site Recovery is not currently supported. Approaches you may want to consider:
 
-1. Sign in to the replication appliance.
-2. Navigate to **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Find the installer for the machine operating system and version. Review [supported operating systems](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines).
-4. Copy the installer file to the machine you want to migrate.
-5. Make sure that you have the passphrase that was generated when you deployed the appliance.
-    - Store the file in a temporary text file on the machine.
-    - You can obtain the passphrase on the replication appliance. From the command line, run **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
-    - Don't regenerate the passphrase. This will break connectivity and you will have to reregister the replication appliance.
-
-> [!NOTE]
-> In the */Platform* parameter, you specify *VMware* if you migrate VMware VMs, or physical machines.
-
-### Install on Windows
-
-1. Extract the contents of installer file to a local folder (for example C:\Temp) on the machine, as follows:
-
-    ```
-    ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-    MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-    cd C:\Temp\Extracted
-    ```
-2. Run the Mobility Service Installer:
-    ```
-   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent /CSType CSLegacy
-    ```
-3. Register the agent with the replication appliance:
-    ```
-    cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-    UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
-    ```
-
-### Install on Linux
+- [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
+- [Arc for Servers and Custom Script Extensions](../azure-arc/servers/overview.md)
+- [Manual installation](../site-recovery/vmware-physical-mobility-service-overview.md)
 
 1. Extract the contents of the installer tarball to a local folder (for example /tmp/MobSvcInstaller) on the machine, as follows:
     ```

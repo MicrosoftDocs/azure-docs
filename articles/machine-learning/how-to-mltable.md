@@ -209,7 +209,7 @@ You can choose to save the MLTable yaml file to a cloud storage, or you can also
 ```python
 # save the data loading steps in an MLTable file to a cloud storage
 # NOTE: the tbl object was defined in the previous snippet.
-tbl.save(save_path_dirc= "azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<wsname>/datastores/<name>/paths/titanic", collocated=True, show_progress=True, allow_copy_errors=False, overwrite=True)
+tbl.save(path="azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<wsname>/datastores/<name>/paths/titanic", colocated=True, show_progress=True, overwrite=True)
 ```
 
 ```python
@@ -219,10 +219,9 @@ tbl.save("./titanic")
 ```
 
 > [!IMPORTANT]
-> - If collocated == True, then we will copy the data to the same folder with MLTable yaml file if they are not currently collocated, and we will use relative paths in MLTable yaml.
-> - If collocated == False, we will not move the data and we will use absolute paths for cloud data and use relative paths for local data.
-> - We don’t support this parameter combination: data is in local, collocated == False, `save_path_dirc` is a cloud directory. Please upload your local data to cloud and use the cloud data paths for MLTable instead.
-> - Parameters `show_progress` (default as True), `allow_copy_errors` (default as False), `overwrite`(default as True) are optional.
+> - If colocated == True, then we will copy the data to the same folder with MLTable yaml file if they are not currently colocated, and we will use relative paths in MLTable yaml.
+> - If colocated == False, we will not move the data and we will use absolute paths for cloud data and use relative paths for local data.
+> - We don’t support this parameter combination: data is in local, colocated == False, `path` targets a cloud directory. Please upload your local data to cloud and use the cloud data paths for MLTable instead.
 >
 
 
@@ -781,7 +780,7 @@ ml_client = MLClient(
 )
 
 # get the latest version of the data asset
-# Note: the variable VERSION is set in the previous code code
+# Note: the variable VERSION is set in the previous code
 data_asset = ml_client.data.get(name="pets-mltable-example", version=VERSION)
 
 # the table from the data asset id

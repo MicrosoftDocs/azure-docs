@@ -1,11 +1,11 @@
 ---
 title: Outbound-only load balancer configuration
 titleSuffix: Azure Load Balancer
-description: In this article, learn about how to create an internal load balancer with outbound NAT.
+description: This article provides a step-by-step guide on how to configure an "egress only" setup using Azure Load Balancer with outbound NAT and Azure Bastion. Deploy public and internal load balancers to create outbound connectivity for VMs behind an internal load balancer.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 10/24/2023
 ms.author: mbender
 ms.custom: template-how-to, seodec18
 ---
@@ -31,80 +31,9 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create virtual network and load balancers
+[!INCLUDE [load-balancer-create-bastion](../../includes/load-balancer-create-bastion.md)]
 
-In this section, you'll create a virtual network and subnet for the load balancers and the virtual machine.  You'll next create the load balancers.
-
-### Create the virtual network
-
-In this section, you'll create the virtual network and subnets for the virtual machine, load balancer, and bastion host.
-
- > [!IMPORTANT]
-
- > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
-
- >
-
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual Networks** in the search results.
-
-1. In **Virtual networks**, select **+ Create**.
-
-1. In **Create virtual network**, enter or select this information in the **Basics** tab:
-
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **Create new**. </br> In **Name** enter **myResourceGroupLB** </br> Select **OK**. |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **myVNet**                                    |
-    | Region           | Select **(US) East US 2** |
-
-1. Select the **Security** tab.
-
-1. Under **Azure Bastion**, select **Enable Azure Bastion**. Enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Azure Bastion name | Enter **myBastionHost** |
-    
-
-1. Select the **IP addresses** tab or select the **Next: IP addresses** button at the bottom of the page.
-
-1. In the **IP addresses** tab, select **Add an IP address space**, and enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Starting Address | Enter **10.1.0.0** |
-    | Address space size | Select **/16** |
-
-1. Select **Add**.
-    
-1. Select **Add a subnet**, enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Subnet name | Enter **myBackendSubnet** |
-    | Starting address | Enter **10.1.0.0** |
-    | Subnet size | Select **/24** |
-
-1. Select **Add**.
-
-1. Select **Add a subnet**, enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Subnet template  |  Azure Bastion |
-    | Starting address | Enter **10.1.1.0** |
-    | Subnet size  |  Select **/26** |
-    
-1. Select **Add**.
-    
-1. Select the **Review + create** tab or select the **Review + create** button.
-
-1. Select **Create**.
-
-### Create internal load balancer
+## Create internal load balancer
 
 In this section, you'll create the internal load balancer.
 
@@ -118,10 +47,10 @@ In this section, you'll create the internal load balancer.
     | ---                     | ---                                                |
     | **Project details** |   |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **myResourceGroupLB**. |
+    | Resource group         | Select **lb-resource-group**. |
     | **Instance details** |   |
-    | Name                   | Enter **myInternalLoadBalancer**                                   |
-    | Region         | Select **(US) East US 2**.                                        |
+    | Name                   | Enter **lb-internal**                                   |
+    | Region         | Select **(US) East US**.                                        |
     | SKU           | Leave the default **Standard**. |
     | Type          | Select **Internal**.                                        |
     
@@ -130,9 +59,9 @@ In this section, you'll create the internal load balancer.
 
 1. In **Frontend IP configuration**, select **+ Add a frontend IP**.
 
-1. Enter **LoadBalancerFrontend** in **Name**.
+1. Enter **lb-int-frontend** in **Name**.
 
-1. Select **myBackendSubnet** in **Subnet**.
+1. Select **backend-subnet** in **Subnet**.
 
 1. Select **Dynamic** for **Assignment**.
 
@@ -147,7 +76,7 @@ In this section, you'll create the internal load balancer.
 
 1. In the **Backend pools** tab, select **+ Add a backend pool**.
 
-1. Enter **myInternalBackendPool** for **Name** in **Add backend pool**.
+1. Enter **lb-int-backend-pool** for **Name** in **Add backend pool**.
 
 1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
@@ -157,7 +86,7 @@ In this section, you'll create the internal load balancer.
 
 1. Select **Create**.
 
-### Create public load balancer
+## Create public load balancer
 
 In this section, you'll create the public load balancer.
 
@@ -171,10 +100,10 @@ In this section, you'll create the public load balancer.
     | ---                     | ---                                                |
     | **Project details** |   |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **myResourceGroupLB**. |
+    | Resource group         | Select **lb-resource-group**. |
     | **Instance details** |   |
-    | Name                   | Enter **myPublicLoadBalancer**                                   |
-    | Region         | Select **(US) East US 2**.                                        |
+    | Name                   | Enter **lb-public**                                   |
+    | Region         | Select **(US) East US**.                                        |
     | SKU           | Leave the default **Standard**. |
     | Type          | Select **Public**.                                        |
     | Tier          | Leave the default **Regional**. |
@@ -183,7 +112,7 @@ In this section, you'll create the public load balancer.
 
 1. In **Frontend IP configuration**, select **+ Add a frontend IP**.
 
-1. Enter **LoadBalancerFrontend** in **Name**.
+1. Enter **lb-ext-frontend** in **Name**.
 
 1. Select **IPv4** or **IPv6** for the **IP version**.
 
@@ -197,7 +126,7 @@ In this section, you'll create the public load balancer.
 
 1. Select **Create new** in **Public IP address**.
 
-1. In **Add a public IP address**, enter **myPublicIP** for **Name**.
+1. In **Add a public IP address**, enter **lb-public-ip** for **Name**.
 
 1. Select **Zone-redundant** in **Availability zone**.
 
@@ -214,9 +143,9 @@ In this section, you'll create the public load balancer.
 
 1. In the **Backend pools** tab, select **+ Add a backend pool**.
 
-1. Enter **myPublicBackendPool** for **Name** in **Add backend pool**.
+1. Enter **lb-pub-backend-pool** for **Name** in **Add backend pool**.
 
-1. Select **myVNet** in **Virtual network**.
+1. Select **lb-VNet** in **Virtual network**.
 
 1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
@@ -240,12 +169,13 @@ You'll create a virtual machine in this section. During creation, you'll add it 
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroupLB** |
+    | Resource Group | Select **lb-resource-group** |
     | **Instance details** |  |
-    | Virtual machine name | Enter **myVM** |
-    | Region | Select **(US) East US 2** |
+    | Virtual machine name | Enter **lb-VM** |
+    | Region | Select **(US) East US** |
     | Availability Options | Select **No infrastructure redundancy required** |
-    | Image | Select **Windows Server 2019 Datacenter - Gen2** |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
     | Azure Spot instance | Leave the default of unchecked. |
     | Size | Choose VM size or take default setting |
     | **Administrator account** |  |
@@ -262,50 +192,51 @@ You'll create a virtual machine in this section. During creation, you'll add it 
     | Setting | Value |
     |-|-|
     | **Network interface** |  |
-    | Virtual network | **myVNet** |
-    | Subnet | **myBackendSubnet** |
+    | Virtual network | **lb-VNet** |
+    | Subnet | **backend-subnet** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Leave the default of **Basic**. |
+    | Configure network security group | Leave the default of **vm-NSG**. This might be different if you choose a different name for your VM. |
 
 1. Under **Load balancing**, select the following:
 
     | Setting | Value |  
     |-|-|
     | Load-balancing options | Select **Azure load balancing** |
-    | Select a load balancer | Select **myInternalLoadBalancer**  |
-    | Select a backend pool | Select **myInternalBackendPool** |
+    | Select a load balancer | Select **lb-internal**  |
+    | Select a backend pool | Select **lb-int-backend-pool** |
    
 1. Select **Review + create**. 
   
 1. Review the settings, and then select **Create**.
 
-### Add VM to backend pool of public load balancer
+## Add VM to backend pool of public load balancer
 
 In this section, you'll add the virtual machine you created previously to the backend pool of the public load balancer.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
-1. Select **myPublicLoadBalancer**.
+1. Select **lb-public**.
 
-1. Select **Backend pools** in **Settings** in **myPublicLoadBalancer**.
+1. Select **Backend pools** in **Settings** in **lb-public**.
 
-1. Select **myPublicBackendPool** under **Backend pool** in the **Backend pools** page.
+1. Select **lb-pub-backend-pool** under **Backend pool** in the **Backend pools** page.
 
-1. In **myPublicBackendPool**, select **myVNet** in **Virtual network**.
+1. In **lb-pub-backend-pool**, select **lb-VNet** in **Virtual network**.
 
 1. In **Virtual machines**, select the blue **+ Add** button.
 
-1. Select the box next to **myVM** in **Add virtual machines to backend pool**.
+1. Select the box next to **lb-VM** in **Add virtual machines to backend pool**.
 
 1. Select **Add**.
 
 1. Select **Save**.
+
 ## Test connectivity before outbound rule
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. Select **myVM**.
+1. Select **lb-VM**.
 
 1. In the **Overview** page, select **Connect**, then **Bastion**.
 
@@ -315,17 +246,17 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Open Internet Explorer.
 
-1. Enter **https://whatsmyip.org** in the address bar.
+1.  Enter **https://whatsmyip.org** in the address bar.
 
-1. The connection should fail. By default, standard public load balancer [doesn't allow outbound traffic without a defined outbound rule](load-balancer-overview.md#securebydefault).
+1.  The connection should fail. By default, standard public load balancer [doesn't allow outbound traffic without a defined outbound rule](load-balancer-overview.md#securebydefault).
  
 ## Create a public load balancer outbound rule
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
-1. Select **myPublicLoadBalancer**.
+1. Select **lb-public**.
 
-1. Select **Outbound rules** in **Settings** in **myPublicLoadBalancer**.
+1. Select **Outbound rules** in **Settings** in **lb-public**.
 
 1. Select **+ Add** in **Outbound rules**.
 
@@ -334,11 +265,11 @@ In this section, you'll add the virtual machine you created previously to the ba
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myOutboundRule**. |
-    | Frontend IP address | Select **LoadBalancerFrontEnd**.|
+    | Frontend IP address | Select **lb-ext-frontend**.|
     | Protocol | Leave the default of **All**. |
     | Idle timeout (minutes) | Move slider to **15 minutes**.|
     | TCP Reset | Select **Enabled**.|
-    | Backend pool | Select **myPublicBackendPool**.|
+    | Backend pool | Select **lb-pub-backend-pool**.|
     | **Port allocation** |  |
     | Port allocation | Select **Manually choose number of outbound ports**. |
     | **Outbound ports** |  |
@@ -351,7 +282,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. Select **myVM**.
+1. Select **lb-VM**.
 
 1. On the **Overview** page, select **Connect**, then **Bastion**.
 
@@ -365,13 +296,13 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. The connection should succeed.
 
-1. The IP address displayed should be the frontend IP address of **myPublicLoadBalancer**.
+1. The IP address displayed should be the frontend IP address of **lb-public**.
 
 ## Clean up resources
 
 When no longer needed, delete the resource group, load balancers, VM, and all related resources. 
 
-To do so, select the resource group **myResourceGroupLB** and then select **Delete**.
+To do so, select the resource group **lb-resource-group** and then select **Delete**.
 
 ## Next steps
 

@@ -10,7 +10,14 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
 ms.date: 06/20/2023
-ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023
+ms.custom:
+  - devplatv2
+  - sdkv2
+  - cliv2
+  - event-tier1-build-2022
+  - ignite-2022
+  - build-2023
+  - ignite-2023
 #Customer intent: As an experienced Python developer, I need to read my data, to make it available to a remote compute resource, to train my machine learning models.
 ---
 
@@ -445,7 +452,7 @@ job = command(
 For brevity, we only show how to define the environment variables in the job.
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster",` in this code.
+> To use [serverless compute](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster",` in this code.
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -616,7 +623,7 @@ Include these mount settings in the `environment_variables` section of your Azur
 # [Python SDK](#tab/python)
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
+> To use [serverless compute](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -767,7 +774,7 @@ job = command(
 # [Azure CLI](#tab/cli)
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster` in this file.
+> To use [serverless compute](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster` in this file.
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -978,7 +985,7 @@ This section explains how to read V1 `FileDataset` and `TabularDataset` data ent
 In the `Input` object, specify the `type` as `AssetTypes.MLTABLE` and `mode` as `InputOutputModes.EVAL_MOUNT`:
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
+> To use [serverless compute](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -987,14 +994,14 @@ from azure.ai.ml import Input
 from azure.ai.ml.constants import AssetTypes, InputOutputModes
 from azure.ai.ml import MLClient
 
-ml_client = MLClient.from_config()
+ml_client = MLClient.from_config(credential=DefaultAzureCredential())
 
 filedataset_asset = ml_client.data.get(name="<filedataset_name>", version="<version>")
 
 my_job_inputs = {
     "input_data": Input(
             type=AssetTypes.MLTABLE,
-            path=filedataset_asset,
+            path=filedataset_asset.id,
             mode=InputOutputModes.EVAL_MOUNT
     )
 }
@@ -1018,7 +1025,7 @@ returned_job.services["Studio"].endpoint
 Create a job specification YAML file (`<file-name>.yml`), with the type set to `mltable` and the mode set to `eval_mount`:
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster` in this file.
+> To use [serverless compute](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster` in this file.
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -1050,7 +1057,7 @@ az ml job create -f <file-name>.yml
 In the `Input` object, specify the `type` as `AssetTypes.MLTABLE`, and `mode` as `InputOutputModes.DIRECT`:
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
+> To use [serverless compute](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -1059,14 +1066,14 @@ from azure.ai.ml import Input
 from azure.ai.ml.constants import AssetTypes, InputOutputModes
 from azure.ai.ml import MLClient
 
-ml_client = MLClient.from_config()
+ml_client = MLClient.from_config(credential=DefaultAzureCredential())
 
 filedataset_asset = ml_client.data.get(name="<tabulardataset_name>", version="<version>")
 
 my_job_inputs = {
     "input_data": Input(
             type=AssetTypes.MLTABLE,
-            path=filedataset_asset,
+            path=filedataset_asset.id,
             mode=InputOutputModes.DIRECT
     )
 }
@@ -1090,7 +1097,7 @@ returned_job.services["Studio"].endpoint
 Create a job specification YAML file (`<file-name>.yml`), with the type set to `mltable` and the mode set to `direct`:
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster` in this file.
+> To use [serverless compute](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster` in this file.
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json

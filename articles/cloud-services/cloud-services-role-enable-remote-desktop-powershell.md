@@ -92,7 +92,7 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 > [!NOTE]
 > To completely remove the extension configuration, you should call the *remove* cmdlet with the **UninstallConfiguration** parameter.
 >
-> The **UninstallConfiguration** parameter uninstalls any extension configuration that is applied to the service. Every extension configuration is associated with the service configuration. Calling the *remove* cmdlet without **UninstallConfiguration** disassociates the <mark>deployment</mark> from the extension configuration, thus effectively removing the extension. However, the extension configuration remains associated with the service.
+> The **UninstallConfiguration** parameter uninstalls any extension configuration that is applied to the service. Every extension configuration is associated with the service configuration. Calling the *remove* cmdlet without **UninstallConfiguration** disassociates the **deployment** from the extension configuration, thus effectively removing the extension. However, the extension configuration remains associated with the service.
 
 ## Additional resources
 

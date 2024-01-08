@@ -35,6 +35,37 @@ When operating in connected mode, it's possible to connect to the cluster's kube
 
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
 
+### Access to cluster nodes via Azure Arc for Kubernetes
+Once you are connected to a cluster via Arc for Kuberentes, you can connect to individual Kubernetes Node using the `kubectl debug` command to run a privileged container on your node.
+
+1. List the nodes in your Nexus Kubernetes cluster:
+
+    ```console
+    $> kubectl get nodes
+    NAME                                     STATUS   ROLES           AGE    VERSION
+    cluster-01-627e99ee-agentpool1-md-chfwd   Ready    <none>          125m   v1.27.1
+    cluster-01-627e99ee-agentpool1-md-kfw4t   Ready    <none>          125m   v1.27.1
+    cluster-01-627e99ee-agentpool1-md-z2n8n   Ready    <none>          124m   v1.27.1
+    cluster-01-627e99ee-control-plane-5scjz   Ready    control-plane   129m   v1.27.1
+    ```
+
+2. Start a privileged container on your node and connect to it:
+
+    ```console
+    $> kubectl debug node/cluster-01-627e99ee-agentpool1-md-chfwd -it --image=mcr.microsoft.com/cbl-mariner/base/core:2.0
+    Creating debugging pod node-debugger-cluster-01-627e99ee-agentpool1-md-chfwd-694gg with container debugger on node cluster-01-627e99ee-agentpool1-md-chfwd.
+    If you don't see a command prompt, try pressing enter.
+    root [ / ]#
+    ```
+
+    This privileged container gives access to the node. Execute commands on the baremetal host machine by running `chroot /host` at the command line. 
+
+3. When you are done with a debugging pod, enter the `exit` command to end the interactive shell session. After exiting the shell, make sure to delete the pod:
+
+    ```bash
+    kubectl delete pod node-debugger-cluster-01-627e99ee-agentpool1-md-chfwd-694gg 
+    ```
+
 ### Azure Arc for servers
 
 The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, while in connected mode. Once the cluster VM has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.

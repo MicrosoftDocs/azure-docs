@@ -12,7 +12,9 @@ ms.author: danlep
 
 # Reference: Self-hosted gateway container configuration settings
 
-This article provides a reference for required and optional settings that are used to configure the API Management [self-hosted gateway container](self-hosted-gateway-overview.md). 
+This article provides a reference for required and optional settings that are used to configure the API Management [self-hosted gateway container](self-hosted-gateway-overview.md).
+
+To learn more about our (Kubernetes) production guidance, we recommend reading [this article](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
 
 > [!IMPORTANT]
 > This reference applies only to the self-hosted gateway v2. Minimum versions for availability of settings are provided.
@@ -51,6 +53,20 @@ This guidance helps you provide the required information to define how to authen
 | neighborhood.host | DNS name used to resolve all instances of a self-hosted gateway deployment for cross-instance synchronization. In Kubernetes, it can be achieved by using a headless Service. | No | N/A | v2.0+ |
 | neighborhood.heartbeat.port | UDP port used for instances of a self-hosted gateway deployment to send heartbeats to other instances. | No | 4291 | v2.0+ |
 | policy.rate-limit.sync.port | UDP port used for self-hosted gateway instances to synchronize rate limiting across multiple instances. | No | 4290 | v2.0+ |
+
+##  Kubernetes Integration
+
+### Kubernetes Ingress
+
+> [!IMPORTANT]
+> Support for Kubernetes Ingress is currently experimental and not covered through Azure Support. Learn more on [GitHub](https://github.com/Azure/api-management-self-hosted-gateway-ingress).
+
+| Name                    | Description              | Required | Default           | Availability |
+|-------------------------|------------------------|----------|-------------------| ----|
+| k8s.ingress.enabled     | Enable Kubernetes Ingress integration. | No | `false` | v1.2+ |
+| k8s.ingress.namespace   | Kubernetes namespace to watch Kubernetes Ingress resources in. | No | `default` | v1.2+ |
+| k8s.ingress.dns.suffix  | DNS suffix to build DNS hostname for services to send requests to. | No | `svc.cluster.local` | v2.4+ |
+| k8s.ingress.config.path | Path to Kubernetes configuration (Kubeconfig). | No | N/A | v2.4+ |
 
 ##  Metrics
 

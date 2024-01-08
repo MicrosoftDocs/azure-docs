@@ -1,15 +1,15 @@
 ---
 title: UserInfo endpoint  
 description: Define a UserInfo endpoint in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 09/20/2021
-ms.custom: project-no-code
+ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -39,7 +39,7 @@ The user info UserJourney specifies:
 
 - **Authorization**: The UserInfo endpoint is protected with a bearer token. An issued access token is presented in the authorization header to the UserInfo endpoint. The policy specifies the technical profile that validates the incoming token and extracts claims, such as the objectId of the user. The objectId of the user is used to retrieve the claims to be returned in the response of the UserInfo endpoint journey. 
 - **Orchestration step**: 
-  - An orchestration step is used to gather information about the user. Based on the claims within the incoming access token, the user journey invokes a [Microsoft Entra technical profile](active-directory-technical-profile.md) to retrieve data about the user, for example, reading the user by the objectId. 
+  - An orchestration step is used to gather information about the user. Based on the claims within the incoming access token, the user journey invokes a [Microsoft Entra ID technical profile](active-directory-technical-profile.md) to retrieve data about the user, for example, reading the user by the objectId. 
   - **Optional orchestration steps** - You can add more orchestration steps, such as a REST API technical profile to retrieve more information about the user. 
   - **UserInfo Issuer** - Specifies the list of claims that the UserInfo endpoint returns.
 
@@ -214,8 +214,7 @@ The completed relying party element will be as follows:
 ### 4. Upload the files
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity Experience Framework**.
 1. On the **Custom policies** page, select **Upload custom policy**.

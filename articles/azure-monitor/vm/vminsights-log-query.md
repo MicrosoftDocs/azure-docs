@@ -36,7 +36,7 @@ Records in these tables are generated from data reported by the Dependency Agent
 The following fields and conventions apply to both VMConnection and VMBoundPort: 
 
 - Computer: Fully-qualified domain name of reporting machine 
-- AgentId: The unique identifier for a machine with the Log Analytics agent  
+- AgentId: The unique identifier for a machine running Azure Monitor Agent or the Log Analytics agent  
 - Machine: Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It's of the form *m-{GUID}*, where *GUID* is the same GUID as AgentId  
 - Process: Name of the Azure Resource Manager resource for the process exposed by ServiceMap. It's of the form *p-{hex string}*. Process is unique within a machine scope and to generate a unique process ID across machines, combine Machine and Process fields. 
 - ProcessName: Executable name of the reporting process.
@@ -116,7 +116,7 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 |FirstReportedDateTime |The first time the provider reported the indicator. |
 |LastReportedDateTime |The last time the indicator was seen by Interflow. |
 |IsActive |Indicates indicators are deactivated with *True* or *False* value. |
-|ReportReferenceLink |Links to reports related to a given observable. |
+|ReportReferenceLink |Links to reports related to a given observable. To report a false alert or get more details about the malicious IP, open a Support case and provide this link. |
 |AdditionalInformation |Provides additional information, if applicable, about the observed threat. |
 
 ### Ports 
@@ -159,7 +159,7 @@ Records with a type of *VMComputer* have inventory data for servers with the Dep
 |SourceSystem | *Insights* | 
 |TimeGenerated | Timestamp of the record (UTC) |
 |Computer | The computer FQDN | 
-|AgentId | The unique ID of the Log Analytics agent |
+|AgentId | The unique identifier for a machine running Azure Monitor Agent or the Log Analytics agent |
 |Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It's of the form *m-{GUID}*, where *GUID* is the same GUID as AgentId. | 
 |DisplayName | Display name | 
 |FullDisplayName | Full display name | 
@@ -221,7 +221,7 @@ Records with a type of *VMProcess* have inventory data for TCP-connected process
 |SourceSystem | *Insights* | 
 |TimeGenerated | Timestamp of the record (UTC) |
 |Computer | The computer FQDN | 
-|AgentId | The unique ID of the Log Analytics agent |
+|AgentId | The unique identifier for a machine running Azure Monitor Agent or the Log Analytics agent |
 |Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It's of the form *m-{GUID}*, where *GUID* is  the same GUID as AgentId. | 
 |Process | The unique identifier of the Service Map process. It's in the form of *p-{GUID}*. 
 |ExecutableName | The name of the process executable | 
