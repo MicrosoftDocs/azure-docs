@@ -144,6 +144,7 @@ The following procedures describe how to restore your sensor using a backup file
 To restore your OT sensor from the latest, automatically generated backup file via CLI:
 
 1. Make sure that your backup file has the same OT sensor software version as the current software version on the OT sensor.
+
 1. Use the `cyberx-xsense-system-restore` CLI command to restore your OT sensor.
 
 For more information, see the [OT sensor CLI reference](cli-ot-sensor.md#start-an-immediate-unscheduled-backup).
