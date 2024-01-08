@@ -11,11 +11,11 @@ ms.author: lagayhar
 ms.reviewer: keli19
 ---
 
-# Azure OpenAI GPT-4 Turbo with Vision tool in Azure AI studio
+# Azure OpenAI GPT-4 Turbo with Vision tool in Azure AI Studio
 
 [!INCLUDE [Azure AI Studio preview](./includes/preview-ai-studio.md)]
 
-The prompt flow *Azure OpenAI GPT-4 Turbo with Vision* tool enables you to leverage your Azure OpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them.
+The prompt flow *Azure OpenAI GPT-4 Turbo with Vision* tool enables you to use your Azure OpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ The prompt flow *Azure OpenAI GPT-4 Turbo with Vision* tool enables you to lever
 
 ## Connection
 
-Setup connections to provisioned resources in prompt flow.
+Set up connections to provisioned resources in prompt flow.
 
 | Type        | Name     | API KEY  | API Type | API Version |
 |-------------|----------|----------|----------|-------------|
@@ -38,15 +38,15 @@ Setup connections to provisioned resources in prompt flow.
 
 | Name                   | Type        | Description                                                                                    | Required |
 |------------------------|-------------|------------------------------------------------------------------------------------------------|----------|
-| connection             | AzureOpenAI | the Azure OpenAI connection to be used in the tool                                              | Yes      |
-| deployment\_name       | string      | the language model to use                                                                      | Yes      |
-| prompt                 | string      | The text prompt that the language model will use to generate its response.                    | Yes      |
-| max\_tokens            | integer     | the maximum number of tokens to generate in the response. Default is 512.                      | No       |
-| temperature            | float       | the randomness of the generated text. Default is 1.                                            | No       |
-| stop                   | list        | the stopping sequence for the generated text. Default is null.                                 | No       |
-| top_p                  | float       | the probability of using the top choice from the generated tokens. Default is 1.               | No       |
-| presence\_penalty      | float       | value that controls the model's behavior with regard to repeating phrases. Default is 0.      | No       |
-| frequency\_penalty     | float       | value that controls the model's behavior with regard to generating rare phrases. Default is 0. | No       |
+| connection             | AzureOpenAI | The Azure OpenAI connection to be used in the tool.                                              | Yes      |
+| deployment\_name       | string      | The language model to use.                                                                      | Yes      |
+| prompt                 | string      | Text prompt that the language model uses to generate its response.                    | Yes      |
+| max\_tokens            | integer     | Maximum number of tokens to generate in the response. Default is 512.                      | No       |
+| temperature            | float       | Randomness of the generated text. Default is 1.                                            | No       |
+| stop                   | list        | Stopping sequence for the generated text. Default is null.                                 | No       |
+| top_p                  | float       | Probability of using the top choice from the generated tokens. Default is 1.               | No       |
+| presence\_penalty      | float       | Value that controls the model's behavior regarding repeating phrases. Default is 0.      | No       |
+| frequency\_penalty     | float       | Value that controls the model's behavior regarding generating rare phrases. Default is 0. | No       |
 
 ## Outputs
 
