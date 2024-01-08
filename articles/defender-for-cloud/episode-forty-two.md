@@ -9,7 +9,7 @@ ms.date: 01/08/2024
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Ortal Parpara joins Yuri Diogenes to talk about agentless secrets scanning for virtual machines in Microsoft Defender for Cloud. Ortal explains the use case scenario for this feature, how the feature works, and the prerequisites for this feature to work. The demonstration shows how the attack path uses this feature to provide more insights about secrets that are located in virtual machines, and how it can be used to detect potential cross-cloud attacks.
 
-> [!VIDEO https://aka.ms/docs/player?id=eb236b6c-fe8b-4662-92e6-0ae4b7531f2f]
+> [!VIDEO https://aka.ms/docs/player?id=3eb19963-8988-44eb-8052-e2255616a95e]
 
 - [01:18](/shows/mdc-in-the-field/native-integration-servicenow#time=01m18s) - Understanding secrets scanning capability for VMs in Defender for Cloud
 - [02:40](/shows/mdc-in-the-field/native-integration-servicenow#time=02m40s) -  How agentless scanning for VMs works
