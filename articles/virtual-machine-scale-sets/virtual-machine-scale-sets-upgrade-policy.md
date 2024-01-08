@@ -18,20 +18,19 @@ The Upgrade Policy for a Virtual Machine Scale Set determines how VMs are brough
 
 ## Upgrade Policy modes
 
-
 There are three different modes an Upgrade Policy can be set to. The modes are **Automatic**, **Manual** and **Rolling**. The upgrade mode you choose can impact the overall service uptime of your Virtual Machine Scale Set. 
 
-Additionally, as your application processes traffic, there can be situations where you might want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be needed to perform additional or different tasks than the other members of the scale set. You might require these 'special' VMs not to be modified with the other instances in the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the additional controls needed to protect these instances from the various upgrades discussed in this article.
+Additionally, as your application processes traffic, there can be situations where you might want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be needed to perform additional or different tasks than the other members of the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the additional controls needed to protect these instances from the various upgrades discussed in this article.
 
 ### Automatic 
-In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set might take down all VMs at the same time when performing upgrades. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
+In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set might take down all VMs at the same time when performing upgrades. Automatic Upgrade Policy is great for DevTest scenarios where you are not concerned about the uptime of your instances while making changes to configurations and settings. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
 ### Manual
-In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale set model. New instances added to the scale set use the most update-to-date model available.
+In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale set model. New instances added to the scale set use the most update-to-date model available. Manual Upgrade policy is best suited for workloads where the instances in the scale set are comprised of different configurations and each configuration might require different updates and changes. Using a Manual Upgrade Policy provides you with the most control over when upgrades are rolled out and to which machines. 
 
 ### Rolling
 
-In this mode, the scale set performs updates in batches with an optional pause time in between. When using Rolling Upgrades, users can also configure upgrades to be completed across multiple availability zones at the same time. When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) (Uniform Orchestration Mode) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) (Flexible Orchestration Mode) to monitor application health.
+In this mode, the scale set performs updates in batches with an optional pause time in between. When using Rolling Upgrades, users can also configure upgrades to be completed across multiple availability zones at the same time. Rolling Upgrade Policy is best suited for Production workloads that require instances be available at all times to take traffic. Rolling Upgrades provides the safest way to upgrade instances to the latest model without compromising availability and uptime. When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) (Uniform Orchestration Mode) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) (Flexible Orchestration Mode) to monitor application health.
  
 ## Exceptions to Upgrade Policies
 
@@ -42,31 +41,44 @@ Changes to the scale set OS, data disk Profile (such as admin username and passw
 
 ### [Portal](#tab/portal4)
 
-Select the Virtual Machine Scale Set you want to perform instance upgrades for. In the menu under **Settings**, select **Instances** and select the instances you want to reimage. Once selected, click the **Reimage** option.
+In the menu under **Settings**, navigate to **Instances** and select the instances you want to reimage. Once selected, click the **Reimage** option.
 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/reimage-upgrade-1.png" alt-text="Screenshot showing reimaging scale set instances using the Azure portal.":::
 
 
 ### [CLI](#tab/cli4)
-Reimage a Virtual Machine Scale Set instance using [az vmss reimage](/cli/azure/vmss#az-vmss-reimage).
+To reimage a specific instance using Azure CLI, use the [az vmss reimage](/cli/azure/vmss#az-vmss-reimage) command. The `instance-id` parameter will refer to the of the instance if using Uniform Orchestration mode and the Instance name if using Flexible Orchestration mode. 
 
 ```azurecli-interactive
 az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 ```
 
 ### [PowerShell](#tab/powershell4)
-Reimage a Virtual Machine Scale Set instance using [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm).
+To reimage a specific instance using Azure PowerShell, use the [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm) command.  The `instanceid` parameter will refer to the id of the instance if using Uniform Orchestration mode and the Instance name if using Flexible Orchestration mode. 
 
 ```azurepowershell-interactive
 Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
 ```
 
 ### [REST API](#tab/rest4)
-Reimage a Virtual Machine Scale Set instance using [reimage](/rest/api/compute/virtualmachinescalesets/reimage).
+To reimage scale set instances using REST, use the [reimage](/rest/api/compute/virtualmachinescalesets/reimage) command. You can specify multiple instances to be reimaged in the request body. 
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
+```
+
+**Request Body**
+```HTTP
+{
+  "instanceIds": [
+    "myScaleSet1",
+    "myScaleSet2"
+  ]
+}
+
+
+
 ```
 ---
 
