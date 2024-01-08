@@ -19,34 +19,19 @@ The Upgrade Policy for a Virtual Machine Scale Set determines how VMs are brough
 ## Upgrade Policy modes
 
 
-There are three different modes an Upgrade Policy can be set to. The modes are **Automatic**, **Rolling** and **Manual**. The upgrade mode you choose can impact the overall service uptime of your Virtual Machine Scale Set. 
+There are three different modes an Upgrade Policy can be set to. The modes are **Automatic**, **Manual** and **Rolling**. The upgrade mode you choose can impact the overall service uptime of your Virtual Machine Scale Set. 
 
 Additionally, as your application processes traffic, there can be situations where you might want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be needed to perform additional or different tasks than the other members of the scale set. You might require these 'special' VMs not to be modified with the other instances in the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the additional controls needed to protect these instances from the various upgrades discussed in this article.
+
+### Automatic 
+In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set might take down all VMs at the same time when performing upgrades. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
 ### Manual
 In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale set model. New instances added to the scale set use the most update-to-date model available.
 
-### Automatic 
-In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set might take down all VMs at the same time when performing upgrades. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
-In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set might take down all VMs at the same time when performing upgrades. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
-
 ### Rolling
 
-In this mode, the scale set performs updates in batches with an optional pause time in between. There are two types of Rolling Upgrade Policies that can be configured:
-
--  **Rolling Upgrades with MaxSurge disabled**
-    
-    With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. 
-
--  **Rolling Upgrades with MaxSurge enabled**
-
-    > [!IMPORTANT]
-    > Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
-        
-    With MaxSurge enabled, new instances are created in the scale set using the latest scale model in batches. Once the batch of new instances is successfully created and marked as healthy, instances matching the old scale set model are deleted. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. 
-
-
-When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
+In this mode, the scale set performs updates in batches with an optional pause time in between. When using Rolling Upgrades, users can also configure upgrades to be completed across multiple availability zones at the same time. When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) (Uniform Orchestration Mode) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) (Flexible Orchestration Mode) to monitor application health.
  
 ## Exceptions to Upgrade Policies
 
