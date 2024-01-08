@@ -13,7 +13,7 @@ ms.author: cshoe
 
 Static Web Apps is a cloud-based platform that hosts and runs your web apps. When you run your app locally, you need special tools to help you approximate how your app would run in the cloud.
 
-The Static Web Apps CLI (SWA CLI) includes an emulator that mimics how your app would run on Azure, but instead exclusively on your machine.
+The Static Web Apps CLI (SWA CLI) includes an emulator that mimics how your app would run on Azure, but instead runs exclusively on your machine.
 
 The `swa start` command launches the emulator with default settings. By default, the emulator uses port `4280`.
 
@@ -90,4 +90,4 @@ The following table lists some default ports used by popular frameworks.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Start the API server](static-web-apps-cli-emulator.md)
+> [Start the API server](static-web-apps-cli-api-server.md)
