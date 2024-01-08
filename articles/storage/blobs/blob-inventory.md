@@ -420,6 +420,10 @@ An inventory job can take a longer amount of time in these cases:
 
 An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make the reports immutable when they're partially completed which can cause inventory jobs to fail.
 
+### Inventory rule fails to configure
+
+A version-level immutable policy on the account can prevent an inventory job configuration. Also, if there is an immutable policy configured on the destination container of inventory report then also, the report configuration will tend to fail. 
+
 ## Next steps
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
