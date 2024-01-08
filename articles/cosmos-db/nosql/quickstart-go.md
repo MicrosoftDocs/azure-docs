@@ -94,7 +94,7 @@ Retrieve the existing *`products`* container using `database.NewContainer`.
 
 Build a Go type with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and clearance.
 
-:::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/cosmos.go" id="model":::
+:::code language="go" source="~/cosmos-db-nosql-go-quickstart/src/item.go" id="model":::
 
 Create an item in the container using `container.UpsertItem`. This method "upserts" the item effectively replacing the item if it already exists.
 
