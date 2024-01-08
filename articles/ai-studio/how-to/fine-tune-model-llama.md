@@ -7,8 +7,8 @@ ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.reviewer: eur
-ms.author: mopeakande
-author: msakande
+ms.author: eur
+author: eric-urban
 ms.custom: references_regions
 ---
 
