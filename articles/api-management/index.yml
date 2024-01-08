@@ -31,6 +31,8 @@ landingContent:
         links:
           - text: Gateway capabilities
             url: api-management-gateways-overview.md
+          - text: Hybrid and multicloud management
+            url: self-hosted-gateway-overview.md          
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
@@ -60,14 +62,8 @@ landingContent:
             url: quickstart-bicep.md
       - linkListType: tutorial
         links:
-          - text: 1. Import and publish your first API
+          - text: Import and publish your first API
             url: import-and-publish.md
-          - text: 2. Create and publish a product
-            url: api-management-howto-add-products.md
-          - text: 3. Mock API responses
-            url: mock-api-responses.md
-          - text: 4. Transform and protect your API
-            url: transform-api.md
   # Card 
   - title: Manage APIs
     linkLists:
@@ -87,10 +83,8 @@ landingContent:
             url: import-function-app-as-api.md
       - linkListType: concept
         links:
-         - text: API import restrictions
-           url: api-management-api-import-restrictions.md
          - text: API Management policies
-           url: api-management-policies.md
+           url: api-management-howto-policies.md
          - text: API authentication and authorization 
            url: authentication-authorization-overview.md
          - text: Logging and monitoring 
@@ -138,20 +132,6 @@ landingContent:
         links:
           - text: Networking options
             url: virtual-network-concepts.md
-  
-# Card
-  - title: Enable hybrid and multi-cloud management
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Self-hosted gateway overview
-            url: self-hosted-gateway-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Host gateway on Azure Arc
-            url: how-to-deploy-self-hosted-gateway-azure-arc.md
-          - text: Host gateway on Kubernetes
-            url: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
 # Card
   - title: Samples
     linkLists:
