@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 01/04/2024
 ---
 
 # Add certificates to integration accounts for securing messages in workflows with Azure Logic Apps
