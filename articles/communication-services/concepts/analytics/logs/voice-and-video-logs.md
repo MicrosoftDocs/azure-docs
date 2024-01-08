@@ -205,23 +205,27 @@ In a P2P call, each log contains data that relates to each of the outbound strea
 
 ### Example: P2P call
 
-The following diagram represents two endpoints connected directly in a P2P call. In this example, Communication Services creates two call summary logs (one for each `participantID` value) and four call diagnostic logs (one for each media stream). Each log contains data that relates to the outbound stream of `participantID`.
+The following diagram represents two endpoints connected directly in a P2P call. In this example, Communication Services creates two call summary logs (one for each `participantID` value) and four call diagnostic logs (one for each media stream). 
+
+For ACS call client participants there will also be two call client operations logs (**OR SERIES OF LOGS???**) and four call client media stats time series logs.  Each log contains data that relates to the outbound stream of `participantID`.
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-1-p2p-call-same-tenant.png" alt-text="Diagram that shows a P2P call within the same tenant.":::
 
 ### Example: Group call
 
-The following diagram represents a group call example with three `participantID` values (which means three participants) and a server endpoint. Values for `endpointId` can potentially appear in multiple participants--for example, when they rejoin a call from the same device. Communication Services creates one call summary log for each `participantID` value. It creates four call diagnostic logs: one for each media stream per `participantID`.
+The following diagram represents a group call example with three `participantId` values (which means three participants) and a server endpoint. Multiple values for `endpointId` can potentially appear in multiple participants--for example, when they rejoin a call from the same device. Communication Services creates one call summary log for each `participantId` value. It creates **XXX (not just four, 6?**) call diagnostic logs: one for each media stream per `participantId`. 
+
+For ACS call client participants there will also be three call client operations logs (**OR SERIES OF LOGS???**): one created for each `participantId`and six **(is that right?)** call client media stats time series logs: one for each media stream per `participantId`. If participants rejoin a call from the same device you will have an additional set of call client operations logs **and** call client media stats time series logs for each `endpointId.)
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-2-group-call-same-tenant.png" alt-text="Diagram that shows a group call within the same tenant.":::
 
-### Example: Cross-tenant P2P call
+### Example: Cross-tenant P2P call 
 
 The following diagram represents two participants across multiple tenants that are connected directly in a P2P call. In this example, Communication Services creates one call summary log (one for each participant) with redacted OS and SDK versions. Communication Services also creates four call diagnostic logs (one for each media stream). Each log contains data that relates to the outbound stream of `participantID`.
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-3-p2p-call-cross-tenant.png" alt-text="Diagram that shows a cross-tenant P2P call.":::
 
-### Example: Cross-tenant group call
+### Example: Cross-tenant group call 
 
 The following diagram represents a group call example with three `participantId` values across multiple tenants. Communication Services creates one call summary log for each participant with redacted OS and SDK versions. Communication Services also creates four call diagnostic logs that relate to each `participantId` value (one for each media stream).
 
@@ -233,7 +237,7 @@ The following diagram represents a group call example with three `participantId`
 
 ## Sample data
 
-### P2P call
+### P2P call 
 
 Here are shared fields for all logs in a P2P call:
 
@@ -243,7 +247,7 @@ Here are shared fields for all logs in a P2P call:
 "correlationId":            "8d1a8374-344d-4502-b54b-ba2d6daaf0ae",
 ```
 
-#### Call summary logs
+#### Call summary logs 
 
 Call summary logs have shared operation and category information:
 
@@ -338,7 +342,7 @@ Here's a call summary for a PSTN call:
 }
 ```
 
-#### Call diagnostic logs
+#### Call diagnostic logs 
 
 Call diagnostic logs share operation information:
 
@@ -618,7 +622,7 @@ Here's a diagnostic log for an audio stream from a server endpoint to VoIP endpo
     "packetLossRateAvg":    "0",
 ```
 
-### Error codes
+### Error codes 
 
 The `participantEndReason` property contains a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, for each endpoint. See [Troubleshooting in Azure Communication Services](../../troubleshooting-info.md?tabs=csharp%2cios%2cdotnet#calling-sdk-error-codes).
 
