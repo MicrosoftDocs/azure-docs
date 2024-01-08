@@ -129,7 +129,7 @@ integrations: |-
 
 Advanced metrics are optional, and turning them on automatically turns on basic metrics collection. Advanced metrics currently include only `Network Policy Manager_ipset_counts`.
 
-Learn more about [Azure Monitor for containers collection settings in config map](../azure-monitor/containers/container-insights-agent-config.md).
+Learn more about [Azure Monitor for containers collection settings in config map](../azure-monitor/containers/container-insights-data-collection-configmap.md).
 
 ### Visualization options for Azure Monitor
 
