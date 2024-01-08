@@ -52,7 +52,7 @@ To step through this how-to guide, you need:
 
 
 ## Dumping users and roles with `pg_dumpall -r`
-`pg_dump` is used to extract a PostgreSQL database into a dump file. However, it's crucial to understand that `pg_dump` does not dump roles or users, as these are considered global objects within the PostgreSQL environment. For a comprehensive migration, including users and roles, you need to use `pg_dumpall -r`. 
+`pg_dump` is used to extract a PostgreSQL database into a dump file. However, it's crucial to understand that `pg_dump` does not dump roles or users definitions, as these are considered global objects within the PostgreSQL environment. For a comprehensive migration, including users and roles, you need to use `pg_dumpall -r`. 
 This command allows you to capture all role and user information from your PostgreSQL environment.
 
 ```bash
@@ -66,7 +66,26 @@ pg_dumpall -r -h mydemoserver.postgres.database.azure.com -U myuser > roles.sql
 
 If you're using a Single Server, your username includes the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
 
-### Cleaning up the roles dump from Single Server
+
+### Dumping Roles from a Flexible Server
+In a Flexible Server environment, enhanced security measures mean users don't have access to the pg_authid table, which is where role passwords are stored. This restriction affects how you perform a roles dump, as the standard `pg_dumpall -r` command will attempt to access this table for passwords and fail due to lack of permission.
+
+#### Importance of --no-role-passwords
+When dumping roles from a Flexible Server, it's crucial to include the `--no-role-passwords` option in your `pg_dumpall` command. This option prevents `pg_dumpall` from attempting to access the `pg_authid` table, which it cannot read due to security restrictions.
+
+To successfully dump roles from a Flexible Server, use the following command:
+
+```bash
+pg_dumpall -r --no-role-passwords -h <server name> -U <user name> > roles.sql
+```
+
+For example, if you have a server named `mydemoserver`, a user named `myuser`, run the following command:
+
+```bash
+pg_dumpall -r --no-role-passwords -h mydemoserver.postgres.database.azure.com -U myuser > roles.sql
+```
+
+### Cleaning up the roles dump
 When migrating from a Single Server, the output file `roles.sql` might include certain roles and attributes that are not applicable or permissible in the new environment. Here's what you need to consider:
 
 1. **Removing attributes that can be set only by superusers**: If migrating to an environment where you don't have superuser privileges, remove attributes like `NOSUPERUSER` and `NOBYPASSRLS` from the roles dump.
@@ -76,10 +95,10 @@ When migrating from a Single Server, the output file `roles.sql` might include c
 Use the following `sed` command to clean up your roles dump:
 
 ```bash
-sed -i '/azure_superuser/d; /azure_pg_admin/d; /^ALTER ROLE/ {s/NOSUPERUSER//; s/NOBYPASSRLS//;}' roles.sql
+sed -i '/azure_superuser/d; /azure_pg_admin/d; /azuresu/d; /^CREATE ROLE replication/d; /^ALTER ROLE replication/d; /^ALTER ROLE/ {s/NOSUPERUSER//; s/NOBYPASSRLS//;}' roles.sql
 ```
 
-This command deletes lines containing `azure_superuser` and `azure_pg_admin`, and removes the `NOSUPERUSER` and `NOBYPASSRLS` attributes from `ALTER ROLE` statements.
+This command deletes lines containing `azure_superuser`, `azure_pg_admin`, `azuresu`, lines starting with `CREATE ROLE replication` and `ALTER ROLE replication`, and removes the `NOSUPERUSER` and `NOBYPASSRLS` attributes from `ALTER ROLE` statements.
 
 ## Create a dump file that contains the data to be loaded
 To export your existing PostgreSQL database on-premises or in a VM to an sql script file, run the following command in your existing environment:
