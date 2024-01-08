@@ -96,7 +96,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
     sudo dpkg-reconfigure iot-sensor
     ```
 
-    Follow the instructions on screen and validate the settings are correct on each step.
+    Follow the instructions on screen and validate that the settings are correct on each step.
 
     To move to the next step without making changes, press the `Enter` button.
 
