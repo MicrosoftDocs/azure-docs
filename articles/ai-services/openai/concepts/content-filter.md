@@ -647,7 +647,7 @@ Customers who have been approved for modified content filters can choose Asynchr
 
 **Content filtering signal**: The content filtering error signal is delayed; in case of a policy violation, it’s returned as soon as it’s available, and the stream is stopped. The content filtering signal is guaranteed within ~1,000-character windows in case of a policy violation. 
 
-Approval for Modified Content Filtering is required for access to Streaming – Asynchronous Modified Filter. The application can be found [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu). To enable it via Azure OpenAI Studio please follow the instructions [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/content-filters) to create a new content filtering configuration, and select “Asynchronous Modified Filter” in the Streaming section, as shown in the below screenshot. 
+Approval for Modified Content Filtering is required for access to Streaming – Asynchronous Modified Filter. The application can be found [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu). To enable it via Azure OpenAI Studio please follow the instructions [here](/azure/ai-services/openai/how-to/content-filters) to create a new content filtering configuration, and select “Asynchronous Modified Filter” in the Streaming section, as shown in the below screenshot. 
 
 ### Overview tbd
 
@@ -659,7 +659,7 @@ Approval for Modified Content Filtering is required for access to Streaming – 
 |Modality and Availability |Text; all GPT-models |Text; all GPT-models except gpt-4-vision |
 |Streaming experience |Content is buffered and returned in chunks |Zero latency (no buffering, filters run asynchronously) |
 |Content filtering signal |Immediate filtering signal |Delayed filtering signal (in up to ~1,000 char increments) |
-|Content filtering configurations |Supports default and any customer-defined filter setting (including optional models) |Supports default and any customer-defined filter setting (including optional models) | Supports default and any customer-defined filter setting (including optional models) |
+|Content filtering configurations |Supports default and any customer-defined filter setting (including optional models) |Supports default and any customer-defined filter setting (including optional models) | 
 
 ### Annotations and sample response stream
 
