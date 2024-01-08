@@ -217,6 +217,8 @@ The access log is generated only if you've enabled it on each Application Gatewa
 ```
 ### Error info codes
 If the application gateway cannot complete the request, it stores one of the following reason codes in the error_info field of the access log. 
+
+
 |4XX Errors  |Description  |
 |---------|---------|
 |    ERRORINFO_INVALID_METHOD|	The client has sent a request  using an HTTP method that is not recognized or supported by the server Possible reasons : client using HTTP method not supported by server, Misspelled Method , incompatible HTTP protocol version etc|
