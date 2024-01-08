@@ -68,10 +68,10 @@ The client library is available through NuGet, as the `Microsoft.Azure.Cosmos` p
 
 | Name | Description |
 | --- | --- |
-| [``]() | This class is the primary client class and is used to manage account-wide metadata or databases. |
-| [``]() | This class represents a database within the account. |
-| [``]() | This class is primarily used to perform read, update, and delete operations on either the container or the items stored within the container. |
-| [``]() | This class represents a logical partition key. This class is required for many common operations and queries. |
+| [`CosmosClient`](xref:Microsoft.Azure.Cosmos.CosmosClient) | This class is the primary client class and is used to manage account-wide metadata or databases. |
+| [`Database`](xref:Microsoft.Azure.Cosmos.Database) | This class represents a database within the account. |
+| [`Container`](xref:Microsoft.Azure.Cosmos.Container) | This class is primarily used to perform read, update, and delete operations on either the container or the items stored within the container. |
+| [`PartitionKey`](xref:Microsoft.Azure.Cosmos.PartitionKey) | This class represents a logical partition key. This class is required for many common operations and queries. |
 
 ## Code examples
 
@@ -88,35 +88,35 @@ The client library is available through NuGet, as the `Microsoft.Azure.Cosmos` p
 
 This sample creates a new instance of the `CosmosClient` class and authenticates using a `DefaultAzureCredential` instance.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Program.cs" id="create_client" highlight="2-3":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Program.cs" id="create_client" highlight="2-3":::
 
 ### Get a database
 
 Use `client.GetDatabase` to retrieve the existing database named *`cosmicworks`*.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="get_database":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="get_database":::
 
 ### Get a container
 
 Retrieve the existing *`products`* container using `database.GetContainer`.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="get_container":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="get_container":::
 
 ### Create an item
 
 Build a C# record type with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and clearance.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Models/Product.cs" id="model":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Models/Product.cs" id="model":::
 
 Create an item in the container using `container.UpsertItem`. This method "upserts" the item effectively replacing the item if it already exists.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="create_item" highlight="10":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="create_item" highlight="10":::
 
 ### Read an item
 
 Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use `container.ReadItem` to efficiently retrieve the specific item.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="read_item" highlight="1":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="read_item" highlight="1":::
 
 ### Query items
 
@@ -126,11 +126,11 @@ Perform a query over multiple items in a container using `container.GetItemQuery
 SELECT * FROM products p WHERE p.category = @category
 ```
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="query_items" highlight="6":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="query_items" highlight="6":::
 
 Parse the paginated results of the query by looping through each page of results using `feed.ReadNextAsync`. Use `feed.HasMoreResults` to determine if there are any results left at the start of each loop.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="parse_results" highlight="3,5":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="parse_results" highlight="3,5":::
 
 ## Clean up resources
 
