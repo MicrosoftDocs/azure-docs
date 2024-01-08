@@ -16,8 +16,9 @@ ms.topic: how-to
  Workspaces are places to manage your documents, projects, and models. When you create a workspace, you can choose to use the workspace independently, or share it with teammates to divide up the work.
 
   > [!NOTE]
-  > Custom Translator portal access can only be enabled through a public network.
-  > For information on how to use selected networks and private endpoints, see [Enable Custom Translator through Azure Virtual Network](enable-vnet-service-endpoint.md).
+  >
+  > * Custom Translator portal access can only be enabled through a public network.
+  > * For information on how to use selected networks and private endpoints, see [Enable Custom Translator through Azure Virtual Network](enable-vnet-service-endpoint.md).
 
 ## Create workspace
 
