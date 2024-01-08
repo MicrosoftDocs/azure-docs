@@ -195,13 +195,6 @@ Once you have followed the steps to use kubectl debug, come back to this.
     The authenticity of host '10.224.0.62 (10.224.0.62)' can't be established.
     ECDSA key fingerprint is SHA256:1234567890abcdefghijklmnopqrstuvwxyzABCDEFG.
     Are you sure you want to continue connecting (yes/no)? yes
-    
-    [...]
-    
-    Microsoft Windows [Version 10.0.17763.1935]
-    (c) 2018 Microsoft Corporation. All rights reserved.
-    
-    azureuser@aksnpwin000000 C:\Users\azureuser>
     ```
 
     > [!NOTE]
