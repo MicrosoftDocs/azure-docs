@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 08/17/2023
+ms.date: 12/25/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -15,6 +15,9 @@ ms.author: v-abhmallick
 This article describes the prerequisites for Azure Kubernetes Service (AKS) backup.
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. Based on the least privileged security model, a Backup vault must have *Trusted Access* enabled to communicate with the AKS cluster.
+
+>[!Note]
+>Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
 
 ## Backup Extension
 
@@ -91,12 +94,20 @@ To perform AKS backup and restore operations as a user, you need to have specifi
 
 Also, as part of the backup and restore operations, the following roles are assigned to the AKS cluster, Backup Extension Identity, and Backup vault.
 
-| Role | Assigned To | Assigned on | Description |
-| --- | --- | --- | --- |
-| Reader | Backup vault | AKS cluster | Allows the Backup vault to perform *List* and *Read* operations on AKS cluster. |
-| Reader | Backup vault | Snapshot resource group | Allows the Backup vault to perform *List* and *Read* operations on snapshot resource group. |
-| Contributor | AKS cluster | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group. |
-| Storage Account Contributor | Extension Identity | Storage account | Allows Backup Extension to store cluster resource backups in the blob container. |
+| Role  | Assigned to    | Assigned on     |  Description |
+| ---- | --- | --- | --- |
+| Reader                         | Backup vault       | AKS cluster             | Allows the Backup vault to perform _List_ and _Read_ operations on AKS cluster.             |
+| Reader                         | Backup vault       | Snapshot resource group | Allows the Backup vault to perform _List_ and _Read_ operations on snapshot resource group. |
+| Contributor                    | AKS cluster        | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group.              |
+| Storage Account Contributor    | Extension Identity | Storage account         | Allows Backup Extension to store cluster resource backups in the blob container.            |
+| Data Operator for Managed Disk | Backup vault       | Snapshot Resource Group | Allows Backup Vault service to move incremental snapshot data to the Vault.                  |
+| Disk Snapshot Contributor      | Backup vault       | Snapshot Resource Group | Allows Backup Vault to access Disks snapshots and perform Vaulting operation.                |
+| Storage Blob Data Reader       | Backup vault       | Storage Account         | Allow Backup Vault to access Blob Container with backup data stored to move to Vault.        |
+| Contributor                    | Backup vault       | Staging Resource Group  | Allows Backup Vault to hydrate backups as Disks stored in Vault Tier.                        |
+| Storage Account Contributor    | Backup vault       | Staging Storage Account | Allows Backup Vault to hydrate backups stored in Vault Tier.                                 |
+| Storage Blob Data Owner        | Backup vault       | Staging Storage Account | Allows Backup Vault to copy cluster state in a blob container stored in Vault Tier.          |
+
+
 
 >[!Note]
 >AKS backup allows you to assign these roles during backup and restore processes through the Azure portal with a single click.
