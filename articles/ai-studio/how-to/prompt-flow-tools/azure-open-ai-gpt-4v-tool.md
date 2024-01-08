@@ -6,9 +6,9 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 1/8/2024
-author: lgayhardt
-ms.author: lagayhar
 ms.reviewer: keli19
+ms.author: lagayhar
+author: lgayhardt
 ms.custom: references_regions
 ---
 
