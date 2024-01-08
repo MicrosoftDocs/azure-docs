@@ -86,7 +86,7 @@ Retrieve the service principal Object Id
 
 ### Create an Azure Key Vault
 
-Create a new Azure Key Vault service and ensure it has the **Permission Model** to Vault access policy.
+Create a new Azure Key Vault service and ensure it has the **Permission Model** set to Vault access policy.
 
 ```bash
 az keyvault create --enable-rbac-authorization false --name "<your unique key vault name>" --resource-group "<the name of the resource group>"
