@@ -14,7 +14,7 @@ ms.custom: engagement-fy23
 
 Azure VMware Solution offers a private cloud environment accessible from on-premises sites and Azure-based resources. Services such as Azure ExpressRoute, VPN connections, or Azure Virtual WAN deliver the connectivity. However, these services require specific network address ranges and firewall ports for enabling the services.
 
-When you deploy a private cloud; private networks for management, provisioning, and vMotion get created. You use these private networks to access VMware vCenter Server and VMware NSX-T Data Center NSX-T Manager and virtual machine vMotion or deployment.
+When you deploy a private cloud, private networks for management, provisioning, and vMotion get created. You use these private networks to access VMware vCenter Server and VMware NSX-T Data Center NSX-T Manager and virtual machine vMotion or deployment.
 
 [!INCLUDE [expressroute-global-reach](expressroute-global-reach.md)]
 
