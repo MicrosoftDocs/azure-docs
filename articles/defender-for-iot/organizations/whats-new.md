@@ -20,13 +20,15 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Choose which version to use for cloud-based sensor updates](#choose-which-version-to-use-for-cloud-based-sensor-updates) <br> |
+| **OT networks** | - [Cloud-based sensor updates now lists all available update versions](#cloud-based-sensor-updates-now-lists-all-available-update-versions) <br> |
 
-### Choose which version to use for cloud-based sensor updates
+### New list is available version updates to use for cloud-based sensor updates
+OR 
+### Cloud-based sensor updates now lists all available update versions
 
-When updating a sensor from the Azure portal, a choice of available versions appears in the **Update Sensor** pane. This feature allows you to update to the best version for the organizations needs, instead of only choosing the latest version of the sensor monitoring software. For example:
+When updating a sensor from the Azure portal, a choice of available update versions appears in the **Update Sensor** pane. Instead of having to updating to the latest version of the sensor monitoring software, you can now choose to update to the best version for the organization's needs. For example:
 <!-- add screen shot when available.
- do we need to give reasons for this here? -->
+ do we need to give reasons for this here? The list allows you to choose to update the sensor in stages, without having to automatically update to the latest version.-->
 
 ## December 2023
 
