@@ -448,46 +448,35 @@ items:
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:
-    - name: Monitor Kubernetes
+    - name: Full stack monitoring
       displayName: containers
       href: containers/monitor-kubernetes.md
     - name: Best practices
       displayName: containers, kubernetes
       href: best-practices-containers.md
-    - name: Prometheus
+    - name: Container insights overview
+      href: containers/container-insights-overview.md
+    - name: Enable monitoring
       items:
-      - name: Enable on AKS cluster
-        displayName: Prometheus
-        href: containers/prometheus-metrics-enable.md
-      - name: Disable on AKS cluster
-        displayName: Prometheus
-        href: containers/prometheus-metrics-disable.md
-      - name: Enable on Arc-enabled Kubernetes cluster
-        displayName: Prometheus
-        href: containers/prometheus-metrics-from-arc-enabled-cluster.md
-      - name: Customize collection
+      - name: Onboard cluster
+        href: containers/kubernetes-monitoring-enable.md
+      - name: Onboard hybrid cluster
+        href: containers/container-insights-hybrid-setup.md      
+      - name: Firewall requirements
+        displayName: Container insights, Prometheus
+        href: containers/kubernetes-monitoring-firewall.md
+      - name: Agent management
+        href: containers/container-insights-manage-agent.md
+      - name: Configure private Link
         items:
-        - name: Default configuration
-          displayName: Prometheus
-          href: containers/prometheus-metrics-scrape-default.md
-        - name: Custom configuration
-          displayName: Prometheus
-          href: containers/prometheus-metrics-scrape-configuration.md
-        - name: Create and validate custom scrape config
-          displayName: Prometheus
-          href: containers/prometheus-metrics-scrape-validate.md
-        - name: Minimal ingestion profile
-          displayName: Prometheus
-          href: containers/prometheus-metrics-scrape-configuration-minimal.md
-        - name: High scale
-          displayName: Prometheus
-          href: containers/prometheus-metrics-scrape-scale.md
-        - name: Send to multiple metric workspaces
-          displayName: Prometheus
-          href: containers/prometheus-metrics-multiple-workspaces.md
-      - name: Troubleshoot collection
-        displayName: Prometheus
-        href: containers/prometheus-metrics-troubleshoot.md
+        - name: Prometheus
+          displayName: Private link data ingestion
+          href: essentials/private-link-data-ingestion.md
+        - name: Private link data query
+          displayName: Private link data query
+          href: ../managed-grafana/how-to-connect-to-data-source-privately.md
+        - name: Container insights
+          href: containers/container-insights-private-link.md
       - name: Enable remote write
         items:
         - name: Overview
@@ -511,106 +500,96 @@ items:
       - name: Prometheus Microsoft Entra authorization proxy
         displayName: Prometheus
         href: containers/prometheus-authorization-proxy.md
-      - name: Private link data ingestion
-        displayName: Private link data ingestion
-        href: essentials/private-link-data-ingestion.md
-      - name: Private link data query
-        displayName: Private link data query
-        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
-    - name: Container insights
+      - name: Legacy authentication
+        href: containers/container-insights-authentication.md
+      - name: Supported region mappings
+        href: containers/container-insights-region-mapping.md
+      - name: Transition from Container monitoring solution
+        href: containers/container-insights-transition-solution.md
+    - name: Configure monitoring
       items:
-      - name: Overview
-        href: containers/container-insights-overview.md
-      - name: FAQ
-        href: containers/container-insights-overview.md#frequently-asked-questions
-      - name: Enable
-        displayName: container insights
+      - name: Prometheus (metrics)
         items:
-        - name: Overview
-          displayName: container insights
-          href: containers/container-insights-onboard.md
-        - name: AKS cluster
-          href: containers/container-insights-enable-aks.md
-        - name: Azure Arc-enabled cluster
-          href: containers/container-insights-enable-arc-enabled-clusters.md
-        - name: AKS hybrid cluster
-          href: containers/container-insights-enable-provisioned-clusters.md
-        - name: Hybrid cluster
-          href: containers/container-insights-hybrid-setup.md
-        - name: Enable with Azure Policy
-          href: containers/container-insights-enable-aks-policy.md
-        - name: Configure private link
-          href: containers/container-insights-private-link.md
-        - name: Legacy authentication
-          href: containers/container-insights-authentication.md
-        - name: Supported region mappings
-          href: containers/container-insights-region-mapping.md
-        - name: Transition from Container monitoring solution
-          href: containers/container-insights-transition-solution.md
-      - name: Configure
+        - name: Default configuration
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-default.md
+        - name: Custom configuration
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-configuration.md
+        - name: Create and validate custom scrape config
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-validate.md
+        - name: Minimal ingestion profile
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-configuration-minimal.md
+        - name: High scale
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-scale.md
+        - name: Send to multiple metric workspaces
+          displayName: Prometheus
+          href: containers/prometheus-metrics-multiple-workspaces.md
+      - name: Container insights (logs)
         items:
-        - name: Agent management
-          href: containers/container-insights-manage-agent.md
-        - name: Agent collection settings
-          href: containers/container-insights-agent-config.md
-        - name: Enable ContainerLogv2
-          href: containers/container-insights-logging-v2.md
-        - name: Migrate from ContainerLog to ContainerLogV2
-          href: containers/container-insights-v2-migration.md
-        - name: Enable cost optimization settings
-          href: containers/container-insights-cost-config.md
-        - name: Data Transformations
+        - name: Configure data collection
+          items:
+          - name: ConfigMap
+            displayName: Container insights
+            href: containers/container-insights-data-collection-configmap.md
+          - name: Data collection rule
+            href: containers/container-insights-data-collection-dcr.md
+        - name: Log schema
+          href: containers/container-insights-logs-schema.md
+        - name: Data transformations
           displayName: Container insights
           href: containers/container-insights-transformations.md
         - name: Authentication
           href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
           href: containers/container-insights-prometheus-logs.md
-      - name: Monitor
-        items:
-        - name: Monitor performance
-          href: containers/container-insights-analyze.md
-        - name: Monitor GPU performance
-          href: containers/container-insights-gpu-monitoring.md
-        - name: Monitor network configuration
-          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
-        - name: Monitor Deployments & HPAs
-          href: containers/container-insights-deployment-hpa-metrics.md
-        - name: Monitor Persistent Volumes (PVs)
-          href: containers/container-insights-persistent-volumes.md
-        - name: Monitor Security with Syslog
-          href: containers/container-insights-syslog.md
-        - name: Reports tab
-          href: containers/container-insights-reports.md
-        - name: Custom metrics
-          href: containers/container-insights-custom-metrics.md
-      - name: Log queries
-        href: containers/container-insights-log-query.md
-      - name: View live data
-        items:
-        - name: Live Data overview
-          href: containers/container-insights-livedata-overview.md
-        - name: Setup
-          href: containers/container-insights-livedata-setup.md
-        - name: View cluster metrics
-          href: containers/container-insights-livedata-metrics.md
-      - name: Alerting
-        items:
-        - name: Create metric alert rules
-          href: containers/container-insights-metric-alerts.md
-        - name: Create log alert rules
-          href: containers/container-insights-log-alerts.md
-      - name: Manage cost and usage
-        href: containers/container-insights-cost.md
       - name: Disable monitoring
-        items:
-        - name: AKS cluster
-          displayName: Container insights, Disable
-          href: containers/container-insights-optout.md
-        - name: Hybrid cluster
-          displayName: Container insights, Disable
-          href: containers/container-insights-optout-hybrid.md
-      - name: Troubleshooting
+        href: containers/kubernetes-monitoring-disable.md
+    - name: Monitor
+      items:
+      - name: Monitor performance
+        href: containers/container-insights-analyze.md
+      - name: Monitor GPU performance
+        href: containers/container-insights-gpu-monitoring.md
+      - name: Monitor network configuration
+        href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
+      - name: Monitor Deployments & HPAs
+        href: containers/container-insights-deployment-hpa-metrics.md
+      - name: Monitor Persistent Volumes (PVs)
+        href: containers/container-insights-persistent-volumes.md
+      - name: Monitor Security with Syslog 
+        href: containers/container-insights-syslog.md  
+      - name: Reports tab
+        href: containers/container-insights-reports.md
+      - name: Custom metrics
+        href: containers/container-insights-custom-metrics.md
+    - name: Log queries
+      href: containers/container-insights-log-query.md
+    - name: View live data
+      items:
+      - name: Live Data overview
+        href: containers/container-insights-livedata-overview.md
+      - name: Setup
+        href: containers/container-insights-livedata-setup.md
+      - name: View cluster metrics
+        href: containers/container-insights-livedata-metrics.md
+    - name: Alerting
+      items:
+      - name: Prometheus alert rules
+        href: containers/container-insights-metric-alerts.md
+      - name: Log alert rules
+        displayName: Container insights
+        href: containers/container-insights-log-alerts.md
+    - name: Manage cost and usage
+      href: containers/container-insights-cost.md
+    - name: Troubleshooting
+      items:
+      - name: Prometheus
+        href: containers/prometheus-metrics-troubleshoot.md
+      - name: Container insights
         href: containers/container-insights-troubleshoot.md
   - name: Monitor networks
     items:
