@@ -163,7 +163,7 @@ If these tests fail, review [certificate file requirements](../best-practices/ce
 Self-signed certificates are available for use in testing environments after installing Defender for IoT OT monitoring software. For more information, see:
 
 - [Create and deploy self-signed certificates on OT sensors](../how-to-manage-individual-sensors.md#manage-ssltls-certificates)
-- [Create and deploy self-signed certificates on on-premises management consoles](../how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates)
+- [Create and deploy self-signed certificates on on-premises management consoles](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates)
 
 ## Next steps
 

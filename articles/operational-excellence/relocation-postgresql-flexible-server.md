@@ -44,7 +44,6 @@ Depending on your Azure Database for PostgreSQL instance design, the following d
 
 - [Public IP address](./relocation-public-ip.md)
 - [Azure Private Link](./relocation-private-link.md)
-- [Azure Service Endpoint](./not-yet.md)
 - [Virtual Network](./relocation-virtual-network.md)
 - Network Peering
 - Azure Private DNS

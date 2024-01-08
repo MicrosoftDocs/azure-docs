@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 ---
 
@@ -102,7 +103,7 @@ Here's an example of how to monitor costs for an Azure AI Studio project. The co
 
 1. Select **See project cost on Azure portal**. The Azure portal opens to the cost analysis page for your project. 
 
-1. Expand the **Resource** column to see the costs for each service that's underlying your [Azure AI project](../concepts/ai-resources.md#project-assets). But this view doesn't include costs for all resources that you use in an Azure AI Studio project.
+1. Expand the **Resource** column to see the costs for each service that's underlying your [Azure AI project](../concepts/ai-resources.md#organize-work-in-projects-for-customization). But this view doesn't include costs for all resources that you use in an Azure AI Studio project.
 
     :::image type="content" source="../media/cost-management/project-costs/costs-per-project-resource.png" alt-text="Screenshot of the Azure portal cost analysis with the Azure AI project and associated resources." lightbox="../media/cost-management/project-costs/costs-per-project-resource.png":::
 
@@ -118,9 +119,9 @@ Here's an example of how to monitor costs for an Azure AI Studio project. The co
     - The resource group name is **rg-contosoairesource**.
     - The total cost for all resources and services in the resource group is **$222.97**. In this example, this is the total cost for your application or solution that you're building with Azure AI Studio. Again, this assumes that all Azure AI Studio resources are in the same resource group. But you can have resources in different resource groups.
     - The project name is **contoso-outdoor-proj**.
-    - The costs that are limited to resources and services in the [Azure AI project](../concepts/ai-resources.md#project-assets) total **$212.06**. 
+    - The costs that are limited to resources and services in the [Azure AI project](../concepts/ai-resources.md#organize-work-in-projects-for-customization) total **$212.06**. 
     
-1. Expand **contoso-outdoor-proj** to see the costs for services underlying the [Azure AI project](../concepts/ai-resources.md#project-assets) resource. 
+1. Expand **contoso-outdoor-proj** to see the costs for services underlying the [Azure AI project](../concepts/ai-resources.md#organize-work-in-projects-for-customization) resource. 
 
     :::image type="content" source="../media/cost-management/project-costs/costs-per-project-resource-details.png" alt-text="Screenshot of the Azure portal cost analysis with Azure AI project expanded." lightbox="../media/cost-management/project-costs/costs-per-project-resource-details.png":::
 

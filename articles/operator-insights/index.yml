@@ -59,6 +59,8 @@ landingContent:
             url: dashboards-use.md
           - text: Query data in the Data Product
             url: data-query.md
+          - text: Monitor Azure Operator Insights
+            url: monitor-operator-insights.md
 
   # Card 
   - title: How to deploy Ingestion Agents for MCC protobuf EDRs

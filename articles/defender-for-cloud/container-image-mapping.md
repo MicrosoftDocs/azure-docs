@@ -17,7 +17,7 @@ When a vulnerability is identified in a container image stored in a container re
 - For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.md) installed on the Azure DevOps organization.
 - For GitHub, [Microsoft Security DevOps (MSDO) Action](github-action.md) configured in your GitHub repositories.
 - [Defender CSPM](tutorial-enable-cspm-plan.md) enabled.
-- The container images must be built using [Docker](https://www.docker.com/).
+- The container images must be built using [Docker](https://www.docker.com/) and the Docker client must be able to access the Docker server during the build.
 
 ## Map your container image from Azure DevOps pipelines to the container registry
 
@@ -43,6 +43,7 @@ Below is an example of an advanced query that utilizes container image mapping. 
 
 > [!NOTE]
 > If your Azure DevOps organization had the Azure DevOps connector created prior to November 15, 2023, please navigate to **Organization settings** > **Extensions > Shared** and install the container image mapping decorator. If you do not see the extension shared with your organization, fill out the following [form](https://aka.ms/ContainerImageMappingForm).
+
 ## Map your container image from GitHub workflows to the container registry
 
 1. Add the container image mapping tool to your MSDO workflow:

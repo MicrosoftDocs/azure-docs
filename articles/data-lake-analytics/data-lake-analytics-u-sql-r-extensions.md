@@ -4,8 +4,9 @@ description: Learn how to run R code in U-SQL scripts using Azure Data Lake Anal
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
+
 # Extend U-SQL scripts with R code in Azure Data Lake Analytics
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]
