@@ -5,6 +5,7 @@ description: 'This article shows how to run your load tests with Azure Load Test
 author: ntrogh
 ms.author: nicktrog
 ms.service: load-testing
+ms.custom: devx-track-azurecli
 ms.topic: how-to 
 ms.date: 06/05/2023
 ---

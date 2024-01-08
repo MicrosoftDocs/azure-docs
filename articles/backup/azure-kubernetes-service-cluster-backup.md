@@ -52,6 +52,11 @@ If you want to use Azure Backup to protect your AKS clusters from any regional o
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enable-cross-region-restore-parameter.png" alt-text="Screenshot shows how to enable the Cross Region Restore parameter.":::
 
+3. Create a Backup Instance using a Backup Policy with retention duration set for Vault-standard datastore. Every recovery point stored in this datastore will be in the secondary region.
+
+   >[!Note]
+   >Vault-standard datastore is currently in preview.
+
 ## Create a backup policy
 
 Before you configure backups, you need to create a backup policy that defines the frequency of backups and the retention duration of backups.

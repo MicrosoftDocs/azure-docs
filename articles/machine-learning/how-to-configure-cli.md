@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.topic: how-to
 author: saachigopal
 ms.author: sagopal
-ms.date: 11/16/2022
+ms.date: 01/07/2024
 ms.reviewer: larryfr
 ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, ignite-2022
 ---

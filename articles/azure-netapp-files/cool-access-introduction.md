@@ -44,6 +44,7 @@ Standard storage with cool access is supported for the following regions:
 * Australia East 
 * Australia Southeast
 * Brazil South 
+* Brazil Southeast
 * Canada Central 
 * Canada East
 * Central India 
