@@ -347,7 +347,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-edge/how-to-continuous-integration-continuous-deployment-classic.md",
-            "redirect_url": "/azure/iot-edge/previous-versions/how-to-continuous-integration-continuous-deployment-classic",
+            "redirect_url": "/previous-versions/azure/iot-edge/how-to-continuous-integration-continuous-deployment-classic",
             "redirect_document_id": false
         }
     ]
