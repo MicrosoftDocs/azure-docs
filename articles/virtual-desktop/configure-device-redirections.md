@@ -174,7 +174,7 @@ When enabled, WebAuthn requests from the session are sent to the local PC to be 
 
 ## Disable redirection on the local device
 
-If you're connecting from personal resources to corporate ones using the Windows Desktop clients, you can disable drive, printer, and clipboard redirection on your local device for security purposes by overriding the configuration from your admin.
+If you're connecting from personal resources to corporate ones using the Windows Desktop clients, you can disable drive, printer, and clipboard redirection on your local device for security purposes by overriding the configuration from your administrator.
 
 ### Disable drive redirection
 
@@ -184,7 +184,7 @@ To disable drive redirection:
 
 1. Go to the following registry key and create or set the value:
 
-   - **Key**: `HKLM\\Software\\Microsoft\\Terminal Server Client`
+   - **Key**: `HKLM\Software\Microsoft\Terminal Server Client`
    - **Type**: `REG_DWORD`
    - **Value name**: `DisableDriveRedirection`
    - **Value data**: `1`
@@ -197,7 +197,7 @@ To disable printer redirection:
 
 1. Go to the following registry key and create or set the value:
 
-   - **Key**: `HKLM\\Software\\Microsoft\\Terminal Server Client`
+   - **Key**: `HKLM\Software\Microsoft\Terminal Server Client`
    - **Type**: `REG_DWORD`
    - **Value name**: `DisablePrinterRedirection`
    - **Value data**: `1`
@@ -210,7 +210,7 @@ To disable clipboard redirection:
 
 1. Go to the following registry key and create or set the value:
 
-   - **Key**: `HKLM\\Software\\Microsoft\\Terminal Server Client`
+   - **Key**: `HKLM\Software\Microsoft\Terminal Server Client`
    - **Type**: `REG_DWORD`
    - **Value name**: `DisableClipboardRedirection`
    - **Value data**: `1`
