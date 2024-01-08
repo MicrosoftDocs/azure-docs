@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
 | [Deprecation and severity changes to security alerts](#deprecation-and-severity-changes-to-security-alerts) | December 27, 2023 | January 2024 |
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
@@ -37,11 +38,19 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
+## New version of Defender Agent for Defender for Containers
+
+**Announcement date: January 4, 2024**
+
+**Estimated date for change: February 2024**
+
+A new version of the [Defender Agent for Defender for Containers](tutorial-enable-containers-azure.md#deploy-the-defender-agent-in-azure) will be released in February 2024. It includes performance and security improvements, support for both AMD64 and ARM64 arch nodes (Linux only), and uses [Inspektor Gadget](https://www.inspektor-gadget.io/) as the process collection agent instead of Sysdig. The new version is only supported on Linux kernel versions 5.4 and higher, so if you have older versions of the Linux kernel, you'll need to upgrade. For more information, see [Supported host operating systems](support-matrix-defender-for-containers.md#supported-host-operating-systems).
+
 ## Upcoming change for the Defender for Cloud’s multicloud network requirements
 
 **Announcement date: January 3, 2024**
 
-**Estimated date for change: May 2024** 
+**Estimated date for change: May 2024**
 
 Beginning May 2024, we'll be retiring the old IP addresses associated with our multicloud discovery services to accommodate improvements and ensure a more secure and efficient experience for all users.
 
@@ -66,7 +75,7 @@ The list is applicable to all plans and sufficient for full capability of the CS
 
 **Announcement date: December 27, 2023**
 
-**Estimated date for change: January 2024** 
+**Estimated date for change: January 2024**
 
 The following security alerts are set for deprecation or are set for update to the **informational** severity level.
 
@@ -118,7 +127,7 @@ The following security alerts are set for deprecation or are set for update to t
   
     - `Possible incoming SMTP brute force attempts detected (Generic_Incoming_BF_OneToOne)`
     - `Traffic detected from IP addresses recommended for blocking (Network_TrafficFromUnrecommendedIP)`
- 
+
   - **Alerts for Azure Resource Manager**:
 
     - `Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)`

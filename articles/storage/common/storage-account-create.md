@@ -311,7 +311,7 @@ To create an account with Azure DNS zone endpoints (preview), follow these steps
 1. Make sure you have the latest version of PowerShellGet installed.
 
     ```azurepowershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
+    Install-Module PowerShellGet -Repository PSGallery -Force
     ```
 
 1. Close and reopen the PowerShell console.

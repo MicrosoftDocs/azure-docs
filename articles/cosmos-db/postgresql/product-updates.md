@@ -80,7 +80,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
     * [Java (preview)](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmosdbforpostgresql/1.0.0-beta.1/overview)
     * [JavaScript (preview)](https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/v/1.0.0-beta.1)
     * [Python (preview)](https://pypi.org/project/azure-mgmt-cosmosdbforpostgresql/1.0.0b1/)
-* General availability: Terraform support is now available for all cluster management operations. See the following pages for details:
+* General availability: [Terraform support](./reference-terraform.md) is now available for all cluster management operations. See the following pages for details:
     * [Cluster management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_cluster)
     * [Worker node configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_node_configuration)
     * [Coordinator / single node configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_coordinator_configuration)
