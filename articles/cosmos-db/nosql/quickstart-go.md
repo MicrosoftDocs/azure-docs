@@ -48,7 +48,7 @@ Deploy this project's development container to your environment. Then, use the A
 
 ### Install the client library
 
-The client library is available through Go, as the `azcosmos` library.
+The client library is available through Go, as the `azcosmos` package.
 
 1. Open a terminal and navigate to the `/src` folder.
 
@@ -62,7 +62,13 @@ The client library is available through Go, as the `azcosmos` library.
     go install github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos
     ```
 
-1. Open and review the **src/go.mod** file to validate that the `github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos` entry exists.
+1. Also, install the `azidentity` package if not already installed.
+
+    ```bash
+    go install github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+
+1. Open and review the **src/go.mod** file to validate that the `github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos` and `github.com/Azure/azure-sdk-for-go/sdk/azidentity` entries both exist.
 
 ## Object model
 

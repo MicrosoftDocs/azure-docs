@@ -22,7 +22,7 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 
 Get started with the Azure Cosmos DB for NoSQL client library for Node.js to query data in your containers and perform common operations on individual items. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
-[API reference documentation](/javascript/api/overview/azure/cosmos-readme) | [Library source code](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/cosmos) | [Package (NPM)](https://www.npmjs.com/package/@azure/cosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
+[API reference documentation](/javascript/api/overview/azure/cosmos-readme) | [Library source code](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/cosmos) | [Package (npm)](https://www.npmjs.com/package/@azure/cosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 
 ## Prerequisites
 
@@ -48,7 +48,27 @@ Deploy this project's development container to your environment. Then, use the A
 
 ### Install the client library
 
-TODO
+The client library is available through the Node Package Manager, as the `@azure/cosmos` package.
+
+1. Open a terminal and navigate to the `/src` folder.
+
+    ```bash
+    cd ./src
+    ```
+
+1. If not already installed, install the `@azure/cosmos` package using `npm install`.
+
+    ```bash
+    npm install --save @azure/cosmos
+    ```
+
+1. Also, install the `@azure/identity` package if not already installed.
+
+    ```bash
+    npm install --save @azure/identity
+    ```
+
+1. Open and review the **src/package.json** file to validate that the `azure-cosmos` and `azure-identity` entries both exist.
 
 ## Object model
 
@@ -75,27 +95,45 @@ TODO
 
 [!INCLUDE[Developer Quickstart authentication explanation](includes/quickstart/dev-auth-primer.md)]
 
-TODO
+This sample creates a new instance of the `CosmosClient` type and authenticates using a `DefaultAzureCredential` instance.
+
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="create_client" highlight="1,3":::
 
 ### Get a database
 
-TODO
+Use `client.database` to retrieve the existing database named *`cosmicworks`*.
+
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="get_database":::
 
 ### Get a container
 
-TODO
+Retrieve the existing *`products`* container using `database.container`.
+
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="get_container":::
 
 ### Create an item
 
-TODO
+Build a new object with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and clearance. Create an item in the container using `container.items.upsert`. This method "upserts" the item effectively replacing the item if it already exists.
+
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="create_item" highlight="10":::
 
 ### Read an item
 
-TODO
+Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use `container.item` to get a pointer to an item and `item.read` to efficiently retrieve the specific item.
+
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="read_item" highlight="4":::
 
 ### Query items
 
-TODO
+Perform a query over multiple items in a container using `container.items.query`. Find all items within a specified category using this parameterized query:
+
+```nosql
+SELECT * FROM products p WHERE p.category = @category
+```
+
+Fetch all of the results of the query using `query.fetchAll`. Loop through the results of the query.
+
+:::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/cosmos.js" id="query_items" highlight="2,11":::
 
 ## Related content
 

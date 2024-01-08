@@ -48,7 +48,27 @@ Deploy this project's development container to your environment. Then, use the A
 
 ### Install the client library
 
-TODO
+The client library is available through the Python Package Index, as the `azure-cosmos` library.
+
+1. Open a terminal and navigate to the `/src` folder.
+
+    ```bash
+    cd ./src
+    ```
+
+1. If not already installed, install the `azure-cosmos` package using `pip install`.
+
+    ```bash
+    pip install azure-cosmos
+    ```
+
+1. Also, install the `azure-identity` package if not already installed.
+
+    ```bash
+    pip install azure-identity
+    ```
+
+1. Open and review the **src/requirements.txt** file to validate that the `azure-cosmos` and `azure-identity` entries both exist.
 
 ## Object model
 
@@ -74,27 +94,47 @@ TODO
 
 [!INCLUDE[Developer Quickstart authentication explanation](includes/quickstart/dev-auth-primer.md)]
 
-TODO
+This sample creates a new instance of the `CosmosClient` type and authenticates using a `DefaultAzureCredential` instance.
+
+:::code language="python" source="~/cosmos-db-nosql-python-quickstart/src/cosmos.py" id="create_client" highlight="2":::
 
 ### Get a database
 
-TODO
+Use `client.get_database_client` to retrieve the existing database named *`cosmicworks`*.
+
+:::code language="python" source="~/cosmos-db-nosql-python-quickstart/src/cosmos.py" id="get_database":::
 
 ### Get a container
 
-TODO
+Retrieve the existing *`products`* container using `database.get_container_client`.
+
+:::code language="python" source="~/cosmos-db-nosql-python-quickstart/src/cosmos.py" id="get_container":::
 
 ### Create an item
 
-TODO
+Build a new object with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and clearance. Create an item in the container using `container.upsert_item`. This method "upserts" the item effectively replacing the item if it already exists.
+
+:::code language="python" source="~/cosmos-db-nosql-python-quickstart/src/cosmos.py" id="create_item" highlight="8":::
 
 ### Read an item
 
-TODO
+Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use `container.read_item` to efficiently retrieve the specific item.
+
+:::code language="python" source="~/cosmos-db-nosql-python-quickstart/src/cosmos.py" id="read_item" highlight="1":::
 
 ### Query items
 
-TODO
+Perform a query over multiple items in a container using `container.GetItemQueryIterator`. Find all items within a specified category using this parameterized query:
+
+```nosql
+SELECT * FROM products p WHERE p.category = @category
+```
+
+:::code language="python" source="~/cosmos-db-nosql-python-quickstart/src/cosmos.py" id="query_items" highlight="1,2":::
+
+Loop through the results of the query.
+
+:::code language="python" source="~/cosmos-db-nosql-python-quickstart/src/cosmos.py" id="parse_results" highlight="1":::
 
 ## Related content
 

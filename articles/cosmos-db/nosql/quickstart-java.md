@@ -48,15 +48,36 @@ Deploy this project's development container to your environment. Then, use the A
 
 ### Install the client library
 
-TODO
+The client library is available through Maven, as the `azure-spring-data-cosmos` package.
+
+1. Navigate to the `/src/web` folder and open the **pom.xml** file.
+
+1. If it doesn't already exist, add an entry for the `azure-spring-data-cosmos` package.
+
+    ```xml
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-spring-data-cosmos</artifactId>
+    </dependency>
+    ```
+
+1. Also, add another dependency for the `azure-identity` package if it doesn't already exist.
+
+    ```xml
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+    </dependency>
+    ```
 
 ## Object model
 
 | Name | Description |
 | --- | --- |
-| [`CosmosClient`](/java/api/com.azure.cosmos.cosmosclient) | This class is the primary client class and is used to manage account-wide metadata or databases. |
-| [`CosmosDatabase`](/java/api/com.azure.cosmos.cosmosdatabase) | This class represents a database within the account. |
-| [`CosmosContainer`](/java/api/com.azure.cosmos.cosmoscontainer) | This class is primarily used to perform read, update, and delete operations on either the container or the items stored within the container. |
+| `EnableCosmosRepositories` | This is a method decorator used to configure a repository to access Azure Cosmos DB for NoSQL. |
+| `CosmosRepository` | This class is the primary client class and is used to manage data within a container. |
+| `CosmosClientBuilder` | This is a factory class used to create a client used by the repository. |
+| `Query` | This is a method decorator used to specify the query that the repository will use. |
 
 ## Code examples
 
@@ -75,31 +96,43 @@ TODO
 
 TODO
 
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/" id="" highlight="":::
+
 ### Get a database
 
 TODO
+
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/" id="" highlight="":::
 
 ### Get a container
 
 TODO
 
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/" id="" highlight="":::
+
 ### Create an item
 
 TODO
+
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/" id="" highlight="":::
 
 ### Read an item
 
 TODO
 
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/" id="" highlight="":::
+
 ### Query items
 
 TODO
+
+:::code language="java" source="~/cosmos-db-nosql-java-quickstart/src/web/" id="" highlight="":::
 
 ## Related content
 
 - [.NET Quickstart](quickstart-dotnet.md)
 - [JavaScript/Node.js Quickstart](quickstart-nodejs.md)
-- [Python Quickstart](quickstart-python.md)
+- [java Quickstart](quickstart-java.md)
 - [Go Quickstart](quickstart-go.md)
 
 ## Next step

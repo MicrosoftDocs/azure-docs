@@ -62,7 +62,13 @@ The client library is available through NuGet, as the `Microsoft.Azure.Cosmos` p
     dotnet add package Microsoft.Azure.Cosmos
     ```
 
-1. Open and review the **src/web/Cosmos.Samples.NoSQL.Quickstart.Web.csproj** file to validate that the `Microsoft.Azure.Cosmos` entry exists.
+1. Also, install the `Azure.Identity` package if not already installed.
+
+    ```bash
+    dotnet add package Azure.Identity
+    ```
+
+1. Open and review the **src/web/Cosmos.Samples.NoSQL.Quickstart.Web.csproj** file to validate that the `Microsoft.Azure.Cosmos` and `Azure.Identity` entries both exist.
 
 ## Object model
 
@@ -122,7 +128,7 @@ Perform a point read operation by using both the unique identifier (`id`) and pa
 
 ### Query items
 
-Perform a query over multiple items in a container using `container.GetItemQueryIterator<>`. Find all items within a specified category using this parameterized query:
+Perform a query over multiple items in a container using `container.GetItemQueryIterator`. Find all items within a specified category using this parameterized query:
 
 ```nosql
 SELECT * FROM products p WHERE p.category = @category
