@@ -231,7 +231,7 @@ To learn more about WAF policy settings for Front Door, see [Policy settings for
 
 Azure-managed rule sets provide an easy way to protect your application against common security threats.
 
-Run [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules#az-network-front-door-waf-policy-managed-rules-add) to add managed rules to your WAF Policy. This example adds Microsoft_DefaultRuleSet_1.2 and Microsoft_BotManagerRuleSet_1.0 to your policy.
+Run [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules#az-network-front-door-waf-policy-managed-rules-add) to add managed rules to your WAF Policy. This example adds Microsoft_DefaultRuleSet_2.1 and Microsoft_BotManagerRuleSet_1.0 to your policy.
 
 
 ```azurecli-interactive
