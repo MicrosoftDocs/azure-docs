@@ -17,7 +17,7 @@ ms.topic: how-to
 
   > [!NOTE]
   >
-  > * Custom Translator portal access can only be enabled through a public network.
+  > * [Custom Translator Portal](https://portal.customtranslator.azure.ai/) access can only be enabled through a public network.
   > * For information on how to use selected networks and private endpoints, see [Enable Custom Translator through Azure Virtual Network](enable-vnet-service-endpoint.md).
 
 ## Create workspace
