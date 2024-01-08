@@ -138,7 +138,7 @@
     - name: Configure Rolling Upgrades
       href: virtual-machine-scale-sets-configure-rolling-upgrades.md 
     - name: Performing Manual Upgrades
-      href: virtual-machine-scale-sets-perform-upgrades.md
+      href: virtual-machine-scale-sets-perform-manual-upgrades.md
   - name: Common management tasks
     items:
     - name: Use the Azure CLI

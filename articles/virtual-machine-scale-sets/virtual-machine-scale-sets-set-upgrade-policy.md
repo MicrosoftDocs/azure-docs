@@ -20,10 +20,9 @@ During the Virtual Machine Scale Set creation in the Azure portal, under the **M
 :::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/maxsurge-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
 
 ### [CLI](#tab/cli)
-Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and the =`upgrade-policy-mode` parameter. Choose `Automatic`, `Manual` or `Rolling`. If using Rolling Upgrade Policy, you can also enable MaxSurge. For more information, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades). 
+Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and the =`upgrade-policy-mode` parameter. Choose `Automatic`, `Manual` or `Rolling`. If using Rolling Upgrade Policy, you can also enable MaxSurge. For more information, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md). 
 
 ```azurecli-interactive
-# Create the scale set
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
@@ -43,7 +42,6 @@ Create a new Virtual Machine Scale Set using [New-AzVmss](/powershell/module/az.
 #Create a Resource Group
 New-AzResourceGroup -Name myResourceGroup -Location Eastus
 
-#Create the scale set
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
