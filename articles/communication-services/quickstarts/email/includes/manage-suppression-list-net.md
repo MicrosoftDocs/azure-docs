@@ -50,10 +50,10 @@ For the list name, make sure it's the same as the sender username of the MailFro
 The code sample will create the suppression list and store it in the `suppressionListResource` variable for future operations.
 
 ```csharp
-string subscriptionId = "<your-subscription-id>";
-string resourceGroupName = "<your-resource-group-name>";
-string emailServiceName = "<your-email-service-name>";
-string domainResourceName = "<your-domain-name>";
+string subscriptionId = "<your-subscription-id>"; // Found in the essentials section of the domain resource portal overview
+string resourceGroupName = "<your-resource-group-name>"; // Found in the essentials section of the domain resource portal overview
+string emailServiceName = "<your-email-service-name>"; // Found in the first part of the portal domain resource title
+string domainResourceName = "<your-domain-name>"; // Found in the second part of the portal domain resource title
 string suppressionListResourceName = "<your-suppression-list-resource-name>";
 
 ResourceIdentifier suppressionListResourceId = SuppressionListResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName, domainResourceName, suppressionListResourceName);
@@ -61,7 +61,18 @@ SuppressionListResource suppressionListResource = client.GetSuppressionListResou
 
 SuppressionListResourceData suppressiontListData = new SuppressionListResourceData()
 {
-    ListName = "<your-sender-username>",
+    ListName = "<your-sender-username>", // Should match the sender username of the MailFrom address you would like to suppress emails from
+};
+
+suppressionListResource.Update(WaitUntil.Completed, suppressiontListData);
+```
+
+If you would like to suppress emails from all the sender usernames in particular domain, you can pass in an empty string for the list name.
+
+```csharp
+SuppressionListResourceData suppressiontListData = new SuppressionListResourceData()
+{
+    ListName = "",
 };
 
 suppressionListResource.Update(WaitUntil.Completed, suppressiontListData);
@@ -83,13 +94,15 @@ SuppressionListAddressResource suppressionListAddressResource = client.GetSuppre
 
 SuppressionListAddressResourceData suppressionListAddressData = new SuppressionListAddressResourceData()
 {
-    Email = "<email-address-to-suppress>"
+    Email = "<email-address-to-suppress>" // Should match the email address you would like to block from receiving your messages
 };
 
 suppressionListAddressResource.Update(WaitUntil.Completed, suppressionListAddressData);
 ```
 
-You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Your email won't be sent to the suppressed address.
+You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Make sure to send the email using the MailFrom address with the sender username you've chosen to suppress. Your email won't be sent to the suppressed address.
+
+If you try sending an email with a domain that has not been suppressed, you will see that the email successfully sends.
 
 ## Remove an address from a suppression list
 
@@ -99,7 +112,7 @@ To remove an address from the suppression list, create the `SuppressionListAddre
 suppressionListAddressResource.Delete(WaitUntil.Completed);
 ```
 
-You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Your email will successfully send to the previously suppressed address.
+You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Make sure to send the email using the MailFrom address with the sender username you've chosen to suppress. Your email will successfully send to the previously suppressed address.
 
 ## Remove a suppression list from a domains resource
 

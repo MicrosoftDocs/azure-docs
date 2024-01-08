@@ -49,13 +49,29 @@ Update the code sample with the resource group name, the email service name, and
 For the list name, make sure it's the same as the sender username of the MailFrom address you would like to suppress emails from. These MailFrom addresses can be found in the "MailFrom addresses" section of your domain resource in the portal.  For example, you may have a MailFrom address that looks like "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net". The sender username for this address would be "donotreply" so a list name of "donotreply" should be used.
 
 ```javascript
-const resourceGroupName = "<your-resource-group-name>";
-const emailServiceName = "<your-email-service-name>";
-const domainResourceName = "<your-domain-name>";
+const resourceGroupName = "<your-resource-group-name>"; // Found in the essentials section of the domain resource portal overview
+const emailServiceName = "<your-email-service-name>"; // Found in the first part of the portal domain resource title
+const domainResourceName = "<your-domain-name>"; // Found in the second part of the portal domain resource title
 const suppressionListResourceName = "<your-suppression-list-resource-name>";
 
 parameters = { 
-    "listName": "<your-sender-username>",
+    "listName": "<your-sender-username>", // Should match the sender username of the MailFrom address you would like to suppress emails from
+}
+
+await client.suppressionLists.createOrUpdate(
+    resourceGroupName,
+    emailServiceName,
+    domainResourceName,
+    suppressionListResourceName,
+    parameters
+);
+```
+
+If you would like to suppress emails from all the sender usernames in particular domain, you can pass in an empty string for the list name.
+
+```javascript
+parameters = { 
+    "listName": "",
 }
 
 await client.suppressionLists.createOrUpdate(
@@ -79,7 +95,7 @@ To add multiple addresses to the suppression list, you need to repeat this code 
 const suppressionListAddressId = "<your-suppression-list-address-id>";
 
 parameters = { 
-    "email": "<email-address-to-suppress>"
+    "email": "<email-address-to-suppress>" // Should match the email address you would like to block from receiving your messages
 }
 
 await client.suppressionListAddresses.createOrUpdate(
@@ -93,7 +109,9 @@ await client.suppressionListAddresses.createOrUpdate(
 
 ```
 
-You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Your email won't be sent to the suppressed address.
+You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Make sure to send the email using the MailFrom address with the sender username you've chosen to suppress. Your email won't be sent to the suppressed address.
+
+If you try sending an email with a domain that has not been suppressed, you will see that the email successfully sends.
 
 ## Remove an address from a suppression list
 
@@ -109,7 +127,7 @@ await client.suppressionListAddresses.delete(
 );
 ```
 
-You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Your email will successfully send to the previously suppressed address.
+You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Make sure to send the email using the MailFrom address with the sender username you've chosen to suppress. Your email will successfully send to the previously suppressed address.
 
 ## Remove a suppression list from a domains resource
 

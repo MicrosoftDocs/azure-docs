@@ -71,14 +71,23 @@ Update the code sample with the resource group name, the email service name, and
 For the list name, make sure it's the same as the sender username of the MailFrom address you would like to suppress emails from. These MailFrom addresses can be found in the "MailFrom addresses" section of your domain resource in the portal.  For example, you may have a MailFrom address that looks like "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net". The sender username for this address would be "donotreply" so a list name of "donotreply" should be used.
 
 ```java
-String resourceGroupName = "<your-resource-group-name>";
-String emailServiceName = "<your-email-service-name>";
-String domainResourceName = "<your-domain-name>";
+String resourceGroupName = "<your-resource-group-name>"; // Found in the essentials section of the domain resource portal overview
+String emailServiceName = "<your-email-service-name>"; // Found in the first part of the portal domain resource title
+String domainResourceName = "<your-domain-name>"; // Found in the second part of the portal domain resource title
 String suppressionListResourceName = "<your-suppression-list-resource-name>";
 
 manager.suppressionLists().define(suppressionListResourceName)
     .withExistingDomain(resourceGroupName, emailServiceName, domainResourceName)
-    .withListName("<your-sender-username>")
+    .withListName("<your-sender-username>") // Should match the sender username of the MailFrom address you would like to suppress emails from
+    .create();
+```
+
+If you would like to suppress emails from all the sender usernames in particular domain, you can pass in an empty string for the list name.
+
+```java
+manager.suppressionLists().define(suppressionListResourceName)
+    .withExistingDomain(resourceGroupName, emailServiceName, domainResourceName)
+    .withListName("")
     .create();
 ```
 
@@ -95,11 +104,13 @@ String suppressionListAddressId = "<your-suppression-list-address-id>";
 
 manager.suppressionListAddresses().define(suppressionListAddressId)
     .withExistingSuppressionList(resourceGroupName, emailServiceName, domainResourceName, suppressionListResourceName)
-    .withEmail("<email-address-to-suppress>")
+    .withEmail("<email-address-to-suppress>") // Should match the email address you would like to block from receiving your messages
     .create();
 ```
 
-You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Your email won't be sent to the suppressed address.
+You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Make sure to send the email using the MailFrom address with the sender username you've chosen to suppress. Your email won't be sent to the suppressed address.
+
+If you try sending an email with a domain that has not been suppressed, you will see that the email successfully sends.
 
 ## Remove an address from a suppression list
 
@@ -110,7 +121,7 @@ manager.suppressionListAddresses()
     .delete(resourceGroupName, emailServiceName, domainResourceName, suppressionListResourceName, suppressionListAddressId);
 ```
 
-You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Your email will successfully send to the previously suppressed address.
+You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Make sure to send the email using the MailFrom address with the sender username you've chosen to suppress. Your email will successfully send to the previously suppressed address.
 
 ## Remove a suppression list from a domains resource
 
