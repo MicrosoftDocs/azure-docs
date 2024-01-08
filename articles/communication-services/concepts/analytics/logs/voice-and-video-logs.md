@@ -128,10 +128,11 @@ For each endpoint within a call, a distinct call diagnostic log is created for o
 
 The **call client operations** log provides client-side information about the calling endpoints and participants involved in a call. These logs are currently in preview and show client events that occurred in a call and what actions a customer may have taken during a call.  
 
-This log provides more detailed information than the Call Diagnostic log on actions taken during a call and can be used to visualize and investigate call issues though Call Diagnostics for your Azure Communication Services Resource. [Learn More](../../voice-video-calling/call-diagnostics.md)
+This log provides detailed information on actions taken during a call and can be used to visualize and investigate call issues by using Call Diagnostics for your Azure Communication Services Resource. [Learn more about Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
 
 
 ### Call client media stats time series log schema
+[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
 
 The **call client media statistics time series** log provides
 client-side information about the media streams between individual
@@ -139,10 +140,14 @@ participants involved in a call. These logs are currently in limited preview and
 data on the audio, video, and screenshare media steams between
 participants with a **<u>XX</u>** second granularity.
 
+
+
 This log provides more detailed information than the Call Diagnostic log
 on the quality of media steams between participants and can be used to
-visualize and investigate quality issues for your calls through Call
-Diagnostics for your Azure Communication Services Resource. [Learn More](../../voice-video-calling/call-diagnostics.md)
+vis        ualize and investigate quality issues for your calls through Call
+Diagnostics for your Azure Communication Services Resource. [Learn more about Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+
+
 
 
 | Property                   | Description                                                                                                                                                                                                                                                                                                                                                                               |
@@ -173,7 +178,7 @@ Diagnostics for your Azure Communication Services Resource. [Learn More](../../v
 
 There are two types of calls, as represented by `callType`:
 
-- **P2P call**: A connection between only two endpoints, with no server endpoint. P2P calls are initiated as a call between those endpoints and are not created as a group call event before the connection.
+- **Peer to Peer (P2P) call**: A connection between only two endpoints, with no server endpoint. P2P calls are initiated as a call between those endpoints and are not created as a group call event before the connection.
 
   :::image type="content" source="../media/call-logs-azure-monitor/p2p-diagram.png" alt-text="Diagram that shows a P2P call across two endpoints.":::
 
@@ -189,13 +194,12 @@ Azure Communication Services creates two types of logs:
 
   If someone rejoins a call, that participant has the same `EndpointId` value but a different `ParticipantId` value. That endpoint can then have two call summary logs.
 
-- **Call diagnostic logs**: Contain information about the stream, along with a set of metrics that indicate quality of experience measurements. For each endpoint within a call (including the server), Communication Services creates a distinct call diagnostic log for each media stream (audio or video, for example) between endpoints.
+- **Call diagnostic logs**: Contain information about the stream, along with a set of metrics that indicate quality of experience measurements. For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct call diagnostic log for each media stream (audio or video, for example) between endpoints.
 
 
-- **Op Log**:
+- **Call client operations logs**: Contain detailed call client events. These log events are generated for each `EndpointId` in a call and the number of event logs generated will depend on the operations the participant performed during the call. 
 
-- **media Log**:
-
+- **Call client media statistics logs**: Contain detailed media stream telemetry values. These logs are generated for each media stream in a call.  For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct log for each media stream (audio or video, for example) between endpoints. The volume of data generated in each log depends on the duration of call and number of media steams in the call. 
 
 In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In a group call, each stream associated with `endpointType` = `"Server"` creates a log that contains data for the inbound streams. All other streams create logs that contain data for the outbound streams for all non-server endpoints. In group calls, use the `participantId` value as the key to join the related inbound and outbound logs into a distinct participant connection.
 
