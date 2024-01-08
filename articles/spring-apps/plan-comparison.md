@@ -1,26 +1,26 @@
 ---
-title: Plan comparison in Azure Spring Apps
-description: Understand all plans via comparison in the Azure Spring Apps.
+title: Compare available plans in Azure Spring Apps
+description: Understand and compare all plans in the Azure Spring Apps.
 author: karlerickson
 ms.author: taoxu
 ms.service: spring-apps
 ms.topic: overview
-ms.date: 12/06/2023
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23, references_regions
+ms.date: 01/05/2024
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23, references_regions
 ---
 
-# Plan comparison in Azure Spring Apps
+# Compare available plans in Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-This article provides a comparison of plans available in Azure Spring Apps. Each plan is designed to cater to different customer scenarios and purposes:
+This article provides a comparison of plans available in Azure Spring Apps. Each plan is designed to cater to different customer scenarios and purposes, as described in the following list:
 - Enterprise plan: Designed to expedite the development and deployment of mission-critical and large scale enterprise applications with higher SLA and large microservice cluster support, and addresses enterprise requirements around configuration management, service discovery, API gateway, API portal, ease of integration, portability, and flexibility with on-demand managed Tanzu commercial components and Tanzu Spring Runtime support, built on top of strong partnership between VMware and Microsoft.
 - Basic plan: An entry-level plan for individual development and testing.
 - Standard plan: A Spring-centric and opinionated application hosting platform with built-in and pre-configured settings for build, service registry, storage, and more.
 - Standard consumption & dedicated plan: Hosted in Azure Container Apps environments, this plan is designed to seamlessly interact with other apps running in the same environment with simplified networking and unified observability.
 
-For more information, please refer to the comparison table below.
+For more information, see the following table:
 
 | Feature                                                   | Description                                                                                                                                                                 | Enterprise                     | Basic                        | Standard                     | Standard consumption and dedicated                              |
 |-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|------------------------------|------------------------------|-----------------------------------------------------------------|
