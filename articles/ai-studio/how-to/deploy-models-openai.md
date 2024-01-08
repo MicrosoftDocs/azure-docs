@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: mopeakande
+author: msakande
 ---
 
 # How to deploy Azure OpenAI models with Azure AI Studio

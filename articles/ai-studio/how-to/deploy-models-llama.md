@@ -7,8 +7,8 @@ ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: mopeakande
+author: msakande
 ms.custom: [references_regions]
 ---
 
@@ -440,7 +440,7 @@ Each time a project subscribes to a given offer from the Azure Marketplace, a ne
 
 :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
 
-Quota is managed per deployment. Each deployment has a rate limit of 20,000 tokens per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits don’t suffice your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 20,000 tokens per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits don't suffice your scenarios.
 
 ### Considerations for Llama 2 models deployed as real-time endpoints
 
