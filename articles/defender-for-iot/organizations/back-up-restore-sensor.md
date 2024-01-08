@@ -131,7 +131,6 @@ The following procedures describe how to restore your sensor using a backup file
     > Your backup file must be one that had been generated automatically or manually via the CLI. If you're using a backup file generated manually by the GUI, contact support to use it to restore your sensor.
 
 
-- Your backup file must be one that had been generated automatically or manually via the CLI. If you're using a backup file generated manually by the GUI, you'll need to contact support to use it to restore your sensor.
 
 1. Sign into the OT sensor GUI and select **System settings** > **Sensor management** > **Health and troubleshooting** > **Backup & restore** > **Restore**.
 
