@@ -31,4 +31,4 @@ ms.date: 01/03/2024
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-forty-two.md)
+> [Agentless secrets scanning for virtual machines](episode-forty-two.md)
