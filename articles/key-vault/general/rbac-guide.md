@@ -63,7 +63,7 @@ More about Azure Key Vault management guidelines, see:
 
 For more information about Azure built-in roles definitions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-### Managing built-in Key Vault data plane role assignments (preview)
+### Managing built-in Key Vault data plane role assignments
 
 | Built-in role | Description | ID |
 | --- | --- | --- |

@@ -1,7 +1,7 @@
 ---
 title:  Azure Connected Machine agent deployment options
 description: Learn about the different options to onboard machines to Azure Arc-enabled servers.
-ms.date: 05/04/2023
+ms.date: 01/03/2024
 ms.topic: how-to 
 ---
 
@@ -24,6 +24,8 @@ The following table highlights each method so that you can determine which works
 | At scale | [Connect machines with a Configuration Manager custom task sequence](onboard-configuration-manager-custom-task.md)
 | At scale | [Connect Windows machines using Group Policy](onboard-group-policy-powershell.md)
 | At scale | [Connect machines from Automation Update Management](onboard-update-management-machines.md) to create a service principal that installs and configures the agent for multiple machines managed with Azure Automation Update Management to connect machines non-interactively. |
+| At scale | [Connect your VMware vCenter server to Azure Arc by using the helper script](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md) if you're using VMware vCenter to manage your on-premises estate. |
+| At scale | [Connect your System Center Virtual Machine Manager management server to Azure Arc by using the helper script](../system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc.md) if you're using SCVMM to manage your on-premises estate. |
 
 > [!IMPORTANT]
 > The Connected Machine agent cannot be installed on an Azure virtual machine. The install script will warn you and roll back if it detects the server is running in Azure.
