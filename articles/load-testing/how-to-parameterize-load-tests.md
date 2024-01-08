@@ -38,6 +38,9 @@ To use secrets with Azure Load Testing, you perform the following steps:
 1. Pass a reference to the secret into the Apache JMeter test script.
 1. Use the secret value in the Apache JMeter test script by using the `GetSecret` custom function.
 
+> [!IMPORTANT]
+> You can only use the `GetSecret` custom function when you run your JMeter test script with Azure Load Testing. If you run your test script locally, you need to update your test script and read secret values in a different way.
+
 ### <a name="akv_secrets"></a> Use Azure Key Vault to store load test secrets
 
 You can use Azure Key Vault to pass secret values to your test script in Azure Load Testing. You add a reference to the secret in the Azure Load Testing configuration. Azure Load Testing then uses this reference to retrieve the secret value in the Apache JMeter script.

@@ -93,6 +93,8 @@ When you configure dev boxes to use [Microsoft Entra join](/azure/active-directo
 - The domain join mechanism for the dev boxes.
 - User authentication for RDP connections.
 
+[!INCLUDE [supported accounts note](includes/note-supported-accounts.md)]
+
 ### User connectivity
 
 When a dev box is running, developers can connect to the dev box by using a Remote Desktop client or directly from within the browser.
@@ -108,7 +110,7 @@ There's no requirement to configure your dev boxes to make these connections. Mi
 
 For more information on the network architecture of Azure Virtual Desktop, see [Understanding Azure Virtual Desktop network connectivity](/en-us/azure/virtual-desktop/network-connectivity).
 
-Microft Dev Box doesn't support third-party connection brokers.
+Microsoft Dev Box doesn't support third-party connection brokers.
 
 ## Related content
 

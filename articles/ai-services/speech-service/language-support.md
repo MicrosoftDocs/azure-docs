@@ -55,6 +55,12 @@ Additional remarks for text to speech locales are included in the [voice styles 
 
 [!INCLUDE [Language support include](includes/language-support/tts.md)]
 
+### Multilingual voices
+
+Multilingual voices can support more languages. This expansion enhances your ability to express content in various languages, to overcome language barriers and foster a more inclusive global communication environment. Use this table to understand all supported speaking languages for each multilingual neural voice. If the voice doesn’t speak the language of the input text, the Speech service doesn’t output synthesized audio. The table is sorted by the number of supported languages in descending order. The primary locale for each voice is indicated by the prefix in its name, such as the voice `en-US-AndrewMultilingualNeural`, its primary locale is `en-US`.
+
+[!INCLUDE [Language support include](includes/language-support/multilingual-voices.md)]
+
 ### Voice styles and roles
 
 In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. All prebuilt voices with speaking styles and multi-style custom voices support style degree adjustment. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
