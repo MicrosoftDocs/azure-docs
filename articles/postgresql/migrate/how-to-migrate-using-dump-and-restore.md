@@ -15,7 +15,8 @@ ms.date: 01/04/2024
 
 You can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) to extract a PostgreSQL database into a dump file. The method to restore the database depends on the format of the dump you choose. If your dump is taken with the plain format (which is the default `-Fp`, so no specific option needs to be specified), then the only option to restore it is by using [psql](https://www.postgresql.org/docs/current/app-psql.html), as it outputs a plain text file. For the other three dump methods: custom, directory, and tar, [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) should be used.
 
-> [!IMPORTANT] The instructions and commands provided in this article are designed to be executed in bash terminals. This includes environments such as Windows Subsystem for Linux (WSL), Azure Cloud Shell, and other bash-compatible interfaces. Please ensure you are using a bash terminal to follow the steps and execute the commands detailed in this guide. Using a different type of terminal or shell environment may result in differences in command behavior and may not produce the intended outcomes.
+> [!IMPORTANT] 
+> The instructions and commands provided in this article are designed to be executed in bash terminals. This includes environments such as Windows Subsystem for Linux (WSL), Azure Cloud Shell, and other bash-compatible interfaces. Please ensure you are using a bash terminal to follow the steps and execute the commands detailed in this guide. Using a different type of terminal or shell environment may result in differences in command behavior and may not produce the intended outcomes.
 
 
 In this article, we will focus on the plain (default) and directory formats. The directory format is particularly useful as it allows you to use multiple cores for processing, which can significantly enhance efficiency, especially for large databases.
@@ -73,7 +74,6 @@ If you're using a Single Server, your username includes the server name componen
 ### Dumping Roles from a Flexible Server
 In a Flexible Server environment, enhanced security measures mean users don't have access to the pg_authid table, which is where role passwords are stored. This restriction affects how you perform a roles dump, as the standard `pg_dumpall -r` command will attempt to access this table for passwords and fail due to lack of permission.
 
-#### Importance of --no-role-passwords
 When dumping roles from a Flexible Server, it's crucial to include the `--no-role-passwords` option in your `pg_dumpall` command. This option prevents `pg_dumpall` from attempting to access the `pg_authid` table, which it cannot read due to security restrictions.
 
 To successfully dump roles from a Flexible Server, use the following command:
@@ -156,7 +156,8 @@ psql -f roles.sql -h mydemoserver.postgres.database.azure.com -U myuser
 
 If you're using a Single Server, your username includes the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
 
-> [!NOTE]  If you already have users with the same names on your Single Server or on-premises server from which you are migrating, and your target server, be aware that this restoration process might change the passwords for these roles. Consequently, any subsequent commands you need to execute may require the updated passwords. This does not apply if your source server is a Flexible Server, as Flexible Server does not allow dumping passwords for users due to enhanced security measures.
+> [!NOTE]  
+> If you already have users with the same names on your Single Server or on-premises server from which you are migrating, and your target server, be aware that this restoration process might change the passwords for these roles. Consequently, any subsequent commands you need to execute may require the updated passwords. This does not apply if your source server is a Flexible Server, as Flexible Server does not allow dumping passwords for users due to enhanced security measures.
 
 
 ### Create a new database
