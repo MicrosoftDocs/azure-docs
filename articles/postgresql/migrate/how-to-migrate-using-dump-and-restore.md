@@ -1,6 +1,6 @@
 ---
-title: Dump and restore - Azure Database for PostgreSQL - Single Server
-description: You can extract a PostgreSQL database into a dump file. Then, you can restore from a file created by pg_dump in Azure Database for PostgreSQL Single Server.
+title: Dump and restore - Azure Database for PostgreSQL - Flexible Server
+description: You can extract a PostgreSQL database into a dump file. Then, you can restore from a file created by pg_dump in Azure Database for PostgreSQL Single Server or Flexible Server.
 ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
@@ -14,6 +14,9 @@ ms.date: 01/04/2024
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
 You can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) to extract a PostgreSQL database into a dump file. The method to restore the database depends on the format of the dump you choose. If your dump is taken with the plain format (which is the default `-Fp`, so no specific option needs to be specified), then the only option to restore it is by using [psql](https://www.postgresql.org/docs/current/app-psql.html), as it outputs a plain text file. For the other three dump methods: custom, directory, and tar, [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) should be used.
+
+> [!IMPORTANT] The instructions and commands provided in this article are designed to be executed in bash terminals. This includes environments such as Windows Subsystem for Linux (WSL), Azure Cloud Shell, and other bash-compatible interfaces. Please ensure you are using a bash terminal to follow the steps and execute the commands detailed in this guide. Using a different type of terminal or shell environment may result in differences in command behavior and may not produce the intended outcomes.
+
 
 In this article, we will focus on the plain (default) and directory formats. The directory format is particularly useful as it allows you to use multiple cores for processing, which can significantly enhance efficiency, especially for large databases.
 
@@ -33,7 +36,7 @@ The Azure portal streamlines this process via the Connect blade by offering prec
 
    :::image type="content" source="./media/how-to-migrate-using-dump-and-restore/different-dump-methods.png" alt-text="Screenshot showing two possible dump methods." lightbox="./media/how-to-migrate-using-dump-and-restore/different-dump-methods.png":::
 
-4. **Copy and paste commands**: The portal provides you with ready-to-use `pg_dump` and `psql` or `pg_restore` commands. These commands come with values already substituted according to the server and database you've chosen. Copy and paste these commands.
+4. **Copy and paste commands**: The portal provides you with ready to use `pg_dump` and `psql` or `pg_restore` commands. These commands come with values already substituted according to the server and database you've chosen. Copy and paste these commands.
 
 ## Prerequisites
 If you're using a Single Server, or don't have access to the Flexible Server portal, read through this documentation page. It contains information that is similar to what is presented in the Connect blade for Flexible Server on the portal. 
@@ -86,7 +89,7 @@ pg_dumpall -r --no-role-passwords -h mydemoserver.postgres.database.azure.com -U
 ```
 
 ### Cleaning up the roles dump
-When migrating from a Single Server, the output file `roles.sql` might include certain roles and attributes that are not applicable or permissible in the new environment. Here's what you need to consider:
+When migrating the output file `roles.sql` might include certain roles and attributes that are not applicable or permissible in the new environment. Here's what you need to consider:
 
 1. **Removing attributes that can be set only by superusers**: If migrating to an environment where you don't have superuser privileges, remove attributes like `NOSUPERUSER` and `NOBYPASSRLS` from the roles dump.
 
@@ -122,6 +125,7 @@ pg_dump -Fd -j <number of cores> <database name> -h <server name> -U <user name>
 In these commands, the `-j` option stands for the number of cores you wish to use for the dump process. You can adjust this number based on how many cores are available on your PostgreSQL server and how many you would like to allocate for the dump process. Feel free to change this setting depending on your server's capacity and your performance requirements.
 
 For example, if you have a server named `mydemoserver`, a user named `myuser` and a database called `testdb`, and you want to use two cores for the dump, run the following command:
+
 ```bash
 pg_dump -Fd -j 2 testdb -h mydemoserver.postgres.database.azure.com -U myuser -f testdb.dump
 ```
@@ -132,6 +136,29 @@ If you're using a Single Server, your username includes the server name componen
 
 
 ## Restore the data into the target database
+
+### Restore roles and users
+Before restoring your database objects, make sure you have properly dumped and cleaned up the roles. If you are migrating within databases on the same server, both dumping the roles and restoring them may not be necessary. However, for migrations across different servers or environments, this step is crucial.
+
+To restore the roles and users into the target database, use the following command:
+
+```bash
+psql -f roles.sql -h <server_name> -U <user_name>
+```
+
+Replace `<server_name>` with the name of your target server and `<user_name>` with your username. This command uses the `psql` utility to execute the SQL commands contained in the `roles.sql` file, effectively restoring the roles and users to your target database.
+
+For example, if you have a server named `mydemoserver`, a user named `myuser`, run the following command:
+
+```bash
+psql -f roles.sql -h mydemoserver.postgres.database.azure.com -U myuser
+```
+
+If you're using a Single Server, your username includes the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
+
+> [!NOTE]  If you already have users with the same names on your Single Server or on-premises server from which you are migrating, and your target server, be aware that this restoration process might change the passwords for these roles. Consequently, any subsequent commands you need to execute may require the updated passwords. This does not apply if your source server is a Flexible Server, as Flexible Server does not allow dumping passwords for users due to enhanced security measures.
+
+
 ### Create a new database
 Before restoring your database, you might need to create a new, empty database. Here are two commonly used methods:
 
@@ -182,8 +209,6 @@ pg_restore -Fd -j 2 testdb_copy -h mydemoserver.postgres.database.azure.com -U m
 ## Post-Restoration Check
 After the restoration process is complete, it's important to review the `errors.log` file for any errors that may have occurred. This step is crucial for ensuring the integrity and completeness of the restored data. Address any issues found in the log file to maintain the reliability of your database.
 
-
-Including the `--no-owner` parameter causes all objects created during the restore to be owned by the user specified with `--username`. For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
 
 ## Optimize the migration process

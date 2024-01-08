@@ -29,9 +29,6 @@
       - name: Migrate data with pg_dump and pg_restore
         href: migrate/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
-      - name: Migrate data with pg_dump and psql
-        href: migrate/how-to-migrate-using-export-and-import.md
-        displayName: import , export
       - name: Minimal-downtime migration with DMS
         href: single-server/how-to-migrate-online.md
         displayName: dms, data migration service
