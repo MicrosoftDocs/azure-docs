@@ -125,7 +125,7 @@ Draining nodes causes the pods running on them to be evicted and recreated on th
 
 ### Remove the existing nodes
 
-* Remove the existing nodes using the `az aks delete` command. The final result is the AKS cluster having a single Azure Linux node pool with the desired SKU size and all the applications and pods properly running.
+* Remove the existing nodes using the `az aks nodepool delete` command. The final result is the AKS cluster having a single Azure Linux node pool with the desired SKU size and all the applications and pods properly running.
 
     ```azurecli-interactive
     az aks nodepool delete \
@@ -159,7 +159,45 @@ There are several settings that can block the OS SKU migration request. To ensur
 4. Ensure that your pods have enough [Pod Disruption Budget](../aks/operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets) to allow AKS to move pods between VMs during the upgrade.
 5. You need the latest version of Azure CLI. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-### Deploy a test cluster using example ARM templates
+### [Azure CLI](#tab/azure-cli)
+
+#### Install the `aks-preview` extension
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+1. Install the `aks-preview` extension using the `az extension add` command.
+
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
+
+2. Update the extension to make sure you have the latest version using the `az extension update` command.
+
+    ```azurecli-interactive
+    az extension update --name aks-preview
+    ```
+
+#### Deploy a test cluster
+
+1. Create a resource group for the test cluster using the `az group create` command.
+
+    ```azurecli-interactive
+    az group create --name testRG --location eastus
+    ```
+
+2. Create an AKS cluster with a single node pool using the `az aks create` command.
+
+    ```azurecli-interactive
+    az aks create --resource-group myResourceGroup --name myAKSCluster --noepool-name mynodepool --os-sku Ubuntu
+    ```
+
+3. Migrate the OS SKU of your node pool to Azure Linux using the `az aks nodepool update` command.
+
+    ```azurecli-interactive
+    az aks nodepool update --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --os-sku AzureLinux
+    ```
+
+### [ARM template](#tab/arm-template)
 
 #### Example ARM templates
 
@@ -283,11 +321,13 @@ There are several settings that can block the OS SKU migration request. To ensur
     az deployment group create --resource-group testRG --template-file 2apupdate.json
     ```
 
+---
+
 ### Verify the OS SKU migration
 
 Once the migration is complete on your test clusters, you should verify the following to ensure a successful migration:
 
-* If your migration target is Azure Linux, run the `kubectl get nodes- o wide` command. The output should show "CBL-Mariner/Linux" are your OS image and ".cm2" at the end of your kernel version.
+* If your migration target is Azure Linux, run the `kubectl get nodes -o wide` command. The output should show "CBL-Mariner/Linux" are your OS image and ".cm2" at the end of your kernel version.
 * Verify that all of your pods and daemonsets are running on the new node pool using the `kubectl get pods -o wide -A` command.
 * Verify that all of the node labels in your upgraded node pool are what you expect using the `kubectl get nodes --show-labels` command.
 
