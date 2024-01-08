@@ -91,9 +91,9 @@ pg_dumpall -r --no-role-passwords -h mydemoserver.postgres.database.azure.com -U
 ### Cleaning up the roles dump
 When migrating the output file `roles.sql` might include certain roles and attributes that aren't applicable or permissible in the new environment. Here's what you need to consider:
 
-1. **Removing attributes that can be set only by superusers**: If migrating to an environment where you don't have superuser privileges, remove attributes like `NOSUPERUSER` and `NOBYPASSRLS` from the roles dump.
+- **Removing attributes that can be set only by superusers**: If migrating to an environment where you don't have superuser privileges, remove attributes like `NOSUPERUSER` and `NOBYPASSRLS` from the roles dump.
 
-2. **Excluding service-specific users**: Exclude Single Server service users, such as `azure_superuser` or `azure_pg_admin`. These are specific to the service and will be created automatically in the new environment.
+- **Excluding service-specific users**: Exclude Single Server service users, such as `azure_superuser` or `azure_pg_admin`. These are specific to the service and will be created automatically in the new environment.
 
 Use the following `sed` command to clean up your roles dump:
 
@@ -175,7 +175,7 @@ Before restoring your database, you might need to create a new, empty database. 
    createdb testdb_copy -h mydemoserver.postgres.database.azure.com -U myuser
    ```
 
-If you're using a Single Server, your username includes the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
+   If you're using a Single Server, your username includes the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
 
 2. **Using SQL command**
 To create a database using an SQL command, you'll need to connect to your PostgreSQL server via a command line interface or a database management tool. Once connected, you can use the following SQL command to create a new database:
@@ -216,12 +216,12 @@ In these commands, the `-j` option stands for the number of cores you wish to us
 For example, if you have a server named `mydemoserver`, a user named `myuser` and a new database called `testdb_copy`, and you want to use two cores for the dump, run the following command:
 
 ```bash
-pg_restore -Fd -j 2 -d testdb_copy -h mydemoserver.postgres.database.azure.com -U myuser testdb.dump
+pg_restore -Fd -j 2 -d testdb_copy testdb.dump -h mydemoserver.postgres.database.azure.com -U myuser 2> errors.log
 ```
 
 ---
 
-## Post-Restoration Check
+## Post-restoration check
 After the restoration process is complete, it's important to review the `errors.log` file for any errors that may have occurred. This step is crucial for ensuring the integrity and completeness of the restored data. Address any issues found in the log file to maintain the reliability of your database.
 
 

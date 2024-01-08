@@ -38,7 +38,7 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 ### Considerations
 
-Read replicas are primarily designed for scenarios where offloading queries is beneficial, and a slight lag is manageable. They are optimized to provide near realtime updates from the primary for most workloads, making them an excellent solution for read-heavy scenarios. However, it's important to note that they are not intended for synchronous replication scenarios requiring up-to-the-minute data accuracy. While the data on the replica eventually becomes consistent with the primary, there may be a delay, which typically ranges from a few seconds to minutes, and in some heavy workload or high-latency scenarios, this could extend to hours. Typically, read replicas in the same region as the primary has less lag than geo-replicas, as the latter often deals with geographical distance-induced latency. For more insights into the performance implications of geo-replication, refer to [Geo-replication](#geo-replication) section. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay.
+Read replicas are primarily designed for scenarios where offloading queries is beneficial, and a slight lag is manageable. They are optimized to provide near real time updates from the primary for most workloads, making them an excellent solution for read-heavy scenarios. However, it's important to note that they are not intended for synchronous replication scenarios requiring up-to-the-minute data accuracy. While the data on the replica eventually becomes consistent with the primary, there may be a delay, which typically ranges from a few seconds to minutes, and in some heavy workload or high-latency scenarios, this could extend to hours. Typically, read replicas in the same region as the primary has less lag than geo-replicas, as the latter often deals with geographical distance-induced latency. For more insights into the performance implications of geo-replication, refer to [Geo-replication](#geo-replication) section. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay.
 
 > [!NOTE]  
 > For most workloads, read replicas offer near-real-time updates from the primary. However, with persistent heavy write-intensive primary workloads, the replication lag could continue to grow and might only be able to catch up with the primary. This might also increase storage usage at the primary as the WAL files are only deleted once received at the replica. If this situation persists, deleting and recreating the read replica after the write-intensive workloads are completed, you can bring the replica back to a good state for lag.
@@ -48,14 +48,14 @@ Read replicas are primarily designed for scenarios where offloading queries is b
 
 A read replica can be created in the same region as the primary server and in a different one. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can also have replicas in any global region of Azure that supports Azure Database for PostgreSQL. Additionally, we support special regions [Azure Government](../../azure-government/documentation-government-welcome.md) and [Azure in China](https://learn.microsoft.com/azure/china/overview-operations). The special regions now supported are:
+You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can also have replicas in any global region of Azure that supports Azure Database for PostgreSQL. Additionally, we support special regions [Azure Government](../../azure-government/documentation-government-welcome.md) and [Microsoft Azure operated by 21Vianet](https://learn.microsoft.com/azure/china/overview-operations). The special regions now supported are:
 
 - **Azure Government regions**:
   - US Gov Arizona
   - US Gov Texas
   - US Gov Virginia
 
-- **Azure in China regions**:
+- **Microsoft Azure operated by 21Vianet regions**:
   - China North 3
   - China East 3
 
