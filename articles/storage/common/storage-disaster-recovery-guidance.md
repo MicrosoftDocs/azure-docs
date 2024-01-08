@@ -208,7 +208,7 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 > - (Asia Pacific) South East Asia
 > - (Europe) Switzerland North
 > - (Europe) Switzerland West
-> - (Europe) East Europe
+> - (Europe) North Europe
 > - (Europe) West Europe
 > - (North America) Canada Central
 > - (North America) East US 2
