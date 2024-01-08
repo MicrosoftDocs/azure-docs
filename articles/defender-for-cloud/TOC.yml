@@ -517,9 +517,6 @@
               displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability
                 management
               href: deploy-vulnerability-assessment-defender-vulnerability-management.md
-            - name: Enable vulnerability scanning with the integrated Qualys scanner
-              displayName: qualys, va, vulnerability, arc, hybrid
-              href: deploy-vulnerability-assessment-vm.md
             - name: Enable vulnerability scanning with a Bring Your Own License (BYOL)
                 solution
               displayName: qualys, rapid7, vulnerability
@@ -533,6 +530,9 @@
             - name: Common questions 
               displayName: questions, common, MDVM, Qualys, BYOL, bring your own license, agent, consolidated, vulnerability, management, faq, frequently asked questions
               href: faq-scanner-detection.yml
+            - name: Enable vulnerability scanning with the integrated Qualys scanner (deprecated)
+              displayName: qualys, va, vulnerability, arc, hybrid
+              href: deploy-vulnerability-assessment-vm.md
         - name: Enable just-in-time access on VMs
           displayName: jit, management, ports
           href: just-in-time-access-usage.md
