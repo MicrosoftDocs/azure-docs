@@ -18,7 +18,7 @@ ms.custom:
 This article covers the recommended approaches, guidelines and practices for relocating an Azure Virtual Network.
 
 
-## Prepare for relocation
+## Prerequisites
 
 Before you begin relocation, make sure that you include the following considerations and recommended guidance in your planning:
 
@@ -28,8 +28,10 @@ Before you begin relocation, make sure that you include the following considerat
 
 - **Collect/List all virtual network resources and configurations**, such as Associated DDoS plan, Azure Firewall, Private endpoint connections and Diagnostic setting configuration.
 
-- **To move Network Watcher NSG logs**, you'll need to make sure that you move the diagnostic storage account prior to relocation of the virtual network and the NSG flow log.
+- **To move Network Watcher NSG logs**, you'll need to make sure that you move the diagnostic storage account *prior* to relocation of the virtual network and the NSG flow log.
 
+> [!IMPORTANT]
+> Starting July 1, 2021, you won't be able to add new tests in an existing workspace or enable a new workspace with Network performance monitor. You can continue to use the tests created prior to July 1, 2021. To minimize service disruption to your current workloads, migrate your tests from Network performance monitor to the new Connection monitor in Azure Network Watcher before February 29, 2024.
 
 ## Disconnected and connected scenarios
 
@@ -163,9 +165,9 @@ DDoS Protection Plan doesn't have any client specific data and the instance itse
 
 As soon as the virtual network get deployed in a specific region,  Network Watcher is automatically enabled. However, you'll need to perform some configuration:
 
-- To get a centralized view of the Network Monitoring, you'll need to enable Network Performance Monitor (NPM). Also ensure that the workspace associated with NPM is in a supported region.
+- To get a centralized view of the Network Monitoring, you'll need to enable Network Performance Monitor (NPM). 
 
-- Recreate the NSG flow logs for the target virtual network. You must make sure that you move diagnostic storage account **prior** to virtual network relocation.
+- Recreate the NSG flow logs for the target virtual network.
 
 ## Relocation validation
 
