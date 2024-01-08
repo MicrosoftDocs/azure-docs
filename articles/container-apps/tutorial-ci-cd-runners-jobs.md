@@ -392,7 +392,7 @@ You can now create a job that uses to use the container image. In this section, 
     az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
         --trigger-type Event \
         --replica-timeout 1800 \
-        --replica-retry-limit 1 \
+        --replica-retry-limit 0 \
         --replica-completion-count 1 \
         --parallelism 1 \
         --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
@@ -711,7 +711,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
         az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
         --trigger-type Manual `
         --replica-timeout 300 `
-        --replica-retry-limit 1 `
+        --replica-retry-limit 0 `
         --replica-completion-count 1 `
         --parallelism 1 `
         --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" `
@@ -803,7 +803,7 @@ Now that you have a placeholder agent, you can create a self-hosted agent. In th
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
     --trigger-type Event \
     --replica-timeout 1800 \
-    --replica-retry-limit 1 \
+    --replica-retry-limit 0 \
     --replica-completion-count 1 \
     --parallelism 1 \
     --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
@@ -826,7 +826,7 @@ az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$E
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
     --trigger-type Event `
     --replica-timeout 1800 `
-    --replica-retry-limit 1 `
+    --replica-retry-limit 0 `
     --replica-completion-count 1 `
     --parallelism 1 `
     --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" `
