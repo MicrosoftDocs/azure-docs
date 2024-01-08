@@ -53,9 +53,11 @@ Standard storage with cool access is supported for the following regions:
 * France Central
 * North Central US 
 * North Europe  
+* Southeast Asia
 * Switzerland North 
 * Switzerland West 
 * UAE North 
+* West US
 
 ## Effects of cool access on data
 
