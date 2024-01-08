@@ -117,6 +117,8 @@
       href: migrate-azure-monitor-agent-ansible.md
     - name: Deploy and configure Azure Monitor Agent using Azure Policy
       href: deploy-ama-policy.md
+    - name: Remotely configure servers using Run command
+      href: run-command.md
     - name: Organize and inventory servers
       href: organize-inventory-servers.md
     - name: Onboard to Microsoft Defender for Cloud
@@ -135,6 +137,8 @@
       href: prepare-extended-security-updates.md
     - name: License provisioning for Extended Security Updates
       href: license-extended-security-updates.md
+    - name: Billing service for Extended Security Updates
+      href: billing-extended-security-updates.md
     - name: Deliver Extended Security Updates
       href: deliver-extended-security-updates.md
     - name: Programmatically manage Extended Security Updates licenses
@@ -199,7 +203,7 @@
 - name: Resources
   items:
   - name: Azure Arc Jumpstart
-    href: https://azurearcjumpstart.io
+    href: https://aka.ms/AzureArcJumpstart
   - name: Microsoft Q&A for Azure Arc
     href: /answers/tags/146/azure-arc
   - name: Azure updates

@@ -4,13 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Learn how to train models with Azure Machine Learning. Explore the different training methods and choose the right one for your project.
 services: machine-learning
 ms.service: machine-learning
-author: manashgoswami 
+author: manashgoswami
 ms.author: magoswam
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 ms.subservice: training
 ms.topic: conceptual
 ms.date: 06/7/2023
-ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022, ignite-2022, build-2023
+ms.custom:
+  - devx-track-python
+  - devx-track-azurecli
+  - event-tier1-build-2022
+  - ignite-2022
+  - build-2023
+  - ignite-2023
 ms.devlang: azurecli
 ---
 
@@ -79,7 +85,7 @@ The Azure training lifecycle consists of:
     > [!TIP]
     > [!INCLUDE [amlinclude-info](includes/machine-learning-amlignore-gitignore.md)]
 
-1. Scaling up your compute cluster (or [serverless compute](./how-to-use-serverless-compute.md) (preview))
+1. Scaling up your compute cluster (or [serverless compute](./how-to-use-serverless-compute.md)
 1. Building or downloading the dockerfile to the compute node 
     1. The system calculates a hash of: 
         - The base image 

@@ -1,18 +1,20 @@
 ---
 title: Demo sites for search features
-titleSuffix: Azure Cognitive Search
-description: This page provides links to demo sites that are built on Azure Cognitive Search. Try a web app to see how search performs.
+titleSuffix: Azure AI Search
+description: This page provides links to demo sites that are built on Azure AI Search. Try a web app to see how search performs.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/18/2023
 ---
 
-# Demos - Azure Cognitive Search
+# Demos - Azure AI Search
 
-Demos are hosted apps that showcase search and AI enrichment functionality in Azure Cognitive Search. Several of these demos include source code on GitHub so that you can see how they were made.
+Demos are hosted apps that showcase search and AI enrichment functionality in Azure AI Search. Several of these demos include source code on GitHub so that you can see how they were made.
 
 Microsoft built and hosts the following demos.
 

@@ -17,8 +17,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Scheduling a job
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 In the context of a call center, customers may want to receive a scheduled callback at a later time. As such, you need to create a scheduled job in Job Router.
 
 ## Prerequisites
@@ -39,8 +37,7 @@ In the following example, a job is created that is scheduled 3 minutes from now 
 ```csharp
 await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "Voice", queueId: "Callback")
 {
-    MatchingMode = new JobMatchingMode(
-        new ScheduleAndSuspendMode(scheduleAt: DateTimeOffset.UtcNow.Add(TimeSpan.FromMinutes(3))))
+    MatchingMode = new ScheduleAndSuspendMode(scheduleAt: DateTimeOffset.UtcNow.Add(TimeSpan.FromMinutes(3)))
 });
 ```
 
@@ -49,14 +46,16 @@ await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "Voic
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.createJob("job1", {
-    channelId: "Voice",
-    queueId: "Callback",
-    matchingMode: {
-        scheduleAndSuspendMode: {
+await client.path("/routing/jobs/{jobId}", "job1").patch({
+    body: {
+        channelId: "Voice",
+        queueId: "Callback",
+        matchingMode: {
+            kind: "scheduleAndSuspend",
             scheduleAt: new Date(Date.now() + 3 * 60000)
         }
-    }
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -65,11 +64,11 @@ await client.createJob("job1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-client.create_job(job_id = "job1", router_job = RouterJob(
+client.upsert_job(
+    job_id = "job1",
     channel_id = "Voice",
     queue_id = "Callback",
-    matching_mode = JobMatchingMode(
-        schedule_and_suspend_mode = ScheduleAndSuspendMode(scheduled_at = datetime.utcnow() + timedelta(minutes = 3)))))
+    matching_mode = ScheduleAndSuspendMode(schedule_at = datetime.utcnow() + timedelta(minutes = 3)))
 ```
 
 ::: zone-end
@@ -78,7 +77,7 @@ client.create_job(job_id = "job1", router_job = RouterJob(
 
 ```java
 client.createJob(new CreateJobOptions("job1", "Voice", "Callback")
-    .setMatchingMode(new JobMatchingMode(new ScheduleAndSuspendMode(OffsetDateTime.now().plusMinutes(3)))));
+    .setMatchingMode(new ScheduleAndSuspendMode(OffsetDateTime.now().plusMinutes(3))));
 ```
 
 ::: zone-end
@@ -98,9 +97,9 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 {
     // Perform required actions here
 
-    await client.UpdateJobAsync(new UpdateJobOptions(jobId: eventGridEvent.Data.JobId)
+    await client.UpdateJobAsync(new RouterJob(jobId: eventGridEvent.Data.JobId)
     {
-        MatchingMode = new JobMatchingMode(new QueueAndMatchMode()),
+        MatchingMode = new QueueAndMatchMode(),
         Priority = 100
     });
 }
@@ -116,9 +115,12 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 {
     // Perform required actions here
 
-    await client.updateJob(eventGridEvent.data.jobId, {
-        matchingMode: { queueAndMatchMode: {} },
-        priority: 100
+    await client.path("/routing/jobs/{jobId}", eventGridEvent.data.jobId).patch({
+      body: {
+          matchingMode: { kind: "queueAndMatch" },
+          priority: 100
+      },
+      contentType: "application/merge-patch+json"
     });
 }
 ```
@@ -133,8 +135,9 @@ if (eventGridEvent.event_type == "Microsoft.Communication.RouterJobWaitingForAct
 {
     # Perform required actions here
 
-    client.update_job(job_id = eventGridEvent.data.job_id,
-        matching_mode = JobMatchingMode(queue_and_match_mode = {}),
+    client.upsert_job(
+        job_id = eventGridEvent.data.job_id,
+        matching_mode = queue_and_match_mode = {},
         priority = 100)
 }
 ```
@@ -149,8 +152,8 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 {
     // Perform required actions here
 
-    client.updateJob(new UpdateJobOptions(eventGridEvent.Data.JobId)
-        .setMatchingMode(new JobMatchingMode(new QueueAndMatchMode()))
+    client.updateJob(new RouterJob(eventGridEvent.Data.JobId)
+        .setMatchingMode(new QueueAndMatchMode())
         .setPriority(100));
 }
 ```

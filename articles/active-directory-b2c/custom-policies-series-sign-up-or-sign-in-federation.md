@@ -2,15 +2,15 @@
 title: Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to configure a sign-up and sign-in flow for a social account, Facebook, by using Azure Active Directory B2C custom policy.  
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -219,7 +219,7 @@ Notice the claims transformations we defined in [step 3.2](#step-32---define-cla
 
 ### Step 3.4 - Create Microsoft Entra technical profiles
 
-Just like in sign-in with a local account, you need to configure the [Microsoft Entra Technical Profiles](active-directory-technical-profile.md), which you use to connect to Microsoft Entra storage, to store or read a user social account. 
+Just like in sign-in with a local account, you need to configure the [Microsoft Entra Technical Profiles](active-directory-technical-profile.md), which you use to connect to Microsoft Entra ID storage, to store or read a user social account. 
 
 1. In the `ContosoCustomPolicy.XML` file, locate the `AAD-UserUpdate` technical profile and then add a new technical profile by using the following code: 
 
@@ -442,7 +442,7 @@ When the custom policy runs:
 
 - **Orchestration Step 2** - The `Facebook-OAUTH` technical profile executes, so the user is redirected to Facebook to sign in. 
 
-- **Orchestration Step 3** - In step 3, the `AAD-UserReadUsingAlternativeSecurityId` technical profile executes to try to read the user social account from Microsoft Entra storage. If the social account is found, `objectId` is returned as an output claim.    
+- **Orchestration Step 3** - In step 3, the `AAD-UserReadUsingAlternativeSecurityId` technical profile executes to try to read the user social account from Microsoft Entra ID storage. If the social account is found, `objectId` is returned as an output claim.    
 
 - **Orchestration Step 4** - This step runs if the user doesn't already exist (`objectId` doesn't exist). It shows the form that collects more information from the user or updates similar information obtained from the social account.
 

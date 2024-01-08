@@ -1,11 +1,13 @@
 ---
 title: Text normalization for filters, facets, sort
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Specify normalizers to text fields in an index to customize the strict keyword matching behavior in filtering, faceting and sorting.
 author: HeidiSteen
 manager: jlembicz
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/14/2022
 ---
@@ -15,7 +17,7 @@ ms.date: 07/14/2022
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-In Azure Cognitive Search, a *normalizer* is a component that pre-processes text for keyword matching over fields marked as "filterable", "facetable", or "sortable". In contrast with full text "searchable" fields that are paired with [text analyzers](search-analyzers.md), content that's created for filter-facet-sort operations doesn't undergo analysis or tokenization. Omission of text analysis can produce unexpected results when casing and character differences show up.
+In Azure AI Search, a *normalizer* is a component that pre-processes text for keyword matching over fields marked as "filterable", "facetable", or "sortable". In contrast with full text "searchable" fields that are paired with [text analyzers](search-analyzers.md), content that's created for filter-facet-sort operations doesn't undergo analysis or tokenization. Omission of text analysis can produce unexpected results when casing and character differences show up.
 
 By applying a normalizer, you can achieve light text transformations that improve results:
 
@@ -81,7 +83,7 @@ A good workaround for production indexes, where rebuilding indexes is costly, is
 
 ## Predefined and custom normalizers 
 
-Azure Cognitive Search provides built-in normalizers for common use-cases along with the capability to customize as required.
+Azure AI Search provides built-in normalizers for common use-cases along with the capability to customize as required.
 
 | Category | Description |
 |----------|-------------|
@@ -236,7 +238,7 @@ The example below illustrates a custom normalizer definition with corresponding 
 
 ## See also
 
-+ [Querying concepts in Azure Cognitive Search](search-query-overview.md)
++ [Querying concepts in Azure AI Search](search-query-overview.md)
 
 + [Analyzers for linguistic and text processing](search-analyzers.md)
 

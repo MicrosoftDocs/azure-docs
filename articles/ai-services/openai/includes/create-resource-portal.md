@@ -2,7 +2,7 @@
 title: 'Create and manage Azure OpenAI Service deployments in the Azure portal'
 titleSuffix: Azure OpenAI
 description: Learn how to use the Azure portal to create an Azure OpenAI resource and manage deployments with the Azure OpenAI Service.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
@@ -27,7 +27,7 @@ The following steps show how to create an Azure OpenAI resource in the Azure por
 
 1. Sign in with your Azure subscription in the Azure portal.
 
-1. Select **Create a resource** and search for the **Azure OpenAI Service**. When you locate the service, select **Create**.
+1. Select **Create a resource** and search for the **Azure OpenAI**. When you locate the service, select **Create**.
 
    :::image type="content" source="../media/create-resource/create-azure-openai-resource-portal.png" alt-text="Screenshot that shows how to create a new Azure OpenAI Service resource in the Azure portal.":::
 
@@ -39,7 +39,7 @@ The following steps show how to create an Azure OpenAI resource in the Azure por
    | **Resource group** | The Azure resource group to contain your Azure OpenAI resource. You can create a new group or use a pre-existing group. |
    | **Region** | The location of your instance. Different locations can introduce latency, but they don't affect the runtime availability of your resource. |
    | **Name** | A descriptive name for your Azure OpenAI Service resource, such as _MyOpenAIResource_. |
-   | **Pricing Tier** | The pricing tier for the resource. Currently, only the Standard tier is available for the Azure OpenAI Service. |
+   | **Pricing Tier** | The pricing tier for the resource. Currently, only the Standard tier is available for the Azure OpenAI Service. For more info on pricing visit the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
 
    :::image type="content" source="../media/create-resource/create-resource-basic-settings.png" alt-text="Screenshot that shows how to configure an Azure OpenAI resource in the Azure portal.":::
 

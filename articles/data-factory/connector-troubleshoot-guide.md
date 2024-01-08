@@ -255,7 +255,7 @@ The errors below are general to the copy activity and could occur with any conne
 
 - **Recommendation**: Remove the parameters in the referred linked service to eliminate the error. Otherwise, run the pipeline without testing connection or previewing data. 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

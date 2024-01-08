@@ -6,28 +6,147 @@ author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 11/09/2023
+ms.date: 12/04/2023
 manager: nitinme
 ---
 
 # How to use function calling with Azure OpenAI Service (Preview)
 
-The latest versions of gpt-35-turbo and gpt-4 have been fine-tuned to work with functions and are able to both determine when and how a function should be called. If one or more functions are included in your request, the model will then determine if any of the functions should be called based on the context of the prompt. When the model determines that a function should be called, it will then respond with a JSON object including the arguments for the function. 
+The latest versions of gpt-35-turbo and gpt-4 are fine-tuned to work with functions and are able to both determine when and how a function should be called. If one or more functions are included in your request, the model determines if any of the functions should be called based on the context of the prompt. When the model determines that a function should be called, it responds with a JSON object including the arguments for the function. 
 
-This provides a native way for these models to formulate API calls and structure data outputs, all based on the functions you specify. It's important to note that while the models can generate these calls, it's up to you to execute them, ensuring you remain in control.
+The models formulate API calls and structure data outputs, all based on the functions you specify. It's important to note that while the models can generate these calls, it's up to you to execute them, ensuring you remain in control.
 
 At a high level you can break down working with functions into three steps:
 1. Call the chat completions API with your functions and the user’s input
 2. Use the model’s response to call your API or function 
 3. Call the chat completions API again, including the response from your function to get a final response
 
-## Using function in the chat completions API
+> [!IMPORTANT]
+> The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the [`tools`](../reference.md#chat-completions) parameter. The replacement for `function_call` is the [`tool_choice`](../reference.md#chat-completions) parameter.
+
+## Parallel function calling
+
+Parallel function calls are supported with:
+
+### Supported models
+
+* `gpt-35-turbo` (1106)
+* `gpt-4` (1106-preview)
+
+### Supported API versions
+
+* [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+
+Parallel function calls allow you to perform multiple function calls together, allowing for parallel execution and retrieval of results. This reduces the number of calls to the API that need to be made and can improve overall performance.
+
+For example for a simple weather app you may want to retrieve the weather in multiple locations at the same time. This will result in a a chat completion message with three function calls in the `tool_calls` array, each with a unique `id`. If you wanted to respond to these function calls, you would add 3 new messages to the conversation, each containing the result of one function call, with a `tool_call_id` referencing the `id` from `tools_calls`.
+
+Below we provide a modified version of OpenAI's `get_current_weather` example. This example as with the original from OpenAI is to provide the basic structure, but is not a fully functioning standalone example. Attempting to execute this code without further modification would result in an error.
+
+In this example, a single function get_current_weather is defined. The model calls the function multiple times, and after sending the function response back to the model, it decides the next step. It responds with a user-facing message which was telling the user the temperature in San Francisco, Tokyo, and Paris. Depending on the query, it may choose to call a function again.
+
+To force the model to call a specific function set the `tool_choice` parameter with a specific function name. You can also force the model to generate a user-facing message by setting `tool_choice: "none"`.
+
+> [!NOTE]
+> The default behavior (`tool_choice: "auto"`) is for the model to decide on its own whether to call a function and if so which function to call.
+
+```python
+from openai import AzureOpenAI
+import json
+
+client = AzureOpenAI(
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
+  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_version="2023-12-01-preview"
+)
+
+from openai import OpenAI
+import json
+
+# Example function hard coded to return the same weather
+# In production, this could be your backend API or an external API
+def get_current_weather(location, unit="fahrenheit"):
+    """Get the current weather in a given location"""
+    if "tokyo" in location.lower():
+        return json.dumps({"location": "Tokyo", "temperature": "10", "unit": unit})
+    elif "san francisco" in location.lower():
+        return json.dumps({"location": "San Francisco", "temperature": "72", "unit": unit})
+    elif "paris" in location.lower():
+        return json.dumps({"location": "Paris", "temperature": "22", "unit": unit})
+    else:
+        return json.dumps({"location": location, "temperature": "unknown"})
+
+def run_conversation():
+    # Step 1: send the conversation and available functions to the model
+    messages = [{"role": "user", "content": "What's the weather like in San Francisco, Tokyo, and Paris?"}]
+    tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": "get_current_weather",
+                "description": "Get the current weather in a given location",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "location": {
+                            "type": "string",
+                            "description": "The city and state, e.g. San Francisco, CA",
+                        },
+                        "unit": {"type": "string", "enum": ["celsius", "fahrenheit"]},
+                    },
+                    "required": ["location"],
+                },
+            },
+        }
+    ]
+    response = client.chat.completions.create(
+        model="<REPLACE_WITH_YOUR_MODEL_DEPLOYMENT_NAME>",
+        messages=messages,
+        tools=tools,
+        tool_choice="auto",  # auto is default, but we'll be explicit
+    )
+    response_message = response.choices[0].message
+    tool_calls = response_message.tool_calls
+    # Step 2: check if the model wanted to call a function
+    if tool_calls:
+        # Step 3: call the function
+        # Note: the JSON response may not always be valid; be sure to handle errors
+        available_functions = {
+            "get_current_weather": get_current_weather,
+        }  # only one function in this example, but you can have multiple
+        messages.append(response_message)  # extend conversation with assistant's reply
+        # Step 4: send the info for each function call and function response to the model
+        for tool_call in tool_calls:
+            function_name = tool_call.function.name
+            function_to_call = available_functions[function_name]
+            function_args = json.loads(tool_call.function.arguments)
+            function_response = function_to_call(
+                location=function_args.get("location"),
+                unit=function_args.get("unit"),
+            )
+            messages.append(
+                {
+                    "tool_call_id": tool_call.id,
+                    "role": "tool",
+                    "name": function_name,
+                    "content": function_response,
+                }
+            )  # extend conversation with function response
+        second_response = client.chat.completions.create(
+            model="<REPLACE_WITH_YOUR_1106_MODEL_DEPLOYMENT_NAME>",
+            messages=messages,
+        )  # get a new response from the model where it can see the function response
+        return second_response
+print(run_conversation())
+```
+
+## Using function in the chat completions API (Deprecated)
 
 Function calling is available in the `2023-07-01-preview` API version and works with version 0613 of gpt-35-turbo, gpt-35-turbo-16k, gpt-4, and gpt-4-32k.
 
-To use function calling with the Chat Completions API, you need to include two new properties in your request: `functions` and `function_call`. You can include one or more `functions` in your request and you can learn more about how to define functions in the [defining functions](#defining-functions) section below. Keep in mind that functions are injected into the system message under the hood so functions count against your token usage.
+To use function calling with the Chat Completions API, you need to include two new properties in your request: `functions` and `function_call`. You can include one or more `functions` in your request and you can learn more about how to define functions in the [defining functions](#defining-functions) section. Keep in mind that functions are injected into the system message under the hood so functions count against your token usage.
 
-When functions are provided, by default the `function_call` will be set to `"auto"` and the model will decide whether or not a function should be called. Alternatively, you can set the `function_call` parameter to `{"name": "<insert-function-name>"}` to force the API to call a specific function or you can set the parameter to `"none"` to prevent the model from calling any functions.
+When functions are provided, by default the `function_call` is set to `"auto"` and the model decides whether or not a function should be called. Alternatively, you can set the `function_call` parameter to `{"name": "<insert-function-name>"}` to force the API to call a specific function or you can set the parameter to `"none"` to prevent the model from calling any functions.
 
 # [OpenAI Python 0.28.1](#tab/python)
 
@@ -80,8 +199,6 @@ response = openai.ChatCompletion.create(
 print(response['choices'][0]['message'])
 ```
 
-The response from the API includes a `function_call` property if the model determines that a function should be called. The `function_call` property includes the name of the function to call and the arguments to pass to the function. The arguments are a JSON string that you can parse and use to call your function.
-
 ```json
 {
   "role": "assistant",
@@ -91,8 +208,6 @@ The response from the API includes a `function_call` property if the model deter
   }
 }
 ```
-
-In some cases, the model may generate both `content` and a `function_call`. For example, for the prompt above the content could say something like "Sure, I can help you find some hotels in San Diego that match your criteria" along with the function_call.
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -145,8 +260,6 @@ response = client.chat.completions.create(
 print(response.choices[0].message.model_dump_json(indent=2))
 ```
 
-The response from the API includes a `function_call` property if the model determines that a function should be called. The `function_call` property includes the name of the function to call and the arguments to pass to the function. The arguments are a JSON string that you can parse and use to call your function.
-
 ```json
 {
   "content": null,
@@ -158,13 +271,82 @@ The response from the API includes a `function_call` property if the model deter
 }
 ```
 
-In some cases, the model may generate both `content` and a `function_call`. For example, for the prompt above the content could say something like "Sure, I can help you find some hotels in San Diego that match your criteria" along with the function_call.
+# [PowerShell](#tab/powershell)
+
+```powershell-interactive
+$openai = @{
+    api_key     = $Env:AZURE_OPENAI_KEY
+    api_base    = $Env:AZURE_OPENAI_ENDPOINT # should look like https:/YOUR_RESOURCE_NAME.openai.azure.com/
+    api_version = '2023-10-01-preview' # may change in the future
+    name        = 'YOUR-DEPLOYMENT-NAME-HERE' # the custom name you chose for your deployment
+}
+
+$headers = [ordered]@{
+   'api-key' = $openai.api_key
+}
+
+$messages   = @()
+$messages  += [ordered]@{
+    role    = 'user'
+    content = 'Find beachfront hotels in San Diego for less than $300 a month with free breakfast.'
+}
+
+$functions  = @()
+$functions += [ordered]@{
+    name        = 'search_hotels'
+    description = 'Retrieves hotels from the search index based on the parameters provided'
+    parameters  = @{
+        type = 'object'
+        properties = @{
+            location = @{
+                type = 'string'
+                description = 'The location of the hotel (i.e. Seattle, WA)'
+            }
+            max_price = @{
+                type = 'number'
+                description = 'The maximum price for the hotel'
+            }
+            features = @{
+                type = 'string'
+                description = 'A comma separated list of features (i.e. beachfront, free wifi, etc.)'
+            }
+        }
+        required = @('location')
+    }
+}
+
+# these API arguments are introduced in model version 0613
+$body = [ordered]@{
+    messages      = $messages
+    functions         = $functions
+    function_call   = 'auto'
+} | ConvertTo-Json -depth 6
+
+$url = "$($openai.api_base)/openai/deployments/$($openai.name)/chat/completions?api-version=$($openai.api_version)"
+
+$response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'
+$response.choices[0].message | ConvertTo-Json
+```
+
+```json
+{
+  "role": "assistant",
+  "function_call": {
+    "name": "search_hotels",
+    "arguments": "{\n  \"max_price\": 300,\n  \"features\": \"beachfront, free breakfast\",\n  \"location\": \"San Diego\"\n}"
+  }
+}
+```
 
 ---
 
+The response from the API includes a `function_call` property if the model determines that a function should be called. The `function_call` property includes the name of the function to call and the arguments to pass to the function. The arguments are a JSON string that you can parse and use to call your function.
+
+In some cases, the model generates both `content` and a `function_call`. For example, for the prompt above the content could say something like "Sure, I can help you find some hotels in San Diego that match your criteria" along with the function_call.
+
 ## Working with function calling
 
-The following section goes into additional detail on how to effectively use functions with the Chat Completions API.
+The following section goes into more detail on how to effectively use functions with the Chat Completions API.
 
 ### Defining functions
 
@@ -175,6 +357,8 @@ A function has three main parameters: `name`, `description`, and `parameters`. T
 If you want to describe a function that doesn't accept any parameters, use `{"type": "object", "properties": {}}` as the value for the `parameters` property.
 
 ### Managing the flow with functions
+
+Example in Python.
 
 ```python
 
@@ -230,13 +414,67 @@ else:
     print(response["choices"][0]["message"])
 ```
 
-In the example above, we don't do any validation or error handling so you'll want to make sure to add that to your code.
+Example in Powershell.
+
+```powershell-interactive
+# continues from the previous PowerShell example
+
+$response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'
+$response.choices[0].message | ConvertTo-Json
+
+# Check if the model wants to call a function
+if ($null -ne $response.choices[0].message.function_call) {
+
+    $functionName  = $response.choices[0].message.function_call.name
+    $functionArgs = $response.choices[0].message.function_call.arguments
+
+    # Add the assistant response and function response to the messages
+    $messages += @{
+        role          = $response.choices[0].message.role
+        function_call = @{
+            name      = $functionName
+            arguments = $functionArgs
+        }
+        content       = 'None'
+    }
+    $messages += @{
+        role          = 'function'
+        name          = $response.choices[0].message.function_call.name
+        content       = "$functionName($functionArgs)"
+    }
+
+    # Call the API again to get the final response from the model
+    
+    # these API arguments are introduced in model version 0613
+    $body = [ordered]@{
+        messages      = $messages
+        functions         = $functions
+        function_call   = 'auto'
+    } | ConvertTo-Json -depth 6
+
+    $url = "$($openai.api_base)/openai/deployments/$($openai.name)/chat/completions?api-version=$($openai.api_version)"
+
+    $secondResponse = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'
+    $secondResponse.choices[0].message | ConvertTo-Json
+}
+```
+
+Example output.
+
+```output
+{
+  "role": "assistant",
+  "content": "I'm sorry, but I couldn't find any beachfront hotels in San Diego for less than $300 a month with free breakfast."
+}
+```
+
+In the examples, we don't do any validation or error handling so you'll want to make sure to add that to your code.
 
 For a full example of working with functions, see the [sample notebook on function calling](https://aka.ms/oai/functions-samples). You can also apply more complex logic to chain multiple function calls together, which is covered in the sample as well.
 
 ### Prompt engineering with functions
 
-When you define a function as part of your request, the details are injected into the system message using specific syntax that the model has been trained on. This means that functions consume tokens in your prompt and that you can apply prompt engineering techniques to optimize the performance of your function calls. The model uses the full context of the prompt to determine if a function should be called including function definition, the system message, and the user messages.
+When you define a function as part of your request, the details are injected into the system message using specific syntax that the model is been trained on. This means that functions consume tokens in your prompt and that you can apply prompt engineering techniques to optimize the performance of your function calls. The model uses the full context of the prompt to determine if a function should be called including function definition, the system message, and the user messages.
 
 #### Improving quality and reliability
 If the model isn't calling your function when or how you expect, there are a few things you can try to improve the quality.
@@ -257,14 +495,14 @@ The system message can also be used to provide more context to the model. For ex
 ```
 
 ##### Instruct the model to ask clarifying questions
-In some cases, you may want to instruct the model to ask clarifying questions. This is helpful to prevent the model from making assumptions about what values to use with functions. For example, with `search_hotels` you would want the model to ask for clarification if the user request didn't include details on `location`. To instruct the model to ask a clarifying question, you could include content like the following in your system message.
+In some cases, you want to instruct the model to ask clarifying questions to prevent making assumptions about what values to use with functions. For example, with `search_hotels` you would want the model to ask for clarification if the user request didn't include details on `location`. To instruct the model to ask a clarifying question, you could include content like the next example in your system message.
 ```json
 {"role": "system", "content": "Don't make assumptions about what values to use with functions. Ask for clarification if a user request is ambiguous."}
 ```
 
 #### Reducing errors
 
-Another area where prompt engineering can be valuable is in reducing errors in function calls. The models have been trained to generate function calls matching the schema that you define, but the models may produce a function call that doesn't match the schema you defined or it may try to call a function that you didn't include. 
+Another area where prompt engineering can be valuable is in reducing errors in function calls. The models are trained to generate function calls matching the schema that you define, but the models produce a function call that doesn't match the schema you defined or try to call a function that you didn't include. 
 
 If you find the model is generating function calls that weren't provided, try including a sentence in the system message that says `"Only use the functions you have been provided with."`.
 

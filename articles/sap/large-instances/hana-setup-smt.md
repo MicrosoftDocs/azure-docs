@@ -2,8 +2,8 @@
 title: How to set up SMT server for SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn how to set up SMT server for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter: 
-author: lauradolan
+documentationcenter:
+author: ju-shim
 manager: juergent
 editor:
 ms.service: sap-on-azure
@@ -12,9 +12,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/25/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-
 ---
 # Set up SMT server for SUSE Linux
 
@@ -22,7 +21,7 @@ In this article, we'll walk through the steps of setting up SMT server for SAP H
 
 Large Instances of SAP HANA don't have direct connectivity to the internet. As a result, it isn't straightforward to register such a unit with the operating system provider and to download and apply updates. A solution for SUSE Linux is to set up an SMT server in an Azure virtual machine (VM). You'll host the virtual machine in an Azure virtual network connected to the HANA Large Instance (HLI). With the SMT server in place, the HANA Large Instance can register and download updates. 
 
-For more information on SUSE, see their [Subscription Management Tool for SLES 12 SP2](https://www.suse.com/documentation/sles-12/pdfdoc/book_smt/book_smt.pdf). 
+For more information on SUSE, see their [Subscription Management Tool for SLES 12 SP5](https://documentation.suse.com/sles/12-SP5/html/SLES-all/smt-mirroring.html). 
 
 ## Prerequisites
 

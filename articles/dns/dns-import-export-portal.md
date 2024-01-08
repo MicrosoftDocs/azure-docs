@@ -5,7 +5,7 @@ description: Learn how to import and export a DNS (Domain Name System) zone file
 services: dns
 author: greg-lindsay
 ms.service: dns
-ms.date: 10/20/2023
+ms.date: 11/30/2023
 ms.author: greglin
 ms.topic: how-to
 ---

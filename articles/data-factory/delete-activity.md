@@ -775,7 +775,7 @@ You can also get the template to move files from [here](solution-template-move-f
 
 -   When using file attribute filter in delete activity: modifiedDatetimeStart and modifiedDatetimeEnd to select files to be deleted, make sure to set "wildcardFileName": "*" in delete activity as well.
 
-## Next steps
+## Related content
 
 Learn more about moving files in Azure Data Factory and Synapse pipelines.
 

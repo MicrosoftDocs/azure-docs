@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/26/2022
+ms.date: 12/01/2023
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
 ---
@@ -22,7 +22,7 @@ ms.custom: devx-track-azurepowershell
 
 To assign roles, you must have:
 
-- `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` permissions, such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)
 - [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 - The account you use to run the PowerShell command must have the Microsoft Graph `Directory.Read.All` permission.
 

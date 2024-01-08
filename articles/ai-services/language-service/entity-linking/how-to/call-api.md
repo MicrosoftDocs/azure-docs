@@ -2,12 +2,12 @@
 title: How to call the entity linking API
 titleSuffix: Azure AI services
 description: Learn how to identify and link entities found in text with the entity linking API.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-entity-linking, ignite-fall-2021
 ---

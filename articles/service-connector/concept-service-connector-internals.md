@@ -8,7 +8,6 @@ ms.custom: event-tier1-build-2022, engagement-fy23
 ms.topic: conceptual
 ms.date: 01/17/2023
 ---
-
 # Service Connector internals
 
 Service Connector is an Azure extension resource provider designed to provide a simple way to create and manage connections between Azure services.
@@ -25,11 +24,11 @@ Service Connector offers the following features:
 The concept of *service connection* is a key concept in the resource model of Service Connector. A service connection represents an abstraction of the link between two services.  Service connections have the following properties:
 
 | Property            | Description                                                                                                                                                                                                                                  |
-|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Connection Name     | The unique name of the service connection.                                                                                                                                                                                                   |
-| Source Service Type | Source services are services you can connect to target services.  They are usually Azure compute services and they include Azure App Service, Azure Container Apps and Azure Spring Apps.                                                       |
+| Source Service Type | Source services are services you can connect to target services.  They are usually Azure compute services and they include Azure App Service, Azure Functions, Azure Container Apps and Azure Spring Apps. 
 | Target Service Type | Target services are backing services or dependency services that your compute services connect to. Service Connector supports various target service types including major databases, storage, real-time services, state, and secret stores. |
-| Client Type         | Client type refers to your compute runtime stack, development framework, or specific type of client library that accepts the specific format of the connection environment variables or properties.                                           |
+| Client Type         | Client type refers to your compute runtime stack, development framework, or specific type of client library that accepts the specific format of the connection environment variables or properties.                                          |
 | Authentication Type | The authentication type used for the service connection. It could be a secret/connection string, a managed identity, or a service principal.                                                                                                 |
 
 Source services and target services support multiple simultaneous service connections, which means that you can connect each resource to multiple resources.
@@ -89,8 +88,8 @@ az containerapp connection list-configuration --resource-group <source-service-r
 Service Connector sets the connection configuration when creating a connection. The environment variable key-value pairs are determined based on your client type and authentication type. For example, using the Azure SDK with a managed identity requires a client ID, client secret, etc. Using a JDBC driver requires a database connection string. Follow these conventions to name the configurations:
 
 - Spring Boot client: the Spring Boot library for each target service has its own naming convention. For example, MySQL connection settings would be `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password`. Kafka connection settings would be `spring.kafka.properties.bootstrap.servers`.
-
 - Other clients:
+
   - The key name of the first connection configuration uses the format `<Cloud>_<Type>_<Name>`. For example, `AZURE_STORAGEBLOB_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_BOOTSTRAPSERVER`.
   - For the same type of target resource, the key name of the second connection configuration uses the format `<Cloud>_<Type>_<Connection Name>_<Name>`. For example, `AZURE_STORAGEBLOB_CONN2_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_CONN2_BOOTSTRAPSERVER`.
 
@@ -110,7 +109,7 @@ Service Connector offers three network solutions for users to choose from when c
 - The compute resource must have virtual network integration enabled. For Azure App Service, it can be configured in its networking settings; for Azure Spring Apps, users must set VNet injection during the resource creation stage.
 - The target service must support private endpoints. For a list of supported services, refer to [Private-link resource](/azure/private-link/private-endpoint-overview#private-link-resource).
 
-	When selecting this option, Service Connector doesn't perform any more configurations in the compute or target resources. Instead, it verifies the existence of a valid private endpoint and fails the connection if not found. For convenience, users can select the "New Private Endpoint" checkbox in the Azure Portal when creating a connection. With it, Service Connector automatically creates all related resources for the private endpoint in the proper sequence, simplifying the connection creation process.
+	When selecting this option, Service Connector doesn't perform any more configurations in the compute or target resources. Instead, it verifies the existence of a valid private endpoint and fails the connection if not found. For convenience, users can select the "New Private Endpoint" checkbox in the Azure portal when creating a connection. With it, Service Connector automatically creates all related resources for the private endpoint in the proper sequence, simplifying the connection creation process.
 
 
 

@@ -1,23 +1,25 @@
 ---
 title: Generate embeddings
-titleSuffix: Azure Cognitive Search
-description: Learn how to generate embeddings for downstream indexing into an Azure Cognitive Search index.
+titleSuffix: Azure AI Search
+description: Learn how to generate embeddings for downstream indexing into an Azure AI Search index.
 
 author: farzad528
 ms.author: fsunavala
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 10/30/2023
 ---
 
-# Create and use embeddings for search queries and documents
+# Generate embeddings for search queries and documents
 
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
-
-Cognitive Search doesn't host vectorization models, so one of your challenges is creating embeddings for query inputs and outputs. You can use any embedding model, but this article assumes Azure OpenAI embeddings models. Demos in the [sample repository](https://github.com/Azure/cognitive-search-vector-pr/tree/main) tap the [similarity embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) of Azure OpenAI.
+Azure AI Search doesn't host vectorization models, so one of your challenges is creating embeddings for query inputs and outputs. You can use any embedding model, but this article assumes Azure OpenAI embeddings models. Demos in the [sample repository](https://github.com/Azure/cognitive-search-vector-pr/tree/main) tap the [similarity embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) of Azure OpenAI.
 
 Dimension attributes have a minimum of 2 and a maximum of 2048 dimensions per vector field.
+
+> [!NOTE]
+> This article applies to the generally available version of [vector search](vector-search-overview.md), which assumes your application code calls an external resource such as Azure OpenAI for vectorization. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers embedded vectorization. Integrated vectorization takes a dependency on indexers, skillsets, and either the AzureOpenAIEmbedding skill or a custom skill that points to a model that executes externally from Azure AI Search.
 
 ## How models are used
 
@@ -35,7 +37,7 @@ If you want resources in the same region, start with:
 
 1. [A region for the similarity embedding model](/azure/ai-services/openai/concepts/models#embeddings-models-1), currently in Europe and the United States.
 
-1. [A region for Cognitive Search](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-search). 
+1. [A region for Azure AI Search](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-search). 
 
 1. To support hybrid queries that include [semantic ranking](semantic-how-to-query-request.md), or if you want to try machine learning model integration using a [custom skill](cognitive-search-custom-skill-interface.md) in an [AI enrichment pipeline](cognitive-search-concept-intro.md), note the regions that provide those features.
 

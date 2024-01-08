@@ -1,13 +1,17 @@
 ---
 title: Azure Event Grid - Monitor data reference (push delivery)
-description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid's push delivery of events. 
+description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid's push delivery of events.
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 04/28/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 ---
 
 # Monitor data reference for Azure Event Grid's push event delivery
 This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Event Grid's push delivery. 
+
+[!INCLUDE [simple-preview-note](./includes/simple-preview-note.md)]
 
 ## Metrics
 

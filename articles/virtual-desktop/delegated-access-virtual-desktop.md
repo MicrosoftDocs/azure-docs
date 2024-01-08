@@ -1,6 +1,6 @@
 ---
 title: Delegated access in Azure Virtual Desktop - Azure
-description: How to delegate administrative capabilities on a Azure Virtual Desktop deployment, including examples.
+description: How to delegate administrative capabilities on an Azure Virtual Desktop deployment, including examples.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/30/2020
@@ -53,4 +53,4 @@ For a more complete list of PowerShell cmdlets each role can use, see the [Power
 
 For a complete list of roles supported in Azure RBAC, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-For guidelines for how to set up a Azure Virtual Desktop environment, see [Azure Virtual Desktop environment](environment-setup.md).
+For guidelines for how to set up an Azure Virtual Desktop environment, see [Azure Virtual Desktop environment](environment-setup.md).

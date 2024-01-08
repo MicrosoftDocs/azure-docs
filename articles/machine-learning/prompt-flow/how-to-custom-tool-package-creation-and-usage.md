@@ -1,10 +1,12 @@
 ---
-title: Custom tool package creation and usage in Prompt Flow (preview)
+title: Custom tool package creation and usage in prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn how to develop your own tool package in Prompt Flow. 
+description: Learn how to develop your own tool package in prompt flow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
@@ -12,16 +14,12 @@ ms.reviewer: lagayhar
 ms.date: 09/12/2023
 ---
 
-# Custom tool package creation and usage (preview)
+# Custom tool package creation and usage
 
-When developing flows, you can not only use the built-in tools provided by Prompt flow, but also develop your own custom tool. In this document, we guide you through the process of developing your own tool package, offering detailed steps and advice on how to utilize your creation.
+When developing flows, you can not only use the built-in tools provided by prompt flow, but also develop your own custom tool. In this document, we guide you through the process of developing your own tool package, offering detailed steps and advice on how to utilize your creation.
 
 After successful installation, your custom "tool" can show up in the tool list:
 :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui.png" alt-text="Screenshot of custom tools in the UI tool list."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui.png":::
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Create your own tool package
 
@@ -60,7 +58,7 @@ To add the custom tool to your tool list, it's necessary to create a runtime, wh
 
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-compute-instance.png" alt-text="Screenshot of add compute instance runtime in Azure Machine Learning studio."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-compute-instance.png":::
 
-## Test from Prompt Flow UI
+## Test from prompt flow UI
 1. Create a standard flow.
 2. Select the correct runtime ("my-tool-runtime") and add your tools.
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing the runtime and more tools dropdown."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png":::
@@ -69,8 +67,8 @@ To add the custom tool to your tool list, it's necessary to create a runtime, wh
 
 ## Test from VS Code extension
 
-1. Install Prompt flow for VS Code extension
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/prompt-flow-vs-code-extension.png" alt-text="Screenshot of Prompt flow VS Code extension."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/prompt-flow-vs-code-extension.png":::
+1. Install prompt flow for VS Code extension
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/prompt-flow-vs-code-extension.png" alt-text="Screenshot of prompt flow VS Code extension."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/prompt-flow-vs-code-extension.png":::
 2. Go to terminal and install your tool package in conda environment of the extension. Assume your conda env name is `prompt-flow`.
 
    ```sh

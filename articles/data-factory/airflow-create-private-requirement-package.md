@@ -76,7 +76,7 @@ When performing the import of your folder into an Airflow IR environment, ensure
 ### Step 6: Inside Airflow UI, you can run your dag file created at step 1, to check if import is successful.
 
 
-## Next steps
+## Related content
 
 - [What is Azure Data Factory Managed Airflow?](concept-managed-airflow.md)
 - [Run an existing pipeline with Airflow](tutorial-run-existing-pipeline-with-airflow.md)

@@ -78,7 +78,7 @@ To use an HDInsight Hive activity for Azure Data Lake Analytics in a pipeline, c
 >[!NOTE]
 >The default value for queryTimeout is 120 minutes. 
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)
