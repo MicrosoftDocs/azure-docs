@@ -24,7 +24,6 @@ With [network security groups (NSGs)](../virtual-network/network-security-group-
 Let’s look at a few common models of security management without security admin rules, and their pros and cons:
 
 ### Model 1 - Central governance
-
 In this model, NSGs are managed by a central governance team within an organization.
 
 | Pros | Cons |
@@ -32,7 +31,6 @@ In this model, NSGs are managed by a central governance team within an organizat
 | The central governance team can enforce important security rules. | Operational overhead is high as admins need to manage each NSG, as the number of NSGs increases, the burden increases. |
 
 ### Model 2 - NSGs are managed by individual teams.
-
 In this model, NSGs are managed by individual teams within an organization without a centralized governance team.
 
 | Pros | Cons |
@@ -40,7 +38,6 @@ In this model, NSGs are managed by individual teams within an organization witho
 | The individual team has flexible control in tailoring security rules based on their service requirements. | The central governance team can't enforce critical security rules, such as blocking risky ports. </br> </br> Individual team might also misconfigure or forget to attach NSGs, leading to vulnerability exposures.|
 
 ### Model 3 - NSGs are created through Azure Policy and managed by individual teams.
-
 In this model, NSGs are still managed by individual teams. The difference is the NSGs are created using Azure Policy to set standard rules. Modifying these rules would trigger audit notifications.
 
 | Pros | Cons |
