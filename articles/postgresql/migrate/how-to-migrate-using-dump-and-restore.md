@@ -19,7 +19,7 @@ You can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.
 > The instructions and commands provided in this article are designed to be executed in bash terminals. This includes environments such as Windows Subsystem for Linux (WSL), Azure Cloud Shell, and other bash-compatible interfaces. Please ensure you are using a bash terminal to follow the steps and execute the commands detailed in this guide. Using a different type of terminal or shell environment may result in differences in command behavior and may not produce the intended outcomes.
 
 
-In this article, we will focus on the plain (default) and directory formats. The directory format is particularly useful as it allows you to use multiple cores for processing, which can significantly enhance efficiency, especially for large databases.
+In this article, we focus on the plain (default) and directory formats. The directory format is useful as it allows you to use multiple cores for processing, which can significantly enhance efficiency, especially for large databases.
 
 The Azure portal streamlines this process via the Connect blade by offering preconfigured commands that are tailored to your server, with values substituted with your user data. It's important to note that the Connect blade is only available for Azure Database for PostgreSQL - Flexible Server and not for Single Server. Here's how you can use this feature:
 
@@ -44,7 +44,7 @@ If you're using a Single Server, or don't have access to the Flexible Server por
 
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](../single-server/quickstart-create-server-database-portal.md), including firewall rules to allow access.
-- [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html), [psql](https://www.postgresql.org/docs/current/app-psql.html), [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) and [pg_dumpall](https://www.postgresql.org/docs/current/app-pg-dumpall.html) in case you want migrate with roles and permissions, command-line utilities installed.
+- [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html), [psql](https://www.postgresql.org/docs/current/app-psql.html), [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) and [pg_dumpall](https://www.postgresql.org/docs/current/app-pg-dumpall.html) in case you want to migrate with roles and permissions, command-line utilities installed.
 - **Decide on the location for the dump**: Choose the place you want to perform the dump from. It can be done from various locations, such as a separate VM, [cloud shell](../../cloud-shell/overview.md) (where the command-line utilities are already installed, but might not be in the appropriate version, so always check the version using, for instance, `psql --version`), or your own laptop. Always keep in mind the distance and latency between the PostgreSQL server and the location from which you're running the dump or restore.
 
 > [!IMPORTANT]  
@@ -72,7 +72,7 @@ If you're using a Single Server, your username includes the server name componen
 
 
 ### Dumping Roles from a Flexible Server
-In a Flexible Server environment, enhanced security measures mean users don't have access to the pg_authid table, which is where role passwords are stored. This restriction affects how you perform a roles dump, as the standard `pg_dumpall -r` command will attempt to access this table for passwords and fail due to lack of permission.
+In a Flexible Server environment, enhanced security measures mean users don't have access to the pg_authid table, which is where role passwords are stored. This restriction affects how you perform a roles dump, as the standard `pg_dumpall -r` command attempts to access this table for passwords and fail due to lack of permission.
 
 When dumping roles from a Flexible Server, it's crucial to include the `--no-role-passwords` option in your `pg_dumpall` command. This option prevents `pg_dumpall` from attempting to access the `pg_authid` table, which it cannot read due to security restrictions.
 
@@ -89,7 +89,7 @@ pg_dumpall -r --no-role-passwords -h mydemoserver.postgres.database.azure.com -U
 ```
 
 ### Cleaning up the roles dump
-When migrating the output file `roles.sql` might include certain roles and attributes that are not applicable or permissible in the new environment. Here's what you need to consider:
+When migrating the output file `roles.sql` might include certain roles and attributes that aren't applicable or permissible in the new environment. Here's what you need to consider:
 
 1. **Removing attributes that can be set only by superusers**: If migrating to an environment where you don't have superuser privileges, remove attributes like `NOSUPERUSER` and `NOBYPASSRLS` from the roles dump.
 
@@ -138,7 +138,7 @@ If you're using a Single Server, your username includes the server name componen
 ## Restore the data into the target database
 
 ### Restore roles and users
-Before restoring your database objects, make sure you have properly dumped and cleaned up the roles. If you are migrating within databases on the same server, both dumping the roles and restoring them may not be necessary. However, for migrations across different servers or environments, this step is crucial.
+Before restoring your database objects, make sure you have properly dumped and cleaned up the roles. If you're migrating within databases on the same server, both dumping the roles and restoring them may not be necessary. However, for migrations across different servers or environments, this step is crucial.
 
 To restore the roles and users into the target database, use the following command:
 
@@ -214,9 +214,9 @@ After the restoration process is complete, it's important to review the `errors.
 
 ## Optimize the migration process
 
-When working with large databases, the dump and restore process can be lengthy and may require optimization to ensure efficiency and reliability. It is important to be aware of the various factors that can impact the performance of these operations and to take steps to optimize them.
+When working with large databases, the dump and restore process can be lengthy and may require optimization to ensure efficiency and reliability. It's important to be aware of the various factors that can impact the performance of these operations and to take steps to optimize them.
 
-For detailed guidance on optimizing the dump and restore process, refer to the [Best practices for pg_dump and pg_restore](../flexible-server/how-to-pgdump-restore.md) article. This resource provides comprehensive information and strategies that can be particularly beneficial for handling large databases.
+For detailed guidance on optimizing the dump and restore process, refer to the [Best practices for pg_dump and pg_restore](../flexible-server/how-to-pgdump-restore.md) article. This resource provides comprehensive information and strategies that can be beneficial for handling large databases.
 
 ## Next steps
 - For more information about migrating databases to Azure Database for PostgreSQL, see the [Database Migration Guide](/data-migration/).
