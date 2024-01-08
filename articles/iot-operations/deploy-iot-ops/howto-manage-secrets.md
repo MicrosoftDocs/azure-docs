@@ -91,7 +91,7 @@ Create a new Azure Key Vault service and ensure it has the **Permission Model** 
 ```bash
 az keyvault create --enable-rbac-authorization false --name "<your unique key vault name>" --resource-group "<the name of the resource group>"
 ```
-If you have an existing Key Vault, you can change the Permission Model by executing the following:
+If you have an existing key vault, you can change the permission model by executing the following:
 
 ```bash
 az keyvault update --name "<your unique key vault name>" --resource-group "<the name of the resource group>" --enable-rbac-authorization false 
