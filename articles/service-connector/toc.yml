@@ -138,7 +138,7 @@ items:
       href: how-to-integrate-postgres.md
     - name: Azure Event Hubs
       href: how-to-integrate-event-hubs.md
-    - name: Azure File Storage
+    - name: Azure File
       href: how-to-integrate-storage-file.md
     - name: Azure Key Vault
       href: how-to-integrate-key-vault.md
