@@ -9,7 +9,7 @@ ms.date: 01/04/2024
 ms.reviewer: ju-shim
 ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
-# Performing Rolling Manual on Virtual Machine Scale Sets
+# Performing Manual on Virtual Machine Scale Sets
  
 If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing VM to apply changes to the instances based on the updated scale set model. 
 
