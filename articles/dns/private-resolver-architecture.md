@@ -20,7 +20,7 @@ This article discusses two architectural design options that are available to re
 
 ## Distributed DNS architecture 
 
-Consider the following hub and spoke VNet topology in Azure with a private resolver located in the hub and a ruleset link to the spoke VNet:
+In a hub and spoke topology, the distrubuted DNS architecture allows spoke VNets to use Azure-provided DNS as the default DNS server. The spoke VNets use forwarding ruleset rules in the hub to resolve records in private DNS zones. Consider the following hub and spoke VNet topology in Azure with a private resolver located in the hub and a ruleset link to the spoke VNet:
 
 ![Hub and spoke with ruleset diagram.](./media/private-resolver-architecture/hub-and-spoke-ruleset.png)
 
@@ -37,14 +37,14 @@ Consider the following hub and spoke VNet topology in Azure with a private resol
 
 **DNS resolution in the hub VNet**: The virtual network link from the private zone to the Hub VNet enables resources inside the hub VNet to automatically resolve DNS records in **azure.contoso.com** using Azure-provided DNS ([168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)). All other namespaces are also resolved using Azure-provided DNS. The hub VNet doesn't use ruleset rules to resolve DNS names because it isn't linked to the ruleset. To use forwarding rules in the hub VNet, create and link another ruleset to the Hub VNet.
 
-**DNS resolution in the spoke VNet**: The virtual network link from the ruleset to the spoke VNet enables the spoke VNet to resolve **azure.contoso.com** using the configured forwarding rule. A link from the private zone to the spoke VNet isn't required here. The spoke VNet sends queries for **azure.contoso.com** to the hub's inbound endpoint. Other namespaces are also resolved for the spoke VNet using the linked ruleset if rules for those names are configured in a rule. DNS queries that don't match a ruleset rule use Azure-provided DNS. 
+**DNS resolution in the spoke VNet**: The virtual network link from the ruleset to the spoke VNet enables the spoke VNet to resolve **azure.contoso.com** using the configured forwarding rule. A link from the private zone to the spoke VNet isn't required here. The spoke VNet sends queries for **azure.contoso.com** to Azure-provided DNS. The virtual network link is used to match the DNS query to the forwarding ruleset rule. The forwarding rule forwards the query from the outbound endpoint to the inbound endpoint. Other namespaces are also resolved for the spoke VNet using the linked ruleset if rules for those names are configured in a rule. DNS queries that don't match a ruleset rule use Azure-provided DNS. 
 
 > [!IMPORTANT]
 > In this example configuration, the hub VNet must be linked to the private zone, but must **not** be linked to a forwarding ruleset with an inbound endpoint forwarding rule. Linking a forwarding ruleset that contains a rule with the inbound endpoint as a destination to the same VNet where the inbound endpoint is provisioned can cause DNS resolution loops.
 
 ## Centralized DNS architecture
 
-Consider the following hub and spoke VNet topology with an inbound endpoint provisioned as custom DNS in the spoke VNet:
+In a hub and spoke topology, the centralized DNS architecture allows spoke VNets to use the private DNS resolver in the hub for all DNS resolution. Consider the following hub and spoke VNet topology with an inbound endpoint provisioned as custom DNS in the spoke VNet:
 
 ![Hub and spoke with custom DNS diagram.](./media/private-resolver-architecture/hub-and-spoke-custom-dns.png)
 
