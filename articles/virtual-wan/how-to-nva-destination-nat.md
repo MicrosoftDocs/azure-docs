@@ -25,9 +25,9 @@ Infrastructure management and programming for the DNAT use case in Virtual WAN i
 ## Concepts
 
 To enable the DNAT use case associate one or more Azure Public IP address resources to the Network Virtual Appliance resource. These IPs are called **internet inbound** or **internet ingress** IP addresses and are the target IP addresses users initiate connection requests to in order to access applications behind the NVA. After you configure a DNAT rule on the Network Virtual Appliance orchestrator and management software (see partner guide), the NVA management software automatically:
-*  Programs NVA device software running in Virtual WAN to inspect and translate the corresponding traffic (set-up NAT rules and Firewall rules on NVA device). The rules that are programmed on the NVA are called **NVA DNAT rules**.
-*  Interacts with Azure APIs to create and update **inbound security rules**. Virtual WAN control plane processes inbound security rules and programs Virtual WAN and Azure-managed NVA infrastructure components to support Destination NAT use case.  
 
+* Programs NVA device software running in Virtual WAN to inspect and translate the corresponding traffic (set-up NAT rules and Firewall rules on NVA device). The rules that are programmed on the NVA are called **NVA DNAT rules**.
+* Interacts with Azure APIs to create and update **inbound security rules**. Virtual WAN control plane processes inbound security rules and programs Virtual WAN and Azure-managed NVA infrastructure components to support Destination NAT use case.  
 
 ### Example
 
@@ -46,8 +46,8 @@ The following configurations are performed:
 The list below corresponds to the diagram above and describes the packet flow for the inbound connection:
 
 1. The user initiates a connection with one of the Public IPs used for DNAT associated to the NVA. 
-1. Azure load balances the connection request to one of the Firewall NVA instances.
-1. NVA inspects the traffic and translates the packet based on rule configuration. In this case, the NVA is configured to NAT and forward inbound traffic to 10.60.0.4:443. The source of the packet is also translated to the private IP of the chosen Firewall instance to ensure flow symmetry. The NVA forwards the packet and Virtual WAN routes the packet to the final destination.
+1. Azure load balances the connection request to one of the Firewall NVA instances. Traffic is sent to the external/untrusted interface of the NVA.
+1. NVA inspects the traffic and translates the packet based on rule configuration. In this case, the NVA is configured to NAT and forward inbound traffic to 10.60.0.4:443. The source of the packet is also translated to the private IP (IP of trusted/internal interface) of the chosen Firewall instance to ensure flow symmetry. The NVA forwards the packet and Virtual WAN routes the packet to the final destination.
 
 #### Outbound traffic flow
 :::image type="content" source="./media/virtual-wan-nva-dnat/dnat-example-outbound-flow.png"alt-text="Screenshot showing outbound traffic flow."lightbox="./media/virtual-wan-nva-dnat/dnat-example-outbound-flow.png":::
@@ -74,7 +74,7 @@ The list below corresponds to the diagram above and describes the packet flow fo
 
 * Inbound Traffic is automatically load-balanced across all healthy instances of the Network Virtual Appliance.
 * In most cases, NVAs must perform source-NAT to the Firewall private IP in addition to  destination-NAT to ensure flow symmetry. Certain NVA types may not require source-NAT. Contact your NVA provider for best practices around source-NAT.
-* Timeout for DNAT flows is automatically set to ___ seconds.
+* Timeout for idle flows is automatically set to 4 minutes.
 * You can assign individual IP address resources generated from an IP address prefix to the NVA as internet inbound IPs. Assign each IP address from the prefix individually.
 
 ## Managing DNAT/Internet Inbound configurations
@@ -131,17 +131,50 @@ The following section describes some common troubleshooting scenarios.
 * **Can't delete/disassociate Public IP from NVA**: Only IP addresses that have no rules associated with them can be deleted. Use the NVA orchestration software to remove any DNAT rules associated to that IP address.
 * **NVA provisioning state not succeeded**: If there are on-going operations on the NVA or if the provisioning status of the NVA is **not successful**, IP address association fails. Wait for any existing operations to terminate.
 
+### <a name="healthprobeconfigs"></a> Load balancer health probes
+
+NVA with internet inbound/DNAT capabilities relies on the NVA responding to three different Azure Load Balancer health probes to ensure the NVA is functioning as expected and route traffic. Health probe requests are always made from the nonpublically routable Azure IP Address [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). You should see a three-way TCP handshake performed with 168.63.129.16 in your NVA logs.
+
+For more information on Azure Load Balancer health probes, see [health probe documentation](../load-balancer/load-balancer-custom-probe-overview.md).
+
+The health probes Virtual WAN requires are:
+
+* **Internet Inbound or DNAT health probe**: Used to forward Internet inbound traffic to NVA untrusted/external interfaces. This health probe checks the health of the **untrusted/external** interface of the NVA only. 
+
+  |NVA Provider| Port|
+  |--|--|
+  |fortinet|8008| 
+  |checkpoint| 8118|
+
+* **Datapath health probe**: Used to forward private (VNET/on-premises) traffic to NVA **trusted/internal** interfaces. Required for private routing policies. This health probe checks the health of the **trusted/internal** interface of the NVA only.
+
+  |NVA Provider| Port|
+  |--|--|
+  |fortinet|8008| 
+  |checkpoint| 8117|
+
+* **NVA health probe**: Used to determine the health of the Virtual Machine Scale Set running the NVA software. This health probe checks the health of all interfaces of the NVA (both **untrusted/external** and **trusted/internal**).
+
+  |NVA Provider| Port|
+  |--|--|
+  |fortinet|8008| 
+  |checkpoint| 8117|
+
+Ensure the NVA is configured to respond to the 3 health probes correctly. Common issues include:
+* Health probe response set to an incorrect port.
+* Health probe response incorrectly set on only the internal/trusted interface.
+* Firewall rules preventing health probe response.
+
 ### DNAT rule creation
 
 * **DNAT rule creation fails**: Ensure the provisioning state of the NVA is Succeeded and that all NVA instances are healthy. Reference NVA provider documentation for details on how to troubleshoot or contact the vendor for further support. 
  
-### Datapath
-* **NVA doesn't see packets after user initiates connection to Public IP**: Ensure the NVA is responding to Load Balancer health probes on the external interface of the NVA. Health probe requests are made from the nonpublically routable Azure IP address [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). You should see a three-way TCP handshake performed with 168.63.129.16. The port of the handshake depends on your provider.
+  Additionally, ensure that the NVA is responding to **NVA health probes** on all interfaces. See the [health probes](#healthprobeconfigs) section for more information.
 
-|NVA Provider| Port|
-|--|--|
-|fortinet|8008| 
-|checkpoint| placeholderport|
+### Datapath
+
+* **NVA doesn't see packets after user initiates connection to Public IP**: Ensure that the NVA is responding to **DNAT health probes** on the **external/untrusted** interface only. See the [health probes](#healthprobeconfigs) section for more information.
+
 
 * **Destination server doesn't see packets after NVA translation**: consider the following troubleshooting mechanisms if packets aren't being forwarded to the final destination server.
   * **Azure Routing issue**: Use Azure Virtual WAN portal to check the effective routes of the defaultRouteTable or the effective routes of your Network Virtual Appliance. You should see the subnet of the destination application in the effective routes.
