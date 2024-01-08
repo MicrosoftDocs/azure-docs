@@ -15,9 +15,9 @@ Currently, validated solutions are available from partners for [Azure Arc-enable
 
 Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. The Azure Arc team has worked with key industry Kubernetes offering providers to [validate Azure Arc-ena     bled Kubernetes with their Kubernetes distributions](../kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json). Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc-enabled Kubernetes.
 
-## Data services
+## Validated data services solutions
 
-The Azure Arc team has worked with  original equipment manufacturer (OEM) partners and storage providers to [validate Azure Arc-enabled data services solutions](../data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json). This includes partner solutions, versions, Kubernetes versions, SQL engine versions, and PostgreSQL server versions that have been verified to support the data services.
+The Azure Arc team has worked with original equipment manufacturer (OEM) partners and storage providers to [validate Azure Arc-enabled data services solutions](../data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json). This includes partner solutions, versions, Kubernetes versions, SQL engine versions, and PostgreSQL server versions that have been verified to support the data services.
 
 ## Validation process
 
