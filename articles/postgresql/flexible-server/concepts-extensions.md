@@ -3,7 +3,7 @@ title: Extensions - Azure Database for PostgreSQL - Flexible Server
 description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 12/18/2023
+ms.date: 1/8/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -126,6 +126,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)        |Used to parse an address into constituent elements.                                                                                                                        |N/A        |3.1.1      |3.1.1      |3.1.1      |3.0.0      |2.5.1       |
 |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)|Address Standardizer US dataset example                                                                                                                                    |N/A        |3.1.1      |3.1.1      |3.1.1      |3.0.0      |2.5.1       |
 |[amcheck](https://www.postgresql.org/docs/13/amcheck.html)                                  |Functions for verifying relation integrity                                                                                                                                 |1.3        |1.2        |1.2        |1.2        |1.2        |1.1         |
+|[azure_ai](./generative-ai-azure-overview.md)                                               |Azure OpenAI and Cognitive Services integration for PostgreSQL                                                                                                             |0.1.0      |0.1.0      |0.1.0      |0.1.0      |N/A        |N/A         |
+|[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)             |extension to export and import data from Azure Storage                                                                                                                     |1.3        |1.3        |1.3        |1.3        |1.3        |N/A         |
 |[bloom](https://www.postgresql.org/docs/13/bloom.html)                                      |Bloom access method - signature file based index                                                                                                                           |1          |1          |1          |1          |1          |1           |
 |[btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                              |Support for indexing common datatypes in GIN                                                                                                                               |1.3        |1.3        |1.3        |1.3        |1.3        |1.3         |
 |[btree_gist](https://www.postgresql.org/docs/13/btree-gist.html)                            |Support for indexing common datatypes in GiST                                                                                                                              |1.7        |1.5        |1.5        |1.5        |1.5        |1.5         |
