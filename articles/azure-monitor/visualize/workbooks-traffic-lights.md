@@ -5,7 +5,7 @@ services: azure-monitor
 ms.topic: conceptual
 author: AbbyMSFT
 ms.author: abbyweisberg
-ms.date: 12/18/2023
+ms.date: 01/08/2024
 ---
 
 # Visual indicators and icons

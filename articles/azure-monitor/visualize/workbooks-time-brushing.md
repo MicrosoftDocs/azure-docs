@@ -3,7 +3,7 @@ title: Azure Workbooks time brushing
 description: Learn about time brushing in Azure Monitor workbooks.
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 01/08/2024
 ms.author: abbyweisberg
 ---
 

@@ -3,7 +3,7 @@ title: Manage Azure Monitor workbooks
 description: Understand how to Manage Azure Workbooks
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 01/08/2024
 ---
 
 # Manage Azure Monitor Workbooks
