@@ -3,7 +3,7 @@ title: Use Azure Monitor managed service for Prometheus as data source for Grafa
 description: Details on how to configure Azure Monitor managed service for Prometheus as data source for both Azure Managed Grafana and self-hosted Grafana in an Azure virtual machine.
 author: bwren 
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 01/08/2024
 ---
 
 # Use Azure Monitor managed service for Prometheus as data source for Grafana using managed system identity 

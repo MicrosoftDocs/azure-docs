@@ -110,9 +110,8 @@ The configuration change can take a few minutes to finish before it takes effect
 
 ### Prerequisites
 
-  - You might need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-custom-metrics.md).
-  - See the supported regions for custom metrics at [Supported regions](../essentials/metrics-custom-overview.md#supported-regions).
-
+You might need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-custom-metrics.md).
+  
 ### Enable and configure metric alert rules
 
 #### [Azure portal](#tab/azure-portal)

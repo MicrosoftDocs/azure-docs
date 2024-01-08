@@ -112,8 +112,6 @@ To view the non-AKS cluster in Container insights, read access is required on th
 
 ## Metrics aren't being collected
 
-1. Verify that the cluster is in a [supported region for custom metrics](../essentials/metrics-custom-overview.md#supported-regions).
-
 1. Verify that the **Monitoring Metrics Publisher** role assignment exists by using the following CLI command:
 
     ``` azurecli
