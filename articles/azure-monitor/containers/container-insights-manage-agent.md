@@ -84,7 +84,6 @@ This command opens your default text editor. After you set the variable, save th
 To verify the configuration change took effect, select a container in the **Containers** view in Container insights. In the property pane, expand **Environment Variables**. The section should show only the variable created earlier, which is `AZMON_COLLECT_ENV=FALSE`. For all other containers, the **Environment Variables** section should list all the environment variables discovered.
 
 To reenable discovery of the environmental variables, apply the same process you used earlier and change the value from `False` to `True`. Then rerun the `kubectl` command to update the container.
-$$
 ```yaml
 - name: AZMON_COLLECT_ENV  
   value: "True"  
