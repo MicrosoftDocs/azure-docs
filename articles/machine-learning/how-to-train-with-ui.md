@@ -34,7 +34,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 1. Select your subscription and workspace.
 
  
-* You may enter the job creation UI from the homepage. Click **Create new** and select **Job**. 
+* You may enter the job creation UI from the homepage. Click **Create new** and select **Job**.
 [![Azure Machine Learning studio homepage](media/how-to-train-with-ui/unified-job-submission-home.png)](media/how-to-train-with-ui/unified-job-submission-home.png)
 
 In this wizard, you can select your method of training, complete the rest of the submission wizard based on your selection, and submit the training job. Below we will walk through the wizard for running a custom script (command job). 
