@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 07/18/2023
+ms.date: 01/08/2024
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -142,11 +142,11 @@ The following headers are included with each Document Translation API request:
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
+                "sourceUrl": "{sourceSASUrl}"
             },
             "targets": [
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
+                    "targetUrl": "{targetSASUrl}",
                     "language": "fr"
                 }
             ]
@@ -168,15 +168,15 @@ The following headers are included with each Document Translation API request:
         {
             "storageType": "File",
             "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D"
+                "sourceUrl": "{sourceSASUrl}"
             },
             "targets": [
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
+                    "targetUrl": "{targetSASUrl}",
                     "language": "es"
                 },
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
+                    "targetUrl": "{targetSASUrl}",
                     "language": "de"
                 }
             ]
@@ -192,15 +192,15 @@ The following headers are included with each Document Translation API request:
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://myblob.blob.core.windows.net/source"
+                "sourceUrl": "{sourceSASUrl}"
              },
             "targets": [
                 {
-                    "targetUrl": "https://myblob.blob.core.windows.net/target",
+                    "targetUrl": "{targetSASUrl}",
                     "language": "es",
                     "glossaries": [
                         {
-                            "glossaryUrl": "https:// myblob.blob.core.windows.net/glossary/en-es.xlf",
+                            "glossaryUrl": "{glossaryUrl/en-es.xlf}",
                             "format": "xliff"
                         }
                     ]
