@@ -106,8 +106,8 @@ If you're not automatically approved, you can submit a request to Azure support 
 
 If we need to run a credit check because of the amount of credit that you need, you're sent a credit check application. We might ask you to provide your company’s audited financial statements. We might ask for a security deposit or a standby letter of credit to approve your credit check request. We ask for them when:
 
-  - No financial information is provided
-  - Or if the information isn't strong enough to support the amount of credit limit required, .
+  - No financial information is provided.
+  - The information isn't strong enough to support the amount of credit limit required.
 
 ## Switch to pay by wire transfer after approval
 
