@@ -6,9 +6,9 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: overview
 ms.date: 12/6/2023
-author: lgayhardt
-ms.author: lagayhar
 ms.reviewer: keli19
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Overview of prompt flow tools in Azure AI Studio
