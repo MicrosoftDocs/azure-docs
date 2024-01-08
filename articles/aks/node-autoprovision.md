@@ -2,6 +2,7 @@
 title: Node autoprovisioning (Preview)
 description: Learn about Azure Kubernetes Service (AKS) Node autoprovisioning
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 10/19/2023
 ms.author: juda
 #Customer intent: As a cluster operator or developer, how to scale my cluster based on workload requirements and right size my nodes automatically

@@ -293,7 +293,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Nianet](https://www.globalconnect.dk/)** |Equinix | Amsterdam<br/>Frankfurt |
 | **[Oncore Cloud Service Inc](https://www.oncore.cloud/services/ue-for-expressroute)**| Equinix | Montreal<br/>Toronto |
 | **[POST Telecom Luxembourg](https://business.post.lu/grandes-entreprises/telecom-ict/telecom)**| Equinix | Amsterdam |
-| **[Proximus](https://www.proximus.be/en/id_cl_explore/companies-and-public-sector/networks/corporate-networks/explore.html)**| Equinix | Amsterdam<br/>Dublin<br/>London<br/>Paris |
+| **[Proximus](https://www.proximus.be/en/id_cl_explore/companies-and-public-sector/networks/corporate-networks/explore.html)**| Bics | Amsterdam<br/>Dublin<br/>London<br/>Paris |
 | **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/products/cloud-connect)** | Equinix | Amsterdam |
 | **[Rogers]** | Cologix<br/>Equinix | Montreal<br/>Toronto |

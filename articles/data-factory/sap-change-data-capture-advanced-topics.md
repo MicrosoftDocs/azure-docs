@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/04/2023
+ms.date: 01/05/2024
 ms.author: ulrichchrist
 ---
 
