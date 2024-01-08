@@ -18,7 +18,7 @@ There are two primary client-side components that may throw error codes: the Dev
 
 ### ResultCode and ExtendedResultCode
 
-The Device Update for IoT Hub Core PnP interface reports `ResultCode` and `ExtendedResultCode`, which can be used to diagnose failures. For more information about the Device Update Core PnP interface, see [Device Update and Plug and Play](device-update-plug-and-play.md). For more details regarding the default Device Update agent ResultCode and ExtendedResultCodes, see the "result.h" file in the [Device Update Github repository](aka.ms/du-resultcode).
+The Device Update for IoT Hub Core PnP interface reports `ResultCode` and `ExtendedResultCode`, which can be used to diagnose failures. For more information about the Device Update Core PnP interface, see [Device Update and Plug and Play](device-update-plug-and-play.md). For more details regarding the default Device Update agent ResultCode and ExtendedResultCodes, see the "result.h" file in the [Device Update Github repository](https://aka.ms/du-resultcode).
 
 `ResultCode` is a general status code and `ExtendedResultCode` is an integer with encoded error information.
 
