@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
-  ms.date: 01/05/2024
+  ms.date: 01/08/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -43,6 +43,37 @@ landingContent:
             url: /training/modules/introduction-to-azure-api-management/
           - text: Explore API Management
             url: /training/modules/explore-api-management/  
+   # Card 
+  - title: Get started
+    linkLists:
+      - linkListType: Quickstart
+        links:
+          - text: Create instance - Azure CLI
+            url: get-started-create-service-instance-cli.md
+          - text: Create instance - portal
+            url: get-started-create-service-instance.md
+          - text: Create instance - Azure PowerShell
+            url: powershell-create-service-instance.md
+          - text: Create instance - Visual Studio Code 
+            url: vscode-create-service-instance.md
+          - text: Create instance - bicep
+            url: quickstart-bicep.md
+      - linkListType: tutorial
+        links:
+          - text: 1. Import and publish your first API
+            url: import-and-publish.md
+          - text: 2. Create and publish a product
+            url: api-management-howto-add-products.md
+          - text: 3. Mock API responses
+            url: mock-api-responses.md
+          - text: 4. Transform and protect your API
+            url: transform-api.md
+      - linkListType: concept
+        links:
+         - text: API Management gateways
+           url: api-management-gateways-overview.md
+         - text: Caching
+           url: api-management-caching.md
   # Card 
   - title: Manage APIs
     linkLists:
