@@ -112,7 +112,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
     ![Screenshot of the Enter path to the mounted backups folder with an updated value.](media/back-up-restore-sensor/image1.png)
 
 
-    Confirm the change by pressing the `Enter` button and continue with the rest of the steps until the end.
+    Confirm the change by pressing **ENTER** and continue with the rest of the steps until the end.
 
 ## Restore an OT sensor
 
