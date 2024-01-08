@@ -16,7 +16,11 @@ The health state is updated regularly, so you can always view an up-to-date heal
 
 ## Health states
 
-
+| State | Description |
+|:---|:---|
+| Healthy | The entity is working as expected. |
+| Degraded | The entity is working but with diminished functionality or performance. Does not count as downtime for service level. |
+| Unhealthy | The entity is not working but or is working with unacceptable performance. Counts as downtime for service level. |
 
 ## Signals
 The health of an entity is determined by one or more signals. A signal is a metric or log query that is evaluated on a schedule. The result of the signal is compared to a threshold to determine the health state of the entity.
@@ -36,6 +40,6 @@ The *impact* of an entity determines how its health state is propagated to its p
 
 The following sample shows the effect of each impact setting. Each of the child entities are in an unhealthy state, but the parent health states are difference based on the impact setting of each child. 
 
-This sample also shows the worst-case rollup of the parent health states to the root entity. Each of the parent entities are configured for standard impact meaning their health state will propogate to the root entity which is their parent.  The root entity is in an unhealthy state because this is the worst case of the entities directly underneath it. 
+This sample also shows the worst-case rollup of the parent health states to the root entity. Each of the parent entities are configured for standard impact meaning their health state will propagate to the root entity which is their parent.  The root entity is in an unhealthy state because this is the worst case of the entities directly underneath it. 
 
 :::image type="content" source="media/health-state/health-impact.png" lightbox="media/health-state/health-impact.png" alt-text="Screenshot of an example health model showing different impact settings. ":::
