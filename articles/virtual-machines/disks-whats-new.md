@@ -18,7 +18,11 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 ## Ultra Disk regional availability expansion
 
-Ultra Disks are now available in the UK West and Poland Central regions.
+Ultra Disks have been made available in the UK West and Poland Central regions.
+
+## Zone redundant storage disk regional availability expansion
+
+Zone Redundant Storage (ZRS) disks have been made available in West US 3 and Germany Central regions.
 
 ## What's new in 2023
 
@@ -30,11 +34,18 @@ Encryption at host was previously only available for Standard HDDs, Standard SSD
 
 There are some additional restrictions for Premium SSD v2 and Ultra Disks that enable encryption at host. For more information, see [Restrictions (1)](disk-encryption.md#restrictions-1).
 
-#### New latency metrics
+#### New latency metrics (preview)
 
-- New latency metrics for disks
-- Expanded regional availability for Premium SSD v2
-- Expanded regional availability for ZRS disks
+Metrics dedicated to monitoring latency are now available as a preview feature. To learn more, see either the [metrics article](disks-metrics.md#disk-io-throughput-queue-depth-and-latency-metrics) or the [Azure Update](https://azure.microsoft.com/updates/latency-metrics-for-azure-disks-and-performance-metrics-for-temporary-disks-on-azure-virtual-machines/).
+
+#### Expanded regional availability for Premium SSD v2
+
+Premium SSD v2 disks have been made available in Poland Central, China North 3, and US Gov Virginia. For more details, see the [Azure Update](https://azure.microsoft.com/updates/generally-available-azure-premium-ssd-v2-disk-storage-is-now-available-in-more-regions-pcu/).
+
+
+#### Expanded regional availability for ZRS disks
+
+ZRS disks have been made available in the Norway East and UAE North regions. For more details, see the [Azure Update](https://azure.microsoft.com/updates/generally-available-zone-redundant-storage-for-azure-disks-is-now-available-in-norway-east-uae-north-regions/).
 
 ### Quarter 3 (July, August, September)
 
