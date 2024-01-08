@@ -87,7 +87,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
     > Set-AzRoleDefinition -Role $aRole
     > }
     >
-    > function Update-DmsConributorRole() {
+    > function Update-DmsContributorRole() {
     > $aRole = Get-AzRoleDefinition "Azure Database Migration Contributor"
     > $aRole.Actions = $writerActions
     > $aRole.NotActions = @()
@@ -98,7 +98,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
     > New-DmsReaderRole
     > New-DmsContributorRole
     > Update-DmsReaderRole
-    > Update-DmsConributorRole
+    > Update-DmsContributorRole
     > ```
 
 ## Prerequisites for migrating SQL Server to Azure SQL Database
