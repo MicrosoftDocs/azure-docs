@@ -15,7 +15,7 @@ In this article, you'll learn how [security admins rules](concept-security-admin
 
 ## Virtual network enforcement 
 
-With [network security groups (NSGs)](../virtual-network/network-security-group-how-it-works.md) alone, widespread enforcement on VNets across several applications, teams, or even entire organizations can be tricky. Often there’s a balancing act between attempts at centralized enforcement across an organization and handing over granular, flexible control to teams. 
+With [network security groups (NSGs)](../virtual-network/network-security-group-how-it-works.md) alone, widespread enforcement on virtual networks across several applications, teams, or even entire organizations can be tricky. Often there’s a balancing act between attempts at centralized enforcement across an organization and handing over granular, flexible control to teams. 
 
 [Security admin rules](concept-security-admins.md) aim to eliminate this sliding scale between enforcement and flexibility altogether by consolidating the pros of each of these models while reducing the cons of each. Central governance teams establish guard rails through security admin rules, while still leaving room for individual teams to flexibly pinpoint security as needed through NSG rules. Security admin rules aren't meant to override NSG rules. Instead, they work with NSG rules to provide enforcement and flexibility across your organization.
 
@@ -58,9 +58,9 @@ In this case, the administrator wants to make an exception to the application vi
 
 The company administrator can create a network manager with the root management group of the firm as the scope of this network manager instance.
 
-#### Step 2: Create network groups for VNets
+#### Step 2: Create network groups for virtual networks
 
-The administrator creates two network groups – *ALL network group* consisting of all the VNets in the organization, and App network group consisting of VNets for the application needing an exception. ALL network group in the above diagram consists of *VNet 1* to *VNet 5*, and App network group has *VNet 4* and *VNet 5*. Users can easily define both network groups using dynamic membership.
+The administrator creates two network groups – *ALL network group* consisting of all the virtual networks in the organization, and App network group consisting of virtual networks for the application needing an exception. ALL network group in the above diagram consists of *VNet 1* to *VNet 5*, and App network group has *VNet 4* and *VNet 5*. Users can easily define both network groups using dynamic membership.
 
 #### Step 3: Create a security admin configuration
 
@@ -70,7 +70,7 @@ In this step, two security admin rules are defined with the following security a
 
 #### Step 4: Deploy the security admin configuration
  
-After the deployment of the security admin configuration, all VNets in the company have the deny inbound SSH traffic rule enforced by the security admin rule. No individual team can modify this rule, only the defined company administrator. The App VNets have both an allow inbound SSH traffic rule and a deny inbound SSH traffic rule (inherited from All network group rule). The priority number of the allow inbound SSH traffic rule for App network group should be smaller so that it's evaluated first. When inbound SSH traffic comes to an App VNet, it is allowed by this higher priority security admin rule. Assuming there are NSGs on the subnets of the App VNets, this inbound SSH traffic is further evaluated by NSGs set by the application team. The security admin rule methodology described here allows the company administrator to effectively enforce company policies and create flexible security guard rails across an organization that work with NSGs.
+After the deployment of the security admin configuration, all virtual networks in the company have the deny inbound SSH traffic rule enforced by the security admin rule. No individual team can modify this rule, only the defined company administrator. The App virtual networks have both an allow inbound SSH traffic rule and a deny inbound SSH traffic rule (inherited from All network group rule). The priority number of the allow inbound SSH traffic rule for App network group should be smaller so that it's evaluated first. When inbound SSH traffic comes to an App VNet, it's allowed by this higher priority security admin rule. Assuming there are NSGs on the subnets of the App virtual networks, this inbound SSH traffic is further evaluated by NSGs set by the application team. The security admin rule methodology described here allows the company administrator to effectively enforce company policies and create flexible security guard rails across an organization that work with NSGs.
 
 
 ## Next steps
