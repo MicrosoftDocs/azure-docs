@@ -147,6 +147,8 @@ Before you start, ensure that you [enable the Defender for Endpoint agent](integ
 
 The alert `EICAR_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
 
+:::image type="content" source="media/enable-agentless-scanning-vms/test-file-alert.jpg" alt-text="Screenshot of the EICAR test file alert screen for Linux." lightbox="media/enable-agentless-scanning-vms/test-file-alert.jpg":::
+
 ### Create an EICAR test file for Windows
 
 Before starting you will need to: 
@@ -165,6 +167,8 @@ Before starting you will need to:
     ```
 
 The alert `EICAR_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
+
+:::image type="content" source="media/enable-agentless-scanning-vms/test-file-alert.jpg" alt-text="Screenshot of the EICAR test file alert screen for Windows." lightbox="media/enable-agentless-scanning-vms/test-file-alert.jpg":::
 
 ## Exclude machines from scanning
 
