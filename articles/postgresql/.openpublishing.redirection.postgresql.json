@@ -6,6 +6,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/azure/postgresql/migrate/how-to-migrate-using-export-and-import.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/postgresql/concepts-compute-unit-and-storage.md",
         "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
         "redirect_document_id": false
@@ -1493,11 +1498,6 @@
     {
         "source_path_from_root": "/articles/postgresql/migrate/common-errors-and-special-scenarios-fms.md",
         "redirect_url": "/azure/postgresql/migrate/best-practices-seamless-migration-single-to-flexible",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/azure/postgresql/migrate/how-to-migrate-using-export-and-import.md",
-        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore",
         "redirect_document_id": false
     }
     ]
