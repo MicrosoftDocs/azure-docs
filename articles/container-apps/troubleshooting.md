@@ -579,24 +579,6 @@ probes:
 
 ---
 
-Use the [`az containerapp update`](/cli/azure/containerapp#az-containerapp-update) command with the `--yaml` flag to update your container app.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az containerapp update \
-  --yaml <PATH_TO_YAML_FILE>
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```powershell
-az containerapp update `
-  --yaml <PATH_TO_YAML_FILE> `
-```
-
----
-
 ::: zone-end
 
 For more information, see [Use Health Probes](./health-probes.md).
