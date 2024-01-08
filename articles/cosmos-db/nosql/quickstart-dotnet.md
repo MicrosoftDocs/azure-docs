@@ -74,46 +74,49 @@ The client library is available through NuGet, as the `Microsoft.Azure.Cosmos` p
 
 This sample creates a new instance of the `CosmosClient` class and authenticates using a `DefaultAzureCredential` instance.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/TODO" id="TODO" highlight="TODO":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Program.cs" id="create_client" highlight="2-3":::
 
 ### Get a database
 
-TODO
+Use `client.GetDatabase` to retrieve the existing database named *`cosmicworks`*.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/TODO" id="TODO" highlight="TODO":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="get_database":::
 
 ### Get a container
 
-TODO
+Retrieve the existing *`products`* container using `database.GetContainer`.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/TODO" id="TODO" highlight="TODO":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="get_container":::
 
 ### Create an item
 
-TODO
+Build a C# record type with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and clearance.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/TODO" id="TODO" highlight="TODO":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Models/Product.cs" id="model":::
+
+Create an item in the container using `container.UpsertItem`. This method "upserts" the item effectively replacing the item if it already exists.
+
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="create_item" highlight="10":::
 
 ### Read an item
 
-TODO
+Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use `container.ReadItem` to efficiently retrieve the specific item.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/TODO" id="TODO" highlight="TODO":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="read_item" highlight="1":::
 
 ### Query items
 
-TODO:
+Perform a query over multiple items in a container using `container.GetItemQueryIterator<>`. Find all items within a specified category using this parameterized query:
 
 ```nosql
 SELECT * FROM products p WHERE p.category = @category
 ```
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/TODO" id="TODO" highlight="TODO":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="query_items" highlight="6":::
 
-TODO
+Parse the paginated results of the query by looping through each page of results using `feed.ReadNextAsync`. Use `feed.HasMoreResults` to determine if there are any results left at the start of each loop.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/TODO" id="TODO" highlight="TODO":::
-
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/web/Services/CosmosDbService.cs" id="parse_results" highlight="3,5":::
 
 ## Clean up resources
 
