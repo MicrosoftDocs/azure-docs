@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-author: saachigopal
-ms.author: sagopal
+author: balapv
+ms.author: balapv
 ms.date: 01/03/2024
 ms.reviewer: larryfr
 ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, ignite-2022
