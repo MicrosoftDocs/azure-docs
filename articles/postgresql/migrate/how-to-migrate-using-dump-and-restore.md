@@ -57,7 +57,7 @@ To step through this how-to guide, you need:
 
 ## Dumping users and roles with `pg_dumpall -r`
 `pg_dump` is used to extract a PostgreSQL database into a dump file. However, it's crucial to understand that `pg_dump` does not dump roles or users definitions, as these are considered global objects within the PostgreSQL environment. For a comprehensive migration, including users and roles, you need to use `pg_dumpall -r`. 
-This command allows you to capture all role and user information from your PostgreSQL environment.
+This command allows you to capture all role and user information from your PostgreSQL environment. If you're migrating within databases on the same server, please feel free to skip this step and move to the [Create a new database](#create-a-new-database) section.
 
 ```bash
 pg_dumpall -r -h <server name> -U <user name> > roles.sql
@@ -161,7 +161,7 @@ If you're using a Single Server, your username includes the server name componen
 
 
 ### Create a new database
-Before restoring your database, you might need to create a new, empty database. Here are two commonly used methods:
+Before restoring your database, you might need to create a new, empty database. To do this, user that you are using must have the `CREATEDB` permission. Here are two commonly used methods:
 
 1. **Using `createdb` utility**
    The `createdb` program allows for database creation directly from the bash command line, without the need to log into PostgreSQL or leave the operating system environment. For instance:
@@ -176,6 +176,20 @@ Before restoring your database, you might need to create a new, empty database. 
    ```
 
 If you're using a Single Server, your username includes the server name component. Therefore, instead of `myuser`, use `myuser@mydemoserver`.
+
+2. **Using SQL command**
+To create a database using an SQL command, you'll need to connect to your PostgreSQL server via a command line interface or a database management tool. Once connected, you can use the following SQL command to create a new database:
+
+```sql
+CREATE DATABASE <new database name>;
+```
+
+Replace `<new database name>` with the name you wish to give your new database. For example, to create a database named `testdb_copy`, the command would be:
+
+```sql
+CREATE DATABASE testdb_copy;
+```
+
 
 ### Restoring the dump
 After you've created the target database, you can restore the data into this database from the dump file. During the restoration, log any errors to an `errors.log` file and check its content for any errors after the restore is done.
