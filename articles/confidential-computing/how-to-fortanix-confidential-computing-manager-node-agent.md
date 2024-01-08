@@ -34,28 +34,49 @@ For Fortanix-specific support, join the [Fortanix Slack community](https://forta
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
 
 ## Add an application to Fortanix Confidential Computing Manager
+### Create and Select an Account
 
 1. Sign in to [Fortanix Confidential Computing Manager (Fortanix CCM)](https://ccm.fortanix.com).
 1. Go to the **Accounts** page and select **ADD ACCOUNT** to create a new account.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-account-new.png" alt-text="Screenshot that shows how to create an account.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-account-latest.png" alt-text="Screenshot that shows how to create an account.":::
 
-1. After your account is created, hit **SELECT** to select the newly created account. Now we can start enrolling the compute nodes and creating applications.
-1. Select the **+ APPLICATION** button to add an application. In this example, we'll be adding a Flask Server Enclave OS application.
+1. After your account is created, hit **SELECT** to select the newly created account. Click **GO TO ACCOUNT** to enter the account and start enrolling the compute nodes and creating applications.
+1. If you disabled the attestation for compute nodes, you would see a warning in the Fortanix CCM dashboard **“Test-only deployment: Compute nodes can be enrolled into Fortanix CCM without attesting to Intel’s IAS attestation service”**.
+
+:::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/test-only-deployment.png" alt-text="Screenshot that shows test only deployment":::
+
+### Add a Group
+
+1. Navigate to **Groups** from the menu list and click **+ ADD GROUP** to add a group.
+
+:::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/add-group.png" alt-text="Screenshot that shows group creation":::
+
+1. Click the **ADD GROUP** button to create a new group.
+1. Enter the required **Name** for the group and add **Labels** with **Key:Value** pairs.
+1. Click the **CREATE GROUP** button. The group is now successfully created.
+
+### Add an Application
+
+1. Navigate to the **Applications** menu item from the CCM UI left navigation bar and click **+ ADD APPLICATION** to add an application. In this example, we'll be adding a Flask Server Enclave OS application.
+
+:::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-application-new.png" alt-text="Screenshot that shows how to create an application":::
 
 1. Select the **ADD** button for the Enclave OS Application.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/add-enclave-application.png" alt-text="Screenshot that shows how to add an application.":::
-
    > [!NOTE]
-   > This tutorial covers adding Enclave OS Applications only. [Learn more](https://support.fortanix.com/hc/en-us/articles/360044746932-Bringing-EDP-Rust-Apps-to-Confidential-Computing-Manager) about bringing EDP Rust Applications to Fortanix Confidential Computing Manager.
+   > This tutorial covers adding Enclave OS Applications only.
+   - [Learn more](https://support.fortanix.com/hc/en-us/articles/360044746932-Bringing-EDP-Rust-Apps-to-Confidential-Computing-Manager) about bringing EDP Rust Applications to Fortanix Confidential Computing Manager.
+   - [Learn more](https://support.fortanix.com/hc/en-us/articles/360043527431-User-s-Guide-Add-and-Edit-an-Application#add-aci-application-0-8) about adding an ACI Application to Fortanix Confidential Computing Manager.
+
+ :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/add-applications-EnclaveOS.png" alt-text="Screenshot that shows how to add an EOS application.":::
 
 1. In this tutorial, we'll use Fortanix's docker registry for the sample application. Fill in the details from the following information. Use your private docker registry to keep the output image.
 
     - **Application name**: Python Application Server
     - **Description**: Python Flask Server
-    - **Input image name**: fortanix/python-flask
-    - **Output image name**: fortanx-private/python-flask-sgx
+    - **Input image name**: docker.io/fortanix/python-flask
+    - **Output image name**: docker.io/fortanx/python-flask-sgx
     - **ISVPRODID**: 1
     - **ISVSVM**: 1
     - **Memory size**: 1 GB
@@ -72,7 +93,6 @@ For Fortanix-specific support, join the [Fortanix Slack community](https://forta
       ```
 
 1. Add a certificate. Fill in the information using the details below and then select **NEXT**:
-    - **Domain**: myapp.domain.dom
     - **Type**: Certificate Issued by Confidential Computing Manager
     - **Key path**: /appkey.pem
     - **Key type**: RSA
@@ -83,19 +103,29 @@ For Fortanix-specific support, join the [Fortanix Slack community](https://forta
 
 A Fortanix CCM Image is a software release or version of an application. Each image is associated with one enclave hash (MRENCLAVE).
 
-1. On the **Add Image** page, enter the **REGISTRY CREDENTIALS** for **Output image name**. These credentials are used to access the private docker registry where the image will be pushed.
+1. After you create an Enclave OS application, on the **Add Image** page, enter the **REGISTRY CREDENTIALS** for **Output image name**. These credentials are used to access the private docker registry where the image will be pushed. Since the input image is stored in a public registry, there is no need to provide credentials for the input image.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-image.png" alt-text="Screenshot that shows how to create an image.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/Nitro_CreateEOSImage.png" alt-text="Screenshot that shows how to create an AWs Nitro image.":::
 
-1. Provide the image tag and select **Create**.
+1. Provide the image tag. Use “latest” if you want to use the latest image builds.
+1. If you selected the **Image Type** as **Intel SGX**, enter the following details:
+- **ISVPRODID** is a numeric product identifier. A user must choose a unique value in the range of 0-65535 for their applications.
+- **ISVSVN** is a numeric security version to be assigned to the Enclave. This number should be incremented if security relevant change is made to the application.
+- **Memory size** – Choose the memory size from the drop-down to change the memory size of the enclave.
+- **Thread count** – Change the thread count to support the application.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/add-tag.png" alt-text="Screenshot that shows how to add a tag.":::
+If you selected the Image Type as AWS Nitro, enter the following details:
+Memory size
+- **CPU count** – CPU count is the number of CPUs dedicated to an enclave out of all the CPUs available to the host machine.
+1. Select **Create** to proceed.
+1. Upon completing the image creation, you will see a notification that the image was successfully created and your application will be listed in the Applications screen.
 
-## Domain and image allowlist
 
-An application whose domain is added to the allowlist, will get a TLS Certificate from Fortanix Confidential Computing Manager. Similarly, when an application runs from the converted image, it will try to contact Fortanix Confidential Computing Manager. The application will then ask for a TLS Certificate.
+## Domain and image approval
 
-Switch to the **Tasks** tab on the left and approve the pending requests to allow the domain and image.
+An application whose domain is approved, will get a TLS Certificate from Fortanix Confidential Computing Manager. This certificate will have the domain as a subject name which will allow all requests from this domain to be served by the application. If this domain is not approved, the image will run but it will not be issued any TLS certificate from Fortanix Confidential Computing Manager.
+
+Switch to the **Tasks** menu on the left and select **Approve** to whitelist the pending requests to allow the domain and image.
 
 ## Enroll compute node agent in Azure
 
@@ -103,8 +133,10 @@ Switch to the **Tasks** tab on the left and approve the pending requests to allo
 
 In Fortanix Confidential Computing Manager, you'll create a token. This token allows a compute node in Azure to authenticate itself. You'll need to give this token to your Azure virtual machine.
 
-1. In the management console, select the **+ ENROLL NODE** button.
-1. Select **GENERATE TOKEN** to generate the Join token. Copy the token.
+1. Select the **Infrastructure** → **Compute Nodes** menu item from the CCM left navigation bar and click the **+ ENROLL NODE** button.
+1. Click **COPY** to copy the Join Token. This Join Token is used by the compute node to authenticate itself.
+
+ :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/nitro-join-token.png" alt-text="Screenshot that shows how to create an AWs Nitro image.":::
 
 ### Enroll nodes into Fortanix Node Agent in Azure Marketplace
 
@@ -122,25 +154,33 @@ Creating a Fortanix Node Agent will deploy a virtual machine, network interface,
    > There are constraints when deploying DCsv2-Series virtual machines in Azure. You may need to request quota for additional cores. Read about [confidential computing solutions on Azure VMs](./virtual-machine-solutions.md) for more information.
 
 1. Select an available region.
-1. Enter a name for your virtual machine in **Node Name**.
+1. Select the **OS Type**.
+1. Leave the default **OS Disk Size** as 200 and select a VM size (Standard_DC4s_v2 will suffice for this tutorial).
+1. Enter a name for your virtual machine in **Compute Node Name**.
 1. Enter a username and password (or SSH Key) for authenticating into the virtual machine.
-1. Leave the default OS Disk Size as 200 and select a VM size (Standard_DC4s_v2 will suffice for this tutorial).
 1. Paste the token generated earlier in **Join Token**.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/deploy-fortanix-node-agent-protocol.png" alt-text="Screenshot that shows how to deploy a resource.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/Create-node-agent.png" alt-text="Screenshot that shows how to create a node agent.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/Create-node-agent1.png" alt-text="Screenshot that shows how to create a node agent.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/Create-node-agent2.png" alt-text="Screenshot that shows how to create a node agent.":::
 
 1. Select **Review + Create**. Ensure the validation passes and then select **Create**. When all the resources deploy, the compute node is now enrolled in Fortanix Confidential Computing Manager.
 
-## Run the application image on the compute node
+## Run the application image on the enrolled compute node
 
-Run the application by executing the following command. Ensure you change the Node IP, Port, and Converted Image Name as inputs for your specific application.
+Run the application by executing the following command. Ensure you change the Node Agent Host IP, Port, and Converted Image Name as inputs for your specific application.
 
-In this tutorial, the command to execute is:
+1. Install docker on the enrolled compute node. To install docker, use the command:
+
+```bash
+    sudo apt install docker.io
+```
+
+1. Run the application image on the node by using the following command:
 
 ```bash
     sudo docker run `
-        --device /dev/isgx:/dev/isgx `
-        --device /dev/gsgx:/dev/gsgx `
+        --privileged --volume /dev:/dev `
         -v /var/run/aesmd/aesm.socket:/var/run/aesmd/aesm.socket `
         -e NODE_AGENT_BASE_URL=http://52.152.206.164:9092/v1/ fortanix-private/python-flask-sgx
 ```
@@ -148,15 +188,14 @@ In this tutorial, the command to execute is:
 Where:
 
 - *52.152.206.164* is the Node Agent Host IP
-- *9092* is the port that Node Agent listens up
-- *fortanix-private/python-flask-sgx* is the converted app that can be found in the Images tab under the **Image Name** column in the **Images** table in the Fortanix Confidential Computing Manager Web Portal.
+- *9092* is the default port on which the Node Agent listens to
+- *fortanix/python-flask-sgx* is the converted app that can be found in the Images menu under the **Image Name** column in the **Images** table in the Fortanix Confidential Computing Manager Web Portal.
 
 ## Verify and monitor the running application
 
 1. Return to [Fortanix Confidential Computing Manager](https://ccm.fortanix.com/console).
 1. Ensure you're working inside the **Account** where you enrolled the node.
-1. Go to the **Management Console** by selecting the top icon on the left navigation pane.
-1. Select the **Application** tab.
+1. Select the **Applications** menu on the left navigation pane.
 1. Verify that there's a running application with an associated compute node.
 
 ## Clean up resources
@@ -167,7 +206,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 To delete the Fortanix Confidential Computing Manager account you created, go the [Accounts Page](https://ccm.fortanix.com/accounts) in the Fortanix Confidential Computing Manager. Hover over the account you want to delete. Select the vertical black dots in the upper right-hand corner and select **Delete Account**.
 
-:::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/delete-account.png" alt-text="Screenshot that shows how to delete the account.":::
+:::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/delete-ccm-account.png" alt-text="Screenshot that shows how to delete the account.":::
 
 ## Next steps
 
