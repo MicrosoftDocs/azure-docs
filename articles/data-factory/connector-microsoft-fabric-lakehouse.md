@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/08/2023
+ms.date: 01/08/2024
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
@@ -71,10 +71,10 @@ The Microsoft Fabric Lakehouse connector supports the following authentication t
 
 To use service principal authentication, follow these steps.
 
-1. Register an application with the Microsoft Identity platform and add a client secret. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Afterwards, make note of these values, which you use to define the linked service:
+1. [Register an application with the Microsoft Identity platform](../active-directory/develop/quickstart-register-app.md) and [add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret). Afterwards, make note of these values, which you use to define the linked service:
 
-    - Application (client) ID. It is the service principal ID in the linked service.
-    - Client secret value. It is the service principal key in the linked service.
+    - Application (client) ID, which is the service principal ID in the linked service.
+    - Client secret value, which is the service principal key in the linked service.
     - Tenant ID
 
 2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
