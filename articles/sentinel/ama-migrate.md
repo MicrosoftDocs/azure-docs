@@ -32,7 +32,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)   |     -     |
 |**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors/windows-firewall.md)       |
 |**Performance counters**     |   Collection only      |  Collection only       |
-|**Windows (System) Event Logs**     |  Collection only       | Collection only        |
+| **Windows (System) Event Logs** | Collection only | Collection only |
 |**Custom logs (text)**     |   Collection only       |    Collection only     |
 |**IIS logs**     |    Collection only      |    Collection only     |
 |**Multi-homing**     |  Collection only       |   Collection only      |
