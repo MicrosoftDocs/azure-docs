@@ -12,6 +12,14 @@ ms.service: azure-disk-storage
 
 Azure Disk Storage regularly receives updates for new features and enhancements. This article provides information about what's new in Azure Disk Storage.
 
+## What's new in 2024
+
+### Quarter 1 (Janurary, February, March)
+
+## Ultra Disk regional availability expansion
+
+Ultra Disks are now available in the UK West and Poland Central regions.
+
 ## What's new in 2023
 
 ### Quarter 4 (October, November, December)
