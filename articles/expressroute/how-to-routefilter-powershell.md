@@ -4,6 +4,7 @@ description: This article describes how to configure route filters for Microsoft
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/28/2023
 ms.author: duau
