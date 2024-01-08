@@ -123,9 +123,9 @@ For example, the following shows how to prepare the cluster for Azure IoT Operat
 ```bash
 
 az iot ops init --name "<your unique key vault name>" --resource-group "<the name of the resource group>" \
-    --kv-id <Key Vault Resource ID retrieved above> \
-    --sp-app-id <Application registration App ID (client ID) from Microsoft Entra ID above> \
-    --sp-object-id <Object ID copied from Enterprise Application in Microsoft Entra ID above> \
+    --kv-id <Key Vault Resource ID> \
+    --sp-app-id <Application registration App ID (client ID) from Microsoft Entra ID> \
+    --sp-object-id <Object ID copied from Enterprise Application in Microsoft Entra ID> \
     --sp-secret "<Client Secret from App registration in Microsoft Entra ID>" \
     --no-deploy
 
