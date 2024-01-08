@@ -82,7 +82,7 @@ Create a client secret that will be added to your Kubernetes cluster to authenti
 
 Retrieve the service principal Object Id
 
-1. On the **Overview** page for your app, under the section **Essentials**, click on the **Application name** link under **Managed application in local directory**. This opens the Enterprise Application properties. Copy the Object Id to use later.
+1. On the **Overview** page for your app, under the section **Essentials**, click on the **Application name** link under **Managed application in local directory**. This opens the Enterprise Application properties. Copy the Object Id to use when you run `az iot ops init`.
 
 ### Create an Azure Key Vault
 
