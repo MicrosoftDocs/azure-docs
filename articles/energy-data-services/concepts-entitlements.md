@@ -32,7 +32,7 @@ The entitlements service enables three use cases for authorization:
    3. These groups enable `viewer`, `editor`, and `admin` access to call the OSDU APIs corresponding to the OSDU services.
 
 3. **User groups** are used for hierarchical grouping of user and service groups.
-   1. The service groups start with the word "data." such as users.datalake.viewers and users.datalake.editors. 
+   1. The service groups start with the word "users." such as users.datalake.viewers and users.datalake.editors. 
    2. Some user groups are created by default when a data partition is provisioned. Details of these groups and their hierarchy scope are in [Bootstrapped OSDU Entitlements Groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
    3. There's one exception of this group naming rule for "users" group. It gets created when a new data partition is provisioned and its name follows the pattern of `users@{partition}.{domain}`. It has the list of all the users with any type of access in a given data partition. Before adding a new user to any entitlement groups, you need to add the new user to the `users@{partition}.{domain}` group as well.
   
