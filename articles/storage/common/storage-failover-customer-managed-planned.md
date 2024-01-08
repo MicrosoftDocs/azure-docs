@@ -31,8 +31,6 @@ This article describes what happens during a customer-managed planned storage ac
 > [!TIP]
 > To understand the varying redundancy states during the storage account failover and failback process in detail, see [Azure Storage redundancy](storage-redundancy.md) for definitions of each.
 
-<!--When a storage account is configured for GRS or RA-GRS redundancy, data is replicated three times locally within both the primary and secondary regions (LRS). When a storage account is configured for GZRS or RA-GZRS replication, data is zone-redundant within the primary region (ZRS) and replicated three times locally within the secondary region (LRS). If the account is configured for read access (RA), you will be able to read data from the secondary region as long as the storage service endpoints to that region are available.-->
-
 Azure storage provides a wide variety of redundancy options to help protect your data.
 
 Locally redundant storage (LRS) automatically maintains three copies of your storage account within a single datacenter. LRS is the least expensive replication option, but isn't recommended for applications requiring high availability or durability. Zone-redundant storage (ZRS) replicates your storage account synchronously across three Azure availability zones in the primary region. Each availability zone is a separate physical location, and your data is still accessible for both read and write operations if a zone becomes unavailable.
@@ -98,7 +96,7 @@ The failback typically takes about an hour.
 
 After the failback is complete, the storage account is restored to its original redundancy configuration. Users can resume writing data to the storage account in the original primary region (1) while replication to the original secondary (2) continues as before the failover:
 
-![Clients continue to read data from and write data to the storage account in the original primary region (GRS)](media/storage-failover-customer-managed-common/pre-failover-geo-redundant.png).
+:::image type="content" source="media/storage-failover-customer-managed-common/pre-failover-geo-zone-redundant.png" alt-text="Clients continue to perform read and write operations to the storage account in the original primary region.":::
 
 ## [GZRS/RA-GZRS](#tab/gzrs-ra-gzrs)
 

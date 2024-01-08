@@ -1,7 +1,7 @@
 ---
 title: Initiate a storage account failover
 titleSuffix: Azure Storage
-description: Learn how to initiate an account failover in the event that the primary endpoint for your storage account becomes unavailable. The failover updates the secondary region to become the primary region for your storage account.
+description: Learn how to initiate an account failover if the primary endpoint for your storage account becomes unavailable. The failover updates the secondary region to become the primary region for your storage account.
 services: storage
 author: stevenmatthew
 
@@ -27,17 +27,17 @@ To learn more about account failover, see [Azure storage disaster recovery plann
 
 ## Prerequisites
 
-Before failing over your storage account, review these important topics covered in the [Plan for storage account failover](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover).
+Before failing over your storage account, review these important articles covered in the [Plan for storage account failover](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover).
 
 - **Potential data loss**: When you fail over your storage account in response to an unexpected outage in the primary region, some data loss is expected.
 
 > [!WARNING]
 > It is very important to understand the expectations for loss of data with certain types of failover, and to plan for it. For details on the implications of an account failover and to how to prepare for data loss, see [Anticipate data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies).
-- **Geo-redundancy**: Before you can perform an account failover on your storage account, make sure it is configured for geo-redundancy and that the initial synchronization from the primary to the secondary region has completed. For more information about Azure storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md). If your account is not configured for geo-redundancy, you can change it. For more information, see [Change how a storage account is replicated](redundancy-migration.md).
+- **Geo-redundancy**: Before you can perform an account failover on your storage account, make sure it's configured for geo-redundancy and that the initial synchronization from the primary to the secondary region is complete. For more information about Azure storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md). If your account isn't configured for geo-redundancy, you can change it. For more information, see [Change how a storage account is replicated](redundancy-migration.md).
 - **Understand the different types of account failover**: There are three types of storage account failover. To learn the use cases for each and how they function differently, see [Plan for storage account failover](storage-disaster-recovery-guidance.md#plan-for-storage-account-failover). This article focuses on how to initiate a *customer-managed failover* to recover from the service endpoints being unavailable in the primary region, or a *customer-managed* ***planned*** *failover* (preview) used primarily to perform disaster recovery testing.
 - **Plan for unsupported features and services**: Review [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) and take the appropriate action before initiating a failover.
 - **Supported storage account types**: Ensure the type of your storage account supports customer-initiated failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
-- **Set your expectations for timing and cost**: The time it takes to fail over after you initiate it can vary, but it typically takes less than one hour. A customer-managed failover associated with an outage in the primary region loses its geo-redundancy configuration after a failover (and failback). Reconfiguring GRS typically incurs additional time and cost. For more details, see [The time and cost of failing over](storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over).
+- **Set your expectations for timing and cost**: The time it takes to fail over after you initiate it can vary, but it typically takes less than one hour. A customer-managed failover associated with an outage in the primary region loses its geo-redundancy configuration after a failover (and failback). Reconfiguring GRS typically incurs extra time and cost. For more information, see [The time and cost of failing over](storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over).
 
 ## Initiate the failover
 
@@ -52,30 +52,30 @@ To initiate an account failover from the Azure portal, follow these steps:
 1. Navigate to your storage account.
 1. Under **Data management**, select **Redundancy**. The following image shows the geo-redundancy configuration and failover status of a storage account.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-redundancy.png" alt-text="Screenshot showing redundancy and failover status" lightbox="media/storage-initiate-account-failover/portal-failover-redundancy.png":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-redundancy.png" alt-text="Screenshot showing redundancy and failover status." lightbox="media/storage-initiate-account-failover/portal-failover-redundancy.png":::
 
-    If your storage account is configured with a hierarchical namespace enabled, you will see the following message:
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-hns-not-supported.png" alt-text="Screenshot showing failover not supported for hierarchical namespace" lightbox="media/storage-initiate-account-failover/portal-failover-hns-not-supported.png":::
+    If your storage account is configured with a hierarchical namespace enabled, the following message is displayed:
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-hns-not-supported.png" alt-text="Screenshot showing that failover isn't supported for hierarchical namespace." lightbox="media/storage-initiate-account-failover/portal-failover-hns-not-supported.png":::
 
-1. Verify that your storage account is configured for geo-redundant storage (GRS, RA-GRS, GZRS or RA-GZRS). If it's not, then select the desired redundancy configuration under **Redundancy** and select **Save** to change it. After changing the geo-redundancy configuration it will take several minutes for your data to synchronize from the primary to the secondary region. You cannot initiate a failover until the synchronization is complete. You might see the following message on the **Redundancy** page until all of your data has been replicated:
+1. Verify that your storage account is configured for geo-redundant storage (GRS, RA-GRS, GZRS or RA-GZRS). If it's not, then select the desired redundancy configuration under **Redundancy** and select **Save** to change it. After changing the geo-redundancy configuration, it will take several minutes for your data to synchronize from the primary to the secondary region. You cannot initiate a failover until the synchronization is complete. You might see the following message on the **Redundancy** page until all of your data is replicated:
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-repl-in-progress.png" alt-text="Screenshot showing message indicating synchronization is still in progress" lightbox="media/storage-initiate-account-failover/portal-failover-repl-in-progress.png":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-repl-in-progress.png" alt-text="Screenshot showing message indicating synchronization is still in progress." lightbox="media/storage-initiate-account-failover/portal-failover-repl-in-progress.png":::
 
 1. Select **Prepare for failover**. You will be presented with a page similar to the image that follows where you can select the type of failover to perform:
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" lightbox="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Screenshot showing the prepare for failover window":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" lightbox="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Screenshot showing the prepare for failover window.":::
 
     > [!NOTE]
     > If your storage account is configured with a hierarchical namespace enabled, the `Failover` option will be grayed out.
-1. Select the type of failover to prepare for. The confirmation page will vary depending on the type of failover you select.
+1. Select the type of failover to prepare for. The confirmation page varies depending on the type of failover you select.
 
     **If you select `Failover`**:
 
     You will see a warning about potential data loss and information about needing to manually reconfigure geo-redundancy after the failover:
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare-failover.png" alt-text="Screenshot showing the failover option selected on the prepare for failover window" lightbox="media/storage-initiate-account-failover/portal-failover-prepare-failover.png":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare-failover.png" alt-text="Screenshot showing the failover option selected on the Prepare for failover window." lightbox="media/storage-initiate-account-failover/portal-failover-prepare-failover.png":::
 
-    For more details about potential data loss and what happens to your account redundancy configuration during failover, see:
+    For more information about potential data loss and what happens to your account redundancy configuration during failover, see:
 
     > [Anticipate data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies)
     >
@@ -84,9 +84,9 @@ To initiate an account failover from the Azure portal, follow these steps:
 
     **If you select `Planned failover`** (preview):
 
-    You will see the **Last Sync Time** value, but notice in the image that follows that the failover will not occur until after all of the remaining data has been synchronized to the secondary region.
+    You will see the **Last Sync Time** value, but notice in the image that follows that the failover will not occur until after all of the remaining data is synchronized to the secondary region.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare-failover-planned.png" alt-text="Screenshot showing the planned failover option selected on the prepare for failover window" lightbox="media/storage-initiate-account-failover/portal-failover-prepare-failover-planned.png":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare-failover-planned.png" alt-text="Screenshot showing the planned failover option selected on the prepare for failover window." lightbox="media/storage-initiate-account-failover/portal-failover-prepare-failover-planned.png":::
 
     As a result, data loss is not expected during the failover. Since the redundancy configuration within each region does not change during a planned failover or failback, there is no need to manually reconfigure geo-redundancy after a failover.
 
@@ -94,7 +94,7 @@ To initiate an account failover from the Azure portal, follow these steps:
 
     You will see a message indicating the failover is in progress:
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-in-progress.png" alt-text="Screenshot showing the failover in-progress message" lightbox="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy.png":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-in-progress.png" alt-text="Screenshot showing the failover in-progress message." lightbox="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy.png":::
 
 ## [PowerShell](#tab/azure-powershell)
 
@@ -276,29 +276,29 @@ The status of the failover is shown in the Azure portal in **Notifications**, in
 
 ### Notifications
 
-To check the status of the failover, click the notification icon (bell) on the far right of the Azure portal global page header:
+To check the status of the failover, select the notification icon (bell) on the far right of the Azure portal global page header:
 
-:::image type="content" source="media/storage-initiate-account-failover/portal-failover-in-progress-notification.png" alt-text="Screenshot showing the failover in-progress message in notifications" lightbox="media/storage-initiate-account-failover/portal-failover-in-progress-notification.png":::
+:::image type="content" source="media/storage-initiate-account-failover/portal-failover-in-progress-notification.png" alt-text="Screenshot showing the failover in-progress message in notifications." lightbox="media/storage-initiate-account-failover/portal-failover-in-progress-notification.png":::
 
 ### Activity log
 
-To view the detailed status of a failover, click on the **More events in the activity log** link in the notification, or go to the **Activity log** page of the storage account:
+To view the detailed status of a failover, select the **More events in the activity log** link in the notification, or go to the **Activity log** page of the storage account:
 
-:::image type="content" source="media/storage-initiate-account-failover/portal-failover-activity-log.png" alt-text="Screenshot showing the failover status in the activity log" lightbox="media/storage-initiate-account-failover/portal-failover-activity-log.png":::
+:::image type="content" source="media/storage-initiate-account-failover/portal-failover-activity-log.png" alt-text="Screenshot showing the failover status in the activity log." lightbox="media/storage-initiate-account-failover/portal-failover-activity-log.png":::
 
 ### Redundancy page
 
 Messages on the redundancy page of the storage account will show if the failover is still in progress:
 
-:::image type="content" source="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy.png" alt-text="Screenshot showing the failover in-progress on the redundancy page" lightbox="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy.png":::
+:::image type="content" source="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy.png" alt-text="Screenshot showing the failover in-progress on the redundancy page." lightbox="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy.png":::
 
 If the failover is nearing completion, the redundancy page might show the original secondary region as the new primary, but still display a message indicating the failover is in progress:
 
-:::image type="content" source="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy-incomplete.png" alt-text="Screenshot showing the failover in-progress but incomplete on the redundancy page" lightbox="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy-incomplete.png":::
+:::image type="content" source="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy-incomplete.png" alt-text="Screenshot showing the failover in-progress but incomplete on the redundancy page." lightbox="media/storage-initiate-account-failover/portal-failover-in-progress-redundancy-incomplete.png":::
 
 When the failover is complete, the redundancy page will show the last failover time and the location of the new primary region. If a planned failover was done, the new secondary region will also be displayed. The following image shows the new storage account status after a failover resulting from an outage of the endpoints for the original primary (unplanned):
 
-:::image type="content" source="media/storage-initiate-account-failover/portal-failover-complete.png" alt-text="Screenshot showing the failover complete on the redundancy page" lightbox="media/storage-initiate-account-failover/portal-failover-complete.png":::
+:::image type="content" source="media/storage-initiate-account-failover/portal-failover-complete.png" alt-text="Screenshot showing the failover complete on the redundancy page." lightbox="media/storage-initiate-account-failover/portal-failover-complete.png":::
 
 ## [PowerShell](#tab/azure-powershell)
 

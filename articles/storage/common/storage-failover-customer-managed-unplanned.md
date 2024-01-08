@@ -13,7 +13,7 @@ ms.subservice: storage-common-concepts
 ms.custom: 
 ---
 
-# How customer-managed storage account failover to recover from an outage works
+# How customer-managed failover works
 
 Customer-managed failover of Azure Storage accounts enables you to fail over your entire geo-redundant storage account to the secondary region if the storage service endpoints for the primary region become unavailable. During failover, the original secondary region becomes the new primary and all storage service endpoints for blobs, tables, queues and files are redirected to the new primary region. After the storage service endpoint outage has been resolved, you can perform another failover operation to *fail back* to the original primary region.
 
@@ -30,7 +30,7 @@ When a storage account is configured for GRS or RA-GRS redundancy, data is repli
 
 During the customer-managed failover process, the DNS entries for the storage service endpoints are changed such that those for the secondary region become the new primary endpoints for your storage account. After failover, the copy of your storage account in the original primary region is deleted and your storage account continues to be replicated three times locally within the original secondary region (the new primary). At that point, your storage account becomes locally redundant (LRS).
 
-The original and current redundancy configurations are stored in the properties of the storage account to allow you eventually return to your original configuration when you fail back.
+The original and current redundancy configurations are stored in the properties of the storage account. This functionality allows you to eventually return to your original configuration when you fail back.
 
 To regain geo-redundancy after a failover, you will need to reconfigure your account as GRS. (GZRS is not an option post-failover since the new primary will be LRS after the failover). After the account is reconfigured for geo-redundancy, Azure immediately begins copying data from the new primary region to the new secondary. If you configure your storage account for read access (RA) to the secondary region, that access will be available but it may take some time for replication from the primary to make the secondary current.
 

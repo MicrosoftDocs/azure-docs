@@ -94,7 +94,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -SkuName <sku>
 ```
 
-You can also add or remove zone redundancy to your storage account. To change between locally redundant and zone-redundant storage with Powershell, call the [Start-AzStorageAccountMigration](/powershell/module/az.storage/start-azstorageaccountmigration) command and specify the `-TargetSku` parameter:
+You can also add or remove zone redundancy to your storage account. To change between locally redundant and zone-redundant storage with PowerShell, call the [Start-AzStorageAccountMigration](/powershell/module/az.storage/start-azstorageaccountmigration) command and specify the `-TargetSku` parameter:
 
 ```powershell
 Start-AzStorageAccountMigration
