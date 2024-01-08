@@ -4,7 +4,7 @@ ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: include
-ms.date: 12/21/2023
+ms.date: 01/08/2023
 ms.custom: include file
 ---
 

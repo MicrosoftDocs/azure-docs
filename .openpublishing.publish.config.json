@@ -1005,6 +1005,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-nosql-go-quickstart",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-go-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmos-db-mongodb-dotnet-samples",
       "url": "https://github.com/azure-samples/cosmos-db-mongodb-dotnet-samples",
       "branch": "main",
