@@ -68,10 +68,10 @@ The client library is available through NuGet, as the `Microsoft.Azure.Cosmos` p
 
 | Name | Description |
 | --- | --- |
-| [`CosmosClient`](xref:Microsoft.Azure.Cosmos.CosmosClient) | This class is the primary client class and is used to manage account-wide metadata or databases. |
-| [`Database`](xref:Microsoft.Azure.Cosmos.Database) | This class represents a database within the account. |
-| [`Container`](xref:Microsoft.Azure.Cosmos.Container) | This class is primarily used to perform read, update, and delete operations on either the container or the items stored within the container. |
-| [`PartitionKey`](xref:Microsoft.Azure.Cosmos.PartitionKey) | This class represents a logical partition key. This class is required for many common operations and queries. |
+| <xref:Microsoft.Azure.Cosmos.CosmosClient> | This class is the primary client class and is used to manage account-wide metadata or databases. |
+| <xref:Microsoft.Azure.Cosmos.Database> | This class represents a database within the account. |
+| <xref:Microsoft.Azure.Cosmos.Container> | This class is primarily used to perform read, update, and delete operations on either the container or the items stored within the container. |
+| <xref:Microsoft.Azure.Cosmos.PartitionKey> | This class represents a logical partition key. This class is required for many common operations and queries. |
 
 ## Code examples
 
@@ -81,6 +81,8 @@ The client library is available through NuGet, as the `Microsoft.Azure.Cosmos` p
 - [Create an item](#create-an-item)
 - [Get an item](#read-an-item)
 - [Query items](#query-items)
+
+[!INCLUDE[Developer Quickstart sample explanation](includes/quickstart/dev-sample-primer.md)]
 
 ### Authenticate the client
 
@@ -146,4 +148,4 @@ Parse the paginated results of the query by looping through each page of results
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Tutorial: Develop a .NET console application with Azure Cosmos DB for NoSQL](tutorial-dotnet-console-app.md)
+> [Tutorial: Develop a .NET console application](tutorial-dotnet-console-app.md)
