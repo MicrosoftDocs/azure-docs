@@ -6,7 +6,7 @@ ms.author:       varundhawan
 ms.service:      postgresql
 ms.subservice:   flexible-server
 ms.topic:        conceptual
-ms.date:         12/12/2023
+ms.date:         1/4/2024
 ---
 
 # Scaling resources in Azure Database for PostgreSQL - Flexible Server
@@ -34,10 +34,15 @@ Near-zero downtime scaling is a feature designed to minimize downtime when modif
 
 ### How it works
 
-When updating your Azure Database for PostgreSQL flexible server instance in scaling scenarios, we create a new copy of your server (VM) with the updated configuration, synchronize it with your current one, briefly switch to the new copy with a 30-second interruption, and retire the old server, all at no extra cost to you. This process allows for seamless updates while minimizing downtime and ensuring cost-efficiency. This scaling process is triggered when changes are made to the storage and compute tiers, and the experience remains consistent for both (HA) and non-HA servers. This feature is enabled in all Azure regions and there's **no customer action required** to use this capability. 
+When updating your Azure Database for PostgreSQL flexible server instance in scaling scenarios, we create a new copy of your server (VM) with the updated configuration, synchronize it with your current one, briefly switch to the new copy with a 30-second interruption, and retire the old server, all at no extra cost to you. This process allows for seamless updates while minimizing downtime and ensuring cost-efficiency. This scaling process is triggered when changes are made to the storage and compute tiers, and the experience remains consistent for both HA and non-HA servers. This feature is enabled in all Azure regions and there's **no customer action required** to use this capability. 
 
 > [!NOTE]
 >  Near-zero downtime scaling process is the _default_ operation. However, in cases where the following limitations are encountered, the system switches to regular scaling, which involves more downtime compared to the near-zero downtime scaling.
+
+### Precise Downtime Expectations
+
+* **Downtime Duration**: In most cases, the downtime ranges from 10 to 30 seconds.
+* **Additional Considerations**: After a scaling event, there's an inherent DNS `Time-To-Live` (TTL) period of approximately 30 seconds. This period isn't directly controlled by the scaling process but is a standard part of DNS behavior. So, from a application perspective, the total downtime experienced during scaling could be in the range of **40 to 60 seconds**.
 
 #### Limitations 
 
@@ -45,7 +50,8 @@ When updating your Azure Database for PostgreSQL flexible server instance in sca
 - Near-zero downtime scaling won't work if there are regional capacity constraints or quota limits on customer subscriptions.
 - Near-zero downtime scaling doesn't work for replica server, as it is only supported on the primary server. For replica server it will automatically go through regular scaling process.
 - Near-zero downtime scaling won't work if a [virtual network injected server with delegated subnet](../flexible-server/concepts-networking-private.md#virtual-network-concepts) doesn't have sufficient usable IP addresses. If you have a standalone server, one extra IP address is necessary, and for a HA-enabled server, two extra IP addresses are required.
-- *For HA enabled servers, near-zero downtime scaling is currently enabled for a limited set of regions. We will be enabling this to more regions in a phased manner based upon the regional capacity.
+- Replication Slots - Be aware that logical replication slots aren't preserved during near-zero downtime failover event. To maintain logical replication slots and ensure data consistency after a scale operation, it is recommended to use the [pg_failover_slot](https://github.com/EnterpriseDB/pg_failover_slots) extension. For more details, refer [Enabling extension in Flexible Server](../flexible-server/concepts-extensions.md#pg_failover_slots-preview).
+- ^ For HA enabled servers, near-zero downtime scaling is currently enabled for a limited set of regions. We will be enabling this to more regions in a phased manner based upon the regional capacity.
 
 ## Related content
 
