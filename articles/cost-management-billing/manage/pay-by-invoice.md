@@ -23,8 +23,6 @@ This article applies to you if you are:
 
 If you signed up for Azure through a Microsoft representative, then your default payment method is already set to *wire transfer*, so these steps aren't needed.
 
-[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
-
 When you switch to pay by wire transfer, you must pay your bill within 30 days of the invoice date by wire transfer.
 
 Users with a Microsoft Customer Agreement must always [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer.
