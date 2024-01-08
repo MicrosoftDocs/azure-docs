@@ -216,7 +216,7 @@ In these commands, the `-j` option stands for the number of cores you wish to us
 For example, if you have a server named `mydemoserver`, a user named `myuser` and a new database called `testdb_copy`, and you want to use two cores for the dump, run the following command:
 
 ```bash
-pg_restore -Fd -j 2 testdb_copy -h mydemoserver.postgres.database.azure.com -U myuser -f testdb.dump
+pg_restore -Fd -j 2 -d testdb_copy -h mydemoserver.postgres.database.azure.com -U myuser testdb.dump
 ```
 
 ---
@@ -233,4 +233,5 @@ When working with large databases, the dump and restore process can be lengthy a
 For detailed guidance on optimizing the dump and restore process, refer to the [Best practices for pg_dump and pg_restore](../flexible-server/how-to-pgdump-restore.md) article. This resource provides comprehensive information and strategies that can be beneficial for handling large databases.
 
 ## Next steps
+- [Best practices for pg_dump and pg_restore](../flexible-server/how-to-pgdump-restore.md).
 - For more information about migrating databases to Azure Database for PostgreSQL, see the [Database Migration Guide](/data-migration/).
