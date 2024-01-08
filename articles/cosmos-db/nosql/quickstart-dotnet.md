@@ -30,6 +30,20 @@ Get started with the Azure Cosmos DB for NoSQL client library for .NET to query 
 
 ## Setting up
 
+Deploy this project's development container to your environment. Then, use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for NoSQL account and deploy a containerized sample application. The sample application uses the client library to manage, create, read, and query sample data.
+
+::: zone pivot="devcontainer-codespace"
+
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/azure-samples/cosmos-db-nosql-dotnet-quickstart?template=false&quickstart=1&azure-portal=true)
+
+::: zone-end
+
+::: zone pivot="devcontainer-vscode"
+
+[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/cosmos-db-nosql-dotnet-quickstart)
+
+::: zone-end
+
 [!INCLUDE[Developer Quickstart setup](includes/quickstart/dev-setup.md)]
 
 ### Install the client library

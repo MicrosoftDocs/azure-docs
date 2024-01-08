@@ -9,24 +9,16 @@ ms.custom: include file
 zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
 
-Use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for NoSQL account and deploy a containerized sample application. The sample application uses the client library to manage, create, read, and query sample data.
+::: zone pivot="devcontainer-codespace"
 
-1. Deploy this project's development container to your environment.
+> [!IMPORTANT]
+> GitHub accounts include an entitlement of storage and core hours at no cost. For more information, see [included storage and core hours for GitHub accounts](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-    ::: zone pivot="devcontainer-codespace"
+::: zone-end
 
-    [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/azure-samples/cosmos-db-nosql-go-quickstart?template=false&quickstart=1&azure-portal=true)
+::: zone pivot="devcontainer-vscode"
 
-    > [!IMPORTANT]
-    > GitHub accounts include an entitlement of storage and core hours at no cost. For more information, see [included storage and core hours for GitHub accounts](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
-
-    ::: zone-end
-
-    ::: zone pivot="devcontainer-vscode"
-
-    [![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/cosmos-db-nosql-go-quickstart)
-
-    ::: zone-end
+::: zone-end
 
 1. Open a terminal in the root directory of the project.
 
