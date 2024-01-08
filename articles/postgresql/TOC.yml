@@ -26,7 +26,7 @@
             href: migrate/best-practices-seamless-migration-single-to-flexible.md
           - name: Troubleshooting Networking and Connectivity issues
             href: migrate/troubleshooting-networking-and-connectivity-issues.md  
-      - name: Migrate data with pg_dump and pg_restore
+      - name: Migrate data with pg_dump
         href: migrate/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
       - name: Minimal-downtime migration with DMS
