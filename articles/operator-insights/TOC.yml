@@ -18,7 +18,7 @@
   - name: Managed identity
     href: managed-identity.md
   - name: BCDR
-    href: concept-BCDR-in-AOI.md
+    href: bcdr.md
   - name: Data quality and data monitoring
     href: concept-data-quality-monitoring.md
   - name: Data types
