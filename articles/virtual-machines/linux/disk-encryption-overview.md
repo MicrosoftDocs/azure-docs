@@ -131,7 +131,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 > 
 > All distros:
 > - ADE support for a particular offer type does not extend beyond the end-of-life date provided by the publisher. 
-> - The legacy ADE solution (using Microsoft Entra credentials) is not recommended for new VMs and is not compatible with RHEL versions later than RHEL 7.8 or with Phyton 3 as default.
+> - The legacy ADE solution (using Microsoft Entra credentials) is not recommended for new VMs and is not compatible with RHEL versions later than RHEL 7.8 or with Python 3 as default.
 
 ## Additional VM requirements
 

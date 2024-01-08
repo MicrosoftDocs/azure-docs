@@ -2,14 +2,15 @@
 title: Moderate text and images with content safety in Azure AI Studio
 titleSuffix: Azure OpenAI
 description: Use this article to moderate text and images with content safety in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # QuickStart: Moderate text and images with content safety in Azure AI Studio

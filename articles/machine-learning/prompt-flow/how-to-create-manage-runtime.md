@@ -57,11 +57,11 @@ Automatic is the default option for runtime, you can start automatic runtime (pr
 > Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Start creates automatic runtime (preview) using the environment defined in`flow.dag.yaml` in flow folder on the VM size you have quota in the workspace.
+- **Start** creates automatic runtime (preview) using the environment defined in`flow.dag.yaml` in flow folder on the VM size you have quota in the workspace.
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow on the start automatic with default settings on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::    
 
-2. Start with advanced settings, you can customize the VM size used by the runtime. You can also customize the idle time, which will delete runtime automatically if it isn't in use to save code. Meanwhile, you can set the user assigned manage identity used by automatic runtime, it's used to pull base image (please make sure user assigned manage identity have ACR pull permission) and install packages. If you don't set it, we use user identity as default. Learn more about [how to create update user assigned identities to workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+- **Start with advanced settings**, you can customize the VM size used by the runtime. You can also customize the idle time, which will delete runtime automatically if it isn't in use to save code. Meanwhile, you can set the user assigned manage identity used by automatic runtime, it's used to pull base image (please make sure user assigned manage identity have ACR pull permission) and install packages. If you don't set it, we use user identity as default. Learn more about [how to create update user assigned identities to workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow on the start automatic with advanced setting on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::    
 
@@ -113,10 +113,10 @@ When performing evaluation, you can use the original runtime in the flow or chan
 ### Update automatic runtime (preview) in flow page
 
 You can operate automatic runtime (preview) in flow page. Here are options you can use:
-- Install packages, this triggers the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install.
-- Reset, will delete current runtime and create a new one with the same environment. If you encounter package conflict issue, you can try this option.
-- Edit, will open runtime config page, you can define the VM side and idle time for the runtime.
-- Stop, will delete current runtime. If there's no active runtime on underlining compute, compute resource will also be deleted.
+- **Install packages**, this triggers the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install.
+- **Reset**, will delete current runtime and create a new one with the same environment. If you encounter package conflict issue, you can try this option.
+- **Edit**, will open runtime config page, you can define the VM side and idle time for the runtime.
+- **Stop**, will delete current runtime. If there's no active runtime on underlining compute, compute resource will also be deleted.
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions on automatic runtime (preview) on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
 
@@ -126,24 +126,46 @@ You can also customize environment used to run this flow.
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of save and install packages for automatic runtime (preview) on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
 
+> [!NOTE]
+> You can change the location and even file name of `requirements.txt` by change it in `flow.dag.yaml` file in flow folder as well.
+> Please don't pin version of promptflow and promptflow-tools in `requirements.txt`, as we already include them in runtime base image.
+
 #### Add packages in private feed in Azure DevOps
 
-If you want to use private feed in Azure DevOps, add the Managed Identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
+If you want to use a private feed in Azure DevOps,  you need follow these steps:
 
-> [!NOTE]
->  If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.
+1. Create user assigned managed identity and add this user assigned managed identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
 
-You need add `{private}` to your private feed url. Such as if you want to install `test_package` from `test_feed` in Azure devops, you need add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
+    > [!NOTE]
+    >  If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.
+    
+1. [Add or update user assigned identities to workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
-```txt
--i https://{private}@{test_feed_url_in_azure_devops}
-test_package
+
+1. You need to add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
+
+    ```txt
+    -i https://{private}@{test_feed_url_in_azure_devops}
+    test_package
+    ``` 
+
+1. Specify the user assigned managed identity if `start with advanced setting` or **reset** automatic runtime in `edit`.
+
+    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot of specify user assigned managed identity. " lightbox = "./media/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
+
+#### Change the base image used by automatic runtime (preview)
+
+By default, we use latest prompt flow image as base image. If you want to use a different base image, you can build custom base image learn more, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime), then you can use put it under `environment` in `flow.dag.yaml` file in flow folder. You need `reset` runtime to use the new base image, this takes several minutes as it pulls the new base image and install packages again. 
+
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
+
+
+```yaml
+environment:
+    image: <your-custom-image>
+    python_requirements_txt: requirements.txt
+
 ```
-
-- By default, we use latest prompt flow image as base image. If you want to use a different base image, you can build custom base image learn more, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime), then you can use put it under `environment` in `flow.dag.yaml` file in flow folder. You need `reset` runtime to use the new base image, this takes several minutes as it pulls the new base image and install packages again. 
-
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
-
 
 ### Update compute instance runtime in runtime page
 

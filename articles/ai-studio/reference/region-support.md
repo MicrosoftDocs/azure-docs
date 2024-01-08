@@ -2,12 +2,13 @@
 title: Azure AI Studio feature availability across clouds regions
 titleSuffix: Azure AI studio
 description: This article lists Azure AI Studio feature availability across clouds regions.
-author: deeikele
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: conceptual
 ms.date: 12/11/2023
+ms.reviewer: deeikele
 ms.author: eur
+author: eric-urban
 ms.custom: references_regions
 ---
 

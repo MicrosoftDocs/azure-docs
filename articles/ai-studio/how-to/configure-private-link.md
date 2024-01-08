@@ -2,13 +2,14 @@
 title: How to configure a private link for Azure AI
 titleSuffix: Azure AI Studio
 description: Learn how to configure a private link for Azure AI
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # How to configure a private link for Azure AI
