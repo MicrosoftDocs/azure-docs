@@ -76,7 +76,7 @@ The client library is available through the Node Package Manager, as the `@azure
 | --- | --- |
 | [`CosmosClient`](/javascript/api/@azure/cosmos/cosmosclient) | This class is the primary client class and is used to manage account-wide metadata or databases. |
 | [`Database`](/javascript/api/@azure/cosmos/database) | This class represents a database within the account. |
-| [`Container`](/javascript/api/@azure/cosmos/containe) | This class is primarily used to perform read, update, and delete operations on either the container or the items stored within the container. |
+| [`Container`](/javascript/api/@azure/cosmos/container) | This class is primarily used to perform read, update, and delete operations on either the container or the items stored within the container. |
 | [`PartitionKey`](/javascript/api/@azure/cosmos/partitionkey) | This class represents a logical partition key. This class is required for many common operations and queries. |
 | [`SqlQuerySpec`](/javascript/api/@azure/cosmos/sqlqueryspec) | This interface represents a SQL query and any query parameters. |
 
