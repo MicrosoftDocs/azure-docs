@@ -122,7 +122,7 @@ ssh azureuser@10.224.0.33
 
 ## Windows Server proxy connection
 
-Window Server node users only. Follow these steps as a workaround to connect with SSH.
+Follow these steps as a workaround to connect with SSH on a Windows Server node.
 
 ### Create a proxy server
 
