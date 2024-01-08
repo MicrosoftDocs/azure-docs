@@ -118,7 +118,7 @@ The first step to getting an access token for many OpenID Connect (OIDC) and OAu
 2. It asks you to log in to your Azure portal if not logged in already.
 3. You might see 'can't reach this page' error in the browser. You can ignore that.
    
-:::image type="content" source="media/how-to-generate-auth-token/localhost-redirection.png" alt-text="Screenshot of localhost redirection.":::
+:::image type="content" source="media/how-to-generate-auth-token/localhost-redirection-error.png" alt-text="Screenshot of localhost redirection.":::
 
 4. The browser redirects to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
 5. Copy the response from the URL bar of the browser and fetch the text between `code=` and `&state`
