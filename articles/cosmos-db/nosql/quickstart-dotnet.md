@@ -310,7 +310,7 @@ The code to access database resources is in the `GenerateQueryDataAsync` method 
 
 Use the <xref:Microsoft.Azure.Cosmos.CosmosClient.GetDatabase%2A> method to return a reference to the specified database.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="get_database":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="get_database":::
 
 ### Get a container
 
@@ -318,7 +318,7 @@ The code to access container resources is also in the `GenerateQueryDataAsync` m
 
 The <xref:Microsoft.Azure.Cosmos.Database.GetContainer%2A> returns a reference to the specified container.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="get_container":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="get_container":::
 
 ### Create an item
 
@@ -328,24 +328,24 @@ The easiest way to create a new item in a container is to first build a C# class
 
 In the `GenerateQueryDataAsync` method, create an item in the container by calling <xref:Microsoft.Azure.Cosmos.Container.UpsertItemAsync%2A>.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="create_item":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="create_item":::
 
 ### Read an item
 
 In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (`id`) and partition key fields. In the SDK, call <xref:Microsoft.Azure.Cosmos.Container.ReadItemAsync%2A> passing in both values to return a deserialized instance of your C# type.
 Still in the `GenerateQueryDataAsync` method, use `ReadItemAsync<Product>` to serialize the item using the `Product` type.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="read_item":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="read_item":::
 
 ### Query items
 
 After you insert an item, you can run a query to get all items that match a specific filter. This example runs the SQL query: `SELECT * FROM products p WHERE p.category = "gear-surf-surfboards"`. This example uses the QueryDefinition type and a parameterized query expression for the partition key filter. Once the query is defined, call <xref:Microsoft.Azure.Cosmos.Container.GetItemQueryIterator%2A> to get a result iterator that manages the pages of results. In the example, the query logic is also in the `GenerateQueryDataAsync` method.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="query_items":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="query_items":::
 
 Then, use a combination of `while` and `foreach` loops to retrieve pages of results and then iterate over the individual items.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Pages/Index.razor" id="parse_results":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-quickstart/src/web/Services/CosmosDbService.cs" id="parse_results":::
 
 ## Clean up resources
 
