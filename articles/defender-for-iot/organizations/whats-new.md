@@ -16,6 +16,18 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## January 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Choose which version to use for cloud-based sensor updates](#choose-which-version-to-use-for-cloud-based-sensor-updates) <br> |
+
+### Choose which version to use for cloud-based sensor updates
+
+When updating a sensor from the Azure portal, a choice of available versions appears in the **Update Sensor** pane. This feature allows you to update to the best version for the organizations needs, instead of only choosing the latest version of the sensor monitoring software. For example:
+<!-- add screen shot when available.
+ do we need to give reasons for this here? -->
+
 ## December 2023
 
 |Service area  |Updates  |
