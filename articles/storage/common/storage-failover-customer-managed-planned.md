@@ -96,7 +96,7 @@ The failback typically takes about an hour.
 
 After the failback is complete, the storage account is restored to its original redundancy configuration. Users can resume writing data to the storage account in the original primary region (1) while replication to the original secondary (2) continues as before the failover:
 
-:::image type="content" source="media/storage-failover-customer-managed-common/pre-failover-geo-zone-redundant.png" alt-text="Clients continue to perform read and write operations to the storage account in the original primary region.":::
+:::image type="content" source="media/storage-failover-customer-managed-common/pre-failover-geo-zone-redundant.png" alt-text="Diagram that show how clients continue to perform read and write operations to the storage account in the original primary region.":::
 
 ## [GZRS/RA-GZRS](#tab/gzrs-ra-gzrs)
 
