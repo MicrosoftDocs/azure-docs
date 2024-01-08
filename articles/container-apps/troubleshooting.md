@@ -24,8 +24,8 @@ The following table lists issues you might encounter while using Azure Container
 |--|--|
 | All scenarios. | [View logs.](#view-logs)<br>[Use Diagnose and solve problems.](#use-diagnose-and-solve-problems) |
 | You receive an error message when you try to deploy a new revision. | [Verify Container Apps can pull your container image.](#verify-accessibility-of-container-image) |
-| After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely. | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly-azure-portal) |
-| A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly-azure-portal) |
+| After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely. | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly) |
+| A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly.](#verify-health-probes-are-configured-correctly) |
 | The container app endpoint doesn't respond to requests. | [Review ingress configuration.](#review-ingress-configuration) |
 | The container app endpoint responds to requests with HTTP error 403 (access denied). |  [Verify networking configuration is correct.](#verify-networking-configuration-is-correct) |
 | The container app endpoint responds to requests, but the responses are not as expected. | [Verify traffic is routed to correct revision.](#verify-traffic-is-routed-to-correct-revision)<br>[Verify you are using unique tags when deploying images to the container registry.](/azure/container-registry/container-registry-image-tag-version) |
@@ -577,7 +577,9 @@ probes:
 ...
 ```
 
-Use the [`az containerapp update`](cli/azure/containerapp?view=azure-cli-latest#az-containerapp-update) command with the `--yaml` flag to update your container app.
+---
+
+Use the [`az containerapp update`](/cli/azure/containerapp#az-containerapp-update) command with the `--yaml` flag to update your container app.
 
 # [Bash](#tab/bash)
 
