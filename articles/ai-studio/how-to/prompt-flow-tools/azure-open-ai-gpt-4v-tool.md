@@ -9,6 +9,7 @@ ms.date: 1/8/2024
 author: lgayhardt
 ms.author: lagayhar
 ms.reviewer: keli19
+ms.custom: references_regions
 ---
 
 # Azure OpenAI GPT-4 Turbo with Vision tool in Azure AI Studio
