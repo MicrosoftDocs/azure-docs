@@ -82,7 +82,7 @@ items:
       href: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/MIGRATION-FR_v4-DI_v1.md
     - name: Python SDK
       href: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md
-  - name: "Migration guide: 2023-07-31 latest (GA)"
+  - name: "Migration guide: 2023—07—31 latest (GA)"
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-1-migration-guide.md
   - name: Check my usage and estimate the cost
