@@ -13,6 +13,8 @@ As an extension of the Azure location construct, a *custom location* provides a 
 
 Custom locations can be used to enable [Azure Arc-enabled Kubernetes clusters](../kubernetes/overview.md) as target locations for deploying Azure services instances. Azure offerings that can be deployed on top of custom locations include databases, such as [SQL Managed Instance enabled by Azure Arc](/azure/azure-arc/data/managed-instance-overview) and [Azure Arc-enabled PostgreSQL server](/azure/azure-arc/data/what-is-azure-arc-enabled-postgresql).
 
+On Arc-enabled Kubernetes clusters, a custom location represents an abstraction of a namespace within the Azure Arc-enabled Kubernetes cluster. Custom locations create the granular [RoleBindings and ClusterRoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) necessary for other Azure services to access the cluster.
+
 ## Custom location permissions
 
 Since the custom location is an Azure Resource Manager resource that supports [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md), an administrator or operator can determine which users have access to create resource instances on:
@@ -20,9 +22,7 @@ Since the custom location is an Azure Resource Manager resource that supports [A
 * A namespace within a Kubernetes cluster to target deployment of SQL Managed Instance enabled by Azure Arc or Azure Arc-enabled PostgreSQL server.
 * The compute, storage, networking, and other vCenter or Azure Stack HCI resources to deploy and manage VMs.
 
-For example, a cluster operator could create a custom location **Contoso-Michigan-Healthcare-App** representing a namespace on a Kubernetes cluster in your organization's Michigan Data Center. The operator can then assign Azure RBAC permissions to application developers on this custom location so that they can deploy healthcare-related web applications. The developers can then deploy these applications without having to know details of the namespace and Kubernetes cluster.
-
-On Arc-enabled Kubernetes clusters, a custom location represents an abstraction of a namespace within the Azure Arc-enabled Kubernetes cluster. Custom locations create the granular [RoleBindings and ClusterRoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) necessary for other Azure services to access the cluster.
+For example, a cluster operator could create a custom location **Contoso-Michigan-Healthcare-App** representing a namespace on a Kubernetes cluster in your organization's Michigan Data Center. The operator can assign Azure RBAC permissions to application developers on this custom location so that they can deploy healthcare-related web applications. The developers can then deploy these applications to **Contoso-Michigan-Healthcare-App** without having to know details of the namespace and Kubernetes cluster.
 
 ## Architecture for Arc-enabled Kubernetes
 
