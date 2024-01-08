@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client'
 description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis and Redisson as Redis client
-author: majguo, backwind1233
-ms.author: jiangma, zhihaoguo
+author: backwind1233
+ms.author: zhihaoguo
 ms.date: 01/05/2024
 ms.topic: quickstart
 ms.service: cache
