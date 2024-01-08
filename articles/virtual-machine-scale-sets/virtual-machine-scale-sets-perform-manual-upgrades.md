@@ -9,9 +9,9 @@ ms.date: 01/04/2024
 ms.reviewer: ju-shim
 ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
-# Performing Upgrades on Virtual Machine Scale Sets
+# Performing Manual Upgrades on Virtual Machine Scale Sets
  
-Depending on the Upgrade Policy chosen, upgrades will either automatically be initiated anytime the scale set model is changed or in the case of Manual Upgrade Policy, users need to trigger upgrades on individual VMs manually.
+If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing VM to apply changes to the instances based on the updated scale set model.
 
 > [!NOTE]
 > While performing upgrades, the instances may be restarted.

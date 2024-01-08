@@ -11,11 +11,7 @@ ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowersh
 ---
 # Set the Upgrade Policy on Virtual Machine Scale Sets
 
-
-> [!IMPORTANT]
->Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
-
-The Upgrade Policy can be set during deployment or updated post deployment.  
+During Virtual Machine Scale Set creation, you can choose which upgrade policy you wish to use. The upgrade policy can be change at any point in time. For more information see [Changing the Upgrade Policy](virtual-machine-scale-sets-change-upgrade-policy.md)
 
 ### [Portal](#tab/portal)
 
@@ -24,20 +20,7 @@ During the Virtual Machine Scale Set creation in the Azure portal, under the **M
 :::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/maxsurge-1.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
 
 ### [CLI](#tab/cli)
-Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and set the Upgrade Policy to `Rolling` and enable `MaxSurge`. When using an Upgrade Policy set to Rolling, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
-
-```azurecli-interactive
-# Create a Resource Group
-az group create --name myResourceGroup --location eastus
-
-#Create a load balancer
-az network lb create --resource-group MyResourceGroup --name MyLoadBalancer --sku Standard
-
-# Create a health probe
-az network lb probe create --resource-group MyResourceGroup --lb-name MyLoadBalancer --name MyProbe --protocol tcp --port 80
-
-# Create a load balancing rule and assign the health probe
-az network lb rule create --resource-group MyResourceGroup --lb-name myLoadBalancer --name MyLbRule --protocol Tcp --frontend-ip-name LoadBalancerFrontEnd --frontend-port 80 --backend-pool-name MyLoadBalancerbepool --backend-port 80 --probe myProbe
+Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and the =`upgrade-policy-mode` parameter. Choose `Automatic`, `Manual` or `Rolling`. If using Rolling Upgrade Policy, you can also enable MaxSurge. For more information, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades). 
 
 # Create the scale set
 az vmss create \
@@ -46,8 +29,7 @@ az vmss create \
     --image Ubuntu2204 \
     --lb myLoadBalancer \
     --health-probe myProbe \
-    --upgrade-policy-mode Rolling \
-    --max-surge true \
+    --upgrade-policy-mode Manual \
     --instance-count 5 \
     --admin-username azureuser \
     --generate-ssh-keys
