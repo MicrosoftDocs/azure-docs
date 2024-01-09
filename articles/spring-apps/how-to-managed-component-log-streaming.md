@@ -105,7 +105,7 @@ az spring component instance list \
 
 ## View the tail logs for a specific instance
 
-To view the tail logs for a specific instance, use the following command: `--instance`.
+To view the tail logs for a specific instance, use the following command: `-i/--instance`.
 
 For more information, see the following section for examples on specific tail logs.
 
