@@ -23,9 +23,9 @@ Keeping track of how your quota of virtual machine cores is being used across yo
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/subscription-overview.png" alt-text="Screenshot showing the Subscription overview left menu, with Usage and quotas highlighted." lightbox="media/how-to-determine-your-quota-usage/subscription-overview.png"::: 
  
-1. To view Usage + quotas information about Microsoft Dev Box, select **Dev Box**.  
+1. To view usage and quota information about Microsoft Dev Box, select the **Provider** filter, and then select **Dev Box** in the dropdown list.  
 
-   :::image type="content" source="media/how-to-determine-your-quota-usage/select-dev-box.png" alt-text="Screenshot showing the Usage and quotas page, with Dev Box highlighted." lightbox="media/how-to-determine-your-quota-usage/select-dev-box.png":::    
+   :::image type="content" source="media/how-to-determine-your-quota-usage/select-dev-box.png" alt-text="Screenshot showing the Usage and quotas page, with Dev Box highlighted in the Provider filter dropdown list." lightbox="media/how-to-determine-your-quota-usage/select-dev-box.png":::    
  
 1. In this example, you can see the **Quota name**, the **Region**, the **Subscription** the quota is assigned to, the **Current Usage**, and whether or not the limit is **Adjustable**.
 
@@ -33,27 +33,27 @@ Keeping track of how your quota of virtual machine cores is being used across yo
 
 1. Notice that Azure groups the usage by level: **Regular**, **Low**, and **No usage**: 
 
-   :::image type="content" source="media/how-to-determine-your-quota-usage/example-subscription-groups.png" alt-text="Screenshot showing the Usage and quotas page, with VM size groups highlighted." lightbox="media/how-to-determine-your-quota-usage/example-subscription-groups.png" :::
+   :::image type="content" source="media/how-to-determine-your-quota-usage/example-subscription-groups.png" alt-text="Screenshot showing the Usage and quotas page, with virtual machine size groups highlighted." lightbox="media/how-to-determine-your-quota-usage/example-subscription-groups.png" :::
  
 1. To view quota and usage information for specific regions, select the **Region:** filter, select the regions to display, and then select **Apply**. 
 
-   :::image type="content" source="media/how-to-determine-your-quota-usage/select-regions.png"  lightbox="media/how-to-determine-your-quota-usage/select-regions.png" alt-text="Screenshot showing the Usage and quotas page, with Regions drop down highlighted.":::
+   :::image type="content" source="media/how-to-determine-your-quota-usage/select-regions.png" alt-text="Screenshot showing the Usage and quotas page, with the Regions dropdown list highlighted." lightbox="media/how-to-determine-your-quota-usage/select-regions.png":::
  
 1. To view only the items that are using part of your quota, select the **Usage:** filter, and then select **Only items with usage**. 
 
-   :::image type="content" source="media/how-to-determine-your-quota-usage/select-items-with-usage.png" lightbox="media/how-to-determine-your-quota-usage/select-items-with-usage.png" alt-text="Screenshot showing the Usage and quotas page, with Usage drop down and Only show items with usage option highlighted.":::
+   :::image type="content" source="media/how-to-determine-your-quota-usage/select-items-with-usage.png" alt-text="Screenshot showing the Usage and quotas page, with the Usage dropdown list and Only show items with usage option highlighted." lightbox="media/how-to-determine-your-quota-usage/select-items-with-usage.png" :::
  
 1. To view items that are using above a certain amount of your quota, select the **Usage:** filter, and then select **Select custom usage**. 
 
-   :::image type="content" source="media/how-to-determine-your-quota-usage/select-custom-usage-before.png" alt-text="Screenshot showing the Usage and quotas page, with Usage drop down and Select custom usage option highlighted." lightbox="media/how-to-determine-your-quota-usage/select-custom-usage-before.png" :::
+   :::image type="content" source="media/how-to-determine-your-quota-usage/select-custom-usage-before.png" alt-text="Screenshot showing the Usage and quotas page, with the Usage dropdown list and Select custom usage option highlighted." lightbox="media/how-to-determine-your-quota-usage/select-custom-usage-before.png" :::
  
 1. You can then set a custom usage threshold, so only the items using above the specified percentage of the quota are displayed.  
  
-   :::image type="content" source="media/how-to-determine-your-quota-usage/select-custom-usage.png" alt-text="Screenshot showing the Usage and quotas page, with Select custom usage option and configuration settings highlighted."  lightbox="media/how-to-determine-your-quota-usage/select-custom-usage.png":::
+   :::image type="content" source="media/how-to-determine-your-quota-usage/select-custom-usage.png" alt-text="Screenshot showing the Usage and quotas page, with Select custom usage option and configuration settings highlighted." lightbox="media/how-to-determine-your-quota-usage/select-custom-usage.png":::
 
 1. Select **Apply**. 
 
-Each subscription has its own **Usage + quotas** page that covers all the various services in the subscription including Microsoft Dev Box. 
+Each subscription has its own **Usage + quotas** page that covers all the various services in the subscription and not just Microsoft Dev Box. 
 
 ## Related content 
 
