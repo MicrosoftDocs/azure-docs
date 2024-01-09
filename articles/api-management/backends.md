@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/08/2024
+ms.date: 01/09/2024
 ms.author: danlep 
 ms.custom:
 ---
@@ -26,7 +26,13 @@ API Management also supports using other Azure resources as an API backend, such
 * A [Service Fabric cluster](how-to-configure-service-fabric-backend.md).
 * A custom service. 
 
-API Management supports custom backends so you can manage the backend services of your API. Use custom backends, for example, to authorize the credentials of requests to the backend service, to protect your backend from too many requests, or to load-balance requests to multiple backends. Configure and manage custom backends in the Azure portal, or using Azure APIs or tools.
+API Management supports custom backends so you can manage the backend services of your API. Use custom backends for one or more of the following:
+
+* Authorize the credentials of requests to the backend service
+* Protect your backend from too many requests
+* Route or load-balance requests to multiple backends
+
+Configure and manage custom backends in the Azure portal, or using Azure APIs or tools.
 
 ## Benefits of backends
 
@@ -49,6 +55,27 @@ After creating a backend, you can reference the backend in your APIs. Use th
     [...]
 <policies/>
 ```
+
+You can use conditional logic with the `set-backend-service` policy to change the effective backend based on location, gateway that was called, or other expressions.
+
+For example, here is a policy to route traffic to another backend based on the gateway that was called:
+
+<policies>
+    <inbound>
+        <base />
+        <choose>
+            <when condition="@(context.Deployment.Gateway.Id == "factory-gateway")">
+                <set-backend-service backend-id="backend-on-prem" />
+            </when>
+            <when condition="@(context.Deployment.Gateway.IsManaged == false)">
+                <set-backend-service backend-id="self-hosted-backend" />
+            </when>
+            <otherwise />
+        </choose>
+    </inbound>
+    [...]
+<policies/>
+
 
 ## Circuit breaker (preview)
 
@@ -144,7 +171,6 @@ Use a backend pool for scenarios such as the following:
 
 * Spread the load to multiple backends, which may have individual backend circuit breakers.
 * Shift the load from one set of backends to another for upgrade (blue-green deployment).
-* Fall back to a different region when the backend in the current region fails or is overloaded.
 
 To create a backend pool, set the `type` property of the backend to `pool` and specify a list of single backends that make up the pool.
 
@@ -163,7 +189,7 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-05-01-previ
     description: 'Load balancer for multiple backends'
     type: 'Pool'
     protocol: 'http'
-    url: 'http://does-not-matter'
+    url: 'http://unused'
     pool: {
       services: [
         {
@@ -190,7 +216,7 @@ Include a JSON snippet similar to the following in your ARM template for a backe
     "description": "Load balancer for multiple backends",
     "type": "Pool",
     "protocol": "http",
-    "url": "http://does-not-matter",
+    "url": "http://unused",
     "pool": {
       "services": [
         {
