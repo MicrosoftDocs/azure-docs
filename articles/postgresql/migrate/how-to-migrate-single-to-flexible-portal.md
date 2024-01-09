@@ -133,7 +133,7 @@ Under this tab, there's a list of user databases inside the Single Server. You c
 :::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-database.png" alt-text="Screenshot of Databases to migrate." lightbox="./media/concepts-single-to-flexible/flexible-migration-database.png":::
 
 >[!NOTE]
-> The tool migrates only user databases. System databases or template databases like template0, template1 will not be migrated.
+> The tool migrates only user databases. System databases or template databases such as template0, template1 will not be migrated.
 
 ### Review
 
