@@ -87,10 +87,10 @@ To move Azure Virtual Network to a new region, you can choose either migration o
 
 ### Redeployment strategy (Recommended)
 
-Redeployment is the recommended way to move your virtual network to a new region.  Redeployment supports both independent relocation of multiple workloads, as well as private IP address range change in the target region.
+Redeployment is the recommended way to move your virtual network to a new region.  Redeployment supports both independent relocation of multiple workloads, as well as private IP address range change in the target region. To redeploy, you'll use a Resource Manager template.
 
 
-### Redeployment considerations
+#### Redeployment considerations
 
 - [Peered Virtual networks](/azure/virtual-network/virtual-network-peering-overview) can't be re-created in the new region, even if they're defined in the exported template. To have virtual networking peering in the new region, you need to create a separate export template for the peering.
 - If you enable private IP address range change, multiple workloads in a virtual network can be relocated independently of each other, 
@@ -99,14 +99,9 @@ Redeployment is the recommended way to move your virtual network to a new region
 
 #### How to redeploy
 
-If you want virtual networking peering to be redeployed along with the virtual network, create a separate export template for the peering. 
 
-**To create a separate peering template:**
+**To redeploy using a Resource Manager template:**
 
-1. Copy the details of the peering to create a peering template.
-1. Remove the peering information from the primary export template.
-1. Use the peering template to reestablish the peering after the relocation of the network.
-    
 1. Redeploy your virtual network to another region by choosing the appropriate guides:
 
     |To learn how to move...| Using...| Go to...|
@@ -118,6 +113,12 @@ If you want virtual networking peering to be redeployed along with the virtual n
     |Public IP| Azure portal|[Move Azure Public IP to another region using the Azure portal](/azure/virtual-network/move-across-regions-vnet-portal).|
     || PowerShell|[Move Azure Public IP to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
     
+1. If you want virtual networking peering to be redeployed along with the virtual network, create a separate export template for the peering. 
+    
+    1. Copy the details of the peering to create a peering template.
+    1. Remove the peering information from the primary export template.
+    1. Use the peering template to reestablish the peering after the relocation of the network.
+        
 
 ### Migration strategy
 
@@ -141,8 +142,13 @@ Below are some features and limitations of using the migration strategy.
 
 - While performing the Initiate move steps with Azure Resource Mover, resources may be temporarily unavailable.
 
+### How to migrate using Resource Mover
 
-To learn how to migrate your virtual network to a new region using Azure Resource Mover, see [Move Azure VMs across regions](/azure/resource-mover/tutorial-move-region-virtual-machine).
+To migrate your virtual network across regions with Resource Mover, follow the steps in [move Azure Virtual Network across Azure regions](/azure/resource-mover/overview#move-across-regions).
+
+>[!IMPORTANT]
+>During the Resource Mover validation step, you may see a list of dependencies that can also be prepared to move with the virtual network. It's highly recommended that you move dependent resources separately by detaching them from the move collection.
+
 
 
 ## Additional relocation resources
@@ -157,7 +163,7 @@ DDoS Protection Plan doesn't have any client specific data and the instance itse
     1. Export the Source DDOS Protection plan template from Azure portal.
     1. Make the necessary changes to the template, such as updating all occurrences of the name and the location for the relocated DDOS Protection plan.
 
-1. Once redeployment completes, reconfigure DDOS Protection plan with the target virtual network.
+1. Once redeployment completes, use the Azure portal to reconfigure the DDOS Protection plan with the target virtual network.
 
 ### Relocate Network Watcher
 
