@@ -64,7 +64,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: Cross Region Restore for Azure PostgreSQL Database
-            url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backu
+            url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup
           - text: Vaulted backup and Cross Region Restore for support for AKS (preview)
             url: azure-kubernetes-service-backup-overview.md
           - text: Back up database instance snapshots

@@ -80,9 +80,9 @@ az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data 
 ```
 Replace the assignee parameter with the _Application ID_ of the vault's MSI and the scope parameter to refer to your specific container. To get the **Application ID** of the vault MSI, select **All applications** under **Application type**. Search for the vault name and copy the Application ID.
 
- :::image type="content" source="./media/restore-azure-database-postgresql/select-application-type-for-id-inline.png" alt-text="Screenshot showing the process to get the Application I D of the vault MSI." lightbox="./media/restore-azure-database-postgresql/select-application-type-for-id-expanded.png":::
+ :::image type="content" source="./media/restore-azure-database-postgresql/select-application-type-for-id-inline.png" alt-text="Screenshot showing the process to get the Application ID of the vault MSI." lightbox="./media/restore-azure-database-postgresql/select-application-type-for-id-expanded.png":::
 
- :::image type="content" source="./media/restore-azure-database-postgresql/copy-vault-id-inline.png" alt-text="Screenshot showing the process to copy  the Application I D of the vault." lightbox="./media/restore-azure-database-postgresql/copy-vault-id-expanded.png":::
+ :::image type="content" source="./media/restore-azure-database-postgresql/copy-vault-id-inline.png" alt-text="Screenshot showing the process to copy  the Application ID of the vault." lightbox="./media/restore-azure-database-postgresql/copy-vault-id-expanded.png":::
  
 ## Restore databases across regions
 
@@ -101,7 +101,7 @@ If CRR is enabled, you can view the backup instances in the secondary region.
 1. From the [Azure portal](https://portal.azure.com/), go to **Backup Vault** > **Backup Instances**.
 1. Select **Instance Region = Secondary Region** on the filters at the top of the screen.
 
-    :::image type="content" source="./media/create-manage-backup-vault/select-backup-instances.png" alt-text="Screenshot shows how to go to backup instances." lightbox="./media/create-manage-backup-vault/select-backup-instances.png":::
+    :::image type="content" source="./media/create-manage-backup-vault/select-backup-instances.png" alt-text="Screenshot shows how to go to the backup instances." lightbox="./media/create-manage-backup-vault/select-backup-instances.png":::
 
     :::image type="content" source="./media/create-manage-backup-vault/select-secondary-region-as-instance-region.png" alt-text="Screenshot showing the selection of the secondary region as the instance region." lightbox="./media/create-manage-backup-vault/select-secondary-region-as-instance-region.png":::
 

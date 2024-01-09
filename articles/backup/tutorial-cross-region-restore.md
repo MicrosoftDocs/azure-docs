@@ -52,7 +52,7 @@ The Cross Region Restore option allows you to restore data in a secondary Azur
 
      :::image type="content" source="./media/tutorial-cross-region-restore/update-for-cross-region-restore.png" alt-text="Screenshot showing the selection of update for cross region restore.":::
 
-     :::image type="content" source="./media/tutorial-cross-region-restore/enable-cross-region-restore.png" alt-text="Screenshot showing the enable cross region restore option.":::
+     :::image type="content" source="./media/tutorial-cross-region-restore/enable-cross-region-restore.png" alt-text="Screenshot shows the Enable cross region restore option.":::
 
 ## View backup instances in secondary region 
 

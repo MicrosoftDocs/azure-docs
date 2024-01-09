@@ -60,7 +60,7 @@
     href: tutorial-backup-sap-hana-db.md
   - name: Back up PostgreSQL databases
     items:
-    - name: Backup the database
+    - name: Back up the database
       href: tutorial-postgresql-backup.md
     - name: Configure and run Cross Region Restore
       href: tutorial-cross-region-restore.md  
