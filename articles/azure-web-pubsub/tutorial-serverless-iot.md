@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial 
-ms.date: 06/30/2022
+ms.date: 01/10/2024
 ---
 
 # Tutorial: Visualize IoT device data from IoT Hub using Azure Web PubSub service and Azure Functions
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Node.js](https://nodejs.org/en/download/), version 10.x.
+* [Node.js](https://nodejs.org/en/download/), version 18.x or above.
    > [!NOTE]
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 
@@ -52,59 +52,84 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
 
 1. Create an empty folder for the project, and then run the following command in the new folder.
 
-    # [JavaScript](#tab/javascript)
+    # [JavaScript-V4](#tab/javascript_v4)
     ```bash
-    func init --worker-runtime javascript
+    func init --worker-runtime javascript --model V4
     ```
     ---
 
-2. Update `host.json`'s `extensionBundle` to version _3.3.0_ or later to get Web PubSub support.
+    # [JavaScript-V3](#tab/javascript)
+    ```bash
+    func init --worker-runtime javascript --model V3
+    ```
+    ---
 
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[3.3.*, 4.0.0)"
-    }
-}
-```
+2. Create an `index` function to read and host a static web page for clients.
 
-3. Create an `index` function to read and host a static web page for clients.
     ```bash
     func new -n index -t HttpTrigger
     ```
-   # [JavaScript](#tab/javascript)
-   - Update `index/index.js` with following code, which serves the HTML content as a static site.
-        ```js
-        var fs = require("fs");
-        var path = require("path");
+   
+   # [JavaScript-V4](#tab/javascript_v4)
+     Update `index/index.js` with following code, which serves the HTML content as a static site.
+     ```js
+     const { app } = require('@azure/functions');
+     const { readFile } = require('fs/promises');
+     
+     app.http('index', {
+         methods: ['GET', 'POST'],
+         authLevel: 'anonymous',
+         handler: async (context) => {
+             const content = await readFile('index.html', 'utf8', (err, data) => {
+                 if (err) {
+                     context.err(err)
+                     return
+                 }
+             });
+     
+             return { 
+                 status: 200,
+                 headers: { 
+                     'Content-Type': 'text/html'
+                 }, 
+                 body: content, 
+             };
+         }
+     });
+     ```
+    ---
+    
 
-        module.exports = function (context, req) {
-        let index = path.join(
-            context.executionContext.functionDirectory,
-            "index.html"
-        );
-        fs.readFile(index, "utf8", function (err, data) {
-            if (err) {
-                console.log(err);
-                context.done(err);
-                return;
-            }
-            context.res = {
-                status: 200,
-                headers: {
-                    "Content-Type": "text/html",
-                },
-                body: data,
-            };
-            context.done();
-            });
-        };
+   # [JavaScript-V3](#tab/javascript)
+     Update `index/index.js` with following code, which serves the HTML content as a static site.
+     ```js
+     var fs = require("fs");
+     var path = require("path"); 
+     module.exports = function (context, req) {
+     let index = path.join(
+         context.executionContext.functionDirectory,
+         "/../index.html"
+     );
+     fs.readFile(index, "utf8", function (err, data) {
+         if (err) {
+             console.log(err);
+             context.done(err);
+             return;
+         }
+         context.res = {
+             status: 200,
+             headers: {
+                 "Content-Type": "text/html",
+             },
+             body: data,
+         };
+         context.done();
+         });
+     }; 
+     ```
+    ---
 
-        ```
-
-4. Create an `index.html` file under the same folder as file `index.js`.
+4. Create an `index.html` file under the root folder.
 
     ```html
     <!doctype html>
@@ -305,7 +330,12 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
-    # [JavaScript](#tab/javascript)
+    
+    # [Javascript-V4](#tab/javascript_v4)
+
+    ---
+
+    # [JavaScript-V3](#tab/javascript)
    - Update `negotiate/function.json` to include an input binding [`WebPubSubConnection`](reference-functions-bindings.md#input-binding), with the following json code.
         ```json
         {
@@ -338,6 +368,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
             context.done();
         };
         ```
+    ---
 
 6. Create a `messagehandler` function to generate notifications by using the `"IoT Hub (Event Hub)"` template.
    ```bash
