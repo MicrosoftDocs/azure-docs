@@ -16,8 +16,7 @@ ms.custom: mvc, engagement-fy24
 
 ## Update (January 2024)
 
-Public preview: Using the RVTools XLSX (preview), you can import on-premises servers in a VMware environment.
-[Learn more](migrate-support-matrix.md#import-servers-using-rvtools-xlsx-preview). 
+- Public preview: Using the RVTools XLSX (preview), you can import on-premises servers in a VMware environment. [Learn more](migrate-support-matrix.md#import-servers-using-rvtools-xlsx-preview). 
 
 ## Update (December 2023)
 
