@@ -7,14 +7,13 @@ brand: azure
 metadata:
   title: Azure AI Language documentation - Tutorials, API Reference | Microsoft Docs
   titleSuffix: Azure AI services
-  #services: cognitive-services
   description: Learn how to integrate AI that works on written text into your applications.
   author: aahill
   manager: nitinme
-  ms.service: speech-service
+  ms.service: azure-ai-language
   ms.custom: event-tier1-build-2022
   ms.topic: hub-page
-  ms.date: 11/02/2021
+  ms.date: 01/09/2024
   ms.author: aahi
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
