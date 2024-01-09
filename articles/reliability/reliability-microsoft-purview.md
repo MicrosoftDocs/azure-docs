@@ -64,13 +64,13 @@ Microsoft Purview makes commercially reasonable efforts to provide availability 
 
 [!INCLUDE [next step](includes/reliability-disaster-recovery-description-include.md)]
 
-This article provides guidance on backup and recovery strategy when your organization has [Microsoft Purview unified governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions) in production deployment. You can also use this general guideline to implement account migration. The scope of this article is to cover [manual BCDR methods](disaster-recovery.md) where you could automate using APIs. There's some key information to consider upfront:
+There's some key information to consider upfront:
 
 - It isn't advisable to back up "scanned" assets' details. You should only back up the curated data such as mapping of classifications and glossaries on assets. The only case when you need to back up assets' details is when you have custom assets via custom `typeDef`.
 
 - The backed-up asset count should be fewer than 100,000 assets. The main driver is that you have to use the search query API to get the assets, which have limitation of 100,000 assets returned. However, if you're able to segment the search query to get smaller number of assets per API call, it's possible to back up more than 100,000 assets.
 
-- The goal is to perform one time migration. If you wish to continuously "sync" assets between two accounts, there are other steps that won't be covered in detail by this article. You have to use [Microsoft Purview's Event Hubs to subscribe and create entities to another account](manage-kafka-dotnet.md). However, Event Hubs only has Atlas information. Microsoft Purview has added other capabilities such as **glossaries** and **contacts** which won't be available via Event Hubs.
+- The goal is to perform one time migration. If you wish to continuously "sync" assets between two accounts, there are other steps that won't be covered in detail by this article. You have to use [Microsoft Purview's Event Hubs to subscribe and create entities to another account](/purview/manage-kafka-dotnet). However, Event Hubs only has Atlas information. Microsoft Purview has added other capabilities such as **glossaries** and **contacts** which won't be available via Event Hubs.
 
 ### Identify key requirements
 
