@@ -1,22 +1,20 @@
 ---
-title: Customize environment for runtime in Prompt flow (preview)
+title: Customize environment for runtime in prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn how to create customized environment for runtime in Prompt flow with Azure Machine Learning studio.
+description: Learn how to create customized environment for runtime in prompt flow with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
-# Customize environment for runtime (preview)
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Customize environment for runtime
 
 ## Customize environment with docker context for runtime
 
@@ -49,6 +47,7 @@ langchain == 0.0.149        # Version Matching. Must be version 0.6.1
 keyring >= 4.1.1            # Minimum version 4.1.1
 coverage != 3.5             # Version Exclusion. Anything except version 3.5
 Mopidy-Dirble ~= 1.1        # Compatible release. Same as >= 1.1, == 1.*
+<path_to_local_package>     # reference to local pip wheel package
 ```
 
 You can obtain the path of local packages using `ls > requirements.txt`.
@@ -64,7 +63,7 @@ RUN pip install -r requirements.txt
 ```
 
 > [!NOTE]
-> This docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
+> This docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list). 
 
 ### Step 2: Create custom Azure Machine Learning environment 
 
@@ -107,13 +106,28 @@ az ml environment create -f environment.yaml --subscription <sub-id> -g <resourc
 > [!NOTE]
 > Building the image may take several minutes.
 
-Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a runtime in your Prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui).
+Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a compute instance runtime in your prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-runtime-page).
+
+You can also find the image in environment detail page and use it as base image in automatic runtime (preview) in `flow.dag.yaml` file in prompt flow folder. This image will also be used to build environment for flow deployment from UI.
+
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-image-environment.png" alt-text="Screenshot of image name in environment detail page. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-image-environment.png":::
 
 To learn more about environment CLI, see [Manage environments](../how-to-manage-environments-v2.md#manage-environments).
 
-## Create a custom application on compute instance that can be used as Prompt flow runtime
 
-A prompt flow runtime is a custom application that runs on a compute instance. You can create a custom application on a compute instance and then use it as a Prompt flow runtime. To create a custom application for this purpose, you need to specify the following properties:
+## Customize environment with flow folder for automatic runtime (preview)
+
+In `flow.dag.yaml` file in prompt flow folder, you can use `environment` section we can define the environment for the flow. It includes two parts:
+- image: which is the base image for the flow, if omitted, it uses the latest version of prompt flow base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If you want to customize the environment, you can use the image you created in previous section.
+- You can also specify packages `requirements.txt`, Both automatic runtime and flow deployment from UI will use the environment defined in `flow.dag.yaml` file.
+
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-automatic-image-flow-dag.png":::
+
+If you want to use private feeds in Azure devops, see [Add packages in private feed in Azure devops](./how-to-create-manage-runtime.md#add-packages-in-private-feed-in-azure-devops).
+
+## Create a custom application on compute instance that can be used as prompt flow compute instance runtime
+
+A compute instance runtime is a custom application that runs on a compute instance. You can create a custom application on a compute instance and then use it as a prompt flow runtime. To create a custom application for this purpose, you need to specify the following properties:
 
 | UI             | SDK                         | Note                                                                           |
 |----------------|-----------------------------|--------------------------------------------------------------------------------|
@@ -121,7 +135,7 @@ A prompt flow runtime is a custom application that runs on a compute instance. Y
 | Target port    | EndpointsSettings.target    | Port where you want to access the application, the port inside the container   |
 | published port | EndpointsSettings.published | Port where your application is running in the image, the publicly exposed port |
 
-### Create custom application as Prompt flow runtime via SDK v2
+### Create custom application as prompt flow compute instance runtime via SDK v2
 
 ```python
 # import required libraries
@@ -160,20 +174,19 @@ ml_client.begin_create_or_update(ci_basic)
 > [!NOTE]
 > Change `newest_version`, `compute_instance_name` and `instance_type` to your own value.
 
-### Create custom application as Prompt flow runtime via Azure Resource Manager template
+### Create custom application as compute instance runtime via Azure Resource Manager template
 
 You can use this Azure Resource Manager template to create compute instance with custom application.
 
  [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloga%2Fazure-quickstart-templates%2Flochen%2Fpromptflow%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-prompt-flow%2Fcreate-compute-instance-with-custom-application%2Fazuredeploy.json)
 
-To learn more, see [Azure Resource Manager template for custom application as Prompt flow runtime on compute instance](https://github.com/cloga/azure-quickstart-templates/tree/lochen/promptflow/quickstarts/microsoft.machinelearningservices/machine-learning-prompt-flow/create-compute-instance-with-custom-application). 
+To learn more, see [Azure Resource Manager template for custom application as prompt flow runtime on compute instance](https://github.com/cloga/azure-quickstart-templates/tree/lochen/promptflow/quickstarts/microsoft.machinelearningservices/machine-learning-prompt-flow/create-compute-instance-with-custom-application). 
 
-## Create custom application as Prompt flow runtime via Compute instance UI
+### Create custom application as prompt flow compute instance runtime via Compute instance UI
 
 Follow [this document to add custom application](../how-to-create-compute-instance.md#setup-other-custom-applications).
 
 :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png" alt-text="Screenshot of compute showing custom applications. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png":::
-
 
 ## Next steps
 

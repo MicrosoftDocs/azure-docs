@@ -1,21 +1,23 @@
 ---
 title: Multi-language indexing for non-English search queries
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create an index that supports multi-language content and then create queries scoped to that content.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 01/18/2023
 ---
 
-# Create an index for multiple languages in Azure Cognitive Search
+# Create an index for multiple languages in Azure AI Search
 
-A multilingual search application is one that provides a search experience in the user's own language. [Language support](index-add-language-analyzers.md#supported-language-analyzers) is enabled through a language analyzer assigned to string field. Cognitive Search supports Microsoft and Lucene analyzers. The language analyzer determines the linguistic rules by which content is tokenized. By default, the search engine uses Standard Lucene, which is language agnostic. If testing shows that the default analyzer is insufficient, replace it with a language analyzer.
+A multilingual search application is one that provides a search experience in the user's own language. [Language support](index-add-language-analyzers.md#supported-language-analyzers) is enabled through a language analyzer assigned to string field. Azure AI Search supports Microsoft and Lucene analyzers. The language analyzer determines the linguistic rules by which content is tokenized. By default, the search engine uses Standard Lucene, which is language agnostic. If testing shows that the default analyzer is insufficient, replace it with a language analyzer.
 
-In Azure Cognitive Search, the two patterns for supporting a multi-lingual audience include:
+In Azure AI Search, the two patterns for supporting a multi-lingual audience include:
 
 + Create language-specific indexes where all of the alphanumeric content is in the same language, and all searchable string fields are attributed to use the same [language analyzer](index-add-language-analyzers.md).
 
@@ -36,7 +38,7 @@ Non-string fields and non-searchable string fields don't undergo lexical analysi
 
 ## Add text translation
 
-This article assumes you have translated strings in place. If that's not the case, you can attach Azure AI services to an [enrichment pipeline](cognitive-search-concept-intro.md), invoking text translation during data ingestion. Text translation takes a dependency on the indexer feature and Azure AI services, but all setup is done within Azure Cognitive Search. 
+This article assumes you have translated strings in place. If that's not the case, you can attach Azure AI services to an [enrichment pipeline](cognitive-search-concept-intro.md), invoking text translation during data ingestion. Text translation takes a dependency on the indexer feature and Azure AI services, but all setup is done within Azure AI Search. 
 
 To add text translation, follow these steps:
 
@@ -59,7 +61,7 @@ To add text translation, follow these steps:
 
 ## Define fields for content in different languages
 
-In Azure Cognitive Search, queries target a single index. Developers who want to provide language-specific strings in a single search experience typically define dedicated fields to store the values: one field for English strings, one for French, and so on.
+In Azure AI Search, queries target a single index. Developers who want to provide language-specific strings in a single search experience typically define dedicated fields to store the values: one field for English strings, one for French, and so on.
 
 The "analyzer" property on a field definition is used to set the [language analyzer](index-add-language-analyzers.md). It will be used for both indexing and query execution.
 
@@ -171,7 +173,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 ## Next steps
 
 + [Add a language analyzer](index-add-language-analyzers.md)
-+ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
++ [How full text search works in Azure AI Search](search-lucene-query-architecture.md)
 + [Search Documents REST API](/rest/api/searchservice/search-documents)
 + [AI enrichment overview](cognitive-search-concept-intro.md)
 + [Skillsets overview](cognitive-search-working-with-skillsets.md)

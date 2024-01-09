@@ -7,7 +7,7 @@ ms.author: greglin
 ms.service: dns
 services: dns
 ms.topic: tutorial
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to a resource record within the zone.
 ---

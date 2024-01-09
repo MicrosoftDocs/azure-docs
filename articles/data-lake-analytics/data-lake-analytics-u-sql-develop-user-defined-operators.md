@@ -4,7 +4,7 @@ description: Learn how to develop user-defined operators to be used and reused i
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
 
 # Develop U-SQL user-defined operators (UDOs)

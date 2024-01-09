@@ -4,7 +4,7 @@ description: In this quickstart, learn how to restore the entire SAP HANA system
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/02/2023
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.custom: mvc, mode-api
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

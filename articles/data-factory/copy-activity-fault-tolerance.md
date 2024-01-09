@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 11/09/2023
 ms.author: yexu
 ---
 #  Fault tolerance of copy activity in Azure Data Factory and Synapse Analytics pipelines
@@ -172,7 +172,7 @@ Copy activity supports three scenarios for detecting, skipping, and logging inco
 >[!NOTE]
 >- To load data into Azure Synapse Analytics using PolyBase, configure PolyBase's native fault tolerance settings by specifying reject policies via "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" in copy activity. You can still enable redirecting PolyBase incompatible rows to Blob or ADLS as normal as shown below.
 >- This feature doesn't apply when copy activity is configured to invoke [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
->- This feature doesn't apply when copy activity is configured to invoke a [stored procedure from a SQL sink](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
+>- This feature doesn't apply when copy activity is configured to invoke a [stored procedure from a SQL sink](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink), or use [Upsert](connector-azure-sql-database.md#upsert-data) to write data into a SQL sink.
 
 ### Configuration
 The following example provides a JSON definition to configure skipping the incompatible rows in copy activity:
@@ -311,7 +311,7 @@ data1, data2, data3, "UserErrorInvalidDataValue", "Column 'Prop_2' contains an i
 data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4)."
 ```
 
-## Next steps
+## Related content
 See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

@@ -2,12 +2,12 @@
 title: Azure Active Directory B2C global identity framework
 titleSuffix: Azure AD B2C
 description: Learn how to configure Azure AD B2C to provide customer identity and access management for global customers.
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: conceptual
 ms.date: 12/15/2022
 ms.author: gasinh

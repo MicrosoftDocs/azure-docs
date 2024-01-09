@@ -101,6 +101,28 @@ The above endpoint does not work for Linux App Services at this time. Consider u
 
 -----
 
+> [!NOTE]
+> To deploy a ZIP package in an [ARM template](), upload the ZIP package to an internet-accessible location, then add a `onedeploy` resource like the following JSON. Replace the placeholders `<app-name>` and `<zip-package-uri>`. 
+> 
+> ```ARM template
+> {
+>     "type": "Microsoft.Web/sites/extensions",
+>     "apiVersion": "2021-03-01",
+>     "name": "onedeploy",
+>     "dependsOn": [
+>         "[resourceId('Microsoft.Web/Sites', <app-name>')]"
+>     ],
+>     "properties": {
+>         "packageUri": "<zip-package-uri>",
+>         "type":"zip"
+>      }
+> }
+> ```
+>
+> The \<zip-package-uri> can be a public endpoint, but it's best to use blob storage with a SAS key to protect it. For more information, see [Microsoft.Web sites/extensions 'onedeploy' 2021-03-01](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template).
+>
+>
+
 ## Enable build automation for ZIP deploy
 
 By default, the deployment engine assumes that a ZIP package is ready to run as-is and doesn't run any build automation. To enable the same build automation as in a [Git deployment](deploy-local-git.md), set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting by running the following command in the [Cloud Shell](https://shell.azure.com):

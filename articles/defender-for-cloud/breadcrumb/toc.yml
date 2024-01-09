@@ -1,0 +1,11 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Security
+    tocHref: /azure/
+    topicHref: /azure/security/index
+    items:
+    - name: Microsoft Defender for Cloud
+      tocHref: /azure/reliability

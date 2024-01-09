@@ -2,7 +2,7 @@
 title: Brand detection - Azure AI Vision
 titleSuffix: Azure AI services
 description: Learn about brand and logo detection, a specialized mode of object detection, using the Azure AI Vision API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

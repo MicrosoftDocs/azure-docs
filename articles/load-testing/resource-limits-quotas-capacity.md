@@ -57,7 +57,7 @@ Azure Load Testing captures metrics, test results, and logs for each test run. T
 | Server-side metrics | 90 days | Learn how to [configure server-side metrics](./how-to-monitor-server-side-metrics.md). |
 | Client-side metrics | 365 days | |
 | Test results | 6 months | Learn how to [export test results](./how-to-export-test-results.md). |
-| Test log files | 6 months | Learn how to [download the logs for troubleshooting tests](./how-to-troubleshoot-failing-test.md). |
+| Test log files | 6 months | Learn how to [download the logs for diagnosing failing load tests](./how-to-diagnose-failing-load-test.md). |
 
 ## Request quota increases
 
@@ -90,4 +90,4 @@ To raise the limit or quota above the default limit, [open an online customer su
 ## Next steps
 
 - Learn how to [set up a high-scale load test](./how-to-high-scale-load.md).
-- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to [configure automated performance testing](./quickstart-add-load-test-cicd.md).

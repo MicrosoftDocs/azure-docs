@@ -2,7 +2,7 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: article
-ms.date: 10/04/2023
+ms.date: 12/20/2023
 ms.reviewer: mattmcinnes
 ms.custom: contperf-fy21q4, devx-track-linux
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -16,11 +16,11 @@ This article shows you how to create a connection to an AKS node and update the 
 
 ## Before you begin
 
-* You have an SSH key. If you don't, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. Save the key pair in an OpenSSH format, other formats like `.ppk` aren't supported.
+This article assumes you have an SSH key. If not, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows], to know more refer [Manage SSH configuration][manage-ssh-node-access]. Make sure you save the key pair in an OpenSSH format, other formats like .ppk aren't supported.
 
-* The Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Create an interactive shell connection to a Linux node
+## Create an interactive shell connection to a Linux node using kubectl
 
 To create an interactive shell connection to a Linux node, use the `kubectl debug` command to run a privileged container on your node.
 
@@ -29,20 +29,20 @@ To create an interactive shell connection to a Linux node, use the `kubectl debu
     ```bash
     kubectl get nodes -o wide
     ```
-
+    
     The following example resembles output from the command:
-
+    
     ```output
-    NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
-    aks-nodepool1-37663765-vmss000000   Ready    agent   166m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
-    aks-nodepool1-37663765-vmss000001   Ready    agent   166m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
-    aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.1787     containerd://1.6.21+azure
+    NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE    
+    aks-nodepool1-37663765-vmss000000   Ready    agent   166m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               
+    aks-nodepool1-37663765-vmss000001   Ready    agent   166m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS              
+    aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter  
     ```
 
 2. Use the `kubectl debug` command to run a container image on the node to connect to it. The following command starts a privileged container on your node and connects to it.
 
     ```bash
-    kubectl debug node/aks-nodepool1-37663765-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
+    kubectl debug node/aks-nodepool1-37663765-vmss000000 -it --image=mcr.microsoft.com/cbl-mariner/busybox:2.0
     ```
 
     The following example resembles output from the command:
@@ -52,31 +52,70 @@ To create an interactive shell connection to a Linux node, use the `kubectl debu
     If you don't see a command prompt, try pressing enter.
     root@aks-nodepool1-37663765-vmss000000:/#
     ```
-
+    
     This privileged container gives access to the node.
-
+    
     > [!NOTE]
     > You can interact with the node session by running `chroot /host` from the privileged container.
 
 ### Remove Linux node access
 
-When you are done with a debugging pod, enter the `exit` command to end the interactive shell session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`.
+When you're done with a debugging pod, enter the `exit` command to end the interactive shell session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`.
 
 ```bash
 kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
+## Create an interactive shell connection to a node using private IP
+
+If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the AKS Agentpool Preview API(preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node, you need to be in the cluster's virtual network. 
+
+1. To get the private IP via CLI, use az cli version 2.53 or above with aks-preview extension installed.
+
+```bash
+    az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
+   
+ ```
+
+The following example resembles output from the command:
+
+ ```output
+   Name                               Ip 
+---------------------------------  --------------------------
+aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
+aks-nodepool1-33555069-vmss000001  10.224.0.6,family:IPv4;
+aks-nodepool1-33555069-vmss000002  10.224.0.4,family:IPv4;            
+```
+To target a specific node inside the nodepool, use this command:
+
+```bash
+    az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
+   
+ ```
+ The following example resembles output from the command:
+
+```output
+    Name                               Ip 
+---------------------------------  --------------------------
+aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
+   ```
+
+2. Use the private IP to SSH into the node. [Azure Bastion][azure-bastion] also provides you with information for securely connecting to virtual machines via private IP address. Make sure that you configure an Azure Bastion host for the virtual network in which the VM resides.
+
+```bash
+ssh azureuser@10.224.0.33
+```
 
 ## Create the SSH connection to a Windows node
 
-Currently, you can't connect to a Windows Server node directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster, and then connect to the Windows Server node from that node using SSH. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH.
+At this time, you can't connect to a Windows Server node directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster, then connect to the Windows Server node from that node using SSH. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH or use SSH with 'machines API' presented at the start of this document. 
 
-To connect to another node in the cluster, use the `kubectl debug` command. For more information, see [Create an interactive shell connection to a Linux node][ssh-linux-kubectl-debug].
+To connect to another node in the cluster, use the `kubectl debug` command. For more information, see the Linux section. 
 
 To create the SSH connection to the Windows Server node from another node, use the SSH keys provided when you created the AKS cluster and the internal IP address of the Windows Server node.
 
 > [!IMPORTANT]
 >
-> The following steps for creating the SSH connection to the Windows Server node from another node can only be used if you created your AKS cluster using the Azure CLI and the `--generate-ssh-keys` parameter. If you didn't use this method to create your cluster, use a password instead of an SSH key. To do this, see [Create the SSH connection to a Windows node using a password](#create-the-ssh-connection-to-a-windows-node-using-a-password)
+> The following steps for creating the SSH connection to the Windows Server node from another node can only be used if you created your AKS cluster using the Azure CLI and the `--generate-ssh-keys` parameter. AKS Update command can also be used to manage, create SSH keys on an existing AKS cluster. For more information refer [Manage SSH configuration][manage-ssh-node-access]. 
 
 1. Open a new terminal window and use the `kubectl get pods` command to get the name of the pod started by `kubectl debug`.
 
@@ -111,17 +150,14 @@ To create the SSH connection to the Windows Server node from another node, use t
 3. Open a new terminal and run the command `kubectl get nodes` to show the internal IP address of the Windows Server node:
 
     ```bash
-    kubectl get nodes -o wide
+    kubectl get no -o custom-columns=NAME:metadata.name,'INTERNAL_IP:status.addresses[?(@.type == \"InternalIP\")].address'
     ```
 
     The following example resembles output from the command:
 
     ```output
-    NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE
-                KERNEL-VERSION      CONTAINER-RUNTIME
-    aks-nodepool1-37663765-vmss000000   Ready    agent   166m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
-    aks-nodepool1-37663765-vmss000001   Ready    agent   166m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
-    aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.1787     containerd://1.6.21+azure
+    NAME                                INTERNAL_IP                       
+    aks-nodepool1-19409214-vmss000003   10.224.0.8  
     ```
 
     In the previous example, *10.224.0.62* is the internal IP address of the Windows Server node.
@@ -154,73 +190,20 @@ To create the SSH connection to the Windows Server node from another node, use t
     >  ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' -o PreferredAuthentications=password azureuser@10.224.0.62
     > ```
 
-### Create the SSH connection to a Windows node using a password
-
-If you didn't create your AKS cluster using the Azure CLI and the `--generate-ssh-keys` parameter, you'll use a password instead of an SSH key to create the SSH connection. To do this with Azure CLI, perform the following steps. Replace `<nodeRG>` with a resource group name and `<vmssName>` with the scale set name in that resource group.
-
-1. Create a root user called `azureuser`.
-
-    ```azurecli
-    az vmss update -g <nodeRG> -n <vmssName> --set virtualMachineProfile.osProfile.adminUsername=azureuser
-    ```
-
-2. Create a password for the new root user.
-
-    ```azurecli
-    az vmss update -g <nodeRG> -n <vmssName> --set virtualMachineProfile.osProfile.adminPassword=<new password>
-    ```
-
-3. Update the instances to use the above changes.
-
-    ```azurecli
-    az vmss update-instances -g <nodeRG> -n <vmssName> --instance-ids '*'
-    ```
-
-4. Reimage the affected nodes so you can connect using your new credentials.
-
-    ```azurecli
-    az vmss reimage -g <nodeRG> -n <vmssName> --instance-id <affectedNodeInstanceId>
-    ```
-
-5. Use `kubectl debug` to connect to another node.
-
-    ```azurecli
-    kubectl debug node/<nodeName> -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
-    ```
-
-6. Open a second terminal to use port forwarding to connect the debug pod to your local computer.
-
-    ```azurecli
-    kubectl port-forward <debugPodName> 2022:22
-    ```
-
-7. Open a third terminal to get the IP address of the affected node to initiate the SSH connection. You can get this IP address with `kubectl get nodes -o wide`. The IP address is listed in the **INTERNAL-IP** column. After you have it, use the following command to connect:
-
-    ```azurecli
-     ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' azureuser@<affectedNodeIp>
-    ```
-
-8. Enter your password.
-
-### Remove SSH access
-
-When done, `exit` the SSH session, stop any port forwarding, and then `exit` the interactive container session. After the interactive container session closes, delete the pod used for SSH access using the `kubectl delete pod` command.
-
-```bash
-kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
-```
-
 ## Next steps
 
-* To help troubleshoot any issues with SSH connectivity to your clusters nodes, you can [view the kubelet logs][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
-* See [Manage SSH configuration][manage-ssh-node-access] to learn about managing the SSH key on an AKS cluster or node pools.
+If you need more troubleshooting data, you can [view the kubelet logs][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
+
+See [Manage SSH configuration][manage-ssh-node-access] to learn about managing the SSH key on an AKS cluster or node pools.
 
 <!-- INTERNAL LINKS -->
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: monitor-aks-reference.md#resource-logs
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-windows-rdp]: rdp.md
+[azure-bastion]: ../bastion/bastion-overview.md 
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
-[ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
+[agentpool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
 [manage-ssh-node-access]: manage-ssh-node-access.md
+

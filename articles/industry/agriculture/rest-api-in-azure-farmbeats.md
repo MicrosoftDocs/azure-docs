@@ -1,15 +1,20 @@
 ---
 title: Azure FarmBeats APIs
 description: Learn about Azure FarmBeats APIs, which provide agricultural businesses with a standardized RESTful interface with JSON-based responses.
-author: sunasing
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: sunasing
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Azure FarmBeats APIs
 
 This article describes the Azure FarmBeats APIs. The Azure FarmBeats APIs provide agricultural businesses with a standardized RESTful interface with JSON-based responses to help you take advantage of Azure FarmBeats capabilities, such as:
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 - APIs to get sensor, camera, drone, weather, satellite, and curated ground data.
 - Normalization and contextualization of data across common data providers.

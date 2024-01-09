@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/28/2023
+ms.date: 01/08/2024
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
@@ -30,7 +30,7 @@ This Salesforce connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources or sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
@@ -384,5 +384,5 @@ Migrating your Salesforce linked service is highly recommended if you use the le
 
 1. If you use SQL query in the copy activity source or the lookup activity that refers to the legacy linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -65,6 +65,7 @@ You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) to 
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
+> [!div class="nextstepaction"]
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
-> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
+
 

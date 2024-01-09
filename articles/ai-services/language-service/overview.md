@@ -2,12 +2,12 @@
 title: What is Azure AI Language
 titleSuffix: Azure AI services
 description: Learn how to integrate AI into your applications that can extract information and understand written language.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 07/19/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---

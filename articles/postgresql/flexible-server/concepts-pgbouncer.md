@@ -66,7 +66,7 @@ Azure Database for PostgreSQL - Flexible Server now provides six new metrics for
 |**Total pooled connections** (Preview)  |total_pooled_connections  |Count|Current number of pooled connections                                                 |DatabaseName|No             |
 |**Number of connection pools** (Preview)|num_pools                 |Count|Total number of connection pools                                                     |DatabaseName|No             |
 
-To learn more, see [pgbouncer metrics](./concepts-monitoring.md#pgbouncer-metrics)
+To learn more, see [pgbouncer metrics](./concepts-monitoring.md#pgbouncer-metrics).
 
 ### Admin Console
 
@@ -74,13 +74,13 @@ PgBouncer also provides an **internal** database that you can connect to called 
 
 Steps to connect to `pgbouncer` database
 1. Set `pgBouncer.stats_users` parameter to the name of an existing user (ex. "myUser"), and apply the changes.
-1. Connect to `pgbouncer` database as this user and port as `6432`
+1. Connect to `pgbouncer` database as this user and port as `6432`.
 
 ```sql
 psql "host=myPgServer.postgres.database.azure.com port=6432 dbname=pgbouncer user=myUser password=myPassword sslmode=require"
 ```
 
-Once connected, use **SHOW** commands to view pgbouncer stats
+Once connected, use **SHOW** commands to view pgbouncer stats:
 * `SHOW HELP` - list all the available show commands
 * `SHOW POOLS` —  show number of connections in each state for each pool
 * `SHOW DATABASES` - show current applied connection limits for each database
@@ -91,10 +91,12 @@ For more details on the PgBouncer show command, please refer [Admin console](htt
 ## Switching your application to use PgBouncer
 
 In order to start using PgBouncer, follow these steps:
-1. Connect to your database server, but use port **6432** instead of the regular port 5432--verify that this connection works
-```azurecli-interactive
-psql "host=myPgServer.postgres.database.azure.com port=6432 dbname=postgres user=myUser password=myPassword sslmode=require"
-```
+1. Connect to your database server, but use port **6432** instead of the regular port 5432--verify that this connection works.
+   
+   ```azurecli-interactive
+   psql "host=myPgServer.postgres.database.azure.com port=6432 dbname=postgres user=myUser password=myPassword sslmode=require"
+   ```
+
 2. Test your application in a QA environment against PgBouncer, to make sure you don’t have any compatibility problems. The PgBouncer project provides a compatibility matrix, and we recommend using **transaction pooling** for most users: https://www.PgBouncer.org/features.html#sql-feature-map-for-pooling-modes.
 3. Change your production application to connect to port **6432** instead of **5432**, and monitor for any application side errors that may point to any compatibility issues.
 

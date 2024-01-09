@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 11/28/2023
 ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: powershell, azurecli
@@ -327,9 +327,6 @@ N/A
 ---
 
 When moving a large number of blobs to the archive tier, use a batch operation for optimal performance. A batch operation sends multiple API calls to the service with a single request. The suboperations supported by the [Blob Batch](/rest/api/storageservices/blob-batch) operation include [Delete Blob](/rest/api/storageservices/delete-blob) and [Set Blob Tier](/rest/api/storageservices/set-blob-tier).
-
-> [!NOTE]
-> The [Set Blob Tier](/rest/api/storageservices/set-blob-tier) suboperation of the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchical namespace.
 
 To archive blobs with a batch operation, use one of the Azure Storage client libraries. The following code example shows how to perform a basic batch operation with the .NET client library:
 

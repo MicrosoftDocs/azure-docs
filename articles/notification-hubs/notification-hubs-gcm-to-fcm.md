@@ -4,16 +4,14 @@ description: Describes how Azure Notification Hubs addresses the Google GCM to F
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
-
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/30/2023
+ms.date: 12/06/2023
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: heathertian
 ms.lastreviewed: 04/10/2019
 ---
 

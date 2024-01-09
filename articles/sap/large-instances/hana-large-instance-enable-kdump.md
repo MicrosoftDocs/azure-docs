@@ -3,7 +3,7 @@ title: Script to enable kdump in SAP HANA (Large Instances)| Microsoft Docs
 description: Learn how to enable the kdump service on Azure HANA Large Instances Type I and Type II.
 services: virtual-machines-linux
 documentationcenter:
-author: lauradolan
+author: ju-shim
 manager: juergent
 editor:
 ms.service: sap-on-azure
@@ -12,9 +12,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/22/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # kdump for SAP HANA on Azure Large Instances

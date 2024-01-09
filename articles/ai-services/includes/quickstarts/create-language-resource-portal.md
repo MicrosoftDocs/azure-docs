@@ -1,6 +1,6 @@
 ---
 title: Create a Language resource
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services
@@ -60,7 +60,7 @@ ms.author: pafarley
     | **Name** | A descriptive name for your Azure AI services resource. For example, *MyCognitiveServicesResource*. |
     | **Pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator/#pricing).|
     | **Azure Search location** | The location of the Azure Search instance that will go with your QnA Maker resource. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
-    | **Azure Search pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see the Cognitive Search [pricing details](https://azure.microsoft.com/pricing/details/search/#pricing).|
+    | **Azure Search pricing tier** | The cost of your Azure AI services account depends on the options you choose and your usage. For more information, see the Azure AI Search [pricing details](https://azure.microsoft.com/pricing/details/search/#pricing).|
     | **App name** | Enter a name for the App Service app that will handle your QnA Maker queries.|
     | **Website location** | The location of the App Service instance that will go with your QnA Maker resource. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
     | **App insights** | Choose whether you'd like to use an Application Insights resource in tandem with your QnA Maker resource. |

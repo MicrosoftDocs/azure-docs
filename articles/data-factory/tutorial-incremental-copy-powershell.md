@@ -713,7 +713,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     data_source_table | 2017-09-07 09:01:00.000
 
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial:
 
 > [!div class="checklist"]

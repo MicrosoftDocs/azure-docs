@@ -1,18 +1,20 @@
 ---
 title: Knowledge store concepts
-titleSuffix: Azure Cognitive Search
-description: A knowledge store is enriched content created by an Azure Cognitive Search skillset and saved to Azure Storage for use in other apps and non-search scenarios.
+titleSuffix: Azure AI Search
+description: A knowledge store is enriched content created by an Azure AI Search skillset and saved to Azure Storage for use in other apps and non-search scenarios.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/31/2023
 ---
 
-# Knowledge store in Azure Cognitive Search
+# Knowledge store in Azure AI Search
 
-Knowledge store is a data sink created by a [Cognitive Search enrichment pipeline](cognitive-search-concept-intro.md) that stores AI-enriched content in tables and blob containers in Azure Storage for independent analysis or downstream processing in non-search scenarios like knowledge mining.
+Knowledge store is a data sink created by an [Azure AI Search enrichment pipeline](cognitive-search-concept-intro.md) that stores AI-enriched content in tables and blob containers in Azure Storage for independent analysis or downstream processing in non-search scenarios like knowledge mining.
 
 If you've used cognitive skills in the past, you already know that enriched content is created by *skillsets*. Skillsets move a document through a sequence of enrichments that invoke atomic transformations, such as recognizing entities or translating text. 
 
@@ -30,7 +32,7 @@ Viewed through Azure portal, a knowledge store looks like any other collection o
 
 The primary benefits of a knowledge store are two-fold: flexible access to content, and the ability to shape data.
 
-Unlike a search index that can only be accessed through queries in Cognitive Search, a knowledge store can be accessed by any tool, app, or process that supports connections to Azure Storage. This flexibility opens up new scenarios for consuming the analyzed and enriched content produced by an enrichment pipeline.
+Unlike a search index that can only be accessed through queries in Azure AI Search, a knowledge store can be accessed by any tool, app, or process that supports connections to Azure Storage. This flexibility opens up new scenarios for consuming the analyzed and enriched content produced by an enrichment pipeline.
 
 The same skillset that enriches data can also be used to shape data. Some tools like Power BI work better with tables, whereas a data science workload might require a complex data structure in a blob format. Adding a [Shaper skill](cognitive-search-skill-shaper.md) to a skillset gives you control over the shape of your data. You can then pass these shapes to projections, either tables or blobs, to create physical data structures that align with the data's intended use.
 
@@ -95,7 +97,7 @@ The wizard automates several tasks. Specifically, both shaping and projections (
 
 ### [**REST**](#tab/kstore-rest)
 
-[**Create your first knowledge store using Postman**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store).
+[**Create your first knowledge store using Postman**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/knowledge-store).
 
 REST API version `2020-06-30` can be used to create a knowledge store through additions to a skillset.
 

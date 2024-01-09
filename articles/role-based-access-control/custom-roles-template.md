@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/19/2022
+ms.date: 12/01/2023
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As an IT admin, I want to create custom roles by using an Azure Resource Manager template so that I can start automating custom role processes.
@@ -29,7 +29,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 To create a custom role, you must have:
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+- Permissions to create custom roles, such as [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 You must use the following version:
 

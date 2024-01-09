@@ -19,7 +19,7 @@ This article summarizes the steps and documentation that you need.
 > [!IMPORTANT]
 > You must fully understand the onboarding process for your chosen communications service and any dependencies introduced by the onboarding process. For advice, ask your onboarding team.
 >
-> Some steps in the deployment and integration process can require days or weeks to complete. For example, you might need to arrange Microsoft Azure Peering Service (MAPS) connectivity before you can deploy, wait for onboarding, or wait for a specific date to launch your service. We recommend that you read through any documentation from your onboarding team and the procedures in [Deploy Azure Communications Gateway](#deploy-azure-communications-gateway) and [Integrate with your chosen communications services](#integrate-with-your-chosen-communications-services) before you start deploying.
+> Some steps in the deployment and integration process can require days or weeks to complete. For example, you might need to arrange Microsoft Azure Peering Service for Voice (MAPS Voice) connectivity before you can deploy, wait for onboarding, or wait for a specific date to launch your service. We recommend that you read through any documentation from your onboarding team and the procedures in [Deploy Azure Communications Gateway](#deploy-azure-communications-gateway) and [Integrate with your chosen communications services](#integrate-with-your-chosen-communications-services) before you start deploying.
 
 ## Learn about and plan for Azure Communications Gateway
 
@@ -27,8 +27,9 @@ Read the following articles to learn about Azure Communications Gateway.
 
 - [Your network and Azure Communications Gateway](role-in-network.md), to learn how Azure Communications Gateway fits into your network.
 - [Onboarding with Included Benefits for Azure Communications Gateway](onboarding.md), to learn about onboarding to Operator Connect or Teams Phone Mobile and the support we can provide.
-- [Reliability in Azure Communications Gateway](reliability-communications-gateway.md), to create a network design that includes Azure Communications Gateway.
+- [Connectivity for Azure Communications Gateway](connectivity.md) and [Reliability in Azure Communications Gateway](reliability-communications-gateway.md), to create a network design that includes Azure Communications Gateway.
 - [Overview of security for Azure Communications Gateway](security.md), to learn about how Azure Communications Gateway keeps customer data and your network secure.
+- [Provisioning API for Azure Communications Gateway](provisioning-platform.md), to learn about when you might need or want to integrate with the Provisioning API.
 - [Plan and manage costs for Azure Communications Gateway](plan-and-manage-costs.md), to learn about costs for Azure Communications Gateway.
 - [Azure Communications Gateway limits, quotas and restrictions](limits.md), to learn about the limits and quotas associated with the Azure Communications Gateway
 
@@ -50,7 +51,7 @@ For Zoom Phone Cloud Peering, also read:
 
 As part of your planning, ensure your network can support the connectivity and interoperability requirements in these articles.
 
-Read through the procedures in [Deploy Azure Communications Gateway](#deploy-azure-communications-gateway) and [Integrate with your chosen communications services](#integrate-with-your-chosen-communications-services) and use those procedures as input into your planning for deployment, testing and going live. You need to work with an onboarding team (from Microsoft or one that you arrange yourself) during these phases, so ensure that you discuss timelines and requirements with this team.
+Read through the procedures in [Deploy Azure Communications Gateway](#deploy-azure-communications-gateway) and [Integrate with your chosen communications services](#integrate-with-your-chosen-communications-services). Use those procedures as input into your planning for deployment, testing and going live. You need to work with an onboarding team (from Microsoft or one that you arrange yourself) during these phases, so ensure that you discuss timelines and requirements with this team.
 
 ## Deploy Azure Communications Gateway
 

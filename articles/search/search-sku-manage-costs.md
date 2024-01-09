@@ -1,19 +1,21 @@
 ---
 title: Plan and manage costs
-titleSuffix: Azure Cognitive Search
-description: 'Learn about billable events, the billing model, and tips for cost control when running a Cognitive Search service.'
+titleSuffix: Azure AI Search
+description: 'Learn about billable events, the billing model, and tips for cost control when running an Azure AI Search service.'
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 12/01/2022
 ---
 
-# Plan and manage costs of an Azure Cognitive Search service
+# Plan and manage costs of an Azure AI Search service
 
-This article explains the billing model and billable events of Azure Cognitive Search, and provides direction for managing the costs.
+This article explains the billing model and billable events of Azure AI Search, and provides direction for managing the costs.
 
 As a first step, estimate your baseline costs by using the Azure pricing calculator. Alternatively, estimated costs and tier comparisons can also be found in the [Select a pricing tier](search-create-service-portal.md#choose-a-tier) page when creating a service.
 
@@ -23,9 +25,9 @@ Azure provides built-in cost management that cuts across service boundaries to p
 
 ## Understand the billing model
 
-Azure Cognitive Search runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
+Azure AI Search runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
 
-### How you're charged for Azure Cognitive Search
+### How you're charged for Azure AI Search
 
 When you create or use Search resources, you're charged for the following meters:
 
@@ -33,14 +35,14 @@ When you create or use Search resources, you're charged for the following meters
 
 + The charge is applied per the number of search units (SU) allocated to the service. Search units are [units of capacity](search-capacity-planning.md). Total SU is the product of replicas and partitions (R x P = SU) used by your service.
 
-Billing is based on capacity (SUs) and the costs of running premium features, such as [AI enrichment](cognitive-search-concept-intro.md), [Semantic ranking](semantic-search-overview.md), and [Private endpoints](service-create-private-endpoint.md). Meters associated with premium features are listed in the following table.
+Billing is based on capacity (SUs) and the costs of running premium features, such as [AI enrichment](cognitive-search-concept-intro.md), [semantic ranker](semantic-search-overview.md), and [private endpoints](service-create-private-endpoint.md). Meters associated with premium features are listed in the following table.
 
 | Meter | Unit |
 |-------|------|
 | Image extraction (AI enrichment) <sup>1, 2</sup> | Per 1000 images. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing). |
 | Custom Entity Lookup skill (AI enrichment) <sup>1</sup> | Per 1000 text records. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing) |
 | [Built-in skills](cognitive-search-predefined-skills.md)  (AI enrichment) <sup>1</sup> | Number of transactions, billed at the same rate as if you had performed the task by calling Azure AI services directly. You can process 20 documents per indexer per day for free. Larger or more frequent workloads require a multi-resource Azure AI services key. |
-| [Semantic ranking](semantic-search-overview.md) <sup>1</sup> | Number of queries of "queryType=semantic", billed at a progressive rate. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing). |
+| [Semantic ranker](semantic-search-overview.md) <sup>1</sup> | Number of queries of "queryType=semantic", billed at a progressive rate. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing). |
 | [Shared private link](search-indexer-howto-access-private.md) <sup>1</sup> | [Billed for bandwidth](https://azure.microsoft.com/pricing/details/private-link/) as long as the shared private link exists and is used. |
 
 <sup>1</sup> Applies only if you use or enable the feature.
@@ -65,7 +67,7 @@ Cost management is built into the Azure infrastructure. Review [Billing and cost
 
 ## Minimize costs
 
-Follow these guidelines to minimize costs of an Azure Cognitive Search solution.
+Follow these guidelines to minimize costs of an Azure AI Search solution.
 
 1. If possible, create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
 
@@ -99,7 +101,7 @@ In-place upgrade or downgrade is not supported. Changing a service tier requires
 
 ## Next steps
 
-+ Learn more on how pricing works with Azure Cognitive Search. See [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
++ Learn more on how pricing works with Azure AI Search. See [Azure AI Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 + Learn more about [replicas and partitions](search-sku-tier.md).
 + Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 + Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

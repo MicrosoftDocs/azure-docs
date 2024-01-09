@@ -78,7 +78,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### VPN troubleshoot
 
-**VPN troubleshoot** enables you to troubleshoot virtual network gateways and their connections. For more information, see [VPN troubleshoot overview](network-watcher-troubleshoot-overview.md) and [Diagnose a communication problem between networks](diagnose-communication-problem-between-networks.md).
+**VPN troubleshoot** enables you to troubleshoot virtual network gateways and their connections. For more information, see [VPN troubleshoot overview](vpn-troubleshoot-overview.md) and [Diagnose a communication problem between networks](diagnose-communication-problem-between-networks.md).
 
 ## Traffic
 
