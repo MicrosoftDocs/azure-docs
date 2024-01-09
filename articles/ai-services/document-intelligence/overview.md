@@ -487,6 +487,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
 
+::: moniker range=">=doc-intel-3.1.0"
 #### Custom classification model
 
 :::image type="content" source="media/overview/custom-classifier-labeling.png" alt-text="{alt-text}":::
