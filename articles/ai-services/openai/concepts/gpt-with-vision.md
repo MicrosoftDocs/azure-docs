@@ -85,13 +85,13 @@ This section describes the limitations of GPT-4 Turbo with Vision.
 - **Maximum input image size**: The maximum size for input images is restricted to 20 MB.
 - **Object grounding in enhancement API**: When the enhancement API is used for object grounding, and the model detects duplicates of an object, it will generate one bounding box and label for all the duplicates instead of separate ones for each.
 - **Low resolution accuracy**: When images are analyzed using the "low resolution" setting, it allows for faster responses and uses fewer input tokens for certain use cases. However, this could impact the accuracy of object and text recognition within the image.
-- **Image chat restriction**: When uploading images in the chat playground or the API, there is a limit of 10 images per chat call.
+- **Image chat restriction**: When uploading images in Azure OpenAI Studio or the API, there is a limit of 10 images per chat call.
 
 ### Video support
 
 - **Low resolution**: Video frames are analyzed using GPT-4 Turbo with Vision's "low resolution" setting, which may affect the accuracy of small object and text recognition in the video.
-- **Video file limits**: Both MP4 and MOV file types are supported. In the Azure AI Playground, videos must be less than 3 minutes long. When you use the API there is no such limitation.
-- **Prompt limits**: Video prompts only contain one video and no images. In Playground, you can clear the session to try another video or images.
+- **Video file limits**: Both MP4 and MOV file types are supported. In Azure OpenAI Studio, videos must be less than 3 minutes long. When you use the API there is no such limitation.
+- **Prompt limits**: Video prompts only contain one video and no images. In Azure OpenAI Studio, you can clear the session to try another video or images.
 - **Limited frame selection**: The service selects 20 frames from the entire video, which might not capture all the critical moments or details. Frame selection can be approximately evenly spread through the video or focused by a specific video retrieval query, depending on the prompt.
 - **Language support**: The service primarily supports English for grounding with transcripts. Transcripts don't provide accurate information on lyrics in songs.
 
