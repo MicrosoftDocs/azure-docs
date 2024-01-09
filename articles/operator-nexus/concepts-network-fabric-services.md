@@ -80,7 +80,3 @@ Azure's default configuration supports only HTTPS endpoints to ensure secure com
 **How Can I Safeguard Against Data Exfiltration?**
 
 To strengthen security against data exfiltration, Azure supports the allowance of specific Fully Qualified Domain Names (FQDNs) on the proxy. This additional security measure ensures that your network can only be accessed by approved traffic, greatly minimizing the potential for unauthorized data movement.
-
-## Next steps
-
-- [Isolation Domain](concepts-isolation-domain.md)
