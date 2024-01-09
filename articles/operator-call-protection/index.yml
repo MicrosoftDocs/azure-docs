@@ -1,0 +1,41 @@
+### YamlMime:Landing
+
+title: Azure Operator Call Protection documentation
+summary: Learn about Azure Operator Call Protection for telecommunications operators.
+
+metadata:
+  title: Azure Operator Call Protection documentation
+  description: Learn about Azure Operator Call Protection for telecommunications operators.
+  ms.service: #Required; use either service or product per approved list. 
+  ms.topic: landing-page # Required
+  author:  #Required; your GitHub user alias, with correct capitalization.
+  ms.author: #Required; microsoft alias of author; optional team alias.
+  ms.date: #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+
+  # Card
+  - title: Understand Azure Operator Call Protection
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Operator Call Protection?
+            url: overview.md
+
+  # Card
+  - title: Learn how to deploy Azure Operator Call Protection
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of deploying
+            url: deployment-overview.md
+      - linkListType: deploy
+        links:
+          - text: Prepare to deploy Azure Communications Gateway
+            url: ../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+          - text: Deploy Azure Communications Gateway
+            url: ../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+          - text: Set up Azure Operator Call Protection
+            url: set-up-operator-call-protection.md
