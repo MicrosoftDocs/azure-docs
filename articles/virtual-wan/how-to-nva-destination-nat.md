@@ -66,6 +66,7 @@ The list below corresponds to the diagram above and describes the packet flow fo
   * Destination NAT Public IPs  must be from the same region as the NVA resource. For example, if the NVA is deployed in the East US region, the public IP must also be from the East US region.
   * Destination NAT Public IPs can't be in use by another Azure resource. For example, you can't use an IP address in use by a Virtual Machine network interface IP Configuration or a Standard Load Balancer front-end configuration.
   * Public IPs must be from IPv4 address spaces. Virtual WAN doesn't support IPv6 addresses.
+  * Public IPs must be deployed with Standard SKU. Basic SKU Public IPs are not supported.
 * Destination NAT is only supported on new NVA deployments that are created with at least one Destination NAT Public IP. Existing NVA deployments or NVA deployments that didn't have a Destination NAT Public IP associated at NVA creation time aren't eligible to use Destination NAT.
 * Programming Azure infrastructure components to support DNAT scenarios is done automatically by NVA orchestration software when a DNAT rule is created. Therefore, you can't program NVA rules through Azure portal. However, you can view the inbound security rules associated to each internet inbound Public IP.
 * DNAT traffic in Virtual WAN can only be routed  to connections to the same hub as the NVA. Inter-hub traffic patterns with DNAT aren't supported.
@@ -144,7 +145,7 @@ The health probes Virtual WAN requires are:
   |NVA Provider| Port|
   |--|--|
   |fortinet|8008| 
-  |checkpoint| 8118|
+  |checkpoint| 8117|
 
 * **Datapath health probe**: Used to forward private (VNET/on-premises) traffic to NVA **trusted/internal** interfaces. Required for private routing policies. This health probe checks the health of the **trusted/internal** interface of the NVA only.
 
