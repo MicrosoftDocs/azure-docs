@@ -256,6 +256,8 @@ In this sample, a password is used to authenticate the service principal. The to
    $responseToken = Invoke-RestMethod -Uri $tokenEndpoint -Method Post -Body $body
    $accessToken = $responseToken.access_token
    ```
+   >[!NOTE]
+   > Anytime you use passwords in a script, the most secure option is to use the PowerShell Secrets Management module and integrate with a solution such as Azure KeyVault
 
    ---
 
