@@ -79,10 +79,13 @@ The following table lists the included features in MABS V4:
 
 This update contains the following enhancement to improve the backup time. For more information on the enhancements and the installation, see the [KB article](https://help.microsoft.com/support/5031799).
 
-| Update | Description |
-| --- | --- |
-| **Removed File Catalog dependency for online backup of file/folder workloads** | Removes the dependency of MABS V3 on File Catalog (list of files in a recovery point maintained in the cloud) which was needed to restore individual files and folders from the online recovery points.     <br><br>     This Hotfix allows MABS V3 UR2 to use a modern *iSCSI mount* method to provide individual file restoration. |
-| **Advantages** | - Reduces the backup time by up to *15%* because file catalog metadata (list of files in a recovery point) isn't generated during the backup operation. <br><br> - Item-level recovery errors due to inconsistent file catalog metadata are avoided because *iSCSI mounts* are used.  <br><br>  - After the recovery point is mounted, file browsing during item-level recovery is faster for recovery points with many files and folders. |
+**Removed File Catalog dependency for online backup of file/folder workloads**: This update removes the dependency of MABS V3 on File Catalog (list of files in a recovery point maintained in the cloud) which was needed to restore individual files and folders from the online recovery points. This Hotfix allows MABS V3 UR2 to use a modern *iSCSI mount* method to provide individual file restoration.
+
+**Advantages**:
+
+- Reduces the backup time by up to *15%* because file catalog metadata (list of files in a recovery point) isn't generated during the backup operation.
+- - Item-level recovery errors due to inconsistent file catalog metadata are avoided because *iSCSI mounts* are used.
+- - After the recovery point is mounted, file browsing during item-level recovery is faster for recovery points with many files and folders.
 
 >[!Note]
 >We recommend that you update your MABS V3 installation to Hotfix for Update Rollup 2 to benefit from the enhancement. Ensure that you also update your MARS Agent to the latest version (2.0.9262.0 or higher).
