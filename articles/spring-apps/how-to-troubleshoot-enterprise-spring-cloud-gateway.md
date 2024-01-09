@@ -40,7 +40,7 @@ The logs of both subcomponents are available. The following sections describe ho
 
 ### Use real-time log streaming
 
-YYou can stream logs in real time with Azure CLI. For more information, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md). The following examples show how you can use Azure CLI commands to continuously stream new logs for `spring-cloud-gateway` and `spring-cloud-gateway-operator` subcomponents.
+You can stream logs in real time with Azure CLI. For more information, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md). The following examples show how you can use Azure CLI commands to continuously stream new logs for `spring-cloud-gateway` and `spring-cloud-gateway-operator` subcomponents.
 
 Use the following Azure CLI commands to stream logs for `spring-cloud-gateway`:
 

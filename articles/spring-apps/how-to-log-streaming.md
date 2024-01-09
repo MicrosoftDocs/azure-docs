@@ -157,9 +157,9 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 1. Select the **Vnet injection** tab.
 
-1. Switch the status of **Dataplane resources on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
+1. Switch the status of **Dataplane resources on public network** to **enable** to enable a log streaming endpoint on the public network. This process takes a few minutes.
 
-   :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
+   :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet injection page." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
 
 #### [Azure CLI](#tab/azure-CLI)
 
@@ -174,7 +174,7 @@ az spring update \
 
 ---
 
-After you've enabled the log stream public endpoint, you can access the app log from a public network as you would access a normal instance.
+After you enable the log stream public endpoint, you can access the app log from a public network as you would access a normal instance.
 
 ## Secure traffic to the log streaming public endpoint
 
@@ -183,7 +183,7 @@ Log streaming uses the same key as the test endpoint described in [Set up a stag
 To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
 > [!NOTE]
-> If you can't access app logs in the virtual network injection instance from the internet after you've enabled a log stream public endpoint, check your network security group to see whether you've allowed such inbound traffic.
+> If you can't access app logs in the virtual network injection instance from the internet after you enable a log stream public endpoint, check your network security group to see whether you allowed such inbound traffic.
 
 The following table shows an example of a basic rule that we recommend. You can use commands like `nslookup` with the endpoint `<service-name>.private.azuremicroservices.io` to get the target IP address of a service.
 

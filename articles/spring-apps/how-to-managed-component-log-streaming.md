@@ -1,6 +1,6 @@
 ---
 title:  Stream Azure Spring Apps managed component logs in real time
-description: Describes how to use log streaming to view managed component logs in real time
+description: Learn how to use log streaming to view managed component logs in real time.
 author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
@@ -20,56 +20,59 @@ This article describes how to use Azure CLI to get real-time logs of managed com
 
 For streaming logs of applications in Azure Spring Apps, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md).
 
-## Prerequisites
-- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. You can install the extension by using the following command `az extension add --name spring` with extension version starts from `1.19.0`.
+The following table lists the managed components and their subcomponents that are currently supported:
 
+| Managed component                 | Subcomponents                                                                                      |
+|-----------------------------------|----------------------------------------------------------------------------------------------------|
+| Application Configuration Service | `application-configuration-service` <br/> `flux-source-controller` (Supported in ACS Gen2 version) |
+| Spring Cloud Gateway              | `spring-cloud-gateway` <br/> `spring-cloud-gateway-operator`                                       |
 
-## Supported managed components
+You can use the following Azure CLI command to list all subcomponents:
 
-Currently, only Application Configuration Service (ACS) and Spring Cloud Gateway (SCG) are supported. And they're composed of subcomponents. Following table shows their relationships.
-
-| Managed component                 | Subcomponents                                                                                  |
-|-----------------------------------|------------------------------------------------------------------------------------------------|
-| Application Configuration Service | application-configuration-service <br/> flux-source-controller (Supported in ACS Gen2 version) |
-| Spring Cloud Gateway              | spring-cloud-gateway <br/> spring-cloud-gateway-operator                                       |
-
-You can use below Azure CLI command to list all subcomponents.
 ```azurecli
 az spring component list
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name>
 ```
 
+## Prerequisites
+
+- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, minimum version 1.19.0. You can install the extension by using the following command: `az extension add --name spring`.
+
 ## Assign an Azure role
 
-To stream logs of managed component, the user must be granted the corresponding role for different component. These roles include the permissions for the operations. Following table shows the relationships.
+To stream logs of managed components, you must have the relevent Azure roles and permissions assigned you to. The following table lists the required roles and permissions for the operations:
 
-| Managed component                 | Required role                                                         | Operations                                                                      |
-| --------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Application Configuration Service | `Azure Spring Apps Application Configuration Service Log Reader Role` | `Microsoft.AppPlatform/Spring/ApplicationConfigurationService/logstream/action` |
-| Spring Cloud Gateway              | `Azure Spring Apps Spring Cloud Gateway Log Reader Role`              | `Microsoft.AppPlatform/Spring/SpringCloudGateway/logstream/action`              |
+| Managed component                 | Required role                                                       | Operations                                                                    |
+|-----------------------------------|---------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Application Configuration Service | Azure Spring Apps Application Configuration Service Log Reader Role | Microsoft.AppPlatform/Spring/ApplicationConfigurationService/logstream/action |
+| Spring Cloud Gateway              | Azure Spring Apps Spring Cloud Gateway Log Reader Role              | Microsoft.AppPlatform/Spring/SpringCloudGateway/logstream/action              |
 
-### [Azure portal](#tab/azure-Portal)
+### [Azure portal](#tab/Portal)
 
-Use the following steps to assign an Azure role using the Azure portal.
+Use the following steps to assign an Azure role using the Azure portal:
 
 1. Open the [Azure portal](https://portal.azure.com).
+
 1. Open your Azure Spring Apps service instance.
+
 1. In the navigation pane, select **Access Control (IAM)**.
+
 1. On the **Access Control (IAM)** page, select **Add**, and then select **Add role assignment**.
 
-   :::image type="content" source="media/how-to-managed-component-log-streaming/add-role-assignment.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page for an Azure Spring Apps instance with the Add role assignment option highlighted." lightbox="media/how-to-managed-component-log-streaming/add-role-assignment.png":::
+   :::image type="content" source="media/how-to-managed-component-log-streaming/add-role-assignment.png" alt-text="Screenshot of the Azure portal that shows the Access Control (IAM) page for an Azure Spring Apps instance with the Add role assignment option highlighted." lightbox="media/how-to-managed-component-log-streaming/add-role-assignment.png":::
 
 1. On the **Add role assignment** page, in the **Name** list, search for and select the target role, and then select **Next**.
 
-   :::image type="content" source="media/how-to-managed-component-log-streaming/acs-log-reader-role.png" alt-text="Screenshot of the Azure portal showing the Add role assignment page for an Azure Spring Apps instance with the Azure Spring Apps Application Configuration Service Log Reader Role name highlighted." lightbox="media/how-to-managed-component-log-streaming/acs-log-reader-role.png":::
+   :::image type="content" source="media/how-to-managed-component-log-streaming/acs-log-reader-role.png" alt-text="Screenshot of the Azure portal that shows the Add role assignment page for an Azure Spring Apps instance with the Azure Spring Apps Application Configuration Service Log Reader Role name highlighted." lightbox="media/how-to-managed-component-log-streaming/acs-log-reader-role.png":::
 
 1. Select **Members**, and then search for and select your username.
+
 1. Select **Review + assign**.
 
-### [Azure CLI](#tab/azure-CLI)
+### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to assign an Azure role.
+Use the following Azure CLI commands to assign an Azure role:
 
    ```azurecli
    az role assignment create \
@@ -82,7 +85,7 @@ Use the following command to assign an Azure role.
 
 ## List all instances in a component
 
-Use following command to list all instances in a component.
+Use the following Azure CLI commands to list all instances in a component:
 
 ```azurecli
 az spring component instance list \
@@ -91,7 +94,7 @@ az spring component instance list \
     --component <Component-name>
 ```
 
-For example, use following command to list all instances for `flux-source-controller` in ACS Gen2 version.
+For example, to list all instances for `flux-source-controller` in ACS Gen2 version, use the following commands:
 
 ```azurecli
 az spring component instance list \
@@ -102,9 +105,13 @@ az spring component instance list \
 
 ## View the tail logs for a specific instance
 
-Previous section shows how to list all instances for a component, now you can use following command with `-i/--instance` option to view the tail logs for a specific instance.
+To view the tail logs for a specific instance, use the following command: `--instance`.
+
+For more information, see the following section for examples on specific tail logs.
 
 ### View the tail logs for an instance of `application-configuration-service`
+
+Use the following Azure CLI commands to view the tail logs for `application-configuration-service`:
 
 ```azurecli
 az spring component logs \
@@ -114,7 +121,7 @@ az spring component logs \
     --instance <Instance-name>
 ```
 
-For ACS Gen2, it will return logs similar to the following examples.
+For ACS Gen2, the commands return logs similar to the following example:
 
 ```output
 ...
@@ -136,6 +143,8 @@ For ACS Gen2, it will return logs similar to the following examples.
 
 ### View the tail logs for an instance of `flux-source-controller`
 
+Use the following Azure CLI commands to view the tail logs for `flux-source-controller`:
+
 ```azurecli
 az spring component logs \
     --resource-group <resource-group-name> \
@@ -144,7 +153,7 @@ az spring component logs \
     --instance <Instance-name>
 ```
 
-It will return logs similar to the following examples.
+The commands return logs similar to the following example:
 
 ```output
 ...
@@ -159,6 +168,8 @@ It will return logs similar to the following examples.
 
 ### View the tail logs for an instance of `spring-cloud-gateway`
 
+Use the following Azure CLI commands to view the tail logs for `spring-cloud-gateway`:
+
 ```azurecli
 az spring component logs \
     --resource-group <resource-group-name> \
@@ -167,7 +178,7 @@ az spring component logs \
     --instance <Instance-name>
 ```
 
-It will return logs similar to the following examples.
+The commands return logs similar to the following example:
 
 ```output
 ...
@@ -183,6 +194,8 @@ It will return logs similar to the following examples.
 
 ### View the tail logs for an instance of `spring-cloud-gateway-operator`
 
+Use the following Azure CLI commands to view the tail logs for `spring-cloud-gateway-operator`:
+
 ```azurecli
 az spring component logs \
     --resource-group <resource-group-name> \
@@ -191,7 +204,7 @@ az spring component logs \
     --instance <Instance-name>
 ```
 
-It will return logs similar to the following examples.
+The commands return logs similar to the following example:
 
 ```output
 ...
@@ -207,7 +220,9 @@ It will return logs similar to the following examples.
 
 ## View the tail logs for all instances in one command
 
-The following command shows you how to use `--all-instances` option to view the tail logs of all instances in one command. The instance name is the prefix of each log line. And when there are multiple instances, logs are printed in batch for each instance, so logs of one instance are not interleaving with logs of another instance.
+To view the tail logs for all linstances, use the following command:`--all-instances`. The instance name is the prefix of each log line. When there are multiple instances, logs are printed in batch for each instance, so logs of one instance are'nt interleaving with logs of another instance.
+
+Use the following Azure CLI commands to view the logs for all instances:
 
 ```azurecli
 az spring component logs \
@@ -247,7 +262,7 @@ az spring component logs \
 
 When stream logs for multiple instances in a component, the logs of one instance interleave with logs of others.
 
-## Stream logs in a virtual network injection instance
+## Stream logs in a virtual network (Vnet) injection instance
 
 For an Azure Spring Apps instance deployed in a custom virtual network, you can access log streaming by default from a private network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
 
@@ -262,7 +277,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 1. Select the Azure Spring Apps service instance deployed in your virtual network, and then open the **Networking** tab in the navigation menu.
 1. Select the **Vnet injection** tab.
-1. Switch the status of **Dataplane resources on public network** to **Enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
+1. Switch the status of **Dataplane resources on public network** to **Enable** to enable a log streaming endpoint on the public network. This process takes a few minutes.
 
    :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
 
@@ -279,7 +294,7 @@ az spring update \
 
 ---
 
-After you've enabled the log stream public endpoint, you can access the managed component logs from a public network as you would access a normal instance.
+After you enable the log stream public endpoint, you can access the managed component logs from a public network as you would access a normal instance.
 
 ## Secure traffic to the log streaming public endpoint
 
@@ -288,7 +303,7 @@ Log streaming for managed components uses Azure RBAC to authenticate the connect
 To ensure the security of your managed components when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
 > [!NOTE]
-> If you can't access managed component logs in the virtual network injection instance from the internet after you've enabled a log stream public endpoint, check your network security group to see whether you've allowed such inbound traffic.
+> If you can't access managed component logs in the virtual network injection instance from the internet after you enable a log stream public endpoint, check your network security group to see whether you've allowed such inbound traffic.
 
 The following table shows an example of a basic rule that we recommend. You can use commands like `nslookup` with the endpoint `<service-name>.private.azuremicroservices.io` to get the target IP address of a service.
 
