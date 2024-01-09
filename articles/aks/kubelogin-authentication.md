@@ -299,7 +299,7 @@ kubectl get nodes
 
 ### Workload identity
 
-The workload identity (ROPC) authentication method uses identity credentials that are federated with Microsoft Entra to authenticate access to AKS clusters. The method uses Microsoft Entra integrated authentication. It works by setting the following environment variables:
+The workload identity authentication method uses identity credentials that are federated with Microsoft Entra to authenticate access to AKS clusters. The method uses Microsoft Entra integrated authentication. It works by setting the following environment variables:
 
 * `AZURE_CLIENT_ID`: The Microsoft Entra application ID that is federated with the workload identity.
 * `AZURE_TENANT_ID`: The Microsoft Entra tenant ID.
