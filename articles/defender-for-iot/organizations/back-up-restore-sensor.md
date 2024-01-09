@@ -55,7 +55,9 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
 1. Create a shared folder on the external SMB server, and make sure that you have the folder's path and the credentials required to access the SMB server.
 
-1. Sign into your OT sensor via SSH using the [*admin*](roles-on-premises#access-per-privileged-user) user
+1. Sign into your OT sensor via SSH using the [*admin*](roles-on-premises.md#access-per-privileged-user) user.
+
+  If you're using a sensor version earlier than 23.2.0, use the [*cyberx_host*](roles-on-premises.md#legacy-users) user instead.
 
 1. Access the host by running the `system shell` command. Enter the admin user's password when prompted and press **ENTER**. 
 
