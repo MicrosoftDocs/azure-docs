@@ -16,9 +16,9 @@ ms.date: 01/26/2023
 ms.author: anfdocs
 ---
 
-# What is Azure NetApp Files
+# What is Azure NetApp Files?
 
-Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides NAS volumes as a service for which you can create NetApp accounts, capacity pools, select service and performance levels, create volumes, and manage data protection. It allows you to create and manage high-performance, highly available, and scalable file shares, using the same protocols and tools that you're familiar with and enterprise applications rely on on-premises. Azure NetApp Files supports SMB and NFS protocols and can be used for various use cases such as file sharing, home directories, databases, high-performance computing and more. Additionally, it also provides built-in availability, data protection and disaster recovery capabilities.
+Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides volumes as a service for which you can create NetApp accounts, capacity pools, select service and performance levels, create volumes, and manage data protection. It allows you to create and manage high-performance, highly available, and scalable file shares, using the same protocols and tools that you're familiar with and enterprise applications rely on on-premises. Azure NetApp Files supports SMB and NFS protocols and can be used for various use cases such as file sharing, home directories, databases, high-performance computing and more. Additionally, it also provides built-in availability, data protection and disaster recovery capabilities.
 
 ## High performance 
 

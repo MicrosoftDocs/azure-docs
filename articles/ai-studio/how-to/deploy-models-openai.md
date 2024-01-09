@@ -2,7 +2,6 @@
 title: How to deploy Azure OpenAI models with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to deploy Azure OpenAI models with Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -11,6 +10,7 @@ ms.topic: how-to
 ms.date: 12/11/2023
 ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # How to deploy Azure OpenAI models with Azure AI Studio
