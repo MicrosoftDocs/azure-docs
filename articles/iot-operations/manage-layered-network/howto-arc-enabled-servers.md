@@ -64,7 +64,7 @@ If you want to enable optional features, there are more endpoints needs to be ad
 ## Configure Windows host machine
 If you have prepared your host machine and cluster ready for Arc-enable by following the [Configure level 3 cluster](howto-configure-l3-cluster-layered-network.md), you can proceed with the Arc-enabled Servers onboarding. Otherwise, you need to at least point the host machine to your custom DNS. For more information, see [Configure the DNS server](howto-configure-layered-network.md#configure-the-dns-server).
 
-After properly set up the parent level Layered Network Management instance and custom DNS, refer to the [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
+After properly setting up the parent level Layered Network Management instance and custom DNS, refer to the [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
 - After downloading the `OnboardingScript.ps1`, open it with a text editor. Identify the following section, and add the parameter `--use-device-code` at the end of the command.
     ```
     # Run connect command
