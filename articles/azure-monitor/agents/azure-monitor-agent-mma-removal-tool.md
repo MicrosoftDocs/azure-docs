@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: jeffreywolford
 ms.author: jeffwo
 ms.reviewer: jeffwo
-ms.date: 12/16/2023 
+ms.date: 01/09/2024
 ms.custom:
 # Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.
 ---
