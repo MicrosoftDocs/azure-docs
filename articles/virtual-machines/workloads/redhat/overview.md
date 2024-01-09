@@ -1,14 +1,14 @@
 ---
 title: Red Hat workloads on Azure overview | Microsoft Docs
 description: Learn about the Red Hat product offerings available on Azure.
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: overview
 ms.date: 02/10/2020
-ms.author: mamccrea
+ms.author: jushiman
 ---
 
 # Red Hat workloads on Azure

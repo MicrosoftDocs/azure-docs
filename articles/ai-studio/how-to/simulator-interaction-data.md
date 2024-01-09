@@ -2,14 +2,15 @@
 title: How to use the Azure AI simulator for interaction data
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to use the Azure AI simulator for interaction data.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Generate AI-simulated datasets with your application
@@ -36,7 +37,7 @@ First we set up the system large language model, which acts as the "agent" simul
 
 ```python
 from azure.identity import DefaultAzureCredential
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import AzureOpenAIModelConfiguration
 
 credential = DefaultAzureCredential()

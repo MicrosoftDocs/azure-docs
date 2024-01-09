@@ -7,7 +7,7 @@ author: msjuergent
 manager: bburns
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/20/2023
+ms.date: 12/15/2023
 ms.author: juergent
 ---
 
@@ -56,6 +56,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- December 15, 2023: Change recommendations aroudn DIRECTIO and LVM in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
 - December 11, 2023: Add RHEL requirements to [HANA third site for multi-target replication](./disaster-recovery-sap-hana.md) and integrating into a Pacemaker cluster.
 - November 20, 2023: Add storage configuration for Mv3 medium memory VMs into the documents [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md), [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md), and [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)
 - November 20, 2023: Add supported storage matrix into the document [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
@@ -155,34 +156,5 @@ In the SAP workload documentation space, you can find the following areas:
 - October 26, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to update resource names in HANA scale-out Active/Active (Read Enabled) configuration
 - October 19, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add instructions for HANA scale-out Active/Active (Read Enabled) configuration
 - October 11, 2021: Change in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) to add instructions about zone redundant storage (ZRS) for Azure shared disk support
-- October 08, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add defaults in sudoers file and update for HANA scale-out(for HANA srHook)
-- October 01, 2021: Added link to new Azure Backup architecture for SAP HANA backup document into table of content. Added link to Azure Backup service for Oracle DBMS into [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
-- September 24, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to adjust the instructions for creating sudoers file (for HANA srHook)
-- September 16, 2021: Release of [HA for SAP NetWeaver on Azure VMs on Windows with Azure Files(SMB)](./high-availability-guide-windows-azure-files-smb.md)
-- September 15, 2021: Introducing new HADR configuration for SAP ASE in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms-guide-sapase.md)
-- September 08, 2021: Adding manual QoS capacity pool into [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
-- August 26, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to correct the role definition JSON for Azure Fence Agent
-- August 17, 2021: Changes in [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms-guide-ibm.md), [Azure Storage types for SAP workload](./planning-guide-storage.md), and [SAP workload on Azure virtual machine supported scenarios](./planning-supported-configurations.md) to introduce support for IBM Db2 using NFS volumes hosted on ANF
-- August 02, 2021: Change in [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md), [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md) and  [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) to clarify the behavior (ENSA1/ENSA2) for a test scenario, simulating enqueue server failure     
-- August 11, 2021: Change in [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md), [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to adjust cluster resources stickiness, migration thresholds and order constraints  
-- August 11, 2021: Release of [SAP BW-Near Line Storage (NLS) implementation guide with SAP IQ on Azure](./dbms-guide-sapiq.md) 
-- July 29, 2021: Introduce combined two-node Windows cluster for ASCS/SCS and DBMS in [High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications](./high-availability-guide-windows-netapp-files-smb.md) and [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md) 
-- July 26, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to replace role assignment instructions with links to the RBAC documentation in the sections describing the setup for Azure Fence Agent
-- July 22, 2021: Change in [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md), [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to remove `failure-timeout` for the ASCS cluster resource (ENSA2 only)
-- July 16, 2021: Restructuring of the SAP on Azure documentation Table of contents(TOC) for more streamlined navigation
-- July 2, 2021: Change in [Backup and restore of SAP HANA on HANA Large Instances](../../virtual-machines/workloads/sap/hana-backup-restore.md) to remove duplicate content for azacsnap tool and backup and restore of HANA Large Instances
-- July 2, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to add information how to avoid fence race in two node Pacemaker cluster and a link to KB, explaining how to reduce failover delays when using optional fencing configuration with `fence_kdump`
-- July 1, 2021: Adding new certified HANA Large Instances SKUs in [Available SKUs for HLI](../../virtual-machines/workloads/sap/hana-available-skus.md) 
-- June 30, 2021: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add a section for recommended SAP profile parameters 
-- June 29, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to add optional fencing configuration with fence_kdump
-- June 28, 2021: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add a statement that the SMB Server (Computer Account) Prefix should be no longer than eight characters to avoid running into SAP hostname length limitation
-- June 17, 2020: Change in [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to remove meta keyword from HANA resource creation command (RHEL 8.x)
-- June 09, 2021: Correct VM SKU names for M192---_v2 in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
-- May 26, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add configuration to prepare the OS for running HANA on ANF  
-- May 13, 2021: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to clarify how resource agent azure-events operate 
-- April 30, 2021: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to include warning about incompatible change with Azure Fence Agent in a version of package python3-azure-mgmt-compute (SLES 15)  
-- April 27, 2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md) to add links to important SAP notes in the prerequisites section
-- April 27, 2021: Added new Msv2, Mdsv2 VMs into HANA storage configuration in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
-- April 27, 2021: Added requirement for using same storage types in HANA System Replication across all VMs of HSR configuration in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
-- April 27, 2021: Added requirement for using same storage types in DBMS replication scenarios across all VMs of DBMS high availability replication configurations in [Azure Storage types for SAP workload](./planning-guide-storage.md)
+
 

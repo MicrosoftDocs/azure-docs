@@ -27,6 +27,10 @@ This article describes common issues with Azure Stream Analytics input connectio
 
 3.  Ensure that you have selected a time range in the input preview. Choose **Select time range**, and then enter a sample duration before testing your query.
 
+    > [!IMPORTANT]
+    > For non-[network injected ASA jobs](./run-job-in-virtual-network.md), please do not rely on source IP address of connections coming from ASA in any way. They can be public or private IPs depending on service infrastructure operations that happen from time to time.
+        
+
 ## Malformed input events causes deserialization errors 
 
 Deserialization issues are caused when the input stream of your Stream Analytics job contains malformed messages. For example, a malformed message could be caused by a missing parenthesis, or brace, in a JSON object or an incorrect timestamp format in the time field. 
@@ -44,23 +48,23 @@ In cases where the message payload is greater than 32 KB or is in binary format,
 Other common reasons that result in input deserialization errors are:
 1. Integer column having a value greater than 9223372036854775807.
 2. Strings instead of array of objects or line separated objects. Valid example : *[{'a':1}]*. Invalid example : *"'a' :1"*. 
-3. Using Event Hub capture blob in Avro format as input in your job.
+3. Using Event Hubs capture blob in Avro format as input in your job.
 4. Having two columns in a single input event that differ only in case. Example: *column1* and *COLUMN1*.
 
 ## Partition count changes
-Partition count of Event Hub can be changed. The Stream Analytics job needs to be stopped and started again if the partition count of Event Hub is changed. 
+Partition count of Event Hubs can be changed. The Stream Analytics job needs to be stopped and started again if the partition count of the event hub is changed. 
 
-The following errors are shown when the partition count of Event Hub is changed when the job is running.
+The following errors are shown when the partition count of the event hub is changed when the job is running.
 Microsoft.Streaming.Diagnostics.Exceptions.InputPartitioningChangedException
 
-## Job exceeds maximum Event Hub receivers
+## Job exceeds maximum Event Hubs receivers
 
 A best practice for using Event Hubs is to use multiple consumer groups for job scalability. The number of readers in the Stream Analytics job for a specific input affects the number of readers in a single consumer group. The precise number of receivers is based on internal implementation details for the scale-out topology logic and is not exposed externally. The number of readers can change when a job is started or during job upgrades.
 
-The following error messages are shown when the number of receivers exceeds the maximum. The error message includes a list of existing connections made to Event Hub under a consumer group. The tag `AzureStreamAnalytics` indicates that the connections are from Azure Streaming Service.
+The following error messages are shown when the number of receivers exceeds the maximum. The error message includes a list of existing connections made to Event Hubs under a consumer group. The tag `AzureStreamAnalytics` indicates that the connections are from Azure Streaming Service.
 
 ```
-The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.
+The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hubs Receivers.
 
 The following information may be helpful in identifying the connected receivers: Exceeded the maximum number of allowed receivers per partition in a consumer group which is 5. List of connected receivers – 
 AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
@@ -83,7 +87,7 @@ To add a new consumer group in your Event Hubs instance, follow these steps:
 
 3. Select **Event Hubs** under the **Entities** heading.
 
-4. Select the Event Hub by name.
+4. Select the event hub by name.
 
 5. On the **Event Hubs Instance** page, under the **Entities** heading, select **Consumer groups**. A consumer group with name **$Default** is listed.
 
@@ -91,11 +95,11 @@ To add a new consumer group in your Event Hubs instance, follow these steps:
 
    ![Add a consumer group in Event Hubs](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 
-7. When you created the input in the Stream Analytics job to point to the Event Hub, you specified the consumer group there. **$Default** is used when none is specified. Once you create a new consumer group, edit the Event Hub input in the Stream Analytics job and specify the name of the new consumer group.
+7. When you created the input in the Stream Analytics job to point to the Event Hub, you specified the consumer group there. **$Default** is used when none is specified. Once you create a new consumer group, edit the event hub input in the Stream Analytics job and specify the name of the new consumer group.
 
 ## Readers per partition exceeds Event Hubs limit
 
-If your streaming query syntax references the same input Event Hub resource multiple times, the job engine can use multiple readers per query from that same consumer group. When there are too many references to the same consumer group, the job can exceed the limit of five and thrown an error. In those circumstances, you can further divide by using multiple inputs across multiple consumer groups using the solution described in the following section. 
+If your streaming query syntax references the same input event hub resource multiple times, the job engine can use multiple readers per query from that same consumer group. When there are too many references to the same consumer group, the job can exceed the limit of five and thrown an error. In those circumstances, you can further divide by using multiple inputs across multiple consumer groups using the solution described in the following section. 
 
 Scenarios in which the number of readers per partition exceeds the Event Hubs limit of five include the following:
 
@@ -147,7 +151,7 @@ For queries in which three or more inputs are connected to the same Event Hubs c
 
 ### Create separate inputs with different consumer groups
 
-You can create separate inputs with different consumer groups for the same Event Hub. The following UNION query is an example where *InputOne* and *InputTwo* refer to the same Event Hub source. Any query can have separate inputs with different consumer groups. The UNION query is only one example.
+You can create separate inputs with different consumer groups for the same Event Hub. The following UNION query is an example where *InputOne* and *InputTwo* refer to the same Event Hubs source. Any query can have separate inputs with different consumer groups. The UNION query is only one example.
 
 ```sql
 WITH 

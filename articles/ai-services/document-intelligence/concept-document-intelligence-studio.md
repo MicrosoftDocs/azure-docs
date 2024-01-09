@@ -53,14 +53,14 @@ If this is the first time you are visiting the Studio, follow the [getting start
 * Document Intelligence supports sophisticated analysis capabilities. The Studio allows one entry point (Analyze options button) for configuring the add-on capabilities with ease.
 * Depending on the document extraction scenario, configure the analysis range, document page range, optional detection, and premium detection features.
 
-    :::image type="content" source="media/studio/analyze-options.png" alt-text="Screenshot of the analyze options dialog window.":::
+    :::image type="content" source="media/studio/analyze-options.png" alt-text="Screenshot of the analyze-options dialog window.":::
 
     > [!NOTE]
     > Font extraction is not visualized in Document Intelligence Studio. However, you can check the styles section of the JSON output for the font detection results.
 
 ✔️ **Auto labeling documents with prebuilt models or one of your own models**
 
-* In custom extraction model labeling page, you can now auto label your documents using one of Document Intelligent Service prebuilt models or models you have trained before.
+* In custom extraction model labeling page, you can now auto label your documents using one of Document Intelligent Service prebuilt models or your trained models.
 
     :::image type="content" source="media/studio/auto-label.gif" alt-text="Animated screenshot showing auto labeling in Studio.":::
 
@@ -76,7 +76,7 @@ If this is the first time you are visiting the Studio, follow the [getting start
 
 ✔️ **Add test files directly to your training dataset**
 
-* Once you have trained a custom extraction model, make use of the test page to improve your model quality by uploading test documents to training dataset if needed.
+* Once you train a custom extraction model, make use of the test page to improve your model quality by uploading test documents to training dataset if needed.
 
 * If a low confidence score is returned for some labels, make sure they're correctly labeled. If not, add them to the training dataset and relabel to improve the model quality.
 
@@ -99,8 +99,6 @@ If this is the first time you are visiting the Studio, follow the [getting start
 * **Read**: Try out Document Intelligence's Read feature to extract text lines, words, detected languages, and handwritten style if detected. Start with the [Studio Read feature](https://formrecognizer.appliedai.azure.com/studio/read). Explore with sample documents and your documents. Use the interactive visualization and JSON output to understand how the feature works. See the [Read overview](concept-read.md) to learn more and get started with the [Python SDK quickstart for Layout](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true).
 
 * **Layout**: Try out Document Intelligence's Layout feature to extract text, tables, selection marks, and structure information. Start with the [Studio Layout feature](https://formrecognizer.appliedai.azure.com/studio/layout). Explore with sample documents and your documents. Use the interactive visualization and JSON output to understand how the feature works. See the [Layout overview](concept-layout.md) to learn more and get started with the [Python SDK quickstart for Layout](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#layout-model).
-
-* **General Documents**: Try out Document Intelligence's General Documents feature to extract key-value pairs. Start with the [Studio General Documents feature](https://formrecognizer.appliedai.azure.com/studio/document). Explore with sample documents and your documents. Use the interactive visualization and JSON output to understand how the feature works. See the [General Documents overview](concept-general-document.md) to learn more and get started with the [Python SDK quickstart for Layout](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#general-document-model).
 
 * **Prebuilt models**: Document Intelligence's prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models. As an example, start with the [Studio Invoice feature](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice). Explore with sample documents and your documents. Use the interactive visualization, extracted fields list, and JSON output to understand how the feature works. See the [Models overview](concept-model-overview.md) to learn more and get started with the [Python SDK quickstart for Prebuilt Invoice](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model).
 

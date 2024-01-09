@@ -49,13 +49,13 @@ To protect your EKS clusters, you need to enable the Containers plan on the rele
 
     :::image type="content" source="media/tutorial-enable-containers-aws/containers-settings.png" alt-text="Screenshot of Defender for Cloud's environment settings page showing the settings for the Containers plan." lightbox="media/tutorial-enable-containers-aws/containers-settings.png":::
 
-    - To send Kubernetes audit logs to Microsoft Defender, toggle the setting to **On.** To change the retention period for your audit logs, enter the required time frame.
+    - Defender for Containers requires control plane audit logs to provide [runtime threat protection](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters). To send Kubernetes audit logs to Microsoft Defender, toggle the setting to **On.** To change the retention period for your audit logs, enter the required time frame.
 
         > [!NOTE]
         > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
-    - To enable the **Agentless discovery for Kubernetes** feature, toggle the setting to **On**.
-    - To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
+    - [Agentless discovery for Kubernetes](defender-for-containers-architecture.md#how-does-agentless-discovery-for-kubernetes-work) provides API-based discovery of your Kubernetes clusters. To enable the **Agentless discovery for Kubernetes** feature, toggle the setting to **On**.
+    - The [Agentless Container Vulnerability Assessment](agentless-vulnerability-assessment-aws.md) provides vulnerability management for images stored in ECR and running images on your EKS clusters. To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
 
 1. Select **Next: Review and generate**.
 

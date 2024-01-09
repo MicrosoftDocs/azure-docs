@@ -22,7 +22,11 @@ Microsoft Copilot for Azure in Cosmos DB (preview) can assist with authoring Azu
 
 - Ask questions about your data as you would in text or conversation to generate a NoSQL query.
 - Learn to write queries faster through detailed explanations of the generated query.
-  
+
+> [!NOTE]
+> You may see the database `CopilotSampleDb` appear in Data Explorer. This is a completely separate database managed by Microsoft and access is provided to you (at no cost) as a testbed to become familiar with Microsoft Copilot for Azure in Cosmos DB. This database consists of 100% synthetic data created by Microsoft and has has no interaction or relationships to any data you may have in Azure Cosmos DB.
+
+
 > [!WARNING]
 > Copilot is a preview feature that is powered by large language models (LLMs). Output produced by Copilot may contain inaccuracies, biases, or other unintended content. This occurs because the model powering Copilot was trained on information from the internet and other sources. As with any generative AI model, humans should review the output produced by Copilot before use.
 
@@ -46,7 +50,7 @@ Microsoft Copilot for Azure in Cosmos DB (preview) is now enabled for all Azure 
 
 1. Next, open the query editor experience from one of two ways:
 
-   - Select the **Query faster with Copilot** card on the Data Explorer's welcome screen. This option includes the `CopilotSampleDb` database and `SampleContainer` container, which contains sample data for you to use with Copilot. This database is managed by Microsoft and does not interact or connect to your other databases. `CopoilotSampleDb` is free for all Azure Cosmos DB NoSQL customers.
+   - Select the **Query faster with Copilot** card on the Data Explorer's welcome screen. This option will take you to the a query editor targeting the `CopilotSampleDb` database and `SampleContainer` container, which contains sample data for you to use with Copilot. This database is managed by Microsoft and does not interact or connect to your other databases. `CopoilotSampleDb` is free for all Azure Cosmos DB NoSQL customers.
 
    - Select an existing API for NoSQL database and container. Then, select **New SQL Query** from the menu bar.
 

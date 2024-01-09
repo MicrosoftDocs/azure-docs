@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 12/18/2023
+ms.date: 12/19/2023
 ms.topic: overview
 ms.custom: references_regions 
 ---
@@ -91,7 +91,7 @@ Brazil | Brazil South
 Canada | Canada Central </br> Canada East
 Europe | North Europe </br> West Europe
 France | France Central
-Germany | West Central
+Germany | Germany West Central
 India | Central India
 Japan | Japan East
 Korea | Korea Central
