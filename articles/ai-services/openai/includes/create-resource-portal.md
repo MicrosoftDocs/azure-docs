@@ -100,11 +100,11 @@ To deploy a model, follow these steps:
 
 1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
 
-1. Choose the subscription and the Azure OpenAI resource to work with, and select **Use resource**.
+2. Choose the subscription and the Azure OpenAI resource to work with, and select **Use resource**.
 
-1. Under **Management** select **Deployments**.
+3. Under **Management** select **Deployments**.
 
-1. Select **Create new deployment** and configure the following fields:
+4. Select **Create new deployment** and configure the following fields:
 
    | Field | Description |
    |---|---|
@@ -112,16 +112,16 @@ To deploy a model, follow these steps:
    | **Deployment name** | Choose a name carefully. The deployment name is used in your code to call the model by using the client libraries and the REST APIs. |
    | **Advanced options** (Optional) | You can set optional advanced settings, as needed for your resource. <br> - For the **Content Filter**, assign a content filter to your deployment.<br> - For the **Tokens per Minute Rate Limit**, adjust the Tokens per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time by using the [**Quotas**](../how-to/quota.md) menu. |
 
-   1. Select a model from the dropdown list.
+5. Select a model from the dropdown list.
 
-   1. Enter a deployment name to identify the model.
+6. Enter a deployment name to identify the model.
 
     > [!IMPORTANT]
     > When you access the model via the API you will need to refer to the deployment name rather than the underlying model name in API calls. This is one of the [key differences](../how-to/switching-endpoints.md) between OpenAI and Azure OpenAI. OpenAI only requires the model name, Azure OpenAI always requires deployment name, even when using the model parameter. In our docs we often have examples where deployment names are represented as identical to model names to help indicate which model works with a particular API endpoint. Ultimately your deployment names can follow whatever naming convention is best for your use case.
 
-   1. For your first deployment, leave the **Advanced options** set to the defaults.
+7. For your first deployment, leave the **Advanced options** set to the defaults.
 
-1. Select **Create**.
+8. Select **Create**.
 
 The deployments table shows a new entry that corresponds to your newly created model.
 
