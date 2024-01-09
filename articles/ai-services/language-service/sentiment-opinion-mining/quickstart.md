@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 07/19/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021, mode-api, devx-track-extended-java, devx-track-js, devx-track-python

@@ -3,7 +3,7 @@ title: Use Azure VM Image Builder with an Azure Compute Gallery for Linux VMs
 description: Create Linux VM images with Azure VM Image Builder and Azure Compute Gallery.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines

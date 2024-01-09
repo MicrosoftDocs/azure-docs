@@ -3,7 +3,7 @@ title: Use Key Management Service etcd encryption in Azure Kubernetes Service
 description: Learn how to use Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 08/04/2023
+ms.date: 01/04/2024
 ---
 
 # Add Key Management Service etcd encryption to an Azure Kubernetes Service cluster
@@ -243,6 +243,9 @@ This example stores the value of the identity resource ID in `IDENTITY_RESOURCE_
 The following sections describe how to assign decrypt and encrypt permissions for a private key vault.
 
 #### Assign permissions for a non-RBAC private key vault
+
+> [!NOTE]
+> When using a private key vault, AKS can't validate the permissions of the identity. Verify the identity has been granted permission to access the key vault before enabling KMS.
 
 If your key vault is not set with  `--enable-rbac-authorization`, you can use `az keyvault set-policy` to create a key vault policy in Azure:
 

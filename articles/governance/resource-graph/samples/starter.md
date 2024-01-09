@@ -3,10 +3,11 @@ title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
 author: davidsmatlak
 ms.author: davidsmatlak
-ms.date: 08/31/2023
+ms.date: 12/19/2023
 ms.topic: sample
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
+
 # Starter Resource Graph query samples
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
@@ -17,23 +18,23 @@ resources you're looking for.
 
 This article uses the following starter queries:
 
-- [Count Azure resources](#count-resources)
-- [Count Key Vault resources](#count-keyvaults)
-- [List resources sorted by name](#list-resources)
-- [Show all virtual machines ordered by name in descending order](#show-vms)
-- [Show first five virtual machines by name and their OS type](#show-sorted)
-- [Count virtual machines by OS type](#count-os)
-- [Show resources that contain storage](#show-storage)
-- [List all virtual network subnets](#list-subnets)
-- [List all public IP addresses](#list-publicip)
-- [Count resources that have IP addresses configured by subscription](#count-resources-by-ip)
-- [List resources with a specific tag value](#list-tag)
-- [List all storage accounts with specific tag value](#list-specific-tag)
-- [List all tags and their values](#list-all-tag-values)
-- [Show unassociated network security groups](#unassociated-nsgs)
-- [List alerts by severity](#list-azure-monitor-alerts-ordered-by-severity)
-- [List alerts by severity and resource type](#list-azure-monitor-alerts-ordered-by-severity-and-alert-state)
-- [List alerts by severity and resource type with a specific tag](#list-azure-monitor-alerts-ordered-by-severity-monitor-service-and-target-resource-type)
+- [Count Azure resources](#count-azure-resources)
+- [Count Key Vault resources](#count-key-vault-resources)
+- [List resources sorted by name](#list-resources-sorted-by-name)
+- [Show all virtual machines ordered by name in descending order](#show-all-virtual-machines-ordered-by-name-in-descending-order)
+- [Show first five virtual machines by name and their OS type](#show-first-five-virtual-machines-by-name-and-their-os-type)
+- [Count virtual machines by OS type](#count-virtual-machines-by-os-type)
+- [Show resources that contain storage](#show-resources-that-contain-storage)
+- [List all virtual network subnets](#list-all-azure-virtual-network-subnets)
+- [List all public IP addresses](#list-all-public-ip-addresses)
+- [Count resources that have IP addresses configured by subscription](#count-resources-that-have-ip-addresses-configured-by-subscription)
+- [List resources with a specific tag value](#list-resources-with-a-specific-tag-value)
+- [List all storage accounts with specific tag value](#list-all-storage-accounts-with-specific-tag-value)
+- [List all tags and their values](#list-all-tags-and-their-values)
+- [Show unassociated network security groups](#show-unassociated-network-security-groups)
+- [List Azure Monitor alerts ordered by severity](#list-azure-monitor-alerts-ordered-by-severity)
+- [List Azure Monitor alerts ordered by severity and alert state](#list-azure-monitor-alerts-ordered-by-severity-and-alert-state)
+- [List Azure Monitor alerts ordered by severity, monitor service, and target resource type](#list-azure-monitor-alerts-ordered-by-severity-monitor-service-and-target-resource-type)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -46,7 +47,7 @@ Graph. Before running any of the following queries, check that your environment 
 PowerShell](../first-query-powershell.md#add-the-resource-graph-module) for steps to install and
 validate your shell environment of choice.
 
-## <a name="count-resources"></a>Count Azure resources
+## Count Azure resources
 
 This query returns number of Azure resources that exist in the subscriptions that you have access
 to. It's also a good query to validate your shell of choice has the appropriate Azure Resource
@@ -124,7 +125,7 @@ Search-AzGraph -Query "Resources | summarize count()" -UseTenantScope
 
 ---
 
-## <a name="count-keyvaults"></a>Count Key Vault resources
+## Count Key Vault resources
 
 This query uses `count` instead of `summarize` to count the number of records returned. Only key
 vaults are included in the count.
@@ -157,7 +158,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.keyvault/vaults' | c
 
 ---
 
-## <a name="list-resources"></a>List resources sorted by name
+## List resources sorted by name
 
 This query returns any type of resource, but only the **name**, **type**, and **location**
 properties. It uses `order by` to sort the properties by the **name** property in ascending (`asc`)
@@ -191,7 +192,7 @@ Search-AzGraph -Query "Resources | project name, type, location | order by name 
 
 ---
 
-## <a name="show-vms"></a>Show all virtual machines ordered by name in descending order
+## Show all virtual machines ordered by name in descending order
 
 To list only virtual machines (which are type `Microsoft.Compute/virtualMachines`), we can match
 the property **type** in the results. Similar to the previous query, `desc` changes the `order by`
@@ -226,7 +227,7 @@ Search-AzGraph -Query "Resources | project name, location, type| where type =~ '
 
 ---
 
-## <a name="show-sorted"></a>Show first five virtual machines by name and their OS type
+## Show first five virtual machines by name and their OS type
 
 This query uses `top` to only retrieve five matching records that are ordered by name. The type
 of the Azure resource is `Microsoft.Compute/virtualMachines`. `project` tells Azure Resource Graph
@@ -261,7 +262,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ---
 
-## <a name="count-os"></a>Count virtual machines by OS type
+## Count virtual machines by OS type
 
 Building on the previous query, we're still limiting by Azure resources of type
 `Microsoft.Compute/virtualMachines`, but are no longer limiting the number of records returned.
@@ -337,7 +338,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 > property is the incorrect case, a null or incorrect value is returned and the grouping or
 > summarization would be incorrect.
 
-## <a name="show-storage"></a>Show resources that contain storage
+## Show resources that contain storage
 
 Instead of explicitly defining the type to match, this example query finds any Azure resource
 that `contains` the word **storage**.
@@ -369,7 +370,7 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 ---
 
-## <a name="list-subnets"></a>List all Azure virtual network subnets
+## List all Azure virtual network subnets
 
 This query returns a list of Azure virtual networks (VNets) including subnet names and address prefixes.
 
@@ -403,12 +404,12 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.network/virtualnetwo
 
 ---
 
-## <a name="list-publicip"></a>List all public IP addresses
+## List all public IP addresses
 
 Similar to the previous query, find everything that is a type with the word **publicIPAddresses**.
 This query expands on that pattern to only include results where **properties.ipAddress**
 `isnotempty`, to only return the **properties.ipAddress**, and to `limit` the results by the top
-100. You may need to escape the quotes depending on your chosen shell.
+100. You might need to escape the quotes depending on your chosen shell.
 
 ```kusto
 Resources
@@ -439,7 +440,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 ---
 
-## <a name="count-resources-by-ip"></a>Count resources that have IP addresses configured by subscription
+## Count resources that have IP addresses configured by subscription
 
 Using the previous example query and adding `summarize` and `count()`, we can get a list by subscription of resources with configured IP addresses.
 
@@ -471,7 +472,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 ---
 
-## <a name="list-tag"></a>List resources with a specific tag value
+## List resources with a specific tag value
 
 We can limit the results by properties other than the Azure resource type, such as a tag. In this
 example, we're filtering for Azure resources with a tag name of **Environment** that have a value
@@ -536,7 +537,7 @@ Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project 
 
 ---
 
-## <a name="list-specific-tag"></a>List all storage accounts with specific tag value
+## List all storage accounts with specific tag value
 
 Combine the filter functionality of the previous example and filter Azure resource type by **type**
 property. This query also limits our search for specific types of Azure resources with a specific
@@ -573,7 +574,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 > [!NOTE]
 > This example uses `==` for matching instead of the `=~` conditional. `==` is a case sensitive match.
 
-## <a name="list-all-tag-values"></a>List all tags and their values
+## List all tags and their values
 
 This query lists tags on management groups, subscriptions, and resources along with their values.
 The query first limits to resources where tags `isnotempty()`, limits the included fields by only
@@ -623,7 +624,7 @@ Search-AzGraph -Query "ResourceContainers | where isnotempty(tags) | project tag
 
 ---
 
-## <a name="unassociated-nsgs"></a>Show unassociated network security groups
+## Show unassociated network security groups
 
 This query returns Network Security Groups (NSGs) that aren't associated to a network interface or
 subnet.

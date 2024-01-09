@@ -165,6 +165,7 @@ To create a new alert rule based on a cross-service query, follow the steps in [
 * Cross-service queries support data retrieval only. 
 * [Private Link](../logs/private-link-security.md) (private endpoints) and [IP restrictions](/azure/data-explorer/security-network-restrict-public-access) do not support cross-service queries.
 * `mv-expand` is limited to 2000 records.
+* Azure Monitor Logs does not support the `external_table()` function, which lets you query external tables in Azure Data Explorer. To query an external table, define `external_table(<external-table-name>)` as a parameterless function in Azure Data Explorer. You can then call the function using the expression `adx("").<function-name>`.
 
 ### Azure Resource Graph cross-service query limitations
 
@@ -178,5 +179,4 @@ To create a new alert rule based on a cross-service query, follow the steps in [
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)
 * [Perform cross-resource log queries in Azure Monitor](../logs/cross-workspace-query.md)
-
 
