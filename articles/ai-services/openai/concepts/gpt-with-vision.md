@@ -67,7 +67,7 @@ For a typical use case, take a 3-minute video with a 100-token prompt input. The
 
 | Item        | Detail        | Total Cost   |
 |-----------------|-----------------|--------------|
-| GPT-4 Turbo with Vision Input Tokens      | 100 text tokens    | $0.001     |
+| GPT-4 Turbo with Vision input tokens      | 100 text tokens    | $0.001     |
 | Additional Cost to identify frames        | 100 input tokens + 700 tokens + 1 Video Retrieval transaction         | $0.00825     |
 | Image Inputs and Transcript Input         | 20 images (85 tokens each) + 100 transcript tokens            | $0.018       |
 | Output Tokens      | 100 tokens (assumed)    | $0.003       |
