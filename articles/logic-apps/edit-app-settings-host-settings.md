@@ -162,7 +162,7 @@ Both of the following settings are used to manually stop and immediately delete 
 
 > [!NOTE]
 >
-> Use these settings with caution and only in preproduction environments, such as load 
+> Use these settings with caution and only in non-production environments, such as load 
 > or performance test environments, as you can't undo or recover from these operations.
 
 | Setting | Default value | Description |
@@ -172,8 +172,10 @@ Both of the following settings are used to manually stop and immediately delete 
 
 The following example shows the syntax for these settings where each workflow ID is followed by a colon (**:**) and separated by a semicolon (**;**):
 
-`"Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2:",`
-`"Jobs.SuspendedJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2>:"`
+```json
+"Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2:",
+"Jobs.SuspendedJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2>:"
+```
 
 <a name="recurrence-triggers"></a>
 
