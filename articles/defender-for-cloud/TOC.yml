@@ -599,9 +599,6 @@
       - name: How does Defender for Containers work?
         displayName: containers
         href: defender-for-containers-architecture.md
-      - name: Vulnerability assessment for Azure powered by Qualys
-        displayName: ACR, registry, images, qualys
-        href: defender-for-containers-vulnerability-assessment-azure.md
       - name: Vulnerability assessments powered by Microsoft Defender Vulnerability Management
         items:
           - name: Vulnerability assessments for Azure
@@ -624,12 +621,15 @@
             href: transition-to-defender-vulnerability-management.md
           - name: Common questions 
             href: common-questions-microsoft-defender-vulnerability-management.md
-      - name: Vulnerability assessment for AWS powered by Trivy (deprecated)
-        displayName: AWS, ECR, registry, images, qualys
-        href: defender-for-containers-vulnerability-assessment-elastic.md
       - name: Kubernetes data plane hardening
         displayName: k8s, containers, aks
         href: kubernetes-workload-protections.md
+      - name: Vulnerability assessment for Azure powered by Qualys (Deprecated)
+        displayName: ACR, registry, images, qualys
+        href: defender-for-containers-vulnerability-assessment-azure.md
+      - name: Vulnerability assessment for AWS powered by Trivy (deprecated)
+        displayName: AWS, ECR, registry, images, qualys
+        href: defender-for-containers-vulnerability-assessment-elastic.md
       - name: Defender for Kubernetes (deprecated)
         displayName: clusters, k8s, aks
         href: defender-for-kubernetes-introduction.md
