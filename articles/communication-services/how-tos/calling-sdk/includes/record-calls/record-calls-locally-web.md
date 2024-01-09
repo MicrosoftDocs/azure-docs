@@ -33,7 +33,7 @@ Then, to check if the call is being recorded locally, inspect the `isLocalRecord
 const isLocalRecordingActive = localCallRecordingApi.isLocalRecordingActive;
 ```
 
-You can also get a list of local recordings by using the `localRecordings` property of `localCallRecordingApi`. It returns `LocalRecordingInfo[]` which will have the desplayName of the user and current state of the local recording.
+You can also get a list of local recordings by using the `localRecordings` property of `localCallRecordingApi`. It returns `LocalRecordingInfo[]` which will have the displayName of the user and current state of the local recording.
 
 ```js
 const recordings = localCallRecordingApi.localRecordings;
@@ -55,7 +55,7 @@ localCallRecordingApi.on('isLocalRecordingActiveChanged', isLocalRecordingActive
 You can also subscribe to `localRecordingsUpdated` and get a collection of updated recordings. This event is triggered whenever there is a recording update
 
 ```js
-const localRecordingsUpdateddHandler = (args: { added: SDK.LocalRecordingInfo[], removed: SDK.LocalRecordingInfo[]}) => {
+const localRecordingsUpdatedHandler = (args: { added: SDK.LocalRecordingInfo[], removed: SDK.LocalRecordingInfo[]}) => {
                         console.log('Local recording started by: ');
                         args.added?.forEach(a => {
                             console.log('User: ${a.displayName}');
@@ -66,5 +66,5 @@ const localRecordingsUpdateddHandler = (args: { added: SDK.LocalRecordingInfo[],
                             console.log('User: ${r.displayName});
                         });
                     };
-localCallRecordingApi.on('localRecordingsUpdated', localRecordingsUpdateddHandler);
+localCallRecordingApi.on('localRecordingsUpdated', localRecordingsUpdatedHandler);
 ```

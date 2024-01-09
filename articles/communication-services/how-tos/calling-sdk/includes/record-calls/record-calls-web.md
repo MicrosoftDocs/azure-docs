@@ -40,7 +40,7 @@ const isRecordingActiveChangedHandler = () => {
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
 ```
 
-You can also get a list of recordings by using the `recordings` property of `callRecordingApi`. It returns `RecordingInfo[]` which will have the desplayName of the user and current state of the local recording.
+You can also get a list of recordings by using the `recordings` property of `callRecordingApi`. It returns `RecordingInfo[]` which will have the displayName of the user and current state of the cloud recording.
 
 ```js
 const recordings = callRecordingApi.recordings;
@@ -52,7 +52,7 @@ recordings.forEach(r => {
 You can also subscribe to 'recordingsUpdated' and get a collection of updated recordings. This event is triggered whenever there is a recording update
 
 ```js
-const recordingsUpdateddHandler = (args: { added: SDK.RecordingInfo[], removed: SDK.RecordingInfo[]}) => {
+const cloudRecordingsUpdatedHandler = (args: { added: SDK.RecordingInfo[], removed: SDK.RecordingInfo[]}) => {
                         console.log('Recording started by: ');
                         args.added?.forEach(a => {
                             console.log('User: ${a.displayName}');
@@ -63,5 +63,5 @@ const recordingsUpdateddHandler = (args: { added: SDK.RecordingInfo[], removed: 
                             console.log('User: ${r.displayName});
                         });
                     };
-callRecordingApi.on('recordingsUpdated', recordingsUpdateddHandler);
+callRecordingApi.on('recordingsUpdated', cloudRecordingsUpdatedHandler );
 ```
