@@ -1,10 +1,10 @@
 ---
-title: Azure Virtual Desktop security best practices - Azure
-description: Best practices for keeping your Azure Virtual Desktop environment secure.
+title: Security recommendations for Azure Virtual Desktop
+description: Learn about recommendations for helping keep your Azure Virtual Desktop environment secure.
 ms.topic: conceptual
-author: heidilohr
-ms.author: helohr
-ms.date: 07/11/2023
+author: dknappettmsft
+ms.author: daknappe
+ms.date: 01/09/2024
 ---
 
 # Security recommendations for Azure Virtual Desktop

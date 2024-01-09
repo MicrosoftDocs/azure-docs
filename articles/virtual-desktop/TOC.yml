@@ -203,8 +203,8 @@
             href: scaling-automation-logic-apps.md
     - name: Security
       items:
-      - name: Security best practices
-        href: security-guide.md
+      - name: Security recommendations
+        href: security-recommendations.md
       - name: Apply Zero Trust principles
         href: /security/zero-trust/azure-infrastructure-avd?context=/azure/virtual-desktop/context/context
       - name: Security baseline
