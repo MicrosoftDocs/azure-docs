@@ -14,10 +14,10 @@ ms.date: 1/2/2024
 
 # Connect the node host to Azure Arc-enabled Servers
 
-This walkthrough is an example of connecting your host machine to the Arc as an [Arc-enabled Server](/azure/azure-arc/servers) from an isolated network environment (for example, level 3 of the *Purdue Network*). With the steps in this guidance, the host machine connects to the Layered Network Management at the parent level as a proxy, then reaches to the Azure endpoints for the service. You should review these steps and integrate them into your procedure of setting up your cluster for Azure IoT Operations. Do not use this guidnace independently. For more information, see [Configure Layered Network Management service to enable Azure IoT Operations in an isolated network](howto-configure-aks-edge-essentials-layered-network.md).
+This walkthrough is an example of connecting your host machine to the Arc as an [Arc-enabled Server](/azure/azure-arc/servers) from an isolated network environment (for example, level 3 of the *Purdue Network*). With the steps in this guidance, the host machine connects to the Layered Network Management at the parent level as a proxy, then reaches to the Azure endpoints for the service. You should review these steps and integrate them into your procedure of setting up your cluster for Azure IoT Operations. Do not use this guidance independently. For more information, see [Configure Layered Network Management service to enable Azure IoT Operations in an isolated network](howto-configure-aks-edge-essentials-layered-network.md).
 
 > [!IMPORTANT]
-> **Arc-enabled Servers** isn't a requirement for the Azure IoT Operations experiences. You should evaluate your own design and only enable this service if it suit your needs. Before proceed with these steps, you should also get familar with the **Arc-enabled Servers** by trying this service out with a machine that has direct internet access.
+> **Arc-enabled Servers** isn't a requirement for the Azure IoT Operations experiences. You should evaluate your own design and only enable this service if it suit your needs. Before proceeding with these steps, you should also get familiar with the **Arc-enabled Servers** by trying this service out with a machine that has direct internet access.
 
 > [!NOTE]
 > Layered Network Management for Arc-enabled Servers does not support Azure VM. 
