@@ -107,7 +107,7 @@ Run the sensor update only when you see the :::image type="icon" source="media/u
 
     :::image type="content" source="media/update-ot-software/remote-update-step-2.png" alt-text="Screenshot of the Update sensor option." lightbox="media/update-ot-software/remote-update-step-2.png":::
 
-1. In the **Update sensor** pane that appears, a list of all available updates, from your current version to the latest version appears. Select the update version to apply to the sensor. <!-- placeholder for image of the update screen -->
+1. The **Update sensor** pane displays a list of all available updates, from your current version to the latest version. Select the update version you want to apply to the sensor. <!-- placeholder for image of the update screen -->
 
     When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing**, and an update progress bar appears showing you the percentage complete. The bar automatically updates, so that you can track the progress until the installation is complete.
 

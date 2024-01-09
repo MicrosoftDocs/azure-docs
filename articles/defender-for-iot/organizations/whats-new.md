@@ -22,11 +22,9 @@ Features released earlier than nine months ago are described in the [What's new 
 |---------|---------|
 | **OT networks** | - [Cloud-based sensor updates now lists all available update versions](#cloud-based-sensor-updates-now-lists-all-available-update-versions) <br> |
 
-### New list is available version updates to use for cloud-based sensor updates
-OR 
 ### Cloud-based sensor updates now lists all available update versions
 
-When updating a sensor from the Azure portal, a choice of available update versions appears in the **Update Sensor** pane. Instead of having to updating to the latest version of the sensor monitoring software, you can now choose to update to the best version for the organization's needs. For example:
+When updating a sensor from the Azure portal, a list of available update versions appears in the **Update Sensor** pane. Instead of automatically updating to the latest version of the sensor monitoring software, you can now choose to update to the version your organization needs. For example:
 <!-- add screen shot when available.
  do we need to give reasons for this here? The list allows you to choose to update the sensor in stages, without having to automatically update to the latest version.-->
 
