@@ -295,7 +295,7 @@ spec:
     mqttSourceTopic: "orders"
     qos: 1
     table:
-      tableName: "ordersTable"
+      tableName: "orderstable"
       schema:
       - name: "orderId"
         format: int32
