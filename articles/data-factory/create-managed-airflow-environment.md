@@ -35,7 +35,7 @@ To create a new Managed Airflow environment:
     More options on the **Airflow environment setup** page:
 
    - **Enable git sync**: You can allow your Airflow environment to automatically sync with a Git repository instead of manually importing DAGs. For more information, see [Sync a GitHub repository in Managed Airflow](airflow-sync-github-repository.md).
-   - **Airflow configuration overrides** You can override any Airflow configurations that you set in `airflow.cfg`. Examples are ``name: AIRFLOW__VAR__FOO`` and ``value: BAR``. For more information, see [Airflow configurations](airflow-configurations.md)
+   - **Airflow configuration overrides** You can override any Airflow configurations that you set in `airflow.cfg`. Examples are ``name: AIRFLOW__VAR__FOO`` and ``value: BAR``. For more information, see [Airflow configurations](airflow-configurations.md).
    - **Environment variables**: You can use this key value store within Airflow to store and retrieve arbitrary content or settings.
    - **Requirements**: You can use this option to preinstall Python libraries. You can update these requirements later.
    - **Kubernetes secrets**: You can create a custom Kubernetes secret for your Airflow environment. An example is [Private registry credentials to pull images for KubernetesPodOperator](kubernetes-secret-pull-image-from-private-container-registry.md).
