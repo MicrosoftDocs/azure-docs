@@ -6,7 +6,7 @@ ms.reviewer: jburchel
 ms.author: abnarain
 author: nabhishek
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 01/05/2024
 ---
 
 # Outbound network rules using Azure Policy (Preview)

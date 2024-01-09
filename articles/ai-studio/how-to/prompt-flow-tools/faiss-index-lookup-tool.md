@@ -2,15 +2,15 @@
 title: Faiss Index Lookup tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces the Faiss Index Lookup tool for flows in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: eur
-ms.author: eur
+ms.reviewer: keli19
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Faiss Index Lookup tool for flows in Azure AI Studio

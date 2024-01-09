@@ -12,7 +12,7 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ---
 
 # Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR) 
