@@ -78,6 +78,8 @@ landingContent:
             url: import-app-service-as-api.md
           - text: Import an Azure Function API
             url: import-function-app-as-api.md
+          - text: Enable API security with Defender for APIs
+            url: protect-with-defender-for-apis.md  
       - linkListType: concept
         links:
          - text: API authentication and authorization 
@@ -123,10 +125,10 @@ landingContent:
             url: api-management-using-with-vnet.md
           - text: Deploy to VNet - internal mode
             url: api-management-using-with-internal-vnet.md
-          - text: Use an Application Gateway front end
+          - text: Configure with Application Gateway
             url: api-management-howto-integrate-internal-vnet-appgateway.md
-          - text: Enable API security with Defender for APIs
-            url: protect-with-defender-for-apis.md
+          - text: Configure with Front Door
+            url: front-door-api-management.md
 
       - linkListType: concept
         links:
