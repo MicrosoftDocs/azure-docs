@@ -133,7 +133,40 @@ Microsoft Azure operated by 21Vianet | China North 2
 There are two versions of the Azure Migrate service:
 
 - **Current version**: Using this version you can create new projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md).
-- **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
+- **Previous version**: For customer using, the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
+
+
+## Import servers using RVTools XLSX (preview)
+
+As part of your migration journey to Azure using the Azure Migrate appliance, you first discover servers, inventory, and workloads. However, for a quick assessment before you deploy the appliance, import the servers using the RVtools XLSX file (preview).
+
+### Key benefits
+
+- Helps to create a business case or assess the servers before you deploy the appliance.
+- Aids as an alternative when there's an organizational restriction to deploy Azure Migrate appliance.
+- Helpful when you can't share credentials that allow access to on-premises servers
+- Useful when security constraints prevent you from gathering and sending data collected by the appliance to Azure. 
+
+### Limitations
+
+#### [Business case considerations](#tab/businesscase)
+
+If you're importing servers by using an RVTools XLSX (preview) file and building a business case, listed below are few limitations: 
+
+- Performance history duration in Azure settings aren't applicable.
+- Servers are classified as unknown in the business case utilization insights chart and are sized as-is without right sizing for Azure or AVS cost.
+
+#### [Assessment considerations](#tab/assessmentcase)
+
+If you're importing servers by using an RVTools XLSX (preview) file for creating an assessment with the following criteria:
+- Sizing criteria as **performance-based** on the configured CPU and memory (based on the CPUs and Memory columns from the RVTools XLSX).
+- Storage criteria (In use MiB and In use MB for versions prior to 4.1.2)
+
+You won't be able to provide performance history or percentile information.
+
+To get an accurate OS suitability/readiness in Azure VM and Azure VMware Solution assessment, enter the **Operating system** version and **architecture** in the respective columns. 
+
+---
 
 ## Next steps
 
