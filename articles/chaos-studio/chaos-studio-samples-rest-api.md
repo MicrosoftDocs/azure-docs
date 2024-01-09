@@ -12,127 +12,129 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 
 # Use the Chaos Studio REST APIs to run and manage chaos experiments
 
-> [!WARNING]
-> Injecting faults can affect your application or service. Be careful not to disrupt customers.
+If you're integrating Azure Chaos Studio into your CI/CD pipelines, or you simply prefer to use direct API calls to interact with your Azure resources, you can use Chaos Studio's REST API. For the full API reference, visit the [Azure Chaos Studio REST API reference](https://learn.microsoft.com/rest/api/chaosstudio/). This page provides samples for using the REST API effectively.
 
-The Azure Chaos Studio REST API provides support for starting experiments programmatically. You can also use the Azure Resource Manager client and the Azure CLI to execute these commands from the console. The examples in this article are for the Azure CLI.
+This article assumes you're using Azure CLI to execute these commands, but you can adapt them to other standard REST clients.
 
-> [!Warning]
-> These APIs are still under development and subject to change.
-
-## REST APIs
 
 You can use the Chaos Studio REST APIs to:
-* Start, stop, and manage experiments.
-* View and manage targets.
-* Query experiment status.
-* Query and delete subscription configurations.
+* Create, modify, and delete experiments
+* View, start, and stop experiment executions
+* View and manage targets
+* Register and unregister your subscription with the Chaos Studio resource provider
+* View available resource provider operations.
 
-Use the `AZ CLI` utility to perform these actions from the command line.
+Use the `az cli` utility to perform these actions from the command line.
 
 > [!TIP]
-> To get more verbose output with the AZ CLI, append `--verbose` to the end of each command. This variable returns more metadata when commands execute, including `x-ms-correlation-request-id`, which aids in debugging.
+> To get more verbose output with Azure CLI, append `--verbose` to the end of each command. This variable returns more metadata when commands execute, including `x-ms-correlation-request-id`, which aids in debugging.
 
-### Chaos Studio provider commands
+These examples have been reviewed with the generally available API version `2023-11-01`.
+
+## Resource provider commands
 
 This section lists the Chaos Studio provider commands.
 
-#### List details about the Microsoft.Chaos resource provider
+### List details about the Microsoft.Chaos resource provider
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Chaos?api-version={apiVersion}" --resource "https://management.azure.com"
+az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Chaos?api-version={apiVersion}" 
 ```
 
-#### List all the operations of the Microsoft.Chaos resource provider
+### List all the operations of the Microsoft.Chaos resource provider
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/providers/Microsoft.Chaos/operations?api-version={apiVersion}" --resource "https://management.azure.com"
+az rest --method get --url "https://management.azure.com/providers/Microsoft.Chaos/operations?api-version={apiVersion}" 
 ```
 
-#### List Chaos provider configurations
+## Targets and capabilities
+
+### List all target types available in a region
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/microsoft.chaos/chaosProviderConfigurations/?api-version={apiVersion}" --resource "https://management.azure.com" --verbose 
+az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Chaos/locations/targetTypes?api-version={apiVersion}" 
 ```
 
-#### Create Chaos provider configuration
+### List all capabilities available for a target
+
+### Enable capabilities on a target
+
+## Experiments
+
+These commands relate to Chaos Studio experiments.
+
+### List all the experiments in a resource group
 
 ```azurecli
-az rest --method put --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/microsoft.chaos/chaosProviderConfigurations/{chaosProviderType}?api-version={apiVersion}" --body @{providerSettings.json} --resource "https://management.azure.com"
+az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Chaos/experiments?api-version={apiVersion}"
 ```
 
-### Chaos Studio target and agent commands
-
-This section lists the Chaos Studio target and agent commands.
-
-#### List all the targets or agents under a subscription
+### Get an experiment's configuration details by name
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Chaos/chaosTargets/?api-version={apiVersion}" --url-parameter "chaosProviderType={chaosProviderType}" --resource "https://management.azure.com"
+az rest --method get --url "https://management.azure.com/{experimentId}?api-version={apiVersion}"
 ```
 
-### Chaos Studio experiment commands
-
-This section lists the Chaos Studio experiment commands.
-
-#### List all the experiments in a resource group
+### Create or update an experiment
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/chaosExperiments?api-version={apiVersion}" --resource "https://management.azure.com"
+az rest --method put --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" --body @{experimentName.json} 
 ```
 
-#### Get an experiment's configuration details by name
+### Delete an experiment
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" --resource "https://management.azure.com"
+az rest --method delete --url "https://management.azure.com/{experimentId}?api-version={apiVersion}"  --verbose
 ```
 
-#### Create or update an experiment
-
-```azurecli
-az rest --method put --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" --body @{experimentName.json} --resource "https://management.azure.com"
-```
-
-#### Delete an experiment
-
-```azurecli
-az rest --method delete --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" --resource "https://management.azure.com" --verbose
-```
-
-#### Start an experiment
+### Start an experiment
 
 ```azurecli
 az rest --method post --url "https://management.azure.com/{experimentId}/start?api-version={apiVersion}"
 ```
 
-#### Get past statuses of an experiment
+### Get all executions of an experiment
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/{experimentId}/statuses?api-version={apiVersion}" --resource "https://management.azure.com"
+az rest --method get --url "https://management.azure.com/{experimentId}/executions?api-version={apiVersion}" 
 ```
 
-#### Get the status of an experiment
+### List the details of a specific experiment execution
+
+If an experiment has failed, this can be used to find error messages and specific targets, branches, steps, or actions that failed.
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/{experimentId}/status?api-version={apiVersion}" --resource "https://management.azure.com"
+az rest --method get --url "https://management.azure.com/{experimentId}/executions/{executionDetailsId}?api-version={apiVersion}" 
 ```
 
-#### Cancel (stop) an experiment
+### Cancel (stop) an experiment
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/{experimentId}/cancel?api-version={apiVersion}" --resource "https://management.azure.com"
+az rest --method get --url "https://management.azure.com/{experimentId}/cancel?api-version={apiVersion}" 
 ```
 
-#### List the details of the last two experiment executions
+## Other helpful commands
+
+While these commands don't use the Chaos Studio API specifically, they can be helpful for using Chaos Studio effectively.
+
+### View Chaos Studio resources with Azure Resource Graph
+
+You can use the Azure Resource Graph [REST API](../governance/resource-graph/first-query-rest-api.md) to query resources used by Chaos Studio.
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/{experimentId}/executiondetails?api-version={apiVersion}" --resource "https://management.azure.com"
+az rest --method post --url https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01 --body "{\"subscriptions\":[\"{subscriptionId}\"],\"query\":\"chaosresources \"}"
 ```
 
-#### List the details of a specific experiment execution
+Alternatively, you can use Azure Resource Graph's `az cli` [extension](../governance/resource-graph/first-query-azurecli.md).
 
-```azurecli
-az rest --method get --url "https://management.azure.com/{experimentId}/executiondetails/{executionDetailsId}?api-version={apiVersion}" --resource "https://management.azure.com"
+```azurecli-interactive
+az graph query -q "chaosresources | summarize count() by type"
+```
+
+For example, if you want a summary of all the Chaos Studio targets active in your subscription by resource group, you can use:
+
+```azurecli-interactive
+az graph query -q "chaosresources | where type == 'microsoft.chaos/targets' | summarize count() by resourceGroup"
 ```
 
 ## Parameter definitions
