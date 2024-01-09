@@ -323,7 +323,7 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/custom-apps.md",
             "redirect_url": "/azure/virtual-desktop/publish-applications",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/identities.md",
@@ -338,7 +338,7 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/msix-app-attach.md",
             "redirect_url": "/azure/virtual-desktop/app-attach-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/per-user-access-pricing.md",
@@ -363,11 +363,6 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/streaming-costs.md",
             "redirect_url": "/azure/virtual-desktop/understand-estimate-costs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/TOC.yml",
-            "redirect_url": "/azure/virtual-desktop/TOC.yml",
             "redirect_document_id": false
         }
     ]

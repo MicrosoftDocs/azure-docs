@@ -4,7 +4,7 @@ description: An overview of licensing Azure Virtual Desktop for internal and ext
 ms.topic: overview
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/01/2024
+ms.date: 01/08/2024
 ---
 
 # Licensing Azure Virtual Desktop
@@ -20,9 +20,9 @@ In the context of providing virtualized infrastructure with Azure Virtual Deskto
 
 Licensing Azure Virtual Desktop works differently for internal and external commercial purposes. Consider the following examples:
 
-- A manufacturing company called *Fabrikam, Inc*. might use Azure Virtual Desktop to provide Fabrikam's employees (internal users) with access to virtual workstations and line-of-business apps. Because Fabrikam is serving internal users, Fabrikam must purchase one of the eligible licenses listed in [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for each of their employees that will access Azure Virtual Desktop.
+- A manufacturing company called *Fabrikam, Inc*. might use Azure Virtual Desktop to provide Fabrikam's employees (internal users) with access to virtual workstations and line-of-business apps. Because Fabrikam is serving internal users, Fabrikam must purchase one of the eligible licenses listed in [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for each of their employees that access Azure Virtual Desktop.
   
-- A retail company called *Wingtip Toys* might use Azure Virtual Desktop to provide an external contractor company (external users) with access to line-of-business apps. Because these external users are serving internal purposes, Wingtip Toys must purchase one of the eligible licenses listed in [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for each of their contractors that will access Azure Virtual Desktop. Per-user access pricing is not applicable in this scenario. 
+- A retail company called *Wingtip Toys* might use Azure Virtual Desktop to provide an external contractor company (external users) with access to line-of-business apps. Because these external users are serving internal purposes, Wingtip Toys must purchase one of the eligible licenses listed in [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for each of their contractors that access Azure Virtual Desktop. Per-user access pricing isn't applicable in this scenario. 
 
 - A software vendor called *Contoso* might use Azure Virtual Desktop to sell remote access of Contoso's productivity app to Contoso's customers (external users). Because Contoso is serving external users for external commercial purposes, Contoso must enroll in Azure Virtual Desktop's per-user access pricing. This enables Contoso to pay for Azure Virtual Desktop access rights on behalf of those external users who connect to Contoso's deployment. The users don't need a separate license like Microsoft 365 to access Azure Virtual Desktop. Contoso still needs to create and manage identities for those external users.
 
@@ -31,7 +31,7 @@ Licensing Azure Virtual Desktop works differently for internal and external comm
 
 ## Eligible licenses for internal users to use Azure Virtual Desktop
 
-If you're providing Azure Virtual Desktop access to internal users, you must purchase one of the following eligible licenses for each user that will access Azure Virtual Desktop. The license you need also depends on whether you're using a Windows client operating system or a Windows Server operating system for your session hosts.
+If you're providing Azure Virtual Desktop access to internal users, you must purchase one of the following eligible licenses for each user that accesses Azure Virtual Desktop. The license you need also depends on whether you're using a Windows client operating system or a Windows Server operating system for your session hosts.
 
 [!INCLUDE [Operating systems and user access rights](includes/include-operating-systems-user-access-rights.md)]
 
@@ -39,9 +39,9 @@ If you're providing Azure Virtual Desktop access to internal users, you must pur
 
 Per-user access pricing lets you pay for Azure Virtual Desktop access rights on behalf of external users. You must enroll in per-user access pricing to build a compliant deployment for external users.
 
-You pay for per-user access pricing through your enrolled Azure subscription or subscriptions on top of your charges for virtual machines, storage, and other Azure services. Each billing cycle, you only pay for users who actually used the service. Only users that connect at least once to Azure Virtual Desktop that month incur an access charge.
+You pay for per-user access pricing through your enrolled Azure subscription or subscriptions on top of your charges for virtual machines, storage, and other Azure services. Each billing cycle, you only pay for users who actually used the service. Only users that connect at least once in that month to Azure Virtual Desktop incur an access charge.
 
-There are two price tiers for Azure Virtual Desktop per-user access pricing. Charges are determined automatically each billing cycle based on the type of [application groups](../environment-setup.md#app-groups) a user connected to. Each price tier has flat per-user access charges. For example, a user incurs the same charge to your subscription no matter when or how many hours they used the service during that billing cycle. If a user doesn't access a RemoteApp or desktop, then there's no charge.
+There are two price tiers for Azure Virtual Desktop per-user access pricing. Charges are determined automatically each billing cycle based on the type of [application groups](terminology.md#application-groups) a user connected to. Each price tier has flat per-user access charges. For example, a user incurs the same charge to your subscription no matter when or how many hours they used the service during that billing cycle. If a user doesn't access a RemoteApp or desktop, then there's no charge.
 
 | Price tier | Description |
 |--|--|
@@ -53,18 +53,18 @@ For more information about prices, see [Azure Virtual Desktop pricing](https://a
 > [!IMPORTANT]
 > Azure Virtual Desktop will also charge users with separate assigned licenses that otherwise entitle them to Azure Virtual Desktop access. If you have internal users you're purchasing eligible licenses for, we recommend you give them access to Azure Virtual Desktop through a separate subscription that isn't enrolled in per-user access pricing to avoid effectively paying twice for those users.
 
-Azure Virtual Desktop will issue at most one access charge for a given user in a given billing period. For example, if you grant the user Alice access to Azure Virtual Desktop resources across two different Azure subscriptions in the same tenant, only the first subscription accessed by Alice will incur a usage charge.
+Azure Virtual Desktop issues at most one access charge for a given user in a given billing period. For example, if you grant the user Alice access to Azure Virtual Desktop resources across two different Azure subscriptions in the same tenant, only the first subscription accessed by Alice incurs a usage charge.
 
-To learn how to enroll an Azure subscription for per-user access pricing, see [Enroll in per-user access pricing](per-user-access-pricing.md).
+To learn how to enroll an Azure subscription for per-user access pricing, see [Enroll in per-user access pricing](enroll-per-user-access-pricing.md).
 
 ### Licensing other products and services for use with Azure Virtual Desktop
 
-The Azure Virtual Desktop per-user access license isn't a full replacement for a Windows or Microsoft 365 license. Per-user licenses only grant access rights to Azure Virtual Desktop and don't include Microsoft Office, Microsoft Defender XDR, or Universal Print. This means that if you choose a per-user license, you'll need to separately license other products and services to grant your users access to them in your Azure Virtual Desktop environment.
+The Azure Virtual Desktop per-user access license isn't a full replacement for a Windows or Microsoft 365 license. Per-user licenses only grant access rights to Azure Virtual Desktop and don't include Microsoft Office, Microsoft Defender XDR, or Universal Print. This means that if you choose a per-user license, you need to separately license other products and services to grant your users access to them in your Azure Virtual Desktop environment.
 
 There are a few ways to enable your external users to access Office: 
 
 - Users can sign in to Office with their own Office account.
-- You can re-sell Office through your Cloud Service Provider (CSP). 
+- You can resell Office through your Cloud Service Provider (CSP). 
 - You can distribute Office by using a Service Provider Licensing Agreement (SPLA).
 
 ## Comparing licensing options
@@ -82,5 +82,5 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
 
 Now that you're familiar with your licensing pricing options, you can start planning your Azure Virtual Desktop environment. Here are some articles that might help you:
 
-- [Enroll your subscription in per-user access pricing](per-user-access-pricing.md)
-- [Estimate per-user app streaming costs for Azure Virtual Desktop](streaming-costs.md)
+- [Enroll in per-user access pricing](enroll-per-user-access-pricing.md)
+- [Understand and estimate costs for Azure Virtual Desktop](understand-estimate-costs.md)
