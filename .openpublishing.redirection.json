@@ -1,11 +1,6 @@
 {
     "redirections": [
     {
-      "source_path": "articles/active-directory/azuread-dev/about-microsoft-identity-platform.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/about-microsoft-identity-platform",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/azuread-dev/active-directory-acs-migration.md",
       "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-acs-migration",
       "redirect_document_id": false
