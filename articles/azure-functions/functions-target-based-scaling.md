@@ -31,7 +31,7 @@ The following considerations apply when using target-based scaling:
 + Target Based Scaling is enabled by default on function app runtime 4.19.0 or a later version.
 + When using target-based scaling, the `functionAppScaleLimit` site setting is still honored. For more information, see [Limit scale out](event-driven-scaling.md#limit-scale-out).
 + To achieve the most accurate scaling based on metrics, use only one target-based triggered function per function app.
-+ When multiple functions in the same function app are all requesting to scale out at the same time, a sum across those functions is used to determine the change in desired instances. Functions requesting to scale-out override functions requesting to scale-in.
++ When multiple functions in the same function app are all requesting to scale out at the same time, a sum across those functions is used to determine the change in desired instances. Functions requesting to scale out override functions requesting to scale in.
 + When there are scale-in requests without any scale-out requests, the max scale in value is used. 
 
 ## Opting out
