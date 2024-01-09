@@ -142,4 +142,4 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.network/new-azfirewall
           - text: REST
-            url: /rest/api/firewal
+            url: /rest/api/firewall
