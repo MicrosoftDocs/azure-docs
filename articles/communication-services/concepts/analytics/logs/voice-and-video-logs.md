@@ -130,7 +130,24 @@ The **call client operations** log provides client-side information about the ca
 
 This log provides detailed information on actions taken during a call and can be used to visualize and investigate call issues by using Call Diagnostics for your Azure Communication Services Resource. [Learn more about Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
 
+|     Property              |     Description                     |
+|---------------------------|-------------------------------------|
+|     `CallClientTimeStamp`         |     The timestamp for when on operation occurred on the SDK in UTC.   |
+|     `OperationName`         |    The name of the operation triggered on the calling SDK.   |
+|     `CallId`    |              The unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call, and you can use it to join data from different logs. It is similar to the correlationId in call summary log and call diagnostic log.               |
+|     `ParticipantId`    |            The unique ID that's generated to represent each endpoint in the call.                  |
+|     `OperationType`    |              Call Client Operation.               |
+|     `OperationId`    |             A unique GGUID identifying an SDK operation.                 |
+|     `DurationMs`    |              The time took by an Calling SDK operation to fail or succeed.                |
+|     `ResultType`    |               Field describing success or failure of an operation.               |
+|     `ResultSignature`    |         
 
+HTTP like failure or success code (200, 500).                    |
+|     `SdkVersion`    |                   The version of Calling SDK veing used.           |
+|     `UserAgent`    |          The standard user agent string based on the browser or the platform Calling SDK is used.        |
+|     `ClientInstanceId`    |            A unique GGUID identifying the CallClient object.                  |
+|     `EndpointId`    |             The unique ID that represents each endpoint connected to the call, where endpointType defines the endpoint type. When the value is null, the connected entity is the Communication Services server (endpointType = "Server").  The endpointId value can sometimes persist for the same user across multiple calls (correlationId) for native clients. The number of endpointId values determines the number of call summary logs. A distinct summary log is created for each endpointId value.                |
+|     `OperationPayload`    |     A dynamic payload that varies based on the operation providing more operation specific details.       |
 ### Call client media stats time series log schema
 [!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
 
