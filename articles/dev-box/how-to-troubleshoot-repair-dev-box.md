@@ -16,7 +16,7 @@ In this article, you learn how to troubleshoot and resolve remote desktop connec
 
 :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-repair-tool.png" alt-text="Screenshot showing the Troubleshoot and repair tool in the Microsoft developer portal.":::
 
-When you run the **Troubleshoot & repair** tool, your dev box and its back-end services in the Azure infrastructure are scanned for issues. If an issue is detected, **Troubleshoot & repair** fixes the issue so you can connect to your dev box.
+When you run the **Troubleshoot & repair** tool, your dev box and its back-end services in the Azure infrastructure are scanned for issues. If an issue is detected, the troubleshoot and repair process fixes the issue so you can connect to your dev box.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ The troubleshoot and repair process completes on average in 20 minutes, but can 
 - Windows Guest OS readiness
 
 > [!WARNING]
-> Running the **Troubleshoot & repair** tool might effectively restart your Dev Box. Any unsaved data on your dev box will be lost. 
+> Running the troubleshoot and repair process might effectively restart your dev box. Any unsaved data on your dev box will be lost. 
 
 To run the **Troubleshoot & repair** tool on your dev box, follow these steps:
 
