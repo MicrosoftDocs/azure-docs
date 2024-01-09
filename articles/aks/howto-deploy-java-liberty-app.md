@@ -230,7 +230,7 @@ The following steps deploy and test the application.
    kubectl apply -f db-secret.yaml
    ```
 
-   You'll see the output `secret/db-secret-postgres created`.
+   You'll see the output `secret/db-secret-sql created`.
 
 1. Apply the deployment file.
 
