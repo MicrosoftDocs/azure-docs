@@ -7,7 +7,7 @@ ms.service: backup
 ms.author: v-abhmallick
 ---
 
-# Configure and run Cross Region Restore for Azure database for PostgreSQL
+# Tutorial: Configure and run Cross Region Restore for Azure database for PostgreSQL
 
 This tutorial describes how you can enable and run Cross Region Restore to restore SQL databases hosted on Azure VMs in a secondary region.
 
