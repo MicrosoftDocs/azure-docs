@@ -165,6 +165,14 @@ For example, if you want a summary of all the Chaos Studio targets active in you
 az graph query -q "chaosresources | where type == 'microsoft.chaos/targets' | summarize count() by resourceGroup"
 ```
 
+### Filtering and querying
+
+Like other Azure CLI commands, you can use the `--query` and `--filter` parameters with the Azure CLI `rest` commands. For example, to see a table of available capability types for a specific target type, use the following command:
+
+```azurecli
+az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Chaos/locations/{locationName}/targetTypes/{targetType}/capabilityTypes?api-version=2023-11-01" --output table --query 'value[].{name:name, faultType:properties.runtimeProperties.kind, urn:properties.urn}'
+```
+
 ## Parameter definitions
 
 This section describes the parameters used throughout this document and how you can fill them in.
