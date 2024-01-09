@@ -91,7 +91,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: API Management policy reference
-            url: a;pi-management-policies.md
+            url: api-management-policies.md
       - linkListType: sample
         links:
           - text: API Management policy snippets
