@@ -775,6 +775,10 @@ items:
         href: concepts/ui-library/ui-library-overview.md
       - name: UI Library use cases
         href: concepts/ui-library/ui-library-use-cases.md
+      - name: Collecting user feedback
+        href: concepts/ui-library/collecting-user-feedback.md
+      - name: Audio Only Mode
+        href: concepts/ui-library/audio_only_mode.md
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
     - name: Log File Access
@@ -897,8 +901,6 @@ items:
     items:
     - name: Overview
       href: concepts/email/prepare-email-communication-resource.md
-    - name: Collecting User Feedback
-      href: ./concepts/voice-video-calling/collecting-user-feedback.md
     - name: Audio Only Calls
       href: ./concepts/voice-video-calling/audio-only-calls.md
     - name: Concepts
@@ -1131,6 +1133,7 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
+    
   - name: Advanced Messaging
     items:
     - name: Advanced Messaging (.NET)
