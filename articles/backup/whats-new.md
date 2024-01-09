@@ -181,7 +181,7 @@ For more information, see [Save and manage MARS agent passphrase securely in Azu
 
 You can now restore data from the secondary region for MARS Agent backups using Cross Region Restore on Recovery Services vaults with Geo-redundant storage (GRS) replication. You can use this capability to do recovery drills from the secondary region for audit or compliance. If disasters cause partial or complete unavailability of the primary region, you can directly access the  backup data from the secondary region.
 
-For more information, see [Cross Region Restore for MARS (preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview).
+For more information, see [Cross Region Restore for MARS (preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore).
 
 ## SAP HANA System Replication database backup support is now generally available
 
@@ -195,7 +195,7 @@ For more information, see [Back up a HANA system with replication enabled](sap-h
 
 Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region.
 
-For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview).
+For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup).
 
 ## Microsoft Azure Backup Server v4 is now generally available
 
