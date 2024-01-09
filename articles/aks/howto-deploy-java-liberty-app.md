@@ -92,10 +92,6 @@ The following steps guide you through creating an Azure SQL Database single data
    > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
    >
    > ![Screenshot of configuring SQL database networking.](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
-   >
-   > Also at the **Networking** step, under **Encrypted connections**, set the **Minimum TLS version** to **TLS 1.0**.
-   >
-   > ![Screenshot of configuring SQL database networking TLS 1.0.](./media/howto-deploy-java-liberty-app/sql-database-minimum-TLS-version.png)
 
 Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host your Open Liberty application.
 
