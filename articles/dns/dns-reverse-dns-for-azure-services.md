@@ -8,7 +8,7 @@ ms.service: dns
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2023
+ms.date: 01/09/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -50,7 +50,10 @@ This section provides detailed instructions for how to configure reverse DNS for
 
 Azure currently supports reverse DNS only for Public IPv4 address resources.
 
-### Add reverse DNS to an existing PublicIpAddresses
+### Add reverse DNS to an existing public IP address
+
+> [!IMPORTANT]
+> New or updated PTR records must pass [validation](#validation-of-reverse-dns-records). If the PTR for a public IP address doesn't currently exist, you must specify the hostname using **DomainNameLabel** (Azure PowerShell), the **-d** parameter (Azure Classic CLI), or the **--dns-name** parameter (Azure CLI) as shown in the following examples.
 
 #### Azure PowerShell
 
@@ -100,7 +103,7 @@ To add reverse DNS to an existing PublicIpAddress that doesn't already have a DN
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com --dns-name contosoapp1
 ```
 
-### Create a Public IP Address with reverse DNS
+### Create a public IP address with reverse DNS
 
 To create a new PublicIpAddress with the reverse DNS property already specified:
 
@@ -122,7 +125,7 @@ azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d conto
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location westcentralus --dns-name contosoapp1 --reverse-fqdn contosoapp1.westcentralus.cloudapp.azure.com
 ```
 
-### View reverse DNS for an existing PublicIpAddress
+### View reverse DNS for an existing public IP address
 
 To view the configured value for an existing PublicIpAddress:
 
@@ -144,7 +147,7 @@ azure network public-ip show -n PublicIp -g MyResourceGroup
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
 ```
 
-### Remove reverse DNS from existing Public IP Addresses
+### Remove reverse DNS from existing public IP sddresses
 
 To remove a reverse DNS property from an existing PublicIpAddress:
 
