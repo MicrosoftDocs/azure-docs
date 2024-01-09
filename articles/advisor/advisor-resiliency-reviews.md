@@ -11,22 +11,14 @@ ms.date: 01/3/2024
 
 # Azure Advisor Resiliency Reviews
 
-Azure Advisor Reviews help you focus on the most important recommendations to optimize your cloud deployments and improve resilience. 
+Azure Advisor Resiliency Reviews help you focus on the most important recommendations to optimize your cloud deployments and improve resiliency. Review recommendations are tailored to the needs of your workload and include custom ones curated by your account team using Azure best practices and prioritized automated recommendations.
 
-Recommendations are tailored to the needs of your workload and include two types:
-
-* Custom – these are curated by your account team using Azure best practices
-
-* Prioritized – these are automated recommendations prioritized by your account team 
-
-You can triage recommendations (accept or reject), manage their lifecycle and work with your account team to track resolution. Azure Advisor Reviews are available to customers.
-
-You can find recommendations in [Azure Advisor](https://aka.ms/Advisor_Reviews), which serves as your single-entry point for Microsoft best practices.
+You can find resiliency reviews in [Azure Advisor](https://aka.ms/Advisor_Reviews), which serves as your single-entry point for Microsoft best practices.
 
 [!NOTE]
 Resiliency reviews in Azure Advisor are available to customers with Unified or Premier Support contracts. Reach out to your Customer Success Account Manager or primary Microsoft Representative to learn more.
 
-In this article, you learn how to enable and access resiliency reviews prepared for you, manage, implement recommendations, and track their lifecycle. 
+In this article, you learn how to enable and access resiliency reviews prepared for you, triage (accept or reject),manage, implement recommendations, and track their lifecycle. 
 
 ## How it works
 
@@ -72,7 +64,7 @@ You can find detailed instructions on how to assign a role using the Azure porta
 
 You can find resiliency reviews created by your account team under the **Manage** menu group in Azure Advisor.
 
-If there's a new review available to you, you see a notification banner on top of the Advisor pages. A “new” review is one with all recommendations in the Pending state.
+If there's a new review available to you, you see a notification banner on top of the Advisor pages. A “new” review is one with all recommendations in the *Pending* state.
 
 1. Open the Azure portal and navigate to [Advisor](https://aka.ms/Advisor_Reviews). 
 Select **Manage** (->) Reviews in the left navigation pane. A list of reviews opens. At the top of the page, you see the number of **Total Reviews** and review **Recommendations**, and a graph of **Reviews by status**. 
@@ -95,7 +87,7 @@ At the top of the reviews page:
 
 ### Review recommendations
 
-The triage process includes reviewing recommendations and making decisions on which to implement. Use *Accept* and *Reject* actions to capture your decision. Accepted recommendations are available to your engineering team under the **Reliability** menu item.
+The triage process includes reviewing recommendations and making decisions on which to implement. Use *Accept* and *Reject* actions to capture your decision. Accepted recommendations are available to your engineering team under the Advisor **Reliability** menu item.
 
 1. From the **Reviews** page, select a review name to open the recommendations list page. For new reviews recommendations are in *Pending* state.
 
@@ -136,10 +128,10 @@ From a review recommendations details page:
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
 
-4. If you accepted recommendation by mistake, use **Reset** to move it back to the pending state.
+4. If you accepted a recommendation by mistake, use **Reset** to move it back to the pending state.
 
 [!NOTE]
-If you reset a recommendation after your engineering started implementation, the recommendation will remain available to them.
+If you reset a recommendation after your engineering started implementation, the recommendation remains available to them.
 
 ### Reject recommendations
 
@@ -152,7 +144,7 @@ If you reset a recommendation after your engineering started implementation, the
 [!NOTE]
 The reason for the rejection is visible to your account team. It helps them understand workload context and your business priorities better. Additionally, Microsoft uses this information to improve the quality of recommendations.
 
-3. The rejected recommendation is moved to the Rejected tab. It is not visible for your engineering team under **Recommendations** (->) **Reliability**.
+3. The rejected recommendation is moved to the **Rejected** tab. It is not visible for your engineering team under **Recommendations** (->) **Reliability**.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
 
@@ -199,7 +191,7 @@ For details on recommendation priority, see [Recommendation priority](#recommend
 
 Recommendation status is a valuable indicator for determining what actions need to be taken. 
 
-* Once you begin to act on a recommendation, mark it as In progress.
+* Once you begin to act on a recommendation, mark it as *In progress*.
 
 * Update the status to *Completed* once the action has been taken. When all recommendations in a review are marked as *Completed*, the review is marked as *Completed* on the **Review** page. 
 
