@@ -23,36 +23,39 @@ When the Load Balancer connectivity is unavailable, the most common symptoms are
 
 When the external clients to the backend VMs go through the load balancer, the IP address of the clients is used for the communication. Make sure the IP address of the clients are added into the NSG allowlist.
 
-## Problem- No outbound connectivity from Standard internal Load Balancers (ILB)
+## Problem: No outbound connectivity from Standard internal Load Balancers (ILB)
 
-**Validation and resolution**
+### Validation and Resolution
 
 Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address called the default outbound access IP. This isn't recommended for production workloads as the IP address isn't static or locked down via network security groups that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration, which locks down the IP via network security groups. You can also use a [NAT Gateway](../virtual-network/nat-gateway/nat-overview.md) on your subnet. NAT Gateway is the recommended solution for outbound.
 
-## Problem- No inbound connectivity to Standard external Load Balancers (ELB)
+## Problem: No inbound connectivity to Standard external Load Balancers (ELB)
 
-### Cause: Standard load balancers and standard public IP addresses are closed to inbound connections unless opened by Network Security Groups. NSGs are used to explicitly permit allowed traffic. If you don't have an NSG on a subnet or NIC of your virtual machine resource, traffic isn't allowed to reach this resource.
+### Cause
+Standard load balancers and standard public IP addresses are closed to inbound connections unless opened by Network Security Groups. NSGs are used to explicitly permit allowed traffic. If you don't have an NSG on a subnet or NIC of your virtual machine resource, traffic isn't allowed to reach this resource.
 
-**Resolution**
+### Resolution
 In order to allow the ingress traffic, add a Network Security Group to the Subnet or interface for your virtual resource.
 
-## Problem- Can't change backend port for existing LB rule of a load balancer that has Virtual Machine Scale Set deployed in the backend pool.
+## Problem: Can't change backend port for existing LB rule of a load balancer that has Virtual Machine Scale Set deployed in the backend pool.
 
-### Cause: The backend port can't be modified for a load balancing rule that's used by a health probe for load balancer referenced by Virtual Machine Scale Set
+### Cause
+The backend port can't be modified for a load balancing rule that's used by a health probe for load balancer referenced by Virtual Machine Scale Set
 
-**Resolution**
+### Resolution
 In order to change the port, you can remove the health probe by updating the Virtual Machine Scale Set, update the port and then configure the health probe again.
 
-## Problem- Small traffic is still going through load balancer after removing VMs from backend pool of the load balancer.
+## Problem: Small traffic is still going through load balancer after removing VMs from backend pool of the load balancer.
 
-### Cause: VMs removed from backend pool should no longer receive traffic. The small amount of network traffic could be related to storage, DNS, and other functions within Azure.
+### Cause 
+VMs removed from backend pool should no longer receive traffic. The small amount of network traffic could be related to storage, DNS, and other functions within Azure.
 
+### Resolution
 To verify, you can conduct a network trace. The Fully Qualified Domain Name (FQDN) used for your blob storage account is listed within the properties of each storage account.  From a virtual machine within your Azure subscription, you can perform `nslookup` to determine the Azure IP assigned to that storage account.
 
-## Problem- Load Balancer in failed state
+## Problem: Load Balancer in failed state
 
-**Resolution**
-
+### Resolution
 - Once you identify the resource that is in a failed state, go to [Azure Resource Explorer](https://resources.azure.com/) and identify the resource in this state.
 - Update the toggle on the right-hand top corner to **Read/Write**.
 - Select **Edit** for the resource in failed state.
