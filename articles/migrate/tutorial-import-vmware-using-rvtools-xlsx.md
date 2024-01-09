@@ -13,7 +13,7 @@ ms.service: azure-migrate
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you are using the tool, you can control the data you share in the file and there's no need to set up the Azure Migrate appliance to discover servers.
+This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you are using the tool, you can control the data you share in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix.md#import-servers-using-rvtools-xlsx-preview).
 
 
 In this tutorial, you learn how to:
@@ -80,10 +80,24 @@ To import the servers using RVTools XLSX (preview) file, follow these steps:
 
 When the **Import status** is marked as **Complete**, it implies that the server information is successfully imported.
 
- 
+## Update server information
+To update the information for a server, follow these steps:
+
+1. In the *Download warning details.XLSX* file, update the rows.
+1. To reimport the data, follow the steps from 1-5 in the [Import using the RVTools XLSX file (preview)](#import-using-the-rvtools-xlsx-file-preview).
+
+> [!NOTE]
+> Currently, we don't support deleting servers after you import them into project.
+
+## Verify servers in Azure portal
+
+To verify that the servers appear in the Azure portal after importing, follow these steps:
+
+1. Go to Azure Migrate dashboard.
+1. On the **Azure Migrate - Servers, databases and web apps >** page, in  **Azure Migrate: Discovery and assessment** section, select the icon that displays the count for Discovered servers.
+1. Select the **Import based** tab.
+
+
 ## Next steps
 
-- Learn how to [assess servers to migrate to Azure VMs](./tutorial-assess-vmware-azure-vm.md).
-- Learn how to [assess servers running SQL Server to migrate to Azure SQL](./tutorial-assess-sql.md).
-- Learn how to [assess web apps to migrate to Azure App Service](./tutorial-assess-webapps.md).
-- Review [data the Azure Migrate appliance collects](discovered-metadata.md#collected-metadata-for-vmware-servers) during discovery.
+- Learn on [key benefits and limitations of using RVTools.XLSX](migrate-support-matrix.md#import-servers-using-rvtools-xlsx-preview).
