@@ -9,11 +9,8 @@ ms.topic: tutorial
 ms.date: 09/08/2021
 ms.author: karanmishra
 ---
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 ### Local recording notification for Teams
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK.
 
 Terms of use for Azure Communication Services require developers to show notification to the users, if they are being recorded. Microsoft Teams application allows Teams users to record Teams calls and Teams meetings in the cloud and on Teams desktop app also locally. Developers can use Azure Communication Services Calling SDK to identify whether local or cloud recording has started or stopped. 
 
