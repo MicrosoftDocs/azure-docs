@@ -55,7 +55,7 @@ Defender for Cloud uses connectors to collect monitoring data from Amazon Web Se
 
 #### Cost impact of API calls to AWS
 
-When you onboard your AWS single or management account, the discovery service in Defender for Cloud starts an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that Azure helps secure.
+When you onboard your AWS single or management account, the discovery service in Defender for Cloud starts an immediate scan of your environment. The discovery service executes API calls to various service endpoints in order to retrieve all resources that Azure helps secure.
 
 After this initial scan, the service continues to periodically scan your environment at the interval that you configured during onboarding. In AWS, each API call to the account generates a lookup event that's recorded in the CloudTrail resource. The CloudTrail resource incurs costs. For pricing details, see the [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/) page on the Amazon AWS site.
 
@@ -74,11 +74,11 @@ To get the number of calls, go to the Athena table or the event data store and u
 
 - List the number of overall API calls by Defender for Cloud:
 
-      ```sql
-      SELECT COUNT(*) AS overallApiCallsCount FROM <TABLE-NAME> 
-      WHERE userIdentity.arn LIKE 'arn:aws:sts::<YOUR-ACCOUNT-ID>:assumed-role/CspmMonitorAws/MicrosoftDefenderForClouds_<YOUR-AZURE-TENANT-ID>' 
-      AND eventTime > TIMESTAMP '<DATETIME>' 
-      ```
+  ```sql
+  SELECT COUNT(*) AS overallApiCallsCount FROM <TABLE-NAME> 
+  WHERE userIdentity.arn LIKE 'arn:aws:sts::<YOUR-ACCOUNT-ID>:assumed-role/CspmMonitorAws/MicrosoftDefenderForClouds_<YOUR-AZURE-TENANT-ID>' 
+  AND eventTime > TIMESTAMP '<DATETIME>' 
+  ```
 
 - List the number of overall API calls by Defender for Cloud aggregated by day:
 
@@ -113,7 +113,7 @@ To get the number of calls, go to the Athena table or the event data store and u
 
 #### Defender API calls to GCP
 
-When you onboard your GCP single project or organization, the discovery service in Defender for Cloud starts an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that Azure helps secure.
+When you onboard your GCP single project or organization, the discovery service in Defender for Cloud starts an immediate scan of your environment. The discovery service executes API calls to various service endpoints in order to retrieve all resources that Azure helps secure.
 
 After this initial scan, the service continues to periodically scan your environment at the interval that you configured during onboarding.
 
@@ -135,17 +135,17 @@ Refer to the histogram to see the number of calls over time.
 
 Defender for Cloud uses the Log Analytics agent to [collect and store data](./monitoring-components.md#log-analytics-agent). The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
 
-Alert types:
+The alert types are:
 
 - Virtual Machine Behavioral Analysis (VMBA)
 - Network analysis
 - Azure SQL Database and Azure Synapse Analytics analysis
 - Contextual information
 
-Depending on the alert types, you can gather the necessary information to investigate the alert by using the following resources:
+Depending on the alert type, you can gather the necessary information to investigate an alert by using the following resources:
 
 - Security logs in the virtual machine (VM) event viewer in Windows
--  The audit daemon (`auditd`) in Linux
+- The audit daemon (`auditd`) in Linux
 - The Azure activity logs and the enabled diagnostic logs on the attack resource
 
 You can share feedback for the alert description and relevance. Go to the alert, select the **Was This Useful** button, select the reason, and then enter a comment to explain the feedback. We consistently monitor this feedback channel to improve our alerts.
@@ -168,7 +168,7 @@ There are two installation scenarios that can produce different results when you
 
 - **Agent installed automatically by Defender for Cloud**: You can view the alerts in Defender for Cloud and log search. You receive email notifications at the email address that you configured in the security policy for the subscription that the resource belongs to.
 
-- **Agent manually installed on a VM located in Azure**: In this scenario, if you're using agents downloaded and installed manually before February 2017, you can view the alerts in the Defender for Cloud portal only if you filter on the subscription that the workspace belongs to. If you filter on the subscription that the resource belongs to, you won't see any alerts. You receive email notifications at the email address that you configured in the security policy for the subscription that the workspace belongs to.
+- **Agent manually installed on a VM located in Azure**: In this scenario, if you're using agents downloaded and installed manually before February 2017, you can view the alerts in the Defender for Cloud portal only if you filter on the subscription that the *workspace* belongs to. If you filter on the subscription that the *resource* belongs to, you won't see any alerts. You receive email notifications at the email address that you configured in the security policy for the subscription that the workspace belongs to.
 
   To avoid the filtering problem, be sure to download the latest version of the agent.
 
@@ -206,7 +206,7 @@ Here are some troubleshooting tips:
 - Make sure that no access control lists are preventing disk access.
 - The guest agent needs sufficient disk space to function properly.
 
-By default, the Microsoft Antimalware user interface is disabled. But you can [enable the Microsoft Antimalware user interface](/archive/blogs/azuresecurity/enabling-microsoft-antimalware-user-interface-post-deployment) on VMs that you created via Azure Resource Manager.
+By default, the Microsoft Antimalware user interface is disabled. But you can [enable the Microsoft Antimalware user interface](/archive/blogs/azuresecurity/enabling-microsoft-antimalware-user-interface-post-deployment) on Azure Resource Manager VMs.
 
 ## Troubleshoot problems with loading the dashboard
 
@@ -216,7 +216,7 @@ If you experience problems with loading the workload protection dashboard, make 
 
 If you can't onboard your Azure DevOps organization, try the following troubleshooting tips:
 
-- It's important to know which account you're logged in to when you authorize the access, because that will be the account that the system uses for onboarding. Your account can be associated with the same email address but also associated with different tenants. Make sure that you select the right account/tenant combination. If you need to change the combination:
+- It's important to know which account you're signed in to when you authorize the access, because that will be the account that the system uses for onboarding. Your account can be associated with the same email address but also associated with different tenants. Make sure that you select the right account/tenant combination. If you need to change the combination:
 
   1. On your [Azure DevOps profile page](https://app.vssps.visualstudio.com/profile/view), use the dropdown menu to select another account.
 
