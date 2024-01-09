@@ -105,7 +105,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI - Front Door
-            url: /cli/azure/network/front-door/waf-policy
+            url: /cli/azure/network/front-door
           - text: Azure CLI - Application Gateway
             url: /cli/azure/network/application-gateway
           - text: Azure PowerShell - Front Door
