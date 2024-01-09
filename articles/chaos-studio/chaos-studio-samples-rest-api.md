@@ -138,7 +138,7 @@ az rest --method get --url "https://management.azure.com/{experimentId}/executio
 ### Cancel (stop) an experiment
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/{experimentId}/cancel?api-version={apiVersion}" 
+az rest --method post --url "https://management.azure.com/{experimentId}/cancel?api-version={apiVersion}" 
 ```
 
 ## Other helpful commands
