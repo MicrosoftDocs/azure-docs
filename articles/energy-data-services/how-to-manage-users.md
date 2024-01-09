@@ -44,7 +44,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 
 ## Get the list of all available groups in a data partition
 
-Run the below curl command in Azure Cloud Bash to get all the groups that are available for your Azure Data Manager for the Energy instance and its data partitions.
+Run the below curl command in Azure Cloud Bash to get all the groups that are available for you or you have access to in the given data partition of Azure Data Manager for the Energy instance.
 
 ```bash
     curl --location --request GET "https://<URI>/api/entitlements/v2/groups/" \

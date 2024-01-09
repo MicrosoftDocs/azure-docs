@@ -2,7 +2,6 @@
 title: Using Azure AI Studio with a screen reader
 titleSuffix: Azure AI Studio
 description: This tutorial guides you through using Azure AI Studio with a screen reader.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -11,6 +10,7 @@ ms.topic: tutorial
 ms.date: 11/15/2023
 ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Tutorial: Using Azure AI Studio with a screen reader
