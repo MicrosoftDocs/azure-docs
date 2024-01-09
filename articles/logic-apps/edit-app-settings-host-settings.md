@@ -158,7 +158,12 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
 | `Jobs.BackgroundJobs.StatelessNumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core, per stateless run. This value affects the number of concurrent workflow actions that are processed per run. |
 
-Both of the following settings are used to manually stop and immediately delete the specified workflows in Standard logic app. Use these settings with caution and only in preproduction environments, such as load or performance test environments, as you can't undo or recover from these operations.
+Both of the following settings are used to manually stop and immediately delete the specified workflows in Standard logic app.
+
+> [!NOTE]
+>
+> Use these settings with caution and only in preproduction environments, such as load 
+> or performance test environments, as you can't undo or recover from these operations.
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
