@@ -18,56 +18,49 @@ The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point i
 
 Select the Virtual Machine Scale Set you want to change the Upgrade Policy for. In the menu under **Settings**, select **Upgrade Policy** and from the drop-down menu, select the Upgrade Policy you want to enable. 
 
-:::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/maxsurge-2.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
+If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
+
+:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/change-upgrade-policy.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
 
 
 ### [CLI](#tab/cli2)
-Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and enable `MaxSurge`. If you don't already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
+Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update).
+
+If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
 
 ```azurecli-interactive
 az vmss update \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --set upgradePolicy.rollingUpgradePolicy.maxSurge=true
+    --set upgradePolicy.automatic
 ```
 
 ### [PowerShell](#tab/powershell2)
-Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss). If you don't already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
+Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). 
+
+If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
 
 ```azurepowershell-interactive
 $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
-Set-AzVmssRollingUpgradePolicy `
-    -VirtualMachineScaleSet $vmss `
-    -MaxBatchInstancePercent 40 `
-    -MaxUnhealthyInstancePercent 35 `
-    -MaxUnhealthyUpgradedInstancePercent 30 `
-    -PauseTimeBetweenBatches "PT30S" `
-    -MaxSurge $true
-
-Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
+Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -UpgradePolicyMode "Manual" -VirtualMachineScaleSet $vmss
 ```
 
-### [Template](#tab/template2)
+### [ARM Template](#tab/template2)
 
-Update the properties section of your ARM template as follows: 
+Update the properties section of your ARM template with the Upgrade Policy you wish to use. 
+
+If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
+
 
 ```ARM
 "properties": {
-    "singlePlacementGroup": false,
         "upgradePolicy": {
-            "mode": "Rolling",
-            "rollingUpgradePolicy": {
-            "maxBatchInstancePercent": 20,
-            "maxUnhealthyInstancePercent": 20,
-            "maxUnhealthyUpgradedInstancePercent": 20,
-            "pauseTimeBetweenBatches": "PT2S",
-	        "MaxSurge": "true"
+            "mode": "Automatic",
+        }
+    }
 ```
 ---
-
-
-
 
 
 ## Next steps
