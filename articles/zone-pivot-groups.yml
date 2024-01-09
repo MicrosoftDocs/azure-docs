@@ -11,7 +11,7 @@ groups:
   - id: client-operating-system-macos
     title: macOS
   - id: client-operating-system-windows
-    title: Windowsaq
+    title: Windows
 - id: URL-test-interface
   title: URL Test tool
   prompt: Choose one of the following
