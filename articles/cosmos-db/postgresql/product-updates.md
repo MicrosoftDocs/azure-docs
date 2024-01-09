@@ -23,7 +23,7 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### December 2023
-* Preview: [PgBouncer](./concepts-connection-pool.md) is now supported with [Entra ID authentication](./concepts-authentication.md#microsoft-entra-id-authentication-preview).
+* Preview: [PgBouncer](./concepts-connection-pool.md) is now supported with [Microsoft Entra ID authentication](./concepts-authentication.md#microsoft-entra-id-authentication-preview).
 * General availability: Azure Cosmos DB for PostgreSQL is now available in Poland Central and South India.
     * See [all supported regions](./resources-regions.md).
 
