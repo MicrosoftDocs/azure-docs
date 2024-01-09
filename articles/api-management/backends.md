@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/05/2024
+ms.date: 01/08/2024
 ms.author: danlep 
 ms.custom:
 ---
@@ -28,8 +28,6 @@ API Management also supports using other Azure resources as an API backend, such
 
 API Management supports custom backends so you can manage the backend services of your API. Use custom backends, for example, to authorize the credentials of requests to the backend service, to protect your backend from too many requests, or to load-balance requests to multiple backends. Configure and manage custom backends in the Azure portal, or using Azure APIs or tools.
 
-After creating a backend, you can reference the backend in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the custom backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a custom backend instead of the default backend web service configured for that API.
-
 ## Benefits of backends
 
 A custom backend has several benefits, including:
@@ -37,6 +35,20 @@ A custom backend has several benefits, including:
 * Abstracts information about the backend service, promoting reusability across APIs and improved governance.  
 * Easily used by configuring a transformation policy on an existing API.
 * Takes advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication.
+
+## Reference backend using set-backend-service policy
+
+After creating a backend, you can reference the backend in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the custom backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a custom backend instead of the default backend web service configured for that API. For example:
+
+```xml
+<policies>
+    <inbound>
+        <base />
+        <set-backend-service backend-id="myBackend" />
+    </inbound>
+    [...]
+<policies/>
+```
 
 ## Circuit breaker (preview)
 
@@ -54,7 +66,7 @@ Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template:
+Include a snippet similar to the following in your Bicep template for a backend resource with a circuit breaker:
 
 ```bicep
 resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-preview' = {
@@ -83,50 +95,44 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-previ
         }
       ]
     }
-}
-  }
-[...]
+   }
+ }
 ```
 
 #### [ARM](#tab/arm)
 
-Include a JSON snippet similar to the following in your ARM template:
+Include a JSON snippet similar to the following in your ARM template for a backend resource with a circuit breaker:
 
 ```JSON
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion":"1.0.0.0",
-    "resources": [
-    {
-      "type": "Microsoft.ApiManagement/service/backends",
-      "apiVersion": "2023-03-01-preview",
-      "name": "myAPIM/myBackend",
-      "properties": {
-        "url": "https://mybackend.com",
-        "protocol": "http",
-        "circuitBreaker": {
-          "rules": [
-            {
-              "failureCondition": {
-                "count": "3",
-                "errorReasons": [ "Server errors" ],
-                "interval": "P1D",
-                "statusCodeRanges": [
-                  {
-                    "min": "500",
-                    "max": "599"
-                  }
-                ]
-              },
-              "name": "myBreakerRule",
-              "tripDuration": "PT1H"
-            }
-          ]
-        }
+  {
+    "type": "Microsoft.ApiManagement/service/backends",
+    "apiVersion": "2023-03-01-preview",
+    "name": "myAPIM/myBackend",
+    "properties": {
+      "url": "https://mybackend.com",
+      "protocol": "http",
+      "circuitBreaker": {
+        "rules": [
+          {
+            "failureCondition": {
+              "count": "3",
+              "errorReasons": [ "Server errors" ],
+              "interval": "P1D",
+              "statusCodeRanges": [
+                {
+                  "min": "500",
+                  "max": "599"
+                }
+              ]
+            },
+            "name": "myBreakerRule",
+            "tripDuration": "PT1H"
+          }
+        ]
       }
     }
-    [...]
-  ]
+  }
 }
 ```
 
@@ -134,7 +140,7 @@ Include a JSON snippet similar to the following in your ARM template:
 
 ## Load-balanced pool (preview)
 
-Starting in API version 2023-05-01 preview, API Management supports backends of the *pool* type, when you want to implement multiple backends for an API and load balance requests across those backends. Currently, the backend pool supports round-robin load balancing.
+Starting in API version 2023-05-01 preview, API Management supports backend *pools*, when you want to implement multiple backends for an API and load-balance requests across those backends. Currently, the backend pool supports round-robin load balancing.
 
 Use a backend pool for scenarios such as the following:
 
@@ -142,15 +148,15 @@ Use a backend pool for scenarios such as the following:
 * Shift the load from one set of backends to another for upgrade (blue-green deployment).
 * Fall back to a different region when the backend in the current region fails or is overloaded.
 
-To create a backend pool, set the `type` property of the backend to `pool`  and specify a list of single backends in the pool.
+To create a backend pool, set the `type` property of the backend to `pool` and specify a list of single backends that make up the pool.
 
 ### Example
 
-Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a pool consisting of two existing backends. Example backends in the pool are named *backend-1* and *backend-2*. 
+Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a backend pool. Example backends in the pool are named *backend-1* and *backend-2*. 
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template:
+Include a snippet similar to the following in your Bicep template for a backend resource with a load-balanced pool:
 
 ```bicep
 resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-05-01-preview' = {
@@ -172,58 +178,36 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-05-01-previ
     }
   }
 }
-[...]
 ```
 #### [ARM](#tab/arm)
 
-Include a JSON snippet similar to the following in your ARM template:
+Include a JSON snippet similar to the following in your ARM template for a backend resource with a load-balanced pool:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion":"1.0.0.0",
-    "resources": [    
-    {
-      "type": "Microsoft.ApiManagement/service/backends",
-      "apiVersion": "2023-05-01-preview",
-      "name": "myAPIM/myBackendPool",
-      "properties": {
-        "description": "Load balancer for multiple backends",
-        "type": "Pool",
-        "protocol": "http",
-        "url": "http://does-not-matter",
-        "pool": {
-          "services": [
-            {
-              "id": "/backends/backend-1"
-            },
-            {
-              "id": "/backends/backend-2"
-            }
-          ]
-        }
+  {
+    "type": "Microsoft.ApiManagement/service/backends",
+    "apiVersion": "2023-05-01-preview",
+    "name": "myAPIM/myBackendPool",
+    "properties": {
+      "description": "Load balancer for multiple backends",
+      "type": "Pool",
+      "protocol": "http",
+      "url": "http://does-not-matter",
+      "pool": {
+        "services": [
+          {
+            "id": "/backends/backend-1"
+          },
+          {
+            "id": "/backends/backend-2"
+          }
+        ]
       }
     }
-    [...]
-   ]
+  }
 }
 ```
-
-### Use backend pool for an API
-
-To use the pool at runtime, configure the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend of type `pool`:
-
-```xml
-
-<policies>
-    <inbound>
-        <base />
-        <set-backend-service backend-id="myBackendPool" />
-    </inbound>
-    [...]
-<policies/>
-```
-
 
 ---
 ## Limitation
