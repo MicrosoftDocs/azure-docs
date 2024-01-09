@@ -13,7 +13,7 @@ ms.service: azure-migrate
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you are using the tool, you can control the data you share in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more]
+This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you are using the tool, you can control the data you share in the file and there's no need to set up the Azure Migrate appliance to discover servers.
 
 
 In this tutorial, you learn how to:
@@ -51,7 +51,7 @@ To create a project and register the Azure Migrate appliance, you must have an A
 Follow the instructions on [how to set up an Azure Migrate project](tutorial-discover-import.md#set-up-a-project).
 
 
-## Import using the RVTools XLSX file(preview)
+## Import using the RVTools XLSX file (preview)
 
 To import the servers using RVTools XLSX (preview) file, follow these steps:
 
