@@ -37,10 +37,7 @@ For a list of data stores that are supported as sources or sinks, see the [Suppo
 Specifically, this Salesforce connector supports:
 
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
-- Copying data from and to Salesforce production, sandbox, and custom domain.
-
->[!NOTE]
->This function supports copy of any schema from the above mentioned Salesforce environments, including the [Nonprofit Success Pack](https://www.salesforce.org/products/nonprofit-success-pack/) (NPSP). 
+- Copying data from and to custom domain.
 
 You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce, the connector uses BULK API 2.0.
 
@@ -100,10 +97,10 @@ The following properties are supported for the Salesforce linked service.
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to **SalesforceV2**. |Yes |
-| environmentUrl | Specify the URL of the Salesforce instance. <br> - Default is `"https://<MyDomainName>.my.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |Yes |
+| environmentUrl | Specify the URL of the Salesforce instance. <br>For example, specify "https://<MyDomainName>.my.salesforce.com" to copy data from the custom domain. Learn how to configure or view your custom domain referring to this [article](https://help.salesforce.com/s/articleView?id=sf.domain_name_setting_login_policy.htm&type=5). |Yes |
 | clientId |Specify the client ID of the Salesforce OAuth 2.0 Connected App. |Yes |
 | clientSecret |Specify the client secret of the Salesforce OAuth 2.0 Connected App. |Yes |
-| apiVersion | Specify the Salesforce Bulk API version to use, e.g. `52.0`. The supported API version >= 47.0, as Bulk API 2.0 supports: <br>- Ingest Availability: 41.0 and later.<br>- Query Availability: 47.0 and later. | Yes |
+| apiVersion | Specify the Salesforce Bulk API version to use, e.g. `52.0`. The supported API version >= 47.0. To learn about Bulk API version, see [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/bulk_common_diff_two_versions.htm) | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
 **Example: Store credentials**
@@ -212,7 +209,7 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 |:--- |:--- |:--- |
 | type | The type property must be set to **SalesforceV2Object**.  | Yes |
 | objectApiName | The Salesforce object name to retrieve data from. | No for source (if "SOQLQuery" in source is specified), Yes for sink |
-| reportId | The ID of the Salesforce report to retrieve data from. It is not supported in sink. Note that there are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. | No for source (if "SOQLQuery" in source is specified) |
+| reportId | The ID of the Salesforce report to retrieve data from. It is not supported in sink. Note that there are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. | No for source (if "SOQLQuery" in source is specified), not support sink |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -279,7 +276,8 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
         "typeProperties": {
             "source": {
                 "type": "SalesforceV2Source",
-                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c"
+                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
+                "readBehavior": "query"
             },
             "sink": {
                 "type": "<sink type>"
@@ -288,9 +286,6 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
     }
 ]
 ```
-
-> [!Note]
-> Salesforce source doesn't support proxy settings in the self-hosted integration runtime, but sink does.
 
 ### Salesforce as a sink type
 
@@ -301,7 +296,7 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
 | type | The type property of the copy activity sink must be set to **SalesforceV2Sink**. | Yes |
 | writeBehavior | The write behavior for the operation.<br/>Allowed values are **Insert** and **Upsert**. | No (default is Insert) |
 | externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External ID Field" in the Salesforce object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
-| writeBatchSize | The row count of data written to Salesforce in each batch. | No (default is 5,000) |
+| writeBatchSize | The row count of data written to Salesforce in each batch. Suggest set this value from 10,000 to 200,000. Too little rows in each batch will reduce the copy performance. Too much rows in each batch may cause API timeout | No (default is 5,000) |
 | ignoreNullValues | Indicates whether to ignore NULL values from input data during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert or update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
@@ -342,37 +337,9 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
 
 ## Query tips
 
-### Retrieve data from a Salesforce report
-
-You can retrieve data from Salesforce reports by specifying a query as `{call "<report name>"}`. An example is `"query": "{call \"TestReport\"}"`.
-
 ### Retrieve deleted records from the Salesforce Recycle Bin
 
 To query the soft deleted records from the Salesforce Recycle Bin, you can specify `readBehavior` as `queryAll`. 
-
-### Difference between SOQL and SQL query syntax
-
-When copying data from Salesforce, you can only use SOQL query. Note that SOQL query and SQL query has different syntax and functionality support. The following table lists the main differences:
-
-| Syntax | SOQL Mode | SQL Mode |
-|:--- |:--- |:--- |
-| Column selection | Need to enumerate the fields to be copied in the query, e.g. `SELECT field1, filed2 FROM objectname` | `SELECT *` is supported in addition to column selection. |
-| Quotation marks | Filed/object names cannot be quoted. | Field/object names can be quoted, e.g. `SELECT "id" FROM "Account"` |
-| Datetime format |  Refer to details [here](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) and samples in next section. | Refer to details [here](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals) and samples in next section. |
-| Boolean values | Represented as `False` and `True`, e.g. `SELECT … WHERE IsDeleted=True`. | Represented as 0 or 1, e.g. `SELECT … WHERE IsDeleted=1`. |
-| Column renaming | Not supported. | Supported, e.g.: `SELECT a AS b FROM …`. |
-| Relationship | Supported, e.g. `Account_vod__r.nvs_Country__c`. | Not supported. |
-
-### Retrieve data by using a where clause on the DateTime column
-
-When you specify the SOQL query, pay attention to the DateTime format difference with the SQL query. For example:
-
-* **SOQL sample**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **SQL sample**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
-
-### Error of MALFORMED_QUERY: Truncated
-
-If you hit error of "MALFORMED_QUERY: Truncated", normally it's due to you have JunctionIdList type column in data and Salesforce has limitation on supporting such data with large number of rows. To mitigate, try to exclude JunctionIdList column or limit the number of rows to copy (you can partition to multiple copy activity runs).
 
 ## Data type mapping for Salesforce
 
@@ -415,7 +382,7 @@ Migrating your Salesforce linked service is highly recommended if you use the le
 
 1. Create a new Salesforce linked service and configure it by referring to [Linked service properties](connector-salesforce.md#linked-service-properties).  
 
-1. If you use SQL query in the copy activity source or the lookup activity that refers to the legacy linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type) and [Difference between SOQL and SQL query syntax](connector-salesforce.md#difference-between-soql-and-sql-query-syntax).
+1. If you use SQL query in the copy activity source or the lookup activity that refers to the legacy linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
