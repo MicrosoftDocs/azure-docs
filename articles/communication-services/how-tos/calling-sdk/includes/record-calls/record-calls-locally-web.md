@@ -30,19 +30,19 @@ Then you can get the local recording feature API object from the call instance:
 const localCallRecordingApi = call.feature(Features.LocalRecording);
 ```
 
-Then, to check if the call is being recorded locally, inspect the `isRecordingActive` property of `callRecordingApi`. It returns `Boolean`.
+Then, to check if the call is being recorded locally, inspect the `isLocalRecordingActive` property of `localCallRecordingApi`. It returns `Boolean`.
 
 ```js
-const isLocalRecordingActive = localCallRecordingApi.isRecordingActive;
+const isLocalRecordingActive = localCallRecordingApi.isLocalRecordingActive;
 ```
 
-You can also get a list of local recordings by using the `recordings` property of `callRecordingApi`. It returns `LocalRecordingInfo[]`.
+You can also get a list of local recordings by using the `localRecordings` property of `callRecordingApi`. It returns `LocalRecordingInfo[]` which will have the desplayName of the user and current state of the local recording.
 
 ```js
-const recordings = localCallRecordingApi.recordings;
+const recordings = localCallRecordingApi.localRecordings;
 
 recordings.forEach(r => {
-    console.log("Microsoft 365 user: ${r.displayName}, State: ${r.state});
+    console.log("User: ${r.displayName}, State: ${r.state});
 ```
 
 You can subscribe to recording changes:
@@ -61,12 +61,12 @@ You can also subscribe to 'localRecordingsUpdated' and get a collection of updat
 const localRecordingsUpdateddHandler = (args: { added: SDK.LocalRecordingInfo[], removed: SDK.LocalRecordingInfo[]}) => {
                         console.log('Local recording started by: ');
                         args.added?.forEach(a => {
-                            console.log('Microsoft 365 user: ${a.displayName});
+                            console.log('User: ${a.displayName}');
                         });
 
                         console.log('Local recording stopped by: ');
                         args.removed?.forEach(r => {
-                            console.log('Microsoft 365 user ID: ${r.displayName});
+                            console.log('User: ${r.displayName});
                         });
                     };
 localCallRecordingApi.on('localRecordingsUpdated', localRecordingsUpdateddHandler);
