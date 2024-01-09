@@ -52,13 +52,13 @@ Depending on which features your use for Azure Virtual Desktop, you have to pay 
 
 ### Licensing costs
 
-In the context of providing virtualized infrastructure with Azure Virtual Desktop, *internal users* refers to people who are members of your own organization, such as employees of a business or students of a school. *External users* aren't members of your organization, such as customers of a business.
+In the context of providing virtualized infrastructure with Azure Virtual Desktop, *internal users* (for internal commercial purposes) refers to people who are members of your own organization , such as employees of a business or students of a school, including external vendors or contractors. *External users* (for external commercial purposes) aren't members of your organization, but your customers where you might provide a Software-as-a-Service (SaaS) application using Azure Virtual Desktop.
 
 Licensing Azure Virtual Desktop works differently for internal and external commercial purposes:
 
-- If you're providing Azure Virtual Desktop access to internal users, you must purchase an eligible license for each user that accesses Azure Virtual Desktop.
+- If you're providing Azure Virtual Desktop access to internal commercial purposes, you must purchase an eligible license for each user that accesses Azure Virtual Desktop.
 
-- If you're providing Azure Virtual Desktop access external, per-user access pricing lets you pay for Azure Virtual Desktop access rights on behalf of external users. You must enroll in per-user access pricing to build a compliant deployment for external users. You pay for per-user access pricing through an Azure subscription.
+- If you're providing Azure Virtual Desktop access external commercial purposes, per-user access pricing lets you pay for Azure Virtual Desktop access rights on behalf of external users. You must enroll in per-user access pricing to build a compliant deployment for external users. You pay for per-user access pricing through an Azure subscription.
 
 To learn more about the different options, see [License Azure Virtual Desktop](licensing.md).
 
@@ -76,7 +76,7 @@ You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/c
 
    - Your expected compute, storage, and networking usage.
    - Number of users, total hours, and concurrency.
-   - Whether you're using per-user access pricing. If you're licensing internal users, you have to factor this license into your total cost estimate separately.
+   - Whether you're using per-user access pricing for external commercial purposes. If you're licensing for internal commercial purposes, you have to factor this license into your total cost estimate separately.
    - Whether you're using a savings plan or reserved instances.
    - Level of support.
    - Other components of your deployment, such as those features listed in [Accompanying service costs](#accompanying-service-costs).

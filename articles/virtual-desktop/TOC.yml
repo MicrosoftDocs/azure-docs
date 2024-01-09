@@ -126,7 +126,7 @@
       - name: Delegated access
         displayName: identity
         href: delegated-access-virtual-desktop.md
-      - name: Recommendations for internal and external users
+      - name: Recommendations for internal and external commercial purposes
         displayName: identity
         href: recommendations-organization-internal-external-users.md
     - name: Azure Virtual Desktop Agent
