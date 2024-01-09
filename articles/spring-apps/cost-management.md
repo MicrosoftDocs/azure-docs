@@ -34,10 +34,6 @@ The first 50 vCPU hours and 100-GB hours of memory are free each month. For more
 
 If you have Azure Spring Apps instances that don't need to run continuously, you can save costs by reducing the number of running instances. For more information, see [Start or stop your Azure Spring Apps service instance](how-to-start-stop-service.md).
 
-## Standard consumption and dedicated plan
-
-Unlike other pricing plans, the Standard consumption and dedicated plan offers a pure consumption-based pricing model. You can dynamically add and remove resources based on the resource utilization, number of incoming HTTP requests, or by events. When running apps in a consumption workload profile, you're charged for active and idle usage of resources, and the number of requests. For more information, see the [Standard consumption and dedicated plan](overview.md#standard-consumption-and-dedicated-plan) section of [What is Azure Spring Apps?](overview.md)
-
 ## Scale and autoscale
 
 You can manually scale computing capacities to accommodate a changing environment. For more information, see [Scale an application in Azure Spring Apps](how-to-scale-manual.md).

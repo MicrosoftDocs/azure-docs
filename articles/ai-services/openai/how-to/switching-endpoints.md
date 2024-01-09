@@ -61,7 +61,7 @@ client = AzureOpenAI(
 
 <a name='azure-active-directory-authentication'></a>
 
-### Microsoft Entra authentication
+### Microsoft Entra ID authentication
 
 <table>
 <tr>
