@@ -132,13 +132,13 @@ landingContent:
          - text: Azure network security
            url: ../networking/security/index.yml
 
-  # Card
+# Card
   - title: Reference
     linkLists:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: //cli/azure/network/firewall
+            url: /cli/azure/network/firewall
           - text: Azure PowerShell
             url: /powershell/module/az.network/new-azfirewall
           - text: REST
