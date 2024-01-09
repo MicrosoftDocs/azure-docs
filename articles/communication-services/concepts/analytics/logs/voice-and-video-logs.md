@@ -135,19 +135,18 @@ This log provides detailed information on actions taken during a call and can be
 |     `CallClientTimeStamp`         |     The timestamp for when on operation occurred on the SDK in UTC.   |
 |     `OperationName`         |    The name of the operation triggered on the calling SDK.   |
 |     `CallId`    |              The unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call, and you can use it to join data from different logs. It is similar to the correlationId in call summary log and call diagnostic log.               |
-|     `ParticipantId`    |            The unique ID that's generated to represent each endpoint in the call.                  |
+|     `ParticipantId`    |            The unique identifier for each call leg (in Group calls) or call participant (in Peer to Peer calls). This ID is the main correlation point between CallSummary, CallDiagnostic, CallClientOperations, and CallClientMediaStats logs.             |
 |     `OperationType`    |              Call Client Operation.               |
 |     `OperationId`    |             A unique GGUID identifying an SDK operation.                 |
 |     `DurationMs`    |              The time took by an Calling SDK operation to fail or succeed.                |
 |     `ResultType`    |               Field describing success or failure of an operation.               |
-|     `ResultSignature`    |         
-
-HTTP like failure or success code (200, 500).                    |
-|     `SdkVersion`    |                   The version of Calling SDK veing used.           |
+|     `ResultSignature`    |         HTTP like failure or success code (200, 500).                    |
+|     `SdkVersion`    |                   The version of Calling SDK being used.           |
 |     `UserAgent`    |          The standard user agent string based on the browser or the platform Calling SDK is used.        |
 |     `ClientInstanceId`    |            A unique GGUID identifying the CallClient object.                  |
-|     `EndpointId`    |             The unique ID that represents each endpoint connected to the call, where endpointType defines the endpoint type. When the value is null, the connected entity is the Communication Services server (endpointType = "Server").  The endpointId value can sometimes persist for the same user across multiple calls (correlationId) for native clients. The number of endpointId values determines the number of call summary logs. A distinct summary log is created for each endpointId value.                |
+|     `EndpointId`    |             The unique ID that represents each endpoint connected to the call, where endpointType defines the endpoint type. When the value is null, the connected entity is the Communication Services server (endpointType = "Server").  <BR><BR> The endpointId value can sometimes persist for the same user across multiple calls (correlationId) for native clients. The number of endpointId values determines the number of call summary logs. A distinct summary log is created for each endpointId value.                |
 |     `OperationPayload`    |     A dynamic payload that varies based on the operation providing more operation specific details.       |
+
 ### Call client media stats time series log schema
 [!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
 
@@ -155,7 +154,7 @@ The **call client media statistics time series** log provides
 client-side information about the media streams between individual
 participants involved in a call. These logs are currently in limited preview and provide detailed time series
 data on the audio, video, and screenshare media steams between
-participants with a default **<u>10</u>** seconds aggregation interval.
+participants with a default 10 seconds aggregation interval.
 
 
 
