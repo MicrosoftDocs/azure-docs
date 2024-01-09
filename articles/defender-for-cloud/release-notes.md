@@ -31,7 +31,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 January 24, 2024
 
-The new Agentless container posture (Preview) capabilities are available for GCP. For more information, see [Agentless container posture in Defender CSPM](concept-agentless-containers.md) and [Agentless capabilities in Defender for Containers](defender-for-containers-introduction.md#agentless-capabilities).
+The new Agentless container posture (Preview) capabilities are available for GCP, including [Vulnerability assessments for GCP with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-gcp.md). For more information about all the capabilities, see [Agentless container posture in Defender CSPM](concept-agentless-containers.md) and [Agentless capabilities in Defender for Containers](defender-for-containers-introduction.md#agentless-capabilities).
 
 ### Recommendations released for preview: Nine new Azure security recommendations
 

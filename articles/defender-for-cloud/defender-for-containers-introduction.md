@@ -16,7 +16,7 @@ Defender for Containers assists you with four core domains of container security
 
 - [**Security posture management**](#security-posture-management) - performs continuous monitoring of cloud APIs,  Kubernetes APIs, and Kubernetes workloads to discover cloud resources, provide comprehensive inventory capabilities, detect misconfigurations and provide guidelines to  mitigate them,  provide contextual risk assessment, and empowers users to perform enhanced risk hunting capabilities through the Defender for Cloud security explorer.
 
-- [**Vulnerability assessment**](#vulnerability-assessment) -  provides agentless vulnerability assessment for Azure and AWS with remediation guidelines, zero configuration, daily rescans, coverage for OS and language packages, and exploitability insights.
+- [**Vulnerability assessment**](#vulnerability-assessment) -  provides agentless vulnerability assessment for Azure, AWS, and GCP with remediation guidelines, zero configuration, daily rescans, coverage for OS and language packages, and exploitability insights.
 
 - [**Run-time threat protection**](#run-time-protection-for-kubernetes-nodes-and-clusters) - a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework for easy understanding of risk and relevant context, automated response, and SIEM/XDR integration.
 
