@@ -11,7 +11,7 @@ ms.reviewer: mopeakande
 reviewer: msakande
 ms.date: 12/15/2023
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: how-to, devplatv2, cliv2, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ---
 
 # Authenticate clients for online endpoints

@@ -2,14 +2,15 @@
 title: Deploy a flow as a managed online endpoint for real-time inference
 titleSuffix: Azure AI Studio
 description: Learn how to deploy a flow as a managed online endpoint for real-time inference with Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Deploy a flow for real-time inference
@@ -82,7 +83,7 @@ You can use the Azure AI Generative SDK to deploy a prompt flow as an online end
 
 ```python
 # Import required dependencies 
-from azure.ai.generative import AIClient 
+from azure.ai.resources.client import AIClient 
 from azure.ai.generative.entities.deployment import Deployment 
 from azure.ai.generative.entities.models import PromptflowModel 
 from azure.identity import InteractiveBrowserCredential as Credential 

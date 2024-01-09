@@ -105,6 +105,10 @@
     items:
     - name: Use the Azure SignalR SDK
       href: signalr-howto-use.md
+    - name: Use the Management SDK
+      href: signalr-howto-use-management-sdk.md
+    - name: Local emulator for serverless development
+      href: signalr-howto-emulator.md
   - name: Scale and geo-replicate
     items:
     - name: Single instance

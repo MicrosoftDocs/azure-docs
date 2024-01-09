@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 06/12/2023
+ms.date: 01/05/2024
 ---
 
 # Pricing example: Data integration in Azure Data Factory Managed VNET

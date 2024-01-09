@@ -21,7 +21,7 @@ Embedded Speech is designed for on-device [speech to text](speech-to-text.md) an
 
 ## Platform requirements
 
-Embedded speech is included with the Speech SDK (version 1.24.1 and higher) for C#, C++, and Java. Refer to the general [Speech SDK installation requirements](#embedded-speech-sdk-packages) for programming language and target platform specific details.
+Embedded speech is included with the Speech SDK (version 1.24.1 and higher) for C#, C++, and Java. Refer to the general [Speech SDK installation requirements](quickstarts/setup-platform.md#platform-requirements) for programming language and target platform specific details.
 
 **Choose your target environment**
 

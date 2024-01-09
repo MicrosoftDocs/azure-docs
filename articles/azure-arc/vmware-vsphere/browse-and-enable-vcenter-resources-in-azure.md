@@ -5,6 +5,9 @@ ms.topic: how-to
 ms.date: 12/15/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
+author: Farha-Bano
+ms.author: v-farhabano
+manager: jsuri
 
 # Customer intent: As a VI admin, I want to represent a subset of my vCenter resources in Azure to enable self-service.
 ---
