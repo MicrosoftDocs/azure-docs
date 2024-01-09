@@ -179,7 +179,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-	<openid-config url="https://contoso.ciamlogin.com/xxxxxxxxxxxxxx/v2.0/.well-known/openid-configuration" />
+	<openid-config url="https://<tenant-name>.ciamlogin.com/<tenant-id>/v2.0/.well-known/openid-configuration" />
 	<required-claims>
 		<claim name="azp" match="all">
 			<value>insert claim here</value>
