@@ -7,9 +7,10 @@ ms.author: rifox
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-### Record calls
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK.
+
+### Record calls
 
 Call recording is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
