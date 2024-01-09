@@ -12,11 +12,11 @@ ms.date: 01/09/2024
 
 This article describes how you plan for and manage costs for Azure Batch. Before you deploy the service, you can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure Batch. Later, as you deploy Azure resources, review the estimated costs.
 
-After you've started using running Batch workloads, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure Batch are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Batch, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
+After you start running Batch workloads, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure Batch are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Batch, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
 ## Prerequisites
 
-Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Microsoft Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ## Estimate costs before using Azure Batch
 
@@ -34,7 +34,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
    You can learn more about the cost of running virtual machines from the [Plan to manage costs for virtual machines documentation](../virtual-machines/plan-to-manage-costs.md).
 
-## Understand understand the full billing model for Azure Batch
+## Understand the full billing model for Azure Batch
 
 Azure Batch runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
 
@@ -55,7 +55,7 @@ Although Batch itself is a free service, many of the underlying resources that r
 - In some cases, a [load balancer](https://azure.microsoft.com/pricing/details/load-balancer/)
 - Networking resources
     - For Virtual Machine Configuration pools, standard load balancers are used, which require static IP addresses. The load balancers used by Batch are visible for [accounts](accounts.md#batch-accounts) configured in user subscription mode, but not those in Batch service mode.
-    - Standard load balancers incur charges for all data passed to and from Batch pool VMs. Select Batch APIs that retrieve data from pool nodes (such as Get Task/Node File), task application packages, resource/output files, and container images will also incur charges.
+    - Standard load balancers incur charges for all data passed to and from Batch pool VMs. Select Batch APIs that retrieve data from pool nodes (such as Get Task/Node File), task application packages, resource/output files, and container images also incur charges.
     - [Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/)
 - Depending on what services you use, your Batch solution may incur additional fees. Services commonly used with Batch that may have associated costs include:
     - Application Insights
@@ -68,7 +68,7 @@ After you delete Azure Batch resources, the following resources might continue t
 
 - Virtual machine
 - Any disks deployed other than the OS and local disks
-    - By default, the OS disk is deleted with the VM, but it can be [set not to during the VM's creation](delete.md)
+    - By default, the OS disk is deleted with the VM, but it can be [set not to during the VM's creation](../virtual-machines/delete.md)
 - Virtual network
     - Your virtual NIC and public IP, if applicable, can be set to delete along with your virtual machine
 - Bandwidth
@@ -84,7 +84,7 @@ While Azure Batch is a free service, you can pay for underlying resource charges
 
 ## View cost analysis and create budgets
 
-As you use Azure resources with Azure Batch, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as Azure resource use starts, costs are incurred, and you can see the costs in [cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) lets you plan, analyze and reduce your spending to maximize your cloud investment. You can view and filter Batch costs to be viewed and filtered, forecast future costs, and set spending limits with alerts when those limits are reached.
+As you use Azure resources with Azure Batch, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as Azure resource use starts, costs are incurred, and you can see the costs in [cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md) lets you plan, analyze and reduce your spending to maximize your cloud investment. You can view and filter Batch costs to be viewed and filtered, forecast future costs, and set spending limits with alerts when those limits are reached.
 
 In the Azure portal, you can create budgets and spending alerts for your Batch pools or Batch accounts. Budgets and alerts are useful for notifying stakeholders of any risks of overspending, although it's possible for there to be a delay in spending alerts and to slightly exceed a budget.
 
@@ -104,7 +104,7 @@ For Batch accounts created with the Batch service pool allocation mode:
 1. Select your subscription in the **Billing scopes** section.
 1. Under **Cost Management**, select **Cost analysis**.
 1. Select **Add Filter**. In the first drop-down, select **Resource**.
-1. In the second drop-down, select the Batch pool. When the pool is selected, you will see the cost analysis for your pool. The screenshot below shows example data.
+1. In the second drop-down, select the Batch pool. When the pool is selected, you see the cost analysis for your pool. The screenshot below shows example data.
    :::image type="content" source="media/plan-to-manage-costs/pool-cost-analysis.png" alt-text="Screenshot showing cost analysis of a Batch pool in the Azure portal.":::
 
 The resulting cost analysis shows the cost of the pool as well as the resources that contribute to this cost. In this example, the VMs used in the pool are the most costly resource.
@@ -123,13 +123,13 @@ For Batch accounts created with the user subscription pool allocation mode:
 1. Under **Cost Management**, select **Cost analysis**.
 1. Select **Add Filter**. In the first drop-down, select **Tag**.
 1. In the second drop-down, select **poolname**.
-1. In the third drop-down, select the Batch pool. When the pool is selected, you will see the cost analysis for your pool. The screenshot below shows example data.
+1. In the third drop-down, select the Batch pool. When the pool is selected, you see the cost analysis for your pool. The screenshot below shows example data.
    :::image type="content" source="media/plan-to-manage-costs/user-subscription-pool.png" alt-text="Screenshot showing cost analysis of a user subscription Batch pool in the Azure portal.":::
 
 Note that if you're interested in viewing cost data for all pools in a user subscription Batch account, you can select **batchaccountname** in the second drop-down and the name of your Batch account in the third drop-down. 
 
 > [!NOTE]
-> Pools created by user subscription Batch accounts will not show up under the **Resource** filter, though their usage will still show up when filtering for "virtual machines" under service name.
+> Pools created by user subscription Batch accounts don't show up under the **Resource** filter, though their usage still shows up when filtering for "virtual machines" under service name.
 
 ### Create a budget for a Batch pool
 
@@ -165,7 +165,7 @@ To determine VM utilization, you can log in to a node when running tasks to view
 
 Multiple task slots can be specified for a pool, so that the corresponding number of tasks can be run in parallel on each node. Pool task slots can be used to reduce the number of nodes used in a pool by choosing larger VM sizes and running multiple tasks in parallel on the node to ensure the node is well utilized. If nodes are underutilized, slots can be used to increase utilization. For example, for a single-threaded task application, one slot per core could be configured. It is also possible to have more slots than cores. This would be applicable if the application blocks significantly waiting for calls to external services to be returned, for one example.
 
-Setting [`taskSchedulingPolicy`](/rest/api/batchservice/pool/add#taskschedulingpolicy) to `pack` will help ensure VMs are utilized as much as possible, with scaling more easily able to remove nodes not running any tasks.
+Setting [`taskSchedulingPolicy`](/rest/api/batchservice/pool/add#taskschedulingpolicy) to `pack` helps ensure VMs are utilized as much as possible, with scaling more easily able to remove nodes not running any tasks.
 
 ### Use Azure Spot virtual machines
 
@@ -177,15 +177,15 @@ By default, pool nodes use managed disks, which incur costs. Virtual Machine Con
 
 ### Purchase reservations for virtual machine instances
 
-If you intend to use Batch for a long period of time, you can reduce the cost of VMs by using [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) for your workloads. A reservation rate is considerably lower than a pay-as-you-go rate. Virtual machine instances used without a reservation are charged at the pay-as-you-go rate. When you purchase a reservation, the reservation discount is applied. By committing to one-year or three-year plans for [VM instances](../virtual-machines/prepay-reserved-vm-instances.md), significant discounts are applied to VM usage, including [VMs consumed via Batch pools](../virtual-machines/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).
+If you intend to use Batch for a long period of time, you can reduce the cost of VMs by using [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) for your workloads. A reservation rate is considerably lower than a pay-as-you-go rate. Virtual machine instances used without a reservation are charged at the pay-as-you-go rate. When you purchase a reservation, the reservation discount is applied. When you commit to one-year or three-year plans for [VM instances](../virtual-machines/prepay-reserved-vm-instances.md), significant discounts are applied to VM usage, including [VMs consumed via Batch pools](../virtual-machines/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).
 
-It is important to note that reservation discount is "use-it-or-lose-it."  If there no matching resources are used for an hour, you'll lose the reservation quantity for that hour. Unused reserved hours can't be carried forward, and are therefore lost if not used. Batch workloads often scale the number of allocated VMs according to load and have varying load, including periods where there is no load. Care therefore needs to be taken determining the reservation amount, given that reserved hours will be lost if Batch VMs are scaled down below the reservation quantity.
+It is important to note that reservation discount is "use-it-or-lose-it."  If there no matching resources are used for an hour, you'll lose the reservation quantity for that hour. Unused reserved hours can't be carried forward, and are therefore lost if not used. Batch workloads often scale the number of allocated VMs according to load and have varying load, including periods where there is no load. Care therefore needs to be taken determining the reservation amount, given that reserved hours are lost if Batch VMs are scaled down below the reservation quantity.
 
 ### Use automatic scaling
 
-[Automatic scaling](batch-automatic-scaling.md) dynamically scales the number of VMs in your Batch pool based on demands of the current job. By scaling the pool based on the lifetime of a job, automatic scaling ensures that VMs are scaled up and used only when there is a job to perform. When the job is complete, or when there are no jobs, the VMs are automatically scaled down to save compute resources. Scaling allows you to lower the overall cost of your Batch solution by using only the resources you need.
+[Automatic scaling](batch-automatic-scaling.md) dynamically scales the number of VMs in your Batch pool based on demands of the current job. When you scale the pool based on the lifetime of a job, automatic scaling ensures that VMs are scaled up and used only when there is a job to perform. When the job is complete, or when there are no jobs, the VMs are automatically scaled down to save compute resources. Scaling allows you to lower the overall cost of your Batch solution by using only the resources you need.
 
 ## Next steps
 
-- Learn more about [Azure Cost Management + Billing](../cost-management-billing/cost-management-billing-overview.md).
+- Learn more about [Microsoft Cost Management + Billing](../cost-management-billing/cost-management-billing-overview.md).
 - Learn about using [Azure Spot VMs with Batch](batch-spot-vms.md).
