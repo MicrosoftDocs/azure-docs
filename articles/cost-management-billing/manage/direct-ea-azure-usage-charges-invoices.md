@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/08/2023
+ms.date: 01/24/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -15,12 +15,8 @@ ms.reviewer: sapnakeshari
 This article explains how partner administrators of indirect enrollments and enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal. Charges are presented at the summary level across all accounts and subscriptions of the enrollment.
 
 > [!NOTE]
-> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
+>On February 15, 2024, the Azure Enterprise portal is retiring for EA enrollments in the Azure Government cloud. The Azure Enterprise portal is already retired for EA enrollments in the  commercial cloud. Customers and Partners should use Cost Management + Billing in the Azure portal to manage their enrollments. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
 >
-> As of February 20, 2023 indirect EA customers can't manage their billing account in the EA portal. Instead, they must use the Azure portal. 
-> 
-> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
-
 Check out the [EA admin manage consumption and invoices](https://www.youtube.com/watch?v=bO8V9eLfQHY) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/bO8V9eLfQHY]
@@ -276,9 +272,8 @@ The EA admin receives an invoice notification email after the end of billing per
 If you want to update the PO number after your invoice is generated, then contact Azure support in the Azure portal.
 
 > [!NOTE]
->PO number update is only used for Overage/Marketplace invoices. To update a PO number for other invoices such as the invoice for a prepayment purchase, contact your Software Advisor (direct customer) or your partner (indirect customer). They in-turn, can contact the Regional Operation Center to update a PO number using the Call Logging tool at the Explore.ms site.
-
-Check out the [Manage purchase order number in the Azure portal](https://www.youtube.com/watch?v=26aanfQfjaY) video.
+>PO number update is only used for Overage/Marketplace invoices. To update a PO number for other invoices such as the invoice for a prepayment purchase, contact your Software Advisor (direct customer) or your partner (indirect customer). They in-turn, can contact the Regional Operation Center to update a PO number using the Cases & Support at the Volume Licensing Central portal.
+>Check out the [Manage purchase order number in the Azure portal](https://www.youtube.com/watch?v=26aanfQfjaY) video.
 >[!VIDEO https://www.youtube.com/embed/26aanfQfjaY]
 
 The EA admin can update the PO number for a billing account:

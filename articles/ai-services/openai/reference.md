@@ -216,7 +216,7 @@ The request body consists of a series of messages. The model will generate a res
 |--|--|--|--|--|
 | `messages` | array | Yes | N/A | The series of messages associated with this chat completion request. It should include previous messages in the conversation. Each message has a `role` and `content`. |
 | `role`| string | Yes | N/A | Indicates who is giving the current message. Can be `system`,`user`,`assistant`,`tool`, or `function`.|
-| `content` | string or array | Yes | N/A | The content of the message. It must be a string, unless in a Vision-enabled scenario: If it's part of the `user` message, using the GPT-4 Turbo with Vision model, with the latest API version, then it can be an array of `contentPart` structures. |
+| `content` | string or array | Yes | N/A | The content of the message. It must be a string, unless in a Vision-enabled scenario. If it's part of the `user` message, using the GPT-4 Turbo with Vision model, with the latest API version, then `content` must be an array of structures, where each item represents either text or an image: <ul><li> `text`: input text is represented as a structure with the following properties: </li> <ul> <li> `type` = "text" </li> <li> `text` = the input text </li> </ul> <li> `images`: an input image is represented as a structure with the following properties: </li><ul> <li> `type` = "image_url" </li> <li> `image_url` = a structure with the following properties: </li> <ul> <li> `url` = the image URL </li> <li>(optional) `detail` = "high", "low", or "auto" </li> </ul> </ul> </ul>|
 | `contentPart` | object | No | N/A | Part of a user's multi-modal message. It can be either text type or image type. If text, it will be a text string. If image, it will be a `contentPartImage` object. |
 | `contentPartImage` | object | No | N/A | Represents a user-uploaded image. It has a `url` property, which is either a URL of the image or the base 64 encoded image data. It also has a `detail` property which can be `auto`, `low`, or `high`.|
 | `enhancements` | object | No | N/A | Represents the Vision enhancement features requested for the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service.|
@@ -230,7 +230,6 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d '{"messages":[{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},{"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},{"role": "user", "content": "Do other Azure AI services support this too?"}]}'
-
 ```
 
 **Chat with vision**
@@ -238,7 +237,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/chat/completions?api-version=2023-12-01-preview \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
-  -d '{"messages":[{"role":"system","content":"You are a helpful assistant."},{"role":"user","content":[{"type":"text","text":"Describe this picture:"},{"type":"image_url","url":"https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png"}]}]}'
+  -d '{"messages":[{"role":"system","content":"You are a helpful assistant."},{"role":"user","content":[{"type":"text","text":"Describe this picture:"},{ "type": "image_url", "image_url": { "url": "https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png", "detail": "high" } }]}]}'
 ```
 
 **Enhanced chat with vision**
@@ -246,7 +245,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-12-01-preview \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
-  -d '{"enhancements":{"ocr":{"enabled":true},"grounding":{"enabled":true}},"dataSources":[{"type":"AzureComputerVision","parameters":{"endpoint":" <Computer Vision Resource Endpoint> ","key":"<Computer Vision Resource Key>"}}],"messages":[{"role":"system","content":"You are a helpful assistant."},{"role":"user","content":[{"type":"text","text":"Describe this picture:"},{"type":"image_url","url":"https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png"}]}]}'
+  -d '{"enhancements":{"ocr":{"enabled":true},"grounding":{"enabled":true}},"dataSources":[{"type":"AzureComputerVision","parameters":{"endpoint":" <Computer Vision Resource Endpoint> ","key":"<Computer Vision Resource Key>"}}],"messages":[{"role":"system","content":"You are a helpful assistant."},{"role":"user","content":[{"type":"text","text":"Describe this picture:"},{"type":"image_url","image_url":"https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png"}]}]}'
 ```
 
 #### Example response
@@ -265,6 +264,9 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 In the example response, `finish_reason` equals `stop`. If `finish_reason` equals `content_filter` consult our [content filtering guide](./concepts/content-filter.md) to understand why this is occurring.
 
 Output formatting adjusted for ease of reading, actual output is a single block of text without line breaks.
+
+> [!IMPORTANT]
+> The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the `tools` parameter. The replacement for `function_call` is the `tool_choice` parameter. Parallel function calling which was introduced as part of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) is only supported with `gpt-35-turbo` (1106) and `gpt-4` (1106-preview) also known as GPT-4 Turbo Preview.  
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
@@ -377,9 +379,9 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
         {
             "type": "AzureCognitiveSearch",
             "parameters": {
-                "endpoint": "'YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT'",
-                "key": "'YOUR_AZURE_COGNITIVE_SEARCH_KEY'",
-                "indexName": "'YOUR_AZURE_COGNITIVE_SEARCH_INDEX_NAME'"
+                "endpoint": "YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT",
+                "key": "YOUR_AZURE_COGNITIVE_SEARCH_KEY",
+                "indexName": "YOUR_AZURE_COGNITIVE_SEARCH_INDEX_NAME"
             }
         }
     ],
@@ -484,7 +486,6 @@ The following parameters can be used inside of the `parameters` field inside of 
 |--|--|--|--|--|
 | `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure AI Search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. |
 | `indexName` | string | Required | null | The search index to be used. |
-| `fieldsMapping` | dictionary | Optional for Azure AI Search. Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
 | `inScope` | boolean | Optional | true | If set, this value will limit responses specific to the grounding data content.  |
 | `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio.   |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only required when `queryType` is set to `semantic` or  `vectorSemanticHybrid`.  |
@@ -496,13 +497,36 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. |
 
 
-**The following parameters are used for Azure AI Search only**
+**The following parameters are used for Azure AI Search**
 
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `endpoint` | string | Required | null | Azure AI Search only. The data source endpoint. |
 | `key` | string | Required | null | Azure AI Search only. One of the Azure AI Search admin keys for your service. |
 | `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure AI Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
+| `fieldsMapping` | dictionary | Optional for Azure AI Search.  | null | defines which [fields](./concepts/use-your-data.md?tabs=ai-search#index-field-mapping) you want to map when you add your data source. |
+
+The following parameters are used inside of the `fieldsMapping` field.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `titleField` | string | Optional  | null | The field in your index that contains the original title of each document. |
+| `urlField` | string | Optional  | null | The field in your index that contains the original URL of each document. |
+| `filepathField` | string | Optional  | null | The field in your index that contains the original file name of each document. |
+| `contentFields` | dictionary | Optional  | null | The fields in your index that contain the main text content of each document. |
+| `contentFieldsSeparator` | string | Optional  | null | The separator for the your content fields. Use `\n` by default.  |
+
+```json
+"fieldsMapping": {
+  "titleField": "myTitleField",
+  "urlField": "myUrlField",
+  "filepathField": "myFilePathField",
+  "contentFields": [
+    "myContentField"
+  ],
+  "contentFieldsSeparator": "\n"
+}
+```
 
 **The following parameters are used for Azure Cosmos DB for MongoDB vCore**
 
@@ -514,6 +538,7 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `containerName` | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The Azure Cosmos Mongo vCore container name in the database. |
 | `type` (found inside of`embeddingDependencyType`) | string | Required | null | Indicates the embedding model dependency. |
 | `deploymentName` (found inside of`embeddingDependencyType`) | string | Required | null | The embedding model deployment name. |
+| `fieldsMapping` | dictionary | Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
 
 ### Start an ingestion job 
 
@@ -661,7 +686,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| `prompt` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
+| `prompt` | string | Required |  | A text description of the desired image(s). The maximum length is 4000 characters. |
 | `n` | integer | Optional | 1 | The number of images to generate. Only `n=1` is supported for DALL-E 3. |
 | `size` | string | Optional | `1024x1024` | The size of the generated images. Must be one of `1792x1024`, `1024x1024`, or `1024x1792`. |
 | `quality` | string | Optional | `standard` | The quality of the generated images. Must be `hd` or `standard`. |

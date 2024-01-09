@@ -1,7 +1,7 @@
 ---
 title: How to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 11/21/2023
+ms.date: 01/02/2024
 ms.topic: conceptual
 ---
 
@@ -32,6 +32,24 @@ If you're unable to successfully link your Azure Arc-enabled server to an activa
 - **Environment:** The connected machine should not be running on Azure Stack HCI, Azure VMware solution (AVS), or as an Azure virtual machine. **In these scenarios, WS2012 ESUs are available for free**. For information about no-cost ESUs through Azure Stack HCI, see [Free Extended Security Updates through Azure Stack HCI](/azure-stack/hci/manage/azure-benefits-esu?tabs=windows-server-2012).
 
 - **License properties:** Verify the license is activated and has been allocated sufficient physical or virtual cores to support the intended scope of servers.
+
+## Resource providers
+
+If you're unable to enable this service offering, review the resource providers registered on the subscription as noted below. If you receive an error while attempting to register the resource providers, validate the role assignment/s on the subscription. Also review any potential Azure policies that may be set with a Deny effect, preventing the enablement of these resource providers.
+
+- **Microsoft.HybridCompute:** This resource provider is essential for Azure Arc-enabled servers, allowing you to onboard and manage on-premises servers in the Azure portal.
+
+- **Microsoft.GuestConfiguration:** Enables Guest Configuration policies, which are used to assess and enforce configurations on your Arc-enabled servers for compliance and security.
+
+- **Microsoft.UpdateManagement:** This resource provider is required for Azure Update Management, which is used to manage updates and patches on your on-premises servers, including ESU updates.
+
+- **Microsoft.Security:** Enabling this resource provider is crucial for implementing security-related features and configurations for both Azure Arc and on-premises servers.
+
+- **Microsoft.OperationalInsights:** This resource provider is associated with Azure Monitor and Log Analytics, which are used for monitoring and collecting telemetry data from your hybrid infrastructure, including on-premises servers.
+
+- **Microsoft.Sql:** If you're managing on-premises SQL Server instances and require ESU for SQL Server, enabling this resource provider is necessary.
+
+- **Microsoft.Storage:** Enabling this resource provider is important for managing storage resources, which may be relevant for hybrid and on-premises scenarios.
 
 ## ESU patches issues
 

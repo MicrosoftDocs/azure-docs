@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 12/18/2023
 ---
 
 # Run or reset indexers, skills, or documents
 
 In Azure AI Search, there are several ways to run an indexer:
 
-+ [Run when creating or updating an indexer](search-howto-create-indexers.md), assuming it's not created in "disabled" mode.
++ [Run immediately upon indexer creation](search-howto-create-indexers.md), assuming it's not created in "disabled" mode.
 + [Run on a schedule](search-howto-schedule-indexers.md) to invoke execution at regular intervals.
 + Run on demand, with or without a "reset".
 
@@ -24,28 +24,28 @@ This article explains how to run indexers on demand, with and without a reset. I
 
 ## Indexer execution
 
-You can run multiple indexers at one time, but each indexer itself is single-instance. Starting a new instance while the indexer is already in execution produces this error: `"Failed to run indexer "<indexer name>" error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."`
+You can run multiple indexers at one time assuming you sufficient replicas (one indexer job per replica), but each indexer itself is single-instance. Starting a new instance while the indexer is already in execution produces this error: `"Failed to run indexer "<indexer name>" error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."`
 
-An indexer job runs in a managed execution environment. Currently, there are two environments. You can't control or configure which environment is used. Azure AI Search determines the environment based on job composition and the ability of the service to move an indexer job onto a content processor (some [security features](search-indexer-securing-resources.md#indexer-execution-environment) block the multi-tenant environment).
+An indexer job runs in a managed execution environment. Currently, there are two environments. You can't control or configure which environment is used. Azure AI Search determines the environment based on job composition and the ability of the service to move an indexer job onto a content processor (some [security features](search-indexer-securing-resources.md#indexer-execution-environment) block the multitenant environment).
 
 Indexer execution environments include:
 
 + A private execution environment that runs on search nodes, specific to your search service.
 
-+ A multi-tenant environment with content processors, managed and secured by Microsoft at no extra cost. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Whenever possible, most indexer jobs are executed in the multi-tenant environment.
++ A multitenant environment with content processors, managed and secured by Microsoft at no extra cost. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Whenever possible, most indexer jobs are executed in the multitenant environment.
 
 Indexer limits vary for each environment:
 
 | Workload | Maximum duration | Maximum jobs | Execution environment |
 |----------|------------------|---------------------|-----------------------------|
 | Private execution | 24 hours | One indexer job per [search unit](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards) <sup>1</sup>.  | Indexing doesn't run in the background. Instead, the search service will balance all indexing jobs against ongoing queries and object management actions (such as creating or updating indexes). When running indexers, you should expect to see [some query latency](search-performance-analysis.md#impact-of-indexing-on-queries) if indexing volumes are large. |
-| Multi-tenant| 2 hours <sup>2</sup> | Indeterminate <sup>3</sup> | Because the content processing cluster is multi-tenant, nodes are added to meet demand. If you experience a delay in on-demand or scheduled execution, it's probably because the system is either adding nodes or waiting for one to become available.|
+| Multitenant| 2 hours <sup>2</sup> | Indeterminate <sup>3</sup> | Because the content processing cluster is multitenant, nodes are added to meet demand. If you experience a delay in on-demand or scheduled execution, it's probably because the system is either adding nodes or waiting for one to become available.|
 
 <sup>1</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, but indexer jobs aren't tied to one or the other. In other words, if you have 12 units, you can have 12 indexer jobs running concurrently in private execution, no matter how the search units are deployed.
 
 <sup>2</sup> If more than two hours are needed to process all of the data, [enable change detection](search-howto-create-indexers.md#change-detection-and-internal-state) and [schedule the indexer](search-howto-schedule-indexers.md) to run at two hour intervals. See [Indexing a large data set](search-howto-large-index.md) for more strategies.
 
-<sup>3</sup> "Indeterminate" means that the limit isn't quantified by the number of jobs. Some workloads, such as skillset processing, can run in parallel which could result in many jobs even though only one indexer is involved. Although the environment doesn't impose constraints, [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service still apply.
+<sup>3</sup> "Indeterminate" means that the limit isn't quantified by the number of jobs. Some workloads, such as skillset processing, can run in parallel, which could result in many jobs even though only one indexer is involved. Although the environment doesn't impose constraints, [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service still apply.
 
 ## Run without reset
 
@@ -81,7 +81,7 @@ Reset clears the high-water mark. All documents in the search index will be flag
 
 The actual work occurs when you follow a reset with a Run command:
 
-+ All new documents found the underlying source will be added to the search index. 
++ All new documents found the underlying source are added to the search index. 
 + All documents that exist in both the data source and search index will be overwritten in the search index. 
 + Any enriched content created from skillsets will be rebuilt. The enrichment cache, if one is enabled, is refreshed.
 

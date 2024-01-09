@@ -4,7 +4,7 @@ description: Learn how to use Elastic SAN Preview with Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
 ms.author: v-suzuber
-ms.date: 12/05/2023
+ms.date: 12/22/2023
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -19,7 +19,7 @@ Azure Elastic storage area network (SAN) addresses the problem of workload optim
 The following prerequisites are required to continue.
 
 - Register for the preview by filling out the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8FVh9RJVPdOk_mdTpp--pZUN0RKUklROEc4UE1RRFpRMkhNVFAySTM1TC4u).
-- Verify you have a Dev/Test SDDC set up in one of the following regions:
+- Verify you have a Dev/Test private cloud set up in one of the following regions:
 	- East US
 	- East US 2
 	- South Central US
@@ -32,16 +32,16 @@ The following prerequisites are required to continue.
 	- Sweden Central
 	- Southeast Asia
 	- Australia East
-- Know the availability zone your SCCD is in. 
+- Know the availability zone your private cloud is in. 
 	- In the UI, select an Azure VMware Solution host.
 	> [!NOTE]
 	> The host exposes its Availability Zone. You should use that AZ when deploying other Azure resources for the same subscription.
-- You have permission to set up new resources in the subscription your SDDC is in.
+- You have permission to set up new resources in the subscription your private cloud is in.
 - Verify that you received an email confirmation that your subscription is now allowlisted.
 
 ## Set up Elastic SAN
 
-In this section, you create a virtual network for your Elastic SAN. Then you create the Elastic SAN that includes creating at least one volume group and one volume that becomes your VMFS datastore. Next, you set up a Private Endpoint for your Elastic SAN that allows your SDDC to connect to the Elastic SAN volume. Then you're ready to add an Elastic SAN volume as a datastore in your SDDC.
+In this section, you create a virtual network for your Elastic SAN. Then you create the Elastic SAN that includes creating at least one volume group and one volume that becomes your VMFS datastore. Next, you set up a Private Endpoint for your Elastic SAN that allows your private cloud to connect to the Elastic SAN volume. Then you're ready to add an Elastic SAN volume as a datastore in your private cloud.
 
 1. Use one of the following instruction options to set up a dedicated virtual network for your Elastic SAN:
 	- [Azure portal](../virtual-network/quick-create-portal.md)
@@ -49,7 +49,7 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
 	- [Azure CLI](../virtual-network/quick-create-cli.md)
 1. Use one of the following instruction options to set up an Elastic SAN, your dedicated volume group, and initial volume in that group:
 	> [!IMPORTANT]
-	> Create your Elastic SAN in the same region and availability zone as your SDDC for best performance.
+	> Create your Elastic SAN in the same region and availability zone as your private cloud for best performance.
 	- [Azure portal](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal)
 	- [PowerShell](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell)
 	- [Azure CLI](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli)
@@ -59,7 +59,7 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
 
 ## Add an Elastic SAN volume as a datastore
 
-After you receive confirmation that your subscription is allowlisted, you can use the Azure portal to add the Elastic SAN volume as a datastore in your SDDC. Use the following steps to add, connect, disconnect, and delete Elastic SAN.
+After you receive confirmation that your subscription is allowlisted, you can use the Azure portal to add the Elastic SAN volume as a datastore in your private cloud. Use the following steps to add, connect, disconnect, and delete Elastic SAN.
 
 ## Configure external storage address block
 
@@ -80,7 +80,7 @@ After you provide an External storage address block, you can connect to an Elast
 1. Select your **Subscription**, **Resource**, **Volume Group**, **Volume(s)**, and **Client cluster**.
 1. From section, "Rename datastore as per VMware requirements", under **Volume name** > **Data store name**, give names to the Elastic SAN volumes.
 	> [!NOTE]
-	> For best performance, verify that your Elastic SAN volume and SDDC are in the same Region and Availability Zone.
+	> For best performance, verify that your Elastic SAN volume and private cloud are in the same Region and Availability Zone.
 
 ## Disconnect and delete an Elastic SAN-based datastore
 

@@ -33,7 +33,6 @@ Other language stacks, likewise, get the app settings as environment variables a
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-app-settings-as-environment-variables)
 - [Java](configure-language-java.md#configure-data-sources)
-- [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 App settings are always encrypted when stored (encrypted-at-rest).
@@ -224,7 +223,6 @@ For example, a MySQL connection string named *connectionstring1* can be accessed
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
 - [Java](configure-language-java.md#configure-data-sources)
-- [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 Connection strings are always encrypted when stored (encrypted-at-rest).
@@ -409,7 +407,6 @@ It's not possible to edit connection strings in bulk by using a JSON file with A
 - [PHP](configure-language-php.md)
 - [Python](configure-language-python.md)
 - [Java](configure-language-java.md)
-- [Ruby](configure-language-ruby.md)
 
 <a name="alwayson"></a>
 

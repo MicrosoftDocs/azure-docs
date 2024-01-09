@@ -83,7 +83,7 @@ When you create a confidential VM through the Azure Command-Line Interface (Azur
 
 1. Edit the JSON code in the parameter file as needed. For example,  update the OS image name (`osImageName`) or the administrator username (`adminUsername`). 
 
-1. Configure your security type setting (`securityType`). Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. For Intel TDX SKUs and Linux-based images only, customers may choose the `NonPersistedTPM` security type to deploy with an ephemeral vTPM. For the `NonPersistedTPM` security type use the minimum "apiVersion": "2023-09-01" in the template file.
+1. Configure your security type setting (`securityType`). Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. For Intel TDX SKUs and Linux-based images only, customers may choose the `NonPersistedTPM` security type to deploy with an ephemeral vTPM. For the `NonPersistedTPM` security type use the minimum "apiVersion": "2023-09-01" under `Microsoft.Compute/virtualMachines` in the template file.
 
 1. Save your parameter file.
 
@@ -303,7 +303,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
         ```
 
-    1. Deploy your confidential VM using the [confidential VM ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) (`deployCPSCVM_cmk.json`) and a [deployment parameter file](#example-deployment-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
+    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or [Intel TDX](https://accpublicdocshare.blob.core.windows.net/tdxpublicpreview/TDXpreviewtemplateCMK.json) and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
 
         ```azurecli-interactive
         $deployName = <name of deployment>
@@ -321,38 +321,6 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```
 
 1. Connect to your confidential VM to make sure the creation was successful.
-
-### Example deployment parameter file
-
-This is an example parameter file for a Windows Server 2022 Gen 2 confidential VM: 
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-  
-      "vmSize": {
-        "value": "Standard_DC2as_v5"
-      },
-      "osImageName": {
-        "value": "Windows Server 2022 Gen 2"
-      },
-      "osDiskType": {
-        "value": "StandardSSD_LRS"
-      },
-      "securityType": {
-        "value": "DiskWithVMGuestState"
-      },
-      "adminUsername": {
-        "value": "testuser"
-      },
-      "adminPasswordOrKey": {
-        "value": "<Your-Password>"
-      }
-    }
-}
-```
 
 ## Next steps
 

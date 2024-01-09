@@ -32,14 +32,20 @@ If you have any feedback or ideas on how to improve your experience create an is
 ## Version compatibility
 * [Version compatibility for Spark 3.1](https://aka.ms/azure-cosmos-spark-3-1-version-compatibility)
 * [Version compatibility for Spark 3.2](https://aka.ms/azure-cosmos-spark-3-2-version-compatibility)
+* [Version compatibility for Spark 3.3](https://aka.ms/azure-cosmos-spark-3-3-version-compatibility)
+* [Version compatibility for Spark 3.4](https://aka.ms/azure-cosmos-spark-3-4-version-compatibility)
 
 ## Release notes
 * [Release notes for Spark 3.1](https://aka.ms/azure-cosmos-spark-3-1-changelog)
 * [Release notes for Spark 3.2](https://aka.ms/azure-cosmos-spark-3-2-changelog)
+* [Release notes for Spark 3.3](https://aka.ms/azure-cosmos-spark-3-3-changelog)
+* [Release notes for Spark 3.4](https://aka.ms/azure-cosmos-spark-3-4-changelog)
 
 ## Download
 * [Download of Azure Cosmos DB Spark connector for Spark 3.1](https://aka.ms/azure-cosmos-spark-3-1-download)
 * [Download of Azure Cosmos DB Spark connector for Spark 3.2](https://aka.ms/azure-cosmos-spark-3-2-download)
+* [Download of Azure Cosmos DB Spark connector for Spark 3.3](https://aka.ms/azure-cosmos-spark-3-3-download)
+* [Download of Azure Cosmos DB Spark connector for Spark 3.4](https://aka.ms/azure-cosmos-spark-3-4-download)
 
 Azure Cosmos DB Spark connector is available on [Maven Central Repo](https://search.maven.org/search?q=g:com.azure.cosmos.spark).
 

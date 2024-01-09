@@ -2,7 +2,6 @@
 title: Batch processing kit for Speech containers
 titleSuffix: Azure AI services
 description: Use the Batch processing kit to scale Speech container requests. 
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
