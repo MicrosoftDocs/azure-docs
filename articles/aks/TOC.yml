@@ -256,6 +256,8 @@
                        href: istio-deploy-ingress.md
                      - name: Upgrade Istio service mesh add-on
                        href: istio-upgrade.md
+                     - name: Istio Service Mesh AKS Add-On Performance
+                       href: istio-scale.md
                  - name: Open Service Mesh AKS add-on
                    items:
                      - name: About Open Service Mesh
