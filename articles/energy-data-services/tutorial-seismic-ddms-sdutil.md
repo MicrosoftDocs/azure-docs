@@ -93,7 +93,7 @@ Install required dependencies:
     ```
     
     > [!NOTE] 
-    > Follow the directions in [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to obtain a token if not already present.
+    > Follow the directions in [How to Generate auth Token](how-to-generate-auth-token.md) to obtain a token if not already present.
 
 3. Export or set below environment variables
 
