@@ -196,7 +196,7 @@ WHERE command like 'BuildReplicatedTableCache%'
 ```
 
 > [!TIP]
-> [Table size queries](https://learn.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview#table-size-queries) can be used to verify which table(s) have a replicated distribution policy and whose size is more than 2 GB.
+> [Table size queries](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview#table-size-queries) can be used to verify which table(s) have a replicated distribution policy and which are larger than 2 GB.
 
 ## Next steps
 
