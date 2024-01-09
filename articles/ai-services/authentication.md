@@ -239,32 +239,30 @@ In this sample, a password is used to authenticate the service principal. The to
    ```
 
 2. Get a token:
-   > [!NOTE]
-   > If you're using Azure Cloud Shell, the `SecureClientSecret` class isn't available. 
-
-   #### [PowerShell](#tab/powershell)
    ```powershell-interactive
-   $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
-   $secureSecretObject = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.SecureClientSecret" -ArgumentList $SecureStringPassword   
-   $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, $secureSecretObject
-   $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
-   $token
-   ```
+   $tenantId = $context.Tenant.Id
+   $clientId = $app.ApplicationId
+   $clientSecret = "<YOUR_PASSWORD>"
+   $resourceUrl = "https://cognitiveservices.azure.com/"
    
-   #### [Azure Cloud Shell](#tab/azure-cloud-shell)
-   ```Azure Cloud Shell
-   $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
-   $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, <YOUR_PASSWORD>
-   $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
-   $token
-   ``` 
+   $tokenEndpoint = "https://login.microsoftonline.com/$tenantId/oauth2/token"
+   $body = @{
+       grant_type    = "client_credentials"
+       client_id     = $clientId
+       client_secret = $clientSecret
+       resource      = $resourceUrl
+   }
+   
+   $responseToken = Invoke-RestMethod -Uri $tokenEndpoint -Method Post -Body $body
+   $accessToken = $responseToken.access_token
+   ```
 
    ---
 
 3. Call the Computer Vision API:
    ```powershell-interactive
    $url = $account.Endpoint+"vision/v1.0/models"
-   $result = Invoke-RestMethod -Uri $url  -Method Get -Headers @{"Authorization"=$token.CreateAuthorizationHeader()} -Verbose
+   $result = Invoke-RestMethod -Uri $url  -Method Get -Headers @{"Authorization"="Bearer $accessToken"} -Verbose
    $result | ConvertTo-Json
    ```
 
