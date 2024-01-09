@@ -105,32 +105,30 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 
 ```JSON
 {
-  {
-    "type": "Microsoft.ApiManagement/service/backends",
-    "apiVersion": "2023-03-01-preview",
-    "name": "myAPIM/myBackend",
-    "properties": {
-      "url": "https://mybackend.com",
-      "protocol": "http",
-      "circuitBreaker": {
-        "rules": [
-          {
-            "failureCondition": {
-              "count": "3",
-              "errorReasons": [ "Server errors" ],
-              "interval": "P1D",
-              "statusCodeRanges": [
-                {
-                  "min": "500",
-                  "max": "599"
-                }
-              ]
-            },
-            "name": "myBreakerRule",
-            "tripDuration": "PT1H"
-          }
-        ]
-      }
+  "type": "Microsoft.ApiManagement/service/backends",
+  "apiVersion": "2023-03-01-preview",
+  "name": "myAPIM/myBackend",
+  "properties": {
+    "url": "https://mybackend.com",
+    "protocol": "http",
+    "circuitBreaker": {
+      "rules": [
+        {
+          "failureCondition": {
+            "count": "3",
+            "errorReasons": [ "Server errors" ],
+            "interval": "P1D",
+            "statusCodeRanges": [
+              {
+                "min": "500",
+                "max": "599"
+              }
+            ]
+          },
+          "name": "myBreakerRule",
+          "tripDuration": "PT1H"
+        }
+      ]
     }
   }
 }
@@ -185,25 +183,23 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 
 ```json
 {
-  {
-    "type": "Microsoft.ApiManagement/service/backends",
-    "apiVersion": "2023-05-01-preview",
-    "name": "myAPIM/myBackendPool",
-    "properties": {
-      "description": "Load balancer for multiple backends",
-      "type": "Pool",
-      "protocol": "http",
-      "url": "http://does-not-matter",
-      "pool": {
-        "services": [
-          {
-            "id": "/backends/backend-1"
-          },
-          {
-            "id": "/backends/backend-2"
-          }
-        ]
-      }
+  "type": "Microsoft.ApiManagement/service/backends",
+  "apiVersion": "2023-05-01-preview",
+  "name": "myAPIM/myBackendPool",
+  "properties": {
+    "description": "Load balancer for multiple backends",
+    "type": "Pool",
+    "protocol": "http",
+    "url": "http://does-not-matter",
+    "pool": {
+      "services": [
+        {
+          "id": "/backends/backend-1"
+        },
+        {
+          "id": "/backends/backend-2"
+        }
+      ]
     }
   }
 }
