@@ -80,14 +80,16 @@ landingContent:
             url: import-function-app-as-api.md
       - linkListType: concept
         links:
-         - text: API Management policies
-           url: api-management-howto-policies.md
          - text: API authentication and authorization 
            url: authentication-authorization-overview.md
          - text: Logging and monitoring 
            url: observability.md
          - text: Caching
            url: api-management-howto-cache.md
+      - linkListType: reference
+        links:
+          - text: API Management policy reference
+            url: a;pi-management-policies.md
       - linkListType: sample
         links:
           - text: API Management policy snippets
@@ -113,7 +115,7 @@ landingContent:
           - text: Developer portal overview
             url: api-management-howto-developer-portal.md
 # Card
-  - title: Secure access to API Management and APIs
+  - title: Secure access to API Management
     linkLists:
       - linkListType: how-to-guide
         links:
