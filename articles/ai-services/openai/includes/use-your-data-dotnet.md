@@ -44,7 +44,7 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
             new AzureCognitiveSearchChatExtensionConfiguration()
             {
                 SearchEndpoint = new Uri(searchEndpoint),
-                SearchKey = new AzureKeyCredential(searchKey),
+                Key = searchKey,
                 IndexName = searchIndex,
             },
         }
@@ -153,7 +153,7 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
             new AzureCognitiveSearchChatExtensionConfiguration()
             {
                 SearchEndpoint = new Uri(searchEndpoint),
-                SearchKey = new AzureKeyCredential(searchKey),
+                Key = searchKey,
                 IndexName = searchIndex,
             },
         }
