@@ -24,7 +24,7 @@ The GPT-4 Turbo with Vision model answers general questions about what's present
 
 ## Enhancements
 
-Enhancements let you incorporate other Azure AI services to add new functionality to the chat-with-vision experience.
+Enhancements let you incorporate other Azure AI services (such as Azure AI Vision) to add new functionality to the chat-with-vision experience.
 
 **Object grounding**: Azure AI Vision complements GPT-4 Turbo with Vision’s text response by identifying and locating salient objects in the input images. This lets the chat model give more accurate and detailed responses about the contents of the image.
 
@@ -67,7 +67,7 @@ For a typical use case, take a 3-minute video with a 100-token prompt input. The
 
 | Item        | Detail        | Total Cost   |
 |-----------------|-----------------|--------------|
-| GPT-4 Turbo with Vision Input Tokens      | 100 text tokens    | $0.001     |
+| GPT-4 Turbo with Vision input tokens      | 100 text tokens    | $0.001     |
 | Additional Cost to identify frames        | 100 input tokens + 700 tokens + 1 Video Retrieval transaction         | $0.00825     |
 | Image Inputs and Transcript Input         | 20 images (85 tokens each) + 100 transcript tokens            | $0.018       |
 | Output Tokens      | 100 tokens (assumed)    | $0.003       |
