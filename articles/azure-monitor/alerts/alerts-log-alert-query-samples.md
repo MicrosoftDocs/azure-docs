@@ -10,7 +10,7 @@ ms.reviewer: nolavime
 
 # Sample log alert queries that include ADX and ARG
 
-A log alert rule monitors a resource by using a Log Analytics query to evaluate resource logs at a set frequency. You can include data from Azure Data Explorer and Azure Resource Graph in your log alert rule queries.
+A log alert rule monitors a resource by using a Log Analytics query to evaluate logs at a set frequency. You can include data from Azure Data Explorer and Azure Resource Graph in your log alert rule queries.
 
 This article provides examples of log alert rule queries that use Azure Data Explorer and Azure Resource Graph. For more information about creating a log alert rule, see [Create a log alert rule](./alerts-create-log-alert-rule.md).
 
