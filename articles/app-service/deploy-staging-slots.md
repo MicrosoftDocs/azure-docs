@@ -1,15 +1,15 @@
 ---
 title: Set up staging environments
 description: Learn how to deploy apps to a nonproduction slot and autoswap into production. Increase the reliability and eliminate app downtime from deployments.
-
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 07/30/2023
-ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli
 author: cephalin
 ms.author: cephalin
-
+ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli, ai-video-demo
+ai-usage: ai-assisted
 ---
+
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
@@ -24,6 +24,11 @@ Deploying your application to a nonproduction slot has the following benefits:
 Each App Service plan tier supports a different number of deployment slots. There's no extra charge for using deployment slots. To find out the number of slots your app's tier supports, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 To scale your app to a different tier, make sure that the target tier supports the number of slots your app already uses. For example, if your app has more than five slots, you can't scale it down to the **Standard** tier, because the **Standard** tier supports only five deployment slots. 
+
+This video shows you how to set up staging environments in Azure App Service.
+> [!VIDEO 99aaff5e-fd3a-4568-b03a-a65745807d0f]
+
+The steps in the video are also described in the following sections.
 
 ## Prerequisites
 
@@ -94,14 +99,14 @@ The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To k
 
 ### Swap operation steps
 
-When you swap two slots (usually from a staging slot into the production slot), App Service does the following to ensure that the target slot doesn't experience downtime:
+When you swap two slots (usually from a staging slot *as the source* into the production slot *as the target*), App Service does the following to ensure that the target slot doesn't experience downtime:
 
-1. Apply the following settings from the source slot (for example, the production slot) to all instances of the target slot: 
+1. Apply the following settings from the target slot (for example, the production slot) to all instances of the source slot: 
     - [Slot-specific](#which-settings-are-swapped) app settings and connection strings, if applicable.
     - [Continuous deployment](deploy-continuous-deployment.md) settings, if enabled.
     - [App Service authentication](overview-authentication-authorization.md) settings, if enabled.
     
-    Any of these cases trigger all instances in the target slot to restart. During [swap with preview](#Multi-Phase), this marks the end of the first phase. The swap operation is paused, and you can validate that the source slot works correctly with the target slot's settings.
+    Any of these cases trigger all instances in the source slot to restart. During [swap with preview](#Multi-Phase), this marks the end of the first phase. The swap operation is paused, and you can validate that the source slot works correctly with the target slot's settings.
 
 1. Wait for every instance in the source slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 

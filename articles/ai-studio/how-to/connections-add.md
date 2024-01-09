@@ -2,7 +2,7 @@
 title: How to add a new connection in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to add a new connection in Azure AI Studio
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
