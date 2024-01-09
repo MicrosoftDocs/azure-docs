@@ -94,7 +94,7 @@ When you're done, select **Next: Interface configurations** to continue.
 
 ### Define the interfaces you want to monitor
 
-The **Interface connections** tab shows all interfaces detected by the sensor by default. Use this tab to turn monitoring on or off per interface, or define specific settings for each interface.
+The **Interface configurations** tab shows all interfaces detected by the sensor by default. Use this tab to turn monitoring on or off per interface, or define specific settings for each interface.
 
 > [!TIP]
 > We recommend that you optimize performance on your sensor by configuring your settings to monitor only the interfaces that are actively in use. 

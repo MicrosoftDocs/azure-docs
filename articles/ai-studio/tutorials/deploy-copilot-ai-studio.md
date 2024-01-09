@@ -2,12 +2,13 @@
 title: Build and deploy a question and answer copilot with prompt flow in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Use this article to build and deploy a question and answer copilot with prompt flow in Azure AI Studio
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: tutorial
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Tutorial: Build and deploy a question and answer copilot with prompt flow in Azure AI Studio

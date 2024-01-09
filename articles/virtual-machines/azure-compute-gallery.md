@@ -1,14 +1,13 @@
 ---
-title: Overview of Azure Compute Gallery 
+title: Overview of Azure Compute Gallery
 description: Learn about the Azure Compute Gallery and how to share Azure resources.
-author: cynthn
-ms.author: cynthn
+author: ju-shim
+ms.author: jushiman
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
 ms.date: 09/20/2023
 ms.reviewer: cynthn, mattmcinnes
-
 ---
 
 # Store and share resources in an Azure Compute Gallery
@@ -88,12 +87,16 @@ The regions that a resource is replicated to can be updated after creation time.
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-
 | Sharing with: | People | Groups | Service Principal | All users in a specific   subscription (or) tenant | Publicly with all users in   Azure |
 |---|---|---|---|---|---|
 | [RBAC Sharing](#rbac) | Yes | Yes | Yes | No | No |
 | RBAC + [Direct shared gallery](#shared-directly-to-a-tenant-or-subscription)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](#community-gallery) | Yes | Yes | Yes | No | Yes |
+
+> [!NOTE]
+> Please note that Images can be used with read permissions on them to deploy virtual machines and disks.
+> 
+> When utilizing the direct shared gallery, images are distributed widely to all users in a subscription/tenant, while the community gallery distributes images publicly. It is recommended to exercise caution when sharing images that contain intellectual property to prevent widespread distribution.
 
 ### RBAC
 
