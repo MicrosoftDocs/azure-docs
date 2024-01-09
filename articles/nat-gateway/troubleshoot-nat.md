@@ -186,6 +186,12 @@ NAT gateway can be used with public IP addresses designated to a specific zone, 
 >[!NOTE]
 >If you need to know the zone that your NAT gateway resides in, make sure to designate it to a specific availability zone. 
 
+## More troubleshooting guidance
+
+If the issue you're experiencing isn't covered by this article, refer to the other NAT gateway troubleshooting articles:
+* [Troubleshoot outbound connectivity with NAT Gateway](/azure/nat-gateway/troubleshoot-nat-connectivity)
+* [Troubleshoot outbound connectivity with NAT Gateway and other Azure services](/azure/nat-gateway/troubleshoot-nat-and-azure-services)
+
 ## Next steps
 
 We're always looking to improve the experience of our customers. If you're experiencing issues with NAT gateway that aren't listed or resolved by this article, submit feedback through GitHub via the bottom of this page. We'll address your feedback as soon as possible. 
