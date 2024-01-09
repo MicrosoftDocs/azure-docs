@@ -153,7 +153,7 @@ Azure Spring Apps also enables you to access real-time app logs from a public ne
 
 Use the following steps to enable a log streaming endpoint on the public network.
 
-1. Select the Azure Spring Apps service instance deployed in your virtual network, and then open the **Networking** tab in the navigation menu.
+1. Select the Azure Spring Apps service instance deployed in your virtual network, and then select **Networking** in the navigation menu.
 
 1. Select the **Vnet injection** tab.
 
