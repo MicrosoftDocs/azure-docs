@@ -61,6 +61,9 @@ For Windows, download and install the [Mellanox OFED for Windows drivers](https:
 ## Enable IP over InfiniBand (IB)
 If you plan to run MPI jobs, you typically don't need IPoIB. The MPI library will use the verbs interface for IB communication (unless you explicitly use the TCP/IP channel of MPI library). But if you have an app that uses TCP/IP for communication and you want to run over IB, you can use IPoIB over the IB interface. Use the following commands (for RHEL/CentOS) to enable IP over InfiniBand.
 
+> [!IMPORTANT] 
+> There is a bug in Microsoft Azure Linux Agent (waagent) versions prior to [2.4.0.2](https://github.com/Azure/WALinuxAgent/releases/tag/v2.4.0.2) that causes it to skip IB interfaces whose names don't look like "ib0", "ib1", "ib2" etc. Please make sure you're running at least 2.4.0.2 before using the below steps to enable IPoIB.
+
 ```bash
 sudo sed -i -e 's/# OS.EnableRDMA=n/OS.EnableRDMA=y/g' /etc/waagent.conf
 sudo systemctl restart waagent
