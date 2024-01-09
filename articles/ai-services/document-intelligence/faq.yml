@@ -49,7 +49,7 @@ sections:
           How is Document Intelligence related to Retrieval Augmented Generation (RAG)?
         answer: |
 
-          Semantic chunking is a key step in RAG to ensure its efficient storage and retrieval. The Document Intelligence [Layout model](concept-layout.md) offers a comprehensive solution for advanced content extraction and document structure analysis capabilities. With the Layout model, you can easily extract text and structural elements to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits. The extracted information can be conveniently outputted to Markdown format, enabling you to define your semantic chunking strategy based on provided building blocks. Check for more details in this [article](concept-retrieval-augmented-generation.md).
+          Semantic chunking is a key step in RAG to ensure its efficient storage and retrieval. The Document Intelligence [Layout model](concept-layout.md) offers a comprehensive solution for advanced content extraction and document structure analysis capabilities. With the Layout model, you can easily extract text and structural elements to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits. The extracted information can be conveniently outputted to Markdown format, enabling you to define your semantic chunking strategy based on provided building blocks. Check for more details in this [article](concept-retrieval-augumented-generation.md).
 
 
       - question: |
