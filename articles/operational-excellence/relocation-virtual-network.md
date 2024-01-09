@@ -124,8 +124,6 @@ Redeployment is the recommended way to move your virtual network to a new region
 
 Although it's not recommended, you can choose to use Azure Resource Mover to migrate your virtual network to another region. 
 
-### Migration considerations
-
 Below are some features and limitations of using the migration strategy.
 
 - All workloads in a virtual network must be relocated together.

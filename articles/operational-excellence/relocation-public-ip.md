@@ -1,6 +1,5 @@
 ---
 title: Relocation guidance for Azure Public IP
-titleSufffix: Azure Database for Azure Public IP
 description: Find out about relocation guidance for Azure Public IP
 author: anaharris-ms
 ms.author: anaharris
