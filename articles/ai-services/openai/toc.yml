@@ -86,6 +86,8 @@ items:
       href: ./how-to/work-with-code.md
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
+    - name: Use a web app
+      href: ./how-to/use-web-app.md
   - name: Content filtering
     href: ./how-to/content-filters.md
   - name: Use blocklists
