@@ -1,7 +1,7 @@
 ---
 title: Target-based scaling in Azure Functions
 description: Explains target-based scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 12/16/2023
+ms.date: 01/09/2024
 ms.topic: conceptual
 ms.service: azure-functions
 ---
@@ -63,11 +63,12 @@ This table summarizes the `host.json` values that are used for the _target execu
 
 <sup>1</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package. In earlier versions, this was 10.
 
-For Azure Cosmos DB _target executions per instance_ is set in the function attribute:
+For some binding extensions, _target executions per instance_ is set using a function attribute:
 
 | Extension         | Function trigger setting | Default Value | 
 | ----------------- | ------------------------ | ------------- |
-| Azure Cosmos DB   | maxItemsPerInvocation    |  100          |
+| Azure Cosmos DB   | `maxItemsPerInvocation`    |  100          |
+| Kafka             | `lagThreshold`             | 1000          |
 
 To learn more, see the [example configurations for the supported extensions](#supported-extensions).
 
@@ -77,10 +78,11 @@ In [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#pre
 
 | Extension Name | Minimum Version Needed | 
 | -------------- | ---------------------- |
-| Storage Queue  |         5.1.0          |
+| Azure Cosmos DB |         4.1.0         |
 | Event Hubs     |         5.2.0          |
+| Kafka          |         3.9.0          | 
 | Service Bus    |         5.9.0          |
-| Azure Cosmos DB      |         4.1.0          |
+| Storage Queue  |         5.1.0          |
 
 ## Dynamic concurrency support
 
@@ -302,7 +304,7 @@ For **v2.x+** of the Storage extension, modify the `host.json` setting `batchSiz
 
 Azure Cosmos DB uses a function-level attribute, `MaxItemsPerInvocation`. The way you set this function-level attribute depends on your function language.
 
-# [C#](#tab/csharp)
+#### [C#](#tab/csharp)
 
 For a compiled C# function, set `MaxItemsPerInvocation` in your trigger definition, as shown in the following examples for an in-process C# function:
 
@@ -332,11 +334,11 @@ namespace CosmosDBSamplesV2
 
 ```
 
-# [Java](#tab/java) 
+#### [Java](#tab/java) 
 
 Java example pending.
 
-# [JavaScript/PowerShell/Python](#tab/node+powershell+python)
+#### [JavaScript/PowerShell/Python](#tab/node+powershell+python)
 
 For Functions languages that use `function.json`, the `MaxItemsPerInvocation` parameter is defined in the specific binding, as in this Azure Cosmos DB trigger example:
 
@@ -366,9 +368,63 @@ Examples for the Python v2 programming model and the JavaScript v4 programming m
 > [!NOTE]
 > Since Azure Cosmos DB is a partitioned workload, the target instance count for the database is capped by the number of physical partitions in your container. To learn more about Azure Cosmos DB scaling, see [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
 
-### Apache Kafka
+### Kafka
 
-The Kafka extension doesn't require any specific configuration to use target-based scaling.
+The Apache Kafka extension uses a function-level attribute, `LagThreshold`. Reducing this setting causes more instances to be created. The way you set this function-level attribute depends on your function language.
+
+#### [C#](#tab/csharp)
+
+For a compiled C# function, set `LagThreshold` in your trigger definition, as shown in the following examples for an in-process C# function for a Kafka Event Hubs trigger:
+
+```C#
+[FunctionName("KafkaTrigger")]
+public static void Run(
+    [KafkaTrigger("BrokerList",
+                  "topic",
+                  Username = "$ConnectionString",
+                  Password = "%EventHubConnectionString%",
+                  Protocol = BrokerProtocol.SaslSsl,
+                  AuthenticationMode = BrokerAuthenticationMode.Plain,
+                  ConsumerGroup = "$Default",
+                  LagThreshold = 100)] KafkaEventData<string> kevent, ILogger log)
+{            
+    log.LogInformation($"C# Kafka trigger function processed a message: {kevent.Value}");
+}
+```
+
+#### [Java](#tab/java) 
+
+Java example pending.
+
+#### [JavaScript/PowerShell/Python](#tab/node+powershell+python)
+
+For Functions languages that use `function.json`, the `LagThreshold` parameter is defined in the specific binding, as in this Kafka Event Hubs trigger example:
+
+```json
+{
+    "bindings": [
+      {
+            "type": "kafkaTrigger",
+            "name": "kafkaEvent",
+            "direction": "in",
+            "protocol" : "SASLSSL",
+            "password" : "EventHubConnectionString",
+            "dataType" : "string",
+            "topic" : "topic",
+            "authenticationMode" : "PLAIN",
+            "consumerGroup" : "$Default",
+            "username" : "$ConnectionString",
+            "brokerList" : "%BrokerList%",
+            "sslCaLocation": "confluent_cloud_cacert.pem",
+            "lagThreshold": "100"
+        }
+    ]
+}
+```
+
+Examples for the Python v2 programming model and the JavaScript v4 programming model aren't yet available.
+
+---
 
 ## Next steps
 
