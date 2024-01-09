@@ -13,7 +13,7 @@ Learn how to run MapReduce jobs on HDInsight clusters.
 
 ## Example data
 
-HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory. These directories are in the default storage for your cluster. In this document, we use the `/example/data/gutenberg/davinci.txt` file. This file contains the notebooks of Leonardo da Vinci.
+HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory. These directories are in the default storage for your cluster. In this document, we use the `/example/data/gutenberg/davinci.txt` file. This file contains the notebooks of `Leonardo da Vinci`.
 
 ## Example MapReduce
 
@@ -101,8 +101,8 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 
 | **Use this**... | **...to do this** |  ...from this **client operating system** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux, Unix, Mac OS X, or Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux, Unix, Mac OS X, or Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux, Unix, MacOS X, or Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux, Unix, MacOS X, or Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell**  |Windows |
 
 ## Next steps
