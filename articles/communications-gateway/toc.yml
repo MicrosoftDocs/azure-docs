@@ -86,6 +86,12 @@ items:
       href: prepare-for-live-traffic-zoom.md
   - name: Emergency calling
     href: emergency-calls-zoom.md
+- name: Use with Azure Operator Call Protection
+  items:
+    - name: Overview of Operator Call Protection
+      href: ../operator-call-protection/overview.md
+    - name: Set up Operator Call Protection
+      href: ../operator-call-protection/set-up-operator-call-protection.md
 - name: Maintenance
   items:
   - name: Set up user roles
