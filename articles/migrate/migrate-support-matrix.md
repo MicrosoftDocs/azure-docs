@@ -138,7 +138,7 @@ There are two versions of the Azure Migrate service:
 
 ## Import servers using RVTools XLSX (preview)
 
-As part of your migration journey to Azure using the Azure Migrate appliance, you first discover servers, inventory, and workloads. However, for a quick assessment before you deploy the appliance, import the servers using the RVtools XLSX file (preview).
+As part of your migration journey to Azure using the Azure Migrate appliance, you first discover servers, inventory, and workloads. However, for a quick assessment before you deploy the appliance, you can [import the servers using the RVtools XLSX file (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
 
 ### Key benefits
 
