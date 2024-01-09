@@ -377,6 +377,109 @@ Use the following steps to bootstrap a new project using accelerators:
 
    :::image type="content" source="media/how-to-use-accelerator/download-file.png" alt-text="Screenshot the VMware Tanzu Dev Tools for Azure Spring Apps showing the Task Activity pane." lightbox="media/how-to-use-accelerator/download-file.png":::
 
+### Use Tanzu Application Accelerator Extension for VS Code
+
+Tanzu Application Accelerator Extension for VS Code serves as a bridge between the Tanzu Application Platform and VS Code. It enables developers to leverage the power of Application Accelerator to rapidly initiate and develop projects directly in VS Code.
+
+Use the following steps to install the extension and configure it properly:
+
+1. Install Tanzu App Accelerator VS Code extension.
+
+   Search "Tanzu App Accelerator" in Extensions in VS Code and click install button to install the [extension](https://marketplace.visualstudio.com/items?itemName=vmware.tanzu-app-accelerator).
+
+2. Assign developer tools endpoint for your Azure Spring Apps service instance.
+
+   Go to **Developer Tools** blade and click the **Assign endpoint** button to generate endpoint Url.
+
+   ![Screenshot that shows the Azure Spring Apps service instance assigned endpoint.](media/how-to-use-accelerator/assign-endpoint.png)
+
+   The `Developer Tools Url` is part of "App Live View URL" or "App Accelerator URL". Its value is  similar to `https://tx-enterprise-devtoolportal-552d9.svc.azuremicroservices.io/`
+
+3. Config Tanzu Application Platform Gui Url in VS Code extension settings.
+
+   **Tanzu Application Platform Gui Url**: The URL to an instance of the Tanzu Developer Portal. Used to fetch the catalog of accelerators.
+
+   ![Screenshot that shows the VS Code extension settings.](media/how-to-use-accelerator/vscode-extension-settings.png)
+
+4. Access the extension and you will see the accelerator list and you can click any accelerator project to do further actions.
+
+   ![Screenshot that shows the VS Code extension accelerator list.](media/how-to-use-accelerator/vscode-extension-acc-list.png)
+
+#### Support Single-Sign-On for Tanzu Developer Portal Url
+
+To support SSO for Tanzu Developer Portal Url, some configuration change need to be made in associated Azure AAD application. 
+
+1. Enable Single-Sign-On for your Azure Spring Apps service instance.
+
+   Go to **Developer Tools** blade for your Azure Spring Apps service instance
+
+   
+
+   ![Screenshot that shows the Developer Tools Portal SSO enable.](media/how-to-use-accelerator/devtools-portal-sso.png)
+
+   **Scope**: A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider.
+
+   **Client ID**: The OpenID Connect client ID provided by your IdP.
+
+   **Client Secret**: The OpenID Connect client secret provided by your IdP.
+
+   **Metadata Url**: The URI of a JSON file with generic OIDC provider configuration. The value of this Url is in format: `https://login.microsoftonline.com/<tenant id>/v2.0/.well-known/openid-configuration`.
+
+2. Assign developer tools endpoint for your Azure Spring Apps service instance.
+
+   Go to **Developer Tools** blade and click the **Assign endpoint** button to generate endpoint Url.
+
+   ![Screenshot that shows the Azure Spring Apps service instance assigned endpoint.](media/how-to-use-accelerator/assign-endpoint.png)
+
+   The `Developer Tools Url` is part of "App Live View URL" or "App Accelerator URL", something like `https://tx-enterprise-devtoolportal-552d9.svc.azuremicroservices.io/`
+
+3. Access the `Developer Tools Url` will bring up an authentication window as show in picture. Once you successfully login your account you can access the Dev Tools Portal. 
+
+   
+
+   ![Screenshot that shows SSO login windows.](media/how-to-use-accelerator/sso-login-windows.png)
+
+4. Config application registration configurations.
+
+   Go to the **Authentication** blade for your Azure AAD application and add redirect URIs to Platform configurations as listed below.
+
+   | Platform                        | Redirect URIs                                                |
+   | ------------------------------- | ------------------------------------------------------------ |
+   | Web                             | Add Redirect URIs `https://<Developer Tools Url>/oauth2/callback` |
+   | Mobile and desktop applications | Add Redirect URIs `vscode://VMware.tanzu-app-accelerator`    |
+
+5. Change the configuration settings of extension.
+
+   ![Screenshot that shows the VS Code extension settings.](media/how-to-use-accelerator/vscode-extension-settings-for-sso.png)
+
+   **Tanzu Application Platform Gui Url**: The URL to an instance of the Tanzu Developer Portal. Used to fetch the catalog of accelerators.
+
+   **Azure Issuer Url (Optional)** : The OIDC Issuer URL provided by Azure Springs Applications Enterprise configuration. 
+   Leave this field empty, if your Tanzu Developer Portal does not require authentication. The value of this Url is in format: `https://login.microsoftonline.com/<tenant id>/v2.0`.
+
+   **Azure Client ID (Optional)**: The OIDC Client ID provided by Azure Springs Applications Enterprise configuration. 
+   Leave this field empty, if your Tanzu Developer Portal does not require authentication.
+
+6. Access the extension and you will see the windows popup as shown in picture below. 
+
+   ![Screenshot that shows the VS Code extension popup windows.](media/how-to-use-accelerator/vscode-extension-popup.png)
+
+7. And then click the **Allow** button It will bring up an authentication window as show in picture. 
+
+   ![Screenshot that shows SSO login windows.](media/how-to-use-accelerator/sso-login-windows.png)
+
+8. Once you successfully login your account you can will see the popup windows below. 
+
+   ![Screenshot that shows the allow login windows.](media/how-to-use-accelerator/vscode-extension-allow.png)
+
+9. Click **Open** button, the VS Code will be activated and you will see the popup windows below in VS Code.
+
+   ![Screenshot that shows the allow open windows.](media/how-to-use-accelerator/vscode-extension-allow-open.png)
+
+10. Click **Open** and you will see the accelerator list and you can click any accelerator project to do further actions.
+
+    ![Screenshot that shows the VS Code extension accelerator list.](media/how-to-use-accelerator/vscode-extension-acc-list.png)
+
 ### Configure accelerators with a self-signed certificate
 
 When you set up a private Git repository and enable HTTPS with a self-signed certificate, you should configure the CA certificate name to the accelerator for client certificate verification from the accelerator to the Git repository.
