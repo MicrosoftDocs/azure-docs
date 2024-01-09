@@ -1,16 +1,6 @@
 {
     "redirections": [
     {
-      "source_path": "articles/active-directory/azuread-dev/about-microsoft-identity-platform.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/about-microsoft-identity-platform",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/active-directory-acs-migration.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-acs-migration",
-      "redirect_document_id": false
-    },
-    {
         "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
         "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
         "redirect_document_id": false
@@ -19,131 +9,6 @@
         "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-version-vmware.md",
         "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version",
         "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/active-directory-authentication-libraries.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-authentication-libraries",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/active-directory-devhowto-adal-error-handling.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-devhowto-adal-error-handling",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/app-types.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/app-types",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/azure-ad-endpoint-comparison.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/azure-ad-federation-metadata.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/azure-ad-federation-metadata",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/conditional-access-dev-guide.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/conditional-access-dev-guide",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/howto-get-appsource-certified.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/howto-get-appsource-certified",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/howto-reactivate-disabled-acs-namespaces.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/howto-reactivate-disabled-acs-namespaces",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/howto-v1-enable-sso-android.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/howto-v1-enable-sso-android",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/howto-v1-enable-sso-ios.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/howto-v1-enable-sso-ios",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/native-app.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/native-app",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/sample-v1-code.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/sample-v1-code",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/service-to-service.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/service-to-service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/single-page-application.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/single-page-application",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/v1-authentication-scenarios.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-authentication-scenarios",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/v1-oauth2-implicit-grant-flow.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-oauth2-implicit-grant-flow",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/v1-oauth2-on-behalf-of-flow.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-oauth2-on-behalf-of-flow",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/v1-overview.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/v1-permissions-consent.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-permissions-consent",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/v1-protocols-oauth-code.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-protocols-oauth-code",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/v1-protocols-openid-connect-code.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/v1-protocols-openid-connect-code",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/videos.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/videos",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/web-api.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/web-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/azuread-dev/web-app.md",
-      "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/web-app",
-      "redirect_document_id": false
     },
 	{
             "source_path": "articles/communication-services/tutorials/file-sharing-tutorial.md",
@@ -195,11 +60,7 @@
             "redirect_url": "/previous-versions/azure/storage/tables/table-storage-design-encrypt-data",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/active-directory/external-identities/configure-saas-apps.md",
-            "redirect_url": "/azure/active-directory/saas-apps/dropboxforbusiness-tutorial",
-            "redirect_document_id": false
-        },
+
         {
             "source_path": "articles/databox-online/azure-stack-edge-zero-touch-provisioning.md",
             "redirect_url": "/azure/databox-online/azure-stack-edge-powershell-based-configuration",
@@ -1461,11 +1322,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/authentication/concept-mfa-plan.md",
-            "redirect_url": "/entra/identity/authentication/howto-mfa-getstarted",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/dev-spaces/index.yml",
             "redirect_url": "/previous-versions/azure/dev-spaces/index",
             "redirect_document_id": false
@@ -2292,11 +2148,6 @@
             "source_path_from_root": "/articles/remoteapp/remoteapp-whatsnew.md",
             "redirect_url": "/azure",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/add-user-without-invite.md",
-            "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
-            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-landing-custom.md",
@@ -22212,281 +22063,7 @@
             "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
             "redirect_document_id": false
         },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
-            "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-protocols.md",
-            "redirect_url": "/azure/active-directory/develop/v2-protocols",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-aad-b2c-considerations.md",
-            "redirect_url": "/azure/active-directory/develop/msal-net-b2c-considerations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/active-directory-how-applications-are-added.md",
-            "redirect_url": "/azure/active-directory/develop/how-applications-are-added",
-            "redirect_document_id": false
-        },
-	{
-            "source_path_from_root": "/articles/active-directory/develop/active-directory-how-to-integrate.md",
-            "redirect_url": "/azure/active-directory/develop/how-to-integrate",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-node-js-passport.md",
-            "redirect_url": "/azure/active-directory/develop/quickstart-web-app-nodejs-msal-sign-in",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-asp-webapp.md",
-            "redirect_url": "/azure/active-directory/develop/web-app-tutorial-01-register-application",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-react.md",
-            "redirect_url": "/azure/active-directory/develop/single-page-app-tutorial-01-register-app",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-webapp.md",
-            "redirect_url": "/azure/active-directory/develop/quickstart-web-app-nodejs-msal-sign-in",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/console-app-quickstart.md",
-            "redirect_url": "/azure/active-directory/develop/index-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/desktop-app-quickstart.md",
-            "redirect_url": "/azure/active-directory/develop/index-desktop",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/mobile-app-quickstart.md",
-            "redirect_url": "/azure/active-directory/develop/index-mobile",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/web-api-quickstart.md",
-            "redirect_url": "/azure/active-directory/develop/index-web-api",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart.md",
-            "redirect_url": "/azure/active-directory/develop/index-web-app",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/single-page-app-quickstart.md",
-            "redirect_url": "/azure/active-directory/develop/index-spa",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/api-find-an-api-how-to.md",
-            "redirect_url": "/azure/active-directory/develop/quickstart-configure-app-expose-web-apis",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/consent-framework-links.md",
-            "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/authentication-protocols.md",
-            "redirect_url": "/azure/active-directory/develop/v2-oauth2-auth-code-flow",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/delegated-and-app-perms.md",
-            "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/perms-for-given-api.md",
-            "redirect_url": "/azure/active-directory/develop/scopes-oidc",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/setup-multi-tenant-app.md",
-            "redirect_url": "/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/registration-config-specific-application-property-how-to.md",
-            "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/registration-config-how-to.md",
-            "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/registration-config-sso-how-to.md",
-            "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/migrate-adal-msal-java.md",
-            "redirect_url": "/entra/msal/java/advanced/support-for-adfs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-logging-java.md",
-            "redirect_url": "/entra/msal/java/advanced/msal-logging-java",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-error-handling-java.md",
-            "redirect_url": "/entra/msal/java/advanced/msal-error-handling-java",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-java-token-cache-serialization.md",
-            "redirect_url": "/entra/msal/java/advanced/msal-java-token-cache-serialization",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-java-adfs-support.md",
-            "redirect_url": "/entra/msal/java/advanced/msal-java-adfs-support",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-java-get-remove-accounts-token-cache.md",
-            "redirect_url": "/entra/msal/java/advanced/msal-java-get-remove-accounts-token-cache",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/migrate-python-adal-msal.md",
-            "redirect_url": "/entra/msal/python/advanced/migrate-python-adal-msal",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-logging-python.md",
-            "redirect_url": "/entra/msal/python/advanced/msal-logging-python",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-error-handling-python.md",
-            "redirect_url": "/entra/msal/python/advanced/msal-error-handling-python",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-python-token-cache-serialization.md",
-            "redirect_url": "/entra/msal/python/advanced/msal-python-token-cache-serialization",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-python-adfs-support.md",
-            "redirect_url": "/entra/msal/python/advanced/msal-python-adfs-support",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-error-handling-dotnet.md",
-            "redirect_url": "/entra/msal/dotnet/advanced/exceptions/msal-error-handling",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-logging-dotnet.md",
-            "redirect_url": "/entra/msal/dotnet/advanced/exceptions/msal-logging",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-acquire-token-silently.md",
-            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/acquire-token-silently",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-adfs-support.md",
-            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/desktop-mobile/adfs-support",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-b2c-considerations.md",
-            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/desktop-mobile/social-identities",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-clear-token-cache.md",
-            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/clear-token-cache",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-client-assertions.md",
-            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/msal-net-client-assertions",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-differences-adal-net.md",
-            "redirect_url": "/entra/msal/dotnet/how-to/differences-adal-msal-net",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-initializing-client-applications.md",
-            "redirect_url": "/entra/msal/dotnet/getting-started/initializing-client-applications",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-instantiate-confidential-client-config-options.md",
-            "redirect_url": "/entra/msal/dotnet/getting-started/instantiate-confidential-client-config-options",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-instantiate-public-client-config-options.md",
-            "redirect_url": "/entra/msal/dotnet/getting-started/instantiate-public-client-config-options",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-migration-confidential-client.md",
-            "redirect_url": "/entra/msal/dotnet/how-to/migrate-confidential-client",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-migration-public-client.md",
-            "redirect_url": "/entra/msal/dotnet/how-to/migrate-public-client",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-provide-httpclient.md",
-            "redirect_url": "/entra/msal/dotnet/advanced/httpclient",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-token-cache-serialization.md",
-            "redirect_url": "/entra/msal/dotnet/how-to/token-cache-serialization",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-user-gets-consent-for-multiple-resources.md",
-            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/user-gets-consent-for-multiple-resources",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-uwp-considerations.md",
-            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/desktop-mobile/uwp",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-web-browsers.md",
-            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/using-web-browsers",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-migration.md",
-            "redirect_url": "/entra/msal/dotnet/how-to/msal-net-migration",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/microsoft-identity-web.md",
-            "redirect_url": "/entra/msal/dotnet/microsoft-identity-web/",
-            "redirect_document_id": false
-        },
+
         {
             "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
             "redirect_url": "/azure/orbital/overview",
@@ -23138,11 +22715,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md",
-            "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-user-authentication",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
             "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
             "redirect_document_id": false
@@ -23268,61 +22840,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-with-federation.md",
-            "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-with-federation",
-            "redirect_document_id": true
-        },
-	{
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-sample-sign-in.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-app-vanillajs-sign-in",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-application-angular-sample.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-application-angular",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-application-react-sample.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-application-react",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sample-sign-in.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/sample-web-app-node-sign-in",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sample-sign-in-call-api.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/sample-web-app-node-sign-in-call-api",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sample-sign-in.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/sample-web-app-dotnet-sign-in",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-node-sample-sign-in.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/sample-browserless-app-node-sign-in",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sample-sign-in.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/sample-browserless-app-dotnet-sign-in",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-sample-call-api.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/sample-daemon-node-call-api",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/manage-apps/migrate-okta-sync-provisioning-to-azure-active-directory.md",
-            "redirect_url": "/azure/active-directory/manage-apps/migrate-okta-sync-provisioning",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/image-builder-prefetch.md",
             "redirect_url": "/azure/virtual-machines/vm-boot-optimization",
             "redirect_document_id": true
@@ -23438,26 +22955,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-configure-authentication.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-configure-authentication",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-prepare-app.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-prepare-app",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-prepare-tenant.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-prepare-tenant",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-sign-in-sign-out.md",
-            "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-sign-in-sign-out",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/image-builder-reliability.md",
             "redirect_url": "/azure/reliability/reliability-image-builder.md",
             "redirect_document_id": false
@@ -23505,26 +23002,6 @@
         {
             "source_path_from_root": "/articles/orbital/space-partner-program-overview.md",
             "redirect_url": "/azure/orbital/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/single-page-app-tutorial-01-register-app.md",
-            "redirect_url": "/azure/active-directory/develop/tutorial-single-page-app-react-register-app",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/single-page-app-tutorial-02-prepare-spa.md",
-            "redirect_url": "/azure/active-directory/develop/tutorial-single-page-app-react-prepare-spa",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/single-page-app-tutorial-03-sign-in-users.md",
-            "redirect_url": "/azure/active-directory/develop/tutorial-single-page-app-react-sign-in-users",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/active-directory/develop/single-page-app-tutorial-04-call-api.md",
-            "redirect_url": "/azure/active-directory/develop/tutorial-single-page-app-react-call-api",
             "redirect_document_id": false
         },
         {
