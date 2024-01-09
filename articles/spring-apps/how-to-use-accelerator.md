@@ -408,7 +408,7 @@ Use the following steps to install the extension and configure it properly:
 > [!NOTE]
 > In case you experience any unfixable failure when using the extension, you can logout your account from the extension, as shown in picture below, and try again.
 
-![image-20240109143628011](C:\Users\guitarsheng\AppData\Roaming\Typora\typora-user-images\image-20240109143628011.png)
+![Screenshot that shows the VS Code extension logout.](media/how-to-use-accelerator/vscode-extension-logout.png)
 
 #### Support Single-Sign-On for Tanzu Developer Portal Url
 
