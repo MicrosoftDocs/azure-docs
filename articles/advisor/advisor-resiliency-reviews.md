@@ -18,7 +18,7 @@ You can find resiliency reviews in [Azure Advisor](https://aka.ms/Advisor_Review
 [!NOTE]
 Resiliency reviews in Azure Advisor are available to customers with Unified or Premier Support contracts. Reach out to your Customer Success Account Manager or primary Microsoft Representative to learn more.
 
-In this article, you learn how to enable and access resiliency reviews prepared for you, triage (accept or reject),manage, implement recommendations, and track their lifecycle. 
+In this article, you learn how to enable and access resiliency reviews prepared for you, triage (accept or reject), manage, implement recommendations, and track their lifecycle. 
 
 ## How it works
 
