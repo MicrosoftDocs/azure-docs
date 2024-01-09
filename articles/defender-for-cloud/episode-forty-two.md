@@ -11,11 +11,11 @@ ms.date: 01/08/2024
 
 > [!VIDEO https://aka.ms/docs/player?id=3eb19963-8988-44eb-8052-e2255616a95e]
 
-- [01:18](/shows/mdc-in-the-field/native-integration-servicenow#time=01m18s) - Understanding secrets scanning capability for VMs in Defender for Cloud
-- [02:40](/shows/mdc-in-the-field/native-integration-servicenow#time=02m40s) - How agentless scanning for VMs works
-- [04:30](/shows/mdc-in-the-field/native-integration-servicenow#time=04m30s) - Secrets detection
-- [06:50](/shows/mdc-in-the-field/native-integration-servicenow#time=06m50s) - Performance considerations
-- [08:32](/shows/mdc-in-the-field/native-integration-servicenow#time=08m32s) - Demonstration
+- [01:18](/shows/mdc-in-the-field/agentless-secret-scanning-for-virtual-machines#time=01m18s) - Understanding secrets scanning capability for VMs in Defender for Cloud
+- [02:40](/shows/mdc-in-the-field/agentless-secret-scanning-for-virtual-machines#time=02m40s) - How agentless scanning for VMs works
+- [04:30](/shows/mdc-in-the-field/agentless-secret-scanning-for-virtual-machines#time=04m30s) - Secrets detection
+- [06:50](/shows/mdc-in-the-field/agentless-secret-scanning-for-virtual-machines#time=06m50s) - Performance considerations
+- [08:32](/shows/mdc-in-the-field/agentless-secret-scanning-for-virtual-machines#time=08m32s) - Demonstration
 
 ## Recommended resources
 
