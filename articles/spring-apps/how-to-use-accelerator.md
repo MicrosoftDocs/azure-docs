@@ -405,6 +405,11 @@ Use the following steps to install the extension and configure it properly:
 
    ![Screenshot that shows the VS Code extension accelerator list.](media/how-to-use-accelerator/vscode-extension-acc-list.png)
 
+> [!NOTE]
+> In case you experience any unfixable failure when using the extension, you can logout your account from the extension, as shown in picture below, and try again.
+
+![image-20240109143628011](C:\Users\guitarsheng\AppData\Roaming\Typora\typora-user-images\image-20240109143628011.png)
+
 #### Support Single-Sign-On for Tanzu Developer Portal Url
 
 To support SSO for Tanzu Developer Portal Url, some configuration change need to be made in associated Azure AAD application. 
@@ -450,7 +455,7 @@ To support SSO for Tanzu Developer Portal Url, some configuration change need to
 
 5. Change the configuration settings of extension.
 
-   ![Screenshot that shows the VS Code extension settings.](media/how-to-use-accelerator/vscode-extension-settings-for-sso.png)
+   ![Screenshot that shows the VS Code extension settings for SSO.](media/how-to-use-accelerator/vscode-extension-settings-for-sso.png)
 
    **Tanzu Application Platform Gui Url**: The URL to an instance of the Tanzu Developer Portal. Used to fetch the catalog of accelerators.
 
