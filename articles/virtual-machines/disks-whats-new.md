@@ -49,17 +49,47 @@ ZRS disks have been made available in the Norway East and UAE North regions. For
 
 ### Quarter 3 (July, August, September)
 
-- Expanded regional availability for Premium SSD v2
-- Incremental snapshot GA for Ultra Disks and Premium SSD v2
-- ZRS disks available in East Asia
-- Expanded regional availability for Premium SSD v2
+#### Expanded regional availability for ZRS disks
+
+In quarter 3, ZRS disks were made available in the China North 3, East Asia, India Central, Switzerland North, South Africa North, and Sweden Central regions.
+
+#### Expanded regional availability for Premium SSD v2
+
+In Quarter 3, Premium SSD v2 were made available in the Australia East, Brazil South, Canada Central, Central India, Central US, East Asia, France Central, Japan East, Korea Central, Norway East, South Africa North, Sweden Central, Switzerland North, and UAE North regions.
+
+#### General Availability - Incremental Snapshots for Premium SSD v2 and Ultra Disks
+
+Incremental snapshots for Premium SSD v2 and Ultra Disks was made available as a general availability (GA) feature. For more details, see either the [documentation](disks-incremental-snapshots.md#incremental-snapshots-of-premium-ssd-v2-and-ultra-disks) or the [Azure Update](https://azure.microsoft.com/updates/general-availability-incremental-snapshots-for-premium-ssd-v2-disk-and-ultra-disk-storage-3/).
 
 ### Quarter 2 (April, May, June)
 
-- Premium SSD v2 available in Southeast Asia, UK South, South Central US, and West US 3
-- ZRS available in Japan East and Korea Central
-- Azure Backup support for Premium SSD v2
+#### Expanded regional availability for Premium SSD v2
+
+In quarter 2, Premium SSD v2 disks were made available in the Southeast Asia, UK South, South Central US, and West US 3 regions.
+
+#### Expanded regional availability for ZRS disks
+
+In quarter 2, ZRS disks were made available in the Australia East, Brazil South, Japan East, Korea Central, Qatar Central, UK South, East US, East US 2, South Central US, and Southeast Asia regions.
+
+#### Preview - Azure Backup support for Premium SSD v2
+
+Azure Backup added support for Azure virtual machines using Premium SSD v2 disks in the East US and West Europe regions. For more details, see the [Azure Update](https://azure.microsoft.com/updates/premium-ssd-v2-backup-support/).
 
 ### Quarter 1 (January, February, March)
 
 - Premium SSD v2 available in East US 2, North Europe, and West US 2
+
+#### Expanded regional availability for Premium SSD v2
+
+In quarter 1, Premium SSD v2 disks were made available in the East US 2, North Europe, and West US 2 regions.
+
+#### Preview - Performance plus
+
+Azure Disk Storage added a new preview feature, performance plus. Performance plus enhances the IOPS and throughput performance for Premium SSDs, Standard SSDs, and Standard HDDs, that are 513 GiB and larger. For details, see [Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](disks-enable-performance.md)
+
+#### Expanded regional availability for Ultra Disks
+
+In quarter 1, Ultra Disks were made available in the Brazil Southeast, China North 3, Korea South, South Africa North, Switzerland North, and UAE North regions.
+
+#### More transactions at no extra cost - Standard SSDs
+
