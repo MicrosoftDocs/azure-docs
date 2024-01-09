@@ -79,8 +79,8 @@ Document analysis models enable text extraction from forms and documents and ret
     [**Layout**](#layout) | Extract text, tables, </br>and document structure.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-general-document.png" link="#general-document":::</br>
-    [**General document**](#general-document) | Extract text, </br>structure, and key-value pairs.
+      :::image type="icon" source="media/overview/icon-general-document.png" link="#general-document-deprecated-in-2023-10-31-preview":::</br>
+    [**General document**](#general-document-deprecated-in-2023-10-31-preview) | Extract text, </br>structure, and key-value pairs.
    :::column-end:::
 :::row-end:::
 :::moniker-end
@@ -486,6 +486,8 @@ You can use Document Intelligence to automate document processing in application
 
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
+
+:::moniker range=">=doc-intel-3.1.0"
 
 #### Custom classification model
 
