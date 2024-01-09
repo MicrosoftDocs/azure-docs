@@ -1,6 +1,6 @@
 ---
-title: Use a third-party identity provider to grant user access to the FHIR service
-description: Learn how to use Azure AD B2C as a third-party identity provider to allow seamless user access to the FHIR service in Azure Health Data Services. Set up and configure this integration for secure user authentication.
+title: Use a third-party identity provider to grant user access to the FHIR service in Azure Health Data Services
+description: Learn how to use Azure AD B2C as a third-party identity provider to allow user access to the FHIR service in Azure Health Data Services. Set up and configure this integration for secure user authentication.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -12,11 +12,13 @@ ms.author: namalu
 
 # Use a third-party identity provider to grant user access to the FHIR service
 
-Healthcare organizations can enable a third-party identifier by using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the [FHIR&reg; service](../overview.md) in Azure Health Data Services. Using Azure AD B2C is useful when an organization needs to grant access to resources for users who aren't in their [Microsoft Entra ID](/entra/fundamentals/whatis) tenant.
+Healthcare organizations can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR&reg; service in Azure Health Data Services to enable a third-party identity provider for their applications and users. 
 
 ## Step 1: Create an Azure AD B2C tenant for the FHIR service
 
 Creating an Azure AD B2C tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare applications. 
+
+If your organization already created an Azure AD B2C tenant, you can skip to [Step 2](#step-2-deploy-the-fhir-service-with-azure-active-directory-b2c-as-the-identity-provider). 
 
 #### Deploy an Azure AD B2C tenant by using an ARM template
 
