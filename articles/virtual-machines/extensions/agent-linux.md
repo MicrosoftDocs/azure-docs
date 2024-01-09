@@ -103,9 +103,11 @@ Ensure that your VM has access to IP address 168.63.129.16. For more information
 
 ## Installation
 
-The preferred method of installing and upgrading the Azure Linux VM Agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux VM Agent package into their images and repositories.
+The supported method of installing and upgrading the Azure Linux VM Agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux VM Agent package into their images and repositories.
+Some Linux distributions might disable the Azure Linux VM Agent **Auto Update** feature and some of the repositories might also contain older versions, those might have issues with modern extensions so, we recommend to have the latest stable version installed. 
+To make sure the Azure Linux VM Agent is updating properly we recommend having the option `AutoUpdate.Enabled=Y` in the `/etc/waagent.conf` file or simply commenting out that option will result in its defaults too. Having `AutoUpdate.Enabled=N` will not allow the Azure Linux VM Agent to update properly.
 
-For advanced installation options, such as installing from a source or to custom locations or prefixes, see [Microsoft Azure Linux VM Agent](https://github.com/Azure/WALinuxAgent).
+For advanced installation options, such as installing from a source or to custom locations or prefixes, see [Microsoft Azure Linux VM Agent](https://github.com/Azure/WALinuxAgent). Other than these scenarios, we do not support or recommend upgrading or reinstalling the Azure Linux VM Agent from source.
 
 ## Command-line options
 
