@@ -270,7 +270,7 @@ Single-tenant Azure Logic Apps dynamically scales to effectively handle increasi
 
 - Trigger
 
-  To determine scaling requirements, the scaler analyzes the trigger that starts each workflow in your logic app. For example, for a workflow with a Service Bus trigger, if the queue length continuously grows, the scaler takes action to add worker instances, which enables processing more messages. Likewise, for a workflow with a Request trigger, if the request latency experiences an upward trend, the scaler increases the number of worker instances to distribute the request load more efficiently. For more information about worker instances, see [Azure Logic Apps (Standard) - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+  To determine scaling requirements, the scaler analyzes the trigger that starts each workflow in your logic app. For example, for a workflow with a Service Bus trigger, if the queue length continuously grows, the scaler takes action to add worker instances, which enable processing more messages. Likewise, for a workflow with a Request trigger, if the request latency experiences an upward trend, the scaler increases the number of worker instances to distribute the request load more efficiently. For more information about worker instances, see [Azure Logic Apps (Standard) - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
 - Workflow job execution delay
 
