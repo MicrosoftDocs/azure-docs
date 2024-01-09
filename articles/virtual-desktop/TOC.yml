@@ -286,9 +286,9 @@
             href: windows-11-language-packs.md
       - name: Applications
         items:
-        - name: Publish applications
-          displayName: deploy, get started, apps, sandbox, Microsoft Store
-          href: publish-applications.md
+        - name: Publish applications with RemoteApp
+          displayName: deploy, get started, apps, sandbox, Microsoft Store, RemoteApp, streaming
+          href: publish-applications-stream-remoteapp.md
         - name: App attach
           items:
           - name: Create an MSIX image

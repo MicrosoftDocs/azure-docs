@@ -364,6 +364,11 @@
             "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/streaming-costs.md",
             "redirect_url": "/azure/virtual-desktop/understand-estimate-costs",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/publish-applications.md",
+            "redirect_url": "/azure/virtual-desktop/publish-applications-stream-remoteapp",
+            "redirect_document_id": false
         }
     ]
 }
