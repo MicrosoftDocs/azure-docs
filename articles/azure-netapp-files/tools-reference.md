@@ -26,7 +26,7 @@ Azure NetApp Files offers [numerous tools](https://azure.github.io/azure-netapp-
 
 * [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://aka.ms/anfavscalc)
 
-    This tool assists you with sizing an Azure VMware Solution. In the Estimator, simply provide the details of your current VMware environment to learn how much you can save by using Azure NetApp Files datastores.
+    This tool assists you with sizing an Azure VMware Solution. In the Estimator, provide the details of your current VMware environment to learn how much you can save by using Azure NetApp Files datastores.
 
 * [SAP on Azure NetApp Files Sizing Estimator](https://aka.ms/anfsapcalc)
 
