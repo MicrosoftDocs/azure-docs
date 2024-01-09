@@ -69,7 +69,7 @@ Azure Virtual WAN supports the following global transit connectivity paths. The 
 
 * Branch-to-VNet (a)
 * Branch-to-branch (b)
-  * ExpressRoute Global Reach and Virtual WAN
+* ExpressRoute Global Reach and Virtual WAN
 * Remote User-to-VNet (c)
 * Remote User-to-branch (d)
 * VNet-to-VNet (e)
@@ -165,7 +165,7 @@ Branches can be connected to a secured virtual hub with Azure Firewall using Exp
 This option lets enterprises leverage the Azure backbone to connect branches. However, even though this capability is available, you should weigh the benefits of connecting branches over Azure Virtual WAN vs. using a private WAN.  
 
 
-### Branch-to-VNet secured transit (c), Branch-to-VNet secured transit cross region (g)
+### Branch-to-VNet secured transit (c), Branch-to-VNet secured transit cross-region (g)
 
 The Branch-to-VNet secured transit enables branches to communicate with virtual networks in the same region as the virtual WAN hub as well as another virtual network connected to another virtual WAN hub in another region (inter-hub traffic inspection supported only with [Routing Intent](../virtual-wan/how-to-routing-policies.md)).
 
