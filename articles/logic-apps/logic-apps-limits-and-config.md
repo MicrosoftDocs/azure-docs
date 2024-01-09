@@ -190,11 +190,109 @@ The following table lists the values for a single workflow definition:
 
 <a name="run-high-throughput-mode"></a>
 
-### Run in high throughput mode
+## Scale for high throughput
 
-For a single workflow definition, the number of actions that run every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default value to the [maximum value](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) for your workflow, which is three times the default value, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one workflow](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
+### [Standard](#tab/standard)
 
-#### [Portal (multitenant service)](#tab/azure-portal)
+Single-tenant Azure Logic Apps uses storage and compute as the primary resources to run your Standard logic app workflows.
+
+### Storage
+
+Stateful workflows use Azure Table storage and Azure Blob storage for persistenting data storage during runtime and for maintaining run histories. These workflows also use Azure Queues for scheduling. A single storage account enables a substantial number of requests with rates of up to 2K per partition and 20K requests per second at the account level. Beyond these thresholds, request rates are subject to throttling. For storage scalability limits, see [Targets for data operations](../storage/tables/storage-performance-checklist.md#targets-for-data-operations).
+
+Although a single storage account can handle reasonably high throughput, as the workflow execution rate increases, you might encounter partition level throttling or account level throttling. To ensure smooth operations, make sure that you understand the possible limitations and ways that you can address them.
+
+##### Share workload across multiple workflows
+
+Single-tenant Azure Logic Apps minimizes partition level throttling by distributing storage transactions across multiple partitions. However, to improve distribution and mitigate partition level throttling, [distribute the workload across multiple workflows](handle-throttling-problems-429-errors.md#logic-app-throttling), rather than a single workflow.
+
+##### Share workload across multiple storage accounts
+
+  If your logic app's workflows require high throughput, use multiple storage accounts, rather than a single account. You can significantly increase throughput by distributing your logic app's workload across multiple storage accounts with 32 as the limit. To determine the number of storage accounts that you need, use the general guideline for ~100,000 action executions per minute, per storage account. While this estimate works well for most scenarios, the number of actions might be lower if your workflow actions are compute heavy, for example, a query action that processes large data arrays. Make sure that you perform load testing and tune your solution before using in production.
+
+  To enable using multiple storage accounts, follow these steps before you create your Standard logic app. Otherwise, if you change the settings after creation, you might experience data loss or not achieve the necessary scalability.
+
+  1. [Create the storage accounts](../storage/common/storage-account-create.md?tabs=azure-portal) that you want to use. Save the connection string for each storage account.
+
+  1. Find and open your Standard logic app, and then [edit your logic app's host settings (**host.json** file)](edit-app-settings-host-settings.md?tabs=azure-portal#manage-host-settings---hostjson) to include the following **`extensions`** object, which contains the **`workflow`** and **`settings`** objects with the **Runtime.ScaleUnitsCount** setting:
+
+     ```json
+     "extensions": {
+         "workflow": {
+             "settings": {
+                 "Runtime.ScaleUnitsCount": "<storage-accounts-number>"
+             }
+         }
+     }
+     ```
+
+     The following example specifies **3** as the number of storage accounts:
+
+     ```json
+     {
+         "version": "2.0",
+         "extensionBundle": {
+             "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+             "version": "[1.*, 2.0.0)"
+         },
+         "extensions": {
+             "workflow": {
+                 "settings": {
+                     "Runtime.ScaleUnitsCount": "3"
+                 }
+             }
+         }
+     }
+     ```
+
+  1. [Edit your logic app's application configuration settings (**local.settings.json**)](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings---localsettingsjson) to add an app setting named **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU0\<*storage-account-number*>\.ConnectionString** and the corresponding storage account connection string using the following syntax where the first storage account number is **`00`** up to the number of storage accounts minus 1, for example:
+
+     | App setting name | Value |
+     |------------------|-------|
+     | **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU00.ConnectionString** | `<connection-string-1>` |
+     | **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU01.ConnectionString** | `<connection-string-2>` |
+     | **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU02.ConnectionString** | `<connection-string-3>` | 
+
+   1. In your logic app's application configuration settings, update the **AzureWebJobsStorage** setting value with the same connection string that's in the **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU00.ConnectionString** setting.
+
+#### Compute
+
+A Standard logic app runs by using one of the [available compute plans](logic-apps-pricing.md#standard-pricing-tiers), which provide different levels of virtual CPU and memory, or by using an App Service Environment v3, which provides more compute options.
+
+Single-tenant Azure Logic Apps dynamically scales to effectively handle increasing loads. Your logic app uses the following primary factors to determine whether to scale.
+
+> [!NOTE]
+>
+> For a Standard logic app in an App Service Environment v3, dynamic scaling isn't available. 
+> You must set scaling rules on the associated App Service Plan. As a commonly used scaling rule, 
+> you can use the CPU metric, and scale your App Service Plan to keep the virtual CPU between 50-70%. 
+> For more information, see [Get started with autoscale in Azure](../azure-monitor/autoscale/autoscale-get-started.md).
+
+- Trigger
+
+  To determine scaling requirements, the scaler analyzes the trigger that starts each workflow in your logic app. For example, for a workflow with a Service Bus trigger, if the queue length continuously grows, the scaler takes action to add worker instances, which enable processing more messages. Likewise, for a workflow with a Request trigger, if the request latency experiences an upward trend, the scaler increases the number of worker instances to distribute the request load more efficiently. For more information about worker instances, see [Azure Logic Apps (Standard) - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+
+- Workflow job execution delay
+
+  At runtime, workflow actions are divided into individual jobs that are queued for execution. Job dispatchers regularly poll the job queue to retrieve and execute these jobs. However, if compute capacity is insufficient to pick up these jobs, they stay in the queue for a longer time, resulting in increased execution delays. The scaler monitors this situation and make scaling decisions to keep the execution delays under control. For more information about how the runtime schedules and runs jobs, see [Azure Logic Apps (Standard) - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+ 
+  The scaler also considers the minimum and maximum worker instance counter configuration to determine whether to make scaling decisions, such as adding, removing, or maintaining the current number of worker instances. Typically, the scaler makes these decisions at intervals of approximately 15-30 seconds. So, consider this ramp-up time and its impact on your logic app's scaling speed to effectively handle peak loads. For example, if your workload requires scaling your logic app from just 1 worker instance to 100 worker instances, the ramp-up alone might take 25-50 minutes. Single-tenant Azure Logic Apps scaling shares the same [Azure Functions scaling infrastructure](../azure-functions/event-driven-scaling.md).
+
+##### Configure your logic app compute for faster scaling
+
+- Share workload across multiple logic apps.
+
+  Each logic app can scale independently, so distributing your workload across more than one logic app can significantly accelerate the scaling speed. For example, two logic apps can scale to twice the number of worker instances in the same timeframe as a single logic app. By splitting your workload across multiple apps, you can effectively multiply the scalability and achieve faster scaling results.
+
+- Use prewarmed instances.
+
+  If your scenario requires quicker ramp-up time, consider using prewarmed instances. If your peak load times are deterministic, you can use an automation task to adjust these prewarm instances on a schedule. For more information, see [Manage Azure resources and monitor costs by creating automation tasks (preview)](create-automation-tasks-azure-resources.md).
+
+### [Consumption](#tab/consumption)
+
+Multitenant Azure Logic Apps has a [default limit](#throughput-limits) on the number of actions that run every 5 minutes. To raise the default value to the [maximum value](#throughput-limits), you can enable high throughput mode, which is in preview. Or, [distribute the workload across multiple logic apps and workflows](handle-throttling-problems-429-errors.md#logic-app-throttling), rather than rely on a single logic app and workflow.
+
+#### Enable high throughput in the portal
 
 1. In the Azure portal, on your logic app's menu, under **Settings**, select **Workflow settings**.
 
@@ -202,7 +300,7 @@ For a single workflow definition, the number of actions that run every 5 minutes
 
    ![Screenshot that shows logic app menu in Azure portal with "Workflow settings" and "High throughput" set to "On".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
 
-#### [Resource Manager Template](#tab/azure-resource-manager)
+#### Enable high throughput in a Resource Manager template
 
 To enable this setting in an ARM template for deploying your logic app, in the `properties` object for your logic app's resource definition, add the `runtimeConfiguration` object with the `operationOptions` property set to `OptimizedForHighThroughput`:
 
