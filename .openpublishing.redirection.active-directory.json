@@ -33126,12 +33126,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-instantiate-confidential-client-config-options.md",
-            "redirect_url": "/entra/msal/dotnet/getting-started/instantiate-confidential-client-config-options",
-            "redirect_document_id": false
-        },
-
-        {
             "source_path_from_root": "/articles/active-directory/develop/msal-net-web-browsers.md",
             "redirect_url": "/entra/msal/dotnet/acquiring-tokens/using-web-browsers",
             "redirect_document_id": false
