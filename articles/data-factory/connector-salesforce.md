@@ -97,7 +97,7 @@ The following properties are supported for the Salesforce linked service.
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to **SalesforceV2**. |Yes |
-| environmentUrl | Specify the URL of the Salesforce instance. <br>For example, specify "https://<MyDomainName>.my.salesforce.com" to copy data from the custom domain. Learn how to configure or view your custom domain referring to this [article](https://help.salesforce.com/s/articleView?id=sf.domain_name_setting_login_policy.htm&type=5). |Yes |
+| environmentUrl | Specify the URL of the Salesforce instance. <br>For example, specify `"https://<domainName>.my.salesforce.com"` to copy data from the custom domain. Learn how to configure or view your custom domain referring to this [article](https://help.salesforce.com/s/articleView?id=sf.domain_name_setting_login_policy.htm&type=5). |Yes |
 | clientId |Specify the client ID of the Salesforce OAuth 2.0 Connected App. |Yes |
 | clientSecret |Specify the client secret of the Salesforce OAuth 2.0 Connected App. |Yes |
 | apiVersion | Specify the Salesforce Bulk API version to use, e.g. `52.0`. The supported API version >= 47.0. To learn about Bulk API version, see [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/bulk_common_diff_two_versions.htm) | Yes |
