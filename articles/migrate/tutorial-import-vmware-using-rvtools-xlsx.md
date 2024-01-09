@@ -70,7 +70,8 @@ To import the servers using RVTools XLSX (preview) file, follow these steps:
     - If there are warnings in the status, you can either fix them or continue without addressing them.
     - To improve assessment accuracy, improve the server information as suggested in warnings. 
     - If the import status appears as **Failed**, you must fix the errors to continue with the import.
-      :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png" alt-text="Screenshot that shows to status as failed." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png.png"::: 
+    
+      :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png" alt-text="Screenshot that shows to status as failed." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png"::: 
    
     - To view and fix warnings, follow these steps:
         - Select *Download warning details.XLSX*. This operation downloads the XLSX with warnings included.
