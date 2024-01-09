@@ -10,10 +10,10 @@ ms.date: 06/18/2023
 
 # Microsoft Defender for Cloud troubleshooting guide
 
-This guide is for IT professionals, information security analysts, and cloud administrators whose organizations need to troubleshoot problems related to Defender for Cloud.
+This guide is for IT professionals, information security analysts, and cloud administrators whose organizations need to troubleshoot problems related to Microsoft Defender for Cloud.
 
 > [!TIP]
-> When you're facing a problem or need advice from our support team, the **Diagnose and solve problems** section of the Azure portal is good place to look for solutions:
+> When you're facing a problem or need advice from our support team, the **Diagnose and solve problems** section of the Azure portal is good place to look for solutions.
 >
 > :::image type="content" source="media/release-notes/solve-problems.png" alt-text="Screenshot of the Azure portal that shows the page for diagnosing and solving problems in Defender for Cloud.":::
 
@@ -55,9 +55,9 @@ Defender for Cloud uses connectors to collect monitoring data from Amazon Web Se
 
 #### Cost impact of API calls to AWS
 
-When you onboard your AWS single or management account, the Discovery service in Defender for Cloud initiates an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that Azure helps secure.
+When you onboard your AWS single or management account, the discovery service in Defender for Cloud starts an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that Azure helps secure.
 
-After this initial scan, the service continues to periodically scan your environment at the interval that you configured during onboarding. In AWS, each API call to the account generates a lookup event that is recorded in the CloudTrail resource. The CloudTrail resource incurs costs. For pricing details, see the [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/) page on the Amazon AWS site.
+After this initial scan, the service continues to periodically scan your environment at the interval that you configured during onboarding. In AWS, each API call to the account generates a lookup event that's recorded in the CloudTrail resource. The CloudTrail resource incurs costs. For pricing details, see the [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/) page on the Amazon AWS site.
 
 If you connected your CloudTrail to GuardDuty, you're also responsible for associated costs. You can find these costs in the [GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html) on the Amazon AWS site.
 
@@ -113,7 +113,7 @@ To get the number of calls, go to the Athena table or the event data store and u
 
 #### Defender API calls to GCP
 
-When you onboard your GCP single project or organization, the Discovery service in Defender for Cloud initiates an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that Azure helps secure.
+When you onboard your GCP single project or organization, the discovery service in Defender for Cloud starts an immediate scan of your environment by executing API calls to various service endpoints in order to retrieve all resources that Azure helps secure.
 
 After this initial scan, the service continues to periodically scan your environment at the interval that you configured during onboarding.
 
@@ -152,9 +152,9 @@ You can share feedback for the alert description and relevance. Go to the alert,
 
 ### Check the Log Analytics agent processes and versions
 
-Just like Azure Monitor, Defender for Cloud uses the Log Analytics agent to collect security data from your Azure virtual machines. After you enable data collection and correctlyt install the agent in the target machine, the `HealthService.exe` process should be running.
+Just like Azure Monitor, Defender for Cloud uses the Log Analytics agent to collect security data from your Azure virtual machines. After you enable data collection and correctly install the agent in the target machine, the `HealthService.exe` process should be running.
 
-Open the services management console (*services.msc*) to make sure that the Log Analytics agent service running.
+Open the services management console (*services.msc*) to make sure that the Log Analytics agent service is running.
 
 :::image type="content" source="./media/troubleshooting-guide/troubleshooting-guide-fig5.png" alt-text="Screenshot of the Log Analytics agent service in Task Manager.":::
 
@@ -176,7 +176,7 @@ There are two installation scenarios that can produce different results when you
 
 ### Monitor network connectivity problems for the agent
 
-For agents to connect to and register with Defender for Cloud, they must have access to the DNS addresses and network ports for Azure network resources. To enable this access:
+For agents to connect to and register with Defender for Cloud, they must have access to the DNS addresses and network ports for Azure network resources. To enable this access, take these actions:
 
 - When you use proxy servers, make sure that the appropriate proxy server resources are configured correctly in the [agent settings](../azure-monitor/agents/agent-windows.md).
 - Configure your network firewalls to permit access to Log Analytics.
@@ -196,48 +196,48 @@ If you're having trouble onboarding the Log Analytics agent, read [Troubleshoot 
 
 The guest agent is the parent process of everything that the [Microsoft Antimalware](../security/fundamentals/antimalware.md) extension does. When the guest agent process fails, the Microsoft Antimalware protection that runs as a child process of the guest agent might also fail.
 
-Here are some other troubleshooting tips:
+Here are some troubleshooting tips:
 
 - If the target VM was created from a custom image, make sure that the creator of the VM installed a guest agent.
 - If the target is a Linux VM, installing the Windows version of the antimalware extension will fail. The Linux guest agent has specific OS and package requirements.
-- If the VM was created with an old version of the guest agent, the old agens might not have the ability to automatically update to the newer version. Always use the latest version of the guest agent when you create your own images.
+- If the VM was created with an old version of the guest agent, the old agent might not have the ability to automatically update to the newer version. Always use the latest version of the guest agent when you create your own images.
 - Some third-party administration software might disable the guest agent or block access to certain file locations. If third-party administration software is installed on your VM, make sure that the antimalware agent is on the exclusion list.
 - Make sure that firewall settings and a network security group aren't blocking network traffic to and from the guest agent.
 - Make sure that no access control lists are preventing disk access.
-- The guest agent requires sufficient disk space in order to function properly.
+- The guest agent needs sufficient disk space to function properly.
 
-By default, the Microsoft Antimalware user interface is disabled. But you can [enable the Microsoft Antimalware user interface](/archive/blogs/azuresecurity/enabling-microsoft-antimalware-user-interface-post-deployment) on Azure Resource Manager VMs.
+By default, the Microsoft Antimalware user interface is disabled. But you can [enable the Microsoft Antimalware user interface](/archive/blogs/azuresecurity/enabling-microsoft-antimalware-user-interface-post-deployment) on VMs that you created via Azure Resource Manager.
 
 ## Troubleshoot problems with loading the dashboard
 
-If you experience problems with loading the workload protection dashboard, make sure that the user that first enabled Defender for Cloud on the subscription and the user that wants to turn on data collection have the *Owner* or *Contributor* role on the subscription. If so, users with the *Reader* role on the subscription can see the dashboard, alerts, recommendations, and policy.
+If you experience problems with loading the workload protection dashboard, make sure that the user who first enabled Defender for Cloud on the subscription and the user who wants to turn on data collection have the *Owner* or *Contributor* role on the subscription. If so, users with the *Reader* role on the subscription can see the dashboard, alerts, recommendations, and policy.
 
 ## Troubleshoot connector problems for the Azure DevOps organization
 
 If you can't onboard your Azure DevOps organization, try the following troubleshooting tips:
 
-- It's important to know which account you're logged in to when you authorize the access, because that will be the account that is used. Your account can be associated with the same email address but also associated with different tenants. You should [check which account](https://app.vssps.visualstudio.com/profile/view) you are currently logged in on and ensure that the right account/tenant combination is selected.
+- It's important to know which account you're logged in to when you authorize the access, because that will be the account that the system uses for onboarding. Your account can be associated with the same email address but also associated with different tenants. Make sure that you select the right account/tenant combination. If you need to change the combination:
 
-  1. On your profile page, select the drop-down menu to select another account.
+  1. On your [Azure DevOps profile page](https://app.vssps.visualstudio.com/profile/view), use the dropdown menu to select another account.
 
      :::image type="content" source="./media/troubleshooting-guide/authorize-select-tenant.png" alt-text="Screenshot of the Azure DevOps profile page that's used to select an account.":::
 
-  1. After selecting the correct account/tenant combination, go to **Environment settings** in Defender for Cloud and edit your Azure DevOps connector. You will have the option to reauthorize the connector, which will update the connector with the correct account/tenant combination. You should then see the correct list of organizations from the dropdown selection menu.
+  1. After you select the correct account/tenant combination, go to **Environment settings** in Defender for Cloud and edit your Azure DevOps connector. Reauthorize the connector to update it with the correct account/tenant combination. You should then see the correct list of organizations on the dropdown menu.
 
-- Ensure you have **Project Collection Administrator** role on the Azure DevOps organization that you want to onboard.
+- Ensure that you have the *Project Collection Administrator* role on the Azure DevOps organization that you want to onboard.
 
 - Ensure that the **Third-party application access via OAuth** toggle is **On** for the Azure DevOps organization. [Learn more about enabling OAuth access](/azure/devops/organizations/accounts/change-application-access-policies).
 
 ## Contact Microsoft support
 
-You can also find troubleshooting information for Defender for Cloud at the [Defender for Cloud Q&A page](/answers/topics/azure-security-center.html). If you need further troubleshooting, you can open a new support request on the Azure portal. On the **Help + support** page, select **Create a support request**.
+You can also find troubleshooting information for Defender for Cloud at the [Defender for Cloud Q&A page](/answers/topics/azure-security-center.html).
+
+If you need more assistance, you can open a new support request on the Azure portal. On the **Help + support** page, select **Create a support request**.
 
 :::image type="content" source="media/troubleshooting-guide/troubleshooting-guide-fig2.png" alt-text="Screenshot of selections for creating a support request in the Azure portal.":::
 
 ## See also
 
-In this article, you learned about troubleshooting steps for Defender for Cloud. To learn more about Microsoft Defender for Cloud:
-
-- Learn how to [manage and respond to security alerts](managing-and-responding-alerts.md) in Microsoft Defender for Cloud
-- [Alert validation](alert-validation.md) in Microsoft Defender for Cloud
-- Review [common questions](faq-general.yml) about using Microsoft Defender for Cloud
+- Learn how to [manage and respond to security alerts](managing-and-responding-alerts.md) in Defender for Cloud.
+- Learn about [alert validation](alert-validation.md) in Defender for Cloud.
+- Review [common questions](faq-general.yml) about using Defender for Cloud.
