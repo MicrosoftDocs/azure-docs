@@ -27,7 +27,7 @@ When you run the **Troubleshoot & repair** tool, your dev box and its back-end s
 
 If you're unable to connect to your dev box by using an RDP client, use the **Troubleshoot & repair** tool. 
 
-The troubleshoot and repair process takes between 10 to 40 minutes to complete. During this time, you can't use your dev box. The tool scans a list of critical components that relate to RDP connectivity, including but not limited to:
+The troubleshoot and repair process completes on average in 20 minutes, but can take up to 40 minutes. During this time, you can't use your dev box. The tool scans a list of critical components that relate to RDP connectivity, including but not limited to:
 - Domain join check
 - SxS stack listener readiness
 - URL accessibility check
