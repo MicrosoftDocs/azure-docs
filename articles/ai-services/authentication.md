@@ -216,11 +216,12 @@ Now that you have a custom subdomain associated with your resource, you're going
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
    ```
 
-   >[!NOTE]
+   > [!NOTE]
    > If you register an application in the Azure portal, this step is completed for you.
 
 3. The last step is to [assign the "Cognitive Services User" role](/powershell/module/az.Resources/New-azRoleAssignment) to the service principal (scoped to the resource). By assigning a role, you're granting service principal access to this resource. You can grant the same service principal access to multiple resources in your subscription.
-   >[!NOTE]
+
+   > [!NOTE]
    > The ObjectId of the service principal is used, not the ObjectId for the application.
    > The ACCOUNT_ID will be the Azure resource Id of the Azure AI services account you created. You can find Azure resource Id from "properties" of the resource in Azure portal.
 
@@ -256,11 +257,10 @@ In this sample, a password is used to authenticate the service principal. The to
    $responseToken = Invoke-RestMethod -Uri $tokenEndpoint -Method Post -Body $body
    $accessToken = $responseToken.access_token
    ```
-   >[!NOTE]
+
+   > [!NOTE]
    > Anytime you use passwords in a script, the most secure option is to use the PowerShell Secrets Management module and integrate with a solution such as Azure KeyVault.
-
-   ---
-
+  
 3. Call the Computer Vision API:
    ```powershell-interactive
    $url = $account.Endpoint+"vision/v1.0/models"
