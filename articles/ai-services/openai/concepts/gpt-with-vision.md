@@ -24,7 +24,7 @@ The GPT-4 Turbo with Vision model answers general questions about what's present
 
 ## Enhancements
 
-Enhancements let you incorporate other Azure AI services to add new functionality to the chat-with-vision experience.
+Enhancements let you incorporate other Azure AI services (such as Azure AI Vision) to add new functionality to the chat-with-vision experience.
 
 **Object grounding**: Azure AI Vision complements GPT-4 Turbo with Vision’s text response by identifying and locating salient objects in the input images. This lets the chat model give more accurate and detailed responses about the contents of the image.
 
