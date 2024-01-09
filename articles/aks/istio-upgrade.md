@@ -96,15 +96,15 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
       az aks mesh upgrade complete --resource-group $RESOURCE_GROUP --name $CLUSTER
       ```
 
-    * **Rollback the canary upgrade**: In case you observe any issues with the health of your workloads, you can roll back to the prevision revision of Istio:
+    * **Rollback the canary upgrade**: In case you observe any issues with the health of your workloads, you can roll back to the previous revision of Istio:
 
-      * Relabel the namespace to the older revision
+      * Relabel the namespace to the previous revision
 
           ```bash
           kubectl label namespace default istio.io/rev=asm-1-17 --overwrite
           ```
 
-      * Roll back the workloads to use the sidecar corresponding to the older Istio revision by restarting these workloads again:
+      * Roll back the workloads to use the sidecar corresponding to the previous Istio revision by restarting these workloads again:
 
           ```bash
           kubectl rollout restart deployment <deployment name> -n <deployment namespace>
