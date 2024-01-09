@@ -65,6 +65,8 @@ items:
       href: ./concepts/use-your-image-data.md
 - name: How-to 
   items:
+  - name: API version lifecycle
+    href: ./api-version-deprecation.md
   - name: Completions & chat completions
     items:
     - name: GPT-35-Turbo & GPT-4 

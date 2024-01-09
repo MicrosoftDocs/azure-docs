@@ -132,10 +132,10 @@ Under this tab, there's a list of user databases inside the Single Server. You c
 
 :::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-database.png" alt-text="Screenshot of Databases to migrate." lightbox="./media/concepts-single-to-flexible/flexible-migration-database.png":::
 
-### Review
-
 >[!NOTE]
-> Gentle reminder to allowlist necessary [extensions](./concepts-single-to-flexible.md#allowlist-required-extensions) before you select **Create** in case it's not yet complete.
+> The tool migrates only user databases. System databases or template databases such as template0, template1 will not be migrated.
+
+### Review
 
 The **Review** tab summarizes all the details for creating the validation or migration. Review the details and click on the start button.
 
