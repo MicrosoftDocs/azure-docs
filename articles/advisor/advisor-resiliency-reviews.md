@@ -147,14 +147,14 @@ If you reset a recommendation after your engineering started implementation, the
 
 1. You must select a reason when you reject a recommendation. Select one of the reasons from the list of available options.
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-reject-options-small.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-reject-options-small.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-reject-options-small.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations reject options." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-reject-options-small.png":::
 
 [!NOTE]
 The reason for the rejection is visible to your account team. It helps them understand workload context and your business priorities better. Additionally, Microsoft uses this information to improve the quality of recommendations.
 
 3. The rejected recommendation is moved to the Rejected tab. It is not visible for your engineering team under **Recommendations** (->) **Reliability**.
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of rejected recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
 
 4. You can reject multiple recommendations at a time using the checkbox control, and the same reason for rejection is applied to all selected recommendations. If you need to select a different reason, reject one recommendation at a time.
 
@@ -207,7 +207,7 @@ Recommendation status is a valuable indicator for determining what actions need 
 
 * You can dismiss a recommendation if you do not plan to implement it. If you dismiss the recommendation, you must give a reason, just as you must give a reason if you reject a recommendation in a review.
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-reliability-recommendation-dismiss-options-small.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-reliability-recommendation-dismiss-options-small.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-reliability-recommendation-dismiss-options-small.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations dismiss options-small.png":::
 
 ## Review maintenance
 
