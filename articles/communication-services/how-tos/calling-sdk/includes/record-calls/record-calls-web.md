@@ -38,3 +38,29 @@ const isRecordingActiveChangedHandler = () => {
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
 ```
+
+You can also get a list of recordings by using the `recordings` property of `callRecordingApi`. It returns `RecordingInfo[]` which will have the desplayName of the user and current state of the local recording.
+
+```js
+const recordings = callRecordingApi.recordings;
+
+recordings.forEach(r => {
+    console.log("User: ${r.displayName}, State: ${r.state});
+```
+
+You can also subscribe to 'recordingsUpdated' and get a collection of updated recordings. This event is triggered whenever there is a recording update
+
+```js
+const recordingsUpdateddHandler = (args: { added: SDK.RecordingInfo[], removed: SDK.RecordingInfo[]}) => {
+                        console.log('Recording started by: ');
+                        args.added?.forEach(a => {
+                            console.log('User: ${a.displayName}');
+                        });
+
+                        console.log('Recording stopped by: ');
+                        args.removed?.forEach(r => {
+                            console.log('User: ${r.displayName});
+                        });
+                    };
+callRecordingApi.on('recordingsUpdated', recordingsUpdateddHandler);
+```
