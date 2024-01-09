@@ -412,7 +412,7 @@ Use the following steps to install the extension and configure it properly:
 
 #### Support Single-Sign-On for Tanzu Developer Portal Url
 
-To support SSO for Tanzu Developer Portal Url, some configuration change need to be made in associated Azure AAD application. 
+To support SSO for Tanzu Developer Portal Url, some configuration changes need to be made in associated Azure AAD application and Azure Spring Apps service instance. 
 
 1. Enable Single-Sign-On for your Azure Spring Apps service instance.
 
@@ -452,6 +452,8 @@ To support SSO for Tanzu Developer Portal Url, some configuration change need to
    | ------------------------------- | ------------------------------------------------------------ |
    | Web                             | Add Redirect URIs `https://<Developer Tools Url>/oauth2/callback` |
    | Mobile and desktop applications | Add Redirect URIs `vscode://VMware.tanzu-app-accelerator`    |
+
+   ![Screenshot that shows Azure AAD application configuration](media/how-to-use-accelerator/aad-app-config-for-sso.png)
 
 5. Change the configuration settings of extension.
 
