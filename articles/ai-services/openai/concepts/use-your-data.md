@@ -74,11 +74,25 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
     This will affect the quality of the model response. 
 
-## Add your data
+## Add your data 
 
-You can use Azure OpenAI studio to add all available data sources. You can also use the [ingestion API](../reference.md#start-an-ingestion-job) to upload your data to an Azure blob storage container and Azure AI search service. To add a the Azure Open AI Studio
+When you want to use your data to chat with an Azure OpenAI model, it needs to be indexed in a database that can be used by the model. For some data sources (such as uploading files from your local machine or data contained in a blob storage account), the database used is Azure AI Search. Azure OpenAI on your data however, supports a number of sources: 
 
-1. Nativgate to [Azure OpenAI studio](https://oai.azure.com/portal) and select the **Bring your data**.
+* [Azure AI Search](/azure/search/search-what-is-azure-search) indexes
+
+    The following data sources are ingested into an Azure AI search database
+    * Local files uploaded using the Azure OpenAI Studio.
+    * Blobs in an Azure storage container that you provide.
+    * URLs/Web pages that you choose to upload
+
+* [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/).
+* [Pinecone](https://www.pinecone.io/)
+* [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
+* [Elasticsearch](https://www.elastic.co/)
+
+You can use Azure OpenAI studio to add all supported data sources. You can also use the [ingestion API](../reference.md#start-an-ingestion-job) to ingest an Azure blob storage container into an Azure AI search index. To add a data source using the the Azure Open AI Studio:
+
+1. Navigate to [Azure OpenAI studio](https://oai.azure.com/portal) and select the **Bring your data**.
 
     :::image type="content" source="../media/use-your-data/bring-your-data-landing page.png" alt-text="A screenshot of the Azure OpenAI Studio landing page." lightbox="../media/use-your-data/bring-your-data-landing page.png":::
 
@@ -86,21 +100,8 @@ You can use Azure OpenAI studio to add all available data sources. You can also 
 
     :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
-### Data source options
 
-Use the following tabs to learn about the different sources supported by Azure OpenAI. 
-
-> [!NOTE]
-> The following data sources use Azure AI Search as the search service: 
-> * Blobs in an Azure storage container that you provide.
-> * Local files uploaded using the Azure OpenAI Studio.
-
-You can additionally ingest your data from an existing Azure AI Search service, or use one of the following additional sources
-* [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/).
-* [Pinecone](https://www.pinecone.io/)
-* [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
-* [Elasticsearch](https://www.elastic.co/)
-
+Use the following tabs to learn about the different data sources supported by Azure OpenAI. 
 
 # [Azure AI Search](#tab/ai-search)
 
