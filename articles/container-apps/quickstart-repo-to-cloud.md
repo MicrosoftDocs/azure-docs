@@ -130,7 +130,7 @@ export API_NAME="album-api"
 export GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 ```
 
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
 
 Next, define a container registry name unique to you.
@@ -152,7 +152,7 @@ $API_NAME="album-api"
 $GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 ```
 
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
 
 Next, define a container registry name unique to you.
@@ -177,7 +177,7 @@ In a browser window, go to the GitHub repository for your preferred language and
 Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-csharp) to fork the repo to your account.
 
 
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 # [Java](#tab/java)
 
@@ -199,7 +199,7 @@ Select the **Fork** button at the top of the [album API repo](https://github.com
 Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-python) to fork the repo to your account.
 
 
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 # [Go](#tab/go)
 
@@ -221,30 +221,30 @@ Build and deploy your first container app from your forked GitHub repository wit
 
 - Create the resource group
 - Create the Container Apps environment with a Log Analytics workspace
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 - Create an Azure Container Registry
 ::: zone-end
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 - Automatically create a default registry as part of your environment
 ::: zone-end
 - Create a GitHub Action workflow to build and deploy the container app
 
 Once new code it pushed to the code repository the Github Action will:
 
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 - Build the container image and push it to the Azure Container Registry
 - Deploy the container image to the created container app
 ::: zone-end
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 - Auto-detect the language and build the image automatically using the appropriate Buildpack
 - Push the image into Azure Container App's default registry to be deployed from there
 ::: zone-end
 
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Dockerfile.  A Docker file isn't required to build a container app. 
 ::: zone-end
 
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 For the container app to be accessible let's ensure we also enable ingress traffic to the correct port of where the application container will listen. The containers will be build to listen on port 8080.
 ::: zone-end
 
@@ -252,7 +252,7 @@ In the command below replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHu
 
 # [Bash](#tab/bash)
 
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 ```azurecli
 az containerapp up \
@@ -265,7 +265,7 @@ az containerapp up \
 ```
 
 ::: zone-end
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 ```azurecli
 az containerapp up \
@@ -284,7 +284,7 @@ az containerapp up \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 ```powershell
 az containerapp up `
@@ -297,7 +297,7 @@ az containerapp up `
 ```
 
 ::: zone-end
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 ```powershell
 az containerapp up `

@@ -99,7 +99,7 @@ sections:
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
   
- - name: Docker-less deployments
+ - name: Dockerless deployments
    questions:
      - question: |
          What is a Docker-less deployment?

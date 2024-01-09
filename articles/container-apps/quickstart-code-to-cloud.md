@@ -136,11 +136,11 @@ $API_NAME="album-api"
 
 ---
 
-## Aquire the sample code to be build and deployed
+## Acquire the sample code to be built and deployed
 
 Download and extract the API sample application in the language of your choice.
 
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 # [C#](#tab/csharp)
 
@@ -181,7 +181,7 @@ After you extract the downloaded file navigate into the `containerapps-albumapi-
 
 
 ::: zone-end
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 
 # [C#](#tab/csharp)
@@ -226,11 +226,11 @@ After you extract the downloaded file navigate into the `containerapps-albumapi-
 Build and deploy your first container app with the `containerapp up` command. This command will:
 
 - Create the resource group
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 - Create an Azure Container Registry
 - Build the container image and push it to the registry
 ::: zone-end
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 - Automatically create a default registry as part of your environment
 - Auto-detect the language and build the image automatically using the appropriate Buildpack
 - Push the image into Azure Container App's default registry
@@ -238,12 +238,12 @@ Build and deploy your first container app with the `containerapp up` command. Th
 - Create the Container Apps environment with a Log Analytics workspace
 - Create and deploy the container app using the build container image
 
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Dockerfile. That's the port that will be used to send ingress traffic to the container.
 
 ::: zone-end
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 If the `up` command doesn't find a Dockerfile it will automatically try and use Buildpacks in order to turn your application source into a runable container. In this case we need to tell the `up` command which port will be used.
 
@@ -254,7 +254,7 @@ Please note the `.` (dot) in the command below. It assumes you are in the `src` 
 
 # [Bash](#tab/bash)
 
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 ```azurecli
 az containerapp up \
@@ -266,7 +266,7 @@ az containerapp up \
 ```
 
 ::: zone-end
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 ```azurecli
 az containerapp up \
@@ -284,7 +284,7 @@ az containerapp up \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-::: zone pivot="with-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 ```powershell
 az containerapp up `
@@ -296,7 +296,7 @@ az containerapp up `
 ```
 
 ::: zone-end
-::: zone pivot="without-Dockerfile"
+::: zone pivot="with-dockerfile"
 
 ```powershell
 az containerapp up `
