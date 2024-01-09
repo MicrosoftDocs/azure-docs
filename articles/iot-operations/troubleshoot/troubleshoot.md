@@ -131,7 +131,7 @@ You can't install IoT Operations components on nested layers. For example, Layer
 
     DNS should respond with the IP address of the Layered Network Management service.
 
-1. If the domain is being resolved correctly, verify the domain is added to the allowlist. For more information, see [Check the allowlist of Layered Network Management](check-the-allowlist-of-layered-network-management).
+1. If the domain is being resolved correctly, verify the domain is added to the allowlist. For more information, see [Check the allowlist of Layered Network Management](#check-the-allowlist-of-layered-network-management).
 1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management packet trace](#capture-layered-network-management-packet-trace).
 
 ## A pod fails when installing IoT Operations on an isolated cluster
