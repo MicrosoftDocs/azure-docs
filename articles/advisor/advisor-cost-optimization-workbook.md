@@ -86,20 +86,20 @@ Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Mach
 **Windows VM/VMSS**
 
 Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines OS costs.
-If you have Software Assurance, you can enable [Hybrid Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/en-gb/pricing/hybrid-benefit/#calculator "Azure Hybrid Benefit Calculator").
+If you have Software Assurance, you can enable [Hybrid Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator "Azure Hybrid Benefit Calculator").
 
 > NOTE
 > If you have Dev/Test subscription(s) within the scope of this Workbook, you should already have discounts on Windows licenses, so recommendations here don't apply to this subscription(s).
 
 **Linux VM/VMSS**
 
-[Azure Hybrid Benefit for Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-hybrid-benefit-linux) is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
+[Azure Hybrid Benefit for Linux](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
 
 #### **SQL**
 
 Azure Hybrid Benefit represents an excellent opportunity to save costs on SQL instances.
-If you have Software Assurance, you can enable [SQL Hybrid Benefit](https://docs.microsoft.com/en-us/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell).
-You can see potential savings using [Azure Hybrid Benefit Calculator ](https://azure.microsoft.com/en-gb/pricing/hybrid-benefit/#calculator "Azure Hybrid Benefit Calculator ")
+If you have Software Assurance, you can enable [SQL Hybrid Benefit](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell).
+You can see potential savings using [Azure Hybrid Benefit Calculator ](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator "Azure Hybrid Benefit Calculator ")
 
 > NOTE
 > If you have selected Dev/Test subscription(s) within the scope of this Workbook, then you should already have discounts on SQL licenses, so recommendations here don’t apply to this subscription(s).
@@ -108,15 +108,16 @@ You can see potential savings using [Azure Hybrid Benefit Calculator ](https://a
 
 #### **Azure Stack HCI**
 
-Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure Stack HCI. If you have Software Assurance, you can enable [Azure Stack HCI Hybrid Benefit](https://learn.microsoft.com/en-us/azure-stack/hci/concepts/azure-hybrid-benefit-hci?tabs=azure-portal).
+Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure Stack HCI. If you have Software Assurance, you can enable [Azure Stack HCI Hybrid Benefit](https://learn.microsoft.com/azure-stack/hci/concepts/azure-hybrid-benefit-hci?tabs=azure-portal).
 
 ### Azure Reservations
 
-Review Azure Reservations cost saving opportunities. Use filters of subscriptions, look back period (7, 30 or 60 days), term (1 year or 3 years) and resource type.
+Review Azure Reservations cost saving opportunities. Use filters of subscriptions, look back period (7, 30 or 60 days), term (1 year or 3 years) and resource type. Learn more about [What are Azure Reservations?](https://learn.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations) and how much you can [save with Reservations](https://azure.microsoft.com/pricing/reservations).
 
 ### Azure savings plan for compute
 
-Review Azure savings plan for compute cost saving opportunities. Use filters of subscriptions, look back period (7, 30 or 60 days) and term (1 year or 3 years).
+Review Azure savings plan for compute cost saving opportunities. Use filters of subscriptions, look back period (7, 30 or 60 days) and term (1 year or 3 years). Learn more about [What is Azure savings plans for compute?](https://azure.microsoft.com/pricing/offers/savings-plan-compute) and how much you can [save with Savings Plan for Compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute).
+
 
 ## Usage Optimization
 
@@ -131,7 +132,7 @@ This tab focus on reviewing potential savings related to usage optimization of y
 
 #### **Virtual Machines in a Stopped State**
 
-This query identifies Virtual Machines that are not properly deallocated. If a virtual machine’s status is Stopped rather than Stopped (Deallocated), you are still billed for the resource as the hardware remains allocated for you.
+This query identifies Virtual Machines that are not properly deallocated. If a virtual machine’s status is Stopped rather than Stopped (Deallocated), you are still billed for the resource as the hardware remains allocated for you. Learn more about [States and billing status of Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/states-billing).
 
 
 #### **Deallocated virtual machines** 
@@ -165,6 +166,8 @@ Upgrading a v1 storage account to a general-purpose v2 account is free. You may 
 
 This query helps to identify unattached managed disks. These unattached disks represent a cost in the subscription. It automatically ignores disks used by Azure Site Recovery. Use this information to identify and remove any unattached disks that are no longer needed.
 
+> [!NOTE]
+> This query has a Quick Fix column that helps you to remove the disk if not needed.
 
 #### **Disk Snapshots with + 30 Days**
 
@@ -188,8 +191,6 @@ Review protected items backup activity to determine if there are items that have
 
 By default, when you configure backup for resources, geo-redundant storage (GRS) replication is applied to these backups. While this is the recommended storage replication option as it creates more redundancy for your critical data, you can choose to protect items using locally-redundant storage (LRS) if that meets your backup availability needs for dev-test workloads. Using LRS instead of GRS halves the cost of your backup storage.
 
-🖱️Click on each vault to see the configured storage replication.
-
 #### **Advisor Recommendations**
 
 Review the advisor recommendations for Storage. Some of the recommendations available in this tile could be "Blob storage reserved capacity" or "Use lifecycle management".
@@ -199,11 +200,11 @@ Review the advisor recommendations for Storage. Some of the recommendations avai
 
 #### **Azure Firewall Premium**
 
-This query identifies Azure Firewalls with Premium SKU and evaluates whether the associated policy incorporates premium-only features or not. If a Premium SKU Firewall lacks a policy with premium features, such as TLS or intrusion detection, it will be shown here. To learn more about Azure Firewall skus, check this [SKU comparison table](https://learn.microsoft.com/en-us/azure/firewall/choose-firewall-sku).
+This query identifies Azure Firewalls with Premium SKU and evaluates whether the associated policy incorporates premium-only features or not. If a Premium SKU Firewall lacks a policy with premium features, such as TLS or intrusion detection, it will be shown here. To learn more about Azure Firewall skus, check this [SKU comparison table](https://learn.microsoft.com/azure/firewall/choose-firewall-sku).
 
 #### **Azure Firewall instaces per region**
 
-Optimize the use of Azure Firewall by having a central instance of Azure Firewall in the hub virtual network or Virtual WAN secure hub and share the same firewall across many spoke virtual networks that are connected to the same hub from the same region. Ensure there's no unexpected cross-region traffic as part of the hub-spoke topology, nor multiple Azure firewall instances deployed to the same region. To learn more about Azure Firewall design principles, check [Azure Well-Architected Framework review - Azure Firewall](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-firewall#cost-optimization).
+Optimize the use of Azure Firewall by having a central instance of Azure Firewall in the hub virtual network or Virtual WAN secure hub and share the same firewall across many spoke virtual networks that are connected to the same hub from the same region. Ensure there's no unexpected cross-region traffic as part of the hub-spoke topology, nor multiple Azure firewall instances deployed to the same region. To learn more about Azure Firewall design principles, check [Azure Well-Architected Framework review - Azure Firewall](https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall#cost-optimization).
 
 #### **Application Gateway with empty backend pool**
 
@@ -218,7 +219,7 @@ Review the Standard Load Balancers with empty backend pools. Load Balancers are 
 
 #### **Unattached Public IPs**
 
-Review the orphan Public Ip Addresses. This query will also show Public IP addresses attached to idle NICs.
+Review the orphan Public IP Addresses. This query will also show Public IP addresses attached to idle network interface cards (NIC).
 
 
 #### **Virtual Network Gateways**
@@ -238,7 +239,7 @@ Review the App Service list.
 
 * Review the Stopped App Services as they will be charged.
 
-* Consider upgrading from V2 SKU to V3 SKU. V3 SKU is cheaper than similar V2 SKU and allows [Reserved Instances and Savings plan for compute](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/ "Reserved Instances and Savings plan for compute").
+* Consider upgrading from V2 SKU to V3 SKU. V3 SKU is cheaper than similar V2 SKU and allows [Reserved Instances and Savings plan for compute](https://azure.microsoft.com/pricing/details/app-service/windows/ "Reserved Instances and Savings plan for compute").
 
 * Determine the right reserved instance size before you buy - Before you buy a reservation, you should determine the size of the Premium v3 reserved instance that you need. The following sections will help you determine the right Premium v3 reserved instance size.
 
@@ -262,7 +263,7 @@ Review the Azure Synapse workspaces that don't have any SQL pools attached to th
 
 #### **Monitoring**
 
-Review [Azure Monitor - Best Practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-cost) for design checklists and configuration recommendations related to Azure Monitor Logs, Azure resources, Alerts, Virtual machines, Containers, and Application Insights.
+Review [Azure Monitor - Best Practices](https://learn.microsoft.com/azure/azure-monitor/best-practices-cost) for design checklists and configuration recommendations related to Azure Monitor Logs, Azure resources, Alerts, Virtual machines, Containers, and Application Insights.
 
  **Log Analytics**
 
