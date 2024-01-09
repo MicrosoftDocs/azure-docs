@@ -634,6 +634,7 @@ The following sample shows how to exclude metrics with names "metricA" and "metr
 ```
 
 The following sample show how to turn off all metrics including the default auto-collected using regexp.
+
 ```json
 "processors": [
   {
@@ -647,6 +648,7 @@ The following sample show how to turn off all metrics including the default auto
   }
 ]
 ```
+
 ### Default metrics captured by Java agent
 
 | Metric name  | Metric type | Description  | Filterable |
