@@ -616,6 +616,8 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 
 ### Sample usage
 
+The following sample shows how to exclude metrics with names "metricA" and "metricB".
+
 ```json
 "processors": [
   {
@@ -630,6 +632,23 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
   }
 ]
 ```
+
+The following sample show how to turn off all metrics including the default auto-collected performance metrics like cpu and memory.
+
+```json
+"processors": [
+  {
+    "type": "metric-filter",
+    "exclude": {
+      "matchType": "regexp",
+      "metricNames": [
+        ".*"
+      ]
+    }
+  }
+]
+```
+
 ### Default metrics captured by Java agent
 
 | Metric name  | Metric type | Description  | Filterable |
