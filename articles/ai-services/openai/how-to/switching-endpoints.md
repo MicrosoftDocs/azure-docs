@@ -34,7 +34,7 @@ We recommend using environment variables. If you haven't done this before our [P
 from openai import OpenAI
 
 client = OpenAI(
-  api_key=os.environ['OPENAI_API_KEY']  
+  api_key=os.environ["OPENAI_API_KEY"]  
 )
 
 
@@ -74,7 +74,7 @@ client = AzureOpenAI(
 from openai import OpenAI
 
 client = OpenAI(
-  api_key=os.environ['OPENAI_API_KEY']  
+  api_key=os.environ["OPENAI_API_KEY"]  
 )
 
 
@@ -122,7 +122,7 @@ OpenAI uses the `model` keyword argument to specify what model to use. Azure Ope
 
 ```python
 completion = client.completions.create(
-    model='gpt-3.5-turbo-instruct',
+    model="gpt-3.5-turbo-instruct",
     prompt="<prompt>")
 )
 
@@ -142,7 +142,7 @@ embedding = client.embeddings.create(
 
 ```python
 completion = client.completions.create(
-    model=gpt-35-turbo-instruct, # This must match the custom deployment name you chose for your model.
+    model="gpt-35-turbo-instruct", # This must match the custom deployment name you chose for your model.
     prompt=<"prompt">
 )
 
