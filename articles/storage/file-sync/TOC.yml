@@ -25,7 +25,7 @@
     href: file-sync-server-endpoint-create.md
   - name: Manage tiered files
     href: file-sync-how-to-manage-tiered-files.md
-  - name: Move resources to other resource groups, subscriptions, and AAD tenants
+  - name: Move resources to other resource groups, subscriptions, and Microsoft Entra tenants
     href: file-sync-resource-move.md
   - name: Delete an Azure File Sync server endpoint
     href: file-sync-server-endpoint-delete.md
@@ -185,10 +185,10 @@
   items:
   - name: Azure Files reference
     href: ../files/storage-files-introduction.md
+  - name: Azure Files FAQ
+    href: ../files/storage-files-faq.md?toc=/azure/storage/file-sync/toc.json
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/file-sync/toc.json
-  - name: FAQ
-    href: ../files/storage-files-faq.md?toc=/azure/storage/file-sync/toc.json
   - name: Monitoring Azure Files reference
     href: ../files/storage-files-monitoring-reference.md?toc=/azure/storage/file-sync/toc.json
   - name: Resource Manager template
