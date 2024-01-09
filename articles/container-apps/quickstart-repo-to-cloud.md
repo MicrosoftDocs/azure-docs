@@ -10,7 +10,7 @@ ms.custom:
 ms.topic: quickstart
 ms.date: 12/19/2023
 ms.author: cshoe
-zone_pivot_groups: container-apps-image-build-from-repo
+zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
 
 
@@ -91,7 +91,7 @@ az extension add --name containerapp --upgrade
 
 ---
 
-Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
+Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces in your Azure subscription.
 
 # [Bash](#tab/bash)
 
