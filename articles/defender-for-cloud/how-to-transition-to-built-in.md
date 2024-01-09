@@ -1,13 +1,13 @@
 ---
-title: Transition to Microsoft Defender Vulnerability Management 
+title: Transition to Microsoft Defender Vulnerability Management for servers
 description: Learn how to transition to the Microsoft Defender Vulnerability Management solution in Microsoft Defender for Cloud
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 01/08/2024
+ms.date: 01/09/2024
 ---
 
-# Transition to Microsoft Defender Vulnerability Management
+# Transition to Microsoft Defender Vulnerability Management for servers
 
 > [!IMPORTANT]
 > Defender for Server's vulnerability assessment solution powered by Qualys, is on a retirement path that is set to complete on **May 1st, 2024**. If you are a currently using the built-in vulnerability assessment powered by Qualys, you should plan to transition to the Microsoft Defender Vulnerability Management vulnerability scanning using the steps on this page. 
