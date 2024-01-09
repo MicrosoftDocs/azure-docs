@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 12/11/2023
-ms.reviewer: eur
+ms.reviewer: fasantia
 ms.author: mopeakande
 author: msakande
 ms.custom: [references_regions]
