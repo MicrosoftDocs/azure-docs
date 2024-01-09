@@ -137,7 +137,7 @@ To acquire the quorum host names, run the following curl command:
 curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/configurations?type=hbase-site&tag=TOPOLOGY_RESOLVED" | grep "hbase.zookeeper.quorum"
 ```
 
-The curl command retrieves a JSON document with HBase configuration information, and the grep command returns only the "hbase.zookeeper.quorum" entry, for example:
+The curl command retrieves a JSON document with HBase configuration information, and the `grep` command returns only the "hbase.zookeeper.quorum" entry, for example:
 
 ```output
 "hbase.zookeeper.quorum" : "<zookeepername1>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,<zookeepername2>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,<zookeepername3>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
