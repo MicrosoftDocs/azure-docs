@@ -5,42 +5,48 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 12/21/2023
+ms.date: 01/08/2024
 
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+#CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a semantic cache with an AI-based large language model.
 ---
 
 # Tutorial: Use Azure Cache for Redis as a Semantic Cache
 
-In this tutorial, you'll use Azure Cache for Redis as a semantic cache with an AI-based large language model (LLM). You'll use Azure Open AI Service to generate LLM responses to queries and cache those responses using Azure Cache for Redis, delievering faster responses and lowering costs.
-Because Azure Cache for Redis offers built-in vector search capability, _semantic caching_ can be acomplished. This means that you can both return cached responses for identical queries and also for queries that are similar in meaning, even if the text isn't the same.
+In this tutorial, you use Azure Cache for Redis as a semantic cache with an AI-based large language model (LLM). You use Azure Open AI Service to generate LLM responses to queries and cache those responses using Azure Cache for Redis, delivering faster responses and lowering costs.
+
+Because Azure Cache for Redis offers built-in vector search capability, _semantic caching_ can be accomplished. This means that you can both return cached responses for identical queries and also for queries that are similar in meaning, even if the text isn't the same.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure Cache for Redis instance configured for semantic caching
-> * Use LangChain other popular Python libraries.
-> * Use Azure OpenAI service to generate text from AI models and cache results.
-> * See the performance gains from using caching with LLMs.
+>
+> - Create an Azure Cache for Redis instance configured for semantic caching
+> - Use LangChain other popular Python libraries.
+> - Use Azure OpenAI service to generate text from AI models and cache results.
+> - See the performance gains from using caching with LLMs.
 
 >[!IMPORTANT]
->This tutorial will walk you through building a Jupyter Notebook. You can follow this tutorial with a Python code file (.py) and get *similar* results, but you will need to add all of the code blocks in this tutorial into the `.py` file and execute once to see results. In other words, Jupyter Notebooks provides intermediate results as you execute cells, but this is not behavior you should expect when working in a Python code file.
+>This tutorial walks you through building a Jupyter Notebook. You can follow this tutorial with a Python code file (.py) and get _similar_ results, but you need to add all of the code blocks in this tutorial into the `.py` file and execute once to see results. In other words, Jupyter Notebooks provides intermediate results as you execute cells, but this is not behavior you should expect when working in a Python code file.
 
 >[!IMPORTANT]
->If you would like to follow along in a completed Jupyter notebook instead, [download the Jupyter notebook file named *semanticcache.ipynb*](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/semantic-cache) and save it into the new *semanticcache* folder.
+>If you would like to follow along in a completed Jupyter notebook instead, [download the Jupyter notebook file named _semanticcache.ipynb_](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/semantic-cache) and save it into the new _semanticcache_ folder.
 
 ## Prerequisites
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-* Access granted to Azure OpenAI in the desired Azure subscription
-    Currently, you must apply for access to Azure OpenAI. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
-* <a href="https://www.python.org/" target="_blank">Python 3.11.6 or later version</a>
-* [Jupyter Notebooks](https://jupyter.org/) (optional)
-* An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** and **gpt-35-turbo-instruct** models deployed. These models are currently only available in [certain regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). See the [resource deployment guide](../ai-services/openai/how-to/create-resource.md) for instructions on how to deploy the models.
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+
+- Access granted to Azure OpenAI in the desired Azure subscription
+    Currently, you must apply for access to Azure OpenAI. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access).
+
+- [Python 3.11.6 or later version](https://www.python.org/)
+
+- [Jupyter Notebooks](https://jupyter.org/) (optional)
+
+- An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** and **gpt-35-turbo-instruct** models deployed. These models are currently only available in [certain regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). See the [resource deployment guide](../ai-services/openai/how-to/create-resource.md) for instructions on how to deploy the models.
 
 ## Create an Azure Cache for Redis Instance
 
-Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md) guide. On the **Advanced** page, make sure that you've added the **RediSearch** module and have chosen the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
+Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md) guide. On the **Advanced** page, make sure that you added the **RediSearch** module and  chose the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
 
    It takes a few minutes for the cache to create. You can move on to the next step in the meantime.
 
@@ -48,9 +54,9 @@ Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis
 
 ## Set up your development environment
 
-1. Create a folder on your local computer named *semanticcache* in the location where you typically save your projects.
+1. Create a folder on your local computer named _semanticcache_ in the location where you typically save your projects.
 
-1. Create a new python file (*tutorial.py*) or Jupyter notebook (*tutorial.ipynb*) in the folder.
+1. Create a new python file (_tutorial.py_) or Jupyter notebook (_tutorial.ipynb_) in the folder.
 
 1. Install the required Python packages:
 
@@ -59,19 +65,22 @@ Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis
    ```
 
 ## Create Azure OpenAI Models
-Make sure you have two models deployed to your Azure OpenAI resource:
-- A LLM that will provide text responses. We will use the **GPT-3.5-turbo-instruct** model for this.
-- An embeddings model that will convert queries into vectors to allow them to be compared to past queries. We will use the **text-embedding-ada-002 (Version 2)** model for this.
 
-See [Deploy a model](../ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) for more detailed instructions. Record the name you have chosen for each model deployment. 
+Make sure you have two models deployed to your Azure OpenAI resource:
+
+- An LLM that provides text responses. We use the **GPT-3.5-turbo-instruct** model for this.
+
+- An embeddings model that converts queries into vectors to allow them to be compared to past queries. We use the **text-embedding-ada-002 (Version 2)** model for this.
+
+See [Deploy a model](../ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) for more detailed instructions. Record the name you chose for each model deployment.
 
 ## Import libraries and set up connection information
 
 To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**. You also need an **endpoint** and a **key** to connect to Azure Cache for Redis.
 
 1. Go to your Azure Open AI resource in the Azure portal.
-   
-1. Locate **Endpoint and Keys** in the **Resource Management** section of your Azure OpenAI resource. Copy your endpoint and access key as you'll need both for authenticating your API calls. An example endpoint is: `https://docs-test-001.openai.azure.com`. You can use either `KEY1` or `KEY2`.
+
+1. Locate **Endpoint and Keys** in the **Resource Management** section of your Azure OpenAI resource. Copy your endpoint and access key because you need both for authenticating your API calls. An example endpoint is: `https://docs-test-001.openai.azure.com`. You can use either `KEY1` or `KEY2`.
 
 1. Go to the **Overview** page of your Azure Cache for Redis resource in the Azure portal. Copy your endpoint.
 
@@ -112,14 +121,14 @@ REDIS_PASSWORD = <your-redis-password>
 
 1. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Cache for Redis instance.
 
-> [!IMPORTANT]
-> We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview.md) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
+  > [!IMPORTANT]
+  > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview.md) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
+  
+1. Execute code cell 2.
 
-4. Execute code cell 2.
+## Initialize AI models
 
-## Intialize AI models
-
-Next, you'll initalize the LLM and embeddings models
+Next, you initialize the LLM and embeddings models
 
 1. Add the following code to a new code cell:
 
@@ -146,7 +155,7 @@ Execute code cell 3.
 
 ## Set up Redis as a semantic cache
 
-Next, specificy Redis as a semantic cache for your LLM. Add the following code to a new code cell:
+Next, specify Redis as a semantic cache for your LLM. Add the following code to a new code cell:
 
 ```python
    # Code cell 4
@@ -154,6 +163,7 @@ Next, specificy Redis as a semantic cache for your LLM. Add the following code t
 redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
 set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, score_threshold=0.05))
 ```
+
 > [!IMPORTANT]
 > The value of the `score_threshold` parameter determines how similar two queries need to be in order to return a cached result. The lower the number, the more similar the queries need to be.
 > You can play around with this value to fine-tune it to your application.
@@ -162,7 +172,7 @@ Execute code cell 4.
 
 ## Query and get responses from the LLM
 
-Finally, query the LLM to get an AI generated response. If you're using a jupyter notebook, you can add `%%time` at the top of the cell to output the amount of time taken to execute the code.
+Finally, query the LLM to get an AI generated response. If you're using a Jupyter notebook, you can add `%%time` at the top of the cell to output the amount of time taken to execute the code.
 Add the following code to a new code cell and execute it:
 
 ```python
@@ -171,7 +181,9 @@ Add the following code to a new code cell and execute it:
 response = llm("Please write a poem about cute kittens.")
 print(response)
 ```
+
 You should see an output and output similar to this:
+
 ```output
 Fluffy balls of fur,
 With eyes so bright and pure,
@@ -203,8 +215,8 @@ CPU times: total: 0 ns
 Wall time: 2.67 s
 ```
 
-Note that the `Wall time` shows a value of 2.67 seconds. That's how much real-world time it took to query the LLM and for the LLM to generate a response. 
-Execute cell 5 again. You should see the exact same output, but with a significantly smaller wall time:
+The `Wall time` shows a value of 2.67 seconds. That's how much real-world time it took to query the LLM and for the LLM to generate a response.
+Execute cell 5 again. You should see the exact same output, but with a smaller wall time:
 
 ```output
 Fluffy balls of fur,
@@ -237,14 +249,13 @@ CPU times: total: 0 ns
 Wall time: 575 ms
 ```
 
-The wall time has dropped by a factor of five--all the way down to 575 milliseconds. 
+The wall time appears to have dropped by a factor of five--all the way down to 575 milliseconds.
 
-Change the query from `Please write a poem about cute kittens` to `Write a poem about cute kittens` and run cell 5 again. **You should see the exact same output and a lower wall time than the original query**. Even though the query has changed, the _semantic meaning_ of the query remained the same so the same cached output was returned. This is the advantage of semantic caching!
-
+Change the query from `Please write a poem about cute kittens` to `Write a poem about cute kittens` and run cell 5 again. **You should see the exact same output and a lower wall time than the original query**. Even though the query changed, the _semantic meaning_ of the query remained the same so the same cached output was returned. This is the advantage of semantic caching!
 
 ## Change the Similarity Threshold
 
-1. Try running a very similar query with a different meaning, like `Please write a poem about cute puppies`. You will notice that the cached result is returned here as well. The semantic meaning of the word `puppies` is close enough to the word `kittens` that the cached result is returned.
+1. Try running a similar query with a different meaning, like `Please write a poem about cute puppies`. Notice that the cached result is returned here as well. The semantic meaning of the word `puppies` is close enough to the word `kittens` that the cached result is returned.
 2. The similarity threshold can be modified to determine when the semantic cache should return a cached result and when it should return a new output from the LLM. In code cell 4, change `score_threshold` from `0.05` to `0.01`:
 
    ```python
@@ -254,7 +265,7 @@ Change the query from `Please write a poem about cute kittens` to `Write a poem 
     set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, score_threshold=0.01))
     ```
 
-3. Try the query `Please write a poem about cute puppies` again. You should recieve a new output that's specific to puppies:
+3. Try the query `Please write a poem about cute puppies` again. You should receive a new output that's specific to puppies:
 
 ```output
 Oh, little balls of fluff and fur
@@ -286,14 +297,15 @@ Our cute little pups, in every way.
 CPU times: total: 15.6 ms
 Wall time: 4.3 s
 ```
-You will likely need to fine-tune the similarity threshold based on your application to ensure that the right sensitivity is used when determining which queries to cache. 
+
+You likely need to fine-tune the similarity threshold based on your application to ensure that the right sensitivity is used when determining which queries to cache.
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Related Content
 
-* [Learn more about Azure Cache for Redis](cache-overview.md)
-* Learn more about Azure Cache for Redis [vector search capabilities](./cache-overview-vector-similarity.md)
-* [Tutorial: use vector similarity search on Azure Cache for Redis](cache-tutorial-vector-similarity.md)
-* [Read how to build an AI-powered app with OpenAI and Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
-* [Build a Q&A app with semantic answers](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna)
+- [Learn more about Azure Cache for Redis](cache-overview.md)
+- Learn more about Azure Cache for Redis [vector search capabilities](./cache-overview-vector-similarity.md)
+- [Tutorial: use vector similarity search on Azure Cache for Redis](cache-tutorial-vector-similarity.md)
+- [Read how to build an AI-powered app with OpenAI and Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
+- [Build a Q&A app with semantic answers](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna)
