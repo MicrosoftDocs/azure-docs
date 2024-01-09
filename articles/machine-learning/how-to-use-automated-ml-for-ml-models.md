@@ -123,7 +123,7 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
-   Debug model via the Responsible AI dashboard | Generate a Responsible AI dashboard to do a holistic assessment and debugging of the recommended best model. This includes insights such as model explanations, fairness and performance explorer, data explorer, model error analysis. [Learn more about how you can generate a Responsible AI dashboard.](./how-to-responsible-ai-insights-ui.md). RAI Dashboard can only be run if 'Serverless' compute (preview) is specified in the experiment set-up step.
+    Enable ensemble stacking | Ensemble learning improves machine learning results and predictive performance by combining multiple models as opposed to using single models. [Learn more about ensemble models](concept-automated-ml.md#ensemble).
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Explain best model| Automatically shows explainability on the best model created by Automated ML.
  
