@@ -19,15 +19,17 @@ ms.date: 01/08/2024
 
 ## Recommended resources
 
-- Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
-- Learn more about [Microsoft Security](https://msft.it/6002T9HQY)
+- Learn more about [Microsoft Security](https://msft.it/6002T9HQY).
+- Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS).
+
+
 
 - Follow us on social media:
 
   - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
   - [Twitter](https://twitter.com/msftsecurity)
 
-- Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
+- Join our [Tech Community](https://aka.ms/SecurityTechCommunity).
 
 ## Next steps
 
