@@ -22,7 +22,7 @@ This article covers the recommended approaches, guidelines and practices for rel
 
 Before you begin relocation, make sure that you include the following considerations and recommended guidance in your planning:
 
-- **Create a dependency map** with all the Azure services that use the Virtual Network. For the services that are in scope of a relocation, you must select the appropriate [relocation strategy](./relocation-strategies.md).
+- **Create a dependency map** with all the Azure services that use the Virtual Network. 
     
 - **Identify the source networking layout and all the resources that are currently used.** This layout can include load balancers, network security groups (NSGs), Route Tables, and reserved IPs.
 
