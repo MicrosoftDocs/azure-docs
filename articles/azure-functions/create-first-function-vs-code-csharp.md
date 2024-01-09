@@ -9,7 +9,7 @@ ms.custom: devx-track-csharp, mode-ui, vscode-azure-extension-update-complete
 
 # Quickstart: Create a C# function in Azure using Visual Studio Code
 
-This article creates an HTTP triggered function that runs on .NET 6 in an isolated worker process. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
+This article creates an HTTP triggered function that runs on .NET 8 in an isolated worker process. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
 
 There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
 
@@ -38,7 +38,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `C#`.|
-    | **Select a .NET runtime** | Choose `.NET 6.0 Isolated (LTS)`.|
+    | **Select a .NET runtime** | Choose `.NET 8.0 Isolated (LTS)`.|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Provide a namespace** | Type `My.Functions`. |
@@ -65,6 +65,7 @@ You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) to 
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
+> [!div class="nextstepaction"]
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
-> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
+
 

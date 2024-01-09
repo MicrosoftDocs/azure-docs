@@ -17,7 +17,10 @@ This article describes how to enable VM insights on Azure virtual machines by us
 This script installs VM extensions for Log Analytics/Azure Monitoring Agent (AMA) and, if necessary, the Dependency Agent to enable VM Insights. If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated with the virtual machines and virtual machine scale sets.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
+  
 
+> [!NOTE]
+> Azure Monitor Agent is supported from version 1.10.1.
 ## Prerequisites
 
 You need to:

@@ -2,10 +2,9 @@
 title: Workbooks gallery 
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.author: dacurwin
 author: dcurwin
-ms.date: 02/02/2023
+ms.date: 12/06/2023
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
@@ -30,6 +29,7 @@ For pricing, check out the [pricing page](https://azure.microsoft.com/pricing/de
 
 With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud makes it straightforward to build your own custom, interactive workbooks. Defender for Cloud also includes a gallery with the following workbooks ready for your customization:
 
+- ['Coverage' workbook](#use-the-coverage-workbook) - Track the coverage of Defender for Cloud plans and extensions across your environments and subscriptions.
 - ['Secure Score Over Time' workbook](#use-the-secure-score-over-time-workbook) - Track your subscriptions' scores and changes to recommendations for your resources
 - ['System Updates' workbook](#use-the-system-updates-workbook) - View missing system updates by resources, OS, severity, and more
 - ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
@@ -47,6 +47,23 @@ In addition to the built-in workbooks, you can also find other useful workbooks 
 > Use the **Edit** button to customize any of the supplied workbooks to your satisfaction. When you're done editing, select **Save** and your changes will be saved to a new workbook.
 >
 > :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-supplied-workbooks.png" alt-text="Editing the supplied workbooks to customize them for your particular needs.":::
+
+### Use the 'Coverage' workbook
+
+Enabling Defender for Cloud across multiple subscriptions and environments (Azure, AWS, and GCP) can make it hard to keep track of which plans are active. This is especially true if you have multiple subscriptions and environments.
+
+The Coverage workbook allows you to keep track of which Defender for Cloud plans are active on which parts of your environments. This workbook can help you to ensure that your environments and subscriptions are fully protected. By having access to detailed coverage information, you can also identify any areas that might need other protection and take action to address those areas.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/coverage.png" alt-text="Screenshot of the Coverage workbook showing which plans and extensions are enabled over various subscriptions and environments." lightbox="media/custom-dashboards-azure-workbooks/coverage.png":::
+
+This workbook allows you to select a subscription (or all subscriptions) from the dropdown menu and view:
+
+- **Additional information**: Shows release notes and an explanation of each toggle.
+- **Relative coverage**: Shows the percentage of subscriptions/connectors that have a particular Defender for Cloud plan enabled.
+- **Absolute coverage**: Shows each plan's status per subscription.
+- **Detailed coverage** - Shows additional settings that can/need to be enabled on relevant plans in order to get each plan's full value.
+
+You can also select which environment (Azure, AWS or GCP) under each or all subscriptions to see which plans and extensions  are enabled under that environment.
 
 ### Use the 'Secure Score Over Time' workbook
 

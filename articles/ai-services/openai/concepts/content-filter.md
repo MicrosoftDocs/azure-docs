@@ -31,7 +31,7 @@ The content filtering system integrated in the Azure OpenAI Service contains:
 * Neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
 * Additional optional classification models aimed at detecting jailbreak risk and known content for text and code; these models are binary classifiers that flag whether user or model behavior qualifies as a jailbreak attack or match to known text or source code. The use of these models is optional, but use of protected material code model may be required for Customer Copyright Commitment coverage.
 
-### Categories
+## Harm categories
 
 |Category|Description|
 |--------|-----------|
@@ -45,54 +45,8 @@ The content filtering system integrated in the Azure OpenAI Service contains:
 
 <sup>*</sup> If you are an owner of text material and want to submit text content for protection, please [file a request](https://aka.ms/protectedmaterialsform).
 
-### Severity levels
+[!INCLUDE [severity-levels](../../content-safety/includes/severity-levels.md)]
 
-#### [Warning](#tab/warning)
-
-> [!WARNING]
-> The **Severity definitions** tab in this document contains examples of harmful content that may be disturbing to some readers.  
-
-#### [Severity definitions](#tab/definitions)
-
-### Hate and fairness severity levels
-
-| **Severity Level**   | **Description**   | **Example Text**   |
-| --- | --- | --- |
-| Safe | Content is safe but may contain hate and fairness related terms used in generic and safe contexts such as: <ul><li>Education</li><li>Media</li><li>Official statistics</li><li>History</li><li>Medicine</li><li>Science</li><li>Other similar contexts</li></ul> | `"Hate speech is harmful as it undermines social cohesion, fosters discrimination, creates divisions and can lay the foundation for violence."`  |
-| Low  | Content that contains positive characterization or protection of the Identity groups, displays discrimination, stereotypes and prejudiced, judgmental, or opinionated views or attitudes related to hate speech or targeting identity groups. This includes:<ul><li>Slurs in research papers, dictionaries, or media with a direct quote</li><li>General hate speech that targets objects, individuals or groups</li><li>Limited hate speech or depictions of negative sentiment in fictional contexts (for example, gaming, movies, literature) </li></ul> | `"I don't like [identity group] because they are all so aggressive. They attacked us over and over again for no reason at all."` |
-| Medium | Content that contains insults, bullying, intimidation, de-humanization or derogation of individuals or groups. This includes: <ul><li>Language that is mocking and imitating Identity groups attributes </li> <li>Describing individuals or groups as inferior or deficient  </li> <li>Denying or demeaning identity groups existence  </li> <li>Texts that deny historical, well-documented, and violent events such as Holocaust, enslavement, or colonization </li></ul> | `"The [real world event] is a fraud. What we've discovered is that the [identity group] have been lying about the number of victims. Here is proof."`  |
-| High  | Content that contains hate speech as propaganda threatening or calling for violence against Identity groups, radicalizes, recruits or incites people to join extremist efforts or spread hate speech. This includes: <ul><li>Incendiary, offensive, and vulgar language targeting specific individuals or identity groups </li><li>Claims of superiority to justify discrimination, segregation, or exclusion </li><li>Texts that contain any form of glorification of Nazi and SS symbolism, KKK and the confederate flag outside of historical, educational, or artistic settings </li><li>Texts that display hate crime preparation, praise and glorification of violence against Identity groups, or that praise, glorify, or endorse genocide </li></ul> | `"Millions of [identity group] were wiped out because they were the inferior race. Murdering them continues to be right and honorable because…"`  |
-
-### Sexual severity levels
-
-| **Severity Level**   | **Description**   | **Example Text**   |
-| --- | --- | --- |
-| Safe  | Content is safe but may contain sexually related terms used in generic and safe contexts such as:   <ul><li>Education </li><li>Media </li><li>Official statistics </li><li>History</li><li> Medicine </li><li>Science</li><li> Mentions of family or romantic relations </li></ul> | `"Love was in the air as he kissed him while holding him tight in his arms."` |
-| Low  | Content that expresses prejudiced, judgmental or opinionated views on sexually related topics or mentions sexually related terms in fictional or real-world experiences that are not extremely graphic. This includes:    <ul><li> Mentions of sexual anatomy or sex scenes in fictional and artistic contexts  </li><li>Medical prescriptions and diagnosis</li><li>  Personal experiences, sexual problems and traumas with some graphic content including coping mechanisms and resources </li></ul> | `"There is nothing wrong with teenage pregnancy – it is a natural process."`   |
-| Medium  | Content that describes sexual arousal and activity in explicit and graphic terms, includes fantasies about sex and sexual abuse. This includes:   <ul><li>Mentions of sexual stimulation and masturbation </li><li>Pornography limited to business and prostitution, escort, etc. as careers without sex scenes </li><li>Advertisement for adult products such as sex toys </li><li>Personal experiences and descriptions related to sexual, erotic or tantric massages, strip clubs, erotic shows, BDSM attributes and practices </li></ul> | `"I got into BDSM because I had some friends into the lifestyle and it piqued my interest. I like using silk, scarves, collars, and bondage…"`      |
-| Level 7  | Content describing solicitation of sexual commercial services, containing detailed descriptions of sexual activity, violent sexual abuse and rape, and non-consensual power exchanges, abuse, and voyeurism. This also includes content that is used to promote, endorse, or glorify extreme or illegal sexual acts. This includes:  </li><li> Any depiction of Child Sexual Abuse Material (CSAM) including any explicit or potential reference to underage sex </li><li>Child grooming, child abuse, and other child exploitation </li><li>Explicit or potential references to incest, zoophilia, necrophilia, etc.  </li><li>Human sex trafficking recruitment, including victim manipulation  </li></ul> | `"I was abused as a child by my uncle and I liked it. Nowadays, I make money by producing child pornography with my neighbor’s 6 year old son."`    |
-
-
-### Violence severity levels
-
-| **Severity Level**   | **Description**   | **Example Text**   |
-| --- | --- | --- |
-| Safe  | Content is safe but may contain terms related to violence used in generic and safe contexts such as:<ul><li>Education </li><li>Media </li><li>Official statistics </li><li>History </li><li>Medicine </li><li>Science </li><li>Common objects when not used as weapons </li><li>Hunting or shooting sport and guns technical specifications </li></ul> | `"Carnivores such as lions and tigers are prone to killing one another. Death occurs at the paws, claws, jaws, or tusks that might fatally gore one another during fights."`  |
-| Low  | Content in fictional contexts (for example, gaming, literature, arts) that depict violent or graphic scenes without glorification, endorsement or mal-intent. This includes: <ul><li>Personal experiences of violence (without violent intent) </li><li>Biased, prejudiced, judgmental, or opinionated views on violence </li><li>Mentions of violent acts and death at low intensity </li></ul> | `"Physical punishment is a way to correct bad behavior and doesn't cause harm to children."`  |
-| Medium  | Content that contains graphic depictions of violence and death at medium intensity as well as fantasies about violent acts or threats. This includes: <ul><li>Texts that put the victim at fault or depict perpetrators in a positive light </li><li>Historical references to genocide and the Holocaust without endorsement or glorification </li><li>References to known mass shootings without endorsement or glorification </li><li>References to terrorist and violent extremist groups and events without endorsement or glorification </li><li>Texts that seek advice or recommendation or texts that provide instructions on how to perform a violent act against an animal, an individual, a group of individuals or an object or infrastructure that can result in individual or mass harm </li><li>Bullying and intimidation </li></ul> | `"Go to another state or another city and kill any stranger; for example, shoot them with a silencer gun. Since you have not any connection with him, you will not get caught."`  |
-| High  | Content that contains terrorist or violent extremist propaganda and violent ideology on the Internet that describes, praises, supports, endorses or glorifies killings as part of terroristic activity, aids offers to terrorist organizations or causes. This includes: <ul><li>Texts that seek instructions on affiliation with terrorist and violent extremist groups </li><li>Texts that provide instructions on how to recruit followers, influence people toward a terrorist cause or extremist ideology, adopt radical views or provide training on how terrorist and violent extremist groups operate, or provide information on their leaders and members </li><li> Texts that plan and coordinate attacks on individuals or groups of people, including shooting events, use of bombs and explosives on civilian infrastructure, or bladed weapon attacks when performed by non-combatants or non-terrorists </li><li> Content that references forced labor including children, domestic servitude, stalking, and forced medical procedures </li></ul> | `"Let's call and threaten to explode the hospital during the weekend. I've got the explosives ready, and will have them installed tonight."`  |
-
-
-### Self-harm severity levels
-
-| **Severity Level**   | **Description**   | **Example Text**   |
-| --- | --- | --- |
-| Safe | Content is safe but may contain terms related to self-harm used in generic and safe contexts such as: <ul><li>Official statistics </li><li>Education </li><li>Media </li><li>Medical </li><li>Actions that describe accidental self-harm, first aid tips, etc. </li></ul> | `"Binging and purging may be a warning sign for people with a history of extreme weight loss."`  |
-| Low  | Content that contains references to characters planning or committing suicide in a fictional context (for example, literature, movies) or contains depictions of self-harm acts or suicide at low intensity. This includes: <ul><li>Personal biased, prejudiced, judgmental or opinionated views on self-harm </li><li>Associations with eating disorders, seeking or providing instructions for drastic and unhealthy weight loss </li><li>Personal experiences related to self-harm, including seeking professional help </li></ul> | `"I'm really struggling with self-loathing and thoughts of self-harm to relieve my distress after my friend took his own life last month. Please can someone give me any useful advice?"`  |
-| Medium  | Content that mocks victims or survivors of self-harm such as eating disorders or suicide, as well as bullying and intimidation that incites and promotes self-harm acts. This includes: <ul><li>Self-injury presented as a solution to a problem </li><li>Fantasies, desire, wishes or personal experiences about self-harm/suicide </li><li>Texts that seek or give advice, instructions or recommendation on how to perform self-harm </li><li>Bullying and intimidation that incites and promotes self-harm acts </li></ul> | `"Go kill yourself, you are worthless."`  |
-| High | Content that includes research for advice or provides instructions and methods on how to engage in self-harm that leads to death or how to commit suicide as well as glorification and endorsement of suicide, or other severe types of self-harm. This includes: <ul><li>Texts that instruct how to write a goodbye message to your family </li><li>Self-decapitation </li><li>Burning alive </li></ul> | `"Suicide is the best solution if you feel depressed, worthless or miserable. Take your life to end this misery; it will finally feel so good."`  |
-
----
 
 
 ## Configurability (preview)
@@ -674,6 +628,174 @@ For details on the inference REST API endpoints for Azure OpenAI and how to crea
 }
 ```
 
+## Streaming
+
+Azure OpenAI Service includes a content filtering system that works alongside core models. The following section describes the AOAI streaming experience and options in the context of content filters. 
+
+### Default
+
+The content filtering system is integrated and enabled by default for all customers. In the default streaming scenario, completion content is buffered, the content filtering system runs on the buffered content, and – depending on content filtering configuration – content is either returned to the user if it does not violate the content filtering policy (Microsoft default or custom user configuration), or it’s immediately blocked which returns a content filtering error, without returning harmful completion content. This process is repeated until the end of the stream. Content was fully vetted according to the content filtering policy before returned to the user. Content is not returned token-by-token in this case, but in “content chunks” of the respective buffer size. 
+
+### Asynchronous modified filter
+
+Customers who have been approved for modified content filters can choose Asynchronous Modified Filter as an additional option, providing a new streaming experience. In this case, content filters are run asynchronously, completion content is returned immediately with a smooth token-by-token streaming experience. No content is buffered, the content filters run asynchronously, which allows for zero latency in this context.  
+
+> [!NOTE]
+> Customers must be aware that while the feature improves latency, it can bring a trade-off in terms of the safety and real-time vetting of smaller sections of model output. Because content filters are run asynchronously, content moderation messages and the content filtering signal in case of a policy violation are delayed, which means some sections of harmful content that would otherwise have been filtered immediately could be displayed to the user. 
+ 
+**Annotations**: Annotations and content moderation messages are continuously returned during the stream. We strongly recommend to consume annotations and implement additional AI content safety mechanisms, such as redacting content or returning additional safety information to the user. 
+
+**Content filtering signal**: The content filtering error signal is delayed; in case of a policy violation, it’s returned as soon as it’s available, and the stream is stopped. The content filtering signal is guaranteed within ~1,000-character windows in case of a policy violation. 
+
+Approval for Modified Content Filtering is required for access to Streaming – Asynchronous Modified Filter. The application can be found [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu). To enable it via Azure OpenAI Studio please follow the instructions [here](/azure/ai-services/openai/how-to/content-filters) to create a new content filtering configuration, and select “Asynchronous Modified Filter” in the Streaming section, as shown in the below screenshot. 
+
+### Overview tbd
+
+| | Streaming - Default | Streaming - Asynchronous Modified Filter |
+|---|---|---|
+|Status |GA |Public Preview |
+| Access | Enabled by default, no action needed |Customers approved for Modified Content Filtering can configure directly via Azure OpenAI Studio (as part of a content filtering configuration; applied on deployment-level) |
+| Eligibility |All customers |Customers approved for Modified Content Filtering |
+|Modality and Availability |Text; all GPT-models |Text; all GPT-models except gpt-4-vision |
+|Streaming experience |Content is buffered and returned in chunks |Zero latency (no buffering, filters run asynchronously) |
+|Content filtering signal |Immediate filtering signal |Delayed filtering signal (in up to ~1,000 char increments) |
+|Content filtering configurations |Supports default and any customer-defined filter setting (including optional models) |Supports default and any customer-defined filter setting (including optional models) | 
+
+### Annotations and sample response stream
+
+#### Prompt annotation message
+
+This is the same as default annotations.
+
+```json
+data: { 
+    "id": "", 
+    "object": "", 
+    "created": 0, 
+    "model": "", 
+    "prompt_filter_results": [ 
+        { 
+            "prompt_index": 0, 
+            "content_filter_results": { ... } 
+        } 
+    ], 
+    "choices": [], 
+    "usage": null 
+} 
+```
+
+#### Completion token message
+
+Completion messages are forwarded immediately. No moderation is performed first, and no annotations are provided initially. 
+
+```json
+data: { 
+    "id": "chatcmpl-7rAJvsS1QQCDuZYDDdQuMJVMV3x3N", 
+    "object": "chat.completion.chunk", 
+    "created": 1692905411, 
+    "model": "gpt-35-turbo", 
+    "choices": [ 
+        { 
+            "index": 0, 
+            "finish_reason": null, 
+            "delta": { 
+                "content": "Color" 
+            } 
+        } 
+    ], 
+    "usage": null 
+} 
+```
+
+#### Annotation message
+
+The text field will always be an empty string, indicating no new tokens. Annotations will only be relevant to already-sent tokens. There may be multiple Annotation Messages referring to the same tokens.  
+
+“start_offset” and “end_offset” are low-granularity offsets in text (with 0 at beginning of prompt) which the annotation is relevant to. 
+
+“check_offset” represents how much text has been fully moderated. It is an exclusive lower bound on the end_offsets of future annotations. It is nondecreasing. 
+
+```json
+data: { 
+    "id": "", 
+    "object": "", 
+    "created": 0, 
+    "model": "", 
+    "choices": [ 
+        { 
+            "index": 0, 
+            "finish_reason": null, 
+            "content_filter_results": { ... }, 
+            "content_filter_raw": [ ... ], 
+            "content_filter_offsets": { 
+                "check_offset": 44, 
+                "start_offset": 44, 
+                "end_offset": 198 
+            } 
+        } 
+    ], 
+    "usage": null 
+} 
+```
+
+
+### Sample response stream
+
+Below is a real chat completion response using  Asynchronous Modified Filter. Note how prompt annotations are not changed; completion tokens are sent without annotations; and new annotation messages are sent without tokens, instead associated with certain content filter offsets. 
+
+`{"temperature": 0, "frequency_penalty": 0, "presence_penalty": 1.0, "top_p": 1.0, "max_tokens": 800, "messages": [{"role": "user", "content": "What is color?"}], "stream": true}`
+
+```
+data: {"id":"","object":"","created":0,"model":"","prompt_annotations":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"choices":[],"usage":null} 
+
+data: {"id":"chatcmpl-7rCNsVeZy0PGnX3H6jK8STps5nZUY","object":"chat.completion.chunk","created":1692913344,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"role":"assistant"}}],"usage":null} 
+
+data: {"id":"chatcmpl-7rCNsVeZy0PGnX3H6jK8STps5nZUY","object":"chat.completion.chunk","created":1692913344,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":"Color"}}],"usage":null} 
+
+data: {"id":"chatcmpl-7rCNsVeZy0PGnX3H6jK8STps5nZUY","object":"chat.completion.chunk","created":1692913344,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":" is"}}],"usage":null} 
+
+data: {"id":"chatcmpl-7rCNsVeZy0PGnX3H6jK8STps5nZUY","object":"chat.completion.chunk","created":1692913344,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":" a"}}],"usage":null} 
+
+... 
+
+data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_reason":null,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"content_filter_offsets":{"check_offset":44,"start_offset":44,"end_offset":198}}],"usage":null} 
+
+... 
+
+data: {"id":"chatcmpl-7rCNsVeZy0PGnX3H6jK8STps5nZUY","object":"chat.completion.chunk","created":1692913344,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":"stop","delta":{}}],"usage":null} 
+
+data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_reason":null,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"content_filter_offsets":{"check_offset":506,"start_offset":44,"end_offset":571}}],"usage":null} 
+
+data: [DONE] 
+```
+
+### Sample response stream (blocking)
+
+`{"temperature": 0, "frequency_penalty": 0, "presence_penalty": 1.0, "top_p": 1.0, "max_tokens": 800, "messages": [{"role": "user", "content": "Tell me the lyrics to \"Hey Jude\"."}], "stream": true}`
+
+```
+data: {"id":"","object":"","created":0,"model":"","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"choices":[],"usage":null} 
+
+data: {"id":"chatcmpl-8JCbt5d4luUIhYCI7YH4dQK7hnHx2","object":"chat.completion.chunk","created":1699587397,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"role":"assistant"}}],"usage":null} 
+
+data: {"id":"chatcmpl-8JCbt5d4luUIhYCI7YH4dQK7hnHx2","object":"chat.completion.chunk","created":1699587397,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":"Hey"}}],"usage":null} 
+
+data: {"id":"chatcmpl-8JCbt5d4luUIhYCI7YH4dQK7hnHx2","object":"chat.completion.chunk","created":1699587397,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":" Jude"}}],"usage":null} 
+
+data: {"id":"chatcmpl-8JCbt5d4luUIhYCI7YH4dQK7hnHx2","object":"chat.completion.chunk","created":1699587397,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":","}}],"usage":null} 
+
+... 
+
+data: {"id":"chatcmpl-8JCbt5d4luUIhYCI7YH4dQK7hnHx2","object":"chat.completion.chunk","created":1699587397,"model":"gpt-35- 
+
+turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":" better"}}],"usage":null} 
+
+data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_reason":null,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"content_filter_offsets":{"check_offset":65,"start_offset":65,"end_offset":1056}}],"usage":null} 
+
+data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_reason":"content_filter","content_filter_results":{"protected_material_text":{"detected":true,"filtered":true}},"content_filter_offsets":{"check_offset":65,"start_offset":65,"end_offset":1056}}],"usage":null} 
+
+data: [DONE] 
+```
 ## Best practices
 
 As part of your application design, consider the following best practices to deliver a positive experience with your application while minimizing potential harms:

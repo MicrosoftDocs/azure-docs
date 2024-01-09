@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ---
 
 # Configure rules to access an Azure container registry behind a firewall

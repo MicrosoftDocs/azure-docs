@@ -4,6 +4,7 @@ description: This article explains how to subscribe to events published by Micro
 author: jfggdl
 ms.author: jafernan
 ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.date: 12/08/2023
 ---
 

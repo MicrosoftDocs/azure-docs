@@ -164,4 +164,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 * [Prepare Spring application for Azure Spring Apps](how-to-prepare-app-deployment.md)
-* [Learn more about Azure Spring Apps Maven Plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Cloud)
+* [Learn more about Azure Spring Apps Maven Plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps)

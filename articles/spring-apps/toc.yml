@@ -502,7 +502,7 @@ items:
     - name: Disaster recovery
       items:
       - name: Redundancy and high availability
-        href: how-to-enable-redundancy-and-disaster-recovery.md
+        href: ../reliability/reliability-spring-apps.md?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Troubleshoot
       items:
       - name: Self-diagnose and solve problems
