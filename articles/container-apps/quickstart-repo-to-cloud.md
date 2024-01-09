@@ -16,12 +16,12 @@ zone_pivot_groups: container-apps-image-build-from-repo
 
 # Quickstart: Build and deploy your container app from a code repository in Azure Container Apps
 
-This article demonstrates how to build and deploy a microservice to Azure Container Apps from a Github repository using the programming language of your choice. In this quickstart, you create a sample microservice which represents a backend web API service that returns a static collection of music albums.
+This article demonstrates how to build and deploy a microservice to Azure Container Apps from a Github repository using the programming language of your choice. In this quickstart, you create a sample microservice, which represents a backend web API service that returns a static collection of music albums.
 
-This sample microservice is available as both a containerized (source contains a Dockerfile) as well as uncontainerized version (source contains no Dockerfile). We suggest you choose the variant that aligns most closely with your own source code. Choosing the uncontainerized path will be easier for you if you're new to containers.
+This sample microservice is available as both a containerized (source contains a Dockerfile) and uncontainerized version (source contains no Dockerfile). We suggest you choose the variant that aligns most closely with your own source code. Choosing the uncontainerized path is easier for you if you're new to containers.
 
 > [!NOTE]
-> You can also build and deploy this sample application from your local filesystem. For more information, see [Build from local source code and deploy you application in Azure Container Apps](quickstart-code-to-cloud.md).
+> You can also build and deploy this sample application from your local filesystem. For more information, see [Build from local source code and deploy your application in Azure Container Apps](quickstart-code-to-cloud.md).
 
 The following screenshot shows the output from the album API service you deploy.
 
@@ -236,7 +236,7 @@ Once new code it pushed to the code repository the Github Action will:
 - Deploy the container image to the created container app
 ::: zone-end
 ::: zone pivot="with-dockerfile"
-- Auto-detect the language and build the image automatically using the appropriate Buildpack
+- Autodetect the language and build the image automatically using the appropriate Buildpack
 - Push the image into Azure Container App's default registry to be deployed from there
 ::: zone-end
 
@@ -245,10 +245,10 @@ The `up` command uses the Dockerfile in the root of the repository to build the 
 ::: zone-end
 
 ::: zone pivot="with-dockerfile"
-For the container app to be accessible let's ensure we also enable ingress traffic to the correct port of where the application container will listen. The containers will be build to listen on port 8080.
+For the container app to be accessible let's ensure we also enable ingress traffic to the correct port of where the application container listens. The containers are build to listen on port 8080.
 ::: zone-end
 
-In the command below replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<owner>/<repository-name>` or `<owner>/<repository-name>`.
+In the command below, replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<owner>/<repository-name>` or `<owner>/<repository-name>`.
 
 # [Bash](#tab/bash)
 

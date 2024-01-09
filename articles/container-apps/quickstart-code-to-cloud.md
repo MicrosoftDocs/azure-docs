@@ -146,14 +146,14 @@ Download and extract the API sample application in the language of your choice.
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-csharp repo](https://github.com/azure-samples/containerapps-albumapi-csharp).
 
-After you extract the downloaded file navigate into the `containerapps-albumapi-csharp-main/src` directory and proceed to the next step.
+Once you extract the downloadede navigate into the `containerapps-albumapi-csharp-main/src` directory and proceed to the next step.
 
 
 # [Java](#tab/java)
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-java repo](https://github.com/azure-samples/containerapps-albumapi-java).
 
-After you extract the downloaded file navigate into the `containerapps-albumapi-java-main/src` directory and proceed to the next step.
+Once you extract the downloadede navigate into the `containerapps-albumapi-java-main/src` directory and proceed to the next step.
 
 > [!NOTE] 
 > The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
@@ -163,21 +163,21 @@ After you extract the downloaded file navigate into the `containerapps-albumapi-
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-javascript/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-javascript repo](https://github.com/azure-samples/containerapps-albumapi-javascript).
 
-After you extract the downloaded file navigate into the `containerapps-albumapi-javascript-main/src` directory and proceed to the next step.
+Once you extract the downloadede navigate into the `containerapps-albumapi-javascript-main/src` directory and proceed to the next step.
 
 
 # [Python](#tab/python)
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-python repo](https://github.com/azure-samples/containerapps-albumapi-javascript).
 
-After you extract the downloaded file navigate into the `containerapps-albumapi-python-main/src` directory and proceed to the next step.
+Once you extract the downloadede navigate into the `containerapps-albumapi-python-main/src` directory and proceed to the next step.
 
 
 # [Go](#tab/go)
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-go/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-csharp repo](https://github.com/azure-samples/containerapps-albumapi-go).
 
-After you extract the downloaded file navigate into the `containerapps-albumapi-go-main/src` directory and proceed to the next step.
+Once you extract the downloadede navigate into the `containerapps-albumapi-go-main/src` directory and proceed to the next step.
 
 
 ::: zone-end
@@ -188,14 +188,14 @@ After you extract the downloaded file navigate into the `containerapps-albumapi-
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-csharp/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-csharp/tree/buildpack).
 
-After you extract the downloaded file navigate into the `containerapps-albumapi-csharp-buildpack/src` directory and proceed to the next step.
+Once you extract the downloadede navigate into the `containerapps-albumapi-csharp-buildpack/src` directory and proceed to the next step.
 
 
 # [Java](#tab/java)
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-java/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-java/tree/buildpack).
 
-After you extract the downloaded file navigate into the `containerapps-albumapi-java-buildpack/src` directory and proceed to the next step.
+Once you extract the downloadede navigate into the `containerapps-albumapi-java-buildpack/src` directory and proceed to the next step.
 
 > [!NOTE] 
 > The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
@@ -205,14 +205,14 @@ After you extract the downloaded file navigate into the `containerapps-albumapi-
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-javascript/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-javascript/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-javascript/tree/buildpack).
 
-After you extract the downloaded file navigate into the `containerapps-albumapi-javascript-buildpack/src` directory and proceed to the next step.
+Once you extract the downloadede navigate into the `containerapps-albumapi-javascript-buildpack/src` directory and proceed to the next step.
 
 
 # [Python](#tab/python)
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-python/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-javascript/tree/buildpack).
 
-After you extract the downloaded file navigate into the `containerapps-albumapi-python-buildpack/src` directory and proceed to the next step.
+Once you extract the downloadede navigate into the `containerapps-albumapi-python-buildpack/src` directory and proceed to the next step.
 
 ::: zone-end
 
@@ -232,7 +232,7 @@ Build and deploy your first container app with the `containerapp up` command. Th
 ::: zone-end
 ::: zone pivot="with-dockerfile"
 - Automatically create a default registry as part of your environment
-- Auto-detect the language and build the image automatically using the appropriate Buildpack
+- Autodetect the language and build the image automatically using the appropriate Buildpack
 - Push the image into Azure Container App's default registry
 ::: zone-end
 - Create the Container Apps environment with a Log Analytics workspace
@@ -240,17 +240,17 @@ Build and deploy your first container app with the `containerapp up` command. Th
 
 ::: zone pivot="with-dockerfile"
 
-The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Dockerfile. That's the port that will be used to send ingress traffic to the container.
+The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Dockerfile. That is the port that is used to send ingress traffic to the container.
 
 ::: zone-end
 ::: zone pivot="with-dockerfile"
 
-If the `up` command doesn't find a Dockerfile it will automatically try and use Buildpacks in order to turn your application source into a runable container. In this case we need to tell the `up` command which port will be used.
+If the `up` command doesn't find a Dockerfile, it will automatically try to use Buildpacks in order to turn your application source into a runnable container. You hence need to tell the `up` command which port to use.
 
 ::: zone-end
 
 
-Please note the `.` (dot) in the command below. It assumes you are in the `src` directory of the extracted sample API application.
+Note the `.` (dot) in the command below. It assumes you are in the `src` directory of the extracted sample API application.
 
 # [Bash](#tab/bash)
 
