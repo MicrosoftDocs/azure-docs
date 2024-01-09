@@ -77,9 +77,9 @@ For **Hue**, you can use the following steps:
 
 ### Azure CLI
 
-Replace `CLUSTERNAME`, and `RESOURCEGROUP` with the relevant values and then enter the commands below:
+Replace `CLUSTERNAME`, and `RESOURCEGROUP` with the relevant values and then enter the following commands:
 
-* To lists all of the applications for the HDInsight cluster.
+* To list all of the applications for the HDInsight cluster.
 
     ```azurecli
     az hdinsight application list --cluster-name CLUSTERNAME --resource-group RESOURCEGROUP
@@ -125,7 +125,7 @@ If an application installation failed, you can see the error messages and debug 
 
 ### Azure CLI
 
-Replace `NAME`, `CLUSTERNAME`, and `RESOURCEGROUP` with the relevant values and then enter the command below:
+Replace `NAME`, `CLUSTERNAME`, and `RESOURCEGROUP` with the relevant values and then enter the following command:
 
 ```azurecli
 az hdinsight application delete --name NAME --cluster-name CLUSTERNAME --resource-group RESOURCEGROUP
