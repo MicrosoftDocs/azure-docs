@@ -5,8 +5,7 @@ author: jeffwmartinez
 ms.topic: article
 ms.date: 12/23/2023
 ms.author: jefmarti
-ms.custom: seodec18
-
+ms.custom: seodec18, devx-track-extended-java
 ---
 
 # Language runtime support policy for App Service
@@ -153,4 +152,3 @@ If a supported Java runtime will be retired, Azure developers using the affected
 Developers can download the Microsoft Build of OpenJDK for local development from [our download site](/java/openjdk/download).
 
 Product support for the [Microsoft Build of OpenJDK](/java/openjdk/download) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
-

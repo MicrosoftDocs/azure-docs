@@ -34,6 +34,18 @@ The following steps describe the process to configure your container app to use 
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - A private Azure Container Registry containing an image you want to pull.
+- Your Azure Container Registry must allow ARM audience tokens for authentication in order to use managed identity to pull images.
+    Use the following command to check if ARM tokens are allowed to access your ACR:
+
+    ```azurecli
+    az acr config authentication-as-arm show -r <REGISTRY>
+    ```
+
+    If ARM tokens are disallowed, you can allow them with the following command:
+
+    ```azurecli
+    az acr config authentication-as-arm update -r <REGISTRY> --status enabled
+    ```
 - Create a user-assigned managed identity. For more information, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
 ### Create a container app 

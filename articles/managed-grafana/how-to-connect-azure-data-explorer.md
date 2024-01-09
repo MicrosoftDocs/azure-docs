@@ -5,6 +5,7 @@ description: In this guide, learn how to connect an Azure Data Explorer datasour
 author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
+ms.custom: devx-track-azurecli
 zone_pivot_groups: azure-red-hat-openshift-service-principal
 ms.topic: how-to
 ms.date: 11/29/2023
