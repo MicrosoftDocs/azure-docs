@@ -73,6 +73,30 @@
       href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
 - name: Security and networking
   items:
+  - name: Networking
+    items:
+    - name: Networking considerations for direct access
+      href: storage-files-networking-overview.md
+    - name: Configure Azure Files network endpoints
+      href: storage-files-networking-endpoints.md
+    - name: Configure Point-to-Site VPN on Windows
+      href: storage-files-configure-p2s-vpn-windows.md
+    - name: Configure Point-to-Site VPN on Linux
+      href: storage-files-configure-p2s-vpn-linux.md
+    - name: Configure Site-to-Site VPN 
+      href: storage-files-configure-s2s-vpn.md
+    - name: Configure firewalls and virtual networks
+      href: ../common/storage-network-security.md?toc=/azure/storage/files/toc.json
+    - name: Require secure transfer
+      href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json
+    - name: Configure DNS forwarding for Azure Files
+      href: storage-files-networking-dns.md
+    - name: Use DFS-N with Azure Files
+      href: files-manage-namespaces.md
+    - name: Disable SMB 1 on the Windows SMB client
+      href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=/azure/storage/files/toc.json
+    - name: Disable SMB on the Linux SMB client
+      href: files-remove-smb1-linux.md
   - name: Encryption
     items:
     - name: Encryption at rest
@@ -106,31 +130,7 @@
       - name: Enforce minimum TLS version for incoming requests
         href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/files/toc.json 
       - name: Configure TLS version for a client application
-        href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/files/toc.json
-  - name: Networking
-    items:
-    - name: Networking considerations for direct access
-      href: storage-files-networking-overview.md
-    - name: Configure Azure Files network endpoints
-      href: storage-files-networking-endpoints.md
-    - name: Configure Point-to-Site VPN on Windows
-      href: storage-files-configure-p2s-vpn-windows.md
-    - name: Configure Point-to-Site VPN on Linux
-      href: storage-files-configure-p2s-vpn-linux.md
-    - name: Configure Site-to-Site VPN 
-      href: storage-files-configure-s2s-vpn.md
-    - name: Configure firewalls and virtual networks
-      href: ../common/storage-network-security.md?toc=/azure/storage/files/toc.json
-    - name: Require secure transfer
-      href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json
-    - name: Configure DNS forwarding for Azure Files
-      href: storage-files-networking-dns.md
-    - name: Use DFS-N with Azure Files
-      href: files-manage-namespaces.md
-    - name: Disable SMB 1 on the Windows SMB client
-      href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=/azure/storage/files/toc.json
-    - name: Disable SMB on the Linux SMB client
-      href: files-remove-smb1-linux.md
+        href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/files/toc.json      
   - name: Authorization
     items:
     - name: Overview of identity-based authentication options
