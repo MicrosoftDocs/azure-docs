@@ -12,7 +12,7 @@ ms.author: schaffererin
 
 Many Azure services that integrate with Azure Kubernetes Service (AKS) need access to the Kubernetes API server. To avoid granting these services admin access or making your AKS clusters public for network access, you can use the AKS Trusted Access feature.
 
-This feature gives services secure access to AKS and Kubernetes via the Azure back end without requiring a private endpoint. Instead of relying on identities that have [Microsoft Entra](../active-directory/fundamentals/active-directory-whatis.md) permissions, this feature can use your system-assigned managed identity to authenticate with the managed services and applications that you want to use with your AKS clusters.
+This feature gives services secure access to AKS and Kubernetes by using the Azure back end without requiring a private endpoint. Instead of relying on identities that have [Microsoft Entra](../active-directory/fundamentals/active-directory-whatis.md) permissions, this feature can use your system-assigned managed identity to authenticate with the managed services and applications that you want to use with your AKS clusters.
 
 This article shows you how to get secure access for your Azure services to your Kubernetes API server in AKS by using Trusted Access.
 
@@ -91,7 +91,11 @@ After you confirm which role to use, use the Azure CLI to create a Trusted Acces
 # Create a Trusted Access role binding in an AKS cluster
 
 az aks trustedaccess rolebinding create  --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <role binding name> -s <connected service resource ID> --roles <roleName1, roleName2>
+```
 
+Here's an example:
+
+```azurecli
 # Sample command
 
 az aks trustedaccess rolebinding create \
@@ -106,7 +110,7 @@ az aks trustedaccess rolebinding create \
 For an existing role binding that has an associated source service, you can update the role binding with new roles.
 
 > [!NOTE]
-> The new role binding might take up to 5 minutes to take effect. The add-on manager updates clusters every 5 minutes. Before the new role binding takes effect, the existing role binding still works.
+> The add-on manager updates clusters every five minutes, so the new role binding might take up to five minutes to take effect. Before the new role binding takes effect, the existing role binding still works.
 >
 > You can use `az aks trusted access rolebinding list --name <role binding name> --resource-group <resource group>` to check the current role binding.
 
@@ -114,7 +118,11 @@ For an existing role binding that has an associated source service, you can upda
 # Update the RoleBinding command
 
 az aks trustedaccess rolebinding update --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <existing role binding name>  --roles <newRoleName1, newRoleName2>
+```
 
+Here's an example:
+
+```azurecli
 # Update the RoleBinding command with sample resource group, cluster, and roles
 
 az aks trustedaccess rolebinding update \
@@ -125,7 +133,7 @@ az aks trustedaccess rolebinding update \
 
 ## Show a Trusted Access role binding
 
-Use the Azure CLI to show a specific Trusted Access role binding:
+Show a specific Trusted Access role binding by using the `az aks trustedaccess rolebinding show` command:
 
 ```azurecli
 az aks trustedaccess rolebinding show --name <role binding name> --resource-group <AKS resource group> --cluster-name <AKS cluster name>
@@ -133,7 +141,7 @@ az aks trustedaccess rolebinding show --name <role binding name> --resource-grou
 
 ## List all the Trusted Access role bindings for a cluster
 
-Use the Azure CLI to list all the Trusted Access role bindings for a cluster:
+List all the Trusted Access role bindings for a cluster by using the `az aks trustedaccess rolebinding list` command:
 
 ```azurecli
 az aks trustedaccess rolebinding list --resource-group <AKS resource group> --cluster-name <AKS cluster name>
@@ -144,7 +152,7 @@ az aks trustedaccess rolebinding list --resource-group <AKS resource group> --cl
 > [!WARNING]
 > Deleting an existing Trusted Access role binding disconnects the Azure service from the AKS cluster.
 
-Use the Azure CLI to delete an existing Trusted Access role binding:
+Delete an existing Trusted Access role binding by using the `az aks trustedaccess rolebinding delete` command:
 
 ```azurecli
 az aks trustedaccess rolebinding delete --name <role binding name> --resource-group <AKS resource group> --cluster-name <AKS cluster name>
