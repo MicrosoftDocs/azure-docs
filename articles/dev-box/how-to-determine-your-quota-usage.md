@@ -6,20 +6,20 @@ ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to 
-ms.date: 08/21/2023 
+ms.date: 01/09/2024 
 --- 
 
 # Determine resource usage and quota for Microsoft Dev Box  
 
-To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a quota. 
+To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a _quota_. 
 
-Keeping track of how your quota of VM cores is being used across your subscriptions can be difficult. You may want to know what your current usage is, how much you have left, and in what regions you have capacity. To help you understand where and how you're using your quota, Azure provides the Usage + Quotas page. 
+Keeping track of how your quota of virtual machine cores is being used across your subscriptions can be difficult. You might want to know what your current usage is, how much is remaining, and in what regions you have capacity. To help you understand where and how you're using your quota, Azure provides the **Usage + Quotas** page in the Azure portal. 
 
 ## Determine your Dev Box usage and quota by subscription
 
-1. In the [Azure portal](https://portal.azure.com), go to the subscription you want to examine. 
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to the subscription you want to examine. 
 
-1. On the Subscription page, under Settings, select **Usage + quotas**.
+1. On the **Subscription** page, under **Settings**, select **Usage + quotas**.
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/subscription-overview.png" alt-text="Screenshot showing the Subscription overview left menu, with Usage and quotas highlighted." lightbox="media/how-to-determine-your-quota-usage/subscription-overview.png"::: 
  
@@ -31,7 +31,7 @@ Keeping track of how your quota of VM cores is being used across your subscripti
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/example-subscription.png" alt-text="Screenshot showing the Usage and quotas page, with column headings highlighted." lightbox="media/how-to-determine-your-quota-usage/example-subscription.png":::    
 
-1. You can also see that the usage is grouped by level; regular, low, and no usage. 
+1. Notice that Azure groups the usage by level: **Regular**, **Low**, and **No usage**: 
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/example-subscription-groups.png" alt-text="Screenshot showing the Usage and quotas page, with VM size groups highlighted." lightbox="media/how-to-determine-your-quota-usage/example-subscription-groups.png" :::
  
@@ -53,9 +53,9 @@ Keeping track of how your quota of VM cores is being used across your subscripti
 
 1. Select **Apply**. 
 
- Each subscription has its own Usage + quotas page, which covers all the various services in the subscription, not just Microsoft Dev Box. 
+Each subscription has its own **Usage + quotas** page that covers all the various services in the subscription including Microsoft Dev Box. 
 
 ## Related content 
 
-- Check the default quota for each resource type by subscription type: [Microsoft Dev Box limits](../azure-resource-manager/management/azure-subscription-service-limits.md#microsoft-dev-box-limits).
-- To learn how to request a quota increase, see [Request a quota limit increase](./how-to-request-quota-increase.md). 
+- Check the default quota for each resource type by subscription type with [Microsoft Dev Box limits](../azure-resource-manager/management/azure-subscription-service-limits.md#microsoft-dev-box-limits)
+- Learn how to [request a quota limit increase](./how-to-request-quota-increase.md)
