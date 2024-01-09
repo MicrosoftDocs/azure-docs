@@ -138,7 +138,7 @@ The **call client media statistics time series** log provides
 client-side information about the media streams between individual
 participants involved in a call. These logs are currently in limited preview and provide detailed time series
 data on the audio, video, and screenshare media steams between
-participants with a **<u>XX</u>** second granularity.
+participants with a default **<u>10</u>** seconds aggregation interval.
 
 
 
