@@ -108,14 +108,6 @@ landingContent:
             url: /rest/api/desktopvirtualization/
 
   # Card
-  - title: RemoteApp streaming with Azure Virtual Desktop
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Stream apps to your customers
-            url: ./remote-app-streaming/overview.md
-
-  # Card
   - title: Azure Virtual Desktop (classic) documentation
     linkLists:
       - linkListType: overview

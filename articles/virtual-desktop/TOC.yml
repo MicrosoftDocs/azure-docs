@@ -655,8 +655,13 @@
   items:
   - name: User experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Pricing
+    items:
+    - name: Azure Virtual Desktop pricing
+      displayName: pricing, costs, per-user access pricing, per user access pricing, CAL
+      href: https://azure.microsoft.com/pricing/details/virtual-desktop/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning paths
     href: /training/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
   - name: Framework and architectures
