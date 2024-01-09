@@ -2,7 +2,7 @@
 title: Connect your GCP project
 description: Defend your GCP resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 11/23/2023
+ms.date: 01/09/2024
 ---
 
 # Connect your GCP project to Microsoft Defender for Cloud
@@ -189,19 +189,15 @@ Microsoft Defender for Containers brings threat detection and advanced defenses 
 - Manually install [Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/quickstart-connect-cluster) and [extensions](/azure/azure-arc/kubernetes/extensions).
 
 - [Agentless discovery for Kubernetes](defender-for-containers-architecture.md#how-does-agentless-discovery-for-kubernetes-work) provides API-based discovery of your Kubernetes clusters. To enable the **Agentless discovery for Kubernetes** feature, toggle the setting to **On**.
-- The [Agentless Container Vulnerability Assessment](agentless-vulnerability-assessment-gcp.md) provides vulnerability management for images stored in GAR and running images on your GKE clusters. To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
+- The [Agentless Container Vulnerability Assessment](agentless-vulnerability-assessment-gcp.md) provides vulnerability management for images stored in Google Container Registry (GCR) and Google Artifact Registry (GAR) and running images on your GKE clusters. To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
 
 To configure the Defender for Containers plan:
 
 1. Follow the steps to [connect your GCP project](#connect-your-gcp-project).
 
-1. On the **Select plans** tab, select **Configure**.
+1. On the **Select plans** tab, select **Configure**. Then, onthe **Defender for Containers configuration** pane, turn the toggles to **On**.
 
     :::image type="content" source="media/tutorial-enable-containers-gcp/containers-settings-gcp.png" alt-text="Screenshot of Defender for Cloud's environment settings page showing the settings for the Containers plan." lightbox="media/tutorial-enable-containers-gcp/containers-settings-gcp.png":::
-
-1. On the **Defender for Containers configuration** pane, turn the toggles to **On**.
-
-    :::image type="content" source="media/quickstart-onboard-gcp/containers-configuration.png" alt-text="Screenshot that shows toggles for the Defender for Containers plan.":::
 
 1. Select **Save**.
 

@@ -14,7 +14,7 @@ author: nickomang
 
 Your AKS cluster has regular maintenance performed on it automatically. There are two types of regular maintenance - AKS initiated and those that you initiate. Planned Maintenance feature allows you to run both types of maintenance in a cadence of your choice thereby minimizing any workload impact. 
 
-AKS intiated maintenance refers to the AKS releases. These releases are weekly rounds of fixes and feature and component updates that affect your clusters. The type of maintenance that you initiate regularly are [cluster auto-upgrades][aks-upgrade] and [Node OS automatic security updates][node-image-auto-upgrade].
+AKS initiated maintenance refers to the AKS releases. These releases are weekly rounds of fixes and feature and component updates that affect your clusters. The type of maintenance that you initiate regularly are [cluster auto-upgrades][aks-upgrade] and [Node OS automatic security updates][node-image-auto-upgrade].
 
 There are currently three available configuration types: `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`:
 

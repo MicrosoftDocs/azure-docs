@@ -6,14 +6,12 @@ ms.author: maghan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 7/1/2023
+ms.date: 12/31/2023
 ---
 
 # Best practices for Query Store - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
-
-**Applies to:** Azure Database for PostgreSQL - Flex Server versions 11, 12
 
 This article outlines best practices for using Query Store in Azure Database for PostgreSQL.
 
@@ -23,8 +21,8 @@ Let Query Store capture the data that matters to you.
 
 |**pg_qs.query_capture_mode** |	**Scenario**|
 |---|---|
-|_All_	|Analyze your workload thoroughly in terms of all queries and their execution frequencies and other statistics. Identify new queries in your workload. Detect if ad hoc queries are used to identify opportunities for user or auto parameterization. _All_ comes with an increased resource consumption cost. |
-|_Top_ |Focus your attention on top queries - those issued by clients.
+|_All_	| Analyze your workload thoroughly in terms of all queries (top-level or nested) and their execution frequencies and other statistics. Identify new queries in your workload. Detect if ad hoc queries are used, to identify opportunities for user defined parameterization or automatic parameterization. _All_ comes with an increased resource consumption cost. |
+|_Top_ | Focus your attention on top-level queries - those issued by clients. Doesn't include nested statements (statements executed inside a procedure or a function). |
 |_None_	|If set to None, Query Store won't capture any new queries. You've already captured a query set and time window that you want to investigate and you want to eliminate the distractions that other queries may introduce. _None_ is suitable for testing and bench-marking environments. _None_ should be used with caution as you might miss the opportunity to track and optimize important new queries. |
 
 

@@ -57,7 +57,7 @@ This article summarizes support information for Container capabilities in Micros
 
 | Aspect | Details |
 |--|--|
-| Kubernetes distributions and configurations | **Supported**<br> • [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br> • [Azure Kubernetes Service hybrid](/azure/aks/hybrid/aks-hybrid-options-overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)|
+| Kubernetes distributions and configurations | **Supported**<br> • [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br> • [Azure Kubernetes Service hybrid](/azure/aks/hybrid/aks-hybrid-options-overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br /> |
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested on Azure.
 
@@ -108,7 +108,7 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 
 | Aspect | Details |
 |--|--|
-| Kubernetes distributions and configurations | **Supported**<br>•  [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br> • [Kubernetes](https://kubernetes.io/docs/home/)|
+| Kubernetes distributions and configurations | **Supported**<br>•  [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br> • [Kubernetes](https://kubernetes.io/docs/home/)<br />**Unsupported**<br /> • EKS private clusters |
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 
@@ -126,14 +126,13 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Domain | Feature | Supported Resources | Linux release state  | Windows release state  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --|
 | Security posture management  | [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#security-posture-management) | GKE | Preview | Preview | Agentless  | Defender for Containers **OR** Defender CSPM |
-| Security posture management  | Comprehensive inventory capabilities | GAR, GKE | Preview | Preview | Agentless| Defender for Containers **OR** Defender CSPM |
-| Security posture management  | Attack path analysis | GAR, GKE | Preview | - | Agentless | Defender CSPM |
-| Security posture management  | Enhanced risk-hunting | GAR, GKE | Preview | Preview | Agentless | Defender for Containers **OR** Defender CSPM |
+| Security posture management  | Comprehensive inventory capabilities | GAR, GCR, GKE | Preview | Preview | Agentless| Defender for Containers **OR** Defender CSPM |
+| Security posture management  | Attack path analysis | GAR, GCR, GKE | Preview | - | Agentless | Defender CSPM |
+| Security posture management  | Enhanced risk-hunting | GAR, GCR, GKE | Preview | Preview | Agentless | Defender for Containers **OR** Defender CSPM |
 | Security posture management | Docker CIS | GCP VMs | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Security posture management | Control plane hardening | GKE | GA | GA | Agentless | Free |
 | Security posture management | Kubernetes data plane hardening | GKE | GA| - | Azure Policy for Kubernetes | Defender for Containers |
-| Vulnerability Assessment | Registry scan | - | - | - | - | - |
-| [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GAR | Preview | Preview | Agentless | Defender for Containers or Defender CSPM |
+| [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GAR, GCR | Preview | Preview | Agentless | Defender for Containers or Defender CSPM |
 | [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless/agent-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GKE | Preview | Preview | Agentless **OR/AND** Defender agent | Defender for Containers or Defender CSPM |
 | Runtime protection| Control plane | GKE | Preview | Preview | Agentless | Defender for Containers |
 | Runtime protection| Workload | GKE | Preview | - | Defender agent | Defender for Containers |
@@ -145,7 +144,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 | Aspect | Details |
 |--|--|
-| Registries and images | **Supported**<br> • GAR registries <br> • Container images in Docker V2 format  <br> **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images is currently unsupported <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br>• Public repositories <br> • Manifest lists <br>|
+| Registries and images | **Supported**<br> • Google Registries (GAR, GCR) <br> • Container images in Docker V2 format  <br> **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images is currently unsupported <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br>• Public repositories <br> • Manifest lists <br>|
 | Operating systems | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Google Distroless (based on Debian GNU/Linux 7-12)<br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2<br> • Windows server 2016, 2019, 2022|
 | Language specific packages <br><br>  | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 

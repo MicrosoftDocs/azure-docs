@@ -2,6 +2,7 @@
 title: Add and manage MSIX app attach and app attach applications - Azure Virtual Desktop
 description: Learn how to add and manage applications with MSIX app attach and app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell, where you can dynamically attach applications from an application package to a user session.
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 zone_pivot_groups: azure-virtual-desktop-app-attach
 author: dknappettmsft
 ms.author: daknappe
