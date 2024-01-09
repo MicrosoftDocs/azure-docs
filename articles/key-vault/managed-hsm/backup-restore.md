@@ -39,7 +39,7 @@ There are 2 ways to execute a full backup. You must provide the following inform
 
 #### Prerequisites if backing up and restoring using user assigned managed identity:
 
-1. Ensure you have the Azure CLI version 2.54.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+1. Ensure you have the Azure CLI version 2.56.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 2. Create a user assigned managed identity.
 3. Create a storage account (or use an existing storage account).
 4. If public network access is diabled on your storage account, enable trusted service bypass on the storage account in the “Networking” tab, under “Exceptions.”
