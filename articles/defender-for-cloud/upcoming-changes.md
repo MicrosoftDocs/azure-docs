@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/03/2024
+ms.date: 01/09/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
+| [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
 | [Deprecation and severity changes to security alerts](#deprecation-and-severity-changes-to-security-alerts) | December 27, 2023 | January 2024 |
@@ -37,6 +39,32 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Defender for Servers built-in vulnerability assessment (Qualys) retirement path
+
+**Announcement date: January 9, 2024**
+
+**Estimated date for change: May 2024**
+
+The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path which is estimated to complete on **May 1st, 2024**. If you are currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft defender vulnerability management solution](how-to-transition-to-built-in.md).
+ 
+For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can read [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
+
+You can also check out the [common questions about the transition to Microsoft Defender Vulnerability Management solution](faq-scanner-detection.yml).
+
+## Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys
+
+**Announcement date: January 9, 2023**
+
+**Estimated date for change: March 2024**
+
+The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is now on a retirement path completing on **March 1st, 2024**. If you are currently using container vulnerability assessment powered by Qualys, start planning your transition to [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md).
+
+For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, see [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
+
+For more information about transitioning to our new container vulnerability assessment offering powered by Microsoft Defender Vulnerability Management, see [Transition from Qualys to Microsoft Defender Vulnerability Management](transition-to-defender-vulnerability-management.md).
+
+For common questions about the transition to Microsoft Defender Vulnerability Management, see [Common questions about the Microsoft Defender Vulnerability Management solution](common-questions-microsoft-defender-vulnerability-management.md).
 
 ## New version of Defender Agent for Defender for Containers
 
