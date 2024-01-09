@@ -71,7 +71,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     ```
    
    # [JavaScript-V4](#tab/javascript_v4)
-     Update `index/index.js` with following code, which serves the HTML content as a static site.
+     Update `src/functions/index.js` with following code, which serves the HTML content as a static site.
      ```js
      const { app } = require('@azure/functions');
      const { readFile } = require('fs/promises');
@@ -332,11 +332,29 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     ```
     
     # [Javascript-V4](#tab/javascript_v4)
-
+    Update `src/functions/negotiate.js` to use [`WebPubSubConnection`](reference-functions-bindings.md#input-binding) that contains the generated token.
+    ```js
+    const { app, input } = require('@azure/functions');
+    
+    const connection = input.generic({
+        type: 'webPubSubConnection',
+        name: 'connection',
+        hub: '%hubName%'
+    });
+    
+    app.http('negotiate', {
+        methods: ['GET', 'POST'],
+        authLevel: 'anonymous',
+        extraInputs: [connection],
+        handler: async (request, context) => {
+            return { body: JSON.stringify(context.extraInputs.get('connection')) };
+        },
+    });
+    ```
     ---
 
     # [JavaScript-V3](#tab/javascript)
-   - Update `negotiate/function.json` to include an input binding [`WebPubSubConnection`](reference-functions-bindings.md#input-binding), with the following json code.
+    - Update `negotiate/function.json` to include an input binding [`WebPubSubConnection`](reference-functions-bindings.md#input-binding), with the following json code.
         ```json
         {
             "bindings": [
@@ -360,7 +378,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
             ]
         }
         ```
-   - Update `negotiate/index.js` to return the `connection` binding that contains the generated token.
+    - Update `negotiate/index.js` to return the `connection` binding that contains the generated token.
         ```js
         module.exports = function (context, req, connection) {
             // Add your own auth logic here
@@ -372,10 +390,58 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
 
 6. Create a `messagehandler` function to generate notifications by using the `"IoT Hub (Event Hub)"` template.
    ```bash
-    func new --template "IoT Hub (Event Hub)" --name messagehandler
+    func new --template "Azure Event Hub trigger" --name messagehandler
     ```
+
+    # [Javascript-V4](#tab/javascript_v4)
+    Update `src/functions/messagehandler.js` to add [Web PubSub output binding](reference-functions-bindings.md#output-binding) with the following json code. We use variable `%hubName%` as the hub name for both IoT eventHubName and Web PubSub hub.
+
+    ```js
+    const { app, output } = require('@azure/functions');
+    
+    const wpsAction = output.generic({
+        type: 'webPubSub',
+        name: 'action',
+        hub: '%hubName%'
+    });
+    
+    app.eventHub('messagehandler', {
+        connection: 'IOTHUBConnectionString',
+        eventHubName: '%hubName%',
+        cardinality: 'many',
+        extraOutputs: [wpsAction],
+        handler: (messages, context) => {
+            var actions = [];
+            if (Array.isArray(messages)) {
+                context.log(`Event hub function processed ${messages.length} messages`);
+                for (const message of messages) {
+                    context.log('Event hub message:', message);
+                    actions.push({
+                        actionName: "sendToAll",
+                        data: JSON.stringify({
+                            IotData: message,
+                            MessageDate: message.date || new Date().toISOString(),
+                            DeviceId: message.deviceId,
+                        })});
+                }
+            } else {
+                context.log('Event hub function processed message:', messages);
+                actions.push({
+                    actionName: "sendToAll",
+                    data: JSON.stringify({
+                        IotData: message,
+                        MessageDate: message.date || new Date().toISOString(),
+                        DeviceId: message.deviceId,
+                    })});
+            }
+            context.extraOutputs.set(wpsAction, actions);
+        }
+    });
+    ```
+    ---
+
     # [JavaScript](#tab/javascript)
-   - Update _messagehandler/function.json_ to add [Web PubSub output binding](reference-functions-bindings.md#output-binding) with the following json code. We use variable `%hubName%` as the hub name for both IoT eventHubName and Web PubSub hub.
+    - Update _messagehandler/function.json_ to add [Web PubSub output binding](reference-functions-bindings.md#output-binding) with the following json code. We use variable `%hubName%` as the hub name for both IoT eventHubName and Web PubSub hub.
         ```json
         {
             "bindings": [
@@ -398,7 +464,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
             ]
         }
         ```
-   - Update `messagehandler/index.js` with the following code. It sends every message from IoT hub to every client connected to Web PubSub service using the Web PubSub output bindings.
+    - Update `messagehandler/index.js` with the following code. It sends every message from IoT hub to every client connected to Web PubSub service using the Web PubSub output bindings.
         ```js
         module.exports = function (context, IoTHubMessages) {
         IoTHubMessages.forEach((message) => {
@@ -417,6 +483,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
         context.done();
         };
         ```
+    ---
 
 7. Update the Function settings.
     
@@ -451,7 +518,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     ```
 
     > [!NOTE]
-    > The `IoT Hub (Event Hub)` function trigger used in the sample has dependency on Azure Storage, but you can use a local storage emulator when the function is running locally. If you get an error such as `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`, you'll need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
+    > The `Azure Event Hub trigger` function trigger used in the sample has dependency on Azure Storage, but you can use a local storage emulator when the function is running locally. If you get an error such as `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`, you'll need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
 
 8. Run the function locally.
 
