@@ -183,13 +183,13 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
-    aks-nodepool1-90538373-vmss000000   Ready    agent   54m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               5.15.0-1035-azure   containerd://1.6.18+azure-1
-    aks-nodepool1-90538373-vmss000001   Ready    agent   55m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS               5.15.0-1035-azure   containerd://1.6.18+azure-1
-    aksnpwin000000                      Ready    agent   40m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.1668     containerd://1.6.14+azure
-    ```
+    aks-nodepool1-20786768-vmss000000   Ready    agent   22h   v1.27.7   10.224.0.4    <none>        Ubuntu 22.04.3 LTS               5.15.0-1052-azure   containerd://1.7.5-1
+    aks-nodepool1-20786768-vmss000001   Ready    agent   22h   v1.27.7   10.224.0.33   <none>        Ubuntu 22.04.3 LTS               5.15.0-1052-azure   containerd://1.7.5-1
+    aksnpwin000000                      Ready    agent   20h   v1.27.7   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.2159     containerd://1.6.21+azure
+        ```
 
     > [!NOTE]
-    > The container runtime for each node pool is shown under *CONTAINER-RUNTIME*. Notice *aksnpwin987654* begins with `docker://`, which means it uses Docker for the container runtime. Notice *aksnpwcd123456* begins with `containerd://`, which means it uses `containerd` for the container runtime.
+    > The container runtime for each node pool is shown under *CONTAINER-RUNTIME*. The container runtime values begin with `containerd://`, which means that they each use `containerd` for the container runtime.
 
 ## Deploy the application
 
@@ -243,6 +243,8 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
     ```
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+
+    If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
 
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
