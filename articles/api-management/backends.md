@@ -60,6 +60,7 @@ You can use conditional logic with the `set-backend-service` policy to change th
 
 For example, here is a policy to route traffic to another backend based on the gateway that was called:
 
+```xml
 <policies>
     <inbound>
         <base />
@@ -75,6 +76,7 @@ For example, here is a policy to route traffic to another backend based on the g
     </inbound>
     [...]
 <policies/>
+```
 
 
 ## Circuit breaker (preview)
