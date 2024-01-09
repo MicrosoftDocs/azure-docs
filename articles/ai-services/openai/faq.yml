@@ -92,13 +92,13 @@ sections:
           To learn more about how GPT models are trained and work we recommend watching [Andrej Karpathy's talk from Build 2023 on the state of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A).
       
       - question: |
-          I asked the model when it's knowledge cutoff is and it gave me a different answer than what is on the Azure OpenAI model's page. Why does this happen?
+          I asked the model when its knowledge cutoff is and it gave me a different answer than what is on the Azure OpenAI model's page. Why does this happen?
         answer:
           This is expected behavior. The models aren't able to answer questions about themselves. If you want to know when the knowledge cutoff for the model's training data is, consult the [models page](./concepts/models.md).
       - question: |
           I asked the model a question about something that happened recently before the knowledge cutoff and it got the answer wrong. Why does this happen?
         answer: |
-          This is expected behavior. First there's no guarantee that every recent event that has occurred was part of the model's training data. And even when information was part of the training data, without using additional techniques like Retrieval Augmented Generation (RAG) to help ground the model's responses there's always a chance of ungrounded responses occurring. Both Azure OpenAI's [use your data feature](./concepts/use-your-data.md) and [Bing Chat](https://www.microsoft.com/edge/features/bing-chat?form=MT00D8) use Azure OpenAI models combined with Retrieval Augmented Generation to help further ground model responses. 
+          This is expected behavior. First there's no guarantee that every recent event was part of the model's training data. And even when information was part of the training data, without using additional techniques like Retrieval Augmented Generation (RAG) to help ground the model's responses there's always a chance of ungrounded responses occurring. Both Azure OpenAI's [use your data feature](./concepts/use-your-data.md) and [Bing Chat](https://www.microsoft.com/edge/features/bing-chat?form=MT00D8) use Azure OpenAI models combined with Retrieval Augmented Generation to help further ground model responses. 
           
           The frequency that a given piece of information appeared in the training data can also impact the likelihood that the model will respond in a certain way. 
 

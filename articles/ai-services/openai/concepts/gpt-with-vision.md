@@ -28,7 +28,7 @@ Enhancements let you incorporate other Azure AI services (such as Azure AI Visio
 
 **Object grounding**: Azure AI Vision complements GPT-4 Turbo with Vision’s text response by identifying and locating salient objects in the input images. This lets the chat model give more accurate and detailed responses about the contents of the image.
 
-:::image type="content" source="../media/concepts/gpt-v/object-grounding.png" alt-text="Screenshot of an image with object grounding applied. Object have bounding boxes with labels.":::
+:::image type="content" source="../media/concepts/gpt-v/object-grounding.png" alt-text="Screenshot of an image with object grounding applied. Objects have bounding boxes with labels.":::
 
 :::image type="content" source="../media/concepts/gpt-v/object-grounding-response.png" alt-text="Screenshot of a chat response to an image prompt about an outfit. The response is an itemized list of clothing items seen in the image.":::
 
@@ -40,7 +40,7 @@ Enhancements let you incorporate other Azure AI services (such as Azure AI Visio
 
 **Video prompt**: The **video prompt** enhancement lets you use video clips as input for AI chat, enabling the model to generate summaries and answers about video content. It uses Azure AI Vision Video Retrieval to sample a set of frames from a video and create a transcript of the speech in the video.
 
-In order to use the video prompt enhancement, you need both an Azure AI Vison resource and an Azure Video Indexer resource, in addition to your Azure OpenAI resource.
+In order to use the video prompt enhancement, you need both an Azure AI Vision resource and an Azure Video Indexer resource, in addition to your Azure OpenAI resource.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW1eHRf]
 
@@ -63,6 +63,9 @@ Processing videos involves the use of extra tokens to identify key frames for an
 
 ### Example price calculation
 
+> [!IMPORTANT]
+> The following content is an example only, and prices are subject to change in the future.
+
 For a typical use case, take a 3-minute video with a 100-token prompt input. The video has a transcript that's 100 tokens long, and when the service processes the prompt, it generates 100 tokens of output. The pricing for this transaction would be:
 
 | Item        | Detail        | Total Cost   |
@@ -73,7 +76,7 @@ For a typical use case, take a 3-minute video with a 100-token prompt input. The
 | Output Tokens      | 100 tokens (assumed)    | $0.003       |
 | **Total Cost**      |      | **$0.03025** |
 
-Additionally, there's a one-time indexing cost of $0.15 to generate the Video Retrieval index for this 3-minute video. This index can be reused across any number of Video Retrieval and GPT-4 Turbo with Vision calls.
+Additionally, there's a one-time indexing cost of $0.15 to generate the Video Retrieval index for this 3-minute video. This index can be reused across any number of Video Retrieval and GPT-4 Turbo with Vision API calls.
 
 ## Limitations
 
@@ -85,7 +88,7 @@ This section describes the limitations of GPT-4 Turbo with Vision.
 - **Maximum input image size**: The maximum size for input images is restricted to 20 MB.
 - **Object grounding in enhancement API**: When the enhancement API is used for object grounding, and the model detects duplicates of an object, it will generate one bounding box and label for all the duplicates instead of separate ones for each.
 - **Low resolution accuracy**: When images are analyzed using the "low resolution" setting, it allows for faster responses and uses fewer input tokens for certain use cases. However, this could impact the accuracy of object and text recognition within the image.
-- **Image chat restriction**: When uploading images in Azure OpenAI Studio or the API, there is a limit of 10 images per chat call.
+- **Image chat restriction**: When you upload images in Azure OpenAI Studio or the API, there is a limit of 10 images per chat call.
 
 ### Video support
 
