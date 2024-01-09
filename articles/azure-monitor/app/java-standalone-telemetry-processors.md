@@ -616,6 +616,8 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 
 ### Sample usage
 
+The following sample shows how to exclude metrics with names "metricA" and "metricB".
+
 ```json
 "processors": [
   {
@@ -625,6 +627,21 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
       "metricNames": [
         "metricA",
         "metricB"
+      ]
+    }
+  }
+]
+```
+
+The following sample show how to turn off all metrics including the default auto-collected using regexp.
+```json
+"processors": [
+  {
+    "type": "metric-filter",
+    "exclude": {
+      "matchType": "regexp",
+      "metricNames": [
+        ".*"
       ]
     }
   }
