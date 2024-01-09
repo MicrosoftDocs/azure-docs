@@ -125,10 +125,10 @@
         href: rbac.md
       - name: Delegated access
         displayName: identity
-        href: recommendations-organization-internal-external-users.md
+        href: delegated-access-virtual-desktop.md
       - name: Recommendations for internal and external users
         displayName: identity
-        href: delegated-access-virtual-desktop.md
+        href: recommendations-organization-internal-external-users.md
     - name: Azure Virtual Desktop Agent
       href: agent-overview.md
     - name: Host pool load balancing methods
