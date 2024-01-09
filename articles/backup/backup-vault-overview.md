@@ -33,11 +33,11 @@ This section discusses the options available for encrypting your backup data sto
 
 By default, all your data is encrypted using platform-managed keys. You don't need to take any explicit action from your end to enable this encryption. It applies to all workloads being backed up to your Backup vault.
 
-## Cross Region Restore support for PostgreSQL using Azure Backup (preview)
+## Cross Region Restore support for PostgreSQL using Azure Backup
 
 Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS)  to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, Cross Region Restore enables you to access and perform restores from the secondary region recovery points even when no outage occurs in the primary region; thus, enables you to perform drills to assess regional resiliency.
 
-Learn [how to perform Cross Region Restore](create-manage-backup-vault.md#perform-cross-region-restore-using-azure-portal-preview).
+Learn [how to perform Cross Region Restore](create-manage-backup-vault.md#perform-cross-region-restore-using-azure-portal).
 
 >[!Note]
 >- Cross Region Restore is now available for PostgreSQL backups protected in Backup vaults. 
@@ -45,4 +45,4 @@ Learn [how to perform Cross Region Restore](create-manage-backup-vault.md#perfor
 
 ## Next steps
 
-- [Create and manage Backup vault](create-manage-backup-vault.md)
+- [Create and manage Backup vault](create-manage-backup-vault.md#perform-cross-region-restore-using-azure-portal).
