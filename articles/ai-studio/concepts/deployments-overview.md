@@ -2,7 +2,7 @@
 title: Deploy models, flows, and web apps with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn about deploying models, flows, and web apps with Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
