@@ -137,7 +137,7 @@ You can also manage auto-stop schedules by using the Azure CLI.
 
 The following Azure CLI command creates an auto-stop schedule:
 
-```azure-cli
+```azurecli
 az devcenter admin schedule create -n default --pool-name {poolName} --project {projectName} --resource-group {resourceGroupName} --time {hh:mm} --time-zone {"timeZone"} --schedule-type stopdevbox --frequency daily --state Enabled
 ```
 
@@ -166,7 +166,7 @@ az devcenter admin schedule create -n default --pool-name {poolName} --project {
 
 Enter the following command in the Azure CLI to delete an auto-stop schedule:
 
-```azure-cli
+```azurecli
 az devcenter admin schedule delete -n default --pool-name {poolName} --project-name {projectName}
 ```
 
