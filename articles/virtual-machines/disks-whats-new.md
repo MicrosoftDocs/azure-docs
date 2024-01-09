@@ -1,10 +1,10 @@
 ---
-title: Whats new in Azure Disk Storage
-description: Learn how to upload, download, and migrate an Azure managed disk across regions and create a snapshot of a managed disk, using the Azure Storage Explorer.      
+title: What's new in Azure Disk Storage
+description: Learn about new features and enhancements in Azure Disk Storage.   
 author: roygara
 ms.author: rogarana
-ms.date: 09/07/2021
-ms.topic: how-to
+ms.date: 01/09/2024
+ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
 
@@ -14,15 +14,15 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 ## What's new in 2024
 
-### Quarter 1 (Janurary, February, March)
+### Quarter 1 (January, February, March)
 
 ## Ultra Disk regional availability expansion
 
-Ultra Disks have been made available in the UK West and Poland Central regions.
+Ultra Disks were made available in the UK West and Poland Central regions.
 
 ## Zone redundant storage disk regional availability expansion
 
-Zone Redundant Storage (ZRS) disks have been made available in West US 3 and Germany Central regions.
+Zone Redundant Storage (ZRS) disks were made available in West US 3 and Germany Central regions.
 
 ## What's new in 2023
 
@@ -30,7 +30,7 @@ Zone Redundant Storage (ZRS) disks have been made available in West US 3 and Ger
 
 #### Encryption at host GA for Premium SSD v2 and Ultra Disks
 
-Encryption at host was previously only available for Standard HDDs, Standard SSDs, and Premium SSDs. Encryption at host is now also availalbe as a GA offering for Premium SSD v2 and Ultra Disks. For more information on encryption at host, see [Encryption at host - End-to-end encryption for your VM data](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Encryption at host was previously only available for Standard HDDs, Standard SSDs, and Premium SSDs. Encryption at host is now also available as a GA offering for Premium SSD v2 and Ultra Disks. For more information on encryption at host, see [Encryption at host - End-to-end encryption for your VM data](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 There are some additional restrictions for Premium SSD v2 and Ultra Disks that enable encryption at host. For more information, see [Restrictions (1)](disk-encryption.md#restrictions-1).
 
@@ -40,12 +40,12 @@ Metrics dedicated to monitoring latency are now available as a preview feature. 
 
 #### Expanded regional availability for Premium SSD v2
 
-Premium SSD v2 disks have been made available in Poland Central, China North 3, and US Gov Virginia. For more details, see the [Azure Update](https://azure.microsoft.com/updates/generally-available-azure-premium-ssd-v2-disk-storage-is-now-available-in-more-regions-pcu/).
+Premium SSD v2 disks were made available in Poland Central, China North 3, and US Gov Virginia. For more information, see the [Azure Update](https://azure.microsoft.com/updates/generally-available-azure-premium-ssd-v2-disk-storage-is-now-available-in-more-regions-pcu/).
 
 
 #### Expanded regional availability for ZRS disks
 
-ZRS disks have been made available in the Norway East and UAE North regions. For more details, see the [Azure Update](https://azure.microsoft.com/updates/generally-available-zone-redundant-storage-for-azure-disks-is-now-available-in-norway-east-uae-north-regions/).
+ZRS disks were made available in the Norway East and UAE North regions. For more information, see the [Azure Update](https://azure.microsoft.com/updates/generally-available-zone-redundant-storage-for-azure-disks-is-now-available-in-norway-east-uae-north-regions/).
 
 ### Quarter 3 (July, August, September)
 
@@ -59,7 +59,7 @@ In Quarter 3, Premium SSD v2 were made available in the Australia East, Brazil S
 
 #### General Availability - Incremental Snapshots for Premium SSD v2 and Ultra Disks
 
-Incremental snapshots for Premium SSD v2 and Ultra Disks was made available as a general availability (GA) feature. For more details, see either the [documentation](disks-incremental-snapshots.md#incremental-snapshots-of-premium-ssd-v2-and-ultra-disks) or the [Azure Update](https://azure.microsoft.com/updates/general-availability-incremental-snapshots-for-premium-ssd-v2-disk-and-ultra-disk-storage-3/).
+Incremental snapshots for Premium SSD v2 and Ultra Disks were made available as a general availability (GA) feature. For more information, see either the [documentation](disks-incremental-snapshots.md#incremental-snapshots-of-premium-ssd-v2-and-ultra-disks) or the [Azure Update](https://azure.microsoft.com/updates/general-availability-incremental-snapshots-for-premium-ssd-v2-disk-and-ultra-disk-storage-3/).
 
 ### Quarter 2 (April, May, June)
 
@@ -73,7 +73,7 @@ In quarter 2, ZRS disks were made available in the Australia East, Brazil South,
 
 #### Preview - Azure Backup support for Premium SSD v2
 
-Azure Backup added support for Azure virtual machines using Premium SSD v2 disks in the East US and West Europe regions. For more details, see the [Azure Update](https://azure.microsoft.com/updates/premium-ssd-v2-backup-support/).
+Azure Backup added support for Azure virtual machines using Premium SSD v2 disks in the East US and West Europe regions. For more information, see the [Azure Update](https://azure.microsoft.com/updates/premium-ssd-v2-backup-support/).
 
 ### Quarter 1 (January, February, March)
 
@@ -85,7 +85,7 @@ In quarter 1, Premium SSD v2 disks were made available in the East US 2, North E
 
 #### Preview - Performance plus
 
-Azure Disk Storage added a new preview feature, performance plus. Performance plus enhances the IOPS and throughput performance for Premium SSDs, Standard SSDs, and Standard HDDs, that are 513 GiB and larger. For details, see [Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](disks-enable-performance.md)
+Azure Disk Storage added a new preview feature, performance plus. Performance plus enhances the IOPS and throughput performance for Premium SSDs, Standard SSDs, and Standard HDDs that are 513 GiB and larger. For details, see [Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs](disks-enable-performance.md)
 
 #### Expanded regional availability for Ultra Disks
 
@@ -93,3 +93,9 @@ In quarter 1, Ultra Disks were made available in the Brazil Southeast, China Nor
 
 #### More transactions at no extra cost - Standard SSDs
 
+In quarter 1, we added an hourly limit to the number of transactions that can occur a billable cost. Any transactions beyond that limit don't occur a cost. For information, see the [blog post](https://aka.ms/billedcapsblog) or [Standard SSD transactions](disks-types.md#standard-ssd-transactions).
+
+## Next steps
+
+- [Azure managed disk types](disks-types.md)
+- [Introduction to Azure managed disks](managed-disks-overview.md)
