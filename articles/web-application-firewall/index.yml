@@ -113,7 +113,7 @@ landingContent:
           - text: Azure PowerShell - Application Gateway
             url: /powershell/module/az.network/#application_gateway
           - text: REST - Front Door
-            url: /rest/api/frontdoorservice/webapplicationfirewall/policies
+            url: /rest/api/frontdoor
           - text: REST - Application Gateway
             url: /rest/api/application-gateway
 
