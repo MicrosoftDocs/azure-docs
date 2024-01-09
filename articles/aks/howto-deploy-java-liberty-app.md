@@ -38,7 +38,7 @@ This article is intended to help you quickly get to deployment. Before going to 
   * Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-* Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
+* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
 
 ## Create a Liberty on AKS deployment using the portal
 
@@ -53,7 +53,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
    1. You can provide the TLS/SSL certificate presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Don't go to production using a self-signed certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
    1. You can enable cookie based affinity, also known as sticky sessions. We want sticky sessions enabled for this article, so ensure this option is selected.
       ![Screenshot of the enable cookie-based affinity checkbox.](./media/howto-deploy-java-liberty-app/enable-cookie-based-affinity.png)
-1. Select **Next** to **Operator and application** pane. This quickstaret uses all defaults in this pane. However, it lets you customize the following deployment options.
+1. Select **Next** to **Operator and application** pane. This quickstart uses all defaults in this pane. However, it lets you customize the following deployment options.
    1. You can deploy WebSphere Liberty Operator by selecting **Yes** for option **IBM supported?**. Leaving the default **No** deploys Open Liberty Operator.
    1. You can deploy an application for your selected Operator by selecting **Yes** for option **Deploy an application?**. Leaving the default **No** doesn't deploy any application.
 1. Select **Review + create** to validate your selected options.
@@ -80,6 +80,11 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. Paste the value of `appDeploymentTemplateYaml` into a Bash shell, append `| grep secretName`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
 These values will be used later in this article. Note that several other useful commands are listed in the outputs.
+
+> [!NOTE]
+> You may notice a similar output named **appDeploymentYaml**. The difference between output *appDeploymentTemplateYaml* and *appDeploymentYaml* is:
+> * *appDeploymentTemplateYaml* is only populated if you didn't deploy an application.
+> * *appDeploymentYaml* is only populated if you deployed an application.
 
 ## Create an Azure SQL Database
 
