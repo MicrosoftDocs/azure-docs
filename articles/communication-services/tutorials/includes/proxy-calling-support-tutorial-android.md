@@ -13,7 +13,7 @@ ms.custom: mode-other
 
 ## Force calling traffic to be proxied across your own server for Android SDK
 
-In certain situations, it might be useful to have all your client traffic proxied to a server that you can control. When the SDK is initializing, you can provide the details of your servers that you would like the traffic to route to. Once enabled, all the media traffic (audio/video/screen sharing) travel through the provided TURN servers instead of the Azure Communication Services defaults. This tutorial guides on how to have Android SDK calling traffic be proxied to servers that you control.
+In certain situations, it might be useful to have all your client traffic proxied to a server that you can control. When the SDK is initializing, you can provide the details of your servers that you would like the traffic to be routed through. Once enabled, all the media traffic (audio/video/screen sharing) travel through the provided TURN servers instead of the Azure Communication Services defaults. This tutorial guides on how to have Android SDK calling traffic be proxied to servers that you control.
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
@@ -23,7 +23,7 @@ In certain situations, it might be useful to have all your client traffic proxie
 ### Proxy calling media traffic
 
 #### What is a TURN server?
-Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of many reasons: firewalls with strict rules, peers sitting behind a private network, or computers running in a NAT environment. To solve these network connection issues, you can use a TURN server. The term stands for Traversal Using Relays around NAT, and it's a protocol for relaying network traffic. STUN and TURN servers are the relay servers here. [Learn more about how Azure Communication Services mitigates network challenges by utilizing STUN and TURN](../../concepts/network-traversal.md).
+Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of many reasons: firewalls with strict rules, peers sitting behind a private network, or computers running in a NAT (Network Address Translation) environment. To solve these network connection issues, you can use a TURN server. The term stands for Traversal Using Relays around NAT, and it's a protocol for relaying network traffic. STUN and TURN servers are the relay servers here. [Learn more about how Azure Communication Services mitigates network challenges by utilizing STUN and TURN](../../concepts/network-traversal.md).
 
 #### Provide your TURN server details with the SDK
 To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing the `CallClient`. For more information how to set up a call, see [Azure Communication Services Android SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-android) for the Quickstart on how to setup Voice and Video.
