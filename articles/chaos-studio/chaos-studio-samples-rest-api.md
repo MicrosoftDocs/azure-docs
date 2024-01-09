@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 
 If you're integrating Azure Chaos Studio into your CI/CD pipelines, or you simply prefer to use direct API calls to interact with your Azure resources, you can use Chaos Studio's REST API. For the full API reference, visit the [Azure Chaos Studio REST API reference](/rest/api/chaosstudio/). This page provides samples for using the REST API effectively, and is not intended as a comprehensive reference.
 
-This article assumes you're using [Azure CLI](/cli/azure/install-azure-cli-windows.md) to execute these commands, but you can adapt them to other standard REST clients.
+This article assumes you're using [Azure CLI](/cli/azure/install-azure-cli) to execute these commands, but you can adapt them to other standard REST clients.
 
 
 You can use the Chaos Studio REST APIs to:
