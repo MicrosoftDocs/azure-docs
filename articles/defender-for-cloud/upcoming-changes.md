@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/08/2024
+ms.date: 01/09/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -47,7 +47,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path which is estimated to complete on **May 1st, 2024**. If you are currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft defender vulnerability management solution](how-to-transition-to-built-in.md).
  
-For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can ead [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
+For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can read [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 
 You can also check out the [common questions about the transition to Microsoft Defender Vulnerability Management solution](faq-scanner-detection.yml).
 
