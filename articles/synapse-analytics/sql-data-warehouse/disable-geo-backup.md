@@ -25,7 +25,7 @@ Follow these steps to disable geo-backups for your dedicated SQL pool (formerly 
 1. Select the dedicated SQL pool (formerly SQL DW) resource where you would like to disable geo-backups. 
 1. Under **Settings** in the left-hand navigation panel, select **Geo-backup policy**.
 
-   :::image type="content" source="media/sql-data-warehouse-restore-from-geo-backup/disable-geo-backup-menu.png" alt-text="A screenshot from the Azure portal, of the nagivation menu, showing where to find the geo-backup policy page.":::
+   :::image type="content" source="media/sql-data-warehouse-restore-from-geo-backup/disable-geo-backup-menu.png" alt-text="A screenshot from the Azure portal, of the navigation menu, showing where to find the geo-backup policy page.":::
 
 1. To disable geo-backups, select **Disabled**. 
 
