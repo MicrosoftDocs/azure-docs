@@ -13,13 +13,11 @@ Azure Virtual Desktop is a managed virtual desktop service that includes many se
 
 Azure Virtual Desktop has many built-in advanced security features, such as Reverse Connect where no inbound network ports are required to be open, which reduces the risk involved with having remote desktops accessible from anywhere. The service also benefits from many other security features of Azure, such as multifactor authentication and conditional access. This article describes steps you can take as an administrator to keep your Azure Virtual Desktop deployments secure, whether you provide desktops and apps to users in your organization or to external users.
 
-TODO: I GOT TO HERE
-
 ## Shared security responsibilities
 
 Before Azure Virtual Desktop, on-premises virtualization solutions like Remote Desktop Services require granting users access to roles like Gateway, Broker, Web Access, and so on. These roles had to be fully redundant and able to handle peak capacity. Administrators would install these roles as part of the Windows Server operating system, and they had to be domain-joined with specific ports accessible to public connections. To keep deployments secure, administrators had to constantly make sure everything in the infrastructure was maintained and up-to-date.
 
-In most cloud services, however, there's a [shared set of security responsibilities](../../security/fundamentals/shared-responsibility.md) between Microsoft and the customer or partner. For Azure Virtual Desktop, most components are Microsoft-managed, but session hosts and some supporting services and components are customer-managed or partner-managed. To learn more about the Microsoft-managed components of Azure Virtual Desktop, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
+In most cloud services, however, there's a [shared set of security responsibilities](../security/fundamentals/shared-responsibility.md) between Microsoft and the customer or partner. For Azure Virtual Desktop, most components are Microsoft-managed, but session hosts and some supporting services and components are customer-managed or partner-managed. To learn more about the Microsoft-managed components of Azure Virtual Desktop, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
 While some components come already secured for your environment, you'll need to configure other areas yourself to fit your organization's or customer's security needs. Here are the components of which you're responsible for the security in your Azure Virtual Desktop deployment:
 
