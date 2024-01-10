@@ -12834,6 +12834,17 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/load-balancer/configure-vm-scale-set-cli.md",
+            "redirect_url": "/azure/load-balancer/configure-vm-scale-set-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/configure-vm-scale-set-powershell.md",
+            "redirect_url": "/azure/load-balancer/configure-vm-scale-set-portal",
+            "redirect_document_id": true
+        },
+
+        {
             "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-online.md",
             "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
             "redirect_document_id": false
