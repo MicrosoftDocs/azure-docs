@@ -181,7 +181,7 @@ Extract the download and navigate into the `containerapps-albumapi-go-main/src` 
 
 
 ::: zone-end
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 
 
 # [C#](#tab/csharp)
@@ -230,7 +230,7 @@ Build and deploy your first container app with the `containerapp up` command. Th
 - Create an Azure Container Registry
 - Build the container image and push it to the registry
 ::: zone-end
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 - Automatically create a default registry as part of your environment
 - Autodetect the language and build the image automatically using the appropriate Buildpack
 - Push the image into Azure Container App's default registry
@@ -243,7 +243,7 @@ Build and deploy your first container app with the `containerapp up` command. Th
 The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Dockerfile. This is the port that is used to send ingress traffic to the container.
 
 ::: zone-end
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 
 If the `up` command doesn't find a Dockerfile, it automatically tries to use Buildpacks in order to turn your application source into a runnable container. You hence need to tell the `up` command which port to use.
 
@@ -266,7 +266,7 @@ az containerapp up \
 ```
 
 ::: zone-end
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 
 ```azurecli
 az containerapp up \
@@ -296,7 +296,7 @@ az containerapp up `
 ```
 
 ::: zone-end
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 
 ```powershell
 az containerapp up `

@@ -177,7 +177,7 @@ In a browser window, go to the GitHub repository for your preferred language and
 Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-csharp) to fork the repo to your account.
 
 
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 
 # [Java](#tab/java)
 
@@ -214,17 +214,11 @@ Select the **Fork** button at the top of the [album API repo](https://github.com
 Build and deploy your first container app from your forked GitHub repository with the `containerapp up` command. This command will:
 
 - Create the resource group
-- Create an Azure Container Registry
-- Build the container image and push it to the registry
-- Create the Container Apps environment with a Log Analytics workspace
-- Create a GitHub Action workflow to build and deploy the container app
-
-- Create the resource group
 - Create the Container Apps environment with a Log Analytics workspace
 ::: zone pivot="with-dockerfile"
 - Create an Azure Container Registry
 ::: zone-end
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 - Automatically create a default registry as part of your environment
 ::: zone-end
 - Create a GitHub Action workflow to build and deploy the container app
@@ -235,7 +229,7 @@ Once new code it pushed to the code repository the Github Action will:
 - Build the container image and push it to the Azure Container Registry
 - Deploy the container image to the created container app
 ::: zone-end
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 - Autodetect the language and build the image automatically using the appropriate Buildpack
 - Push the image into Azure Container App's default registry to be deployed from there
 ::: zone-end
@@ -244,7 +238,7 @@ Once new code it pushed to the code repository the Github Action will:
 The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Dockerfile.  A Docker file isn't required to build a container app. 
 ::: zone-end
 
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 For the container app to be accessible let's ensure we also enable ingress traffic to the correct port of where the application container listens. The containers are build to listen on port 8080.
 ::: zone-end
 
@@ -265,7 +259,7 @@ az containerapp up \
 ```
 
 ::: zone-end
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 
 ```azurecli
 az containerapp up \
@@ -297,7 +291,7 @@ az containerapp up `
 ```
 
 ::: zone-end
-::: zone pivot="with-dockerfile"
+::: zone pivot="without-dockerfile"
 
 ```powershell
 az containerapp up `
