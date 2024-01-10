@@ -37,9 +37,9 @@ To create an interactive shell connection, use the `kubectl debug` command to ru
     ```bash
     kubectl get nodes -o wide
     ```
-    
+
     Sample output:
-    
+
     ```output
     NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE    
     aks-nodepool1-37663765-vmss000000   Ready    agent   166m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               
@@ -60,9 +60,9 @@ To create an interactive shell connection, use the `kubectl debug` command to ru
     If you don't see a command prompt, try pressing enter.
     root@aks-nodepool1-37663765-vmss000000:/#
     ```
-    
+
     You now have access to the node through a privileged container as a debugging pod.
-    
+
     > [!NOTE]
     > You can interact with the node session by running `chroot /host` from the privileged container.
 
@@ -84,39 +84,37 @@ For convenience, the nodepools are exposed when the node has a public IP assigne
 
 1. To get the private IP, use the `machine list` to show all your VMs.
 
-```bash
-    az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
-   
- ```
+    ```bash
+        az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
+     ```
 
-Sample output:
+    Sample output:
 
- ```output
-   Name                               Ip 
----------------------------------  --------------------------
-aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
-aks-nodepool1-33555069-vmss000001  10.224.0.6,family:IPv4;
-aks-nodepool1-33555069-vmss000002  10.224.0.4,family:IPv4;            
-```
-To target a specific node inside the nodepool, add a `--machine-name` flag:
+     ```output
+       Name                               Ip 
+    ---------------------------------  --------------------------
+    aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
+    aks-nodepool1-33555069-vmss000001  10.224.0.6,family:IPv4;
+    aks-nodepool1-33555069-vmss000002  10.224.0.4,family:IPv4;            
+    ```
+    To target a specific node inside the nodepool, add a `--machine-name` flag:
 
-```bash
-    az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
-   
- ```
-Sample output:
+    ```bash
+        az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
+     ```
+    Sample output:
 
-```output
-    Name                               Ip 
----------------------------------  --------------------------
-aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
-   ```
+    ```output
+        Name                               Ip 
+    ---------------------------------  --------------------------
+    aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
+       ```
 
 2. SSH using your private IP address to access your node.
 
-```bash
-ssh azureuser@10.224.0.33
-```
+    ```bash
+    ssh azureuser@10.224.0.33
+    ```
 
 3. Optionally, you can test with Azure Bastion. Follow these steps to set up [Azure Bastion][azure-bastion] to test your connection to your virtual machines using a private IP address. Make sure that the Azure Bastion is hosted in the same virtual network as your VM.
 

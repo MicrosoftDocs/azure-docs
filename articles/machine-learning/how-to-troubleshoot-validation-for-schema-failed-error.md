@@ -5,8 +5,8 @@ description: Troubleshooting steps when you get the "Validation for schema faile
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: dbmsft
-ms.author: debdeepbasu
+author: s-polly
+ms.author: scottpolly
 ms.reviewer: sgilley
 ms.topic: troubleshooting 
 ms.date: 01/06/2023

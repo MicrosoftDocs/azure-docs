@@ -398,16 +398,7 @@ You can remove CORS:
 
 ## Understand billing transactions
 
-Azure Maps doesn't count billing transactions for:
-
-- 5xx HTTP Status Codes
-- 401 (Unauthorized)
-- 403 (Forbidden)
-- 408 (Timeout)
-- 429 (TooManyRequests)
-- CORS preflight requests
-
-For more information on billing transactions and other Azure Maps pricing information, see [Azure Maps pricing].
+[!INCLUDE [Understand billing transactions](./includes/understand-billing-transactions.md)]
 
 ## Next steps
 
