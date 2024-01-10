@@ -66,7 +66,7 @@ Use the following steps to assign an Azure role using the Azure portal:
 
 1. On the **Add role assignment** page, in the **Name** list, search for and select the target role and then select **Next**.
 
-   :::image type="content" source="media/how-to-managed-component-log-streaming/acs-log-reader-role.png" alt-text="Screenshot of the Azure portal that shows the Add role assignment page for an Azure Spring Apps instance with the Azure Spring Apps Application Configuration Service Log Reader Role name highlighted." lightbox="media/how-to-managed-component-log-streaming/acs-log-reader-role.png":::
+   :::image type="content" source="media/how-to-managed-component-log-streaming/application-configuration-service-log-reader-role.png" alt-text="Screenshot of the Azure portal that shows the Add role assignment page for an Azure Spring Apps instance with the Azure Spring Apps Application Configuration Service Log Reader Role name highlighted." lightbox="media/how-to-managed-component-log-streaming/application-configuration-service-log-reader-role.png":::
 
 1. Select **Members** and then search for and select your username.
 

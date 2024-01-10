@@ -105,7 +105,7 @@ To check the logs of `spring-cloud-gateway` and `spring-cloud-gateway-operator` 
      | limit 100
      ```
 
-     :::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for VMware Spring Cloud Gateway." lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png":::
+     :::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-spring-cloud-gateway.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for VMware Spring Cloud Gateway." lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-spring-cloud-gateway.png":::
 
    - To view the logs for `spring-cloud-gateway-operator`, use the following query:
 
@@ -116,7 +116,7 @@ To check the logs of `spring-cloud-gateway` and `spring-cloud-gateway-operator` 
      | limit 100
      ```
 
-     :::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway-operator.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for VMware Spring Cloud Gateway operator." lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway-operator.png":::
+     :::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-spring-cloud-gateway-operator.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for VMware Spring Cloud Gateway operator." lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-spring-cloud-gateway-operator.png":::
 
 > [!NOTE]
 > There could be a few minutes delay before the logs are available in Log Analytics.

@@ -53,7 +53,7 @@ Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bit
 
 To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings-repositories.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab and Repositories section highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings-repositories.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-settings-repositories.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab and Repositories section highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-settings-repositories.png":::
 
 The following table describes the properties for each entry.
 
@@ -76,7 +76,7 @@ Configuration is pulled from Git backends using what you define in a pattern. A 
 
 The following screenshot shows the three types of repository authentication supported by Application Configuration Service.
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Authentication type menu highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-auth.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-authentication.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Authentication type menu highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-authentication.png":::
 
 The following list describes the three authentication types:
 
@@ -130,11 +130,11 @@ Use the following steps to upgrade from Gen1 to Gen2:
 
 1. Select the **Settings** section and then select  **Gen 2** in the **Generation** dropdown menu.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab showing and the Generation menu open." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-server-upgrade-gen2.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab showing and the Generation menu open." lightbox="media/how-to-enterprise-application-configuration-service/configuration-server-upgrade-gen2.png":::
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab showing and the Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-server-upgrade-gen2-settings.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab showing and the Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-server-upgrade-gen2-settings.png":::
 
 ## Polyglot support
 
@@ -200,13 +200,13 @@ Use the following steps to configure Application Configuration Service:
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-overview.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with Overview tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-overview.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-overview.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with Overview tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-overview.png":::
 
 1. Select **Settings** and add a new entry in the **Repositories** section with the Git backend information.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings-validate.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab and Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings-validate.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-settings-validate.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab and Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-settings-validate.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -264,7 +264,7 @@ Use the following steps to use Application Configuration Service with applicatio
 
 1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the App binding tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-app-bind-dropdown.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the App binding tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-app-bind-dropdown.png":::
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
@@ -277,7 +277,7 @@ Use the following steps to use Application Configuration Service with applicatio
 
 1. In the **Config file patterns** dropdown, choose one or more patterns from the list. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the Azure portal that shows the App Configuration page with the General settings tab and api-gateway options highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-pattern.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-pattern.png" alt-text="Screenshot of the Azure portal that shows the App Configuration page with the General settings tab and api-gateway options highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-pattern.png":::
 
 1. Select **Save**
 
@@ -397,7 +397,7 @@ To check the logs of `application-configuration-service` and `flux-source-contro
      | limit 100
      ```
 
-     :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-of-application-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for application-configuration-service." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-of-application-configuration-service.png":::
+     :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-application-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for application-configuration-service." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-application-configuration-service.png":::
 
    - To view the logs for `flux-source-controller`, use the following query:
 
@@ -408,7 +408,7 @@ To check the logs of `application-configuration-service` and `flux-source-contro
      | limit 100
      ```
 
-     :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-of-flux-source-controller.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for flux-source-controller." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-of-flux-source-controller.png":::
+     :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-flux-source-controller.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for flux-source-controller." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-flux-source-controller.png":::
 
 > [!NOTE]
 > There could be a few minutes delay before the logs are available in Log Analytics.
