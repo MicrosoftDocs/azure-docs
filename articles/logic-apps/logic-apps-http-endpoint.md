@@ -456,7 +456,7 @@ After you create the endpoint, you can trigger the workflow by sending an HTTPS 
 
 When you provide a JSON schema in the Request trigger, the workflow designer generates tokens for the properties in that schema. You can then use those tokens for passing data through your workflow.
 
-For example, if you add more properties, such as `"suite"`, to your JSON schema, tokens for those properties are available for you to use in the later steps for your workflow. Here is the complete JSON schema:
+For example, if you add more properties, such as `"suite"`, to your JSON schema, tokens for those properties are available for you to use in the later steps for your workflow. Here's the complete JSON schema:
 
 ```json
 {
@@ -551,7 +551,7 @@ Responses have these properties:
 
 | Property (Display) | Property (JSON) | Description |
 |--------------------|-----------------|-------------|
-| **Status Code** | `statusCode` | The HTTPS status code to use in the response for the incoming request. This code can be any valid status code that starts with 2xx, 4xx, or 5xx. However, 3xx status codes are not permitted. |
+| **Status Code** | `statusCode` | The HTTPS status code to use in the response for the incoming request. This code can be any valid status code that starts with 2xx, 4xx, or 5xx. However, 3xx status codes aren't permitted. |
 | **Headers** | `headers` | One or more headers to include in the response |
 | **Body** | `body` | A body object that can be a string, a JSON object, or even binary content referenced from a previous step |
 
@@ -579,7 +579,7 @@ To view the JSON definition for the Response action and your workflow's complete
 
 #### Q: What about URL security for inbound calls?
 
-**A**: Azure securely generates logic app callback URLs by using [Shared Access Signature (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). This signature passes through as a query parameter and must be validated before your workflow can run. Azure generates the signature using a unique combination of a secret key per logic app, the trigger name, and the operation that's performed. So unless someone has access to the secret logic app key, they cannot generate a valid signature.
+**A**: Azure securely generates logic app callback URLs by using [Shared Access Signature (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). This signature passes through as a query parameter and must be validated before your workflow can run. Azure generates the signature using a unique combination of a secret key per logic app, the trigger name, and the operation that's performed. So unless someone has access to the secret logic app key, they can't generate a valid signature.
 
 > [!IMPORTANT]
 > For production and higher security systems, we strongly advise against calling your workflow directly from the browser for these reasons:
