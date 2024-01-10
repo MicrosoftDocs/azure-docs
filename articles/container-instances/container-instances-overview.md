@@ -60,7 +60,6 @@ Some features are currently restricted to Linux containers:
 * Multiple containers per container group
 * Volume mounting ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secret](container-instances-volume-secret.md))
 * [Resource usage metrics](container-instances-monitor.md) with Azure Monitor
-* [Virtual network deployment](container-instances-vnet.md)
 * [GPU resources](container-instances-gpu.md) (preview)
 
 For Windows container deployments, use images based on common [Windows base images](./container-instances-faq.yml#what-windows-base-os-images-are-supported-).
@@ -83,8 +82,7 @@ ACI Spot containers allow customers to run interruptible, containerized workload
 For more information, see [spot container groups](container-instances-spot-containers-overview.md).
 
 ## Considerations
-
-There are default limits that require quota increases. Not all quota increases may be approved: [Resource availability & quota limits for ACI - Azure Container Instances | Microsoft Learn](./container-instances-resource-and-quota-limits.md)
+User’s credentials passed via command line interface (CLI) are stored as plain text in the backend. Storing credentials in plain text is a security risk; Microsoft advises customers to store user credentials in CLI environment variables to ensure they are encrypted/transformed when stored in the backend.
 
 If your container group stops working, we suggest trying to restart your container, checking your application code, or your local network configuration before opening a [support request][azure-support]. 
 

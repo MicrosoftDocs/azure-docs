@@ -94,6 +94,6 @@ In the subscription, a list of requests corresponds to mapping data flow runs in
 
 Based on the timestamp in the first row, find the line that corresponds to the mapping data flow run you want to analyze. If the number of rows shown equals the number of rows read by the mapping data flow, you've verified that Data Factory has read and transferred the data as provided by the SAP system. In this scenario, we recommend that you consult with the team that's responsible for your SAP system.
 
-## Next steps
+## Related content
 
 Learn more about [SAP connectors](industry-sap-connectors.md).

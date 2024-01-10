@@ -36,10 +36,12 @@ In this section, you create a load balancer for the virtual machines.
 
     > [!NOTE]
     > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
+
 1. Select **IP address** for the **IP type**.
 
     > [!NOTE]
     > For more information on IP prefixes, see [Azure Public IP address prefix](../articles/virtual-network/ip-services/public-ip-address-prefix.md).
+    
 1. Select **Create new** in **Public IP address**.
 1. In **Add a public IP address**, enter **lb-public-IP** for **Name**.
 1. Select **Zone-redundant** in **Availability zone**.

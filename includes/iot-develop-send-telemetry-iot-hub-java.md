@@ -174,7 +174,7 @@ In this section, you use the Java SDK to send messages from a device to your IoT
 1. Run the code sample.
 
     ```console
-    mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
+    java -jar -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
     ```
 
     > [!NOTE]

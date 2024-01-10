@@ -19,7 +19,7 @@ With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response
 
 - They are generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources.
 
-- They are ingested directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)) that created them.
+- They are ingested directly from other connected Microsoft security services (such as [Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md)) that created them.
 
 There can, however, be data from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, that justify opening an investigation. For example, an employee might witness an unrecognized person engaging in suspicious activity related to your organization’s information assets, and this employee might call or email the SOC to report the activity.
 

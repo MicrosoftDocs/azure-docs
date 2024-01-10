@@ -7,10 +7,10 @@ ms.subservice: flexible-server
 author: VandhanaMehta
 ms.author: vamehta
 ms.topic: troubleshooting
-ms.date: 06/20/2022
+ms.date: 12/01/2023
 ---
 
-# Troubleshoot replication latency in Azure Database for MySQL - flexible Server
+# Troubleshoot replication latency in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
@@ -18,7 +18,7 @@ ms.date: 06/20/2022
 
 [!INCLUDE[inclusive-language-guidelines-slave](includes/inclusive-language-guidelines-slave.md)]
 
-The [read replica](concepts-read-replicas.md) feature allows you to replicate data from an Azure Database for MySQL server to a read-only replica server. You can scale out workloads by routing read and reporting queries from the application to replica servers. This setup reduces the pressure on the source server. It also improves overall performance and latency of the application as it scales.
+The [read replica](concepts-read-replicas.md) feature allows you to replicate data from an Azure Database for MySQL server to a read-only replica server. You can scale out workloads by routing read and reporting queries from the application to replica servers. This setup reduces the pressure on the source server and improves overall performance and latency of the application as it scales.
 
 Replicas are updated asynchronously by using the MySQL engine's native binary log (binlog) file position-based replication technology. For more information, see [MySQL binlog file position-based replication configuration overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -29,7 +29,7 @@ The replication lag on the secondary read replicas depends several factors. Thes
 - Compute tier of the source server and secondary read replica server.
 - Queries running on the source server and secondary server.
 
-In this article, you learn how to troubleshoot replication latency in Azure Database for MySQL. You'll also understand some common causes of increased replication latency on replica servers.
+In this article, you'll learn how to troubleshoot replication latency in Azure Database for MySQL. You'll also get a better idea of some common causes of increased replication latency on replica servers.
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
@@ -43,7 +43,7 @@ When a binary log is enabled, the source server writes committed transactions in
 
 ## Monitoring replication latency
 
-Azure Database for MySQL provides the metric for replication lag in seconds in [Azure Monitor](concepts-monitoring.md). This metric is available only on read replica servers. It's calculated by the seconds_behind_master metric that's available in MySQL. 
+Azure Database for MySQL provides the metric for replication lag in seconds in [Azure Monitor](concepts-monitoring.md). This metric is available only on read replica servers. It's calculated by the seconds_behind_master metric that's available in MySQL.
 
 To understand the cause of increased replication latency, connect to the replica server by using [MySQL Workbench](connect-workbench.md) or [Azure Cloud Shell](https://shell.azure.com). Then run following command.
 
@@ -111,7 +111,7 @@ The output contains numerous information. Normally, you need to focus on only th
 |Last_SQL_Error|Displays the SQL thread error message, if any.|
 |Slave_SQL_Running_State| Indicates the current SQL thread status. In this state, `System lock` is normal. It's also normal to see a status of `Waiting for dependent transaction to commit`. This status indicates that the replica is waiting for other SQL worker threads to update committed transactions.|
 
-If Slave_IO_Running is `Yes` and Slave_SQL_Running is `Yes`, then the replication is running fine. 
+If Slave_IO_Running is `Yes` and Slave_SQL_Running is `Yes`, then the replication is running fine.
 
 Next, check Last_IO_Errno, Last_IO_Error, Last_SQL_Errno, and Last_SQL_Error.  These fields display the error number and error message of the most-recent error that caused the SQL thread to stop. An error number of `0` and an empty message means there's no error. Investigate any nonzero error value by checking the error code in the [MySQL server error message reference](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).
 
@@ -135,11 +135,11 @@ In Azure, network latency within a region can typically be measured milliseconds
 
 In most cases, the connection delay between IO threads and the source server is caused by high CPU utilization on the source server. The IO threads are processed slowly. You can detect this problem by using Azure Monitor to check CPU utilization and the number of concurrent connections on the source server.
 
-If you don't see high CPU utilization on the source server, the problem might be network latency. If network latency is suddenly abnormally high, check the [Azure status page](https://azure.status.microsoft/status) for known issues or outages. 
+If you don't see high CPU utilization on the source server, the problem might be network latency. If network latency is suddenly abnormally high, check the [Azure status page](https://azure.status.microsoft/status) for known issues or outages.
 
 ### Heavy bursts of transactions on the source server
 
-If you see the following values, then a heavy burst of transactions on the source server is likely causing the replication latency. 
+If you see the following values, then a heavy burst of transactions on the source server is likely causing the replication latency.
 
 ```bash
 Slave_IO_State: Waiting for the slave SQL thread to free enough relay log space

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/13/2023
+ms.date: 01/05/2024
 ---
 
 # PII detection and masking
@@ -90,7 +90,7 @@ This template defines 3 parameters:
 
 	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-10.png" alt-text="Screenshot of the results that return after the pipeline is triggered.":::
 
-## Next steps
+## Related content
 
 - [What's New in Azure Data Factory](whats-new.md)
 - [Introduction to Azure Data Factory](introduction.md)

@@ -5,16 +5,16 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 12/03/2023
 ms.custom: references_regions
 ---
 # Support and prerequisites for Defender for APIs deployment
 
-Review the requirements on this page before setting up [Microsoft Defender for APIs](defender-for-apis-introduction.md). Defender for APIs is currently in preview.
+Review the requirements on this page before setting up [Microsoft Defender for APIs](defender-for-apis-introduction.md). 
 
 ## Cloud and region support
 
-Defender for APIs is in public preview in the Azure commercial cloud, in these regions:
+Defender for APIs is available in the Azure commercial cloud, in these regions:
 - Asia (Southeast Asia, EastAsia)
 - Australia (Australia East, Australia Southeast, Australia Central, Australia Central 2)
 - Brazil (Brazil South, Brazil Southeast)

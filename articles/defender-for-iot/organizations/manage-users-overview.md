@@ -23,7 +23,7 @@ When working with OT networks, Defender for IoT services and data is available a
 
 You'll need to define on-premises users on both your OT network sensors and the on-premises management console, in addition to Azure. Both the OT sensors and the on-premises management console are installed with a set of default, privileged users, which you can use to define other administrators and users.
 
-Sign into the OT sensors to [define sensor users](manage-users-sensor.md), and sign into the on-premises management console to [define on-premises management console users](manage-users-on-premises-management-console.md).
+Sign into the OT sensors to [define sensor users](manage-users-sensor.md), and sign into the on-premises management console to [define on-premises management console users](legacy-central-management/manage-users-on-premises-management-console.md).
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -42,7 +42,6 @@ Defender for IoT's integration with Active Directory supports LDAP v3 and the fo
 For more information, see:
 
 - [Configure an Active Directory connection](manage-users-sensor.md#configure-an-active-directory-connection)
-- [Integrate on-premises management console users with Active Directory](manage-users-on-premises-management-console.md#integrate-users-with-active-directory)
 - [Other firewall rules for external services (optional)](networking-requirements.md#other-firewall-rules-for-external-services-optional).
 
 ### On-premises global access groups
@@ -55,7 +54,7 @@ For example, the following diagram shows how you can allow security analysts fro
 
 :::image type="content" source="media/how-to-define-global-user-access-control/sa-diagram.png" alt-text="Diagram of the Security Analyst Active Directory group." lightbox="media/how-to-define-global-user-access-control/sa-diagram.png" border="false":::
 
-For more information, see [Define global access permission for on-premises users](manage-users-on-premises-management-console.md#define-global-access-permission-for-on-premises-users).
+For more information, see [Define global access permission for on-premises users](legacy-central-management/manage-users-on-premises-management-console.md#define-global-access-permission-for-on-premises-users).
 
 > [!TIP]
 > Access groups and rules help to implement Zero Trust strategies by controlling where users manage and analyze devices on Defender for IoT sensors and the on-premises management console. For more information, see [Zero Trust and your OT/IoT networks](concept-zero-trust.md).
@@ -65,7 +64,7 @@ For more information, see [Define global access permission for on-premises users
 
 - [Manage Azure subscription users](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 - [Create and manage users on an OT network sensor](manage-users-sensor.md)
-- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
+- [Create and manage users on an on-premises management console](legacy-central-management/manage-users-on-premises-management-console.md)
 
 For more information, see:
 

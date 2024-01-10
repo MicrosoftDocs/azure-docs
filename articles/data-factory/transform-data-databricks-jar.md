@@ -135,6 +135,6 @@ For more information, see the [Databricks documentation](/azure/databricks/dev-t
    As an example, to copy a JAR to dbfs:
    `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`
 
-## Next steps
+## Related content
 
 For an eleven-minute introduction and demonstration of this feature, watch the [video](/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player).

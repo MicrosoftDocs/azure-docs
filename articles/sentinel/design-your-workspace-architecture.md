@@ -55,7 +55,7 @@ Do you have an existing workspace that you can use for Microsoft Sentinel?
 
 - **If you have only a single tenant**, continue directly with [step 4](#step-4-splitting-billing--charge-back).
 
-- **If you have multiple Azure tenants**, consider whether you're collecting logs that are specific to a tenant boundary, such as Office 365 or Microsoft 365 Defender.
+- **If you have multiple Azure tenants**, consider whether you're collecting logs that are specific to a tenant boundary, such as Office 365 or Microsoft Defender XDR.
 
   - **If you don't have any tenant-specific logs**, continue directly with [step 4](#step-4-splitting-billing--charge-back).
 

@@ -1,34 +1,36 @@
 ---
-title: About Azure IoT MQ state store protocol
+title: Learn about the Azure IoT MQ state store protocol
 titleSuffix: Azure IoT MQ
-description: Learn about the fundamentals of the Azure IoT MQ state store protocol
+description: Learn how to implement an Azure IoT MQ state store protocol client
 author: timlt
 ms.author: timlt
 ms.subservice: mq
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
-ms.date: 11/1/2023
+ms.date: 12/5/2023
 
 # CustomerIntent: As a developer, I want understand what the Azure IoT MQ state store protocol is, so
-# that I can use it to interact with the MQ state store.
+# that I can implement a client to interact with the MQ state store.
 ---
 
 # Azure IoT MQ state store protocol
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The MQ state store is a distributed storage system that resides in the Azure Operations cluster. The state store offers the same high availability guarantees as MQTT messages in Azure IoT MQ. According to the MQTT5/RPC protocol guidelines, clients should interact with the MQ state store by using MQTT5. This article provides protocol guidance for developers who need to implement their own Azure IoT MQ state store clients. 
+The MQ state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in Azure IoT MQ. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the MQ state store. This article provides protocol guidance for developers who need to implement their own Azure IoT MQ state store clients. 
 
 ## State store protocol overview
-The MQ state store currently supports the following actions:
+The MQ state store supports the following commands:
 
 - `SET` \<keyName\> \<keyValue\> \<setOptions\>
 - `GET` \<keyName\>
 - `DEL` \<keyName\>
 - `VDEL` \<keyName\> \<keyValue\> ## Deletes a given \<keyName\> if and only if its value is \<keyValue\>
 
-Conceptually the protocol is simple. Clients use the required properties and payload described in the following sections, to publish a request to a well-defined state store system topic. The state store asynchronously processes the request and responds on the response topic that the client initially provided.
+The protocol uses the following request-response model: 
+- **Request**. Clients publish a request to a well-defined state store system topic. To publish the request, clients use the required properties and payload described in the following sections. 
+- **Response**. The state store asynchronously processes the request and responds on the response topic that the client initially provided.
 
 The following diagram shows the basic view of the request and response:
 
@@ -36,15 +38,15 @@ The following diagram shows the basic view of the request and response:
 
 ## State store system topic, QoS, and required MQTT5 properties
 
-To communicate with the State Store, clients must meet the following requirements:
+To communicate with the state store, clients must meet the following requirements:
 
-- Use MQTT5
-- Use QoS1
+- Use MQTT5. For more information, see the [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html).
+- Use QoS 1 (Quality of Service level 1). QoS 1 is described in the [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236).
 - Have a clock that is within one minute of the MQTT broker's clock.
 
 To communicate with the state store, clients must `PUBLISH` requests to the system topic `$services/statestore/_any_/command/invoke/request`. Because the state store is part of Azure IoT Operations, it does an implicit `SUBSCRIBE` to this topic on startup.
 
-The following MQTT5 properties are required in the processing of building a request. If these properties aren't present or the request isn't of type QoS1, the request fails. 
+To build a request, the following MQTT5 properties are required. If these properties aren't present or the request isn't of type QoS 1, the request fails. 
 
 - [Response Topic](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Request_/_Response). The state store responds to the initial request using this value. As a best practice, format the response topic as `clients/{clientId}/services/statestore/_any_/command/invoke/response`. 
 - [Correlation Data](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Correlation_Data). When the state store sends a response, it includes the correlation data of the initial request.
@@ -53,15 +55,15 @@ The following diagram shows an expanded view of the request and response:
 
 :::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-expanded.png" alt-text="Diagram of state store expanded request and response process." border="false":::
 
-## Supported actions
+## Supported commands
 
-The actions `SET`, `GET`, and `DEL` behave as expected. 
+The commands `SET`, `GET`, and `DEL` behave as expected. 
 
-The values that the `SET` action sets, and the `GET` action retrieves, are arbitrary binary data. The size of the values is only limited by the maximum MQTT payload size, and resource limitations of MQ and the client.
+The values that the `SET` command sets, and the `GET` command retrieves, are arbitrary binary data. The size of the values is only limited by the maximum MQTT payload size, and resource limitations of MQ and the client.
 
 ### `SET` options
 
-The `SET` action provides more optional flags beyond the basic `keyValue` and `keyName`:
+The `SET` command provides more optional flags beyond the basic `keyValue` and `keyName`:
 
 - `NX`. Allows the key to be set only if it doesn't exist already.
 - `NEX <value>`. Allows the key to be set only if the key doesn't exist or if the key's value is already set to \<value\>. The `NEX` flag is typically used for a client renewing the expiration (`PX`) on a key.
@@ -69,9 +71,9 @@ The `SET` action provides more optional flags beyond the basic `keyValue` and `k
 
 ### `VDEL` options
 
-The `VDEL` action is a special case of the `DEL` command. `DEL` unconditionally deletes the given `keyName`. `VDEL` requires another argument called `keyValue`. `VDEL` only deletes the given `keyName` if it has the same `keyValue`.
+The `VDEL` command is a special case of the `DEL` command. `DEL` unconditionally deletes the given `keyName`. `VDEL` requires another argument called `keyValue`. `VDEL` only deletes the given `keyName` if it has the same `keyValue`.
 
-## Payload Format
+## Payload format
 
 The state store `PUBLISH` payload format is inspired by [RESP3](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md), which is the underlying protocol that Redis uses. RESP3 encodes both the verb, such as `SET` or `GET`, and the parameters such as `keyName` and `keyValue`. 
 
@@ -96,7 +98,7 @@ ${LENGTH-OF-NEXT-LINE}<CR><LF> // This is always the keyValue for set
 {KEY-VALUE}<CR><LF>
 ```
 
-Concrete examples of state store RESP3 payloads:
+The following example output shows state store RESP3 payloads:
 
 ```console
 *3<CR><LF>$3<CR><LF>set<CR><LF>$7<CR><LF>SETKEY2<CR><LF>$6<CR><LF>VALUE5<CR><LF>
@@ -190,17 +192,17 @@ When clients do a `SET`, they must set the MQTT5 user property `Timestamp` as an
 
 This section shows an example of setting and getting the version for a value.
 
-A client sets `keyName=value`. The client clock is October 3, 11:07:05PM GMT. The clock value is `1696374425000` milliseconds since Unix epoch. Assume that the state store's system clock is identical to the client system clock. The client does the `SET` action as described previously.
+A client sets `keyName=value`. The client clock is October 3, 11:07:05PM GMT. The clock value is `1696374425000` milliseconds since Unix epoch. Assume that the state store's system clock is identical to the client system clock. The client does the `SET` command as described previously.
 
-The following diagram illustrates the `SET` action:
+The following diagram illustrates the `SET` command:
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-version.png" alt-text="Diagram of state store action to set the version for a value." border="false":::
+:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-version.png" alt-text="Diagram of state store command to set the version for a value." border="false":::
 
 The `Timestamp` property on the initial set contains `1696374425000` as the client wall clock, the counter as `0`, and its node-Id as `CLIENT`. On the response, the `Timestamp` property that the state store returns contains the `wallClock`, the counter incremented by one, and the node-Id as `StateStore`. The state store could return a higher `wallClock` value if its clock were ahead, based on the way HLC updates work. 
 
-This version is also returned on successful `GET`, `DEL`, and `VDEL` requests. On these requests, the client doesn't specify a `Timestamp`. 
+This version is also returned on successful `GET`, `DEL`, and `VDEL` requests. On these requests, the client doesn't specify a `Timestamp`.
 
-The following diagram illustrates the `GET` action:
+The following diagram illustrates the `GET` command:
 
 :::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-get-version.png" alt-text="Diagram of state store getting the version of a value." border="false":::
 
@@ -223,7 +225,7 @@ This section describes the purpose and usage of locking and fencing tokens.
 
 Suppose there are two or more MQTT clients using the state store. Both clients want to write to a given key. The state store clients need a mechanism to lock the key such that only one client at a time can modify a given key.
 
-An example of this scenario occurs in active and stand-by systems. There could be two clients that both perform the same operation, and the operation could include the same set of state store keys. At a given time, one of the clients is active and the other is standing by to immediately take over if the active system hangs or crashes. Ideally, only one client should write to the state store at a given time. However, in distributed systems it's possible that both clients might behave as if they're active, and they might simultaneously try to write to the same keys. This scenario creates a race condition.
+An example of this scenario occurs in active and standby systems. There could be two clients that both perform the same operation, and the operation could include the same set of state store keys. At a given time, one of the clients is active and the other is standing by to immediately take over if the active system hangs or crashes. Ideally, only one client should write to the state store at a given time. However, in distributed systems it's possible that both clients might behave as if they're active, and they might simultaneously try to write to the same keys. This scenario creates a race condition.
 
 The state store provides mechanisms to prevent this race condition by using fencing tokens. For more information about fencing tokens, and the class of race conditions they're designed to guard against, see this [article](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html).
 
@@ -231,7 +233,7 @@ The state store provides mechanisms to prevent this race condition by using fenc
 
 This example assumes that we have the following elements:
 
-* `Client1` and `Client2`. These clients are state store clients that act as an active and stand-by pair.
+* `Client1` and `Client2`. These clients are state store clients that act as an active and standby pair.
 * `LockName`. The name of a key in the state store that acts as the lock.
 * `ProtectedKey`. The key that needs to be protected from multiple writers.
 
@@ -249,7 +251,7 @@ Assume that `Client1` goes first with a request of `SET LockName Client1 NEX PX 
 
 When `Client1` successfully does a `SET` ("AquireLock") on `LockName`, the state store returns the version of `LockName` as a Hybrid Logical Clock (HLC) in the MQTT5 user property `Timestamp`.
 
-When a client performs a `SET` request, it can optionally include the MQTT5 user property `FencingToken`. The `FencingToken` is represented as an HLC. The fencing token associated with a given key/value pair provides lock ownership checking. The fencing token can come from anywhere. For this scenario, it should come from the version of `LockName`.
+When a client performs a `SET` request, it can optionally include the MQTT5 user property `FencingToken`. The `FencingToken` is represented as an HLC. The fencing token associated with a given key-value pair provides lock ownership checking. The fencing token can come from anywhere. For this scenario, it should come from the version of `LockName`.
 
 The following diagram shows the process of `Client1` doing a `SET` request on `LockName`:
 
@@ -265,15 +267,15 @@ If the request succeeds, from this point on `ProtectedKey` requires a fencing to
 
 ### Fencing Token Algorithm
 
-The state store accepts any HLC for the `Timestamp` of a key/value pair, if the value is within the max clock skew. However, the same isn't true for fencing tokens.
+The state store accepts any HLC for the `Timestamp` of a key-value pair, if the value is within the max clock skew. However, the same isn't true for fencing tokens.
 
 The state store algorithm for fencing tokens is as follows:
 
-* If a key/value pair doesn't have a fencing token associated with it and a `SET` request sets `FencingToken`, the state store stores the associated `FencingToken` with the key/value pair.
-* If a key/value pair has a fencing token associated with it:
+* If a key-value pair doesn't have a fencing token associated with it and a `SET` request sets `FencingToken`, the state store stores the associated `FencingToken` with the key-value pair.
+* If a key-value pair has a fencing token associated with it:
     * If a `SET` request didn't specify `FencingToken`, reject the request.
-    * If a `SET` request specified a `FencingToken` that has an older HLC value than the fencing token associated with the key/value pair, reject the request.
-    * If a `SET` request specified a `FencingToken` that has an equal or newer HLC value than the fencing token associated with the key/value pair, accept the request. The state store updates the key/value pair's fencing token to be the one set in the request, if it's newer.
+    * If a `SET` request specified a `FencingToken` that has an older HLC value than the fencing token associated with the key-value pair, reject the request.
+    * If a `SET` request specified a `FencingToken` that has an equal or newer HLC value than the fencing token associated with the key-value pair, accept the request. The state store updates the key-value pair's fencing token to be the one set in the request, if it's newer.
 
 After a key is marked with a fencing token, for a request to succeed, `DEL` and `VDEL` requests also require the `FencingToken` property to be included. The algorithm is identical to the previous one, except that the fencing token isn't stored because the key is being deleted.
 

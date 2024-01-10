@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 11/30/2023
 ms.author: cshoe
 ---
 
@@ -33,11 +33,11 @@ Containers package your applications in an easy-to-transport unit. Here are a fe
 
 - **Consistency**: Goods in a shipping container remain safe and unchanged during transport. Similarly, a software container guarantees consistent application behavior among different environments.
 
-- **Flexibility**: Despite the diverse contents of a shipping container, transportation methods remain standardized. Software containers encapsulate different apps and technologies, but maintain are maintained in a standardized fashion.
+- **Flexibility**: Despite the diverse contents of a shipping container, transportation methods remain standardized. Software containers encapsulate different apps and technologies, but are maintained in a standardized fashion.
 
 - **Efficiency**: Just as shipping containers optimize transport by allowing efficient stacking on ships and trucks, software containers optimize the use of computing resources. This optimization allows multiple containers to operate simultaneously on a single server.
 
 - **Simplicity**: Moving shipping containers requires specific, yet standardized tools. Similarly, Azure Container Apps simplifies how you use containers, which allows you focus on app development without worrying about the details of container management.
 
 > [!div class="nextstepaction"]
-> [Build your first app using a container](quickstart-portal.md)
+> [Use serverless containers](start-serverless-containers.md)

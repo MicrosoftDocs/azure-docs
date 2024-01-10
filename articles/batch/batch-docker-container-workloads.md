@@ -2,7 +2,7 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 10/12/2023
+ms.date: 12/06/2023
 ms.devlang: csharp, python
 ms.custom: seodec18, devx-track-csharp, devx-track-linux
 ---
@@ -46,6 +46,10 @@ Keep in mind the following limitations:
 - Batch provides remote direct memory access (RDMA) support only for containers that run on Linux pools.
 - For Windows container workloads, you should choose a multicore VM size for your pool.
 
+> [!IMPORTANT]
+> Note that docker, by default, will create a network bridge with a subnet specification of `172.17.0.0/16`. If you are specifying a
+> [virtual network](batch-virtual-network.md) for your pool, please ensure that there are no conflicting IP ranges.
+
 ## Supported VM images
 
 Use one of the following supported Windows or Linux images to create a pool of VM compute nodes for container workloads. For more information about Marketplace images that are compatible with Batch, see [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images).
@@ -57,7 +61,7 @@ Batch supports Windows server images that have container support designations. T
 You can also create custom images from VMs running Docker on Windows.
 
 > [!NOTE]
-> The image SKUs `-with-containers` or `-with-containers-smalldisk` are retired. Please see the [announcement](https://techcommunity.microsoft.com/t5/containers/updates-to-the-windows-container-runtime-support/ba-p/2788799) for details and alternative container runtime options for Kubernetes environment. 
+> The image SKUs `-with-containers` or `-with-containers-smalldisk` are retired. Please see the [announcement](https://techcommunity.microsoft.com/t5/containers/updates-to-the-windows-container-runtime-support/ba-p/2788799) for details and alternative container runtime options for Kubernetes environment.
 
 ### Linux support
 
@@ -80,11 +84,12 @@ For Linux container workloads, Batch currently supports the following Linux imag
 
 #### Notes
   The docker data root of the above images lies in different places:
-  - For the batch image `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc), the docker data root is mapped to `/mnt/batch/docker`, which is usually located on the temporary disk.
-  - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc), the docker data root is unchanged from the Docker default which is `/var/lib/docker` on Linux and `C:\ProgramData\Docker` on Windows. These folders are usually located on the OS disk.
+  - For the batch image `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc.), the docker data root is mapped to _/mnt/batch/docker_, which is usually located on the temporary disk.
+  - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc.), the docker data root is unchanged from the Docker default which is _/var/lib/docker_ on Linux and _C:\ProgramData\Docker_ on Windows. These folders are usually located on the OS disk.
 
-    When using non-Batch images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
-#### Potential solutions for customer
+  For non-Batch published images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
+
+#### Potential solutions for customers
 
 Change the docker data root in a start task when creating a pool in BatchExplorer. Here's an example of the Start Task command:
 ```csharp
@@ -363,7 +368,7 @@ If the container image for a Batch task is configured with an [ENTRYPOINT](https
 
 - To use the default ENTRYPOINT of the container image, set the task command line to the empty string `""`.
 
-- To override the default ENTRYPOINT, add the `--entrypoint` argument for example: `--endpoint "/bin/sh - python"`
+- To override the default ENTRYPOINT, add the `--entrypoint` argument for example: `--entrypoint "/bin/sh - python"`
 
 - If the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`
 
