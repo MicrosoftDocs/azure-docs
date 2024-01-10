@@ -96,7 +96,6 @@ Redeployment for Azure Database for PostgreSQL is based on logical backup and re
     ```sql
     select *
     from pg_catalog.pg_roles
-    where rolname not like 'pg_%' and rolname not in ('azuresu', 'azure_pg_admin', 'replication')
     order by rolname;
     ```
 
