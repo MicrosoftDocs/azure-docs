@@ -4,7 +4,7 @@ description: This article describes how to use Azure Stream Analytics and Azure 
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/05/2022
+ms.date: 01/09/2024
 ---
 
 # Anomaly detection in Azure Stream Analytics
@@ -145,6 +145,10 @@ Sample code to run the non-partitioned configurations above is located in the [S
 
 ### Identifying bottlenecks
 Use the Metrics pane in your Azure Stream Analytics job to identify bottlenecks in your pipeline. Review **Input/Output Events** for throughput and ["Watermark Delay"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) or **Backlogged Events** to see if the job is keeping up with the input rate. For Event Hub metrics, look for **Throttled Requests** and adjust the Threshold Units accordingly. For Azure Cosmos DB metrics, review **Max consumed RU/s per partition key range** under Throughput to ensure your partition key ranges are uniformly consumed. For Azure SQL DB, monitor **Log IO** and **CPU**.
+
+## Demo video
+
+> [!VIDEO https://www.youtube.com/embed/Ra8HhBLdzHE?si=erKzcoSQb-rEGLXG]
 
 ## Next steps
 
