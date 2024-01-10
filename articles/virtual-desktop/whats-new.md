@@ -262,9 +262,9 @@ Here's what changed in November 2023:
 
 You can now stop, start and restart session hosts directly in the Azure portal. You can also choose whether to perform the operation on a single session host or on multiple session hosts in your host pool at the same time.
 
-### Use community image and directed shared images when deploying session hosts
+### Use community images and directed shared images when deploying session hosts
 
-You can now select community images and directed shared images to use for your session hosts when [creating a host pool](deploy-azure-virtual-desktop.md#create-a-host-pool).
+You can now select community images and directed shared images to use for your session hosts when you [deploy Azure Virtual Desktop in the Azure portal](deploy-azure-virtual-desktop.md?tabs=portal), [add session hosts to a host pool](add-session-hosts-host-pool.md), or [create custom images](custom-image-templates.md).
 
 Community images and associated publisher information aren't verified or tested by Microsoft, so make sure to verify any custom images you deploy using this method. 
 

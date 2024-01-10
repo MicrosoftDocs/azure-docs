@@ -29,7 +29,7 @@ You can configure any existing pooled or personal host pool to be a validation h
 
 ## Define your host pool as a validation environment
 
-### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 To use the Azure portal to configure your validation host pool:
 
