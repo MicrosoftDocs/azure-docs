@@ -112,6 +112,15 @@ Redeployment for Azure Database for PostgreSQL is based on logical backup and re
 
     For other platforms, go to [PostgreSQL Downloads](https://www.postgresql.org/download/).
 
+1. (Optional) If you created additional roles in the source server, create them in the target server. To get a list of existing roles,  use the following query:
+
+    ```sql
+    select *
+    from pg_catalog.pg_roles
+    where rolname not like 'pg_%' and rolname not in ('azuresu', 'azure_pg_admin', 'replication')
+    order by rolname;
+    ```
+
 1. To migrate each database, do the following steps:
     1. Stop all database activity on the source server.
     1. Replace credentials information, source server, target server, and database name in the following script:
