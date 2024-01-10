@@ -10,7 +10,7 @@ ms.service: azure-functions
 
 Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for the following extensions:
 
-- [Apache Kafka](#apache-kafka)
+- [Apache Kafka](#kafka)
 - [Azure Cosmos DB](#azure-cosmos-db)
 - [Azure Event Hubs](#event-hubs)
 - [Azure Queue Storage](#storage-queues)
