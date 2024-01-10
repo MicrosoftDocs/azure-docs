@@ -12054,6 +12054,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/governance/azure-management.md",
+            "redirect_url": "/azure/governance/management-groups/azure-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/resource-manager-policy.md",
             "redirect_url": "/azure/governance/policy/overview",
             "redirect_document_id": false
