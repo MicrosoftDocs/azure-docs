@@ -223,7 +223,7 @@ In a P2P call, each log contains data that relates to each of the outbound strea
 
 The following diagram represents two endpoints connected directly in a P2P call. In this example, Communication Services creates two call summary logs (one for each `participantID` value) and four call diagnostic logs (one for each media stream). 
 
-For ACS call client participants there will also be two call client operations logs (**OR SERIES OF LOGS???**) and four call client media stats time series logs.  Each log contains data that relates to the outbound stream of `participantID`.
+For ACS call client participants there will also be a series of call client operations logs and call client media stats time series logs. The exact number of these logs depend on what kind of SDK operations are called and how long the call is. 
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-1-p2p-call-same-tenant.png" alt-text="Diagram that shows a P2P call within the same tenant.":::
 
@@ -231,7 +231,7 @@ For ACS call client participants there will also be two call client operations l
 
 The following diagram represents a group call example with three `participantId` values (which means three participants) and a server endpoint. Multiple values for `endpointId` can potentially appear in multiple participants--for example, when they rejoin a call from the same device. Communication Services creates one call summary log for each `participantId` value. It creates **XXX (not just four, 6?**) call diagnostic logs: one for each media stream per `participantId`. 
 
-For ACS call client participants there will also be three call client operations logs (**OR SERIES OF LOGS???**): one created for each `participantId`and six **(is that right?)** call client media stats time series logs: one for each media stream per `participantId`. If participants rejoin a call from the same device you will have an additional set of call client operations logs **and** call client media stats time series logs for each `endpointId.)
+Same as P2P call, for each participant using calling SDK, there will be a series of call client operations logs and call client media stats time series logs. 
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-2-group-call-same-tenant.png" alt-text="Diagram that shows a group call within the same tenant.":::
 
@@ -637,7 +637,31 @@ Here's a diagnostic log for an audio stream from a server endpoint to VoIP endpo
     "jitterMax":            "4",
     "packetLossRateAvg":    "0",
 ```
+For call client operations log and call client media stats time series log, there is no difference between P2P and group call scenarios and the number of logs depends on the SDK operations and call duration. So below we provide som generic samples that show the schema of these logs.
 
+#### Call client operations log
+
+Here's a call client operations log for "CreateView" operation:
+
+```json
+"properties": {
+    "TenantId":                                         "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+    "TimeGenerated":                              "2024-01-09T17:06:50.3Z",
+    "CallClientTimeStamp":                      "2024-01-09T15:07:56.066Z",
+    "OperationName":                              "CreateView" ,   
+    "CallId":                                               "92d800c4-abde-40be-91e9-3814ee786b19",
+    "ParticipantId":                                    "2656fd6c-6d4a-451d-a1a5-ce1baefc4d5c",
+    "OperationType":                                "client-api-request",
+    "OperationId":                                     "0d987336-37e0-4acc-aba3-e48741d88103",
+    'DurationMs':                                      "577",
+    "ResultType":                                       "Succeeded",
+    "ResultSignature":                               "200",
+    "SdkVersion":                                       "1.19.2.2_beta",
+    "UserAgent":                                        "azure-communication-services/1.3.1-beta.1 azsdk-js-communication-calling/1.19.2-beta.2 (javascript_calling_sdk;#clientTag:904f667c-5f25-4729-9ee8-6968b0eaa40b). Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "ClientInstanceId":                                "d08a3d05-db90-415f-88a7-87ae74edc1dd",
+    "OperationPayload":          "{"StreamType":"Video","StreamId":"2.0","Source":"remote","RemoteParticipantId":"remote"}",
+    "Type":                                                    "ACSCallClientOperations"
+}
 ### Error codes 
 
 The `participantEndReason` property contains a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, for each endpoint. See [Troubleshooting in Azure Communication Services](../../troubleshooting-info.md?tabs=csharp%2cios%2cdotnet#calling-sdk-error-codes).
