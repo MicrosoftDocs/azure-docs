@@ -15,8 +15,67 @@ ms.custom: template-concept
 
 In this article, you learn about the process, configuration options, and considerations for planning and implementing a Microsoft Dev Box deployment.
 
-## Section ...
+## Roles and responsibilities
 
+- Platform engineer
+    - Microsoft Entra ID
+    - Azure resources
+    - Microsoft Intune
+    - Networking
+    - Security
+- Developer team lead
+    - Projects
+    - Dev box definitions?
+- Developer
+    - Create dev box
+    - Connect to dev box
+
+## Define requirements / objectives
+
+- Developer profiles
+    - Geographical location
+    - Software requirements
+    - Image customization (Azure Marketplace + manual configure, custom images, dev box customization)
+    - Source control access
+    - Compute resources/performance (CPU, GPU, storage, memory)
+
+- Identity & access management
+    - Microsoft Entra ID
+    - Active Directory FS (hybrid)
+
+- Networking topology & connectivity
+    - Network topology & connectivity
+        - Access to other Azure resources
+        - Access to corporate resources (hybrid)
+        - Third-party VPN or ExpressRoute/Azure VPN
+        - Custom routing
+    - Network security
+        - Traffic restrictions (NSGs)
+        - Firewall
+
+- Device management
+    - Conditional access policies
+    - Intune
+    - Licenses
+
+
+## Implementation
+
+Overview:
+
+1. Azure subscription
+1. Dev center
+1. Networking
+    - Considerations
+    - Recommendations
+1. Compute galleries
+1. Dev box definitions
+1. Projects
+    - Considerations
+    - Recommendations
+1. Dev box access (browser vs RDP client)
+    - Considerations
+    - Recommendations
 
 ## Related content
 
