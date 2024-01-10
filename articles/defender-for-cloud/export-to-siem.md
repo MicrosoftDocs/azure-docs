@@ -1,6 +1,6 @@
 ---
 title: Stream alerts to monitoring solutions
-description: Learn how to stream your security alerts to Microsoft Sentinel, third-party SIEMs, SOAR, or ITSM solutions
+description: Learn how to stream your security alerts to Microsoft Sentinel, SIEMs, SOAR, or ITSM solutions.
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
@@ -9,16 +9,12 @@ ms.date: 01/10/2024
 
 # Stream alerts to monitoring solutions
 
-Microsoft Defender for Cloud has the ability to stream security alerts into various Security Information and Event Management (SIEM),
-Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions.
-Security alerts are notifications that Defender for Cloud generates when it detects threats on your resources.
-Defender for Cloud prioritizes and lists the alerts, along with the information needed for you to quickly investigate the problem.
-Defender for Cloud also provides detailed steps to help you remediate attacks.
-Alerts data is retained for 90 days.
+Microsoft Defender for Cloud has the ability to stream security alerts into various Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions. Security alerts are generated when threats are detected on your resources. Defender for Cloud prioritizes and lists the alerts on the Alerts page, along with additional information needed to quickly investigate the problem. Detailed steps are provided to assist you to remediate the detected threat. All alerts data is retained for 90 days.
 
-There are built-in Azure tools for ensuring you can view your alert data in all of the most popular solutions in use today, including:
+There are built-in Azure tools that are available that ensure you can view your alert data in the following solutions:
 
 - **Microsoft Sentinel**
+- **Defender XDR**
 - **Splunk Enterprise and Splunk Cloud**
 - **IBM's QRadar**
 - **ServiceNow**
@@ -28,22 +24,22 @@ There are built-in Azure tools for ensuring you can view your alert data in all 
 
 ## Stream alerts to Microsoft Sentinel
 
-Defender for Cloud natively integrates with Microsoft Sentinel, Azure's cloud-native SIEM and SOAR solution.
-
-[Learn more about Microsoft Sentinel](../sentinel/overview.md).
+Defender for Cloud natively integrates with [Microsoft Sentinel](../sentinel/overview.md) Azure's cloud-native SIEM and SOAR solution.
 
 ### Microsoft Sentinel's connectors for Defender for Cloud
 
-Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud at the subscription and tenant levels:
+Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud at the subscription and tenant levels. 
 
-- [Stream alerts to Microsoft Sentinel at the subscription level](../sentinel/connect-azure-security-center.md)
-- [Connect all subscriptions in your tenant to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539)
+You can:
 
-When you connect Defender for Cloud to Microsoft Sentinel, the status of Defender for Cloud alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Defender for Cloud, that alert is also shown as closed in Microsoft Sentinel. If you change the status of an alert in Defender for Cloud, the status of the alert in Microsoft Sentinel is also updated, but the statuses of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert aren't updated.
+- [Stream alerts to Microsoft Sentinel at the subscription level](../sentinel/connect-azure-security-center.md).
+- [Connect all subscriptions in your tenant to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539).
 
-You can enable the **bi-directional alert synchronization** feature to automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of those Defender for Cloud alerts. So, for example, when a Microsoft Sentinel incident that contains a Defender for Cloud alert is closed, Defender for Cloud automatically closes the corresponding original alert.
+When you connect Defender for Cloud to Microsoft Sentinel, the status of Defender for Cloud alerts that get ingested into Microsoft Sentinel is synchronized between the two services. For example, when an alert is closed in Defender for Cloud, that alert is also shown as closed in Microsoft Sentinel. When you change the status of an alert in Defender for Cloud, the status of the alert in Microsoft Sentinel is also updated. However,the statuses of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert aren't updated.
 
-Learn more in [Connect alerts from Microsoft Defender for Cloud](../sentinel/connect-azure-security-center.md).
+You can enable the **bi-directional alert synchronization** feature to automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of the Defender for Cloud alerts. For example, when a Microsoft Sentinel incident that contains a Defender for Cloud alert is closed, Defender for Cloud automatically closes the corresponding original alert.
+
+Learn how to [connect alerts from Microsoft Defender for Cloud](../sentinel/connect-azure-security-center.md).
 
 > [!NOTE]
 > The bi-directional alert synchronization feature isn't available in the Azure Government cloud.
@@ -63,7 +59,7 @@ Another alternative for investigating Defender for Cloud alerts in Microsoft Sen
 
 The export of security alerts to Splunk and QRadar uses Event Hubs and a built-in connector.
 You can either use a PowerShell script or the Azure portal to set up the requirements for exporting security alerts for your subscription or tenant.
-Then you’ll need to use the procedure specific to each SIEM to install the solution in the SIEM platform.
+Then you need to use the procedure specific to each SIEM to install the solution in the SIEM platform.
 
 ### Prerequisites
 
