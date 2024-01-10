@@ -20,7 +20,7 @@ Network Virtual Appliances (NVAs) with Next-Generation Firewall capabilities tha
 
 Destination NAT for Network Virtual Appliances in the Virtual WAN hub allows you to publish applications to the users in the internet without directly exposing the application or server's public IP. Consumers access applications through a public IP address assigned to a Firewall Network Virtual Appliance. The NVA is configured to filter and translate traffic and control access to backend applications.
 
-Infrastructure management and programming for the DNAT use case in Virtual WAN is automatic. Programming the DNAT rule on the NVA automatically programs Azure infrastructure to accept and route DNAT traffic. 
+Infrastructure management and programming for the DNAT use case in Virtual WAN is automatic. Programming the DNAT rule on the NVA using the NVA orchestration software or NVA command line automatically programs Azure infrastructure to accept and route DNAT traffic for supported NVA partners. See the [limitations](#limitations) section for the list of supported NVA partners.
 
 ## Concepts
 
@@ -35,9 +35,9 @@ In the following example, users access an application hosted in an Azure Virtual
 
 The following configurations are performed: 
 
-*  **Internet inbound** IP addresses assigned to the NVA are 4.4.4.4 and 5.5.5.5.
+* **Internet inbound** IP addresses assigned to the NVA are 4.4.4.4 and 5.5.5.5.
 * **NVA DNAT rule** is programmed to translate traffic with destination 4.4.4.4:443 to 10.60.0.4:443.
-* NVA orchestrator creates **inbound security rules** and Virtual WAN control plane programs infrastructure appropriately to support traffic flow.
+* NVA orchestrator interfaces with Azure APIs to create **inbound security rules** and Virtual WAN control plane programs infrastructure appropriately to support traffic flow.
 
 #### Inbound traffic flow
 
