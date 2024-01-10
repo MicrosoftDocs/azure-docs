@@ -121,8 +121,6 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
 > [!NOTE]
 > Manually relabeling namespaces when moving them to a new revision can be tedious and error-prone. [Revision tags](https://istio.io/latest/docs/setup/upgrade/canary/#stable-revision-labels) solve this problem. Revision tags are stable identifiers that point to revisions and can be used to avoid relabeling namespaces. Rather than relabeling the namespace, a mesh operator can simply change the tag to point to a new revision. All namespaces labeled with that tag will be updated at the same time. However, note that you still need to restart the workloads to make sure the correct version of `istio-proxy` sidecars are injected.
 
-
-
 ### Patch version upgrade
 
 * Istio add-on patch version availability information is published in [AKS weekly release notes][aks-release-notes].
