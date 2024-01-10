@@ -114,7 +114,6 @@ Redeployment is the recommended way to move your virtual network to a new region
     
 1. If you want virtual networking peering to be redeployed along with the virtual network, create a separate export template for the peering. 
     
-    1. Copy the details of the peering to create a peering template.
     1. Remove the peering information from the primary export template.
     1. Use the peering template to reestablish the peering after the relocation of the network.
         
