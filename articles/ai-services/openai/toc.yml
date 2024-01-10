@@ -128,6 +128,8 @@ items:
         href: ./how-to/quota.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
+      - name: Get started with Provisioned Deployments
+        href: ./how-to/provisioned-get-started.md
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
       - name: Performance & latency
