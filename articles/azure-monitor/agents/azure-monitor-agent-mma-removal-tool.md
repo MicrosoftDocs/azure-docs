@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Agent fMMA legacy agent removal tool
+title: Azure Monitor Agent MMA legacy agent removal tool
 description: This article describes a PowerShell script used to remove MMA agent from systems that users have migrated to AMA.
 ms.topic: conceptual
 author: jeffreywolford
@@ -22,7 +22,7 @@ You do all the setup steps in a [Visual Studio Code](https://code.visualstudio.c
  - PowerShell 5.0 or higher. Check the version by running `$PSVersionTable` and checking the PS Version
  - PowerShell. The language must be set to mode `FullLanguage`. Check the mode by running `$ExecutionContext.SessionState.LanguageMode` in PowerShell. You can find more details [here](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_language_modes?source=recommendations) 
  - Bicep. The setup scripts us Bicep to automate the installation. Check the installation by running `bicep --version`. See [install in PowerShell](https://learn.microsoft.com/azure/azure-resource-manager/bicep/install#azure-powershell) 
- - A [User-Assigned Managed Identity (MI)](https: //docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) which has 'Reader', Virtual Machine Contributor' and 'Azure Arc ScVmm VM Contributor' access on target scopes configured. 
+ - A [User-Assigned Managed Identity (MI)](/azure/active-directory/managed-identities-azure-resources/overview) which has 'Reader', Virtual Machine Contributor' and 'Azure Arc ScVmm VM Contributor' access on target scopes configured. 
  - A new Resource Group to contain all the Azure resources created automatically by the set up automation.
  - For granting remediation user-assigned MI with above mentioned roles on the target scopes, 
  - You must have User Access Administrator (UAA) or Owner on the configured scopes. For example, the set up is being configured for a subscription 'x', you must UAA role assignment on subscription 'x' so the script can provide the remediated user-assigned MI permissions.
@@ -40,7 +40,7 @@ You do all the setup steps in a [Visual Studio Code](https://code.visualstudio.c
   Get-ChildItem -Path "<Extracted folder path>" -Recurse | Unblock-File 
   ```
 
-## Set up The tool
+## Set up the tool
 
 ### [Single Tenant](#tab/Single)
 
@@ -95,7 +95,7 @@ Parameters
 |SubscriptionId| Subscription ID where setup is installed| Yes|
 |HostRGName| New resource group name where remediation MI is created. Default value is 'AzTS-MMARemovalUtility-Host-RG'| No|
 |Location| Location DC where setup is created. Default value is 'EastUS2'| No|
-|AzureEnvironmentName| Azure environment were solution is to be installed: AzureCloud, AzureGovernmentCloud. Default value is 'AzureCloud'| No|
+|AzureEnvironmentName| Azure environment where solution is to be installed: AzureCloud, AzureGovernmentCloud. Default value is 'AzureCloud'| No|
 
 ### [MultiTenant](#tab/MultiTenant)
 
@@ -117,7 +117,7 @@ Set-Prerequisites
 ```
 
 3. Set up multitenant identity
-The Microsoft Entra ID Application identity is used to associated the MEI Application useing service principal. You perform the following operations. You must log in to the Microsoft Entra ID account where you want to install the Removal Utility setup using the PowerShell command.
+The Microsoft Entra ID Application identity is used to associate the MEI Application using service principal. You perform the following operations. You must log in to the Microsoft Entra ID account where you want to install the Removal Utility setup using the PowerShell command.
     - Creates a new multitenant MEI application if not provided with pre-existing MEI application objectId.
     - Creates password credentials for the MEI application.
 
@@ -299,7 +299,7 @@ Parameters
 |Param Name|Description|Required|
 |:----|:----|:----:|
 |SubscriptionId| Your subscription ID where setup is installed | Yes |
-|ResourceGroupName| Youre resource group name where setup is installed| Yes|
+|ResourceGroupName| Your resource group name where setup is installed| Yes|
 |ScopesFilePath| File path with target scope configurations. See scope configuration| Yes |
 
 Scope configuration file is a CSV file with a header row and three columns
@@ -387,7 +387,7 @@ The utility creates resources that you should clean up once you have remove MMA 
   . ".\MMARemovalUtilityCleanUpScript.ps1"
 ```
 
-2. run the cleanup script  
+2. Run the cleanup script  
 
 ``` PowerShell
 Remove-AzTSMMARemovalUtilitySolutionResources ` 
