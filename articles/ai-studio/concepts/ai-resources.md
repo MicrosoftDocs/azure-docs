@@ -8,9 +8,9 @@ ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 12/14/2023
-ms.reviewer: Blackmist
-ms.author: eur
-author: eric-urban
+ms.reviewer: larryfr
+ms.author: deeikele
+author: deeikele
 ---
 
 # Azure AI resources
