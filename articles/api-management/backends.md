@@ -174,7 +174,10 @@ Use a backend pool for scenarios such as the following:
 * Spread the load to multiple backends, which may have individual backend circuit breakers.
 * Shift the load from one set of backends to another for upgrade (blue-green deployment).
 
-To create a backend pool, set the `type` property of the backend to `pool` and specify a list of single backends that make up the pool.
+To create a backend pool, set the `type` property of the backend to `pool` and specify a list of backends that make up the pool.
+
+> [!NOTE]
+> Currently, you can only include single backends in a backend pool. You can't add a backend of type `pool` to another backend pool.
 
 ### Example
 
