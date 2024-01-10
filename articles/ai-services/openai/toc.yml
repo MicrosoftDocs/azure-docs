@@ -45,6 +45,8 @@ items:
       href: ./concepts/understand-embeddings.md
     - name: Fine-tuning
       href: ./concepts/fine-tuning-considerations.md
+    - name: GPT-4 Turbo with Vision
+      href: ./concepts/gpt-with-vision.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
     - name: Content credentials
@@ -126,6 +128,8 @@ items:
         href: ./how-to/quota.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
+      - name: Get started with Provisioned Deployments
+        href: ./how-to/provisioned-get-started.md
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
       - name: Performance & latency

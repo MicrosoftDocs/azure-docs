@@ -31,7 +31,6 @@ The batch transcription API supports a number of different formats and codecs, s
 - WAV
 - MP3
 - OPUS/OGG
-- AAC
 - FLAC
 - WMA
 - ALAW in WAV container
