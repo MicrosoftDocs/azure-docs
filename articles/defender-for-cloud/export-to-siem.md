@@ -1,15 +1,15 @@
 ---
-title: Stream your alerts from Microsoft Defender for Cloud to Security Information and Event Management (SIEM) systems and other monitoring solutions
+title: Stream alerts to monitoring solutions
 description: Learn how to stream your security alerts to Microsoft Sentinel, third-party SIEMs, SOAR, or ITSM solutions
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 04/04/2022
+ms.date: 01/10/2024
 ---
 
-# Stream alerts to a SIEM, SOAR, or IT Service Management solution
+# Stream alerts to monitoring solutions
 
-Microsoft Defender for Cloud can stream your security alerts into the most popular Security Information and Event Management (SIEM),
+Microsoft Defender for Cloud has the ability to stream security alerts into various Security Information and Event Management (SIEM),
 Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions.
 Security alerts are notifications that Defender for Cloud generates when it detects threats on your resources.
 Defender for Cloud prioritizes and lists the alerts, along with the information needed for you to quickly investigate the problem.
