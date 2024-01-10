@@ -288,6 +288,8 @@ If the `enforce_access_to_default_secret_stores` flag was set for the endpoint, 
 
 At deployment creation time, if any environment variable is mapped to a value that follows the patterns in the previous table, secret retrieval and injection will be performed with the endpoint identity (either an SAI or a UAI). If the endpoint identity does not have the permission to read secrets from designated secret stores (either workspace connections or key vaults), the creation will fail. Also, if the specified secret reference doesn't exist in the secret stores, the creation will fail.
 
+For more, see [Secret Injection Errors](how-to-troubleshoot-online-endpoints.md#error-secretsinjectionerror). 
+
 
 ## Consume the secrets
 
