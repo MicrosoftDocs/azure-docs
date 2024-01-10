@@ -86,7 +86,11 @@ kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
-## Can't install Layered Network Management on the parent level
+## Troubleshoot Layered Network Management
+
+The troubleshooting guidance in this section is specific to Azure IoT Operations when using an IoT Layered Network Management. For more information, see [How does Azure IoT Operations work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
+
+### Can't install Layered Network Management on the parent level
 
 Layered Network Management operator install fails or you can't apply the custom resource for a Layered Network Management instance.
 
@@ -95,7 +99,7 @@ Layered Network Management operator install fails or you can't apply the custom 
 1. Verify the Layered Network Management operator is in the *Running and Ready* state.
 1. If applying the custom resource `kubectl apply -f cr.yaml` fails, the output of this command lists the reason for error. For example, CRD version mismatch or wrong entry in CRD.
 
-## Can't Arc-enable the cluster through the parent level Layered Network Management
+### Can't Arc-enable the cluster through the parent level Layered Network Management
 
 If you repeatedly remove and onboard a cluster with the same machine, you might get an error while Arc-enabling the cluster on nested layers. For example, the error message might look like:
 
@@ -113,12 +117,12 @@ If your cluster is behind an outbound proxy server, please ensure that you have 
 
 1. Reboot the host machine.
 
-### Other types of Arc-enablement failures
+#### Other types of Arc-enablement failures
 
 1. Add the `--debug` parameter when running the `connectedk8s` command.
 1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management packet trace](#capture-layered-network-management-packet-trace).
 
-## Can't install IoT Operations on the isolated cluster
+### Can't install IoT Operations on the isolated cluster
 
 You can't install IoT Operations components on nested layers. For example, Layered Network Management on level 4 is running but can't install IoT Operations on level 3.
 
@@ -134,7 +138,7 @@ You can't install IoT Operations components on nested layers. For example, Layer
 1. If the domain is being resolved correctly, verify the domain is added to the allowlist. For more information, see [Check the allowlist of Layered Network Management](#check-the-allowlist-of-layered-network-management).
 1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management packet trace](#capture-layered-network-management-packet-trace).
 
-## A pod fails when installing IoT Operations on an isolated cluster
+### A pod fails when installing IoT Operations on an isolated cluster
 
 When installing the IoT Operations components to a cluster, the installation starts and proceeds. However, initialization of one or few of the components (pods) fails.
 
@@ -156,7 +160,7 @@ When installing the IoT Operations components to a cluster, the installation sta
     Warning  Failed  3m14s  kubelet  Failed to pull image "…
     ```
 
-## Check the allowlist of Layered Network Management
+### Check the allowlist of Layered Network Management
 
 Layered Network Management blocks traffic if the destination domain isn't on the allowlist.
 
@@ -176,18 +180,18 @@ Layered Network Management blocks traffic if the destination domain isn't on the
     ```
 1. All the allowed domains are listed in the output.
 
-## Capture Layered Network Management packet trace
+### Capture Layered Network Management packet trace
 
 In some cases, you might suspect that Layered Network Management instance at the parent level isn't forwarding network traffic to a particular endpoint. Connection to a required endpoint is causing an issue for the service running on your node. It's possible that the service you enabled is trying to connect to a new endpoint after an update. Or you're trying to install a new Arc extension or service that requires connection to endpoints that aren't on the default allowlist. Usually there would be information in the error message to notify the connection failure. However, if there's no clear information about the missing endpoint, you can capture the network traffic on the child node for detailed debugging.
 
-### Windows host
+#### Windows host
 
 1. Install Wireshark network traffic analyzer on the host.
 1. Run Wireshark and start capturing.
 1. Reproduce the installation or connection failure.
 1. Stop capturing.
 
-### Linux host
+#### Linux host
 
 1. Run the following command to start capturing:
 
@@ -198,7 +202,7 @@ In some cases, you might suspect that Layered Network Management instance at the
 1. Reproduce the installation or connection failure.
 1. Stop capturing.
 
-### Analyze the packet trace
+#### Analyze the packet trace
 
 Use Wireshark to open the trace file. Look for connection failures or nonresponded connections.
 
