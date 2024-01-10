@@ -18,15 +18,15 @@ Healthcare organizations can use [Azure Active Directory B2C](../../active-direc
 
 Creating an Azure AD B2C tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare applications. 
 
-If your organization already created an Azure AD B2C tenant, you can skip to [Step 2](#step-2-deploy-the-fhir-service-with-azure-active-directory-b2c-as-the-identity-provider). 
+If you already created an Azure AD B2C tenant, you can skip to [Step 2](#step-2-deploy-the-fhir-service-with-azure-active-directory-b2c-as-the-identity-provider). 
 
 #### Deploy an Azure AD B2C tenant by using an ARM template
 
 Use PowerShell or Azure CLI to deploy the [ARM template](templates/b2c-arm-template.json) programmatically to an Azure subscription. For more information about syntax, properties, and usage of the template, see [Deploy an instance of Azure Active Directory B2C](/azure/templates/microsoft.azureactivedirectory/b2cdirectories?pivots=deployment-language-arm-template). 
 
-#### [PowerShell](#tab/powershell)
+Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure AD B2C tenant.
 
-- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure AD B2C tenant.
+#### [PowerShell](#tab/powershell)
 
 - Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `Get-AzContext` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
@@ -54,8 +54,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFil
 ```
 
 #### [Azure CLI](#tab/command-line)
-
-- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure AD B2C tenant.
 
 - Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
@@ -235,9 +233,9 @@ Use the **authority** and **client ID** (or application ID) parameters to config
 
 Use an [ARM template](templates/fhir-service-arm-template.json) to simplify deploying the FHIR service. Use PowerShell or Azure CLI to deploy the ARM template to an Azure subscription.
 
-#### [PowerShell](#tab/powershell)
+Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure AD B2C tenant.
 
-- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure AD B2C tenant.
+#### [PowerShell](#tab/powershell)
 
 - Use `Connect-AzAccount` to sign in to Azure. Use `Get-AzContext` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
@@ -269,8 +267,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFil
 ```
 
 #### [Azure CLI](#tab/command-line)
-
-- Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Azure AD B2C tenant.
 
 - Use `az login` to sign in to Azure. Use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
