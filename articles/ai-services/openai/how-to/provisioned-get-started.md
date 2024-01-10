@@ -112,7 +112,7 @@ PTU deployment utilization = (PTUs consumed in the time period) / (PTUs deployed
 
 You can find the utilization measure in the Azure-Monitor section for your resource. To access the monitoring dashboards sign-in to [https://portal.azure.com](https://portal.azure.com), go to your Azure OpenAI resource and select the Metrics page from the left nav.  On the metrics page, select the 'Provisioned-managed utilization' measure. If you have more than one deployment in the resource, you should also split the values by each deployment by clicking the 'Apply Splitting' button.
 
-:::image type="content" source="../media/provisioned/azure-monitor-utilization.jpg" alt-text="Screenshot of the provisioned managed utilization on the resource's metrics blade in the Azure portal" lightbox="../media/provisioned/azure-monitor-utilization.jpg":::
+:::image type="content" source="../media/provisioned/azure-monitor-utilization.jpg" alt-text="Screenshot of the provisioned managed utilization on the resource's metrics blade in the Azure portal." lightbox="../media/provisioned/azure-monitor-utilization.jpg":::
 
 For more information about monitoring your deployments, see the [Monitoring Azure OpenAI Service](./monitoring.md) page.
 
@@ -156,7 +156,7 @@ client.with_options(max_retries=5).chat.completions.create(
 ```
 
 
-## Run a Benchmark
+## Run a benchmark
 The exact performance and throughput capabilities of your instance depends on the kind of requests you make and the exact workload. The best way to determine the throughput for your workload is to run a benchmark on your own data. 
 
 To assist you in this work, the benchmarking tool provides a way to easily run benchmarks on your deployment. The tool comes with several possible preconfigured workload shapes and outputs key performance metrics. Learn more about the tool and configuration settings in our GitHub Repo: [https://aka.ms/aoai/benchmarking](https://aka.ms/aoai/benchmarking). 

@@ -95,7 +95,7 @@ items:
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
       - name: Get started with Provisioned Deployments
-        href: ./how-to/ptu-getstarted.md
+        href: ./how-to/provisioned-get-started.md
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
       - name: Role-based access control (Azure RBAC)
