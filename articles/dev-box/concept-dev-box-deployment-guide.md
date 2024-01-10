@@ -21,4 +21,4 @@ In this article, you learn about the process, configuration options, and conside
 ## Related content
 
 - [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md)
-- [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
+- [Microsoft Dev Box architecture overview](./concept-dev-box-architecture.md)
