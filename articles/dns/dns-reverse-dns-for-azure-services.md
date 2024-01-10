@@ -152,7 +152,7 @@ azure network public-ip show -n PublicIp -g MyResourceGroup
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
 ```
 
-### Remove reverse DNS from existing public IP sddresses
+### Remove reverse DNS from an existing public IP address
 
 To remove a reverse DNS property from an existing PublicIpAddress:
 
