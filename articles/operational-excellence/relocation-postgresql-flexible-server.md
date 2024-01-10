@@ -30,7 +30,7 @@ The relocation process is based on [Azure region relocation architectural patter
 
 ## Relocation strategies
 
-To relocate Azure PostgreSQL database to a new region, you can choose between [redeployment](#redeployment-strategy) or [redeployment with data migration](#redeploy-with-data-migration) strategies. 
+To relocate Azure PostgreSQL database to a new region, you can choose between [redeployment](#redeployment-strategy) or [redeployment with data migration](#redeployment-with-data-migration-strategy) strategies. 
 
 >[!NOTE]
 >Azure Resource Mover doesn't support moving services used by the Azure Database for PostgreSQL. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).

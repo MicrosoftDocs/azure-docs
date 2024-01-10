@@ -1,7 +1,7 @@
 ---
 title: Relocation guidance for Azure Virtual Network
-titleSufffix: Azure Virtual Network
 description: Find out about relocation guidance for Azure Virtual Network
+author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 12/11/2023
@@ -115,8 +115,8 @@ Redeployment is the recommended way to move your virtual network to a new region
  
     |To learn how to move...| Using...| Go to...|
     |----|---|---|
-    | Virtual Network Peering|  Azure Portal |  [Create, change, or delete a virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering) |
-    | | Powershell | [Peer two virtual networks script sample](https://learn.microsoft.com/en-us/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks)|
+    | Virtual Network Peering|  Azure Portal |  [Create, change, or delete a virtual network peering](/azure/virtual-network/virtual-network-manage-peering) |
+    | | Powershell | [Peer two virtual networks script sample](/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks)|
 1. Once virtual network movement completes, Reconfigure associated
   resources manually/or by using script updated in dependent resources, configs
   and apps.
@@ -175,7 +175,7 @@ DDoS Protection Plan doesn't have any client specific data and the instance itse
 
 As soon as the virtual network get deployed in a specific region, Network Watcher is automatically enabled. However, you'll still need to perform some configuration steps:
 
-- To get a centralized view of the Network Monitoring, you'll need to enable Connection Monitor ([Migrate to Connection monitor from Network performance monitor](https://learn.microsoft.com/en-us/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)). 
+- To get a centralized view of the Network Monitoring, you'll need to enable Connection Monitor ([Migrate to Connection monitor from Network performance monitor](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)). 
 
 - Recreate the NSG flow logs for the target virtual network.
 
