@@ -11,7 +11,7 @@
     - name: Azure Database for PostgreSQL
       href: relocation-postgresql-flexible-server.md
     - name: Azure Key Vault
-      href: not-yet.md
+      href: relocation-key-vault.md
     - name: Azure Monitor - Log Analytics
       href: not-yet.md
     - name: Azure Private Endpoint
