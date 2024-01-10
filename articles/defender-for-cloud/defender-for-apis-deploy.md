@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 12/03/2023
 ---
 
 # Protect your APIs with Defender for APIs

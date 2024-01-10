@@ -44,7 +44,7 @@ Type | Activity Type is AppendVariable | Yes
 Value | String literal or expression object value used to append into specified variable | Yes
 VariableName | Name of the variable that will be modified by activity, the variable must be of type ‘Array’ | Yes
 
-## Next steps
+## Related content
 Learn about a related control flow activity: 
 
 - [Set Variable Activity](control-flow-set-variable-activity.md)

@@ -98,6 +98,6 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
 
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image12.png" lightbox="media/monitor-using-azure-monitor/alerts_image12.png" alt-text="Screenshot that shows defining an action group.":::
 
-## Next steps
+## Related content
 
 [Configure diagnostics settings and workspace](monitor-configure-diagnostics.md)

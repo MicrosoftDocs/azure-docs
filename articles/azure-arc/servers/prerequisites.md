@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 09/26/2023
+ms.date: 12/06/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -42,7 +42,7 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
 * Debian 10, 11, and 12
 * Oracle Linux 7 and 8
 * Red Hat Enterprise Linux (RHEL) 7, 8 and 9
-* Rocky Linux 8
+* Rocky Linux 8 and 9
 * SUSE Linux Enterprise Server (SLES) 12 SP3-SP5 and 15
 * Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
 * Windows 10, 11 (see [client operating system guidance](#client-operating-system-guidance))
@@ -82,6 +82,18 @@ Linux operating systems:
 * openssl
 * gnupg (Debian-based systems, only)
 
+## Local user logon right for Windows systems
+
+The Azure Hybrid Instance Metadata Service runs under a low-privileged virtual account, `NT SERVICE\himds`. This account needs the "log on as a service" right in Windows to run. In most cases, there's nothing you need to do because this right is granted to virtual accounts by default. However, if your organization uses Group Policy to customize this setting, you will need to add `NT SERVICE\himds` to the list of accounts allowed to log on as a service.
+
+You can check the current policy on your machine by opening the Local Group Policy Editor (`gpedit.msc`) from the Start menu and navigating to the following policy item:
+
+Computer Configuration > Windows Settings > Security Settings > Local Policies > User Rights Assignment > Log on as a service
+
+Check if any of `NT SERVICE\ALL SERVICES`, `NT SERVICE\himds`, or `S-1-5-80-4215458991-2034252225-2287069555-1155419622-2701885083` (the static security identifier for NT SERVICE\\himds) are in the list. If none are in the list, you'll need to work with your Group Policy administrator to add `NT SERVICE\himds` to any policies that configure user rights assignments on your servers. The Group Policy administrator will need to make the change on a computer with the Azure Connected Machine agent installed so the object picker resolves the identity correctly. The agent doesn't need to be configured or connected to Azure to make this change.
+
+:::image type="content" source="media/prerequisites/arc-server-user-rights-assignment.png" alt-text="Screen capture of the Local Group Policy Editor showing which users have permissions to log on as a service." border="true":::
+
 ## Required permissions
 
 You'll need the following Azure built-in roles for different aspects of managing connected machines:
@@ -104,6 +116,7 @@ To use Azure Arc-enabled servers, the following [Azure resource providers](../..
 * **Microsoft.GuestConfiguration**
 * **Microsoft.HybridConnectivity**
 * **Microsoft.AzureArcData** (if you plan to Arc-enable SQL Servers)
+* **Microsoft.Compute** (for Azure Update Manager and automatic extension upgrades)
 
 You can register the resource providers using the following commands:
 

@@ -3,7 +3,7 @@ title: Support requirements for Azure Site Recovery replication appliance
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/09/2023
+ms.date: 12/04/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---

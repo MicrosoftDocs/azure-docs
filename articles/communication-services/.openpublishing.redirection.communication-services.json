@@ -11,8 +11,8 @@
         "redirect_document_id": false
       },
       {
-        "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/call-diagnostics.md",
-        "redirect_url": "/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics",
+        "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/diagnose-calls.md",
+        "redirect_url": "/azure/communication-services/concepts/voice-video-calling/call-diagnostics",
         "redirect_document_id": false
       },
       {

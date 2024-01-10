@@ -100,12 +100,16 @@ az provider register --namespace Microsoft.OperationalInsights
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
+## Create a resource group
+
+```azurepowershell
+az group create --location centralus --resource-group name my-container-apps
+```
 
 ## Create and deploy the container app
 
 Create and deploy your first container app with the `containerapp up` command. This command will:
 
-- Create the resource group
 - Create the Container Apps environment
 - Create the Log Analytics workspace
 - Create and deploy the container app using a public container image

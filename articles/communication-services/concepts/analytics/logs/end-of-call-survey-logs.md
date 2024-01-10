@@ -14,7 +14,7 @@ ms.subservice: data
 
 # End of call survey 
 
-> 
+> [!NOTE]
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
 ## Prerequisites

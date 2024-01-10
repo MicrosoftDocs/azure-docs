@@ -7,6 +7,7 @@ ms.service: data-manager-for-agri
 ms.topic: conceptual
 ms.date: 11/17/2023
 ms.custom: template-concept
+show_latex: true
 ---
 
 # Using satellite imagery in Azure Data Manager for Agriculture 
@@ -50,7 +51,8 @@ In some cases, it isn't desirable and traceability to a single tile source is pr
 Data Manager for Agriculture uses the WSG84 (EPSG: 4326), a flat coordinate system, whereas Sentinel-2 imagery is presented in UTM, a ground projection system that approximates the round earth.
 
 Translating between a flat image and a round earth involves an approximation translation. The accuracy of this translation is set to equal at the equator (10 m^2) and increases in error margin as the point in question moves away from the equator to the poles. 
-For consistency, our data manager uses the following formula at 10-m base for all Sentinel-2 calls: 
+For consistency, our data manager uses the following formula at 10 m^2 base for all Sentinel-2 calls: 
+ 
 
 $$
 Latitude = \frac{10 m}{111320}

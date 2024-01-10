@@ -188,6 +188,10 @@ Data connectors are available as part of the following offerings:
 
 - [Cybersixgill Actionable Alerts (using Azure Functions)](data-connectors/cybersixgill-actionable-alerts-using-azure-functions.md)
 
+## Cyborg Security, Inc.
+
+- [Cyborg Security HUNTER Hunt Packages](data-connectors/cyborg-security-hunter-hunt-packages.md)
+
 ## Cynerio
 
 - [Cynerio Security Events](data-connectors/cynerio-security-events.md)
@@ -196,12 +200,17 @@ Data connectors are available as part of the following offerings:
 
 - [Darktrace Connector for Microsoft Sentinel REST API](data-connectors/darktrace-connector-for-microsoft-sentinel-rest-api.md)
 
+## Dataminr, Inc.
+
+- [Dataminr Pulse Alerts Data Connector (using Azure Functions)](data-connectors/dataminr-pulse-alerts-data-connector-using-azure-functions.md)
+
 ## Darktrace plc
 
 - [AI Analyst Darktrace](data-connectors/ai-analyst-darktrace.md)
 
 ## Defend Limited
 
+- [Atlassian Beacon Alerts](data-connectors/atlassian-beacon-alerts.md)
 - [Cortex XDR - Incidents](data-connectors/cortex-xdr-incidents.md)
 
 ## Delinea Inc.
@@ -270,6 +279,10 @@ Data connectors are available as part of the following offerings:
 
 - [Fortinet](data-connectors/fortinet.md)
 
+## Gigamon, Inc
+
+- [Gigamon AMX Data Connector](data-connectors/gigamon-amx-data-connector.md)
+
 ## GitLab
 
 - [GitLab](data-connectors/gitlab.md)
@@ -281,6 +294,10 @@ Data connectors are available as part of the following offerings:
 - [Google Cloud Platform DNS (using Azure Functions)](data-connectors/google-cloud-platform-dns-using-azure-functions.md)
 - [Google Cloud Platform IAM (using Azure Functions)](data-connectors/google-cloud-platform-iam-using-azure-functions.md)
 - [Google Workspace (G Suite) (using Azure Functions)](data-connectors/google-workspace-g-suite-using-azure-functions.md)
+
+## Greynoise Intelligence, Inc.
+
+- [GreyNoise Threat Intelligence (using Azure Functions)](data-connectors/greynoise-threat-intelligence-using-azure-functions-using-azure-functions.md)
 
 ## H.O.L.M. Security Sweden AB
 
@@ -393,7 +410,7 @@ Data connectors are available as part of the following offerings:
 - [DNS](data-connectors/dns.md)
 - [Fortinet FortiWeb Web Application Firewall](data-connectors/fortinet-fortiweb-web-application-firewall.md)
 - [Microsoft 365 (formerly, Office 365)](data-connectors/microsoft-365.md)
-- [Microsoft 365 Defender](data-connectors/microsoft-365-defender.md)
+- [Microsoft Defender XDR](data-connectors/microsoft-365-defender.md)
 - [Microsoft 365 Insider Risk Management](data-connectors/microsoft-365-insider-risk-management.md)
 - [Microsoft Defender for Cloud](data-connectors/microsoft-defender-for-cloud.md)
 - [Microsoft Defender for Cloud Apps](data-connectors/microsoft-defender-for-cloud-apps.md)
@@ -435,9 +452,17 @@ Data connectors are available as part of the following offerings:
 - [[Recommended] Forcepoint CASB via AMA](data-connectors/recommended-forcepoint-casb-via-ama.md)
 - [[Recommended] Forcepoint CSG via AMA](data-connectors/recommended-forcepoint-csg-via-ama.md)
 - [[Recommended] Forcepoint NGFW via AMA](data-connectors/recommended-forcepoint-ngfw-via-ama.md)
+- [Barracuda CloudGen Firewall](data-connectors/barracuda-cloudgen-firewall.md)
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector-using-azure-functions.md)
 - [Forcepoint DLP](data-connectors/forcepoint-dlp.md)
 - [MISP2Sentinel](data-connectors/misp2sentinel.md)
+
+## Mimecast North America
+
+- [Mimecast Audit & Authentication (using Azure Functions)](data-connectors/mimecast-audit-authentication-using-azure-functions.md)
+- [Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)](data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel-using-azure-functions.md)
+- [Mimecast Secure Email Gateway (using Azure Functions)](data-connectors/mimecast-secure-email-gateway-using-azure-functions.md)
+- [Mimecast Targeted Threat Protection (using Azure Functions)](data-connectors/mimecast-targeted-threat-protection-using-azure-functions.md)
 
 ## MongoDB
 
@@ -486,6 +511,7 @@ Data connectors are available as part of the following offerings:
 - [NXLog AIX Audit](data-connectors/nxlog-aix-audit.md)
 - [NXLog BSM macOS](data-connectors/nxlog-bsm-macos.md)
 - [NXLog DNS Logs](data-connectors/nxlog-dns-logs.md)
+- [NXLog FIM](data-connectors/nxlog-fim.md)
 - [NXLog LinuxAudit](data-connectors/nxlog-linuxaudit.md)
 
 ## Okta

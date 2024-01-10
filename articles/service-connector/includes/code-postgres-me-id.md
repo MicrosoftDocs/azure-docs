@@ -358,6 +358,9 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     
     Refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see more details of how to acquire access token for service principal.
 
+### [Other](#tab/none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for PostgreSQL with Service Connector](../how-to-integrate-postgres.md).
+
 ---
 
 [!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]
