@@ -68,7 +68,11 @@ $tableParams = @'
                        {
                                 "name": "RawData",
                                 "type": "String"
-                       }
+                       },
+                      {
+                                "name": `"YourOptionalColumn"` ,
+                                "type": "string"
+                     }
               ]
         }
     }
@@ -376,7 +380,7 @@ To create the data collection rule in the Azure portal:
 ---
 
 > [!NOTE]
-> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
+> It can take up to 10 minutes for data to be sent to the destinations after you create the data collection rule.
 
 ### Sample log queries
 The column names used here are for example only. The column names for your log will most likely be different.
