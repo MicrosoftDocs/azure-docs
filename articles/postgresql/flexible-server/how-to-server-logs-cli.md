@@ -67,6 +67,6 @@ The following command downloads the preceding server logs to your current direct
 az postgres flexible-server server-logs download --resource-group <myresourcegroup> --server-name <serverlogdemo>  --name <serverlogs/postgresql_2024_01_10_12_00_00.log>
 ```
 
-## Next Steps
+## Next steps
 - To enable and disable Server logs from portal, you can refer to the [article.](./how-to-server-logs-portal.md)
 - Learn more about [Logging](./concepts-logging.md)
