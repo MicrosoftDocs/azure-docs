@@ -49,7 +49,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 * Hubble is disabled.
 
-* Network policies cannot use `ipBlock` to allow access to node or pod IPs. See below for details and recommended workaround.
+* Network policies cannot use `ipBlock` to allow access to node or pod IPs. See [frequently asked questions](#frequently-asked-questions) for details and recommended workaround.
 
 * Kubernetes services with `internalTrafficPolicy=Local` aren't supported ([Cilium issue #17796](https://github.com/cilium/cilium/issues/17796)).
 
