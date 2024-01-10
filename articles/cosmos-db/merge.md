@@ -92,6 +92,7 @@ Install-Module @parameters
 
 Use [`az extension add`](/cli/azure/extension#az-extension-add) to install the [cosmosdb-preview](https://github.com/azure/azure-cli-extensions/tree/main/src/cosmosdb-preview) Azure CLI extension.
 
+
 ```azurecli-interactive
 az extension add \
     --name cosmosdb-preview
@@ -137,6 +138,16 @@ az cosmosdb sql container merge \
     --account-name '<cosmos-account-name>' \
     --database-name '<cosmos-database-name>' \
     --name '<cosmos-container-name>'
+```
+
+For **shared throughput databases**, start the merge by using `az cosmosdb sql database merge`.
+
+
+```azurecli
+az cosmosdb sql database merge \
+	--account-name '<cosmos-account-name>'                               
+	--name '<cosmos-database-name>'                                
+	--resource-group '<resource-group-name>'
 ```
 
 #### [API for MongoDB](#tab/mongodb/azure-powershell)
@@ -199,8 +210,6 @@ To enroll in the preview, your Azure Cosmos DB account must meet all the followi
 
 - Your Azure Cosmos DB account uses API for NoSQL or MongoDB with version >=3.6.
 - Your Azure Cosmos DB account is using provisioned throughput (manual or autoscale). Merge doesn't apply to serverless accounts.
-  - Currently, merge isn't supported for shared throughput databases. You may enroll an account that has both shared throughput databases and containers with dedicated throughput (manual or autoscale).
-  - However, only the containers with dedicated throughput are able to be merged.
 - Your Azure Cosmos DB account is a single-write region account (merge isn't currently supported for multi-region write accounts).
 - Your Azure Cosmos DB account doesn't use any of the following features:
   - [Point-in-time restore](continuous-backup-restore-introduction.md)
