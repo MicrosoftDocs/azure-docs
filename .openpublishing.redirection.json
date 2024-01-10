@@ -13601,7 +13601,7 @@
         {
             "source_path": "articles/load-balancer/configure-vm-scale-set-cli.md",
             "redirect_url": "/azure/load-balancer/configure-vm-scale-set-portal",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/load-balancer/configure-vm-scale-set-powershell.md",
