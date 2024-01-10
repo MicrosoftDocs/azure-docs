@@ -1,56 +1,95 @@
 ---
-title: Azure Virtual Desktop security best practices - Azure
-titleSuffix: Azure
-description: Best practices for keeping your Azure Virtual Desktop environment secure.
-author: heidilohr
+title: Security recommendations for Azure Virtual Desktop
+description: Learn about recommendations for helping keep your Azure Virtual Desktop environment secure.
 ms.topic: conceptual
-ms.date: 07/11/2023
-ms.author: helohr
-ms.service: virtual-desktop
-ms.custom: ignite-2022
-manager: femila
+author: dknappettmsft
+ms.author: daknappe
+ms.date: 01/09/2024
 ---
-# Security best practices
 
-Azure Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In an Azure Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has many built-in advanced security features, such as Reverse Connect, which reduce the risk involved with having remote desktops accessible from anywhere.
+# Security recommendations for Azure Virtual Desktop
 
-This article describes steps you can take as an admin to keep your customers' Azure Virtual Desktop deployments secure.
+Azure Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. The architecture of Azure Virtual Desktop comprises many components that make up the service connecting users to their desktops and apps.
 
-## Security responsibilities
+Azure Virtual Desktop has many built-in advanced security features, such as Reverse Connect where no inbound network ports are required to be open, which reduces the risk involved with having remote desktops accessible from anywhere. The service also benefits from many other security features of Azure, such as multifactor authentication and conditional access. This article describes steps you can take as an administrator to keep your Azure Virtual Desktop deployments secure, whether you provide desktops and apps to users in your organization or to external users.
 
-What makes cloud services different from traditional on-premises virtual desktop infrastructures (VDIs) is how they handle security responsibilities. For example, in a traditional on-premises VDI, the customer would be responsible for all aspects of security. However, in most cloud services, these responsibilities are shared between the customer and the company.
+## Shared security responsibilities
 
-When you use Azure Virtual Desktop, it’s important to understand that while some components come already secured for your environment, you'll need to configure other areas yourself to fit your organization’s security needs.
+Before Azure Virtual Desktop, on-premises virtualization solutions like Remote Desktop Services require granting users access to roles like Gateway, Broker, Web Access, and so on. These roles had to be fully redundant and able to handle peak capacity. Administrators would install these roles as part of the Windows Server operating system, and they had to be domain-joined with specific ports accessible to public connections. To keep deployments secure, administrators had to constantly make sure everything in the infrastructure was maintained and up-to-date.
 
-Here are the security needs you're responsible for in your Azure Virtual Desktop deployment:
+In most cloud services, however, there's a [shared set of security responsibilities](../security/fundamentals/shared-responsibility.md) between Microsoft and the customer or partner. For Azure Virtual Desktop, most components are Microsoft-managed, but session hosts and some supporting services and components are customer-managed or partner-managed. To learn more about the Microsoft-managed components of Azure Virtual Desktop, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
-| Security need | Is the customer responsible for this? |
-|---------------|:-------------------------:|
-|Identity|Yes|
-|User devices (mobile and PC)|Yes|
-|App security|Yes|
-|Session host operating system (OS)|Yes|
-|Deployment configuration|Yes|
-|Network controls|Yes|
-|Virtualization control plane|No|
-|Physical hosts|No|
-|Physical network|No|
-|Physical datacenter|No|
+While some components come already secured for your environment, you'll need to configure other areas yourself to fit your organization's or customer's security needs. Here are the components of which you're responsible for the security in your Azure Virtual Desktop deployment:
 
-The security needs the customer isn't responsible for are handled by Microsoft.
+| Component | Responsibility |
+|--|:-:|
+| Identity | Customer or partner |
+| User devices (mobile and PC) | Customer or partner |
+| App security | Customer or partner |
+| Session host operating system | Customer or partner |
+| Deployment configuration | Customer or partner |
+| Network controls | Customer or partner |
+| Virtualization control plane | Microsoft |
+| Physical hosts | Microsoft |
+| Physical network | Microsoft |
+| Physical datacenter | Microsoft |
+
+## Security boundaries
+
+Security boundaries separate the code and data of security domains with different levels of trust. For example, there's usually a security boundary between kernel mode and user mode. Most Microsoft software and services depend on multiple security boundaries to isolate devices on networks, virtual machines (VMs), and applications on devices. The following table lists each security boundary for Windows and what they do for overall security.
+
+| Security boundary | Description |
+|--|--|
+| Network boundary | An unauthorized network endpoint can't access or tamper with code and data on a customer’s device. |
+| Kernel boundary | A non-administrative user mode process can't access or tamper with kernel code and data. Administrator-to-kernel is not a security boundary. |
+| Process boundary | An unauthorized user mode process can't access or tamper with the code and data of another process. |
+| AppContainer sandbox boundary | An AppContainer-based sandbox process can't access or tamper with code and data outside of the sandbox based on the container capabilities. |
+| User boundary | A user can't access or tamper with the code and data of another user without being authorized. |
+| Session boundary | A user session can't access or tamper with another user session without being authorized. |
+| Web browser boundary | An unauthorized website can't violate the same-origin policy, nor can it access or tamper with the native code and data of the Microsoft Edge web browser sandbox. |
+| Virtual machine boundary | An unauthorized Hyper-V guest virtual machine can't access or tamper with the code and data of another guest virtual machine; this includes Hyper-V isolated containers. |
+| Virtual Secure Mode (VSM) boundary | Code running outside of the VSM trusted process or enclave can't access or tamper with data and code within the trusted process. |
+
+### Recommended security boundaries for Azure Virtual Desktop scenarios
+
+You'll also need to make certain choices about security boundaries on a case-by-case basis. For example, if a user in your organization needs local administrator privileges to install apps, you'll need to give them a personal desktop instead of a shared session host. We don't recommend giving users local administrator privileges in multi-session pooled scenarios because these users can cross security boundaries for sessions or NTFS data permissions, shut down multi-session VMs, or do other things that could interrupt service or cause data losses.
+
+Users from the same organization, like knowledge workers with apps that don't require administrator privileges, are great candidates for multi-session  session hosts like Windows 11 Enterprise multi-session. These session hosts reduce costs for your organization because multiple users can share a single VM, with only the overhead costs of a VM per user. With user profile management products like FSLogix, users can be assigned any VM in a host pool without noticing any service interruptions. This feature also lets you optimize costs by doing things like shutting down VMs during off-peak hours.
+
+If your situation requires users from different organizations to connect to your deployment, we recommend you have a separate tenant for identity services like Active Directory and Microsoft Entra ID. We also recommend you have a separate subscription for those users for hosting Azure resources like Azure Virtual Desktop and VMs.
+
+In many cases, using multi-session is an acceptable way to reduce costs, but whether we recommend it depends on the trust level between users with simultaneous access to a shared multi-session instance. Typically, users that belong to the same organization have a sufficient and agreed-upon trust relationship. For example, a department or workgroup where people collaborate and can access each other’s personal information is an organization with a high trust level.
+
+Windows uses security boundaries and controls to ensure user processes and data are isolated between sessions. However, Windows still provides access to the instance the user is working on.
+
+Multi-session deployments would benefit from a security in depth strategy that adds more security boundaries that prevent users within and outside of the organization from getting unauthorized access to other users' personal information. Unauthorized data access happens because of an error in the configuration process by the system admin, such as an undisclosed security vulnerability or a known vulnerability that hasn't been patched out yet.
+
+We don't recommend granting users that work for different or competing companies access to the same multi-session environment. These scenarios have several security boundaries that can be attacked or abused, like network, kernel, process, user, or sessions. A single security vulnerability could cause unauthorized data and credential theft, personal information leaks, identity theft, and other issues. Virtualized environment providers are responsible for offering well-designed systems with multiple strong security boundaries and extra safety features enabled wherever possible.
+
+Reducing these potential threats requires a fault-proof configuration, patch management design process, and regular patch deployment schedules. It's better to follow the principles of defense in depth and keep environments separate.
+
+The following table summarizes our recommendations for each scenario.
+
+| Trust level scenario                                 | Recommended solution                |
+|------------------------------------------------------|-------------------------------------|
+| Users from one organization with standard privileges | Use a Windows Enterprise multi-session OS. |
+| Users require administrative privileges             | Use a personal host pool and assign each user their own session host.         |
+| Users from different organizations connecting        | Separate Azure tenant and Azure subscription         |
 
 ## Azure security best practices
 
 Azure Virtual Desktop is a service under Azure. To maximize the safety of your Azure Virtual Desktop deployment, you should make sure to secure the surrounding Azure infrastructure and management plane as well. To secure your infrastructure, consider how Azure Virtual Desktop fits into your larger Azure ecosystem. To learn more about the Azure ecosystem, see [Azure security best practices and patterns](../security/fundamentals/best-practices-and-patterns.md).
 
-This section describes best practices for securing your Azure ecosystem.
+Today's threat landscape requires designs with security approaches in mind. Ideally, you'll want to build a series of security mechanisms and controls layered throughout your computer network to protect your data and network from being compromised or attacked. This type of security design is what the United States Cybersecurity and Infrastructure Security Agency (CISA) calls *defense in depth*.
+
+The following sections contain recommendations for securing an Azure Virtual Desktop deployment.
 
 ### Enable Microsoft Defender for Cloud
 
 We recommend enabling Microsoft Defender for Cloud's enhanced security features to:
 
 - Manage vulnerabilities.
-- Assess compliance with common frameworks like PCI.
+- Assess compliance with common frameworks like from the PCI Security Standards Council.
 - Strengthen the overall security of your environment.
 
 To learn more, see [Enable enhanced security features](../defender-for-cloud/enable-enhanced-security.md).
@@ -58,12 +97,6 @@ To learn more, see [Enable enhanced security features](../defender-for-cloud/ena
 ### Improve your Secure Score
 
 Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Microsoft Defender for Cloud](../defender-for-cloud/secure-score-security-controls.md).
-
-## Azure Virtual Desktop security best practices
-
-Azure Virtual Desktop has many built-in security controls. In this section, you'll learn about security controls you can use to keep your users and data safe.
-
-<a name='require-multi-factor-authentication'></a>
 
 ### Require multifactor authentication
 
@@ -91,9 +124,9 @@ When choosing a deployment model, you can either provide remote users access to 
 
 Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
 
-### Encrypt your VM
+### Encrypt your session hosts
 
-Encrypt your VM with [managed disk encryption options](../virtual-machines/disk-encryption-overview.md) to protect stored data from unauthorized access. 
+Encrypt your session hosts with [managed disk encryption options](../virtual-machines/disk-encryption-overview.md) to protect stored data from unauthorized access. 
 
 ## Session host security best practices
 
@@ -103,7 +136,7 @@ Session hosts are virtual machines that run inside an Azure subscription and vir
 
 To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. To learn more, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
 
-For profile solutions like FSLogix or other solutions that mount VHD files, we recommend excluding VHD file extensions.
+For profile solutions like FSLogix or other solutions that mount virtual hard disk files, we recommend excluding those file extensions.
 
 ### Install an endpoint detection and response product
 
@@ -133,13 +166,13 @@ We recommend you don't grant your users admin access to virtual desktops. If you
 
 Consider session hosts as an extension of your existing desktop deployment. We recommend you control access to network resources the same way you would for other desktops in your environment, such as using network segmentation and filtering. By default, session hosts can connect to any resource on the internet. There are several ways you can limit traffic, including using Azure Firewall, Network Virtual Appliances, or proxies. If you need to limit traffic, make sure you add the proper rules so that Azure Virtual Desktop can work properly.
 
-### Manage Office Pro Plus security
+### Manage Microsoft 365 app security
 
-In addition to securing your session hosts, it's important to also secure the applications running inside of them. Office Pro Plus is one of the most common applications deployed in session hosts. To improve the Office deployment security, we recommend you use the [Security Policy Advisor](/DeployOffice/overview-of-security-policy-advisor) for Microsoft 365 Apps for enterprise. This tool identifies policies that can you can apply to your deployment for more security. Security Policy Advisor also recommends policies based on their impact to your security and productivity.
+In addition to securing your session hosts, it's important to also secure the applications running inside of them. Microsoft 365 apps are some of the most common applications deployed in session hosts. To improve the Microsoft 365 deployment security, we recommend you use the [Security Policy Advisor](/DeployOffice/overview-of-security-policy-advisor) for Microsoft 365 Apps for enterprise. This tool identifies policies that can you can apply to your deployment for more security. Security Policy Advisor also recommends policies based on their impact to your security and productivity.
 
 ### User profile security
 
-User profiles can contain sensitive information. You should restrict who has access to user profiles and the methods of accessing them, especially if you're using [FSLogix Profile Container](/fslogix/tutorial-configure-profile-containers) to store user profiles in a virtual hard disk file (VHDX) on an SMB share. You should follow the security recommendations for the provider of your SMB share. For example, If you're using Azure Files to store these VHDX files, you can use [private endpoints](../storage/files/storage-files-networking-overview.md#private-endpoints) to make them only accessible within an Azure virtual network. 
+User profiles can contain sensitive information. You should restrict who has access to user profiles and the methods of accessing them, especially if you're using [FSLogix Profile Container](/fslogix/tutorial-configure-profile-containers) to store user profiles in a virtual hard disk file on an SMB share. You should follow the security recommendations for the provider of your SMB share. For example, If you're using Azure Files to store these virtual hard disk files, you can use [private endpoints](../storage/files/storage-files-networking-overview.md#private-endpoints) to make them only accessible within an Azure virtual network. 
 
 ### Other security tips for session hosts
 
@@ -157,7 +190,7 @@ By restricting operating system capabilities, you can strengthen the security of
 
 ## Trusted launch
 
-Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against bottom-of-the-stack threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
 ### Enable trusted launch as default
 
@@ -184,7 +217,7 @@ Encrypting the operating system disk is an extra layer of encryption that binds 
 
 ### Secure Boot
 
-Secure Boot is a mode that platform firmware supports that protects your firmware from malware-based rootkits and boot kits. This mode only allows signed OSes and drivers to start up the machine. 
+Secure Boot is a mode that platform firmware supports that protects your firmware from malware-based rootkits and boot kits. This mode only allows signed operating systems and drivers to boot. 
 
 ### Monitor boot integrity using Remote Attestation
 
@@ -196,8 +229,8 @@ A vTPM is a virtualized version of a hardware Trusted Platform Module (TPM), wit
 
 We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality with Azure Disk Encryption, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Azure Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
 
->[!NOTE]
->BitLocker should not be used to encrypt the specific disk where you're storing your FSLogix profile data.
+> [!NOTE]
+> BitLocker shouldn't be used to encrypt the specific disk where you're storing your FSLogix profile data.
 
 ### Virtualization-based Security
 
@@ -209,40 +242,20 @@ HVCI is a powerful system mitigation that uses VBS to protect Windows kernel-mod
 
 #### Windows Defender Credential Guard
 
-Windows Defender Credential Guard uses VBS to isolate and protect secrets so that only privileged system software can access them. This prevents unauthorized access to these secrets and credential theft attacks, such as Pass-the-Hash attacks.
+Enable Windows Defender Credential Guard. Windows Defender Credential Guard uses VBS to isolate and protect secrets so that only privileged system software can access them. This prevents unauthorized access to these secrets and credential theft attacks, such as Pass-the-Hash attacks. For more information, see [Credential Guard overview](/windows/security/identity-protection/credential-guard/).
 
-## Nested virtualization
+### Windows Defender Application Control
 
-The following operating systems support running nested virtualization on Azure Virtual Desktop:
+Enable Windows Defender Application Control. Windows Defender Application Control is designed to protect devices against malware and other untrusted software. It prevents malicious code from running by ensuring that only approved code, that you know, can be run. For more information, see [Application Control for Windows](/windows/security/application-security/application-control/windows-defender-application-control/wdac).
 
-- Windows Server 2016
-- Windows Server 2019
-- Windows Server 2022
-- Windows 10 Enterprise
-- Windows 10 Enterprise multi-session
-- Windows 11 Enterprise
-- Windows 11 Enterprise multi-session
-
-## Windows Defender Application Control
-
-The following operating systems support using Windows Defender Application Control with Azure Virtual Desktop:
-
-- Windows Server 2016
-- Windows Server 2019
-- Windows Server 2022
-- Windows 10 Enterprise
-- Windows 10 Enterprise multi-session
-- Windows 11 Enterprise
-- Windows 11 Enterprise multi-session
-
->[!NOTE]
->When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.
+> [!NOTE]
+> When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.
 
 ## Windows Update
 
-Windows Update provides a secure way to keep your devices up-to-date. Its end-to-end protection prevents manipulation of protocol exchanges and ensures updates only include approved content. You may need to update firewall and proxy rules for some of your protected environments in order to get proper access to Windows Updates. For more information, see [Windows Update security](/windows/deployment/update/windows-update-security).
+Keep your session hosts up to date with updates from Windows Update. Windows Update provides a secure way to keep your devices up-to-date. Its end-to-end protection prevents manipulation of protocol exchanges and ensures updates only include approved content. You may need to update firewall and proxy rules for some of your protected environments in order to get proper access to Windows Updates. For more information, see [Windows Update security](/windows/deployment/update/windows-update-security).
 
-## Client updates on other OS platforms
+## Remote Desktop client and updates on other OS platforms
 
 Software updates for the Remote Desktop clients you can use to access Azure Virtual Desktop services on other OS platforms are secured according to the security policies of their respective platforms. All client updates are delivered directly by their platforms. For more information, see the respective store pages for each app:
 
