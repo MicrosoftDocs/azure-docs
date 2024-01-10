@@ -22,8 +22,6 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-# [JavaScript](#tab/javascript)
-
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
 * [Node.js](https://nodejs.org/en/download/), version 18.x or above.
@@ -33,8 +31,6 @@ In this tutorial, you learn how to:
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
-
----
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -52,13 +48,13 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
 
 1. Create an empty folder for the project, and then run the following command in the new folder.
 
-    # [JavaScript-V4](#tab/javascript_v4)
+    # [JavaScript Model v4](#tab/javascript_v4)
     ```bash
     func init --worker-runtime javascript --model V4
     ```
     ---
 
-    # [JavaScript-V3](#tab/javascript)
+    # [JavaScript Model v3](#tab/javascript)
     ```bash
     func init --worker-runtime javascript --model V3
     ```
@@ -70,7 +66,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     func new -n index -t HttpTrigger
     ```
    
-   # [JavaScript-V4](#tab/javascript_v4)
+   # [JavaScript Model v4](#tab/javascript_v4)
      Update `src/functions/index.js` with following code, which serves the HTML content as a static site.
      ```js
      const { app } = require('@azure/functions');
@@ -100,7 +96,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     ---
     
 
-   # [JavaScript-V3](#tab/javascript)
+   # [JavaScript Model v3](#tab/javascript)
      Update `index/index.js` with following code, which serves the HTML content as a static site.
      ```js
      var fs = require("fs");
@@ -331,7 +327,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     func new -n negotiate -t HttpTrigger
     ```
     
-    # [Javascript-V4](#tab/javascript_v4)
+    # [JavaScript Model v4](#tab/javascript_v4)
     Update `src/functions/negotiate.js` to use [`WebPubSubConnection`](reference-functions-bindings.md#input-binding) that contains the generated token.
     ```js
     const { app, input } = require('@azure/functions');
@@ -353,7 +349,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     ```
     ---
 
-    # [JavaScript-V3](#tab/javascript)
+    # [JavaScript Model v3](#tab/javascript)
     - Update `negotiate/function.json` to include an input binding [`WebPubSubConnection`](reference-functions-bindings.md#input-binding), with the following json code.
         ```json
         {
@@ -393,7 +389,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     func new --template "Azure Event Hub trigger" --name messagehandler
     ```
 
-    # [Javascript-V4](#tab/javascript_v4)
+    # [JavaScript Model v4](#tab/javascript_v4)
     Update `src/functions/messagehandler.js` to add [Web PubSub output binding](reference-functions-bindings.md#output-binding) with the following json code. We use variable `%hubName%` as the hub name for both IoT eventHubName and Web PubSub hub.
 
     ```js
@@ -440,7 +436,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     ```
     ---
 
-    # [JavaScript](#tab/javascript)
+    # [JavaScript Model v3](#tab/javascript)
     - Update _messagehandler/function.json_ to add [Web PubSub output binding](reference-functions-bindings.md#output-binding) with the following json code. We use variable `%hubName%` as the hub name for both IoT eventHubName and Web PubSub hub.
         ```json
         {
