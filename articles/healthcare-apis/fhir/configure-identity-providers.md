@@ -102,7 +102,7 @@ Include at least one permission string in the `allowedDataActions` array. You ca
 
 ## Next steps
 
-[Grant access to the FHIR service by using Azure Active Directory B2C](azure-ad-b2c-setup.md)
+[Use Use Azure Active Directory B2C to grant access to the FHIR service](azure-ad-b2c-setup.md)
 
 [Troubleshoot identity provider configuration](troubleshoot-identity-provider-configuration.md)
 

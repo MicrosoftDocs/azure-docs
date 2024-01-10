@@ -1,6 +1,6 @@
 ---
-title: Use a non-Microsoft identity provider to grant access to the FHIR service in Azure Health Data Services
-description: Learn how to use Azure AD B2C with the FHIR service to enable a non-Microsoft identity provider for healthcare applications and users. 
+title: Use Azure Active Directory B2C to grant access to the FHIR service
+description: Learn how to use Azure AD B2C with the FHIR service to enable ccess to healthcare applications and users. 
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -10,9 +10,9 @@ ms.date: 01/15/2024
 ms.author: namalu
 ---
 
-# Use a non-Microsoft identity provider to grant user access for the FHIR service
+# Use Use Azure Active Directory B2C to grant access to the FHIR service
 
-Healthcare organizations can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR&reg; service in Azure Health Data Services to enable a non-Microsoft identity provider for their applications and users. 
+Healthcare organizations can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR&reg; service in Azure Health Data Services to grant access to their applications and users. 
 
 ## Step 1: Create an Azure AD B2C tenant for the FHIR service
 

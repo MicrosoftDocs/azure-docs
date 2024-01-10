@@ -162,7 +162,7 @@ The `application configuration` consists of:
 
 ## Next steps
 
-[Use a non-Microsoft identity provider to grant user access for the FHIR service](azure-ad-b2c-setup.md)
+[Use Azure Active Directory B2C to grant access to the FHIR service](azure-ad-b2c-setup.md)
 
 [Configure multiple identity providers](configure-identity-providers.md)
 
