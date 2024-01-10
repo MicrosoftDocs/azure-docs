@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 03/29/2023
+ms.date: 01/10/2024
 ms.author: cshoe
 ms.custom: devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli

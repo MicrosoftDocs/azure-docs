@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 01/10/2023
+ms.date: 01/10/2024
 ms.author: cshoe
 ms.custom: mode-ui, event-tier1-build-2022
 ---
