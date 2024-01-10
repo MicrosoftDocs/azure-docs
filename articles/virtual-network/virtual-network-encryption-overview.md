@@ -1,12 +1,14 @@
 ---
 title: What is Azure Virtual Network encryption?
-description: Overview of Azure Virtual Network encryption
+titleSuffix: Azure Virtual Network
+description: Learn about Azure Virtual network encryption. Virtual network encryption allows you to seamlessly encrypt and decrypt traffic between Azure Virtual Machines.
 ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 07/07/2023
+ms.date: 01/17/2024
 ms.custom: template-overview, references_regions
+# customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
 ---
 
@@ -47,6 +49,10 @@ Virtual network encryption has the following requirements:
 ## Availability
 
 Azure Virtual Network encryption is available in the following regions:
+
+- UK South
+
+- Swiss North
 
 - East US 2 EUAP
 
