@@ -5,15 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # Migrate your apps and solutions from BizTalk Services to Azure Logic Apps
 
-Microsoft Azure BizTalk Services (MABS) is retiring. 
-To move your MABS integration solutions to 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
-follow the guidance in this article. 
+Microsoft Azure BizTalk Services (MABS) has retired. To move your MABS integration solutions to [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
+follow the guidance in this article.
 
 ## Introduction
 

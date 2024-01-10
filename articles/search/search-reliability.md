@@ -6,7 +6,7 @@ author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2023
+ms.date: 01/02/2024
 ms.custom:
   - subject-reliability
   - references_regions
@@ -50,10 +50,17 @@ Availability zones are used when you add two or more replicas to your search ser
 ### Prerequisites
 
 + Service tier must be Standard or higher.
-+ Service region must be in a region that has available zones (listed in the following table).
++ Service region must be in a region that has available zones (listed in the following section).
 + Configuration must include multiple replicas: two for read-only query workloads, three for read-write workloads that include indexing.
 
-Availability zones for Azure AI Search are supported in the following regions:
+### Supported regions
+
+Support for availability zones depends on infrastructure and storage. Currently, two zones that were announced in October 2023 have insufficient storage and don't provide an availability zone for Azure AI Search:
+
++ Israel Central
++ Italy North
+
+Otherwise, availability zones for Azure AI Search are supported in the following regions:
 
 | Region | Roll out |
 |--------|-----------|

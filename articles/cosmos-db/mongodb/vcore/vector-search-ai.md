@@ -45,7 +45,6 @@ Vector search optimally stores, indexes, and searches high-dimensional vector da
 
 ## Code samples and tutorials
 
-- [.NET retail chatbot demo](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/mongovcorev2): Learn how to use .NET to build a chatbot that demonstrates the potential of RAG in a retail context.
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-MongoDBvCore): Walk through creating a recipe chatbot by using .NET, to showcase the application of RAG in a culinary scenario.
 - [Python notebook tutorial - Azure product chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-MongoDB-vCore): Learn how to construct an Azure product chatbot that highlights the benefits of RAG.
 

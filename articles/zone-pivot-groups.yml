@@ -2898,7 +2898,15 @@ groups:
     title: Azure Developer CLI
   - id: local
     title: Local
-
+# Owner: sidandrews
+- id: azure-cosmos-db-quickstart-env
+  title: Azure Cosmos DB Quickstart environment
+  prompt: Choose a development environment
+  pivots:
+  - id: devcontainer-codespace
+    title: GitHub Codespaces
+  - id: devcontainer-vscode
+    title: Visual Studio Code
 - id: azure-virtual-network-manager-quickstart-options
   title: Azure Virtual Network Manager Quickstart Scope Options
   prompt: Choose a scope option
