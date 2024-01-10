@@ -6,7 +6,7 @@
 title: Msv2 and Mdsv2 Migration Guide
 description: Migration guide for sizes
 author:      iamwilliew # GitHub alias
-ms.author:   iamwilliew # Microsoft alias
+ms.author: wwilliams
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date:     01/10/2024
