@@ -17,7 +17,7 @@ ms.custom:
 
 # Relocation guidance for Azure Database for PostgreSQL
 
-This article covers relocation guidance for Azure Database for PostgreSQL, Single Server and Flexible Servers across geographies, where region pairs aren't available for replication and geo-restore. 
+This article covers relocation guidance for Azure Database for PostgreSQL, Single Server and Flexible Servers across geographies, where region pairs aren't available for replication and geo-restore.  For Azure Cosmos DB for PostgreSQL (formerly called Azure Database for PostgreSQL - Hyperscale (Citus)) [cross region replication is the only available option to relocate it between regions](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/concepts-read-replicas).  
 
 For an overview of the region pairs supported by native replication, see [cross-region replication](../postgresql/concepts-read-replicas.md#cross-region-replication).
 
