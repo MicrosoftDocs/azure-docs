@@ -18,6 +18,16 @@ In addition to [Microsoft Entra ID](/entra/fundamentals/whatis), you can configu
 
 Add the `smartIdentityProviders` element to the FHIR service `authenticationConfiguration` to enable additional identity providers. The `smartIdentityProviders` element is optional. If you omit it, the FHIR service uses Microsoft Entra ID to authenticate requests.
 
+
+| **Element** | **Type** | **Description** |
+|---|---|---|
+| [smartIdentityProviders](#configure-the-smartidentityproviders-array) | array | An array containing up to two identity provider configurations. This element is optional. |
+| [authority](#specify-the-authority) | string | The identity provider token authority. |
+| [applications](#configure-the-applications-array) | array | An array of identity provider resource application configurations. |
+| [clientId](#identify-the-application-with-the-clientid-string) | string | The identity provider resource application (client) ID. |
+| [audience](#validate-the-access-token-with-the-audience-string) | string | Used to validate the access token `aud` claim. |
+| [allowedDataActions](#specify-the-permissions-with-the-alloweddataactions-array) | array | An array of permissions the identity provider resource application is allowed to perform. |
+
 ```json
 {
   "properties": {

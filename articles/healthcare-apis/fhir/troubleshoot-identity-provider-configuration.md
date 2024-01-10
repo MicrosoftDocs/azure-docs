@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services
-description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure Active Directory B2C. Use API version 2023-12-01 to configure two third-party identity providers for scoped access.
+description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure Active Directory B2C. Use API version 2023-12-01 to configure two non-Microsoft identity identity providers for scoped access.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -12,70 +12,7 @@ ms.author: namalu
 
 # Troubleshoot identity provider configuration for the FHIR service
 
-API version 2023-12-01 of the FHIR&reg; service in Azure Health Data Services supports two third-party identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, you configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
-
-## Schema for configuring identity providers
-
-The `smartIdentityProviders` element is a JSON array that contains one or two `identity provider configurations`. An `identity provider configuration` consists of:
-
-- An `authority` string value that must be the fully qualified URL of the identity providers token authority.
-
-- An `applications` array that contains identity provider resource `application configurations`.
-
-```json
-{
-  "properties": {
-    "authenticationConfiguration": {
-      "authority": "string",
-      "audience": "string",
-      "smartProxyEnabled": "bool",
-      "smartIdentityProviders": [
-        {
-          "authority": "string",
-          "applications": [
-            {
-              "clientId": "string",
-              "allowedDataActions": "array",
-              "audience": "string"
-            }
-          ]
-        }
-      ]
-    }
-  }
-}
-```
-
-The `applications` element is a JSON array that contains one or two `application configurations`. 
-
-The `application configuration` consists of:
-
-- A `clientId` string value for the client ID (also known as application ID) of the identity provider resource application.
-
-- An `audience` string used to validate the `aud` claim in access tokens.
-
-- An array of `allowedDataActions`. The `allowedDataActions` array can only contain the string values `Read`, `Write`, `Delete`, or `Export`.
-
-```json
-{
-  "authority": "string",
-  "applications": [
-    {
-      "clientId": "string",
-      "allowedDataActions": "array",
-      "audience": "string"
-    }
-  ]
-}
-```
-
-```json
-{
-  "clientId": "string",
-  "allowedDataActions": "array",
-  "audience": "string"
-}
-```
+API version 2023-12-01 of the FHIR&reg; service in Azure Health Data Services supports two non-Microsoft identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, you configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
 
 ## Error messages
 
@@ -156,11 +93,76 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 
 ---
 
-11. **Verify the fhirUser or extension_fhirUser (FHIR user claim)**. The `fhirUser` or `extension_fhirUser` claim is required. If it's missing, the request fails. This claim links the user in the identity provider with a user resource in the FHIR service. The value must be the fully qualified URL of a resource in the FHIR service that represents the individual the access token is issued to. For example, the access token issued to a patient that logged in should have a `fhirUser` or `extension_fhirUser` claim that has the fully qualified URL of a [patient](https://build.fhir.org/patient.html) resource in the FHIR service.
+11. **Verify the fhirUser or extension_fhirUser (FHIR user claim)**. The `fhirUser` or `extension_fhirUser` claim is required. If it's missing, the request fails. This claim links the user in the identity provider with a user resource in the FHIR service. The value must be the fully qualified URL of a resource in the FHIR service that represents the individual that the access token is issued to. For example, the access token issued to a patient that logged in should have a `fhirUser` or `extension_fhirUser` claim that has the fully qualified URL of a [patient](https://build.fhir.org/patient.html) resource in the FHIR service.
+
+
+## Schema for configuring identity providers
+
+The `smartIdentityProviders` element is a JSON array that contains one or two `identity provider configurations`. An `identity provider configuration` consists of:
+
+- An `authority` string value that must be the fully qualified URL of the identity providers token authority.
+
+- An `applications` array that contains identity provider resource `application configurations`.
+
+```json
+{
+  "properties": {
+    "authenticationConfiguration": {
+      "authority": "string",
+      "audience": "string",
+      "smartProxyEnabled": "bool",
+      "smartIdentityProviders": [
+        {
+          "authority": "string",
+          "applications": [
+            {
+              "clientId": "string",
+              "allowedDataActions": "array",
+              "audience": "string"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+The `applications` element is a JSON array that contains one or two `application configurations`. 
+
+The `application configuration` consists of:
+
+- A `clientId` string value for the client ID (also known as application ID) of the identity provider resource application.
+
+- An `audience` string used to validate the `aud` claim in access tokens.
+
+- An array of `allowedDataActions`. The `allowedDataActions` array can only contain the string values `Read`, `Write`, `Delete`, or `Export`.
+
+```json
+{
+  "authority": "string",
+  "applications": [
+    {
+      "clientId": "string",
+      "allowedDataActions": "array",
+      "audience": "string"
+    }
+  ]
+}
+```
+
+```json
+{
+  "clientId": "string",
+  "allowedDataActions": "array",
+  "audience": "string"
+}
+```
+
 
 ## Next steps
 
-[Grant user access to the FHIR service by using Azure Active Directory B2C](azure-ad-b2c-setup.md)
+[Use a non-Microsoft identity provider to grant user access for the FHIR service](azure-ad-b2c-setup.md)
 
 [Configure multiple identity providers](configure-identity-providers.md)
 

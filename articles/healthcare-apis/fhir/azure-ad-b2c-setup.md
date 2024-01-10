@@ -1,6 +1,6 @@
 ---
-title: Use a third-party identity provider to grant user access to the FHIR service in Azure Health Data Services
-description: Learn how to use Azure AD B2C as a third-party identity provider to allow user access to the FHIR service in Azure Health Data Services. Set up and configure this integration for secure user authentication.
+title: Use a non-Microsoft identity provider to grant access to the FHIR service in Azure Health Data Services
+description: Learn how to use Azure AD B2C with the FHIR service to enable a non-Microsoft identity provider for healthcare applications and users. 
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -10,9 +10,9 @@ ms.date: 01/15/2024
 ms.author: namalu
 ---
 
-# Use a third-party identity provider to grant user access to the FHIR service
+# Use a non-Microsoft identity provider to grant user access for the FHIR service
 
-Healthcare organizations can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR&reg; service in Azure Health Data Services to enable a third-party identity provider for their applications and users. 
+Healthcare organizations can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR&reg; service in Azure Health Data Services to enable a non-Microsoft identity provider for their applications and users. 
 
 ## Step 1: Create an Azure AD B2C tenant for the FHIR service
 
@@ -309,11 +309,11 @@ The validation process involves creating a patient resource in the FHIR service,
 
 Run the [Postman](https://www.postman.com) application locally or in a web browser. For steps to obtain the proper access to the FHIR service, see [Access the FHIR service using Postman](use-postman.md).
 
-Note that when you follow the steps to [GET FHIR resource](use-postman.md#get-fhir-resource) section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
+When you follow the steps to [GET FHIR resource](use-postman.md#get-fhir-resource) section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
 
 #### Create a patient resource in the FHIR service
 
-It's important to note that users in the B2C tenant aren't able to create, read update, or delete any resources until the user is linked to a FHIR resource, for example as patient or practitioner. A user with the `FhirDataWriter` or `FhirDataContributor` role in the Microsoft Entra ID where the FHIR service is tenanted must perform this step.
+It's important to note that users in the B2C tenant aren't able to create, read, update, or delete any resources until the user is linked to a FHIR resource, for example as patient or practitioner. A user with the `FhirDataWriter` or `FhirDataContributor` role in the Microsoft Entra ID where the FHIR service is tenanted must perform this step.
 
 1. Create a patient with a specific identifier by changing the method to `PUT` and executing a request to `{{fhirurl}}/Patient/1` with this body:
 
