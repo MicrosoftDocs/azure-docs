@@ -20,8 +20,8 @@ The utility works in two steps
 You do all the setup steps in a [Visual Studio Code](https://code.visualstudio.com/) with the [PowerShell Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
  - Windows 10+ or Windows Server 2019+
  - PowerShell 5.0 or higher. Check the version by running `$PSVersionTable` and checking the PS Version
- - PowerShell. The language must be set to mode `FullLanguage`. Check the mode by running `$ExecutionContext.SessionState.LanguageMode` in PowerShell. You can find more details [here](../../../powershell/module/microsoft.powershell.core/about/about_language_modes?source=recommendations&view=powershell-7.3.md) 
- - Bicep. The setup scripts us Bicep to automate the installation. Check the installation by running `bicep --version`. See [install in PowerShell](../../azure-resource-manager/bicep/install.md) 
+ - PowerShell. The language must be set to mode `FullLanguage`. Check the mode by running `$ExecutionContext.SessionState.LanguageMode` in PowerShell. You can find more details [here](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_language_modes?source=recommendations) 
+ - Bicep. The setup scripts us Bicep to automate the installation. Check the installation by running `bicep --version`. See [install in PowerShell](../azure-resource-manager/bicep/install.md) 
  - A [User-Assigned Managed Identity (MI)](https: //docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) which has 'Reader', Virtual Machine Contributor' and 'Azure Arc ScVmm VM Contributor' access on target scopes configured. 
  - A new Resource Group to contain all the Azure resources created automatically by the set up automation.
  - For granting remediation user-assigned MI with above mentioned roles on the target scopes, 
