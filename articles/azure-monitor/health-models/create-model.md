@@ -27,6 +27,10 @@ ms.date: 12/12/2023
 
 ## [Azure portal](#tab/portal)
 
+
+The `nodes: []` section can become very complex. Using the [Designer view](./health-model-create-modify-with-designer.md) with the [Code view](./health-model-code.md) can help to define a health model via the UI and take the code artifacts over to Infra-as-Code.
+
+
 1. Select **Health Models** from the **Monitor** menu in the Azure portal.
 
    :::image type="content" source="./media/health-model-getting-started/azure-portal-search-bar.png" lightbox="./media/health-model-getting-started/azure-portal-search-bar.png" alt-text="Screenshot of the search bar in the Azure portal with 'health models' entered in it. ":::
@@ -48,9 +52,9 @@ ms.date: 12/12/2023
    :::image type="content" source="./media/health-model-getting-started/create-a-new-azure-health-model-page-review-create-tab.png" lightbox="./media/health-model-getting-started/create-a-new-azure-health-model-page-review-create-tab.png" alt-text="Screenshot of the Create a new Azure Health Model page in the Azure portal with the Review + Create tab selected.":::
 
 
-## [ARM](#tab/arm)
+## [Resource Manager](#tab/arm)
 
-The following shows a sample template to create the empty resource:
+Use the following ARM or Bicep template to create a health model use a Resource Manager template. The `nodes` section in each template contains the definition of the health model. Use the [code view](./health-model-code.md) for the JSON that can be copied into the template.
 
 ```json
 {
@@ -87,19 +91,15 @@ The following shows a sample template to create the empty resource:
         "properties": {
           "activeState": "Inactive",
           "refreshInterval": "PT1M",
-          "nodes": null
+          "nodes": []
         }
       }
     ]
 }
 ```
 
-## [Bicep](#tab/bicep)
 
-> [!TIP]
-> The `nodes: []` section can become very complex. Using the [Designer view](./health-model-create-modify-with-designer.md) with the [Code view](./health-model-code.md) can help to define a health model via the UI and take the code artifacts over to Infra-as-Code.
 
-Here's an example template:
 
 ```bicep
 resource healthModel 'Microsoft.HealthModel/healthmodels@2022-11-01-preview' = {
@@ -111,32 +111,7 @@ resource healthModel 'Microsoft.HealthModel/healthmodels@2022-11-01-preview' = {
   properties: {
     activeState: 'Inactive'
     refreshInterval: 'PT1M'
-    nodes: [
-      {
-        nodeType: 'AggregationNode'
-        nodeId: '0'
-        name: 'root node'
-        impact: 'Standard'
-        childNodeIds: [
-            '1'
-        ]
-        visual: {
-          x: 0
-          y: 0
-        }
-      }
-      {
-        nodeType: 'AggregationNode'
-        nodeId: '1'
-        name: 'child node 1'
-        impact: 'Standard'
-        childNodeIds: []
-        visual: {
-          x: 0
-          y: -60
-        }
-      }
-    ]
+    nodes: []
   }
 }
 ```
@@ -148,73 +123,7 @@ resource healthModel 'Microsoft.HealthModel/healthmodels@2022-11-01-preview' = {
 | `identity` | For more information, see [Identity](./health-model-configure-identity.md). |
 | `properties` | Contains the HM configuration:<ul><li>`activeState` can be set to `Inactive` or `Active`.</li><li>`refreshInterval` is the execution interval of the Health Model.</li><li>`nodes`. For more information, see [Nodes](#nodes).</li></ul> |
 
-### Nodes
 
-The `nodes` section contains the definition of the health model, its entities and signals:
-
-| Argument | Description |
-|:---|:---|
-| `nodeType` | Always needs to be on top of each node (entity) definition. It can be set to `AggregationNode`, `LogAnalyticsNode`, `AzureResourceNode` or `PrometheusNode`. |
-| `nodeId` (string) | Unique value used to identify and address nodes within the model. |
-| `nodeKind` (optional) | Can be used to define the type of a logical aggregation node. Can be set to `Generic`, `UserFlow` or `SystemComponent`. |
-| `name` | Display name of a node. |
-| `logAnalyticsResourceId` (optional) | Resource ID of the Log Analytics workspace used. |
-| `logAnalyticsWorkspaceId` (optional) | Workspace ID used to do log queries. |
-| `impact` (optional) | Can be set to `Standard` (default), `Limited` or `Suppressed`. |
-|  `childNodeIds` | Contains an array of child node IDs. |
-| `visual` | Contains the visual position of a node on the health models canvas. |
-
-### Example definition for an `AggregationNode` entity
-
-```bicep
-{
-    nodeType: 'AggregationNode'
-    nodeId: guid('Frontend API')
-    name: 'Frontend API'
-    childNodeIds: [
-        'childId1'
-        'childId2'
-    ]
-    queries: []
-    visual: {
-        x: -285
-        y: 270
-    }
-    nodeKind: 'SystemComponent'
-}
-```
-
-### Example definition for an `AzureResourceNode` entity
-
-```bicep
-{
-    nodeType: 'AzureResourceNode'
-    azureResourceId: aksCluster.id // reference to the Azure Resource via its Resource Id
-    nodeId: guid(aksCluster.id) // needs to be a string unique within the health model
-    name: 'AKS Cluster'
-    credentialId: 'SystemAssigned'
-    childNodeIds: []
-    queries: [
-        {
-        queryType: 'ResourceMetricsQuery'
-        metricName: 'node_cpu_usage_percentage'
-        metricNamespace: 'microsoft.containerservice/managedclusters'
-        aggregationType: 'Average'
-        queryId: guid(aksCluster.id, 'node_cpu_usage_percentage')
-        degradedThreshold: '75'
-        degradedOperator: 'GreaterThan'
-        unhealthyThreshold: '85'
-        unhealthyOperator: 'GreaterThan'
-        timeGrain: 'PT30M'
-        dataUnit: 'Percent'
-        enabledState: 'Enabled'
-        }
-    ]
-}
-```
-
-> [!NOTE]
-> The use of `guid()` for `nodeId` and `queryId` is not mandatory and the use is only an example.
 
 ## [Terraform](#tab/terraform)
 
