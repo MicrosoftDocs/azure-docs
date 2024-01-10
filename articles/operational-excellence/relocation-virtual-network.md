@@ -141,7 +141,7 @@ Below are some features and limitations of using the migration strategy.
 
 ### How to migrate using Resource Mover
 
-To migrate your virtual network across regions with Resource Mover, follow the steps in [move Azure Virtual Network across Azure regions](/azure/resource-mover/overview#move-across-regions).
+To relocate your virtual network across regions with Resource Mover, follow the steps in [move Azure Virtual Network across Azure regions](/azure/resource-mover/overview#move-across-regions).
 
 >[!IMPORTANT]
 >During the Resource Mover validation step, you may see a list of dependencies that can also be prepared to move with the virtual network. It's highly recommended that you move dependent resources separately by detaching them from the move collection.
