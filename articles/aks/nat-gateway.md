@@ -28,6 +28,9 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
 * If no zone is specified when creating a managed NAT gateway, than NAT gateway is deployed to "no zone" by default. No zone NAT gateway resources are deployed to a single availability zone for you by Azure. For more information on non-zonal deployment model, see [non-zonal NAT gateway](/azure/nat-gateway/nat-availability-zones#non-zonal).
 * A managed NAT gateway resource can't be used across multiple availability zones.
 
+> [!IMPORTANT]
+> If no value for the outbound IP address is specified, the default value is one.
+
     ```azurecli-interactive
     az aks create \
         --resource-group myResourceGroup \
@@ -53,9 +56,7 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
 
 This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-kubenet] or [Azure CNI][byo-vnet-azure-cni]) and that the NAT gateway is preconfigured on the subnet. The following commands create the required resources for this scenario.
 
-> [!IMPORTANT]
-> Zonal configuration for your NAT gateway resource can be done with managed or user-assigned NAT gateway resources.
-> If no value for the outbound IP address is specified, the default value is one.
+
 
 1. Create a resource group using the [`az group create`][az-group-create] command.
 
@@ -95,7 +96,7 @@ This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-ku
         --public-ip-addresses myNatGatewayPip
     ```
    > [!Important]
-   > A single NAT gateway resource cannot be used across multiple availability zones. To ensure zone-resiliency, it is recommended to deploy a NAT gateway resource to each availability zone and assign to subnets containing AKS clusters in each zone. For more information on this deployment model, see [NAT gateway for each zone](/azure/nat-gateway/nat-availability-zones#zonal-nat-gateway-resource-for-each-zone-in-a-region-to-create-zone-resiliency).
+   > A single NAT gateway resource can't be used across multiple availability zones. To ensure zone-resiliency, it is recommended to deploy a NAT gateway resource to each availability zone and assign to subnets containing AKS clusters in each zone. For more information on this deployment model, see [NAT gateway for each zone](/azure/nat-gateway/nat-availability-zones#zonal-nat-gateway-resource-for-each-zone-in-a-region-to-create-zone-resiliency).
    > If no zone is configured for NAT gateway, the default zone placement is "no zone", in which Azure places NAT gateway into a zone for you.
 
 5. Create a virtual network using the [`az network vnet create`][az-network-vnet-create] command.
