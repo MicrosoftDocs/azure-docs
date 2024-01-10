@@ -42,7 +42,7 @@ landingContent:
             url: quickstart-create-dev-box.md
       - linkListType: deploy
         links:
-          - text: Deploy Microsoft Dev Box
+          - text: Microsoft Dev Box deployment guide
             url: concept-dev-box-deployment-guide.md
 
   # Card
