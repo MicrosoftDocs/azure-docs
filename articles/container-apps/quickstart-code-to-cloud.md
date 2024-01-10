@@ -214,6 +214,11 @@ Extract the download and navigate into the `containerapps-albumapi-javascript-bu
 
 Extract the download and navigate into the `containerapps-albumapi-python-buildpack/src` directory and proceed to the next step.
 
+
+# [Go](#tab/go)
+
+Azure Container Apps cloud build doesn't support Buildpacks for Go.
+
 ::: zone-end
 
 ---

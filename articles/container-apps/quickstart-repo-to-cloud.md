@@ -16,7 +16,7 @@ zone_pivot_groups: container-apps-code-to-cloud-segmemts
 
 # Quickstart: Build and deploy your container app from a code repository in Azure Container Apps
 
-This article demonstrates how to build and deploy a microservice to Azure Container Apps from a Github repository using the programming language of your choice. In this quickstart, you create a sample microservice, which represents a backend web API service that returns a static collection of music albums.
+This article demonstrates how to build and deploy a microservice to Azure Container Apps from a GitHub repository using the programming language of your choice. In this quickstart, you create a sample microservice, which represents a backend web API service that returns a static collection of music albums.
 
 This sample microservice is available as both a containerized (source contains a Dockerfile) and uncontainerized version (source contains no Dockerfile). We suggest you choose the variant that aligns most closely with your own source code. Choosing the uncontainerized path is easier for you if you're new to containers.
 
@@ -170,7 +170,7 @@ $ACR_NAME="acaalbums"+$GITHUB_USERNAME
 ## Prepare the GitHub repository
 
 In a browser window, go to the GitHub repository for your preferred language and fork the repository.
-
+1
 
 # [C#](#tab/csharp)
 
@@ -223,7 +223,7 @@ Build and deploy your first container app from your forked GitHub repository wit
 ::: zone-end
 - Create a GitHub Action workflow to build and deploy the container app
 
-Once new code it pushed to the code repository the Github Action will:
+Once new code it pushed to the code repository the GitHub Action will:
 
 ::: zone pivot="with-dockerfile"
 - Build the container image and push it to the Azure Container Registry
