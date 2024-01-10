@@ -112,8 +112,11 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 
     ```output
     NAME                                STATUS   ROLES   AGE     VERSION
-    aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m     v1.16.7
-    aksnpwin987654                      Ready    agent   108s    v1.16.7
+    aks-agentpool-41946322-vmss000001   Ready    agent   7m51s   v1.27.7
+    aks-agentpool-41946322-vmss000002   Ready    agent   7m5s    v1.27.7
+    aks-npwin-41946322-vmss000000       Ready    agent   7m43s   v1.27.7
+    aks-userpool-41946322-vmss000001    Ready    agent   7m47s   v1.27.7
+    aks-userpool-41946322-vmss000002    Ready    agent   6m57s   v1.27.7
     ```
 
 ---
@@ -171,7 +174,8 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-1. If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+    If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```console
