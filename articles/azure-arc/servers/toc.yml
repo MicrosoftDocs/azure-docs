@@ -80,9 +80,9 @@
        - name: Connect machines from Automation Update Management
          href: onboard-update-management-machines.md
        - name: Connect VMware vCenter managed machines
-         href: ../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md?toc=/azure/azure-arc/servers/toc.json
+         href: ../vmware-vsphere/enable-guest-management-at-scale.md?toc=/azure/azure-arc/servers/toc.json
        - name: Connect SCVMM managed machines
-         href: ../system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc.md?toc=/azure/azure-arc/servers/toc.json
+         href: ../system-center-virtual-machine-manager/enable-guest-management-at-scale.md?toc=/azure/azure-arc/servers/toc.json
   - name: Migrate
     items:
     - name: Migrate machine to Azure
