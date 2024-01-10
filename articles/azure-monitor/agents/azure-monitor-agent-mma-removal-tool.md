@@ -41,7 +41,9 @@ You do all the setup steps in a [Visual Studio Code](https://code.visualstudio.c
   ```
 
 ## Set up The tool
+
 ### [Single Tenant](#tab/Single)
+
 You perform set up in two steps: 
 1. Go to deployment folder and load consolidated setup script. You must have **Owner** access on the subscription. 
 
@@ -96,6 +98,7 @@ Parameters
 |AzureEnvironmentName| Azure environment were solution is to be installed: AzureCloud, AzureGovernmentCloud. Default value is 'AzureCloud'| No|
 
 ### [MultiTenant](#tab/MultiTenant)
+
 In this section, we walk you through the steps for setting up multitenant AzTS MMA Removal Utility. This set up may take up to 30 minutes and has 9 steps
 
 1. Load setup script
@@ -307,7 +310,9 @@ Scope configuration file is a CSV file with a header row and three columns
 | Subscription | /subscriptions/71bdd12b-ae1d-499a-a4ea-e32d4c1d9c35 | e60f12c0-e1dc-4be1-8d86-e979a5527830 |
 
 ## Run The Tool
+
 ### [Discovery](#tab/Discovery)
+
 ``` PowerShell
 Update-AzTSMMARemovalUtilityDiscoveryTrigger ` 
     -SubscriptionId <HostingSubId> `
@@ -328,6 +333,7 @@ Parameters
 |StartExtensionDiscoveryImmediatley | Run extensions discovery immediately | Yes (Mutually exclusive with param '-StartExtensionDiscoveryAfterMinutes')|
 
 ### [Removal](#tab/Removal)
+
 By default, the removal phase is disabled. We recommend that you run it after validating the inventory of machines from the discovery step.
 ``` PowerShell
 Update-AzTSMMARemovalUtilityRemovalTrigger ` 
