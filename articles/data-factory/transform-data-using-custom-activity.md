@@ -356,7 +356,7 @@ See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-au
 
 If the pool is using the default [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity. If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways:
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

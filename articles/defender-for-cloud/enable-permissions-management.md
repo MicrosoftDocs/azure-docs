@@ -26,7 +26,7 @@ You can find the new recommendations in the **Manage Access and Permissions** Se
 | **Aspect**                                      | **Details**                                                  |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | Required / preferred environmental requirements | Defender CSPM  <br> These capabilities are included in the Defender CSPM plan and don't require an additional license.                                        |
-| Required roles and permissions                  | **AWS  \ GCP** <br>Security Admin <br>Application.ReadWrite.All<br><br>**Azure** <br>Security Admin <br>Microsoft.Authorization/roleAssignments/write |
+| Required roles and permissions                  | **AWS / GCP** <br>Security Admin <br>Application.ReadWrite.All<br><br>**Azure** <br>Security Admin <br>Microsoft.Authorization/roleAssignments/write |
 | Clouds                                          | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure, AWS  and GCP commercial clouds      <br>   :::image type="icon" source="./media/icons/no-icon.png"::: Nation/Sovereign (US Gov, China Gov, Other  Gov) |
 
 ## Enable Permissions Management for Azure
@@ -71,9 +71,9 @@ Follow these steps to [connect your AWS account to Defender for Cloud](quickstar
 
    :::image type="content" source="media/enable-permissions-management/enable-permissions-management-aws.png" alt-text="Screenshot of how to enable permissions management plan for AWS." lightbox="media/enable-permissions-management/enable-permissions-management-aws.png":::
 
-1. Select **Configure access**, and then choose the appropriate **Permissions** type. Choose the deployment method: **'AWS CloudFormation' \ 'Terraform' script**.
+1. Select **Configure access**, and then choose the appropriate **Permissions** type. Choose the deployment method: **'AWS CloudFormation' / 'Terraform' script**.
 1. The deployment template is autofilled with default role ARN names. You can customize the role names by selecting the hyperlink.
-1. Run the updated CFT \ terraform script on your AWS environment.
+1. Run the updated CFT / terraform script on your AWS environment.
 1. Select **Save**.
 1. After a few seconds, you'll notice that the new **AWS CSPM (Preview)** standard is assigned on your security connector.
 
@@ -104,7 +104,7 @@ Follow these steps to [connect your GCP account](quickstart-onboard-gcp.md) to M
 1. Enable the Defender CSPM plan. If the plan is already enabled, select **Settings** and turn on the Permissions Management feature.
 
 1. Follow the wizard instructions to enable the plan with the new Permissions Management capabilities.
-1. Run the updated CFT \ terraform script on your GCP environment.
+1. Run the updated CFT / terraform script on your GCP environment.
 1. Select **Save**.
 1. After a few seconds, you'll notice that the new **GCP CSPM (Preview)** standard is assigned on your security connector.
 

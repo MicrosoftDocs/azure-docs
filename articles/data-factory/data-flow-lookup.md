@@ -98,7 +98,7 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
     broadcast: 'auto')~> LookupKeys
 ```
 
-## Next steps
+## Related content
 
 * The [join](data-flow-join.md) and [exists](data-flow-exists.md) transformations both take in multiple stream inputs
 * Use a [conditional split transformation](data-flow-conditional-split.md) with ```isMatch()``` to split rows on matching and non-matching values

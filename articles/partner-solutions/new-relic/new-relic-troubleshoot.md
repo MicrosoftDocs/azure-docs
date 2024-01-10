@@ -50,6 +50,10 @@ If your Azure subscription is suspended or deleted because of payment-related is
 
 New Relic manages the APIs for creating and managing resources, and for the storage and processing of customer telemetry data. The New Relic APIs might be on or outside Azure. If your Azure subscription and resource are working correctly but the New Relic portal shows problems with monitoring data, contact New Relic support.
 
+### Diagnostic settings are active even after disabling the New Relic resource or applying necessary tag rules
+
+If logs are being emitted and diagnostic settings remain active on monitored resources even after the New Relic resource is disabled or tag rules have been modified to exclude certain resources, it's likely that there's a delete lock applied to the resource(s) or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve this, remove the delete lock from the resource or the resource group. If the lock is removed after the New Relic resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
+
 ## Next steps
 
 - [Manage Azure Native New Relic Service](new-relic-how-to-manage.md)

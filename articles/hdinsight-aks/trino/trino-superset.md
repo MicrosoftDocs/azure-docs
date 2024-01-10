@@ -55,7 +55,6 @@ Summary of the steps covered in this article:
 
 5. Install [Helm](https://helm.sh/docs/intro/install/).
 
-
 ## Create kubernetes cluster for Apache Superset
 
 This step creates the Azure Kubernetes Service (AKS) cluster where you can install Apache Superset. You need to bind the managed identity you've associated to the cluster to allow the Superset to authenticate with Trino cluster with that identity.
@@ -177,7 +176,7 @@ This step creates the Azure Kubernetes Service (AKS) cluster where you can insta
        |hostname|mytrinocluster.00000000000000000000000000<br>.eastus.hdinsightaks.net|The hostname of your Trino cluster. <br> You can get this information from "Overview" page of your cluster in the Azure portal.|
        |catalog|/tpch|After the slash, is the default catalog name. <br> You need to change this catalog to the catalog that has the data you want to visualize.|
 
-       trino://<mark>$USER</mark>@<mark>$TRINO_CLUSTER_HOST_NAME</mark>.hdinsightaks.net:443/<mark>$DEFAULT_CATALOG</mark>
+       `trino://$USER@$TRINO_CLUSTER_HOST_NAME.hdinsightaks.net:443/$DEFAULT_CATALOG`
     
        Example: `trino://trino@mytrinocluster.00000000000000000000000000.westus3.hdinsightaks.net:443/tpch`
 

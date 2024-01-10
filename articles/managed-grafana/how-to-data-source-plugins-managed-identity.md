@@ -1,11 +1,11 @@
 ---
 title: How to manage data sources for Azure Managed Grafana
-description: In this how-to guide, discover how you can configure data sources for Azure Managed Grafana
+description: In this how-to guide, discover how you can add, configure and remove data sources for Azure Managed Grafana.
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 12/08/2023
 ---
 
 # How to manage data sources in Azure Managed Grafana
@@ -14,13 +14,14 @@ In this guide, you learn about data sources supported in each Azure Managed Gran
 
 ## Prerequisites
 
-[An Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
+* [An Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
+* Required Grafana role: Grafana Editor.
 
 ## Supported Grafana data sources
 
 By design, Grafana can be configured with multiple *data sources*. A data source is an externalized storage backend that holds telemetry information.
 
-### Grafana core data sources
+### Grafana built-in core data sources
 
 Azure Managed Grafana supports many popular data sources. The table below lists the Grafana core data sources that can be added to Azure Managed Grafana for each service tier.
 
@@ -47,7 +48,7 @@ Azure Managed Grafana supports many popular data sources. The table below lists 
 | [TestData](https://grafana.com/docs/grafana/latest/datasources/testdata/)                                                     | ✔        | ✔       |
 | [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)                                                         | -         | ✔       |
 
-### Data sources for Grafana Enterprise customers
+### Grafana Enterprise data sources
 
 Within the Standard service tier, users who have subscribed to the Grafana Enterprise option can also access the following data sources.
 
@@ -68,7 +69,7 @@ Within the Standard service tier, users who have subscribed to the Grafana Enter
 * [Splunk Infrastructure monitoring (SignalFx)](https://grafana.com/grafana/plugins/grafana-splunk-monitoring-datasource)
 * [Wavefront](https://grafana.com/grafana/plugins/grafana-wavefront-datasource)
 
-### Additional data sources
+### Other data sources
 
 More data sources can be added from the [Plugin management (preview) feature](how-to-manage-plugins.md).
 
@@ -76,31 +77,19 @@ For more information about data sources, go to [Data sources](https://grafana.co
 
 ## Add a data source
 
-To add a data source to Azure Managed Grafana, follow the steps below using the Azure portal or the Azure CLI.
+To add a data source to Azure Managed Grafana, follow the steps below.
 
 ### [Portal](#tab/azure-portal)
 
-### Grafana core data sources
+1. [Core Grafana plugins](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) are installed in your workspace by default. If you want to use another type of data source, you first need to install its plugin. To install a new data source plugin, follow the instructions available at [Add a plugin](how-to-manage-plugins.md#add-a-plugin).
+1. Add the data source to your instance.
 
-To add a [Grafana core data source](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) with the Azure portal:
+   1. Open your Azure Managed Grafana workspace in the Azure portal and go to **Overview** > **Endpoint** to open the Grafana UI.
+   1. In the Grafana portal, deploy the menu on the left and select **Connections** > **Data sources** > **Add new data source**.
+   1. Select a data source from the list. The data source is added to your instance.
+   1. Fill out the required fields and select **Save & test** to update the data source configuration and make sure it works.
 
-1. Open your Azure Managed Grafana instance in the Azure portal.
-1. Select **Overview** from the left menu, then open the **Endpoint** URL.
-1. In the Grafana portal, deploy the menu on the left and select **Connections** > **Connect data**.
-1. Select a data source from the list, and add it to your instance by selecting **Create** or **Add** in the top right hand corner.
-1. Fill out the form and select **Save and test** to test and update the data source configuration.
-
-   :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page.":::
-
-### Other data sources
-
-1. To add a data source that isn't part of the Grafana built-in core data sources, start by [installing the corresponding data source plugin](how-to-manage-plugins.md#add-a-plugin).
-
-1. Then add the datasource from the Grafana portal.
-
-    1. In the Grafana portal, go to **Connections** > **Connect data**.
-    1. Select a data source from the list, and add the data source to your instance by selecting **Create** in the top right hand corner.
-    1. Fill out the form and select **Save and test** to test and update the data source configuration.
+   :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page in Grafana.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -127,8 +116,6 @@ az grafana data-source create --name <instance-name> --definition '{
 }'
 ```
 
-Other data sources can be added [from the Azure portal](#other-data-sources).
-
 ---
 
 > [!TIP]
@@ -136,9 +123,9 @@ Other data sources can be added [from the Azure portal](#other-data-sources).
 
 ## Configure a data source
 
-The content below, shows how to configure some of the most popular data sources in Azure Managed Grafana: Azure Monitor and Azure Data Explorer. A similar process can be used to configure other types of data sources. For more information about a specific data source, refer to [Grafana's documentation](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources).
+The content below shows how to configure some of the most popular data sources in Azure Managed Grafana: Azure Monitor and Azure Data Explorer. A similar process can be used to configure other types of data sources. For more information about a specific data source, refer to [Grafana's documentation](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources).
 
-### Azure Monitor configuration
+### Azure Monitor
 
 The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow the steps below in the Grafana portal of your Azure Managed Grafana instance or in the Azure CLI.
 
@@ -198,51 +185,9 @@ az grafana data-source update --data-source 'Azure Monitor' --name <instance-nam
 > [!NOTE]
 > User-assigned managed identity isn't currently supported.
 
-### Azure Data Explorer configuration
+### Azure Data Explorer
 
-Azure Managed Grafana can also access data sources using a service principal set up in Microsoft Entra ID.
-
-### [Portal](#tab/azure-portal)
-
-1. From the left menu, select **Configuration** > **Data sources**.
-
-   :::image type="content" source="media/data-sources/configuration.png" alt-text="Screenshot of the Add data sources page.":::
-
-1. Add the **Azure Data Explorer Datasource** data source to your Managed Grafana instance.
-1. In the **Settings** tab, fill out the form under **Connection Details**,  and optionally also edit the **Query Optimizations**, **Database schema settings**, and **Tracking** sections.
-
-   :::image type="content" source="media/data-sources/data-explorer-connection-settings.jpg" alt-text="Screenshot of the Connection details section for Data Explorer in data sources.":::
-
-   To complete this process, you need to have a Microsoft Entra service principal and connect Microsoft Entra ID with an Azure Data Explorer User. For more information, go to [Configuring the datasource in Grafana](https://github.com/grafana/azure-data-explorer-datasource#configuring-the-datasource-in-grafana).
-
-1. Select **Save & test** to validate the connection. "Success" is displayed on screen and confirms that Azure Managed Grafana is able to fetch the data source through the provided connection details, using the service principal in Microsoft Entra ID.
-
-### [Azure CLI](#tab/azure-cli)
-
-1. Run the [az grafana data-source create](/cli/azure/grafana/data-source#az-grafana-data-source-create) command to create the Azure Data Explorer data source.
-
-   For example:
-
-   ```azurecli-interactive
-   az grafana data-source create --name <grafana-instance-name> --definition '{
-   "access": "proxy", 
-   "jsonData": { 
-      "azureCloud": "azuremonitor", 
-      "clientId": "<client-ID>",
-      "clusterUrl": "<cluster URL>",
-      "dataConsistency": "strongconsistency", 
-      "defaultDatabase": "<database-name>",
-      "queryTimeout": "120s",
-      "tenantId": "<tenant-ID>"
-   },
-   "name": "<data-source-name>",
-   "type": "grafana-azure-data-explorer-datasource",
-   }'      
-   ```
-
-1. Run the [az grafana data-source update](/cli/azure/grafana/data-source#az-grafana-data-source-update) command to update the configuration of the Azure Data Explorer data source.
-
----
+To learn how to configure Azure Data Explorer, go to [Configure Azure Data Explorer](how-to-connect-azure-data-explorer.md).
 
 ## Remove a data source
 

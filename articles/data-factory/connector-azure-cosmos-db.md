@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse, ignite-2022
-ms.date: 03/02/2023
+ms.date: 01/05/2024
 ---
 
 # Copy and transform data in Azure Cosmos DB for NoSQL by using Azure Data Factory
@@ -533,6 +533,6 @@ In addition, Azure Cosmos DB analytical store now supports Change Data Capture (
 
 
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

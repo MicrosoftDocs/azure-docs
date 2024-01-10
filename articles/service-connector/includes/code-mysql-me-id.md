@@ -280,10 +280,13 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    ```
 
 ### [PHP](#tab/php)
-For other languages, you can use the connection string and username that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
+For other languages, use the connection string and username that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
 
 ### [Ruby](#tab/ruby)
-For other languages, you can use the connection string and username that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
+For other languages, use the connection string and username that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
+
+### [Other](#tab/none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
 
 ---
 

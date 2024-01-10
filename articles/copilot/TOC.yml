@@ -26,6 +26,8 @@
     href: work-smarter-edge.md
   - name: Secure and protect storage accounts
     href: improve-storage-accounts.md
+  - name: Troubleshoot deployed web apps
+    href: troubleshoot-app-service.md
   - name: Generate Azure CLI scripts
     href: generate-cli-scripts.md
   - name: Author API Management policies

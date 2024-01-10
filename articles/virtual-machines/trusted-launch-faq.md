@@ -3,7 +3,7 @@ title: FAQ for Trusted Launch
 description: Get answers to the most frequently asked questions about Azure Trusted Launch virtual machines and virtual machine scale sets.
 author: AjKundnani
 ms.author: ajkundna
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: faq
@@ -397,4 +397,3 @@ Below is the package certificate, compromised of. p7b (Full Certificate Authorit
 [!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/root-certificate-authority.md)]
 
 [!INCLUDE [cert](../virtual-machines/includes/trusted-launch-tpm-certs/intermediate-ca.md)]
-

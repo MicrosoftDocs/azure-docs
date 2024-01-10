@@ -87,6 +87,6 @@ Learn more about Durable Functions in [this article](../azure-functions/durable/
 
 You can find a sample that uses an Azure Function to extract the content of a tar file [here](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
-## Next steps
+## Related content
 
 Learn more about supported activities in [Pipelines and activities](concepts-pipelines-activities.md).

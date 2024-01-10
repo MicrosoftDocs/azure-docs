@@ -85,7 +85,7 @@ To add a CSV file to your load test by using the Azure portal:
 
 # [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
-If you run a load test within your CI/CD workflow, you can add a CSV file to the test configuration YAML file. For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-identify-performance-regression-with-cicd.md).
+If you run a load test within your CI/CD workflow, you can add a CSV file to the test configuration YAML file. For more information about running a load test in a CI/CD workflow, see [how to add load testing to CI/CD](./how-to-configure-load-test-cicd.md).
 
 To add a CSV file to your load test:
 

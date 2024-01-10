@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/29/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
@@ -49,11 +49,11 @@ Once you know the permissions that delegate needs, you use the following steps t
 
 1. On the **Roles** tab, select the **Privileged administrator roles** tab.
 
-1. Select the **Role Based Access Control Administrator (Preview)** role.
+1. Select the **Role Based Access Control Administrator** role.
 
     The **Conditions** tab appears.
 
-    You can select any role that includes the `Microsoft.Authorization/roleAssignments/write` or `Microsoft.Authorization/roleAssignments/delete` actions, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator), but [Role Based Access Control Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview) has fewer permissions.
+    You can select any role that includes the `Microsoft.Authorization/roleAssignments/write` or `Microsoft.Authorization/roleAssignments/delete` actions, such as [User Access Administrator](built-in-roles.md#user-access-administrator), but [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) has fewer permissions.
 
 1. On the **Members** tab, find and select the delegate.
 

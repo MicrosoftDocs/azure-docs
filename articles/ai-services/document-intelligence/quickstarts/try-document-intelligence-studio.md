@@ -22,8 +22,6 @@ monikerRange: '>=doc-intel-3.0.0'
 
 [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service in your applications. You can get started by exploring the pretrained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and other quickstarts.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE56n49]
-
 ## Prerequisites for new users
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
@@ -110,7 +108,7 @@ For custom projects, the following role assignments are required for different s
 
 1. Start by creating a new CORS entry in the Blob service.
 
-1. Set the **Allowed origins** to `https://formrecognizer.appliedai.azure.com`.
+1. Set the **Allowed origins** to `https://documentintelligence.ai.azure.com`.
 
    :::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 
