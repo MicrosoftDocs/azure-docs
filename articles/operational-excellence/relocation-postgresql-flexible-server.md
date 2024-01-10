@@ -97,7 +97,6 @@ Redeployment for Azure Database for PostgreSQL is based on logical backup and re
     ```sql
     select *
     from pg_catalog.pg_roles
-    order by rolname;
 
 1. On the compute resource provisioned for the migration, install the PostgreSQL client tools for the PostgreSQL version to be migrated. The following example uses PostgreSQL version 13 on an Azure VM that runs Ubuntu 20.04 LTS:
 
