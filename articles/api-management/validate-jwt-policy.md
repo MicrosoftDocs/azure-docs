@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 10/19/2023
+ms.date: 01/08/2024
 ms.author: danlep
 ---
 
@@ -83,7 +83,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 | Element             | Description                                                                                                                                                                                                                                                                                                                                           | Required |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| openid-config       |Add one or more of these elements to specify a compliant OpenID configuration endpoint URL from which signing keys and issuer can be obtained.<br/><br/>Configuration including the JSON Web Key Set (JWKS) is pulled from the endpoint every 1 hour and cached. If the token being validated references a validation key (using `kid` claim) that is missing in cached configuration, or if retrieval fails, API Management pulls from the endpoint at most once per 5 min. These intervals are subject to change without notice.                                                                                                                                              <br/><br/>The response should be according to specs as defined at URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. <br/><br/>For Microsoft Entra ID use the OpenID Connect [metadata endpoint](../active-directory/develop/v2-protocols-oidc.md#find-your-apps-openid-configuration-document-uri) configured in your app registration such as:<br/>- (v2) `https://login.microsoftonline.com/{tenant-name}/v2.0/.well-known/openid-configuration`<br/> - (v2 multitenant) ` https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration`<br/>- (v1) `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` <br/><br/> substituting your directory tenant name or ID, for example `contoso.onmicrosoft.com`, for `{tenant-name}`.                                                                                                                                                                                            | No       |
+| openid-config       |Add one or more of these elements to specify a compliant OpenID configuration endpoint URL from which signing keys and issuer can be obtained.<br/><br/>Configuration including the JSON Web Key Set (JWKS) is pulled from the endpoint every 1 hour and cached. If the token being validated references a validation key (using `kid` claim) that is missing in cached configuration, or if retrieval fails, API Management pulls from the endpoint at most once per 5 min. These intervals are subject to change without notice.                                                                                                                                              <br/><br/>The response should be according to specs as defined at URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. <br/><br/>For Microsoft Entra ID use the OpenID Connect [metadata endpoint](../active-directory/develop/v2-protocols-oidc.md#find-your-apps-openid-configuration-document-uri) configured in your app registration such as:<br/>- v2 `https://login.microsoftonline.com/{tenant-name}/v2.0/.well-known/openid-configuration`<br/>- v2 Multi-Tenant ` https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration`<br/>- v1 `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` <br/>- Customer tenant (preview) `https://{tenant-name}.ciamlogin.com/{tenant-id}/v2.0/.well-known/openid-configuration` <br/><br/> Substituting your directory tenant name or ID, for example `contoso.onmicrosoft.com`, for `{tenant-name}`.                                                                                                                                                                                            | No       |
 | issuer-signing-keys | A list of Base64-encoded security keys, in [`key`](#key-attributes) subelements, used to validate signed tokens. If multiple security keys are present, then each key is tried until either all are exhausted (in which case validation fails) or one succeeds (useful for token rollover). <br/><br/>Optionally specify a key by using the `id` attribute to match a `kid` claim. To validate an RS256 signed token, optionally specify the public key using a `certificate-id` attribute with value the identifier of a certificate uploaded to API Management, or the RSA modulus `n` and exponent `e` pair of the RS256 signing key-in Base64url-encoded format.               | No       |
 | decryption-keys     | A list of Base64-encoded keys, in [`key`](#key-attributes) subelements, used to decrypt the tokens. If multiple security keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or a key succeeds.<br/><br/>Optionally specify a key by using the `id` attribute to match a `kid` claim. To decrypt an RS256 signed token, optionally specify the public key using a `certificate-id` attribute with value the identifier of a certificate uploaded to API Management.         | No       |
 | audiences           | A list of acceptable audience claims, in `audience` subelements, that can be present on the token. If multiple audience values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. At least one audience must be specified.                                                                     | No       |
@@ -159,7 +159,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 <a name='azure-active-directory-token-validation'></a>
 
-### Microsoft Entra token validation
+### Microsoft Entra ID single tenant token validation
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -172,6 +172,19 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
             <value>insert claim here</value>
         </claim>
     </required-claims>
+</validate-jwt>
+```
+
+### Microsoft Entra ID customer tenant token validation
+
+```xml
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
+	<openid-config url="https://<tenant-name>.ciamlogin.com/<tenant-id>/v2.0/.well-known/openid-configuration" />
+	<required-claims>
+		<claim name="azp" match="all">
+			<value>insert claim here</value>
+		</claim>
+	</required-claims>
 </validate-jwt>
 ```
 
@@ -190,6 +203,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
     </required-claims>
 </validate-jwt>
 ```
+
 
 ### Authorize access to operations based on token claims
 
