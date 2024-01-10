@@ -6600,6 +6600,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/batch/budget.md",
+            "redirect_url": "/azure/batch/plan-to-manage-costs",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/best-practices-network-security.md",
             "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
             "redirect_document_id": false

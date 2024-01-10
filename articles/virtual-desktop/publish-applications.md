@@ -1,5 +1,5 @@
 ---
-title: Publish applications with RemoteApp in Azure Virtual Desktop portal - Azure
+title: Publish applications with RemoteApp in Azure Virtual Desktop - Azure
 description: How to publish applications with RemoteApp in Azure Virtual Desktop using the Azure portal and Azure PowerShell.
 author: dknappettmsft
 ms.topic: how-to
