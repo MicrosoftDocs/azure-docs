@@ -89,7 +89,7 @@ Redeployment for Azure Database for PostgreSQL is based on logical backup and re
 1. Export your PostgreSQL Server's existing configuration into an [ARM template](/azure/templates/microsoft.dbforpostgresql/flexibleservers?pivots=deployment-language-arm-template). 
 1. Adjust template parameters to match the destination region.
   >[!IMPORTANT]
-  >The target server must be different from source server name. You must reconfigure clients to point to the new server.
+  >The target server name must be different from source server name. You must reconfigure clients to point to the new server.
 1. Redeploy the template to the new region. For an example of how to use an ARM template to create an Azure Database for PostgreSQL, see [Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-arm-template?tabs=portal%2Cazure-portal).
   
 1. (Optional) If you created additional roles in the source server, create them in the target server. To get a list of existing roles,  use the following query:
