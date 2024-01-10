@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/09/2024
+ms.date: 01/10/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -28,12 +28,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Four new recommendations for Azure Stack HCI resource type](#four-new-recommendations-for-azure-stack-hci-resource-type) | January 9, 2024 | January 2024 |
 | [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
 | [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
-
-| [Four new recommendations for Azure Stack HCI resource type](#four-new-recommendations-for-azure-stack-hci-resource-type) | January 9, 2024 | January 2024 |
-
-| [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
-| [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
-
 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
 | [Deprecation and severity changes to security alerts](#deprecation-and-severity-changes-to-security-alerts) | December 27, 2023 | January 2024 |
@@ -47,23 +41,20 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
-
 ## Four new recommendations for Azure Stack HCI resource type
 
-**Announcement date: January 9, 2024**
+**Announcement date: January 10, 2024**
 
-**Estimated date for change: January 2024**
+**Estimated date for change: February 2024**
 
 Azure Stack HCI is set to be a new resource type that can be managed through Microsoft Defender for Cloud. We're adding 4 recommendations that are specific to the HCI resource type:
 
 | Recommendation | Description  | Severity |
 |----------|----------|----------|
-| Azure Stack HCI servers should meet Secured-core requirements | Ensure that all Azure Stack HCI servers meet the Secured-core requirements. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | Low |
-| Enforce consistent application control policies on Azure Stack HCI servers | At a minimum, apply the Microsoft WDAC base policy in enforced mode on all Azure Stack HCI servers. Applied Windows Defender Application Control (WDAC) application control policies must be consistent across servers in the same cluster. | High |
-| Encrypt volumes on Azure Stack HCI systems | Use BitLocker to encrypt the OS and data volumes on Azure Stack HCI systems | High | 
-|  Protect host and VM networking on Azure Stack HCI systems | Protect data on the Azure Stack HCI host’s network and on virtual machine network connections. | Low |
-
-Learn more about how to use [Defender for App Service to protect your Azure App Service web apps and APIs](defender-for-app-service-introduction.md).
+| Azure Stack HCI servers should meet secured-core requirements | Ensure that all Azure Stack HCI servers meet the secured-core requirements. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | Low |
+| Azure Stack HCI servers should have consistently enforced application control policies | At a minimum, apply the Microsoft WDAC base policy in enforced mode on all Azure Stack HCI servers. Applied Windows Defender Application Control (WDAC) application control policies must be consistent across servers in the same cluster. | High |
+| Azure Stack HCI systems should have encrypted volumes | Use BitLocker to encrypt the OS and data volumes on Azure Stack HCI systems | High |
+| Host and VM networking should be protected on Azure Stack HCI systems | Protect data on the Azure Stack HCI host’s network and on virtual machine network connections. | Low |
 
 ## Defender for Servers built-in vulnerability assessment (Qualys) retirement path
 
@@ -90,7 +81,6 @@ For more information about our decision to unify our vulnerability assessment of
 For more information about transitioning to our new container vulnerability assessment offering powered by Microsoft Defender Vulnerability Management, see [Transition from Qualys to Microsoft Defender Vulnerability Management](transition-to-defender-vulnerability-management.md).
 
 For common questions about the transition to Microsoft Defender Vulnerability Management, see [Common questions about the Microsoft Defender Vulnerability Management solution](common-questions-microsoft-defender-vulnerability-management.md).
-
 
 ## New version of Defender Agent for Defender for Containers
 
