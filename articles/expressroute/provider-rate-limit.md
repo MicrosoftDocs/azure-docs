@@ -1,7 +1,7 @@
 ---
-title: About rating limiting for ExpressRoute circuits with service provider ports
+title: About rating limiting for ExpressRoute circuits over service provider ports
 titleSuffix: Azure ExpressRoute
-description: This document discusses how rate limiting works for ExpressRoute circuits created with service provider ports. You'll also learn how to monitor the throughput and traffic drop due to rate limiting.
+description: This document discusses how rate limiting works for ExpressRoute circuits over service provider ports. You'll also learn how to monitor the throughput and traffic drop due to rate limiting.
 services: expressroute
 author: duongau
 ms.service: expressroute
@@ -10,9 +10,9 @@ ms.date: 01/10/2024
 ms.author: duau
 ---
 
-# About rating limiting for ExpressRoute circuits with service provider ports
+# About rating limiting for ExpressRoute circuits over service provider ports
 
-This article discusses how rate limiting works for ExpressRoute circuits created with service provider ports. You'll also learn how to monitor the throughput and traffic drop due to rate limiting.
+This article discusses how rate limiting works for ExpressRoute circuits created over service provider ports. You'll also learn how to monitor the throughput and traffic drop due to rate limiting.
 
 ## How does rate limiting work over an ExpressRoute circuit?
 
