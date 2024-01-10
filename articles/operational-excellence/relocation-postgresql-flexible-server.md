@@ -17,7 +17,9 @@ ms.custom:
 
 # Relocation guidance for Azure Database for PostgreSQL
 
-This article covers relocation guidance for Azure Database for PostgreSQL, Single Server and Flexible Servers across geographies, where region pairs aren't available for replication and geo-restore.  For Azure Cosmos DB for PostgreSQL (formerly called Azure Database for PostgreSQL - Hyperscale (Citus)) [cross region replication is the only available option to relocate it between regions](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/concepts-read-replicas).  
+This article covers relocation guidance for Azure Database for PostgreSQL, Single Server, and Flexible Servers across geographies, where region pairs aren't available for replication and geo-restore.  
+
+To learn how to relocate Azure Cosmos DB for PostgreSQL (formerly called Azure Database for PostgreSQL - Hyperscale (Citus)), see [Read replicas in Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/concepts-read-replicas).
 
 For an overview of the region pairs supported by native replication, see [cross-region replication](../postgresql/concepts-read-replicas.md#cross-region-replication).
 
@@ -28,7 +30,7 @@ The relocation process is based on [Azure region relocation architectural patter
 
 ## Relocation strategies
 
-To move Azure PostgreSQL database to a new region, you can choose between [redeployment](#redeployment-strategy) or [redeployment with data migration](#redeploy-with-data-migration) strategies. 
+To relocate Azure PostgreSQL database to a new region, you can choose between [redeployment](#redeployment-strategy) or [redeployment with data migration](#redeploy-with-data-migration) strategies. 
 
 >[!NOTE]
 >Azure Resource Mover doesn't support moving services used by the Azure Database for PostgreSQL. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
@@ -36,7 +38,6 @@ To move Azure PostgreSQL database to a new region, you can choose between [redep
 ## Redeployment strategy 
 
 Redeployment without data or configuration for Azure Database for PostgreSQL has minimal downtime due to its low complexity.
-
 
 **To redeploy your PostgreSQL server without configuration or data:**
 
@@ -65,6 +66,9 @@ Configuration includes, but is not limited to:
 - High availability 
 
 Redeployment for Azure Database for PostgreSQL is based on logical backup and restore and requires the use of native tools. As a result you can expect noticeable downtime during restoration.
+
+>[!TIP]
+>you can use Azure portal to move an Azure Database for PostgreSQL - Single Server. To learn how to perform replication for Single Server, see [Move an Azure Database for Azure Database for PostgreSQL - Single Server to another region by using the Azure portal](/azure/postgresql/single-server/how-to-move-regions-portal).
 
 ### Prerequisites
 
@@ -137,8 +141,6 @@ Redeployment for Azure Database for PostgreSQL is based on logical backup and re
         1. In `networkAcl` section, under `virtualNetworkRules`, add the rule for the target subnet.
         1. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to `False`, so that the IaC fails to deploy the database when the service endpoint isn’t configured in the target region. 
 
-
-
         ### Migration over public endpoint
         
         ![Migration over Public Endpoint](media/relocation/postgres/migration-over-public-endpoint.png)
@@ -147,31 +149,4 @@ Redeployment for Azure Database for PostgreSQL is based on logical backup and re
         
         ![Migration over Private Endpoint](media/relocation/postgres/migration-over-private-endpoint.png)
         
-        | Strategy                     | Advantages            | Disadvantages                                                  |
-        | ---------------------------- | --------------------- | -------------------------------------------------------------- |
-        | Redeploy                     | Low complexity        | Does not cover data migration.                                 |
-        | Redeploy with Data Migration | Covers data migration | High complexity, requires additional resources, long downtime. |
         
-        Considering the redeploy with data migration strategy,the workload consisting of
-        this service will have an implication of cold standby.
-        
-
-
-## Relocation for Azure Database for PostgreSQL - Hyperscale(Citus)
-
-Using cross-region replica, User/Customer would be able to create a read replica
-of their RW Hyperscale (Citus) server group in any of the supported regions.
-Once created, we can monitor replication – the feature uses asynchronous
-replication – and decide on the time for cut off (stop writes on the primary and
-wait for them to replicate to the replica or promote with data loss). Promotion
-is a simple operations in Azure portal.
-
-1. Create read Replicas in targeted region.
-2. Initiate the replication for data sync.
-3. Cutoff stop the writes on the primary and wait for sync to complete.
-4. Switch over workload to targeted region instance .
-5. Resource Cleanup.
-
-{{% alert title="Warning" color="warning" %}} Note:Cross-region read replicas -
-PostgreSQL - Hyperscale (Citus) server will support this feature later this
-calendar year 2022. {{% /alert %}}
