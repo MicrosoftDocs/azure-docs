@@ -8,9 +8,9 @@ ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: larryfr
-ms.author: deeikele
-author: deeikele
+ms.reviewer: deeikele
+ms.author: larryfr
+author: Blackmist
 ---
 
 # How to create and manage an Azure AI resource

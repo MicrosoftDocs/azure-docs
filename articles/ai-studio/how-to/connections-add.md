@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.reviewer: larryfr
-ms.author: eur
-author: eric-urban
+ms.author: larryfr
+author: Blackmist
 ---
 
 # How to add a new connection in Azure AI Studio

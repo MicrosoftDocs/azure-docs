@@ -8,9 +8,9 @@ ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: jhirono
+ms.author: larryfr
+author: Blackmist
 ---
 
 # How to configure a managed network for Azure AI

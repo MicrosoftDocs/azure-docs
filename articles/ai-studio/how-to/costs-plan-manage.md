@@ -8,9 +8,9 @@ ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
-ms.reviewer: larryfr
-ms.author: siarora
-author: SimranArora904 
+ms.reviewer: siarora
+ms.author: larryfr
+author: Blackmist 
 ---
 
 # Plan and manage costs for Azure AI Studio

@@ -8,9 +8,9 @@ ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
-ms.reviewer: larryfr
-ms.author: meyetman
-author: meyetman
+ms.reviewer: meyetman
+ms.author: larryfr
+author: Blackmist
 ---
 
 # Role-based access control in Azure AI Studio 

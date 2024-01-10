@@ -8,9 +8,9 @@ ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: sgilley
-ms.author: deeikele
-author: deeikele
+ms.reviewer: deeikele
+ms.author: sgilley
+author: sdgilley
 ---
 
 # How to create and manage compute instances in Azure AI Studio
