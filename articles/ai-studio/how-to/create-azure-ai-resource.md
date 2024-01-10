@@ -41,35 +41,35 @@ Follow these steps to create a new Azure AI resource in AI Studio.
 If your organization is using [Azure Policy](../../governance/policy/overview.md), setup a resource that meets your organization's requirements instead of using AI Studio for resource creation.
 
 1. From the Azure portal, search for `Azure AI Studio` and create a new resource by selecting **+ New Azure AI**
-1.    Fill in **Subscription**, **Resource group**, and **Region**. **Name** your new Azure AI resource.  
+1. Fill in **Subscription**, **Resource group**, and **Region**. **Name** your new Azure AI resource.  
     - For advanced settings, select **Next: Resources** to specify resources, networking, encryption, identity, and tags. 
     - Your subscription must have access to Azure AI to create this resource.
 
         :::image type="content" source="../media/how-to/resource-create-basics.png" alt-text="Screenshot of the option to set Azure AI resource basic information." lightbox="../media/how-to/resource-create-basics.png":::
 
-1.    Select an existing **Azure AI services** or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
+1. Select an existing **Azure AI services** or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
 
     :::image type="content" source="../media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI resource with the option to set resource information." lightbox="../media/how-to/resource-create-resources.png"::: 
 
-1.    Set up Network isolation. Read more on [network isolation](configure-managed-network.md).
+1. Set up Network isolation. Read more on [network isolation](configure-managed-network.md).
 
     :::image type="content" source="../media/how-to/resource-create-networking.png" alt-text="Screenshot of the Create an Azure AI resource with the option to set network isolation information." lightbox="../media/how-to/resource-create-networking.png":::  
 
-1.    Set up data encryption. You can either use **Microsoft-managed keys** or enable **Customer-managed keys**. 
+1. Set up data encryption. You can either use **Microsoft-managed keys** or enable **Customer-managed keys**. 
 
     :::image type="content" source="../media/how-to/resource-create-encryption.png" alt-text="Screenshot of the Create an Azure AI resource with the option to select your encryption type." lightbox="../media/how-to/resource-create-encryption.png":::
 
-1.    By default, **System assigned identity** is enabled, but you can switch to **User assigned identity** if existing storage, key vault, and container registry are selected in Resources.
+1. By default, **System assigned identity** is enabled, but you can switch to **User assigned identity** if existing storage, key vault, and container registry are selected in Resources.
 
     :::image type="content" source="../media/how-to/resource-create-identity.png" alt-text="Screenshot of the Create an Azure AI resource with the option to select a managed identity." lightbox="../media/how-to/resource-create-identity.png":::
     >[!Note]
     >If you select **User assigned identity**, your identity needs to have the `Cognitive Services Contributor` role in order to successfully create a new Azure AI resource.
     
-1.    Add tags.
+1. Add tags.
 
     :::image type="content" source="../media/how-to/resource-create-tags.png" alt-text="Screenshot of the Create an Azure AI resource with the option to add tags." lightbox="../media/how-to/resource-create-tags.png":::
 
-1.    Select **Review + create**
+1. Select **Review + create**
 
 
 ## Manage your Azure AI resource from the Azure portal
@@ -84,17 +84,17 @@ View your keys and endpoints for your Azure AI resource from the overview page w
 Manage role assignments from **Access control (IAM)** within the Azure portal. Learn more about Azure AI resource [role-based access control](../concepts/rbac-ai-studio.md).
 
 To add grant users permissions: 
-1.    Select **+ Add** to add users to your Azure AI resource
+1. Select **+ Add** to add users to your Azure AI resource
 
-1.    Select the **Role** you want to assign.
+1. Select the **Role** you want to assign.
 
     :::image type="content" source="../media/how-to/resource-rbac-role.png" alt-text="Screenshot of the page to add a role within the Azure AI resource Azure portal view." lightbox="../media/how-to/resource-rbac-role.png":::
 
-1.    Select the **Members** you want to give the role to.  
+1. Select the **Members** you want to give the role to.  
 
     :::image type="content" source="../media/how-to/resource-rbac-members.png" alt-text="Screenshot of the add members page within the Azure AI resource Azure portal view." lightbox="../media/how-to/resource-rbac-members.png":::
 
-1.    **Review + assign**. It can take up to an hour for permissions to be applied to users.
+1. **Review + assign**. It can take up to an hour for permissions to be applied to users.
 
 ### Networking
 Azure AI resource networking settings can be set during resource creation or changed in the Networking tab in the Azure portal view. Creating a new Azure AI resource invokes a Managed Virtual Network. This streamlines and automates your network isolation configuration with a built-in Managed Virtual Network. The Managed Virtual Network settings are applied to all projects created within an Azure AI resource. 
