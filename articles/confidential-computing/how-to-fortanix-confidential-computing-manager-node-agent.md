@@ -105,7 +105,7 @@ A Fortanix CCM Image is a software release or version of an application. Each im
 
 1. After you create an Enclave OS application, on the **Add Image** page, enter the **REGISTRY CREDENTIALS** for **Output image name**. These credentials are used to access the private docker registry where the image will be pushed. Since the input image is stored in a public registry, there is no need to provide credentials for the input image.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/nitro-create-eos-image.png" alt-text="Screenshot that shows how to create an AWs Nitro image.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/nitro-create-enclave-os-image.png" alt-text="Screenshot that shows how to create an AWs Nitro image.":::
 
 1. Provide the image tag. Use “latest” if you want to use the latest image builds.
 1. If you selected the **Image Type** as **Intel SGX**, enter the following details:
