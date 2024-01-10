@@ -47,9 +47,9 @@ The following regions are regions with higher base storage capacity available, a
 |  |Values  |
 |---------|---------|
 |Maximum number of Elastic SANs that can be deployed per subscription per region     | 5         |
-|Maximum total capacity (TiB)     | 600         |
-|Maximum base capacity (TiB)     | 400         |
-|Minimum total capacity (TiB)     | 1         |
+|Maximum total capacity units (TiB)     | 600         |
+|Maximum base capacity units (TiB)     | 400         |
+|Minimum total SAN capacity (TiB)     | 1         |
 |Maximum total IOPS     |2,000,000         |
 |Maximum total throughput (MB/s)     |32,000         |
 
@@ -63,9 +63,9 @@ The following regions are regions with higher base storage capacity available, a
 |  |Values  |
 |---------|---------|
 |Maximum number of Elastic SANs that can be deployed per subscription per region     | 5         |
-|Maximum total capacity (TiB)     | 100         |
-|Maximum base capacity (TiB)     | 100         |
-|Minimum total capacity (TiB)     | 1         |
+|Maximum total capacity units (TiB)     | 100         |
+|Maximum base capacity units (TiB)     | 100         |
+|Minimum total SAN capacity (TiB)     | 1         |
 |Maximum total IOPS     |500,000         |
 |Maximum total throughput (MB/s)     |8,000         |
 
