@@ -422,7 +422,7 @@ The column names used here are for example only. The column names for your log w
     ```
 
 
-# Troubleshoot
+## Troubleshoot
 Use the following steps to troubleshoot collection of logs from text and JSON files. 
 
 ### Check if you've ingested data to your custom table
@@ -481,7 +481,7 @@ This file pattern should correspond to the logs on the agent machine.
 <!-- convertborder later -->
 :::image type="content" source="media/data-collection-text-log/text-log-files.png" lightbox="media/data-collection-text-log/text-log-files.png" alt-text="Screenshot of text log files on agent machine." border="false":::
 
-## Use the Azure Monitor Agent Troubleshooter
+### Use the Azure Monitor Agent Troubleshooter
 Use the [Azure Monitor Agent Troubleshooter](use-azure-monitor-agent-troubleshooter.md) to look for common issues and share results with Microsoft.
 
 ### Verify that logs are being populated
