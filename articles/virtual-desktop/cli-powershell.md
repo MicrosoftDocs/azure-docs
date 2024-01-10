@@ -136,4 +136,4 @@ Now that you know how to use Azure CLI and Azure PowerShell with Azure Virtual D
 
 - [Create an Azure Virtual Desktop host pool with PowerShell or the Azure CLI](create-host-pools-powershell.md)
 - [Manage application groups using PowerShell or the Azure CLI](manage-app-groups-powershell.md)
-- For the full PowerShell reference documentation, see [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/?view=azps-11.1.0).
+- For the full PowerShell reference documentation, see [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization).
