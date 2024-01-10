@@ -6,7 +6,7 @@ ms.author: jixin
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial 
-ms.date: 05/05/2023
+ms.date: 01/12/2024
 ---
 
 # Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service
