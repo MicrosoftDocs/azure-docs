@@ -74,8 +74,8 @@ conceptualContent:
           itemType: quickstart
           text: Route custom events to web endpoint with the Azure portal and Event Grid
         - url: ../event-grid/kubernetes/overview.md
-          itemType: Event Grid on Kubernetes overview
-          text: What is Event Grid on Kubernetes?
+          itemType: Overview
+          text: Event Grid on Kubernetes overview
       # footerLink
       footerLink:
         url: ../event-grid/index.yml
