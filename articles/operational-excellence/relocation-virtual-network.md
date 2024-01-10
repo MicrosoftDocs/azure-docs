@@ -112,7 +112,20 @@ Redeployment is the recommended way to move your virtual network to a new region
     || PowerShell|[Move Azure Virtual Network to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
     || PowerShell|[Move Azure Public IP to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
     
-1. If you want virtual networking peering to be redeployed along with the virtual network, create a separate export template for the peering. 
+1. Virtual Network Peering need to be reconfigure manually/or by using a Powershell script.
+ 
+    |To learn how to move...| Using...| Go to...|
+    |----|---|---|
+    | Virtual Network Peering|  Azure Portal |  [Create, change, or delete a virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering) |
+    | | Powershell | [Peer two virtual networks script sample](https://learn.microsoft.com/en-us/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks)|
+1. Once virtual network movement completes, Reconfigure associated
+  resources manually/or by using script updated in dependent resources, configs
+  and apps.
+  1. Reconfigure the Network security Group (NSG), Application Security Group
+    (ASG) and User Define Route to the target virtual Network subnet which was
+    previously associated to source virtual Network subnet and now moved to
+    target region.
+  1. Diagnostic settings: Reconfigure the diagnostic setting for the target
     
     1. Remove the peering information from the primary export template.
         
