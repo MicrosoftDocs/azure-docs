@@ -39,23 +39,23 @@ Follow the instructions below to migrate your [M192i(d)(m)s VM](/azure/virtual-m
 
 ### Migration Steps 
 
-Choose a [series and size](/azure/virtual-machines/msv3-mdsv3-medium-series) for migration. Leverage the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) for further insights. 
+1. Choose a [series and size](/azure/virtual-machines/msv3-mdsv3-medium-series) for migration. Leverage the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) for further insights. 
 
-[Get quota for the target VM series](/azure/quotas/per-vm-quota-requests). 
+2. [Get quota for the target VM series](/azure/quotas/per-vm-quota-requests). 
 
-Check whether the existing M192i(d)(m)s VM is part of an [Availability Set](/azure/virtual-machines/availability-set-overview) or [Proximity Placement Group](/azure/virtual-machines/co-location). You can check in Azure Portal in the VM properties. 
+3. Check whether the existing M192i(d)(m)s VM is part of an [Availability Set](/azure/virtual-machines/availability-set-overview) or [Proximity Placement Group](/azure/virtual-machines/co-location). You can check in Azure Portal in the VM properties. 
 
-If the VM is not part of an Availability Set nor a Proximity Placement Group, [it can be resized](/azure/virtual-machines/resize-vm?tabs=portal).   
+4. If the VM is not part of an Availability Set nor a Proximity Placement Group, [it can be resized](/azure/virtual-machines/resize-vm?tabs=portal).   
 
-If the VM is part of an Availability Set, check your records to determine whether you asked Microsoft to pin the Availability Set to a specific M-series compute cluster for proximity purposes (e.g. to collocate with services like NFS shares hosted on Azure NetApp Files). If you are not sure about pinning having taken place, open an [Azure Support Request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to confirm. 
+5. If the VM is part of an Availability Set, check your records to determine whether you asked Microsoft to pin the Availability Set to a specific M-series compute cluster for proximity purposes (e.g. to collocate with services like NFS shares hosted on Azure NetApp Files). If you are not sure about pinning having taken place, open an [Azure Support Request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to confirm. 
 
-If your VM is part of a non-pinned Availability Set, you need to shut down all VMs in that particular Availability Set and go through the [resize procedure](/azure/virtual-machines/resize-vm?tabs=portal) for every single VM of the Availability Set. 
+6. If your VM is part of a non-pinned Availability Set, you need to shut down all VMs in that particular Availability Set and go through the [resize procedure](/azure/virtual-machines/resize-vm?tabs=portal) for every single VM of the Availability Set. 
 
-If the VM or Availability Set is part of a Proximity Placement Group, it is recommended to switch availability options to [zonal deployment](/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-machines%2Ftoc.json&tabs=azure-cli) using the script linked below or setting up Database Replication (e.g. HANA System Replication, SQL Server AlwaysOn). Zonal deployments significantly reduce the possibility of allocation failure.  
+7. If the VM or Availability Set is part of a Proximity Placement Group, it is recommended to switch availability options to [zonal deployment](/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-machines%2Ftoc.json&tabs=azure-cli) using the script linked below or setting up Database Replication (e.g. HANA System Replication, SQL Server AlwaysOn). Zonal deployments significantly reduce the possibility of allocation failure.  
 
-[How to Migrate a Highly Available SAP System in Azure from Availability Set to Availability Zone](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) 
+8. [How to Migrate a Highly Available SAP System in Azure from Availability Set to Availability Zone](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) 
 
-If your VM is part of a pinned Availability set or if you cannot switch your availability option to Availability Zone (as recommended in step 5 above), open an Azure Support request to assist with resizing.   
+9. If your VM is part of a pinned Availability set or if you cannot switch your availability option to Availability Zone (as recommended in step 5 above), open an Azure Support request to assist with resizing.   
 
 ### Help and support 
 
@@ -63,17 +63,17 @@ If you have questions, ask community experts in [Microsoft Q&A](/answers/topic
 
 In the [Help + support page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), select Create a support request. Follow the New support request page instructions. Use the following values: 
 
-For Issue type, select Technical. 
+1. For Issue type, select Technical. 
 
-For Service, select My services. 
+2. For Service, select My services. 
 
-For Service type, select Virtual Machine running Windows/Linux or Virtual Machine running SAP in case you run SAP application workloads. 
+3. For Service type, select Virtual Machine running Windows/Linux or Virtual Machine running SAP in case you run SAP application workloads. 
 
-For Resource, select your VM. 
+4. For Resource, select your VM. 
 
-For Problem type, select Assistance with resizing my VM. 
+5. For Problem type, select Assistance with resizing my VM. 
 
-For Problem subtype, select the option that applies to you. 
+6. For Problem subtype, select the option that applies to you. 
 
-Follow instructions in the Solutions and Details tabs, as applicable, and then Review + create. 
+7. Follow instructions in the Solutions and Details tabs, as applicable, and then Review + create. 
 
