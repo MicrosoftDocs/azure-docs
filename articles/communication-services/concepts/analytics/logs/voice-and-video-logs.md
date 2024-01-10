@@ -224,7 +224,7 @@ In a P2P call, each log contains data that relates to each of the outbound strea
 
 The following diagram represents two endpoints connected directly in a P2P call. In this example, Communication Services creates two call summary logs (one for each `participantID` value) and four call diagnostic logs (one for each media stream). 
 
-For ACS call client participants there will also be two call client operations logs (**OR SERIES OF LOGS???**) and four call client media stats time series logs.  Each log contains data that relates to the outbound stream of `participantID`.
+For ACS call client participants there will also be a series of call client operations logs and call client media stats time series logs. The exact number of these logs depend on what kind of SDK operations are called and how long the call is. 
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-1-p2p-call-same-tenant.png" alt-text="Diagram that shows a P2P call within the same tenant.":::
 
