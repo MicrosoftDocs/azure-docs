@@ -21,7 +21,7 @@ This article shows you how to use Application Configuration Service for VMware T
 
 [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.0/acs/GUID-overview.html) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
 
-With Application Configuration Service, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in Basic/Standard, see the [Use Application Configuration Service for external configuration](./how-to-migrate-standard-tier-to-enterprise-tier.md#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](./how-to-migrate-standard-tier-to-enterprise-tier.md).
+With Application Configuration Service, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in the Basic and Standard plans, see the [Use Application Configuration Service for external configuration](./how-to-migrate-standard-tier-to-enterprise-tier.md#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](./how-to-migrate-standard-tier-to-enterprise-tier.md).
 
 Application Configuration Service is offered in two versions: Gen1 and Gen2. The Gen1 version mainly serves existing customers for backward compatibility purposes, and is supported only until April 30, 2024. New service instances should use Gen2. The Gen2 version uses [flux](https://fluxcd.io/) as the backend to communicate with Git repositories, and provides better performance compared to Gen1.
 
@@ -53,7 +53,7 @@ Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bit
 
 To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings-repositories.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab and Repositories section highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings-repositories.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings-repositories.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab and Repositories section highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings-repositories.png":::
 
 The following table describes the properties for each entry.
 
@@ -76,7 +76,7 @@ Configuration is pulled from Git backends using what you define in a pattern. A 
 
 The following screenshot shows the three types of repository authentication supported by Application Configuration Service.
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Authentication type menu highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-auth.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Authentication type menu highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-auth.png":::
 
 The following list describes the three authentication types:
 
@@ -128,13 +128,13 @@ Use the following steps to upgrade from Gen1 to Gen2:
 
 1. In the Azure portal, navigate to the Application Configuration Service page for your Azure Spring Apps service instance.
 
-1. Select the **Settings** section, and then select  **Gen 2** in the **Generation** dropdown menu.
+1. Select the **Settings** section and then select  **Gen 2** in the **Generation** dropdown menu.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab showing and the Generation menu open." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab showing and the Generation menu open." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png":::
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab showing and the Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab showing and the Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png":::
 
 ## Polyglot support
 
@@ -200,13 +200,13 @@ Use the following steps to configure Application Configuration Service:
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-overview.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with Overview tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-overview.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-overview.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with Overview tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-overview.png":::
 
 1. Select **Settings** and add a new entry in the **Repositories** section with the Git backend information.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings-validate.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab and Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings-validate.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-settings-validate.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab and Validate button highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-settings-validate.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -232,14 +232,14 @@ You need to upload the certificate to Azure Spring Apps first. For more informat
 
 Use the following steps to configure the TLS certificate:
 
-1. Navigate to your service resource, and then select **Application Configuration Service**.
+1. Navigate to your service resource and then select **Application Configuration Service**.
 1. Select **Settings** and add or update a new entry in the **Repositories** section with the Git backend information.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/ca-certificate.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the Settings tab showing." lightbox="media/how-to-enterprise-application-configuration-service/ca-certificate.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/ca-certificate.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab showing." lightbox="media/how-to-enterprise-application-configuration-service/ca-certificate.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following Azure CLI commands to configure the TLS certificate:
+Use the following command to configure the TLS certificate:
 
 ```azurecli
 az spring application-configuration-service git repo add \
@@ -264,7 +264,7 @@ Use the following steps to use Application Configuration Service with applicatio
 
 1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of the Azure portal showing the Application Configuration Service page with the App binding tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the App binding tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png":::
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
@@ -273,11 +273,11 @@ Use the following steps to use Application Configuration Service with applicatio
 
 1. Select the target app to configure patterns for from the `name` column.
 
-1. In the navigation pane, select **Configuration**, and then select **General settings**.
+1. In the navigation pane, select **Configuration** and then select **General settings**.
 
 1. In the **Config file patterns** dropdown, choose one or more patterns from the list. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section.
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the Azure portal showing the App Configuration page with the General settings tab and api-gateway options highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-pattern.png":::
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the Azure portal that shows the App Configuration page with the General settings tab and api-gateway options highlighted." lightbox="media/how-to-enterprise-application-configuration-service/config-service-pattern.png":::
 
 1. Select **Save**
 
@@ -297,15 +297,15 @@ az spring app deploy \
 
 ## Enable/disable Application Configuration Service after service creation
 
-You can enable and disable Application Configuration Service after service creation using the Azure portal or Azure CLI. Before disabling Application Configuration Service, you're required to unbind all of your apps from it.
+You can enable and disable Application Configuration Service after service creation using the Azure portal or the Azure CLI. Before disabling Application Configuration Service, you're required to unbind all of your apps from it.
 
 ### [Azure portal](#tab/Portal)
 
 Use the following steps to enable or disable Application Configuration Service:
 
-1. Navigate to your service resource, and then select **Application Configuration Service**.
+1. Navigate to your service resource and then select **Application Configuration Service**.
 1. Select **Manage**.
-1. Select or unselect **Enable Application Configuration Service**, and then select **Save**.
+1. Select or unselect **Enable Application Configuration Service** and then select **Save**.
 1. You can now view the state of Application Configuration Service on the **Application Configuration Service** page.
 
 ### [Azure CLI](#tab/Azure-CLI)
@@ -328,37 +328,41 @@ az spring application-configuration-service delete \
 
 ## Check logs
 
+The following sections show you how to view application logs by using either the Azure CLI or the Azure portal.
+
 ### Use real-time log streaming
 
-You can stream logs in real time with Azure CLI. For more information, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md). The following examples show how you can use Azure CLI commands to continuously stream new logs for `application-configuration-service` and `flux-source-controller` subcomponents.
+You can stream logs in real time with the Azure CLI. For more information, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md). The following examples show how you can use Azure CLI commands to continuously stream new logs for `application-configuration-service` and `flux-source-controller` subcomponents.
 
-Use the following Azure CLI commands to stream logs for `application-configuration-service`:
+Use the following command to stream logs for `application-configuration-service`:
 
-  ```azurecli
-  az spring component logs \
-      --resource-group <resource-group-name> \
-      --service <Azure-Spring-Apps-instance-name> \
-      --name application-configuration-service \
-      --all-instances \
-      --follow
-  ```
+```azurecli
+az spring component logs \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name application-configuration-service \
+    --all-instances \
+    --follow
+```
 
-Use the following Azure CLI commands to stream logs for `flux-source-controller`:
+Use the following command to stream logs for `flux-source-controller`:
 
-  ```azurecli
-  az spring component logs \
-      --resource-group <resource-group-name> \
-      --service <Azure-Spring-Apps-instance-name> \
-      --name flux-source-controller \
-      --all-instances \
-      --follow
-  ```
+```azurecli
+az spring component logs \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name flux-source-controller \
+    --all-instances \
+    --follow
+```
 
 ### Use Log Analytics
 
+The following sections show you how to turn on and view System Logs using Log Analytics.
+
 #### Diagnostic settings for Log Analytics
 
-You must turn on System Logs and send to your Log Analytics before you query the logs for Application Configuration Service. To enable System Logs in the Azure portal, use the following steps:
+You must turn on System Logs and send the logs to your Log Analytics instance before you query the logs for Application Configuration Service. To enable System Logs in the Azure portal, use the following steps:
 
 1. Open your Azure Spring Apps instance.
 
@@ -368,7 +372,7 @@ You must turn on System Logs and send to your Log Analytics before you query the
 
 1. In the **Logs** section, select the **System Logs** category.
 
-1. In the **Destination details** section, select **Send to Log Analytics workspace**, and then select your workspace.
+1. In the **Destination details** section, select **Send to Log Analytics workspace** and then select your workspace.
 
 1. Select **Save** to update the setting.
 
@@ -380,31 +384,31 @@ To check the logs of `application-configuration-service` and `flux-source-contro
 
 1. Open your Azure Spring Apps instance.
 
-1. In the navigation menu, select **Logs**, and then select **Overview**.
+1. In the navigation menu, select **Logs** and then select **Overview**.
 
-1. Use the following sample queries in the query edit pane. Adjust the time range, then select **Run** to search for logs.
+1. Use the following sample queries in the query edit pane. Adjust the time range then select **Run** to search for logs.
 
-   - Query logs for `application-configuration-service`:
+   - To view the logs for `application-configuration-service`, use the following query:
 
-     ```Kusto
+     ```kusto
      AppPlatformSystemLogs
      | where LogType in ("ApplicationConfigurationService")
      | project TimeGenerated , ServiceName , LogType, Log , _ResourceId
      | limit 100
      ```
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-of-application-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for application-configuration-service." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-of-application-configuration-service.png":::
+     :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-of-application-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for application-configuration-service." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-of-application-configuration-service.png":::
 
-   - Query logs for `flux-source-controller`:
+   - To view the logs for `flux-source-controller`, use the following query:
 
-     ```Kusto
+     ```kusto
      AppPlatformSystemLogs
      | where LogType in ("Flux")
      | project TimeGenerated , ServiceName , LogType, Log , _ResourceId
      | limit 100
      ```
 
-   :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-of-flux-source-controller.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for flux-source-controller." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-of-flux-source-controller.png":::
+     :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-of-flux-source-controller.png" alt-text="Screenshot of the Azure portal that shows the query result of logs for flux-source-controller." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-of-flux-source-controller.png":::
 
 > [!NOTE]
 > There could be a few minutes delay before the logs are available in Log Analytics.
