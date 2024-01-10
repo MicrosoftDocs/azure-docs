@@ -93,7 +93,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Set up Istio-based service mesh addon with plug-in CA certificates
 
-1. Enable the Istio service mesh addon for your AKS cluster while referencing the Azure Key Vault secrets that were created earlier:
+1. Enable the Istio service mesh addon for your existing AKS cluster while referencing the Azure Key Vault secrets that were created earlier:
 
     ```bash
     az aks mesh enable --resource-group $RESOURCE_GROUP --name $CLUSTER \
