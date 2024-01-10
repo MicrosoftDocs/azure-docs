@@ -1,16 +1,12 @@
 ---
-title: Relocation guidance in PostgreSQL
-titleSufffix: Azure Database for PostgreSQL
-description: Find out about relocation guidance for Azure Database for PostgreSQL 
+title: Relocation guidance for Azure Database for PostgreSQL
+description: Learn how to relocate an Azure Database for PostgreSQL to a new region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 12/01/2023
+ms.date: 01/10/2024
 ms.service: postgresql
-ms.topic: conceptual
-ms.custom:
-  - references_regions
-  - subject-reliability
+ms.topic: how-to
 ---
 
 
