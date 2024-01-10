@@ -25,7 +25,7 @@ Only following built-in roles have permission to perform full backup:
 - Managed HSM Administrator
 - Managed HSM Backup
 
-There are 2 ways to execute a full backup:
+There are 2 ways to execute a full backup/restore:
 1. Assigning an User-Assigned Managed Identity (UAMI) to the Managed HSM service. You can backup and restore your MHSM using a user assigned managed identity regardless of whether your storage account has public network access or private network access enabled. If storage account is behind a private endpoint, the UAMI method works with trusted service bypass to allow for backup and restore.
 2. Using storage container SAS token with permissions 'crdw'. Backing up and restoring using storage container SAS token requires your storage account to have public network access enabled.
 
