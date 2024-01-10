@@ -204,7 +204,7 @@ If you don't specify the `identity` property in the endpoint definition, the end
 
 If the following conditions are met, the endpoint identity will automatically be granted the `Azure Machine Learning Workspace Connection Secrets Reader` role (or higher) on the scope of the workspace:
   
-- The user identity that creates the endpoint has the permissions to read secrets from workspace connections.
+- The user identity that creates the endpoint has the permission to read secrets from workspace connections (`Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action`).
 - The endpoint uses an SAI.
 - The endpoint is defined with a flag to enforce access to default secret stores (workspace connections under the current workspace) when creating the endpoint.
 
