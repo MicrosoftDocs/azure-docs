@@ -40,7 +40,7 @@ In this release, we've made the following changes:
 *Published: November 20, 2023*
 
 > [!NOTE]
-> We replaced this Insiders version with [version 1.2.5102](#updates-for-version-125105-insider). As a result, version 1.2.5018 is no longer available for download.
+> We replaced this Insiders version with [version 1.2.5102](#updates-for-version-125105). As a result, version 1.2.5018 is no longer available for download.
 
 In this release, we've made the following change:
 
