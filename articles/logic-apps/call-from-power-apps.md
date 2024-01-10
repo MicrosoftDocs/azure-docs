@@ -24,7 +24,7 @@ To call your logic app workflow from a Power Apps flow, you can export your logi
 
   > [!NOTE]
   >
-  > The Export capability is available only for Consumption logic app workflows in multi-tenant Azure Logic Apps.
+  > The Export capability is available only for Consumption logic app workflows in multitenant Azure Logic Apps.
 
 * A Power Apps flow from where to call your logic app workflow.
 
