@@ -5,6 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/10/2024
+---
 
 # Operationalize a data analytics pipeline
 
