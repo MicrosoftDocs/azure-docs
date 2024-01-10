@@ -399,6 +399,17 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
    `https://mystandardlogicapp.azurewebsites.net/api/Stateful-Workflow/triggers/When_a_HTTP_request_is_received/invoke/address/%7BpostalCode%7D?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig={shared-access-signature}`
 
+1. To test your callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `%7BpostalCode%7D` in the URL with `123456`, and press Enter.
+
+   The browser returns a response with this text: `Postal Code: 123456`
+
+   ![Screenshot shows browser with Standard workflow response from request to callback URL.](./media/logic-apps-http-endpoint/browser-response-callback-url-standard.png)
+
+> [!NOTE]
+>
+> If you want to include the hash or pound symbol (**#**) in the URI, 
+> use this encoded version instead: `%25%23`
+
 ### [Consumption](#tab/consumption)
 
 1. In the Request trigger, open the **Add new parameter** list, and select **Relative path**, which adds this property to the trigger.
@@ -433,18 +444,18 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
    `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
----
-
-To test your callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `{postalCode}` in the URL with `123456`, and press Enter.
+1. To test your callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `{postalCode}` in the URL with `123456`, and press Enter.
 
    The browser returns a response with this text: `Postal Code: 123456`
 
-   ![Screenshot shows browser and response from sending request to callback URL.](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+   ![Screenshot shows browser with Consumption workflow response from request to callback URL.](./media/logic-apps-http-endpoint/browser-response-callback-url-consumption.png)
 
 > [!NOTE]
 >
 > If you want to include the hash or pound symbol (**#**) in the URI, 
 > use this encoded version instead: `%25%23`
+
+---
 
 ## Call workflow through endpoint URL
 
