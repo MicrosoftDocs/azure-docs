@@ -1340,7 +1340,7 @@ If there's a data element not found or a malformed request, the Instance Metadat
 - **Why am I'm not seeing the SKU information for my VM in `instance/compute` details?**
   - For custom images created from Azure Marketplace, Azure platform doesn't retain the SKU information for the custom image and the details for any VMs created from the custom image. This is by design and hence not surfaced in the VM `instance/compute` details.
 
-- **Why is my request timed out for my call to the service?**
+- **Why is my request timed out (or failed to connect) for my call to the service?**
   - Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally, if you've changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
 
     ### [Windows](#tab/windows/)
