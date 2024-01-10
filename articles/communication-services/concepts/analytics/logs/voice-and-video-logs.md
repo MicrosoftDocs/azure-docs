@@ -637,6 +637,8 @@ Here's a diagnostic log for an audio stream from a server endpoint to VoIP endpo
     "jitterMax":            "4",
     "packetLossRateAvg":    "0",
 ```
+### Call client operations log and call client media statistics logs for P2P and group calls
+
 For call client operations log and call client media stats time series log, there is no difference between P2P and group call scenarios and the number of logs depends on the SDK operations and call duration. So below we provide som generic samples that show the schema of these logs.
 
 #### Call client operations log
@@ -662,6 +664,42 @@ Here's a call client operations log for "CreateView" operation:
     "OperationPayload":          "{"StreamType":"Video","StreamId":"2.0","Source":"remote","RemoteParticipantId":"remote"}",
     "Type":                                                    "ACSCallClientOperations"
 }
+```
+Each participant can have many different metrics for a call. Below query can be run in Log Analytics in Azure Portal to list all the possible Operations in the call client operations log:
+
+`ACSCallClientOperations | distinct OperationName`
+
+#### Call client media statistics time series log
+
+Below is an example of media statistics time series log. It shows the participant's Jitter metric for receiving an audio stream at a specific timestamp.
+
+```json
+"properties": {
+    "TenantId":                                         "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+    "TimeGenerated":                              "2024-01-10T07:36:51.771Z",
+    "OperationName":                              "CallClientMediaStatsTimeSeries" ,  
+    "CallId":                                               "92d800c4-abde-40be-91e9-3814ee786b19", 
+    "CallClientTimeStamp":                      "2024-01-09T15:07:56.066Z",
+    "MetricName":                                   "JitterInMs",
+    "Count":                                             "2",
+    "Sum":                                                "34",
+    "Average":                                           "17",
+    "Minimum":                                        "10",
+    "Maximum":                                        "25",
+    "MediaStreamDirection":                    "recv",
+    "MediaStreamType":                           "audio",
+    "MediaStreamCodec":                        "OPUS",
+    "ParticipantId":                                    "2656fd6c-6d4a-451d-a1a5-ce1baefc4d5c",
+     "ClientInstanceId":                              "d08a3d05-db90-415f-88a7-87ae74edc1dd",
+    "AggregationIntervalSeconds":           "10",
+    "Type":                                                 "ACSCallClientMediaStatsTimeSeries"
+}
+```
+
+Each participant can have many different media statistics metrics for a call. Below query can be run in Log Analytics in Azure Portal to show all possible metrics in this log:
+
+`ACSCallClientMediaStatsTimeSeries | distinct MetricName`
+
 ### Error codes 
 
 The `participantEndReason` property contains a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, for each endpoint. See [Troubleshooting in Azure Communication Services](../../troubleshooting-info.md?tabs=csharp%2cios%2cdotnet#calling-sdk-error-codes).
