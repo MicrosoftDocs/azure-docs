@@ -101,7 +101,7 @@ const { app, trigger } = require('@azure/functions');
 const wpsTrigger = trigger.generic({
     type: 'webPubSubTrigger',
     name: 'request',
-    hub: '<hub>',
+    hub: <hub>,
     eventName: 'message',
     eventType: 'user'
 });
@@ -277,7 +277,7 @@ const connection = input.generic({
     type: 'webPubSubConnection',
     name: 'connection',
     userId: '{query.userId}',
-    hub: 'sample_funcchat'
+    hub: <hub>
 });
 
 app.http('negotiate', {
@@ -650,7 +650,7 @@ const { app, output } = require('@azure/functions');
 const wpsMsg = output.generic({
     type: 'webPubSub',
     name: 'actions',
-    hub: '<hub>',
+    hub: <hub>,
 });
 
 app.http('message', {
