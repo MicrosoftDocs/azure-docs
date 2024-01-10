@@ -86,6 +86,30 @@ landingContent:
           - text: Load balancing on multiple IP configurations
             url: load-balancer-multiple-ip.md
 
+    # Card
+  - title: Manage features and options
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load Balancer health probes
+            url: load-balancer-custom-probe-overview.md
+          - text: Outbound connections in Azure
+            url: load-balancer-outbound-connections.md
+          - text: Multiple Frontends for Azure Load Balancer
+            url: load-balancer-multivip-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Internet facing load balancer with IPv6 (PowerShell)
+            url: load-balancer-ipv6-internet-ps.md
+          - text: Configure TCP reset and idle timeout for Azure Load Balancer
+            url: load-balancer-tcp-idle-timeout.md
+          - text: Upgrade from Basic to Standard
+            url: upgrade-basic-standard.md
+      - linkListType: video
+        links:
+          - text: Deep dive into cross region load balancing
+            url: https://aka.ms/WFH/DeepDive-CRLB
+
   # Card
   - title: Troubleshoot
     linkLists:
@@ -110,27 +134,20 @@ landingContent:
           - text: Build & monitor highly available apps with Azure Load Balancer
             url: https://techcommunity.microsoft.com/t5/video-hub/build-amp-monitor-highly-available-apps-w-azure-load-balancer/m-p/1703353
 
-    # Card
-  - title: Manage features and options
+          
+  - title: Load Balancer architecture
     linkLists:
       - linkListType: concept
         links:
-          - text: Load Balancer health probes
-            url: load-balancer-custom-probe-overview.md
-          - text: Outbound connections in Azure
-            url: load-balancer-outbound-connections.md
-          - text: Multiple Frontends for Azure Load Balancer
-            url: load-balancer-multivip-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create an Internet facing load balancer with IPv6 (PowerShell)
-            url: load-balancer-ipv6-internet-ps.md
-          - text: Configure the distribution mode
-            url: load-balancer-distribution-mode.md
-          - text: Upgrade from Basic to Standard
-            url: upgrade-basic-standard.md
-                 
-     # Card
+          - text: Load-balancing options
+            url: /azure/architecture/guide/technology-choices/load-balancing-overview
+          - text: Networking on Azure and AWS
+            url: /azure/architecture/aws-professional/networking
+          - text: Windows N-tier application on Azure
+            url: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
+          - text: Oracle database migration to Azure
+            url: /azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure
+
   - title: Reference
     linkLists:
       - linkListType: reference
@@ -143,17 +160,3 @@ landingContent:
             url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
           - text: Frequently asked Load Balancer questions
             url: load-balancer-faqs.yml
-
-  # Card
-  - title: Learn about Load Balancer architecture
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Load-balancing options
-            url: /azure/architecture/guide/technology-choices/load-balancing-overview
-          - text: Networking on Azure and AWS
-            url: /azure/architecture/aws-professional/networking
-          - text: Windows N-tier application on Azure
-            url: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
-          - text: Oracle database migration to Azure
-            url: /azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure
