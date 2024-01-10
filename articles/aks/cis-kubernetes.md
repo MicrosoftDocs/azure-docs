@@ -2,7 +2,7 @@
 title: Center for Internet Security (CIS) Kubernetes benchmark
 description: Learn how AKS applies the CIS Kubernetes benchmark
 ms.topic: article
-ms.date: 12/22/2023
+ms.date: 01/10/2024
 ---
 
 # Center for Internet Security (CIS) Kubernetes benchmark
@@ -11,9 +11,9 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 
 ## Kubernetes CIS benchmark
 
-The following are the results from the [CIS Kubernetes V1.27 Benchmark v1.8.0][cis-benchmark-kubernetes] recommendations on AKS. These are applicable to AKS 1.21.x through AKS 1.27.x.
+The following are the results from the [CIS Kubernetes V1.27 Benchmark v1.8.0][cis-benchmark-kubernetes] recommendations on AKS. The results are applicable to AKS 1.21.x through AKS 1.27.x.
 
-*Scored* recommendations affect the benchmark score if they are not applied, while *Not Scored* recommendations don't.
+*Scored* recommendations affect the benchmark score if they aren't applied, while *Not Scored* recommendations don't.
 
 CIS benchmarks provide two levels of security settings:
 
@@ -23,9 +23,9 @@ CIS benchmarks provide two levels of security settings:
 Recommendations can have one of the following statuses:
 
 * *Pass* - The recommendation has been applied.
-* *Fail* - The recommendation has not been applied.
+* *Fail* - The recommendation hasn't been applied.
 * *N/A* - The recommendation relates to manifest file permission requirements that are not relevant to AKS. Kubernetes clusters by default use a manifest model to deploy the control plane pods, which rely on files from the node VM. The CIS Kubernetes benchmark recommends these files must have certain permission requirements. AKS clusters use a Helm chart to deploy control plane pods and don't rely on files in the node VM.
-* *Depends on Environment* - The recommendation is applied in the user's specific environment and is not controlled by AKS. *Scored* recommendations affect the benchmark score whether the recommendation applies to the user's specific environment or not.
+* *Depends on Environment* - The recommendation is applied in the user's specific environment and isn't controlled by AKS. *Scored* recommendations affect the benchmark score whether the recommendation applies to the user's specific environment or not.
 * *Equivalent Control* - The recommendation has been implemented in a different, equivalent manner.
 
 | CIS ID | Recommendation description|Scoring Type|Level|Status|
