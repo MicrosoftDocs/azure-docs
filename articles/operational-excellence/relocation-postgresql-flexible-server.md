@@ -92,11 +92,7 @@ Redeployment for Azure Database for PostgreSQL is based on logical backup and re
   >The target server name must be different from source server name. You must reconfigure clients to point to the new server.
 1. Redeploy the template to the new region. For an example of how to use an ARM template to create an Azure Database for PostgreSQL, see [Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-arm-template?tabs=portal%2Cazure-portal).
   
-1. (Optional) If you created additional roles in the source server, create them in the target server. To get a list of existing roles,  use the following query:
 
-    ```sql
-    select *
-    from pg_catalog.pg_roles
 
 1. On the compute resource provisioned for the migration, install the PostgreSQL client tools for the PostgreSQL version to be migrated. The following example uses PostgreSQL version 13 on an Azure VM that runs Ubuntu 20.04 LTS:
 
