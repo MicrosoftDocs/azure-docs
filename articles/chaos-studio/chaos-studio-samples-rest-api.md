@@ -29,13 +29,15 @@ Use the `az cli` utility to perform these actions from the command line.
 > [!TIP]
 > To get more verbose output with Azure CLI, append `--verbose` to the end of each command. This variable returns more metadata when commands execute, including `x-ms-correlation-request-id`, which aids in debugging.
 
-These examples have been reviewed with the generally available API version `2023-11-01`.
+These examples have been reviewed with the generally available Chaos Studio API version `2023-11-01`.
 
 ## Resource provider commands
 
 This section lists the Chaos Studio provider commands, which help you understand the resource provider's status and available operations.
 
 ### List details about the Microsoft.Chaos resource provider
+
+This shows information such as available API versions for the Chaos resource provider and region availability. The most recent `api-version` required for this may differ from the `api-version` for Chaos resource provider operations.
 
 ```azurecli
 az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Chaos?api-version={apiVersion}" 
