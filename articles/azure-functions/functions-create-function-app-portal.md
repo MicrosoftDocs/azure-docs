@@ -2,7 +2,7 @@
 title: Create your first function in the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.topic: how-to
-ms.date: 06/10/2023
+ms.date: 12/28/2023
 ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47, devdivchpfy22"
 ---
 
@@ -39,13 +39,11 @@ Next, create a function in the new function app.
 
 ## <a name="create-function"></a>Create an HTTP trigger function
 
-1. From the left menu of the **Function App** window, select **Functions**, and then select **Create** from the top menu.
+1. In your function app, select **Overview**, and then select **+ Create** under **Functions**.
 
-1. From the **Create Function** window, leave the **Development environment** property as **Develop in portal**, and then select the **HTTP trigger** template.
+1. Under **Select a template**, scroll down and choose the **HTTP trigger** template.
 
-    :::image type="content" source="./media/functions-create-first-azure-function/function-app-http-trigger.png" alt-text="Screenshot of HTTP trigger function.":::
-
-1. Under **Template details** use `HttpExample` for **New Function**, select **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Create**.
+1. In **Template details**, use `HttpExample` for **New Function**, select **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Create**.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 

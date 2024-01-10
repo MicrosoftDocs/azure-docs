@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 12/21/2023
 ms.author: greglin
 ---
 
@@ -25,14 +25,13 @@ The following properties make up custom health probes:
 
 | Property | Default Value |
 | -------- | ------------- |
-| port | the port number to initiate health probes to. Valid port values are 1-65535. |
-| interval | how often in seconds health probes should be sent to the backend target.  The minimum interval must be > 0 seconds. |
-| timeout | how long in seconds the request should wait until it's marked as a failure  The minimum interval must be > 0 seconds. |
-| healthyThreshold | number of health probes before marking the target endpoint healthy. The minimum interval must be > 0. |
-| unhealthyTreshold | number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
-| protocol| specifies either nonencrypted `HTTP` traffic or encrypted traffic via TLS as `HTTPS` |
-| (http) host | the hostname specified in the request to the backend target. |
-| (http) path | the specific path of the request. If a single file should be loaded, the path might be /index.html. |
+| interval | How often in seconds health probes should be sent to the backend target.  The minimum interval must be > 0 seconds. |
+| timeout | How long in seconds the request should wait until it's marked as a failure  The minimum interval must be > 0 seconds. |
+| healthyThreshold | Number of health probes before marking the target endpoint healthy. The minimum interval must be > 0. |
+| unhealthyTreshold | Number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
+| protocol| Specifies either nonencrypted `HTTP` traffic or encrypted traffic via TLS as `HTTPS` |
+| (http) host | The hostname specified in the request to the backend target. |
+| (http) path | The specific path of the request. If a single file should be loaded, the path might be /index.html. |
 | (http -> match) statusCodes | Contains two properties, `start` and `end`, that define the range of valid HTTP status codes returned from the backend. |
 
 [ ![A diagram showing the Application Gateway for Containers using custom health probes to determine backend health.](./media/custom-health-probe/custom-health-probe.png) ](./media/custom-health-probe/custom-health-probe.png#lightbox)
@@ -50,7 +49,7 @@ When the default health probe is used, the following values for each health prob
 | timeout | 30 seconds |
 | healthyTrehshold | 1 probe |
 | unhealthyTreshold | 3 probes |
-| port | 80 for HTTP and 443 for HTTPS to the backend |
+| port | The port number used is defined by the backend port number in the Ingress resource or HttpRoute backend port in the HttpRoute resource. |
 | protocol | HTTP for HTTP and HTTPS when TLS is specified |
 | (http) host | localhost |
 | (http) path | / |
@@ -89,5 +88,3 @@ spec:
           end: 299
 EOF
 ```
-
-

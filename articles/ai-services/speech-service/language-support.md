@@ -34,7 +34,7 @@ The table in this section summarizes the locales supported for Speech to text. S
 Additional remarks for Speech to text locales are included in the [Custom Speech](#custom-speech) section below. 
 
 > [!TIP]
-> Try out the [Real-time Speech to text tool](https://speech.microsoft.com/portal/speechtotexttool) without having to use any code.
+> Try out the [real-time speech to text tool](https://speech.microsoft.com/portal/speechtotexttool) without having to use any code.
 
 [!INCLUDE [Language support include](includes/language-support/stt.md)]
 
@@ -42,16 +42,24 @@ Additional remarks for Speech to text locales are included in the [Custom Speech
 
 To improve Speech to text recognition accuracy, customization is available for some languages and base models. Depending on the locale, you can upload audio + human-labeled transcripts, plain text, structured text, and pronunciation data. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
 
+These are the locales that support the [display text format feature](./how-to-custom-speech-display-text-format.md): da-DK, de-DE, en-AU, en-CA, en-GB, en-HK, en-IE, en-IN, en-NG, en-NZ, en-PH, en-SG, en-US, es-ES, es-MX, fi-FI, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, sv-SE, tr-TR, zh-CN, zh-HK.
+
 # [Text to speech](#tab/tts)
 
 The table in this section summarizes the locales and voices supported for Text to speech. See the table footnotes for more details.
 
-Additional remarks for text to speech locales are included in the [voice styles and roles](#voice-styles-and-roles), [prebuilt neural voices](#prebuilt-neural-voices), [Custom Neural Voice](#custom-neural-voice), and [personal voice](#personal-voice) sections below. 
+Additional remarks for text to speech locales are included in the [voice styles and roles](#voice-styles-and-roles), [prebuilt neural voices](#prebuilt-neural-voices), [Custom neural voice](#custom-neural-voice), and [personal voice](#personal-voice) sections below. 
 
 > [!TIP]
 > Check the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs. 
 
 [!INCLUDE [Language support include](includes/language-support/tts.md)]
+
+### Multilingual voices
+
+Multilingual voices can support more languages. This expansion enhances your ability to express content in various languages, to overcome language barriers and foster a more inclusive global communication environment. Use this table to understand all supported speaking languages for each multilingual neural voice. If the voice doesn’t speak the language of the input text, the Speech service doesn’t output synthesized audio. The table is sorted by the number of supported languages in descending order. The primary locale for each voice is indicated by the prefix in its name, such as the voice `en-US-AndrewMultilingualNeural`, its primary locale is `en-US`.
+
+[!INCLUDE [Language support include](includes/language-support/multilingual-voices.md)]
 
 ### Voice styles and roles
 
@@ -74,7 +82,7 @@ This table lists all the locales supported for [Viseme](speech-synthesis-markup-
 Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 > [!IMPORTANT]
-> Pricing varies for Prebuilt Neural Voice (see *Neural* on the pricing page) and Custom Neural Voice (see *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
+> Pricing varies for Prebuilt Neural Voice (see *Neural* on the pricing page) and custom neural voice (see *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
 Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
 
@@ -83,9 +91,9 @@ Please note that the following neural voices are retired.
 - The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. All requests with previous versions won't succeed starting from October 30, 2021.
 - The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." 
 
-### Custom Neural Voice
+### Custom neural voice
 
-Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data. Multi-style custom neural voices support style degree adjustment. There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (preview). 
+Custom neural voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data. Multi-style custom neural voices support style degree adjustment. There are two custom neural voice (CNV) project types: CNV Pro and CNV Lite (preview). 
 
 Select the right locale that matches your training data to train a custom neural voice model. For example, if the recording data is spoken in English with a British accent, select `en-GB`. 
 
@@ -109,7 +117,7 @@ The table in this section summarizes the 24 locales supported for pronunciation 
 
 # [Speech translation](#tab/speech-translation)
 
-The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech-to-speech and speech to text translation. The available target languages depend on whether the translation target is speech or text. 
+The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech to speech and speech to text translation. The available target languages depend on whether the translation target is speech or text. 
 
 #### Translate from language
 

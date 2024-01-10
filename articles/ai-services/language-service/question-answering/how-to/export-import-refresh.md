@@ -7,7 +7,7 @@ ms.topic: how-to
 author: jboback
 ms.author: jboback
 recommendations: false
-ms.date: 01/25/2022
+ms.date: 12/19/2023
 ---
 # Export-import-refresh in question answering
 

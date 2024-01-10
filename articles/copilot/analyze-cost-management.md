@@ -30,17 +30,17 @@ Here are a few examples of the kinds of prompts you can use for Cost Management.
 - "Can you provide an estimate of our expected expenses for the next 6 months?"
 - "Show me the resource group with the highest spending in the last 6 months."
 - "How can we reduce our costs?"
-- "Which resources are covered by savings plans?
+- "Which resources are covered by savings plans?"
 
 ## Examples
 
-When you prompt Microsoft Copilot for Azure (preview), "Summarize my costs for the last 6 months," a summary of costs for the selected scope is provided. You can follow up with questions to get more granular details, such as "What was our virtual machine spending last month?"
+When you prompt Microsoft Copilot for Azure (preview), "**Summarize my costs for the last 6 months**," a summary of costs for the selected scope is provided. You can follow up with questions to get more granular details, such as "What was our virtual machine spending last month?"
 
 :::image type="content" source="media/analyze-cost-management/cost-management-summarize-costs.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing a summary of costs.":::
 
 :::image type="content" source="media/analyze-cost-management/cost-management-vm-costs.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing details about VM costs.":::
 
-Next, you can ask "How can we reduce our costs?" Microsoft Copilot for Azure (preview) provides a list of recommendations you can take, including an estimate of the potential savings you might see.
+Next, you can ask "**How can we reduce our costs?**" Microsoft Copilot for Azure (preview) provides a list of recommendations you can take, including an estimate of the potential savings you might see.
 
 :::image type="content" source="media/analyze-cost-management/cost-management-reduce.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing a list of recommendations to reduce costs.":::
 

@@ -2,14 +2,15 @@
 title: How to create and manage an Azure AI resource
 titleSuffix: Azure AI Studio
 description: This article describes how to create and manage an Azure AI resource
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # How to create and manage an Azure AI resource
@@ -46,7 +47,7 @@ If your organization is using [Azure Policy](../../governance/policy/overview.md
 
         :::image type="content" source="../media/how-to/resource-create-basics.png" alt-text="Screenshot of the option to set Azure AI resource basic information." lightbox="../media/how-to/resource-create-basics.png":::
 
-1.	Select an existing **Azure AI services** or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry, and **Application insights** to host artifacts generated when you use AI Studio.
+1.	Select an existing **Azure AI services** or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
 
     :::image type="content" source="../media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI resource with the option to set resource information." lightbox="../media/how-to/resource-create-resources.png"::: 
 

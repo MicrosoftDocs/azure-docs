@@ -5,7 +5,7 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.author: jboback
 author: jboback
-ms.date: 09/08/2023
+ms.date: 12/19/2023
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 

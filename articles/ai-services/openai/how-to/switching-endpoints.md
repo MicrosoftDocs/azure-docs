@@ -34,7 +34,7 @@ We recommend using environment variables. If you haven't done this before our [P
 from openai import OpenAI
 
 client = OpenAI(
-  api_key=os.environ['OPENAI_API_KEY']  
+  api_key=os.environ["OPENAI_API_KEY"]  
 )
 
 
@@ -50,7 +50,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2023-10-01-preview",
+    api_version="2023-12-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 ```
@@ -61,7 +61,7 @@ client = AzureOpenAI(
 
 <a name='azure-active-directory-authentication'></a>
 
-### Microsoft Entra authentication
+### Microsoft Entra ID authentication
 
 <table>
 <tr>
@@ -74,7 +74,7 @@ client = AzureOpenAI(
 from openai import OpenAI
 
 client = OpenAI(
-  api_key=os.environ['OPENAI_API_KEY']  
+  api_key=os.environ["OPENAI_API_KEY"]  
 )
 
 
@@ -111,7 +111,10 @@ client = AzureOpenAI(
 
 ## Keyword argument for model
 
-OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](create-resource.md?pivots=web-portal#deploy-a-model). When using Azure OpenAI `model` should refer to the underling deployment name you chose when you deployed the model. 
+OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](create-resource.md?pivots=web-portal#deploy-a-model). When using Azure OpenAI `model` should refer to the underlying deployment name you chose when you deployed the model.
+
+> [!IMPORTANT]
+> When you access the model via the API in Azure OpenAI you will need to refer to the deployment name rather than the underlying model name in API calls. This is one of the [key differences](../how-to/switching-endpoints.md) between OpenAI and Azure OpenAI. OpenAI only requires the model name, Azure OpenAI always requires deployment name, even when using the model parameter. In our docs we often have examples where deployment names are represented as identical to model names to help indicate which model works with a particular API endpoint. Ultimately your deployment names can follow whatever naming convention is best for your use case.
 
 <table>
 <tr>
@@ -122,7 +125,7 @@ OpenAI uses the `model` keyword argument to specify what model to use. Azure Ope
 
 ```python
 completion = client.completions.create(
-    model='gpt-3.5-turbo-instruct',
+    model="gpt-3.5-turbo-instruct",
     prompt="<prompt>")
 )
 
@@ -142,7 +145,7 @@ embedding = client.embeddings.create(
 
 ```python
 completion = client.completions.create(
-    model=gpt-35-turbo-instruct, # This must match the custom deployment name you chose for your model.
+    model="gpt-35-turbo-instruct", # This must match the custom deployment name you chose for your model.
     prompt=<"prompt">
 )
 

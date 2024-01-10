@@ -2,14 +2,15 @@
 title: Monitor quality and safety of deployed applications 
 titleSuffix: Azure AI Studio
 description: Learn how to monitor quality and safety of deployed applications with Azure AI Studio.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.author: eur
+ms.reviewer: fasantia
+ms.author: mopeakande
+author: msakande
 ---
 
 # Monitor quality and safety of deployed applications 
@@ -22,7 +23,7 @@ Capabilities and integrations include:
 - Collect production data using Model data collector from a prompt flow deployment.
 - Apply Responsible AI evaluation metrics such as groundedness, coherence, fluency, relevance, and similarity, which are interoperable with prompt flow evaluation metrics. 
 - Preconfigured alerts and defaults to run monitoring on a recurring basis.
-- Consume result and configure advanced behavior in Azure AI studio.
+- Consume result and configure advanced behavior in Azure AI Studio.
 
 ## Evaluation metrics 
 
@@ -96,7 +97,7 @@ Test your deployment in the deployment **Test** tab.
 
  
 > [!NOTE]
-> Monitoring requires the endpoint to be used at least 10 times to collect enough data to provide insights. If you’d like to test sooner, manually send about 50 rows in the ‘test’ tab before running the monitor.
+> Monitoring requires the endpoint to be used at least 10 times to collect enough data to provide insights. If you'd like to test sooner, manually send about 50 rows in the 'test' tab before running the monitor.
 
 Create your monitor by either enabling from the deployment details page, or the **Monitoring** tab.
 
