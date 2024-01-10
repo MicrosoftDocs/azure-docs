@@ -70,7 +70,7 @@ az rest --method get --url "https://management.azure.com/subscriptions/{subscrip
 To use a resource in an experiment, you need to enable it as a target.
 
 ```azurecli
-az rest --method put --url "https://management.azure.com/{resourceId}/providers/Microsoft.Chaos/targetTypes/{targetType}?api-version={apiVersion}" --body "{'properties':{}}" 
+az rest --method put --url "https://management.azure.com/{resourceId}/providers/Microsoft.Chaos/targets/{targetType}?api-version={apiVersion}" --body "{'properties':{}}" 
 ```
 
 ### Enable capabilities for a target
@@ -78,7 +78,7 @@ az rest --method put --url "https://management.azure.com/{resourceId}/providers/
 Once a resource has been enabled as a target, you need to specify what capabilities (corresponding to faults) are allowed. 
 
 ```azurecli
-az rest --method put --url "https://management.azure.com/{resourceId}/providers/Microsoft.Chaos/targetTypes/{targetType}/capabilities/{capabilityName}?api-version={apiVersion}" --body "{'properties':{}}" 
+az rest --method put --url "https://management.azure.com/{resourceId}/providers/Microsoft.Chaos/targets/{targetType}/capabilities/{capabilityName}?api-version={apiVersion}" --body "{'properties':{}}" 
 ```
 
 ### See what capabilities are enabled for a target
@@ -86,7 +86,7 @@ az rest --method put --url "https://management.azure.com/{resourceId}/providers/
 Once a target and capabilities have been enabled, you can view the enabled capabilities. This is useful for constructing your chaos experiment, since it includes the parameter schema for each fault.
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/{resourceId}/providers/Microsoft.Chaos/targetTypes/{targetType}/capabilities?api-version={apiVersion}"
+az rest --method get --url "https://management.azure.com/{resourceId}/providers/Microsoft.Chaos/targets/{targetType}/capabilities?api-version={apiVersion}"
 ```
 
 ## Experiments
@@ -114,7 +114,7 @@ az rest --method put --url "https://management.azure.com/{experimentId}?api-vers
 ### Delete an experiment
 
 ```azurecli
-az rest --method delete --url "https://management.azure.com/{experimentId}?api-version={apiVersion}"  --verbose
+az rest --method delete --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" 
 ```
 
 ### Start an experiment
@@ -134,7 +134,7 @@ az rest --method get --url "https://management.azure.com/{experimentId}/executio
 If an experiment has failed, this can be used to find error messages and specific targets, branches, steps, or actions that failed.
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/{experimentId}/executions/{executionDetailsId}?api-version={apiVersion}" 
+az rest --method post --url "https://management.azure.com/{experimentId}/executions/{executionDetailsId}/getExecutionDetails?api-version={apiVersion}" 
 ```
 
 ### Cancel (stop) an experiment
@@ -149,10 +149,10 @@ While these commands don't use the Chaos Studio API specifically, they can be he
 
 ### View Chaos Studio resources with Azure Resource Graph
 
-You can use the Azure Resource Graph [REST API](../governance/resource-graph/first-query-rest-api.md) to query resources used by Chaos Studio.
+You can use the Azure Resource Graph [REST API](../governance/resource-graph/first-query-rest-api.md) to query resources associated with Chaos Studio, like targets and capabilities.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01 --body "{\"subscriptions\":[\"{subscriptionId}\"],\"query\":\"chaosresources \"}"
+ az rest --method post --url "https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01" --body "{'query':'chaosresources'}"
 ```
 
 Alternatively, you can use Azure Resource Graph's `az cli` [extension](../governance/resource-graph/first-query-azurecli.md).
