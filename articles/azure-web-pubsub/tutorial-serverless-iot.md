@@ -48,13 +48,12 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
 
 1. Create an empty folder for the project, and then run the following command in the new folder.
 
-    # [JavaScript Model v4](#tab/javascript_v4)
+    # [JavaScript Model v4](#tab/javascript-v4)
     ```bash
     func init --worker-runtime javascript --model V4
     ```
-    ---
 
-    # [JavaScript Model v3](#tab/javascript)
+    # [JavaScript Model v3](#tab/javascript-v3)
     ```bash
     func init --worker-runtime javascript --model V3
     ```
@@ -66,7 +65,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     func new -n index -t HttpTrigger
     ```
    
-   # [JavaScript Model v4](#tab/javascript_v4)
+   # [JavaScript Model v4](#tab/javascript-v4)
      Update `src/functions/index.js` with following code, which serves the HTML content as a static site.
      ```js
      const { app } = require('@azure/functions');
@@ -92,11 +91,9 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
              };
          }
      });
-     ```
-    ---
-    
+     ``` 
 
-   # [JavaScript Model v3](#tab/javascript)
+   # [JavaScript Model v3](#tab/javascript-v3)
      Update `index/index.js` with following code, which serves the HTML content as a static site.
      ```js
      var fs = require("fs");
@@ -327,7 +324,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     func new -n negotiate -t HttpTrigger
     ```
     
-    # [JavaScript Model v4](#tab/javascript_v4)
+    # [JavaScript Model v4](#tab/javascript-v4)
     Update `src/functions/negotiate.js` to use [`WebPubSubConnection`](reference-functions-bindings.md#input-binding) that contains the generated token.
     ```js
     const { app, input } = require('@azure/functions');
@@ -347,9 +344,8 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
         },
     });
     ```
-    ---
 
-    # [JavaScript Model v3](#tab/javascript)
+    # [JavaScript Model v3](#tab/javascript-v3)
     - Update `negotiate/function.json` to include an input binding [`WebPubSubConnection`](reference-functions-bindings.md#input-binding), with the following json code.
         ```json
         {
@@ -389,54 +385,53 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     func new --template "Azure Event Hub trigger" --name messagehandler
     ```
 
-    # [JavaScript Model v4](#tab/javascript_v4)
-    Update `src/functions/messagehandler.js` to add [Web PubSub output binding](reference-functions-bindings.md#output-binding) with the following json code. We use variable `%hubName%` as the hub name for both IoT eventHubName and Web PubSub hub.
+    # [JavaScript Model v4](#tab/javascript-v4)
+    - Update `src/functions/messagehandler.js` to add [Web PubSub output binding](reference-functions-bindings.md#output-binding) with the following json code. We use variable `%hubName%` as the hub name for both IoT eventHubName and Web PubSub hub.
 
-    ```js
-    const { app, output } = require('@azure/functions');
-    
-    const wpsAction = output.generic({
-        type: 'webPubSub',
-        name: 'action',
-        hub: '%hubName%'
-    });
-    
-    app.eventHub('messagehandler', {
-        connection: 'IOTHUBConnectionString',
-        eventHubName: '%hubName%',
-        cardinality: 'many',
-        extraOutputs: [wpsAction],
-        handler: (messages, context) => {
-            var actions = [];
-            if (Array.isArray(messages)) {
-                context.log(`Event hub function processed ${messages.length} messages`);
-                for (const message of messages) {
-                    context.log('Event hub message:', message);
-                    actions.push({
-                        actionName: "sendToAll",
-                        data: JSON.stringify({
-                            IotData: message,
-                            MessageDate: message.date || new Date().toISOString(),
-                            DeviceId: message.deviceId,
-                        })});
-                }
-            } else {
-                context.log('Event hub function processed message:', messages);
-                actions.push({
-                    actionName: "sendToAll",
-                    data: JSON.stringify({
-                        IotData: message,
-                        MessageDate: message.date || new Date().toISOString(),
-                        DeviceId: message.deviceId,
-                    })});
-            }
-            context.extraOutputs.set(wpsAction, actions);
-        }
-    });
-    ```
-    ---
+      ```js
+      const { app, output } = require('@azure/functions');
+      
+      const wpsAction = output.generic({
+          type: 'webPubSub',
+          name: 'action',
+          hub: '%hubName%'
+      });
+      
+      app.eventHub('messagehandler', {
+          connection: 'IOTHUBConnectionString',
+          eventHubName: '%hubName%',
+          cardinality: 'many',
+          extraOutputs: [wpsAction],
+          handler: (messages, context) => {
+              var actions = [];
+              if (Array.isArray(messages)) {
+                  context.log(`Event hub function processed ${messages.length} messages`);
+                  for (const message of messages) {
+                      context.log('Event hub message:', message);
+                      actions.push({
+                          actionName: "sendToAll",
+                          data: JSON.stringify({
+                              IotData: message,
+                              MessageDate: message.date || new Date().toISOString(),
+                              DeviceId: message.deviceId,
+                          })});
+                  }
+              } else {
+                  context.log('Event hub function processed message:', messages);
+                  actions.push({
+                      actionName: "sendToAll",
+                      data: JSON.stringify({
+                          IotData: message,
+                          MessageDate: message.date || new Date().toISOString(),
+                          DeviceId: message.deviceId,
+                      })});
+              }
+              context.extraOutputs.set(wpsAction, actions);
+          }
+      });
+      ```
 
-    # [JavaScript Model v3](#tab/javascript)
+    # [JavaScript Model v3](#tab/javascript-v3)
     - Update _messagehandler/function.json_ to add [Web PubSub output binding](reference-functions-bindings.md#output-binding) with the following json code. We use variable `%hubName%` as the hub name for both IoT eventHubName and Web PubSub hub.
         ```json
         {
