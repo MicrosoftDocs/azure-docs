@@ -13,7 +13,7 @@ Azure Disk Storage has five managed disk options: Ultra Disks, Premium solid-sta
 
 This article helps you understand the factors and differences between each disk type's pricing model, and how this looks on your Azure Disks bill. We’ll also provide pricing examples for some common scenarios and show how Azure disk types compare. 
 
-For more detailed Azure Disks pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+For more detailed Azure Disks pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Factors that Affect Azure Disk Billing 
 To understand Azure Disks pricing, be aware of how the following criteria affects costs:
@@ -39,7 +39,7 @@ This table displays our current disk types and the available billable features:
 
 ### Provisioning examples 
 The disk pricing can include various combinations of features as well as provisioned and used size. Let's take a look at some examples for different disk types and feature definitions and availability for each disk type:
-For more detailed Azure Disks pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+For more detailed Azure Disks pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ### Standard Disks:
 - Standard HDDs: Azure standard HDDs deliver reliable, low-cost disk support for VMs running latency-tolerant workloads. 
@@ -62,6 +62,7 @@ Incremental snapshots for Standard HDDs also incur a monthly charge for both LRS
 #### Example 1 - Standard HDD 
 In this example, we provision a 512 Gb Standard HDD Disk with LRS redundancy. 
 You will be billed for the provisioned size of the HDD disk and the transactions performed on the disk, which will show as the following tier and meters in your bill:
+
 | Tier | Meter |
 |-|-|
 |Standard HDD Managed Disks| S20 LRS Disk|
@@ -70,6 +71,7 @@ You will be billed for the provisioned size of the HDD disk and the transactions
 #### Example 2 - Standard SSD 
 In this example, we provision a 1 Tb Standard SSD Disk with LRS redundancy, where we also have snapshot created on the current used data size of 120 Gb. 
 You will be billed for the provisioned size of the HDD disk, the transactions performed on the disk, and the used snapshot size which will show as the following tier and meters in your bill:
+
 | Tier | Meter |
 |-|-|
 |Standard SSD Managed Disks| E30 LRS Disk|
@@ -99,16 +101,17 @@ You can store incremental snapshots for Premium SSD and Premium SSD v2 only on S
 #### Example 1 - Premium SSD 
 In this example, we want to provision a Premium SSD Disk at 512 Gb with LRS redundancy with bursting enabled.
 You will be billed for the provisioned size of the Premium SSD disk and the burst enablement flat fee and transaction costs apply to any burst transactions beyond the provisioned target which will show as the following tier and meters in your bill:
+
 | Tier | Meter |
 |-|-|
 |Premium SSD Managed Disks| P20 LRS Disk|
 |Premium SSD Managed Disks| LRS Burst Enablement* |
 
-*To see a more detailed example of how bursting is billed, refer to [Disk-level bursting](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-bursting#billing).
-
+*To see a more detailed example of how bursting is billed, see [Disk-level bursting](disk-bursting.md#disk-level-bursting).
 #### Example 2 - Premium SSD v2 
 In this example, we want to provision a Premium SSD v2 Disk with LRS redundancy with a total provisioned size of 512 Gb, a target performance of 40,000 IOPS and 200 Mbps of throughput. You also create and store incremental snapshots for your current used capacity. 
 You will be billed for the provisioned size of the disk, the additional IOPS and throughput past the baseline values, and the used snapshot size which will show as the following tier and meters in your bill:
+
 | Tier | Meter |
 |-|-|
 |Azure Premium SSD v2| Premium LRS Provisioned Capacity|
@@ -138,6 +141,7 @@ You can store incremental snapshots for Ultra Disk only on Standard storage (whi
 #### Example 1 - Ultra Disk 
 In this example, we want to provision an Ultra Disk with ZRS redundancy with a total provisioned size of 3 Tb, a target performance of 100,000 IOPS and 2,000 Mbps of throughput. You also create and store incremental snapshots for your current used capacity. 
 You will be billed for the provisioned size of the disk, the additional IOPS and throughput past the baseline values, and the used snapshot size which will show as the following tier and meters in your bill:
+
 | Tier | Meter |
 |-|-|
 |Ultra Disks| Ultra ZRS Provisioned Capacity|
@@ -172,10 +176,10 @@ In the preceding example, you see the current cost for the service. Costs by Azu
 You can add other filters as well (For example: a filter to see costs for specific storage accounts).
 
 ## See also
-- [Azure Managed Disks pricing page](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+- [Azure Managed Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 - [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
 - [Create a file share](storage-how-to-create-file-share.md) and [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md).
 
 ## Notes 
-- Merge info from https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#billing
+- Merge info from https://learn.microsoft.com/azure/virtual-machines/disks-types#billing
 - Add Meter names in table
