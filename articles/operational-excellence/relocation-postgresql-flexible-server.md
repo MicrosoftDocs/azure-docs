@@ -23,10 +23,6 @@ To learn how to relocate Azure Cosmos DB for PostgreSQL (formerly called Azure D
 
 For an overview of the region pairs supported by native replication, see [cross-region replication](../postgresql/concepts-read-replicas.md#cross-region-replication).
 
-The relocation process is based on [Azure region relocation architectural patterns](relocation-overview.md#relocation-architectural-patterns). 
-
-
-
 
 ## Relocation strategies
 
