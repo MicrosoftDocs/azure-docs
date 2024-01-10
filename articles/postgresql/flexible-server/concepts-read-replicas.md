@@ -59,6 +59,8 @@ You can have a primary server in any [Azure Database for PostgreSQL region](http
   - China North 3
   - China East 3
 
+> [!NOTE]
+> The preview features - virtual endpoints and promote to primary server - are not currently supported in the special regions listed above.
 
 ### Use paired regions for disaster recovery purposes
 
@@ -150,6 +152,9 @@ Furthermore, to ease the connection process, the Azure portal provides ready-to-
 
 "Promote" refers to the process where a replica is commanded to end its replica mode and transition into full read-write operations.
 
+> [!IMPORTANT]  
+> Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica independently. An user action is always required for the promote operation.
+
 Promotion of replicas can be done in two distinct manners:
 
 **Promote to primary server (preview)**
@@ -180,8 +185,8 @@ For both promotion methods, there are more options to consider:
 
 - **Forced**: This option is designed for rapid recovery in scenarios such as regional outages. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state. If you promote the replica using this option, the lag at the time you delink the replica from the primary will indicate how much data is lost.
 
-> [!IMPORTANT]  
-> Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica independently. An user action is always required for the promote operation.
+> [!IMPORTANT]
+> The **Forced** option skips all the checks, for instance, the server symmetry requirement, and proceeds with promotion because it is designed for unexpected scenarios. If you use the "Forced" option without fulfilling the requirements for read replica specified in this documentation, you might experience issues such as broken replication. It is crucial to understand that this option prioritizes immediate availability over data consistency and should be used with caution.
 
 Learn how to [promote replica to primary](how-to-read-replicas-portal.md#promote-replicas) and [promote to independent server and remove from replication](how-to-read-replicas-portal.md#promote-replica-to-independent-server).
 
