@@ -74,6 +74,8 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
         aks-istio-ingressgateway-internal-asm-1-18-757d9b5545-krq9w   1/1     Running   0          51m
         ```
 
+        Observe that ingress gateway pods of both revisions are deployed side-by-side. However,the service and its IP remain immutable.
+
 1. Relabel the namespace so that any new pods get the Istio sidecar associated with the new revision and its control plane:
 
     ```bash
@@ -115,6 +117,11 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
           ```
           az aks mesh upgrade rollback --resource-group $RESOURCE_GROUP --name $CLUSTER
           ```
+
+> [!NOTE]
+> Manually relabeling namespaces when moving them to a new revision can be tedious and error-prone. [Revision tags](https://istio.io/latest/docs/setup/upgrade/canary/#stable-revision-labels) solve this problem. Revision tags are stable identifiers that point to revisions and can be used to avoid relabeling namespaces. Rather than relabeling the namespace, a mesh operator can simply change the tag to point to a new revision. All namespaces labeled with that tag will be updated at the same time. However, note that you still need to restart the workloads to make sure the correct version of `istio-proxy` sidecars are injected.
+
+
 
 ### Patch version upgrade
 
