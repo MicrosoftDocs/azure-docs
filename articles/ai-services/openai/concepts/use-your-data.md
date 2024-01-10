@@ -50,41 +50,17 @@ To use Azure OpenAI on your data fully capability, you need the following Azure 
 
 TBD
 
-## Data formats and file types
-
-Azure OpenAI on your data supports the following filetypes:
-
-* `.txt`
-* `.md`
-* `.html`
-* Microsoft Word files
-* Microsoft PowerPoint files
-* PDF
-
-There is an [upload limit](../quotas-limits.md), and there are some caveats about document structure and how it might affect the quality of responses from the model: 
-
-* The model provides the best citation titles from markdown (`.md`) files. 
-
-* If a document is a PDF file, the text contents are extracted as a preprocessing step (unless you're connecting your own Azure AI Search index). If your document contains images, graphs, or other visual content, the model's response quality depends on the quality of the text that can be extracted from them. 
-
-* If you're converting data from an unsupported format into a supported format, make sure the conversion:
-
-    * Doesn't lead to significant data loss.
-    * Doesn't add unexpected noise to your data.  
-
-    This will affect the quality of the model response. 
-
 ## Add your data 
 
-When you want to use your data to chat with an Azure OpenAI model, it needs to be indexed in a database that can be used by the model. For some data sources (such as uploading files from your local machine or data contained in a blob storage account), the database used is Azure AI Search. Azure OpenAI on your data however, supports a number of sources: 
+When you want to use your data to chat with an Azure OpenAI model, it needs to be indexed in a vector database that can be used by the model. For some data sources (such as uploading files from your local machine or data contained in a blob storage account), Azure AI Search us used. Azure OpenAI on your data however, supports a number of sources: 
+
+> [!NOTE]
+> The following data sources are ingested into an Azure AI search database
+> * Local files uploaded using Azure OpenAI Studio.
+> * Blobs in an Azure storage container that you provide.
+> * URLs/Web pages that you choose to upload using Azure OpenAI Studio.
 
 * [Azure AI Search](/azure/search/search-what-is-azure-search) indexes
-
-    The following data sources are ingested into an Azure AI search database
-    * Local files uploaded using the Azure OpenAI Studio.
-    * Blobs in an Azure storage container that you provide.
-    * URLs/Web pages that you choose to upload
-
 * [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/).
 * [Pinecone](https://www.pinecone.io/)
 * [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
@@ -96,10 +72,12 @@ You can use Azure OpenAI studio to add all supported data sources. You can also 
 
     :::image type="content" source="../media/use-your-data/bring-your-data-landing page.png" alt-text="A screenshot of the Azure OpenAI Studio landing page." lightbox="../media/use-your-data/bring-your-data-landing page.png":::
 
-1. In the pane that appears, select your data source option. For example, you can choose **Upload files** to upload files to an Azure blob storage And Azure AI Search service. Follow the steps that appear to add your data source and start ingesting it.
+1. In the pane that appears, select your data source option. For example, you can choose **Upload files** to upload files to an Azure blob storage And Azure AI Search service. Follow the steps that appear for your selected data source to add it, and start ingesting it.
 
     :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
+
+Once you complete the steps, your data is ingested to integrate the information with Azure OpenAI models.
 
 Use the following tabs to learn about the different data sources supported by Azure OpenAI. 
 
@@ -108,7 +86,10 @@ Use the following tabs to learn about the different data sources supported by Az
 > [!TIP]
 > * For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). The script chunks data so that your response with the service will be more accurate. This script also supports scanned PDF files and images.
 
-Once data is ingested, an [Azure AI Search](/azure/search/search-what-is-azure-search) index in your search resource gets created to integrate the information with Azure OpenAI models.
+You might want to consider using an Azure AI Search index when you either want to:
+* Upload data from your machine or specify URLs to ingest using the Azure OpenAI Studio.  
+* Customize the index creation process. 
+* Reuse an index created before by ingesting data from other data sources.
 
 **Data from Azure storage containers**
 
@@ -142,40 +123,6 @@ You can use URL as a data source in both the Azure OpenAI Studio. To use URL/web
 Once you have added the URL/web address for data ingestion, the web pages from your URL are fetched and saved to your Azure Blob Storage account with a container name: `webpage-<index name>`. Each URL will be saved into a different container within the account. Then the files are indexed into an Azure AI Search index, which is used for retrieval when you’re chatting with the model.
 
 When you want to reuse the same URL/web address, you can select [Azure AI Search](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search) as your data source and select the index you created with your URL previously. Then you can use the already indexed files instead of having the system crawl your URL again. You can use the Azure AI Search index directly and delete the storage container to free up your storage space.
-
-### Troubleshooting failed ingestion jobs
-
-To troubleshoot a failed job, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
-
-
-**Quota Limitations Issues** 
-
-*An index with the name X in service Y could not be created. Index quota has been exceeded for this service. You must either delete unused indexes first, add a delay between index creation requests, or upgrade the service for higher limits.*
-
-*Standard indexer quota of X has been exceeded for this service. You currently have X standard indexers. You must either delete unused indexers first, change the indexer 'executionMode', or upgrade the service for higher limits.* 
-
-Resolution: 
-
-Upgrade to a higher pricing tier or delete unused assets. 
-
-**Preprocessing Timeout Issues** 
-
-*Could not execute skill because the Web API request failed*
-
-*Could not execute skill because Web API skill response is invalid* 
-
-Resolution: 
-
-Break down the input documents into smaller documents and try again. 
-
-**Permissions Issues** 
-
-*This request is not authorized to perform this operation*
-
-Resolution: 
-
-This means the storage account is not accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account is not hidden behind a private endpoint (if a private endpoint is not configured for this resource). 
-
 
 ### Search options
 
@@ -262,10 +209,9 @@ To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an exis
 ### Using the model
 
 After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
-* [Web app](#using-the-web-app)
+* [Web app](../how-to/use-web-app.md)
 * [REST API](../reference.md#azure-cosmos-db-for-mongodb-vcore)
 
-TBD
 
 # [Azure Machine Learning](#tab/azure-machine-learning)
 
@@ -273,8 +219,38 @@ TBD
 
 # [Elasticsearch](#tab/elasticsearch)
 
+TBD
+
 ---
 
+
+## Data formats and file types
+
+Azure OpenAI on your data supports the following filetypes:
+
+* `.txt`
+* `.md`
+* `.html`
+* Microsoft Word files
+* Microsoft PowerPoint files
+* PDF
+
+There is an [upload limit](../quotas-limits.md), and there are some caveats about document structure and how it might affect the quality of responses from the model: 
+
+* The model provides the best citation titles from markdown (`.md`) files. 
+
+* If a document is a PDF file, the text contents are extracted as a preprocessing step (unless you're connecting your own Azure AI Search index). If your document contains images, graphs, or other visual content, the model's response quality depends on the quality of the text that can be extracted from them. 
+
+* If you're converting data from an unsupported format into a supported format, make sure the conversion:
+
+    * Doesn't lead to significant data loss.
+    * Doesn't add unexpected noise to your data.  
+
+    This will affect the quality of the model response. 
+
+## Use Azure OpenAI on your data securely
+
+You can use Azure OpenAI on your data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks and private endpoints. You can also restrict the documents that can be used in responses for different users with Azure AI Search security filters. See [Securely use Azure OpenAI on your data](../how-to/use-your-data-securely.md).
 
 ## Custom parameters
 
@@ -285,61 +261,6 @@ You can modify the following additional settings in the **Data parameters** sect
 |---------|---------|
 |**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 5. This is the `topNDocuments` parameter in the API.     |
 | **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
-
-## Document-level access control
-
-> [!NOTE] 
-> Document-level access control is supported for Azure AI search only.
-
-Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response will be trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes. To enable document-level access:
-
-1. Follow the steps in the [Azure AI Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) to register your application and create users and groups.
-1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema below:
-        
-    ```json
-    {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true }
-    ```
-
-    `group_ids` is the default field name. If you use a different field name like `my_group_ids`, you can map the field in [index field mapping](#index-field-mapping).
-
-1. Make sure each sensitive document in the index has the value set correctly on this security field to indicate the permitted groups of the document.
-1. In [Azure OpenAI Studio](https://oai.azure.com/portal), add your data source. in the [index field mapping](#index-field-mapping) section, you can map zero or one value to the **permitted groups** field, as long as the schema is compatible. If the **Permitted groups** field isn't mapped, document level access won't be enabled. 
-
-**Azure OpenAI Studio**
-
-Once the Azure AI Search index is connected, your responses in the studio will have document access based on the Microsoft Entra permissions of the logged in user.
-
-**Web app**
-
-If you are using a published [web app](#using-the-web-app), you need to redeploy it to upgrade to the latest version. The latest version of the web app includes the ability to retrieve the groups of the logged in user's Microsoft Entra account, cache it, and include the group IDs in each API request.
-
-**API**
-
-When using the API, pass the `filter` parameter in each API request. For example:
-
-```json
-{
-    "messages": [
-        {
-            "role": "user",
-            "content": "who is my manager?"
-        }
-    ],
-    "dataSources": [
-        {
-            "type": "AzureCognitiveSearch",
-            "parameters": {
-                "endpoint": "'$SearchEndpoint'",
-                "key": "'$SearchKey'",
-                "indexName": "'$SearchIndex'",
-                "filter": "my_group_ids/any(g:search.in(g, 'group_id1, group_id2'))"
-            }
-        }
-    ]
-}
-```
-* `my_group_ids` is the field name that you selected for **Permitted groups** during [fields mapping](#index-field-mapping).
-* `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
 
 ## Schedule automatic index refreshes
 
@@ -375,7 +296,7 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 
     1. Select **Save**.
 
-## Recommended settings
+## improve model response quality
 
 Use the following sections to help you configure Azure OpenAI on your data for optimal results.
 
@@ -434,13 +355,13 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 * If you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
 
-### Deploying the model
+## Deploying the model
 
 After you connect Azure OpenAI to your data, you can deploy it using the **Deploy to** button in Azure OpenAI studio.
 
 :::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
 
-#### Using Power Virtual Agents
+### Using Power Virtual Agents
 
 You can deploy your model to [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various Microsoft Teams, Websites, Power Platform solutions, Dynamics 365, and other [Azure Bot Service channels](/power-virtual-agents/publication-connect-bot-to-azure-bot-service-channels). Power Virtual Agents acts as a conversational and generative AI platform, making the process of creating, publishing and deploying a bot to any number of channels simple and accessible.
 
@@ -451,6 +372,10 @@ While Power Virtual Agents has features that leverage Azure OpenAI such as [gene
 > [!NOTE]
 > Deploying to Power Virtual Agents from Azure OpenAI is only available to US regions.
 > Power Virtual Agents supports Azure AI Search indexes with keyword or semantic search only. Other data sources and advanced features might not be supported.
+
+### Using the web app
+
+Along with Azure OpenAI Studio, Power Virtual Agents, and the API, you can also use the available standalone web app to interact with chat models using a graphical user interface. See [Use the Azure OpenAI web app](../how-to/use-web-app.md) for more information. 
 
 ### Using the API
 
@@ -561,6 +486,43 @@ class TokenEstimator(object):
       
 token_output = TokenEstimator.estimate_tokens(input_text)
 ```
+
+## Troubleshooting 
+
+### failed ingestion jobs
+
+To troubleshoot a failed job, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
+
+
+**Quota Limitations Issues** 
+
+*An index with the name X in service Y could not be created. Index quota has been exceeded for this service. You must either delete unused indexes first, add a delay between index creation requests, or upgrade the service for higher limits.*
+
+*Standard indexer quota of X has been exceeded for this service. You currently have X standard indexers. You must either delete unused indexers first, change the indexer 'executionMode', or upgrade the service for higher limits.* 
+
+Resolution: 
+
+Upgrade to a higher pricing tier or delete unused assets. 
+
+**Preprocessing Timeout Issues** 
+
+*Could not execute skill because the Web API request failed*
+
+*Could not execute skill because Web API skill response is invalid* 
+
+Resolution: 
+
+Break down the input documents into smaller documents and try again. 
+
+**Permissions Issues** 
+
+*This request is not authorized to perform this operation*
+
+Resolution: 
+
+This means the storage account is not accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account is not hidden behind a private endpoint (if a private endpoint is not configured for this resource). 
+
+
 
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)
