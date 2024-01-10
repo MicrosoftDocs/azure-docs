@@ -17,6 +17,8 @@ In this article, you learn about the process, configuration options, and conside
 
 ## Roles and responsibilities
 
+Describe who's involved and what they're responsible for.
+
 - Platform engineer
     - Microsoft Entra ID
     - Azure resources
@@ -27,10 +29,11 @@ In this article, you learn about the process, configuration options, and conside
     - Projects
     - Dev box definitions?
 - Developer
-    - Create dev box
-    - Connect to dev box
+    - Create and connect to dev box
 
 ## Define requirements / objectives
+
+Gather all requirements for the MDB deployment in the customer's environment. Provide background about how this might influence the implementation. For example, accessing other Azure resources might require bring your own network. More will be provided in the implementation section.
 
 - Developer profiles
     - Geographical location
@@ -58,22 +61,30 @@ In this article, you learn about the process, configuration options, and conside
     - Intune
     - Licenses
 
-
 ## Implementation
 
-Overview:
+Describe for each design area what the considerations are and, optionally, the recommendations. For complex areas, we might refer to a separate conceptual article, such as Intune configuration or networking.
 
 1. Azure subscription
 1. Dev center
+    - Considerations
+    - Recommendations
 1. Networking
     - Considerations
     - Recommendations
 1. Compute galleries
+    - Considerations
+    - Recommendations
 1. Dev box definitions
+    - Considerations
+    - Recommendations
 1. Projects
     - Considerations
     - Recommendations
 1. Dev box access (browser vs RDP client)
+    - Considerations
+    - Recommendations
+1. Intune configuration
     - Considerations
     - Recommendations
 
