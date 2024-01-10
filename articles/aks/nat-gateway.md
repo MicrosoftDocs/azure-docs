@@ -25,7 +25,7 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
 ## Create an AKS cluster with a managed NAT gateway
 
 * Create an AKS cluster with a new managed NAT gateway using the [`az aks create`][az-aks-create] command with the `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` parameters. If you want the NAT gateway to operate out of a specific availability zone, specify the zone using `--zones`.
-* If no zone is specified when creating a managed NAT gateway, than NAT gateway is deployed to "no zone" by default. No zone NAT gateway resources are deployed to a single availability zone for you by Azure. For more information on non-zonal deployment model, see [non-zonal NAT gateway](/azure/nat-gateway/nat-availability-zones#non-zonal).
+* If no zone is specified when creating a managed NAT gateway, then NAT gateway is deployed to "no zone" by default. When NAT gateway is placed in **no zone**, Azure places the resource in a zone for you. For more information on non-zonal deployment model, see [non-zonal NAT gateway](/azure/nat-gateway/nat-availability-zones#non-zonal).
 * A managed NAT gateway resource can't be used across multiple availability zones.
 
 > [!IMPORTANT]
