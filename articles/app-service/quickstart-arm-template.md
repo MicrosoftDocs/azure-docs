@@ -33,6 +33,8 @@ Use the following button to deploy on **Linux**:
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json)
 ::: zone-end
 ::: zone pivot="platform-windows-container"
+Use the following button to deploy on **Windows container**:
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows-container%2Fazuredeploy.json)
 ::: zone-end
 
 ## Prerequisites
@@ -85,7 +87,7 @@ This template contains several parameters that are predefined for your convenien
 ---
 ::: zone-end
 ::: zone pivot="platform-windows-container"
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](./quickstart-java.md).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-service-docs-windows-container). It deploys an App Service plan and an App Service app on a Windows container.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
 
@@ -147,13 +149,13 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 ---
 ::: zone-end
 ::: zone pivot="platform-windows-container"
-Run the code below to deploy a .NET framework app on Windows.
+Run the code below to deploy a .NET framework app on a Windows container.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".net" helloWorld="true" webAppName="<app-name>" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows-container/azuredeploy.json"
 ::: zone-end
 
 > [!NOTE]
