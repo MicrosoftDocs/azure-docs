@@ -352,7 +352,7 @@ public static WebPubSubConnection Run(
 # [C#](#tab/csharp)
 
 > [!NOTE]
-> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme?view=azure-dotnet).
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme).
 > ```cs
 > [FunctionName("WebPubSubConnectionCustomRoles")]
 > public static async Task<Uri> Run(
@@ -369,7 +369,7 @@ public static WebPubSubConnection Run(
 # [JavaScript Model v4](#tab/javascript-v4)
 
 > [!NOTE]
-> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub?view=azure-node-latest).
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub).
 > ```js
 > const { app } = require('@azure/functions');
 > const { WebPubSubServiceClient } = require('@azure/web-pubsub');
@@ -387,7 +387,7 @@ public static WebPubSubConnection Run(
 # [JavaScript Model v3](#tab/javascript-v3)
 
 > [!NOTE]
-> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub?view=azure-node-latest).
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub).
 > 
 > Define input bindings in `function.json`.
 > 

@@ -141,7 +141,7 @@ In this tutorial, you learn how to:
    ```bash
    func new -n index -t HttpTrigger
    ```
-   # [JavaScript Model v3](#tab/javascript-v3)
+   # [JavaScript Model v4](#tab/javascript-v4)
 
    - Update `src/functions/index.js` and copy following codes.
      ```js
