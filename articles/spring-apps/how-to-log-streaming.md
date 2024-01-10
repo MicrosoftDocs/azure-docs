@@ -1,4 +1,4 @@
----
+F---
 title:  Stream Azure Spring Apps application console logs in real time
 description: Describes how to use log streaming to view application logs in real time
 author: KarlErickson
@@ -46,7 +46,7 @@ If an app named `auth-service` has only one instance, you can view the log of th
 az spring app logs --name <application-name>
 ```
 
-This command returns logs similar to the following examples, where `auth-service` is the application name.
+The command returns logs similar to the following examples, where `auth-service` is the application name.
 
 ```output
 ...
@@ -68,7 +68,7 @@ First, run the following command to get the app instance names:
 az spring app show --name auth-service --query properties.activeDeployment.properties.instances --output table
 ```
 
-This command produces results similar to the following output:
+The command produces results similar to the following output:
 
 ```output
 Name                                         Status    DiscoveryStatus
@@ -151,7 +151,7 @@ Azure Spring Apps also enables you to access real-time app logs from a public ne
 
 ### [Azure portal](#tab/azure-portal)
 
-Use the following steps to enable a log streaming endpoint on the public network.
+Use the following steps to enable a log streaming endpoint on the public network:
 
 1. Select the Azure Spring Apps service instance deployed in your virtual network, and then select **Networking** in the navigation menu.
 
@@ -163,7 +163,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 #### [Azure CLI](#tab/azure-CLI)
 
-Use the following command to enable the log stream public endpoint.
+Use the following command to enable the log stream public endpoint:
 
 ```azurecli
 az spring update \
@@ -174,7 +174,7 @@ az spring update \
 
 ---
 
-After you enable the log stream public endpoint, you can access the app log from a public network as you would access a normal instance.
+After you enable the log stream public endpoint, you can access the app log from a public network just like you would access a normal instance.
 
 ## Secure traffic to the log streaming public endpoint
 
@@ -183,7 +183,7 @@ Log streaming uses the same key as the test endpoint described in [Set up a stag
 To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
 > [!NOTE]
-> If you can't access app logs in the virtual network injection instance from the internet after you enable a log stream public endpoint, check your network security group to see whether you allowed such inbound traffic.
+> If you can't access app logs in the virtual network injection instance from the internet after you enabled a log stream public endpoint, check your network security group to see whether you allowed such inbound traffic.
 
 The following table shows an example of a basic rule that we recommend. You can use commands like `nslookup` with the endpoint `<service-name>.private.azuremicroservices.io` to get the target IP address of a service.
 

@@ -41,7 +41,7 @@ az spring component list
 
 ## Assign an Azure role
 
-To stream logs of managed components, you must have the relevent Azure roles and permissions assigned you to. The following table lists the required roles and permissions for the operations:
+To stream logs of managed components, you must have the relevant Azure roles and permissions assigned you to. The following table lists the required roles and permissions for the operations:
 
 | Managed component                 | Required role                                                       | Operations                                                                    |
 |-----------------------------------|---------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -103,13 +103,15 @@ az spring component instance list \
     --component flux-source-controller
 ```
 
-## View the tail logs for a specific instance
+## View tail logs
+
+This section provides examples of using Azure CLI to produce tail logs.
+
+### View tail logs for a specific instance
 
 To view the tail logs for a specific instance, use the following command: `-i/--instance`.
 
-For more information, see the following section for examples on specific tail logs.
-
-### View the tail logs for an instance of `application-configuration-service`
+#### View tail logs for an instance of `application-configuration-service`
 
 Use the following Azure CLI commands to view the tail logs for `application-configuration-service`:
 
@@ -141,7 +143,7 @@ For ACS Gen2, the commands return logs similar to the following example:
 ...
 ```
 
-### View the tail logs for an instance of `flux-source-controller`
+#### View tail logs for an instance of `flux-source-controller`
 
 Use the following Azure CLI commands to view the tail logs for `flux-source-controller`:
 
@@ -166,7 +168,7 @@ The commands return logs similar to the following example:
 ...
 ```
 
-### View the tail logs for an instance of `spring-cloud-gateway`
+#### View tail logs for an instance of `spring-cloud-gateway`
 
 Use the following Azure CLI commands to view the tail logs for `spring-cloud-gateway`:
 
@@ -192,7 +194,7 @@ The commands return logs similar to the following example:
 ...
 ```
 
-### View the tail logs for an instance of `spring-cloud-gateway-operator`
+#### View tail logs for an instance of `spring-cloud-gateway-operator`
 
 Use the following Azure CLI commands to view the tail logs for `spring-cloud-gateway-operator`:
 
@@ -218,9 +220,9 @@ The commands return logs similar to the following example:
 
 ---
 
-## View the tail logs for all instances in one command
+### View tail logs for all instances in one command
 
-To view the tail logs for all linstances, use the following command:`--all-instances`. The instance name is the prefix of each log line. When there are multiple instances, logs are printed in batch for each instance, so logs of one instance are'nt interleaving with logs of another instance.
+To view the tail logs for all instances, use the following command:`--all-instances`. The instance name is the prefix of each log line. When there are multiple instances, logs are printed in batch for each instance, so logs of one instance aren't interleaving with the logs of another instance.
 
 Use the following Azure CLI commands to view the logs for all instances:
 
@@ -232,13 +234,15 @@ az spring component logs \
     --all-instances
 ```
 
-## Continuously stream new logs
+## Stream new logs continuously
 
 By default, `az spring component logs` prints only existing logs streamed to the console, and then exits. If you want to stream new logs, add the `-f/--follow` argument.
 
-And when you use the `-f/--follow` option to tail instant logs, the Azure Spring Apps log streaming service sends heartbeat logs to the client every minute unless the component is writing logs constantly. Heartbeat log messages use the following format: `2023-12-18 09:12:17.745: No log from server`.
+When you use the `-f/--follow` option to tail instant logs, the Azure Spring Apps log streaming service sends heartbeat logs to the client every minute unless the component is writing logs constantly. Heartbeat log messages use the following format: `2023-12-18 09:12:17.745: No log from server`.
 
 ### Stream logs for a specific instance
+
+Use the following Azure CLI commands to stream logs for a specific instance:
 
 ```azurecli
 az spring component logs \
@@ -251,6 +255,8 @@ az spring component logs \
 
 ### Stream logs for all instances
 
+Use the following Azure CLI commands to stream logs for all instances:
+
 ```azurecli
 az spring component logs \
     --resource-group <resource-group-name> \
@@ -260,7 +266,7 @@ az spring component logs \
     --follow
 ```
 
-When stream logs for multiple instances in a component, the logs of one instance interleave with logs of others.
+When you stream logs for multiple instances in a component, the logs of one instance interleave with logs of others.
 
 ## Stream logs in a virtual network (Vnet) injection instance
 
@@ -273,13 +279,15 @@ Azure Spring Apps also enables you to access real-time managed component logs fr
 
 ### [Azure portal](#tab/azure-Portal)
 
-Use the following steps to enable a log streaming endpoint on the public network.
+Use the following steps to enable a log streaming endpoint on the public network:
 
-1. Select the Azure Spring Apps service instance deployed in your virtual network, and then open the **Networking** tab in the navigation menu.
+1. Select the Azure Spring Apps service instance deployed in your virtual network, and then select **Networking** in the navigation menu.
+
 1. Select the **Vnet injection** tab.
+
 1. Switch the status of **Dataplane resources on public network** to **Enable** to enable a log streaming endpoint on the public network. This process takes a few minutes.
 
-   :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
+   :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet injection page." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
 
 #### [Azure CLI](#tab/azure-CLI)
 
@@ -294,7 +302,7 @@ az spring update \
 
 ---
 
-After you enable the log stream public endpoint, you can access the managed component logs from a public network as you would access a normal instance.
+After you enable the log stream public endpoint, you can access the managed component logs from a public network just like you would access a normal instance.
 
 ## Secure traffic to the log streaming public endpoint
 
