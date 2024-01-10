@@ -1,16 +1,18 @@
 ---
-title: What is Azure Virtual Network encryption? (Preview)
-description: Overview of Azure Virtual Network encryption
+title: What is Azure Virtual Network encryption?
+titleSuffix: Azure Virtual Network
+description: Learn about Azure Virtual network encryption. Virtual network encryption allows you to seamlessly encrypt and decrypt traffic between Azure Virtual Machines.
 ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
 ms.date: 01/17/2024
 ms.custom: template-overview, references_regions
+# customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
 ---
 
-#  What is Azure Virtual Network encryption? (Preview)
+#  What is Azure Virtual Network encryption?
 
 Azure Virtual Network encryption is a feature of Azure Virtual Networks. Virtual network encryption allows you to seamlessly encrypt and decrypt traffic between Azure Virtual Machines. 
 
@@ -19,7 +21,7 @@ Whenever Azure customer traffic moves between datacenters, Microsoft applies a d
 For more information about encryption in Azure, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
 
 > [!IMPORTANT]
-> Azure Virtual Network encryption is currently in preview.
+> Azure Virtual Network encryption is currently GA in the following regions: **UK South** and **Swiss North**. Azure Virtual Network encryption is in public preview in the remaining regions listed later in the article.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -51,11 +53,11 @@ Virtual network encryption has the following requirements:
 
 ## Availability
 
-Limited General Availability (GA) of Azure Virtual Network encryption is available in the following regions:
+General Availability (GA) of Azure Virtual Network encryption is available in the following regions:
 
 - UK South
 
-- Swiss regions
+- Swiss North
 
 Azure Virtual Network encryption is available in the following regions during the preview:
 
