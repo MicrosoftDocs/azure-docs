@@ -147,7 +147,7 @@ This log provides detailed information on actions taken during a call and can be
 |     `EndpointId`    |             The unique ID that represents each endpoint connected to the call, where endpointType defines the endpoint type. When the value is null, the connected entity is the Communication Services server (endpointType = "Server").  <BR><BR> The endpointId value can sometimes persist for the same user across multiple calls (correlationId) for native clients. The number of endpointId values determines the number of call summary logs. A distinct summary log is created for each endpointId value.                |
 |     `OperationPayload`    |     A dynamic payload that varies based on the operation providing more operation specific details.       |
 
-### Call client media stats time series log schema
+<!-- ### Call client media stats time series log schema
 [!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
 
 The **call client media statistics time series** log provides
@@ -185,7 +185,7 @@ Diagnostics for your Azure Communication Services Resource. [Learn more about Ca
 | `RemoteParticipantId`        | The unique ID that represents the remote endpoint in the media stream. For example, a user can render multiple video streams for the other users in the same call. Each video stream has a different RemoteParticipantId.                                                                                                                                                                  |
 | `RemoteEndpointId`           | Same as EndpointId, but it represents the user on the remote side of the stream.                                                                                                                                                                                                                                                                                                          |
 | `MediaStreamId`              | A unique ID that represents each media stream in the call. MediaStreamId is not currently instrumented in clients. When implemented, it will match the streamId column in CallDiagnostics logs.                                                                                                                                                                                            |
-| `AggregationIntervalSeconds` | The time interval for aggregating the media statistics. Currently in calling SDK, the media metrics are sampled every 1 second, and when we report in the log we aggregate all samples every 10 seconds. So each row in this table at most have 10 sampling points.                                                                                                                                                                                                           
+| `AggregationIntervalSeconds` | The time interval for aggregating the media statistics. Currently in calling SDK, the media metrics are sampled every 1 second, and when we report in the log we aggregate all samples every 10 seconds. So each row in this table at most have 10 sampling points.                                                                                                                                                                                                            -->
 
 
 
@@ -214,21 +214,21 @@ Azure Communication Services creates four types of logs:
 
 - **Call client operations logs**: Contain detailed call client events. These log events are generated for each `EndpointId` in a call and the number of event logs generated will depend on the operations the participant performed during the call. 
 
-- **Call client media statistics logs**: Contain detailed media stream values. These logs are generated for each media stream in a call.  For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct log for each media stream (audio or video, for example) between endpoints. The volume of data generated in each log depends on the duration of call and number of media steams in the call. 
+<!-- - **Call client media statistics logs**: Contain detailed media stream values. These logs are generated for each media stream in a call.  For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct log for each media stream (audio or video, for example) between endpoints. The volume of data generated in each log depends on the duration of call and number of media steams in the call. 
 
-In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In a group call, each stream associated with `endpointType` = `"Server"` creates a log that contains data for the inbound streams. All other streams create logs that contain data for the outbound streams for all non-server endpoints. In group calls, use the `participantId` value as the key to join the related inbound and outbound logs into a distinct participant connection.
+In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In a group call, each stream associated with `endpointType` = `"Server"` creates a log that contains data for the inbound streams. All other streams create logs that contain data for the outbound streams for all non-server endpoints. In group calls, use the `participantId` value as the key to join the related inbound and outbound logs into a distinct participant connection. -->
 
 ### Example: P2P call
 
 The following diagram represents two endpoints connected directly in a P2P call. In this example, Communication Services creates two call summary logs (one for each `participantID` value) and four call diagnostic logs (one for each media stream). 
 
-For Azure Communication Services (ACS) call client participants there will also be a series of call client operations logs and call client media stats time series logs. The exact number of these logs depend on what kind of SDK operations are called and how long the call is. 
+<!-- For Azure Communication Services (ACS) call client participants there will also be a series of call client operations logs and call client media stats time series logs. The exact number of these logs depend on what kind of SDK operations are called and how long the call is.  -->
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-1-p2p-call-same-tenant.png" alt-text="Diagram that shows a P2P call within the same tenant.":::
 
 ### Example: Group call
 
-The following diagram represents a group call example with three `participantId` values (which means three participants) and a server endpoint. Multiple values for `endpointId` can potentially appear in multiple participants--for example, when they rejoin a call from the same device. Communication Services creates one call summary log for each `participantId` value. It creates **XXX (not just four, 6?**) call diagnostic logs: one for each media stream per `participantId`. 
+The following diagram represents a group call example with three `participantId` values (which means three participants) and a server endpoint. Multiple values for `endpointId` can potentially appear in multiple participants--for example, when they rejoin a call from the same device. Communication Services creates one call summary log for each `participantId` value. It creates four call diagnostic logs: one for each media stream per `participantId`. 
 
 For Azure Communication Services (ACS) call client participants the call client operations logs and call client media statistics time series logs are the same as P2P call. For each participant using calling SDK, there will be a series of call client operations logs and call client media statistics time series logs. 
 
@@ -636,9 +636,14 @@ Here's a diagnostic log for an audio stream from a server endpoint to VoIP endpo
     "jitterMax":            "4",
     "packetLossRateAvg":    "0",
 ```
-### Call client operations log and call client media statistics logs for P2P and group calls
+### Call client operations logs for P2P and group calls
 
-For call client operations log and call client media stats time series log, there is no difference between P2P and group call scenarios and the number of logs depends on the SDK operations and call duration. The following provide some generic samples that show the schema of these logs.
+For call client operations log, there is no difference between P2P and group call scenarios and the number of logs depends on the SDK operations and call duration. The following provide some generic samples that show the schema of these logs.
+
+
+<!-- ### Call client operations log and call client media statistics logs for P2P and group calls
+
+For call client operations log and call client media stats time series log, there is no difference between P2P and group call scenarios and the number of logs depends on the SDK operations and call duration. The following provide some generic samples that show the schema of these logs. -->
 
 #### Call client operations log
 
@@ -646,58 +651,58 @@ Here's a call client operations log for "CreateView" operation:
 
 ```json
 "properties": {
-    "TenantId":                                         "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
-    "TimeGenerated":                              "2024-01-09T17:06:50.3Z",
-    "CallClientTimeStamp":                      "2024-01-09T15:07:56.066Z",
-    "OperationName":                              "CreateView" ,   
-    "CallId":                                               "92d800c4-abde-40be-91e9-3814ee786b19",
-    "ParticipantId":                                    "2656fd6c-6d4a-451d-a1a5-ce1baefc4d5c",
-    "OperationType":                                "client-api-request",
-    "OperationId":                                     "0d987336-37e0-4acc-aba3-e48741d88103",
-    'DurationMs':                                      "577",
-    "ResultType":                                       "Succeeded",
-    "ResultSignature":                               "200",
-    "SdkVersion":                                       "1.19.2.2_beta",
-    "UserAgent":                                        "azure-communication-services/1.3.1-beta.1 azsdk-js-communication-calling/1.19.2-beta.2 (javascript_calling_sdk;#clientTag:904f667c-5f25-4729-9ee8-6968b0eaa40b). Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "ClientInstanceId":                                "d08a3d05-db90-415f-88a7-87ae74edc1dd",
-    "OperationPayload":          "{"StreamType":"Video","StreamId":"2.0","Source":"remote","RemoteParticipantId":"remote"}",
-    "Type":                                                    "ACSCallClientOperations"
+    "TenantId":               "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+    "TimeGenerated":          "2024-01-09T17:06:50.3Z",
+    "CallClientTimeStamp":    "2024-01-09T15:07:56.066Z",
+    "OperationName":          "CreateView" ,   
+    "CallId":                 "92d800c4-abde-40be-91e9-3814ee786b19",
+    "ParticipantId":          "2656fd6c-6d4a-451d-a1a5-ce1baefc4d5c",
+    "OperationType":          "client-api-request",
+    "OperationId":            "0d987336-37e0-4acc-aba3-e48741d88103",
+    "DurationMs":             "577",
+    "ResultType":             "Succeeded",
+    "ResultSignature":        "200",
+    "SdkVersion":             "1.19.2.2_beta",
+    "UserAgent":              "azure-communication-services/1.3.1-beta.1 azsdk-js-communication-calling/1.19.2-beta.2 (javascript_calling_sdk;#clientTag:904f667c-5f25-4729-9ee8-6968b0eaa40b). Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "ClientInstanceId":       "d08a3d05-db90-415f-88a7-87ae74edc1dd",
+    "OperationPayload":       "{"StreamType":"Video","StreamId":"2.0","Source":"remote","RemoteParticipantId":"remote"}",
+    "Type":                   "ACSCallClientOperations"
 }
 ```
 Each participant can have many different metrics for a call. The following query can be run in Log Analytics in Azure portal to list all the possible Operations in the call client operations log:
 
 `ACSCallClientOperations | distinct OperationName`
 
-#### Call client media statistics time series log
+<!-- #### Call client media statistics time series log
 
 The following is an example of media statistics time series log. It shows the participant's Jitter metric for receiving an audio stream at a specific timestamp.
 
 ```json
 "properties": {
-    "TenantId":                                         "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
-    "TimeGenerated":                              "2024-01-10T07:36:51.771Z",
-    "OperationName":                              "CallClientMediaStatsTimeSeries" ,  
-    "CallId":                                               "92d800c4-abde-40be-91e9-3814ee786b19", 
-    "CallClientTimeStamp":                      "2024-01-09T15:07:56.066Z",
-    "MetricName":                                   "JitterInMs",
-    "Count":                                             "2",
-    "Sum":                                                "34",
-    "Average":                                           "17",
-    "Minimum":                                        "10",
-    "Maximum":                                        "25",
-    "MediaStreamDirection":                    "recv",
-    "MediaStreamType":                           "audio",
-    "MediaStreamCodec":                        "OPUS",
-    "ParticipantId":                                    "2656fd6c-6d4a-451d-a1a5-ce1baefc4d5c",
-     "ClientInstanceId":                              "d08a3d05-db90-415f-88a7-87ae74edc1dd",
-    "AggregationIntervalSeconds":           "10",
-    "Type":                                                 "ACSCallClientMediaStatsTimeSeries"
+    "TenantId":                     "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+    "TimeGenerated":                "2024-01-10T07:36:51.771Z",
+    "OperationName":                "CallClientMediaStatsTimeSeries" ,  
+    "CallId":                       "92d800c4-abde-40be-91e9-3814ee786b19", 
+    "CallClientTimeStamp":          "2024-01-09T15:07:56.066Z",
+    "MetricName":                   "JitterInMs",
+    "Count":                        "2",
+    "Sum":                          "34",
+    "Average":                      "17",
+    "Minimum":                      "10",
+    "Maximum":                      "25",
+    "MediaStreamDirection":         "recv",
+    "MediaStreamType":              "audio",
+    "MediaStreamCodec":             "OPUS",
+    "ParticipantId":                "2656fd6c-6d4a-451d-a1a5-ce1baefc4d5c",
+     "ClientInstanceId":            "d08a3d05-db90-415f-88a7-87ae74edc1dd",
+    "AggregationIntervalSeconds":   "10",
+    "Type":                         "ACSCallClientMediaStatsTimeSeries"
 }
 ```
 
 Each participant can have many different media statistics metrics for a call. The following query can be run in Log Analytics in Azure Portal to show all possible metrics in this log:
 
-`ACSCallClientMediaStatsTimeSeries | distinct MetricName`
+`ACSCallClientMediaStatsTimeSeries | distinct MetricName` -->
 
 ### Error codes 
 
