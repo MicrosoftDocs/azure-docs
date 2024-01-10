@@ -13,7 +13,7 @@ This article explains the licensing requirements for using Azure Virtual Desktop
 
 ## Internal and external commercial purposes
 
-In the context of providing virtualized infrastructure with Azure Virtual Desktop, *internal users* (for internal commercial purposes) refers to people who are members of your own organization , such as employees of a business or students of a school, including external vendors or contractors. *External users* (for external commercial purposes) aren't members of your organization, but your customers where you might provide a Software-as-a-Service (SaaS) application using Azure Virtual Desktop.
+In the context of providing virtualized infrastructure with Azure Virtual Desktop, *internal users* (for internal commercial purposes) refers to people who are members of your own organization, such as employees of a business or students of a school, including external vendors or contractors. *External users* (for external commercial purposes) aren't members of your organization, but your customers where you might provide a Software-as-a-Service (SaaS) application using Azure Virtual Desktop.
 
 > [!NOTE]
 > Take care not to confuse external *users* with external *identities*. Azure Virtual Desktop doesn't support external identities, including guest accounts or business-to-business (B2B) identities. Whether you're serving internal commercial purposes or external users with Azure Virtual Desktop, you'll need to create and manage identities for those users yourself. For more information, see [Recommendations for deploying Azure Virtual Desktop for internal or external commercial purposes](organization-internal-external-commercial-purposes-recommendations.md).
