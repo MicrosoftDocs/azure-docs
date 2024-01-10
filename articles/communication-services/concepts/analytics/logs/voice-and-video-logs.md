@@ -638,7 +638,31 @@ Here's a diagnostic log for an audio stream from a server endpoint to VoIP endpo
     "jitterMax":            "4",
     "packetLossRateAvg":    "0",
 ```
+For call client operations log and call client media stats time series log, there is no difference between P2P and group call scenarios and the number of logs depends on the SDK operations and call duration. So below we provide som generic samples that show the schema of these logs.
 
+#### Call client operations log
+
+Here's a call client operations log for "CreateView" operation:
+
+```json
+"properties": {
+    "TenantId":                                         "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+    "TimeGenerated":                              "2024-01-09T17:06:50.3Z",
+    "CallClientTimeStamp":                      "2024-01-09T15:07:56.066Z",
+    "OperationName":                              "CreateView" ,   
+    "CallId":                                               "92d800c4-abde-40be-91e9-3814ee786b19",
+    "ParticipantId":                                    "2656fd6c-6d4a-451d-a1a5-ce1baefc4d5c",
+    "OperationType":                                "client-api-request",
+    "OperationId":                                     "0d987336-37e0-4acc-aba3-e48741d88103",
+    'DurationMs':                                      "577",
+    "ResultType":                                       "Succeeded",
+    "ResultSignature":                               "200",
+    "SdkVersion":                                       "1.19.2.2_beta",
+    "UserAgent":                                        "azure-communication-services/1.3.1-beta.1 azsdk-js-communication-calling/1.19.2-beta.2 (javascript_calling_sdk;#clientTag:904f667c-5f25-4729-9ee8-6968b0eaa40b). Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "ClientInstanceId":                                "d08a3d05-db90-415f-88a7-87ae74edc1dd",
+    "OperationPayload":          "{"StreamType":"Video","StreamId":"2.0","Source":"remote","RemoteParticipantId":"remote"}",
+    "Type":                                                    "ACSCallClientOperations"
+}
 ### Error codes 
 
 The `participantEndReason` property contains a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, for each endpoint. See [Troubleshooting in Azure Communication Services](../../troubleshooting-info.md?tabs=csharp%2cios%2cdotnet#calling-sdk-error-codes).
