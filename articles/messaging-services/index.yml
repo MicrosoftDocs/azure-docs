@@ -52,6 +52,9 @@ conceptualContent:
         - url: ../event-grid/mqtt-overview.md
           itemType: overview
           text: MQTT broker overview
+        - url: ../event-grid/kubernetes/overview.md
+          itemType: overview
+          text: Event Grid on Kubernetes overview
         - url: ../event-grid/publish-events-to-namespace-topics-java.md
           itemType: quickstart
           text: Publish events to namespace topics using Java
@@ -73,9 +76,6 @@ conceptualContent:
         - url: ../event-grid/custom-event-quickstart-portal.md
           itemType: quickstart
           text: Route custom events to web endpoint with the Azure portal and Event Grid
-        - url: ../event-grid/kubernetes/overview.md
-          itemType: overview
-          text: Event Grid on Kubernetes overview
       # footerLink
       footerLink:
         url: ../event-grid/index.yml
