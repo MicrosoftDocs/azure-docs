@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.custom: devx-track-azurecli
-ms.date: 09/28/2023
+ms.date: 01/02/2024
 ms.author: rolyon
 ---
 
@@ -325,7 +325,7 @@ In this step, you transfer the subscription from the source directory to the tar
 - Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign roles to users, groups, and service principals. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md).
 
     ```azurecli
-    az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
+    az role assignment create --role <role_name_or_id> --assignee <assignee> --scope "/subscriptions/<subscriptionId>/resourceGroups/<resource_group>"
     ```
 
 ### Update system-assigned managed identities
@@ -341,7 +341,7 @@ In this step, you transfer the subscription from the source directory to the tar
 1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign roles to system-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
-    az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
+    az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope "/subscriptions/<subscriptionId>/resourceGroups/<resource_group>"
     ```
 
 ### Update user-assigned managed identities
@@ -357,7 +357,7 @@ In this step, you transfer the subscription from the source directory to the tar
 1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign roles to user-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
-    az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
+    az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope "/subscriptions/<subscriptionId>/resourceGroups/<resource_group>"
     ```
 
 ### Update key vaults

@@ -22,7 +22,9 @@ Microsoft Dev Box builds on the same foundations as [Azure Deployment Environmen
 This diagram shows the key components of Dev Box and how they relate to each other. You can learn more about each component in the following sections.
 
 :::image type="content" source="media/concept-key-concepts/dev-box-architecture.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-architecture.png" :::
-    
+
+For more in-depth information about the Microsoft Dev Box architecture, see the [architecture overview](./concept-dev-box-architecture.md) article.
+
 ## Dev center
 
 A dev center is a collection of [Projects](#project) that require similar settings. Dev centers enable platform engineers to:
@@ -71,6 +73,7 @@ As a dev box user, you have control over your own dev boxes. You can create more
 
 ## Related content
 
+- [Microsoft Dev Box architecture overview](./concept-dev-box-architecture.md)
 - [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md)
 - [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
 - [What is Azure Deployment Environments?](../deployment-environments/overview-what-is-azure-deployment-environments.md)

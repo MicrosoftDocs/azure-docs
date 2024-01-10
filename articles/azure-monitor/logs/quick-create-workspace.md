@@ -212,13 +212,13 @@ For more information about Azure Resource Manager templates, see [Azure Resource
 
 ## Troubleshooting
 
-When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have a different outcome depending on your workspace configuration:
+When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#delete-a-workspace-into-a-soft-delete-state), the operation could have a different outcome depending on your workspace configuration:
 
 1. If you provide the same workspace name, resource group, subscription, and region as in the deleted workspace, your workspace will be recovered including its data, configuration, and connected agents.
 1. Workspace names must be unique for a resource group. If you use a workspace name that already exists, or is soft deleted, an error is returned. To permanently delete your soft-deleted name and create a new workspace with the same name, follow these steps:
 
-   1. [Recover](../logs/delete-workspace.md#recover-a-workspace) your workspace.
-   1. [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace.
+   1. [Recover](../logs/delete-workspace.md#recover-a-workspace-in-a-soft-delete-state) your workspace.
+   1. [Permanently delete](../logs/delete-workspace.md#delete-a-workspace-permanently) your workspace.
    1. Create a new workspace by using the same workspace name.
   
 ## Next steps
