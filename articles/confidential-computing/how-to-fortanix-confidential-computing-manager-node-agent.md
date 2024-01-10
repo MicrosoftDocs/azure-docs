@@ -8,7 +8,7 @@ ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 03/24/2021
-ms.author: JenCook
+ms.author: JBCook
 ---
 
 # Run an application by using Fortanix Confidential Computing Manager
@@ -124,7 +124,7 @@ A Fortanix CCM Image is a software release or version of an application. Each im
 
 An application whose domain is approved, will get a TLS Certificate from Fortanix Confidential Computing Manager. This certificate will have the domain as a subject name which will allow all requests from this domain to be served by the application. If this domain is not approved, the image will run but it will not be issued any TLS certificate from Fortanix Confidential Computing Manager.
 
-Switch to the **Tasks** menu on the left and select **Approve** to whitelist the pending requests to allow the domain and image.
+Switch to the **Tasks** menu on the left and select **Approve** to approve the pending requests to allow the domain and image.
 
 ## Enroll the compute node agent in Azure
 
@@ -160,8 +160,8 @@ Creating a Fortanix Node Agent will deploy a virtual machine, network interface,
 1. Paste the token generated earlier in **Join Token**.
 
    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-node-agent.png" alt-text="Screenshot that shows how to create a node agent.":::
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-node-agent-1.png" alt-text="Screenshot that shows how to create a node agent.":::
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-node-agent-2.png" alt-text="Screenshot that shows how to create a node agent.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-node-agent-1.png" alt-text="Screenshot that shows how to create a node agent-1.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-node-agent-2.png" alt-text="Screenshot that shows how to create a node agent-2.":::
 
 1. Select **Review + create**. Ensure the validation passes and then select **Create**. When all the resources deploy, the compute node is now enrolled in Fortanix Confidential Computing Manager.
 
@@ -186,9 +186,9 @@ Run the application by executing the following command. Ensure you change the No
 
 Where:
 
-    - *52.152.206.164* is the Node Agent Host IP.
-    - *9092* is the default port on which the Node Agent listens to.
-    - *fortanix/python-flask-sgx* is the converted app that can be found in the Images menu under the **Image Name** column in the **Images** table in the Fortanix Confidential Computing Manager Web Portal.
+- `52.152.206.164` is the Node Agent Host IP.
+- `9092` is the default port on which the Node Agent listens to.
+- `fortanix/python-flask-sgx` is the converted app that can be found in the Images menu under the **Image Name** column in the **Images** table in the Fortanix Confidential Computing Manager Web Portal.
 
 ## Verify and monitor the running application
 
