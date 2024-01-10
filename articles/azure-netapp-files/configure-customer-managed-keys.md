@@ -151,7 +151,7 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
 ### [Azure CLI](#tab/azure-cli)
 
-The process to configure a NetApp account with customer-managed keys in the Azure CLI depends on whether you are using a [system-assigned identity](#use-a-system-assigned-idenity) or an [user-assigned identity](#use-a-new-user-assigned-identity).
+The process to configure a NetApp account with customer-managed keys in the Azure CLI depends on whether you are using a [system-assigned identity](#use-a-system-assigned-identity) or an [user-assigned identity](#use-a-new-user-assigned-identity).
 
 #### Use a system-assigned identity
 
