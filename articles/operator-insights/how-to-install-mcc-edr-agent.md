@@ -23,7 +23,7 @@ The MCC EDR agent is a software package that is installed onto a Linux Virtual M
 |----------|---------------------------------------------------------------------|
 | OS       | Red Hat Enterprise Linux 8.6 or later, or Oracle Linux 8.8 or later |
 | vCPUs    | 4                                                                   |
-| Memory   | 16 GB                                                               |
+| Memory   | 32 GB                                                               |
 | Disk     | 64 GB                                                               |
 | Network  | Connectivity from MCCs and to Azure                                 |
 | Software | systemd, logrotate and zip installed                                |
