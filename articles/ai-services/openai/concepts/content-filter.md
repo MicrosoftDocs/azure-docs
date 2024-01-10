@@ -649,9 +649,9 @@ Customers who have been approved for modified content filters can choose Asynchr
 
 Approval for Modified Content Filtering is required for access to Streaming – Asynchronous Modified Filter. The application can be found [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu). To enable it via Azure OpenAI Studio please follow the instructions [here](/azure/ai-services/openai/how-to/content-filters) to create a new content filtering configuration, and select “Asynchronous Modified Filter” in the Streaming section, as shown in the below screenshot. 
 
-### Overview tbd
+### Overview
 
-| | Streaming - Default | Streaming - Asynchronous Modified Filter |
+| Category | Streaming - Default | Streaming - Asynchronous Modified Filter |
 |---|---|---|
 |Status |GA |Public Preview |
 | Access | Enabled by default, no action needed |Customers approved for Modified Content Filtering can configure directly via Azure OpenAI Studio (as part of a content filtering configuration; applied on deployment-level) |
