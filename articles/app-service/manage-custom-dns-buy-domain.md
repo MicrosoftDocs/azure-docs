@@ -184,7 +184,7 @@ After you purchase the App Service Domain, you can still update the domain conta
 
 1. From the left navigation of the domain, select **Advance domain management (preview)**. To update your contact information, click on **Edit contact**.
 
-    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png" alt-text="Screenshot showing where to update contact information for a puchased domain." border="true":::
+    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-updatecontact.png" alt-text="Screenshot showing where to update contact information for a puchased domain." border="true":::
 
 1. A rightside plane will pop up and you will need to update the necessary fields then click on **Submit**.
 
@@ -209,6 +209,8 @@ Privacy protection hides your domain registration contact information from the W
 1. Select the domain you want to configure.
 
 1. From the left navigation of the domain, select **Advance domain management (preview)**. To disable privacy protection, click on **Disable** in the **Domain Privacy** section.
+
+    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-disableprivacy.png" alt-text="Screenshot showing where to disable privacy for a puchased domain." border="true":::
 
 ## Cancel purchase (delete domain)
 
