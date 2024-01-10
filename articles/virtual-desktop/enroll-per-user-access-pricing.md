@@ -16,7 +16,7 @@ Before external users can connect to your deployment, you need to enroll your Az
 > [!IMPORTANT]
 > Per-user access pricing with Azure Virtual Desktop doesn't currently support Citrix DaaS and VMware Horizon Cloud.
 
-## How to enroll an Azure Subscription
+## How to enroll an Azure subscription
 
 To enroll your Azure subscription into per-user access pricing:
 
@@ -34,7 +34,7 @@ To enroll your Azure subscription into per-user access pricing:
 
 1. After enrollment completes, check the value in the **Per-user access pricing** column of the subscriptions list changes to **Enrolled**.
 
-## How to unenroll an Azure Subscription 
+## How to unenroll an Azure subscription 
 
 To enroll your Azure subscription from per-user access pricing:
 

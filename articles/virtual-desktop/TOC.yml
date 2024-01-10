@@ -128,7 +128,7 @@
         href: delegated-access-virtual-desktop.md
       - name: Recommendations for internal and external commercial purposes
         displayName: identity
-        href: recommendations-organization-internal-external-users.md
+        href: organization-internal-external-commercial-purposes-recommendations.md
     - name: Azure Virtual Desktop Agent
       href: agent-overview.md
     - name: Host pool load balancing methods
