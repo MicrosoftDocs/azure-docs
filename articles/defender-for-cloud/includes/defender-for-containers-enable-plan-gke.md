@@ -1,7 +1,7 @@
 ---
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 12/31/2023
+ms.date: 01/10/2024
 ms.author: dacurwin
 author: dcurwin
 ---
@@ -47,7 +47,7 @@ To protect your GKE clusters, you'll need to enable the Containers plan on the r
     - Manually install [Arc-enabled Kubernetes](../../azure-arc/kubernetes/quickstart-connect-cluster.md) and [extensions](../../azure-arc/kubernetes/extensions.md).
 
     - [Agentless discovery for Kubernetes](../defender-for-containers-architecture.md#how-does-agentless-discovery-for-kubernetes-work) provides API-based discovery of your Kubernetes clusters. To enable the **Agentless discovery for Kubernetes** feature, toggle the setting to **On**.
-    - The [Agentless Container Vulnerability Assessment](../agentless-vulnerability-assessment-gcp.md) provides vulnerability management for images stored in GAR and running images on your GKE clusters. To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
+    - The [Agentless Container Vulnerability Assessment](../agentless-vulnerability-assessment-gcp.md) provides vulnerability management for images stored in Google Registries (GAR and GCR) and running images on your GKE clusters. To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
 
 1. Select the **Copy** button.
 
