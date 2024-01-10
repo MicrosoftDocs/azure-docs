@@ -18,7 +18,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - For ease of use, try the PowerShell environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 
-    If you want to use PowerShell locally, then install the [Az PowerShell](/powershell/azure/new-azureps-module-az) module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information, see [Install Azure PowerShell][install-azure-powershell].
+    If you want to use PowerShell locally, then install the [Az PowerShell](/powershell/azure/new-azureps-module-az) module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. Make sure that you run the commands with administrative privileges. For more information, see [Install Azure PowerShell][install-azure-powershell].
 
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 - If you have more than one Azure subscription, set the subscription that you wish to use for the quickstart by calling the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
@@ -276,9 +276,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Delete resources
 
-If you don't plan on going through the following tutorials, then delete your cluster to avoid incurring Azure charges.
-
-Delete your resource group, container service, and all related resources using the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, container service, and all related resources.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], then delete your cluster to avoid incurring Azure charges. Call the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, container service, and all related resources.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name myResourceGroup
@@ -307,7 +305,6 @@ To learn more about AKS, and to walk through a complete code-to-deployment examp
 <!-- LINKS - internal -->
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
-[azure-cni-about]: ../concepts-network.md#azure-cni-advanced-networking
 [new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests

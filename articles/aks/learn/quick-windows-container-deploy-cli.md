@@ -291,7 +291,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Delete resources
 
-If you don't plan on going through the following tutorials, you should delete your cluster to avoid incurring Azure charges.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], you should delete your cluster to avoid incurring Azure charges.
 
 Delete your resource group, container service, and all related resources using the [az group delete](/cli/azure/group#az_group_delete) command.
 
