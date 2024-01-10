@@ -234,7 +234,7 @@ sections:
           If there are other EA administrators on the enrollment, we reach out to the EA administrators to request for approval on administrative changes on the enrollment.
       - question: My enrollment is showing in pending status. How do I activate my enrollment?
         answer: |
-          Enrollments are in pending status if the initial EA administrator hasn't logged on to the enrollment before. If you're the EA administrator,  sign in to the Azure EA portal. On the landing page with all your enrollment numbers, you might not see your pending enrollment. Clear the **active** box on the top-right corner of your EA portal, this action would display the pending enrollment. Select the enrollment to access the information and once you have reached the Manage page of the enrollment, the status is updated from Pending to Active.
+          Enrollments are in pending status if the initial EA administrator hasn't logged on to the enrollment before. If you're the EA administrator,  sign in to the Azure EA portal. On the landing page with all your enrollment numbers, you might not see your pending enrollment. Clear the **active** box on the top-right corner of the EA portal. This action displays the pending enrollment. Select the enrollment to access the information. When you reach the Manage page of the enrollment, the status is updated from Pending to Active.
           
           If you're a direct enterprise customer, sign in to Azure portal. On the billing scope page, select your billing account. When you're on the enrollment overview page, the status is updated from **Pending** to **Active**. Navigate to the **Properties** menu to view the update status.
       - question: Why is my account stuck in pending status?

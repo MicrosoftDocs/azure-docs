@@ -25,7 +25,7 @@ For pricing information, see the [Azure Synapse Analytics reserved capacity offe
 You can buy Azure Synapse Analytics reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pay for the reservation [up front or with monthly payments](./prepare-buy-reservation.md). To buy reserved capacity:
 
 - You must have the owner role for at least one enterprise, Pay-As-You-Go, or Microsoft Customer Agreement subscription.
-- For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin to enable it. Direct Enterprise customers can update the **Reserved Instances** setting ine the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). Navigate to the Policies menu to change settings.
+- For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin to enable it. Direct Enterprise customers can update the **Reserved Instances** setting in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). Navigate to the Policies menu to change settings.
 
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Synapse Analytics reserved capacity.
 
