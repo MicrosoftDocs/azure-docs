@@ -53,9 +53,9 @@ When Defender for Cloud protects a cluster hosted in Azure Kubernetes Service, t
 | microsoft-defender-collector-misc-* | kube-system | [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment that aren't bounded to a specific node. | N/A | memory: 64Mi <br> <br>cpu: 60m | No |
 | microsoft-defender-publisher-ds-* | kube-system | [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | Publish the collected data to Microsoft Defender for Containers backend service where the data will be processed for and analyzed. | N/A | memory: 200Mi <br> <br> cpu: 60m | Https 443 <br> <br> Learn more about the [outbound access prerequisites](../aks/outbound-rules-control-egress.md#microsoft-defender-for-containers) |
 
-\* Resource limits aren't configurable; Learn more about [Kubernetes resources limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes)
+\* Resource limits aren't configurable; Learn more about [Kubernetes resources limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes).
 
-## How does agentless discovery for Kubernetes in Azure work?
+### How does agentless discovery for Kubernetes in Azure work?
 
 The discovery process is based on snapshots taken at intervals:
 
@@ -111,6 +111,22 @@ When Defender for Cloud protects a cluster hosted in Elastic Kubernetes Service,
 > Defender for Containers support for AWS EKS clusters is a preview feature.
 
 :::image type="content" source="./media/defender-for-containers/architecture-eks-cluster.png" alt-text="Diagram of high-level architecture of the interaction between Microsoft Defender for Containers, Amazon Web Services' EKS clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-eks-cluster.png":::
+
+### How does agentless discovery for Kubernetes in AWS work?
+
+The discovery process is based on snapshots taken at intervals:
+
+When you enable the agentless discovery for Kubernetes extension, the following process occurs:
+
+- **Create**:
+  - The Defender for Cloud role *MDCContainersAgentlessDiscoveryK8sRole* is created to the *aws-auth ConfigMap* of the EKS clusters by default, and can be customized.
+
+- **Assign**: Defender for Cloud assigns the *MDCContainersAgentlessDiscoveryK8sRole* role the following permissions:
+
+  - `eks:UpdateClusterConfig`
+  - `eks:DescribeCluster`
+
+- **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the EKS clusters in your environment using API calls to the API server of EKS.
 
 ## [**GCP (GKE)**](#tab/defender-for-container-gke)
 
