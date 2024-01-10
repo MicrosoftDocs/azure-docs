@@ -101,14 +101,13 @@ const { app, trigger } = require('@azure/functions');
 const wpsTrigger = trigger.generic({
     type: 'webPubSubTrigger',
     name: 'request',
-    hub: <hub>,
+    hub: '<hub>',
     eventName: 'message',
     eventType: 'user'
 });
 
 app.generic('message', {
     trigger: wpsTrigger,
-    extraOutputs: [wpsMsg],
     handler: async (request, context) => {
         context.log('Request from: ', request.connectionContext.userId);
         context.log('Request message data: ', request.data);
@@ -122,7 +121,6 @@ app.generic('message', {
 ```js
 app.generic('message', {
     trigger: wpsTrigger,
-    extraOutputs: [wpsMsg],
     handler: async (request, context) => {
           return { 
               "data": "ack",
@@ -277,7 +275,7 @@ const connection = input.generic({
     type: 'webPubSubConnection',
     name: 'connection',
     userId: '{query.userId}',
-    hub: <hub>
+    hub: '<hub>'
 });
 
 app.http('negotiate', {
@@ -650,7 +648,7 @@ const { app, output } = require('@azure/functions');
 const wpsMsg = output.generic({
     type: 'webPubSub',
     name: 'actions',
-    hub: <hub>,
+    hub: '<hub>',
 });
 
 app.http('message', {
