@@ -31,7 +31,7 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
 > [!IMPORTANT]
 > If no value for the outbound IP address is specified, the default value is one.
 
-    ```azurecli-interactive
+   ```azurecli-interactive
     az aks create \
         --resource-group myResourceGroup \
         --name myNatCluster \
@@ -39,7 +39,7 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
         --outbound-type managedNATGateway \
         --nat-gateway-managed-outbound-ip-count 2 \
         --nat-gateway-idle-timeout 4
-    ```
+  ```
 
 ### Update the number of outbound IP addresses
 
