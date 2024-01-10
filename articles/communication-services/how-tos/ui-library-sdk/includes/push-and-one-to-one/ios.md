@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on iOS.
+description: Learn how to use the Calling composite on iOS.
 author: iaulakh
 
 ms.author: iaulakh
@@ -8,11 +8,11 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
+For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
-## Set up push notifications
+### Set up push notifications
 
-A mobile push notification is the pop-up notification that you get in the mobile device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications. 
+A mobile push notification is the pop-up notification that you get in the mobile device. For calling, this article focuses on voice over Internet Protocol (VoIP) push notifications.
 
 The following sections describe how to register for, handle, and unregister push notifications. Before you start those tasks, complete these prerequisites:
 
@@ -20,10 +20,11 @@ The following sections describe how to register for, handle, and unregister push
 2. Add another capability by selecting **+ Capability**, and then select **Background Modes**.
 3. Under **Background Modes**, select the **Voice over IP** and **Remote notifications** checkboxes.
 
-### Register for push notification
+### Register for push notifications
+
 To register for push notifications, the application needs to call `registerPushNotification()` on a `CallComposite` instance with a device registration token.
 
-You can skip `registerPushNotification` to avoid current limitation of this by using Event Grid [Current limitations with the Push Notification model](https://learn.microsoft.com/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
+To avoid current limitations, you can skip `registerPushNotification` by using Azure Event Grid for push notifications. For more information, see [Connect calling native push notifications with Azure Event Grid](/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
 
 ```swift
     let deviceToken: Data = pushRegistry?.pushToken(for: PKPushType.voIP)
@@ -37,14 +38,14 @@ You can skip `registerPushNotification` to avoid current limitation of this by u
 
 ```
 
-### Handle push notification
+### Handle push notifications
 
 To receive push notifications for incoming calls, call `handlePushNotification()` on a `CallComposite` instance with a dictionary payload.
 
-On handle push, CallKit notification will be received to accept and decline call.
+When you use `handlePushNotification()`, you get a CallKit notification to accept or decline calls.
 
 ```swift
-    // app is in background
+    // App is in the background
     let pushNotificationInfo = CallCompositePushNotificationInfo(pushNotificationInfo: dictionaryPayload)
     let cxHandle = CXHandle(type: .generic, value: "\(pushNotificationInfo.callId)")
     let cxProvider = CallCompositeCallKitOption.getDefaultCXProviderConfiguration()
@@ -57,14 +58,14 @@ On handle push, CallKit notification will be received to accept and decline call
                                         callNotification: pushNotificationInfo) { result in
         if case .success() = result {
             DispatchQueue.global().async {
-                // handle push notification
-                // you do not need to wait for ACS token to handle push as 
-                // Communication common receives callback function to get token
+                // Handle push notification
+                // You don't need to wait for a Communication Services token to handle the push because 
+                // Communication Services commonly receives a callback function to get the token
             }
         }
     }
 
-    // app is in foreground
+    // App is in the foreground
     let pushNotificationInfo = CallCompositePushNotificationInfo(pushNotificationInfo: dictionaryPayload)
     let displayName = "display name"
     let remoteOptions = RemoteOptions(for: pushNotificationInfo,
@@ -74,16 +75,16 @@ On handle push, CallKit notification will be received to accept and decline call
     try await callComposite.handlePushNotification(remoteOptions: remoteOptions)
 ```
 
-### Register for incoming call notification
+### Register for incoming call notifications
 
-To receive incoming call notification after `handlePushNotification` subscribe to `IncomingCallEvent` and `IncomingCallEndEvent`.
+To receive incoming call notifications after `handlePushNotification`, subscribe to `IncomingCallEvent` and `IncomingCallEndEvent`.
 
 ```swift
     let onIncomingCall: (CallCompositeIncomingCallInfo) -> Void = { [] _ in
-        // on incoming call
+        // Incoming call
     }
     let onIncomingCallEnded: (CallCompositeIncomingCallEndedInfo) -> Void = { [] _ in
-        // on incoming call ended
+        // Incoming call ended
     }
 
     callComposite.events.onIncomingCall = onIncomingCall
@@ -92,10 +93,10 @@ To receive incoming call notification after `handlePushNotification` subscribe t
 
 ### Dial other participants
 
-To start call with other participants, create `CallCompositeStartCallOptions` with participants raw IDs from `CommunicationIdentity` and `launch`.
+To start calls with other participants, create `CallCompositeStartCallOptions` with participants' raw IDs from `CommunicationIdentity` and `launch`.
 
 ```swift
-    let startCallOptions = CallCompositeStartCallOptions(participants: /*list of participants mri's*/)
+    let startCallOptions = CallCompositeStartCallOptions(participants: <list of participant IDs>)
     let remoteOptions = RemoteOptions(for: startCallOptions,
                                         credential: credential,
                                         displayName: "DISPLAY_NAME",

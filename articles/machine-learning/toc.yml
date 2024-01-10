@@ -698,6 +698,8 @@
               href: ./prompt-flow/tools-reference/serp-api-tool.md
             - name: Open Model LLM tool
               href: ./prompt-flow/tools-reference/open-model-llm-tool.md
+            - name: Azure OpenAI GPT-4 Turbo with Vision tool
+              href: ./prompt-flow/tools-reference/azure-open-ai-gpt-4v-tool.md
             - name: OpenAI GPT-4V tool
               href: ./prompt-flow/tools-reference/openai-gpt-4v-tool.md
             - name: Troubleshoot Guidance

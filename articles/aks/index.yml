@@ -160,7 +160,7 @@ landingContent:
           - text: Connect to Windows Server nodes over RDP
             url: rdp.md
           - text: Connect to Windows Server nodes over SSH
-            url: node-access.md#create-the-ssh-connection-to-a-windows-node
+            url: node-access.md#windows-server-proxy-connection
           - text: Windows Server containers FAQ
             url: windows-faq.md
 

@@ -146,6 +146,8 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+    - name: FAQ-Soft Delete
+      href: soft-delete-azure-backup-faq.yml 
   - name: Vaults
     items:
     - name: Recovery Services vault
