@@ -13,7 +13,7 @@ ms.service: azure-migrate
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you are using the tool, you can control the data you share in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix.md#import-servers-using-rvtools-xlsx-preview).
+This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
 
 
 In this tutorial, you learn how to:
@@ -30,20 +30,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Before you begin this tutorial, check that you have these prerequisites in place:
+Before you begin this tutorial, ensure that you have the following prerequisites in place:
 
-- Ensure that you have 20,000 servers in a single XLSX file and in an Azure Migrate project.
-- Ensure that the operating system names specified in the RVTools XLSX (preview) file contains and matches the supported names.
-- Ensure that the file protection is set to **General** or **Any user**.
+- 20,000 servers in a single XLSX file and in an Azure Migrate project.
+- Operating system names specified in the RVTools XLSX (preview) file contains and matches the supported names.
+- File protection is set to **General** or **Any user**.
 
 ## Prepare an Azure user account
 
-To create a project and register the Azure Migrate appliance, you must have an Azure account that has the following permissions:
+To create a project and register the Azure Migrate appliance, you must have an Azure user account that has the following permissions:
 
-- Contributor or Owner permissions in Azure subscription
-- Permissions to register Microsoft Entra apps
+- Contributor or Owner permissions in Azure subscription. Complete the procedure to [set Contributor or Owner permissions in the Azure subscription](tutorial-discover-vmware.md#prepare-an-azure-user-account)
+- Permissions to register Microsoft Entra apps.
 - Owner or Contributor and User Access Administrator permission at subscription level to create an instance of Azure Key Vault, which is used during the agentless server migration.
-- Complete the procedure to [set Contributor or Owner permissions in the Azure subscription](tutorial-discover-vmware.md#prepare-an-azure-user-account).
 
 
 ## Set up an Azure Migrate project
@@ -51,7 +50,7 @@ To create a project and register the Azure Migrate appliance, you must have an A
 Follow the instructions on [how to set up an Azure Migrate project](tutorial-discover-import.md#set-up-a-project).
 
 
-## Import using the RVTools XLSX file (preview)
+## Import the servers using the RVTools XLSX file (preview)
 
 To import the servers using RVTools XLSX (preview) file, follow these steps:
 
@@ -62,7 +61,7 @@ To import the servers using RVTools XLSX (preview) file, follow these steps:
     :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png" alt-text="Screenshot that shows how to navigate to the RVTools import option." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png":::
 
 1. In **Discover** page, in **File type**, select **VMware inventory (RVTools XLSX)**.
-1. In the **Import the file** section, select the RVTools XLSX file and then select **Import**.
+1. In the **Step 1: Import the file** section, select the RVTools XLSX file and then select **Import**.
 
     :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png" alt-text="Screenshot that shows to upload, check status and selecting import." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png":::
 
@@ -73,8 +72,8 @@ To import the servers using RVTools XLSX (preview) file, follow these steps:
     
       :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png" alt-text="Screenshot that shows to status as failed." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png"::: 
    
-    - To view and fix warnings, follow these steps:
-        - Select *Download warning details.XLSX*. This operation downloads the XLSX with warnings included.
+    - To view and fix errors, follow these steps:
+        - Select *Download error details.XLSX* file. This operation downloads the XLSX with warnings included.
         - Review and address the errors as necessary.
         - Upload the modified file again.
 
@@ -83,8 +82,8 @@ When the **Import status** is marked as **Complete**, it implies that the server
 ## Update server information
 To update the information for a server, follow these steps:
 
-1. In the *Download warning details.XLSX* file, update the rows.
-1. To reimport the data, follow the steps from 1-5 in the [Import using the RVTools XLSX file (preview)](#import-using-the-rvtools-xlsx-file-preview).
+1. In the *Download error details.XLSX* file, update the rows.
+1. To reimport the data, follow the steps from 1-5 in the [Import using the RVTools XLSX file (preview)](#import-the-servers-using-the-rvtools-xlsx-file-preview).
 
 > [!NOTE]
 > Currently, we don't support deleting servers after you import them into project.
@@ -94,10 +93,10 @@ To update the information for a server, follow these steps:
 To verify that the servers appear in the Azure portal after importing, follow these steps:
 
 1. Go to Azure Migrate dashboard.
-1. On the **Azure Migrate - Servers, databases and web apps >** page, in  **Azure Migrate: Discovery and assessment** section, select the icon that displays the count for Discovered servers.
+1. On the **Azure Migrate | Servers, databases and web apps >** page, in  **Azure Migrate: Discovery and assessment** section, select the icon that displays the count for Discovered servers.
 1. Select the **Import based** tab.
 
 
 ## Next steps
 
-- Learn on [key benefits and limitations of using RVTools.XLSX](migrate-support-matrix.md#import-servers-using-rvtools-xlsx-preview).
+- Learn on [key benefits and limitations of using RVTools.XLSX](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).

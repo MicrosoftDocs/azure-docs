@@ -29,7 +29,7 @@ items:
   items:
   - name: Discover
     items:
-    - name: Discover servers in VMware environment
+    - name: VMware environment
       items:
         - name: Discover servers in VMware environment
           href: tutorial-discover-vmware.md
