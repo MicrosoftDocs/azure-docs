@@ -75,7 +75,7 @@ Add your private package as a requirement in the requirements.txt file. Add this
 Be sure to prepend the prefix "**/opt/airflow/**" to the package path. For instance, if your private package resides at "**/dags/test/private.whl**", your requirements.txt file should feature the requirement "**/opt/airflow/dags/test/private.whl**".
 
 - **Git Sync -**
-For all the Git services, preprend the "**/opt/airflow/git/`<repoName>`.git/**" to the package path. For example, if your private package is in "**/dags/test/private.whl**" in a GitHub repo, then you should add the requirement "**/opt/airflow/git/`<repoName>`.git/dags/test/private.whl**" to the Airflow environment.
+For all the Git services, prepend the "**/opt/airflow/git/`<repoName>`.git/**" to the package path. For example, if your private package is in "**/dags/test/private.whl**" in a GitHub repo, then you should add the requirement "**/opt/airflow/git/`<repoName>`.git/dags/test/private.whl**" to the Airflow environment.
 
 - **ADO -**
 For the ADO, prepend the "**/opt/airflow/git/`<repoName>`/**"  to the package path.
