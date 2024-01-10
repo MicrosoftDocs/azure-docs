@@ -3,7 +3,7 @@ title: What's new in Azure Disk Storage
 description: Learn about new features and enhancements in Azure Disk Storage.   
 author: roygara
 ms.author: rogarana
-ms.date: 01/09/2024
+ms.date: 01/10/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
