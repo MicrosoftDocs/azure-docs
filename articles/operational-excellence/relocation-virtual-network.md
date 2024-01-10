@@ -166,7 +166,7 @@ DDoS Protection Plan doesn't have any client specific data and the instance itse
 
 As soon as the virtual network get deployed in a specific region, Network Watcher is automatically enabled. However, you'll still need to perform some configuration steps:
 
-- To get a centralized view of the Network Monitoring, you'll need to enable Network Performance Monitor (NPM). 
+- To get a centralized view of the Network Monitoring, you'll need to enable Connection Monitor ([Migrate to Connection monitor from Network performance monitor](https://learn.microsoft.com/en-us/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)). 
 
 - Recreate the NSG flow logs for the target virtual network.
 
