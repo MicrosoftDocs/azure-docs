@@ -2,15 +2,15 @@
 title: Azure AI resource concepts
 titleSuffix: Azure AI Studio
 description: This article introduces concepts about Azure AI resources.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 12/14/2023
-ms.reviewer: eur
+ms.reviewer: Blackmist
 ms.author: eur
+author: eric-urban
 ---
 
 # Azure AI resources

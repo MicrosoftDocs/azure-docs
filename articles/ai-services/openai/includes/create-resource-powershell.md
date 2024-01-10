@@ -90,6 +90,9 @@ $sku = New-Object -TypeName "Microsoft.Azure.Management.CognitiveServices.Models
 New-AzCognitiveServicesAccountDeployment -ResourceGroupName OAIResourceGroup -AccountName MyOpenAIResource -Name MyModel -Properties $properties -Sku $sku
 ```
 
+> [!IMPORTANT]
+> When you access the model via the API you will need to refer to the deployment name rather than the underlying model name in API calls. This is one of the [key differences](../how-to/switching-endpoints.md) between OpenAI and Azure OpenAI. OpenAI only requires the model name, Azure OpenAI always requires deployment name, even when using the model parameter. In our docs we often have examples where deployment names are represented as identical to model names to help indicate which model works with a particular API endpoint. Ultimately your deployment names can follow whatever naming convention is best for your use case.
+
 ## Delete a model from your resource
 
 You can delete any model deployed from your resource with the [Remove-AzCognitiveServicesAccountDeployment](/powershell/module/az.cognitiveservices/remove-azcognitiveservicesaccountdeployment) command. In the following example, you delete a model named _MyModel_. When you try the example, update the code to use your values for the resource group, resource, and deployed model. 
