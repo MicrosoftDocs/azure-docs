@@ -230,7 +230,9 @@ The following diagram represents two endpoints connected directly in a P2P call.
 
 The following diagram represents a group call example with three `participantId` values (which means three participants) and a server endpoint. Multiple values for `endpointId` can potentially appear in multiple participants--for example, when they rejoin a call from the same device. Communication Services creates one call summary log for each `participantId` value. It creates four call diagnostic logs: one for each media stream per `participantId`. 
 
-For Azure Communication Services (ACS) call client participants the call client operations logs and call client media statistics time series logs are the same as P2P call. For each participant using calling SDK, there will be a series of call client operations logs and call client media statistics time series logs. 
+For Azure Communication Services (ACS) call client participants the call client operations logs are the same as P2P calls. For each participant using calling SDK, there will be a series of call client operations logs. 
+
+<!-- For Azure Communication Services (ACS) call client participants the call client operations logs and call client media statistics time series logs are the same as P2P calls. For each participant using calling SDK, there will be a series of call client operations logs and call client media statistics time series logs.  -->
 
 :::image type="content" source="../media/call-logs-azure-monitor/example-2-group-call-same-tenant.png" alt-text="Diagram that shows a group call within the same tenant.":::
 
