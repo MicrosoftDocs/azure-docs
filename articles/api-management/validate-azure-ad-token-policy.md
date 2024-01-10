@@ -92,6 +92,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 ### Usage notes
 
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Microsoft Entra authentication by applying the `validate-azure-ad-token` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
+* [Microsoft Entra ID for customers (preview)](/entra/external-id/customers/concept-supported-features-customers) is not supported.
 
 ## Examples
 
