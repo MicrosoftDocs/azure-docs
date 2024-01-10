@@ -2,8 +2,8 @@
 title: Using Kubelogin with Azure Kubernetes Service (AKS)
 description: Learn about using Kubelogin to enable all of the supported Azure Active Directory authentication methods with Azure Kubernetes Service (AKS). 
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 11/28/2023
-
 ---
 
 # Use Kubelogin with Azure Kubernetes Service (AKS)

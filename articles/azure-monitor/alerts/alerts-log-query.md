@@ -7,7 +7,7 @@ ms.reviewer: yalavi
 ---
 # Optimize log alert queries
 
-This article describes how to write and convert [log alert](./alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
+This article describes how to write and convert [Log alerts](alerts-types.md#log-alerts) to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
 
 ## Start writing an alert log query
 

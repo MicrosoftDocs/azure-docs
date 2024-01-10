@@ -9,7 +9,9 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
-  - name: Cost management
+  - name: Compare available plans
+    href: plan-comparison.md
+  - name: Manage costs
     href: cost-management.md
   - name: Compare Java application hosting options on Azure
     href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
