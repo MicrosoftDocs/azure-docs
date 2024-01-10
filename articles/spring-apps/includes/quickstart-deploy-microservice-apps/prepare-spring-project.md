@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 01/03/2024
+ms.date: 01/10/2024
 ---
 
 <!--
@@ -15,16 +15,15 @@ For clarity of structure, a separate markdown file is used to describe how to pr
 
 Use the following steps to prepare the sample locally:
 
-1. The sample project is ready on GitHub. Clone the sample project by using the following command:
+1. Clone the sample project by using the following command:
 
    ```bash
    git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
    ```
 
-1. Use the following command to change directory to the sample root path and then run the sample project locally:
+1. Navigate to the project root directory and then use the following command to run the sample project locally:
 
    ```bash
-   cd spring-petclinic-microservices
    bash ./scripts/run_all_without_infra.sh
    ```
 

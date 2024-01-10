@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 01/03/2024
+ms.date: 01/10/2024
 ---
 
 <!--
@@ -29,7 +29,7 @@ Use the following steps to prepare the project and run the sample locally:
    git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
    ```
 
-1. Enter the project root directory and use the following command to build the project:
+1. Navigate to the project root directory and then use the following command to build the project:
 
    ```bash
    ./mvnw clean package -DskipTests
@@ -37,19 +37,19 @@ Use the following steps to prepare the project and run the sample locally:
 
 Use the following steps if you want to run the application locally. Otherwise, you can skip these steps.
 
-1. Open a terminal and use the following command to start Config Server:
+1. Open a new Bash window and then use the following command to start Config Server:
 
    ```bash
    ./mvnw spring-boot:run -pl spring-petclinic-config-server
    ```
 
-1. Open a terminal and use the following command to start Discovery Server:
+1. Open a new Bash window and then use the following command to start Discovery Server:
 
    ```bash
    ./mvnw spring-boot:run -pl spring-petclinic-discovery-server
    ```
 
-1. For the Customers, Veterinarians, Visits, and Spring Cloud Gateway services, open new terminal and use the following commands to start the services:
+1. For the Customers, Vets, Visits, and Spring Cloud Gateway services, open a new Bash window and use the following commands to start the services:
 
    ```bash
    ./mvnw spring-boot:run -pl spring-petclinic-customers-service
@@ -59,7 +59,7 @@ Use the following steps if you want to run the application locally. Otherwise, y
        -pl spring-petclinic-api-gateway
    ```
 
-1. Open a new terminal and enter the project `spring-petclinic-frontend` directory. Use the following commands to install dependencies and run the front end application:
+1. Open a new Bash window and navigate to the project `spring-petclinic-frontend` directory. Use the following commands to install dependencies and run the frontend application:
 
    ```bash
    npm install
@@ -98,7 +98,7 @@ Use the following steps to create all the Azure resources that the app depends o
    | **Resource group** | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                        |
    | **Region**         | The region closest to your users. | The region is used to create the resource group.                                                                                                                            |
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png" alt-text="Screenshot of the Azure portal that shows the custom deployment for microservice." lightbox="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png" alt-text="Screenshot of the Azure portal that shows the Custom deployment page." lightbox="../../media/quickstart-deploy-microservice-apps/custom-deployment-microservice.png":::
 
 1. Select **Review and Create** to review your selections. Then, select **Create** to deploy the app to Azure Spring Apps.
 
@@ -120,15 +120,15 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-[!INCLUDE [deploy-spring-apps-maven-plugin](microservice-spring-apps-maven-plugin.md)]
+[!INCLUDE [microservice-spring-apps-maven-plugin](microservice-spring-apps-maven-plugin.md)]
 
-2. Use the following command to deploy the back end applications:
+2. Use the following command to deploy the backend applications:
 
    ```bash
    ./mvnw azure-spring-apps:deploy
    ```
 
-   After the command is executed, you can see from the following log messages that the deployment was successful:
+   After the command runs, you can see from the following log messages that the deployment was successful:
 
    ```output
    [INFO] Start deploying artifact(customers-service-3.0.1.jar) to deployment(default) of app(customers-service)...
@@ -151,7 +151,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
    [INFO] Deployment Status: Running
    ```
 
-2. The Azure portal doesn't support deploying the front end applications, so use the following Azure CLI command to deploy the front end application:
+1. The Azure portal doesn't support deploying the frontend applications, so use the following Azure CLI command to deploy the frontend application:
 
    ```azurecli
    az spring app deploy \
@@ -163,7 +163,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
        --builder ${APP_FRONTEND}
    ```
 
-   After the command is executed, you can see from the following log messages that the deployment was successful:
+   After the command runs, you can see from the following log messages that the deployment was successful:
 
    ```output
    [5/5] Updating deployment in app "frontend" (this operation can take a while to complete)

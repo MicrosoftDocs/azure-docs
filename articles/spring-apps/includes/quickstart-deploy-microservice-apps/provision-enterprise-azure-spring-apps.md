@@ -2,9 +2,8 @@
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 01/03/2024
+ms.date: 01/10/2024
 ---
 
 <!--
@@ -35,11 +34,11 @@ Use the following steps to create the service instance:
    | **Name**                      | *myasa*                           | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Region**                    | The region closest to your users. | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | **Hosting options and plans** | **Enterprise**                    | The pricing plan that determines the resource and cost associated with your instance.                                                                                                                                                                                                              |
-   | **Zone Redundant**            | Unchecked                         | The option to create your Azure Spring Apps service in an Azure availability zone. This feature isn't currently supported in all regions.                                                                                                                                                          |
-   | **Software IP Plan**          | Pay-as-You-Go                     | The pricing plan that lets you pay as you go with Azure Spring Apps.                                                                                                                                                                                                                               |
-   | **Deploy sample project**     | Unchecked                         | The option to use the built-in sample application.                                                                                                                                                                                                                                                 |
+   | **Zone Redundant**            | Unselected                        | The option to create your Azure Spring Apps service in an Azure availability zone. This feature isn't currently supported in all regions.                                                                                                                                                          |
+   | **Software IP Plan**          | **Pay-as-you-go**                 | The pricing plan that lets you pay as you go with Azure Spring Apps.                                                                                                                                                                                                                               |
+   | **Deploy sample project**     | Unselected                        | The option to use the built-in sample application.                                                                                                                                                                                                                                                 |
 
-1. Navigate to the **Diagnostic settings** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, and then select **OK** to confirm the creation.
+1. Navigate to the **Diagnostic settings** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed and then select **OK** to confirm the creation.
 
 1. Navigate to the **Application Insights** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select **Workspace-based** for **Resource mode**, and then select **OK** to confirm the creation.
 
@@ -53,217 +52,235 @@ Use the following steps to create the service instance:
 
 ### 3.3. Configure Azure Spring Apps instance
 
-#### Create apps
+The following sections show you how to configure the service instance.
 
-1. From the navigation pane, open **Apps**, and then select **Create App**.
+#### Create the apps
+
+Use the following steps to create the apps:
+
+1. From the navigation pane, select **Apps** and then select **Create App**.
 
 1. On the **Create App** page, for the **App name**, use *frontend* and leave all the other fields with their default values.
 
 1. Repeat the previous step using each of the following application names:
 
-   - *customers-service*
-   - *vets-service*
-   - *visits-service*
+   - `customers-service`
+   - `vets-service`
+   - `visits-service`
 
 1. Select **Create** to finish the app creation.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png" alt-text="Screenshot of the Azure portal that shows the apps creation page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png":::
 
 #### Configure Build Service
 
-1. From the navigation pane, open **Build Service**, and then select **Add** under the **Builders** section.
+Use the following steps to configure Build Service:
+
+1. From the navigation pane, select **Build Service**, and then select **Add** under the **Builders** section.
 
 1. On the **Add Builder** page, for the **Builder name**, use *frontend*. For **OS Stack**, select **io.buildpacks.stacks.jammy-base**. For **Name**, select **tanzu-buildpacks/web-servers**. Then, select **Save** to create the builder.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png" alt-text="Screenshot of the Azure portal that shows the builder creation in Build Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png" alt-text="Screenshot of the Azure portal that shows the Build Service Edit Builder page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png":::
 
 #### Configure Service Registry
 
-1. From the navigation pane, open **Service Registry**.
+Use the following steps to configure Service Registry:
 
-1. Select **App binding**, select **Bind app**, select **customers-service** from the list, and then select **Apply**.
+1. From the navigation pane, select **Service Registry**.
+
+1. Select **App binding**, select **Bind app**, select `customers-service` from the list, and then select **Apply**.
 
 1. Repeat the previous step to bind the following applications:
 
-   - **vets-service**
-   - **visits-service**
+   - `vets-service`
+   - `visits-service`
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png" alt-text="Screenshot of the Azure portal that shows the bind apps in Service Registry page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png" alt-text="Screenshot of the Azure portal that shows the Service Registry page with the App binding tab selected." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png":::
 
 #### Configure Application Configuration Service
 
-1. From the navigation pane, open **Application Configuration Service**, and then select **Settings**.
+Use the following steps to configure Application Configuration Service:
+
+1. From the navigation pane, select **Application Configuration Service** and then select **Settings**.
 
 1. Fill out the repository with the following information, and then select **Validate**:
 
-   - **Name**: *default*.
-   - **Patterns**: *application,api-gateway,customers-service,vets-service,visits-service*.
+   - **Name**: *default*
+   - **Patterns**: *application,api-gateway,customers-service,vets-service,visits-service*
    - **URI**: *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git*.
-   - **Label**: *master*.
+   - **Label**: *master*
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the Configuration Service page with the settings, the Validate button highlighted, and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service Settings tab." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png":::
 
 1. After validation, select **Apply** to finish the Application Configuration Service configuration.
 
-1. Select **App binding**, select **Bind app**, select **customers-service** from the list, and then select **Apply**.
+1. Select **App binding**, select **Bind app**, select `customers-service` from the list, and then select **Apply**.
 
 1. Repeat the previous step to bind the following applications:
 
-   - **vets-service**
-   - **visits-service**
+   - `vets-service`
+   - `visits-service`
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-configuration.png" alt-text="Screenshot of the Azure portal that shows the bind apps in Configuration Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-configuration.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-configuration.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the App binding tab selected." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-configuration.png":::
 
-#### Set config file patterns for apps
+#### Set the config file patterns for apps
 
-1. From the navigation pane, open **Apps**, and then select the **customers-service** app.
+Use the following steps to set the config file patterns:
 
-1. On the **App overview** page, select **Configuration**, select **Config file patterns** in the **General settings** tab, and then select **application** and **customers-service**. Select **Save** to set the config file patterns.
+1. From the navigation pane, select **Apps** and then select the `customers-service` app.
+
+1. On the **App overview** page, select **Configuration**, select **Config file patterns** in the **General settings** tab, and then select **application** and `customers-service`. Select **Save** to set the config file patterns.
 
 1. Repeat the previous step to save the config file patterns for the following applications:
 
-   - **vets-service**: Select **application** and **vets-service**.
-   - **visits-service**: Select **application** and **visits-service**.
+   - `vets-service`: Select **application** and `vets-service`.
+   - `visits-service`: Select **application** and `visits-service`.
 
 #### Configure Spring Cloud Gateway
 
-1. From the navigation pane, open **Spring Cloud Gateway**.
+This section shows you how to configure Spring Cloud Gateway.
 
-1. On the **Overview** tab, select **Yes** to assign an endpoint for the gateway access. Save the endpoint URL to use later.
+First, use the following steps to assign an endpoint for the gateway access:
 
-1. Configure routing for Spring Cloud Gateway. Since the Azure portal currently doesn't support configuring the routing for Spring Cloud Gateway, use Azure CLI to configure the routing.
+1. From the navigation pane, select **Spring Cloud Gateway**.
 
-   1. Use the following command to sign in to the Azure CLI:
+1. On the **Overview** tab, select **Yes** to assign an endpoint. Save the endpoint URL to use later.
 
-      ```azurecli
-      az login
-      ```
+Next, configure the routing for Spring Cloud Gateway. Because the Azure portal doesn't currently support route configuration for Spring Cloud Gateway, open a Bash window and use the following Azure CLI steps to configure the routing:
 
-   1. Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace `Microsoft.SaaS`:
+1. Use the following command to sign in to the Azure CLI:
 
-      ```azurecli
-      az extension add --name spring --upgrade
-      az provider register --namespace Microsoft.SaaS
-      ```
+   ```azurecli
+   az login
+   ```
 
-   1. Use the following command to accept the legal terms and privacy statements:
+1. Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace `Microsoft.SaaS`:
 
-      > [!NOTE]
-      > This step is necessary only if your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps.
+   ```azurecli
+   az extension add --name spring --upgrade
+   az provider register --namespace Microsoft.SaaS
+   ```
 
-      ```azurecli
-      az term accept \
-          --publisher vmware-inc \
-          --product azure-spring-cloud-vmware-tanzu-2 \
-          --plan asa-ent-hr-mtr
-      ```
+1. Use the following command to accept the legal terms and privacy statements:
 
-   1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
+   > [!NOTE]
+   > This step is necessary only if your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps.
 
-      ```azurecli
-      export SUBSCRIPTION_ID="<subscription-ID>"
-      export RESOURCE_GROUP="<resource-group-name>"
-      export SPRING_APPS_NAME="<Azure-Spring-Apps-instance-name>"
-      export APP_CUSTOMERS_SERVICE="customers-service"
-      export APP_VETS_SERVICE="vets-service"
-      export APP_VISITS_SERVICE="visits-service"
-      export APP_FRONTEND="frontend"
-      ```
+   ```azurecli
+   az term accept \
+       --publisher vmware-inc \
+       --product azure-spring-cloud-vmware-tanzu-2 \
+       --plan asa-ent-hr-mtr
+   ```
 
-   1. Use the following command to set the default subscription:
+1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
-      ```azurecli
-      az account set --subscription ${SUBSCRIPTION_ID}
-      ```
+   ```azurecli
+   export SUBSCRIPTION_ID="<subscription-ID>"
+   export RESOURCE_GROUP="<resource-group-name>"
+   export SPRING_APPS_NAME="<Azure-Spring-Apps-instance-name>"
+   export APP_CUSTOMERS_SERVICE="customers-service"
+   export APP_VETS_SERVICE="vets-service"
+   export APP_VISITS_SERVICE="visits-service"
+   export APP_FRONTEND="frontend"
+   ```
 
-   1. Use the following command to set routing for the **customers-service** app:
+1. Use the following command to set the default subscription:
 
-      ```azurecli
-      az spring gateway route-config create \
-          --resource-group ${RESOURCE_GROUP} \
-          --service ${SPRING_APPS_NAME} \
-          --name ${APP_CUSTOMERS_SERVICE} \
-          --app-name ${APP_CUSTOMERS_SERVICE} \
-          --routes-json \
-            '[
-              {
-                "predicates": [
-                  "Path=/api/customer/**"
-                ],
-                "filters": [
-                  "StripPrefix=2"
-                ]
-              }
-            ]'
-      ```
+   ```azurecli
+   az account set --subscription ${SUBSCRIPTION_ID}
+   ```
 
-   1. Use the following command to set routing for the **vets-service** app:
+1. Use the following command to set the routing for the `customers-service` app:
 
-      ```azurecli
-      az spring gateway route-config create \
-          --resource-group ${RESOURCE_GROUP} \
-          --service ${SPRING_APPS_NAME} \
-          --name ${APP_VETS_SERVICE} \
-          --app-name ${APP_VETS_SERVICE} \
-          --routes-json \
-            '[
-               {
-                 "predicates": [
-                   "Path=/api/vet/**"
-                 ],
-                 "filters": [
-                   "StripPrefix=2"
-                 ]
-               }
-             ]'
-      ```
+   ```azurecli
+   az spring gateway route-config create \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${SPRING_APPS_NAME} \
+       --name ${APP_CUSTOMERS_SERVICE} \
+       --app-name ${APP_CUSTOMERS_SERVICE} \
+       --routes-json \
+         '[
+           {
+             "predicates": [
+               "Path=/api/customer/**"
+             ],
+             "filters": [
+               "StripPrefix=2"
+             ]
+           }
+         ]'
+   ```
 
-   1. Use the following command to set routing for the **visits-service** app:
+1. Use the following command to set the routing for the `vets-service` app:
 
-      ```azurecli
-      az spring gateway route-config create \
-          --resource-group ${RESOURCE_GROUP} \
-          --service ${SPRING_APPS_NAME} \
-          --name ${APP_VISITS_SERVICE} \
-          --app-name ${APP_VISITS_SERVICE} \
-          --routes-json \
-            '[
-               {
-                 "predicates": [
-                   "Path=/api/visit/**"
-                 ],
-                 "filters": [
-                   "StripPrefix=2"
-                 ]
-               }
-             ]'
-      ```
+   ```azurecli
+   az spring gateway route-config create \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${SPRING_APPS_NAME} \
+       --name ${APP_VETS_SERVICE} \
+       --app-name ${APP_VETS_SERVICE} \
+       --routes-json \
+         '[
+            {
+              "predicates": [
+                "Path=/api/vet/**"
+              ],
+              "filters": [
+                "StripPrefix=2"
+              ]
+            }
+          ]'
+   ```
 
-   1. Use the following command to set routing for the **frontend** app:
+1. Use the following command to set the routing for the `visits-service` app:
 
-      ```azurecli
-      az spring gateway route-config create \
-          --resource-group ${RESOURCE_GROUP} \
-          --service ${SPRING_APPS_NAME} \
-          --name ${APP_FRONTEND} \
-          --app-name ${APP_FRONTEND} \
-          --routes-json \
-            '[
-               {
-                 "predicates": [
-                   "Path=/**"
-                 ],
-                 "filters": [
-                   "StripPrefix=0"
-                 ],
-                 "order": 1000
-               }
-             ]'
-      ```
+   ```azurecli
+   az spring gateway route-config create \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${SPRING_APPS_NAME} \
+       --name ${APP_VISITS_SERVICE} \
+       --app-name ${APP_VISITS_SERVICE} \
+       --routes-json \
+         '[
+            {
+              "predicates": [
+                "Path=/api/visit/**"
+              ],
+              "filters": [
+                "StripPrefix=2"
+              ]
+            }
+          ]'
+   ```
+
+1. Use the following command to set the routing for the frontend app:
+
+   ```azurecli
+   az spring gateway route-config create \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${SPRING_APPS_NAME} \
+       --name ${APP_FRONTEND} \
+       --app-name ${APP_FRONTEND} \
+       --routes-json \
+         '[
+            {
+              "predicates": [
+                "Path=/**"
+              ],
+              "filters": [
+                "StripPrefix=0"
+              ],
+              "order": 1000
+            }
+          ]'
+   ```
 
 #### Configure Developer Tools
 
-1. From the navigation pane, open **Developer Tools**.
+Use the following steps to configure the Developer Tools.
+
+1. From the navigation pane, select **Developer Tools**.
 
 1. Select **Assign endpoint** to assign an endpoint for **Developer Tools**.
 

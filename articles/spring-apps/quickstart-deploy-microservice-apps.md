@@ -4,7 +4,7 @@ description: Learn how to deploy microservice applications to Azure Spring Apps.
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 01/03/2024
+ms.date: 01/10/2024
 ms.author: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-tier-selection
@@ -35,9 +35,9 @@ The diagram shows the following architectural flows and relationships of the Pet
 - Monitors performance with Application Insights.
 
 > [!NOTE]
-> This article uses a simplified version of PetClinic, using an in-memory database that is not production-ready to quickly deploy to Azure Spring Apps.
+> This article uses a simplified version of PetClinic, using an in-memory database that isn't production-ready to quickly deploy to Azure Spring Apps.
 >
-> The Tanzu Developer Tools exposes public access for Application Live View, which is a risk point. The production environment needs to secure the access. For more information, see [Configure Dev Tools Portal](./how-to-use-dev-tool-portal.md#configure-dev-tools-portal).
+> The Tanzu Developer Tools exposes public access for Application Live View, which is a risk point. The production environment needs to secure the access. For more information, see the [Configure Dev Tools Portal](./how-to-use-dev-tool-portal.md#configure-dev-tools-portal) section of [Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan](how-to-use-dev-tool-portal.md).
 
 ::: zone-end
 
@@ -56,7 +56,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 - Monitors performance with Application Insights.
 
 > [!NOTE]
-> This article uses a simplified version of PetClinic, using an in-memory database that is not production-ready to quickly deploy to Azure Spring Apps.
+> This article uses a simplified version of PetClinic, using an in-memory database that isn't production-ready to quickly deploy to Azure Spring Apps.
 >
 > The deployed app `admin-server` exposes public access, which is a risk point. The production environment needs to secure the Spring Boot Admin application.
 
@@ -192,7 +192,7 @@ Be sure to delete the resources you created in this article when you no longer n
 
 Use the following steps to delete the entire resource group, including the newly created service instance:
 
-1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, and then select the name of your resource group.
+1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups** and then select the name of your resource group.
 
 1. On the **Resource group** page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.
 

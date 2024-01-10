@@ -3,13 +3,13 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 01/03/2024
+ms.date: 01/10/2024
 ---
 
 <!--
 For clarity of structure, a separate markdown file is used to describe how to validate the apps without managed gateway component.
 
-[!INCLUDE [prepare-spring-project](includes/quickstart-deploy-microservice-apps/validate-the-apps.md)]
+[!INCLUDE [validate-the-apps](includes/quickstart-deploy-microservice-apps/validate-the-apps.md)]
 
 -->
 
@@ -29,8 +29,8 @@ After you browse each function of the Pet Clinic, the Log Analytics workspace co
 
 Application Insights monitors the application dependencies, as shown by the following application tracing map:
 
-:::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for an Application Insights." lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-map.png":::
+:::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for an Application Insights instance." lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-map.png":::
 
 Open the URL exposed by the app `admin-server` to manage the applications through the Spring Boot Admin Server, as shown in the following screenshot:
 
-:::image type="content" source="../../media/quickstart-deploy-microservice-apps/admin-server.png" alt-text="Screenshot of the Admin Server for the PetClinic application listing the current application instances." lightbox="../../media/quickstart-deploy-microservice-apps/admin-server.png":::
+:::image type="content" source="../../media/quickstart-deploy-microservice-apps/admin-server.png" alt-text="Screenshot of the Spring Boot Admin Server page for the PetClinic application listing the current application instances." lightbox="../../media/quickstart-deploy-microservice-apps/admin-server.png":::
