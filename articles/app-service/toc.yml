@@ -497,8 +497,6 @@
           href: /troubleshoot/azure/app-service/backing-up-restoring-and-cloning-microsoft-azure-app-services?toc=/azure/app-service/toc.json
         - name: Built-in Linux containers FAQs
           href: /troubleshoot/azure/app-service/faqs-app-service-linux?toc=/azure/app-service/toc.json
-        - name: Configuration and management FAQs for Web Apps
-          href: /troubleshoot/azure/app-service/web-apps-configuration-and-management-faqs?toc=/azure/app-service/toc.json
         - name: Deployment FAQs for Web Apps
           href: /troubleshoot/azure/app-service/web-apps-deployment-faqs?toc=/azure/app-service/toc.json
         - name: FAQs about scaling web apps

@@ -22,7 +22,7 @@ az containerapp show \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-(Get-AzContainerApp -Name <CONTAINER_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>).IngressFqdn
+(Get-AzContainerApp -Name <CONTAINER_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>).Configuration.IngressFqdn
 ```
 
 ---
