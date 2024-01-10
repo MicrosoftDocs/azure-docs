@@ -7,7 +7,6 @@ ms.date: 10/18/2023
 ms.topic: how-to
 ms.service: visual-studio-family
 ms.subservice: subscriptions
-ms.technology: vs-subscriptions
 ms.custom: devtestoffer
 ---
 
