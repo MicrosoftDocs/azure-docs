@@ -8,7 +8,7 @@ ms.service: dns
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2023
+ms.date: 01/10/2024
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -53,9 +53,9 @@ Azure currently supports reverse DNS only for public IPv4 address resources.
 > [!IMPORTANT]
 > New or updated PTR records must pass [validation](#validation-of-reverse-dns-records). If the PTR for a public IP address doesn't currently exist, you must specify the hostname using **DomainNameLabel** (Azure PowerShell), the **-d** parameter (Azure Classic CLI), or the **--dns-name** parameter (Azure CLI) as shown in the following examples.
 
-### Add reverse DNS for a public IP address with an existing name
+### Configure reverse DNS for a public IP address with an existing name
 
-Use the following procedures if a public IP address already has a [defined name](#validation-of-reverse-dns-records) in your subscription or via forward DNS lookup.
+Use the following procedures if a public IP address already has a [defined name](#validation-of-reverse-dns-records) in your subscription or via forward DNS lookup. After updating or adding a PTR to your existing public IP address, [view and verify that the correct PTR is configured](#view-reverse-dns-for-an-existing-public-ip-address).
 
 #### Azure PowerShell
 
@@ -108,7 +108,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 ### Create a public IP address with reverse DNS
 
 > [!NOTE]
-> If the public IP address already exists in your subscription, see [Add reverse DNS for a public IP address with an existing name](#add-reverse-dns-for-a-public-ip-address-with-an-existing-name).
+> If the public IP address already exists in your subscription, see [Configure reverse DNS for a public IP address with an existing name](#configure-reverse-dns-for-a-public-ip-address-with-an-existing-name)
 
 To create a new PublicIpAddress with the reverse DNS property already specified:
 
