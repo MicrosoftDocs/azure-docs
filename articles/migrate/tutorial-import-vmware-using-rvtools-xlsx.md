@@ -83,7 +83,7 @@ When the **Import status** is marked as **Complete**, it implies that the server
 To update the information for a server, follow these steps:
 
 1. In the *Download error details.XLSX* file, update the rows.
-1. To reimport the data, follow the steps from 1-5 in the [Import using the RVTools XLSX file (preview)](#import-using-the-rvtools-xlsx-file-preview).
+1. To reimport the data, follow the steps from 1-5 in the [Import using the RVTools XLSX file (preview)](#import-the-servers-using-the-rvtools-xlsx-file-preview).
 
 > [!NOTE]
 > Currently, we don't support deleting servers after you import them into project.
