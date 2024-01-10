@@ -99,35 +99,45 @@ The various options are similar to Azure Managed Prometheus listed [here](/azure
 
 ### Collect only minimal metrics for the default targets
 
-This is the default behavior with the setting default-targets-metrics-keep-list.minimalIngestionProfile="true". Only metrics listed below are ingested for each of the default targets which in this case are `controlplane-apiserver` and `controlplane-etcd`. 
+This is the default behavior with the setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"`. Only metrics listed below are ingested for each of the default targets, which in this case are `controlplane-apiserver` and `controlplane-etcd`.
 
-### Collect all metrics from the target 
+### Collect all metrics from all targets
 
-- Download the configmap [here]( https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml)  and rename it to confimap-controlplane.yaml
-- Set ` minimalingestionprofile = false` and ensure the targets(under `default-scrape-settings-enabled`) that you want to scrape are set to true (the only ones relevant here are controlplane-apiserver,controlplane-cluster-autoscaler,controlplane-kube-scheduler,controlplane-kube-controller-manager ,controlplane-etcd) 
-- Apply the configmap 
-```
-kubectl apply -f confimap-controlplane.yaml
-```
-- Wait for sometime (4-5 min)
-- All metrics from the `true` targets will appear in the Azure Monitor workspace
+Perform the following steps to collect all metrics from all targets on the cluster.
 
-### Collect minimal ingestionprofile and curated set of metrics
+1. Download the ConfigMap file [ama-metrics-settings-configmap.yaml]( https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) and rename it to `configmap-controlplane.yaml`.
 
-- Download the configmap [here]( https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml)  and rename it to confimap-controlplane.yaml
-- Set ` minimalingestionprofile = true` and ensure the targets ( under `default-scrape-settings-enabled`) that you want to scrape are set to true (the only ones relevant here are controlplane-apiserver,controlplane-cluster-autoscaler,controlplane-kube-scheduler,controlplane-kube-controller-manager ,controlplane-etcd) 
-- Add the list of metrics for the specific `true` targets under the `default-target-metrics-list` to a custom list, for eg 
+1. Set `minimalingestionprofile = false` and verify the targets under `default-scrape-settings-enabled` that you want to scrape, are set to `true`. The only targets you can specify are: `controlplane-apiserver`, `controlplane-cluster-autoscaler`, `controlplane-kube-scheduler`, `controlplane-kube-controller-manager`, and `controlplane-etcd`.
 
-```
-controlplane-apiserver= "apiserver_admission_webhook_admission_duration_seconds| apiserver_longrunning_requests"
-```
-- Apply the configmap 
+1. Apply the ConfigMap by running the [kubectl apply][kubectl-apply] command.
 
-```
-kubectl apply -f confimap-controlplane.yaml
-```
-- Wait for sometime (4-5 min)
-- default metrics + the custom list  from the `true` targets should appear in the Azure Monitor workspace
+    ```bash
+    kubectl apply -f configmap-controlplane.yaml
+    ```
+
+   After the configuration is applied, it takes several minutes before the metrics from the specified targets scraped from the control plane appear in the Azure Monitor workspace.
+
+### Collect minimal ingestion profile and curated set of metrics
+
+`Minimal ingestion profile` is a setting that helps reduce ingestion volume of metrics, as only metrics used by default dashboards, default recording rules & default alerts are collected. Perform the followig steps to customize this behavior.
+
+1. Download the ConfigMap file [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) and rename it to `configmap-controlplane.yaml`.
+
+1. Set ` minimalingestionprofile = true` and ensure the targets under `default-scrape-settings-enabled` that you want to scrape are set to `true`. The only targets you can specify are: `controlplane-apiserver`, `controlplane-cluster-autoscaler`, `controlplane-kube-scheduler`, `controlplane-kube-controller-manager`, and `controlplane-etcd`.
+
+1. Under the `default-target-metrics-list`, specify the list of metrics for the `true` targets. For example,
+
+    ```yaml
+    controlplane-apiserver= "apiserver_admission_webhook_admission_duration_seconds| apiserver_longrunning_requests"
+    ```
+
+- Apply the ConfigMap by running the [kubectl apply][kubectl-apply] command.
+
+    ```bash
+    kubectl apply -f configmap-controlplane.yaml
+    ```
+
+   After the configuration is applied, it takes several minutes before the metrics from the specified targets scraped from the control plane appear in the Azure Monitor workspace.
 
 ### Collect only specific metrics from some targets
 
