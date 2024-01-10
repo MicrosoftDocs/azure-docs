@@ -538,6 +538,25 @@ Clients will get the following response:
 > [!WARNING]
 > The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. You can use external storage if you need larger payload.
 
+## Distributed Tracing
+Distributed Tracing tracks requests and shows how different services interact with each other. In Durable Functions, it also correlates orchestrations and activities together. This is helpful to understand where an application is having an issue or where an exception was thrown. This feature is supported for all languages and storage providers.
+
+### Setting up Distributed Tracing
+To set up distributed tracing, please update the host.json and set up an Application Insights resource.
+
+#### host.json
+```
+"durableTask": {
+  "tracing": {
+    "DistributedTracingEnabled": true,
+    "Version": "V2"
+  }
+}
+```
+
+#### Application Insights
+Create an Application Insights resource and set the connection string as a value for `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+
 ## Debugging
 
 Azure Functions supports debugging function code directly, and that same support carries forward to Durable Functions, whether running in Azure or locally. However, there are a few behaviors to be aware of when debugging:
