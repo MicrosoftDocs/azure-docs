@@ -62,13 +62,15 @@ az provider register --namespace Microsoft.ContainerService
 
 1. You need an [Azure Key Vault resource][akv-quickstart] to supply the certificate and key inputs to the Istio add-on.
 
+1. You need to generate root certificate, intermediate certificates, intermediate key, and the certitificate chain offline. Steps 1-3 from [here]][istio-generate-certs] has an example on how to generate these files.
+
 1. Create secrets in Azure Key Vault using the certificates and key:
 
     ```bash
-    az keyvault secret set --vault-name $AKV_NAME --name test-root-cert --file <path-to-folder/root-cert.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-ca-cert --file <path-to-folder/ca-cert.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-ca-key --file <path-to-folder/ca-key.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-cert-chain --file <path/cert-chain.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name root-cert --file <path-to-folder/root-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name ca-cert --file <path-to-folder/ca-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name ca-key --file <path-to-folder/ca-key.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name cert-chain --file <path/cert-chain.pem>
     ```
 
 1. Enable [Azure Key Vault provider for Secret Store CSI Driver for your cluster][akv-addon]:
@@ -95,10 +97,10 @@ az provider register --namespace Microsoft.ContainerService
 
     ```bash
     az aks mesh enable --resource-group $RESOURCE_GROUP --name $CLUSTER \
-    --root-cert-object-name test-root-cert \
-    --ca-cert-object-name test-ca-cert \
-    --ca-key-object-name test-ca-key \
-    --cert-chain-object-name test-cert-chain \
+    --root-cert-object-name root-cert \
+    --ca-cert-object-name ca-cert \
+    --ca-key-object-name ca-key \
+    --cert-chain-object-name cert-chain \
     --key-vault-id /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$AKV_NAME
     ```
 
@@ -133,15 +135,17 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Certificate authority rotation
 
+You may need to periodically rotate the certificate authorities for security or policy reasons. This section walks you through how to handle intermediate CA and root CA rotation scenarios.
+
 ### Intermediate certificate authority rotation
 
 1. You can rotate the intermediate CA while keeping the root CA the same. Update the secrets in Azure Key Vault resource with the new certificate and key files:
 
     ```bash
-    az keyvault secret set --vault-name $AKV_NAME --name test-root-cert --file <path-to-folder/root-cert.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-ca-cert --file <path-to-folder/ca-cert.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-ca-key --file <path-to-folder/ca-key.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-cert-chain --file <path/cert-chain.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name root-cert --file <path-to-folder/root-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name ca-cert --file <path-to-folder/ca-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name ca-key --file <path-to-folder/ca-key.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name cert-chain --file <path/cert-chain.pem>
     ```
 
 1. Wait for the time duration of `--rotation-poll-interval`. Check if the `cacerts` secret was refreshed on the cluster based on the new intermediate CA that was updated on the Azure Key Vault resource:
@@ -174,10 +178,10 @@ az provider register --namespace Microsoft.ContainerService
 1. You need to update Azure Key Vault secrets with the root certificate file having the concatenation of the old and the new root certificates:
 
     ```bash
-    az keyvault secret set --vault-name $AKV_NAME --name test-root-cert --file <path-to-folder/root-cert.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-ca-cert --file <path-to-folder/ca-cert.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-ca-key --file <path-to-folder/ca-key.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-cert-chain --file <path/cert-chain.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name root-cert --file <path-to-folder/root-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name ca-cert --file <path-to-folder/ca-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name ca-key --file <path-to-folder/ca-key.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name cert-chain --file <path/cert-chain.pem>
     ```
 
     Contents of `root-cert.pem` follow this format:
@@ -223,7 +227,7 @@ az provider register --namespace Microsoft.ContainerService
     2023-11-07T06:42:00.288365Z     info    spiffe  Added 2 certs to trust domain cluster.local in peer cert verifier
     ```
 
-1. You need to either wait for 24 hours (the default time for leaf certificate validity) or force a restart of all the workloads. This way, all workloads recognize both the old and the new certificate authorities for mTLS verification.
+1. You need to either wait for 24 hours (the default time for leaf certificate validity) or force a restart of all the workloads. This way, all workloads recognize both the old and the new certificate authorities for [mTLS verification][istio-mtls-reference].
 
     ```bash
     kubectl rollout restart deployment <deployment name> -n <deployment namespace>
@@ -232,10 +236,10 @@ az provider register --namespace Microsoft.ContainerService
 1. You can now update Azure Key Vault secrets with only the new CA (without the old CA):
 
     ```bash
-    az keyvault secret set --vault-name $AKV_NAME --name test-root-cert --file <path-to-folder/root-cert.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-ca-cert --file <path-to-folder/ca-cert.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-ca-key --file <path-to-folder/ca-key.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name test-cert-chain --file <path/cert-chain.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name root-cert --file <path-to-folder/root-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name ca-cert --file <path-to-folder/ca-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name ca-key --file <path-to-folder/ca-key.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name cert-chain --file <path/cert-chain.pem>
     ```
 
     Check the logs of the `CronJob` to confirm detection of root certificate update and the restart of `istiod`:
@@ -282,3 +286,5 @@ az provider register --namespace Microsoft.ContainerService
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[istio-generate-certs]: https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/#plug-in-certificates-and-key-into-the-cluster
+[istio-mtls-reference]: https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication
