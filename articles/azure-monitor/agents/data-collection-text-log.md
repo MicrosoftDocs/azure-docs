@@ -44,8 +44,8 @@ To complete this procedure, you need:
 The table created in the script has two columns: 
 
 - `TimeGenerated` (datetime) [Required]
-- `RawData` (string) [Optional if schema provided]
-- `YourOptionalColumn` (string) [Optional if schema provided]
+- `RawData` (string) [Optional if table schema provided]
+- `YourOptionalColumn` (string) [Optional]
 
 This is the default table schema for log data collected from text files. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
 
@@ -85,7 +85,7 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 
 You should receive a 200 response and details about the table you just created. 
 
-## Create a data collection rule to collect data from a text or JSON file
+## Create a data collection rule for a text or JSON file
 
 The data collection rule defines: 
 
@@ -99,7 +99,7 @@ You can define a data collection rule to send data from multiple machines to mul
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 >
-> To automatically parce your JSON log file into a custom table follow the Resource Manager template setps 
+> To automatically parse your JSON log file into a custom table follow the Resource Manager template steps 
 
 
 ### [Portal](#tab/portal)
@@ -352,20 +352,20 @@ To create the data collection rule in the Azure portal:
    - `tableName`: The name of the destination table you created in your Log Analytics Workspace. For more information, see [Create a custom table](#create-a-custom-table).Example `AwesomeLogFile_CL`
        
    - `streamDeclarations`: Defines the columns of the incoming data. This must match the structure of the log file. Your columns names and JSON attributes must exactly match to automatically parse into the table. Both column names and JSON attribute are case sensitive. For example, `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column.
+  
+    > [!NOTE]
+    > A custom stream names in the stream declaration must have a prefix of *Custom-*; for example, *Custom-JSON*.
      
     - `filePatterns`: Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns). Examples of valid inputs: 20220122-MyLog.txt, ProcessA_MyLog.txt, ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt
     
         > [!NOTE]
         > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To collect log data in this scenario, you can use a file wildcard. Use the format `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 
     
-    - 
     - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace or or leave as **source** if you don't need to transform the collected data.
+
 
     See [Structure of a data collection rule in Azure Monitor](../essentials/data-collection-rule-structure.md) if you want to modify the data collection rule.
     
-    > [!IMPORTANT]
-    > Custom data collection rules have a prefix of *Custom-*; for example, *Custom-rulename*. The *Custom-rulename* in the stream declaration must match the *Custom-rulename* name in the Log Analytics workspace.
-
 
 1. Select **Save**.
 
