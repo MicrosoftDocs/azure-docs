@@ -248,5 +248,5 @@ Connecting your GCP project is part of the multicloud experience available in Mi
 
 - [Protect all of your resources with Defender for Cloud](enable-all-plans.md).
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [AWS account](quickstart-onboard-aws.md).
-- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector).
+- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshoot-connectors).
 - Get answers to [common questions](faq-general.yml) about connecting your GCP project.
