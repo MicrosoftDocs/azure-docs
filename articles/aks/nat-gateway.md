@@ -28,9 +28,6 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
 * If no zone is specified when creating a managed NAT gateway, then NAT gateway is deployed to "no zone" by default. When NAT gateway is placed in **no zone**, Azure places the resource in a zone for you. For more information on non-zonal deployment model, see [non-zonal NAT gateway](/azure/nat-gateway/nat-availability-zones#non-zonal).
 * A managed NAT gateway resource can't be used across multiple availability zones.
 
-> [!IMPORTANT]
-> If no value for the outbound IP address is specified, the default value is one.
-
    ```azurecli-interactive
     az aks create \
         --resource-group myResourceGroup \
