@@ -4,7 +4,6 @@ titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started provisioned deployments on Azure OpenAI Service.
 manager: nitinme
 ms.service: azure-ai-openai
-ms.subservice: openai
 ms.custom: openai
 ms.topic: how-to
 author: ChrisHMSFT
