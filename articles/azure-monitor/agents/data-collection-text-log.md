@@ -43,8 +43,9 @@ To complete this procedure, you need:
 
 The table created in the script has two columns: 
 
-- `TimeGenerated` (datetime)
-- `RawData` (string)
+- `TimeGenerated` (datetime) [Required]
+- `RawData` (string) [Optional if schema provided]
+- `YourOptionalColumn` (string) [Optional if schema provided]
 
 This is the default table schema for log data collected from text files. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
 
