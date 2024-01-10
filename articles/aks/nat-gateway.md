@@ -53,9 +53,9 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
 
 This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-kubenet] or [Azure CNI][byo-vnet-azure-cni]) and that the NAT gateway is preconfigured on the subnet. The following commands create the required resources for this scenario.
 
-    > [!IMPORTANT]
-    > Zonal configuration for your NAT gateway resource can be done with managed or user-assigned NAT gateway resources.
-    > If no value for the outbound IP address is specified, the default value is one.
+> [!IMPORTANT]
+> Zonal configuration for your NAT gateway resource can be done with managed or user-assigned NAT gateway resources.
+> If no value for the outbound IP address is specified, the default value is one.
 
 1. Create a resource group using the [`az group create`][az-group-create] command.
 
