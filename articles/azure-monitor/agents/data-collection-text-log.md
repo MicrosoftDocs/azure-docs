@@ -353,8 +353,8 @@ To create the data collection rule in the Azure portal:
        
    - `streamDeclarations`: Defines the columns of the incoming data. This must match the structure of the log file. Your columns names and JSON attributes must exactly match to automatically parse into the table. Both column names and JSON attribute are case sensitive. For example, `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column.
   
-    > [!NOTE]
-    > A custom stream names in the stream declaration must have a prefix of *Custom-*; for example, *Custom-JSON*.
+        > [!NOTE]
+        > A custom stream names in the stream declaration must have a prefix of *Custom-*; for example, *Custom-JSON*.
      
     - `filePatterns`: Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns). Examples of valid inputs: 20220122-MyLog.txt, ProcessA_MyLog.txt, ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt
     
