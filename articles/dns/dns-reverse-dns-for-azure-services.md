@@ -108,7 +108,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 ### Create a public IP address with reverse DNS
 
 > [!NOTE]
-> If the public IP address already exists in your subscription, see [Add reverse DNS for a public IP address with an existing name](#add-reverse-dns-for-a-public-ip-address-with-an-existing-name).
+> If the public IP address already exists in your subscription, see [Configure reverse DNS for a public IP address with an existing name](#configure-reverse-dns-for-a-public-ip-address-with-an-existing-name)
 
 To create a new PublicIpAddress with the reverse DNS property already specified:
 
