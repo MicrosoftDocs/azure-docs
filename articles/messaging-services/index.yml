@@ -38,8 +38,32 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Route events
+    - title: Azure Event Grid
       links:
+        - url: ../event-grid/choose-right-tier.md
+          itemType: overview
+          text: Choose the right tier
+        - url: ../event-grid/pull-delivery-overview.md
+          itemType: overview
+          text: Pull delivery overview
+        - url: ../event-grid/namespace-push-delivery-overview.md
+          itemType: overview
+          text: Namespaces - Push delivery overview
+        - url: ../event-grid/mqtt-overview.md
+          itemType: overview
+          text: MQTT broker overview
+        - url: ../event-grid/publish-events-to-namespace-topics-java.md
+          itemType: quickstart
+          text: Publish events to namespace topics using Java
+        - url: ../event-grid/receive-events-from-namespace-topics-java.md
+          itemType: quickstart
+          text: Receive events using pull delivery with Java
+        - url: ../event-grid/event-grid-dotnet-get-started-pull-delivery.md
+          itemType: quickstart
+          text: Send and receive messages from a namespace topic (.NET)
+        - url: ../event-grid/mqtt-publish-and-subscribe-portal.md
+          itemType: quickstart
+          text: Publish and subscribe to MQTT messages
         - url: ../event-grid/blob-event-quickstart-portal.md
           itemType: quickstart
           text: Route Blob storage events to web endpoint with the Azure portal
@@ -49,13 +73,16 @@ conceptualContent:
         - url: ../event-grid/custom-event-quickstart-portal.md
           itemType: quickstart
           text: Route custom events to web endpoint with the Azure portal and Event Grid
+        - url: ../event-grid/kubernetes/overview.md
+          itemType: Event Grid on Kubernetes overview
+          text: What is Event Grid on Kubernetes?
       # footerLink
       footerLink:
         url: ../event-grid/index.yml
         text: See more
 
     # Card
-    - title: Send and receive events from an event hub
+    - title: Azure Event Hubs
       links:
         - url: ../event-hubs/event-hubs-create.md
           itemType: quickstart
@@ -95,7 +122,7 @@ conceptualContent:
         url: ../event-hubs/index.yml
         text: See more
     # Card
-    - title: Service Bus queues, topics, and subscriptions
+    - title: Azure Service Bus
       links:
         - url: ../service-bus-messaging/service-bus-quickstart-portal.md
           itemType: quickstart
@@ -132,7 +159,7 @@ conceptualContent:
         url: ../service-bus-messaging/index.yml
         text: See more
     # Card
-    - title: Relay Hybrid connections
+    - title: Azure Relay
       links:
         - url: ../azure-relay/relay-hybrid-connections-dotnet-get-started.md
           itemType: tutorial
