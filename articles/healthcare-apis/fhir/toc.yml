@@ -29,7 +29,7 @@ items:
           href: fhir-service-bicep.md
         - name: Using ARM template
           href: fhir-service-resource-manager-template.md
-    - name: Use a non-Microsoft identity provider
+    - name: Use Azure AD B2C for an identity provider
       href: azure-ad-b2c-setup.md
       expanded: true
       items: 
