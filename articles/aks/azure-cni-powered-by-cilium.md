@@ -182,7 +182,8 @@ az aks update -n <clusterName> -g <resourceGroupName> \
           - podSelector: {}
     ```
 
-    It is not currently possible to specify a `NetworkPolicy` with an `ipBlock` to allow traffic to node IPs.
+    > [!NOTE]
+    > It is not currently possible to specify a `NetworkPolicy` with an `ipBlock` to allow traffic to node IPs.
 
 - **Does AKS configure CPU or memory limits on the Cilium `daemonset`?**
 
