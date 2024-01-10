@@ -45,7 +45,7 @@ If your organization is using [Azure Policy](../../governance/policy/overview.md
     - For advanced settings, select **Next: Resources** to specify resources, networking, encryption, identity, and tags. 
     - Your subscription must have access to Azure AI to create this resource.
 
-        :::image type="content" source="../media/how-to/resource-create-basics.png" alt-text="Screenshot of the option to set Azure AI resource basic information." lightbox="../media/how-to/resource-create-basics.png":::
+    :::image type="content" source="../media/how-to/resource-create-basics.png" alt-text="Screenshot of the option to set Azure AI resource basic information." lightbox="../media/how-to/resource-create-basics.png":::
 
 1. Select an existing **Azure AI services** or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
 
