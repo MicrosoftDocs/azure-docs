@@ -78,6 +78,7 @@ Redeployment for Azure Database for PostgreSQL is based on logical backup and re
 - Depending on your Azure Database for PostgreSQL instance design, the following dependent resources may need to be created and configured in the target region prior to re-location:
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
     - [Azure Private Link](./relocation-private-link.md)
+    - [Virtual Network](./relocation-virtual-network.md)
     - [Network Peering](/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks)
     - [Azure Private DNS]()
 
