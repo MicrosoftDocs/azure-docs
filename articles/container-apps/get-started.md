@@ -103,7 +103,7 @@ Now that your Azure CLI setup is complete, you can define the environment variab
 ## Create a resource group
 
 ```azurepowershell
-az group create --location centralus --resource-group name my-container-apps
+az group create --location centralus --resource-group my-container-apps
 ```
 
 ## Create and deploy the container app
