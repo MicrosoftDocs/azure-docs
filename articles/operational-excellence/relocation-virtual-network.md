@@ -110,7 +110,6 @@ Redeployment is the recommended way to move your virtual network to a new region
     | |PowerShell|[Move Azure NSG to another region using the PowerShell](/azure/virtual-network/move-across-regions-nsg-powershell).|
     |Virtual Network| Azure portal|[Move Azure Virtual Network to another region using the Azure portal](/azure/virtual-network/move-across-regions-vnet-portal).|
     || PowerShell|[Move Azure Virtual Network to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
-    |Public IP| Azure portal|[Move Azure Public IP to another region using the Azure portal](/azure/virtual-network/move-across-regions-vnet-portal).|
     || PowerShell|[Move Azure Public IP to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
     
 1. If you want virtual networking peering to be redeployed along with the virtual network, create a separate export template for the peering. 
