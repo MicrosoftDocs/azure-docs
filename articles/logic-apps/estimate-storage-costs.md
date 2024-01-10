@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 01/10/2024
 ---
 
 # Estimate storage costs for Standard logic app workflows in single-tenant Azure Logic Apps

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 01/10/2024
 ---
 
 # Block connector usage in Azure Logic Apps
