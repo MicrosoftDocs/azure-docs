@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
 description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
-ms.date: 10/28/2022
+ms.date: 01/05/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, mode-api
 ---
@@ -79,15 +79,23 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 
 The endpoint for your web app must include the suffix `/api/updates/`.
 
-```azurecli-interactive
-endpoint=https://$sitename.azurewebsites.net/api/updates
+1. Copy the following command, replace `$sitename` with the name of the web app you created in the previous step, and press ENTER to run the command. 
 
-az eventgrid event-subscription create \
-  --source-resource-id "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/$topicname" \
-  --name demoViewerSub \
-  --endpoint $endpoint
-  
-```
+    ```azurecli-interactive
+    endpoint=https://$sitename.azurewebsites.net/api/updates
+    ```
+2. Run the following command to get the resource ID of the topic you created.
+    
+    ```azurecli-interactive
+    topicresourceid=$(az eventgrid topic show --resource-group gridResourceGroup --name $topicname --query id)
+    ```
+1. Run the following command to create a subscription to the custom topic using the endpoint.
+    ```azurecli-interactive
+    az eventgrid event-subscription create \
+      --source-resource-id $topicresourceid \
+      --name demoViewerSub \
+      --endpoint $endpoint      
+    ```
 
 View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
