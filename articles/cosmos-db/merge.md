@@ -93,10 +93,22 @@ Install-Module @parameters
 Use [`az extension add`](/cli/azure/extension#az-extension-add) to install the [cosmosdb-preview](https://github.com/azure/azure-cli-extensions/tree/main/src/cosmosdb-preview) Azure CLI extension.
 
 
+
+
+
+
+
+
+
+
+
 ```azurecli-interactive
 az extension add \
     --name cosmosdb-preview
 ```
+
+
+
 
 
 ---
@@ -143,11 +155,19 @@ az cosmosdb sql container merge \
 For **shared throughput databases**, start the merge by using `az cosmosdb sql database merge`.
 
 
+
+
+
 ```azurecli
 az cosmosdb sql database merge \
 	--account-name '<cosmos-account-name>'                               
 	--name '<cosmos-database-name>'                                
 	--resource-group '<resource-group-name>'
+```
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
 ```
 
 #### [API for MongoDB](#tab/mongodb/azure-powershell)
@@ -179,7 +199,23 @@ Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
 
 #### [API for MongoDB](#tab/mongodb/azure-cli)
 
-Start the merge by using [`az cosmosdb mongodb collection merge`](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-merge).
+For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database?view=azure-cli-latest).
+
+
+
+```azurecli
+az cosmosdb mongodb database merge \
+	--account-name '<cosmos-account-name>'                               
+	--name '<cosmos-database-name>'                                
+	--resource-group '<resource-group-name>'
+```
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
+```
+
+For **provisioned containers**, start the merge by using [`az cosmosdb mongodb collection merge`](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-merge).
 
 ```azurecli-interactive
 az cosmosdb mongodb collection merge \
@@ -187,7 +223,10 @@ az cosmosdb mongodb collection merge \
     --account-name '<cosmos-account-name>' \
     --database-name '<cosmos-database-name>' \
     --name '<cosmos-collection-name>'
+
 ```
+
+
 
 
 ---
