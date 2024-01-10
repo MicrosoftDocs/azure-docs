@@ -74,7 +74,6 @@ Redeployment for Azure Database for PostgreSQL is based on logical backup and re
   - Use [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview) (if available).
   - The database content is not saved to any intermediate storage; the output of the logical backup tool is sent directly to the target server.
 
-- For a successful redeployment of the Azure Database for PostgreSQL to the target region, the virtual network and subnet must be created before the redeployment. To learn how to move the virtual network and subnet, see [Virtual Network](./relocation-virtual-network.md).
 
 - Depending on your Azure Database for PostgreSQL instance design, the following dependent resources may need to be created and configured in the target region prior to re-location:
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
