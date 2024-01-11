@@ -32,7 +32,7 @@ You can get the consent statement text for each locale from the text to speech G
 
 In this scenario, the audio files must be available locally. 
 
-To add consent to a personal voice project from the URL of an audio file, use the `Consents_Post` operation of the custom voice API. Construct the request body according to the following instructions:
+To add consent to a personal voice project from a local audio file, use the `Consents_Post` operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](./personal-voice-create-project.md).
 - Set the required `voiceTalentName` property. The voice talent name can't be changed later.

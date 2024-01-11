@@ -27,9 +27,7 @@ You provide the audio files [from a publicly accessible URL](#create-personal-vo
 
 In this scenario, the audio files must be available locally. 
 
-To create a personal voice and get the speaker profile ID, use the `PersonalVoices_Post` operation of the custom voice API. 
-
-Construct the request body according to the following instructions:
+To create a personal voice and get the speaker profile ID, use the `PersonalVoices_Post` operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](./personal-voice-create-project.md).
 - Set the required `consentId` property. See [add user consent](./personal-voice-create-consent.md).
