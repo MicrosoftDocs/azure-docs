@@ -93,7 +93,7 @@ public static UserEventResponse Run(
 
 # [JavaScript Model v4](#tab/javascript-v4)
 
-The following example shows an Web PubSub trigger [JavaScript function](../azure-functions/functions-reference-node.md). 
+The following example shows a Web PubSub trigger [JavaScript function](../azure-functions/functions-reference-node.md). 
 
 ```js
 const { app, trigger } = require('@azure/functions');
