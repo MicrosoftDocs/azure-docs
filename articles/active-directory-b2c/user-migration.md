@@ -10,7 +10,6 @@ ms.service: active-directory
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.custom: 
 ms.subservice: B2C
 
 

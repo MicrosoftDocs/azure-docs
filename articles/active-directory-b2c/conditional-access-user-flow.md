@@ -6,7 +6,6 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 01/11/2024
-ms.custom: 
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
