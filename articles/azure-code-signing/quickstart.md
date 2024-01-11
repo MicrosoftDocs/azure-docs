@@ -215,7 +215,7 @@ so that a reader doesn't need to recreate those resources.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete <resources> with the following steps
+If you're not going to continue to use this application, delete resources with the following steps
 
 
 <!-- 9. Next steps ------------------------------------------------------------------------
@@ -229,9 +229,3 @@ boxes if the original one doesn’t fit.
 Do not use a "More info section" or a "Resources section" or a "See also section". 
 
 --->
-
-## Next steps
-
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)

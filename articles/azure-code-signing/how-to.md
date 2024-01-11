@@ -5,7 +5,7 @@ author: microsoftshawarma #Required; your GitHub user alias, with correct capita
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/29/2023 #Required; mm/dd/yyyy format.
+ms.date: 01/11/2024 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
@@ -31,7 +31,7 @@ Readers should have a clear idea of what they will do in this article after read
 introduction.
 
 -->
-
+# Setting Up Trusted Signing
 [Add your introductory paragraph]
 TODO: Add your introductory paragraph
 

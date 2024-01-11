@@ -1,6 +1,6 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
+title: Signing Concepts #Required; page title is displayed in search results. Include the brand.
+description: Describing signing concepts and resources in Trusted Signing #Required; article description that is displayed in search results. 
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
@@ -28,7 +28,7 @@ content meets their needs. Should NOT begin with a verb.
 
 -->
 
-# Azure Code Signing Resources and Roles
+# Trusted Signing Resources and Roles
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
@@ -64,13 +64,6 @@ In the below example structure, you notice that an Azure Subscription has a reso
 <!-- 4. Next steps
 Required. Provide at least one next step and no more than three. Include some 
 context so the customer can determine why they would click the link.
-
--->
-
-## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write concepts](article-concept.md)
-- [Links](../contribute/links-how-to.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 

@@ -53,7 +53,7 @@ call out those versions (for example: Visual Studio 2019 or later).
 ## Prerequisites
 [!div class="checklist"]
 > * Azure tenant ID and subscription ID
-> * Azure [CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed
+> * Azure CLI installed
 > * Install Signtool from Windows SDK (min version: 10.0.19041.0)
 > * Install the .NET 6 Runtime
 > * Install the Azure Code Signing Dlib Package

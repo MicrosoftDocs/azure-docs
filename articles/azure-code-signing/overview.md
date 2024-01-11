@@ -4,6 +4,7 @@ description: Learn how to sign with Trusted Signing #Required; article descripti
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.
+ms.service: azure-code-signing
 ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
