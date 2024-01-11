@@ -37,7 +37,7 @@ The following table goes into more detail about the differences between each typ
 
 ### Validation environment
 
-You can set a host pool to be a *validation environment*. Validation environments let you monitor service updates before the service applies them to your production or non-validation environment. Without a validation environment, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
+You can set a host pool to be a [validation environment](configure-validation-environment.md). Validation environments let you monitor service updates before the service applies them to your production or non-validation environment. Without a validation environment, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
 
 To ensure your apps work with the latest updates, the validation environment should be as similar to host pools in your non-validation environment as possible. Users should connect as frequently to the validation environment as they do to the production environment. If you have automated testing on your host pool, you should include automated testing on the validation environment.
 
