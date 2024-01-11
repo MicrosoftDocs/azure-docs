@@ -15,24 +15,34 @@ ms.custom: devx-track-js
 ---
 # Calling SDK overview
 
-The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
+Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manage and access calls using the [Call Automation APIs](../../call-automation/call-automation.md). The [Rooms API](../../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional to a voice or video call, such as roles and permissions.
+
+To build your own user experience with the Calling SDK, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
+
+If you'd like help with the end-user experience, the Azure Communication Services UI Library provides a collection of open-source production-ready UI components to drop into your application. With this set of prebuilt controls, you can create beautiful communication experiences using [Microsoft's Fluent design language](https://developer.microsoft.com/en-us/fluentui#/). If you want to learn more about the UI Library, visit [the overview site](../ui-library/ui-library-overview.md) or [Storybook](https://aka.ms/acsstorybook).
 
 Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
 
-Key features of the Calling SDK:
+**SDK links**
 
+| Platform | Web (JavaScript) | Windows (.NET) |  iOS | Android | Other |
+| -------------- | ---------- |   ---- | -------------- | -------------- | ------------------------------ |
+| Calling | [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient) |  [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| |
+| UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - |  [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
+
+**Key features** 
+- **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
+- **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically. You can also bring your own numbers using session border controllers. 
+- **Teams Meetings & Calling** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane.
+- **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire.
 - **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster).
 - **User Access Security**
-  - **Roster** control, **Schedule** control, and user **roles/permissions** are enforced through [Virtual Rooms](../rooms/room-concept.md).
+  - **Roster** control, **schedule** control, and user **roles/permissions** are enforced through [Virtual Rooms](../rooms/room-concept.md).
   - Ability for a user to **Initiate a new call** or to **Join an existing call** can be managed through [User Identities and Tokens](../identity-model.md) 
-- **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire.
-- **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
-- **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
-- **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane.
 - **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app isn't running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call.
-- **User Facing Diagnostics (UFD)** - The Calling SDK provides [events](user-facing-diagnostics.md) that are designed to provide insights into underlying issues that could affect call quality. Developers can subscribe to triggers such as weak network signals or muted microphones, ensuring that they're always aware of any factors impacting the calls.
 - **Media Stats** - The Calling SDK provides comprehensive insights into [the metrics](media-quality-sdk.md) of your VoIP and video calls. With this information, developers have a clearer understanding of call quality and can make informed decisions to further enhance their communication experience.
 - **Video Constraints** - The Calling SDK provides APIs that gain the ability to regulate [video quality among other parameters](../../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls by adjusting parameters such as resolution and frame rate supporting different call situations for different levels of video quality
+- **User Facing Diagnostics (UFD)** - The Calling SDK provides [events](user-facing-diagnostics.md) that are designed to provide insights into underlying issues that could affect call quality. Developers can subscribe to triggers such as weak network signals or muted microphones, ensuring that they're always aware of any factors impacting the calls.
 
 ## Detailed capabilities
 
@@ -91,11 +101,6 @@ The following list presents the set of features that are currently available in 
 2. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 3. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
 
-## UI Library
-
-UI Library makes it easy for you to build modern communications user experiences using Azure Communication Services. It provides a library of production-ready UI components to drop into your application.
-
-With this set of prebuilt controls, you can create beautiful designs using [the fluent UI SDK](https://developer.microsoft.com/en-us/fluentui#/) components and audio/video communication experiences. If you want to learn more about the UI Library, you can visit [the overview site](../ui-library/ui-library-overview.md), where you find details about web and mobile platforms.
 
 ## Calling SDK streaming support
 
