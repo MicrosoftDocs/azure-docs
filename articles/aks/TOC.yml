@@ -111,7 +111,7 @@
           href: concepts-vulnerability-management.md
         - name: Security Baseline
           href: /security/benchmark/azure/baselines/aks-security-baseline?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Container Security
+        - name: Security concepts
           href: concepts-security.md
         - name: Confidential Containers security policy
           href: ../confidential-computing/confidential-containers-aks-security-policy.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
