@@ -24,7 +24,11 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Cloud-based sensor updates now lists all available update versions
 
-When updating a sensor from the Azure portal, a list of available update versions appears in the **Update Sensor** pane. Instead of automatically updating to the latest version of the sensor monitoring software, you can now choose to update to the version your organization needs. For example:
+As an organization adds sensors over time, the sensors will have different versions of the software installed on them. Also when sensors are updated, the update process automatically loads the latest version of the sensor software to the cloud based sensor. This could lead to sensors on your system running different versions of the software, which is harder for the deployment team to maintain.    
+
+Now, instead of automatically updating to the latest version of the sensor monitoring software, you can now choose to update to the specific version your organization needs. 
+When updating a cloud-based sensor from Defender for IoT in the Azure portal, a list of available update versions appears in the **Update Sensor** pane. For example:
+
 <!-- add screen shot when available.
  do we need to give reasons for this here? The list allows you to choose to update the sensor in stages, without having to automatically update to the latest version.-->
 
