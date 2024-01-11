@@ -66,6 +66,8 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
+    If you are using [role assignment conditions](conditions-overview.md), you should use the Condition query. Otherwise, use the Default query.
+
     # [Default](#tab/default)
 
     [!INCLUDE [resource-graph-query-authorization-same-role-scope](../governance/includes/resource-graph/query/authorization-same-role-scope.md)]
@@ -148,6 +150,8 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
     This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
+    If you are using [role assignment conditions](conditions-overview.md), you should use the Condition query. Otherwise, use the Default query.
+
     # [Default](#tab/default)
 
     [!INCLUDE [resource-graph-query-authorization-same-role-principal](../governance/includes/resource-graph/query/authorization-same-role-principal.md)]
@@ -215,6 +219,8 @@ To reduce the number of role assignments in the subscription, replace multiple b
 1. Run the following query to get role assignments with the same principal and same scope, but with different built-in roles.
 
     This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+
+    If you are using [role assignment conditions](conditions-overview.md), you should use the Condition query. Otherwise, use the Default query.
 
     # [Default](#tab/default)
 
