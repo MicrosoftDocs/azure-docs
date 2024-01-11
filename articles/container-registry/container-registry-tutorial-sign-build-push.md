@@ -153,6 +153,9 @@ The following steps show how to create a self-signed certificate for testing pur
           "keyType": "RSA",
           "reuseKey": true
         },
+        "secretProperties": {
+          "contentType": "application/x-pem-file"
+        },
         "x509CertificateProperties": {
         "ekus": [
             "1.3.6.1.5.5.7.3.3"

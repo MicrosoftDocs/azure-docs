@@ -7,6 +7,7 @@ ms.date: 10/27/2023
 ms.author: helohr
 manager: femila
 ---
+
 # Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access
 
 > [!IMPORTANT]
@@ -62,6 +63,9 @@ Here's how to create a Conditional Access policy that requires multifactor authe
        
         > [!TIP]
         > If you're using Azure Virtual Desktop (classic) and if the Conditional Access policy blocks all access excluding Azure Virtual Desktop app IDs, you can fix this by also adding the **Azure Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07) to the policy. Not adding this app ID will block feed discovery of Azure Virtual Desktop (classic) resources.
+
+   > [!TIP]
+   > When searching for an application name on Azure, use search terms that begin with the application name in order instead of keywords the application name contains out of order. For example, when you want to use Azure Virtual Desktop, you need to enter 'Azure Virtual` in that order. If you enter `virtual` by itself, the search won't return the desired application.
 
    > [!IMPORTANT]
    > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID 50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.   

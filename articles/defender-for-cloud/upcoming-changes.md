@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/03/2024
+ms.date: 01/09/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,9 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
+| [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
+| [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
 | [Deprecation and severity changes to security alerts](#deprecation-and-severity-changes-to-security-alerts) | December 27, 2023 | January 2024 |
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
@@ -37,11 +40,45 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
+## Defender for Servers built-in vulnerability assessment (Qualys) retirement path
+
+**Announcement date: January 9, 2024**
+
+**Estimated date for change: May 2024**
+
+The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path which is estimated to complete on **May 1st, 2024**. If you are currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft defender vulnerability management solution](how-to-transition-to-built-in.md).
+ 
+For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can read [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
+
+You can also check out the [common questions about the transition to Microsoft Defender Vulnerability Management solution](faq-scanner-detection.yml).
+
+## Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys
+
+**Announcement date: January 9, 2023**
+
+**Estimated date for change: March 2024**
+
+The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is now on a retirement path completing on **March 1st, 2024**. If you are currently using container vulnerability assessment powered by Qualys, start planning your transition to [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md).
+
+For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, see [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
+
+For more information about transitioning to our new container vulnerability assessment offering powered by Microsoft Defender Vulnerability Management, see [Transition from Qualys to Microsoft Defender Vulnerability Management](transition-to-defender-vulnerability-management.md).
+
+For common questions about the transition to Microsoft Defender Vulnerability Management, see [Common questions about the Microsoft Defender Vulnerability Management solution](common-questions-microsoft-defender-vulnerability-management.md).
+
+## New version of Defender Agent for Defender for Containers
+
+**Announcement date: January 4, 2024**
+
+**Estimated date for change: February 2024**
+
+A new version of the [Defender Agent for Defender for Containers](tutorial-enable-containers-azure.md#deploy-the-defender-agent-in-azure) will be released in February 2024. It includes performance and security improvements, support for both AMD64 and ARM64 arch nodes (Linux only), and uses [Inspektor Gadget](https://www.inspektor-gadget.io/) as the process collection agent instead of Sysdig. The new version is only supported on Linux kernel versions 5.4 and higher, so if you have older versions of the Linux kernel, you'll need to upgrade. For more information, see [Supported host operating systems](support-matrix-defender-for-containers.md#supported-host-operating-systems).
+
 ## Upcoming change for the Defender for Cloud’s multicloud network requirements
 
 **Announcement date: January 3, 2024**
 
-**Estimated date for change: May 2024** 
+**Estimated date for change: May 2024**
 
 Beginning May 2024, we'll be retiring the old IP addresses associated with our multicloud discovery services to accommodate improvements and ensure a more secure and efficient experience for all users.
 
@@ -66,7 +103,7 @@ The list is applicable to all plans and sufficient for full capability of the CS
 
 **Announcement date: December 27, 2023**
 
-**Estimated date for change: January 2024** 
+**Estimated date for change: January 2024**
 
 The following security alerts are set for deprecation or are set for update to the **informational** severity level.
 
@@ -118,7 +155,7 @@ The following security alerts are set for deprecation or are set for update to t
   
     - `Possible incoming SMTP brute force attempts detected (Generic_Incoming_BF_OneToOne)`
     - `Traffic detected from IP addresses recommended for blocking (Network_TrafficFromUnrecommendedIP)`
- 
+
   - **Alerts for Azure Resource Manager**:
 
     - `Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)`
@@ -296,7 +333,7 @@ The following table explains how each capability will be provided after the Log 
 | Defender for Endpoint/Defender for Cloud integration  for down level machines (Windows Server  2012 R2, 2016) | Defender for Endpoint integration that uses the  legacy Defender for Endpoint sensor and the Log Analytics agent (for Windows Server 2016 and Windows  Server 2012 R2 machines) won’t be supported after August 2024. | Enable the GA [unified agent](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) integration to  maintain support for machines, and receive the full extended feature set. For more information, see [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#windows). |
 | OS-level threat detection (agent-based)                      | OS-level threat detection based  on the Log Analytics agent won’t be available after August 2024.  A full list of deprecated detections will be provided soon. | OS-level detections are provided by Defender for Endpoint integration  and are already GA. |
 | Adaptive application controls                                | The [current GA version](adaptive-application-controls.md) based on the  Log Analytics agent will be deprecated in August 2024, along with the preview version based on the Azure monitoring agent. | Adaptive Application Controls feature as it is today will be discontinued, and new capabilities in the application control space (on top of what Defender for Endpoint and Windows Defender Application Control offer today) will be considered as part of future Defender for Servers roadmap. |
-| Endpoint protection discovery recommendations                | The current [GA recommendations](endpoint-protection-recommendations-technical.md) to install endpoint protection and fix health issues in the detected solutions will be deprecated in August 2024. The preview recommendations available today over Azure Monitor agent (AMA) will be deprecated when the alternative is provided over Agentless Disk Scanning capability. | A new agentless version will be provided for discovery and configuration gaps by April 2024. As part of this upgrade, this feature will be provided as a component of Defender for Servers plan 2 and Defender CSPM, and won’t cover on-premises or Arc-connected machines. |
+| Endpoint protection discovery recommendations                | The current [GA recommendations](endpoint-protection-recommendations-technical.md) to install endpoint protection and fix health issues in the detected solutions will be deprecated in August 2024. The preview recommendations available today over Log analytic agent will be deprecated when the alternative is provided over Agentless Disk Scanning capability. | A new agentless version will be provided for discovery and configuration gaps by April 2024. As part of this upgrade, this feature will be provided as a component of Defender for Servers plan 2 and Defender CSPM, and won’t cover on-premises or Arc-connected machines. |
 | Missing OS patches (system  updates)                         | Recommendations to apply system updates based on the Log Analytics agent won’t be available after August 2024.  The preview version available today over Guest Configuration agent will be deprecated when the alternative is provided over Microsoft Defender Vulnerability Management premium capabilities. Support of this feature for Docker-hub and VMMS will be deprecated in Aug 2024 and will be considered as part of future Defender for Servers roadmap.| [New recommendations](release-notes-archive.md#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga), based on integration  with Update Manager, are already in GA, with no agent dependencies. |
 | OS misconfigurations (Azure Security Benchmark  recommendations) | The [current GA version](apply-security-baseline.md) based on the Log Analytics agent won’t be  available after August 2024.   The current preview version that uses the Guest  Configuration agent will be deprecated as the Microsoft Defender  Vulnerability Management integration becomes available. | A new version, based on integration with Premium  Microsoft Defender Vulnerability Management, will be available early in 2024,  as part of Defender for Servers plan 2. |
 | File integrity monitoring                                    | The [current GA version](file-integrity-monitoring-enable-log-analytics.md) based on the Log Analytics agent won’t be available after August 2024. The FIM [Public Preview version](file-integrity-monitoring-enable-ama.md) based on Azure Monitor Agent (AMA), will be deprecated when the alternative is provided over Defender for Endpoint.| A new version of this feature will be provided based on Microsoft Defender for Endpoint integration by April 2024. |

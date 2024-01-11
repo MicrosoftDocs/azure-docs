@@ -321,8 +321,6 @@
               href: gpu-multi-instance.md
             - name: Node pool snapshot
               href: node-pool-snapshot.md
-            - name: Use multiple node pools
-              href: use-multiple-node-pools.md
             - name: Use system node pools
               href: use-system-pools.md
             - name: Resize node pools
