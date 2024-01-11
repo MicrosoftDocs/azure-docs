@@ -15,13 +15,13 @@ Disasters can be hardware failures, natural disasters, or software failures. The
 
 BCDR strategies include availability zone redundancy and user-managed recovery.
 
-## Control Plane
+## Control plane
 
 The Azure Operator Insights control plane is resilient both to software errors and failure of an Availability Zone. The ability to create and manage Data Products isn't affected by these failure modes. 
 
 The control plane isn't regionally redundant. During an outage in an Azure region, you can't create new Data Products in that region or access/manage existing ones. Once the region recovers from the outage, you can access and manage existing Data Products again.
 
-## Data Plane
+## Data plane
 
 Data Products are resilient to software or hardware failures. For example, if a software bug causes the service to crash, or a hardware failure causes the compute resources for enrichment queries to be lost, service automatically recovers. The only impact is a slight delay in newly ingested data becoming available in the Data Product's storage endpoint and in the KQL consumption URL.
 
