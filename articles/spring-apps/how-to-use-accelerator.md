@@ -401,6 +401,8 @@ Use the following steps to install the extension and configure it properly:
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-settings.png" alt-text="Screenshot that shows the VS Code extension settings." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-settings.png":::
 
+   The remaining parameters, such as **Azure Issuer URL** and **Azure Client ID**, are explained in the section of [Support Single-Sign-On for Tanzu Developer Portal URL](./how-to-use-accelerator.md#support-single-sign-on-for-tanzu-developer-portal-url).
+
 4. Access the extension and you will see the accelerator list and you can click any accelerator project to do further actions.
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot that shows the VS Code extension accelerator list." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
@@ -463,13 +465,11 @@ To support SSO for Tanzu Developer Portal URL, some configuration changes need t
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-popup.png" alt-text="Screenshot that shows the VS Code extension popup windows." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-popup.png":::
 
-7. And then click the **Allow** button It will bring up an authentication window.
-
-8. Once you successfully login your account you can will see the popup windows below.
+   And then click the **Allow** button It will bring up an authentication window. Once you successfully login your account you can will see the popup windows below.
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-allow.png" alt-text="Screenshot that shows the allow login windows." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-allow.png":::
 
-9. Click **Open** button, the VS Code will be activated and you will see the popup windows below in VS Code.
+   Click **Open** button, the VS Code will be activated and you will see the popup windows below in VS Code.
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-allow-open.png" alt-text="Screenshot that shows the allow open windows." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-allow-open.png":::
 
