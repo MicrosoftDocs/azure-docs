@@ -1,7 +1,7 @@
 ---
 title: Private resolver architecture
 titleSuffix: Azure DNS Private Resolver architecture guidance
-description: Configure the Azure DNS Private Resolver for a centralized or non-centralized architecture
+description: Configure the Azure DNS Private Resolver for a centralized or noncentralized architecture
 services: dns
 author: greg-lindsay
 ms.service: dns
@@ -44,7 +44,7 @@ Consider the following hub and spoke VNet topology in Azure with a private resol
 
 ## Centralized DNS architecture
 
-Consider the following hub and spoke VNet topology with an inbound endpoint provisioned as custom DNS in the spoke VNet. The spoke VNet uses a Custom DNS setting of 10.10.0.4, corresponding to the Hub's private resolver inbound endpoint::
+Consider the following hub and spoke VNet topology with an inbound endpoint provisioned as custom DNS in the spoke VNet. The spoke VNet uses a Custom DNS setting of 10.10.0.4, corresponding to the Hub's private resolver inbound endpoint:
 
 ![Hub and spoke with custom DNS diagram.](./media/private-resolver-architecture/hub-and-spoke-custom-dns.png)
 
