@@ -58,7 +58,7 @@ While we make every attempt to ensure that quota is always deployable, quota doe
 
 
 ### How utilization enforcement works
-Provisioned deployments provide customers with an allocated amount of compute capacity to run a given model. The utilization of the deployment is measured by the ‘Provisioned-Managed Utilization’ metric in Azure Mmonitor. Provisioned-Managed deployments are also optimized to ensure so that calls accepted are met processed with a consistent per-call max latency. When the workload exceeds their its allocated capacity, the service we will return a 429 HTTP status code until the utilization drops down below 100%. The time before retrying is provided in the retry-after and retry-after-ms response headers which provide the time in seconds and milliseconds respectively.  This maintains ensures the per-call latency targets are maintained while giving the developer control over how to handle high-load situations – for example retry or divert to another experience/endpoint. 
+Provisioned deployments provide customers with an allocated amount of compute capacity to run a given model. The utilization of the deployment is measured by the ‘Provisioned-Managed Utilization’ metric in Azure Monitor. Provisioned-Managed deployments are also optimized to ensure so that calls accepted are met processed with a consistent per-call max latency. When the workload exceeds their its allocated capacity, the service we'll return a 429 HTTP status code until the utilization drops down below 100%. The time before retrying is provided in the retry-after and retry-after-ms response headers which provide the time in seconds and milliseconds respectively.  This maintains ensures the per-call latency targets are maintained while giving the developer control over how to handle high-load situations – for example retry or divert to another experience/endpoint. 
 
 
 #### What should  I do when I receive a 429 response?
@@ -88,7 +88,7 @@ We use a variation of the leaky bucket algorithm to maintain utilization below 1
 
 4.	The overall utilization is decremented down at a continuous rate based based on the amount of PTUs deployed. 
 
-Since calls are accepted until utilization reaches 100% you are allowed to burst over 100% utilization when first increasing traffic. For sizeable calls and small sized deployments, you may then be over 100% utilization for up to several minutes.
+Since calls are accepted until utilization reaches 100% you are allowed to burst over 100% utilization when first increasing traffic. For sizeable calls and small sized deployments, you might then be over 100% utilization for up to several minutes.
 
 
 :::image type="content" source="../media/provisioned/utilization.jpg" alt-text="Diagram showing how subsequent calls are added to the utilization." lightbox="../media/provisioned/utilization.jpg":::
