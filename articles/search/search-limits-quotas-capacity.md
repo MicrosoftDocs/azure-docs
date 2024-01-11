@@ -100,9 +100,9 @@ Azure AI Search is rolling out increased vector index size limits worldwide for 
 
 The following regions **do not** support increased limits:
 
-- Germany West Central
-- Jio India West
-- Qatar Central
++ Germany West Central
++ West India
++ Qatar Central
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |

@@ -35,7 +35,7 @@ The first reason is just a consequence of how the OData language and EDM type sy
 
 ## Correlated versus uncorrelated search
 
-When applying multiple filter criteria over a collection of complex objects, the criteria are correlated because they apply to *each object in the collection*. For example, the following filter returns hotels that have at least one deluxe room with a rate less than 100:
+When you apply multiple filter criteria over a collection of complex objects, the criteria are correlated because they apply to *each object in the collection*. For example, the following filter returns hotels that have at least one deluxe room with a rate less than 100:
 
 ```odata-filter-expr
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
@@ -135,7 +135,7 @@ The values of the `seasons` field are stored in a structure called an **inverted
 
 This data structure is designed to answer one question with great speed: In which documents does a given term appear? Answering this question works more like a plain equality check than a loop over a collection. In fact, this is why for string collections, Azure AI Search only allows `eq` as a comparison operator inside a lambda expression for `any`.
 
-Building up from equality, next we'll look at how it's possible to combine multiple equality checks on the same range variable with `or`. It works thanks to algebra and [the distributive property of quantifiers](https://en.wikipedia.org/wiki/Existential_quantification#Negation). This expression:
+Next, we look at how it's possible to combine multiple equality checks on the same range variable with `or`. It works thanks to algebra and [the distributive property of quantifiers](https://en.wikipedia.org/wiki/Existential_quantification#Negation). This expression:
 
 ```odata-filter-expr
     seasons/any(s: s eq 'winter' or s eq 'fall')

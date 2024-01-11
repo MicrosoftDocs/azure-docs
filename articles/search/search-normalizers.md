@@ -31,13 +31,13 @@ Searching and retrieving documents from a search index requires matching the que
 
 Because non-tokenized content is also not analyzed, small differences in the content are evaluated as distinctly different values. Consider the following examples:
 
-+ `$filter=City eq 'Las Vegas'` will only return documents that contain the exact text "Las Vegas" and exclude documents with "LAS VEGAS" and "las vegas", which is inadequate when the use-case requires all documents regardless of the casing.
++ `$filter=City eq 'Las Vegas'` will only return documents that contain the exact text `"Las Vegas"` and exclude documents with `"LAS VEGAS"` and `"las vegas"`, which is inadequate when the use-case requires all documents regardless of the casing.
 
-+ `search=*&facet=City,count:5` will return "Las Vegas", "LAS VEGAS" and "las vegas" as distinct values despite being the same city.
++ `search=*&facet=City,count:5` will return `"Las Vegas"`, `"LAS VEGAS"` and `"las vegas"` as distinct values despite being the same city.
 
-+ `search=usa&$orderby=City` will return the cities in lexicographical order: "Las Vegas", "Seattle", "las vegas", even if the intent is to order the same cities together irrespective of the case.
++ `search=usa&$orderby=City` will return the cities in lexicographical order: `"Las Vegas"`, `"Seattle"`, `"las vegas"`, even if the intent is to order the same cities together irrespective of the case.
 
-A normalizer, which is invoked during indexing and query execution, adds light transformations that smooth out minor differences in text for filter, facet, and sort scenarios. In the previous examples, the variants of "Las Vegas" would be processed according to the normalizer you select (for example, all text is lower-cased) for more uniform results.
+A normalizer, which is invoked during indexing and query execution, adds light transformations that smooth out minor differences in text for filter, facet, and sort scenarios. In the previous examples, the variants of `"Las Vegas"` would be processed according to the normalizer you select (for example, all text is lower-cased) for more uniform results.
 
 ## How to specify a normalizer
 
@@ -101,7 +101,7 @@ Azure AI Search provides built-in normalizers for common use-cases along with th
 |standard| Lowercases the text followed by asciifolding.|  
 |lowercase| Transforms characters to lowercase.|
 |uppercase| Transforms characters to uppercase.|
-|asciifolding| Transforms characters that aren't in the Basic Latin Unicode block to their ASCII equivalent, if one exists. For example, changing à to a.|
+|asciifolding| Transforms characters that aren't in the Basic Latin Unicode block to their ASCII equivalent, if one exists. For example, changing `à` to `a`.|
 |elision| Removes elision from beginning of the tokens.|
 
 ### Supported char filters

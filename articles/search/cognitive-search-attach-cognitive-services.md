@@ -204,7 +204,7 @@ Some enrichments are always free:
 
 + Utility skills that don't call Azure AI services (namely, [Conditional](cognitive-search-skill-conditional.md), [Document Extraction](cognitive-search-skill-document-extraction.md), [Shaper](cognitive-search-skill-shaper.md), [Text Merge](cognitive-search-skill-textmerger.md), and [Text Split skills](cognitive-search-skill-textsplit.md)) aren't billable.
 
-+ Text extraction from PDF documents and other application files is nonbillable. Text extraction occurs during the [document cracking](search-indexer-overview.md#document-cracking) phase and isn't technically an enrichment, but it occurs during AI enrichment and is thus noted here.
++ Text extraction from PDF documents and other application files is nonbillable. Text extraction, which occurs during the [document cracking](search-indexer-overview.md#document-cracking), isn't an AI enrichment, but it occurs during AI enrichment and is thus noted here.
 
 ## Billable enrichments
 
