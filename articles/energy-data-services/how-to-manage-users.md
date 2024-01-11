@@ -108,9 +108,10 @@ Run the following curl command in Azure Cloud Bash to get all the groups that ar
                     }'
     ```
 
-> [!IMPORTANT]
-> The app ID is the default OWNER of all the groups.
-:::image type="content" source="media/how-to-manage-users/appid.png" alt-text="Screenshot that shows the app ID in Microsoft Entra ID.":::
+   > [!IMPORTANT]
+   > The app ID is the default OWNER of all the groups.
+
+   :::image type="content" source="media/how-to-manage-users/appid.png" alt-text="Screenshot that shows the app ID in Microsoft Entra ID.":::
 
 ## Get OSDU groups for a given user in a data partition
 
