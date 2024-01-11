@@ -90,7 +90,13 @@ It's recommended that you enable autoscale/automatic scaling for your Azure App 
 
 Azure App Service can be deployed across [availability zones (AZ)](../reliability/availability-zones-overview.md) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone redundancy.
 
-When you configure to be zone redundant, the platform automatically spreads the instances of the Azure App Service plan across three zones in the selected region. This means that the minimum App Service Plan instance count will always be three. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, instance counts beyond 3*N are spread across the remaining one or two zones.
+When you configure App Service as zone redundant, the platform automatically spreads the instances of the Azure App Service plan across three zones in the selected region.  
+
+Instance spreading with a zone-redundant deployment is determined inside the following rules, even as the app scales in and out:
+
+- The minimum App Service Plan instance count is three. 
+- If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. 
+- Any instance counts beyond 3*N are spread across the remaining one or two zones.
 
 Availability zone support is a property of the App Service plan. App Service plans can be created on managed multi-tenant environment or dedicated environment using App Service Environment v3. To Learn more regarding App Service Environment v3, see [App Service Environment v3 overview](../app-service/environment/overview.md).
 
