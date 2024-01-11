@@ -101,7 +101,7 @@ You can define a data collection rule to send data from multiple machines to mul
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 >
-> To automatically parse your JSON log file into a custom table follow the Resource Manager template steps 
+> To automatically parse your JSON log file into a custom table follow the Resource Manager template steps. Text data can be transformed into columns using [ingestion-time transformation](../essentials/data-collection-transformations.md) 
 
 
 ### [Portal](#tab/portal)
