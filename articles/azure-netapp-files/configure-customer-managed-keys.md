@@ -264,7 +264,7 @@ The process to configure a NetApp account with customer-managed keys in the Azur
         --key-vault-uri $key_vault_uri \
         --key-name <key> \
         --keyvault-resource-id <key-vault> \   
-        --user-assigned-identity $user_assigned_identity
+        --user-assigned-identity
      ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
