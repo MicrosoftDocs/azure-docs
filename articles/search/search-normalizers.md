@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/14/2022
+ms.date: 01/11/2024
 ---
 
 # Text normalization for case-insensitive filtering, faceting and sorting
@@ -17,7 +17,7 @@ ms.date: 07/14/2022
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-In Azure AI Search, a *normalizer* is a component that pre-processes text for keyword matching over fields marked as "filterable", "facetable", or "sortable". In contrast with full text "searchable" fields that are paired with [text analyzers](search-analyzers.md), content that's created for filter-facet-sort operations doesn't undergo analysis or tokenization. Omission of text analysis can produce unexpected results when casing and character differences show up.
+In Azure AI Search, a *normalizer* is a component that pre-processes text for keyword matching over fields marked as "filterable", "facetable", or "sortable". In contrast with full text "searchable" fields that are paired with [text analyzers](search-analyzers.md), content that's created for filter-facet-sort operations doesn't undergo analysis or tokenization. Omission of text analysis can produce unexpected results when casing and character differences show up, which is why you need a normalizer to homogenize variations in your content.
 
 By applying a normalizer, you can achieve light text transformations that improve results:
 
@@ -41,7 +41,7 @@ A normalizer, which is invoked during indexing and query execution, adds light t
 
 ## How to specify a normalizer
 
-Normalizers are specified in an index definition, on a per-field basis, on text fields (`Edm.String` and `Collection(Edm.String)`) that have at least one of "filterable", "sortable", or "facetable" properties set to true. Setting a normalizer is optional and it's null by default. We recommend evaluating predefined normalizers before configuring a custom one.
+Normalizers are specified in an index definition, on a per-field basis, on text fields (`Edm.String` and `Collection(Edm.String)`) that have at least one of "filterable", "sortable", or "facetable" properties set to true. Setting a normalizer is optional and is null by default. We recommend evaluating predefined normalizers before configuring a custom one.
 
 Normalizers can only be specified when you add a new field to the index, so if possible, try to assess the normalization needs upfront and assign normalizers in the initial stages of development when dropping and recreating indexes is routine. 
 
@@ -77,7 +77,7 @@ Normalizers can only be specified when you add a new field to the index, so if p
    ```
 
 > [!NOTE]
-> To change the normalizer of an existing field, you'll have to rebuild the index entirely (you cannot rebuild individual fields).
+> To change the normalizer of an existing field, [rebuild the index](search-howto-reindex.md) entirely (you cannot rebuild individual fields).
 
 A good workaround for production indexes, where rebuilding indexes is costly, is to create a new field identical to the old one but with the new normalizer, and use it in place of the old one. Use [Update Index](/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields.
 
