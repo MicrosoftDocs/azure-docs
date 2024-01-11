@@ -62,7 +62,7 @@ To relocate a Key Vault instance without that doesn't have any client specific d
 1. Redeploy the template to the new region. For an example of how to use an ARM template to create a Key Vault instance, see [Key Vault Deployment with ARM - Quickstart templates](/azure/templates/microsoft.KeyVault/2021-06-01-preview/vaults?tabs=json&pivots=deployment-language-arm-template).
 
     >[!TIP]
-    >You can also create the new key vault by using [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
+    >You can also create the new key vault by using [Azure portal](../key-vault/general/quick-create-portal.md), the [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 
 ## Redeploy with data migration
@@ -82,7 +82,7 @@ To relocate a Key Vault instance without that doesn't have any client specific d
 
 
     >[!TIP]
-    >You can also create the new key vault by using [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
+    >You can also create the new key vault by using [Azure portal](../key-vault/general/quick-create-portal.md), the [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 
 1. Restore your downloaded secret, key, and certificates to your new key vault by following the steps in [Azure Key Vault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli).

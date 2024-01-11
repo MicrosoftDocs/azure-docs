@@ -22,7 +22,7 @@ For an overview of the region pairs supported by native replication, see [cross-
 
 ## Relocation strategies
 
-To relocate Azure PostgreSQL database to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration-strategy) strategies. 
+To relocate Azure PostgreSQL database to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration) strategies. 
 
 **Azure Resource Mover** doesn't support moving services used by the Azure Database for PostgreSQL. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
