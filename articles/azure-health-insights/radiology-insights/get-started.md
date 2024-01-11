@@ -102,10 +102,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-      "administrativeMetadata" : {
-
-
-"createdDateTime" : "2021-8-28T00:00:00",
+      "createdDateTime" : "2021-8-28T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
@@ -225,12 +222,31 @@ For the patientDocuments within a patient:
       "type" : "note",
       "clinicalType" : "radiologyReport",
       "id" : "docid1",
-      "language" : "en-US",
+      "language" : "en",
       "authors" : [ {
         "id" : "authorid1",
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
+	    "createdDateTime" : "2021-8-28T00:00:00",
+      "administrativeMetadata" : {
+        "orderedProcedures" : [ {
+          "code" : {
+            "coding" : [ {
+              "system" : "Https://loinc.org",
+              "code" : "41806-1",
+              "display" : "CT ABDOMEN"
+            } ]
+          },
+          "description" : "CT ABDOMEN"
+        } ],
+        "encounterId" : "encounterid1"
+      },
+      "content" : {
+        "sourceType" : "inline",
+        "value" : "CT ABDOMEN AND PELVIS\n\nProvided history: \n78 years old Female\nAbnormal weight loss\n\nTechnique: Routine protocol helical CT of the abdomen and pelvis were performed after the injection of intravenous nonionic iodinated contrast. Axial, Sagittal and coronal 2-D reformats were obtained. Oral contrast was also administered.\n\nFindings:\nLimited evaluation of the included lung bases demonstrates no evidence of abnormality. \n\nGallbladder is absent. "
+      }
+    } ]
 ```
 
 
