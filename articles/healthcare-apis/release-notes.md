@@ -20,6 +20,13 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 This article provides details about the features and enhancements made to Azure Health Data Services, including the different services (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## January 2024
+
+### FHIR Service
+**Storage size support in FHIR service beyond 4TB** 
+
+By default each FHIR instance is limited to storage capacity of 4TB. To provision a FHIR instance with storage capacity beyond 4TB, create support request with Issue type 'Service and Subscription limit (quotas)'.
+
 ## December 2023
 
 ### Azure Health Data Services
