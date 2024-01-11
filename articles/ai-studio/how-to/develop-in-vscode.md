@@ -2,7 +2,6 @@
 title: Work with Azure AI projects in VS Code
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to get started with Azure AI projects in VS Code.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -33,10 +32,11 @@ Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenar
 1. Once the compute is running, select **Set up** which configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted.
 
     > [!WARNING]
-    > Even if you [enable and configure idle shutdown on your compute instance](./create-manage-compute.md#configure-idle-shutdown), any computes that host this custom container for VS Code won't idle shutdown. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container. We are working to improve this experience. Scheduled startup and shutdown of the compute should still work as expected.
+    > Even if you [enable and configure idle shutdown on your compute instance](./create-manage-compute.md#configure-idle-shutdown), any computes that host this custom container for VS Code won't idle shutdown. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
 
 1. Once the container is ready, select **Launch**. This launches your previously selected VS Code experience, remotely connected to a custom development environment running on your compute instance.
-    1. If you selected VS Code (Web), a new browser tab connected to *vscode.dev* opens. If you selected VS Code (Desktop), a new local instance of VS Code opens on your local machine.
+
+    If you selected VS Code (Web), a new browser tab connected to *vscode.dev* opens. If you selected VS Code (Desktop), a new local instance of VS Code opens on your local machine.
 
 ## The custom container folder structure
 
