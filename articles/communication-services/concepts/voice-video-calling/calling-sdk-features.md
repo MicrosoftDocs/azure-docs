@@ -15,13 +15,13 @@ ms.custom: devx-track-js
 ---
 # Calling SDK overview
 
-Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manage and access calls using the [Call Automation APIs](../../call-automation/call-automation.md). The [Rooms API](../../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional to a voice or video call, such as roles and permissions.
+Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manage and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional to a voice or video call, such as roles and permissions.
 
 To build your own user experience with the Calling SDK, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
 
 If you'd like help with the end-user experience, the Azure Communication Services UI Library provides a collection of open-source production-ready UI components to drop into your application. With this set of prebuilt controls, you can create beautiful communication experiences using [Microsoft's Fluent design language](https://developer.microsoft.com/en-us/fluentui#/). If you want to learn more about the UI Library, visit [the overview site](../ui-library/ui-library-overview.md) or [Storybook](https://aka.ms/acsstorybook).
 
-Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
+Once you start development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
 
 **SDK links**
 
@@ -112,7 +112,7 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
 
 \* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
-While the Calling SDK don't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
+While the Calling SDK does not enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
 
 ## Calling SDK timeouts
 
@@ -148,7 +148,7 @@ The following table represents the set of supported browsers, which are currentl
 - Firefox support is in public preview.
 - Currently, the calling SDK only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
 Running JavaScript Calling SDK on these platforms isn't actively tested, it might or might not work.
-- [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this issue is a limitation of the OS, and there's always only one device, OS controls default device selection.
+- [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth). This issue is a limitation of iOS, and the operating system controls default device selection.
 
 ## Android Calling SDK support
 
