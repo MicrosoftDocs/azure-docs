@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022, ignite-2022
 
-author: Abeomor
-ms.author: osomorog
+author: fkriti
+ms.author: kritifaujdar
 ms.date: 05/04/2022
 ms.reviewer: larryfr
 ---

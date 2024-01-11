@@ -181,7 +181,6 @@ You can also configure more granular details of the cluster autoscaler by changi
 | daemonset-eviction-for-occupied-nodes (Preview) | Whether DaemonSet pods will be gracefully terminated from non-empty nodes | true |
 | scale-down-utilization-threshold | Node utilization level, defined as sum of requested resources divided by capacity, in which a node can be considered for scale down | 0.5 |
 | max-graceful-termination-sec     | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node | 600 seconds   |
-| balance-similar-node-groups | Detects similar node pools and balances the number of nodes between them | false |
 | balance-similar-node-groups      | Detects similar node pools and balances the number of nodes between them                 | false         |
 | expander                         | Type of node pool [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) to be used in scale up. Possible values: `most-pods`, `random`, `least-waste`, `priority` | random |
 | skip-nodes-with-local-storage    | If true, cluster autoscaler doesn't delete nodes with pods with local storage, for example, EmptyDir or HostPath | true |

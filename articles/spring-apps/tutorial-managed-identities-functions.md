@@ -204,7 +204,7 @@ This sample invokes the HTTP triggered function by first requesting an access to
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-instance-name> \
        --name "msiapp" \
-       --jar-path target/asc-managed-identity-function-sample-0.1.0.jar
+       --artifact-path target/asc-managed-identity-function-sample-0.1.0.jar
    ```
 
 1. Use the following command to access the public endpoint or test endpoint to test your app:

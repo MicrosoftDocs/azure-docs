@@ -646,7 +646,7 @@ Once the Security admin approves the Backup admin's request for the Contributor 
 >[!NOTE]
 >If the access was assigned using a JIT mechanism, the Contributor role is retracted at the end of the approved period. Otherwise, the Security admin manually removes the **Contributor** role assigned to the Backup admin to perform the critical operation.
 
-The following screenshot shows an example of [disabling soft delete](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) for an MUA-enabled vault.
+The following screenshot shows an example of [disabling soft delete](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) for an MUA-enabled vault.
 
 :::image type="content" source="./media/multi-user-authorization/disable-soft-delete-inline.png" alt-text="Screenshot showing to disable soft delete for an MUA enabled vault." lightbox="./media/multi-user-authorization/disable-soft-delete-expanded.png":::
 
