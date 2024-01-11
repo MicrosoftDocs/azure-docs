@@ -6,7 +6,7 @@ author: asudbring
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/30/2023
+ms.date: 01/10/2024
 ms.author: allensu
 ---
 
