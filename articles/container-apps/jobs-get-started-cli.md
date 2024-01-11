@@ -142,6 +142,8 @@ Job executions output logs to the logging provider that you configured for the C
     ]
     ```
 
+[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
+
 ## Clean up resources
 
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
@@ -152,8 +154,6 @@ If you're not going to continue to use this application, run the following comma
 ```azurecli
 az group delete --name "$RESOURCE_GROUP"
 ```
-
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps/issues).

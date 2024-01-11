@@ -253,6 +253,8 @@ Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endp
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
+[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
+
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
@@ -274,8 +276,6 @@ az group delete `
 ```
 
 ---
-
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).

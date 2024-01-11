@@ -44,6 +44,8 @@ Select the link next to *Application URL* to view your application. The followin
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
 
+[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
+
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
@@ -54,8 +56,6 @@ If you're not going to continue to use this application, you can delete the Azur
 1. Select **Delete**.
 
     The process to delete the resource group could take a few minutes to complete.
-
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).

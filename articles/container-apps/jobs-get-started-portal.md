@@ -72,7 +72,7 @@ Next, create an environment for your container app.
 1. In *Job details*, select **Scheduled** for the *Trigger type*.
 
     In the *Cron expression* field, enter `*/1 * * * *`.
-    
+
     This expression starts the job every minute.
 
 1. Select the **Next: Container** button at the bottom of the page.
@@ -103,13 +103,15 @@ Next, create an environment for your container app.
 
 1. Select **Go to resource** to view your new Container Apps job.
 
-2. Select the **Execution history** tab.
+1. Select the **Execution history** tab.
 
     The *Execution history* tab displays the status of each job execution. Select the **Refresh** button to update the list. Wait up to a minute for the scheduled job execution to start. Its status changes from *Pending* to *Running* to *Succeeded*.
 
 1. Select **View logs**.
 
     The logs show the output of the job execution. It may take a few minutes for the logs to appear.
+
+[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 ## Clean up resources
 
@@ -120,8 +122,6 @@ If you're not going to continue to use this application, you can delete the Azur
 1. Enter the resource group name **jobs-quickstart** in the *Are you sure you want to delete "jobs-quickstart"* confirmation dialog.
 1. Select **Delete**.  
     The process to delete the resource group may take a few minutes to complete.
-
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).

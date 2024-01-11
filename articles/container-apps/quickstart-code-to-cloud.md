@@ -392,6 +392,8 @@ Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endp
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
+[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
+
 ## Clean up resources
 
 If you're not going to continue on to the [Deploy a frontend](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this quickstart with the following command.
@@ -415,8 +417,6 @@ az group delete --name $RESOURCE_GROUP
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
-
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 ## Next steps
 
