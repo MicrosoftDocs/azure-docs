@@ -191,4 +191,4 @@ In Azure OpenAI Studio, select **Quota** > **Provisioned** > **Manage Commitment
 ## Next steps
 
 - [Provisioned Throughput Units (PTU) getting started guide](./provisioned-get-started.md)
-- [Provisioned Throughput Units (PTU) concepts](../concepts/provisioned-throughput.md)
+- [Provisioned Throughput Units (PTU) concepts](../concepts/provisioned-throughput.md) 
