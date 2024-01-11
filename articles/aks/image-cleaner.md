@@ -162,7 +162,7 @@ Images specified in the exclusion list aren't removed from the cluster. Image Cl
 
 ### How to check eraser version is using?
 ```
-kubectl get configmap -n kube-system eraser-manager-config | grep tag -C 3
+kubectl get configmap -n kube-system eraser-manager-config -o yaml | grep tag -C 3
 ```
 
 ### Does Image Cleaner support other vulnerability scanners besides trivy-scanner?
