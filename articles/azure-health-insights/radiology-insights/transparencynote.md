@@ -45,12 +45,12 @@ Radiology Insights uses TA4H for NER, extraction of relations between identified
 
 |Term | Definition                                                                |
 |-----|---------------------------------------------------------------------------|
-|Document| The input of the RI model is a Radiology Clinical document, which next to the narrative information also contains meta data containing patient info and procedure order specifications.|
+|Document| The input of the RI model is a Radiology Clinical document, which next to the narrative information also contains meta-data containing patient info and procedure order specifications.|
 |Inference| The output of the RI model is a list of inferences or annotations added to the document processed.|
-|AgeMismatch| Annotation triggered when there's discrepancy between age information in meta-data and narrative text.|
-|SexMismatch| Annotation triggered when there's discrepancy between sex information in meta-data and narrative text (includes patient references, sex specific findings and sex specific body parts).|
+|AgeMismatch| Annotation triggered when there's a discrepancy between age information in meta-data and narrative text.|
+|SexMismatch| Annotation triggered when there's a discrepancy between sex information in meta-data and narrative text (includes patient references, sex specific findings and sex specific body parts).|
 |LateralityDiscrepancy| Annotation triggered when there's a discrepancy between laterality information in meta-data and narrative text or between findings and impression section in report text.
-|CompleteOrderDiscrepancy| Annotation triggered when report text doesn't contain all relevant body parts according to information in the metadata that a complete study is ordered.
+|CompleteOrderDiscrepancy| Annotation triggered when report text doesn't contain all relevant body parts according to information in the meta-data that a complete study is ordered.
 |LimitedOrderDiscrepancy| Annotation triggered when limited selection of body parts according to the procedure order present in meta-data should be checked, but report text includes all relevant body parts.
 |Finding| Annotation that identifies and highlights an assembly of clinical information pertaining to a, clinically relevant, notion found in the report text.
 |CriticalResult| Annotation that identifies and highlights findings in report text that should be communicated within a certain time limit according to regulatory compliance.
@@ -119,7 +119,7 @@ Clinical Indicator, AnatomyLateralityInfo about Size, Acuity, Severity, Cause, S
 **Critical Result**
 • Identifies and highlights potential critical results dictated in a report.
 • Identifies and highlights potential ACR Actionable Findings dictated in a report.
-o Only Identifies Critical Result in the report text (not in metadata)
+o Only Identifies Critical Result in the report text (not in meta-data)
 o The terms are based on Mass Coalition for the Prevention of Medical Errors
 <http://www.macoalition.org/Initiatives/docs/CTRstarterSet.xls>
 
@@ -145,13 +145,13 @@ o The terms are based on Mass Coalition for the Prevention of Medical Errors
 Healthcare organizations and radiology teams must have visibility into trends and outcomes specific to radiology operations and performance, with constant attention to quality.
 The Radiology Insights model extracts valuable information from radiology documents for a radiologist.
 
-The scope of each of these use cases is always the current document the radiologist is dictating. there's no image analysis nor patient record information involved. The metadata provides administrative context for the current report and is limited to patient age, patient sex, and the procedure that was ordered. (for example: CT of abdomen, MRI of the brain,…)
+The scope of each of these use cases is always the current document the radiologist is dictating. There's no image analysis nor patient record information involved. The meta-data provides administrative context for the current report and is limited to patient age, patient sex, and the procedure that was ordered. (for example: CT of abdomen, MRI of the brain,…)
 
 Microsoft is providing this functionality as an API with the model that allows for the information in scope to be identified or extracted.  The customer would incorporate the model into their own or third-party radiology reporting software and would determine the user interface for the information.  Customers could be an ISV or a health system developing or modifying radiology reporting software for use within the health system.  
 
 Thus, the specific use cases by customers and how the information would be presented or used by a radiologist may vary slightly from that described, but the descriptions illustrate the intended purpose of the API functionality.
 
-• **Use Case 1 – Identifying Mismatches**: A radiologist is provided with possible mismatches that are identified by the model between what the radiologist has documented in the radiology report and the information that was present in the metadata of the report. Mismatches can be identified for sex, age and body site laterality. Mismatches identify potential discrepancies between the dictated text and the provided metadata. They also identify potential inconsistencies within the dictated/written text. Inconsistencies are limited to gender, age, laterality and type of imaging.  This is only to allow the radiologist to rectify any potential inconsistencies during reporting. The system isn't aware of the image the radiologist is reporting on. In no way does this model provides any clinical judgment of the radiologist's interpretation of the image. The radiologist is responsible for the diagnosis and treatment of patient and the correct documentation thereof.
+• **Use Case 1 – Identifying Mismatches**: A radiologist is provided with possible mismatches that are identified by the model between what the radiologist has documented in the radiology report and the information that was present in the meta-data of the report. Mismatches can be identified for sex, age and body site laterality. Mismatches identify potential discrepancies between the dictated text and the provided meta-data. They also identify potential inconsistencies within the dictated/written text. Inconsistencies are limited to gender, age, laterality and type of imaging.  This is only to allow the radiologist to rectify any potential inconsistencies during reporting. The system isn't aware of the image the radiologist is reporting on. In no way does this model provides any clinical judgment of the radiologist's interpretation of the image. The radiologist is responsible for the diagnosis and treatment of patient and the correct documentation thereof.
 
 • **Use Case 2 – Providing Clinical Findings**: The model extracts as structured data two types of clinical findings: critical findings and actionable findings.  Only clinical findings that are explicitly documented in the report by the radiologist are extracted by the model. Clinical findings produced by the model aren't deduced from pieces of information in the report nor from the image. These merely serve as a potential reminder for the radiologist to communicate with the provider.
 The model produces two categories of clinical findings, Actionable Finding and Critical Result, and is based on the clinical finding, explicitly stated in the report, and criteria formulated by ACR (American College of Radiology). The model will always extract all findings explicitly documented by the radiologist.  The extracted findings may be used to alert a radiologist of possible clinical findings that need to be clearly communicated and acted on in a timely fashion by a healthcare professional. Customers may also utilize the extracted findings to populate downstream or related systems (such as EHRs or autoschedule functions).
@@ -185,8 +185,8 @@ Radiology Insights is a valuable tool to extract knowledge from unstructured med
 The specific characteristics of the input radiology document are crucial to get actionable, accurate output from the RI model. Some of the items playing an important role in this are:
 
 • Languages: Currently RI capabilities are enabled for English text only.
-• Unknown words: radiology documents sometimes contain unknown abbreviations/words or out of context homonyms or spelling mistakes
-• Input Metadata: RI expects for certain types of inferences that input information is available in the document or in the meta data of the document.
+• Unknown words: radiology documents sometimes contain unknown abbreviations/words or out of context homonyms or spelling mistakes.
+• Input meta-data: RI expects for certain types of inferences that input information is available in the document or in the meta data of the document.
 • Templates and formatting: RI is developed using a real world, representative set of documents, but it's possible that specific use cases and/or document templates can cause challenges for the RI logic to be accurate. As an example, nested tables or complicated structures can cause suboptimal parsing.
 • Vocabulary & descriptions: RI is developed and tested on real world documents. However, natural language is rich and description of certain clinical facts can vary over time possibly impacting the output of the logic.
 

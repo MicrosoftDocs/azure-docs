@@ -1,7 +1,7 @@
 ---
 title: Radiology Insight inference information
 titleSuffix: Azure AI Health Insights
-description: This article provides Onco-Phenotype inference information.
+description: This article provides RI inference information.
 services: azure-health-insights
 author: Jan Schietse
 manager: JoeriVDV
@@ -12,7 +12,7 @@ ms.author: JanSchietse
 ---
 
 
-Inference information
+## Inference information
 - Age Mismatch
 - Laterality Discrepancy
 - Sex Mismatch
@@ -23,6 +23,7 @@ Inference information
 - follow-up Recommendation
 - Communication
 - Radiology Procedure
+
 
 
 To interact with the Radiology-Insights model, you can provide several model configuration parameters that modify the outcome of the responses. One of the configurations is “inferenceTypes”, which can be used if only part of the Radiology Insights inferences is required. If this list is omitted or empty, the model returns all the inference types.
@@ -86,6 +87,11 @@ A mismatch with discrepancy type “textLaterityMissing” has no token extensio
 
 Request and json output: lat_mm_textLimited
 
+[Example input json](lat_mm_textLimited.xml.jsonrequest)
+
+[Example output json](lat_mm_textLimited.xml.jsonresponse)
+
+
 
 **Sex Mismatch**
 This mismatch occurs when the document gives a different sex for the patient than stated in the patient’s info in the request. If the patient info contains no sex, then the mismatch can also be flagged when there's contradictory language about the patient’s sex in the text.
@@ -103,32 +109,32 @@ CompleteOrderDiscrepancy is created if there's a complete orderedProcedure - mea
 - orderType: FHIR.R4.CodeableConcept 
 - MissingBodyParts: Array FHIR.R4.CodeableConcept
 - missingBodyPartMeasurements: Array FHIR.R4.CodeableConcept
-        
-Field “ordertype” contains one Coding, with one of the following CPT codes:
-- 76700: ULTRASOUND, ABDOMINAL, REAL TIME WITH IMAGE DOCUMENTATION; COMPLETE
-- 76856: ULTRASOUND, PELVIC (NONOBSTETRIC), REAL TIME WITH IMAGE DOCUMENTATION; COMPLETE
-- 76770: ULTRASOUND, RETROPERITONEAL (EG, RENAL, AORTA, NODES), REAL TIME WITH IMAGE DOCUMENTATION; COMPLETE
-- 76641: ULTRASOUND BREAST COMPLETE
+    
+Field “ordertype” contains one Coding, with one of the following Loinc codes:
+- 24558-9: US Abdomen
+- 24869-0: US Pelvis
+- 24531-6: US Retroperitoneum
+- 24601-7: US breast
 
-Fields “missingBodyParts” and/or “missingBodyPartsMeasurements” contain body parts (radlex codes) that are missing or whose measurements are missing. The token extensions refer to body parts or measurements that are present (or words that imply them.)
+Fields “missingBodyParts” and/or “missingBodyPartsMeasurements” contain body parts (radlex codes) that are missing or whose measurements are missing. The token extensions refer to body parts or measurements that are present (or words that imply them).
         
 Request and json output: compl_mismatchLimited
         
 **Limited Order Discrepancy**
-
-        
+  
 This inference is created if there's a limited order, meaning that not all body parts and measurements for a corresponding complete order should be in the text.
 - kind: RadiologyInsightsInferenceType.LimitedOrderDiscrepancy 
 - orderType: FHIR.R4.CodeableConcept 
 - PresentBodyParts: Array FHIR.R4.CodeableConcept
 - PresentBodyPartMeasurements: Array FHIR.R4.CodeableConcept
         
-Field “ordertype” contains one Coding, with one of the following CPT codes:
-- 76705: ULTRASOUND, ABDOMINAL, REAL TIME WITH IMAGE DOCUMENTATION; LIMITED (EG, SINGLE ORGAN, QUADRANT, FOLLOW-UP)
-- 76857: ULTRASOUND, PELVIC, REAL TIME WITH IMAGE DOCUMENTATION; LIMITED OR FOLLOW-UP
-- 76775: ULTRASOUND, RETROPERITONEAL (EG, RENAL, AORTA, NODES), REAL TIME WITH IMAGE DOCUMENTATION; LIMITED
-- 76642: ULTRASOUND BREAST LIMITED
-Fields “presentBodyParts” and/or “presentBodyPartsMeasurements” contain body parts (radlex codes) that are present or whose measurements are present. The token extensions refer to body parts or measurements that are present (or words that imply them.)
+Field “ordertype” contains one Coding, with one of the following Loinc codes:
+- 24558-9: US Abdomen
+- 24869-0: US Pelvis
+- 24531-6: US Retroperitoneum
+- 24601-7: US breast
+
+Fields “presentBodyParts” and/or “presentBodyPartsMeasurements” contain body parts (radlex codes) that are present or whose measurements are present. The token extensions refer to body parts or measurements that are present (or words that imply them).
         
 Request and json output: compl_mismatch3Limited
 
@@ -140,7 +146,7 @@ This inference is created for a medical problem (for example “acute infection 
         
 Finding: Section and ci_sentence
 Next to the token extensions, there can be an extension with url “section”. This extension has an inner extension with a display name that describes the section. The inner extension can also have a LOINC code.
-There can also be an extension with url “ci_sentence”. This extension refers to the sentence containing the first token of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable (customer Power scribe or mPower).
+There can also be an extension with url “ci_sentence”. This extension refers to the sentence containing the first token of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable.
 
 Finding: fields within field “finding”
 list of fields within field “finding”, except “component”:
@@ -194,13 +200,13 @@ Finding: component “anatomy”
 Zero or more components with SNOMED code “722871000000108: ANATOMY (QUALIFIER VALUE)”. This component has field “valueCodeConcept” filled with a SNOMED or radlex code. For example, for “lung infection” this component contains a code for the lungs.
 
 Finding: component “region”
-Zero or more components with SNOMED code 45851105: REGION (ATTRIBUTE). Like anatomy, this component has field “valueCodeableConcept” filled with a SNOMED or radlex code. Such a concept refers to the body region of the anatomy. for example, if the anatomy is a code for the vagina, the region may be a code for the female reproductive system.
+Zero or more components with SNOMED code 45851105: REGION (ATTRIBUTE). Like anatomy, this component has field “valueCodeableConcept” filled with a SNOMED or radlex code. Such a concept refers to the body region of the anatomy. For example, if the anatomy is a code for the vagina, the region may be a code for the female reproductive system.
 
 Finding: component “laterality”
 Zero or more components with code 45651917: LATERALITY (ATTRIBUTE). Each has field “valueCodeableConcept” set to a SNOMED concept pertaining to the laterality of the finding. For example, this component is filled for a finding pertaining to the right arm.
 
 Finding: component “change values”
-Zero or more components with code 288533004: CHANGE VALUES (QUALIFIER VALUE). Each has field “valueCodeableConcept” set to a SNOMED concept pertaining to a size change in the finding (for example, a nodule that is growing or decreasing.)
+Zero or more components with code 288533004: CHANGE VALUES (QUALIFIER VALUE). Each has field “valueCodeableConcept” set to a SNOMED concept pertaining to a size change in the finding (for example, a nodule that is growing or decreasing).
 
 Finding: component “percentage”
 At most one component with code 45606679: PERCENT (PROPERTY) (QUALIFIER VALUE). It has field “valueString” set with either a value or a range consisting of a lower and upper value, separated by “-“.
@@ -237,8 +243,8 @@ Finding: component “size”
 Zero or more components with code 246115007, "SIZE (ATTRIBUTE)". Even if there's just one size for a finding, there are several components if the size has two or three dimensions, for example, “2.1 x 3.3 cm” or “1.2 x 2.2 x 1.5 cm”. There's a size component for every dimension.
 Every component has field “interpretation” set to either SNOMED code 15240007: CURRENT or 9130008: PREVIOUS, depending on whether the size was measured during this visit or in the past.
 Every component has either field “valueQuantity” or “valueRange” set.
-If “valueQuantity” is set, then “valueQuantity.value” is always set. In most cases, “valueQuantity.unit” is set. It's possible that “valueQuantity.comparator” is also set, to either “>”, “<”, “>=” or “<=”. for example, the component is set to “<=” for “the tumor is up to 2 cm”.
-If “valueRange” is set, then “valueRange.low” and “valueRange.high” are set to quantities with the same data as described in the previous paragraph. This field contains, for example, “The tumor is between 2.5 cm and 2.6 cm in size.
+If “valueQuantity” is set, then “valueQuantity.value” is always set. In most cases, “valueQuantity.unit” is set. It's possible that “valueQuantity.comparator” is also set, to either “>”, “<”, “>=” or “<=”. For example, the component is set to “<=” for “the tumor is up to 2 cm”.
+If “valueRange” is set, then “valueRange.low” and “valueRange.high” are set to quantities with the same data as described in the previous paragraph. This field contains, for example, “The tumor is between 2.5 cm and 2.6 cm in size".
 
 **Critical Result**
 This inference is made for a new medical problem that requires attention within a specific time frame, possibly urgently.
@@ -248,7 +254,7 @@ This inference is made for a new medical problem that requires attention within 
 Field “result.description” gives a description of the medical problem, for example “MALIGNANCY”.
 Field “result.finding”, if set, contains the same information as the “finding” field in a finding inference.
 
-Next to token extensions, there can be an extension for a section. This field contains the most specific section that the first token of the critical result is in (or to be precise, the first token that is in a section.) This section is in the same format as a section for a finding.
+Next to token extensions, there can be an extension for a section. This field contains the most specific section that the first token of the critical result is in (or to be precise, the first token that is in a section). This section is in the same format as a section for a finding.
 
 Request and json output: recommendation_textCRLimited
 
@@ -266,10 +272,10 @@ This inference is created when the text recommends a specific medical procedure 
 
 recommendedProcedure: ProcedureRecommendation
 - follow up Recommendation: sentences
-Next to the token extensions, there can be an extension containing sentences. This behavior is switchable; (only mPower or Power scribe).
+Next to the token extensions, there can be an extension containing sentences. This behavior is switchable.
 - follow up Recommendation: boolean fields
 “isHedging” mean that the recommendation is uncertain, for example, “a follow-up could be done”. “isConditional” is for input like “If the patient continues having pain, an MRI should be performed.”
-“isOptions”: is also for conditional input
+“isOptions”: is also for conditional input.
 “isGuideline” means that the recommendation is in a general guideline like the following:
 
 BI-RADS CATEGORIES: 
@@ -282,9 +288,9 @@ BI-RADS CATEGORIES:
 - (6) Known biopsy-proven malignancy
 
 - follow up Recommendation: effectiveDateTime and effectivePeriod
-Field “effectiveDateTime” will be set when the procedure needs to be done (recommended) at a specific point in time. For example, “next Wednesday”. Field “effectivePeriod” will be set if a specific period is mentioned, with a start and end datetime. for example, for “within six months”, the start datetime will be the date of service, and the end datetime will be the day six months after that.
+Field “effectiveDateTime” will be set when the procedure needs to be done (recommended) at a specific point in time. For example, “next Wednesday”. Field “effectivePeriod” will be set if a specific period is mentioned, with a start and end datetime. For example, for “within six months”, the start datetime will be the date of service, and the end datetime will be the day six months after that.
 - follow up Recommendation: findings
-If set, field “findings” contains one or more findings that have to do with the recommendation. for example, a leg scan (procedure) can be recommended because of leg pain (finding).
+If set, field “findings” contains one or more findings that have to do with the recommendation. For example, a leg scan (procedure) can be recommended because of leg pain (finding).
 Every array element of field “findings” is a RecommendationFinding. Field RecommendationFinding.finding has the same information as a FindingInference.finding field.
 For field “RecommendationFinding.RecommendationFindingStatus”, see the OpenAPI specification for the possible values.
 Field “RecommendationFinding.criticalFinding” is set if a critical result is associated with the finding. It then contains the same information as described for a critical result inference.
@@ -313,7 +319,7 @@ This inference is created when findings or test results were communicated to a m
 - recipient: Array MedicalProfessionalType
 - wasAcknowledged: boolean
         
-Field “wasAcknowledged” is set to true if the communication was verbal (nonverbal communication might not have reached the recipient yet and cannot be considered acknowledged.) Field “dateTime” is set if the date-time of the communication is known. Field “recipient” is set if the recipient(s) are known. See the OpenAPI spec for its possible values.
+Field “wasAcknowledged” is set to true if the communication was verbal (nonverbal communication might not have reached the recipient yet and cannot be considered acknowledged). Field “dateTime” is set if the date-time of the communication is known. Field “recipient” is set if the recipient(s) are known. See the OpenAPI spec for its possible values.
 
 Request and json output: CommunicationTestLimited
 

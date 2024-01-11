@@ -44,22 +44,23 @@
       "type" : "note",
       "clinicalType" : "radiologyReport",
       "id" : "docid1",
-      "language" : "en-US",
+      "language" : "en",
       "authors" : [ {
         "id" : "authorid1",
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
+	  "createdDateTime" : "2014-2-20T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
-              "system" : "Http://hl7.org/fhir/ValueSet/cpt-all",
-              "code" : "2909625",
-              "display" : "US"
+              "system" : "Https://loinc.org",
+              "code" : "LP207608-3",
+              "display" : "ULTRASOUND"
             } ]
           },
-          "description" : "US"
+          "description" : "ULTRASOUND"
         } ],
         "encounterId" : "encounterid1"
       },

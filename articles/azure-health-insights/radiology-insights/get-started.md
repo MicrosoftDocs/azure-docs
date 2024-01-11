@@ -128,7 +128,7 @@ You can also find a full view of the [request parameters here](/rest/api/cogniti
 
 ### Evaluating a response that contains a case
 
-You get the status of the job by sending a request to the Radiology Insights model aby adding the job ID from the initial request in the URL.
+You get the status of the job by sending a request to the Radiology Insights model by adding the job ID from the initial request in the URL.
 
 Example code snippet:
 

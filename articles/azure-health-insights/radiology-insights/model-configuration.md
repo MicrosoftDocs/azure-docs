@@ -8,12 +8,12 @@ manager: JoeriVDV
 ms.service: azure-health-insights
 ms.topic: overview
 ms.date: 12/06/2023
-ms.author: bJanSchietse
+ms.author: JanSchietse
 ---
 
 # Radiology Insights model configuration
 
-To interact with the Radiology Insights model, you can provide several model configurations parameters that modify the outcome of the responses.
+To interact with the Radiology Insights model, you can provide several model configuration parameters that modify the outcome of the responses.
 
 > [!IMPORTANT]
 > Model configuration is applied to ALL the patients within a request.
@@ -99,8 +99,8 @@ CDARecommendation_GuidelineTrueUnspecFalseLimited
 The includeRecommendationsWithNoSpecifiedModality is false, includeRecommendationsInReferences is true, provideFocusedSentenceEvidence for findings is true and includeEvidence is true. 
 
 As a result, the model includes evidence for all inferences. 
-- The model checks for follow-up recommendations with a specified modality
-- The model checks for a recommendation in a guideline
+- The model checks for follow-up recommendations with a specified modality.
+- The model checks for a recommendation in a guideline.
 - The model provides a single focused sentence as evidence for the finding. 
 
 [Example input json](CDARecommendation_GuidelineTrueUnspecFalseLimited.xml.jsonrequest)
