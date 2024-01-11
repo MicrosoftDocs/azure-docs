@@ -2,15 +2,15 @@
 title: How to create and manage compute instances in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to create and manage compute instances in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.reviewer: deeikele
+ms.author: sgilley
+author: sdgilley
 ---
 
 # How to create and manage compute instances in Azure AI Studio

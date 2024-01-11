@@ -120,7 +120,7 @@ az containerapp up \
   --resource-group my-container-apps \
   --location centralus \
   --environment 'my-container-apps' \
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
   --target-port 80 \
   --ingress external \
   --query properties.configuration.ingress.fqdn \
@@ -134,7 +134,7 @@ az containerapp up `
   --resource-group my-container-apps `
   --location centralus `
   --environment my-container-apps `
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
+  --image mcr.microsoft.com/k8se/quickstart:latest `
   --target-port 80 `
   --ingress external  `
   --query properties.configuration.ingress.fqdn `

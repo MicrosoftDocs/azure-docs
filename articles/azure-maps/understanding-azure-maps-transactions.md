@@ -66,6 +66,10 @@ The following table summarizes the Azure Maps services that generate transaction
 | Web feature      | 1k transactions         | $21    |
 -->
 
+## Understand billing transactions
+
+[!INCLUDE [Understand billing transactions](./includes/understand-billing-transactions.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
