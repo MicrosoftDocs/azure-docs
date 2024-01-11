@@ -57,7 +57,7 @@ To follow this quickstart using passwordless authentication and your own Azure a
 * Run the tutorial code in the same terminal or command prompt.
 
 >[!IMPORTANT]
-> Make sure you sign in with `az login`. The `DefaultAzureCredential` class in the passwordless code uses the Azure CLI credentials to authenticate with Azure Active Directory (Azure AD).
+> Make sure you sign in with `az login`. The `DefaultAzureCredential` class in the passwordless code uses the Azure CLI credentials to authenticate with Microsoft Entra ID.
 
 To use the passwordless code, you'll need to specify a:
 
@@ -133,7 +133,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
     > - Replace `FULLY_QUALIFIED_NAMESPACE` with the fully qualified namespace for your Service Bus namespace.
     > - Replace `TOPIC_NAME` with the name of the topic.
 
-    In the preceding code, you used the Azure Identity client library's `DefaultAzureCredential` class. When the app runs locally during development, `DefaultAzureCredential` will automatically discover and authenticate to Azure using the account you logged into the Azure CLI with. When the app is deployed to Azure, `DefaultAzureCredential` can authenticate your app to Azure AD via a managed identity without any code changes.
+    In the preceding code, you used the Azure Identity client library's `DefaultAzureCredential` class. When the app runs locally during development, `DefaultAzureCredential` will automatically discover and authenticate to Azure using the account you logged into the Azure CLI with. When the app is deployed to Azure, `DefaultAzureCredential` can authenticate your app to Microsoft Entra ID via a managed identity without any code changes.
 
 3. Add a method to send a single message.
 

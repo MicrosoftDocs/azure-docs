@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: xiangy
 ms.topic: how-to
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java
+ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.date: 4/28/2022
 ---
 
@@ -109,11 +109,11 @@ The following matrix shows what features are supported in each application type.
 | Scaling - manual scaling (in/out, up/down)          | ✔️                                     | ✔️                                   |                                                                                                                             |
 | Managed Identity                                    | ✔️                                     | ✔️                                   |                                                                                                                             |
 | Spring Cloud Eureka & Config Server                 | ✔️                                     | ❌                                   |                                                                                                                             |
-| API portal for VMware Tanzu®                        | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
-| Spring Cloud Gateway for VMware Tanzu®              | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
-| Application Configuration Service for VMware Tanzu® | ✔️                                     | ❌                                   | Enterprise plan only.         
-| Application Live View for VMware Tanzu®             | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
-| VMware Tanzu® Service Registry                      | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
+| API portal for VMware Tanzu                        | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
+| Spring Cloud Gateway for VMware Tanzu              | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
+| Application Configuration Service for VMware Tanzu | ✔️                                     | ❌                                   | Enterprise plan only.         
+| Application Live View for VMware Tanzu             | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
+| VMware Tanzu Service Registry                      | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
 | VNET                                                | ✔️                                     | ✔️                                   | Add registry to [allowlist in NSG or Azure Firewall](#avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet). |
 | Outgoing IP Address                                 | ✔️                                     | ✔️                                   |                                                                                                                             |
 | E2E TLS                                             | ✔️                                     | ✔️                                   | [Trust a self-signed CA](#trust-a-certificate-authority).                                                                   |

@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MySQL - Flexible Server service tiers
+title: Service tiers
 description: This article describes the compute and storage options in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
@@ -15,7 +15,7 @@ ms.date: 05/24/2022
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-You can create an Azure Database for MySQL - Flexible Server in one of three different service tiers: Burstable, General Purpose, and Business Critical. The service tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all service tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
+You can create an Azure Database for MySQL flexible server instance in one of three different service tiers: Burstable, General Purpose, and Business Critical. The service tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all service tiers. All resources are provisioned at the Azure Database for MySQL flexible server instance level. A server can have one or many databases.
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Business Critical** |
 |:---|:----------|:--------------------|:---------------------|
@@ -81,6 +81,8 @@ The detailed specifications of the available server types are as follows:
 |Standard_E8ads_v5	|	8	|	64	|	18000	|	10923   |   300 |
 |Standard_E16ds_v4	|	16	|	128	|	28000	|	21845   |   600 |
 |Standard_E16ads_v5	|	16	|	128	|	28000	|	21845   |   600 |
+|Standard_E20ds_v4 	|	20	|	160	|	28000	|	27306   |   750 |
+|Standard_E20ads_v5  |	20	|	160	|	28000	|	27306   |   750 |
 |Standard_E32ds_v4	|	32	|	256	|	38000	|	43691   |   1200    |
 |Standard_E32ads_v5	|	32	|	256	|	38000	|	43691   |   1200    |
 |Standard_E48ds_v4	|	48	|	384	|	48000	|	65536   |   1800    |
@@ -92,6 +94,7 @@ The detailed specifications of the available server types are as follows:
 |Standard_E4ds_v5	|	4	|	32	|	10000	|	5461    |   150 | 
 |Standard_E8ds_v5	|	8	|	64	|	18000	|	10923   |   300 |
 |Standard_E16ds_v5	|	16	|	128	|	28000	|	21845   |   600 |
+|Standard_E20ds_v5  |	20	|	160	|	28000	|	27306   |   750 |
 |Standard_E32ds_v5	|	32	|	256	|	38000	|	43691   |   1200    |
 |Standard_E48ds_v5	|	48	|	384	|	48000	|	65536   |   1800    |
 |Standard_E64ds_v5	|	64	|	512	|	64000	|	87383   |   2400    |
@@ -101,7 +104,7 @@ To get more details about the compute series available, refer to Azure VM docume
 
 
 >[!NOTE]
->For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md).
 
 ## Storage
 
@@ -134,7 +137,7 @@ Remember that storage once auto-scaled up, cannot be scaled down.
 
 ## IOPS
 
-Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
+Azure Database for MySQL flexible server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
 
 The minimum IOPS are 360 across all compute sizes and the maximum IOPS is determined by the selected compute size. To learn more about the maximum IOPS per compute size refer to the [table](#service-tiers-size-and-server-types).
 
@@ -145,9 +148,9 @@ The minimum IOPS are 360 across all compute sizes and the maximum IOPS is determ
 You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS than the max IOPS based on compute then you need to scale your server's compute.
 
 ## Autoscale IOPS
-The cornerstone of the Azure Database for MySQL - Flexible Server is its ability to achieve the best performance for tier 1 workloads, which can be improved by enabling server automatically scale performance (IO) of its database servers seamlessly depending on the workload needs. This is an opt-in feature that enables users to scale IOPS on demand without having to pre-provision a certain amount of IO per second. With the Autoscale IOPS featured enable, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs.  
+The cornerstone of Azure Database for MySQL flexible server is its ability to achieve the best performance for tier 1 workloads, which can be improved by enabling server automatically scale performance (IO) of its database servers seamlessly depending on the workload needs. This is an opt-in feature that enables users to scale IOPS on demand without having to pre-provision a certain amount of IO per second. With the Autoscale IOPS featured enable, you can now enjoy worry free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs.  
 
-With Autoscale IOPS, you pay only for the IO the server use and no longer need to provision and pay for resources they aren’t fully using, saving both time and money. In addition, mission-critical Tier-1 applications can achieve consistent performance by making additional IO available to the workload at any time. Autoscale IOPS eliminates the administration required to provide the best performance at the least cost for Azure Database for MySQL customers. 
+With Autoscale IOPS, you pay only for the IO the server use and no longer need to provision and pay for resources they aren’t fully using, saving both time and money. In addition, mission-critical Tier-1 applications can achieve consistent performance by making additional IO available to the workload at any time. Autoscale IOPS eliminates the administration required to provide the best performance at the least cost for Azure Database for MySQL flexible server customers. 
 
 ## Backup
 
@@ -177,5 +180,5 @@ If you would like to optimize server cost, you can consider following tips:
 
 ## Next steps
 
-- Learn how to [create a MySQL server in the portal](quickstart-create-server-portal.md).
+- Learn how to [create a Azure Database for MySQL flexible server instance in the portal](quickstart-create-server-portal.md).
 - Learn about [service limitations](concepts-limitations.md).

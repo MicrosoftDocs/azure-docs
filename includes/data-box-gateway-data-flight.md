@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 For data in flight:
@@ -14,3 +14,4 @@ For data in flight:
     - The best practice is to configure your browser to use TLS 1.2.
     - If the browser doesn't support TLS 1.2, you can use TLS 1.1 or TLS 1.0.
 - We recommend that you use SMB 3.0 with encryption to protect data when you copy it from your data servers.
+

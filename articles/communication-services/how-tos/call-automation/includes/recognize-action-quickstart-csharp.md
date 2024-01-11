@@ -4,8 +4,8 @@ description: C# recognize action quickstart
 services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
-ms.date: 08/10/2023
+ms.subservice: call-automation
+ms.date: 11/20/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
@@ -18,8 +18,7 @@ ms.author: kpunjabi
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Obtain the latest [NuGet package](https://www.nuget.org/packages/Azure.Communication.CallAutomation/).
 
-### For AI features (Public preview)
-- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+### For AI features 
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 
@@ -31,7 +30,7 @@ The following parameters are available to customize the Recognize function:
 | Parameter | Type|Default (if not specified) | Description | Required or Optional |
 | ------- |--| ------------------------ | --------- | ------------------ |
 | Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-ai-action.md))* | FileSource, TextSource | Not set |This is the message you wish to play before recognizing input. | Optional |
-| InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS waits for the caller to press another digit (inter-digit timeout). | Optional |
+| InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that Azure Communication Services waits for the caller to press another digit (inter-digit timeout). | Optional |
 | InitialSegmentationSilenceTimeoutInSeconds | Integer | 0.5 second | How long recognize action waits for input before considering it a timeout. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
 | RecognizeInputsType | Enum | dtmf | Type of input that is recognized. Options are dtmf, choices, speech and speechordtmf. | Required |
 | InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds (DTMF) <br/>**Max:** 20 seconds (Choices) <br/>**Max:** 20 seconds (Speech)| Initial silence timeout adjusts how much nonspeech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
@@ -62,8 +61,6 @@ dotnet new web -n MyApplication
 
 The NuGet package can be obtained from [here](https://www.nuget.org/packages/Azure.Communication.CallAutomation/), if you haven't already done so. 
 
-For access to AI features in public preview, you need to obtain the NuGet package from the Dev Feed. You can do this by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) and locate **Azure.Communication.CallAutomation** package.
-
 ## Establish a call
 
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). You can also use the code snippet provided here to understand how to answer a call.
@@ -71,11 +68,12 @@ By this point you should be familiar with starting calls, if you need to learn m
 ``` csharp
 var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string>");
 
-var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>")) 
-{ 
-    CognitiveServicesEndpoint = new Uri("<Azure Cognitive Services Endpoint>") 
-}; 
-var answerCallResult = await callAutomationClient.AnswerCallAsync(answerCallOptions);
+var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>"))  
+{  
+    CallIntelligenceOptions = new CallIntelligenceOptions() { CognitiveServicesEndpoint = new Uri("<Azure Cognitive Services Endpoint>") } 
+};  
+
+var answerCallResult = await callAutomationClient.AnswerCallAsync(answerCallOptions); 
 ```
 
 ## Call the recognize action
@@ -100,8 +98,9 @@ var recognizeResult = await callAutomationClient.GetCallConnection(callConnectio
   .GetCallMedia()
   .StartRecognizingAsync(recognizeOptions);
 ```
+For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
-### Speech-to-Text Choices (Public Preview)
+### Speech-to-Text Choices 
 ``` csharp
 var choices = new List < RecognitionChoice > {
   new RecognitionChoice("Confirm", new List < string > {
@@ -126,14 +125,16 @@ var recognizeOptions = new CallMediaRecognizeChoiceOptions(targetParticipant, ch
   InterruptPrompt = true,
     InitialSilenceTimeout = TimeSpan.FromSeconds(30),
     Prompt = playSource,
-    OperationContext = "AppointmentReminderMenu"
+    OperationContext = "AppointmentReminderMenu",
+    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    SpeechModelEndpointId = "YourCustomSpeechModelEndpointId"
 };
 var recognizeResult = await callAutomationClient.GetCallConnection(callConnectionId)
   .GetCallMedia()
   .StartRecognizingAsync(recognizeOptions);
 ```
 
-### Speech-to-Text (Public Preview)
+### Speech-to-Text
 
 ``` csharp
 String textToPlay = "Hi, how can I help you today?";
@@ -141,14 +142,16 @@ var playSource = new TextSource(textToPlay, "en-US-ElizabethNeural");
 var recognizeOptions = new CallMediaRecognizeSpeechOptions(targetParticipant) {
   Prompt = playSource,
     EndSilenceTimeout = TimeSpan.FromMilliseconds(1000),
-    OperationContext = "OpenQuestionSpeech"
+    OperationContext = "OpenQuestionSpeech",
+    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    SpeechModelEndpointId = "YourCustomSpeechModelEndpointId"
 };
 var recognizeResult = await callAutomationClient.GetCallConnection(callConnectionId)
   .GetCallMedia()
   .StartRecognizingAsync(recognizeOptions);
 ```
 
-### Speech-to-Text or DTMF (Public Preview)
+### Speech-to-Text or DTMF 
 
 ``` csharp
 var maxTonesToCollect = 1; 
@@ -160,7 +163,9 @@ var recognizeOptions = new CallMediaRecognizeSpeechOrDtmfOptions(targetParticipa
     EndSilenceTimeout = TimeSpan.FromMilliseconds(1000), 
     InitialSilenceTimeout = TimeSpan.FromSeconds(30), 
     InterruptPrompt = true, 
-    OperationContext = "OpenQuestionSpeechOrDtmf" 
+    OperationContext = "OpenQuestionSpeechOrDtmf",
+    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    SpeechModelEndpointId = "YourCustomSpeechModelEndpointId" 
 }; 
 var recognizeResult = await callAutomationClient.GetCallConnection(callConnectionId) 
     .GetCallMedia() 

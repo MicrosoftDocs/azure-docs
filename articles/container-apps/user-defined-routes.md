@@ -20,11 +20,11 @@ Azure creates a default route table for your virtual networks on create. By impl
 
 You can also use a NAT gateway or any other third party appliances instead of Azure Firewall.
 
-For more information on networking concepts in Container Apps, see [Networking Environment in Azure Container Apps](./networking.md).
+See the [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall) in [networking in Azure Container Apps](./networking.md) for more information.
 
 ## Prerequisites
 
-* **Internal environment**: An internal container app environment on the workload profiles environment that's integrated with a custom virtual network. When you create an internal container app environment, your container app environment has no public IP addresses, and all traffic is routed through the virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles environment](./workload-profiles-manage-cli.md).
+* **Workload profiles environment**: A workload profiles environment that's integrated with a custom virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles environment](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom).
 
 * **`curl` support**: Your container app must have a container that supports `curl` commands. In this how-to, you use `curl` to verify the container app is deployed correctly. If you don't have a container app with `curl` deployed, you can deploy the following container which supports `curl`, `mcr.microsoft.com/k8se/quickstart:latest`.
 
@@ -66,7 +66,7 @@ A subnet called **AzureFirewallSubnet** is required in order to deploy a firewal
     | **Virtual network** | Select the integrated virtual network. |
     | **Public IP address** | Select an existing address or create one by selecting **Add new**. |
 
-1. Select **Review + create**. After validation finishes, select **Create**. The validation step may take a few minutes to complete.
+1. Select **Review + create**. After validation finishes, select **Create**. The validation step might take a few minutes to complete.
 
 1. Once the deployment completes, select **Go to Resource**.
 

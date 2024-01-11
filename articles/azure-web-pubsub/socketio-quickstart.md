@@ -13,7 +13,7 @@ ms.topic: quickstart
 
 This quickstart demonstrates how to create a Web PubSub for Socket.IO resource and quickly incorporate it in your Socket.IO app to simplify development, speed up deployment, and achieve scalability without complexity.
 
-Code shown in this quickstart is in CommonJS. If you want to use an ECMAScript module, see the [chat demo for Socket.IO with Azure Web PubSub](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/chat).
+Code shown in this quickstart is in CommonJS. If you want to use an ECMAScript module, see the [chat demo for Socket.IO with Azure Web PubSub](https://aka.ms/awps/sio/sample/quickstart-esm).
 
 ## Prerequisites
 

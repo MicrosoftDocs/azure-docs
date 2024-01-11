@@ -1,12 +1,12 @@
 ---
 title: Add Conditional Access to a user flow in Azure AD B2C
 description: Learn how to add Conditional Access to your Azure AD B2C user flows. Configure multifactor authentication (MFA) settings and Conditional Access policies in your user flows to enforce policies and remediate risky sign-ins.
-services: active-directory
+
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 04/10/2022
-ms.custom: project-no-code
+ms.custom: 
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
@@ -16,7 +16,7 @@ zone_pivot_groups: b2c-policy-type
 # Add Conditional Access to user flows in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
-Conditional Access can be added to your Azure Active Directory B2C (Azure AD B2C) user flows or custom policies to manage risky sign-ins to your applications. Azure Active Directory (Azure AD) Conditional Access is the tool used by Azure AD B2C to bring signals together, make decisions, and enforce organizational policies.
+Conditional Access can be added to your Azure Active Directory B2C (Azure AD B2C) user flows or custom policies to manage risky sign-ins to your applications. Microsoft Entra Conditional Access is the tool used by Azure AD B2C to bring signals together, make decisions, and enforce organizational policies.
 ![Conditional access flow](media/conditional-access-user-flow/conditional-access-flow.png)
 Automating risk assessment with policy conditions means risky sign-ins are identified immediately and then either remediated or blocked.
 
@@ -65,16 +65,16 @@ The following example shows a Conditional Access technical profile used to remed
 These are the components that enable Conditional Access in Azure AD B2C:
 
 - **User flow** or **custom policy** that guides the user through the sign-in and sign-up process.
-- **Conditional Access policy** that brings signals together to make decisions and enforce organizational policies. When a user signs into your application via an Azure AD B2C policy, the Conditional Access policy uses Azure AD Identity Protection signals to identify risky sign-ins and presents the appropriate remediation action.
+- **Conditional Access policy** that brings signals together to make decisions and enforce organizational policies. When a user signs into your application via an Azure AD B2C policy, the Conditional Access policy uses Microsoft Entra ID Protection signals to identify risky sign-ins and presents the appropriate remediation action.
 - **Registered application** that directs users to the appropriate Azure AD B2C user flow or custom policy.
 - [TOR Browser](https://www.torproject.org/download/) to simulate a risky sign-in.
 
 ## Service limitations and considerations
 
-When using the Azure AD Conditional Access, consider the following:
+When using the Microsoft Entra Conditional Access, consider the following:
 
 - Identity Protection is available for both local and social identities, such as Google or Facebook. For social identities, you need to manually activate Conditional Access. Detection is limited because social account credentials are managed by the external identity provider.
-- In Azure AD B2C tenants, only a subset of [Azure AD Conditional Access](../active-directory/conditional-access/overview.md) policies is available.
+- In Azure AD B2C tenants, only a subset of [Microsoft Entra Conditional Access](../active-directory/conditional-access/overview.md) policies are available.
 
 ## Prerequisites
 
@@ -89,9 +89,8 @@ Azure AD B2C **Premium P2** is required to create risky sign-in policies. **Prem
 To add a Conditional Access policy, disable security defaults:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. Under **Azure services**, select **Azure Active Directory**. Or use the search box to find and select **Azure Active Directory**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
+1. Under **Azure services**, select **Microsoft Entra ID**. Or use the search box to find and select **Microsoft Entra ID**.
 1. Select **Properties**, and then select **Manage Security defaults**.
 
    ![Disable the security defaults](media/conditional-access-user-flow/disable-security-defaults.png)
@@ -151,7 +150,7 @@ To add a Conditional Access policy:
 
 ## Template 1: Sign-in risk-based Conditional Access
 
-Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multifactor authentication to prove that they are really who they say they are. A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Azure AD B2C tenants with P2 licenses can create Conditional Access policies incorporating Azure AD Identity Protection sign-in risk detections.
+Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multifactor authentication to prove that they are really who they say they are. A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Azure AD B2C tenants with P2 licenses can create Conditional Access policies incorporating Microsoft Entra ID Protection sign-in risk detections.
 
 Note the limitations on Identity Protection detections for B2C. If risk is detected, users can perform multifactor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
 
@@ -342,7 +341,7 @@ The following template can be used to create a Conditional Access policy with di
 
 ## Add Conditional Access to a user flow
 
-After you've added the Azure AD Conditional Access policy, enable Conditional Access in your user flow or custom policy. When you enable Conditional Access, you don't need to specify a policy name.
+After you've added the Microsoft Entra Conditional Access policy, enable Conditional Access in your user flow or custom policy. When you enable Conditional Access, you don't need to specify a policy name.
 Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires MFA while the other blocks access, the user will be blocked.
 
 ## Enable multifactor authentication (optional)
@@ -362,8 +361,7 @@ When adding Conditional Access to a user flow, consider using **Multi-factor aut
 To enable Conditional Access for a user flow, make sure the version supports Conditional Access. These user flow versions are labeled **Recommended**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**. Then select the user flow.
 1. Select **Properties** and make sure the user flow supports Conditional Access by looking for the setting labeled **Conditional Access**.
@@ -422,8 +420,7 @@ The claims transformation isn't limited to the `strongAuthenticationPhoneNumber`
 To review the result of a Conditional Access event:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Activities**, select **Audit logs**.
 1. Filter the audit log by setting **Category** to **B2C** and setting **Activity Resource Type** to **IdentityProtection**. Then select **Apply**.

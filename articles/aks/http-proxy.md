@@ -5,7 +5,7 @@ ms.subservice: aks-networking
 ms.custom: devx-track-arm-template, devx-track-azurecli
 author: asudbring
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 09/18/2023
 ms.author: allensu
 ---
 
@@ -15,6 +15,8 @@ Azure Kubernetes Service (AKS) clusters, whether deployed into a managed or cust
 
 This feature adds HTTP proxy support to AKS clusters, exposing a straightforward interface that cluster operators can use to secure AKS-required network traffic in proxy-dependent environments.
 
+Both AKS nodes and Pods will be configured to use the HTTP proxy.
+
 Some more complex solutions may require creating a chain of trust to establish secure communications across the network. The feature also enables installation of a trusted certificate authority onto the nodes as part of bootstrapping a cluster.
 
 ## Limitations and other details
@@ -22,7 +24,6 @@ Some more complex solutions may require creating a chain of trust to establish s
 The following scenarios are **not** supported:
 
 - Different proxy configurations per node pool
-- Updating HTTP/HTTPS proxy settings post cluster creation
 - User/Password authentication
 - Custom CAs for API server communication
 - Windows-based clusters
@@ -30,6 +31,16 @@ The following scenarios are **not** supported:
 - Using * as wildcard attached to a domain suffix for noProxy
 
 By default, *httpProxy*, *httpsProxy*, and *trustedCa* have no value.
+
+The Pods will be injected with the following environment variables:
+- `HTTP_PROXY`
+- `http_proxy`
+- `HTTPS_PROXY`
+- `https_proxy`
+- `NO_PROXY`
+- `no_proxy`
+
+To disable the injection of the proxy environment variables the Pod should be annotated with: `"kubernetes.azure.com/no-http-proxy-vars":"true"`
 
 ## Prerequisites
 
@@ -109,7 +120,10 @@ In your template, provide values for *httpProxy*, *httpsProxy*, and *noProxy*. I
 
 ## Updating Proxy configurations
 
-Values for *httpProxy*, and *httpsProxy* can't be changed after cluster creation. However, the values for *trustedCa* and *NoProxy* can be changed and applied to the cluster with the [az aks update][az-aks-update] command. An aks update for *NoProxy* will automatically inject new environment variables into pods with the new *NoProxy* values.  Pods must be rotated for the apps to pick it up.  For components under kubernetes, like containerd and the node itself, this won't take effect until a node image upgrade is performed.
+> [!NOTE]
+> If switching to a new proxy, the new proxy must already exist for the update to be successful.  Then, after the upgrade is completed the old proxy can be deleted.
+
+Values for *httpProxy*, *httpsProxy*, *trustedCa* and *NoProxy* can be changed and applied to the cluster with the [az aks update][az-aks-update] command. An aks update for *httpProxy*, *httpsProxy*, and/or *NoProxy* will automatically inject new environment variables into pods with the new *httpProxy*, *httpsProxy*, or *NoProxy* values.  Pods must be rotated for the apps to pick it up, because the environment variable values are injected at the Pod creating by a mutating admission webhook.  For components under kubernetes, like containerd and the node itself, this won't take effect until a node image upgrade is performed.
 
 For example, assuming a new file has been created with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*, the following action updates the cluster.  Or, you need to add new endpoint urls for your applications to No Proxy:
 

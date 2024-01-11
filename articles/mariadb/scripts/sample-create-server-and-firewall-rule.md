@@ -12,6 +12,8 @@ ms.date: 01/26/2022
 
 # Create a MariaDB server and configure a firewall rule using the Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](../includes/azure-database-for-mariadb-deprecation.md)]
+
 This sample CLI script creates an Azure Database for MariaDB server and configures a server-level firewall rule. Once the script runs successfully, the MariaDB server is accessible by all Azure services and the configured IP address.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

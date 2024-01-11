@@ -32,8 +32,3 @@ For more information, see the [Microsoft Sentinel documentation](https://go.micr
 | **Log Analytics table(s)** | SecurityAlert (OATP)<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
-
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-microsoftdefenderforoffice?tab=Overview) in the Azure Marketplace.

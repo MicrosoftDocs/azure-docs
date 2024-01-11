@@ -1,8 +1,8 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/15/2020
+ms.date: 09/01/2023
 ms.author: eur
 ---
 
@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Recognize speech to text from a microphone
 
-Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal). Running the script will start a recognition session on your default microphone and output text.
+Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal). Running the script starts a recognition session on your default microphone and output text:
 
 ```go
 package main
@@ -103,7 +103,7 @@ For detailed information, see the [reference content for the `SpeechConfig` clas
 
 ## Recognize speech to text from an audio file
 
-Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal). Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file and output the text result.
+Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal). Additionally, replace the variable `file` with a path to a *.wav* file. When you run the script, it recognizes speech from the file and output the text result:
 
 ```go
 package main
@@ -185,5 +185,5 @@ For detailed information, see the [reference content for the `SpeechConfig` clas
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+For more information about containers, see [Host URLs](../../../speech-container-howto.md#host-urls) in Install and run Speech containers with Docker.
 

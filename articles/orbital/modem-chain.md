@@ -16,7 +16,7 @@ You have the flexibility to choose between managed modem or virtual RF functiona
 
 ### Prerequisites
 - Managed modem: a modem configuration file
-- Virtual RF: GNU radio or your own software radio
+- Virtual RF: GNU radio or software radio
 
 ## Managed modems vs virtual RF delivery
 
@@ -58,11 +58,11 @@ We currently support the following named modem configurations:
 
 | **Public Satellite Service** | **Named modem string** | **Note** |
 |--|--|--|
-| Aqua Direct Broadcast | aqua_direct_broadcast | This is NASA Aqua 15-Mbps direct broadcast service |
-| Aqua Direct Playback | aqua_direct_playback | This is NASA Aqua 150-Mbps direct broadcast service |
-| Terra Direct Broadcast | terra_direct_broadcast | This is NASA Terra 13.125-Mbps direct broadcast service |
-| SNPP Direct Broadcast | snpp_direct_broadcast | This is NASA SNPP 15-Mbps direct broadcast service |
-| JPSS-1 Direct Broadcast | jpss-1_direct_broadcast | This is NASA JPSS-1 15-Mbps direct broadcast service |
+| Aqua Direct Broadcast | aqua_direct_broadcast | NASA Aqua main signal - 15 Mbps direct broadcast service |
+| Aqua Direct Playback | aqua_direct_playback | NASA Aqua alternative signal - 150 Mbps direct broadcast service |
+| Terra Direct Broadcast | terra_direct_broadcast | NASA Terra - 13.125 Mbps direct broadcast service |
+| SNPP Direct Broadcast | snpp_direct_broadcast | NASA Suomi-NPP (SNPP) - 15 Mbps direct broadcast service |
+| JPSS-1 Direct Broadcast | jpss-1_direct_broadcast | NASA JPSS-1 - 15 Mbps direct broadcast service |
 
 > [!NOTE]
 > We recommend using the Aqua Direct Broadcast modem configuration when testing with Aqua.  
@@ -131,9 +131,9 @@ Select 'Preset Named Modem Configuration'and chose a configuration as shown belo
 To use the virtual RF delivery feature, leave the modulationConfiguration or demodulationConfiguration parameters blank in the channel parameters. Azure Orbital Ground Station uses the [Digital Intermediate Frequency Interoperability](https://dificonsortium.org/) or DIFI format for transport of virtual RF. Refer to the [virtual RF tutorial](virtual-rf-tutorial.md) to learn more.
 
 >[!Note]
->Azure Orbital Ground Station will provide an RF stream in accordance with the channel bandwidth setting to the endpoint for downlink.
+>For downlink, Azure Orbital Ground Station will provide an RF stream in accordance with the channel bandwidth setting to the endpoint.
 >
->Azure Orbital Ground Station expects an RF stream in accordance with the channel bandwidth setting from the endpoint for uplink.
+>For uplink, Azure Orbital Ground Station expects an RF stream in accordance with the channel bandwidth setting from the endpoint.
 
 ## Next steps
 

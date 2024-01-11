@@ -1,6 +1,6 @@
 ---
 title: Manage application groups for Azure Virtual Desktop (classic) - Azure
-description: Learn how to set up Azure Virtual Desktop (classic) tenants in Azure Active Directory (Azure AD).
+description: Learn how to set up Azure Virtual Desktop (classic) tenants in Microsoft Entra ID.
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 08/16/2021

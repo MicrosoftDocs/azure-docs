@@ -26,7 +26,7 @@ A [HDInsight Kafka cluster with Enterprise Security Package](./apache-domain-joi
 
 1. From a browser, connect to the Ranger Admin user interface using the URL `https://ClusterName.azurehdinsight.net/Ranger/`. Remember to change `ClusterName` to the name of your Kafka cluster. Ranger credentials are not the same as Hadoop cluster credentials. To prevent browsers from using cached Hadoop credentials, use a new InPrivate browser window to connect to the Ranger Admin UI.
 
-2. Sign in using your Azure Active Directory (AD) admin credentials. The Azure AD admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials.
+2. Sign in using your Microsoft Entra admin credentials. The Microsoft Entra admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials.
 
    :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png" alt-text="HDInsight Apache Ranger Admin UI" border="true":::
 
@@ -58,7 +58,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
 
    :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Apache Ranger Admin UI Create Policy1" border="true":::
 
-   Wait a few moments for Ranger to sync with Azure AD if a domain user is not automatically populated for **Select User**.
+   Wait a few moments for Ranger to sync with Microsoft Entra ID if a domain user is not automatically populated for **Select User**.
 
 4. Select **Add** to save the policy.
 

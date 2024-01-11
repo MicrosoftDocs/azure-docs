@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Use the stitching and rectification APIs to prepare organic photos of retail shelves for accurate image analysis.
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: ginle
@@ -46,12 +45,8 @@ To run the image stitching operation on a set of images, follow these steps:
     ```bash
     curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imagecomposition:stitch?api-version=2023-04-01-preview" --output <your_filename> -d "{
         'images': [
-            {
-            'url':'<your_url_string>'
-            },
-            {
-            'url':'<your_url_string_2>'
-            },
+            '<your_url_string_>',
+            '<your_url_string_2>',
             ...
         ]
     }"

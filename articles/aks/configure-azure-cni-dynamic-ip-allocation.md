@@ -190,4 +190,4 @@ Learn more about networking in AKS in the following articles:
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [azure-cni-prereq]: ./configure-azure-cni.md#prerequisites
-[azure-cni-deployment-parameters]: ./configure-azure-cni.md#deployment-parameters
+[azure-cni-deployment-parameters]: ./azure-cni-overview.md#deployment-parameters

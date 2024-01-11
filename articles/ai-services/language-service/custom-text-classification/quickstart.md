@@ -2,13 +2,12 @@
 title: Quickstart - Custom text classification
 titleSuffix: Azure AI services
 description: Quickly start building an AI model to identify and apply labels (classify) unstructured text.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 01/25/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features

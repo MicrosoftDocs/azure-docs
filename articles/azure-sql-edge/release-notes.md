@@ -4,12 +4,15 @@ description: Release notes detailing what's new or what has changed in the Azure
 author: kendalvandyke
 ms.author: kendalv
 ms.reviewer: randolphwest
-ms.date: 06/29/2023
+ms.date: 09/14/2023
 ms.service: sql-edge
 ms.topic: conceptual
 keywords: release notes SQL Edge
 ---
 # Azure SQL Edge release notes
+
+> [!IMPORTANT]  
+> Azure SQL Edge no longer supports the ARM64 platform.
 
 This article describes what's new and what has changed with every new build of Azure SQL Edge.
 

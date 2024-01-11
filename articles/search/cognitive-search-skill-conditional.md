@@ -1,17 +1,19 @@
 ---
 title: Conditional cognitive skill
-titleSuffix: Azure Cognitive Search
-description: The conditional skill in Azure Cognitive Search enables filtering, creating defaults, and merging values in a skillset definition.
-author: LiamCavanagh
-ms.author: liamca
+titleSuffix: Azure AI Search
+description: The conditional skill in Azure AI Search enables filtering, creating defaults, and merging values in a skillset definition.
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 08/12/2021
 ---
 
 # Conditional cognitive skill
 
-The **Conditional** skill enables Azure Cognitive Search scenarios that require a Boolean operation to determine the data to assign to an output. These scenarios include filtering, assigning a default value, and merging data based on a condition.
+The **Conditional** skill enables Azure AI Search scenarios that require a Boolean operation to determine the data to assign to an output. These scenarios include filtering, assigning a default value, and merging data based on a condition.
 
 The following pseudocode demonstrates what the conditional skill accomplishes:
 

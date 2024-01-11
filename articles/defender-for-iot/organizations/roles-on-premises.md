@@ -1,7 +1,7 @@
 ---
 title: On-premises users and roles for Defender for IoT - Microsoft Defender for IoT
 description: Learn about the on-premises user roles available for OT monitoring with Microsoft Defender for IoT network sensors and on-premises management consoles.
-ms.date: 09/19/2022
+ms.date: 12/19/2023
 ms.topic: concept-article
 ---
 
@@ -14,13 +14,39 @@ This article provides:
 - A description of the default, privileged users that come with Defender for IoT software installation
 - A reference of the actions available for each on-premises user role, on both OT network sensors and the on-premises management console
 
+[!INCLUDE [on-premises-management-deprecation](includes/on-premises-management-deprecation.md)]
+
 ## Default privileged on-premises users
 
-By default, each [sensor](ot-deploy/install-software-ot-sensor.md) and [on-premises management console](ot-deploy/install-software-on-premises-management-console.md) is installed with a privileged *support* user. The on-premises management console is also installed with a default *cyberx* user.
+By default, each sensor is installed with a default, privileged *admin* user, with access to advanced tools for troubleshooting and setup, such as the CLI. 
 
-The privileged *support* and *cyberx* users have access to advanced tools for troubleshooting and setup, such as the CLI. When first setting up your sensor or on-premises management console, first sign in with the *support* user, create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.
+When first setting up your sensor, sign in with the *admin* user, create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.
 
-In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also available. In newly installed versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. To enable these extra privileged users, such as to use the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), [change their passwords](manage-users-sensor.md#change-a-sensor-users-password).
+For more information, see:
+
+- [Install OT monitoring software on OT sensors](ot-deploy/install-software-ot-sensor.md)
+- [Configure and activate your OT sensor](ot-deploy/activate-deploy-sensor.md)
+- [Create and manage users on an OT network sensor](manage-users-sensor.md)
+
+### Legacy users
+
+|Legacy scenario  |Description  |
+|---------|---------|
+|**Sensor versions earlier than 23.2.0**     |   In sensor versions earlier than [23.2.0](whats-new.md#default-privileged-user-is-now-admin-instead-of-support), the default *admin* user is named *support*. The *support* user is available and supported only on versions earlier than 23.2.0.<br><br>Documentation refers to the *admin* user to match the latest version of the software.      |
+|**Sensor software versions earlier than 23.1.x**     |   In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also in use. <br><br>In newly installed versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. <br><br>To enable these extra privileged users, such as to use the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), change their passwords. For more information, see [Recover privileged access to a sensor](manage-users-sensor.md#recover-privileged-access-to-a-sensor).      |
+|**On-premises management consoles**     | The [on-premises management console](legacy-central-management/install-software-on-premises-management-console.md) is installed with privileged *support* and *cyberx* users. <br><br> When first setting up an on-premises management console, first sign in with the *support* user, create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.        |
+
+###  Access per privileged user
+
+The following table describes the access available to each privileged user, including legacy users.
+
+|Name  |Connects to  |Permissions  |
+|---------|---------|---------|
+|**admin** | The OT sensor's `configuration shell` |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services <br><br>This user has no filesystem access. In legacy software versions, this user is named *support*. |
+|**support** | The on-premises management console's `configuration shell` <br>This user also exists on legacy sensor versions |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services <br><br>This user has no filesystem access |
+|**cyberx**     |    The OT sensor or on-premises management console's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>- Filesystem access      |
+|**cyberx_host**     | The OT sensor's host OS `terminal (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS.<br><br>Used for: <br>- Network configuration<br>- Application container control <br>- Filesystem access |
+
 
 ## On-premises user roles
 
@@ -44,7 +70,7 @@ Permissions applied to each role differ between the sensor and the on-premises m
 | **Control map zoom views** | - | - | ✔ |
 | **View alerts** | ✔ | ✔ | ✔ |
 | **Manage alerts**: acknowledge, learn, and mute |-  | ✔ | ✔ |
-| **View events in a timeline** | - | ✔ | ✔ |
+| **View events in a timeline** | ✔ | ✔ | ✔ |
 | **Authorize devices**, known scanning devices, programming devices | - | ✔ | ✔ |
 | **Merge and delete devices** |-  |-  | ✔ |
 | **View investigation data** | ✔ | ✔ | ✔ |
@@ -90,5 +116,5 @@ For more information, see:
 
 - [Microsoft Defender for IoT user management](manage-users-overview.md)
 - [Create and manage users on an OT network sensor](manage-users-sensor.md)
-- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
+- [Create and manage users on an on-premises management console](legacy-central-management/install-software-on-premises-management-console.md)
 - [Azure user roles and permissions for Defender for IoT](roles-azure.md)

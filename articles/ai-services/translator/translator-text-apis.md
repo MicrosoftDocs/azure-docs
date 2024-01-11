@@ -2,11 +2,10 @@
 title: "Use Azure AI Translator APIs"
 titleSuffix: Azure AI services
 description: "Learn to translate text, transliterate text, detect language and more with the Translator service. Examples are provided in C#, Java, JavaScript and Python."
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -520,14 +519,20 @@ public class TranslatorText {
 
 ```javascript
 const axios = require('axios').default;
-    const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
-    let key = "<your-translator-key>";
-    let endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<your-translator-key>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // location, also known as region.
-    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    let location = "<YOUR-RESOURCE-LOCATION>";
+// location, also known as region.
+// required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+let location = "<YOUR-RESOURCE-LOCATION>";
+
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("from", "en");
+params.append("to", "sw");
+params.append("to", "it");
 
 axios({
     baseURL: endpoint,
@@ -540,11 +545,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': ['sw', 'it']
-    },
+    params: params,
     data: [{
         'text': 'Hello, friend! What did you do today?'
     }],
@@ -811,6 +812,11 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("to", "en");
+params.append("to", "it");
+
 axios({
     baseURL: endpoint,
     url: '/translate',
@@ -822,10 +828,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'to': ['en', 'it']
-    },
+    params: params,
     data: [{
         'text': 'Halo, rafiki! Ulifanya nini leo?'
     }],
@@ -1087,6 +1090,9 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+
 axios({
     baseURL: endpoint,
     url: '/detect',
@@ -1098,9 +1104,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0'
-    },
+    params: params,
     data: [{
         'text': 'Hallo Freund! Was hast du heute gemacht?'
     }],
@@ -1366,6 +1370,11 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("to", "th");
+params.append("toScript", "latn");
+
 axios({
     baseURL: endpoint,
     url: '/translate',
@@ -1377,11 +1386,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'to': 'th',
-        'toScript': 'latn'
-    },
+    params: params,
     data: [{
         'text': 'Hello, friend! What did you do today?'
     }],
@@ -1651,6 +1656,12 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("language", "th");
+params.append("fromScript", "thai");
+params.append("toScript", "latn");
+
 axios({
     baseURL: endpoint,
     url: '/transliterate',
@@ -1662,12 +1673,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'language': 'th',
-        'fromScript': 'thai',
-        'toScript': 'latn'
-    },
+    params: params,
     data: [{
         'text': 'สวัสดีเพื่อน! วันนี้คุณทำอะไร'
     }],
@@ -1927,6 +1933,11 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("to", "es");
+params.append("includeSentenceLength", true);
+
 axios({
     baseURL: endpoint,
     url: '/translate',
@@ -1938,11 +1949,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'to': 'es',
-        'includeSentenceLength': true
-    },
+    params: params,
     data: [{
         'text': 'Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.'
     }],
@@ -2210,6 +2217,9 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+
 axios({
     baseURL: endpoint,
     url: '/breaksentence',
@@ -2221,9 +2231,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0'
-    },
+    params: params,
     data: [{
         'text': 'Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.'
     }],
@@ -2478,6 +2486,11 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("from", "en");
+params.append("to", "es");
+
 axios({
     baseURL: endpoint,
     url: '/dictionary/lookup',
@@ -2489,11 +2502,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': 'es'
-    },
+    params: params,
     data: [{
         'text': 'sunlight'
     }],
@@ -2901,6 +2910,11 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("from", "en");
+params.append("to", "es");
+
 axios({
     baseURL: endpoint,
     url: '/dictionary/examples',
@@ -2912,11 +2926,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': 'es'
-    },
+    params: params,
     data: [{
         'text': 'sunlight',
         'translation': 'luz solar'

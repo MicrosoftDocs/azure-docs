@@ -5,7 +5,7 @@ author: cephalin
 
 ms.topic: article
 ms.date: 07/31/2023
-ms.author: mahender
+ms.author: cephalin
 ms.custom: seodec18, AppServiceConnectivity
 
 ---
@@ -54,11 +54,6 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
     ---
 
 2. Make sure that the vault's configuration allows the network or subnet that your app uses to access it.
-
-
-> [!NOTE]
-> Windows container currently does not support key vault references over VNet Integration.
-
 
 ### Access vaults with a user-assigned identity
 

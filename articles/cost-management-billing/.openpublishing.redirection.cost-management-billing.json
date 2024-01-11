@@ -1101,6 +1101,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cost-management-billing/costs/ai-powered-cost-management.md",
+            "redirect_url": "/azure/copilot/analyze-cost-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cost-management/use-reports.md",
             "redirect_url": "/azure/cost-management-billing/cloudyn/use-reports",
             "redirect_document_id": true

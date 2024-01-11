@@ -3,7 +3,6 @@ title: Data management partners
 description: Lists of third-party data management partners with solutions that support Azure Synapse Analytics.
 author: gillharmeet
 ms.author: harmeetgill
-manager: craigg
 ms.reviewer: wiassaf
 ms.date: 07/05/2023
 ms.service: synapse-analytics

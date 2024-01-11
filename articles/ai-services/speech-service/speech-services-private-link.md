@@ -2,11 +2,9 @@
 title: How to use private endpoints with Speech service
 titleSuffix: Azure AI services
 description: Learn how to use Speech service with private endpoints provided by Azure Private Link
-services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.author: alexeyo
@@ -236,7 +234,7 @@ All possible values for the region (first element of the DNS name) are listed in
 | `s2s`          | [Speech Translation](speech-translation.md)                 |
 | `stt`          | [Speech to text](speech-to-text.md)                         |
 | `tts`          | [Text to speech](text-to-speech.md)                         |
-| `voice`        | [Custom Voice](how-to-custom-voice.md)                      |
+| `voice`        | [Custom voice](professional-voice-create-project.md)                      |
 
 So the earlier example (`westeurope.stt.speech.microsoft.com`) stands for a Speech to text endpoint in West Europe.
 
@@ -326,10 +324,14 @@ Follow these steps to modify your code:
       ```
       ```python
       import azure.cognitiveservices.speech as speechsdk
-      speech_config = speechsdk.SpeechConfig(endpoint=endPoint, subscription=speechKey)
+      config = speechsdk.SpeechConfig(endpoint=endPoint, subscription=speechKey)
       ```
       ```objectivec
-      SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithEndpoint:endPoint subscription:speechKey];
+      SPXSpeechConfiguration *config = [[SPXSpeechConfiguration alloc] initWithEndpoint:endPoint subscription:speechKey];
+      ```
+      ```javascript
+      import * as sdk from "microsoft.cognitiveservices.speech.sdk";
+      config: sdk.SpeechConfig = sdk.SpeechConfig.fromEndpoint(new URL(endPoint), speechKey);
       ```
 
 > [!TIP]

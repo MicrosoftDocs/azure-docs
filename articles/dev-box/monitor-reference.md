@@ -23,7 +23,7 @@ The following table lists the properties of resource logs in DevCenter. The reso
 | --- | --- | --- |
 | **time** | **TimeGenerated** | The date and time (UTC) when the operation occurred. |
 | **resourceId** | **ResourceId** | The DevCenter resource for which logs are enabled.|
-| **operationName** | **OperationName** | Name of the operation. If the event represents an Azure role-based access control (RBAC) operation, specify the the Azure RBAC operation name (for example, `Microsoft.DevCenter/projects/users/devboxes/write`). This name is typically modeled in the form of an Azure Resource Manager operation, even if it's not a documented Resource Manager operation: (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`)|
+| **operationName** | **OperationName** | Name of the operation. If the event represents an Azure role-based access control (RBAC) operation, specify the Azure RBAC operation name (for example, `Microsoft.DevCenter/projects/users/devboxes/write`). This name is typically modeled in the form of an Azure Resource Manager operation, even if it's not a documented Resource Manager operation: (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`)|
 | **identity** | **CallerIdentity** | The OID of the caller of the event. |
 | **TargetResourceId** | **ResourceId** | The subresource that pertains to the request. Depending on the operation performed, this value may point to a `devbox` or `environment`.|
 | **resultSignature** | **ResponseCode** | The HTTP status code returned for the operation. |

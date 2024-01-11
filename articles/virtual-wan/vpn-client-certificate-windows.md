@@ -15,7 +15,7 @@ This article helps you configure Virtual WAN User VPN clients on a Windows opera
 
 The VPN client configuration files that you generate are specific to the P2S User VPN gateway configuration. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
-This article applies to Windows operating system clients. For macOS/iOS IKEv2 steps, use [this section](../vpn-gateway/point-to-site-vpn-client-cert-mac.md) of the VPN Gateway article. For Azure AD authentication steps, see [Configure a VPN client for P2S connections that use Azure AD authentication](openvpn-azure-ad-client.md).
+This article applies to Windows operating system clients. For macOS/iOS IKEv2 steps, use [this section](../vpn-gateway/point-to-site-vpn-client-cert-mac.md) of the VPN Gateway article. For Microsoft Entra authentication steps, see [Configure a VPN client for P2S connections that use Microsoft Entra authentication](openvpn-azure-ad-client.md).
 
 ## <a name="generate"></a>Before you begin
 
@@ -68,7 +68,7 @@ The following steps help you download, install, and configure the Azure VPN Clie
 When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azurevpnconfig.xml** file. This file contains the settings you use to configure the VPN client profile. If you don't see the file, verify the following items:
 
 * Verify that your User VPN gateway is configured to use the OpenVPN tunnel type.
-* If you're using Azure AD authentication, you may not have an AzureVPN folder. See the [Azure AD](openvpn-azure-ad-client.md) configuration article instead.
+* If you're using Microsoft Entra authentication, you may not have an AzureVPN folder. See the [Microsoft Entra ID](openvpn-azure-ad-client.md) configuration article instead.
 
 For more information about User VPN client profile files, see [Working with User VPN client profile files](about-vpn-profile-download.md).
 

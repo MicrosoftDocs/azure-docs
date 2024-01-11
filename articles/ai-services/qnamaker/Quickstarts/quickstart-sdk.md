@@ -1,12 +1,12 @@
 ---
 title: "Quickstart: Use SDK to create and manage knowledge base - QnA Maker"
 description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: quickstart
 author: jboback
 ms.author: jboback
-ms.date: 01/26/2022
+ms.date: 12/19/2023
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-fall-2021, mode-api, devx-track-dotnet, devx-track-extended-java
 zone_pivot_groups: qnamaker-quickstart

@@ -29,7 +29,7 @@ An Azure Machine Learning datastore serves as a *reference* to an *existing* Azu
 When you create a datastore with an existing Azure storage account, you can choose between two different authentication methods:
 
 - **Credential-based** - authenticate data access with a service principal, shared access signature (SAS) token, or account key. Users with *Reader* workspace access can access the credentials.
-- **Identity-based** - use your Azure Active Directory identity or managed identity to authenticate data access.
+- **Identity-based** - use your Microsoft Entra identity or managed identity to authenticate data access.
 
 The following table summarizes the Azure cloud-based storage services that an Azure Machine Learning datastore can create. Additionally, the table summarizes the authentication types that can access those services:
 
@@ -64,7 +64,7 @@ A Uniform Resource Identifier (URI) represents a storage location on your local 
 |Azure Data Lake (gen2) | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv`  |
 | Azure Data Lake (gen1) | `adl://<accountname>.azuredatalakestore.net/<folder1>/<folder2>` |
 
-An Azure Machine Learning job maps URIs to the compute target filesystem. This mapping means that in a command that consumes or produces a URI, that URI works like a file or a folder. A URI uses **identity-based authentication** to connect to storage services, with either your Azure Active Directory ID (default), or Managed Identity. Azure Machine Learning [Datastore](#datastore) URIs can apply either identity-based authentication, or **credential-based** (for example, Service Principal, SAS token, account key), without exposure of secrets.
+An Azure Machine Learning job maps URIs to the compute target filesystem. This mapping means that in a command that consumes or produces a URI, that URI works like a file or a folder. A URI uses **identity-based authentication** to connect to storage services, with either your Microsoft Entra ID (default), or Managed Identity. Azure Machine Learning [Datastore](#datastore) URIs can apply either identity-based authentication, or **credential-based** (for example, Service Principal, SAS token, account key), without exposure of secrets.
 
 A URI can serve as either *input* or an *output* to an Azure Machine Learning job, and it can map to the compute target filesystem with one of four different *mode* options:
 

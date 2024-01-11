@@ -2,17 +2,18 @@
 title: "Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics"
 titleSuffix: Azure AI services
 description: Learn how to use the Multivariate Anomaly Detector with Azure Synapse Analytics.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: tutorial
 ms.date: 08/03/2022
 ms.author: mbullwin
 ---
 
 # Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 Use this tutorial to detect anomalies among multiple variables in Azure Synapse Analytics in very large datasets and databases. This solution is perfect for scenarios like equipment predictive maintenance. The underlying power comes from the integration with [SynapseML](https://microsoft.github.io/SynapseML/), an open-source library that aims to simplify the creation of massively scalable machine learning pipelines. It can be installed and used on any Spark 3 infrastructure including your **local machine**, **Databricks**, **Synapse Analytics**, and others.
 
@@ -130,7 +131,7 @@ In this section, you'll create the following resources in the Azure portal:
     import synapse.ml
     ```
 
-3. Load your data. Compose your data in the following format, and upload it to a cloud storage that Spark supports like an Azure Storage Account. The timestamp column should be in `ISO8601` format, and the feature columns should be `string` type. **Download sample data [here](https://sparkdemostorage.blob.core.windows.net/mvadcsvdata/spark-demo-data.csv)**.
+3. Load your data. Compose your data in the following format, and upload it to a cloud storage that Spark supports like an Azure Storage Account. The timestamp column should be in `ISO8601` format, and the feature columns should be `string` type.
 
     ```python
         df = spark.read.format("csv").option("header", True).load("wasbs://[container_name]@[storage_account_name].blob.core.windows.net/[csv_file_name].csv")

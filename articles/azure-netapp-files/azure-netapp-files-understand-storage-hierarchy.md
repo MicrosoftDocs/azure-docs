@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 02/23/2023
+ms.date: 07/27/2023
 ms.author: anfdocs
 ---
 # Storage hierarchy of Azure NetApp Files
@@ -48,6 +48,7 @@ Understanding how capacity pools work helps you select the right capacity pool t
 - You can't move a capacity pool across NetApp accounts.   
   For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy), you can't move Capacity Pool 1 US East NetApp account to US West 2 NetApp account.  
 - You can't delete a capacity pool until you delete all volumes within the capacity pool. 
+- You can configure a Standard service-level capacity pool with the cool access option. For more information about cool access, see [Standard storage with cool access](cool-access-introduction.md). 
 
 ### <a name="qos_types"></a>Quality of Service (QoS) types for capacity pools
 

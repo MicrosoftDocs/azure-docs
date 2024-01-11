@@ -36,7 +36,7 @@ You can change the service level of an existing volume by moving the volume to a
 
 Azure NetApp Files provides volume performance metrics. You can also use Azure Monitor for monitoring usage metrics for Azure NetApp Files. See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md) for the list of performance metrics for Azure NetApp Files.
 
-## What’s the performance impact of Kerberos on NFSv4.1?
+## What's the performance impact of Kerberos on NFSv4.1?
 
 See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
 
@@ -59,8 +59,8 @@ Jumbo frames are not supported with Azure virtual machines.
 ## Next steps  
 
 - [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md)
-- [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md    )
-- [Performance benchmark test recommendations for Azure NetApp Files](azure-netapp-files-performance-metrics-volumes.md )
+- [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md)
+- [Performance benchmark test recommendations for Azure NetApp Files](azure-netapp-files-performance-metrics-volumes.md)
 - [Performance benchmarks for Linux](performance-benchmarks-linux.md)
 - [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md)
 - [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)

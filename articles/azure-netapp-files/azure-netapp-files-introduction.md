@@ -16,9 +16,9 @@ ms.date: 01/26/2023
 ms.author: anfdocs
 ---
 
-# What is Azure NetApp Files
+# What is Azure NetApp Files?
 
-Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides NAS volumes as a service for which you can create NetApp accounts, capacity pools, select service and performance levels, create volumes, and manage data protection. It allows you to create and manage high-performance, highly available, and scalable file shares, using the same protocols and tools that you're familiar with and enterprise applications rely on on-premises. Azure NetApp Files supports SMB and NFS protocols and can be used for various use cases such as file sharing, home directories, databases, high-performance computing and more. Additionally, it also provides built-in availability, data protection and disaster recovery capabilities.
+Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides volumes as a service for which you can create NetApp accounts, capacity pools, select service and performance levels, create volumes, and manage data protection. It allows you to create and manage high-performance, highly available, and scalable file shares, using the same protocols and tools that you're familiar with and enterprise applications rely on on-premises. Azure NetApp Files supports SMB and NFS protocols and can be used for various use cases such as file sharing, home directories, databases, high-performance computing and more. Additionally, it also provides built-in availability, data protection and disaster recovery capabilities.
 
 ## High performance 
 
@@ -68,7 +68,7 @@ Azure NetApp Files provides built-in data protection to help ensure the safe sto
 * Data replication:  
   Azure NetApp Files supports data replication between different Azure regions and Availability Zones, which helps to ensure high availability and disaster recovery. Replication can be done asynchronously, and the service can fail over to a secondary region or zone in an outage. 
 * Security:  
-  Azure NetApp Files provides built-in security features such as RBAC/IAM, Active Directory Domain Services (AD DS), Azure Active Directory Domain Services (AADDS) and LDAP integration, and Azure Policy.  This functionality helps to protect data from unauthorized access, breaches, and misconfigurations.
+  Azure NetApp Files provides built-in security features such as RBAC/IAM, Active Directory Domain Services (AD DS), Microsoft Entra Domain Services and LDAP integration, and Azure Policy.  This functionality helps to protect data from unauthorized access, breaches, and misconfigurations.
   
 All these features work together to provide a comprehensive data protection solution that helps to ensure that your data is always available, recoverable, and secure.
 
@@ -77,3 +77,4 @@ All these features work together to provide a comprehensive data protection solu
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) 
 * [Quickstart: Set up Azure NetApp Files and create an NFS volume](azure-netapp-files-quickstart-set-up-account-create-volumes.md)
 * [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+* [Azure NetApp Files videos](azure-netapp-files-videos.md)

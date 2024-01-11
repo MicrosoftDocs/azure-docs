@@ -9,6 +9,8 @@ ms.date: 06/24/2022
 ---
 # MariaDB drivers and management tools compatible with Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article describes the drivers and management tools that are compatible with Azure Database for MariaDB.
 
 ## MariaDB Drivers

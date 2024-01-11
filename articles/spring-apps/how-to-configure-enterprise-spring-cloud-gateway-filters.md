@@ -6,7 +6,7 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 07/12/2023
 ms.service: spring-apps
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # How to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan
@@ -34,11 +34,7 @@ To integrate with API Portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-
-  > [!NOTE]
-  > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You cannot enable VMware Spring Cloud Gateway after provisioning.
-
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later.
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`.
 
 ## Use filters
 

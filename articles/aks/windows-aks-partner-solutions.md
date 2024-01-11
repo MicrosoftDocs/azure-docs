@@ -3,7 +3,7 @@ title: Windows AKS Partner Solutions
 titleSuffix: Windows Server Container Partner Solutions
 description: Find partner-tested solutions that enable you to build, test, deploy, manage and monitor your Windows-based apps on Windows containers on AKS.
 ms.topic: article
-ms.date: 08/04/2023
+ms.date: 09/26/2023
 ---
 
 # Windows AKS Partners Solutions
@@ -108,9 +108,9 @@ Storage enables standardized and seamless storage interactions, ensuring high ap
 
 ![Logo of NetApp.](./media/windows-aks-partner-solutions/netapp.png) 
 
-Astra Control provides application data management for stateful workloads on Azure Kubernetes Service (AKS). Discover your apps and define protection policies that automatically back up workloads offsite. Protect, clone, and move applications across Kubernetes environments with ease. 
+[Astra](https://www.netapp.com/cloud-services/astra/) provides dynamic storage provisioning for stateful workloads on Azure Kubernetes Service (AKS). It also provides data protection using snapshots and clones. Provision SMB volumes through the Kubernetes control plane, making storage seamless and on-demand for all your Windows AKS workloads. 
 
-Follow the steps provided in [this blog](https://techcommunity.microsoft.com/t5/containers/persistent-storage-for-windows-containers-on-azure-kubernetes/ba-p/3836781) post to dynamically provision SMB volumes for Windows AKS workloads. 
+Follow the steps provided in [this blog](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-smb-volumes-for-azure-kubernetes-services/ba-p/3052900) post to dynamically provision SMB volumes for Windows AKS workloads. 
 
 ## Config management 
 

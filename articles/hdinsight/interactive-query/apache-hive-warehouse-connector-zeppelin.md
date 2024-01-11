@@ -5,12 +5,12 @@ author: reachnijel
 ms.author: nijelsf 
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 09/27/2023
 ---
 
 # Integrate Apache Zeppelin with Hive Warehouse Connector in Azure HDInsight
 
-HDInsight Spark clusters include Apache Zeppelin notebooks with different interpreters. In this article, we'll focus only on the Livy interpreter to access Hive tables from Spark using Hive Warehouse Connector.
+HDInsight Spark clusters include Apache Zeppelin notebooks with different interpreters. In this article, we focus only on the Livy interpreter to access Hive tables from Spark using Hive Warehouse Connector.
 
 > [!NOTE]
 > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
@@ -21,7 +21,7 @@ Complete the [Hive Warehouse Connector setup](apache-hive-warehouse-connector.md
 
 ## Getting started
 
-1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark cluster. Edit the following command by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -78,7 +78,7 @@ Following configurations are required to access hive tables from Zeppelin with t
     | livy.spark.security.credentials.hiveserver2.enabled | true |
     | livy.spark.sql.hive.llap | true |
     | livy.spark.yarn.security.credentials.hiveserver2.enabled | true |
-    | livy.superusers | livy,zeppelin |
+    | livy.superusers | livy, zeppelin |
     | livy.spark.jars | `file:///usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-VERSION.jar`.<br>Replace VERSION with value you obtained from [Getting started](#getting-started), earlier. |
     | livy.spark.submit.pyFiles | `file:///usr/hdp/current/hive_warehouse_connector/pyspark_hwc-VERSION.zip`.<br>Replace VERSION with value you obtained from [Getting started](#getting-started), earlier. |
     | livy.spark.sql.hive.hiveserver2.jdbc.url | Set it to the HiveServer2 Interactive JDBC URL of the Interactive Query cluster. |
@@ -90,7 +90,7 @@ Following configurations are required to access hive tables from Zeppelin with t
     |---|---|
     | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/_HOST@<AAD-Domain>` |
 
-    * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Interactive Query cluster. Look for `default_realm` parameter in the `/etc/krb5.conf` file. Replace `<AAD-DOMAIN>` with this value as an uppercase string, otherwise the credential won't be found.
+    * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Interactive Query cluster. Look for `default_realm` parameter in the `/etc/krb5.conf` file. Replace `<AAD-DOMAIN>` with this value as an uppercase string, otherwise the credential cannot be found.
 
         :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive warehouse connector AAD Domain" border="true":::
 

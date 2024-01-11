@@ -17,7 +17,17 @@ ms.reviewer: mjbrown
 The HTTP 408 error occurs if the SDK was unable to complete the request before the timeout limit occurred.
 
 ## Troubleshooting steps
-The following list contains known causes and solutions for request timeout exceptions.
+The following list contains known causes and solutions for request timeout exceptions. 
+
+### End-to-end timeout policy
+There are scenarios where 408 network timeout errors will occur even when all pre-emptive solutions mentioned below have been implemented. A general best practice for reducing tail latency, as well as improving availability in these scenarios, is to implement end-to-end timeout policy. Tail latency is reduced by failing faster, and [request units](../request-units.md) and client-side compute costs are reduced by stopping retries after the timeout. The timeout duration can be set on `CosmosItemRequestOptions`. The options can then be passed to any request sent to Azure Cosmos DB:
+
+```java
+CosmosEndToEndOperationLatencyPolicyConfig endToEndOperationLatencyPolicyConfig = new CosmosEndToEndOperationLatencyPolicyConfigBuilder(Duration.ofSeconds(1)).build();
+CosmosItemRequestOptions options = new CosmosItemRequestOptions();
+options.setCosmosEndToEndOperationLatencyPolicyConfig(endToEndOperationLatencyPolicyConfig);
+container.readItem("id", new PartitionKey("pk"), options, TestObject.class);
+```
 
 ### Existing issues
 If you are seeing requests getting stuck for longer duration or timing out more frequently, please upgrade the Java v4 SDK to the latest version. 

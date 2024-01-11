@@ -6,8 +6,8 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 05/31/2023
-ms.custom: engagement-fy23
+ms.date: 10/18/2023
+ms.custom: engagement-fy24
 ---
 
 # Troubleshooting replication issues in agentless VMware VM migration
@@ -16,7 +16,7 @@ This article describes some common issues and specific errors that you might enc
 
 When you replicate a VMware virtual machine using the agentless replication method, data from the virtual machine's disks (vmdks) are replicated to replica managed disks in your Azure subscription. When replication starts for a VM, an initial replication cycle occurs, in which full copies of the disks are replicated. After the initial replication completes, incremental replication cycles are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
 
-You may occasionally see replication cycles failing for a VM. These failures can happen due to reasons ranging from issues in on-premises network configuration to issues at the Azure Migrate Cloud Service backend. In this article, we will:
+You might occasionally see replication cycles failing for a VM. These failures can happen due to reasons ranging from issues in on-premises network configuration to issues at the Azure Migrate Cloud Service backend. In this article, we will:
 
  - Show you how you can monitor replication status and resolve errors.
  - List some of the commonly occurring replication errors and suggest steps to remediate them.
@@ -25,16 +25,25 @@ You may occasionally see replication cycles failing for a VM. These failures can
 
 Use the following steps to monitor the replication status for your virtual machines:
 
-  1. Go to the **Servers, databases and web apps** page in Azure Migrate on the Azure portal.
-  ![Screenshot of the Get started screen of Azure Migrate.](./media/troubleshoot-changed-block-tracking-replication/Overview.png)
-  1. In the **Migration and modernization** tile, under **Replications**, select the number next to **Azure VM** .
-  ![Screenshot of the Migration and modernization screen.](./media/troubleshoot-changed-block-tracking-replication/replicating-servers.png)
-  1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The **Replication health** column indicates the current replication health of the VM. A *Critical* or *Warning* value typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select **Health error Details**. The **Error Details** page contains information on the error and additional details on how to troubleshoot. 
-  ![Screenshot of Health error details option in the Replication machines screen.](./media/troubleshoot-changed-block-tracking-replication/health-error-details.png)
-  1. Select **Recent Events** to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type *Replication cycle failed* or *Replication cycle failed* for disk" for the VM.
-  ![Image 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
-  1. Select the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
- ![Screenshot of error message in the Error details screen.](./media/troubleshoot-changed-block-tracking-replication/error-details.png)
+1. Go to the **Servers, databases and web apps** page in Azure Migrate on the Azure portal.
+  
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/Overview.png" alt-text="Screenshot of the Get started screen of Azure Migrate.":::
+
+1. In the **Migration and modernization** tile, under **Replications**, select the number next to **Azure VM**.
+
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/replicating-servers.png" alt-text="Screenshot of the Migration and Modernization screen.":::
+
+1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The **Replication health** column indicates the current replication health of the VM. A *Critical* or *Warning* value typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select **Health error Details**. The **Error Details** page contains information on the error and additional details on how to troubleshoot. 
+
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/health-error-details.png" alt-text="Screenshot of Health error details option in the Replication machines screen.":::
+
+1. Select **Recent Events** to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type *Replication cycle failed* or *Replication cycle failed* for disk" for the VM.
+
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/recent-events.png" alt-text="Screenshot of Recent Events option.":::
+
+1. Select the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
+
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/error-details.png" alt-text="Screenshot of error message in the Error details screen.":::
 
 ## Common Replication Errors
 
@@ -46,15 +55,15 @@ This section describes some of the common errors, and how you can troubleshoot t
 
 **Error:** “Key Vault operation failed. Operation: Generate shared access signature definition, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:”
 
-![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+:::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/key-vault.png" alt-text="Screenshot of Key Vault.":::
 
 This error typically occurs because the User Access Policy for the Key Vault doesn't give the currently logged in user the necessary permissions to configure storage accounts to be Key Vault managed. To check for user access policy on the key vault, go to the Key vault page on the portal for the Key vault and select Access policies. 
 
 When the portal creates the key vault, it also adds a user access policy granting the currently logged in user permissions to configure storage accounts to be Key Vault managed. This can fail for two reasons:
 
-- The logged in user is a remote principal on the customer's Azure tenant (CSP subscription - and the logged in user is the partner admin). The work-around in this case is to delete the key vault, sign out from the portal, and then sign in with a user account from the customer's tenant (not a remote principal) and retry the operation. The CSP partner will typically have a user account in the customers Azure Active Directory tenant that they can use. If not, they can create a new user account for themselves in the customers Azure Active Directory tenant, sign in to the portal as the new user, and then retry the replicate operation. The account used must have either Owner or Contributor+User Access Administrator permissions granted to the account on the resource group (Migrate project resource group).
+- The logged in user is a remote principal on the customer's Azure tenant (CSP subscription - and the logged in user is the partner admin). The work-around in this case is to delete the key vault, sign out from the portal, and then sign in with a user account from the customer's tenant (not a remote principal) and retry the operation. The CSP partner will typically have a user account in the customers Microsoft Entra tenant that they can use. If not, they can create a new user account for themselves in the customers Microsoft Entra tenant, sign in to the portal as the new user, and then retry the replicate operation. The account used must have either Owner or Contributor+User Access Administrator permissions granted to the account on the resource group (Migrate project resource group).
 
-- The other case where this may happen is when one user (user1) attempted to set up replication initially and encountered a failure, but the key vault has already been created (and user access policy appropriately assigned to this user). Now at a later point a different user (user2) tries to set up replication, but the Configure Managed Storage Account or Generate SAS definition operation fails as there's no user access policy corresponding to user2 in the key vault.
+- The other case where this might happen is when one user (user1) attempted to set up replication initially and encountered a failure, but the key vault has already been created (and user access policy appropriately assigned to this user). Now at a later point a different user (user2) tries to set up replication, but the Configure Managed Storage Account or Generate SAS definition operation fails as there's no user access policy corresponding to user2 in the key vault.
 
 **Resolution**: To work around this issue, create a user access policy for user2 in the key vault granting user2 permission to configure managed storage account and generate SAS definitions. User2 can do this from Azure PowerShell using the below cmdlets:
 
@@ -182,7 +191,7 @@ The possible causes include:
 
     **Steps to run the performance benchmark test:**
     
-      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy
+      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy.
         
       2. Look for the Appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migratelsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
         
@@ -247,13 +256,13 @@ This error can be resolved in the following two ways:
 - If you had opted for **Automatically repair replication** by selecting "Yes" when you triggered replication of VM, the tool will try to repair it for you. Right-click on the VM, and select **Repair Replication**.
 - If you didn't opt for **Automatically repair replication** or the above step didn't work for you, then stop replication for the virtual machine, [reset changed block tracking](https://go.microsoft.com/fwlink/?linkid=2139203) on the virtual machine, and then reconfigure replication.
 
-One such known issue that may cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 1020128: Changed Block Tracking](https://kb.vmware.com/s/article/1020128) is reset after a storage vMotion operation in vSphere 5.x. If you are on VMware vSphere 5.5, ensure that you apply the updates described in this KB.
+One such known issue that might cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 1020128: Changed Block Tracking](https://kb.vmware.com/s/article/1020128) is reset after a storage vMotion operation in vSphere 5.x. If you are on VMware vSphere 5.5, ensure that you apply the updates described in this KB.
 
 Alternatively, you can reset VMware changed block tracking on a virtual machine using VMware PowerCLI.
 
 ## An internal error occurred
 
-Sometimes you may hit an error that occurs due to issues in the VMware environment/API. We've identified the following set of errors as VMware environment-related errors. These errors have a fixed format.
+Sometimes you might hit an error that occurs due to issues in the VMware environment/API. We've identified the following set of errors as VMware environment-related errors. These errors have a fixed format.
 
 _Error Message: An internal error occurred. [Error message]_
 
@@ -277,7 +286,7 @@ The issue is a known VMware issue and occurs in VDDK 6.7. You need to stop the g
 
 ### Error Message: An internal error occurred. ['An Invalid snapshot configuration was detected.']
 
-If you have a virtual machine with multiple disks, you may encounter this error if you remove a disk from the virtual machine. To remediate this problem, refer to the steps in [this VMware article](https://go.microsoft.com/fwlink/?linkid=2138890).
+If you have a virtual machine with multiple disks, you might encounter this error if you remove a disk from the virtual machine. To remediate this problem, refer to the steps in [this VMware article](https://go.microsoft.com/fwlink/?linkid=2138890).
 
 ### Error Message: An internal error occurred. [Generate Snapshot Hung]
 
@@ -317,6 +326,18 @@ This error occurs when there's a problem with the underlying datastore on which 
 ### Error message: An error occurred while taking a snapshot: Unable to open the snapshot file.
 This error occurs when the size of the snapshot file created is larger than the available free space in the datastore where the VM is located. Follow the resolution given in this [document](https://go.microsoft.com/fwlink/?linkid=2166464).
 
+## Protection Readiness Error
+
+**Error Message:** Cannot replicate this virtual machine with current VMware configuration.
+
+**Possible Causes:**
+
+- Change tracking cannot be enabled for the VM as snapshots are already present for the VM.
+      
+**Recommendation:**
+
+- Delete the snapshots or enable change block tracking on the VM and retry.
+
 ## Replication cycle failed
 
 **Error ID:** 181008
@@ -339,7 +360,7 @@ This error occurs when the size of the snapshot file created is larger than the 
 
 **Possible Causes:** 
 
-This may happen if:
+This might happen if:
 1. The Azure Migrate appliance is unable to resolve the hostname of the vSphere host.
 2. The Azure Migrate appliance is unable to connect to the vSphere host on port 902 (default port used by VMware vSphere Virtual Disk Development Kit), because TCP port 902 is being blocked on the vSphere host or by a network firewall.
 

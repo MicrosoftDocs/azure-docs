@@ -12,7 +12,7 @@ services: iot-central
 
 # What does it mean for IoT Central to have high availability, disaster recovery (HADR), and elastic scale?
 
-Azure IoT Central is an application platform as a service (aPaaS) that manages scalability and HADR for you. An IoT Central application can scale to support millions of connected devices. For more information about device and message pricing, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). For more information about the service level agreement, see [SLA for Azure IoT Central](https://azure.microsoft.com/support/legal/sla/iot-central/v1_0/).
+Azure IoT Central is an application platform as a service (aPaaS) that manages scalability and HADR for you. An IoT Central application can scale to support hundreds of thousands of connected devices. For more information about device and message pricing, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). For more information about the service level agreement, see [SLA for Azure IoT Central](https://azure.microsoft.com/support/legal/sla/iot-central/v1_0/).
 
 This article provides background information about how IoT Central scales and delivers HADR. The article also includes guidance on how to take advantage of these capabilities.
 
@@ -42,7 +42,7 @@ An incident that requires disaster recovery could range from a subset of service
 
 ### Applications created after April 2023
 
-IoT Central applications created after March 2023 initially have a single IoT hub. If the IoT hub becomes unavailable, the application becomes unavailable. However, IoT Central automatically scales the application and adds a new IoT hub for each 10,000 connected devices. If you require multiple IoT hubs for applications with fewer than 10,000 devices, submit a request to [IoT Central customer support](../../iot/iot-support-help.md?toc=%2Fazure%2Fiot-central%2Ftoc.json&bc=%2Fazure%2Fiot-central%2Fbreadcrumb%2Ftoc.json).
+IoT Central applications created after April 2023 initially have a single IoT hub. If the IoT hub becomes unavailable, the application becomes unavailable. However, IoT Central automatically scales the application and adds a new IoT hub for each 10,000 connected devices. If you require multiple IoT hubs for applications with fewer than 10,000 devices, submit a request to [IoT Central customer support](../../iot/iot-support-help.md?toc=%2Fazure%2Fiot-central%2Ftoc.json&bc=%2Fazure%2Fiot-central%2Fbreadcrumb%2Ftoc.json).
 
 Use the `az iot central device manual-failover` command to check if your application currently uses a single IoT hub. This command returns an error if the application currently has a single IoT hub.
 

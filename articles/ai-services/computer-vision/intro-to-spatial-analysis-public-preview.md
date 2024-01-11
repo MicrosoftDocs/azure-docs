@@ -2,12 +2,11 @@
 title: What is Spatial Analysis?
 titleSuffix: Azure AI services
 description: This document explains the basic concepts and features of the Azure Spatial Analysis container.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.author: pafarley
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: overview
 ms.date: 12/27/2022
 ms.custom: contperf-fy22q2, ignite-2022
@@ -49,6 +48,12 @@ This feature analyzes how well people follow social distancing requirements in a
 Spatial Analysis can also be configured to detect if a person is wearing a protective face covering such as a mask. A mask classifier can be enabled for the PersonCount, PersonCrossingLine, and PersonCrossingPolygon operations by configuring the `ENABLE_FACE_MASK_CLASSIFIER` parameter.
 
 ![Spatial Analysis classifies whether people have facemasks in an elevator](https://user-images.githubusercontent.com/11428131/137015842-ce524f52-3ac4-4e42-9067-25d19b395803.png)
+
+## Video Retrieval
+
+Spatial Analysis Video Retrieval is a service that lets you create a search index, add documents (videos and images) to it, and search with natural language. Developers can define metadata schemas for each index and ingest metadata to the service to help with retrieval. Developers can also specify what features to extract from the index (vision, speech) and filter their search based on features.
+
+[Call the Video Retrieval APIs](./how-to/video-retrieval.md)
 
 ## Input requirements
 

@@ -2,12 +2,11 @@
 title: Color scheme detection - Azure AI Vision
 titleSuffix: Azure AI services
 description: Concepts related to detecting the color scheme in images using the Azure AI Vision API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 11/17/2021
 ms.author: pafarley

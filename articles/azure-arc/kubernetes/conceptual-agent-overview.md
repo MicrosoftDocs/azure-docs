@@ -40,7 +40,7 @@ The following high-level steps are involved in [connecting a Kubernetes cluster 
      | `deployment.apps/extension-manager` | Installs and manages lifecycle of extension Helm charts. |
      | `deployment.apps/kube-aad-proxy` | Used for authentication of requests sent to the cluster using cluster connect. |
      | `deployment.apps/clusterconnect-agent` | Reverse proxy agent that enables the cluster connect feature to provide access to `apiserver` of the cluster. Optional component deployed only if the [cluster connect](conceptual-cluster-connect.md) feature is enabled.  |
-     | `deployment.apps/guard` | Authentication and authorization webhook server used for Azure Active Directory (Azure AD) RBAC. Optional component deployed only if [Azure RBAC](conceptual-azure-rbac.md) is enabled on the cluster.   |
+     | `deployment.apps/guard` | Authentication and authorization webhook server used for Microsoft Entra RBAC. Optional component deployed only if [Azure RBAC](conceptual-azure-rbac.md) is enabled on the cluster.   |
 
 1. Once all the Azure Arc-enabled Kubernetes agent pods are in `Running` state, verify that your cluster is connected to Azure Arc. You should see:
 

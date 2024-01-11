@@ -22,12 +22,12 @@ ms.date: 08/29/2023
 > Azure Cache for Redis recommends using Azure Private Link, which simplifies the network architecture and secures the connection between endpoints in Azure. You can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. Azure Private Links is offered on all our tiers, includes Azure Policy support, and simplified NSG rule management. To learn more, see [Private Link Documentation](cache-private-link.md). To migrate your VNet injected caches to Private Link, see [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
 >
 
-### Limitations of VNet injection
+## Limitations of VNet injection
 
 - Creating and maintaining virtual network configurations are often error prone. Troubleshooting is challenging, too. Incorrect virtual network configurations can lead to issues:
   - obstructed metrics transmission from your cache instances
   - failure of replica node to replicate data from primary node
-  - potential data loss 
+  - potential data loss
   - failure of management operations like scaling
   - in the most severe scenarios, loss of availability
 - VNet injected caches are only available for Premium-tier Azure Cache for Redis, not other tiers.
@@ -93,7 +93,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 ## Azure Cache for Redis virtual network FAQ
 
-The following list contains answers to commonly asked questions about Azure Cache for Redis scaling.
+The following list contains answers to commonly asked questions about Azure Cache for Redis networking.
 
 - [What are some common misconfiguration issues with Azure Cache for Redis and virtual networks?](#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
 - [How can I verify that my cache is working in a virtual network?](#how-can-i-verify-that-my-cache-is-working-in-a-virtual-network)
@@ -102,7 +102,9 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Why does creating an Azure Cache for Redis instance fail in some subnets but not others?](#why-does-creating-an-azure-cache-for-redis-instance-fail-in-some-subnets-but-not-others)
 - [What are the subnet address space requirements?](#what-are-the-subnet-address-space-requirements)
 - [Can I connect to my cache from a peered virtual network?](#can-i-connect-to-my-cache-from-a-peered-virtual-network)
+- [Is VNet injection supported on a cache where Azure Lighthouse is enabled?](#is-vnet-injection-supported-on-a-cache-where-azure-lighthouse-is-enabled)
 - [Do all cache features work when a cache is hosted in a virtual network?](#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
+- [Is VNet injection supported on a cache where Azure Lighthouse is enabled?](#is-vnet-injection-supported-on-a-cache-where-azure-lighthouse-is-enabled)
 
 ### What are some common misconfiguration issues with Azure Cache for Redis and virtual networks?
 
@@ -152,7 +154,7 @@ There are eight inbound port range requirements. Inbound requests in these range
 | 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) | (Redis subnet), (Client subnet), AzureLoadBalancer <sup>1</sup> |
 | 8443 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 | 8500 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) | AzureLoadBalancer |
-| 10221-10231 |Inbound |TCP |Client communication to Redis Clusters, internal communications for Redis | (Redis subnet) |(Redis subnet), AzureLoadBalancer, (Client subnet) |
+| 10221-10231 |Inbound |TCP |Client communication to Redis Clusters, internal communications for Redis | (Redis subnet) |(Redis subnet), (Client subnet), AzureLoadBalancer |
 | 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing | (Redis subnet) | (Redis subnet), (Client subnet), AzureLoadBalancer |
 | 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing, and geo-replication | (Redis subnet) | (Redis subnet), (Client subnet), AzureLoadBalancer, (Geo-replica peer subnet) |
 | 16001 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) | AzureLoadBalancer |
@@ -236,6 +238,10 @@ When your cache is part of a virtual network, only clients in the virtual networ
 
 - **Redis Console**: Because Redis Console runs in your local browser---usually on a developer machine that isn't connected to the virtual network---it can't then connect to your cache.
 
+### Is VNet injection supported on a cache where Azure Lighthouse is enabled?
+
+No, if your subscription has Azure Lighthouse enabled, you can't use VNet injection on an Azure Cache for Redis instance. Instead, use private links.
+
 ## Use ExpressRoute with Azure Cache for Redis
 
 Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit to their virtual network infrastructure. In this way, they extend their on-premises network to Azure.
@@ -265,7 +271,7 @@ Background information on UDRs is available in [Virtual network traffic routing]
 
 For more information about ExpressRoute, see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
 
-## Next steps
+## Related content
 
 Learn more about Azure Cache for Redis features.
 

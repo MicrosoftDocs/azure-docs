@@ -201,20 +201,21 @@ You can use the following JSON to configure auto-learn. Azure Firewall must be a
 Use the following JSON to associate an Azure Route Server:
 
 ```json
-            "type": "Microsoft.Network/azureFirewalls",
-            "apiVersion": "2022-11-01",
-            "name": "[parameters('azureFirewalls_testFW_name')]",
-            "location": "eastus",
-            "properties": {
-                "sku": {
-                    "name": "AZFW_VNet",
-                    "tier": "Standard"
-                },
-                "threatIntelMode": "Alert",
-                "additionalProperties": {
-                    "Network.RouteServerInfo.RouteServerID": "[parameters'virtualHubs_TestRouteServer_externalid')]"
-                },
-        
+  "type": "Microsoft.Network/azureFirewalls",
+  "apiVersion": "2022-11-01",
+  "name": "[parameters('azureFirewalls_testFW_name')]",
+  "location": "eastus",
+  "properties": {
+    "sku": {
+      "name": "AZFW_VNet",
+      "tier": "Standard"
+    },
+    "threatIntelMode": "Alert",
+    "additionalProperties": {
+      "Network.RouteServerInfo.RouteServerID": "[parameters'virtualHubs_TestRouteServer_externalid')]"
+    },
+    ...
+  }
 ``` 
 
 ### Configure using Azure PowerShell

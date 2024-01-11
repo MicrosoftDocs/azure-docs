@@ -1,16 +1,16 @@
 ---
 title: Quickstart - Create a service connection in Container Apps using the Azure CLI
 description: Quickstart showing how to create a service connection in Azure Container Apps using the Azure CLI
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 04/13/2023
+ms.date: 10/31/2023
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
-# Quickstart: Create a service connection in Container Apps with the Azure CLI
+# Quickstart: Create a service connection in Azure Container Apps with the Azure CLI
 
 This quickstart shows you how to connect Azure Container Apps to other Cloud resources using the Azure CLI and Service Connector. Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
 
@@ -49,11 +49,11 @@ This quickstart shows you how to connect Azure Container Apps to other Cloud res
 
 ## Create a service connection
 
-You can create a connection using an access key or a managed identity.
+Create a connection using an access key or a managed identity.
 
 ### [Access key](#tab/using-access-key)
 
-1. Run the `az containerapp connection create` command to create a service connection between Container Apps and Azure Blob Storage with an access key.
+1. Run the `az containerapp connection create` command to create a service connection between Container Apps and Azure Blob Storage using an access key.
 
     ```azurecli
     az containerapp connection create storage-blob --secret
@@ -75,7 +75,7 @@ You can create a connection using an access key or a managed identity.
 ### [Managed identity](#tab/using-managed-identity)
 
 > [!IMPORTANT]
-> To use a managed identity, you must have the permission to modify [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you this permission, or use an access key instead to create the connection.
+> To use a managed identity, you must have the permission to modify [Microsoft Entra role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you this permission, or use an access key instead to create the connection.
 
 1. Run the `az containerapp connection create` command to create a service connection from Container Apps to a Blob Storage with a system-assigned managed identity.
 

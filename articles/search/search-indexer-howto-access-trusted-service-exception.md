@@ -1,22 +1,24 @@
 ---
 title: Connect as trusted service
-titleSuffix: Azure Cognitive Search
-description: Enable data access by an indexer in Azure Cognitive Search to data stored securely in Azure Storage.
+titleSuffix: Azure AI Search
+description: Enable data access by an indexer in Azure AI Search to data stored securely in Azure Storage.
 
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 12/08/2022
 ---
 
 # Make indexer connections to Azure Storage as a trusted service
 
-In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted service exception](../storage/common/storage-network-security.md#exceptions) to securely access data. This mechanism offers customers who are unable to grant [indexer access using IP firewall rules](search-indexer-howto-access-ip-restricted.md) a simple, secure, and free alternative for accessing data in storage accounts.
+In Azure AI Search, indexers that access Azure blobs can use the [trusted service exception](../storage/common/storage-network-security.md#exceptions) to securely access data. This mechanism offers customers who are unable to grant [indexer access using IP firewall rules](search-indexer-howto-access-ip-restricted.md) a simple, secure, and free alternative for accessing data in storage accounts.
 
 > [!NOTE]
-> If Azure Storage is behind a firewall and in the same region as Azure Cognitive Search, you won't be able to create an inbound rule that admits requests from your search service. The solution for this scenario is for search to connect as a trusted service, as described in this article.
+> If Azure Storage is behind a firewall and in the same region as Azure AI Search, you won't be able to create an inbound rule that admits requests from your search service. The solution for this scenario is for search to connect as a trusted service, as described in this article.
 
 ## Prerequisites
 
@@ -27,7 +29,7 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 + An Azure role assignment in Azure Storage that grants permissions to the search service system-assigned managed identity ([see below](#check-permissions)).
 
 > [!NOTE]
-> In Cognitive Search, a trusted service connection is limited to blobs and ADLS Gen2 on Azure Storage. It's unsupported for indexer connections to Azure Table Storage and Azure File Storage.
+> In Azure AI Search, a trusted service connection is limited to blobs and ADLS Gen2 on Azure Storage. It's unsupported for indexer connections to Azure Table Storage and Azure File Storage.
 >
 > A trusted service connection must use a system managed identity. A user-assigned managed identity isn't currently supported for this scenario.
 
@@ -57,7 +59,7 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 
 ## Check permissions
 
-A system managed identity is an Azure AD login. The assignment needs **Storage Blob Data Reader** at a minimum.
+A system managed identity is a Microsoft Entra login. The assignment needs **Storage Blob Data Reader** at a minimum.
 
 1. In the left navigation pane under **Access Control**, view all role assignments and make sure that **Storage Blob Data Reader** is assigned to the search service system identity.
 
@@ -80,5 +82,5 @@ The easiest way to test the connection is by running the Import data wizard.
 + [Connect to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md)
 + [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
 + [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
-+ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication)
-+ [About managed identities (Azure Active Directory)](../active-directory/managed-identities-azure-resources/overview.md)
++ [Authenticate with Microsoft Entra ID](/azure/architecture/framework/security/design-identity-authentication)
++ [About managed identities (Microsoft Entra ID)](../active-directory/managed-identities-azure-resources/overview.md)

@@ -13,7 +13,7 @@ ms.author: victorh
 
 Firewall Policy is a top-level resource that contains security and operational settings for Azure Firewall. You can use Firewall Policy to manage rule sets that the Azure Firewall uses to filter traffic. Firewall policy organizes, prioritizes, and processes the rule sets based on a hierarchy with the following components: rule collection groups, rule collections, and rules.
 
-:::image type="content" source="media/policy-rule-sets/policy-rule-sets.png" alt-text="Azure Policy rule set heirarchy":::
+:::image type="content" source="media/policy-rule-sets/policy-rule-sets.png" alt-text="Azure Policy rule set hierarchy":::
 
 ## Rule collection groups
 

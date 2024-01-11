@@ -36,11 +36,11 @@ Before setting up a lab with nested virtualization, here are a few things to tak
 
 - Hyper-V guest VMs are licensed as independent machines. For information about licensing for Microsoft operation systems and products, see [Microsoft Licensing](https://www.microsoft.com/licensing/default). Check licensing agreements for any other software you use, before installing it on the template VM or guest VMs.
 
-- Virtualization applications other than Hyper-V are [*not* supported for nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#3rd-party-virtualization-apps). This includes any software that requires hardware virtualization extensions.
+- Virtualization applications other than Hyper-V  [*aren't* supported for nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#3rd-party-virtualization-apps). This includes any software that requires hardware virtualization extensions.
 
 ## Enable nested virtualization for a lab
 
-To avoid that lab users need to enable nested virtualization on their lab VM and install the nested VMs inside it, you can prepare a lab template. When you publish the lab, each lab user has a lab VM that already contains the nested virtual machines.
+You can enable nested virtualization and create nested Hyper-V VMs on the template VM.  When you publish the lab, each lab user has a lab VM that already contains the nested virtual machines.
 
 To enable nested virtualization for a lab:
 
@@ -77,12 +77,12 @@ You can connect to a lab VM from another lab VM or a nested VM without any extra
 Consider the following sample lab setup:
 
 - Lab VM 1 (Windows Server 2022, IP 10.0.0.8)
-    - Nested VM 1-1 (Ubuntu 20.04, IP 192.168.0.102)
-    - Nested VM 1-2 (Windows 11, IP 192.168.0.103, remote desktop enabled and allowed)
+  - Nested VM 1-1 (Ubuntu 20.04, IP 192.168.0.102)
+  - Nested VM 1-2 (Windows 11, IP 192.168.0.103, remote desktop enabled and allowed)
 
 - Lab VM 2 (Windows Server 2022, IP 10.0.0.9)
-    - Nested VM 2-1 (Ubuntu 20.04, IP 192.168.0.102)
-    - Nested VM 2-2 (Windows 11, IP 192.168.0.103, remote desktop enabled and allowed)
+  - Nested VM 2-1 (Ubuntu 20.04, IP 192.168.0.102)
+  - Nested VM 2-2 (Windows 11, IP 192.168.0.103, remote desktop enabled and allowed)
 
 To connect with SSH from lab VM 2 to nested lab VM 1-1:
 
@@ -108,11 +108,18 @@ To connect with RDP from lab VM 2, or its nested VMs, to nested lab VM 1-2:
 
 1. On lab VM 2, or its nested VMs, connect using RDP to `10.0.0.8:3390`
 
-
     > [!IMPORTANT]
     > Include `~\` in front of the user name. For example, `~\Administrator` or `~\user1`.
 
 ## Recommendations
+
+### Non-admin user
+
+You may choose to create a non-admin user when creating your lab.  There are a few things to note when using nested virtualization with a non-admin account.
+
+- To be able to start or stop VMs, the non-admin user must be added to **Hyper-V Administrators** group.
+- The non-admin user can't mount drives.
+- The Hyper-V VM files must be saved in a location accessible to the non-admin user.
 
 ### Processor compatibility
 
@@ -139,11 +146,11 @@ When you create the nested virtual machines, choose the [VHDX file format](/open
 
 ### Configure the number of vCPUs for nested VMs
 
-By default, when you create the nested virtual machine, only one virtual CPU (*vCPU*) is assigned. Depending on the operating system, and software of the nested VM, you might have to increase the number of vCPUs.
+By default, when you create the nested virtual machine, only one virtual CPU (*vCPU*) is assigned. Depending on the operating system, and software of the nested VM, you might have to increase the number of vCPUs.  For more information about managing and setting nested VM CPU resources, see [Hyper-V processor performance](/windows-server/administration/performance-tuning/role/hyper-v-server/processor-performance) or [Set-VM](/powershell/module/hyper-v/set-vm) PowerShell cmdlet.
 
 ### Configure the assigned memory for nested VMs
 
-When you create the nested virtual machine, the minimum assigned memory might not be sufficient for the operating system and installed software of the nested VM. You might have to increase the minimum amount of assigned memory for the nested VM.
+When you create the nested virtual machine, the minimum assigned memory might not be sufficient for the operating system and installed software of the nested VM. You might have to increase the minimum amount of assigned memory for the nested VM.  For more information about managing and setting nested VM CPU resources, see [Hyper-V Host CPU Resource Management](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-minroot-2016) or [Set-VM](/powershell/module/hyper-v/set-vm) PowerShell cmdlet.
 
 ### Best practices for running Linux on Hyper-V
 

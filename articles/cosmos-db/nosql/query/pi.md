@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/20/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -36,7 +36,7 @@ The following example returns the constant value of Pi.
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/pi/result.json":::
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`SQRT`](sqrt.md)

@@ -33,7 +33,7 @@
     - name: Reliability
       href: advisor-reference-reliability-recommendations.md    
     - name: Security
-      href: /azure/defender-for-cloud/recommendations-reference
+      href: ../defender-for-cloud/recommendations-reference.md
     - name: Sovereign clouds
       href: advisor-sovereign-clouds.md
 - name: Samples 

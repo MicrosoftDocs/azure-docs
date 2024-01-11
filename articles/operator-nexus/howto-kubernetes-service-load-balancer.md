@@ -38,8 +38,11 @@ Let's explore the configuration options for the IP address pool.
 ### Required parameters
 The IP address pool configuration requires the presence of two fields: `addresses` and `name`. These fields are essential for defining the IP address range and identifying the pool.
 
-   * The `addresses` field specifies the list of IP address ranges that can be used for allocation within the pool. You can define each range as a subnet in CIDR format or as an explicit start-end range of IP addresses.
+   * The `addresses` field specifies the list of IP address ranges that can be used for allocation within the pool. You can define each range as a subnet in CIDR format. Avoid using a single IP address, such as /32 for IPv4 and /128 for IPv6.
    * The `name` field serves as a unique identifier for the IP address pool. It helps associate the pool with a BGP (Border Gateway Protocol) advertisement, enabling effective communication within the cluster.
+
+> [!NOTE]
+> To enable the Kubernetes `LoadBalancer` service to have a dual-stack address, make sure that the IP pool configuration includes both IPv4 and IPv6 CIDR.
 
 ### Optional parameters
 In addition to the required fields, there are also optional fields available for further customization of the IP address pool configuration.

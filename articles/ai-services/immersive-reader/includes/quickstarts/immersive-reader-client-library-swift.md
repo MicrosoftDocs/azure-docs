@@ -2,11 +2,10 @@
 title: Immersive Reader Swift client library quickstart 
 titleSuffix: Azure AI services
 description: In this quickstart, you build a iOS app from scratch and add the Immersive Reader API functionality.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
 ms.author: rwaller
@@ -20,7 +19,7 @@ In this quickstart, you build an iOS app from scratch and integrate the Immersiv
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
 
 ## Create an Xcode project
 
@@ -572,4 +571,4 @@ When you select the **Immersive Reader** button, you'll see the Immersive Reader
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a resource and configure AAD](../../how-to-create-immersive-reader.md)
+> [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)

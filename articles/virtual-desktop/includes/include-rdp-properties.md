@@ -2,15 +2,15 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 06/23/2023
+ms.date: 11/14/2023
 ---
 
 ## Connection information
 
 | Display name | RDP property | Azure Virtual Desktop | Remote Desktop Services | Description | Values | Default value |
 |--|--|:-:|:-:|--|--|:-:|
-| Azure AD single sign-on | enablerdsaadauth:i:*value* | ✔ | ✔ | Determines whether the client will use Azure AD to authenticate to the remote PC. In Azure Virtual Desktop, this provides a single sign-on experience.<br /><br />This feature is currently only available in preview for the Windows, web, and macOS clients only . This property replaces the property `targetisaadjoined`. | - 0: Connections won't use Azure AD authentication, even if the remote PC supports it.<br />- 1: Connections will use Azure AD authentication if the remote PC supports it. | 0 |
-| Azure AD authentication | targetisaadjoined:i:*value* | ✔ | ✗ | Allows connections to Azure AD-joined session hosts using username and password.<br /><br />Note: only applicable to non-Windows clients and local Windows devices that aren't joined to Azure AD. | - 0: Connections to Azure AD-joined session hosts will succeed for Windows devices that [meet the requirements](/azure/virtual-desktop/deploy-azure-ad-joined-vm#connect-using-the-windows-desktop-client), but other connections will fail.<br />- 1: Connections to Azure AD-joined hosts will succeed but are restricted to entering user name and password credentials when connecting to session hosts. | 0 |
+| Microsoft Entra single sign-on | enablerdsaadauth:i:*value* | ✔ | ✔ | Determines whether the client will use Microsoft Entra ID to authenticate to the remote PC. In Azure Virtual Desktop, this provides a single sign-on experience.<br /><br />This property replaces the property `targetisaadjoined`. | - 0: Connections won't use Microsoft Entra authentication, even if the remote PC supports it.<br />- 1: Connections will use Microsoft Entra authentication if the remote PC supports it. | 0 |
+| Connect to Microsoft Entra joined host | targetisaadjoined:i:*value* | ✔ | ✗ | Allows connections to Microsoft Entra joined session hosts using username and password.<br /><br />Note: only applicable to non-Windows clients and local Windows devices that aren't joined to Microsoft Entra.<br /><br />This property is being replaced by the property `enablerdsaadauth`. | - 0: Connections to Microsoft Entra joined session hosts will succeed for Windows devices that [meet the requirements](/azure/virtual-desktop/deploy-azure-ad-joined-vm#connect-using-the-windows-desktop-client), but other connections will fail.<br />- 1: Connections to Microsoft Entra joined hosts will succeed but are restricted to entering user name and password credentials when connecting to session hosts. | 0 |
 | Credential Security Support Provider | enablecredsspsupport:i:*value* | ✔ | ✔ | Determines whether the client will use the Credential Security Support Provider (CredSSP) for authentication if it's available. | - 0: RDP won't use CredSSP, even if the operating system supports CredSSP.<br />- 1: RDP will use CredSSP if the operating system supports CredSSP. | 1 |
 | Alternate shell | alternate shell:s:*value* | ✔ | ✔ | Specifies a program to be started automatically in the remote session as the shell instead of explorer. | Valid path to an executable file, such as `C:\ProgramFiles\Office\word.exe`. | None |
 | KDC proxy name | kdcproxyname:s:*value* | ✔ | ✗ | Specifies the fully qualified domain name of a KDC proxy. | Valid path to a KDC proxy server, such as `kdc.contoso.com`. | None |

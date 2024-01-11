@@ -1,12 +1,12 @@
 ---
 title: Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration
 description: Learn how to create a proof of concept for funnel-based approach for Azure AD B2C to provide customer identity and access management for global customers.
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: conceptual
 ms.date: 12/15/2022
 ms.author: gasinh
@@ -181,7 +181,6 @@ Write users region to global lookup table.
 
 - [Azure AD B2C global identity solutions](b2c-global-identity-solutions.md)
 
-- [Build a global identity solution with funnel-based approach](azure-ad-b2c-global-identity-funnel-based-design.md)
+- [Build a global identity solution with funnel-based approach](./b2c-global-identity-funnel-based-design.md)
 
-- [Build a global identity solution with region-based approach](azure-ad-b2c-global-identity-funnel-based-design.md)
-
+- [Build a global identity solution with region-based approach](./b2c-global-identity-funnel-based-design.md)

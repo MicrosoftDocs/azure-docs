@@ -2,7 +2,7 @@
 title: Red Hat reservation plan discounts - Azure
 description: Learn how Red Hat plan discounts are applied to Red Hat software on virtual machines.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
@@ -26,7 +26,7 @@ For example, if you buy a plan for Red Hat Linux Enterprise Server for a VM with
 - 1 deployed VMs with 1 to 4 vCPUs,
 - or 0.46 or about 46% of Red Hat Enterprise Linux costs for a VM with 5 or more vCPUs.
 
-For more in formation to [Review SUSE VM usage before you buy](understand-suse-reservation-charges.md#review-suse-vm-usage-before-you-buy)
+For more information to [Review RedHat VM usage before you buy](understand-suse-reservation-charges.md#review-redhat-vm-usage-before-you-buy)
 
 ## Next steps
 

@@ -2,9 +2,10 @@
 title: Push & pull container image
 description: Push and pull Docker images to your private container registry in Azure using the Docker CLI
 ms.topic: article
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.service: container-registry
 ms.custom: seodec18, H1Hack27Feb2017
 ---
 
@@ -85,7 +86,7 @@ To stop and remove the container, press `Control`+`C`.
 Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to create an alias of the image with the fully qualified path to your registry. This example specifies the `samples` namespace to avoid clutter in the root of the registry.
 
 ```
-docker tag nginx myregistery.azurecr.io/samples/nginx
+docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
 For more information about tagging with namespaces, see the [Repository namespaces](container-registry-best-practices.md#repository-namespaces) section of [Best practices for Azure Container Registry](container-registry-best-practices.md).

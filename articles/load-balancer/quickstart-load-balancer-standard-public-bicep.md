@@ -3,12 +3,12 @@ title: "Quickstart: Create a public load balancer - Bicep"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer using a Bicep file.
 services: load-balancer
-author: mumian
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 08/17/2022
-ms.author: jgao
+ms.date: 10/25/2023
+ms.author: mbender
 ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 #Customer intent: I want to create a load balancer by using a Bicep file so that I can load balance internet traffic to VMs.
 ---
@@ -18,6 +18,8 @@ ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs).
 
 This quickstart shows you how to deploy a standard load balancer to load balance virtual machines.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 
 Using a Bicep file takes fewer steps comparing to other deployment methods.
 
@@ -47,10 +49,7 @@ Multiple Azure resources have been defined in the bicep file:
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3): use to configure the Internet Information Server (IIS), and the web pages.
 
 > [!IMPORTANT]
-
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
-
->
 
 To find more Bicep files or ARM templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -62,23 +61,23 @@ To find more Bicep files or ARM templates that are related to Azure Load Balance
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location centralus
+    az group create --name exampleRG --location EastUS
     az deployment group create --resource-group exampleRG --template-file main.bicep
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location centralus
+    New-AzResourceGroup -Name exampleRG -Location EastUS
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
     ```
 
     ---
 
     > [!NOTE]
-    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **centralus**.
+    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
 
-    You will be prompted to enter the following values:
+    You're prompted to enter the following values:
 
     - **projectName**: used for generating resource names.
     - **adminUsername**: virtual machine administrator username.

@@ -3,7 +3,7 @@ title: Data loss prevention
 description: Azure AI services data loss prevention capabilities allow customers to configure the list of outbound URLs their Azure AI services resources are allowed to access. This configuration creates another level of control for customers to prevent data loss.
 author: gclarkmt
 ms.author: gregc
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 03/31/2023
 ms.custom: template-concept
@@ -102,6 +102,15 @@ The following services support data loss prevention configuration:
 * Document Intelligence
 * Speech Service
 * QnA Maker
+
+
+## Limitations
+
+[Azure OpenAI on your data - text](./openai/concepts/use-your-data.md) features don't support data loss prevention yet. When `restrictOutboundNetworkAccess` is set as true, all requests to the following APIs will fail immediately to prevent potential data loss.
+
+* /extensions/chat/completions (with text models)
+* /extensions/on-your-data/ingestion-jobs
+
 
 ## Next steps
 

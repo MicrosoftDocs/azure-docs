@@ -9,7 +9,9 @@ ms.author: madsd
 # Networking considerations for App Service Environment
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+
+As of 15 January 2024, you can no longer create new App Service Environment v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
 >
 
 [App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network. There are two deployment types for an App Service Environment:
@@ -139,8 +141,6 @@ All these IP addresses are visible in the Azure portal from the App Service Envi
 > [!NOTE]
 > These IP addresses don't change, as long as your App Service Environment is running. If your App Service Environment becomes suspended and is then restored, the addresses used will change. The normal cause for a suspension is if you block inbound management access, or you block access to a dependency. 
 
-![Screenshot that shows IP addresses.][3]
-
 ### App-assigned IP addresses
 
 With an external deployment, you can assign IP addresses to individual apps. You can't do that with an internal deployment. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../configure-ssl-bindings.md).
@@ -183,22 +183,11 @@ The normal app access ports are:
 |  Visual Studio remote debugging  |  4020, 4022, 4024 |
 |  Web Deploy service | 8172 |
 
-When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in the following screenshot: 
-
-![Screenshot that shows inbound security rules.][4]
-
 A default rule enables the IPs in the virtual network to talk to the subnet. Another default rule enables the load balancer, also known as the public VIP, to communicate with the App Service Environment. To see the default rules, select **Default rules** (next to the **Add** icon).
 
-If you put a *deny everything else* rule before the default rules, you prevent traffic between the VIP and the App Service Environment. To prevent traffic coming from inside the virtual network, add your own rule to allow inbound. Use a source equal to `AzureLoadBalancer`, with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the subnet, you don't need to be specific in the destination.
+If you put a _deny everything else_ rule before the default rules, you prevent traffic between the VIP and the App Service Environment. To prevent traffic coming from inside the virtual network, add your own rule to allow inbound. Use a source equal to `AzureLoadBalancer`, with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the subnet, you don't need to be specific in the destination.
 
 If you assigned an IP address to your app, make sure you keep the ports open. To see the ports, select **App Service Environment** > **IP addresses**.  
-
-All the items shown in the following outbound rules are needed, except for the rule named **ASE-internal-outbound**. They enable network access to the App Service Environment dependencies that were noted earlier in this article. If you block any of them, your App Service Environment stops working. The rule named **ASE-internal-outbound** in the list enables your App Service Environment to communicate with other resources in your virtual network.
-
-![Screenshot that shows outbound security rules.][5]
-
-> [!NOTE]
-> The IP range in the ASE-internal-outbound rule is only an example and should be changed to match the subnet range for the App Service Environment subnet.
 
 After your NSGs are defined, assign them to the subnet. If you don't remember the virtual network or subnet, you can see it from the App Service Environment portal. To assign the NSG to your subnet, go to the subnet UI and select the NSG.
 
@@ -239,7 +228,6 @@ When service endpoints are enabled on a subnet with an instance of Azure SQL, al
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
 [2]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow2.png
-[3]: ./media/network_considerations_with_an_app_service_environment/networkase-ipaddresses.png
 [4]: ./media/network_considerations_with_an_app_service_environment/networkase-inboundnsg.png
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png

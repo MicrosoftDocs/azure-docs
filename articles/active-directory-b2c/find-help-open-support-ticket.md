@@ -2,12 +2,12 @@
 title: Find help and open a support ticket for Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to find technical, pre-sales, billing, and subscription help and open a support ticket for Azure Active Directory B2C 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: troubleshooting
 ms.date: 03/13/2023
 ms.author: kengaderdus
@@ -24,7 +24,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 * For content such as how-to information or code samples for IT professionals and developers, see the [technical documentation for Azure AD B2C](../active-directory-b2c/index.yml).
 
-* The [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. The [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more. You can also [join the community to submit your ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* The [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. The [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/community-lounge/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more. You can also [join the community to submit your ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 ## Open a support ticket
 
@@ -37,13 +37,9 @@ If you're unable to find answers by using self-help resources, you can open an o
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your Azure subscription:
-
-    1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
-    
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to it.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
      
-1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
 
 1. In the left menu, under **Troubleshooting + Support**, select **New support request**.
    

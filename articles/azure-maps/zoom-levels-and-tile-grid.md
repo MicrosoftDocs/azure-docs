@@ -952,7 +952,7 @@ Learn more about geospatial concepts:
 [EPSG:3857]: https://epsg.io/3857
 [Web SDK: Map pixel and position calculations]: /javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---
 [Add a tile layer]: map-add-tile-layer.md
-[Get map tiles]: /rest/api/maps/render/getmaptile
+[Get map tiles]: /rest/api/maps/render-v2/get-map-tile
 [Get traffic flow tiles]: /rest/api/maps/traffic/gettrafficflowtile
 [Get traffic incident tiles]: /rest/api/maps/traffic/gettrafficincidenttile
 [Azure Maps glossary]: glossary.md

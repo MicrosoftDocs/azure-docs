@@ -57,6 +57,25 @@ NFSv3 is a basic offering of the protocol and has the following key attributes:
 * NFSv3 uses numeric IDs for its user and group authentication. Usernames and group names aren't required for communication or permissions, which can make spoofing a user easier, but configuration and management are simpler. 
 * NFSv3 can use LDAP for user and group lookups. 
 
+#### NFSv3 service version support 
+
+NFSv3 currently supports the following versions of each ancillary protocol in Azure NetApp Files:
+
+| Service | Versions supported |
+| - | - | 
+| Portmapper | 4, 3, 2 | 
+| NFS | 4, 3* | 
+| Mountd | 3, 2, 1 | 
+| Nlockmgr | 4 | 
+| Status  | 1 | 
+| Rquotas | 1 | 
+
+\* NFS supported versions display based on the version selected for the Azure NetApp Files volume. 
+
+This information can be gathered from your Azure NetApp Files volume with the following command:
+
+`# rpcinfo -s <Azure NetApp Files IP address>`
+
 ### NFSv4.x 
 
 *NFSv4.x* refers to all NFS versions or minor versions that are under NFSv4, including NFSv4.0, NFSv4.1, and NFSv4.2. Azure NetApp Files currently supports NFSv4.1 only. 
@@ -157,7 +176,7 @@ When a NAS client requests access to a dual-protocol volume in Azure NetApp File
 5. Azure NetApp Files compares that user against the file-level permissions in the system.
 6. File permissions control the level of access the user has.
 
-In the following illustration, `user1` authenticates to Azure NetApp Files to access a dual-protocol volume through either SMB or NFS. Azure NetApp Files finds the user’s Windows and UNIX information in Azure Active Directory and then maps the user's Windows and UNIX identities one-to-one. The user is verified as `user1` and gets `user1`'s access credentials. 
+In the following illustration, `user1` authenticates to Azure NetApp Files to access a dual-protocol volume through either SMB or NFS. Azure NetApp Files finds the user’s Windows and UNIX information in Microsoft Entra ID and then maps the user's Windows and UNIX identities one-to-one. The user is verified as `user1` and gets `user1`'s access credentials. 
 
 In this instance, `user1` gets full control on their own folder (`user1-dir`) and no access to the `HR` folder. This setting is based on the security ACLs specified in the file system, and `user1` will get the expected access regardless of which protocol they're accessing the volumes from.
 
@@ -170,8 +189,8 @@ When you use Azure NetApp Files volumes for access to both SMB and NFS, some con
 * You need an Active Directory connection. As such, you need to meet the [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections).
 * Dual-protocol volumes require a reverse lookup zone in DNS with an associated pointer (PTR) record of the AD host machine to prevent dual-protocol volume creation failures.
 * Your NFS client and associated packages (such as `nfs-utils`) should be up to date for the best security, reliability and feature support.
-* Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS, or AADDS).
-* Dual-protocol volumes don't support the use of LDAP over TLS with AADDS. See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
+* Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Microsoft Entra Domain Services.
+* Dual-protocol volumes don't support the use of LDAP over TLS with Microsoft Entra Domain Services. See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
 * Supported NFS versions include: NFSv3 and NFSv4.1.
 * NFSv4.1 features such as parallel network file system (pNFS), session trunking, and referrals aren't currently supported with Azure NetApp Files volumes.
 * [Windows extended attributes `set`/`get`](/windows/win32/api/fileapi/ns-fileapi-createfile2_extended_parameters) aren't supported in dual-protocol volumes.

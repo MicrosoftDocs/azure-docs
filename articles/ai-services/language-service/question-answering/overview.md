@@ -1,13 +1,12 @@
 ---
 title: What is question answering?
 description: Question answering is a cloud-based Natural Language Processing (NLP) service that easily creates a natural conversational layer over your data. It can be used to find the most appropriate answer for any given natural language input, from your custom project.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 recommendations: false
 ms.topic: overview
-ms.date: 06/03/2022
+ms.date: 12/19/2023
 keywords: "qna maker, low code chat bots, multi-turn conversations"
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---

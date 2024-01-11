@@ -3,8 +3,9 @@ title: Deploy files to App Service
 description: Learn to deploy various app packages or discrete libraries, static files, or startup scripts to Azure App Service
 ms.topic: article
 ms.date: 07/21/2023
-ms.author: msangapu
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
+author: cephalin
+ms.author: cephalin
 ---
 
 # Deploy files to App Service
@@ -99,6 +100,28 @@ When deployment is in progress, an icon in the top right corner shows you the pr
 The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
 
 -----
+
+> [!NOTE]
+> To deploy a ZIP package in an [ARM template](), upload the ZIP package to an internet-accessible location, then add a `onedeploy` resource like the following JSON. Replace the placeholders `<app-name>` and `<zip-package-uri>`. 
+> 
+> ```ARM template
+> {
+>     "type": "Microsoft.Web/sites/extensions",
+>     "apiVersion": "2021-03-01",
+>     "name": "onedeploy",
+>     "dependsOn": [
+>         "[resourceId('Microsoft.Web/Sites', <app-name>')]"
+>     ],
+>     "properties": {
+>         "packageUri": "<zip-package-uri>",
+>         "type":"zip"
+>      }
+> }
+> ```
+>
+> The \<zip-package-uri> can be a public endpoint, but it's best to use blob storage with a SAS key to protect it. For more information, see [Microsoft.Web sites/extensions 'onedeploy' 2021-03-01](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template).
+>
+>
 
 ## Enable build automation for ZIP deploy
 

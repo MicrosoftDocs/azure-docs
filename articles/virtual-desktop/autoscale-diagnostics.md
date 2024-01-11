@@ -3,15 +3,11 @@ title: Set up diagnostics for autoscale in Azure Virtual Desktop
 description: How to set up diagnostic reports for the scaling service in your Azure Virtual Desktop deployment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/01/2023
 ms.author: helohr
 manager: femila
 ---
 # Set up diagnostics for autoscale in Azure Virtual Desktop
-
-> [!IMPORTANT]
-> Autoscale for personal host pools is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Diagnostics lets you monitor potential issues and fix them before they interfere with your autoscale scaling plan.
 
@@ -25,7 +21,7 @@ To enable diagnostics for your scaling plan for pooled host pools:
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, enter **Azure Virtual Desktop**, then select the service from the drop-down menu.
+1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
 1. Select **Scaling plans**, then select the scaling plan you'd like the report to track.
 
@@ -54,6 +50,8 @@ To enable diagnostics for your scaling plan for personal host pools:
 1. Next, select **Autoscale logs for personal host pools** and choose either **storage account** or **event hub** depending on where you want to send the report.
 
 1. Select **Save**.
+
+---
 
 ## Find autoscale diagnostic logs in Azure Storage
 

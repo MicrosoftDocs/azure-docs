@@ -2,11 +2,11 @@
 title: Protecting DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting DNS zones and record sets in Microsoft Azure DNS.
 services: dns
-author: duongau
+author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 09/27/2022
-ms.author: duau 
+ms.date: 11/30/2023
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---

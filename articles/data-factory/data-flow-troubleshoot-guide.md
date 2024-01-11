@@ -6,9 +6,8 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
-ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 06/01/2023
+ms.date: 01/05/2024
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -906,13 +905,13 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Source .* does not support deltas
 - **Cause**: The ODP context/ODP name you specified does not support delta.
-- **Recommendation**: Enable delta mode for your SAP source, or select **Full on every run** as run mode in data flow. For more information, see this [document](https://userapps.support.sap.com/sap/support/knowledge/en/2752413).
+- **Recommendation**: Enable delta mode for your SAP source, or select **Full on every run** as run mode in data flow. For more information, see this [document](https://userapps.support.sap.com/sap/support/knowledge/2752413).
 
 ### Error code: DF-SAPODP-SAPI-LIMITATION
 
 - **Message**: Error Number 518, Source .* not found, not released or not authorized
 - **cause**: Check if your context is SAPI. If so, in SAPI context, you can only extract the relevant extractors for SAP tables.
-- **Recommendations**: Refer to this [document](https://userapps.support.sap.com/sap/support/knowledge/en/2646092).
+- **Recommendations**: Refer to this [document](https://userapps.support.sap.com/sap/support/knowledge/2646092).
 
 ### Error code: DF-SAPODP-KeyColumnsNotSpecified
 
@@ -1283,7 +1282,7 @@ You may encounter the following issues before the improvement, but after the imp
  After the improvement, the parsed column result should be:<br/>
   `A "" (empty string) B "" (empty string)`<br/>
 
-## Next steps
+## Related content
 
 For more help with troubleshooting, see these resources:
 
