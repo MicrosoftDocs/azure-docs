@@ -914,6 +914,10 @@
               href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints
               href: how-to-access-resources-from-endpoints-managed-identities.md
+            - name: Secret injection in online endpoints
+              href: concept-secret-injection.md
+            - name: Deploy to online endpoints with secret injection
+              href: how-to-deploy-online-endpoint-with-secret-injection.md
     - name: Batch endpoints
       items:
         - name: Batch endpoints

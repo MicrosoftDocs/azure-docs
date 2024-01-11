@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+      "source_path": "articles/storage/common/storage-analytics-metrics.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-analytics-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/manage-storage-analytics-metrics.md",
+      "redirect_url": "/previous-versions/azure/storage/common/manage-storage-analytics-metrics",
+      "redirect_document_id": false
+    },
+    {
         "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
         "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
         "redirect_document_id": false
