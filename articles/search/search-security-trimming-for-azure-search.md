@@ -88,7 +88,7 @@ In the search index, within the field collection, you need one field that contai
 
 ## Push data into your index using the REST API
   
-Issue an HTTP POST request to to the docs collection of your index's URL endpoint (see [Documents - Index](/rest/api/searchservice/documents/)). The body of the HTTP request is a JSON object containing the documents to be indexed:
+Send an HTTP POST request to the docs collection of your index's URL endpoint (see [Documents - Index](/rest/api/searchservice/documents/)). The body of the HTTP request is a JSON rendering of the documents to be indexed:
 
 ```http
 POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2023-11-01

@@ -18,7 +18,7 @@ ms.date: 01/10/2024
 In Azure AI Search, capacity is based on *replicas* and *partitions* that can be scaled to your workload. Replicas are copies of the search engine.
 Partitions are units of storage. Each new search service starts with one each, but you can add or remove replicas and partitions independently to accommodate fluctuating workloads. Adding capacity increases the [cost of running a search service](search-sku-manage-costs.md#billable-events).
 
-The physical characteristics of replicas and partitions, such as processing speed and disk IO, vary by [service tier](search-sku-tier.md). If you provision on Standard, replicas and partitions are faster and larger than those of Basic.
+The physical characteristics of replicas and partitions, such as processing speed and disk IO, vary by [service tier](search-sku-tier.md). On a standard search service, the replicas and partitions are faster and larger than those of a basic service.
 
 Changing capacity isn't instantaneous. It can take up to an hour to commission or decommission partitions, especially on services with large amounts of data.
 
@@ -54,7 +54,7 @@ In Azure AI Search, shard management is an implementation detail and nonconfigur
 
 ## Estimation targets
 
-When estimating capacity, consider content limits (a count of indexes on a service, for example) and storage limits. The tier of your service determines the limits. Whichever limit is reached first is the effective limit.
+Capacity planning must include object limits (for example, the maximum number of indexes allowed on a service) and storage limits. The service tier determines [object and storage limits](search-limits-quotas-capacity.md). Whichever limit is reached first is the effective limit.
 
 Counts of indexes and other objects are typically dictated by business and engineering requirements. For example, you might have multiple versions of the same index for active development, testing, and production.
 
@@ -97,7 +97,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
 
 1. [Monitor storage, service limits, query volume, and latency](monitor-azure-cognitive-search.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier.
 
-1. Add replicas if you need high availability or if you experience slow query performance.
+1. Add replicas for high availability or to mitigate slow query performance.
 
    There are no guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result isn't strictly linear: adding three replicas doesn't guarantee triple throughput. For guidance in estimating QPS for your solution, see [Analyze performance](search-performance-analysis.md)and [Monitor queries](search-monitor-queries.md).
 
@@ -107,7 +107,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
 
 **Query volume considerations**
 
-Queries per second (QPS) is an important metric during performance tuning, but it's generally only a tier consideration if you expect high query volume at the outset.
+Queries per second (QPS) is an important metric during performance tuning, but for capacity planning, it becomes a consideration only if you expect high query volume at the outset.
 
 The Standard tiers can provide a balance of replicas and partitions. You can increase query turnaround by adding replicas for load balancing or add partitions for parallel processing. You can then tune for performance after the service is provisioned.
 
