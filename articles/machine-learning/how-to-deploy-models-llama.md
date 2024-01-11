@@ -25,7 +25,7 @@ ms.custom: [references_regions]
 
 -->
 
-# How to deploy Llama 2 family of large language models with Azure AI Studio
+# How to deploy Llama 2 family of large language models with Azure Machine Learning studio
 
 
 [Introduce and explain the purpose of the article.]
