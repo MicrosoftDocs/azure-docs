@@ -136,6 +136,7 @@ Here are the requirements for certificates issued by a CA:
   - Extended Key Usages (EKUs) must be empty or `1.3.6.1.5.5.7.3.3` (for Codesigning).
 - Key properties:
   - The `exportable` property must be set to `false`.
+  - The `contentType` should be set to `application/x-pem-file` for better integration with [Image Integrity Policy](https://learn.microsoft.com/en-us/azure/aks/image-integrity?tabs=azure-cli) 
   - Select a supported key type and size from the [Notary Project specification](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#algorithm-selection).
 
 > [!NOTE]
