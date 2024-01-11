@@ -53,7 +53,7 @@ You can customize the timeline view to suit your needs by changing the grouping 
 For AKS clusters, we provide suggested views based on popular groupings.
 1. Select **Save**.
 
-  :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline-edit-group.png" alt-text="Screenshot that shows the edit group pane in the timeline view of the alerts page in the Azure portal.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-edit-timeline-view.png" alt-text="Screenshot that shows the edit group pane in the timeline view of the alerts page in the Azure portal.":::
 1. The timeline displays the alerts grouped by the fields you selected. Alerts that do not logically belong in the grouping you selected are listed in a group called "Other".
 1. When you have the grouping you want, select **Save view** to save the view.
 
