@@ -682,6 +682,15 @@ Indicates whether to use a specific [cold start](event-driven-scaling.md#cold-st
 |---|------------|
 |WEBSITE_USE_PLACEHOLDER|`1`|
 
+
+## WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED
+
+Indicates whether to use a specific [cold start](event-driven-scaling.md#cold-start) optimization when running .NET isolated worker process functions on the [Consumption plan](consumption-plan.md). Set to `0` to disable the cold-start optimization on the Consumption plan. 
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED|`1`|
+
 ## WEBSITE\_VNET\_ROUTE\_ALL
 
 > [!IMPORTANT]

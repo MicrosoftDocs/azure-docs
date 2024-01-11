@@ -15,7 +15,7 @@ adobe-target-content: ./create-first-function-cli-csharp-ieux
 
 In this article, you use command-line tools to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
 
-This article creates an HTTP triggered function that runs on .NET 6 in an isolated worker process. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions). There's also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
+This article creates an HTTP triggered function that runs on .NET 8 in an isolated worker process. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions). There's also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -23,7 +23,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 Before you begin, you must have the following:
 
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download).
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
 
 + One of the following tools for creating Azure resources:
 
@@ -42,7 +42,7 @@ In Azure Functions, a function project is a container for one or more individual
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
     ```console
-    func init LocalFunctionProj --worker-runtime dotnet-isolated --target-framework net6.0
+    func init LocalFunctionProj --worker-runtime dotnet-isolated --target-framework net8.0
     ```
  
 

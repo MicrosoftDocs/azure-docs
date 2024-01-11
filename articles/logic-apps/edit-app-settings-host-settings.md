@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/11/2023
+ms.date: 01/09/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -21,7 +21,7 @@ Your logic app also has *host settings*, which specify the runtime configuration
 
 ## App settings, parameters, and deployment
 
-In *multi-tenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In *multitenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
@@ -158,6 +158,25 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
 | `Jobs.BackgroundJobs.StatelessNumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core, per stateless run. This value affects the number of concurrent workflow actions that are processed per run. |
 
+Both of the following settings are used to manually stop and immediately delete the specified workflows in Standard logic app.
+
+> [!NOTE]
+>
+> Use these settings with caution and only in non-production environments, such as load 
+> or performance test environments, as you can't undo or recover from these operations.
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Jobs.CleanupJobPartitionPrefixes` | None | Immediately deletes all the run jobs for the specified workflows. |
+| `Jobs.SuspendedJobPartitionPartitionPrefixes` | None | Stops the run jobs for the specified workflows. |
+
+The following example shows the syntax for these settings where each workflow ID is followed by a colon (**:**) and separated by a semicolon (**;**):
+
+```json
+"Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2:",
+"Jobs.SuspendedJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2>:"
+```
+
 <a name="recurrence-triggers"></a>
 
 ### Recurrence-based triggers
@@ -274,7 +293,7 @@ The following settings work only for workflows that start with a recurrence-base
 | `Runtime.Backend.HttpOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for HTTP triggers and actions. |
-| `Runtime.Backend.HttpOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP triggers and actions. |
+| `Runtime.Backend.HttpOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP actions only, not triggers. For more information, see [Limitations](#limitations). |
 | `Runtime.Backend.HttpOperation.RequestTimeout` | `00:03:45` <br>(3 min and 45 sec) | Sets the request timeout value for HTTP triggers and actions. |
 
 <a name="http-webhook"></a>
@@ -288,7 +307,7 @@ The following settings work only for workflows that start with a recurrence-base
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultWakeUpInterval` | `01:00:00` <br>(1 hour) | Sets the default wake-up interval for HTTP webhook trigger and action jobs. |
-| `Runtime.Backend.HttpWebhookOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP webhook triggers and actions. |
+| `Runtime.Backend.HttpWebhookOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP webhook actions only, not triggers. For more information, see [Limitations](#limitations). |
 | `Runtime.Backend.HttpWebhookOperation.RequestTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for HTTP webhook triggers and actions. |
 
 <a name="built-in-storage"></a>
@@ -333,7 +352,7 @@ The following settings work only for workflows that start with a recurrence-base
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.FunctionOperation.RequestTimeout` | `00:03:45` <br>(3 min and 45 sec) | Sets the request timeout value for Azure Functions actions. |
-| `Runtime.Backend.FunctionOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for Azure Functions actions. |
+| `Runtime.Backend.FunctionOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for Azure Functions actions. For more information, see [Limitations](#limitations). |
 | `Runtime.Backend.FunctionOperation.DefaultRetryCount` | `4` retries | Sets the default retry count for Azure Functions actions. |
 | `Runtime.Backend.FunctionOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for Azure Functions actions. |
 | `Runtime.Backend.FunctionOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for Azure Functions actions. |
@@ -364,7 +383,7 @@ The following settings work only for workflows that start with a recurrence-base
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.ApiConnectionOperation.RequestTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for managed API connector triggers and actions. |
-| `Runtime.Backend.ApiConnectionOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for managed API connector triggers and actions. |
+| `Runtime.Backend.ApiConnectionOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for managed API connector triggers and actions. For more information, see [Limitations](#limitations). |
 | `Runtime.Backend.ApiConnectionOperation.DefaultRetryCount` | `4` retries | Sets the default retry count for managed API connector triggers and actions. |
 | `Runtime.Backend.ApiConnectionOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for managed API connector triggers and actions. |
 | `Runtime.Backend.ApiWebhookOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 day) | Sets the maximum retry interval for managed API connector webhook triggers and actions. |
@@ -381,6 +400,12 @@ The following settings work only for workflows that start with a recurrence-base
 | `Runtime.Backend.Operation.MaximumRetryCount` | `90` retries | Sets the maximum number of retries in the retry policy definition for a workflow operation. |
 | `Runtime.Backend.Operation.MaximumRetryInterval` | `01:00:00:01` <br>(1 day and 1 sec) | Sets the maximum interval in the retry policy definition for a workflow operation. |
 | `Runtime.Backend.Operation.MinimumRetryInterval` | `00:00:05` <br>(5 sec) | Sets the minimum interval in the retry policy definition for a workflow operation. |
+
+### Limitations
+
+- Maximum content size
+
+  By default, built-in triggers, such as HTTP or Request, are limited to the message size described in [Limits and configuration reference - Messages](logic-apps-limits-and-config.md#messages). To handle files larger than the limit, try uploading your content as a blob to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), and then get your content using the [Azure Blob connector](../connectors/connectors-create-api-azureblobstorage.md).
 
 <a name="manage-host-settings"></a>
 

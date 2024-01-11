@@ -9,7 +9,7 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
-ms.custom: monitoring
+ms.custom: monitoring, devx-track-azurepowershell
 ---
 
 # Enable and manage Azure Storage Analytics metrics (classic)
