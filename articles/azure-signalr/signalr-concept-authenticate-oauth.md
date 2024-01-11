@@ -14,11 +14,11 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 This tutorial continues on the chat room application introduced in [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md). Complete that quickstart first to set up your chat room.
 
-In this tutorial, you can discover the process of creating your own authentication method and integrate it with the Microsoft Azure SignalR Service.
+In this tutorial, learn how to create and integrate your authentication method using Microsoft Azure SignalR Service.
 
-The authentication initially used in the quickstart's chat room application is too simple for real-world scenarios. The application allows each client to claim who they are, and the server simply accepts that. This approach lacks effectiveness in real-world, as it fails to prevent malicious users who might assume false identities from gaining access to sensitive data.
+The authentication initially used in the quickstart's chat room application is too simple for real-world scenarios. The application allows each client to claim who they are, and the server simply accepts that. This approach is ineffective in the real-world because malicious users can use fake identities to access sensitive data.
 
-[GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial, you can use these APIs to implement authentication through a GitHub account before allowing client logins to the chat room application. After authenticating a GitHub account, the account information will be added as a cookie to be used by the web client to authenticate.
+[GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial, you can use these APIs to implement authentication through a GitHub account before allowing client logins to the chat room application. After GitHub account authentication, the account information will be added as a cookie to be used by the web client to authenticate.
 
 For more information on the OAuth authentication APIs provided through GitHub, see [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/).
 
@@ -45,8 +45,8 @@ To complete this tutorial, you must have the following prerequisites:
 - An account created on [GitHub](https://github.com/)
 - [Git](https://git-scm.com/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
-- [Azure Cloud Shell](../cloud-shell/quickstart.md) configured for the bash environment.
-- Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) configured for the bash environment
+- Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository
 
 ## Create an OAuth app
 
@@ -205,7 +205,7 @@ In this section, you implement a `Login` API that authenticates clients using th
 
 ### Update the Hub class
 
-By default when a web client attempts to connect to SignalR Service, the connection is granted based on an access token that is provided internally. This access token isn't associated with an authenticated identity.
+By default, web client connects to SignalR Service using an internal access token. This access token isn't associated with an authenticated identity.
 Basically, it's anonymous access.
 
 In this section, you turn on real authentication by adding the `Authorize` attribute to the hub class, and updating the hub methods to read the username from the authenticated user's claim.
@@ -346,7 +346,7 @@ In this section, you turn on real authentication by adding the `Authorize` attri
 
    ![OAuth Complete hosted in Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-   You're prompted to authorize the chat app's access to your GitHub account. Select the **Authorize** button.
+   You prompt to authorize the chat app's access to your GitHub account. Select the **Authorize** button.
 
    ![Authorize OAuth App](media/signalr-concept-authenticate-oauth/signalr-authorize-oauth-app.png)
 
