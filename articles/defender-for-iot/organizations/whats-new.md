@@ -28,6 +28,8 @@ When updating a sensor from the Azure portal, a list of available update version
 <!-- add screen shot when available.
  do we need to give reasons for this here? The list allows you to choose to update the sensor in stages, without having to automatically update to the latest version.-->
 
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
 ## December 2023
 
 |Service area  |Updates  |
