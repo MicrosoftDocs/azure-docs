@@ -39,7 +39,7 @@ If you require fine-grained control over name resolution, App Service allows you
 |Property name|Windows default value|Linux default value|Allowed values|Description|
 |-|-|-|-|
 |dnsRetryAttemptCount|1|5|1-5|Defines the number of attempts to resolve where one means no retries.|
-|dnsMaxCacheTimeout|30|0|0-60|Cache timeout defined in seconds. Setting cache to zero means you've disabled caching.|
+|dnsMaxCacheTimeout|30|0|0-60|DNS results will be cached according to the individual records TTL, but no longer than the defined max cache timeout. Setting cache to zero means you've disabled caching.|
 |dnsRetryAttemptTimeout|3|1|1-30|Timeout before retrying or failing. Timeout also defines the time to wait for secondary server results if the primary doesn't respond.|
 
 >[!NOTE]
