@@ -431,7 +431,7 @@ public static async Task<object> RunOrchestrator(
 
 [FunctionName("CourseRecommendations")]
 public static async Task<object> Mapper(
-    [ActivityTrigger] (string Major, int UniversityYear) inputs, FunctionContext executionContext)
+    [ActivityTrigger] (string Major, int UniversityYear) studentInfo, FunctionContext executionContext)
 {
     // retrieve and return course recommendations by major and university year
     return new

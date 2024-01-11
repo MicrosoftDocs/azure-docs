@@ -169,8 +169,8 @@ items:
       href: logic-apps-azure-functions.md
     - name: Call logic apps with Azure Functions
       href: logic-apps-scenario-function-sb-trigger.md
-    - name: Call logic apps from Power Automate and Power Apps
-      href: call-from-power-automate-power-apps.md
+    - name: Call workflows from Power Apps
+      href: call-from-power-apps.md
     - name: Call, trigger, or nest logic apps
       href: logic-apps-http-endpoint.md
     - name: Get bulk data with pagination
@@ -366,11 +366,11 @@ items:
     - name: SAP
       items:
       - name: Prerequisites and setup
-        href: logic-apps-using-sap-connector.md
+        href: connectors/sap.md
       - name: Create common example workflows
-        href: sap-create-example-scenario-workflows.md
+        href: connectors/sap-create-example-scenario-workflows.md
       - name: Generate schemas for SAP artifacts
-        href: sap-generate-schemas-for-artifacts.md
+        href: connectors/sap-generate-schemas-for-artifacts.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
     - name: Sliding Window

@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 11/28/2023
+ms.date: 12/23/2023
 ms.custom: references_regions
 ---
 
@@ -20,6 +20,21 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
+
+## December 2023
+
+### Restore deleted Automation runbooks
+
+**Type: New change**
+
+You can now restore Runbooks deleted in the past 29 days. [Learn more](manage-runbooks.md#restore-deleted-runbook)
+
+
+### Retirement of Azure Update Management and Change Tracking using Log Analytics 
+
+**Type: Retirement**
+
+On **31 August 2024**, Azure Automation will  retire [Automation Update management](https://learn.microsoft.com/answers/questions/1459053/retirement-announcement-azure-automation-update-ma) and [Change Tracking using Log Analytics](https://learn.microsoft.com/answers/questions/1459059/retirement-announcement-azure-automation-change-tr). You must migrate to [Azure Update Manager](../update-manager/overview.md) and [Change tracking and inventory using Azure Monitoring Agent](change-tracking/overview-monitoring-agent.md) respectively before the deprecation date. 
 
 ## November 2023
 

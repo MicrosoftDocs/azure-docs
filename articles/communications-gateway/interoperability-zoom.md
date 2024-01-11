@@ -14,7 +14,7 @@ ms.custom: template-concept
 Azure Communications Gateway can manipulate signaling and media to meet the requirements of your networks and the Zoom Phone Cloud Peering program. This article provides an overview of the interoperability features that Azure Communications Gateway offers for Zoom Phone Cloud Peering.
 
 > [!IMPORTANT]
-> You must be a telecommunications operator or service provider to use Azure Communications Gateway.
+> You must be a telecommunications operator to use Azure Communications Gateway.
 
 ## Role and position in the network
 

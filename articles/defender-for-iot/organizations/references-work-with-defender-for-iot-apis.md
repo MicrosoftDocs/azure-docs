@@ -70,7 +70,7 @@ For more information, see:
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [Manage your OT device inventory from an on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 - [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
-- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+- [Work with alerts on the on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md)

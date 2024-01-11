@@ -13,11 +13,10 @@ ms.custom: devx-track-azurepowershell
 # Manage Azure Cache for Redis with Azure PowerShell
 
 > [!div class="op_single_selector"]
-
 > * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Azure CLI](cache-manage-cli.md)
+>
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 This article shows you how to create, update, and scale your Azure Cache for Redis instances. The article also shows how to regenerate access keys, and how to view information about your caches. For a complete list of Azure Cache for Redis PowerShell cmdlets, see [Azure Cache for Redis cmdlets](/powershell/module/az.rediscache).
 

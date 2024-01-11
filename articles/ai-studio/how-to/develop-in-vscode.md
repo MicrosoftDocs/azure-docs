@@ -10,6 +10,7 @@ ms.custom:
 ms.topic: how-to
 ms.date: 12/12/2023
 ms.author: eur
+author: eric-urban
 ---
 
 # Get started with Azure AI projects in VS Code

@@ -33,7 +33,7 @@ To manage a network connection, you need the following permissions:
 |Action|Permissions required|
 |-----|-----|
 |Create and configure a virtual network and subnet|Network Contributor permissions on an existing virtual network (Owner or Contributor), or permission to create a new virtual network and subnet.|
-|Create or delete a network connection|Owner or Contributor permissions on an Azure subscription or on a specific resource group.|
+|Create or delete a network connection|Owner or Contributor permissions on an Azure subscription or on a specific resource group, which includes permission to create a resource group.|
 |Add or remove a network connection |Write permission on the dev center.|
 
 ## Create a virtual network and subnet
@@ -162,6 +162,9 @@ Follow the steps on the relevant tab to create your network connection.
 1. When the deployment is complete, select **Go to resource**. Confirm that the connection appears on the **Network connections** page.
 
 ---
+
+>[!NOTE]
+> Microsoft Dev Box automatically creates a resource group for each network connection, which holds the network interface cards (NICs) that use the virtual network assigned to the network connection. The resource group has a fixed name based on the name and region of the network connection. You can't change the name of the resource group, or specify an existing resource group.
 
 ## Attach a network connection to a dev center
 
