@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer, I want to enable phone sign-up and sign-in for user flows, so that users can sign up for my application using their phone number as an identity option.
+
 ---
 
 # Set up phone sign-up and sign-in for user flows

@@ -9,10 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 10/05/2023
+ms.date: 01/11/2024
 ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to understand the available features and their availability, so that I can make informed decisions about which features to use in my application development.
+
 ---
 
 # Developer notes for Azure Active Directory B2C

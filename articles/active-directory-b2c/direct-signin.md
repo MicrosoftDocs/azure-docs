@@ -8,11 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 01/11/2024
 ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to set up direct sign-in and prepopulate the sign-in name, so that users can easily sign in using their preferred social identity provider and have a seamless authentication experience.
+
 ---
 
 # Set up direct sign-in using Azure Active Directory B2C
