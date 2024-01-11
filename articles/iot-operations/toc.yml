@@ -187,6 +187,8 @@ items:
           href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
         - name: Configure L3 cluster
           href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
+        - name: Connect Azure Arc-enabled servers
+          href: manage-layered-network/howto-connect-arc-enabled-servers.md
 
     - name: View and analyze data
       items:
