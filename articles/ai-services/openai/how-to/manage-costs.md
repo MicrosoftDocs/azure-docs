@@ -62,6 +62,7 @@ You can pay for Azure OpenAI Service charges with your Azure Prepayment credit. 
 
 If the model performs processing, you will be charged even if the status code is not successful (not 200).
 For example, a 400 error due to a content filter or input limit, or a 408 error due to a timeout.
+
 If the model doesn't perform processing, you won't be charged.
 For example, a 401 error due to authentication or a 429 error due to exceeding the Rate Limit.
 
