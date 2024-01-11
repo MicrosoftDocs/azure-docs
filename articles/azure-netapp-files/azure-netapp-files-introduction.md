@@ -57,13 +57,13 @@ These features work together to provide a high-performance file storage solution
 
 ## Simplicity and availability
 
-Azure NetApp Files is designed to provide simplicity and high availability for your file storage needs. Key features that contribute to the these include:
+Azure NetApp Files is designed to provide simplicity and high availability for your file storage needs. Key features include:
 
 | Functionality | Description | Benefit | 
 | - | - | - | 
 | Volumes as a Service | Provision and manage volumes in minutes with a few clicks like any other Azure service | Enables businesses to quickly and easily provision and manage volumes without the need for dedicated hardware or complex configurations. 
 | Native Azure Integration | Integration with the Azure portal, REST, CLI, billing, monitoring, and security | Simplifies management and ensures consistency with other Azure services, while providing a familiar interface and integration with existing tools and workflows.
-| High availability | 99.99% SLA with automatic failover | Ensures that data is always available and accessible, avoiding downtime and disruption to business operations.
+| High availability | Azure NetApp Files provides a [high availability SLA](https://azure.microsoft.com/support/legal/sla/netapp/) with automatic failover | Ensures that data is always available and accessible, avoiding downtime and disruption to business operations.
 | Application migration | Migrate applications to Azure without refactoring | Enables businesses to move their workloads to Azure quickly and easily without the need for costly and time-consuming application refactoring or redesign.
 | Cross-region and cross-zone replication | Replicate data between regions or zones | Provide disaster recovery capabilities and ensure data availability and redundancy across different Azure regions or availability zones.
 | Application volume groups | Application volume groups enable you to deploy all application volumes according to best practices in a single one-step and optimized workflow | Simplified multi-volume deployment for applications, ensuring volumes and mount points are optimized and adhere to best practices in a single step, saving time and effort.
