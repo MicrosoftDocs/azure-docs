@@ -8,7 +8,7 @@ ms.subservice: core
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
-ms.date: 06/06/2022
+ms.date: 01/11/2024
 ms.topic: how-to
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, event-tier1-build-2022, update-code
 ms.devlang: azurecli
