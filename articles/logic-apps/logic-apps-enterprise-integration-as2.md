@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 01/10/2024
 ---
 
 # Exchange AS2 messages using workflows in Azure Logic Apps
@@ -26,7 +26,7 @@ The **AS2** connector has different versions, based on [logic app type and host 
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | **AS2 (v2)** and **AS2** managed connectors (Standard class). The **AS2 (v2)** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [AS2 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
+| **Consumption** | multitenant Azure Logic Apps | **AS2 (v2)** and **AS2** managed connectors (Standard class). The **AS2 (v2)** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [AS2 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 | **Consumption** | Integration service environment (ISE) | **AS2 (v2)** and **AS2** managed connectors (Standard class) and **AS2** ISE version, which has different message limits than the Standard class.  The **AS2 (v2)** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [AS2 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | **AS2 (v2)** built-in connector and **AS2** managed connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, but you can use any trigger that works for your scenario. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) built-in connector operations](#as2-v2-operations) <br>- [AS2 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 
@@ -38,8 +38,8 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 | Action | Description |
 |--------|-------------|
-| [**AS2 Encode** action](#encode) | Provides encryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN), which help support non-repudiation. For example, this action applies AS2/HTTP headers and performs the following tasks when configured: <br><br>- Sign outgoing messages. <br>- Encrypt outgoing messages. <br>- Compress the message. <br>- Transmit the file name in the MIME header. |
-| [**AS2 Decode** action](#decode) | Provide decryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN). For example, this action performs the following tasks when configured: <br><br>- Process AS2/HTTP headers. <br>- Reconcile received MDNs with the original outbound messages. <br>- Update and correlate records in the non-repudiation database. <br>- Write records for AS2 status reporting. <br>- Output payload contents as base64-encoded.  <br>-  Determine whether MDNs are required. Based on the AS2 agreement, determine whether MDNs should be synchronous or asynchronous. <br>- Generate synchronous or asynchronous MDNs based on the AS2 agreement. <br>- Set the correlation tokens and properties on MDNs. <br>- Verify the signature. <br>- Decrypt the messages. <br>- Decompress the message. <br>- Check and disallow message ID duplicates. |
+| [**AS2 Encode** action](#encode) | Provides encryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN), which help support nonrepudiation. For example, this action applies AS2/HTTP headers and performs the following tasks when configured: <br><br>- Sign outgoing messages. <br>- Encrypt outgoing messages. <br>- Compress the message. <br>- Transmit the file name in the MIME header. |
+| [**AS2 Decode** action](#decode) | Provide decryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN). For example, this action performs the following tasks when configured: <br><br>- Process AS2/HTTP headers. <br>- Reconcile received MDNs with the original outbound messages. <br>- Update and correlate records in the nonrepudiation database. <br>- Write records for AS2 status reporting. <br>- Output payload contents as base64-encoded.  <br>-  Determine whether MDNs are required. Based on the AS2 agreement, determine whether MDNs should be synchronous or asynchronous. <br>- Generate synchronous or asynchronous MDNs based on the AS2 agreement. <br>- Set the correlation tokens and properties on MDNs. <br>- Verify the signature. <br>- Decrypt the messages. <br>- Decompress the message. <br>- Check and disallow message ID duplicates. |
 
 ## Prerequisites
 
