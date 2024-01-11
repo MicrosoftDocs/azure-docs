@@ -44,7 +44,7 @@ If you require fine-grained control over name resolution, App Service allows you
 
 >[!NOTE]
 > * Changing name resolution behavior is not supported on Windows Container apps.
-> * To enable DNS caching on Web App for Containers and Linux-based apps, you must add the app setting `WEBSITE_ENABLE_DNS_CACHE`. This setting defaults to 30 seconds.
+> * To configure `dnsMaxCacheTimeout`, you need to ensure that caching is enabled by adding the app setting `WEBSITE_ENABLE_DNS_CACHE`="true". If you enable caching, but do not configure `dnsMaxCacheTimeout`, the timeout will be set to 30.
 
 Configure the name resolution behavior by using these CLI commands:
 

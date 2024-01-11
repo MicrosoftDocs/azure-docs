@@ -4,12 +4,16 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 02/17/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
+# [Document summarization](#tab/document-summarization)
+
 # [Conversation summarization](#tab/conversation-summarization)
+
+---
 
 Use this quickstart to send text summarization requests using the REST API. In the following example, you will use cURL to summarize documents or text-based customer service conversations.
 
@@ -111,8 +115,6 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
-
-
 ### Document extractive summarization example JSON response
 
 ```json
@@ -188,6 +190,8 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
     }
 }
 ```
+
+# [Conversation summarization](#tab/conversation-summarization)
 
 ## Conversation issue and resolution summarization
 
@@ -295,8 +299,6 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs/<my-job-id>?a
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
-
-
 
 ### Conversation issue and resolution summarization example JSON response
 

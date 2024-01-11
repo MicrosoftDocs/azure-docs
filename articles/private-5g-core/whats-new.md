@@ -5,7 +5,7 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 11/07/2023
+ms.date: 12/21/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -31,6 +31,13 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 Previously, packet capture could only be performed from edge sites, requiring local access to your Azure Stack Edge device. Now, you can initiate packet capture from the Azure portal and seamlessly transmit the captured data from edge sites to an Azure storage container. You can then download the data to inspect with a tool of your choice.  For more information, see [Data Plane Packet Capture](data-plane-packet-capture.md).
 
+### Edge Log Backhaul
+
+**Type:** New Feature
+
+**Date available:** December 22, 2023
+
+The new Edge Log Backhaul feature provides Microsoft support personnel with easy access to customer network function logs to help them troubleshoot and find root cause for customer issues. 
 
 ## October 2023
 ### Packet core 2310

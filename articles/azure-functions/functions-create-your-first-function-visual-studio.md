@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contpe
 
 Azure Functions lets you use Visual Studio to create local C# function projects and then easily publish this project to run in a scalable serverless environment in Azure. If you prefer to develop your C# apps locally using Visual Studio Code, you should instead consider the [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
-By default, this article shows you how to create C# functions that run on .NET 6 in an [isolated worker process](dotnet-isolated-process-guide.md). Function apps that run in an isolated worker process are supported on all versions of .NET that are supported by Functions. For more information, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
+By default, this article shows you how to create C# functions that run on .NET 8 in an [isolated worker process](dotnet-isolated-process-guide.md). Function apps that run in an isolated worker process are supported on all versions of .NET that are supported by Functions. For more information, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
 
 In this article, you learn how to:
 
@@ -44,7 +44,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
      
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Functions worker** | **.NET 6.0 Isolated (Long Term Support)** | Your functions run on .NET 6 in an isolated worker process. | 
+    | **Functions worker** | **.NET 8.0 Isolated (Long Term Support)** | Your functions run on .NET 8 in an isolated worker process. | 
     | **Function** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Enable | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. When you select this option, the [Azurite emulator](../storage/common/storage-use-azurite.md?tabs=visual-studio) is used. |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |

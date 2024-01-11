@@ -13,7 +13,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure OpenAI GPT 3.5 Turbo fine-tuning (preview) tutorial
+# Azure OpenAI GPT 3.5 Turbo fine-tuning tutorial
 
 This tutorial walks you through fine-tuning a `gpt-35-turbo-0613` model.
 
@@ -258,14 +258,14 @@ for file in files:
 Processing file: training_set.jsonl
 
 #### Distribution of total tokens:
-min / max: 47, 57
-mean / median: 50.8, 50.0
-p5 / p95: 47.9, 55.2
+min / max: 47, 62
+mean / median: 52.1, 50.5
+p5 / p95: 47.9, 57.5
 
 #### Distribution of assistant tokens:
-min / max: 13, 21
-mean / median: 16.3, 15.5
-p5 / p95: 13.0, 20.1
+min / max: 13, 30
+mean / median: 17.6, 15.5
+p5 / p95: 13.0, 21.9
 **************************************************
 Processing file: validation_set.jsonl
 
@@ -614,7 +614,6 @@ After your fine-tuned model is deployed, you can use it like any other deployed 
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
-#Note: The openai-python library support for Azure OpenAI is in preview.
 import os
 import openai
 openai.api_type = "azure"
@@ -680,4 +679,4 @@ In order to successfully access fine-tuning you need **Cognitive Services OpenAI
 ## Next steps
 
 - Learn more about [fine-tuning in Azure OpenAI](../how-to/fine-tuning.md)
-- Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md#fine-tuning-models-preview).
+- Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md#fine-tuning-models).

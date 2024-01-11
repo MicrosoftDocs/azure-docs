@@ -91,6 +91,6 @@ For more information, see:
 
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Manage individual OT sensors](how-to-manage-individual-sensors.md)
-- [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md)
+- [Manage the on-premises management console](legacy-central-management/how-to-manage-the-on-premises-management-console.md)
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)
-- [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
+- [Troubleshoot the on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)

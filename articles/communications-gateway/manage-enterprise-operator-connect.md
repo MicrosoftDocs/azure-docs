@@ -13,11 +13,11 @@ ms.custom: template-how-to-pattern
 
 Azure Communications Gateway's Number Management Portal enables you to manage enterprise customers and their numbers through the Azure portal.
 
-The Operator Connect and Teams Phone Mobile programs don't allow you to use the Operator Connect portal for provisioning after you've launched your service in the Teams Admin Center. The Number Management Portal is a simple alternative that you can use until you've finished integrating with the Operator Connect APIs.
+The Operator Connect and Teams Phone Mobile programs don't allow you to use the Operator Connect portal for provisioning after you launch your service in the Teams Admin Center. The Number Management Portal is a simple alternative that you can use until you finish integrating with the Operator Connect APIs.
 
 ## Prerequisites
 
-Confirm that you have **Reader** access to your subscription and appropriate permissions for the Project Synergy enterprise application:
+Confirm that you have **Reader** access to the Azure Communications Gateway resource and appropriate permissions for the Project Synergy enterprise application:
 
 <!-- Must be kept in sync with provision-user-roles.md - steps for understanding and configuring -->
 * To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**
@@ -27,11 +27,11 @@ If you don't have these permissions, ask your administrator to set them up by fo
 
 If you're uploading new numbers for an enterprise customer:
 
+* You must complete any internal procedures for assigning numbers.
 * You must know the numbers you need to upload (as E.164 numbers). Each number must:
     * Contain only digits (0-9), with an optional `+` at the start.
     * Include the country code.
-    * Be up to 19 characters long. 
-* You must have completed any internal procedures for assigning numbers.
+    * Be up to 19 characters long.
 * You must know the following information for each number.
 
 |Information for each number |Notes  |

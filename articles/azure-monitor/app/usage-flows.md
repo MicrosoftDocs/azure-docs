@@ -2,7 +2,7 @@
 title: Application Insights User Flows analyzes navigation flows
 description: Analyze how users move between the pages and features of your web app.
 ms.topic: conceptual
-ms.date: 05/13/2023
+ms.date: 12/15/2023
 ms.reviewer: mmcc
 ---
 

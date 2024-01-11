@@ -86,7 +86,7 @@ query. On the toolbar, click **Download as CSV** as shown in the following scree
 After running the previous query, if you select the **Charts** tab, you get a message that "the
 result set isn't compatible with a pie chart visualization." Queries that list results can't be made
 into a chart, but queries that provide counts of resources can. Using the
-[Sample query - Count virtual machines by OS type](./samples/starter.md#count-os), let's create a
+[Sample query - Count virtual machines by OS type](./samples/starter.md#count-virtual-machines-by-os-type), let's create a
 visualization from the Resource Graph query.
 
 1. In the **Query 1** portion of the window, enter the following query and select **Run query**.
