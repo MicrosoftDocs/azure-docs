@@ -432,7 +432,7 @@ Here are the settings to add this condition using the Azure portal.
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
-Storage Blob Data Owner
+**Storage Blob Data Owner**
 
 ```
 (
@@ -454,7 +454,7 @@ Storage Blob Data Owner
 )
 ```
 
-Storage Blob Data Contributor
+**Storage Blob Data Contributor**
 
 ```
 (
@@ -549,7 +549,7 @@ Here are the settings to add this condition using the Azure portal.
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
-Storage Blob Data Owner
+**Storage Blob Data Owner**
 
 ```
 (
@@ -567,7 +567,7 @@ Storage Blob Data Owner
 )
 ```
 
-Storage Blob Data Reader, Storage Blob Data Contributor
+**Storage Blob Data Reader**, **Storage Blob Data Contributor**
 
 ```
 (
@@ -668,7 +668,7 @@ Here are the settings to add this condition using the Azure portal.
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
-Storage Blob Data Owner
+**Storage Blob Data Owner**
 
 ```
 (
@@ -700,7 +700,7 @@ AND
 )
 ```
 
-Storage Blob Data Reader, Storage Blob Data Contributor
+**Storage Blob Data Reader**, **Storage Blob Data Contributor**
 
 ```
 (
@@ -778,7 +778,7 @@ Here are the settings to add this condition using the Azure portal.
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
-Storage Blob Data Owner
+**Storage Blob Data Owner**
 
 ```
 (
@@ -798,7 +798,7 @@ Storage Blob Data Owner
 )
 ```
 
-Storage Blob Data Contributor
+**Storage Blob Data Contributor**
 
 ```
 (
@@ -981,7 +981,7 @@ Here are the settings to add this condition using the Azure portal.
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
-Storage Blob Data Owner
+**Storage Blob Data Owner**
 
 ```
 (
@@ -997,7 +997,7 @@ Storage Blob Data Owner
 )
 ```
 
-Storage Blob Data Reader, Storage Blob Data Contributor
+**Storage Blob Data Reader**, **Storage Blob Data Contributor**
 
 ```
 (
@@ -1172,7 +1172,7 @@ Here are the settings to add this condition using the Azure portal.
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
-Storage Blob Data Owner
+**Storage Blob Data Owner**
 
 ```
 (
@@ -1190,7 +1190,7 @@ Storage Blob Data Owner
 )
 ```
 
-Storage Blob Data Reader, Storage Blob Data Contributor
+**Storage Blob Data Reader**, **Storage Blob Data Contributor**
 
 ```
 (
@@ -1251,7 +1251,7 @@ Here are the settings to add this condition using the Azure portal.
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
-Storage Blob Data Owner
+**Storage Blob Data Owner**
 
 ```
 (
@@ -1267,7 +1267,7 @@ Storage Blob Data Owner
 )
 ```
 
-Storage Blob Data Reader, Storage Blob Data Contributor
+**Storage Blob Data Reader**, **Storage Blob Data Contributor**
 
 ```
 (
@@ -1640,7 +1640,7 @@ After entering your code, switch back to the visual editor to validate it.
 
 # [PowerShell](#tab/azure-powershell)
 
-Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
+Here's how to add this condition for the **Storage Blob Data Reader** role using Azure PowerShell.
 
 ```azurepowershell
 $subId = "<your subscription id>"
@@ -1755,7 +1755,7 @@ After entering your code, switch back to the visual editor to validate it.
 
 # [PowerShell](#tab/azure-powershell)
 
-Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+Here's how to add this condition for the **Storage Blob Data Contributor** role using Azure PowerShell.
 
 ```azurepowershell
 $subId = "<your subscription id>"
@@ -1889,7 +1889,7 @@ After entering your code, switch back to the visual editor to validate it.
 
 # [PowerShell](#tab/azure-powershell)
 
-Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
+Here's how to add this condition for the **Storage Blob Data Reader** role using Azure PowerShell.
 
 ```azurepowershell
 $subId = "<your subscription id>"
@@ -2049,7 +2049,7 @@ After entering your code, switch back to the visual editor to validate it.
 
 # [PowerShell](#tab/azure-powershell)
 
-Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+Here's how to add this condition for the **Storage Blob Data Contributor** role using Azure PowerShell.
 
 ```azurepowershell
 $subId = "<your subscription id>"
@@ -2180,7 +2180,7 @@ After entering your code, switch back to the visual editor to validate it.
 
 # [PowerShell](#tab/azure-powershell)
 
-Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
+Here's how to add this condition for the **Storage Blob Data Reader** role using Azure PowerShell.
 
 ```azurepowershell
 $subId = "<your subscription id>"
