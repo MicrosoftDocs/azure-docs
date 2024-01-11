@@ -43,7 +43,7 @@ To ensure your apps work with the latest updates, the validation environment sho
 
 ## Application groups
 
-An application group is a logical grouping of applications installed on session hosts in the host pool.
+An [application group](deploy-azure-virtual-desktop.md) is a logical grouping of applications installed on session hosts in the host pool.
 
 An application group can be one of two types:
 
@@ -73,7 +73,7 @@ To publish resources to users, you must assign them to application groups. When 
 
 ## Workspaces
 
-A workspace is a logical grouping of application groups in Azure Virtual Desktop. Each Azure Virtual Desktop application group must be associated with a workspace for users to see the desktops and applications published to them.
+A [workspace](deploy-azure-virtual-desktop.md) is a logical grouping of application groups in Azure Virtual Desktop. Each Azure Virtual Desktop application group must be associated with a workspace for users to see the desktops and applications published to them.
 
 ## End users
 
