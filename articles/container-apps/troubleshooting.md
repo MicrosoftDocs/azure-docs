@@ -27,8 +27,6 @@ The following table lists issues you might encounter while using Azure Container
 | Requests to endpoint fail | The container app endpoint doesn't respond to requests. | [Review ingress configuration](#review-ingress-configuration) |
 | Requests return status 403 | The container app endpoint responds to requests with HTTP error 403 (access denied). |  [Verify networking configuration is correct](#verify-networking-configuration-is-correct) |
 | Responses not as expected | The container app endpoint responds to requests, but the responses aren't as expected. | [Verify traffic is routed to correct revision](#verify-traffic-is-routed-to-correct-revision)<br><br>[Verify you're using unique tags when deploying images to the container registry](/azure/container-registry/container-registry-image-tag-version) |
-| Dapr sidecar not present | You receive the error message `Dapr sidecar is not present`. | [Ensure Dapr is enabled in your environment](#ensure-dapr-is-enabled-in-your-environment) |
-| Dapr configuration error | You receive a Dapr configuration error message regarding the `app-port` value. | [Verify your Dapr configuration has the correct app-port value](#verify-app-port-value-in-dapr-configuration) |
 
 ## View logs
 
@@ -214,67 +212,6 @@ If **Revision Mode** is set to `Single`, all traffic is routed to your latest re
 If **Revision Mode** is set to `Multiple`, verify you're not routing any traffic to outdated revisions.
 
 For more information about configuring traffic splitting, see [Traffic splitting in Azure Container Apps](./traffic-splitting.md).
-
-## Ensure Dapr is enabled in your environment
-
-If you're using Dapr bindings and triggers in Azure Functions, you might receive the error message: `Dapr sidecar isn't present. Please see (https://aka.ms/azure-functions-dapr-sidecar-missing) for more information.` This error typically occurs when Dapr isn't properly enabled in your environment. Ensure Dapr is enabled in your environment using any of the following solutions:
-
-- If your Azure Function is deployed in Azure Container Apps, refer to [Dapr enablement instructions for the Dapr extension for Azure Functions](../azure-functions/functions-bindings-dapr.md#dapr-enablement).
-
-- If your Azure Function is deployed in Kubernetes, ensure that your [deployment's YAML configuration](https://github.com/azure/azure-functions-dapr-extension/blob/master/deploy/kubernetes/kubernetes-deployment.md#sample-kubernetes-deployment) has the following annotations: 
-
-    ```YAML
-    annotations:
-        dapr.io/enabled: "true"
-        dapr.io/app-id: "functionapp"
-        # Only define port of Dapr triggers are included
-        dapr.io/app-port: "3001"
-    ```
-
-- If you're running your Azure Function locally, run the following command to ensure you're [running the function app with Dapr](https://github.com/azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction#step-2---run-function-app-with-dapr):
-
-    ```bash
-    dapr run --app-id functionapp --app-port 3001  --components-path <COMPONENTS_PATH> -- func host start 
-    ```
-
-To prevent this error in the future, verify that Dapr is properly set up and enabled in your environment before using Dapr bindings and triggers with Azure Functions.
-
-## Verify app-port value in Dapr configuration
-
-The Dapr extension for Azure Functions starts an HTTP server on port 3001. You can configure this port using the [`DAPR_APP_PORT` environment variable](https://docs.dapr.io/reference/environment/). If you provide an incorrect `app-port` value when running a function app using [Dapr Triggers for Azure Functions](../azure-functions/functions-bindings-dapr.md), you might receive the error message: `The Dapr sidecar is configured to listen on port {portInt}, but the app server is running on port {appPort}. This may cause unexpected behavior. For more information, visit [this link](https://aka.ms/azfunc-dapr-app-config-error).`
-
-1. Configure the correct `app_port` to Dapr in the Dapr configuration. In your container app's Dapr settings:
-
-   - If you're using a Dapr Trigger in your code, verify that the app port is set to `3001` or `DAPR_APP_PORT` if explicitly set as an environment variable for application.
-
-   - If you're _not_ using a Dapr Trigger in your code, verify that the app port is _not_ set. It should be empty.
-
-1. Ensure that you provide the correct DAPR_APP_PORT value to Dapr in the Dapr configuration.
-
-   - If you're using Azure Container Apps, specify the app port in Bicep:
-
-      ```bash
-      DaprConfig: {
-      ...
-        appPort: 3001
-      ...
-      }
-      ```
-
-   - If you're using a Kubernetes environment, set the `dapr.io/app-port` annotation:
-
-      ```
-      annotations:
-      ...
-        dapr.io/app-port: "3001"
-      ...
-      ```
-
-   - If you're developing locally, verify you set `--app-port` when running the function app with Dapr:
-
-      ```
-      dapr run --app-id functionapp --app-port 3001 --components-path <COMPONENTS_PATH> -- func host start 
-      ```
 
 ## Next steps
 
