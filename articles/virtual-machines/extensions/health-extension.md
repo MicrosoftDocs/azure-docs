@@ -314,7 +314,7 @@ The following example adds the Application Health extension to an existing virtu
 3.	Click on **Enable application health monitoring**, select **Binary** for Health States. Configure your protocol, port, and more to set up the health probes. 
 4.	Click **Save** to save your settings
 
-:::image type="content" source="media/application-health-monitoring/existingVM-binaryhealth.png" alt-text="Screenshot showing VM Health monitoring blade from Azure Portal with binary health states enabled.":::
+:::image type="content" source="media/application-health-monitoring/existing-vm-binary-health.png" alt-text="Screenshot showing VM Health monitoring blade from Azure Portal with binary health states enabled.":::
 
 ---
 
@@ -409,7 +409,7 @@ The following example adds the Application Health extension to an existing virtu
 3.	Click on **Enable application health monitoring**, select **Rich (advanced)** for Health States. Configure your protocol, port, and more to set up the health probes. 
 4.	Click **Save** to save your settings
 
-:::image type="content" source="media/application-health-monitoring/existingVM-richhealth.png" alt-text="Screenshot showing VM Health monitoring blade from Azure Portal with rich health states enabled.":::
+:::image type="content" source="media/application-health-monitoring/existing-vm-rich-health.png" alt-text="Screenshot showing VM Health monitoring blade from Azure Portal with rich health states enabled.":::
 
 ---
 ## Troubleshoot
@@ -450,7 +450,7 @@ az vm get-instance-view --name <vmName> --resource-group <rgName>
 2.	On the left sidebar, go to the **Overview** blade
 3.	Your application health can be observed under the **Health State** field
 
-:::image type="content" source="media/application-health-monitoring/portal-healthstate.png" alt-text="Screenshot showing VM Overview blade with VM Health State.":::
+:::image type="content" source="media/application-health-monitoring/portal-health-state.png" alt-text="Screenshot showing VM Overview blade with VM Health State.":::
 
 ---
 ### Extension execution output log
