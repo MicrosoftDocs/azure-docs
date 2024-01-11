@@ -47,6 +47,10 @@ Using a Shared Image configured for your scenario can provide several advantages
 
 If you use a Microsoft Entra application to create a custom image pool with an Azure Compute Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
 
+> [!NOTE]
+> Reader permissions for the Azure Compute Gallery image are inadequate as they necessitate the execution of the following minimum action: Microsoft.Compute/disks/beginGetAccess/action for appropriate access.
+
+
 ## Prepare a Shared Image
 
 In Azure, you can prepare a shared image from a managed image, which can be created from:

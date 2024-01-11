@@ -3,8 +3,8 @@ title: Register and work with models
 titleSuffix: Azure Machine Learning
 description: Learn how to register and work with different model types in Azure Machine Learning (such as custom, MLflow, and Triton).
 services: machine-learning
-author: abeomor
-ms.author: osomorog
+author: fkriti
+ms.author: kritifaujdar
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: mlops
