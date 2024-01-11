@@ -66,13 +66,13 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
-    If you are using [role assignment conditions](conditions-overview.md), you should use the Condition query. Otherwise, use the Default query.
+    If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
 
     # [Default](#tab/default)
 
     [!INCLUDE [resource-graph-query-authorization-same-role-scope](../governance/includes/resource-graph/query/authorization-same-role-scope.md)]
 
-    # [Condition](#tab/condition)
+    # [Conditions](#tab/conditions)
 
     [!INCLUDE [resource-graph-query-authorization-same-role-scope-condition](../governance/includes/resource-graph/query/authorization-same-role-scope-condition.md)]
 
@@ -150,13 +150,13 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
     This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
-    If you are using [role assignment conditions](conditions-overview.md), you should use the Condition query. Otherwise, use the Default query.
+    If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
 
     # [Default](#tab/default)
 
     [!INCLUDE [resource-graph-query-authorization-same-role-principal](../governance/includes/resource-graph/query/authorization-same-role-principal.md)]
 
-    # [Condition](#tab/condition)
+    # [Conditions](#tab/conditions)
 
     [!INCLUDE [resource-graph-query-authorization-same-role-principal-condition](../governance/includes/resource-graph/query/authorization-same-role-principal-condition.md)]
 
@@ -220,13 +220,13 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
     This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
-    If you are using [role assignment conditions](conditions-overview.md), you should use the Condition query. Otherwise, use the Default query.
+    If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
 
     # [Default](#tab/default)
 
     [!INCLUDE [resource-graph-query-authorization-same-principal-scope](../governance/includes/resource-graph/query/authorization-same-principal-scope.md)]
 
-    # [Condition](#tab/condition)
+    # [Condition](#tab/conditions)
 
     [!INCLUDE [resource-graph-query-authorization-same-principal-scope-condition](../governance/includes/resource-graph/query/authorization-same-principal-scope-condition.md)]
 
