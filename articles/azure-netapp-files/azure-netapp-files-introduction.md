@@ -36,17 +36,17 @@ For more information about workload solutions leveraging Azure NetApp Files, see
 
 # Performance, cost optimization, and scale 
 
-Azure NetApp Files is designed to provide high-performance file storage for enterprise workloads and provide functionality to provide cost optimization and scale. Key features that contribute these include:
+Azure NetApp Files is designed to provide high-performance file storage for enterprise workloads and provide functionality to provide cost optimization and scale. Key features that contribute to these include:
 
 | Functionality | Description | Benefit | 
 | - | - | - | 
-| In-Azure bare-metal flash performance | Fast and reliable all-flash performance with sub-millisecond latency | Run performance-intensive workloads in the cloud with on-premises infrastructure-level performance 
+| In-Azure bare-metal flash performance | Fast and reliable all-flash performance with submillisecond latency | Run performance-intensive workloads in the cloud with on-premises infrastructure-level performance 
 | Multi-protocol support | Supports multiple protocols including NFSv3, NFSv4.1, SMB 3.0, SMB 3.1.1 and simultaneous dual-protocol | Seamlessly integrate with existing infrastructure and workflows without compatibility issues or complex configurations. |
 | Three flexible performance tiers (standard, premium, ultra) | Three performance tiers with dynamic service level change capability based on workload needs, including cool access for cold data | Choose the right performance level for workloads and dynamically adjust performance without overspending on resources. 
 | Small-to-large volumes | Easily resize file volumes from 100 GiB up to 100 TiB without downtime | Scale storage as business needs grow without over-provisioning, avoiding upfront cost. 
-| 1 TiB minimum capacity pool size | 1 TiB capacity pool is a reduced size storage pool compared to the initial 4 TiB minimum | Save money by starting with a smaller storage footprint and lower entry point, without sacrificing performance or availability. Scale storage based on growth without high upfront costs. 
-| 1000 TiB maximum capacity pool | 1000 TiB capacity pool is an increased storage pool compared to the initial 500 TiB maximum | Reduce waste by creating larger, pooled capacity and performance budget and share/distribute across volumes. 
-| 100-500TiB large volumes | Store large volumes of data up to 500 TiB in a single volume | Manage large data sets and high-performance workloads with ease. 
+| 1-TiB minimum capacity pool size | 1-TiB capacity pool is a reduced size storage pool compared to the initial 4 TiB minimum | Save money by starting with a smaller storage footprint and lower entry point, without sacrificing performance or availability. Scale storage based on growth without high upfront costs. 
+| 1000-TiB maximum capacity pool | 1000-TiB capacity pool is an increased storage pool compared to the initial 500 TiB maximum | Reduce waste by creating larger, pooled capacity and performance budget and share/distribute across volumes. 
+| 100-500 TiB large volumes | Store large volumes of data up to 500 TiB in a single volume | Manage large data sets and high-performance workloads with ease. 
 | User and group quotas | Set quotas on storage usage for individual users and groups | Control storage usage and optimize resource allocation. 
 | Virtual machine (VM) networked storage performance | Higher VM network throughput compared to disk IO limits enable more-demanding workloads on smaller Azure VMs | Improve application performance at a smaller virtual machine footprint, improving overall efficiency and lowering application license cost. 
 | Deep workload readiness | Seamless deployment and migration of any-size workload with well-documented deployment guides | Easily migrate any workload of any size to the platform. Enjoy a seamless, cost-effective deployment and migration experience. 
@@ -62,7 +62,7 @@ Azure NetApp Files is designed to provide simplicity and high availability for y
 | Functionality | Description | Benefit | 
 | - | - | - | 
 | Volumes as a Service | Provision and manage volumes in minutes with a few clicks like any other Azure service | Enables businesses to quickly and easily provision and manage volumes without the need for dedicated hardware or complex configurations. 
-| Native Azure Integration | Integration with Azure Portal, REST, CLI, billing, monitoring, and security | Simplifies management and ensures consistency with other Azure services, while providing a familiar interface and integration with existing tools and workflows.
+| Native Azure Integration | Integration with the Azure portal, REST, CLI, billing, monitoring, and security | Simplifies management and ensures consistency with other Azure services, while providing a familiar interface and integration with existing tools and workflows.
 | High availability | 99.99% SLA with automatic failover | Ensures that data is always available and accessible, avoiding downtime and disruption to business operations.
 | Application migration | Migrate applications to Azure without refactoring | Enables businesses to move their workloads to Azure quickly and easily without the need for costly and time-consuming application refactoring or redesign.
 | Cross-region and cross-zone replication | Replicate data between regions or zones | Provide disaster recovery capabilities and ensure data availability and redundancy across different Azure regions or availability zones.
@@ -71,7 +71,7 @@ Azure NetApp Files is designed to provide simplicity and high availability for y
 | Fault-tolerant bare metal | Built on a fault-tolerant bare metal fleet powered by ONTAP | Ensures high performance and reliability by leveraging a robust, fault-tolerant storage platform and powerful data management capabilities provided by ONTAP.
 | Azure native billing | Integrates natively with Azure billing, providing a seamless and easy-to-use billing experience, based on hourly usage | Easily and accurately manage and track the cost of using the service, allowing for seamless budgeting and cost control. Easily track usage and expenses directly from the Azure portal, providing a unified experience for billing and management. |
 
-These features work together to provide a simple to use and highly available file storage solution to ensure that your data is easy to manage and always available, recoverable, and accessible to your applications even in an outage.
+These features work together to provide a simple-to-use and highly available file storage solution to ensure that your data is easy to manage and always available, recoverable, and accessible to your applications even in an outage.
 
 ## Data management and security 
 
@@ -81,8 +81,8 @@ Azure NetApp Files provides built-in data management and security capabilities t
 | - | - | - | 
 | Efficient snapshots and backup | Advanced data protection and faster recovery of data by leveraging block-efficient, incremental snapshots and vaulting | Quickly and easily backup data and restore to a previous point in time, minimizing downtime and reducing the risk of data loss.
 | Snapshot restore to a new volume | Instantly restore data from a previously taken snapshot quickly and accurately | Reduce downtime and save time and resources that would otherwise be spent on restoring data from backups.
-| Snapshot revert | Revert volume to the state it was in when a previous snapshot was taken | Easily and very quickly recover data (in-place) to a known good state, ensuring business continuity and maintaining productivity.
-| Application-aware snapshots and backup | Ensure application-consistent snapshots with guaranteed recoverability | Automate snapshot creation and deletion processes, reducing manual efforts and potential errors, increasing productivity by allowing teams to focus on other critical tasks.
+| Snapshot revert | Revert volume to the state it was in when a previous snapshot was taken | Easily and quickly recover data (in-place) to a known good state, ensuring business continuity and maintaining productivity.
+| Application-aware snapshots and backup | Ensure application-consistent snapshots with guaranteed recoverability | Automate snapshot creation and deletion processes, reducing manual efforts and potential errors while increasing productivity by allowing teams to focus on other critical tasks.
 | Efficient cloning | Create and access clones in seconds | Save time and reduce costs for test, development, system refresh and analytics. 
 | Data-in-transit encryption | Secure data transfers with protocol encryption | Ensure the confidentiality and integrity of data being transmitted, with peace of mind that information is safe and secure.
 | Data-at-rest encryption | Data-at-rest encryption with platform- or customer-managed keys | Prevent unrestrained access to stored data, meet compliance requirements and enhance data security.
