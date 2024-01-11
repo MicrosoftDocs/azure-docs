@@ -10,7 +10,7 @@ ms.custom:
 # Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.
 ---
 
-# MMA Discovery and Removal Tool  
+# MMA Discovery and Removal Tool (Preview)
 After you migrate your machines to AMA, you need to remove the MMA agent to avoid duplication of logs. AzTS MMA Discovery and Removal Utility can centrally remove MMA extension from Azure Virtual Machine (VMs), Azure Virtual Machine Scale Sets and Azure Arc Servers from a tenant.  
 The utility works in two steps  
 1. Discovery – First the utility creates an inventory of all machines that have the MMA agents installed. We recommend that no new VMs, Virtual Machine Scale Sets or Azure Arc Servers with MMA extension are created while the utility is running.  
