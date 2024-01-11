@@ -4,7 +4,7 @@ description: Learn how to stream your security alerts to Microsoft Sentinel, SIE
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 01/10/2024
+ms.date: 01/11/2024
 ---
 
 # Stream alerts to monitoring solutions
@@ -14,13 +14,13 @@ Microsoft Defender for Cloud has the ability to stream security alerts into vari
 There are built-in Azure tools that are available that ensure you can view your alert data in the following solutions:
 
 - **Microsoft Sentinel**
-- **Defender XDR**
+- **Microsoft Defender XDR**
 - **Splunk Enterprise and Splunk Cloud**
-- **IBM's QRadar**
-- **ServiceNow**
-- **ArcSight**
 - **Power BI**
+- **ServiceNow**
+- **IBM's QRadar**
 - **Palo Alto Networks**
+- **ArcSight**
 
 ## Stream alerts to Microsoft Sentinel
 
@@ -55,11 +55,15 @@ Another alternative for investigating Defender for Cloud alerts in Microsoft Sen
 > [!TIP]
 > Microsoft Sentinel is billed based on the volume of data that it ingests for analysis in Microsoft Sentinel and stores in the Azure Monitor Log Analytics workspace. Microsoft Sentinel offers a flexible and predictable pricing model. [Learn more at the Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 
+## Stream alerts to Defender XDR
+
+Defender for Cloud natively integrates with [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide) allows you to use Defender XDR's incidents and alerts API to stream alerts and incidents into non-Microsoft solutions. Customers who have both [Microsoft Office 365 E5](https://www.microsoft.com/microsoft-365/enterprise/office-365-e5#overview) and Defender for Cloud can access one API for all Microsoft security products. Defender for Cloud customers can use this integration as an easier way to export alerts and incidents.
+
+Learn how to [integrate SIEM tools with Defender XDR](/microsoft-365/security/defender/configure-siem-defender?view=o365-worldwide).
+
 ## Stream alerts to QRadar and Splunk
 
-The export of security alerts to Splunk and QRadar uses Event Hubs and a built-in connector.
-You can either use a PowerShell script or the Azure portal to set up the requirements for exporting security alerts for your subscription or tenant.
-Then you need to use the procedure specific to each SIEM to install the solution in the SIEM platform.
+To export security alerts to Splunk and QRadar you will need to use Event Hubs and a built-in connector. You can either use a PowerShell script or the Azure portal to set up the requirements for exporting security alerts for your subscription or tenant. Once the requirements are in place, you need to use the procedure specific to each SIEM to install the solution in the SIEM platform.
 
 ### Prerequisites
 
@@ -68,37 +72,43 @@ Before you set up the Azure services for exporting alerts, make sure you have:
 - Azure subscription ([Create a free account](https://azure.microsoft.com/free/))
 - Azure resource group ([Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md))
 - **Owner** role on the alerts scope (subscription, management group or tenant), or these specific permissions:
-  - Write permissions for event hubs and the Event Hub Policy
+  - Write permissions for event hubs and the Event Hubs Policy
   - Create permissions for [Microsoft Entra applications](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app), if you aren't using an existing Microsoft Entra application
   - Assign permissions for policies, if you're using the Azure Policy 'DeployIfNotExist'
   <!-- - To export to a Log Analytics workspace:
     - if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`
     - if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action` -->
 
-### Step 1: Set up the Azure services
+### Set up the Azure services 
 
 You can set up your Azure environment to support continuous export using either:
 
-- A PowerShell script (Recommended)
+#### PowerShell script (Recommended)
 
-    Download and run [the PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/3rd%20party%20SIEM%20integration).
-    Enter the required parameters and the script performs all of the steps for you.
-    When the script finishes, it outputs the information you’ll use to install the solution in the SIEM platform.
+Download and run [the PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/3rd%20party%20SIEM%20integration).
+Enter the required parameters and the script performs all of the steps for you.
+When the script finishes, use the output to install the solution in the SIEM platform.
 
-- The Azure portal
+#### Azure portal
 
-    Here's an overview of the steps you'll do in the Azure portal:
+Here's an overview of the steps you'll do in the Azure portal:
 
-    1. Create an Event Hubs namespace and event hub.
-    2. Define a policy for the event hub with “Send” permissions.
-    3. **If you're streaming alerts to QRadar** - Create an event hub "Listen" policy, then copy and save the connection string of the policy that you’ll use in QRadar.
-    4. Create a consumer group, then copy and save the name that you’ll use in the SIEM platform.
-    5. Enable continuous export of security alerts to the defined event hub.
-    6. **If you're streaming alerts to QRadar** - Create a storage account, then copy and save the connection string to the account that you’ll use in QRadar.
-    7. **If you're streaming alerts to Splunk**:
-        1. Create a Microsoft Entra application.
-        2. Save the Tenant, App ID, and App password.
-        3. Give permissions to the Microsoft Entra Application to read from the event hub you created before.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select `Event Hubs`.
+
+1. [Create an Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
+
+1. Define a policy for the event hub with `Send` permissions.
+
+1. **If you're streaming alerts to QRadar** - Create an event hub "Listen" policy, then copy and save the connection string of the policy that you’ll use in QRadar.
+1. Create a consumer group, then copy and save the name that you’ll use in the SIEM platform.
+1. Enable continuous export of security alerts to the defined event hub.
+1. **If you're streaming alerts to QRadar** - Create a storage account, then copy and save the connection string to the account that you’ll use in QRadar.
+1. **If you're streaming alerts to Splunk**:
+    1. Create a Microsoft Entra application.
+    1. Save the Tenant, App ID, and App password.
+    1. Give permissions to the Microsoft Entra Application to read from the event hub you created before.
 
     For more detailed instructions, see [Prepare Azure resources for exporting to Splunk and QRadar](export-to-splunk-or-qradar.md).
 
