@@ -84,8 +84,8 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     The following example output shows the single node created in the previous steps. Make sure the node status is *Ready*.
 
     ```output
-    NAME                       STATUS   ROLES   AGE     VERSION
-    aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.15.10
+    NAME                                STATUS   ROLES   AGE     VERSION
+    aks-nodepool1-11853318-vmss000000   Ready    agent   2m26s   v1.27.7
     ```
 
 ## Deploy the application

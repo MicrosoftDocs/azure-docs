@@ -88,9 +88,12 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     The following sample output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
-    NAME                                STATUS   ROLES   AGE     VERSION
-    aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m     v1.16.7
-    aksnpwin987654                      Ready    agent   108s    v1.16.7
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-41946322-vmss000001   Ready    agent   28h   v1.27.7
+    aks-agentpool-41946322-vmss000002   Ready    agent   28h   v1.27.7
+    aks-npwin-41946322-vmss000000       Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000001    Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000002    Ready    agent   28h   v1.27.7
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -111,12 +114,12 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     The following sample output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
-    NAME                                STATUS   ROLES   AGE     VERSION
-    aks-agentpool-41946322-vmss000001   Ready    agent   7m51s   v1.27.7
-    aks-agentpool-41946322-vmss000002   Ready    agent   7m5s    v1.27.7
-    aks-npwin-41946322-vmss000000       Ready    agent   7m43s   v1.27.7
-    aks-userpool-41946322-vmss000001    Ready    agent   7m47s   v1.27.7
-    aks-userpool-41946322-vmss000002    Ready    agent   6m57s   v1.27.7
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-41946322-vmss000001   Ready    agent   28h   v1.27.7
+    aks-agentpool-41946322-vmss000002   Ready    agent   28h   v1.27.7
+    aks-npwin-41946322-vmss000000       Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000001    Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000002    Ready    agent   28h   v1.27.7
     ```
 
 ---
@@ -193,6 +196,8 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. Occasionally, the service can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 
+1. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make all pods are `Running` before proceeding.
+
 1. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
     ```console
@@ -215,9 +220,6 @@ When the application runs, a Kubernetes service exposes the application front en
 1. See the sample app in action by opening a web browser to the external IP address of your service.
 
     :::image type="content" source="media/quick-windows-container-deploy-portal/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application." lightbox="media/quick-windows-container-deploy-portal/asp-net-sample-app.png":::
-
-    > [!NOTE]
-    > If you receive a connection timeout when trying to load the page, you should verify the sample app is ready using the `kubectl get pods --watch` command. Sometimes, the Windows container isn't started by the time your external IP address is available.
 
 ## Delete resources
 
