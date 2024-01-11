@@ -1,5 +1,5 @@
 ---
-title: Dapr integration with Azure Container Apps
+title: Microservice APIs powered by Dapr
 description: Learn more about using Dapr on your Azure Container App service to develop applications.
 ms.author: hannahhunter
 author: hhunter-ms
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 01/10/2024
 ---
 
-# Dapr integration with Azure Container Apps
+# Microservice APIs powered by Dapr
 
-[Distributed Application Runtime (Dapr)][dapr-concepts] provides serverless and versionless APIs that run as a sidecar process that helps you write and implement simple, portable, resilient, and secured microservices. Dapr works together with Azure Container Apps as an abstraction layer to provide a low-maintenance, serverless, and scalable platform. [Enabling Dapr on your container app][dapr-enable] creates a secondary process alongside your application code that simplifies application intercommunication with Dapr via HTTP or gRPC.
+Azure Container Apps provides serverless and versionless APIs powered by [Distributed Application Runtime (Dapr)][dapr-concepts] that run as a sidecar process that helps you write and implement simple, portable, resilient, and secured microservices. Dapr works together with Azure Container Apps as an abstraction layer to provide a low-maintenance, serverless, and scalable platform. [Enabling Dapr on your container app][dapr-enable] creates a secondary process alongside your application code that simplifies application intercommunication with Dapr via HTTP or gRPC.
 
 ## Dapr in Azure Container Apps
 
@@ -25,13 +25,13 @@ Configure Dapr for your container apps environment with a [Dapr-enabled containe
 | 2     | Dapr                             | The fully managed Dapr APIs are exposed to each container app through a Dapr sidecar. The Dapr APIs can be invoked from your container app via HTTP or gRPC. The Dapr sidecar runs on HTTP port 3500 and gRPC port 50001.                                                         |
 | 3     | Dapr component configuration     | Dapr uses a modular design where functionality is delivered as a component. Dapr components can be shared across multiple container apps. The Dapr app identifiers provided in the scopes array dictate which dapr-enabled container apps load a given component at runtime. |
 
-## Supported Dapr APIs
+## Supported microservices APIs
 
 Azure Container Apps offers the following APIs powered by Dapr. 
 
 :::image type="content" source="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" alt-text="Diagram that shows Dapr APIs.":::
 
-| Dapr API                                              | Description                                                                                                                                                     |
+| API                                              | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. [See known limitations for Dapr service invocation in Azure Container Apps.](#limitations)                                     |
 | [**State management**][dapr-statemgmt]                | Provides state management capabilities for transactions and CRUD operations.                                                                                    |
