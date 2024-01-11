@@ -14,9 +14,7 @@ ms.custom: mode-other, devx-track-js, devx-track-azurecli
 
 # Quickstart: Add voice calling to your app
 
-Get started with Azure Communication Services by using the Communication Services Calling SDK to add voice and video calling to your app.
-
-[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
+Get started with Azure Communication Services by using the Calling SDK to add voice and video calling to your app.
 
 ::: zone pivot="platform-windows"
 [!INCLUDE [Calling with Windows](./includes/get-started/get-started-windows.md)]
