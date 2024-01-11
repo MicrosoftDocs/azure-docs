@@ -34,6 +34,7 @@ Use the following button to deploy on **Linux**:
 ::: zone-end
 ::: zone pivot="platform-windows-container"
 Use the following button to deploy on **Windows container**:
+
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows-container%2Fazuredeploy.json)
 ::: zone-end
 
@@ -89,7 +90,7 @@ This template contains several parameters that are predefined for your convenien
 ::: zone pivot="platform-windows-container"
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-service-docs-windows-container). It deploys an App Service plan and an App Service app on a Windows container.
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows-container/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
