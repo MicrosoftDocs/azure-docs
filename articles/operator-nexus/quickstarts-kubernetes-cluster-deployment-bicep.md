@@ -31,9 +31,9 @@ Once you have reviewed and saved the template file named ```kubernetes-deploy.bi
 > Creating multiple L3 isolation domains with the same CIDRs and custom L3 networks for each domain can lead to overlapping IP addresses when attached to a NAKS deployment. This overlap could cause issues if these networks are attached to the same pod. Currently, we prevent overlaps between L3 networks which have the `OSDevice` plugin type as such overlaps shouldn't be permitted in the Operating System Layer.
 >
 > For L3 networks with other plugin types: `DPDK, SRIOV, etc` we don't restrict this behavior and should they have overlapping CIDRS and attached to the same pod, there are possible issues that could occur:
-> - Routing Confusion: When two networks have the same CIDR, the router may not know where to send packets leading to unpredictable behavior.
-> - IP Address Conflicts: Communication between devices with the same IP address could be confusing.
-> -  Troubleshooting Issues: If L3 networks have overlapping CIDRs, it can be difficult to troubleshoot and diagnose errors.
+> - **Routing Confusion**: When two networks have the same CIDR, the router may not know where to send packets leading to unpredictable behavior.
+> - **IP Address Conflicts**: Communication between devices with the same IP address could be confusing.
+> - **Troubleshooting Issues**: If L3 networks have overlapping CIDRs, it can be difficult to troubleshoot and diagnose errors.
 
 
 ## Deploy the Bicep file
