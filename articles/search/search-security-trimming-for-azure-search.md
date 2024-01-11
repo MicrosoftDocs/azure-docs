@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 01/10/2024
 ---
 
 # Security filters for trimming results in Azure AI Search
@@ -37,7 +37,7 @@ A better solution is using the `search.in` function for security filters, as des
 
 ## Prerequisites
 
-* The field containing group or user identity must be a string with the "filterable" attribute. It should be a collection. It shouldn't allow nulls.
+* The field containing group or user identity must be a string with the filterable attribute. It should be a collection. It shouldn't allow nulls.
 
 * Other fields in the same document should provide the content that's accessible to that group or user. In the following JSON documents, the "security_id" fields contain identities used in a security filter, and the name, salary, and marital status will be included if the identity of the caller matches the "security_id" of the document.
 
@@ -74,7 +74,7 @@ In the search index, within the field collection, you need one field that contai
 1. Indexes require a document key. The "file_id" field satisfies that requirement. Indexes should also contain searchable content. The "file_name" and "file_description" fields represent that in this example.  
 
    ```https
-   POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30
+   POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2023-11-01
    {
         "name": "securedfiles",  
         "fields": [
@@ -88,10 +88,10 @@ In the search index, within the field collection, you need one field that contai
 
 ## Push data into your index using the REST API
   
-Issue an HTTP POST request to your index's URL endpoint. The body of the HTTP request is a JSON object containing the documents to be indexed:
+Issue an HTTP POST request to to the docs collection of your index's URL endpoint (see [Documents - Index](/rest/api/searchservice/documents/)). The body of the HTTP request is a JSON object containing the documents to be indexed:
 
 ```http
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2023-11-01
 ```
 
 In the request body, specify the content of your documents:
@@ -138,14 +138,12 @@ If you need to update an existing document with the list of groups, you can use 
 }
 ```
 
-For more information on uploading documents, see [Add, Update, or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents).
-
 ## Apply the security filter in the query
 
 In order to trim documents based on `group_ids` access, you should issue a search query with a `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, where 'group_id1, group_id2,...' are the groups to which the search request issuer belongs.
 
 This filter matches all documents for which the `group_ids` field contains one of the given identifiers.
-For full details on searching documents using Azure AI Search, you can read [Search Documents](/rest/api/searchservice/search-documents).
+For full details on searching documents using Azure AI Search, you can read [Search Documents](/rest/api/searchservice/documents/search-post?).
 
 This sample shows how to set up query using a POST request.
 
@@ -186,7 +184,7 @@ You should get the documents back where `group_ids` contains either "group_id1" 
 
 ## Next steps
 
-This article described a pattern for filtering results based on user identity and the `search.in()` function. You can use this function to pass in principal identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
+This article describes a pattern for filtering results based on user identity and the `search.in()` function. You can use this function to pass in principal identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
 
 For an alternative pattern based on Microsoft Entra ID, or to revisit other security features, see the following links.
 
