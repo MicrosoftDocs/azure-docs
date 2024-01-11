@@ -192,13 +192,13 @@ Here's how to add an MSIX or Appx image as an app attach package using the [Az.D
    Your output should be similar to the following output:
 
    ```output
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Function        Get-AzWvdAppAttachPackage                          4.2.1      Az.DesktopVirtualization
-Function        Import-AzWvdAppAttachPackageInfo                   4.2.1      Az.DesktopVirtualization
-Function        New-AzWvdAppAttachPackage                          4.2.1      Az.DesktopVirtualization
-Function        Remove-AzWvdAppAttachPackage                       4.2.1      Az.DesktopVirtualization
-Function        Update-AzWvdAppAttachPackage                       4.2.1      Az.DesktopVirtualization
+   CommandType     Name                                               Version    Source
+   -----------     ----                                               -------    ------
+   Function        Get-AzWvdAppAttachPackage                          4.2.1      Az.DesktopVirtualization
+   Function        Import-AzWvdAppAttachPackageInfo                   4.2.1      Az.DesktopVirtualization
+   Function        New-AzWvdAppAttachPackage                          4.2.1      Az.DesktopVirtualization
+   Function        Remove-AzWvdAppAttachPackage                       4.2.1      Az.DesktopVirtualization
+   Function        Update-AzWvdAppAttachPackage                       4.2.1      Az.DesktopVirtualization
    ```
 
 3. Get the properties of the image you want to add and store them in a variable by running the following command. You need to specify a host pool, but it can be any host pool where session hosts have access to the file share.
