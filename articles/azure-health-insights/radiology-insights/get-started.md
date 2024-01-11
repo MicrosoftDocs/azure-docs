@@ -103,16 +103,21 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
       } ],
       "specialtyType" : "radiology",
       "administrativeMetadata" : {
+
+
+"createdDateTime" : "2021-8-28T00:00:00",
+      "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
-              "system" : "Http://hl7.org/fhir/ValueSet/cpt-all",
-              "code" : "76645A",
-              "display" : "US LT BREAST TARGETED"
+              "system" : "Https://loinc.org",
+              "code" : "41806-1",
+              "display" : "CT ABDOMEN"
             } ]
           },
-          "description" : "US LT BREAST TARGETED"
+          "description" : "CT ABDOMEN"
         } ],
+
         "encounterId" : "encounterid1"
       },
       "content" : {
