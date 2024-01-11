@@ -587,6 +587,35 @@ az spring dev-tool create \
 
 ---
 
+## Use Application Accelerator in VS Code
+
+You can access Application Accelerator directly in VS Code to operate your accelerator in the Azure Spring Apps Enterprise plan.
+
+### Prerequisites
+
+- [Visual Studio Code](https://code.visualstudio.com/Download)
+- [Azure Spring Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-cloud)
+
+### View Application Accelerator List
+
+Use the following steps to view the Application Accelerator List for a service instance:
+
+1. In Visual Studio Code, open the Azure Spring Apps extension, and then sign in to your Azure account.
+
+1. Expand the service instance that you want to operate and right-click to select the service instance.
+
+1. Select **Open Application Accelerator** from the menu to open the Application Accelerator List in the Tanzu Application Accelerator extension, see the section [Use Tanzu Application Accelerator Extension for VS Code](./how-to-use-accelerator.md#use-tanzu-application-accelerator-extension-for-vs-code).
+
+   :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-open-accelerator.png" alt-text="Screenshot of the VS Code extension showing the Open Application Accelerator option for a service instance." lightbox="media/how-to-use-accelerator/visual-studio-code-open-accelerator.png":::
+
+### Troubleshoot Application Accelerator issues
+
+If you try to open Application Accelerator for a service instance that hasn't enabled Application Accelerator or exposed a public endpoint, you see an error message.
+
+  :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-not-enabled.png" alt-text="Screenshot of the error message showing Application Accelerator not enabled and public endpoint not accessible." lightbox="media/how-to-use-accelerator/visual-studio-code-not-enabled.png":::
+
+To enable Application Accelerator and expose public endpoint, use either the Azure portal or the Azure CLI. For more information, see the [Manage App Accelerator in an existing Enterprise plan instance](./how-to-use-accelerator.md#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section.
+
 ## Next steps
 
 - [Azure Spring Apps](index.yml)
