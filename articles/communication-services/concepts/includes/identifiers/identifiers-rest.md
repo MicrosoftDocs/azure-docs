@@ -124,6 +124,53 @@ The `PhoneNumberIdentifierModel` represents a phone number. The service assumes 
 
 [PhoneNumberIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/c1883ee5b87c41dfcb699420409bc0e31cff0786/specification/communication/data-plane/Common/stable/2022-07-13/common.json#L126)
 
+### Microsoft Teams Application
+
+The `MicrosoftTeamsAppIdentifierModel` represents a bot of the Teams Voice applications such as Call Queue and Auto Attendant with its Microsoft Entra bot object ID. The Teams applications should be configured with a resource account. You can retrieve the Microsoft Entra bot object ID via the [Microsoft Graph REST API /users](/graph/api/user-list) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview).
+
+#### Basic usage
+
+```json
+// request
+{
+    "microsoftTeamsApp": {
+        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130"
+    }
+}
+
+// response
+{
+    "kind": "microsoftTeamsApp",
+    "rawId": "28:orgid:45ab2481-1c1c-4005-be24-0ffb879b1130",
+    "microsoftTeamsApp": {
+        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130"
+    }
+}
+
+
+// if you're not operating in the public cloud, you must also pass the right Cloud type in a request
+{
+    "microsoftTeamsApp": {
+        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130",
+        "cloud": "gcch"
+    }
+}
+
+// response
+{
+    "kind": "microsoftTeamsApp",
+    "rawId": "28:gcch:45ab2481-1c1c-4005-be24-0ffb879b1130",
+    "microsoftTeamsApp": {
+        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130",
+        "cloud": "gcch"
+    }
+}
+```
+
+#### API reference
+
+[MicrosoftTeamsAppIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/ea28180c6ce9027df36568307f235868d581144c/specification/communication/data-plane/Common/stable/2023-11-15/common.json#L165C6-L165C38)
+
 ### Unknown
 
 If a new identifier gets introduced in a service, it will get downgraded to the `CommunicationIdentifierModel` if you are on an old API version.
