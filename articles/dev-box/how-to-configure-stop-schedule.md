@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/09/2024
+ms.date: 01/10/2024
 ms.topic: how-to
 ---
 
@@ -113,32 +113,10 @@ You can also manage auto-stop schedules by using the Azure CLI.
 
 ### Create an auto-stop schedule
 
-<!-- Rose: For this command, I found several differences between the example in this topic and the command Reference:
-
-     https://learn.microsoft.com/en-us/cli/azure/devcenter/admin/schedule?view=azure-cli-latest#az-devcenter-admin-schedule-create
-
-     Parameters listed in this topic, but not found in the Reference:
-
-     -n default 
-     --schedule-type stopdevbox
-     --frequency daily
-
-     I see "StopDevBox" as an option in the REST API, but I didn't find a corresponding command in the Azure CLI:
-
-     https://learn.microsoft.com/en-us/rest/api/devcenter/developer/dev-boxes/stop-dev-box?view=rest-devcenter-developer-2023-04-01&tabs=HTTP
-
-     Required Parameters listed in the Reference, but not shown in this topic:
-     
-     --resource-group {name} 
-     
-     I added this param to the example.
-
--->
-
 The following Azure CLI command creates an auto-stop schedule:
 
 ```azurecli
-az devcenter admin schedule create -n default --pool-name {poolName} --project {projectName} --resource-group {resourceGroupName} --time {hh:mm} --time-zone {"timeZone"} --schedule-type stopdevbox --frequency daily --state Enabled
+az devcenter admin schedule create --pool-name {poolName} --project {projectName} --resource-group {resourceGroupName} --time {hh:mm} --time-zone {"timeZone"} --state Enabled
 ```
 
 | Parameter | Value |
@@ -148,26 +126,14 @@ az devcenter admin schedule create -n default --pool-name {poolName} --project {
 | `resource-group` | Name of the resource group for your dev box pool. |
 | `time` | Local time when dev boxes should be shut down, such as `23:15` for 11:15 PM. |
 | `time-zone` | Standard timezone string to determine the local time, such as `"America/Los_Angeles"`. |
-| `state` | Indicates whether the schedule is enabled or disabled. |
-
-<!-- Rose: If the parameters (--schedule-type stopdevbox) and (--frequency daily) are kept in the example,
-           they should also be described in the Parameter table. -->
+| `state` | Indicates whether the schedule is in use. The options include `Enabled` or `Disabled`. |
 
 ### Delete an auto-stop schedule
-
-<!-- Rose: For this command, I found one difference between the example in this topic and the command Reference:
-
-     https://learn.microsoft.com/en-us/cli/azure/devcenter/admin/schedule?view=azure-cli-latest#az-devcenter-admin-schedule-delete
-
-     Parameters listed in this topic, but not found in the Reference:
-
-     -n default
--->
 
 Enter the following command in the Azure CLI to delete an auto-stop schedule:
 
 ```azurecli
-az devcenter admin schedule delete -n default --pool-name {poolName} --project-name {projectName}
+az devcenter admin schedule delete --pool-name {poolName} --project-name {projectName}
 ```
 
 | Parameter | Value |
