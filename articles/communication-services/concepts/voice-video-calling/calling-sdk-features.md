@@ -99,10 +99,61 @@ The following list presents the set of features that are currently available in 
 
 1. The capability to Mute Others is currently in public preview.
 2. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
-3. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
+3. The Calling SDK doesn't have an explicit API, you need to use the OS (Android & iOS) API to achieve it.
+
+## JavaScript Calling SDK support by OS and browser
+
+The following table represents the set of supported browsers, which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
+
+| Platform     | Chrome | Safari | Edge  | Firefox |  Webview |
+| ------------ | ------ | ------ | ------ | ------- | ------- |
+| Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️ *    |
+| iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      |
+| macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      |
+| Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
+
+- Outgoing Screen Sharing isn't supported on iOS or Android mobile browsers.
+- Firefox support is in public preview.
+- Currently, the calling SDK only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
+Running JavaScript Calling SDK on these platforms isn't actively tested, it might or might not work.
+- [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth). This issue is a limitation of iOS, and the operating system controls default device selection.
+
+## Calling client - browser security model
+
+### User WebRTC over HTTPS
+
+WebRTC APIs like `getUserMedia` require that the app that calls these APIs is served over HTTPS. For local development, you can use `http://localhost`.
+
+### Embed the Communication Services Calling SDK in an iframe
+
+A new [permissions policy (also called a feature policy)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) is available in various browsers. This policy affects calling scenarios by controlling how applications can access a device's camera and microphone through a cross-origin iframe element.
+
+If you want to use an iframe to host part of the app from a different domain, you must add the `allow` attribute with the correct value to your iframe.
+
+For example, this iframe allows both camera and microphone access:
+
+```html
+<iframe allow="camera *; microphone *">
+```
+
+## Android Calling SDK support
+
+- Support for Android API Level 21 or Higher
+- Support for Java 7 or higher
+- Support for Android Studio 2.0
+
+## iOS Calling SDK support
+
+- Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
+- Xcode 12.0+
 
 
-## Calling SDK streaming support
+## Maximum call duration
+
+**The maximum call duration is 30 hours**, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
+
+## Limits to the number of simultanous video streams
 
 The Azure Communication Services Calling SDK supports the following streaming configurations:
 
@@ -127,63 +178,6 @@ The following timeouts apply to the Communication Services Calling SDKs:
 | Group call establishment timeout                                            | 85                 |
 | PSTN call establishment timeout                                             | 115                |
 | Promote 1:1 call to a group call timeout                                    | 115                |
-
-## Maximum call duration
-
-**The maximum call duration is 30 hours**, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
-
-## JavaScript Calling SDK support by OS and browser
-
-The following table represents the set of supported browsers, which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
-
-| Platform     | Chrome | Safari | Edge  | Firefox |  Webview |
-| ------------ | ------ | ------ | ------ | ------- | ------- |
-| Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️ *    |
-| iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      |
-| macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      |
-| Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
-| Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
-
-- Outgoing Screen Sharing isn't supported on iOS or Android mobile browsers.
-- Firefox support is in public preview.
-- Currently, the calling SDK only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
-Running JavaScript Calling SDK on these platforms isn't actively tested, it might or might not work.
-- [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth). This issue is a limitation of iOS, and the operating system controls default device selection.
-
-## Android Calling SDK support
-
-- Support for Android API Level 21 or Higher
-- Support for Java 7 or higher
-- Support for Android Studio 2.0
-
-## iOS Calling SDK support
-
-- Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
-- Xcode 12.0+
-
-## Calling client - browser security model
-
-### User WebRTC over HTTPS
-
-WebRTC APIs like `getUserMedia` require that the app that calls these APIs is served over HTTPS.
-
-For local development, you can use `http://localhost`.
-
-### Embed the Communication Services Calling SDK in an iframe
-
-A new [permissions policy (also called a feature policy)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) is available in various browsers. This policy affects calling scenarios by controlling how applications can access a device's camera and microphone through a cross-origin iframe element.
-
-If you want to use an iframe to host part of the app from a different domain, you must add the `allow` attribute with the correct value to your iframe.
-
-For example, this iframe allows both camera and microphone access:
-
-```html
-<iframe allow="camera *; microphone *">
-```
-
-## Known issues
-
-Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
 
 ## Next steps
 
