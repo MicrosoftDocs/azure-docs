@@ -8,7 +8,7 @@ ms.reviewer: aritraghosh
 
 # Minimal ingestion profile for Control Plane Metrics in Managed Prometheus
 
-Azure monitor metrics addon collects a number of Prometheus metrics by default. `Minimal ingestion profile` is a setting that helps reduce ingestion volume of metrics, as only metrics used by default dashboards, default recording rules & default alerts are collected. This article describes how this setting is configured specifically for Control Plane metrics. This article also lists metrics collected by default when `minimal ingestion profile` is enabled.
+Azure Monitor metrics addon collects a number of Prometheus metrics by default. `Minimal ingestion profile` is a setting that helps reduce ingestion volume of metrics, as only metrics used by default dashboards, default recording rules & default alerts are collected. This article describes how this setting is configured specifically for Control Plane metrics. This article also lists metrics collected by default when `minimal ingestion profile` is enabled.
 
 > [!NOTE]
 > For addon based collection, `Minimal ingestion profile` setting is enabled by default. The discussion here is focused on Control Plane metrics. The current set of default targets and metrics is listed [here](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal)
@@ -20,16 +20,16 @@ Following targets are **enabled/ON** by default - meaning you don't have to prov
 
 Following targets are available to scrape, but scraping isn't enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they're disabled/OFF by default and you need to turn ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) under `default-scrape-settings-enabled` section
 
-- `controlplane-cluster-autoscaler` 
+- `controlplane-cluster-autoscaler`
 - `controlplane-kube-scheduler`
 - `controlplane-kube-controller-manager`
 
 > [!NOTE]
-> The default scrape frequency for all default targets and scrapes is `30 seconds`. You can override it per target using the [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) under `default-targets-scrape-interval-settings` section.
+> The default scrape frequency for all default targets and scrapes is `30 seconds`. You can override it for each target using the [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) under `default-targets-scrape-interval-settings` section.
 
 ### Minimal ingestion for default ON targets
 
-The following metrics are allow-listed with `minimalingestionprofile=true` for default ON targets. The below metrics are collected by default as these targets are scraped by default.
+The following metrics are allow-listed with `minimalingestionprofile=true` for default ON targets. The below metrics are collected by default, as these targets are scraped by default.
 
 **controlplane-apiserver**
 
@@ -62,7 +62,7 @@ The following metrics are allow-listed with `minimalingestionprofile=true` for d
 
 ### Minimal ingestion for default OFF targets
 
-The following are metrics that are allow-listed with `minimalingestionprofile=true` for default OFF targets. These metrics are not collected by default as these targets are not scraped by default (due to being OFF by default). You can turn ON scraping for these targets using `default-scrape-settings-enabled.<target-name>=true`' using [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) under `default-scrape-settings-enabled` section.
+The following are metrics that are allow-listed with `minimalingestionprofile=true` for default OFF targets. These metrics are not collected by default, as these targets are not scraped by default (due to being OFF by default). You can turn ON scraping for these targets using `default-scrape-settings-enabled.<target-name>=true`' using [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) under `default-scrape-settings-enabled` section.
 
 **controlplane-kube-controller-manager**
 
