@@ -333,7 +333,7 @@ To enable ASP.NET Core integration for HTTP:
 
 1. Update your project to use these specific package versions:
 
-    + [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/), version 1.11.0 or later
+    + [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/), version 1.11.0. or later
     + [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/), version 1.16.0 or later.
 
 1. In your `Program.cs` file, update the host builder configuration to use `ConfigureFunctionsWebApplication()` instead of `ConfigureFunctionsWorkerDefaults()`. The following example shows a minimal setup without other customizations:
@@ -439,7 +439,7 @@ You can configure your isolated process application to emit logs directly [Appli
 To write logs directly to Application Insights from your code, add references to these packages in your project:
 
 + [Microsoft.Azure.Functions.Worker.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/), version 1.0.0 or later. 
-+ [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)
++ [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService).
 
 You can run the following commands to add these references to your project: 
 
@@ -617,7 +617,7 @@ You can create your function app and other required resources in Azure using one
 + [Azure CLI](create-first-function-cli-csharp.md#create-supporting-azure-resources-for-your-function): You can use the Azure CLI to create the required resources in Azure. 
 + [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c): You can use Azure PowerShell to create the required resources in Azure. 
 + [Deployment templates](./functions-infrastructure-as-code.md): You can use ARM templates and Bicep files to automate the deployment of the required resources to Azure. Make sure your template includes any [required settings](#deployment-requirements).
-+ [Azure Portal](./functions-create-function-app-portal.md): You can create the required resources in the [Azure Portal](https://portal.azure.com).
++ [Azure portal](./functions-create-function-app-portal.md): You can create the required resources in the [Azure portal](https://portal.azure.com).
 
 ### Publish code project
 
@@ -630,7 +630,6 @@ After creating your function app and other required resources in Azure, you can 
 + [Deployment templates](./functions-infrastructure-as-code.md#zip-deployment-package): You can use ARM templates or Bicep files to automate package deployments.
 
 For more information, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
-
 
 ### Deployment requirements
 

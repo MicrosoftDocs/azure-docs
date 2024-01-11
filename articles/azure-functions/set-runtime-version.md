@@ -34,7 +34,7 @@ The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each majo
 | 1.x<sup>3</sup>| `~1`                                |                           |
 
 <sup>1</sup> If using a later version with the .NET Isolated worker model, instead enable that version.  
-<sup>2</sup>Reached the end of life (EOL) for extended support on December 13, 2022. For a detailed support statement about end-of-life versions, see [this migration article](migrate-version-3-version-4.md).  
+<sup>2</sup>Reached the end of extended support on December 13, 2022. For a detailed support statement about end-of-support versions, see [this migration article](migrate-version-3-version-4.md).  
 <sup>3</sup>[Support for version 1.x of the Azure Functions runtime ends on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). Before that date, [migrate your version 1.x apps to version 4.x](./migrate-version-1-version-4.md) to maintain full support.  
 
 A change to the runtime version causes a function app to restart. 
