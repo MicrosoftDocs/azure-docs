@@ -104,6 +104,7 @@ This template contains several parameters that are predefined for your convenien
 | webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
 | location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
 | skuTier        | string  | "P1v3"                         | Instance size ([View available SKUs](https://learn.microsoft.com/azure/app-service/configure-custom-container?tabs=debian&pivots=container-windows#customize-container-memory)) |
+| appSettings | string  | "[{"name": "PORT","value": "8080"}]"                          | App Service listening port. Needs to be 8080. |
 | kind       | string  | "windows"                          | External Git repo (optional) |
 | hyperv     | string  | "true"                          | External Git repo (optional) |
 | windowsFxVersion | string  | "DOCKER&#124;mcr.microsoft.com/dotnet/samples:aspnetapp"                          | External Git repo (optional) |
