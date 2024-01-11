@@ -18,6 +18,19 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+# Tutorial: Create a log query alert for an Azure resource
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. Log query alert rules create an alert when a log query returns a particular result. For example, receive an alert when a particular event is created on a virtual machine, or send a warning when excessive anonymous requests are made to a storage account.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Access prebuilt log queries designed to support alert rules for different kinds of resources
+> * Create a log query alert rule
+> * Create an action group to define notification details
+
+
+## Prerequisites
+
 To complete this tutorial you need the following: 
 
 - An Azure resource to monitor. You can use any resource in your Azure subscription that supports diagnostic settings. To determine whether a resource supports diagnostic settings, go to its menu in the Azure portal and verify that there's a **Diagnostic settings** option in the **Monitoring** section of the menu.
@@ -54,7 +67,7 @@ Once you verify your query, you can create the alert rule. Select **New alert ru
 :::image type="content" source="media/tutorial-log-alert/create-alert-rule.png" lightbox="media/tutorial-log-alert/create-alert-rule.png"alt-text="Create alert rule":::
 ## Configure condition
 
-On the **Condition** tab, the **Log query** will already be filled in. The **Measurement** section defines how the records from the log query will be measured. If the query doesn't perform a summary, then the only option will be to **Count** the number of **Table rows**. If the query includes one or more summarized columns, then you'll have the option to use number of **Table rows** or a calculation based on any of the summarized columns. **Aggregation granularity** defines the time interval over which the collected values are aggregated. 
+On the **Condition** tab, the **Log query** will already be filled in. The **Measurement** section defines how the records from the log query will be measured. If the query doesn't perform a summary, then the only option will be to **Count** the number of **Table rows**. If the query includes one or more summarized columns, then you'll have the option to use number of **Table rows** or a calculation based on any of the summarized columns. **Aggregation granularity** defines the time interval over which the collected values are aggregated.  For example, if the aggregation granularity is set to 5 minutes, the alert rule will evaluate the data aggregated over the last 5 minutes. If the aggregation granularity is set to 15 minutes, the alert rule will evaluate the data aggregated over the last 15 minutes. It is important to choose the right aggregation granularity for your alert rule, as it can affect the accuracy of the alert.
 
 :::image type="content" source="media/tutorial-log-alert/alert-rule-condition.png" lightbox="media/tutorial-log-alert/alert-rule-condition.png"alt-text="Alert rule condition":::
 
