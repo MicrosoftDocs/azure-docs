@@ -7,7 +7,7 @@ ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: faq
-ms.date: 01/04/2023
+ms.date: 01/11/2024
 ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -374,7 +374,10 @@ If unsigned components are detected from the UEFI firmware, bootloader, operatin
 ![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
 
 > [!TIP]
-> Turning off Secure Boot within the configurations can temporarily mitigate this boot issue. You to check which virtual machine component needs to be signed, then re-enable Secure Boot. [Learn more about updating Trusted Launch configurations](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal3%2Cportal2). 
+> Turning off Secure Boot within the configuration can temporarily mitigate boot issues and help you check which component is improperly signed. Make sure to re-enable Secure Boot after resolving the issue. [Learn more about updating Trusted Launch configurations](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal3%2Cportal2). 
+
+> [!NOTE]
+> Images that are created from the source of Marketplace (Platform Image Repository) or a custom image created from the Secure Image Gallery, you shouldn't be encountering Secure Boot failures. If a no-boot issue occurs from either of these avenues, there is potential of rootkits, malware with the virtual machine. Please proceed to delete the virtual machine, and re-create a new VM from the same source image. 
 
 ### Why am I getting a boot integrity monitoring fault?
 
@@ -389,9 +392,9 @@ Microsoft Defender for Cloud periodically performs attestation. If the attestati
 ### How would I verify a no-boot scenario in the Azure portal? 
 When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority which blocks booting a Trusted Launch VM. When the VM is running, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
 
-To access resource health from the virtual machine configuration page, navigate to Resource Health under the 'Help' panel. 
+To access resource health from the virtual machine configuration page, navigate to Resource Health under the 'Help' panel.
 
-![A resource health error message alerting a failed secure boot.](./media/trusted-launch/resource-health-error.png)
+:::image type="content" source="./media/trusted-launch/resource-health-error.png" lightbox="./media/trusted-launch/resource-health-error.png" alt-text="A resource health error message alerting a failed secure boot.":::
 
 ## Drivers
 
