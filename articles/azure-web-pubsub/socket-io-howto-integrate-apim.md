@@ -17,7 +17,7 @@ Azure API Management service provides a hybrid, multicloud management platform f
 
 ## Limitations
 
-Socket.IO clients support WebSocket and Long Polling and by default, the client will connect to the service with Long Polling and then upgrade to WebSocket. However, as for now, API Management doesn't yet support different types of APIs (WebSocket or Http) with the same path. You must only either `websocket` or `polling` in client settings.
+Socket.IO clients support WebSocket and Long Polling and by default, the client connects to the service with Long Polling and then upgrade to WebSocket. However, as for now, API Management doesn't yet support different types of APIs (WebSocket or Http) with the same path. You must set  either `websocket` or `polling` in client settings.
 
 ## Create resources
  
@@ -70,13 +70,13 @@ This section describes the steps to configure API Management when the Socket.IO 
 
 Now, the traffic can reach Web PubSub for Socket.IO through API Management. There are some configurations in application. Let’s use a chat application as an example.
 
-Clone Github repo https://github.com/Azure/azure-webpubsub and investigate to `sdk/webpubsub-socketio-extension/examples/chat` folder
+Clone GitHub repo https://github.com/Azure/azure-webpubsub and investigate to `sdk/webpubsub-socketio-extension/examples/chat` folder
 
 Then make some changes to let the sample work with API Management
 
 1. Open `public/main.js` and it's the Socket.IO client side codes
 
-   Edit the constructor of Socket.IO. Note that you have to select either `websocket` or `polling` as the transport:
+   Edit the constructor of Socket.IO. You have to select either `websocket` or `polling` as the transport:
 
    ```javascript
    const webPubSubEndpoint = "https://<api-management-url>";
