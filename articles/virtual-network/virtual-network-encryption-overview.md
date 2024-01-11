@@ -59,7 +59,7 @@ General Availability (GA) of Azure Virtual Network encryption is available in th
 
 - Swiss North
 
-Azure Virtual Network encryption is available in the following regions during the preview:
+Azure Virtual Network encryption is available in the following regions during the public preview:
 
 - East US 2 EUAP
 
