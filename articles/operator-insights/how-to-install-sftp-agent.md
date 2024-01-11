@@ -175,7 +175,10 @@ Steps:
     <Storage private IP>   <ingestion URL>
     <Key Vault private IP>  <Key Vault URL>
     ````
-
+5. Additionally to this, the public IP of the the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
+    ```
+    <Public IP>   login.microsoftonline.com
+    ````
 ## Install and configure agent software
 
 Repeat these steps for each VM onto which you want to install the agent:
