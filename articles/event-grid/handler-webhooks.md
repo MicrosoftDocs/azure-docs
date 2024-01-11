@@ -2,7 +2,7 @@
 title: Webhooks as event handlers for Azure Event Grid events
 description: Describes how you can use webhooks as event handlers for Azure Event Grid events. Azure Automation runbooks and logic apps are supported as event handlers via webhooks. 
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 01/10/2024
 ---
 
 # Webhooks, Automation runbooks, Logic Apps as event handlers for Azure Event Grid events
