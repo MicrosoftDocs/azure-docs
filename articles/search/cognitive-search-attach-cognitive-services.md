@@ -8,14 +8,14 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 01/11/2024
 ---
 
 # Attach an Azure AI multi-service resource to a skillset in Azure AI Search
 
 When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure AI Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**Azure AI multi-service resource**](../ai-services/multi-service-resource.md?pivots=azportal). 
 
-A multi-service resource references a subset of "Azure AI services" as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these services:
+A multi-service resource references a set of Azure AI services as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these services:
 
 + [Azure AI Vision](../ai-services/computer-vision/overview.md) for image analysis and optical character recognition (OCR)
 + [Azure AI Language](../ai-services/language-service/overview.md) for language detection, entity recognition, sentiment analysis, and key phrase extraction
@@ -115,7 +115,7 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 ## Remove the key
 
-Enrichments are a billable feature. If you no longer need to call Azure AI services, follow these instructions to remove the multi-region key and prevent use of the external resource. Without the key, the skillset reverts to the default allocation of 20 free transactions per indexer, per day. Execution of billable skills stops at 20 transactions and a "Time Out" message appears in indexer execution history when the allocation is used up.
+Enrichments are billable operations. If you no longer need to call Azure AI services, follow these instructions to remove the multi-region key and prevent use of the external resource. Without the key, the skillset reverts to the default allocation of 20 free transactions per indexer, per day. Execution of billable skills stops at 20 transactions and a "Time Out" message appears in indexer execution history when the allocation is used up.
 
 ### [**Azure portal**](#tab/portal-remove)
 
@@ -185,7 +185,7 @@ Enrichments are a billable feature. If you no longer need to call Azure AI servi
 
 Key-based billing applies when API calls to Azure AI services resources exceed 20 API calls per indexer, per day. 
 
-The key is used for billing, but not for enrichment operations' connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to an Azure AI services resource that's colocated in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Azure AI Search also offer other Azure AI services such as Language. If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key isn't a valid CognitiveServices type key for the region of your search service."
+The key is used for billing, but not for enrichment operations' connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to an Azure AI services resource that's located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Azure AI Search also offer other Azure AI services such as Language. If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key isn't a valid CognitiveServices type key for the region of your search service."
 
 Currently, billing for [built-in skills](cognitive-search-predefined-skills.md) requires a public connection from Azure AI Search to another Azure AI service. Disabling public network access breaks billing. If disabling public networks is a requirement, you can configure a [Custom Web API skill](cognitive-search-custom-skill-interface.md) implemented with an [Azure Function](cognitive-search-create-custom-skill-example.md) that supports [private endpoints](../azure-functions/functions-create-vnet.md) and add the [Azure AI services resource to the same VNET](../ai-services/cognitive-services-virtual-networks.md). In this way, you can call Azure AI services resource directly from the custom skill using private endpoints.
 
