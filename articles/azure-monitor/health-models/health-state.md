@@ -1,16 +1,15 @@
 ---
 title: Health state
-description: Concept of health state
+description: Describes the concept and operation of health state in Azure Monitor health models.
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 12/12/2023
 ---
 
-# Health state
+# Health state in Azure Monitor health models
 
-The health state of an object represents the ability of that object to perform its required tasks. As opposed to 
-
-
-Each resource in a health model has a health state based on a number of signals. A signal may be a metric value with a particular threshold or the results of a log query that's scheduled to run periodically. The health state of a resource rolls up to any resources that depend on it. For example, if an application depends on a storage account with a degraded health state, the application's health state is also degraded. The health of all the components of the health model roll up to a single root entity that provides a health state for the overall workflow.
+Each entity in a health model has a health state which represents the ability of that object to perform its required tasks. The health state is calculated based on a number of signals. A signal may be a metric value with a particular threshold or the results of a log query that's scheduled to run periodically. The health state of a resource rolls up to any resources that depend on it. For example, if an application depends on a storage account with a degraded health state, the application's health state is also degraded. The health of all the components of the health model roll up to a single root entity that provides a health state for the overall workflow.
 
 The health state is updated regularly, so you can always view an up-to-date health state in addition to tracking the health of each component and the entire model over time .
 

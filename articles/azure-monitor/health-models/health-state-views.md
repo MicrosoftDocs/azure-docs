@@ -41,7 +41,7 @@ The table in the upper right corner shows the configured **Service Level Objecti
 
 :::image type="content" source="./media/health-model-service-level/health-model-service-level-details.png" lightbox="./media/health-model-service-level/health-model-service-level-details.png" alt-text="Screenshot of the health model service level details within the Service level view pane.":::
 
-The target Service Level Objective is configured in the [Design view](./health-model-create-modify-with-designer.md) on the root entity of your health model.
+The target Service Level Objective is configured in the [Design view](./designer-view.md) on the root entity of your health model.
 
 :::image type="content" source="./media/health-model-service-level/slo-target.png" lightbox="./media/health-model-service-level/slo-target.png" alt-text="Screenshot of configuring an SLO target on a health model root entity.":::
 

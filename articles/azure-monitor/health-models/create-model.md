@@ -2,6 +2,8 @@
 title: Create a health model resource in Azure Monitor
 description: Learn now to create a health model resource.
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 12/12/2023
 ---
 
@@ -28,7 +30,7 @@ ms.date: 12/12/2023
 ## [Azure portal](#tab/portal)
 
 
-The `nodes: []` section can become very complex. Using the [Designer view](./health-model-create-modify-with-designer.md) with the [Code view](./health-model-code.md) can help to define a health model via the UI and take the code artifacts over to Infra-as-Code.
+The `nodes: []` section can become very complex. Using the [Designer view](./designer-view.md) with the [Code view](./code-view.md) can help to define a health model via the UI and take the code artifacts over to Infra-as-Code.
 
 
 1. Select **Health Models** from the **Monitor** menu in the Azure portal.
@@ -39,22 +41,22 @@ The `nodes: []` section can become very complex. Using the [Designer view](./hea
 
    :::image type="content" source="./media/health-model-getting-started/health-model-resources-list.png" lightbox="./media/health-model-getting-started/health-model-resources-list.png" alt-text="Screenshot of the Azure portal with existing health models listed.":::
 
-1. Select a resource group, name and location for the new health model.
+3. Select a resource group, name and location for the new health model.
 
    :::image type="content" source="./media/health-model-getting-started/create-a-new-azure-health-model-page-basics-tab.png" lightbox="./media/health-model-getting-started/create-a-new-azure-health-model-page-basics-tab.png" alt-text="Screenshot of the Create a new Azure Health Model page in the Azure portal with the Basics tab selected.":::
 
-1. Click **Next** to view the **Identity** page. Select **System Assigned** or select an existing User assigned identity. This identity is used later to make authorized requests against the Azure resources that you add to your health model.
+4. Click **Next** to view the **Identity** page. Select **System Assigned** or select an existing User assigned identity. This identity is used later to make authorized requests against the Azure resources that you add to your health model.
 
    :::image type="content" source="./media/health-model-getting-started/create-a-new-azure-health-model-page-identity-tab.png" lightbox="./media/health-model-getting-started/create-a-new-azure-health-model-page-identity-tab.png" alt-text="Screenshot of the Create a new Azure Health Model page in the Azure portal with the Identity tab selected.":::
 
-1. Click **Create** on the last page of the wizard.
+5. Click **Create** on the last page of the wizard.
 
    :::image type="content" source="./media/health-model-getting-started/create-a-new-azure-health-model-page-review-create-tab.png" lightbox="./media/health-model-getting-started/create-a-new-azure-health-model-page-review-create-tab.png" alt-text="Screenshot of the Create a new Azure Health Model page in the Azure portal with the Review + Create tab selected.":::
 
 
 ## [Resource Manager](#tab/arm)
 
-Use the following ARM or Bicep template to create a health model use a Resource Manager template. The `nodes` section in each template contains the definition of the health model. Use the [code view](./health-model-code.md) for the JSON that can be copied into the template.
+Use the following ARM or Bicep template to create a health model use a Resource Manager template. The `nodes` section in each template contains the definition of the health model. Use the [code view](./code-view.md) for the JSON that can be copied into the template.
 
 ```json
 {
@@ -120,14 +122,14 @@ resource healthModel 'Microsoft.HealthModel/healthmodels@2022-11-01-preview' = {
 
 | Argument | Description |
 |:---|:---|
-| `identity` | For more information, see [Identity](./health-model-configure-identity.md). |
+| `identity` | For more information, see [Identity](./configure-identity.md). |
 | `properties` | Contains the HM configuration:<ul><li>`activeState` can be set to `Inactive` or `Active`.</li><li>`refreshInterval` is the execution interval of the Health Model.</li><li>`nodes`. For more information, see [Nodes](#nodes).</li></ul> |
 
 
 
 ## [Terraform](#tab/terraform)
 
-Azure Health Models can be deployed using the AzApi Terraform provider. Before you deploy an AHM instance, you need to decide if you'd like to deploy AHM with a system-assigned Identity or a user-assigned Identity. For more information, see [Configure the Managed Identity for a health model](./health-model-configure-identity.md).
+Azure Health Models can be deployed using the AzApi Terraform provider. Before you deploy an AHM instance, you need to decide if you'd like to deploy AHM with a system-assigned Identity or a user-assigned Identity. For more information, see [Configure the Managed Identity for a health model](./configure-identity.md).
 
 The process itself is mostly similar. The main difference is that the user-assigned Identity needs to be created as well. This creation can also be done via Terraform.
 

@@ -2,6 +2,8 @@
 title: Configure the Managed Identity for a health model
 description: Learn how to configure or switch the Managed Identity for a health model resource.
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 12/12/2023
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Health Models
-description: Learn how to register the resource provider, access health models, and create resource models.
+description: Quick start for Azure Health health models.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -72,4 +72,4 @@ All the following steps happen on the resource UI:
 
 ## Next steps
 
-To build your first model, see [Create or modify health models by using Designer view](./health-model-create-modify-with-designer.md).
+To build your first model, see [Create or modify health models by using Designer view](./designer-view.md).

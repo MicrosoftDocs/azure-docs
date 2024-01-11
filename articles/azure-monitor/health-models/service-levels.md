@@ -2,10 +2,12 @@
 title: View the attained service level for a health model
 description: Learn how to view an overview of the attained service level for your workload for the time span you specify.
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 12/12/2023
 ---
 
-# View the attained service level for a health model
+# Service levels in Azure Monitor health models (preview)
 
 The service level view gives you an overview of the attained service level of your workload visualized in your health model. It shows you the healthy, unknown, degraded and unhealthy states. Only unhealthy states are considered not attained.
 

@@ -2,6 +2,8 @@
 title: Use Prometheus Remote Write in Azure Health Models
 description: Learn how to use Prometheus Remote Write to overcome the lack of direct network access to self-hosted Prometheus servers.
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 12/12/2023
 ---
 
