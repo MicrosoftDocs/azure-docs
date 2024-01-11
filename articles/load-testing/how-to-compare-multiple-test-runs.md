@@ -10,7 +10,7 @@ ms.date: 01/11/2024
 ms.topic: how-to
 ---
 
-# Identify performance regressions by comparing test runs in Azure Load Testing
+# Compare load test runs in Azure Load Testing
 
 In this article, you learn how you can compare test runs in Azure Load Testing. You can view trends across the last 10 test runs, or you can select and compare up to five individual test runs. Optionally, you can mark a test run as a baseline to compare against.
 
@@ -26,7 +26,7 @@ To compare both client-side and server-side metrics, you can select up to five t
 
 - An Azure load testing resource, which has a test with multiple test runs. To create a load testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
-## Select test runs
+## Compare multiple load test runs
 
 To compare test runs in Azure Load Testing, you first have to select up to five runs within a load test. You can only compare runs that belong to the same load test. After you select the test runs you want to compare, you can visually compare the client-side and server-side metrics for each test run in the load test dashboard.
 
@@ -58,7 +58,7 @@ Use the following steps to select the test runs:
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/load-test-dashboard-compare-runs.png" alt-text="Screenshot of the load testing dashboard in the Azure portal, comparing two test runs." lightbox="media/how-to-compare-multiple-test-runs/load-test-dashboard-compare-runs.png":::
 
-## View metrics trends across test runs
+## View metrics trends across load test runs
 
 To view metrics trends across test runs in Azure Load Testing, you need to have at least two test runs in the *Done*, or *Stopped* state. You can only view trends from runs that belong to the same load test.
 
@@ -82,7 +82,7 @@ Use the following steps to view metrics trends across test runs:
 
     You can select a test run that you want to analyze and open the results dashboard for that test run.
 
-## Use a baseline test run
+## Compare load test runs against a baseline
 
 You can mark a test run as a baseline to compare the client-side metrics of the recent test runs with the metrics of the baseline.
 
