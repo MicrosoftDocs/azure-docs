@@ -20,7 +20,9 @@ Automatic Guest OS updates?
 
 
 ## Requirements
-When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
+When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
+
+Virtual Machine Scale Sets using Uniform Orchestration Mode can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration Mode, Application Health Extension is required as Health probes are not supported on Flexible Orchestration Mode. 
 
 ## Exceptions to Rolling Upgrade Policy
 
@@ -49,9 +51,11 @@ Rolling Upgrade batch size % of 100%
 With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. Rolling upgrades without MaxSurge does not require additional quota however, it does result in your scale set having reduced capacity during the upgrade process. 
 
 
-## Setting the Rolling Upgrade Policy
+## Setting or Updating the Rolling Upgrade Policy
 
-### [Portal](#tab/portal2)
+While you are able to configure the Rolling Upgrade Policy during scale set creation, because using Rolling Upgrade Policy requires a health probe or an application health extension and there are multiple additional settings associated with Rolling Upgrade Policy, it is suggested to first create your scale set using Manual Upgrade Policy and once you have confirmed your health probe or application health extension is properly reporting back your application health, update your Upgrade Policy from Manual to Rolling and update the Policy settings to your desired configuration. 
+
+### [Portal](#tab/portal1)
 
 Select the Virtual Machine Scale Set you want to change the Upgrade Policy for. In the menu under **Settings**, select **Upgrade Policy** and from the drop-down menu, select **Rolling - Upgrades roll out in batches with optional pause**. 
 
@@ -60,79 +64,92 @@ Configure the properties to best suite your requirements.
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-policy-portal.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
 
 
-### [CLI](#tab/cli2)
+### [CLI](#tab/cli1)
 Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update).
-
-If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
 
 ```azurecli-interactive
 az vmss update \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --set upgradePolicy.automatic
+    --set upgradePolicy.rollingUpgradePolicy.maxSurge=true
 ```
 
-### [PowerShell](#tab/powershell2)
+### [PowerShell](#tab/powershell1)
 Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). 
-
-If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
 
 ```azurepowershell-interactive
 $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
-Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -UpgradePolicyMode "Manual" -VirtualMachineScaleSet $vmss
+Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -UpgradePolicyMode "Rolling" -VirtualMachineScaleSet $vmss
 ```
 
-### [ARM Template](#tab/template2)
+### [ARM Template](#tab/template1)
 
 Update the properties section of your ARM template with the Upgrade Policy you wish to use. 
 
-If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
 
-
-```ARM
+``` ARM Template
 "properties": {
+    "singlePlacementGroup": false,
         "upgradePolicy": {
-            "mode": "Automatic",
+            "mode": "Rolling",
+            "rollingUpgradePolicy": {
+            "maxBatchInstancePercent": 20,
+            "maxUnhealthyInstancePercent": 20,
+            "maxUnhealthyUpgradedInstancePercent": 20,
+            "pauseTimeBetweenBatches": "PT2S",
+	        "MaxSurge": "true"
+            }
         }
     }
 ```
 ---
 
 
-## Next steps
-You can also perform common management tasks on Virtual Machine Scale Sets using the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
-
-
-## Change the Rolling Upgrade Policy Configuration
-
-
-
 ## Get Rolling Upgrade Status
 
+### [Portal](#tab/portal2)
 
+
+### [CLI](#tab/cli2)
+
+
+### [PowerShell](#tab/powershell2)
+
+
+### [ARM Template](#tab/template2)
 
 
 ## Cancel a Rolling Upgrade
 
+### [Portal](#tab/portal3)
 
+
+### [CLI](#tab/cli3)
+
+
+### [PowerShell](#tab/powershell3)
+
+
+### [ARM Template](#tab/template3)
 
 ## Restart a Rolling Upgrade
 
+### [Portal](#tab/portal4)
 
+
+### [CLI](#tab/cli4)
+
+
+### [PowerShell](#tab/powershell4)
+
+
+### [ARM Template](#tab/template4)
 
 ## Troubleshooting
 
 
 
+## Next steps
+You can also perform common management tasks on Virtual Machine Scale Sets using the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
 
--  **Rolling Upgrades with MaxSurge disabled**
-    
-    With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. 
-
--  **Rolling Upgrades with MaxSurge enabled**
-
-    > [!IMPORTANT]
-    > Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
-        
-    With MaxSurge enabled, new instances are created in the scale set using the latest scale model in batches. Once the batch of new instances is successfully created and marked as healthy, instances matching the old scale set model are deleted. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. 
