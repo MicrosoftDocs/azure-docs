@@ -24,7 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Cloud-based sensor updates now lists all available update versions
 
-As an organization adds sensors over time, the software versions on the sensors will be different. Also when sensors are updated, the update process automatically loads the latest version of the sensor software to the cloud based sensor. This leads to a situation where some sensors have been upgraded and some still run the original versions used during onboarding. Over time, your system ends up with sensors running different versions of the software, which is hard for the deployment team to maintain.    
+As an organization adds sensors over time, the software versions on the sensors will be different. As sensors are updated, the update process automatically loads the latest version of the sensor software to the cloud based sensor. This leads to a situation where some sensors have been upgraded and some still run the original versions used during onboarding. Over time, your system ends up with sensors running different versions of the software, which is hard for the deployment team to maintain.    
 
 Now, instead of automatically updating the sensor monitoring software to the latest version, you can now choose to update to any of the update versions available. This choice allows you to update a sensor to a specific version, for example the version run on all other sensors, even if this is not the latest version.
  
