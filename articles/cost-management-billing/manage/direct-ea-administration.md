@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/07/2023
+ms.date: 01/11/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -214,6 +214,9 @@ After the account owner receives an account ownership email, they need to confir
     :::image type="content" source="./media/direct-ea-administration/activate-account.png" alt-text="Screenshot showing the Activate Account page." lightbox="./media/direct-ea-administration/activate-account.png" :::
 
 After account ownership is confirmed, you can create subscriptions and purchase resources with the subscriptions.
+
+>[!NOTE]
+>The confirmation process can take up to 24 hours.
 
 ### To activate an enrollment account with a .onmicrosoft.com account
 

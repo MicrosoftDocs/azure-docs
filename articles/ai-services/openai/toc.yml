@@ -45,6 +45,8 @@ items:
       href: ./concepts/understand-embeddings.md
     - name: Fine-tuning
       href: ./concepts/fine-tuning-considerations.md
+    - name: GPT-4 Turbo with Vision
+      href: ./concepts/gpt-with-vision.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
     - name: Content credentials
@@ -86,8 +88,6 @@ items:
       href: ./how-to/work-with-code.md
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
-    - name: Use a web app
-      href: ./how-to/use-web-app.md
   - name: Content filtering
     href: ./how-to/content-filters.md
   - name: Use blocklists
@@ -128,6 +128,8 @@ items:
         href: ./how-to/quota.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
+      - name: Get started with Provisioned Deployments
+        href: ./how-to/provisioned-get-started.md
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
       - name: Performance & latency
