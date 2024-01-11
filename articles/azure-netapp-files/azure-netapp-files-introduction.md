@@ -34,7 +34,7 @@ Azure NetApp Files supports SMB, NFS and dual protocols volumes and can be used 
 
 For more information about workload solutions leveraging Azure NetApp Files, see [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md).
 
-# Performance, cost optimization, and scale 
+## Performance, cost optimization, and scale 
 
 Azure NetApp Files is designed to provide high-performance file storage for enterprise workloads and provide functionality to provide cost optimization and scale. Key features that contribute to these include:
 
@@ -91,7 +91,6 @@ Azure NetApp Files provides built-in data management and security capabilities t
 | AD/LDAP authentication, export policies & access control lists (ACLs) | Authenticate and authorize access to data using existing AD/LDAP credentials and allow for the creation of export policies and ACLs to govern data access and usage | Prevent data breaches and ensure compliance with data security regulations, with enhanced granular control over access to data volumes, directories and files. |
 
 These features work together to provide a comprehensive data management solution that helps to ensure that your data is always available, recoverable, and secure.
-
 
 ## Next steps
 
