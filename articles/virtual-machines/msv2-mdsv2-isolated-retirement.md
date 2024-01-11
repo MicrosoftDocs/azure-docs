@@ -3,7 +3,7 @@
 # For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
-title: Msv2 and Mdsv2 Migration Guide
+title: Msv2 and Mdsv2 Isolated Sizes Retirement
 description: Migration guide for sizes
 author:      iamwilliew # GitHub alias
 ms.author: wwilliams
@@ -13,21 +13,19 @@ ms.date:     01/10/2024
 ms.subservice: sizes
 ---
 
-# Msv2 and Mdsv2 Migration Guide
+# Msv2 and Mdsv2 Isolated Sizes Retirement
 
 On March 31, 2027, Azure will retire the Msv2 and Mdsv2-series Medium Memory virtual machines (VM) listed below: 
 
 - Msv2 Medium Memory Diskless 
 
    - Standard_M192is_v2  
-
-      - Standard_M192ims_v2 
+   - Standard_M192ims_v2 
 
 - Mdsv2 Medium Memory with Disk 
 
    - Standard_M192ids_v2 
-
-      - Standard_M192idms_v2 
+   - Standard_M192idms_v2 
 
 From now to March 31, 2027, you can continue to use the VMs listed above without disruption. On March 31, 2027, the remaining VMs with these specific sizes on your subscription will be set to a deallocated state. These VMs will be stopped and removed from the host. These VMs will no longer be billed in the deallocated state. To avoid service disruptions, please follow our instructions below to migrate to your selected Mv3 replacement size by March 31, 2027.   
 
@@ -53,9 +51,9 @@ Follow the instructions below to migrate your [M192i(d)(m)s VM](/azure/virtual-m
 
 7. If the VM or Availability Set is part of a Proximity Placement Group, it is recommended to switch availability options to [zonal deployment](/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-machines%2Ftoc.json&tabs=azure-cli) using the script linked below or setting up Database Replication (e.g. HANA System Replication, SQL Server AlwaysOn). Zonal deployments significantly reduce the possibility of allocation failure.  
 
-8. [How to Migrate a Highly Available SAP System in Azure from Availability Set to Availability Zone](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) 
+   - [How to Migrate a Highly Available SAP System in Azure from Availability Set to Availability Zone](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) 
 
-9. If your VM is part of a pinned Availability set or if you cannot switch your availability option to Availability Zone (as recommended in step 5 above), open an Azure Support request to assist with resizing.   
+8. If your VM is part of a pinned Availability set or if you cannot switch your availability option to Availability Zone (as recommended in step 7 above), open an Azure Support request to assist with resizing.   
 
 ### Help and support 
 
