@@ -19,7 +19,7 @@ This article helps you understand this new feature, how to implement it, and how
 
 ## Prerequisites and limitations
 
-- Only supports [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md).
+- Only supports [Azure Monitor managed service for Prometheus][managed-prometheus-overview].
 - [Private link](../azure-monitor/logs/private-link-security.md) is not supported.
 - Only the default [ama-metrics-settings-config-map](../azure-monitor/containers/prometheus-metrics-scrape-configuration.md#configmaps) can be customized. All other customizations are not supported.
 - The cluster must use [managed identity authentication](use-managed-identity.md).
@@ -208,6 +208,7 @@ az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-reso
 [ama-metrics-settings-configmap]: https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml
 
 <!-- INTERNAL LINKS -->
+[managed-prometheus-overview]: ../azure-monitor/essentials/prometheus-metrics-overview.md
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
