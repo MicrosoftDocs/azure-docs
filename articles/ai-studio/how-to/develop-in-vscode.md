@@ -8,7 +8,8 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 1/10/2024
+ms.reviewer: eur
 ms.author: eur
 author: eric-urban
 ---
