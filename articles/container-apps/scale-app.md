@@ -509,6 +509,8 @@ If the app was scaled to the maximum replica count of 20, scaling goes through t
 
 - No usage charges are incurred when an application scales to zero. For more pricing information, see [Billing in Azure Container Apps](billing.md).
 
+- You need to enable data protection for all .NET apps on Azure Container Apps. See [Deploying and scaling an ASP.NET Core app on Azure Container Apps](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps) for details.
+
 ### Known limitations
 
 - Vertical scaling isn't supported.
