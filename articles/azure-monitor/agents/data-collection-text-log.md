@@ -25,6 +25,8 @@ To complete this procedure, you need:
 
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 
+- JSON text must be contained in a single row for proper ingestion. The JSON body (file) format is not supported.
+
 - A Virtual Machine, Virtual Machine Scale Set, Arc-enabled server on-premises or Azure Monitoring Agent on a Windows on-premises client that writes logs to a text or JSON file.
     
     Text and JSON file requirements and best practices:    
@@ -183,7 +185,7 @@ To create the data collection rule in the Azure portal:
                     "type": "Microsoft.Insights/dataCollectionRules",
                     "name": "dataCollectionRuleName",
                     "location": "location",
-                    "apiVersion": "2021-09-01-preview",
+                    "apiVersion": "2022-06-01",
                     "properties": {
                         "dataCollectionEndpointId":  "endpointResourceId",
                         "streamDeclarations": {
@@ -266,7 +268,7 @@ To create the data collection rule in the Azure portal:
                     "type": "Microsoft.Insights/dataCollectionRules",
                     "name": "dataCollectionRuleName",
                     "location":  `location` ,
-                    "apiVersion": "2021-09-01-preview",
+                    "apiVersion": "2022-06-01",
                     "properties": {
                         "dataCollectionEndpointId":  "endpointResourceId" ,
                         "streamDeclarations": {
@@ -363,6 +365,10 @@ To create the data collection rule in the Azure portal:
     
     - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace or or leave as **source** if you don't need to transform the collected data.
 
+       > [!NOTE]
+       > JSON text must be contained on a single line. For example {"Element":"Gold","Symbol":"Au","NobleMetal":true,"AtomicNumber":79,"MeltingPointC":1064.18}. To transfom the data into a table with columns TimeGenerated, Element, Symbol, NobleMetal, AtomicNumber and Melting point use this transform:  "transformKql": "source|extend d=todynamic(RawData)|project TimeGenerated, Element=tostring(d.Element), Symbol=tostring(d.Symbol), NobleMetal=tostring(d.NobleMetal), AtomicNumber=tostring(d.AtommicNumber), MeltingPointC=tostring(d.MeltingPointC)
+     
+
 
     See [Structure of a data collection rule in Azure Monitor](../essentials/data-collection-rule-structure.md) if you want to modify the data collection rule.
     
@@ -378,7 +384,7 @@ To create the data collection rule in the Azure portal:
 
     :::image type="content" source="media/data-collection-text-log/data-collection-rule-details.png" lightbox="media/data-collection-text-log/data-collection-rule-details.png" alt-text="Screenshot that shows the Overview pane in the portal with data collection rule details.":::
 
-1. Change the API version to **2021-09-01-preview**.
+1. Change the API version to **2022-06-01**.
 
     :::image type="content" source="media/data-collection-text-log/data-collection-rule-json-view.png" lightbox="media/data-collection-text-log/data-collection-rule-json-view.png" alt-text="Screenshot that shows JSON view for data collection rule.":::
 
