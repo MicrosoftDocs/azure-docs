@@ -58,6 +58,13 @@ Enabling capabilities such as sending data to Azure Monitor Logs and alerting in
 
 You can pay for Azure OpenAI Service charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those products and services found in the Azure Marketplace.
 
+### HTTP Error response code and billing status in Azure OpenAI Service
+
+If the model performs processing, you will be charged even if the status code is not successful (not 200).
+For example, a 400 error due to a content filter or input limit, or a 408 error due to a timeout.
+If the model doesn't perform processing, you won't be charged.
+For example, a 401 error due to authentication or a 429 error due to exceeding the Rate Limit.
+
 ## Monitor costs
 
 As you use Azure resources with Azure OpenAI, you incur costs. Azure resource usage unit costs vary by time intervals, such as seconds, minutes, hours, and days, or by unit usage, such as bytes and megabytes. As soon as Azure OpenAI use starts, costs can be incurred and you can see the costs in the [cost analysis](../../../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
