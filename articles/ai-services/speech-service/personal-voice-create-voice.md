@@ -33,7 +33,7 @@ Construct the request body according to the following instructions:
 - Set the required `consentId` property. See [add user consent](./personal-voice-create-consent.md).
 - Set the required `audiodata` property. You can specify one or more audio files in the same request. 
 
-Make an HTTP PUT request using the URI as shown in the following `PersonalVoices_Create` example. 
+Make an HTTP POST request using the URI as shown in the following `PersonalVoices_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region. 
 - Replace `JessicaPersonalVoiceId` with a personal voice ID of your choice. The case sensitive ID will be used in the personal voice's URI and can't be changed later. 
