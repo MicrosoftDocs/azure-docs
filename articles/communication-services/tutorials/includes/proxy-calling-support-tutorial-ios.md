@@ -11,21 +11,17 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-## Force calling traffic to be proxied across your own server for iOS SDK
-
-In certain situations, it might be useful to have all your client traffic proxied to a server that you can control. When the SDK is initializing, you can provide the details of your servers that you would like the traffic to be routed through. Once enabled, all the media traffic (audio/video/screen sharing) travel through the provided TURN servers instead of the Azure Communication Services defaults. This tutorial guides on how to have iOS SDK calling traffic be proxied to servers that you control.
-
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 >[!IMPORTANT]
 > The proxy feature will NOT be available for Teams Identities and Azure Communication Services Teams interop actions.
 
-### Proxy calling media traffic
+## Proxy calling media traffic
 
-#### What is a TURN server?
+### What is a TURN server?
 Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of many reasons: firewalls with strict rules, peers sitting behind a private network, or computers running in a NAT (Network Address Translation) environment. To solve these network connection issues, you can use a TURN server. The term stands for Traversal Using Relays around NAT, and it's a protocol for relaying network traffic. STUN and TURN servers are the relay servers here. [Learn more about how Azure Communication Services mitigates network challenges by utilizing STUN and TURN](../../concepts/network-traversal.md).
 
-#### Provide your TURN server details with the SDK
+### Provide your TURN server details with the SDK
 To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing the `CallClient`. For more information how to set up a call, see [Azure Communication Services iOS SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios) for the Quickstart on how to setup Voice and Video.
 
 ```swift
@@ -58,12 +54,12 @@ self.callClient = CallClient(options: callClientOptions);
 > [!NOTE]
 > If any of the URLs provided are invalid, the `CallClient` initialization will fail and will throw errors accordingly.
 
-#### Set up a TURN server in Azure
+### Set up a TURN server in Azure
 You can create a Linux virtual machine in the Azure portal using this [guide](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) and deploy a TURN server using [coturn](https://github.com/coturn/coturn). Coturn is a free and open source implementation of a TURN and STUN server for VoIP and WebRTC.
 
 Once you have setup a TURN server, you can test it using the WebRTC Trickle ICE page - [Trickle ICE](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/).
 
-### Proxy signaling traffic
+## Proxy signaling traffic
 
 To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` through its property `Network` while initializing the `CallClient`. For more information on how to set up a call, see [Azure Communication Services iOS SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios) for the Quickstart on how to setup Voice and Video.
 
@@ -77,5 +73,70 @@ self.callClient = CallClient(options: callClientOptions)
 // ...continue normally with your SDK setup and usage.
 ```
 
-#### Setting up a signaling proxy server on Azure
+### Setting up a signaling proxy server on Azure
 You can create a Linux virtual machine in the Azure portal and deploy an NGINX server on it using this guide - [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu).
+
+Here's an NGINX config that you could make use of for a quick spin up:
+```
+events {
+    multi_accept       on;
+    worker_connections 65535;
+}
+http {
+    map $http_upgrade $connection_upgrade {
+        default upgrade;
+        '' close;
+    }
+    map $request_method $access_control_header {
+        OPTIONS '*';
+    }
+    server {
+        listen <port_you_want_listen_on> ssl;
+        ssl_certificate     <path_to_your_ssl_cert>;
+        ssl_certificate_key <path_to_your_ssl_key>;
+        location ~* ^/(.*?\.(com|net)(?::[\d]+)?)/(.*)$ {
+            if ($request_method = 'OPTIONS') {
+                add_header Access-Control-Allow-Origin '*' always;
+                add_header Access-Control-Allow-Credentials 'true' always;
+                add_header Access-Control-Allow-Headers '*' always;
+                add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+                add_header Access-Control-Max-Age 1728000;
+                add_header Content-Type 'text/plain';
+                add_header Content-Length 0;
+                return 204;
+            }
+            resolver 1.1.1.1;
+            set $ups_host $1;
+            set $r_uri $3;
+            rewrite ^/.*$ /$r_uri break;
+            proxy_set_header Host $ups_host;
+            proxy_ssl_server_name on;
+            proxy_ssl_protocols TLSv1.2;
+            proxy_ssl_ciphers DEFAULT;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_pass_header Authorization;
+            proxy_pass_request_headers on;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection $connection_upgrade;
+            proxy_set_header Proxy "";
+            proxy_set_header Access-Control-Allow-Origin $access_control_header;
+            proxy_pass https://$ups_host;
+            proxy_redirect https://$ups_host https://$host/$ups_host;
+            proxy_intercept_errors on;
+            error_page 301 302 307 = @process_redirect;
+            error_page 400 405 = @process_error_response;
+        }
+        location @process_redirect {
+            set $saved_redirect_location '$upstream_http_location';
+            resolver 1.1.1.1;
+            proxy_pass $saved_redirect_location;
+            add_header X-DBUG-MSG "301" always;
+        }
+        location @process_error_response {
+            add_header Access-Control-Allow-Origin * always;
+        }
+    }
+}
+```
