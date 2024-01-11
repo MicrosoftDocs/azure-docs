@@ -796,6 +796,10 @@ data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_
 
 data: [DONE] 
 ```
+
+> [!IMPORTANT]
+> When content filtering is triggered for a prompt and a `"status": 400` is received as part of the response, model inference does not occur but there is still a charge for this request as the prompt was evaluated by the service. [Charges will also occur](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) when a `"status":200` is received with `"finish_reason": "content_filter"`. In this case, the model generated a completion, but it was blocked by the content filtering system.
+
 ## Best practices
 
 As part of your application design, consider the following best practices to deliver a positive experience with your application while minimizing potential harms:
