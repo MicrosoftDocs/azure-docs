@@ -48,7 +48,7 @@ For each OSDU group, you can add a user as either an OWNER or a MEMBER:
 
 ## Entitlement APIs
 
-For a full list of entitlement API endpoints, see [OSDU entitlement service](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#entitlement-service-api). A few illustrations of how to use Entitlement APIs are available in [How to manage users](how-to-manage-users.md).
+For a full list of Entitlement API endpoints, see [OSDU entitlement service](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#entitlement-service-api). A few illustrations of how to use Entitlement APIs are available in [Manage users](how-to-manage-users.md).
 
 > [!NOTE]
 > The OSDU documentation refers to v1 endpoints, but the scripts noted in this documentation refer to v2 endpoints, which work and have been successfully validated.
@@ -58,10 +58,12 @@ OSDU&trade; is a trademark of The Open Group.
 ## Next steps
 
 For the next step, see:
+
 - [Manage users](how-to-manage-users.md)
-- [How to manage legal tags](how-to-manage-legal-tags.md)
+- [Manage legal tags](how-to-manage-legal-tags.md)
 - [Manage ACLs](how-to-manage-acls.md)
 
-You can also ingest data into your Azure Data Manager for Energy instance with:
+You can also ingest data into your Azure Data Manager for Energy instance:
+
 - [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
 - [Tutorial on manifest ingestion](tutorial-manifest-ingestion.md)
