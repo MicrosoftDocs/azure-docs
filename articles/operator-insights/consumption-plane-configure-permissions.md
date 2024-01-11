@@ -11,9 +11,9 @@ ms.date: 1/06/2024
 
 # Manage permissions to the consumption URL
 
-Azure Operator Insights enables you to control access to the consumption URL based on email addresses or distribution lists. Use the following steps to configure read-only access to the consumption URL.
+Azure Operator Insights enables you to control access to the consumption URL of each Data Product based on email addresses or distribution lists. Use the following steps to configure read-only access to the consumption URL.
 
-Azure Operator Insights currently supports a single role that gives access to all tables and columns on the consumption URL of the the Data Product.
+Azure Operator Insights currently supports a single role that gives Read access to all tables and columns on the consumption URL.
 
 ## Add user access
 
