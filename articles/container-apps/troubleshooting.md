@@ -217,6 +217,3 @@ For more information about configuring traffic splitting, see [Traffic splitting
 
 > [!div class="nextstepaction"]
 > [Reliability in Azure Container Apps](../reliability/reliability-azure-container-apps.md)
-
-> [!TIP]
-> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
