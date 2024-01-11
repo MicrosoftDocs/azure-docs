@@ -72,7 +72,7 @@ If you want a cost-optimized profile, we recommend setting the following paramet
 | Common causes | Mitigation recommendations |
 |--------------|--------------|
 | PersistentVolume node affinity conflicts, which can arise when using the cluster autoscaler with multiple availability zones or when a pod's or persistent volume's zone differs from the node's zone. | Use one node pool per availability zone and enabling `--balance-similar-node-groups`. You can also set the [`volumeBindingMode` field to `WaitForFirstConsumer`](./azure-disk-csi.md#create-a-custom-storage-class) in the pod specification to prevent the volume from being bound to a node until a pod using the volume is created. |
-| Taints and Tolerations node affinity conflicts | Assess the taints assigned to your nodes and review the tolerations defined in your pods. If necessary, make adjustments to the [taints and tolerations](./operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to ensure that your pods can be efficiently scheduled on your nodes. |
+| Taints and Tolerations/Node affinity conflicts | Assess the taints assigned to your nodes and review the tolerations defined in your pods. If necessary, make adjustments to the [taints and tolerations](./operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to ensure that your pods can be efficiently scheduled on your nodes. |
 
 ### Scale up operation failures
 
