@@ -88,7 +88,7 @@ This template contains several parameters that are predefined for your convenien
 ---
 ::: zone-end
 ::: zone pivot="platform-windows-container"
-The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/app-service-docs-windows-container/). It deploys an App Service plan and an App Service app on a Windows container.
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/app-service-docs-windows-container/). It deploys an App Service plan and an App Service app on a Windows container.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows-container/azuredeploy.json":::
 
@@ -104,7 +104,7 @@ This template contains several parameters that are predefined for your convenien
 | webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
 | appServicePlanName | string  | "webAppPlan-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App Service Plan name |
 | location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
-| skuTier        | string  | "P1v3"                         | Instance size ([View available SKUs](https://learn.microsoft.com/azure/app-service/configure-custom-container?tabs=debian&pivots=container-windows#customize-container-memory)) |
+| skuTier        | string  | "P1v3"                         | Instance size ([View available SKUs](configure-custom-container.md?tabs=debian&pivots=container-windows#customize-container-memory)) |
 | appSettings | string  | "[{"name": "PORT","value": "8080"}]"                          | App Service listening port. Needs to be 8080. |
 | kind       | string  | "windows"                          | External Git repo (optional) |
 | hyperv     | string  | "true"                          | External Git repo (optional) |
