@@ -13,7 +13,7 @@ ms.author: normesta
 
 # Quickstart: Create, assign, and run a storage task
 
-In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. The storage task applies a legal hold to any container which contains one or more Microsoft Word documents.
+In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. The storage task applies a time-based immutability policy any Microsoft Word documents that exist in the storage account.
 
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
@@ -77,9 +77,9 @@ You can specify the operations that a storage task performs by making selections
 1. In the **Select an operation** drop-down list of the **Then** section, select **Set blob immutability policy**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Then operation which sets the immutabality policy.](../media/storage-tasks/storage-task-quickstart-portal/then-operation-immutability-policy.png)
+   > ![Screenshot of the Then operation which sets the immutability policy.](../media/storage-tasks/storage-task-quickstart-portal/then-operation-immutability-policy.png)
 
-   This operation applies a legal hold to any container which contains one or more Microsoft Word documents.
+   This operation applies a a time-based immutability policy to Microsoft Word documents.
 
 2. Select **Add new operation**, and then in the **Select a operation** drop-down list, select **Set blob tags**.
 
