@@ -49,7 +49,7 @@ Any-G is built on top of Microsoft Operator Nexus and Azure – with flexible Ne
 
 AO5GC supports recovery mechanisms for failure scenarios such as Single Pod, Multi-Pod, VM, Multi VM within the same rack, and multi-VM spread across multiple racks. As the system scales to accommodate millions of subscribers, there arises a necessity to implement various mechanisms capable of addressing both internal and external faults, extending to the failure of an entire geographical location. To effectively mitigate potential disruptions and ensure minimal impact, AO5GC incorporates Geographical Redundancy mechanisms and In-Service Software Upgrade mechanisms.
 
-## Orchestration
+### Orchestration
 
 AO5GC enables you to automate provisioning, configuration, and management of complex services that span multiple NFs and analytics services in on-premises, cloud or hybrid environments. This ensures consistent and efficient deployment. It supports upgrade and rollback to different versions while maintaining the operator-intended configuration across versions and not affecting the operations of the existing workloads. 
  
@@ -57,7 +57,7 @@ AO5GC enables you to automate provisioning, configuration, and management of com
 
 AO5GC's Resource Provider (RP) provides an inventory of the deployed resources and supports monitoring and health status of current and ongoing deployments.
 
-## Observability
+### Observability
 
 AO5GC allows you to monitor the performance of your networks and applications efficiently. It enables local observability with a small footprint per cluster for both platform and application level metrics, key performance indicators, logs, alerts, alarms, traces, and event data records. Observability data for most network functions are supported via the following industry-standard PaaS components:
  
