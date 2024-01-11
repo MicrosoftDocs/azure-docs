@@ -1,5 +1,6 @@
 ---
-title: Microsoft Azure Data Manager for Energy - Perform CSV parser ingestion
+title: "Tutorial: Perform CSV parser ingestion"
+titleSuffix: Microsoft Azure Data Manager for Energy
 description: This tutorial shows you sample steps for performing CSV parser ingestion.
 author: bharathim
 ms.author: bselvaraj
@@ -75,14 +76,14 @@ Here's an example of a failed Postman request:
 
 ## Ingest wellbore data by using Postman
 
-To ingest a sample wellbore data CSV file into the Azure Data Manager for Energy instance by using the Postman collection:
+To ingest a sample wellbore data CSV file into the Azure Data Manager for Energy instance by using the Postman collection, complete the following steps:
 
 1. **Get a User Access Token**: Generate the user token, which will be used to authenticate further API calls.
 1. **Create a Schema**: Generate a schema that adheres to the columns present in the CSV file.
 1. **Get Schema details**: Get the schema created in the previous step and validate it.
 1. **Create a Legal Tag**: Create a legal tag that will be added to the CSV data for data compliance purposes.
 1. **Get a signed URL for uploading a CSV file**: Get the signed URL path to which the CSV file will be uploaded.
-1. **Upload a CSV file**: Download [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) to your local machine, and select this file in Postman by clicking the **Select File** button.
+1. **Upload a CSV file**: Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) sample to your local machine, and select this file in Postman by clicking the **Select File** button.
 
     :::image type="content" source="media/tutorial-csv-ingestion/tutorial-select-csv-file.png" alt-text="Screenshot of uploading a CSV file." lightbox="media/tutorial-csv-ingestion/tutorial-select-csv-file.png":::
 1. **Upload CSV file metadata**: Upload the file metadata information, such as file location and other relevant fields.
@@ -92,15 +93,15 @@ To ingest a sample wellbore data CSV file into the Azure Data Manager for Energy
 
 ## Search for ingested wellbore data by using Postman
 
-Use the following step to search for the storage metadata records created during the CSV ingestion by using the Postman collection:
+To search for the storage metadata records created during the CSV ingestion by using the Postman collection, complete the following step:
 
 * **Search for ingested CSV records**: Search for the CSV records created earlier.
 
 :::image type="content" source="media/tutorial-csv-ingestion/tutorial-search-success.png" alt-text="Screenshot of searching ingested CSV records." lightbox="media/tutorial-csv-ingestion/tutorial-search-success.png":::
 
-## Next steps
+## Next step
 
-Advance to the next tutorial to learn how to do manifest ingestion:
+Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Perform manifest-based file ingestion](tutorial-manifest-ingestion.md)
