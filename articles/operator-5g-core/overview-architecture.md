@@ -1,5 +1,5 @@
 ---
-title: What is the architecture of AO5GC?
+title: Azure Operator 5G Core architecture
 description: View the architecture behind the AO5GC software solution.
 author: HollyCl
 ms.author: HollyCl
@@ -35,7 +35,7 @@ You can also use this in the TOC if your service name doesn’t cause the phrase
 
 -->
 
-# What is <product/service>? 
+# Azure Operator 5G Core architecture
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
