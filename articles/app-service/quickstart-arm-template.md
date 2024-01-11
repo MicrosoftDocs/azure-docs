@@ -102,6 +102,7 @@ This template contains several parameters that are predefined for your convenien
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
 | webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
+| appServicePlanName | string  | "webAppPlan-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App Service Plan name |
 | location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
 | skuTier        | string  | "P1v3"                         | Instance size ([View available SKUs](https://learn.microsoft.com/azure/app-service/configure-custom-container?tabs=debian&pivots=container-windows#customize-container-memory)) |
 | appSettings | string  | "[{"name": "PORT","value": "8080"}]"                          | App Service listening port. Needs to be 8080. |
@@ -117,7 +118,7 @@ Azure CLI is used here to deploy the template. You can also use the Azure portal
 The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ::: zone pivot="platform-windows"
-Run the code below to deploy a .NET framework app on Windows.
+Run the code below to deploy a [.NET app](https://mcr.microsoft.com/product/dotnet/samples/tags) on Windows.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
