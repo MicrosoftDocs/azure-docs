@@ -43,12 +43,12 @@ The following table lists the operations that Azure Storage Actions might record
 |:---|:---|
 | Microsoft.StorageActions/storageTasks/read | Reads an existing storage task. |
 | Microsoft.StorageActions/storageTasks/delete | Deletes a storage task. |
-| Microsoft.StorageActions/storageTasks/promote/action | Description goes here |
+| Microsoft.StorageActions/storageTasks/promote/action | Promotes specific version of storage task to current version. |
 | Microsoft.StorageActions/storageTasks/write | Edits a storage task. |
 | Microsoft.StorageActions/storageAccounts/storageTasks/delete | Deletes a storage task. |
 | Microsoft.StorageActions/storageAccounts/storageTasks/read | Reads an existing storage task. |
-| Microsoft.StorageActions/storageAccounts/storageTasks/executionsummary/action | Description goes here|
-| Microsoft.StorageActions/storageAccounts/storageTasks/assignmentexecutionsummary/action | Description goes here|
+| Microsoft.StorageActions/storageAccounts/storageTasks/executionsummary/action | Opens an task runs. |
+| Microsoft.StorageActions/storageAccounts/storageTasks/assignmentexecutionsummary/action | Opens task runs from the Assignments pane. |
 | Microsoft.StorageActions/storageAccounts/storageTasks/write | Edits a storage task. |
 
 See [all the possible resource provider operations in the activity log](/azure/role-based-access-control/resource-provider-operations).  

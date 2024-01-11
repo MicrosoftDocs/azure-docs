@@ -69,8 +69,8 @@ The following table shows the supported operations, parameters, and parameter va
 | Delete blob                  | None                 | None                                           |
 | Undelete blob                | None                 | None                                           |
 | Set blob tags                | TagSet               | A fixed collection of up to 10 key-value pairs |
-| Set blob immutability policy | Need parameter names | Need value names                               |
-| Set blob legal hold          | Need parameter names | Need parameter names                           |
+| Set blob immutability policy | DateTime, string | DateTime of when policy ends, Locked \| Unlocked                                |
+| Set blob legal hold          | Bool | True \| False                           |
 
 ## See also
 
