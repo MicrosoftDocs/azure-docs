@@ -90,20 +90,6 @@ Microsoft Dev Box requires a configured and working Active Directory join, which
 - **Microsoft Entra hybrid join**. If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality in Microsoft Entra ID by using Microsoft Entra hybrid joined dev boxes. These dev boxes are joined to your on-premises Active Directory instance and registered with Microsoft Entra ID. Microsoft Entra hybrid joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. For more information, see [Plan your Microsoft Entra hybrid join deployment](../active-directory/devices/hybrid-join-plan.md).
 
 ### Create a network connection
-
-Follow the steps on the relevant tab to create your network connection.
-
-<!-- Rose: For the first setting, Domain join type, in the Azure portal, the UI still shows the options as:
-     - Azure active directory join
-     - Hybrid Azure active directory join
-        
-   "Microsoft Entra join" and "Microsoft Entra Hybrid join" are't shown.
-   Should we ignore these differences, add a note, or change this topic to show the current UI?
-   I recently did some screenshot updates for the Entra ID rebrand for SQL using the updated UI in the portal.
-   I'm surprised this section of the UI is still showing the old product name.
--->
-
-
 <a name='azure-ad-join'></a>
 
 # [**Microsoft Entra join**](#tab/AzureADJoin/)
@@ -178,13 +164,6 @@ Follow the steps on the relevant tab to create your network connection.
 ## Attach a network connection to a dev center
 
 You need to attach a network connection to a dev center before you can use it in projects to create dev box pools.
-
-<!-- Rose: I'm not able to fully repro the creation process for the network connection.
-   As such, I'm not able to full repro the following steps to attach the connection to a dev center.
-   The network connection process fails during validation. My permissions are fine.
-   It might be a join issue with the Microsoft domain.
-   If you want me to try other options to complete the process, I'll need more assistance.
--->
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
