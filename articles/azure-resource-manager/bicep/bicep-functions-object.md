@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - objects
 description: Describes the functions to use in a Bicep file for working with objects.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/19/2023
+ms.date: 01/11/2024
 ---
 
 # Object functions for Bicep
@@ -415,6 +413,8 @@ For arrays, the function iterates through each element in the first parameter an
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
+The union function merge not only the top-level elements but also recursively merging any nested arrays and objects within them. See the second example in the following section.
+
 ### Example
 
 The following example shows how to use union with arrays and objects:
@@ -454,6 +454,47 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
+
+The following example shows the deep merge capability:
+
+```bicep
+param firstObject object = {
+  property: {
+    one: 'a'
+    two: 'b'
+    three: 'c1'
+  }
+}
+
+param secondObject object = {
+  property: {
+    three: 'c2'
+    four: 'd'
+    five: 'e'
+  }
+}
+
+param firstArray array = [
+  ['one', 'two']
+  ['three']
+]
+
+param secondArray array = [
+  ['three']
+  ['four', 'two']
+]
+
+output objectOutput object = union(firstObject, secondObject)
+output arrayOutput array = union(firstArray, secondArray)
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"}}|
+| arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
+
 
 ## Next steps
 

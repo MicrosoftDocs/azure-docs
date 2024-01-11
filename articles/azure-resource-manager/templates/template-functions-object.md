@@ -3,7 +3,7 @@ title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 08/22/2023
+ms.date: 01/11/2024
 ---
 
 # Object functions for ARM templates
@@ -437,6 +437,8 @@ For arrays, the function iterates through each element in the first parameter an
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
+The union function merge not only the top-level elements but also recursively merging any nested arrays and objects within them. See the second example in the following section.
+
 ### Example
 
 The following example shows how to use union with arrays and objects:
@@ -449,6 +451,79 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
+
+The following example shows the deep merge capability:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "property": {
+          "one": "a",
+          "two": "b",
+          "three": "c1"
+        }
+      }
+    },
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "property": {
+          "three": "c2",
+          "four": "d",
+          "five": "e"
+        }
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [
+        [
+          "one",
+          "two"
+        ],
+        [
+          "three"
+        ]
+      ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [
+        [
+          "three"
+        ],
+        [
+          "four",
+          "two"
+        ]
+      ]
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"}}|
+| arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
 
 ## Next steps
 
