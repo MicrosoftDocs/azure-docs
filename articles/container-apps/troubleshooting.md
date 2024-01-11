@@ -26,7 +26,7 @@ The following table lists issues you might encounter while using Azure Container
 | Revision is degraded | A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly](#verify-health-probes-are-configured-correctly) |
 | Requests to endpoint fail | The container app endpoint doesn't respond to requests. | [Review ingress configuration](#review-ingress-configuration) |
 | Requests return status 403 | The container app endpoint responds to requests with HTTP error 403 (access denied). |  [Verify networking configuration is correct](#verify-networking-configuration-is-correct) |
-| Responses not as expected | The container app endpoint responds to requests, but the responses are not as expected. | [Verify traffic is routed to correct revision](#verify-traffic-is-routed-to-correct-revision)<br><br>[Verify you are using unique tags when deploying images to the container registry](/azure/container-registry/container-registry-image-tag-version) |
+| Responses not as expected | The container app endpoint responds to requests, but the responses aren't as expected. | [Verify traffic is routed to correct revision](#verify-traffic-is-routed-to-correct-revision)<br><br>[Verify you're using unique tags when deploying images to the container registry](/azure/container-registry/container-registry-image-tag-version) |
 | Dapr sidecar not present | You receive the error message `Dapr sidecar is not present`. | [Ensure Dapr is enabled in your environment](#ensure-dapr-is-enabled-in-your-environment) |
 | Dapr configuration error | You receive a Dapr configuration error message regarding the `app-port` value. | [Verify your Dapr configuration has the correct app-port value](#verify-app-port-value-in-dapr-configuration) |
 
@@ -118,8 +118,8 @@ You can use the **diagnose and solve problems** tool to discover issues with you
 
 ## Verify accessibility of container image
 
-- Verify your container environment firewall is not blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
-- If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry does not fail. For more information, see [DNS](./networking.md#dns).
+- Verify your container environment firewall isn't blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
+- If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./networking.md#dns).
 
 For more information, see [Networking in Azure Container Apps environment] (./networking.md).
 
@@ -133,7 +133,7 @@ For more information, see [Networking in Azure Container Apps environment] (./ne
 | Issue | Action |
 |--|--|
 | Is ingress enabled? | Verify the **Enabled** checkbox is checked. |
-| Do you want to allow external ingress? | Verify that **Ingress Traffic** is set to **Accepting traffic from anywhere**. If your container app does not listen for HTTP traffic, set **Ingress Traffic** to **Limited to Container Apps Environment**. |
+| Do you want to allow external ingress? | Verify that **Ingress Traffic** is set to **Accepting traffic from anywhere**. If your container app doesn't listen for HTTP traffic, set **Ingress Traffic** to **Limited to Container Apps Environment**. |
 | Does your client use HTTP or TCP to access your container app? | Verify **Ingress type** is set to the correct protocol (**HTTP** or **TCP**). |
 | Does your client support mTLS? | Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [Environment level network encryption.](./networking.md#mtls) |
 | Does your client use HTTP/1 or HTTP/2? | Verify **Transport** is set to the correct HTTP version (**HTTP/1** or **HTTP/2**). |
@@ -178,7 +178,7 @@ You can update the **Port** values as follows:
 If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
 
 | Probe type | Default values |
-| -- | -- |
+|--|--|
 | Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 3 seconds<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1<br>Failure threshold: 240 |
 | Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: 48 |
 | Liveness | Protocol: TCP<br>Port: ingress target port |
@@ -211,13 +211,13 @@ For more information, see [Use Health Probes](./health-probes.md).
 
 If **Revision Mode** is set to `Single`, all traffic is routed to your latest revision by default. The **Active revisions** tab should list only one revision, with a *Traffic* value of `100%`.
 
-If **Revision Mode** is set to `Multiple`, verify you are not routing any traffic to outdated revisions.
+If **Revision Mode** is set to `Multiple`, verify you're not routing any traffic to outdated revisions.
 
 For more information about configuring traffic splitting, see [Traffic splitting in Azure Container Apps](./traffic-splitting.md).
 
 ## Ensure Dapr is enabled in your environment
 
-If you're using Dapr bindings and triggers in Azure Functions, you might receive the error message: `Dapr sidecar is not present. Please see (https://aka.ms/azure-functions-dapr-sidecar-missing) for more information.` This error typically occurs when Dapr is not properly enabled in your environment. Ensure Dapr is enabled in your environment using any of the following solutions:
+If you're using Dapr bindings and triggers in Azure Functions, you might receive the error message: `Dapr sidecar isn't present. Please see (https://aka.ms/azure-functions-dapr-sidecar-missing) for more information.` This error typically occurs when Dapr isn't properly enabled in your environment. Ensure Dapr is enabled in your environment using any of the following solutions:
 
 - If your Azure Function is deployed in Azure Container Apps, refer to [Dapr enablement instructions for the Dapr extension for Azure Functions](../azure-functions/functions-bindings-dapr.md#dapr-enablement).
 
@@ -231,7 +231,7 @@ If you're using Dapr bindings and triggers in Azure Functions, you might receive
         dapr.io/app-port: "3001"
     ```
 
-- If you are running your Azure Function locally, run the following command to ensure you're [running the function app with Dapr](https://github.com/azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction#step-2---run-function-app-with-dapr):
+- If you're running your Azure Function locally, run the following command to ensure you're [running the function app with Dapr](https://github.com/azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction#step-2---run-function-app-with-dapr):
 
     ```bash
     dapr run --app-id functionapp --app-port 3001  --components-path <COMPONENTS_PATH> -- func host start 
@@ -251,7 +251,7 @@ The Dapr extension for Azure Functions starts an HTTP server on port 3001. You c
 
 1. Ensure that you provide the correct DAPR_APP_PORT value to Dapr in the Dapr configuration.
 
-   - If you are using Azure Container Apps, specify the app port in Bicep:
+   - If you're using Azure Container Apps, specify the app port in Bicep:
 
       ```bash
       DaprConfig: {
@@ -261,7 +261,7 @@ The Dapr extension for Azure Functions starts an HTTP server on port 3001. You c
       }
       ```
 
-   - If you are using a Kubernetes environment, set the `dapr.io/app-port` annotation:
+   - If you're using a Kubernetes environment, set the `dapr.io/app-port` annotation:
 
       ```
       annotations:
@@ -270,7 +270,7 @@ The Dapr extension for Azure Functions starts an HTTP server on port 3001. You c
       ...
       ```
 
-   - If you are developing locally, verify you set `--app-port` when running the function app with Dapr:
+   - If you're developing locally, verify you set `--app-port` when running the function app with Dapr:
 
       ```
       dapr run --app-id functionapp --app-port 3001 --components-path <COMPONENTS_PATH> -- func host start 
