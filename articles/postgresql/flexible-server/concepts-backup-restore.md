@@ -172,7 +172,7 @@ After you restore the database, you can perform the following tasks to get your 
  
 ## Long-term retention (preview)
 
-Azure Backup and Azure PostgreSQL Services have built an enterprise-class long-term backup solution for Azure Database for PostgreSQL Flexible servers that retain backups for up to 10 years. You can use long-term retention independently or in addition to the automated backup solution offered by Azure PostgreSQL, which offers retention of up to 35 days. Automated backups are physical backups suited for operational recoveries, especially when you want to restore from the latest backups. Long-term backups help you with your compliance needs, are more granular, and are taken as logical backups using native pg_dump. In addition to long-term retention, the solution offers the following capabilities:
+Azure Backup and Azure PostgreSQL Services have built an enterprise-class long-term backup solution for Azure Database for PostgreSQL Flexible servers that retain backups for up to 10 years. You can use long-term retention independently or in addition to the automated backup solution offered by Azure PostgreSQL, which offer retention of up to 35 days. Automated backups are physical backups suited for operational recoveries, especially when you want to restore from the latest backups. Long-term backups help you with your compliance needs, are more granular, and are taken as logical backups using native pg_dump. In addition to long-term retention, the solution offers the following capabilities:
 
 
 -	Customer-controlled scheduled and on-demand backups at the individual database level.
@@ -183,8 +183,8 @@ Azure Backup and Azure PostgreSQL Services have built an enterprise-class long-t
 
 #### Limitations and Considerations
 
-- During the early preview, Long Term Retention is available only in East US1, West Europe, and Central India regions. Support for other regions is coming soon.
 - In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
+- In preview, you can perform LTR backups for all databases, single db backup support will be added in the future.
 
 
 
