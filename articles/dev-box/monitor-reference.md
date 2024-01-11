@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Schema reference for dev center (DevCenter) diagnostic logs. Review the list of Azure Storage and Azure Monitor Logs properties included in monitoring data.
 services: dev-box
 ms.service: dev-box
-ms.topic: conceptual-article
+ms.topic: concept-article
 author: delvissantos
 ms.author: delvissantos
 ms.date: 01/11/2024
