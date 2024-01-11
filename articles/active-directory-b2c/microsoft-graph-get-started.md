@@ -13,9 +13,6 @@ ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 
-#Customer intent: As a developer, I want to register a Microsoft Graph application, so that I can automate tenant management tasks in my Azure AD B2C by using Microsoft Graph API.
-
-
 #Customer intent: As a developer, I want to register a Microsoft Graph application, so that I can automate tenant management tasks in my Azure AD B2C directory, such as migrating user stores, deploying custom policies, and obtaining audit logs.
 
 ---
