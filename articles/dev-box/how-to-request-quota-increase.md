@@ -17,8 +17,8 @@ To ensure that resources are available for customers, Microsoft Dev Box has a li
 
 There are different types of quota limits that you might encounter, depending on the resource type. Here are some examples:
 
-- In the Microsoft **[developer portal](https://aka.ms/devbox-portal)**, there are limits for a dev box vCPU. You might encounter this quota error during dev box creation.
-- In the **Azure portal**, there are limits for dev centers, network connections, and dev box definitions.
+- There are limits on the number of vCPUs available for dev boxes. You might encounter this quota error in the Microsoft **[developer portal](https://aka.ms/devbox-portal)** during dev box creation.
+- There are limits for dev centers, network connections, and dev box definitions. You can find information about these limits through the **Azure portal**.
 
 When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Microsoft Dev Box team to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
