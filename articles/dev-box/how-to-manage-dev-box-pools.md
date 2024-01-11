@@ -57,7 +57,7 @@ If you don't have an available dev center with an existing dev box definition an
    |----|----|
    |**Name**|Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. It must be unique within a project.|
    |**Dev box definition**|Select an existing dev box definition. The definition determines the base image and size for the dev boxes that are created in this pool.|
-   |**Network connection**|1. Select **Deploy to a Microsoft hosted network**, or use an existing network connection. </br>2. Select the region where the dev boxes should be deployed. Choose a region close to  dev box users for best user experience.|
+   |**Network connection**|1. Select **Deploy to a Microsoft hosted network**, or use an existing network connection. </br>2. Select the region where the dev boxes should be deployed. Be sure to select a region that is close to where your developers are physically located to ensure the lowest latency experience with dev box.|
    |**Dev box Creator Privileges**|Select **Local Administrator** or **Standard User**.|
    |**Enable Auto-stop**|**Yes** is the default. Select **No** to disable an auto-stop schedule. You can configure an auto-stop schedule after the pool is created.|
    |**Stop time**| Select a time to shut down all the dev boxes in the pool.|
@@ -124,5 +124,5 @@ To delete a dev box pool in the Azure portal:
 ## Related content
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
-- [2. Create a dev box definition](quickstart-configure-dev-box-service.md#2-create-a-dev-box-definition)
+- [2. Create a dev box definition](quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)

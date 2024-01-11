@@ -7,7 +7,7 @@ ms.reviewer: micflan
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 12/08/2023
 ms.author: banders
 ---
 
@@ -25,7 +25,7 @@ In general, there are three types of changes that you might want to investigate:
 
 ## Identify cost anomalies
 
-The cloud comes with the promise of significant cost savings compared to on-premises costs. However, savings require diligence to proactively plan, govern, and monitor your cloud solutions. Even with proactive processes, cost surprises can still happen. For example, you might notice that something has changed, but you're not sure what. Using Cost Management anomaly detection for your subscriptions can help minimize surprises.
+The cloud comes with the promise of significant cost savings compared to on-premises costs. However, savings require diligence to proactively plan, govern, and monitor your cloud solutions. Even with proactive processes, cost surprises can still happen. For example, you might notice that something changed, but you're not sure what. Using Cost Management anomaly detection for your subscriptions can help minimize surprises.
 
 Whether you know if you have any existing cost anomalies or not, Cost analysis informs you if it finds anything unusual as part of Insights. If not, Cost analysis shows **No anomalies detected**.
 
@@ -43,7 +43,7 @@ If you don't have any anomalies, you see a **No anomalies detected** insight, co
 
 ### Drill into anomaly details
 
-To drill into the underlying data for something that has changed, select the insight link. It opens a view in classic cost analysis where you can review your daily usage by resource group for the time range that was evaluated.
+To drill into the underlying data for something that changed, select the insight link. It opens a view in classic cost analysis where you can review your daily usage by resource group for the time range that was evaluated.
 
 Continuing from the previous example of the anomaly labeled **Daily run rate down 748% on Sep 28**, let's examine its details after the link is selected. The following example image shows details about the anomaly. Notice the large increase in costs, a cost spike, and eventual drop in from a temporary, short-lived resource.
 
@@ -64,10 +64,10 @@ You can create an alert to automatically get notified when an anomaly is detecte
 
 An anomaly alert email includes a summary of changes in resource group count and cost. It also includes the top resource group changes for the day compared to the previous 60 days. And, it has a direct link to the Azure portal so that you can review the cost and investigate further.
 
-An anomaly alert email is sent only one time when it's detected.
+An anomaly alert email is sent only once - at the time of detection.
 
 1. From Azure Home, select **Cost Management** under **Tools**.
-1. Verify you've selected the correct subscription in the scope at the top of the page.
+1. Verify the correct subscription is selected in the scope at the top of the page.
 1. In the left menu, select **Cost alerts**.
 1. On the toolbar, select **+ Add**.
 1. On the Create alert rule page, select **Anomaly** as the **Alert type**.
@@ -95,7 +95,7 @@ Let's examine the increase in cost for the resource group more fully. To drill i
 
 :::image type="content" source="./media/analyze-unexpected-charges/drill-in-articmustang-daily-cost.png" alt-text="Example screenshot showing an increase in daily costs." lightbox="./media/analyze-unexpected-charges/drill-in-articmustang-daily-cost.png" :::
 
-So far, we've found an increase in cost for the `articmustang` resource group at the end of June and the beginning of July. You might notice that the cost increase spanned over two days. The change took two days because a change in the middle of a day doesn't show the full effect of that change until the following full day.
+So far, we found an increase in cost for the `articmustang` resource group at the end of June and the beginning of July. You might notice that the cost increase spanned over two days. The change took two days because a change in the middle of a day doesn't show the full effect of that change until the following full day.
 
 Let's continue drilling into the data to find out more about the cost increase. Select the item that increased in cost (`articmustang`) to automatically set a filter for the resource group name. Then, change the **Group by** list to **Resource**. Then set the date range to a smaller period. For example, June 28 to July 4. In the following example image, the increase in cost is clearly shown. The type of resource is shown as _microsoft.network/virtualnetworkgateways_.
 
@@ -111,7 +111,7 @@ At this point, you know what changed and the value that costs changed. However, 
 
 ## Find people responsible for changed resource use
 
-Using Cost analysis, you might have found resources that had sudden changes in usage. However, it might not be obvious who is responsible for the resource or why the change was made. Often, the team responsible for a given resource knows about changes that were made to a resource. Engaging them is useful as you identify why charges might appear. For example, the owning team may have recently created the resource, updated its SKU (thereby changing the resource rate), or increased the load on the resource due to code changes.
+Using Cost analysis, you might find resources that had sudden changes in usage. However, it might not be obvious who is responsible for the resource or why the change was made. Often, the team responsible for a given resource knows about changes that were made to a resource. Engaging them is useful as you identify why charges might appear. For example, the owning team created the resource, updated its SKU (thereby changing the resource rate), or increased the load on the resource due to code changes.
 
 The [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md) article for Azure Resource Graph might help you to find additional information about configuration changes to resources.
 
@@ -129,9 +129,35 @@ People that have write access to a subscription or resource group typically have
 
 If you have an existing policy of [tagging resources](../costs/cost-mgt-best-practices.md#tag-shared-resources), the resource might be tagged with identifying information. For example, resources might be tagged with owner, cost center, or development environment information. If you don't already have a resource tagging policy in place, consider adopting one to help identify resources in the future.
 
+## Other strategies to identify unexpected charges
+
+If you used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, review the following sections.
+
+### Why am I not receiving emails from anomaly alerts?
+
+There are several reasons why you're not receiving alert emails. Try the following actions:
+
+- Confirm that the creator of the schedule continues to have Reader role assigned or `Microsoft.CostManagement/scheduledActions/read` permission, if it's a custom role.
+- Confirm that your email address is shown as a recipient and that it's correct.
+- Make sure that there are no email rules that block `microsoft-noreply@microsoft.com`.
+- Check your spam or junk mail folder for emails from `microsoft-noreply@microsoft.com`.
+- Check to see if the alert is expired or deleted. You can extend or create a new anomaly alert rule to fix the problem.
+- Work with your admin to reenable the [view charges policy](../costs/assign-access-acm-data.md#enable-access-to-costs-in-the-azure-portal) in the Azure portal. The policy applies to indirect Enterprise Agreements and to Microsoft Customer Agreements with a Microsoft partner.
+
+>[!NOTE]
+> Azure checks the permissions of the alert rule creator before sending the alert email. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the [Scheduled Actions API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope#createorupdateinsightalertscheduledactionbyscope).
+
+### Why am I not able to create an anomaly alert rule?
+
+Try the following steps:
+
+- Anomaly alert rules can only be created at the subscription scope. Ensure that the correct scope is selected.
+- Verify that you have the Owner, Contributor, or Cost Management Contributor role on the subscription.
+- If you got an error message indicating that you reached the limit of five alerts per subscription, consider editing an existing anomaly alert rule. Add yourself as a recipient instead of creating a new rule in case you exhausted the limit.
+
 ## Get help to identify charges
 
-If you've used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 

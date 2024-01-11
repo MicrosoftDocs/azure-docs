@@ -2,8 +2,8 @@
 title: Common alert schema for Azure Monitor alerts
 description: Understand the common alert schema, why you should use it, and how to enable it.
 ms.topic: conceptual
-ms.date: 02/16/2023
-ms.reviewer: ofmanor
+ms.date: 12/24/2023
+ms.reviewer: harelbr
 author: AbbyMSFT
 ms.author: abbyweisberg
 ---
@@ -270,7 +270,7 @@ For sample alerts that use the common schema, see [Sample alert payloads](alerts
 
 
 
-### Sample log alert when the monitoringService = Platform
+### Sample log alert when the monitoringService = Log Analytics
 
 ```json
 {

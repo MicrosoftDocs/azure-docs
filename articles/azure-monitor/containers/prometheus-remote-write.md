@@ -34,11 +34,11 @@ Use the following methods to verify that Prometheus data is being sent into your
 
 ### kubectl commands
 
-Use the following command to view your container log. Remote write data is flowing if the output has non-zero value for `avgBytesPerRequest` and `avgRequestDuration`.
+Use the following command to view logs from the side car container. Remote write data is flowing if the output has non-zero value for `avgBytesPerRequest` and `avgRequestDuration`.
 
 ```azurecli
-kubectl logs <Prometheus-Pod-Name> <Azure-Monitor-Side-Car-Container-Name>
-# example: kubectl logs prometheus-prometheus-kube-prometheus-prometheus-0 prom-remotewrite --namespace <namespace>
+kubectl logs <Prometheus-Pod-Name> <Azure-Monitor-Side-Car-Container-Name> --namespace <namespace-where-Prometheus-is-running>
+# example: kubectl logs prometheus-prometheus-kube-prometheus-prometheus-0 prom-remotewrite --namespace monitoring
 ```
 
 The output from this command should look similar to the following:
@@ -75,19 +75,21 @@ The output from this command should look similar to the following:
 ```
 
 ### Hitting your ingestion quota limit
-With remote write you will typically get started using the remote write endpoint shown on the Azure Monitor workspace overview page. Behind the scenes, this uses a system Data Collection Rule (DCR) and system Data Collection Endpoint (DCE). These resources have an ingestion limit covered in the [Azure Monitor service limits](../service-limits.md#prometheus-metrics) document. You may hit these limits if you setup remote write for several clusters all sending data into the same endpoint in the same Azure Monitor workspace. If this is the case you can [create additional DCRs and DCEs](https://aka.ms/prometheus/remotewrite/dcrartifacts) and use them to spread out the ingestion loads across a few ingestion endpoints.
+With remote write you will typically get started using the remote write endpoint shown on the Azure Monitor workspace overview page. Behind the scenes, this uses a system Data Collection Rule (DCR) and system Data Collection Endpoint (DCE). These resources have an ingestion limit covered in the [Azure Monitor service limits](../service-limits.md#prometheus-metrics) document. You may hit these limits if you set up remote write for several clusters all sending data into the same endpoint in the same Azure Monitor workspace. If this is the case you can [create additional DCRs and DCEs](https://aka.ms/prometheus/remotewrite/dcrartifacts) and use them to spread out the ingestion loads across a few ingestion endpoints.
 
 The INGESTION-URL uses the following format: 
-https\://\<Metrics-Ingestion-URL>/dataCollectionRules/\<DCR-Immutable-ID>/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview 
+https\://\<**Metrics-Ingestion-URL**>/dataCollectionRules/\<**DCR-Immutable-ID**>/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview 
 
-Metrics-Ingestion-URL: can be obtained by viewing DCE JSON body with API version 2021-09-01-preview or newer. 
+**Metrics-Ingestion-URL**: can be obtained by viewing DCE JSON body with API version 2021-09-01-preview or newer. See screenshot below for reference.
 
-DCR-Immutable-ID: can be obtained by viewing DCR JSON body or running the following command in the Azure CLI: 
+:::image type="content" source="media/prometheus-remote-write-managed-identity/dce-ingestion-url.png" alt-text="Screenshot showing how to get the metrics ingestion URL." lightbox="media/prometheus-remote-write-managed-identity/dce-ingestion-url.png":::
+
+**DCR-Immutable-ID**: can be obtained by viewing DCR JSON body or running the following command in the Azure CLI: 
 
 ```azureccli
 az monitor data-collection rule show --name "myCollectionRule" --resource-group "myResourceGroup" 
 ```
-  
+
 ## Next steps
 
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).

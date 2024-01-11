@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 ---
 
@@ -81,9 +82,9 @@ A data that is a File (`uri_file`) type points to a *single file* on storage (fo
 
 # [Studio](#tab/azure-studio)
 
-These steps explain how to create a File typed data in the Azure AI studio:
+These steps explain how to create a File typed data in the Azure AI Studio:
 
-1. Navigate to [Azure AI studio](https://ai.azure.com/)
+1. Navigate to [Azure AI Studio](https://ai.azure.com/)
 
 1. From the collapsible menu on the left, select **Data** under **Components**. Select **Add Data**.
 :::image type="content" source="../media/data-add/add-data.png" alt-text="Screenshot highlights Add Data in the Data tab.":::
@@ -113,7 +114,7 @@ These steps explain how to create a File typed data in the Azure AI studio:
 To create a data that is a File type, use the following code and update the `<>` placeholders with your information.
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -142,9 +143,9 @@ A data that is a Folder (`uri_folder`) type is one that points to a *folder* on 
 
 # [Studio](#tab/azure-studio)
 
-Use these steps to create a Folder typed data in the Azure AI studio:
+Use these steps to create a Folder typed data in the Azure AI Studio:
 
-1. Navigate to [Azure AI studio](https://ai.azure.com/)
+1. Navigate to [Azure AI Studio](https://ai.azure.com/)
 
 1. From the collapsible menu on the left, select **Data** under **Components**. Select **Add Data**.
 :::image type="content" source="../media/data-add/add-data.png" alt-text="Screenshot highlights Add Data in the Data tab.":::
@@ -173,7 +174,7 @@ Use these steps to create a Folder typed data in the Azure AI studio:
 To create a data that is a Folder type use the following code and update the `<>` placeholders with your information.
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -239,7 +240,7 @@ To archive *all versions* of the data under a given name, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -264,7 +265,7 @@ To archive a specific data version, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -293,7 +294,7 @@ To restore *all versions* of the data under a given name, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -320,7 +321,7 @@ To restore a specific data version, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential

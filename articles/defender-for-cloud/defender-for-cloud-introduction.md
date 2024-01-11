@@ -22,8 +22,7 @@ When you [enable Defender for Cloud](connect-azure-subscription.md), you automat
 
 The Microsoft 365 Defender portal helps security teams investigate attacks across cloud resources, devices, and identities. Microsoft 365 Defender provides an overview of attacks, including suspicious and malicious events that occur in cloud environments. Microsoft 365 Defender accomplishes this goal by correlating all alerts and incidents, including cloud alerts and incidents.
 
-You can learn more about the [integration between Microsoft Defender for Cloud and Microsoft 365 Defender](concept-integration-365.md).
-
+You can learn more about the [integration between Microsoft Defender for Cloud and Microsoft Defender XDR](concept-integration-365.md).
 
 ## Secure cloud applications
 
