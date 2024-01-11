@@ -25,7 +25,7 @@ Determining the right amount of provisioned throughput, or PTUs, you require for
 
 ### Estimate provisioned throughput and cost
 
-To get a quick estimate for your workload, open the capacity planner. Enter the following parameters based on your workload.
+To get a quick estimate for your workload, open the capacity planner in the [Azure OpenAI Studio](https://oai.azure.com). Enter the following parameters based on your workload.
 
 | Input | Description |
 |---|---|
