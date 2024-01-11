@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications - data reference
 description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel solution for SAP® applications.
-author: bagol
-ms.author: batamig
+author: batamig
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 01/11/2024
@@ -296,7 +296,7 @@ The **SAPAuditLogConfigRecommend** is a helper function designed to offer recomm
 
 ### SAPUsersGetVIP
 
-The [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) uses a concept of central user tagging, designed to help you lower false positives with minimal effort. Use the *SAPUsersGetVIP* function as follows:
+The [Microsoft Sentinel solution for SAP® applications](solution-overview.md) uses a concept of central user tagging, designed to help you lower false positives with minimal effort. Use the *SAPUsersGetVIP* function as follows:
 
 1. Tag users via the *SAP User Config* watchlist, either by tagging individual users with the *RunObsoleteProgOK* tag, or SAP user roles or profiles with the *SAP_ROLE* or *SAP_PROFILE* tags.
 

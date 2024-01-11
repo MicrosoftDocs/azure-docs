@@ -140,9 +140,11 @@ You can also do subnet filtering by using a watchlist. For example, in the prece
 let subnets = _GetWatchlist('subnetallowlist');
 ```
 
-For example, the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) provides functions that call watchlists, where you can define excluded users or systems from triggering alerts.
+### Example: Manage exceptions for the Microsoft Sentinel solution for SAP® applications
 
-- Use the [**SAPUsersGetVIP**](/sap/sap-solution-log-reference.md#sapusersgetvip) function to tag users and exclude them from triggering alerts. List specific users to exclude, or users with specific SAP roles or profiles. Use asterisks (*****) as wildcards when defining the user names to exclude all users with a specified syntax.
+The [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) provides functions that call watchlists, where you can define excluded users or systems from triggering alerts.
+
+- Use the [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function to tag users and exclude them from triggering alerts. List specific users to exclude, or users with specific SAP roles or profiles. Use asterisks (*****) as wildcards when defining the user names to exclude all users with a specified syntax.
 
 - Use functions that support the *SelectedSystemRoles* parameter to determine that only specific types of systems trigger alerts, including only *Production* systems, only *UAT* systems, or both.
 

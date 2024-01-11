@@ -27,7 +27,7 @@ The listed features were released in the last three months. For information abou
 
 Use analytics rules together with the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP® systems. The Microsoft Sentinel solution for SAP® applications now includes the following enhancements:
 
-- The [**SAPUsersGetVIP**](/sap/sap-solution-log-reference.md#sapusersgetvip) function now supports the *SAP_ROLE* and *SAP_PROFILE* tags, allowing you to add specific SAP roles or profiles to the *SAP User Config* watchlist instead of only individual users.
+- The [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function now supports the *SAP_ROLE* and *SAP_PROFILE* tags, allowing you to add specific SAP roles or profiles to the *SAP User Config* watchlist instead of only individual users.
 - The **SAP User Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
 
 For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
