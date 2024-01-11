@@ -17,9 +17,7 @@
     - name: Azure Private Endpoint
       href: not-yet.md 
     - name: Azure Private Link
-      href: relocation-private-link.md 
-    - name: Azure Public IP
-      href: relocation-public-ip.md    
+      href: relocation-private-link.md  
     - name: Azure Virtual Network
       href: relocation-virtual-network.md    
 - name: Resources

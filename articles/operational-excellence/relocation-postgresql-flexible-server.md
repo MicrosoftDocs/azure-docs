@@ -22,14 +22,13 @@ For an overview of the region pairs supported by native replication, see [cross-
 
 ## Relocation strategies
 
-To relocate Azure PostgreSQL database to a new region, you can choose between [redeployment](#redeployment-strategy) or [redeployment with data migration](#redeployment-with-data-migration-strategy) strategies. 
+To relocate Azure PostgreSQL database to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration-strategy) strategies. 
 
->[!NOTE]
->Azure Resource Mover doesn't support moving services used by the Azure Database for PostgreSQL. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
+**Azure Resource Mover** doesn't support moving services used by the Azure Database for PostgreSQL. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
-## Redeployment strategy 
+## Redeploy without data migration
 
-Redeployment without data or configuration for Azure Database for PostgreSQL has minimal downtime due to its low complexity.
+A simple redeployment without data or configuration for Azure Database for PostgreSQL has minimal downtime due to its low complexity.
 
 **To redeploy your PostgreSQL server without configuration or data:**
 
@@ -42,7 +41,7 @@ Redeployment without data or configuration for Azure Database for PostgreSQL has
 1. Redeploy the template to the new region. For an example of how to use an ARM template to create an Azure Database for PostgreSQL, see [Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-arm-template?tabs=portal%2Cazure-portal).
   
 
-## Redeployment with Data Migration strategy 
+## Redeploy with data migration
 
 In this section you learn how to redeploy your data and source server to the target server, using the same configuration of the source server. 
 
@@ -57,7 +56,6 @@ Configuration includes, but is not limited to:
 - Maintenance
 - High availability 
 
-Redeployment for Azure Database for PostgreSQL is based on logical backup and restore and requires the use of native tools. As a result you can expect noticeable downtime during restoration.
 
 >[!TIP]
 >you can use Azure portal to move an Azure Database for PostgreSQL - Single Server. To learn how to perform replication for Single Server, see [Move an Azure Database for Azure Database for PostgreSQL - Single Server to another region by using the Azure portal](/azure/postgresql/single-server/how-to-move-regions-portal).
@@ -76,9 +74,11 @@ Redeployment for Azure Database for PostgreSQL is based on logical backup and re
     - [Network Peering](/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks)
     - [Azure Private DNS]()
 
-
-
 ### Redeploy your PostgreSQL server with data migration
+
+Redeployment with data migration for Azure Database for PostgreSQL is based on logical backup and restore and requires the use of native tools. As a result, you can expect noticeable downtime during restoration.
+
+**To redeploy your PostgreSQL server with configuration or data:**
 
 1. Export your PostgreSQL Server's existing configuration into an [ARM template](/azure/templates/microsoft.dbforpostgresql/flexibleservers?pivots=deployment-language-arm-template). 
 1. Adjust template parameters to match the destination region.
