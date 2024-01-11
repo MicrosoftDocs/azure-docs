@@ -73,6 +73,10 @@ Labels provide a mechanism to logically group route tables. This is especially h
 
 Configuring static routes provides a mechanism to steer traffic from the hub through a next hop IP, which could be of a Network Virtual Appliance (NVA) provisioned in a Spoke VNet attached to a virtual hub. The static route is composed of a route name, list of destination prefixes, and a next hop IP.
 
+### <a name="delete-route"></a>Deleting static routes
+
+To delete a static route, the route must be deleted from the route table that it's placed in. See [Delete a route](how-to-virtual-hub-routing.md#delete-a-route) for steps.
+
 ## <a name="route"></a>Route tables for pre-existing routes
 
 Route tables now have features for association and propagation. A pre-existing route table is a route table that doesn't have these features. If you have pre-existing routes in hub routing and would like to use the new capabilities, consider the following:
