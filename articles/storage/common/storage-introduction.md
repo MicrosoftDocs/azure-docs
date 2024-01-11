@@ -229,7 +229,7 @@ You can access resources in a storage account by any language that can make HTTP
 
 - [Azure PowerShell Cmdlets for Storage](/powershell/module/az.storage)
 - [Azure CLI Cmdlets for Storage](/cli/azure/storage)
-- [AzCopy Command-Line Utility](../storage-use-azcopy-v10)
+- [AzCopy Command-Line Utility](storage-use-azcopy-v10)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 - [Azure Resource Manager templates for Azure Storage](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
