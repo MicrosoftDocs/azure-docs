@@ -5,14 +5,14 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: tutorial
-ms.date: 01/03/2024
+ms.date: 01/11/2024
 ---
 
 # Tutorial: Migrate nodes to Azure Linux
 
 In this tutorial, part three of five, you will migrate your existing nodes to Azure Linux. You can migrate your existing nodes to Azure Linux using one of the following methods:
 
-* Cordon, drain, and remove the existing nodes.
+* Remove existing node pools and add new Azure Linux node pools.
 * In-place OS SKU migration (Preview).
 
 If you don't have any existing nodes to migrate to Azure Linux, skip to the [next tutorial](./tutorial-azure-linux-telemetry-monitor.md). In later tutorials, you'll learn how to enable telemetry and monitoring in your clusters and upgrade Azure Linux nodes.
@@ -26,124 +26,30 @@ If you don't have any existing nodes to migrate to Azure Linux, skip to the [nex
 
 * You need the latest version of Azure CLI. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-## Migrate nodes to Azure Linux: Cordon, drain, and remove
+## Remove existing node pools and add new Azure Linux node pools
 
-### Cordon the existing nodes
-
-Cordoning marks specified nodes as unschedulable and prevents any more pods from being added to the nodes.
-
-1. Get the names of the nodes you want to cordon using the `kubectl get nodes` command.
+1. Remove your existing nodes using the `az aks nodepool delete` command.
 
     ```azurecli-interactive
-    kubectl get nodes
+    az aks nodepool delete --resource-group <resource-group-name> --cluster-name <cluster-name> --name <node-pool-name>
     ```
 
-    Your output should look similar to the following example output:
-
-    ```output
-    NAME                                STATUS   ROLES   AGE     VERSION
-    aks-nodepool1-31721111-vmss000000   Ready    agent   7d21h   v1.21.9
-    aks-nodepool1-31721111-vmss000001   Ready    agent   7d21h   v1.21.9
-    aks-nodepool1-31721111-vmss000002   Ready    agent   7d21h   v1.21.9
-    ```
-
-2. Specify the desired nodes to cordon in a space-separated list using the `kubectl cordon` command.
+2. Add a new Azure Linux node pool using the `az aks nodepool add` command. This command adds a new node pool to your cluster with the `--mode System` flag, which makes it a system node pool. System node pools are required for Azure Linux clusters.
 
     ```azurecli-interactive
-    kubectl cordon aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002
+    az aks nodepool add --resource-group <resource-group-name> --cluster-name <cluster-name> --name <node-pool-name> --mode System --os-sku AzureLinux
     ```
 
-    Your output should look similar to the following example output:
+## In-place OS SKU migration (preview)
 
-    ```output
-    node/aks-nodepool1-31721111-vmss000000 cordoned
-    node/aks-nodepool1-31721111-vmss000001 cordoned
-    node/aks-nodepool1-31721111-vmss000002 cordoned
-    ```
-
-### Drain the existing nodes
-
-> [!IMPORTANT]
-> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least one pod replica to be moved at a time, otherwise the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and make sure `ALLOWED DISRUPTIONS` is at least one or higher.
-
-Draining nodes causes the pods running on them to be evicted and recreated on the other schedulable nodes.
-
-1. Specify the desired nodes to drain in a space-separated list using the `kubectl drain` command with the `--ignore-daemonsets` and `--delete-emptydir-data` flags.
-
-    > [!IMPORTANT]
-    > Using `--delete-emptydir-data` is required to evict the AKS-created `coredns` and `metrics-server` pods. If this flag isn't used, an error is expected. For more information, see the [documentation on emptydir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir).
-
-    ```azurecli-interactive
-    kubectl drain aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002 --ignore-daemonsets --delete-emptydir-data
-    ```
-
-    After the drain operation finishes, all pods other than those controlled by daemon sets run on the new node pool.
-
-2. Verify that the pods are running on the new node pool using the `kubectl get pods -o wide -A` command.
-
-    ```azurecli-interactive
-    kubectl get pods -o wide -A
-    ```
-
-    Your output should look similar to the following example output:
-
-    ```output
-    NAMESPACE     NAME                                  READY   STATUS    RESTARTS   AGE     IP           NODE                                 NOMINATED NODE   READINESS GATES
-    default       sampleapp2-74b4b974ff-676sz           1/1     Running   0          15m     10.244.4.5   aks-mynodepool-20823458-vmss000002   <none>           <none>
-    default       sampleapp2-76b6c4c59b-rhmzq           1/1     Running   0          16m     10.244.4.3   aks-mynodepool-20823458-vmss000002   <none>           <none>
-    kube-system   azure-ip-masq-agent-4n66k             1/1     Running   0          10d     10.240.0.6   aks-nodepool1-31721111-vmss000002    <none>           <none>
-    kube-system   azure-ip-masq-agent-9p4c8             1/1     Running   0          10d     10.240.0.4   aks-nodepool1-31721111-vmss000000    <none>           <none>
-    kube-system   azure-ip-masq-agent-nb7mx             1/1     Running   0          10d     10.240.0.5   aks-nodepool1-31721111-vmss000001    <none>           <none>
-    kube-system   azure-ip-masq-agent-sxn96             1/1     Running   0          49m     10.240.0.9   aks-mynodepool-20823458-vmss000002   <none>           <none>
-    kube-system   azure-ip-masq-agent-tsq98             1/1     Running   0          49m     10.240.0.8   aks-mynodepool-20823458-vmss000001   <none>           <none>
-    kube-system   azure-ip-masq-agent-xzrdl             1/1     Running   0          49m     10.240.0.7   aks-mynodepool-20823458-vmss000000   <none>           <none>
-    kube-system   coredns-845757d86-d2pkc               1/1     Running   0          17m     10.244.3.2   aks-mynodepool-20823458-vmss000000   <none>           <none>
-    kube-system   coredns-845757d86-f8g9s               1/1     Running   0          17m     10.244.5.2   aks-mynodepool-20823458-vmss000001   <none>           <none>
-    kube-system   coredns-autoscaler-5f85dc856b-f8xh2   1/1     Running   0          17m     10.244.4.2   aks-mynodepool-20823458-vmss000002   <none>           <none>
-    kube-system   csi-azuredisk-node-7md2w              3/3     Running   0          49m     10.240.0.7   aks-mynodepool-20823458-vmss000000   <none>           <none>
-    kube-system   csi-azuredisk-node-9nfzt              3/3     Running   0          10d     10.240.0.4   aks-nodepool1-31721111-vmss000000    <none>           <none>
-    kube-system   csi-azuredisk-node-bblsb              3/3     Running   0          10d     10.240.0.5   aks-nodepool1-31721111-vmss000001    <none>           <none>
-    kube-system   csi-azuredisk-node-lcmtz              3/3     Running   0          49m     10.240.0.9   aks-mynodepool-20823458-vmss000002   <none>           <none>
-    kube-system   csi-azuredisk-node-mmncr              3/3     Running   0          49m     10.240.0.8   aks-mynodepool-20823458-vmss000001   <none>           <none>
-    kube-system   csi-azuredisk-node-tjhj4              3/3     Running   0          10d     10.240.0.6   aks-nodepool1-31721111-vmss000002    <none>           <none>
-    kube-system   csi-azurefile-node-29w6z              3/3     Running   0          49m     10.240.0.9   aks-mynodepool-20823458-vmss000002   <none>           <none>
-    kube-system   csi-azurefile-node-4nrx7              3/3     Running   0          49m     10.240.0.7   aks-mynodepool-20823458-vmss000000   <none>           <none>
-    kube-system   csi-azurefile-node-9pcr8              3/3     Running   0          3d11h   10.240.0.6   aks-nodepool1-31721111-vmss000002    <none>           <none>
-    kube-system   csi-azurefile-node-bh2pc              3/3     Running   0          3d11h   10.240.0.5   aks-nodepool1-31721111-vmss000001    <none>           <none>
-    kube-system   csi-azurefile-node-gqqnv              3/3     Running   0          49m     10.240.0.8   aks-mynodepool-20823458-vmss000001   <none>           <none>
-    kube-system   csi-azurefile-node-h75gq              3/3     Running   0          3d11h   10.240.0.4   aks-nodepool1-31721111-vmss000000    <none>           <none>
-    kube-system   konnectivity-agent-6cd55c69cf-2bbp5   1/1     Running   0          17m     10.240.0.7   aks-mynodepool-20823458-vmss000000   <none>           <none>
-    kube-system   konnectivity-agent-6cd55c69cf-7xzxj   1/1     Running   0          16m     10.240.0.8   aks-mynodepool-20823458-vmss000001   <none>           <none>
-    kube-system   kube-proxy-4wzx7                      1/1     Running   0          10d     10.240.0.4   aks-nodepool1-31721111-vmss000000    <none>           <none>
-    kube-system   kube-proxy-7h8r5                      1/1     Running   0          49m     10.240.0.7   aks-mynodepool-20823458-vmss000000   <none>           <none>
-    kube-system   kube-proxy-g5tvr                      1/1     Running   0          10d     10.240.0.6   aks-nodepool1-31721111-vmss000002    <none>           <none>
-    kube-system   kube-proxy-mrv54                      1/1     Running   0          10d     10.240.0.5   aks-nodepool1-31721111-vmss000001    <none>           <none>
-    kube-system   kube-proxy-nqmnj                      1/1     Running   0          49m     10.240.0.9   aks-mynodepool-20823458-vmss000002   <none>           <none>
-    kube-system   kube-proxy-zn77s                      1/1     Running   0          49m     10.240.0.8   aks-mynodepool-20823458-vmss000001   <none>           <none>
-    kube-system   metrics-server-774f99dbf4-2x6x8       1/1     Running   0          16m     10.244.4.4   aks-mynodepool-20823458-vmss000002   <none>           <none>
-    ```
-
-### Remove the existing nodes
-
-* Remove the existing nodes using the `az aks nodepool delete` command. The final result is the AKS cluster having a single Azure Linux node pool with the desired SKU size and all the applications and pods properly running.
-
-    ```azurecli-interactive
-    az aks nodepool delete \
-        --resource-group testAzureLinuxResourceGroup \
-        --cluster-name testAzureLinuxCluster \
-        --name myExistingNodePool
-    ```
-
-## In-place OS SKU migration (Preview)
-
-You can now migrate your existing Linux node pools to Azure Linux by changing the OS SKU of the node pool, which rolls the cluster through the standard node image upgrade process. This new feature doesn't require the creation of new node pools.
+You can now migrate your existing Ubuntu node pools to Azure Linux by changing the OS SKU of the node pool, which rolls the cluster through the standard node image upgrade process. This new feature doesn't require the creation of new node pools.
 
 ### Limitations
 
-The OS SKU migration feature is currently available through ARM, Bicep, and the Azure CLI. Please note that OS SKU migration isn't able to rename existing node pools.
-
 There are several settings that can block the OS SKU migration request. To ensure a successful migration, please review the following guidelines and limitations:
 
+* The OS SKU migration feature is not available through Terraform, PowerShell, or the Azure portal.
+* The OS SKU migration feature is not able to rename existing node pools.
 * Ubuntu and Azure Linux are the only supported Linux OS SKU migration targets.
 * AgentPool `count` field must not change during the migration.
 * An Ubuntu OS SKU with `UseGPUDedicatedVHD` enabled can't perform an OS SKU migration.
@@ -153,11 +59,13 @@ There are several settings that can block the OS SKU migration request. To ensur
 
 ### Prerequisites
 
-1. Register for the `OSSKUMigrationPreview` feature flag on your subscription using `az feature register --namespace Microsoft.ContainerService --name OSSKUMigrationPreview --subscription <your-subscription-id>`.
-2. We recommend that you ensure your workloads configure and run successfully on the Azure Linux container host before attempting to use the OS SKU migration feature. You can do this by [deploying an Azure Linux cluster](./quickstart-azure-cli.md) in dev/prod and verifying your service remains healthy.
-3. Ensure the migration feature is working for you in test/dev before using the process on a production cluster.
-4. Ensure that your pods have enough [Pod Disruption Budget](../aks/operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets) to allow AKS to move pods between VMs during the upgrade.
-5. You need the latest version of Azure CLI. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* [Install the `aks-preview` extension](#install-the-aks-preview-extension).
+* [Register the `OSSKUMigrationPreview` feature flag on your subscription](#register-the-osskumigrationpreview-feature-flag).
+* An existing AKS cluster with at least one Ubuntu node pool.
+* We recommend that you ensure your workloads configure and run successfully on the Azure Linux container host before attempting to use the OS SKU migration feature. You can do this by [deploying an Azure Linux cluster](./quickstart-azure-cli.md) in dev/prod and verifying your service remains healthy.
+* Ensure the migration feature is working for you in test/dev before using the process on a production cluster.
+* Ensure that your pods have enough [Pod Disruption Budget](../aks/operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets) to allow AKS to move pods between VMs during the upgrade.
+* You need Azure CLI version 0.5.172 or higher. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -177,25 +85,44 @@ There are several settings that can block the OS SKU migration request. To ensur
     az extension update --name aks-preview
     ```
 
-#### Deploy a test cluster
+#### Register the `OSSKUMigrationPreview` feature flag
 
-1. Create a resource group for the test cluster using the `az group create` command.
-
-    ```azurecli-interactive
-    az group create --name testRG --location eastus
-    ```
-
-2. Create an AKS cluster with a single node pool using the `az aks create` command.
+1. Register the `OSSKUMigrationPreview` feature flag on your subscription using the `az feature register` command.
 
     ```azurecli-interactive
-    az aks create --resource-group myResourceGroup --name myAKSCluster --noepool-name mynodepool --os-sku Ubuntu
+    az feature register --namespace Microsoft.ContainerService --name OSSKUMigrationPreview
     ```
 
-3. Migrate the OS SKU of your node pool to Azure Linux using the `az aks nodepool update` command.
+2. Check the registration status using the `az feature list` command.
 
     ```azurecli-interactive
-    az aks nodepool update --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --os-sku AzureLinux
+    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/OSSKUMigrationPreview')].{Name:name,State:properties.state}"
     ```
+
+    Your output should look similar to the following example output:
+
+    ```output
+    Name                                            State
+    ----------------------------------------------  -------
+    Microsoft.ContainerService/OSSKUMigrationPreview  Registered
+    ```
+
+3. Refresh the registration of the `OSSKUMigrationPreview` feature flag using the `az provider register` command.
+
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
+    ```
+
+#### Migrate the OS SKU of your Ubuntu node pool
+
+* Migrate the OS SKU of your node pool to Azure Linux using the `az aks nodepool update` command. This command updates the OS SKU for your node pool from Ubuntu to Azure Linux. The change is applied immediately.
+
+    ```azurecli-interactive
+    az aks nodepool update --resource-group <resource-group-name> --cluster-name <cluster-name> --name <node-pool-name> --os-sku AzureLinux --mode System
+    ```
+
+    > [!NOTE]
+    > If you experience issues during the OS SKU migration, you can [roll back to your previous OS SKU](#rollback).
 
 ### [ARM template](#tab/arm-template)
 
@@ -341,6 +268,12 @@ Once the migration is complete on your test clusters, you should verify the foll
 ### Rollback
 
 If you experience issues during the OS SKU migration, you can roll back to your previous OS SKU. To do this, you need to change the OS SKU field in your template and resubmit the deployment, which triggers another upgrade operation and restores the node pool to its previous OS SKU.
+
+* Roll back to your previous OS SKU using the `az aks nodepool update` command. This command updates the OS SKU for your node pool from Azure Linux back to Ubuntu.
+
+    ```azurecli-interactive
+    az aks nodepool update --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --os-sku Ubuntu
+    ```
 
 ## Next steps
 
