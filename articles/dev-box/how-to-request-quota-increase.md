@@ -17,10 +17,10 @@ To ensure that resources are available for customers, Microsoft Dev Box has a li
 
 There are different types of quota limits that you might encounter, depending on the resource type. Here are some examples:
 
-- In the **[developer portal](https://aka.ms/devbox-portal)**, there are limits for a dev box vCPU. You might encounter this quota error during dev box creation.
+- In the Microsoft **[developer portal](https://aka.ms/devbox-portal)**, there are limits for a dev box vCPU. You might encounter this quota error during dev box creation.
 - In the **Azure portal**, there are limits for dev centers, network connections, and dev box definitions.
 
-When you reach the limit for a resource in your subscription, you can request a _limit increase_ (sometimes called a _capacity increase_, or a _quota increase_) to extend the number of resources available. The request process allows the Microsoft Dev Box team to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
+When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Microsoft Dev Box team to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
 The time it takes to increase your quota varies depending on the virtual machine size, region, and number of resources requested. You don't have to go through the process of requesting extra capacity often. To ensure you have the resources you require when you need them, you should:
 
@@ -75,7 +75,7 @@ Both the **Support + troubleshooting** feature and the **Help + support** page h
 
 To begin the process, choose the tab that offers the input style that's appropriate for your experience, then follow the steps to request a quota limit increase. 
 
-#### [Support + troubleshooting (questions)](#tab/Questions/)
+# [**Support + troubleshooting** (questions)](#tab/Questions/)
 
 1. On the Azure portal home page, select the **Support + Troubleshooting** icon (question mark) on the toolbar.
  
@@ -97,9 +97,9 @@ To begin the process, choose the tab that offers the input style that's appropri
 
    :::image type="content" source="media/how-to-request-quota-increase/help-support-result.png" alt-text="Screenshot showing the Service and subscription limits (quotas) section and the Create a support request button highlighted." lightbox="media/how-to-request-quota-increase/help-support-result.png":::
 
-The **New support request** page opens. Continue to the [following section](#describe-the-problem) to fill out the support request form.
+The **New support request** page opens. Continue to the [following section](#describe-the-requested-quota-increase) to fill out the support request form.
 
-#### [Help + support](#tab/AzureADJoin/)
+# [**Help + support**](#tab/AzureADJoin/)
 
 1. On the Azure portal home page, expand the Azure portal menu, and select **Help + support**.
 
@@ -109,13 +109,13 @@ The **New support request** page opens. Continue to the [following section](#des
 
    :::image type="content" source="./media/how-to-request-quota-increase/create-support-request.png" alt-text="Screenshot of the Help plus support page and the Create a support request highlighted." lightbox="./media/how-to-request-quota-increase/create-support-request.png":::
 
-The **New support request** page opens. Continue to the [following section](#describe-the-problem) to fill out the support request form.
+The **New support request** page opens. Continue to the [following section](#describe-the-requested-quota-increase) to fill out the support request form.
 
 ---
 
-## Describe the problem
+## Describe the requested quota increase
 
-Follow these steps to fill out the support request form.
+Follow these steps to describe your requested quota increase and fill out the support form.
 
 1. On the **New support request** page, on the **1. Problem description** tab, configure the following settings, and then select **Next**.
 
@@ -149,7 +149,7 @@ Follow these steps to fill out the support request form.
 
 ## Complete the support request
 
-To complete the support request, configure the remaining settings. When you're ready, review your choices and submit the request.
+To complete the support request form, configure the remaining settings. When you're ready, review your information and submit the request.
 
 1. On the **Additional details** tab, in the **Advanced diagnostic information** section, configure the following setting:
 
