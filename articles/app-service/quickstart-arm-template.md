@@ -88,7 +88,7 @@ This template contains several parameters that are predefined for your convenien
 ---
 ::: zone-end
 ::: zone pivot="platform-windows-container"
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-service-docs-windows-container). It deploys an App Service plan and an App Service app on a Windows container.
+The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/app-service-docs-windows-container/). It deploys an App Service plan and an App Service app on a Windows container.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows-container/azuredeploy.json":::
 
@@ -103,10 +103,7 @@ This template contains several parameters that are predefined for your convenien
 |------------|---------|------------------------------|-------------|
 | webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
 | location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
-| sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
-| language   | string  | ".net"                       | Programming language stack (.NET, php, node, html) |
-| helloWorld | boolean | False                        | True = Deploy "Hello World" app |
-| repoUrl    | string  | " "                          | External Git repo (optional) |
+| skuTier        | string  | "P1v3"                         | Instance size (F1 = Free Tier) |
 | kind       | string  | "windows"                          | External Git repo (optional) |
 | hyperv     | string  | "true"                          | External Git repo (optional) |
 | windowsFxVersion | string  | "DOCKER&#124;mcr.microsoft.com/dotnet/samples:aspnetapp"                          | External Git repo (optional) |
@@ -155,7 +152,7 @@ Run the code below to deploy a .NET framework app on a Windows container.
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
---parameters language=".net" helloWorld="true" webAppName="<app-name>" \
+--parameters webAppName="<app-name>" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows-container/azuredeploy.json"
 ::: zone-end
 
