@@ -13,7 +13,7 @@ ms.author: normesta
 
 # Quickstart: Create, assign, and run a storage task
 
-In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. 
+In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. The storage task applies a legal hold to any container which contains one or more Microsoft Word documents.
 
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
@@ -23,17 +23,13 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 - An Azure subscription. See [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md).
+- An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). As you create the account, make sure to enable version-level immutability support and that you don't enable the hierarchical namespace feature.
 
-- The [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role is assigned to your user identity in the context of the storage account or resource group.
+- The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is assigned to your user identity in the context of the storage account or resource group.
 
-- A custom role assigned to your user identity in the context of the resource group which contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles.md#permission-for-a-task-to-perform-operations). 
+- A custom role assigned to your user identity in the context of the resource group which contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles.md#permission-for-a-task-to-perform-operations).
 
-- A blob container that has a metadata key named `Classification` which is set to the string "Confidential". 
-
-  Make sure to enable version-level immutability support on that container. See [Enable version-level immutability support on a container](../../storage/blobs/immutable-policy-configure-version-scope.md#enable-version-level-immutability-support-on-a-container).
-
-- One or more Microsoft Word documents stored to the blob container.
+- A blob container with one or more Microsoft Word documents stored in that container.
 
 ## Create a task
 
@@ -49,7 +45,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the storage task create button.](../media/storage-tasks/storage-task-create/storage-task-create-button.png)
 
-4. In the **Basics** page, under **Project details**, make sure that the correct subscription is selected. Then, create a new resource group by selecting the **Create new** link. Name that group _mystoragetaskresourcegroup_.
+4. In the **Basics** page, under **Project details**, make sure that the correct subscription is selected. Then, select the same resource group that contains your new storage account.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Project details section of the Basics tab.](../media/storage-tasks/storage-task-quickstart-portal/project-details-section.png)
@@ -65,18 +61,9 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 You can specify the conditions of a storage task by making selections in **If** section of the **Visual Builder** tab. Every storage task has at least one condition with one clause in that condition.
 
-1. In the **Select a property** drop-down list of the **If** section, select **Container metadata value**.
+1. In the **Select a property** drop-down list of the **If** section, select **Blob name**.
 
-2. In the **Enter a metadata name** box, enter _Classification_, and in the **Enter a metadata value** box, enter _Confidential_.
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of the If condition section of the Visual Builder.](../media/storage-tasks/storage-task-quickstart-portal/if-condition.png)
-
-   This condition allows operations only on blobs that exist in containers which are marked as confidential.
-
-3. Select **Add new clause**, and then in the **Select a property** drop-down list, select **Blob Name**.
-
-4. For the **Operator** of that condition, select **Ends with**, and in the **Enter a string** box, enter _.docx_.
+2. For the **Operator** of that condition, select **Ends with**, and in the **Enter a string** box, enter _.docx_.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the clause that filters for blob name.](../media/storage-tasks/storage-task-quickstart-portal/if-condition-blob-name.png)
@@ -92,7 +79,7 @@ You can specify the operations that a storage task performs by making selections
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Then operation which sets the immutabality policy.](../media/storage-tasks/storage-task-quickstart-portal/then-operation-immutability-policy.png)
 
-   This operation applies a legal hold to any container that is marked as confidential and which contains one or more Microsoft Word documents.
+   This operation applies a legal hold to any container which contains one or more Microsoft Word documents.
 
 2. Select **Add new operation**, and then in the **Select a operation** drop-down list, select **Set blob tags**.
 
@@ -118,32 +105,32 @@ A storage task _assignment_ specifies a storage account. After you enable the st
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Select scope section of the assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-select-scope.png)
 
-4. In the **Role assignment** section, in the **Role** drop-down list, select the **Storage Blob Data Contributor** to assign that role to the system-assigned managed identity of the storage task.
+3. In the **Role assignment** section, in the **Role** drop-down list, select the **Storage Blob Data Owner** to assign that role to the system-assigned managed identity of the storage task.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
 
-3. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you are using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
+4. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you are using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Filter objects section of the Add assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-filter-prefix.png)
 
    Filters help you narrow the scope of execution. If your want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option instead.
 
-4. In the **Trigger details** section, select **Single run (only once)** and then select the container where you'd like to store the execution reports.
+5. In the **Trigger details** section, select **Single run (only once)** and then select the container where you'd like to store the execution reports.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Trigger details section of the Add assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-trigger-details.png)
 
-5. Select **Add**.
+6. Select **Add**.
 
-6. In the **Tags** tab, select **Next**.
+7. In the **Tags** tab, select **Next**.
 
-7. In the **Review + Create** tab, select **Review + create**.
+8. In the **Review + Create** tab, select **Review + create**.
 
    When the task is deployed, the **Your deployment is complete** page appears.
 
-8. Select **Go to resource** to open the **Overview** page of the storage task.
+9. Select **Go to resource** to open the **Overview** page of the storage task.
 
 ## Enable the task assignment
 
