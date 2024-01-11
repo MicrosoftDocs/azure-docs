@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm 
 ms.service: dev-box 
 ms.topic: troubleshooting 
-ms.date: 01/09/2024
+ms.date: 01/10/2024
 
 #CustomerIntent: As a dev box user, I want to be able to troubleshoot and repair connectivity issues with my dev box so that I don't lose development time.
 ---
@@ -14,7 +14,7 @@ ms.date: 01/09/2024
 
 In this article, you learn how to troubleshoot and resolve remote desktop connectivity (RDC) issues with your dev box. Because RDC issues to your dev box can be time consuming to resolve manually, use the **Troubleshoot & repair** tool in the developer portal to diagnose and repair some common dev box connectivity issues.
 
-:::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-repair-tool.png" alt-text="Screenshot showing the Troubleshoot and repair tool in the Microsoft developer portal.":::
+:::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-repair-tool.png" alt-text="Screenshot showing the Troubleshoot and repair tool in the Microsoft developer portal." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-repair-tool.png":::
 
 When you run the **Troubleshoot & repair** tool, your dev box and its back-end services in the Azure infrastructure are scanned for issues. If an issue is detected, the troubleshoot and repair process fixes the issue so you can connect to your dev box.
 
@@ -45,17 +45,17 @@ To run the **Troubleshoot & repair** tool on your dev box, follow these steps:
 
 1. Check that the dev box you want to troubleshoot is running.
  
-   :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-running-tile.png" alt-text="Screenshot showing the dev box tile with the status Running."::: 
+   :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-running-tile.png" alt-text="Screenshot showing the dev box tile with the status Running." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-running-tile.png"::: 
 
 1. If the dev box isn't running, start it, and check whether you can connect to it with RDP.
 
 1. If your dev box is running and you still can't connect to it with RDP, on the more actions (**...**) menu, select **Troubleshoot & repair**.
 
-   :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-actions-troubleshoot-repair.png" alt-text="Screenshot showing the Troubleshoot and repair option for a dev box on the more action menu.":::
+   :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-actions-troubleshoot-repair.png" alt-text="Screenshot showing the Troubleshoot and repair option for a dev box on the more actions menu." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-actions-troubleshoot-repair.png" :::
 
 1. In the **Troubleshoot & repair** connectivity message box, select **Yes, I want to troubleshoot this dev box**, and then select **Troubleshoot**.
 
-   :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-confirm.png" alt-text="Screenshot showing the Troubleshoot and repair connectivity confirmation message with the Yes option highlighted."::: 
+   :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-confirm.png" alt-text="Screenshot showing the Troubleshoot and repair connectivity confirmation message with the Yes option highlighted." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-confirm.png" ::: 
 
    While you wait for the process to complete, you can leave your developer portal session open, or close it and reopen it later. The troubleshoot and repair process continues in the background.
 
