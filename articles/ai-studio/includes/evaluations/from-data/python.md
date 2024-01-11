@@ -2,7 +2,8 @@
  title: include file
  description: include file
  author: eur
- ms.author: eric-urban
+ ms.reviewer: eur
+ms.author: eric-urban
  ms.service: azure-ai-studio
  ms.topic: include
  ms.date: 11/15/2023
@@ -133,7 +134,7 @@ Before you call the `evaluate()` function, your environment needs to set up your
 
 ```python
 from azure.identity import DefaultAzureCredential
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 
 client = AIClient.from_config(DefaultAzureCredential())
 ```

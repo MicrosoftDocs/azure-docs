@@ -6,8 +6,8 @@ ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/15/2023
-ms.author: cynthn
-ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell, devx-track-terraform
+ms.author: jushiman
+ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Change the size of a virtual machine 
 

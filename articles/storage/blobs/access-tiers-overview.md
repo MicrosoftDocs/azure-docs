@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 12/12/2023
+ms.date: 01/03/2023
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: fryu
@@ -46,6 +46,9 @@ Data in the cool and cold tiers have slightly lower availability, but offer the 
 
 Blobs are subject to an early deletion penalty if they are deleted or moved to a different tier before the minimum number of days required by the tier have transpired. For example, a blob in the cool tier in a general-purpose v2 account is subject to an early deletion penalty if it's deleted or moved to a different tier before 30 days has elapsed. For a blob in the cold tier, the deletion penalty applies if it's deleted or moved to a different tier before 90 days has elapsed. This charge is prorated. For example, if a blob is moved to the cool tier and then deleted after 21 days, you'll be charged an early deletion fee equivalent to 9 (30 minus 21) days of storing that blob in the cool tier.
 
+> [!NOTE]
+> In an account that has soft delete enabled, a blob is considered deleted after it is deleted and retention period expires. Until that period expires, the blob is only  _soft-deleted_ and is not subject to the early deletion penalty.
+
 The hot, cool, and cold tiers support all redundancy configurations. For more information about data redundancy options in Azure Storage, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
 ## Archive access tier
@@ -59,6 +62,9 @@ The archive tier is an offline tier for storing data that is rarely accessed. Th
 To learn how to move a blob to the archive tier, see [Archive a blob](archive-blob.md).
 
 Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge. For example, if a blob is moved to the archive tier and then deleted or moved to the hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in the archive tier.
+
+> [!NOTE]
+> In an account that has soft delete enabled, a blob is considered deleted after it is deleted and retention period expires. Until that period expires, the blob is only  _soft-deleted_ and is not subject to the early deletion penalty.
 
 While a blob is in the archive tier, it can't be read or modified. To read or download a blob in the archive tier, you must first rehydrate it to an online tier, either hot, cool, or cold. Data in the archive tier can take up to 15 hours to rehydrate, depending on the priority you specify for the rehydration operation. For more information about blob rehydration, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 

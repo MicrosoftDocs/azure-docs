@@ -9,8 +9,8 @@ metadata:
  
   ms.topic: hub-page
   ms.collection: collection
-  ms.prod: visual-studio-family
-  ms.technology: vs-subscriptions
+  ms.service: visual-studio-family
+  ms.subservice: subscriptions
   ms.author: amast
   author: rigel512
   ms.date: 10/18/2023
