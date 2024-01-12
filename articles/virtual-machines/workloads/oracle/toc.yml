@@ -11,7 +11,7 @@ items:
         href: oracle-weblogic.md
       - name: Get started with WebLogic Server on Azure VMs
         href: weblogic-server-azure-virtual-machine.md
-      - name: WebLogic Server on Azure Kubernetes Service overview
+      - name: WebLogic Server on Azure Kubernetes Service
         href: weblogic-aks.md
   - name: Configuration
     items:
