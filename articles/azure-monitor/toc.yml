@@ -39,26 +39,34 @@ items:
     items:
     - name: Overview
       href: health-models/overview.md
-    - name: Health states
-      href: health-models/health-state.md
-    - name: Create a health model
-      href: health-models/create-model.md
-    - name: Designer view
-      href: health-models/designer-view.md
-    - name: Code view
-      href: health-models/code-view.md
-    - name: Configure identity
-      href: health-models/configure-identity.md
-    - name: Health state
-      href: health-models/health-state.md
-    - name: Service levels
-      href: health-models/service-levels.md
-    - name: Nested health models
-      href: health-models/nested-health-models.md
-    - name: Prometheus remote write
-      href: health-models/prometheus-remote-write.md
-    - name: Views
-      href: health-models/health-state-views.md
+    - name: Concepts
+      items:
+      - name: Health state
+        href: health-models/health-state.md
+      - name: Health modeling
+        href: /azure/well-architected/mission-critical/mission-critical-health-modeling
+      - name: Define a health model
+        href: https://www.youtube.com/watch?v=9C4RUuqZG8w
+    - name: Create and configure
+      items:
+      - name: Create a health model
+        href: health-models/create-model.md
+      - name: Code view
+        href: health-models/code-view.md
+      - name: Configure identity
+        href: health-models/configure-identity.md
+      - name: Nested health models
+        href: health-models/nested-health-models.md
+    - name: Analyze
+      items:
+      - name: Views
+        href: health-models/views.md
+      - name: Queries
+        href: health-models/service-levels.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot health models
+        href: health-models/troubleshoot.md
   - name: Monitor applications with Application Insights
     items:
     - name: Application Insights overview
