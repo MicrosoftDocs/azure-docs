@@ -76,7 +76,7 @@ landingContent:
             url: ./learn/quick-kubernetes-deploy-cli.md
           - text: Azure PowerShell
             url: ./learn/quick-kubernetes-deploy-powershell.md
-          - text: Azure Portal
+          - text: Azure portal
             url: ./learn/quick-kubernetes-deploy-portal.md
           - text: Resource Manager template
             url: ./learn/quick-kubernetes-deploy-rm-template.md
