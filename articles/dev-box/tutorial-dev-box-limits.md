@@ -25,11 +25,11 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - A Dev Box project in your subscription 
-- Project Admin permission to that project
+- Project Admin role permissions to that project
 
 ## Set a dev box limit for your project
 
-The dev box limit is the number of dev boxes each developer can create in a project. For example, if you set the limit to 3, each developer in your team can create 3 dev boxes.
+The dev box limit is the number of dev boxes each developer can create in a project. For example, if you set the limit to 3, each developer in your team can create three dev boxes.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
