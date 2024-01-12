@@ -46,27 +46,51 @@ To use Azure OpenAI on your data fully capability, you need the following Azure 
 | Contributor | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
 | Cognitive Services Contributor Role | The Azure AI Search resource, to access Azure OpenAI resource.	| You want to deploy a web app. |
 
-## Architecture overview
-
-TBD
-
 ## Add your data 
 
-When you want to use your data to chat with an Azure OpenAI model, it needs to be indexed in a vector database that can be used by the model. For some data sources (such as uploading files from your local machine or data contained in a blob storage account), Azure AI Search us used. Azure OpenAI on your data however, supports a number of sources: 
+When you want to use your data to chat with an Azure OpenAI model, it needs to be indexed in a database that can be used by the model. For some data sources (such as uploading files from your local machine or data contained in a blob storage account), Azure AI Search us used. 
 
-> [!NOTE]
-> The following data sources are ingested into an Azure AI search database
-> * Local files uploaded using Azure OpenAI Studio.
-> * Blobs in an Azure storage container that you provide.
-> * URLs/Web pages that you choose to upload using Azure OpenAI Studio.
 
-* [Azure AI Search](/azure/search/search-what-is-azure-search) indexes
-* [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/).
-* [Pinecone](https://www.pinecone.io/)
-* [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
-* [Elasticsearch](https://www.elastic.co/)
+### Data formats and file types
 
-You can use Azure OpenAI studio to add all supported data sources. You can also use the [ingestion API](../reference.md#start-an-ingestion-job) to ingest an Azure blob storage container into an Azure AI search index. To add a data source using the the Azure Open AI Studio:
+Azure OpenAI on your data supports the following filetypes:
+
+* `.txt`
+* `.md`
+* `.html`
+* Microsoft Word files
+* Microsoft PowerPoint files
+* PDF
+
+There is an [upload limit](../quotas-limits.md), and there are some caveats about document structure and how it might affect the quality of responses from the model: 
+
+* The model provides the best citation titles from markdown (`.md`) files. 
+
+* If a document is a PDF file, the text contents are extracted as a preprocessing step (unless you're connecting your own Azure AI Search index). If your document contains images, graphs, or other visual content, the model's response quality depends on the quality of the text that can be extracted from them. 
+
+* If you're converting data from an unsupported format into a supported format, make sure the conversion:
+
+    * Doesn't lead to significant data loss.
+    * Doesn't add unexpected noise to your data.  
+
+    This will affect the quality of the model response. 
+
+### Supported data sources
+
+Azure OpenAI on your data supports the following data sources:
+
+
+|Data source  |Backing database  |Description  |
+|---------|---------|---------|
+|Local file upload    | Azure AI Search        | Upload files from your local machine to be stored in an Azure blob storage database, and ingested into Azure AI Search.         |
+|URL/Web pages    | Azure AI Search        | Select URLs from the web to be stored in an Azure blob storage database, and ingested into Azure AI Search.         |
+|Blob storage container     | Azure AI Search | Use an existing blob storage container to be ingested into an Azure blob storage database.         |
+| [Azure AI Search](/azure/search/search-what-is-azure-search)   | Azure AI Search | Use an existing Azure AI Search database to be used with Azure OpenAI on your data.      |
+|[Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/)     | Azure Cosmos DB for MongoDB vCore        | Use an existing Azure Cosmos DB for MongoDB vCore to be used with Azure OpenAI on your data.        |
+| [Pinecone](https://www.pinecone.io/)   | Use an existing Pinecone database to be used with Azure OpenAI on your data.        |         |
+| [Elasticsearch](https://www.elastic.co/)   | Use an existing Elasticsearch database to be used with Azure OpenAI on your data.        |         |
+
+You can use Azure OpenAI studio, Azure AI studio, or the [ingestion API](../reference.md#start-an-ingestion-job) to connect existing supported databases (to upload files and select URLs for ingestion, use Azure OpenAI studio). For example, to add a data source using Azure Open AI Studio:
 
 1. Navigate to [Azure OpenAI studio](https://oai.azure.com/portal) and select the **Bring your data**.
 
@@ -159,17 +183,6 @@ In this example, the fields mapped to **Content data** and **Title** provide inf
 
 Mapping these fields correctly helps ensure the model has better response and citation quality. 
 
-### Using the model
-
-After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
-* [Web app](#using-the-web-app)
-* [REST API](../reference.md#azure-ai-search)
-* [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/AzureOnYourData.cs)
-* [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
-* [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/bringYourOwnData.js)
-* [PowerShell](../use-your-data-quickstart.md?tabs=command-line%2Cpowershell&pivots=programming-language-powershell#example-powershell-commands)
-* [Python](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat_with_your_own_data.ipynb) 
-
 # [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
 
 ### Prerequisites
@@ -185,7 +198,7 @@ After ingesting your data, you can start chatting with the model on your data us
 
 Use the script [provided on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/feature/2023-9/scripts/cosmos_mongo_vcore_data_preparation.py) to prepare your data.
 
-### Add your data source in Azure OpenAI Studio
+<!--### Add your data source in Azure OpenAI Studio
 
 To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an existing Azure Cosmos DB for MongoDB vCore index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
 
@@ -197,25 +210,20 @@ To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an exis
 1. **Select Database**. In the dropdown menus, select the database name, database collection, and index name that you want to use as your data source. Select the embedding model deployment you would like to use for vector search on this data source, and acknowledge that you will incur charges for using vector search. Then select **Next**.
 
     :::image type="content" source="../media/use-your-data/select-mongo-database.png" alt-text="A screenshot showing the screen for adding Mongo DB settings in Azure OpenAI Studio." lightbox="../media/use-your-data/select-mongo-database.png":::
+-->
 
-1. Enter the database data fields to properly map your data for retrieval.
+### Index field mapping
 
-    * Content data (required): The provided field(s) will be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
-    * File name/title/URL: Used to display more information when a document is referenced in the chat.
-    * Vector fields (required): Select the field in your database that contains the vectors.
+When you add your Azure Cosmos DB for MongoDB vCore data source, you can specify  data fields to properly map your data for retrieval.
 
-    :::image type="content" source="../media/use-your-data/mongo-index-mapping.png" alt-text="A screenshot showing the index field mapping options for Mongo DB." lightbox="../media/use-your-data/mongo-index-mapping.png":::
+* Content data (required): The provided field(s) will be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
+* File name/title/URL: Used to display more information when a document is referenced in the chat.
+* Vector fields (required): Select the field in your database that contains the vectors.
 
-### Using the model
+:::image type="content" source="../media/use-your-data/mongo-index-mapping.png" alt-text="A screenshot showing the index field mapping options for Mongo DB." lightbox="../media/use-your-data/mongo-index-mapping.png":::
 
-After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
-* [Web app](../how-to/use-web-app.md)
-* [REST API](../reference.md#azure-cosmos-db-for-mongodb-vcore)
-
-
-# [Azure Machine Learning](#tab/azure-machine-learning)
-
-TBD 
+# [Pinecone](#tab/pinecone)
+TBD
 
 # [Elasticsearch](#tab/elasticsearch)
 
@@ -223,30 +231,16 @@ TBD
 
 ---
 
+### Using the model
 
-## Data formats and file types
-
-Azure OpenAI on your data supports the following filetypes:
-
-* `.txt`
-* `.md`
-* `.html`
-* Microsoft Word files
-* Microsoft PowerPoint files
-* PDF
-
-There is an [upload limit](../quotas-limits.md), and there are some caveats about document structure and how it might affect the quality of responses from the model: 
-
-* The model provides the best citation titles from markdown (`.md`) files. 
-
-* If a document is a PDF file, the text contents are extracted as a preprocessing step (unless you're connecting your own Azure AI Search index). If your document contains images, graphs, or other visual content, the model's response quality depends on the quality of the text that can be extracted from them. 
-
-* If you're converting data from an unsupported format into a supported format, make sure the conversion:
-
-    * Doesn't lead to significant data loss.
-    * Doesn't add unexpected noise to your data.  
-
-    This will affect the quality of the model response. 
+After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
+* [Web app](#using-the-web-app)
+* [REST API](../reference.md#azure-ai-search)
+* [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/AzureOnYourData.cs)
+* [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
+* [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/bringYourOwnData.js)
+* [PowerShell](../use-your-data-quickstart.md?tabs=command-line%2Cpowershell&pivots=programming-language-powershell#example-powershell-commands)
+* [Python](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat_with_your_own_data.ipynb) 
 
 ## Use Azure OpenAI on your data securely
 
