@@ -176,7 +176,7 @@ Although most customers use just one service, service redundancy might be necess
 
 + [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md). Azure AI Search doesn't provide instant failover in the event of an outage.
 
-+ [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
++ [Multitenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 
 + Globally deployed applications might require search services in each geography to minimize latency.
 
