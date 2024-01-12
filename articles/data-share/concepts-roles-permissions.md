@@ -309,7 +309,9 @@ The following shows an example of how the required actions will be listed in JSO
 
 "Microsoft.Storage/storageAccounts/blobServices/containers/read", 
 
-"Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action", 
+"Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action",
+
+"Microsoft.Storage/storageAccounts/listkeys/action",
 
 "Microsoft.DataShare/accounts/read", 
 
