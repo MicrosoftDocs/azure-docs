@@ -21,6 +21,6 @@ Currently in preview, the operational excellence documentation set contains the 
     - [Deploy with confidence](/azure/well-architected/operational-excellence/principles#deploy-with-confidence) 
     - [Adopt safe deployment practices](/azure/well-architected/operational-excellence/principles#adopt-safe-deployment-practices)  
 
-    Each service-specific guide is derived from [Relocate cloud workloads](/azure/cloud-adoption-framework/relocate/) in the Cloud Adoption Fremework for Azure.
+    Each service-specific guide is derived from [Relocate cloud workloads](/azure/cloud-adoption-framework/relocate/) in the Cloud Adoption Framework for Azure.
 
 
