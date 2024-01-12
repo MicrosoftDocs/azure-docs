@@ -110,24 +110,119 @@ Update the properties section of your ARM template with the Upgrade Policy you w
 
 ### [Portal](#tab/portal2)
 
+When a Rolling Upgrade is triggered in the Azure Portal, a banner will appear at the top of your scale set resource informing you that a Rolling Upgrade is in progress. You can click on view details to see the status of the rolling upgrade. When all updates are complete, the banner will disappear. 
+
+:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-banner.png" alt-text="Screenshot showing banner when a rolling upgrade is taking place.":::
+
+:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-status-portal.png" alt-text="Screenshot showing details of the rolling upgrade in the Azure portal.":::
+
+Additionally, you can view exactly what changes are being rolled out in the Activity Log. The Rolling Upgrade event will be under "Create or Update Virtual Machine Scale Set". Select "Change History" to review what is being updated. 
+
+:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-activity-log.png" alt-text="Screenshot showing the rolling upgrade details in the Activity Log.":::
+
 
 ### [CLI](#tab/cli2)
+
+You can get the status of a rolling upgrade in progress using [az vmss rolling-upgrade get-latest](/cli/azure/vmss#az-vmss-rolling-upgrade)
+
+```azure-cli
+az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResourceGroup
+
+{
+  "location": "eastus",
+  "policy": {
+    "maxBatchInstancePercent": 20,
+    "maxSurge": false,
+    "maxUnhealthyInstancePercent": 20,
+    "maxUnhealthyUpgradedInstancePercent": 20,
+    "pauseTimeBetweenBatches": "PT0S",
+    "prioritizeUnhealthyInstances": true,
+    "rollbackFailedInstancesOnPolicyBreach": false
+  },
+  "progress": {
+    "failedInstanceCount": 0,
+    "inProgressInstanceCount": 2,
+    "pendingInstanceCount": 0,
+    "successfulInstanceCount": 8
+  },
+  "runningStatus": {
+    "code": "RollingForward",
+    "lastAction": "Start",
+    "lastActionTime": "2024-01-12T20:20:04.1863772+00:00",
+    "startTime": "2024-01-12T20:20:04.4363788+00:00"
+  },
+  "type": "Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades"
+}
+
+
+
+```
+
 
 
 ### [PowerShell](#tab/powershell2)
 
+You can get the status of a rolling upgrade in progress using [Get-AzVmssRollingUpgrade](/powershell/module/az.compute/get-azvmssrollingupgrade)
+
+```azurepowershell
+Get-AzVMssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet
+
+Policy                                  : 
+  MaxBatchInstancePercent               : 20
+  MaxUnhealthyInstancePercent           : 20
+  MaxUnhealthyUpgradedInstancePercent   : 20
+  PauseTimeBetweenBatches               : PT0S
+  PrioritizeUnhealthyInstances          : True
+  RollbackFailedInstancesOnPolicyBreach : False
+  MaxSurge                              : False
+RunningStatus                           : 
+  Code                                  : RollingForward
+  StartTime                             : 1/12/2024 8:20:04 PM
+  LastAction                            : Start
+  LastActionTime                        : 1/12/2024 8:20:04 PM
+Progress                                : 
+  SuccessfulInstanceCount               : 8
+  FailedInstanceCount                   : 0
+  InProgressInstanceCount               : 2
+  PendingInstanceCount                  : 0
+Type                                    : Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades
+Location                                : eastus
+Tags                                    : {}
+
+```
 ---
 
 ## Cancel a Rolling Upgrade
 
 ### [Portal](#tab/portal3)
+You can cancel a rolling upgrade in progress using the Azure Portal by selecting the "view details" in the banner above your scale set. In the pop up window, you will see the current status and at the bottom will be a "cancel upgrade". 
+
+:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-cancel-portal.png" alt-text="Screenshot showing the rolling upgrade details in the Activity Log.":::
 
 
 ### [CLI](#tab/cli3)
+You can stop a rolling upgrade in progress using [az vmss rolling-upgrade cancel](/cli/azure/vmss#az-vmss-rolling-upgrade)
 
+```azurecli
+az vmss rolling-upgrade cancel --name myScaleSet --resource-group myResourceGroup
+
+
+```
 
 ### [PowerShell](#tab/powershell3)
+You can stop a rolling upgrade in progress using [Stop-AzVmssRollingUpgrade](/powershell/module/az.compute/stop-azvmssrollingupgrade)
 
+
+```azurepowershell
+Stop-AzVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet
+
+Name      : f78e1b14-720a-4c53-9656-79a43bd10adc
+StartTime : 1/12/2024 8:40:46 PM
+EndTime   : 1/12/2024 8:45:18 PM
+Status    : Succeeded
+Error     : 
+
+```
 ---
 
 ## Restart a Rolling Upgrade
@@ -137,7 +232,9 @@ Update the properties section of your ARM template with the Upgrade Policy you w
 
 ### [CLI](#tab/cli4)
 
-
+```azurecli
+az vmss rolling-upgrade start
+```
 ### [PowerShell](#tab/powershell4)
 
 ---
