@@ -92,10 +92,24 @@ Install-Module @parameters
 
 Use [`az extension add`](/cli/azure/extension#az-extension-add) to install the [cosmosdb-preview](https://github.com/azure/azure-cli-extensions/tree/main/src/cosmosdb-preview) Azure CLI extension.
 
+
+
+
+
+
+
+
+
+
+
 ```azurecli-interactive
 az extension add \
     --name cosmosdb-preview
 ```
+
+
+
+
 
 ---
 
@@ -138,6 +152,24 @@ az cosmosdb sql container merge \
     --name '<cosmos-container-name>'
 ```
 
+For **shared throughput databases**, start the merge by using `az cosmosdb sql database merge`.
+
+
+
+
+
+```azurecli
+az cosmosdb sql database merge \
+	--account-name '<cosmos-account-name>'                               
+	--name '<cosmos-database-name>'                                
+	--resource-group '<resource-group-name>'
+```
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
+```
+
 #### [API for MongoDB](#tab/mongodb/azure-powershell)
 
 Use `Invoke-AzCosmosDBMongoDBCollectionMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
@@ -167,7 +199,23 @@ Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
 
 #### [API for MongoDB](#tab/mongodb/azure-cli)
 
-Start the merge by using [`az cosmosdb mongodb collection merge`](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-merge).
+For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database?view=azure-cli-latest).
+
+
+
+```azurecli
+az cosmosdb mongodb database merge \
+	--account-name '<cosmos-account-name>'                               
+	--name '<cosmos-database-name>'                                
+	--resource-group '<resource-group-name>'
+```
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
+```
+
+For **provisioned containers**, start the merge by using [`az cosmosdb mongodb collection merge`](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-merge).
 
 ```azurecli-interactive
 az cosmosdb mongodb collection merge \
@@ -175,7 +223,11 @@ az cosmosdb mongodb collection merge \
     --account-name '<cosmos-account-name>' \
     --database-name '<cosmos-database-name>' \
     --name '<cosmos-collection-name>'
+
 ```
+
+
+
 
 ---
 
@@ -197,8 +249,6 @@ To enroll in the preview, your Azure Cosmos DB account must meet all the followi
 
 - Your Azure Cosmos DB account uses API for NoSQL or MongoDB with version >=3.6.
 - Your Azure Cosmos DB account is using provisioned throughput (manual or autoscale). Merge doesn't apply to serverless accounts.
-  - Currently, merge isn't supported for shared throughput databases. You may enroll an account that has both shared throughput databases and containers with dedicated throughput (manual or autoscale).
-  - However, only the containers with dedicated throughput are able to be merged.
 - Your Azure Cosmos DB account is a single-write region account (merge isn't currently supported for multi-region write accounts).
 - Your Azure Cosmos DB account doesn't use any of the following features:
   - [Point-in-time restore](continuous-backup-restore-introduction.md)
@@ -267,3 +317,4 @@ If you enroll in the preview, the following connectors fail.
 - Learn more about [using Azure CLI with Azure Cosmos DB.](/cli/azure/azure-cli-reference-for-cosmos-db)
 - Learn more about [using Azure PowerShell with Azure Cosmos DB.](/powershell/module/az.cosmosdb/)
 - Learn more about [partitioning in Azure Cosmos DB.](partitioning-overview.md)
+

@@ -14,27 +14,28 @@ recommendations: false
 
 # Securely use Azure OpenAI on your data
 
-Use this article to learn how to use Azure OpenAI on Your Data securely by protecting data with virtual networks and private endpoints.
+Use this article to learn how to use Azure OpenAI on your data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks and private endpoints.
+
+This article is only applicable when using [Azure OpenAI on your data with text](/azure/ai-services/openai/concepts/use-your-data). It does not apply to [Azure OpenAI on your data with images](/azure/ai-services/openai/concepts/use-your-image-data).
 
 ## Data ingestion architecture 
 
-When you ingest data into Azure OpenAI on your data, the following process is used to process the data and store it in blob storage. This applies to the following data sources:
-* local files
-* Azure blob storage
-* URLs
+When you use Azure OpenAI on your data to ingest data from Azure blob storage, local files or URLs into Azure AI Search, the following process is used to process the data.
 
 :::image type="content" source="../media/use-your-data/ingestion-architecture.png" alt-text="A diagram showing the process of ingesting data." lightbox="../media/use-your-data/ingestion-architecture.png":::
 
-1. The ingestion process is started when a client sends data to be processed.
-1. Ingestion assets (indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) and container in the search resource) are created in the Azure AI Search resource and Azure storage account.
-1. If the ingestion is triggered by a [scheduled refresh](../concepts/use-your-data.md#schedule-automatic-index-refreshes), the ingestion process starts at `[3]`.
-1.  Azure OpenAI's `preprocessing-jobs` API implements the [Azure AI Search customer skill web API protocol](/azure/search/cognitive-search-custom-skill-web-api), and processes the documents in a queue. 
-1. Azure OpenAI:
-    1. Internally uses the indexer created earlier to crack the documents.
+* Steps 1 and 2 are only used for file upload.
+* Downloading URLs to your blob storage is not illustrated in this diagram. After web pages are downloaded from the internet and uploaded to blob storage, steps 3 onward are the same.
+* Two indexers, two indexes, two data sources and a [custom skill](/azure/search/cognitive-search-custom-skill-interface) are created in the Azure AI Search resource.
+* The chunks container is created in the blob storage.
+* If the ingestion is triggered by a [scheduled refresh](../concepts/use-your-data.md#schedule-automatic-index-refreshes), the ingestion process starts from step 7.
+*  Azure OpenAI's `preprocessing-jobs` API implements the [Azure AI Search customer skill web API protocol](/azure/search/cognitive-search-custom-skill-web-api), and processes the documents in a queue. 
+* Azure OpenAI:
+    1. Internally uses the first indexer created earlier to crack the documents.
     1. Uses a heuristic-based algorithm to perform chunking, honoring table layouts and other formatting elements in the chunk boundary to ensure the best chunking quality.
-    1. If you choose to enable vector search, uses the current embedding model to vectorize the chunks, if `embeddingDeploymentName` is specified in the request header.
-1. When all the data that the service is monitoring are processed, Azure OpenAI triggers another indexer.
-1. The indexer stores the processed data into an Azure AI Search service.
+    1. If you choose to enable vector search, Azure OpenAI uses the selected embedding deployment to vectorize the chunks internally.
+* When all the data that the service is monitoring are processed, Azure OpenAI triggers the second indexer.
+* The indexer stores the processed data into an Azure AI Search service.
 
 For the managed identities used in service calls, only system assigned managed identities are supported. User assigned managed identities aren't supported.
 
@@ -44,80 +45,90 @@ For the managed identities used in service calls, only system assigned managed i
 
 When you send API calls to chat with an Azure OpenAI model on your data, the service needs to retrieve the index fields during inference to perform fields mapping automatically if the fields mapping isn't explicitly set in the request. Therefore the service requires the Azure OpenAI identity to have the `Search Service Contributor` role for the search service even during inference.
 
+If an embedding deployment is provided in the inference request, the rewritten query will be vectorized by Azure OpenAI, and both query and vector are sent Azure AI Search for vector search.
 
 
-## Resources setup
+## Resources configuration
 
-Use the following sections to set your resources for secure usage. If you plan to set up security for your resources, you should complete all of the following sections. For more information on inbound and outbound data flow, see the [Azure AI search documentation](/azure/search/search-security-overview).
+Use the following sections to configure your resources for optimal secure usage. If you plan to only secure part of your resources, you can skip the sections unrelated to your use case.
 
-## Security support for Azure OpenAI
+## Create resource group
 
+Create a resource group, so you can organize all the relevant resources. The resources in the resource group include but are not limited to:
+* One Virtual network
+* Three key services: one Azure OpenAI, one Azure AI Search, one Storage Account
+* Three Private endpoints, each is linked to one key service
+* Three Network interfaces, each is associated with one private endpoint
+* One Virtual network gateway, for the access from on-premises client machines
+* One Web App with virtual network integrated
+* One Private DNS zone, so the Web App finds the IP of your Azure OpenAI
 
-### Inbound security: networking
- 
-You can set the Azure OpenAI service networking by allowing access from the **Selected Networks and Private Endpoints** section in the Azure portal.
+## Create virtual network
 
-:::image type="content" source="../media/use-your-data/networking-azure-portal.png" alt-text="A screenshot showing the networking menu in the Azure portal." lightbox="../media/use-your-data/networking-azure-portal.png":::
+The virtual network has three subnets. 
 
+1. The first subnet is used for the private IPs of the three private endpoints.
+1. The second subnet is created automatically when you create the virtual network gateway.
+1. The third subnet is empty, and used for Web App outbound virtual network integration.
 
-If you use [Azure Management REST API](/rest/api/cognitiveservices/accountmanagement/accounts/update), you can set `networkAcls.defaultAction` as `Deny`
+:::image type="content" source="../media/use-your-data/virtual-network.png" alt-text="A diagram showing the virtual network architecture." lightbox="../media/use-your-data/virtual-network.png":::
 
-```json
-...
-"networkAcls": {
-    "defaultAction": "Deny",
-    "ipRules": [
-        {
-            "value": "4.155.49.0/24"
-        }
-    ]
-},
-"privateEndpointConnections": [],
-"publicNetworkAccess": "Enabled"
-...
-```
+Note the Microsoft managed virtual network is created by Microsoft, and you cannot see it. The Microsoft managed virtual network is used by Azure OpenAI to securely access your Azure AI Search.
 
-> [!NOTE]
-> To use Azure OpenAI Studio, you cannot set `publicNetworkAccess` as `Disabled`, because you need to add your local IP to the IP rules, so Azure OpenAI Studio can call the Azure OpenAI API for both ingestion and inference from your browser.
+## Configure Azure OpenAI
 
-### Inbound security: trusted service
+### Enabled custom subdomain
 
-To allow Azure AI Search to call Azure OpenAI `preprocessing-jobs` as custom skill web API, while Azure OpenAI is network restricted, you'll need to set up Azure OpenAI to bypass Azure AI Search as a trusted service. Azure OpenAI will identify the traffic from Azure AI Search by verifying the claims in the JSON Web Token (JWT). Azure AI Search must use the system assigned managed identity authentication to call the custom skill web API. Set `networkAcls.bypass` as `AzureServices` from the management API. See [Virtual networks article](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#grant-access-to-trusted-azure-services-for-azure-openai) for more information.
+If you created the Azure OpenAI via Azure portal, the [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) should have been created already. The custom subdomain is required for Microsoft Entra ID based authentication, and private DNS zone.
 
-### Outbound security: managed identity
+### Enable managed identity
 
-To allow other services to recognize Azure OpenAI via Azure Active Directory (Azure AD) authentication, you need to assign a managed identity for your Azure OpenAI service. The easiest way is to toggle on system assigned managed identity on Azure portal.
+To allow your Azure AI Search and Storage Account to recognize your Azure OpenAI service via Microsoft Entra ID authentication, you need to assign a managed identity for your Azure OpenAI service. The easiest way is to toggle on system assigned managed identity on Azure portal.
 :::image type="content" source="../media/use-your-data/openai-managed-identity.png" alt-text="A screenshot showing the system assigned managed identity option in the Azure portal." lightbox="../media/use-your-data/openai-managed-identity.png":::
-
-You can also add a user assigned managed identity, but using user assigned managed identities is only supported by the inference API, not in the ingestion API. 
-
-> [!TIP]
-> Unless you are in an advanced stage of development and ready for production, we recommend using the system assigned managed identity.
 
 To set the managed identities via the management API, see [the management API reference documentation](/rest/api/cognitiveservices/accountmanagement/accounts/update#identity).
 
 ```json
 
 "identity": {
-    "principalId": "12345678-abcd-1234-5678-abc123def", "tenantId": "1234567-abcd-1234-1234-abcd1234", "type": "SystemAssigned, UserAssigned", 
-        "userAssignedIdentities": {
-        "/subscriptions/1234-5678-abcd-1234-1234abcd/resourceGroups/my-resource-group",
-            "principalId": "12345678-abcd-1234-5678-abcdefg1234", 
-            "clientId": "12345678-abcd-efgh-1234-12345678"
-        }
-    }
+  "principalId": "12345678-abcd-1234-5678-abc123def",
+  "tenantId": "1234567-abcd-1234-1234-abcd1234",
+  "type": "SystemAssigned, UserAssigned", 
+  "userAssignedIdentities": {
+    "/subscriptions/1234-5678-abcd-1234-1234abcd/resourceGroups/my-resource-group",
+    "principalId": "12345678-abcd-1234-5678-abcdefg1234", 
+    "clientId": "12345678-abcd-efgh-1234-12345678"
+  }
+}
 ```
 
-## Security support for Azure AI Search
+### Enable trusted service
 
-You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
+To allow your Azure AI Search to call your Azure OpenAI `preprocessing-jobs` as custom skill web API, while Azure OpenAI has no public network access, you need to set up Azure OpenAI to bypass Azure AI Search as a trusted service based on managed identity. Azure OpenAI identifies the traffic from your Azure AI Search by verifying the claims in the JSON Web Token (JWT). Azure AI Search must use the system assigned managed identity authentication to call the custom skill web API. 
 
-### Inbound security: authentication
-As Azure OpenAI will use managed identity to access Azure AI Search, you need to enable Azure AD based authentication in your Azure AI Search. To do it on Azure portal, select **Both** in the **Keys** tab in the Azure portal.
+Set `networkAcls.bypass` as `AzureServices` from the management API. For more information, see [Virtual networks article](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#grant-access-to-trusted-azure-services-for-azure-openai).
+
+### Disable public network access
+
+You can disable public network access of your Azure OpenAI resource in the Azure portal. 
+
+To allow access to your Azure OpenAI service from your client machines, like using Azure OpenAI Studio, you need to create [private endpoint connections](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#use-private-endpoints) that connect to your Azure OpenAI resource.
+
+
+## Configure Azure AI Search
+
+### Enable managed identity
+
+To allow your other resources to recognize the Azure AI Search using Microsoft Entra ID authentication, you need to assign a managed identity for your Azure AI Search. The easiest way is to toggle on the system assigned managed identity in the Azure portal.
+
+:::image type="content" source="../media/use-your-data/outbound-managed-identity-ai-search.png" alt-text="A screenshot showing the managed identity setting for Azure AI Search in the Azure portal." lightbox="../media/use-your-data/outbound-managed-identity-ai-search.png":::
+
+### Enable role-based access control
+As Azure OpenAI uses managed identity to access Azure AI Search, you need to enable role-based access control in your Azure AI Search. To do it on Azure portal, select **Both** in the **Keys** tab in the Azure portal.
 
 :::image type="content" source="../media/use-your-data/managed-identity-ai-search.png" alt-text="A screenshot showing the managed identity option for Azure AI search in the Azure portal." lightbox="../media/use-your-data/managed-identity-ai-search.png":::
 
-To enable Azure AD via the REST API, set `authOptions` as `aadOrApiKey`. See the [Azure AI Search RBAC article](/azure/search/search-security-rbac?tabs=config-svc-rest%2Croles-portal%2Ctest-portal%2Ccustom-role-portal%2Cdisable-keys-portal#configure-role-based-access-for-data-plane) for more information.
+To enable role-based access control via the REST API, set `authOptions` as `aadOrApiKey`. For more information, see the [Azure AI Search RBAC article](/azure/search/search-security-rbac?tabs=config-svc-rest%2Croles-portal%2Ctest-portal%2Ccustom-role-portal%2Cdisable-keys-portal#configure-role-based-access-for-data-plane).
 
 ```json
 "disableLocalAuth": false,
@@ -133,78 +144,119 @@ To use Azure OpenAI Studio, you can't disable the API key based authentication f
 > [!TIP]
 > For the best security, when you are ready for production and no longer need to use Azure OpenAI Studio for testing, we recommend that you disable the API key. See the [Azure AI Search RBAC article](/azure/search/search-security-rbac?tabs=config-svc-portal%2Croles-portal%2Ctest-portal%2Ccustom-role-portal%2Cdisable-keys-portal#disable-api-key-authentication) for details. 
 
-### Inbound security: networking
+### Disable public network access
 
-Use **Selected networks** in the Azure portal. Azure AI Search doesn't support bypassing trusted services, so it is the most complex part in the setup. Create a private endpoint for the Azure OpenAI on your data resource (as a multitenant service managed by Microsoft), and link it to your Azure AI Search resource. This requires you to submit an [application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in ten business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
+You can disable public network access of your Azure AI Search resource in the Azure portal. 
+
+To allow access to your Azure AI Search resource from your client machines, like using Azure OpenAI Studio, you need to create [private endpoint connections](/azure/search/service-create-private-endpoint) that connect to your Azure AI Search resource.
+
+> [!NOTE]
+> To allow access to your Azure AI Search resource from Azure OpenAI resource, you need to submit an [application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in 10 business days and you will be contacted via email about the results. If you are eligible, we will provision the private endpoint in Microsoft managed virtual network, and send a private endpoint connection request to your search service, and you will need to approve the request.
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
-> [!NOTE]
-> To use Azure OpenAI Studio, you cannot disable public network access, and you need to add your local IP to the IP rules, because Azure AI Studio calls the search API from your browser to list available indexes.
 
-:::image type="content" source="../media/use-your-data/inbound-networking-security-azure-search.png" alt-text="A screenshot showing the network security for Azure AI search in the Azure portal." lightbox="../media/use-your-data/inbound-networking-security-azure-search.png":::
+## Configure Storage Account
 
-### Outbound security: managed identity
+### Enable trusted service
 
-To allow other services to recognize the Azure AI Search using Azure AD authentication, you need to assign a managed identity for your Azure AI Search service. The easiest way is to toggle the system assigned managed identity in the Azure portal to **on**.
+To allow access to your Storage Account from Azure OpenAI and Azure AI Search, while the Storage Account has no public network access, you need to set up Storage Account to bypass your Azure OpenAI and Azure AI Search as [trusted services based on managed identity](/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity).
 
-:::image type="content" source="../media/use-your-data/outbound-managed-identity-ai-search.png" alt-text="A screenshot showing the managed identity setting for Azure AI Search in the Azure portal." lightbox="../media/use-your-data/outbound-managed-identity-ai-search.png":::
+In the Azure portal, navigate to your storage account networking tab, choose "Selected networks", and then select **Allow Azure services on the trusted services list to access this storage account** and click Save.
 
-User assigned managed identities aren't supported.
+### Disable public network access
 
-## Security support for Azure blob storage
+You can disable public network access of your Storage Account in the Azure portal. 
 
-### Inbound security: networking
-In the Azure portal, navigate to your storage account networking tab and select **Enabled from selected virtual networks and IP addresses**.
+To allow access to your Storage Account from your client machines, like using Azure OpenAI Studio, you need to create [private endpoint connections](/azure/storage/common/storage-private-endpoints) that connect to your blob storage.
 
-:::image type="content" source="../media/use-your-data/storage-networking-azure-portal.png" alt-text="A screenshot showing the networking options for Azure storage accounts in the Azure portal." lightbox="../media/use-your-data/storage-networking-azure-portal.png":::
 
-Make sure **Allow Azure services on the trusted services list to access this storage account** is selected, so Azure OpenAI and Azure AI Search can bypass the network restriction of your storage account when using a managed identity for authentication.
-
-To use Azure OpenAI Studio, make sure to add your local IP to the IP rules, so the Azure OpenAI Studio can upload files to the storage account from your browser.
 
 ## Role assignments
 
-So far you have already setup each resource work independently. Next you will need to allow the services to authorize each other. The minimum requirements are listed below.
+So far you have already setup each resource work independently. Next you need to allow the services to authorize each other.
 
 |Role| Assignee | Resource | Description |
 |--|--|--|--|
-| `Search Index Data Reader` | Azure OpenAI | Azure AI Search | Inference service queries the data from the index.  |
+| `Search Index Data Reader` | Azure OpenAI | Azure AI Search | Inference service queries the data from the index. |
 | `Search Service Contributor` | Azure OpenAI | Azure AI Search | Inference service queries the index schema for auto fields mapping. Data ingestion service creates index, data sources, skill set, indexer, and queries the indexer status. |
-| `Storage Blob Data Contributor` | Azure OpenAI | Storage Account | Reads from the input container, and writes the pre-process result to the output container. |
+| `Storage Blob Data Contributor` | Azure OpenAI | Storage Account | Reads from the input container, and writes the preprocess result to the output container. |
 | `Cognitive Services OpenAI Contributor` | Azure AI Search | Azure OpenAI | Custom skill |
 | `Storage Blob Data Contributor` | Azure AI Search | Storage Account | Reads blob and writes knowledge store |
-| `Cognitive Services OpenAI Contributor` | Signed-in User | Azure OpenAI | Calls public ingestion or inference API from Azure OpenAI Studio.|
 
-See the [Azure RBAC documentation](/azure/role-based-access-control/role-assignments-portal) for instructions on setting these roles in the Azure portal. You can use the [available script on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/role_assignment.sh) to add the role assignments programmatically. You need to have the `Owner` role on these resources to do role assignments.
+
+In the above table, the `Assignee` means the system assigned managed identity of that resource.
+
+The admin needs to have the `Owner` role on these resources to add role assignments.
+
+See the [Azure RBAC documentation](/azure/role-based-access-control/role-assignments-portal) for instructions on setting these roles in the Azure portal. You can use the [available script on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/role_assignment.sh) to add the role assignments programmatically.
+
+To enable the developers to use these resources to build applications, the admin needs to add the developers' identity with the following role assignments to the resources.
+
+|Role| Resource | Description |
+|--|--|--|
+| `Cognitive Services OpenAI Contributor` | Azure OpenAI | Call public ingestion API from Azure OpenAI Studio. The `Contributor` role is not enough, because if you only have `Contributor` role, you cannot call data plane API via Microsoft Entra ID authentication, and Microsoft Entra ID authentication is required in the secure setup described in this article. |
+| `Contributor` | Azure AI Search | List API-Keys to list indexes from Azure OpenAI Studio.|
+| `Contributor` | Storage Account | List Account SAS to upload files from Azure OpenAI Studio.|
+| `Contributor` | The resource group or Azure subscription where the developer need to deploy the web app to | Deploy web app to the developer's Azure subscription.|
+
+## Configure gateway and client
+
+To access the Azure OpenAI service from your on-premises client machines, one of the approaches is to configure Azure VPN Gateway and Azure VPN Client.
+
+Follow [this guideline](/azure/vpn-gateway/tutorial-create-gateway-portal#VNetGateway) to create virtual network gateway for your virtual network.
+
+Follow [this guideline](/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication) to add point-to-site configuration, and enable Microsoft Entra ID based authentication. Download the Azure VPN Client profile configuration package, unzip, and import the `AzureVPN/azurevpnconfig.xml` file to your Azure VPN client.
+
+:::image type="content" source="../media/use-your-data/vpn-client.png" alt-text="A screenshot showing where to import Azure VPN Client profile." lightbox="../media/use-your-data/vpn-client.png":::
+
+Configure your local machine `hosts` file to point your resources host names to the private IPs in your virtual network. The `hosts` file is located at `C:\Windows\System32\drivers\etc` for Windows, and at `/etc/hosts` on Linux. Example:
+
+```
+10.0.0.5 contoso.openai.azure.com
+10.0.0.6 contoso.search.windows.net
+10.0.0.7 contoso.blob.core.windows.net
+```
+
+## Azure OpenAI Studio
+
+You should be able to use all Azure OpenAI Studio features, including both ingestion and inference, from your on-premises client machines.
+
+## Web app
+The web app communicates with your Azure OpenAI resource. Since your Azure OpenAI resource has public network disabled, the web app needs to be set up to use the private endpoint in your virtual network to access your Azure OpenAI resource.
+
+The web app needs to resolve your Azure OpenAI host name to the private IP of the private endpoint for Azure OpenAI. So, you need to configure the private DNS zone for your virtual network first.
+
+1. [Create private DNS zone](/azure/dns/private-dns-getstarted-portal#create-a-private-dns-zone) in your resource group. 
+1. [Add a DNS record](/azure/dns/private-dns-getstarted-portal#create-an-additional-dns-record). The IP is the private IP of the private endpoint for your Azure OpenAI resource, and you can get the IP address from the network interface associated with the private endpoint for your Azure OpenAI.
+1. [Link the private DNS zone to your virtual network](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) so the web app integrated in this virtual network can use this private DNS zone.
+
+When deploying the web app from Azure OpenAI Studio, select the same location with the virtual network, and select a proper SKU, so it can support the [virtual network integration feature](/azure/app-service/overview-vnet-integration). 
+
+After the web app is deployed, from the Azure portal networking tab, configure the web app outbound traffic virtual network integration, choose the third subnet that you reserved for web app.
+
+:::image type="content" source="../media/use-your-data/web-app-configure-outbound-traffic.png" alt-text="A screenshot showing outbound traffic configuration for the web app." lightbox="../media/use-your-data/web-app-configure-outbound-traffic.png":::
 
 ## Using the API
 
-
-### Local test setup
-
-Make sure your sign-in credential has `Cognitive Services OpenAI Contributor` role on your Azure OpenAI resource. 
+Make sure your sign-in credential has `Cognitive Services OpenAI Contributor` role on your Azure OpenAI resource, and run `az login` first.
 
 :::image type="content" source="../media/use-your-data/api-local-test-setup-credential.png" alt-text="A screenshot showing the cognitive services OpenAI contributor role in the Azure portal." lightbox="../media/use-your-data/api-local-test-setup-credential.png":::
-
-Also, make sure that the IP your development machine is allowlisted in the IP rules, so you can call the Azure OpenAI API.
-
-:::image type="content" source="../media/use-your-data/ip-rules-azure-portal.png" alt-text="A screenshot showing roles for accounts in the Azure portal." lightbox="../media/use-your-data/ip-rules-azure-portal.png":::
 
 ### Ingestion API
 
 
-See the [ingestion API reference article](/azure/ai-services/openai/reference#start-an-ingestion-job) for details on the request and response objects used by the ingestion API.   
+See the [ingestion API reference article](/azure/ai-services/openai/reference#start-an-ingestion-job) for details on the request and response objects used by the ingestion API.
 
-Additional notes:
+More notes:
 
 * `JOB_NAME` in the API path will be used as the index name in Azure AI Search.
 * Use the `Authorization` header rather than api-key.
-* Explicitly set `storageEndpoint` header, this is required if the `storageConnectionString` is in keyless format. It starts with `ResourceId=`.
-* Use `ResourceId=` format for `storageConnectionString`. This indicates that Azure OpenAI and Azure AI Search will use managed identity to authenticate the storage account, which is required to bypass network restrictions.
-* **Do not** set the `searchServiceAdminKey` header. The system-assigned identity of the Azure OpenAI resource will be used to authenticate Azure AI Search.
+* Explicitly set `storageEndpoint` header.
+* Use `ResourceId=` format for `storageConnectionString` header, so Azure OpenAI and Azure AI Search use managed identity to authenticate the storage account, which is required to bypass network restrictions.
+* **Do not** set the `searchServiceAdminKey` header. The system-assigned identity of the Azure OpenAI resource is used to authenticate Azure AI Search.
 * **Do not** set `embeddingEndpoint` or `embeddingKey`. Instead, use the `embeddingDeploymentName` header to enable text vectorization.
 
 
@@ -240,9 +292,9 @@ curl -i -X GET https://my-resource.openai.azure.com/openai/extensions/on-your-da
 
 See the [inference API reference article](/azure/ai-services/openai/reference#completions-extensions) for details on the request and response objects used by the inference API.   
 
-Additional notes:
+More notes:
 
-* **Do not** set `dataSources[0].parameters.key`. The service will use system assigned managed identity to authenticate the Azure AI Search.
+* **Do not** set `dataSources[0].parameters.key`. The service uses system assigned managed identity to authenticate the Azure AI Search.
 * **Do not** set `embeddingEndpoint` or `embeddingKey`. Instead, to enable vector search (with `queryType` set properly), use `embeddingDeploymentName`.
 
 Example:
@@ -275,20 +327,3 @@ curl -i -X POST https://my-resource.openai.azure.com/openai/deployments/turbo/ex
 }
 '
 ```
-
-## Azure OpenAI Studio
-
-You should be able to use all Azure OpenAI Studio features, including both ingestion and inference.
-
-## Web app
-The web app published from the Studio will communicate with Azure OpenAI. If Azure OpenAI is network restricted, the web app need to be set up correctly for outbound networking.
-
-1. Set Azure OpenAI allow inbound traffic from your virtual network.
-
-    :::image type="content" source="../media/use-your-data/web-app-configure-inbound-traffic.png" alt-text="A screenshot showing inbound traffic configuration for the web app." lightbox="../media/use-your-data/web-app-configure-inbound-traffic.png":::
-
-1. Configure the web app for outbound virtual network integration
-
-    :::image type="content" source="../media/use-your-data/web-app-configure-outbound-traffic.png" alt-text="A screenshot showing outbound traffic configuration for the web app." lightbox="../media/use-your-data/web-app-configure-outbound-traffic.png":::
-
-
