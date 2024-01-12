@@ -48,11 +48,11 @@ You must get the client ID of the identity that you're going to use. Copy and re
 
 Instead of creating your own client ID, you can use one of the identities that are created by AKS. To learn more about the identities, see [Use a managed identity in Azure Kubernetes Service](../../aks/use-managed-identity.md).
 
-This article uses the Kubelet identity. The name of this identity is `<AKS-CLUSTER-NAME>-agentpool`, and it's located in the node resource group of the AKS cluster.
+This article uses the kubelet identity. The name of this identity is `<AKS-CLUSTER-NAME>-agentpool`, and it's in the node resource group of the AKS cluster.
 
 :::image type="content" source="media/prometheus-remote-write-managed-identity/resource-group-details.png" alt-text="Screenshot that shows a list of resources that are in the node resource group." lightbox="media/prometheus-remote-write-managed-identity/resource-group-details.png":::
 
-Select the `<AKS-CLUSTER-NAME>-agentpool` managed identity. Copy and retain the value for **Client ID** from the **Overview** page. For more information, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+Select the `<AKS-CLUSTER-NAME>-agentpool` managed identity. On the **Overview** page, copy and retain the value for **Client ID**. For more information, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 :::image type="content" source="media/prometheus-remote-write-managed-identity/client-id.png" alt-text="Screenshot that shows a client ID on an overview page of a managed identity." lightbox="media/prometheus-remote-write-managed-identity/client-id.png":::
 
