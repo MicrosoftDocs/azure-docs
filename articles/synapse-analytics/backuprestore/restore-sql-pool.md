@@ -6,7 +6,7 @@ manager: joannapea
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 12/14/2022
+ms.date: 01/12/2024
 ms.author: stevehow
 ms.reviewer: joanpo, wiassaf
 ms.custom: seo-lt-2019, engagement-fy23, devx-track-azurepowershell
@@ -124,8 +124,9 @@ $RestoredDatabase.status
 When performing a cross-subscription restore, a dedicated SQL pool in an Azure Synapse workspace can only restore directly to a standalone dedicated SQL pool (formerly SQL DW). If it is required to restore a dedicated SQL pool in an Azure Synapse workspace to a workspace in the destination subscription, an additional restore step is required.
 
 The PowerShell below is similar to the above, however there are three main differences:
-- After retrieving the SQL Pool object to be restored, the subscription context needs to be switched to the destination (or target) subscription name. 
-- When performing the restore, use the Az.Sql modules instead of the Az.Synapse modules. 
+- After retrieving the SQL Pool object to be restored, the subscription context needs to be switched to the destination (or target) subscription name.
+- When performing the restore, use the Az.Sql modules instead of the Az.Synapse modules.
+- The Azure SQL Server instance on which the restore point is restored (pointed by the `$TargetServerName` variable), must exist before running the script because nothing in the script takes care of its creation. 
 - The below sample code has additional steps for restoring to an Azure Synapse workspace in the destination subscription. Uncomment the PowerShell commands as described in the sample.
 
 Steps:
