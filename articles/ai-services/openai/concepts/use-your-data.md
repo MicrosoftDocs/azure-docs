@@ -246,7 +246,11 @@ After ingesting your data, you can start chatting with the model on your data us
 
 You can use Azure OpenAI on your data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks and private endpoints. You can also restrict the documents that can be used in responses for different users with Azure AI Search security filters. See [Securely use Azure OpenAI on your data](../how-to/use-your-data-securely.md).
 
-## Custom parameters
+## Improve model response quality
+
+Use the following sections to learn how to improve teh quality of responses given by the model.
+
+### Custom parameters
 
 You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions).
 
@@ -256,7 +260,7 @@ You can modify the following additional settings in the **Data parameters** sect
 |**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 5. This is the `topNDocuments` parameter in the API.     |
 | **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
 
-## Schedule automatic index refreshes
+### Schedule automatic index refreshes
 
 > [!NOTE] 
 > Automatic index refreshing is supported for Azure Blob storage only.
@@ -289,10 +293,6 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
         :::image type="content" source="../media/use-your-data/indexer-schedule-azure-portal.png" alt-text="A screenshot of the settings page for an individual indexer." lightbox="../media/use-your-data/indexer-schedule-azure-portal.png":::
 
     1. Select **Save**.
-
-## improve model response quality
-
-Use the following sections to help you configure Azure OpenAI on your data for optimal results.
 
 ### System message
 
