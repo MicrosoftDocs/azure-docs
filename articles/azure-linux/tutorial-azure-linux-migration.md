@@ -5,7 +5,7 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: tutorial
-ms.date: 01/11/2024
+ms.date: 01/12/2024
 ---
 
 # Tutorial: Migrate nodes to Azure Linux
@@ -118,7 +118,7 @@ There are several settings that can block the OS SKU migration request. To ensur
 * Migrate the OS SKU of your node pool to Azure Linux using the `az aks nodepool update` command. This command updates the OS SKU for your node pool from Ubuntu to Azure Linux. The change is applied immediately.
 
     ```azurecli-interactive
-    az aks nodepool update --resource-group <resource-group-name> --cluster-name <cluster-name> --name <node-pool-name> --os-sku AzureLinux --mode System
+    az aks nodepool update --resource-group <resource-group-name> --cluster-name <cluster-name> --name <node-pool-name> --os-sku AzureLinux
     ```
 
     > [!NOTE]
