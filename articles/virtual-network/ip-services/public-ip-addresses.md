@@ -148,7 +148,7 @@ In regions without availability zones, all public IP addresses are created as no
 
 There are other attributes that can be used for a public IP address.  
 
-* The Global **Tier** allows a public IP address to be used with cross-region load balancers. 
+* The Global **Tier** option creates a global anycast IP that can be used with cross-region load balancers.
 
 * The Internet **Routing Preference** option minimizes the time that traffic spends on the Microsoft network, lowering the egress data transfer cost.
 
