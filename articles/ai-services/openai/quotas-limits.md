@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 12/06/2023
+ms.date: 12/12/2024
 ms.author: mbullwin
 ---
 
@@ -107,7 +107,7 @@ The default quota for models varies by model and region. Default quota limits ar
 <tr>  
     <td>gpt-4 (vision-preview)<br>GPT-4 Turbo with Vision</td>  
     <td>Sweden Central, Switzerland North, Australia East, West US</td>  
-    <td>10 K</td>  
+    <td>30 K</td>  
   </tr>  
   <tr>  
     <td rowspan="2">text-embedding-ada-002</td>  
