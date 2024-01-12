@@ -33,7 +33,7 @@ param <second-parameter-name> = <second-value>
 You can use expressions with the default value. For example:
 
 ```bicep
-using 'storageaccount.bicep'
+using 'main.bicep'
 
 param storageName = toLower('MyStorageAccount')
 param intValue = 2 + 2

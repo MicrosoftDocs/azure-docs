@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 10/24/2023
+ms.date: 01/10/2024
 ---
 
 # Schedule and run recurring workflows with the Recurrence trigger in Azure Logic Apps
