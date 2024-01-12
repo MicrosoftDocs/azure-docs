@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/04/2024
+ms.date: 01/12/2024
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box implementation.
 ---
@@ -94,41 +94,7 @@ When you're ready to delete your dev center, follow these steps:
 
 1. In the confirmation message, select **OK**.
 
-<!-- Rose: The following two sections are also covered in the topic, how-to-configure-network-connections.md.
-     - The other topic includes images for the steps. Do you want to duplicate the images here?
-     - The other topic includes some extra info in the sections. Do you want to include that info here as well? -->
-
-## Attach a network connection
-
-You can attach existing network connections to a dev center. You must attach a network connection to a dev center before you can use it in projects to create dev box pools.
-
-Network connections enable dev boxes to connect to existing virtual networks. The location, or Azure region, of the network connection determines where associated dev boxes are hosted.
-
-To attach a network connection to a dev center in Microsoft Dev Box:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
-
-1. Select the dev center that you want to attach the network connection to, and then select **Networking**.
-
-1. Select **+ Add**.
-
-1. On the **Add network connection** pane, select the network connection that you created earlier, and then select **Add**.
-
-## Remove a network connection
-
-You can remove network connections from dev centers. Network connections can't be removed if one or more dev box pools are using them. When you remove a network connection, it's no longer available for use in dev box pools within the dev center.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
-
-1. Select the dev center that you want to detach the network connection from, and then select **Networking**.
-
-1. Select the network connection that you want to detach, and then select **Remove**.
-
-1. In the confirmation message, select **OK**.
+[!INCLUDE [attach or remove a network connection](./includes/attach-remove-network-connections.md)]
 
 ## Assign permissions for users
 
