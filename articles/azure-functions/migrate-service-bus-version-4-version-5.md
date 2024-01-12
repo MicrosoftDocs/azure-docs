@@ -86,7 +86,7 @@ The underlying SDK used by extension changed to use the [Azure.Messaging.Service
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell,programming-language-typescript"  
 
 ## Update the extension bundle
 
