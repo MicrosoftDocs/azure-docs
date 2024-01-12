@@ -10,7 +10,7 @@ ms.date: 12/15/2023
 ---
 
 # Using Application Health extension with Azure Virtual Machines
-Monitoring your application health is an important signal for managing your VMs. Azure Virtual Machines provide support for [Automatic VM Guest Patching](../automatic-vm-guest-patching.md), which rely on health monitoring of the individual instances to safely update your VMs. 
+Monitoring your application health is an important signal for managing your VMs. Azure Virtual Machines provides support for [Automatic VM Guest Patching](../automatic-vm-guest-patching.md), which rely on health monitoring of the individual instances to safely update your VMs. 
 
 This article describes how you can use the two types of Application Health extension, **Binary Health States** or **Rich Health States**, to monitor the health of your applications deployed on Azure virtual machines.
 
@@ -38,7 +38,7 @@ Application Health Extensions has two options available: **Binary Health States*
 | -------- | -------------------- | ------------------ |
 | Available Health States | Two available states: *Healthy*, *Unhealthy* | Four available states: *Healthy*, *Unhealthy*, *Initializing*, *Unknown*<sup>1</sup> |
 | Sending Health Signals | Health signals are sent through HTTP/HTTPS response codes or TCP connections. | Health signals on HTTP/HTTPS protocol are sent through the probe response code and response body. Health signals through TCP protocol remain unchanged from Binary Health States. |
-| Identifying *Unhealthy* Instances | Instances automatically falls into *Unhealthy* state if a *Healthy* signal isn't received from the application. An *Unhealthy* instance can indicate either an issue with the extension configuration (for example, unreachable endpoint) or an issue with the application (for example, non-200 status code). | Instances only go into an *Unhealthy* state if the application emits an *Unhealthy* probe response. Users are responsible for implementing custom logic to identify and flag instances with *Unhealthy* applications<sup>2</sup>. Instances with incorrect extension settings (for example, unreachable endpoint) or invalid health probe responses will fall under the *Unknown* state<sup>2</sup>. |
+| Identifying *Unhealthy* Instances | Instances automatically fall into *Unhealthy* state if a *Healthy* signal isn't received from the application. An *Unhealthy* instance can indicate either an issue with the extension configuration (for example, unreachable endpoint) or an issue with the application (for example, non-200 status code). | Instances only go into an *Unhealthy* state if the application emits an *Unhealthy* probe response. Users are responsible for implementing custom logic to identify and flag instances with *Unhealthy* applications<sup>2</sup>. Instances with incorrect extension settings (for example, unreachable endpoint) or invalid health probe responses will fall under the *Unknown* state<sup>2</sup>. |
 | *Initializing* state for newly created instances | *Initializing* state isn't available. Newly created instances may take some time before settling into a steady state. | *Initializing* state allows newly created instances to settle into a steady Health State before surfacing the health state as _Healthy_, _Unhealthy_, or _Unknown_. |
 | HTTP/HTTPS protocol | Supported | Supported |
 | TCP protocol | Supported | Limited Support – *Unknown* state is unavailable on TCP protocol. See [Rich Health States protocol table](#rich-health-states) for Health State behaviors on TCP. |
@@ -104,7 +104,7 @@ Rich Health States reporting contains four Health States, *Initializing*, *Healt
 
 This state only applies to Rich Health States. The *Initializing* state only occurs once at extension start time and can be configured by the extension settings `gracePeriod` and `numberOfProbes`.  
 
-At extension startup, the application health remains in the *Initializing* state until one of two scenarios occur: 
+At extension startup, the application health remains in the *Initializing* state until one of two scenarios occurs: 
 - The same Health State (*Healthy* or *Unhealthy*) is reported a consecutive number of times as configured through *numberOfProbes*
 - The `gracePeriod` expires 
 
@@ -305,7 +305,7 @@ The extension.json file content.
 }
 ```
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 The following example adds the Application Health extension to an existing virtual machine on [Azure portal](https://portal.azure.com).
 
@@ -314,7 +314,7 @@ The following example adds the Application Health extension to an existing virtu
 3.	Click on **Enable application health monitoring**, select **Binary** for Health States. Configure your protocol, port, and more to set up the health probes. 
 4.	Click **Save** to save your settings
 
-:::image type="content" source="media/application-health-monitoring/existing-vm-binary-health.png" alt-text="Screenshot showing VM Health monitoring blade from Azure Portal with binary health states enabled.":::
+:::image type="content" source="media/application-health-monitoring/existing-vm-binary-health.png" alt-text="Screenshot showing VM Health monitoring blade from Azure portal with binary health states enabled.":::
 
 ---
 
@@ -400,7 +400,7 @@ The extension.json file content.
   "gracePeriod": <healthExtensionGracePeriod>
 }
 ```
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 The following example adds the Application Health extension to an existing virtual machine on [Azure portal](https://portal.azure.com).
 
@@ -409,7 +409,7 @@ The following example adds the Application Health extension to an existing virtu
 3.	Click on **Enable application health monitoring**, select **Rich (advanced)** for Health States. Configure your protocol, port, and more to set up the health probes. 
 4.	Click **Save** to save your settings
 
-:::image type="content" source="media/application-health-monitoring/existing-vm-rich-health.png" alt-text="Screenshot showing VM Health monitoring blade from Azure Portal with rich health states enabled.":::
+:::image type="content" source="media/application-health-monitoring/existing-vm-rich-health.png" alt-text="Screenshot showing VM Health monitoring blade from Azure portal with rich health states enabled.":::
 
 ---
 ## Troubleshoot
@@ -444,7 +444,7 @@ Get-AzVM
 az vm get-instance-view --name <vmName> --resource-group <rgName>
 ```
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 1.	Navigate to your existing Virtual Machine
 2.	On the left sidebar, go to the **Overview** blade
