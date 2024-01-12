@@ -112,9 +112,9 @@ az aks create -n $clusterName -g $resourceGroup \
   --pod-cidr 192.168.0.0/16
 ```
 
-## Add a new nodepool do a dedicated subnet
+## Add a new nodepool to a dedicated subnet
 
-After your have created a cluster with Overlay CNI, you can create another nodepool and assign the nodes to a new subnet of the same VNet.
+After your have created a cluster with Azure CNI Overlay, you can create another nodepool and assign the nodes to a new subnet of the same VNet.
 This approach can be usefull if you want to control the ingress or egress IPs of the host from/ towards targets in the same VNET or peered VNets.
 
 ```azurecli-interactive
