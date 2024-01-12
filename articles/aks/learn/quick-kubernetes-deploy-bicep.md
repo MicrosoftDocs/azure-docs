@@ -27,12 +27,12 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-* This article requires Azure CLI version 2.0.64 or later. If you're using Azure Cloud Shell, the latest version is already installed.
+* This article requires Azure CLI version 2.0.64 or later. If you're using Azure Cloud Shell, the latest version is already installed there.
 * This article requires an existing Azure resource group. If you need to create one, you can use the [az group create][az-group-create] command.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* If you're running PowerShell locally, install the `Az PowerShell` module. If using Azure Cloud Shell, the latest version is already installed.
+* If you're running PowerShell locally, install the `Az PowerShell` module. If you're using Azure Cloud Shell, the latest version is already installed there.
 * You need the Bicep CLI. For more information, see [Azure PowerShell](../../azure-resource-manager/bicep/install.md#azure-powershell).
 * This article requires an existing Azure resource group. If you need to create one, you can use the [New-AzAksCluster][new-az-aks-cluster] cmdlet.
 

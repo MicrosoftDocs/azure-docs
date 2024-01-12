@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Terraform'
 description: Learn how to quickly create a Kubernetes cluster using Terraform and deploy an application in Azure Kubernetes Service (AKS).
 ms.topic: quickstart
-ms.date: 12/27/2023
+ms.date: 01/12/2024
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
@@ -35,7 +35,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 > [!NOTE]
 > The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
 
-## Login to your Azure Account
+## Login to your Azure account
+
+First, log into your Azure account and authenticate using one of the methods described in the following section.
 
 [!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
 

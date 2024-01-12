@@ -26,17 +26,19 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 - To deploy an ARM template, you need write access on the resources you're deploying and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to deploy a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-You can use either Azure CLI or Azure PowerShell to connect to the cluster and deploy the application.
+After you deploy the cluster from the template, you can use either Azure CLI or Azure PowerShell to connect to the cluster and deploy the sample application.
 
 ### [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-This article requires Azure CLI version 2.0.64 or later. If using Azure Cloud Shell, the latest version is already installed.
+This article requires Azure CLI version 2.0.64 or later. If you're using Azure Cloud Shell, the latest version is already installed there.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-If you're running PowerShell locally, install the `Az PowerShell` module. If using Azure Cloud Shell, the latest version is already installed.
+If you're running PowerShell locally, install the `Az PowerShell` module. If you're using Azure Cloud Shell, the latest version is already installed there.
+
+---
 
 ### Create an SSH key pair
 
