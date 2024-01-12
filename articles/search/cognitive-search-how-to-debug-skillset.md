@@ -27,7 +27,7 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 + An Azure Storage account, used to save session state.
 
-+ A **Storage Blob Data Contributor** role assignment in Azure Storage if you're using managed identities. 
++ A **Storage Blob Data Contributor** role assignment in Azure Storage if you're using a system managed identity. Otherwise, plan on using a full access connection string for the debug session connection to Azure Storage.
 
 + If the Azure Storage account is behind a firewall, configure it to [allow search service access](search-indexer-howto-access-ip-restricted.md).
 
@@ -41,7 +41,7 @@ Debug sessions work with all generally available [indexer data sources](search-d
 
 + For the SQL API of Azure Cosmos DB, if a partitioned collection was previously non-partitioned, the debug session won't find the document.
 
-+ For custom skills, you can't use a *user-assigned managed identity* to connect over a private endpoint in a debug session, but a system managed identity is supported. For more information, see [Connect a search service to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md).
++ For custom skills, a user-assigned managed identity isn't supported for a debug session connection to Azure Storage. As stated in the prerequisites, you can use a system managed identity, or specify a full access connection string that includes a key. For more information, see [Connect a search service to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Create a debug session
 
@@ -77,7 +77,7 @@ The debug session begins by executing the indexer and skillset on the selected d
 
 A debug session can be canceled while it's executing using the **Cancel** button. If you hit the **Cancel** button you should be able to analyze partial results.
 
-It is expected for a debug session to take longer to execute than the indexer since it goes through extra processing. 
+It's expected for a debug session to take longer to execute than the indexer since it goes through extra processing. 
 
 ## Start with errors and warnings
 
