@@ -68,6 +68,9 @@ AKS clusters deployed using availability zones can distribute nodes across multi
 
 If a single zone becomes unavailable, your applications continue to run on clusters configured to spread across multiple zones.
 
+> [!NOTE]
+> When implementing **availability zones with the [cluster autoscaler](./cluster-autoscaler-overview.md)**, we recommend using a single node pool for each zone. You can set the `--balance-similar-node-groups` parameter to `True` to maintain a balanced distribution of nodes across zones for your workloads during scale up operations. When this approach isn't implemented, scale down operations can disrupt the balance of nodes across zones.
+
 ## Create an AKS cluster across availability zones
 
 When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter specifies the availability zones to deploy agent nodes into. The availability zones that the managed control plane components are deployed into are **not** controlled by this parameter. They are automatically spread across all availability zones (if present) in the region during cluster deployment.
