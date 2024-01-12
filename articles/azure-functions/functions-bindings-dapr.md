@@ -274,12 +274,12 @@ If you're using Dapr bindings and triggers in Azure Functions, and Dapr isn't en
 
     ```YAML
     annotations:
-	  ...
+      ...
       dapr.io/enabled: "true"
       dapr.io/app-id: "functionapp"
       # You should only set app-port if you are using a Dapr trigger in your code.
       dapr.io/app-port: "<DAPR_APP_PORT>"
-	  ...
+      ...
     ```
 
 - If you're running your Azure Function locally, run the following command to ensure you're [running the function app with Dapr](https://github.com/azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction#step-2---run-function-app-with-dapr):
