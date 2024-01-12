@@ -206,11 +206,12 @@ You can access resources in a storage account by any language that can make HTTP
 ### Azure Storage data API and library references
 
 - [Azure Storage REST API](/rest/api/storageservices/)
-- [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage)
-- [Azure Storage client library for Java/Android](/java/api/overview/azure/storage)
-- [Azure Storage client library for Node.js](../blobs/reference.md#javascript-client-libraries)
-- [Azure Storage client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob)
-- [Azure Storage client library for C++](https://github.com/Azure/azure-storage-cpp)
+- [Azure Storage client libraries for .NET](/dotnet/api/overview/azure/storage)
+- [Azure Storage client libraries for Java](/java/api/overview/azure/storage)
+- [Azure Storage client libraries for JavaScript](/javascript/api/overview/azure/storage)
+- [Azure Storage client libraries for Python](/python/api/overview/azure/storage)
+- [Azure Storage client libraries for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/)
+- [Azure Storage client libraries for C++](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage)
 
 ### Azure Storage management API and library references
 
@@ -222,13 +223,13 @@ You can access resources in a storage account by any language that can make HTTP
 
 ### Azure Storage data movement API
 
-- [Storage Data Movement Client Library for .NET](/dotnet/api/microsoft.azure.storage.datamovement)
+- [Storage Data Movement Client Library for .NET](storage-use-data-movement-library.md)
 
 ### Tools and utilities
 
 - [Azure PowerShell Cmdlets for Storage](/powershell/module/az.storage)
 - [Azure CLI Cmdlets for Storage](/cli/azure/storage)
-- [AzCopy Command-Line Utility](https://aka.ms/downloadazcopy)
+- [AzCopy Command-Line Utility](storage-use-azcopy-v10.md)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 - [Azure Resource Manager templates for Azure Storage](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
