@@ -233,14 +233,14 @@ Stay up to date on Azure Maps:
 <!---------   REST API Links     --------------->
 [Data registry]: /rest/api/maps/data-registry
 [Geolocation]: /rest/api/maps/geolocation
-[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
-[Render]: /rest/api/maps/render-v2
+[Render]: /rest/api/maps/render
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search
 [Spatial]: /rest/api/maps/spatial
-[TilesetID]: /rest/api/maps/render-v2/get-map-tile#tilesetid
+[TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
 [Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
 <!---------   JavaScript API Links     --------------->

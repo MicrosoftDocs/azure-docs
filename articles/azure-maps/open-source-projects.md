@@ -119,7 +119,7 @@ Find more open-source Azure Maps projects.
 [Azure Maps Spyglass Control module]: https://github.com/Azure-Samples/azure-maps-spyglass-control
 [Azure Maps Swipe Map module]: https://github.com/Azure-Samples/azure-maps-swipe-map
 [Azure Maps Sync Map module]: https://github.com/Azure-Samples/azure-maps-sync-maps
-[Azure Maps tile services]: /rest/api/maps/render-v2/get-map-tile
+[Azure Maps tile services]: /rest/api/maps/render/get-map-tile
 [Bot Framework - Point of Interest skill]: https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill
 [BotBuilder Location]: https://github.com/Microsoft/BotBuilder-Location
 [Cesium JS]: https://cesium.com/cesiumjs/
@@ -129,4 +129,4 @@ Find more open-source Azure Maps projects.
 [leaflet]: https://leafletjs.com
 [LiveMaps]: https://github.com/Azure-Samples/LiveMaps
 [OpenLayers]: https://www.openlayers.org/
-[tile layers]: /rest/api/maps/render-v2/get-map-tile
+[tile layers]: /rest/api/maps/render/get-map-tile

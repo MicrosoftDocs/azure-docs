@@ -691,8 +691,8 @@ Learn more about the Azure Maps REST services.
 [free account]: https://azure.microsoft.com/free/
 [fuzzy search]: /rest/api/maps/search/get-search-fuzzy
 [Geolocation API]: /rest/api/maps/geolocation/get-ip-to-location
-[Get Map Static Image]: /rest/api/maps/render-v2/get-map-static-image
-[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Get Map Static Image]: /rest/api/maps/render/get-map-static-image
+[Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
 [Get Route Range]: /rest/api/maps/route/get-route-range
 [Get Search Address Reverse Cross Street]: /rest/api/maps/search/get-search-address-reverse-cross-street

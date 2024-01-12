@@ -500,8 +500,8 @@ Learn more about Azure Maps REST services:
 [best practices for search]: how-to-use-best-practices-for-search.md
 [Calculate routes and directions]: #calculate-routes-and-directions
 [free account]: https://azure.microsoft.com/free/
-[Get Map Static Image]: /rest/api/maps/render-v2/get-map-static-image
-[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Get Map Static Image]: /rest/api/maps/render/get-map-static-image
+[Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
 [Get Route Range]: /rest/api/maps/route/get-route-range
 [Get Search Address Reverse Cross Street]: /rest/api/maps/search/get-search-address-reverse-cross-street
@@ -531,7 +531,7 @@ Learn more about Azure Maps REST services:
 [Post Search Fuzzy Batch]: /rest/api/maps/search/post-search-fuzzy-batch
 [Post Search Inside Geometry]: /rest/api/maps/search/post-search-inside-geometry
 [Render custom data on a raster map]: how-to-render-custom-data.md
-[Render]: /rest/api/maps/render-v2/get-map-static-image
+[Render]: /rest/api/maps/render/get-map-static-image
 [Reverse geocode a coordinate]: #reverse-geocode-a-coordinate
 [Route]: /rest/api/maps/route
 [Search for a location using Azure Maps Search services]: how-to-search-for-address.md

@@ -99,7 +99,7 @@ The following table summarizes the Azure Maps services that generate transaction
 [Geolocation]: /rest/api/maps/geolocation
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
-[Render]: /rest/api/maps/render-v2
+[Render]: /rest/api/maps/render
 [Route]: /rest/api/maps/route
 [Search v1]: /rest/api/maps/search
 [Search v2]: /rest/api/maps/search-v2
