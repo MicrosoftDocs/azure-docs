@@ -26,7 +26,7 @@ Here are the error messages that occur if the FHIR service SMART identity provid
 | **The maximum number of SMART identity provider applications is 2.** | The number of identity provider applications in an identity provider configuration is more than two. | Reduce the number of identity provider applications to one or two per identity provider. |
 | **One or more SMART applications are null.** | The `applications` element for one or more identity providers is null or contains no applications. | Ensure all identity provider configurations have at least one application configured. |
 | **One or more SMART application `allowedDataActions` contain duplicate elements.** | The `allowedDataActions` array in one or more application configurations contains duplicate values. | Remove any duplicate values in the `allowedDataActions` arrays. |
-| **One or more SMART application `allowedDataActions` values are invalid.** | The `allowedDataActions` array in one or more application configurations contains a value that isn't `Read`, `Write`, `Delete`, or `Export`. | Remove any nonconforming values from the `allowedDataActions` arrays. |
+| **One or more SMART application `allowedDataActions` values are invalid.** | The only acceptable value in the `allowedDataActions` array is `Read`.| Remove any nonconforming values from the `allowedDataActions` arrays. |
 | **One or more SMART application `allowedDataActions` values are null, empty, or invalid.** | The `allowedDataActions` array in one or more application configurations is null, empty, or malformed. | Ensure the `allowedDataActions` element is an array of string values that contains only one of each of the four possible values `Read`, `Write`, `Delete`, or `Export`. |
 | **One or more SMART application `audience` values are null, empty, or invalid.** | The `audience` string in one or more application configurations is null, empty, or malformed. | Ensure the `audience` string isn't null or empty and that the value is a string type. |
 | **All SMART identity provider application client ids must be unique.** | The `clientId` value in one or more application configurations is the same value as another `clientId` value. | Ensure all `clientId` values are unique (including across identity provider configurations). |
@@ -47,7 +47,7 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
    Example:
 
    ```http
-   https://yourIdentityProvider.com/authority/v2.0/.well-known/openid-configuration
+   https://<YOUR_IDENTITY_PROVIDER_AUTHORITY>/authority/v2.0/.well-known/openid-configuration
 
    ```
 
@@ -57,9 +57,9 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 
 ---
 
-5. **Verify the `allowedDataActions` are configured correctly for the request**. Ensure the request type (for example, `GET`, `POST`, or `DELETE`) is permitted based on the `allowedDataActions` values.
+5. **Verify the request method is GET**. The only supported request type is `GET`, because the `allowedDataActions` values only supports `Read`.
 
-   For example, if the `allowedDataActions` array contains only `READ`, a request that attempts to `DELETE` the resource fails with `403 Forbidden`.
+   
 
 ---
 
@@ -76,7 +76,7 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
    Example:
 
    ```http
-   https://yourIdentityProvider.com/authority/v2.0/.well-known/openid-configuration
+   https://<YOUR_IDENTITY_PROVIDER_AUTHORITY>/authority/v2.0/.well-known/openid-configuration
    ```
 
 ---
@@ -136,7 +136,7 @@ The `application configuration` consists of:
 
 - An `audience` string used to validate the `aud` claim in access tokens.
 
-- An array of `allowedDataActions`. The `allowedDataActions` array can only contain the string values `Read`, `Write`, `Delete`, or `Export`.
+- An array of `allowedDataActions`. The `allowedDataActions` array can only contain the string value `Read`.
 
 ```json
 {
