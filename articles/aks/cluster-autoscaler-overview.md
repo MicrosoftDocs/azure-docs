@@ -35,7 +35,7 @@ It's a common practice to enable cluster autoscaler for nodes and either the Ver
 * Nodes don't scale up if pods have a PriorityClass value below -10. Priority -10 is reserved for [overprovisioning pods](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-can-i-configure-overprovisioning-with-cluster-autoscaler). For more information, see [Using the cluster autoscaler with Pod Priority and Preemption](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-cluster-autoscaler-work-with-pod-priority-and-preemption).
 * **Don't combine other node autoscaling mechanisms**, such as Virtual Machine Scale Set autoscalers, with the cluster autoscaler.
 * The cluster autoscaler **might be unable to scale down if pods can't move, such as in the following situations**:
-  * A directly-created pod not backed by a controller object, such as a Deployment or ReplicaSet.
+  * A directly created pod not backed by a controller object, such as a Deployment or ReplicaSet.
   * A pod disruption budget (PDB) that's too restrictive and doesn't allow the number of pods to fall below a certain threshold.
   * A pod uses node selectors or anti-affinity that can't be honored if scheduled on a different node.
     For more information, see [What types of pods can prevent the cluster autoscaler from removing a node?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node).
@@ -90,7 +90,7 @@ If you want a cost-optimized profile, we recommend setting the following paramet
 | Pod preventing node drain/Unable to evict pod |• View [what types of pods can prevent scale down](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node). <br> • For pods using local storage, such as hostPath and emptyDir, set the cluster autoscaler profile flag `skip-nodes-with-local-storage` to `false`. <br> • In the pod specification, set the `cluster-autoscaler.kubernetes.io/safe-to-evict` annotation to `true`. <br> • Check your [PDB](https://kubernetes.io/docs/tasks/run-application/configure-pdb/), as it might be restrictive. |
 | Min size of node pool | Reduce the minimum size of the node pool. |
 | Requests/Calls exceeding the rate limit | See [429 Too Many Requests errors](/troubleshoot/azure/azure-kubernetes/429-too-many-requests-errors). |
-| Write operations locked | Don't make any changes to the [fully-managed AKS resource group](./cluster-configuration.md#fully-managed-resource-group-preview) (see [AKS support policies](./support-policies.md)). Remove or reset any [resource locks](../azure-resource-manager/management/lock-resources.md) you previously applied to the resource group. |
+| Write operations locked | Don't make any changes to the [fully managed AKS resource group](./cluster-configuration.md#fully-managed-resource-group-preview) (see [AKS support policies](./support-policies.md)). Remove or reset any [resource locks](../azure-resource-manager/management/lock-resources.md) you previously applied to the resource group. |
 
 ### Other issues
 

@@ -237,7 +237,7 @@ You can retrieve logs and status updates from the cluster autoscaler to help dia
 
     :::image type="content" source="./media/cluster-autoscaler/main-blade-tiles-inline.png" alt-text="Screenshot of the Azure portal page for a cluster's node pools. The section displaying autoscaler events, warning, and scale ups not triggered is highlighted." lightbox="./media/cluster-autoscaler/main-blade-tiles.png":::
 
-    This shows a list of Kubernetes events filtered to `source: cluster-autoscaler` that have occurred within the last hour. You can use this information troubleshoot and diagnose any issues that might arise while scaling your nodes.
+    This shows a list of Kubernetes events filtered to `source: cluster-autoscaler` that have occurred within the last hour. You can use this information to troubleshoot and diagnose any issues that might arise while scaling your nodes.
 
     :::image type="content" source="./media/cluster-autoscaler/events-inline.png" alt-text="Screenshot of the Azure portal page for a cluster's events. The filter for source is highlighted, showing 'source: cluster-autoscaler'." lightbox="./media/cluster-autoscaler/events.png":::
 
