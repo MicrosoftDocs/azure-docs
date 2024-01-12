@@ -330,6 +330,10 @@ Extracting tables is a key requirement for processing documents containing large
 
 ```
 
+> [!IMPORTANT]
+>
+> Table extraction from Excel files is not yet supported.
+
 ### Handwritten style for text lines
 
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. *see*, [Handwritten language support](language-support-ocr.md). The following example shows an example JSON snippet.
