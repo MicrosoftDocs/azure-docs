@@ -13,7 +13,7 @@ ms.date: 01/11/2024
 
 # Monitor Azure Kubernetes Service (AKS) control plane metrics (preview)
 
-The Azure Kubernetes Service (AKS) [control plane](concepts-clusters-workloads.md#control-plane) health is critical for the performance and reliability of the cluster. Control plan metrics provide additional visibility into its availability and performance, allowing you to maximize overall observability and maintain operational excellence. These metrics are fully compatible with Prometheus and Grafana, and can be customized to only store what you consider necessary. With these new metrics, you can collect all metrics from API server, ETCD, Scheduler, Autoscaler, and controller manager.
+The Azure Kubernetes Service (AKS) [control plane](concepts-clusters-workloads.md#control-plane) health is critical for the performance and reliability of the cluster. Control plan metrics (preview) provide additional visibility into its availability and performance, allowing you to maximize overall observability and maintain operational excellence. These metrics are fully compatible with Prometheus and Grafana, and can be customized to only store what you consider necessary. With these new metrics, you can collect all metrics from API server, ETCD, Scheduler, Autoscaler, and controller manager.
 
 This article helps you understand this new feature, how to implement it, and how to observe the telemetry collected.
 
@@ -71,7 +71,7 @@ You can enable control plane metrics with the Azure Monitor managed service for 
 
 Control plane metrics are stored in an Azure monitor workspace in the cluster's region. They can be queried directly from the workspace or through the Azure Managed Grafana instance connected to the workspace. To find the Azure Monitor workspace associated with the cluster, from the left-hand pane of your selected AKS cluster, navigate to the **Monitoring** section and select **Insights**. On the Container Insights page for the cluster, select **Monitor Settings**.
 
-![Azure monitor workspace](media/controlplane-metrics/insights-azmon.png)
+:::image type="content" source="media/monitor-control-plane-metrics/insights-azmon.png" alt-text="Screenshot of Azure Monitor workspace." lightbox="media/monitor-control-plane-metrics/insights-azmon.png":::
 
 If you are using Azure Managed Grafana to visualize the data, you can import the following dashboards. AKS provides dashboard templates to help you view and analyze your control plane telemetry data in real-time.
 
@@ -201,11 +201,14 @@ az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-reso
 
 ## Next steps
 
+If you've evaluated this preview feature, [share your feedback][share-feedback] as we're interested in hearing what you think.
+
 - Learn more about the [list of default metrics for AKS control plane][list-of-default-metrics-aks-control-plane].
 
 <!-- EXTERNAL LINKS -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [ama-metrics-settings-configmap]: https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml
+[share-feedback]: https://forms.office.com/r/Mq4hdZ1W7W
 
 <!-- INTERNAL LINKS -->
 [managed-prometheus-overview]: ../azure-monitor/essentials/prometheus-metrics-overview.md
