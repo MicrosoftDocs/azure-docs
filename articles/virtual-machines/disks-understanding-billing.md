@@ -16,13 +16,13 @@ This article helps you understand the factors and differences between each disk 
 For more detailed Azure Disks pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Factors that Affect Azure Disk Billing 
-To understand Azure Disks pricing, be aware of how the following criteria affects costs:
+To understand Azure Disk Storage pricing, be aware of how the following criteria affects costs:
 
 - Disk type: Each disk type has separate pricing models: Ultra Disk Storage, Premium SSD V2, Premium SSD, Standard SSD, Standard HDD.
 - Disk size: Disks are charged on the total provisioned size, not actual usage. Each disk maps to a supported provisioned disk-size offering and is billed accordingly.
 - Data transactions: You're billed for the number of transactions performed on a standard managed disk. (For certain disk sizes and configurations, a fee is charged per 10,000 transactions.)
 - Data redundancy: Prices can change depending on the redundancy option selected: LRS, ZRS.
-- Snapshots: Snapshots are billed based on the size used, so if you create a snapshot of a managed disk - you will be billed for the used size not the provisioned size of the disk.
+- Snapshots: Snapshots are a separate resource from your disks, and they're billed based on the size used and the type of storage used. So if you create a snapshot of a managed disk, you will be billed for the used size not the provisioned size of the disk.
 
 This table displays our current disk types and the available billable features:
 
@@ -68,6 +68,10 @@ You will be billed for the provisioned size of the HDD disk and the transactions
 |Standard HDD Managed Disks| S20 LRS Disk|
 |Standard HDD Managed Disks| S4 LRS Disk Operations|
 
+- Standard HDD Managed Disks
+    - S20 LRS Disk
+    - S4 LRS Disk operations
+
 #### Example 2 - Standard SSD 
 In this example, we provision a 1 Tb Standard SSD Disk with LRS redundancy, where we also have snapshot created on the current used data size of 120 Gb. 
 You will be billed for the provisioned size of the HDD disk, the transactions performed on the disk, and the used snapshot size which will show as the following tier and meters in your bill:
@@ -78,9 +82,15 @@ You will be billed for the provisioned size of the HDD disk, the transactions pe
 |Standard SSD Managed Disks| E4 LRS Disk Operations|
 |Standard SSD Managed Disks| E10 LRS Disk |
 
-### Premium Disks:
+- Standard SSD Managed Disks
+    - E30 LRS Disk
+    - E4 LRS Disk Operations
+    - E10 LRS Disk
+
+### Premium Storage:
 - Premium SSDs: Azure Premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads. 
 - Premium SSD v2: Premium SSD v2 disks, you can individually set the capacity, throughput, and IOPS of a disk based on your workload needs, providing you with more flexibility and reduced costs
+- Ultra SSDs: Ultra disks feature a flexible performance configuration model that allows you to independently configure IOPS and throughput both before and after you provision the disk.
 
 #### Premium SSD bursting
 Premium SSDs offer disk bursting, which provides better tolerance on unpredictable changes of IO patterns. Disk bursting is especially useful during OS disk boot and for applications with spiky traffic. 
@@ -107,6 +117,10 @@ You will be billed for the provisioned size of the Premium SSD disk and the burs
 |Premium SSD Managed Disks| P20 LRS Disk|
 |Premium SSD Managed Disks| LRS Burst Enablement* |
 
+- Premium SSD Managed Disks
+    - P20 LRS Disk
+    - LRS Burst Enablement*
+
 *To see a more detailed example of how bursting is billed, see [Disk-level bursting](disk-bursting.md#disk-level-bursting).
 #### Example 2 - Premium SSD v2 
 In this example, we want to provision a Premium SSD v2 Disk with LRS redundancy with a total provisioned size of 512 Gb, a target performance of 40,000 IOPS and 200 Mbps of throughput. You also create and store incremental snapshots for your current used capacity. 
@@ -118,6 +132,13 @@ You will be billed for the provisioned size of the disk, the additional IOPS and
 |Azure Premium SSD v2| Premium LRS Provisioned IOPS |
 |Azure Premium SSD v2| Premium LRS Provisioned Throughput (MBps) |
 |Standard HDD Managed Disks| LRS Snapshots |
+
+- Azure Premium SSD v2
+    - Premium LRS Provisioned Capacity
+    - Premium LRS Provisioned IOPS
+    - Premium LRS Provisioned Throughput (MBps)
+- Standard HDD Managed Disks
+    - LRS Snapshots
 
 ### Ultra Disks:
 - Ultra SSDs: Ultra disks feature a flexible performance configuration model that allows you to independently configure IOPS and throughput both before and after you provision the disk.
@@ -149,31 +170,12 @@ You will be billed for the provisioned size of the disk, the additional IOPS and
 |Ultra Disks| Ultra ZRS Provisioned Throughput (MBps) |
 |Standard HDD Managed Disks| ZRS Snapshots |
 
-## Monitor costs
-
-As you use Azure resources with Azure Disks, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) Costs are incurred as soon as usage of Azure Storage starts. You can see the costs in the [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) pane in the Azure portal.
-
-When you use cost analysis, you can view Azure Storage costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You can also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends and see where overspending might have occurred. If you've created budgets, you can also easily see where they exceeded.
-
-> [!NOTE]
-> Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for your Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-To view Azure Storage costs in cost analysis:
-
-1. Sign into the [Azure portal](https://portal.azure.com).
-
-2. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
-
-   ![Screenshot showing scope](./media/storage-plan-manage-costs/cost-analysis-pane.png)
-
-4. To view only costs for Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list.
-
-   Here's an example showing costs for just Azure Storage:
-
-   ![Screenshot showing filter by storage](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
-
-In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and by resource group also appear. 
-You can add other filters as well (For example: a filter to see costs for specific storage accounts).
+- Ultra Disks
+    - Ultra ZRS Provisioned Capacity
+    - Ultra ZRS Provisioned IOPS
+    - Ultra ZRS Provisioned Througput (MBps)
+- Standard HDD Managed Disks
+    - ZRS Snapshots
 
 ## See also
 - [Azure Managed Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
