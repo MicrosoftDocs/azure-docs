@@ -108,7 +108,7 @@ The default quota for models varies by model and region. Default quota limits ar
 <tr>  
     <td>gpt-4 (vision-preview)<br>GPT-4 Turbo with Vision</td>  
     <td>Sweden Central, Switzerland North, Australia East, West US</td>  
-    <td> 30 K</td>  
+    <td>30 K</td>  
   </tr>  
   <tr>  
     <td rowspan="2">text-embedding-ada-002</td>  
