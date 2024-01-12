@@ -8,6 +8,7 @@ ms.subservice: core
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
+reviewer: msakande
 ms.date: 01/11/2024
 ms.topic: how-to
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, event-tier1-build-2022, update-code
@@ -19,17 +20,17 @@ ms.devlang: azurecli
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure Machine Learning for both real-time and batch inference. Learn also about the different tools you can use to perform management of the deployment.
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure Machine Learning for both real-time and batch inference. Learn also about the different tools you can use to manage the deployment.
 
 
-## Deploying MLflow models vs custom models
+## Deployment of MLflow models vs. custom models
 
-When deploying MLflow models to Azure Machine Learning, you don't have to provide a scoring script or an environment for deployment as they're automatically generated for you. We typically refer to this functionality as no-code deployment.
+Unlike custom model deployment in Azure Machine Learning, when you deploy MLflow models to Azure Machine Learning, you don't have to provide a scoring script or an environment for deployment. Instead, Azure Machine Learning automatically generates the scoring script and environment for you. This functionality is called _no-code deployment_.
 
 For no-code-deployment, Azure Machine Learning:
 
 * Ensures all the package dependencies indicated in the MLflow model are satisfied.
-* Provides a MLflow base image/curated environment that contains the following items:
+* Provides an MLflow base image or curated environment that contains the following items:
     * Packages required for Azure Machine Learning to perform inference, including [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst).
     * A scoring script to perform inference.
 
@@ -37,34 +38,40 @@ For no-code-deployment, Azure Machine Learning:
 
 ### Python packages and dependencies
 
-Azure Machine Learning automatically generates environments to run inference of MLflow models. Those environments are built by reading the conda dependencies specified in the MLflow model. Azure Machine Learning also adds any required package to run the inferencing server, which will vary depending on the type of deployment you're doing.
+Azure Machine Learning automatically generates environments to run inference on MLflow models. To build the environments, Azure Machine Learning reads the conda dependencies that are specified in the MLflow model and adds any packages that are required to run the inferencing server. These additional packages will vary, depending on your deployment type.
+
+The following code shows an example of conda dependencies specified in an MLflow model.
 
 __conda.yaml__
 
 :::code language="yaml" source="~/azureml-examples-main/sdk/python/endpoints/online/mlflow/sklearn-diabetes/model/conda.yaml" highlight="13-19":::
 
 > [!WARNING]
-> MLflow performs automatic package detection when logging models, and pins their versions in the conda dependencies of the model. However, such action is performed at the best of its knowledge and there might be cases when the detection doesn't reflect your intentions or requirements. On those cases consider [logging models with a custom conda dependencies definition](how-to-log-mlflow-models.md?#logging-models-with-a-custom-signature-environment-or-samples).
+> MLflow automatically detects packages when logging a model and pins the package versions in the model's conda dependencies. However, this automatic package detection might not always reflect your intentions or requirements. In such cases, consider [logging models with a custom conda dependencies definition](how-to-log-mlflow-models.md?#logging-models-with-a-custom-signature-environment-or-samples).
 
-### Implications of models with signatures
+### Implications of using models with signatures
 
-MLflow models can include a signature that indicates the expected inputs and their types. For those models containing a signature, Azure Machine Learning enforces compliance with it, both in terms of the number of inputs and their types. This means that your data input should comply with the types indicated in the model signature. If the data can't be parsed as expected, the invocation will fail. This applies for both online and batch endpoints.
+MLflow models can include a signature that indicates the expected inputs and their types. For such models, Azure Machine Learning enforces compliance with the signature, both in terms of the number of inputs expected and their types. This means that your data inputs need to comply with the types indicated in the model signature. If the data can't be parsed as expected, the model invocation will fail. This situation is true for both online endpoints and batch endpoints.
+
+You can inspect an MLflow model's signature by opening the MLmodel file associated with the model. For more information on how signatures work in MLflow, see [Signatures in MLflow](concept-mlflow-models.md#model-signature).
+
+The following code shows the MLmodel file associated with an MLflow model.
 
 __MLmodel__
 
 :::code language="yaml" source="~/azureml-examples-main/sdk/python/endpoints/online/mlflow/sklearn-diabetes/model/MLmodel" highlight="13-19":::
 
-You can inspect your model's signature by opening the MLmodel file associated with your MLflow model. For more information on how signatures work in MLflow, see [Signatures in MLflow](concept-mlflow-models.md#model-signature).
-
 > [!TIP]
-> Signatures in MLflow models are optional but they are highly encouraged as they provide a convenient way to early detect data compatibility issues. For more information about how to log models with signatures read [Logging models with a custom signature, environment or samples](how-to-log-mlflow-models.md#logging-models-with-a-custom-signature-environment-or-samples).
+> Signatures in MLflow models are optional but highly recommended, as they provide a convenient way to detect data compatibility issues early. For more information about how to log models with signatures, see [Logging models with a custom signature, environment or samples](how-to-log-mlflow-models.md#logging-models-with-a-custom-signature-environment-or-samples).
 
 
 ## Differences between models deployed in Azure Machine Learning and MLflow built-in server
 
-MLflow includes built-in deployment tools that model developers can use to test models locally. For instance, you can run a local instance of a model registered in MLflow server registry with `mlflow models serve -m my_model` or you can use the MLflow CLI `mlflow models predict`. Azure Machine Learning online and batch endpoints run different inferencing technologies, which might have different features. Read this section to understand their differences.
+MLflow includes built-in deployment tools that model developers can use to test models locally. For instance, you can run a local instance of a model that's registered in the MLflow server registry, using `mlflow models serve -m my_model` or using the MLflow CLI `mlflow models predict`. 
 
-### Batch vs online endpoints
+Azure Machine Learning online and batch endpoints run different inferencing technologies, which can have different features. Read this section to understand their differences.
+
+### Batch vs. online endpoints
 
 Azure Machine Learning supports deploying models to both online and batch endpoints. Online Endpoints compare to [MLflow built-in server](https://www.mlflow.org/docs/latest/models.html#built-in-deployment-tools) and they provide a scalable, synchronous, and lightweight way to run models for inference. Batch Endpoints, on the other hand, provide a way to run asynchronous inference over long running inferencing processes that can scale to large amounts of data. This capability isn't present by the moment in MLflow server although similar capability can be achieved [using Spark jobs](how-to-deploy-mlflow-model-spark-jobs.md). 
 
