@@ -3,7 +3,7 @@ title: "Netskope (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Netskope (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 01/06/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -49,14 +49,14 @@ Netskope
 To integrate with Netskope (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
-- **Netskope API Token**: A Netskope API Token is required. [See the documentation to learn more about Netskope API](https://www.netskope.com/resources). **Note:** A Netskope account is required
+- **Netskope API Token**: A Netskope API Token is required. [See the documentation to learn more about Netskope API](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v1-overview.html). **Note:** A Netskope account is required
 
 
 ## Vendor installation instructions
 
 > [!NOTE]
 >  - This connector uses Azure Functions to connect to Netskope to pull logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
->  - This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Netskope and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Netskope/Parsers/Netskope.txt), on the second line of the query, enter the hostname(s) of your Netskope device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
+> -  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Netskope and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Netskope/Parsers/Netskope.txt), on the second line of the query, enter the hostname(s) of your Netskope device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 **(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
@@ -90,6 +90,7 @@ This method provides an automated deployment of the Netskope connector using an 
 Option 2 - Manual Deployment of Azure Functions
 
 This method provides the step-by-step instructions to deploy the Netskope connector manually with Azure Function.
+
 
 **1. Create a Function App**
 

@@ -3,7 +3,7 @@ title: "SenservaPro (Preview) connector for Microsoft Sentinel"
 description: "Learn how to install the connector SenservaPro (Preview) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 01/06/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,7 +18,7 @@ The SenservaPro data connector provides a viewing experience for your SenservaPr
 | --- | --- |
 | **Log Analytics table(s)** | SenservaPro_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [Senserva](https://www.senserva.com/support/) |
+| **Supported by** | [Senserva](https://www.senserva.com/contact/) |
 
 ## Query samples
 
@@ -199,7 +199,8 @@ let timeframe = 14d;
 
 1. Setup the data connection
 
-Visit [Senserva Setup](https://www.senserva.com/portal/) for information on setting up the Senserva data connection, support, or any other questions. The Senserva installation will configure a Log Analytics Workspace for output. Deploy Microsoft Sentinel onto the configured Log Analytics Workspace to finish the data connection setup by following [this onboarding guide.](/azure/sentinel/quickstart-onboard)
+Visit [Senserva Setup](https://www.senserva.com/senserva-microsoft-sentinel-edition-setup/) for information on setting up the Senserva data connection, support, or any other questions. The Senserva installation will configure a Log Analytics Workspace for output. Deploy Microsoft Sentinel onto the configured Log Analytics Workspace to finish the data connection setup by following [this onboarding guide.](/azure/sentinel/quickstart-onboard)
+
 
 
 
