@@ -19,7 +19,8 @@ The following list contains Ultra disks's limitations:
 - Doesn't support Azure Site Recovery
 - Doesn't support disk caching
 - Must deallocate your VM or detach your ultra disk in order to expand your Ultra Disk
-- Availability zones are the only infrastructure redundancy option currently supported
+- Existing disks currently can't change their type to an Ultra Disk. They must be [migrated](../articles/virtual-machines/disks-convert-types.md#migrate-to-premium-ssd-v2-or-ultra-disk).
+- Currently only supports Single VM and Availability zone infrastructure options
 - Snapshots are supported with [additional limitations](../articles/virtual-machines/disks-incremental-snapshots.md#incremental-snapshots-of-premium-ssd-v2-and-ultra-disks)
 - Azure Backup supports VMs with Ultra Disks as a [public preview](../articles/backup/backup-support-matrix-iaas.md#vm-storage-support)
 
