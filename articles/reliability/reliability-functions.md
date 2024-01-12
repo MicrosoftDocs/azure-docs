@@ -22,7 +22,7 @@ Availability zone support for Azure Functions is available on both Premium (Elas
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Functions supports a [zone-redundant deployment](availability-zones-service-support.md#azure-services-with-availability-zone-support).  The function app platform automatically spreads the instances in the plan across all zones of the selected region. For example, in a region with three zones, if an instance count is larger than three and the number of instances is divisible by three, the instances are distributed evenly. Otherwise, instance counts beyond 3 * N are distributed across the remaining one or two zones. A zone redundant function app automatically distributes the instances your app runs on between the availability zones in the region. For apps running in a zone-redundant Premium plan, even as the app scales in and out, the instances the app is running on are still evenly distributed between availability zones.
+Azure Functions supports a [zone-redundant deployment](availability-zones-service-support.md#azure-services-with-availability-zone-support).  
 
 When you configure Functions as zone redundant, the platform automatically spreads the function instances across three zones in the selected region.  
 
