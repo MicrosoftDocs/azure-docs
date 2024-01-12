@@ -234,7 +234,7 @@ The following table provides a breakdown of suggested use cases for OS disks sup
 
 #### IOPS and throughput
 
-Input/output operations per second (IOPS) refers to the number of read and write operations that a disk can perform in a second. Throughout refers to the amount of data that can be transferred in a given time period.
+Input/output operations per second (IOPS) refers to the number of read and write operations that a disk can perform in a second. Throughput refers to the amount of data that can be transferred in a given time period.
 
 OS disks are responsible for storing the operating system and its associated files, and the VMs are responsible for running the applications. When selecting a VM, ensure the size and performance of the OS disk and VM SKU don't have a large discrepancy. A discrepancy in size or performance can cause performance issues and resource contention. For example, if the OS disk is significantly smaller than the VMs, it can limit the amount of space available for application data and cause the system to run out of disk space. If the OS disk has lower performance than the VMs, it can become a bottleneck and limit the overall performance of the system. Make sure the size and performance are balanced to ensure optimal performance in Kubernetes.
 
