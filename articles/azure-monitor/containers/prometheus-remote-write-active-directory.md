@@ -102,7 +102,7 @@ The application must have the Monitoring Metrics Publisher role on the data coll
 ### Add a CSI driver and storage for the cluster
 
 > [!NOTE]
-> Azure Key Vault CSI driver configuration is only one of the ways to get a certificate mounted on a pod. The remote write container needs a local path to a certificate in the pod only for the `<AZURE_CLIENT_CERTIFICATE_PATH>` value in the step [Deploy a sidecar container to set up remote write on the Prometheus server](#deploy-a-sidecar-container-to-set-up-remote-write-on-the-prometheus-server).
+> Azure Key Vault CSI driver configuration is only one of the ways to get a certificate mounted on a pod. The remote write container needs a local path to a certificate in the pod only for the `<AZURE_CLIENT_CERTIFICATE_PATH>` value in the step [Deploy a sidecar container to set up remote write](#deploy-a-sidecar-container-to-set-up-remote-write).
 
 This step is required only if you didn't turn on Azure Key Vault Provider for Secrets Store CSI Driver when you created your cluster.
 
