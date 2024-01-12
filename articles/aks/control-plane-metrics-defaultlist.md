@@ -41,7 +41,7 @@ The following metrics are allow-listed with `minimalingestionprofile=true` for d
 - `apiserver_request_sli_duration_seconds_bucket`
 - `apiserver_request_sli_duration_seconds_sum`
 - `apiserver_request_sli_duration_seconds_count`
-- `process_start_time_seconds`            
+- `process_start_time_seconds`
 - `apiserver_request_duration_seconds_bucket`
 - `apiserver_request_duration_seconds_sum`
 - `apiserver_request_duration_seconds_count`
@@ -53,7 +53,7 @@ The following metrics are allow-listed with `minimalingestionprofile=true` for d
 
 - `etcd_server_has_leader`
 - `rest_client_requests_total`
-- `etcd_mvcc_db_total_size_in_bytes `
+- `etcd_mvcc_db_total_size_in_bytes`
 - `etcd_mvcc_db_total_size_in_use_in_bytes`
 - `etcd_server_slow_read_indexes_total`
 - `etcd_server_slow_apply_total`
@@ -76,7 +76,7 @@ The following are metrics that are allow-listed with `minimalingestionprofile=tr
 - `scheduler_unschedulable_pods`
 - `scheduler_queue_incoming_pods_total`
 - `scheduler_schedule_attempts_total`
-- `scheduler_preemption_attempts_total``
+- `scheduler_preemption_attempts_total`
 
 **controlplane-cluster-autoscaler**
 
@@ -89,8 +89,8 @@ The following are metrics that are allow-listed with `minimalingestionprofile=tr
 - `cluster_autoscaler_unneeded_nodes_count`
 - `cluster_autoscaler_unschedulable_pods_count`
 - `cluster_autoscaler_nodes_count`
-- `cloudprovider_azure_api_request_errors`	
-- `cloudprovider_azure_api_request_duration_seconds_bucket`	
+- `cloudprovider_azure_api_request_errors`
+- `cloudprovider_azure_api_request_duration_seconds_bucket`
 - `cloudprovider_azure_api_request_duration_seconds_count`
 
 > [!NOTE]
@@ -98,10 +98,10 @@ The following are metrics that are allow-listed with `minimalingestionprofile=tr
 
 ## References
 
-- [Kuberentes Upstream metrics list ](https://kubernetes.io/docs/reference/instrumentation/metrics/) 
+- [Kuberentes Upstream metrics list ](https://kubernetes.io/docs/reference/instrumentation/metrics/)
 
 - [Cluster autoscaler metrics list](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/proposals/metrics.md)
 
 ## Next steps
 
-- [Learn more about control plane metrics in Managed Prometheus](controlplane-metrics.md)
+- [Learn more about control plane metrics in Managed Prometheus](monitor-control-plane-metrics.md)
