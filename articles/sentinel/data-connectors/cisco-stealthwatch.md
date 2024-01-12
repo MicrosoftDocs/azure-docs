@@ -3,21 +3,21 @@ title: "Cisco Stealthwatch connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cisco Stealthwatch to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/06/2024
+ms.date: 02/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Cisco Stealthwatch connector for Microsoft Sentinel
 
-The [Cisco Stealthwatch](https://www.cisco.com/c/en/us/products/security/stealthwatch/index.html) data connector provides the capability to ingest [Cisco Stealthwatch events](https://www.cisco.com/c/dam/en/us/td/docs/security/stealthwatch/management_console/securit_events_alarm_categories/SW_7_2_1_Security_Events_and_Alarm_Categories_DV_1_0.pdf) into Microsoft Sentinel. Refer to [Cisco Stealthwatch documentation](https://www.cisco.com/c/dam/en/us/td/docs/security/stealthwatch/system_installation_configuration/SW_7_3_2_System_Configuration_Guide_DV_1_0.pdf) for more information.
+The [Cisco Stealthwatch](https://www.cisco.com/c/en/us/products/security/stealthwatch/index.html) data connector provides the capability to ingest [Cisco Stealthwatch events](https://www.cisco.com/c/dam/en/us/td/docs/security/stealthwatch/management_console/securit_events_alarm_categories/SW_7_2_1_Security_Events_and_Alarm_Categories_DV_1_0.pdf) into Microsoft Sentinel.
 
 ## Connector attributes
 
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | Syslog (StealthwatchEvent)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
