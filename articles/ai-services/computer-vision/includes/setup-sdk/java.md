@@ -6,7 +6,7 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-[Reference documentation](/java/api/com.azure.ai.vision.imageanalysis) | [Maven Package](https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](https://aka.ms/azsdk/image-analysis/ref-docs/java) | [Maven Package](https://aka.ms/azsdk/image-analysis/package/maven) | [Samples](https://aka.ms/azsdk/image-analysis/samples/java)
 
 This guide shows how to install the Vision SDK for Java.
 
@@ -16,7 +16,7 @@ This guide shows how to install the Vision SDK for Java.
 
 ## Install the Vision SDK for Java
 
-The Azure AI Vision SDK for Java is available as a Maven package. For more information, see the package <a href="https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis" target="_blank">azure-ai-vision-imageanalysis</a> in the Maven repository.
+The Azure AI Vision SDK for Java is available as a Maven package. For more information, see the package <a href="https://aka.ms/azsdk/image-analysis/package/maven" target="_blank">azure-ai-vision-imageanalysis</a> in the Maven repository.
 
 
 # [Maven](#tab/maven)
@@ -29,41 +29,34 @@ Follow these steps to install the Vision SDK for Java using Apache Maven:
 1. Copy the following XML content into your pom.xml file:
     ```xml
     <project xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>azure.ai.vision.imageanalysis.samples</groupId>
-    <artifactId>image-analysis-quickstart</artifactId>
-    <version>0.0</version>
-    <dependencies>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>azure.ai.vision.imageanalysis.samples</groupId>
+      <artifactId>image-analysis-quickstart</artifactId>
+      <version>0.0</version>
+      <dependencies>
         <!-- https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis -->
         <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-ai-vision-imageanalysis</artifactId>
-        <version>0.15.1-beta.1</version>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-ai-vision-imageanalysis</artifactId>
+          <version>1.0.0-beta.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.azure/azure-core-http-netty -->
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop -->
+        <!-- Optional: provide a slf4j implementation. Here we use a no-op implementation
+        just to make the slf4j console spew warning go away. We can still use the internal
+        logger in azure.core library. See
+        https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis#enable-http-requestresponse-logging -->
         <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-core-http-netty</artifactId>
-        <version>1.13.6</version>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-nop</artifactId>
+          <version>1.7.36</version> <!-- {x-version-update;org.slf4j:slf4j-nop;external_dependency} -->
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-        <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>2.0.7</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
-        <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>2.0.7</version>
-        </dependency>
-    </dependencies>
+      </dependencies>
     </project>
     ```
-1. Update the version value in `<version>0.15.1-beta.1</version>` based on the latest version you find in the Maven repository for the [azure-ai-vision-imageanalysis](https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis) package.
+
+1. Update the version value in `<version>0.15.1-beta.1</version>` based on the latest version you find in the Maven repository for the [azure-ai-vision-imageanalysis](https://aka.ms/azsdk/image-analysis/package/maven) package.
 1. Run the following Maven command to install the Vision SDK and dependencies.
     ```console
     mvn clean dependency:copy-dependencies
@@ -84,6 +77,6 @@ Follow these steps to install the Vision SDK for Java using Apache Maven:
         implementation 'org.slf4j:slf4j-simple:2.0.7'
     }
     ```
-1. Update the version value in `com.azure:azure-ai-vision-imageanalysis:0.15.1-beta.1` based on the latest version you find in the Maven repository for the [azure-ai-vision-imageanalysis](https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis) package.
+1. Update the version value in `com.azure:azure-ai-vision-imageanalysis:0.15.1-beta.1` based on the latest version you find in the Maven repository for the [azure-ai-vision-imageanalysis](https://aka.ms/azsdk/image-analysis/package/maven) package.
 1. Update your Java application to do Image Analysis using the Azure AI Vision SDK, compile and run your application.
 ---

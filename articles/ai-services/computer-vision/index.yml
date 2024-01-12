@@ -161,7 +161,7 @@ tools:
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
   - title: Java
     imageSrc: /media/logos/logo_java.svg
-    url: /java/api/com.azure.ai.vision.imageanalysis
+    url: https://aka.ms/azsdk/image-analysis/ref-docs/java
 
 
 additionalContent:

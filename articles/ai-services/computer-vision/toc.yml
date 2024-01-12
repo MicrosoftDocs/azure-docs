@@ -118,7 +118,9 @@ items:
     items:
     - name: Version 4.0
       items:
-      - name: Azure Image Analysis samples
+      - name: Azure Image Analysis Java SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/java
+      - name: Azure Image Analysis other samples
         href: https://github.com/Azure-Samples/azure-ai-vision-sdk
     - name: Version 3.2
       items:
@@ -245,7 +247,7 @@ items:
       - name: C++
         href: /cpp/cognitive-services/vision
       - name: Java
-        href: /java/api/com.azure.ai.vision.imageanalysis
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/java
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2
