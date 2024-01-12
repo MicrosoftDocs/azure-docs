@@ -13,7 +13,7 @@ ms.date: 01/12/2024
 In this tutorial, part three of five, you migrate your existing nodes to Azure Linux. You can migrate your existing nodes to Azure Linux using one of the following methods:
 
 * Remove existing node pools and add new Azure Linux node pools.
-* In-place OS SKU migration (Preview).
+* In-place OS SKU migration (preview).
 
 If you don't have any existing nodes to migrate to Azure Linux, skip to the [next tutorial](./tutorial-azure-linux-telemetry-monitor.md). In later tutorials, you learn how to enable telemetry and monitoring in your clusters and upgrade Azure Linux nodes.
 
@@ -71,7 +71,7 @@ There are several settings that can block the OS SKU migration request. To ensur
 
 #### Install the `aks-preview` extension
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](../aks/includes/preview/preview-callout.md)]
 
 1. Install the `aks-preview` extension using the `az extension add` command.
 
@@ -279,8 +279,8 @@ If you experience issues during the OS SKU migration, you can roll back to your 
 
 In this tutorial, you migrated existing nodes to Azure Linux using one of the following methods:
 
-* Cordon, drain, and remove the existing nodes.
-* In-place OS SKU migration (Preview).
+* Remove existing node pools and add new Azure Linux node pools.
+* In-place OS SKU migration (preview).
 
 In the next tutorial, you learn how to enable telemetry to monitor your clusters.
 
