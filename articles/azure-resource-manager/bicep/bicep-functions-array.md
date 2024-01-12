@@ -947,7 +947,7 @@ For arrays, the function iterates through each element in the first parameter an
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
-The union function merges not only the top-level elements but also recursively merging any nested arrays and objects within them. See the second example in the following section.
+The union function merges not only the top-level elements but also recursively merges any nested objects within them. Nested array values are not merged. See the second example in the following section.
 
 ### Example
 
@@ -992,42 +992,59 @@ The output from the preceding example with the default values is:
 The following example shows the deep merge capability:
 
 ```bicep
-param firstObject object = {
+var firstObject = {
   property: {
     one: 'a'
     two: 'b'
     three: 'c1'
   }
+  nestedArray: [
+    1
+    2
+  ]
 }
-
-param secondObject object = {
+var secondObject = {
   property: {
     three: 'c2'
     four: 'd'
     five: 'e'
   }
+  nestedArray: [
+    3
+    4
+  ]
 }
-
-param firstArray array = [
-  ['one', 'two']
-  ['three']
+var firstArray = [
+  [
+    'one'
+    'two'
+  ]
+  [
+    'three'
+  ]
 ]
-
-param secondArray array = [
-  ['three']
-  ['four', 'two']
+var secondArray = [
+  [
+    'three'
+  ]
+  [
+    'four'
+    'two'
+  ]
 ]
 
 output objectOutput object = union(firstObject, secondObject)
 output arrayOutput array = union(firstArray, secondArray)
 ```
 
-The output from the preceding example with the default values is:
+The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"}}|
+| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]}|
 | arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
+
+If nested arrays were merged, then the value of **objectOutput.nestedArray** would be [1, 2, 3, 4], and the value of **arrayOutput** would be [["one", "two", "three"], ["three", "four", "two"]].
 
 ## Next steps
 

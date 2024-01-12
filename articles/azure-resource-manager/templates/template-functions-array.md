@@ -721,7 +721,7 @@ For arrays, the function iterates through each element in the first parameter an
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
-The union function merges not only the top-level elements but also recursively merging any nested arrays and objects within them. See the second example in the following section.
+The union function merges not only the top-level elements but also recursively merges any nested objects within them. Nested array values are not merged. See the second example in the following section.
 
 ### Example
 
@@ -742,72 +742,70 @@ The following example shows the deep merge capability:
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
+  "variables": {
     "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "property": {
-          "one": "a",
-          "two": "b",
-          "three": "c1"
-        }
-      }
+      "property": {
+        "one": "a",
+        "two": "b",
+        "three": "c1"
+      },
+      "nestedArray": [
+        1,
+        2
+      ]
     },
     "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "property": {
-          "three": "c2",
-          "four": "d",
-          "five": "e"
-        }
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [
-        [
-          "one",
-          "two"
-        ],
-        [
-          "three"
-        ]
+      "property": {
+        "three": "c2",
+        "four": "d",
+        "five": "e"
+      },
+      "nestedArray": [
+        3,
+        4
       ]
     },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [
-        [
-          "three"
-        ],
-        [
-          "four",
-          "two"
-        ]
+    "firstArray": [
+      [
+        "one",
+        "two"
+      ],
+      [
+        "three"
       ]
-    }
+    ],
+    "secondArray": [
+      [
+        "three"
+      ],
+      [
+        "four",
+        "two"
+      ]
+    ]
   },
   "resources": [],
   "outputs": {
     "objectOutput": {
-      "type": "object",
-      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
+      "type": "Object",
+      "value": "[union(variables('firstObject'), variables('secondObject'))]"
     },
     "arrayOutput": {
-      "type": "array",
-      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
+      "type": "Array",
+      "value": "[union(variables('firstArray'), variables('secondArray'))]"
     }
   }
 }
 ```
 
-The output from the preceding example with the default values is:
+The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"}}|
+| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]}|
 | arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
+
+If nested arrays were merged, then the value of **objectOutput.nestedArray** would be [1, 2, 3, 4], and the value of **arrayOutput** would be [["one", "two", "three"], ["three", "four", "two"]].
 
 ## Next steps
 
