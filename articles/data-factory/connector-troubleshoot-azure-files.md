@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/23/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -25,7 +25,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Recommendation**:  To check the error details, see [Azure Files help](/rest/api/storageservices/file-service-error-codes). For further help, contact the Azure Files team.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

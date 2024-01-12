@@ -1,11 +1,11 @@
 ---
 title: Azure IOT prototyping device selection list
 description: This document provides guidance on choosing a hardware device for prototyping IoT Azure solutions.
-author: jenfoxbot
-ms.author: jefo
+author: timlt
+ms.author: timlt
 ms.service: iot-develop
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 09/29/2023
 ---
 # IoT device selection list
 
@@ -20,9 +20,9 @@ All boards listed support users of all experience levels.
 
 [^1]: *If you're new to hardware programming, for MCU dev work we recommend using VS Code Arduino Extension or VS Code Platform IO Extension. For SBC dev work, you program the device like you would a laptop, that is, on the device itself. The Raspberry Pi supports VS Code development.*
 
-[^2]: *Devices were chosen based on availability of support resources, common boards used for prototyping and PoCs, and boards that support beginner-friendly IDEs like Arduino IDE and VS Code extensions; for example, Arduino Extension and Platform IO extension. For simplicity, we aimed to keep the total device list <6. Some of these metrics are "squishy," which means that other teams and individuals may have chosen to feature different boards based on their interpretation of the criteria.*
+[^2]: *Devices in the availability of support resources, common boards used for prototyping and PoCs, and boards that support beginner-friendly IDEs like Arduino IDE and VS Code extensions; for example, Arduino Extension and Platform IO extension. For simplicity, we aimed to keep the total device list <6. Other teams and individuals may have chosen to feature different boards based on their interpretation of the criteria.*
 
-[^3]: *For bringing devices to production, you'll likely want to test a PoC with a specific chipset, ST's STM32 or Microchip's Pic-IoT breakout board series, design a custom board that can be manufactured for lower cost than the MCUs and SBCs listed here, or even explore FPGA-based dev kits. You may also want to use a development environment for professional electrical engineering like STM32CubeMX or ARM mBed browser-based programmer.*
+[^3]: *For bringing devices to production, you likely want to test a PoC with a specific chipset, ST's STM32 or Microchip's Pic-IoT breakout board series, design a custom board that can be manufactured for lower cost than the MCUs and SBCs listed here, or even explore FPGA-based dev kits. You may also want to use a development environment for professional electrical engineering like STM32CubeMX or ARM mBed browser-based programmer.*
 
 ## Contents
 
@@ -40,7 +40,7 @@ All boards listed support users of all experience levels.
 
 Use this document to better understand IoT terminology, device selection considerations, and to choose an IoT device for prototyping or building a proof-of-concept. We recommend the following procedure:
 
-1. Read through the 'what to consider when choosing a board' section below to identify needs and constraints.
+1. Read through the 'what to consider when choosing a board' section to identify needs and constraints.
 
 2. Use the Application Selection Visual to identify possible options for your IoT scenario.
 
@@ -48,11 +48,11 @@ Use this document to better understand IoT terminology, device selection conside
 
 ### What to consider when choosing a board
 
-Below are some suggestions for criteria to consider when choosing a device for your IoT prototype.
+To choose a device for your IoT prototype, see the following criteria:
 
 - **Microcontroller unit (MCU) or single board computer (SBC)**
   - An MCU is preferred for single tasks, like gathering and uploading sensor data or machine learning at the edge. MCUs also tend to be lower cost.
-  - An SBC is preferred when you need multiple different tasks, like gathering sensor data and controlling another device. It may also be preferred in the early stages when there are many options for possible solutions - an SBC will enable you to try lots of different approaches.
+  - An SBC is preferred when you need multiple different tasks, like gathering sensor data and controlling another device. It may also be preferred in the early stages when there are many options for possible solutions - an SBC enables you to try lots of different approaches.
 
 - **Processing power**
 
@@ -64,13 +64,13 @@ Below are some suggestions for criteria to consider when choosing a device for y
 
 - **Power consumption**
 
-  - **Power**: Consider how much voltage and current the board consumes. Determine if wall power is readily available or if you'll need a battery for your application.
+  - **Power**: Consider how much voltage and current the board consumes. Determine if wall power is readily available or if you need a battery for your application.
 
   - **Connection**: Consider the physical connection to the power source. If you need battery power, check if there's a battery connection port available on the board. If there's no battery connector, seek another comparable board, or consider other ways to add battery power to your device.
 
 - **Inputs and outputs**
   - **Ports and pins**: Consider how many and of what types of ports and I/O pins your project may require.
-        * Additional considerations include if your device will be communicating with other sensors or devices. If so, identify how many ports those signals require.
+        * Other considerations include if your device will be communicating with other sensors or devices. If so, identify how many ports those signals require.
 
   - **Protocols**: If you're working with other sensors or devices, consider what hardware communication protocols are required.
         * For example, you may need CAN, UART, SPI, I2C, or other communication protocols.
@@ -94,7 +94,7 @@ Below are some suggestions for criteria to consider when choosing a device for y
 
   - **Networking**: Consider if your device is connected to an external  network or if it can be kept behind a router and/or firewall. If your prototype needs to be connected to an externally facing network, we  recommend using the Azure Sphere as it is the only reliably secure device.
 
-  - **Peripherals**: Consider if any of the peripherals your device connects to will have wireless protocols (for example, WiFi, BLE).
+  - **Peripherals**: Consider if any of the peripherals your device connects to have wireless protocols (for example, WiFi, BLE).
 
   - **Physical location**: Consider if your device or any of the peripherals it's connected to will be accessible to the public. If so, we recommend making the device physically inaccessible. For example, in a closed, locked box.
 
@@ -156,7 +156,7 @@ Terminology and acronyms are listed in alphabetical order.
 
 ## MCU device list
 
-Following is a comparison table of MCUs in alphabetical order. Please note this is an intentionally brief list, it isn't intended to be exhaustive.
+Following is a comparison table of MCUs in alphabetical order. The list isn't not intended to be exhaustive.
 
 >[!NOTE]
 >This list is for educational purposes only, it is not intended to endorse any products. Prices shown represent the average across multiple distributors and are for illustrative purposes only.
@@ -172,7 +172,7 @@ Following is a comparison table of MCUs in alphabetical order. Please note this 
 
 ## SBC device list
 
-Following is a comparison table of SBCs in alphabetical order. Note this is an intentionally brief list, it isn't intended to be exhaustive.
+Following is a comparison table of SBCs in alphabetical order. This list isn't intended to be exhaustive.
 
 >[!NOTE]
 >This list is for educational purposes only, it is not intended to endorse any products. Prices shown represent the average across multiple distributors and are for illustrative purposes only.

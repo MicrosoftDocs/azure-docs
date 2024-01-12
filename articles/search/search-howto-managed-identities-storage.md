@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Storage
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to set up an indexer connection to an Azure Storage account using a managed identity
 author: gmndrg
 ms.author: gimondra
@@ -9,14 +9,16 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 09/19/2022
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - ignite-2023
 ---
 
 # Set up an indexer connection to Azure Storage using a managed identity
 
 This article explains how to set up an indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Azure Storage. 
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Microsoft Entra logins and require Azure role assignments to access data in Azure Storage. 
 
 > [!NOTE]
 > If storage is network-protected and in the same region as your search service, you must use a system-assigned managed identity and either one of the following network options: [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md), or [connect using the resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances). 
@@ -34,7 +36,7 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 * You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-indexing-azure-blob-storage.md).
 
 > [!TIP]
-> For a code example in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
+> For a code example in C#, see [Index Data Lake Gen2 using Microsoft Entra ID](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
 ## Create the data source
 
@@ -143,4 +145,4 @@ Azure storage accounts can be further secured using firewalls and virtual networ
 * [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
 * [Azure Table indexer](search-howto-indexing-azure-tables.md)
-* [C# Example: Index Data Lake Gen2 using Azure AD (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/master/data-lake-gen2-acl-indexing/README.md)
+* [C# Example: Index Data Lake Gen2 using Microsoft Entra ID (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/data-lake-gen2-acl-indexing/README.md)

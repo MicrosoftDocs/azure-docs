@@ -3,7 +3,7 @@ title: HDInsight 4.0 overview - Azure
 description: Compare HDInsight 3.6 to HDInsight 4.0 features, limitations, and upgrade recommendations.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/30/2022
+ms.date: 12/05/2023
 ---
 
 # Azure HDInsight 4.0 overview

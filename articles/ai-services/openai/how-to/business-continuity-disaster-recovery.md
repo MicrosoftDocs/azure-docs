@@ -2,7 +2,7 @@
 title: 'Business Continuity and Disaster Recovery (BCDR) with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Considerations for implementing Business Continuity and Disaster Recovery (BCDR) with Azure OpenAI 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
@@ -41,7 +41,7 @@ Follow these steps to configure your client to monitor errors:
 4. For the primary region and any backup regions your code will need to know:
 
     - Base URI for the resource
-    - Regional access key or Azure Active Directory access
+    - Regional access key or Microsoft Entra ID access
 
 5. Configure your code so that you monitor connectivity errors (typically connection timeouts and service unavailability errors).
 

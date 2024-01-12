@@ -21,7 +21,7 @@ The following limits apply only for networking resources managed through **Azure
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |
 | Virtual network peerings per virtual network |500 |
-| [Virtual network gateways (VPN gateways) per virtual network](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
+| [Virtual network gateways (VPN gateways) per virtual network](../articles/vpn-gateway/about-gateway-skus.md#benchmark) |1 |
 | [Virtual network gateways (ExpressRoute gateways) per virtual network](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | DNS servers per virtual network |20 |
 | Private IP addresses per virtual network |65,536 |
@@ -34,7 +34,7 @@ The following limits apply only for networking resources managed through **Azure
 | Network interface cards |65,536 |
 | Network Security Groups |5,000 |
 | NSG rules per NSG |1,000 |
-| IP addresses and ranges specified for source or destination in a security group |4,000 |
+| IP addresses and ranges specified for source or destination in a security group (The limit applies separately to source and destination) |4,000 |
 | Application security groups |3,000 |
 | Application security groups per IP configuration, per NIC | 20 |
 | Application security groups referenced as source/destination per NSG rule | 10 |

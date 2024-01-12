@@ -29,7 +29,7 @@ Azure has some special regions that you may wish to use when building out your a
 * **US Gov Virginia** and **US Gov Iowa**
   * A physical and logical network-isolated instance of Azure for US government agencies and partners, operated by screened US persons. Includes additional compliance certifications such as [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) and [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Read more about [Azure Government](https://azure.microsoft.com/features/gov/).
 * **China East** and **China North**
-  * These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters. See more about [Microsoft Azure operated by 21Vianet](https://www.windowsazure.cn/).
+  * These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters.
 * **Germany Central** and **Germany Northeast**
   * These regions are available via a data trustee model whereby customer data remains in Germany under control of T-Systems, a Deutsche Telekom company, acting as the German data trustee.
 
@@ -51,7 +51,7 @@ Examples of region pairs include:
 You can see the full [list of regional pairs here](../availability-zones/cross-region-replication-azure.md#azure-paired-regions).
 
 ## Feature availability
-Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../traffic-manager/traffic-manager-overview.md), or [Azure DNS](../dns/dns-overview.md). To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://azure.microsoft.com/regions/#services). You can also [programmatically query the supported VM sizes and restrictions in each region](../azure-resource-manager/templates/error-sku-not-available.md).
+Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../traffic-manager/traffic-manager-overview.md), or [Azure DNS](../dns/dns-overview.md). To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://azure.microsoft.com/regions/#services). You can also [programmatically query the supported VM sizes and restrictions in each region](../azure-resource-manager/templates/error-sku-not-available.md).
 
 ## Storage availability
 Understanding Azure regions and geographies becomes important when you consider the available storage replication options. Depending on the storage type, you have different replication options.

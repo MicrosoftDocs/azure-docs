@@ -1,6 +1,6 @@
 ---
 title: How to upload large files using file service API in Microsoft Azure Data Manager for Energy
-description: This article describes how to to upload large files using File service API in Microsoft Azure Data Manager for Energy
+description: This article describes how to upload large files using File service API in Microsoft Azure Data Manager for Energy
 author: harshit283
 ms.author: haaggarw
 ms.service: energy-data-services

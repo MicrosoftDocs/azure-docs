@@ -14,6 +14,8 @@ ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 
 # Quickstart: Use the client libraries or REST APIs to customize your solution
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 Get started with the Metrics Advisor REST API or client libraries. Follow these steps to install the package and try out the example code for basic tasks.
 
 Use Metrics Advisor to perform:

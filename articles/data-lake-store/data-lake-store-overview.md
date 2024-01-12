@@ -52,11 +52,11 @@ Data Lake Storage Gen1 containers for data are essentially folders and files. Yo
 
 ## <a name="DataLakeStoreSecurity"></a>Securing data
 
-Data Lake Storage Gen1 uses Azure Active Directory (Azure AD) for authentication, and access control lists (ACLs) to manage access to your data.
+Data Lake Storage Gen1 uses Microsoft Entra ID for authentication, and access control lists (ACLs) to manage access to your data.
 
 | Feature | Description |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1 integrates with Azure AD for identity and access management for all the data stored in Data Lake Storage Gen1. Because of the integration, Data Lake Storage Gen1 benefits from all Azure AD feature such as multi-factor authentication, Conditional Access, Azure role-based access control, application usage monitoring, security monitoring and alerting, and so on. Data Lake Storage Gen1 supports the OAuth 2.0 protocol for authentication within the REST interface. See [Data Lake Storage Gen1 authentication](data-lakes-store-authentication-using-azure-active-directory.md).|
+| Authentication |Data Lake Storage Gen1 integrates with Microsoft Entra ID for identity and access management for all the data stored in Data Lake Storage Gen1. Because of the integration, Data Lake Storage Gen1 benefits from all Microsoft Entra feature such as multi-factor authentication, Conditional Access, Azure role-based access control, application usage monitoring, security monitoring and alerting, and so on. Data Lake Storage Gen1 supports the OAuth 2.0 protocol for authentication within the REST interface. See [Data Lake Storage Gen1 authentication](data-lakes-store-authentication-using-azure-active-directory.md).|
 | Access control |Data Lake Storage Gen1 provides access control by supporting POSIX-style permissions exposed by the WebHDFS protocol. You can enable ACLs on the root folder, on subfolders, and on individual files. For more information about how ACLs work in the context of Data Lake Storage Gen1, see [Access control in Data Lake Storage Gen1](data-lake-store-access-control.md). |
 | Encryption |Data Lake Storage Gen1 also provides encryption for data that's stored in the account. You specify the encryption settings while creating a Data Lake Storage Gen1 account. You can choose to have your data encrypted or opt for no encryption. For more information, see [Encryption in Data Lake Storage Gen1](data-lake-store-encryption.md). For instructions on how to provide encryption-related configuration, see [Get started with Data Lake Storage Gen1 using the Azure portal](data-lake-store-get-started-portal.md). |
 

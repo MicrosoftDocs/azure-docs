@@ -16,8 +16,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Exception Policy
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 An Exception Policy is a set of rules that defines what actions to execute when a condition is triggered.  You can save these policies inside Job Router and then attach them to one or more Queues.
 
 ## Triggers
@@ -46,15 +44,12 @@ In the following example, we configure an exception policy that will cancel a jo
 
 ```csharp
 await administrationClient.CreateExceptionPolicyAsync(new CreateExceptionPolicyOptions(
-    exceptionPolicyId: "policy1",
-    exceptionRules: new Dictionary<string, ExceptionRule>
+    exceptionPolicyId: "maxQueueLength",
+    exceptionRules: new List<ExceptionRule>
     {
-        ["rule1"] = new (
+        new (id: "cancelJob",
             trigger: new QueueLengthExceptionTrigger(threshold: 100),
-            actions: new Dictionary<string, ExceptionAction?>
-            {
-                ["cancelAction"] = new CancelExceptionAction()
-            })
+            actions: new List<ExceptionAction>{ new CancelExceptionAction() })
     }) { Name = "Max Queue Length Policy" });
 ```
 
@@ -63,13 +58,16 @@ await administrationClient.CreateExceptionPolicyAsync(new CreateExceptionPolicyO
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.createExceptionPolicy("policy1", {
-    name: "Max Queue Length Policy",
-    exceptionRules: {
-        rule1: {
-            trigger: { kind: "queue-length", threshold: 100 },
-            actions: { cancelAction: { kind: "cancel" }}
+await administrationClient.path("/routing/exceptionPolicies/{exceptionPolicyId}", "maxQueueLength").patch({
+    body: {
+        name: "Max Queue Length Policy",
+        exceptionRules: [
+        {
+            id: "cancelJob",
+            trigger: { kind: "queueLength", threshold: 100 },
+            actions: [{ kind: "cancel" }]
         }
+      ]
     }
 });
 ```
@@ -79,17 +77,16 @@ await administrationClient.createExceptionPolicy("policy1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_exception_policy(
-    exception_policy_id = "policy1",
-    exception_policy = ExceptionPolicy(
-        name = "Max Queue Length Policy",
-        exception_rules = {
-            "rule1": ExceptionRule(
-              trigger = QueueLengthExceptionTrigger(threshold = 100),
-              actions = { "cancelAction": CancelExceptionAction() }
-            )
-        }
-    )
+administration_client.upsert_exception_policy(
+    exception_policy_id = "maxQueueLength",
+    name = "Max Queue Length Policy",
+    exception_rules = [
+        ExceptionRule(
+            id = "cancelJob",
+            trigger = QueueLengthExceptionTrigger(threshold = 100),
+            actions = [ CancelExceptionAction() ]
+        )
+    ]
 )
 ```
 
@@ -98,10 +95,11 @@ administration_client.create_exception_policy(
 ::: zone pivot="programming-language-java"
 
 ```java
-administrationClient.createExceptionPolicy(new CreateExceptionPolicyOptions("policy1",
-    Map.of("rule1", new ExceptionRule(
-        new QueueLengthExceptionTrigger().setThreshold(1)
-        Map.of("cancelAction", new CancelExceptionAction())))
+administrationClient.createExceptionPolicy(new CreateExceptionPolicyOptions("maxQueueLength",
+    List.of(new ExceptionRule(
+        "cancelJob",
+        new QueueLengthExceptionTrigger(100),
+        List.of(new CancelExceptionAction())))
 ).setName("Max Queue Length Policy"));
 ```
 
@@ -117,19 +115,21 @@ In the following example, we configure an Exception Policy with rules that will:
 ```csharp
 await administrationClient.CreateExceptionPolicyAsync(new CreateExceptionPolicyOptions(
     exceptionPolicyId: "policy2",
-    exceptionRules: new Dictionary<string, ExceptionRule>
+    exceptionRules: new List<ExceptionRule>
     {
-        ["rule1"] = new (
+        new(
+            id: "increasePriority",
             trigger: new WaitTimeExceptionTrigger(threshold: TimeSpan.FromMinutes(1)),
-            actions: new Dictionary<string, ExceptionAction?>
+            actions: new List<ExceptionAction>
             {
-                ["increasePriority"] = new ManualReclassifyExceptionAction { Priority = 10 }
+                new ManualReclassifyExceptionAction { Priority = 10 }
             }),
-        ["rule2"] = new(
+        new(
+            id: "changeQueue",
             trigger: new WaitTimeExceptionTrigger(threshold: TimeSpan.FromMinutes(5)),
-            actions: new Dictionary<string, ExceptionAction?>
+            actions: new List<ExceptionAction>
             {
-                ["changeQueue"] = new ManualReclassifyExceptionAction { QueueId = "queue2" }
+                new ManualReclassifyExceptionAction { QueueId = "queue2" }
             })
     }) { Name = "Escalation Policy" });
 ```
@@ -139,17 +139,23 @@ await administrationClient.CreateExceptionPolicyAsync(new CreateExceptionPolicyO
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.createExceptionPolicy("policy2", {
-    name: "Escalation Policy",
-    rule1: {
-        trigger: { kind: "wait-time", thresholdSeconds: "60" },
-        actions: { "increasePriority": { kind: "manual-reclassify", priority: 10 }}
+await administrationClient.path("/routing/exceptionPolicies/{exceptionPolicyId}", "policy2").patch({
+    body: {
+        name: "Escalation Policy",
+        exceptionRules: [
+        {
+            id: "increasePriority",
+            trigger: { kind: "waitTime", thresholdSeconds: "60" },
+            actions: [{ "manual-reclassify", priority: 10 }]
+        },
+        {
+            id: "changeQueue",
+            trigger: { kind: "waitTime", thresholdSeconds: "300" },
+            actions: [{ kind: "manual-reclassify", queueId: "queue2" }]
+        }]
     },
-    rule2: {
-        trigger: { kind: "wait-time", thresholdSeconds: "300" },
-        actions: { "changeQueue": { kind: "manual-reclassify", queueId: "queue2" }}
-    }
-});
+    contentType: "application/merge-patch+json"
+  });
 ```
 
 ::: zone-end
@@ -157,21 +163,21 @@ await administrationClient.createExceptionPolicy("policy2", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_exception_policy(
+administration_client.upsert_exception_policy(
     exception_policy_id = "policy2",
-    exception_policy = ExceptionPolicy(
-        name = "Escalation Policy",
-        exception_rules = {
-            "rule1": ExceptionRule(
-                trigger = WaitTimeExceptionTrigger(threshold_seconds = 60),
-                actions = { "increasePriority": ManualReclassifyExceptionAction(priority = 10) }
-            ),
-            "rule2": ExceptionRule(
-                trigger = WaitTimeExceptionTrigger(threshold_seconds = 60),
-                actions = { "changeQueue": ManualReclassifyExceptionAction(queue_id = "queue2") }
-            )
-        }
-    )
+    name = "Escalation Policy",
+    exception_rules = [
+        ExceptionRule(
+            id = "increasePriority",
+            trigger = WaitTimeExceptionTrigger(threshold_seconds = 60),
+            actions = [ ManualReclassifyExceptionAction(priority = 10) ]
+        ),
+        ExceptionRule(
+            id = "changeQueue",
+            trigger = WaitTimeExceptionTrigger(threshold_seconds = 60),
+            actions = [ ManualReclassifyExceptionAction(queue_id = "queue2") ]
+        )
+    ]
 )
 ```
 
@@ -180,13 +186,11 @@ administration_client.create_exception_policy(
 ::: zone pivot="programming-language-java"
 
 ```java
-administrationClient.createExceptionPolicy(new CreateExceptionPolicyOptions("policy2", Map.of(
-    "rule1", new ExceptionRule(
-        new WaitTimeExceptionTrigger(60),
-        Map.of("increasePriority", new ManualReclassifyExceptionAction().setPriority(10))),
-    "rule2", new ExceptionRule(
-        new WaitTimeExceptionTrigger(300),
-        Map.of("changeQueue", new ManualReclassifyExceptionAction().setQueueId("queue2"))))
+administrationClient.createExceptionPolicy(new CreateExceptionPolicyOptions("policy2", List.of(
+    new ExceptionRule("increasePriority", new WaitTimeExceptionTrigger(Duration.ofMinutes(1)),
+        List.of(new ManualReclassifyExceptionAction().setPriority(10))),
+    new ExceptionRule("changeQueue", new WaitTimeExceptionTrigger(Duration.ofMinutes(5)),
+        List.of(new ManualReclassifyExceptionAction().setQueueId("queue2"))))
 ).setName("Escalation Policy"));
 ```
 

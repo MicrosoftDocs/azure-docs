@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Stateful Reliable Services diagnostics 
+title: Azure Service Fabric Stateful Reliable Services diagnostics
 description: Diagnostic functionality for Stateful Reliable Services in Azure Service Fabric
 ms.topic: conceptual
 ms.author: tomcassidy
@@ -16,7 +16,7 @@ The Azure Service Fabric Stateful Reliable Services StatefulServiceBase class em
 The EventSource name for the Stateful Reliable Services StatefulServiceBase class is "Microsoft-ServiceFabric-Services." Events from this event source appear in the
 [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the service is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
-Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://www.microsoft.com/download/details.aspx?id=28567),
+Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://github.com/Microsoft/perfview/releases),
 [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), and the
 [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 

@@ -1,7 +1,7 @@
 ---
 title: Multi-slot personalization
 description: Learn where and when to use single-slot and multi-slot personalization with the Personalizer Rank and Reward APIs.
-services: cognitive-services
+#services: cognitive-services
 author: jcodella
 ms.author: jacodel
 manager: nitinme
@@ -12,6 +12,8 @@ ms.custom: mode-other
 ---
 
 # Multi-slot personalization (Preview)
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Multi-slot personalization (Preview) allows you to target content in web layouts, carousels, and lists where more than one action (such as a product or piece of content) is shown to your users. With Personalizer multi-slot APIs, you can have the AI models in Personalizer learn what user contexts and products drive certain behaviors, considering and learning from the placement in your user interface. For example, Personalizer may learn that certain products or content drive more clicks as a sidebar or a footer than as a main highlight on a page.
 

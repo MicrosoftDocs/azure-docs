@@ -64,7 +64,7 @@ Finding in-domain quality data is often a challenging task that varies based on 
 | Source | What it does | Rules to follow |
 |---|---|---|
 | Bilingual training documents | Teaches the system your terminology and style. | **Be liberal**. Any in-domain human translation is better than machine translation. Add and remove documents as you go and try to improve the [BLEU score](concepts/bleu-score.md?WT.mc_id=aiml-43548-heboelma). |
-| Tuning documents | Trains the Neural Machine Translation parameters. | **Be strict**. Compose them to be optimally representative of what you are going to translation in the future. |
+| Tuning documents | Trains the Neural Machine Translation parameters. | **Be strict**. Compose them to be optimally representative of what you are going to translate in the future. |
 | Test documents | Calculate the [BLEU score](concepts/bleu-score.md?WT.mc_id=aiml-43548-heboelma).| **Be strict**. Compose test documents to be optimally representative of what you plan to translate in the future. |
 | Phrase dictionary | Forces the given translation 100% of the time. | **Be restrictive**. A phrase dictionary is case-sensitive and any word or phrase listed is translated in the way you specify. In many cases, it's better to not use a phrase dictionary and let the system learn. |
 | Sentence dictionary | Forces the given translation 100% of the time. | **Be strict**. A sentence dictionary is case-insensitive and good for common in domain short sentences. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. If only a portion of the sentence matches, the entry won't match. |

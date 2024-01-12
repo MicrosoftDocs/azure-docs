@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 02/14/2023
 ms.topic: how-to
-ms.custom: build-2023, moe-wsvnet
+ms.custom: build-2023
 ---
 
 # Plan for network isolation
@@ -60,7 +60,7 @@ If you want to remove the firewall requirement, you can use network security gro
 
 ### Using public workspace
 
-You can use a public workspace if you're OK with Azure AD authentication and authorization with conditional access. A public workspace has some features to show data in your private storage account and we recommend using private workspace.
+You can use a public workspace if you're OK with Microsoft Entra authentication and authorization with conditional access. A public workspace has some features to show data in your private storage account and we recommend using private workspace.
 
 ## Recommended architecture with data exfiltration prevention
 
@@ -94,7 +94,7 @@ The following tables list the required outbound [Azure Service Tags](/azure/virt
 
 ### Using public workspace
 
-You can use the public workspace if you're OK with Azure AD authentication and authorization with conditional access. A public workspace has some features to show data in your private storage account and we recommend using private workspace.
+You can use the public workspace if you're OK with Microsoft Entra authentication and authorization with conditional access. A public workspace has some features to show data in your private storage account and we recommend using private workspace.
 
 ## Key considerations to understand details
 

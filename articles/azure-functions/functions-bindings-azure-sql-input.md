@@ -27,103 +27,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [In-process](#tab/in-process)
-
-More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
-
-This section contains the following examples:
-
-* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-c)
-* [HTTP trigger, get multiple rows from route data](#http-trigger-get-multiple-items-from-route-data-c)
-* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-c)
-
-The examples refer to a `ToDoItem` class and a corresponding database table:
-
-:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
-
-:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
-
-<a id="http-trigger-look-up-id-from-query-string-c"></a>
-### HTTP trigger, get row by ID from query string
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single record. The function is triggered by an HTTP request that uses a query string to specify the ID. That ID is used to retrieve a `ToDoItem` record with the specified query.
-
-> [!NOTE]
-> The HTTP query string parameter is case-sensitive.
->
-
-```cs
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-
-namespace AzureSQLSamples
-{
-    public static class GetToDoItem
-    {
-        [FunctionName("GetToDoItem")]
-        public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitem")]
-            HttpRequest req,
-            [Sql(commandText: "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
-                commandType: System.Data.CommandType.Text,
-                parameters: "@Id={Query.id}",
-                connectionStringSetting: "SqlConnectionString")]
-            IEnumerable<ToDoItem> toDoItem)
-        {
-            return new OkObjectResult(toDoItem.FirstOrDefault());
-        }
-    }
-}
-```
-
-<a id="http-trigger-get-multiple-items-from-route-data-c"></a>
-### HTTP trigger, get multiple rows from route parameter
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves documents returned by the query. The function is triggered by an HTTP request that uses route data to specify the value of a query parameter. That parameter is used to filter the `ToDoItem` records in the specified query.
-
-```cs
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-
-namespace AzureSQLSamples
-{
-    public static class GetToDoItems
-    {
-        [FunctionName("GetToDoItems")]
-        public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitems/{priority}")]
-            HttpRequest req,
-            [Sql(commandText: "select [Id], [order], [title], [url], [completed] from dbo.ToDo where [Priority] > @Priority",
-                commandType: System.Data.CommandType.Text,
-                parameters: "@Priority={priority}",
-                connectionStringSetting: "SqlConnectionString")]
-            IEnumerable<ToDoItem> toDoItems)
-        {
-            return new OkObjectResult(toDoItems);
-        }
-    }
-}
-```
-
-<a id="http-trigger-delete-one-or-multiple-rows-c"></a>
-### HTTP trigger, delete rows
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request query parameter.
-
-The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
-
-:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
-
-:::code language="csharp" source="~/functions-sql-todo-sample/DeleteToDo.cs" range="4-30":::
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-outofproc).
 
@@ -142,7 +46,7 @@ The examples refer to a `ToDoItem` class and a corresponding database table:
 <a id="http-trigger-look-up-id-from-query-string-c-oop"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single record. The function is triggered by an HTTP request that uses a query string to specify the ID. That ID is used to retrieve a `ToDoItem` record with the specified query.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single record. The function is [triggered by an HTTP request](./functions-bindings-http-webhook-trigger.md) that uses a query string to specify the ID. That ID is used to retrieve a `ToDoItem` record with the specified query.
 
 > [!NOTE]
 > The HTTP query string parameter is case-sensitive.
@@ -180,7 +84,7 @@ namespace AzureSQLSamples
 <a id="http-trigger-get-multiple-items-from-route-data-c-oop"></a>
 ### HTTP trigger, get multiple rows from route parameter
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves documents returned by the query. The function is triggered by an HTTP request that uses route data to specify the value of a query parameter. That parameter is used to filter the `ToDoItem` records in the specified query.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves documents returned by the query. The function is [triggered by an HTTP request](./functions-bindings-http-webhook-trigger.md) that uses route data to specify the value of a query parameter. That parameter is used to filter the `ToDoItem` records in the specified query.
 
 ```cs
 using System.Collections.Generic;
@@ -241,15 +145,15 @@ namespace AzureSQL.ToDo
 }
 ```
 
-# [C# Script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-
-More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csx).
+More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 
 This section contains the following examples:
 
-* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-csharpscript)
-* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-csharpscript)
+* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-c)
+* [HTTP trigger, get multiple rows from route data](#http-trigger-get-multiple-items-from-route-data-c)
+* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-c)
 
 The examples refer to a `ToDoItem` class and a corresponding database table:
 
@@ -257,120 +161,85 @@ The examples refer to a `ToDoItem` class and a corresponding database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
-<a id="http-trigger-look-up-id-from-query-string-csharpscript"></a>
+<a id="http-trigger-look-up-id-from-query-string-c"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows an Azure SQL input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function is triggered by an HTTP request that uses a query string to specify the ID. That ID is used to retrieve a `ToDoItem` record with the specified query.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single record. The function is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request that uses a query string to specify the ID. That ID is used to retrieve a `ToDoItem` record with the specified query.
 
 > [!NOTE]
 > The HTTP query string parameter is case-sensitive.
 >
 
-Here's the binding data in the *function.json* file:
+```cs
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
 
-```json
+namespace AzureSQLSamples
 {
-    "authLevel": "anonymous",
-    "type": "httpTrigger",
-    "direction": "in",
-    "name": "req",
-    "methods": [
-        "get"
-    ]
-},
-{
-    "type": "http",
-    "direction": "out",
-    "name": "res"
-},
-{
-    "name": "todoItem",
-    "type": "sql",
-    "direction": "in",
-    "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
-    "commandType": "Text",
-    "parameters": "@Id = {Query.id}",
-    "connectionStringSetting": "SqlConnectionString"
+    public static class GetToDoItem
+    {
+        [FunctionName("GetToDoItem")]
+        public static IActionResult Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitem")]
+            HttpRequest req,
+            [Sql(commandText: "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
+                commandType: System.Data.CommandType.Text,
+                parameters: "@Id={Query.id}",
+                connectionStringSetting: "SqlConnectionString")]
+            IEnumerable<ToDoItem> toDoItem)
+        {
+            return new OkObjectResult(toDoItem.FirstOrDefault());
+        }
+    }
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+<a id="http-trigger-get-multiple-items-from-route-data-c"></a>
+### HTTP trigger, get multiple rows from route parameter
 
-Here's the C# script code:
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves documents returned by the query. The function is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request that uses route data to specify the value of a query parameter. That parameter is used to filter the `ToDoItem` records in the specified query.
 
 ```cs
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
 
-public static IActionResult Run(HttpRequest req, ILogger log, IEnumerable<ToDoItem> todoItem)
+namespace AzureSQLSamples
 {
-    return new OkObjectResult(todoItem);
+    public static class GetToDoItems
+    {
+        [FunctionName("GetToDoItems")]
+        public static IActionResult Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitems/{priority}")]
+            HttpRequest req,
+            [Sql(commandText: "select [Id], [order], [title], [url], [completed] from dbo.ToDo where [Priority] > @Priority",
+                commandType: System.Data.CommandType.Text,
+                parameters: "@Priority={priority}",
+                connectionStringSetting: "SqlConnectionString")]
+            IEnumerable<ToDoItem> toDoItems)
+        {
+            return new OkObjectResult(toDoItems);
+        }
+    }
 }
 ```
 
-
-<a id="http-trigger-delete-one-or-multiple-rows-csharpscript"></a>
+<a id="http-trigger-delete-one-or-multiple-rows-c"></a>
 ### HTTP trigger, delete rows
 
-The following example shows an Azure SQL input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding to execute a stored procedure with input from the HTTP request query parameter. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `dbo.DeleteToDo` must be created on the SQL database.
+The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "authLevel": "anonymous",
-    "type": "httpTrigger",
-    "direction": "in",
-    "name": "req",
-    "methods": [
-        "get"
-    ]
-},
-{
-    "type": "http",
-    "direction": "out",
-    "name": "res"
-},
-{
-    "name": "todoItems",
-    "type": "sql",
-    "direction": "in",
-    "commandText": "DeleteToDo",
-    "commandType": "StoredProcedure",
-    "parameters": "@Id = {Query.id}",
-    "connectionStringSetting": "SqlConnectionString"
-}
-```
-
 :::code language="csharp" source="~/functions-sql-todo-sample/DeleteToDo.cs" range="4-30":::
-
-The [configuration](#configuration) section explains these properties.
-
-Here's the C# script code:
-
-```cs
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-
-public static IActionResult Run(HttpRequest req, ILogger log, IEnumerable<ToDoItem> todoItems)
-{
-    return new OkObjectResult(todoItems);
-}
-```
 
 ---
 
@@ -418,7 +287,7 @@ public class ToDoItem {
 <a id="http-trigger-get-multiple-items-java"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a Java function that reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
 
 ```java
 package com.function;
@@ -456,7 +325,7 @@ public class GetToDoItems {
 <a id="http-trigger-look-up-id-from-query-string-java"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a Java function that reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 ```java
 public class GetToDoItem {
@@ -483,7 +352,7 @@ public class GetToDoItem {
 <a id="http-trigger-delete-one-or-multiple-rows-java"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding in a Java function that executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
 
 The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
@@ -531,7 +400,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-javascript"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding that reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
@@ -606,7 +475,7 @@ module.exports = async function (context, req, todoItems) {
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding that reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
@@ -682,7 +551,7 @@ module.exports = async function (context, req, todoItem) {
 <a id="http-trigger-delete-one-or-multiple-rows-javascript"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding that executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
 
 The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
@@ -773,7 +642,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-powershell"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a function.json file and a PowerShell function that reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
 
 The following is binding data in the function.json file:
 
@@ -822,7 +691,7 @@ Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
 <a id="http-trigger-look-up-id-from-query-string-powershell"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a PowerShell function that reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding in a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 The following is binding data in the function.json file:
 
@@ -873,7 +742,7 @@ Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
 <a id="http-trigger-delete-one-or-multiple-rows-powershell"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding in a function.json file and a PowerShell function that executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
 
 The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
@@ -943,7 +812,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-python"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a function.json file and a Python function that reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
 
 The following is binding data in the function.json file:
 
@@ -994,7 +863,7 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a Python function that reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding in a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 The following is binding data in the function.json file:
 
@@ -1047,7 +916,7 @@ def main(req: func.HttpRequest, todoItem: func.SqlRowList) -> func.HttpResponse:
 <a id="http-trigger-delete-one-or-multiple-rows-python"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding in a function.json file and a Python function that executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
 
 The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
@@ -1193,4 +1062,5 @@ If an exception occurs when a SQL input binding is executed then the function co
 
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
 - [Run a function when data is changed in a SQL table (Trigger)](./functions-bindings-azure-sql-trigger.md)
+- [Run a function from a HTTP request (trigger)](./functions-bindings-http-webhook-trigger.md)
 - [Review ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)

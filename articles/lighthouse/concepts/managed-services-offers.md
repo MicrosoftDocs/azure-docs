@@ -13,7 +13,7 @@ This article describes the **Managed Service** offer type in [Azure Marketplace]
 
 Managed Service offers streamline the process of onboarding customers to Azure Lighthouse. When a customer purchases an offer in Azure Marketplace, they'll be able to specify which subscriptions and/or resource groups should be onboarded.
 
-For each offer, you define the access that users in your organization will have to work on resources in the customer tenant. This is done through a manifest that specifies the Azure Active Directory (Azure AD) users, groups, and service principals that will have access to customer resources, along with [roles that define their level of access](tenants-users-roles.md#role-support-for-azure-lighthouse).
+For each offer, you define the access that users in your organization will have to work on resources in the customer tenant. This is done through a manifest that specifies the Microsoft Entra users, groups, and service principals that will have access to customer resources, along with [roles that define their level of access](tenants-users-roles.md#role-support-for-azure-lighthouse).
 
 > [!NOTE]
 > Managed Service offers may not be available in Azure Government and other national clouds.

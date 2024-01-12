@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 11/29/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -61,7 +61,9 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
   For more information, see [Create and manage custom locations in Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
 
-- If deploying Kubernetes or PMEC workloads, you may need virtual networks that you’ve added using the instructions in [Create virtual networks](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-network).
+- If deploying Kubernetes or PMEC workloads:
+   - You may have selected a specific workload profile using the local UI or using PowerShell. Detailed steps are documented for the local UI in [Configure compute IPS](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1) and for PowerShell in [Change Kubernetes workload profiles](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-workload-profiles). 
+   - You may need virtual networks that you’ve added using the instructions in [Create virtual networks](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-network).
 
 - If you're using HPN VMs as your infrastructure VMs, the vCPUs should be automatically reserved. Run the following command to verify the reservation:
 
@@ -151,7 +153,10 @@ To verify that AKS is enabled, go to your Azure Stack Edge resource in the Azure
 
 ## Specify static IP pools (optional)
 
-An **optional** step where you can assign IP pools for the virtual network used by Kubernetes pods. 
+An **optional** step where you can assign IP pools for the virtual network used by Kubernetes pods.
+
+> [!NOTE]
+> SAP customers can skip this step.
 
 You can specify a static IP address pool for each virtual network that is enabled for Kubernetes. The virtual network enabled for Kubernetes generates a `NetworkAttachmentDefinition` that's created for the Kubernetes cluster.
 
@@ -195,8 +200,10 @@ Use this step to configure the virtual switch for Kubernetes compute traffic.
 
     [![Screenshot that shows the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png#lightbox)
 
-1. Enable the compute on a port that has internet access. For example, in this case, port 2 that was connected to the internet is enabled for compute. Internet access allows you to retrieve container images from AKS. 
+1. Enable the compute on a port that has internet access. For example, in this case, port 2 that was connected to the internet is enabled for compute. Internet access allows you to retrieve container images from AKS.
 
+   The Azure consistent services virtual IP must be able to reach this compute virtual switch network either via external routing or by creating an Azure consistent services virtual IP on the same network. 
+ 
 1. For Kubernetes nodes, specify a contiguous range of six static IPs in the same subnet as the network for this port. 
 
    As part of the AKS deployment, two clusters are created, a management cluster and a target cluster. The IPs that you specified are used as follows:
@@ -244,7 +251,9 @@ Follow these steps to deploy the AKS cluster.
 
 1. Select **Add** to configure AKS.
 
-1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. Select a VM node size that's appropriate for the workload size you're deploying. In this example, we've selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**. 
+1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. Select a VM node size that's appropriate for the workload size you're deploying. In this example, we've selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**.
+
+   For SAP deployments, select VM node size **Standard_DS5_v2**.
 
    > [!NOTE]
    > If the node size dropdown menu isn’t populated, wait a few minutes so that it's synchronized after VMs are enabled in the preceding step.

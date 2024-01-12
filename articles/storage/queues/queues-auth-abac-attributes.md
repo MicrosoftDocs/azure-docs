@@ -3,12 +3,12 @@ title: Actions and attributes for Azure role assignment conditions for Azure Que
 titleSuffix: Azure Storage
 description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) for Azure Queue Storage. 
 services: storage
-author: jimmart-dev
+author: pauljewellmsft
 
 ms.service: azure-queue-storage
 ms.topic: conceptual
 ms.date: 05/09/2023
-ms.author: jammart
+ms.author: pauljewell
 ms.reviewer: nachakra
 ---
 

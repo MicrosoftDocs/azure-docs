@@ -3,10 +3,10 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 08/17/2023
+ms.date: 01/10/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions
 ---
 
 # Azure managed disk types
@@ -66,11 +66,9 @@ The following table provides a comparison of disk sizes and performance caps to 
 |512     |153,600         |4,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |4,000         |
 
-Ultra disks are designed to provide submillisecond latencies and target IOPS and throughput described in the preceding table 99.99% of the time.
-
 ### Ultra disk performance
 
-Ultra disks feature a flexible performance configuration model that allows you to independently configure IOPS and throughput  both before and after you provision the disk. Ultra disks come in several fixed sizes, ranging from 4 GiB up to 64 TiB.
+ Ultra disks are designed to provide low sub millisecond latencies and provisioned IOPS and throughput 99.99% of the time. Ultra disks also feature a flexible performance configuration model that allows you to independently configure IOPS and throughput, before and after you provision the disk. Ultra disks come in several fixed sizes, ranging from 4 GiB up to 64 TiB.
 
 ### Ultra disk IOPS
 
@@ -102,7 +100,7 @@ Premium SSD v2 offers higher performance than Premium SSDs while also generally 
 
 Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
 
-Premium SSD v2 support a 4k physical sector size by default, but can be configured to use a 512E sector size as well. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
+Premium SSD v2 support a 4k physical sector size by default, but can be configured to use a 512E sector size as well. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks.
 
 ### Differences between Premium SSD and Premium SSD v2
 
@@ -118,7 +116,7 @@ Unlike Premium SSDs, Premium SSD v2 doesn't have dedicated sizes. You can set a 
 
 ### Premium SSD v2 performance
 
-With Premium SSD v2 disks, you can individually set the capacity, throughput, and IOPS of a disk based on your workload needs, providing you with more flexibility and reduced costs. Each of these values determines the cost of your disk.  
+Premium SSD v2 disks are designed to provide sub millisecond latencies and provisioned IOPS and throughput 99.9% of the time. With Premium SSD v2 disks, you can individually set the capacity, throughput, and IOPS of a disk based on your workload needs, providing you with more flexibility and reduced costs. Each of these values determines the cost of your disk. 
 
 #### Premium SSD v2 capacities
 
@@ -135,7 +133,7 @@ All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. Af
 All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of charge. After 6 GiB, the maximum throughput that can be set increases by 0.25 MB/s per set IOPS. If a disk has 3,000 IOPS, the max throughput it can set is 750 MB/s. To raise the throughput for this disk beyond 750 MB/s, its IOPS must be increased. For example, if you increased the IOPS to 4,000, then the max throughput that can be set is 1,000. 1,200 MB/s is the maximum throughput supported for disks that have 5,000 IOPS or more. Increasing your throughput beyond 125 increases the price of your disk.
 
 #### Premium SSD v2 Sector Sizes
-Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is also supported. While most applications are compatible with 4k sector sizes, some require 512-byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512-byte sector size is required.
+Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is also supported. While most applications are compatible with 4k sector sizes, some require 512-byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks.
 
 #### Summary
 

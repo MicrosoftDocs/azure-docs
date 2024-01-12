@@ -22,6 +22,9 @@ Once you've started development, check out the [known issues page](../known-issu
 Key features of the Calling SDK:
 
 - **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster).
+- **User Access Security**
+  - **Roster** control, **Schedule** control, and user **roles/permissions** are enforced through [Virtual Rooms](../rooms/room-concept.md).
+  - Ability for a user to **Initiate a new call** or to **Join an existing call** can be managed through [User Identities and Tokens](../identity-model.md) 
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire.
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
@@ -44,6 +47,7 @@ The following list presents the set of features that are currently available in 
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Mute other participants    |✔️<sup>1</sup>        |   ✔️<sup>1</sup>       |    ✔️<sup>1</sup>              |     ✔️<sup>1</sup>      |
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Active speaker                                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -53,10 +57,10 @@ The following list presents the set of features that are currently available in 
 |                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Show if a participant is muted                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
-| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ✔️<sup>1</sup>| ✔️<sup>1</sup> | ✔️<sup>1</sup> |
-|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ✔️<sup>1</sup>| ❌         | ❌                 |
-|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   |          |                  |                     |
-|                   | Share system audio during screen sharing                                                                            | ❌   | ❌       | ❌              | ❌                 |
+| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️  | ✔️<sup>2</sup>  | ✔️<sup>2</sup>   | ✔️<sup>2</sup>               |
+|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ✔️<sup>2</sup>     | ❌              | ❌                 |
+|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   |        |               |                |
+|                   | Share system audio during screen sharing                                                                            | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Participant can view remote screen share                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Roster            | List participants                                                                                                   | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Remove a participant                                                                                                | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -70,12 +74,12 @@ The following list presents the set of features that are currently available in 
 |                   | Get camera list                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set camera                                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Get selected camera                                                                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Get microphone list                                                                                                 | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
-|                   | Set microphone                                                                                                      | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
-|                   | Get selected microphone                                                                                             | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
-|                   | Get speakers list                                                                                                   | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
-|                   | Set speaker                                                                                                         | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
-|                   | Get selected speaker                                                                                                | ✔️   | ✔️       | ❌ <sup>2</sup> | ❌ <sup>2</sup>    |
+|                   | Get microphone list                                                                                                 | ✔️   | ✔️       | ❌ <sup>3</sup>             | ❌<sup>3</sup>                 |
+|                   | Set microphone                                                                                                      | ✔️   | ✔️       | ❌ <sup>3</sup>             | ❌    <sup>3</sup>             |
+|                   | Get selected microphone                                                                                             | ✔️   | ✔️       | ❌   <sup>3</sup>           | ❌          <sup>3</sup>       |
+|                   | Get speakers list                                                                                                   | ✔️   | ✔️       | ❌     <sup>3</sup>         | ❌     <sup>3</sup>            |
+|                   | Set speaker                                                                                                         | ✔️   | ✔️       | ❌ <sup>3</sup>             | ❌   <sup>3</sup>              |
+|                   | Get selected speaker                                                                                                | ✔️   | ✔️       | ❌  <sup>3</sup>            | ❌     <sup>3</sup>            |
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -83,8 +87,9 @@ The following list presents the set of features that are currently available in 
 |                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
 
 
-1. The Share screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
-2. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
+1. The capability to Mute Others is currently in public preview.
+2. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+3. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
 
 ## UI Library
 
@@ -101,8 +106,8 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
 
-\* Starting from ACS Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
-While the Calling SDK don't enforce these limits, your users may experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
+\* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
+While the Calling SDK don't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
 
 ## Calling SDK timeouts
 
@@ -137,7 +142,7 @@ The following table represents the set of supported browsers, which are currentl
 - Outgoing Screen Sharing isn't supported on iOS or Android mobile browsers.
 - Firefox support is in public preview.
 - Currently, the calling SDK only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
-Running JavaScript Calling SDK on these platforms isn't actively tested, it may or may not work.
+Running JavaScript Calling SDK on these platforms isn't actively tested, it might or might not work.
 - [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this issue is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
 ## Android Calling SDK support
@@ -184,5 +189,5 @@ For more information, see the following articles:
 
 - Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
-- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that can route and control calls with client applications. 
+- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that can route and control calls with client applications.
 - [Plan your PSTN solution](../telephony/plan-solution.md)

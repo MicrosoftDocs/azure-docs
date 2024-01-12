@@ -51,9 +51,6 @@ View the original dataset description or download the dataset.
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=sample-oj-sales-simulated -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=sample-oj-sales-simulated)**.
-
 ```python
 from azureml.core.workspace import Workspace
 ws = Workspace.from_config()
@@ -104,6 +101,7 @@ datastore.upload(src_dir = oj_sales_path,
 We need to define the path of the data to create the [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset). 
 
 
+
 ```python
 from azureml.core.dataset import Dataset
 
@@ -117,12 +115,14 @@ input_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 We want to register the dataset to our workspace so we can call it as an input into our Pipeline for forecasting. 
 
 
+
 ```python
 registered_ds = input_ds.register(ws, ds_name, create_new_version=True)
 named_ds = registered_ds.as_named_input(ds_name)
 ```
 
 <!-- nbend -->
+
 
 ---
 
@@ -131,9 +131,6 @@ named_ds = registered_ds.as_named_input(ds_name)
 # [azureml-opendatasets](#tab/azureml-opendatasets)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=sample-oj-sales-simulated -->
-
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=sample-oj-sales-simulated)**.
 
 ```
 # This is a package in preview.
@@ -199,6 +196,7 @@ if sys.platform == 'linux':
 ```
 
 <!-- nbend -->
+
 
 ---
 

@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 08/24/2023
+ms.date: 12/12/2023
 ms.custom: engagement-fy24
 
 ---
@@ -28,6 +28,7 @@ There are four major reports that you need to review:
     - Potential savings (TCO).
     - Estimated year on year cashflow savings based on the estimated migration completed that year.
     - Savings from unique Azure benefits like Azure Hybrid Benefit.
+    - Savings from Security and Management capabilities.
     - Discovery insights covering the scope of the business case.
     - Support status of the operating system and database licenses.
 - **On-premises vs Azure**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
@@ -63,6 +64,9 @@ This card shows a static percentage of maximum savings you could get with Azure 
 ### Savings with Extended security updates
 It shows the potential savings with respect to extended security update license. It is the cost of extended security update license required to run Windows Server and SQL Server securely after the end of support of its licenses on-premises. Extended security updates are offered at no additional cost on Azure.
 
+### Savings with security and management
+
+It shows the potential savings with respect to securing your migration with Microsoft Defender for Cloud and Azure Management services including Azure Monitor, Azure Backup and Azure Update Manager for streamlining your operations.
 
 ### Discovery insights
 It covers the total servers scoped in the business case computation, virtualization distribution, utilization insights, support status of the licenses, and distribution of servers based on workloads running on them.
@@ -76,7 +80,6 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
     - Zombie: The CPU, memory and network utilization were 0% with no performance data collection issues.
 - These servers were on but don't have adequate metrics available:
     - Unknown: Many servers can land in this section if the discovery is still ongoing or has some unaddressed discovery issues.
-
     
 ## On-premises vs Azure report 
 It covers cost components for on-premises and Azure, savings, and insights to understand the savings better.
@@ -121,9 +124,12 @@ This section contains the cost estimate by recommended target (Annual cost and a
 - Azure SQL:
     - **Estimated cost by savings options**: This card includes compute cost for Azure SQL MI. It is recommended that all idle SQL instances are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance to maximize savings.
     - **Distribution by recommended service tier** : This card covers the recommended service tier.
-- Azure App Service:
+- Azure App Service and App Service Container:
    - **Estimated cost by savings options**: This card includes Azure App Service Plans cost. It is recommended that the web apps are migrated using 3 year Reserved Instance or 3 year Savings Plan to maximize savings.
    - **Distribution by recommended plans** : This card covers the recommended App Service plan.
+- Azure Kubernetes Service:
+   - **Estimated cost by savings options**: This card includes the cost of the recommended AKS node pools. It is recommended that the web apps are migrated using 3 year Reserved Instance or 3 year Savings Plan to maximize savings.
+   - **Distribution by recommended Node pool SKU**: This card covers the recommended SKUs for AKS node pools.
 
 **On-premises tab**
 

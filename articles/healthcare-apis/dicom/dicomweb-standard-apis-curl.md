@@ -1,26 +1,26 @@
 ---
-title:  Using DICOMweb&trade;Standard APIs with cURL - Azure Health Data Services
-description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with cURL. 
+title:  Use cURL and DICOMweb Standard APIs in Azure Health Data Services
+description: Use cURL and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service.  
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 10/18/2023
 ms.author: mmitrik
 ---
 
-# Using DICOMWeb&trade; Standard APIs with cURL
+# Use DICOMweb Standard APIs with cURL
 
-This tutorial uses cURL to demonstrate working with the DICOM service.
+This article shows how to work with the DICOMweb service using cURL and [sample .dcm DICOM&reg; files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
 
-In this tutorial, we'll use the following [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+Use these sample files:
 
-* blue-circle.dcm
-* dicom-metadata.csv
-* green-square.dcm
-* red-triangle.dcm 
+- blue-circle.dcm
+- dicom-metadata.csv
+- green-square.dcm
+- red-triangle.dcm
 
-The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
+The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are:
 
 | File | StudyUID | SeriesUID | InstanceUID |
 | --- | --- | --- | ---|
@@ -29,41 +29,41 @@ The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is
 |blue-circle.dcm|1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420|1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207|1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114|
 
 >[!NOTE]
->Each of these files represent a single instance and are part of the same study. Also, the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
+>Each of these files represents a single instance and is part of the same study. Also, the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
 
 ## Prerequisites
 
-To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM service deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOM Standard APIs, you must have an instance of the DICOM service deployed. For more information, see [Deploy the DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-Once you've deployed an instance of the DICOM service, retrieve the URL for your App service:
+After you deploy an instance of the DICOM service, retrieve the URL for your App service.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search **Recent resources** and select your DICOM service instance.
 3. Copy the **Service URL** of your DICOM service. 
-4. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
+4. If you need an access token, see [Get access token for the DICOM service](dicom-get-access-token-azure-cli.md). 
 
-For this code, we'll be accessing an Public Preview Azure service. It's important that you don't upload any private health information (PHI).
+For this code, we access a Public Preview Azure service. It's important that you don't upload any private health information (PHI).
 
 
-## Working with the DICOM service
+## Work with the DICOM service
  
-The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; Standard awkward. However, once you've it up and running, it's easy to use. It just takes a little familiarity to get started.
+The DICOMweb Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb Standard awkward. However, after you get it up and running, it's easy to use. It just takes a little familiarity to get started.
 
 The cURL commands each contain at least one, and sometimes two, variables that must be replaced. To simplify running the commands, search and replace the following variables by replacing them with your specific values:
 
-* {Service URL} This is the URL to access your DICOM service that you provisioned in the Azure portal, for example, ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
+* {Service URL} The service URL is the URL to access your DICOM service that you provisioned in the Azure portal, for example, ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
 * {path-to-dicoms} - The path to the directory that contains the red-triangle.dcm file, such as `C:/dicom-server/docs/dcms`
     * Ensure to use forward slashes as separators and end the directory _without_ a trailing forward slash.
 
 
-## Uploading DICOM Instances (STOW)
+## Upload DICOM instances (STOW)
 
 ### Store-instances-using-multipart/related
 
 This request intends to demonstrate how to upload DICOM files using multipart/related. 
 
 >[!NOTE]
->The DICOM service is more lenient than the DICOM standard. However, the example below demonstrates a POST request that complies tightly to the standard.
+>The DICOM service is more lenient than the DICOM standard. However, the example demonstrates a POST request that complies tightly to the standard.
 
 _Details:_
 
@@ -76,7 +76,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those, you may need to use a slightly modified Content-Type header. The following have been used successfully.
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those tools, you might need to use a slightly modified Content-Type header. These tools can be used successfully.
 * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
 * Content-Type: multipart/related; boundary=ABCD1234
 * Content-Type: multipart/related
@@ -104,7 +104,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those, you may need to use a slightly modified Content-Type header. The following have been used successfully.
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. These tools can be used successfully.
 
  * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
  * Content-Type: multipart/related; boundary=ABCD1234
@@ -143,7 +143,7 @@ curl --location --request POST "{Service URL}/v{version}/studies"
 --data-binary "@{path-to-dicoms}/green-square.dcm"
 ```
 
-## Retrieving DICOM (WADO)
+## Retrieve DICOM (WADO)
 
 ### Retrieve all instances within a study
 
@@ -163,7 +163,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 --output "suppressWarnings.txt"
 ```
 
-This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these aren't direct DICOM files, only a text representation of the multipart/related download.
+This cURL command shows the downloaded bytes in the output file (suppressWarnings.txt), but they aren't direct DICOM files, only a text representation of the multipart/related download.
 
 ### Retrieve metadata of all instances in study
 
@@ -176,7 +176,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value}
 
-This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these aren't direct DICOM files, only a text representation of the multipart/related download.
+This cURL command shows the downloaded bytes in the output file (suppressWarnings.txt), but they aren't direct DICOM files, only a text representation of the multipart/related download.
 
 ```
 curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/metadata"
@@ -195,7 +195,7 @@ _Details:_
    * Accept: multipart/related; type="application/dicom"; transfer-syntax=*
    * Authorization: Bearer {token value}
 
-This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but it's not the DICOM file, only a text representation of the multipart/related download.
+This cURL command shows the downloaded bytes in the output file (suppressWarnings.txt), but it's not the DICOM file, only a text representation of the multipart/related download.
 
 ```
 curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652"
@@ -278,7 +278,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 ## Query DICOM (QIDO)
 
-In the following examples, we'll search for items using their unique identifiers. You can also search for other attributes, such as `PatientName`.
+In the following examples, we search for items using their unique identifiers. You can also search for other attributes, such as `PatientName`.
 
 ### Search for studies
 
@@ -401,7 +401,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 This request deletes a single instance within a single study and single series.
 
-Delete isn't part of the DICOM standard, but it's been added for convenience.
+Delete isn't part of the DICOM standard, but is added for convenience.
 
 _Details:_
 * Path: ../studies/{study}/series/{series}/instances/{instance}
@@ -418,7 +418,7 @@ curl --request DELETE "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.49
 
 This request deletes a single series (and all child instances) within a single study.
 
-Delete isn't part of the DICOM standard, but it's been added for convenience.
+Delete isn't part of the DICOM standard, but is added for convenience.
 
 _Details:_
 * Path: ../studies/{study}/series/{series}
@@ -435,7 +435,7 @@ curl --request DELETE "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.49
 
 This request deletes a single study (and all child series and instances).
 
-Delete isn't part of the DICOM standard, but it has been added for convenience.
+Delete isn't part of the DICOM standard, but is added for convenience.
 
 _Details:_
 * Path: ../studies/{study}
@@ -448,9 +448,4 @@ curl--request DELETE "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498
 --header "Authorization: Bearer {token value}"
 ```
 
-### Next Steps
-
-For information about the DICOM service, see
-
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

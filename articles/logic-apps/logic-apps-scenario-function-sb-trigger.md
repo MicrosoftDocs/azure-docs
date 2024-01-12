@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/7/2022
+ms.date: 01/04/2024
 ms.custom: devx-track-csharp
 #Customer intent: As a logic apps developer, I want to set up a long-running task by creating a logic app workflow that monitors and responds to messages or events and uses Azure Functions to call the workflow.
 ---

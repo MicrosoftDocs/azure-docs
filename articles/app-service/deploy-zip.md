@@ -3,7 +3,7 @@ title: Deploy files to App Service
 description: Learn to deploy various app packages or discrete libraries, static files, or startup scripts to Azure App Service
 ms.topic: article
 ms.date: 07/21/2023
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 author: cephalin
 ms.author: cephalin
 ---
@@ -100,6 +100,28 @@ When deployment is in progress, an icon in the top right corner shows you the pr
 The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
 
 -----
+
+> [!NOTE]
+> To deploy a ZIP package in an [ARM template](), upload the ZIP package to an internet-accessible location, then add a `onedeploy` resource like the following JSON. Replace the placeholders `<app-name>` and `<zip-package-uri>`. 
+> 
+> ```ARM template
+> {
+>     "type": "Microsoft.Web/sites/extensions",
+>     "apiVersion": "2021-03-01",
+>     "name": "onedeploy",
+>     "dependsOn": [
+>         "[resourceId('Microsoft.Web/Sites', <app-name>')]"
+>     ],
+>     "properties": {
+>         "packageUri": "<zip-package-uri>",
+>         "type":"zip"
+>      }
+> }
+> ```
+>
+> The \<zip-package-uri> can be a public endpoint, but it's best to use blob storage with a SAS key to protect it. For more information, see [Microsoft.Web sites/extensions 'onedeploy' 2021-03-01](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template).
+>
+>
 
 ## Enable build automation for ZIP deploy
 
@@ -241,11 +263,11 @@ The table below shows the available query parameters, their allowed values, and 
 
 | Key | Allowed values | Description | Required | Type  |
 |-|-|-|-|-|
-| `type` | `war`\|`jar`\|`ear`\|`lib`\|`startup`\|`static`\|`zip` | The type of the artifact being deployed, this sets the default target path and informs the web app how the deployment should be handled. <br/> - `type=zip`: Deploy a ZIP package by unzipping the content to `/home/site/wwwroot`. `path` parameter is optional. <br/> - `type=war`: Deploy a WAR package. By default, the WAR package is deployed to `/home/site/wwwroot/app.war`. The target path can be specified with `path`. <br/> - `type=jar`: Deploy a JAR package to `/home/site/wwwroot/app.jar`. The `path` parameter is ignored <br/> - `type=ear`: Deploy an EAR package to `/home/site/wwwroot/app.ear`. The `path` parameter is ignored <br/> - `type=lib`: Deploy a JAR library file. By default, the file is deployed to `/home/site/libs`. The target path can be specified with `path`. <br/> - `type=static`: Deploy a static file (e.g. a script). By default, the file is deployed to `/home/site/wwwroot`. <br/> - `type=startup`: Deploy a script that App Service automatically uses as the startup script for your app. By default, the script is deployed to `D:\home\site\scripts\<name-of-source>` for Windows and `home/site/wwwroot/startup.sh` for Linux. The target path can be specified with `path`. | Yes | String |
+| `type` | `war`\|`jar`\|`ear`\|`lib`\|`startup`\|`static`\|`zip` | The type of the artifact being deployed, this sets the default target path and informs the web app how the deployment should be handled. <br/> - `type=zip`: Deploy a ZIP package by unzipping the content to `/home/site/wwwroot`. `target-path` parameter is optional. <br/> - `type=war`: Deploy a WAR package. By default, the WAR package is deployed to `/home/site/wwwroot/app.war`. The target path can be specified with `target-path`. <br/> - `type=jar`: Deploy a JAR package to `/home/site/wwwroot/app.jar`. The `target-path` parameter is ignored <br/> - `type=ear`: Deploy an EAR package to `/home/site/wwwroot/app.ear`. The `target-path` parameter is ignored <br/> - `type=lib`: Deploy a JAR library file. By default, the file is deployed to `/home/site/libs`. The target path can be specified with `target-path`. <br/> - `type=static`: Deploy a static file (e.g. a script). By default, the file is deployed to `/home/site/wwwroot`. <br/> - `type=startup`: Deploy a script that App Service automatically uses as the startup script for your app. By default, the script is deployed to `D:\home\site\scripts\<name-of-source>` for Windows and `home/site/wwwroot/startup.sh` for Linux. The target path can be specified with `target-path`. | Yes | String |
 | `restart` | `true`\|`false` | By default, the API restarts the app following the deployment operation (`restart=true`). To deploy multiple artifacts, prevent restarts on the all but the final deployment by setting `restart=false`. | No | Boolean |
 | `clean` | `true`\|`false` | Specifies whether to clean (delete) the target deployment before deploying the artifact there. | No | Boolean |
 | `ignorestack` | `true`\|`false` | The publish API uses the `WEBSITE_STACK` environment variable to choose safe defaults depending on your site's language stack. Setting this parameter to `false` disables any language-specific defaults. | No | Boolean |
-| `path` | `"<absolute-path>"` | The absolute path to deploy the artifact to. For example, `"/home/site/deployments/tools/driver.jar"`, `"/home/site/scripts/helper.sh"`. | No | String |
+| `target-path` | `"<absolute-path>"` | The absolute path to deploy the artifact to. For example, `"/home/site/deployments/tools/driver.jar"`, `"/home/site/scripts/helper.sh"`. | No | String |
 
 ## Next steps
 

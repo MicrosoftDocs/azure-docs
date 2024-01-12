@@ -1,6 +1,6 @@
 ---
 author: IEvangelist
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 12/04/2021
 ms.author: eur

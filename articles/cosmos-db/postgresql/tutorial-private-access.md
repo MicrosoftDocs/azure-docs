@@ -63,7 +63,7 @@ az vm create \
 	--subnet link-demo-subnet \
 	--nsg link-demo-nsg \
 	--public-ip-address link-demo-net-ip \
-	--image debian \
+	--image Debian11 \
 	--admin-username azureuser \
 	--generate-ssh-keys
 

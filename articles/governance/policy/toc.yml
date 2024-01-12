@@ -63,6 +63,9 @@
   - name: "Add user assign identities to virtual machines"
     displayName: remediate, identity, user assign, virtual machines, monitoring agent
     href: ./tutorials/modify-virtual-machine-identity.md
+  - name: Disallow resource types
+    displayName: assign, definition, resource, type, exclusion, allow, disallow
+    href: ./tutorials/disallowed-resources.md
 - name: Samples
   items:
   - name: Index
@@ -126,6 +129,10 @@
         href: ./samples/iso-27001.md
       - name: Microsoft cloud security benchmark
         href: ./samples/azure-security-benchmark.md
+      - name: Microsoft Cloud for Sovereignty Confidential
+        href: ./samples/mcfs-baseline-confidential.md
+      - name: Microsoft Cloud for Sovereignty Global
+        href: ./samples/mcfs-baseline-global.md
       - name: New Zealand ISM Restricted
         href: ./samples/new-zealand-ism.md
       - name: New Zealand ISM Restricted v3.5
@@ -136,6 +143,8 @@
         href: ./samples/nist-sp-800-53-r5.md
       - name: NIST SP 800-171 R2
         href: ./samples/nist-sp-800-171-r2.md
+      - name: NL BIO Cloud Theme
+        href: ./samples/nl-bio-cloud-theme.md
       - name: PCI DSS 3.2.1
         href: ./samples/pci-dss-3-2-1.md
       - name: PCI DSS 4.0
@@ -148,6 +157,8 @@
         href: ./samples/rmit-malaysia.md
       - name: SWIFT CSP-CSCF 2021
         href: ./samples/swift-csp-cscf-2021.md
+      - name: SWIFT CSP-CSCF 2022
+        href: ./samples/swift-csp-cscf-2022.md
       - name: UK OFFICIAL and UK NHS
         href: ./samples/ukofficial-uknhs.md
     - name: Azure Government built-ins

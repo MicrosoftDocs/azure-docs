@@ -2,7 +2,6 @@
 title: Get batch transcription results - Speech service
 titleSuffix: Azure AI services
 description: With batch transcription, the Speech service transcribes the audio data and stores the results in a storage container. You can then retrieve the results from the storage container.
-services: cognitive-services
 manager: nitinme
 author: eric-urban
 ms.author: eur
@@ -22,6 +21,9 @@ To get transcription results, first check the [status](#get-transcription-status
 ::: zone pivot="rest-api"
 
 To get the status of the transcription job, call the [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) operation of the [Speech to text REST API](rest-speech-to-text.md).
+
+> [!IMPORTANT]
+> Batch transcription jobs are scheduled on a best-effort basis. At pick hours it may take up to 30 minutes or longer for a transcription job to start processing. Most of the time during the execution the transcription status will be `Running`. This is because the job is assigned with `Running` status the moment it moves to the batch transcription backend system, which happens almost immediately when base model is used, and slightly slower for custom models. Thus the amount of time a transcription job spends in `Running` state doesn't correspond to the actual transcription time, but also includes waiting time in the internal queues.
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
@@ -73,6 +75,9 @@ The `status` property indicates the current status of the transcriptions. The tr
 ::: zone-end
 
 ::: zone pivot="speech-cli"
+
+> [!IMPORTANT]
+> Batch transcription jobs are scheduled on a best-effort basis. At pick hours it may take up to 30 minutes or longer for a transcription job to start processing. Most of the time during the execution the transcription status will be `Running`. This is because the job is assigned with `Running` status the moment it moves to the batch transcription backend system, which happens almost immediately when base model is used, and slightly slower for custom models. Thus the amount of time a transcription job spends in `Running` state doesn't correspond to the actual transcription time, but also includes waiting time in the internal queues.
 
 To get the status of the transcription job, use the `spx batch transcription status` command. Construct the request parameters according to the following instructions:
 

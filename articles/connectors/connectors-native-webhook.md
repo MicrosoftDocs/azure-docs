@@ -5,11 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 01/04/2024
 tags: connectors
 ---
 
 # Create and run automated event-based workflows by using HTTP webhooks in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the HTTP Webhook built-in connector, you can create an automated workflow that subscribes to a service endpoint, waits for specific events, and runs specific actions, rather than regularly check or *poll* the service endpoint.
 
@@ -42,7 +44,7 @@ For more information, see these topics:
 * [Webhooks and subscriptions](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Create custom APIs that support a webhook](../logic-apps/logic-apps-create-api-app.md)
 
-For information about encryption, security, and authorization for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), or [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+For information about encryption, security, and authorization for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), or [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Prerequisites
 

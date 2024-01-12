@@ -68,6 +68,6 @@ PruneColumns
     ) ~> RankByPoints
 ```
 
-## Next steps
+## Related content
 
 Filter rows based upon the rank values using the [filter transformation](data-flow-filter.md).

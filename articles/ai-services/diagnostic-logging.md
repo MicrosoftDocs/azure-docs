@@ -2,10 +2,10 @@
 title: Diagnostic logging
 titleSuffix: Azure AI services
 description: This guide provides step-by-step instructions to enable diagnostic logging for an Azure AI service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 07/19/2021
 ms.author: pafarley

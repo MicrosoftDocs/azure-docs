@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU Driver Extension - Azure Linux VMs 
+title: NVIDIA GPU Driver Extension - Azure Linux VMs
 description: Microsoft Azure extension for installing NVIDIA GPU drivers on N-series compute VMs running Linux.
 services: virtual-machines
 manager: gwallace
@@ -11,8 +11,8 @@ ms.tgt_pltfrm: vm-linux
 ms.custom: devx-track-linux
 ms.workload: infrastructure-services
 ms.date: 07/28/2023
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 # NVIDIA GPU Driver Extension for Linux
 
@@ -21,7 +21,11 @@ This extension installs NVIDIA GPU drivers on Linux N-series virtual machines (V
 Instructions on manual installation of the drivers and the current supported versions are available. An extension is also available to install NVIDIA GPU drivers on [Windows N-series VMs](hpccompute-gpu-windows.md).
 
 > [!NOTE]
-> With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers (key trusted by the system). Secure Boot is not supported using Windows or Linux extensions. For more information on manually installing GPU drivers with Secure Boot enabled, see [Azure N-series GPU driver setup for Linux](../linux/n-series-driver-setup.md). 
+> With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers (key trusted by the system). Secure Boot is not supported using Windows or Linux extensions. For more information on manually installing GPU drivers with Secure Boot enabled, see [Azure N-series GPU driver setup for Linux](../linux/n-series-driver-setup.md).
+>
+> [!Note]
+> The GPU driver extensions do not automatically update the driver after the extension is installed. If you need to move to a newer driver version then either manually download and install the driver or remove and add the extension again.
+>
 
 ## Prerequisites
 

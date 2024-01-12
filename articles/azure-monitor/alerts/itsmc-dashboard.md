@@ -37,7 +37,7 @@ The dashboard contains information on the alerts that were sent to the ITSM tool
 
 In the **WORK ITEMS CREATED** area, the graph and the table below it contain the count of the work items per type. If you select the graph or the table, you can see more details about the work items.
 
-![Screenshot that shows a created work item.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
+:::image type="content" source="media/itsmc-resync-servicenow/itsm-dashboard-workitems.png" lightbox="media/itsmc-resync-servicenow/itsm-dashboard-workitems.png" alt-text="Screenshot that shows a created work item.":::
 
 ### Affected computers 
 
@@ -45,7 +45,7 @@ In the **IMPACTED COMPUTERS** area, the table lists computers and their associat
 
 The table contains a limited number of rows. If you want to see all the rows, select **See all**.
 
-![Screenshot that shows affected computers.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
+:::image type="content" source="media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png" lightbox="media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png" alt-text="Screenshot that shows affected computers.":::
 
 ### Connector status 
 
@@ -55,7 +55,7 @@ The table contains a limited number of rows. If you want to see all the rows, se
 
 To learn more about the messages in the table, see [this article](itsmc-dashboard-errors.md).
 
-![Screenshot that shows connector status.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
+:::image type="content" source="media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png" lightbox="media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png" alt-text="Screenshot that shows connector status.":::
 
 ### Alert rules 
 
@@ -63,4 +63,4 @@ In the **ALERT RULES** area, the table contains information on the number of ale
     
 The table contains a limited number of rows. If you want to see all the rows, select **See all**.
 
-![Screenshot that shows alert rules.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
+:::image type="content" source="media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png" lightbox="media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png" alt-text="Screenshot that shows alert rules.":::

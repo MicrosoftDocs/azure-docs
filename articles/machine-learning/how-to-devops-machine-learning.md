@@ -33,13 +33,7 @@ This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/a
 * Complete the [Create resources to get started](quickstart-create-resources.md) to:
     * Create a workspace
 * [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create) to use for training your model
-* Azure Machine Learning extension (preview) for Azure Pipelines. This extension can be installed from the Visual Studio marketplace at [https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2). 
-
-    > [!TIP]
-    >This extension isn't required to submit the Azure Machine Learning job; it's required to be able to wait for the job completion.
-
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
-
+* Azure Machine Learning extension for Azure Pipelines. This extension can be installed from the Visual Studio marketplace at [https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2). 
 
 ## Step 1: Get the code
 
@@ -153,11 +147,11 @@ jobs:
       scriptType: bash
       inlineScript: |
       
-      # submit component job and get the run name
-      job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
+        # submit component job and get the run name
+        job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
 
-      # Set output variable for next task
-      echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
+        # Set output variable for next task
+        echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
 
 ```
 # [Using generic service connection](#tab/generic)
@@ -205,16 +199,16 @@ jobs:
       scriptType: bash
       inlineScript: |
       
-      # submit component job and get the run name
-      job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
+        # submit component job and get the run name
+        job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
 
 
-      # Set output variable for next task
-      echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
+        # Set output variable for next task
+        echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
 
-      # Get a bearer token to authenticate the request in the next job
-      export aadToken=$(az account get-access-token --resource=https://management.azure.com --query accessToken -o tsv)
-      echo "##vso[task.setvariable variable=AAD_TOKEN;isOutput=true;issecret=true]$aadToken"
+        # Get a bearer token to authenticate the request in the next job
+        export aadToken=$(az account get-access-token --resource=https://management.azure.com --query accessToken -o tsv)
+        echo "##vso[task.setvariable variable=AAD_TOKEN;isOutput=true;issecret=true]$aadToken"
      
 ```
 ---

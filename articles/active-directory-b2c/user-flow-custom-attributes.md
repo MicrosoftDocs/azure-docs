@@ -1,15 +1,15 @@
 ---
 title: Define custom attributes in Azure Active Directory B2C  
 description: Define custom attributes for your application in Azure Active Directory B2C to collect information about your customers.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/09/2023
-ms.custom: project-no-code
+ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -38,9 +38,7 @@ Azure AD B2C allows you to extend the set of attributes stored on each user acco
 ## Create a custom attribute
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the Directory name list, and then select **Switch**
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User attributes**, and then select **Add**.
 1. Provide a **Name** for the custom attribute (for example, "ShoeSize")
@@ -73,9 +71,7 @@ Extension attributes can only be registered on an application object, even thoug
 ### Get extensions app's application ID
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant; 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **All applications**.
 1. Select the `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` application.
@@ -88,9 +84,7 @@ Extension attributes can only be registered on an application object, even thoug
 ### Get extensions app's application properties
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **All applications**.
 1. Select the **b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.** application.
@@ -100,7 +94,7 @@ Extension attributes can only be registered on an application object, even thoug
 
 ## Modify your custom policy
 
-To enable custom attributes in your policy, provide **Application ID** and Application **Object ID** in the **AAD-Common** technical profile metadata. The **AAD-Common*** technical profile is found in the base [Microsoft Entra ID](active-directory-technical-profile.md) technical profile, and provides support for Microsoft Entra user management. Other Microsoft Entra technical profiles include **AAD-Common** to use its configuration. Override the **AAD-Common** technical profile in the extension file.
+To enable custom attributes in your policy, provide **Application ID** and Application **Object ID** in the **AAD-Common** technical profile metadata. The **AAD-Common*** technical profile is found in the base [Microsoft Entra ID](active-directory-technical-profile.md) technical profile, and provides support for Microsoft Entra user management. Other Microsoft Entra ID technical profiles include **AAD-Common** to use its configuration. Override the **AAD-Common** technical profile in the extension file.
 
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Find the ClaimsProviders element. Add a new ClaimsProvider to the ClaimsProviders element.
@@ -130,15 +124,13 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
 ## Upload your custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure B2C AD tenant:
-    1.  Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the TrustFrameworkExtensions.xml policy files that you changed.
 
 > [!NOTE]
-> The first time the Microsoft Entra technical profile persists the claim to the directory, it checks whether the custom attribute exists. If it doesn't, it creates the custom attribute.  
+> The first time the Microsoft Entra ID technical profile persists the claim to the directory, it checks whether the custom attribute exists. If it doesn't, it creates the custom attribute.  
 
 ## Create a custom attribute through Azure portal
 

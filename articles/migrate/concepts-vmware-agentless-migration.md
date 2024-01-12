@@ -6,8 +6,8 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 08/21/2023
-ms.custom: engagement-fy23
+ms.date: 10/18/2023
+ms.custom: engagement-fy24
 ---
 # Azure Migrate agentless migration of VMware virtual machines
 
@@ -31,6 +31,9 @@ When you perform the migrate operation on a replicating virtual machine, there's
 Once the migration is successful and the VM boots up in Azure, ensure that you stop the replication of the VM. Stopping the replication will delete the intermediate disks (seed disks) that were created during data replication, and you'll also avoid incurring extra charges associated with the storage transactions on these disks.
 
 ## Replication cycles
+
+> [!Note]
+> Ensure you check for snapshots present from earlier replication attempts or from other third party apps. Change tracking cannot be enabled on the VM if snapshots are already present for the VM. Delete the existing snapshots or enable change block tracking on the VM.
 
 Replication cycles refer to the periodic process of transferring data from on-premises environment to Azure managed disks. A full replication cycle consists of the following steps:
 
@@ -85,16 +88,16 @@ Source disk is divided into sectors of 512 bytes. Every sector in the source dis
 
 ## Security
 
-The Azure Migrate appliance compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it is persisted it to the cloud (encryption-at-rest).
+The Azure Migrate appliance compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it's persisted it to the cloud (encryption-at-rest).
 
 ## Replication status 
 
 When a VM undergoes replication (data copy), there are a few possible states:
-- **Initial replication queued**: The VM is queued for replication (or migration) as there may be other VMs that are consuming the on-premises resources (during replication or migration). Once the resources are free, this VM will be processed.
+- **Initial replication queued**: The VM is queued for replication (or migration) as there might be other VMs that are consuming the on-premises resources (during replication or migration). Once the resources are free, this VM will be processed.
 - **Initial replication in progress**: The VM is being scheduled for initial replication. 
 - **Initial replication**: The VM is undergoing initial replication. When the VM is undergoing initial replication, you can't proceed with test migration and migration. You can only stop replication at this stage.
 - **Initial replication (x%)**: The initial replication is active and has progressed by x%. 
-- **Delta sync**: The VM may be undergoing a delta replication cycle that replicates the remaining data churn since the last replication cycle.
+- **Delta sync**: The VM might be undergoing a delta replication cycle that replicates the remaining data churn since the last replication cycle.
 - **Pause in progress**: The VM is undergoing an active delta replication cycle and will be paused in some time.  
 - **Paused**: The replication cycles have been paused. The replication cycles can be resumed by performing a resume replication operation. 
 - **Resume queued**: The VM is queued for resuming replication as there are other VMs that are currently consuming the on-premises resources. 

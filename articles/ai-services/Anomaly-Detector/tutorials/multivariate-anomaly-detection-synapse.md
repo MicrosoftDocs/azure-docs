@@ -2,7 +2,7 @@
 title: "Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics"
 titleSuffix: Azure AI services
 description: Learn how to use the Multivariate Anomaly Detector with Azure Synapse Analytics.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
@@ -12,6 +12,8 @@ ms.author: mbullwin
 ---
 
 # Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 Use this tutorial to detect anomalies among multiple variables in Azure Synapse Analytics in very large datasets and databases. This solution is perfect for scenarios like equipment predictive maintenance. The underlying power comes from the integration with [SynapseML](https://microsoft.github.io/SynapseML/), an open-source library that aims to simplify the creation of massively scalable machine learning pipelines. It can be installed and used on any Spark 3 infrastructure including your **local machine**, **Databricks**, **Synapse Analytics**, and others.
 

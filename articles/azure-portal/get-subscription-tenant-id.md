@@ -17,7 +17,7 @@ Follow these steps to retrieve the ID for a subscription in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Under the Azure services heading, select **Subscriptions**. If you don't see **Subscriptions** here, use the search box to find it.
-1. Find the subscription in the list, and note the **Subscription ID** shown in the second column. If no subscriptions appear, or you don't see the right one, you may need to [switch directories](set-preferences.md#switch-and-manage-directories) to show the subscriptions from a different Azure AD tenant.
+1. Find the subscription in the list, and note the **Subscription ID** shown in the second column. If no subscriptions appear, or you don't see the right one, you may need to [switch directories](set-preferences.md#switch-and-manage-directories) to show the subscriptions from a different Microsoft Entra tenant.
 1. To easily copy the **Subscription ID**, select the subscription name to display more details. Select the **Copy to clipboard** icon shown next to the **Subscription ID** in the **Essentials** section. You can paste this value into a text document or other location.
 
    :::image type="content" source="media/get-subscription-tenant-id/copy-subscription-id.png" alt-text="Screenshot showing the option to copy a subscription ID in the Azure portal.":::
@@ -25,7 +25,9 @@ Follow these steps to retrieve the ID for a subscription in the Azure portal.
 > [!TIP]
 > You can also list your subscriptions and view their IDs programmatically by using [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) (Azure PowerShell) or [az account list](/cli/azure/account#az-account-list) (Azure CLI).
 
-## Find your Azure AD tenant
+<a name='find-your-azure-ad-tenant'></a>
+
+## Find your Microsoft Entra tenant
 
 Follow these steps to retrieve the ID for a Microsoft Entra tenant in the Azure portal.
 

@@ -12,6 +12,8 @@ ms.author: mbullwin
 
 # Diagnose an incident using Metrics Advisor
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 ## What is an incident? 
 
 When there are anomalies detected on multiple time series within one metric at a particular timestamp, Metrics Advisor will automatically group anomalies that **share the same root cause** into one incident. An incident usually indicates a real issue, Metrics Advisor performs analysis on top of it and provides automatic root cause analysis insights. 

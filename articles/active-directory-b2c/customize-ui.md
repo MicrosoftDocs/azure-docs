@@ -2,18 +2,20 @@
 title: Customize the user interface
 titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface for your applications that use Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 12/16/2022
-ms.custom: "project-no-code, b2c-support"
+ms.date: 12/13/2023
+ms.custom: "b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer, I want to customize the user interface of my application, so that I can provide a seamless and branded user experience for sign-up, sign-in, profile editing, and password resetting.
 ---
 
 # Customize the user interface in Azure Active Directory B2C
@@ -38,19 +40,19 @@ Azure AD B2C provide several built-in templates you can choose from to give your
 
 ### Ocean Blue
 
-Example of the Ocean Blue template rendered on sign up and sign in page:
+Example of the Ocean Blue template rendered on sign-up and sign-in page:
 
 ![Ocean Blue template screenshot](media/customize-ui/template-ocean-blue.png)
 
 ### Slate Gray
 
-Example of the Slate Gray template rendered on sign up sign in page:
+Example of the Slate Gray template rendered on sign-up sign-in page:
 
 ![Slate Gray template screenshot](media/customize-ui/template-slate-gray.png)
 
 ### Classic
 
-Example of the Classic template rendered on sign up sign in page:
+Example of the Classic template rendered on sign-up sign-in page:
 
 ![Classic template screenshot](media/customize-ui/template-classic.png)
 
@@ -58,7 +60,7 @@ Example of the Classic template rendered on sign up sign in page:
 
 You can customize your Azure AD B2C pages with a banner logo, background image, and background color by using Microsoft Entra ID [Company branding](../active-directory/fundamentals/how-to-customize-branding.md). The company branding includes signing up, signing in, profile editing, and password resetting. 
 
-The following example shows a *Sign up and sign in* page with a custom logo, background image, using Ocean Blue template:
+The following example shows a *Sign-up and sign-in* page with a custom logo, background image, using Ocean Blue template:
 
 ![Branded sign-up/sign-in page served by Azure AD B2C](media/customize-ui/template-ocean-blue-branded.png)
 
@@ -68,8 +70,7 @@ The following example shows a *Sign up and sign in* page with a custom logo, bac
 ::: zone pivot="b2c-user-flow"
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Select a user flow you want to customize.
@@ -195,8 +196,7 @@ To customize your user flow pages, you first configure company branding in Micro
 Start by setting the banner logo, background image, and background color within **Company branding**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Company branding**.
 1. Follow the steps in [Add branding to your organization's Microsoft Entra sign-in page](../active-directory/fundamentals/how-to-customize-branding.md).
@@ -283,8 +283,7 @@ The following example shows the content definitions with their corresponding the
 ## Rearrange input fields in the sign-up form
 To rearrange the input fields on the sign-up page for local accounts form, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the left menu, select **User flows**.
 1. Select a user flow (for local accounts only) that you want to rearrange its input fields.

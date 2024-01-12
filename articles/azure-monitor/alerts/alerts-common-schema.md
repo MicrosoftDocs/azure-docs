@@ -2,8 +2,8 @@
 title: Common alert schema for Azure Monitor alerts
 description: Understand the common alert schema, why you should use it, and how to enable it.
 ms.topic: conceptual
-ms.date: 02/16/2023
-ms.reviewer: ofmanor
+ms.date: 12/24/2023
+ms.reviewer: harelbr
 author: AbbyMSFT
 ms.author: abbyweisberg
 ---
@@ -82,10 +82,10 @@ The common schema includes information about the affected resource and the cause
           }
         ]
       }
-      },
-      "customProperties":{
-        "Key1": "Value1",
-        "Key2": "Value2"
+    },
+    "customProperties": {
+      "Key1": "Value1",
+      "Key2": "Value2"
     }
   }
 }
@@ -270,7 +270,7 @@ For sample alerts that use the common schema, see [Sample alert payloads](alerts
 
 
 
-### Sample log alert when the monitoringService = Platform
+### Sample log alert when the monitoringService = Log Analytics
 
 ```json
 {
@@ -680,8 +680,8 @@ If custom properties aren't set in the alert rule, the field is null.
 Use action groups in the Azure portal or use the REST API to enable the common alert schema. Schemas are defined at the action level. For example, you must separately enable the schema for an email action and a webhook action.
 
 ### Enable the common schema in the Azure portal
-
-![Screenshot that shows the common alert schema opt in.](media/alerts-common-schema/portal-opt-in.png)
+<!-- convertborder later -->
+:::image type="content" source="media/alerts-common-schema/portal-opt-in.png" lightbox="media/alerts-common-schema/portal-opt-in.png" alt-text="Screenshot that shows the common alert schema opt in." border="false":::
 
 1. Open any existing action or a new action in an action group.
 1. Select **Yes** to enable the common alert schema.

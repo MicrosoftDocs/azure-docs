@@ -2,7 +2,7 @@
 title: "Overview: Monitor dwell time in front of displays"
 titleSuffix: Azure AI services
 description: Spatial Analysis can provide real-time information about how long customers spend in front of a display in a retail store. 
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

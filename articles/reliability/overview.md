@@ -20,7 +20,7 @@ The Azure reliability documentation offers reliability guidance for Azure servic
 
 For detailed service-specific reliability guidance, including availability zones, disaster recovery, or high availability, see [Azure service-specific reliability guidance overview](./reliability-guidance-overview.md).
 
-For more detailed information on reliability and reliability principles and architecture in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](/azure/architecture/framework/#reliability).
+For information on reliability and reliability principles and architecture in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](/azure/architecture/framework/#reliability).
 
 
 ## Reliability requirements
@@ -82,14 +82,15 @@ Microsoft Azure services are available globally to drive your cloud operations a
 
 Azure services deployed to Azure regions are listed on the [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) page. To better understand regions and Availability Zones in Azure, see [Regions and Availability Zones in Azure](availability-zones-overview.md).
 
-Azure services are built for reliability including high availability and disaster recovery. There are no services that are dependent on a single logical data center (to avoid single points of failure). Non-regional services listed on [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) are services for which there is no dependency on a specific Azure region. Non-regional services are deployed to two or more regions and if there is a regional failure, the instance of the service in another region continues servicing customers. Certain non-regional services enable customers to specify the region where the underlying virtual machine (VM) on which service runs will be deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) enables customers to specify the region location where the VM resides. All Azure services that store customer data allow the customer to specify the specific regions in which their data will be stored. The exception is [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/), which has geo placement (such as Europe or North America). For more information about data storage residency, see the [Data residency map](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Azure services are built for reliability including high availability and disaster recovery. There are no services that are dependent on a single logical data center (to avoid single points of failure). Non-regional services listed on [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) are services for which there is no dependency on a specific Azure region. Non-regional services are deployed to two or more regions and if there is a regional failure, the instance of the service in another region continues servicing customers. Certain non-regional services enable customers to specify the region where the underlying virtual machine (VM) on which service runs will be deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) enables customers to specify the region location where the VM resides. All Azure services that store customer data allow the customer to specify the specific regions in which their data will be stored. The exception is [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/), which has geo placement (such as Europe or North America). For more information about data storage residency, see the [Data residency map](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 If you need to understand dependencies between Azure services to help better architect your applications and services, you can request the **Azure service dependency documentation** by contacting your Microsoft sales or customer representative. This document lists the dependencies for Azure services, including dependencies on any common major internal services such as control plane services. To obtain this documentation, you must be a Microsoft customer and have the appropriate non-disclosure agreement (NDA) with Microsoft.
 
-For service migration guides to availability zone support, see [Availability zone migration guidance](./availability-zones-migration-overview.md). For disaster recovery guides, see [Disaster Recovery guidance by service](./disaster-recovery-guidance-overview.md). 
 
 ## Next steps
 
+- For service specific guides on availability zone support and disaster recovery, see [Reliability guidance](./reliability-guidance-overview.md).
+- For service migration guides to availability zone support, see [Availability zone migration guidance](./availability-zones-migration-overview.md).
 - [Business continuity management in Azure](business-continuity-management-program.md)
 - [Availability of service by category](availability-service-by-category.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

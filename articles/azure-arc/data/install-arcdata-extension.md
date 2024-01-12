@@ -41,6 +41,6 @@ If you already have the extension, you can update it with the following command:
 az extension update --name arcdata
 ```
 
-## Next steps
+## Related content
 
 [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)

@@ -12,6 +12,7 @@ ms.custom:
   - seo-lt-2019
   - devx-track-azurecli
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS (classic) via the Azure CLI

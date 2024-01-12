@@ -7,6 +7,8 @@ ms.reviewer: randolphwest
 ms.date: 02/08/2023
 ms.service: dms
 ms.topic: overview
+ms.custom:
+  - sql-migration-content
 ---
 # What is Azure Database Migration Service?
 
@@ -41,7 +43,7 @@ The following table compares the functionality of the versions of the Database M
 |SQL Server on Azure SQL VM - Online migration  | No | Yes  | Yes |Migrate to SQL Server on Azure VMs online with minimal downtime.|
 |SQL Server on Azure SQL VM - Offline migration | Yes |Yes  | Yes |  Migrate to SQL Server on Azure VMs offline.  |
 |Migrate logins|Yes  | Yes  | No | Migrate logins from your source to your target.|
-|Migrate schemas| Yes  | No  | No | Migrate schemas from your source to your target. |
+|Migrate schemas| Yes  | No  | Yes | Migrate schemas from your source to your target. |
 |Azure portal support |Yes  | Partial  | Yes | Create and Monitor your migration by using the Azure portal. |
 |Integration with Azure Data Studio | No  | Yes  | No | Migration support integrated with Azure Data Studio. |
 |Regional availability|Yes  |Yes  | Yes | More regions are available with the extension. |

@@ -4,6 +4,7 @@ description: SAP HANA scale-out with HANA system replication (HSR) and Pacemaker
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
@@ -12,7 +13,6 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/26/2023
 ms.author: radeltch
-
 ---
 
 # High availability of SAP HANA scale-out system on Red Hat Enterprise Linux 

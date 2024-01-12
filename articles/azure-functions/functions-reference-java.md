@@ -4,7 +4,7 @@ description: Understand how to develop functions with Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.devlang: java
-ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Azure Functions Java developer guide

@@ -6,13 +6,13 @@ ms.author: malev
 ms.service: managed-grafana 
 ms.custom: engagement-fy23
 ms.topic: how-to 
-ms.date: 02/23/2023 
+ms.date: 10/23/2023 
 ---
 
 # How to modify access permissions to Azure Monitor
 
-By default, when a Grafana instance is created, Azure Managed Grafana grants it the Monitoring Reader role for all Azure Monitor data and Log Analytics resources within a subscription.
-
+By default, when a Grafana instance is created, it comes with a Monitoring Reader role granted on all Azure Monitor data and Log Analytics resources within the subscription.
+ 
 This means that the new Grafana instance can access and search all monitoring data in the subscription. It can view the Azure Monitor metrics and logs from all resources, and any logs stored in Log Analytics workspaces in the subscription.
 
 In this article, learn how to manually grant permission for Azure Managed Grafana to access an Azure resource using a managed identity.

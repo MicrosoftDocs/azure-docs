@@ -1,13 +1,13 @@
 ---
 title: Get default answer - QnA Maker
 description: The default answer is returned when there is no match to the question. You may want to change the default answer from the standard default answer.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 12/19/2023
 ms.custom: ignite-fall-2021
 ---
 

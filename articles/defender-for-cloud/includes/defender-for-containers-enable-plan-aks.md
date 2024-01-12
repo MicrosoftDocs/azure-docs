@@ -30,33 +30,51 @@ ms.date: 06/01/2023
     > - Defenders for Containers customers who joined before August 2023 and don't have Agentless discovery for Kubernetes enabled as part of Defender CSPM when they enabled the plan, must manually enable the Agentless discovery for Kubernetes extension within the Defender for Containers plan.
     > - When you turn off Defender for Containers, the components are set to off and are not deployed to any more containers but they are not removed from containers that they are already installed on.
 
-By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to automatically install required components to provide the protections offered by plan, including the assignment of a default workspace.
+<BR>
 
-You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) through Azure Policy.
+### Enablement method per capability
 
-If you don't want to automatically install the Defender for Containers monitoring components on your container resources, select **Edit configuration** for the **Containers** plan. Then, in the Settings & monitoring page, turn off automatic installation for each component.
+By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to automatically enable all capabilities and install all required components to provide the protections offered by the plan, including the assignment of a default workspace.
 
-In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier).
+If you don't want to enable all capabilities of the plans, you can manually select which specific capabilities to enable by selecting **Edit configuration** for the **Containers** plan. Then, in the **Settings & monitoring** page, select the capabilities you want to enable.
+In addition, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) after initial configuration of the plan.
 
-If you disable the automatic installation of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
+For detailed information on the enablement method for each one the capabilities, see the [support matrix](/azure/defender-for-cloud/support-matrix-defender-for-containers#aws).
 
-- Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
-- Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
-- Azure Arc-enabled Kubernetes Defender extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
-- Azure Arc-enabled Kubernetes Policy extension - [Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169)
-
-   > [!Note]
-    > Microsoft Defender for Containers is configured to defend all of your clouds automatically. When you install all of the required prerequisites and enable all of the automatic installation capabilities.
-    >
-    > If you choose to disable all of the automatic installation configuration options, no agents, or components will be deployed to your clusters. Protection will be limited to the agentless features only. Learn which features are agentless in the [availability section](../supported-machines-endpoint-solutions-clouds-containers.md) for Defender for Containers.
+### Roles and permissions
 
 Learn more about the [roles used to provision Defender for Containers extensions](../permissions.md#roles-used-to-automatically-provision-agents-and-extensions).
 
-## Deploy the Defender agent
+### Assigning custom workspace for Defender agent
+
+You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) through Azure Policy.
+
+### Manual deployment of Defender agent or Azure policy agent without auto-provisioning using recommendations
+
+Capabilities that require agent installation can also be deployed on one or more Kubernetes clusters, using the appropriate recommendation:
+
+| Agent | Recommendation |
+|--|--|
+| Defender Agent for Kubernetes | [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9) |
+| Defender Agent for Arc-enabled Kubernetes | [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6) |
+| Azure policy agent for Kubernetes | [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3) |
+| Azure policy agent for Arc-enabled Kubernetes | [Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169) |
+
+Perform the following steps to perform deployment of the Defender agent on specific clusters:
+
+1. From Microsoft Defender for Cloud's recommendations page, open the **Enable enhanced security** security control or search directly for one of the above recommendations (or use the above links to open the recommendation directly)
+
+1. View all clusters without an agent via the unhealthy tab.
+
+1. Select the clusters to deploy the desired agent on and select **Fix**.
+
+1. Select **Fix X resources**.
+
+## Deploying Defender agent - all options
 
 You can enable the Defender for Containers plan and deploy all of the relevant components from the Azure portal, the REST API, or with a Resource Manager template. For detailed steps, select the relevant tab.
 
-Once the Defender agent has been deployed, a default workspace will be automatically assigned. You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) in place of the default workspace through Azure Policy.
+Once the Defender agent has been deployed, a default workspace is automatically assigned. You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) in place of the default workspace through Azure Policy.
 
 > [!NOTE]
 > The Defender agent is deployed to each node to provide the runtime protections and collect signals from those nodes using [eBPF technology](https://ebpf.io/).
@@ -193,7 +211,7 @@ To use Azure Resource Manager to deploy the Defender agent, you'll need a Log An
 
 To install the 'SecurityProfile' on an existing cluster with Resource Manager:
 
-```
+```json
 { 
     "type": "Microsoft.ContainerService/managedClusters", 
     "apiVersion": "2022-06-01", 

@@ -2,11 +2,11 @@
 title: Enable authentication in your own Python web application using Azure Active Directory B2C
 description: This article explains how to enable authentication in your own Python web application using Azure AD B2C 
 titleSuffix: Azure AD B2C
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.custom: devx-track-python, devx-track-linux
 ms.topic: how-to
 ms.date: 06/28/2022

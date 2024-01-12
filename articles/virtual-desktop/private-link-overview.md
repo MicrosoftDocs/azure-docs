@@ -3,7 +3,7 @@ title:  Azure Private Link with Azure Virtual Desktop - Azure
 description: Learn about using Private Link with Azure Virtual Desktop to privately connect to your remote resources.
 author: dknappettmsft
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 12/08/2023
 ms.author: daknappe
 ---
 
@@ -87,7 +87,7 @@ Private Link with Azure Virtual Desktop has the following limitations:
 
 - Before you use Private Link for Azure Virtual Desktop, you need to [enable the feature](private-link-setup.md#enable-the-feature) on each Azure subscription you want to Private Link with Azure Virtual Desktop.
 
-- All [Remote Desktop clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link, but we currently only offer troubleshooting support for the web client with Private Link.
+- All [Remote Desktop clients to connect to Azure Virtual Desktop](users/remote-desktop-clients-overview.md) can be used with Private Link. If you're using the [Remote Desktop client for Windows](./users/connect-windows.md) on a private network without internet access and you're subscribed to both public and private feeds, you aren't able to access your feed.
 
 - After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (*RDAgentBootLoader*) service on each session host in the host pool. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart each session host.
 
@@ -100,7 +100,7 @@ Private Link with Azure Virtual Desktop has the following limitations:
 ## Next steps
 
 - Learn how to [Set up Private Link with Azure Virtual Desktop](private-link-setup.md).
-- Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
+- Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns-integration.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 - For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 - Understand [Azure Virtual Desktop network connectivity](network-connectivity.md).
 - See the [Required URL list](safe-url-list.md) for the list of URLs you need to unblock to ensure network access to the Azure Virtual Desktop service.

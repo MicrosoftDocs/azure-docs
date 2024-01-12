@@ -1,0 +1,24 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/hdinsight-aks/flink/index.md",
+            "redirect_url": "/azure/hdinsight-aks/flink/flink-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/hdinsight-aks/release-notes/index.md",
+            "redirect_url": "/azure/hdinsight-aks/release-notes/hdinsight-aks-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/hdinsight-aks/spark/index.md",
+            "redirect_url": "/azure/hdinsight-aks/spark/hdinsight-on-aks-spark-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/hdinsight-aks/trino/index.md",
+            "redirect_url": "/azure/hdinsight-aks/trino/trino-overview ",
+            "redirect_document_id": false
+        }
+    ]
+}

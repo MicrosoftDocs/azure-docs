@@ -65,7 +65,7 @@ This template creates an Azure Cosmos DB account in two regions with options for
 
 ## Azure Cosmos DB container with server-side functionality
 
-This template creates an Azure Cosmos DB account, database and container with with a stored procedure, trigger, and user-defined function. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template creates an Azure Cosmos DB account, database and container with a stored procedure, trigger, and user-defined function. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-sql-container-sprocs%2Fazuredeploy.json)
 
@@ -73,9 +73,11 @@ This template creates an Azure Cosmos DB account, database and container with wi
 
 <a id="create-rbac"></a>
 
-## Azure Cosmos DB account with Azure AD and RBAC
+<a name='azure-cosmos-db-account-with-azure-ad-and-rbac'></a>
 
-This template will create a SQL Azure Cosmos DB account, a natively maintained Role Definition, and a natively maintained Role Assignment for an Azure AD identity. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+## Azure Cosmos DB account with Microsoft Entra ID and RBAC
+
+This template will create a SQL Azure Cosmos DB account, a natively maintained Role Definition, and a natively maintained Role Assignment for a Microsoft Entra identity. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-sql-rbac%2Fazuredeploy.json)
 

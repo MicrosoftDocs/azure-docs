@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: This article discusses the Azure App Service Environment feature of Azure App Service.
 author: madsd
 ms.topic: overview
-ms.date: 09/19/2023
+ms.date: 11/08/2023
 ms.author: madsd
 ms.custom: "UpdateFrequency3, references_regions"
 ---
@@ -127,8 +127,8 @@ App Service Environment v3 is available in the following regions:
 | North Europe         | ✅                           | ✅                          | ✅                           |
 | Norway East          | ✅                           | ✅                          | ✅                           | 
 | Norway West          | ✅                           |                             | ✅                           |
-| Poland Central       | ✅                           |                             |                               |
-| Qatar Central        | ✅                           | ✅                          |                              |
+| Poland Central       | ✅                           | ✅                          |                               |
+| Qatar Central        | ✅**                         | ✅**                        |                              |
 | South Africa North   | ✅                           | ✅                          | ✅                           |
 | South Africa West    | ✅                           |                             | ✅                           | 
 | South Central US     | ✅                           | ✅                          | ✅                           |
@@ -137,7 +137,7 @@ App Service Environment v3 is available in the following regions:
 | Sweden Central       | ✅                           | ✅                          |                              |
 | Switzerland North    | ✅                           | ✅                          | ✅                           |
 | Switzerland West     | ✅                           |                             | ✅                           | 
-| UAE Central          |                              |                             | ✅                           | 
+| UAE Central          | ✅                           |                             | ✅                           | 
 | UAE North            | ✅                           | ✅                         | ✅                           | 
 | UK South             | ✅                           | ✅                          | ✅                           | 
 | UK West              | ✅                           |                             | ✅                           | 
@@ -157,7 +157,7 @@ App Service Environment v3 is available in the following regions:
 | -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
 |                      | App Service Environment v3   | App Service Environment v3  | App Service Environment v1/v2 |
 | US DoD Central       | ✅                           |                             | ✅                          |
-| US DoD East          |                              |                             | ✅                          |
+| US DoD East          | ✅                           |                             | ✅                          |
 | US Gov Arizona       | ✅                           |                             | ✅                         |
 | US Gov Iowa          |                              |                             | ✅                          |
 | US Gov Texas         | ✅                           |                             | ✅                         |
@@ -184,4 +184,4 @@ App Service Environment has three versions: App Service Environment v1, App Serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Whitepaper on Using App Service Environment v3 in Compliance-Oriented Industries](https://azure.microsoft.com/resources/using-app-service-environment-v3-in-compliance-oriented-industries/)
+> [Whitepaper on Using App Service Environment v3 in Compliance-Oriented Industries](https://gigaom.com/report/using-app-service-environment-v3-in-compliance-oriented-industries/)

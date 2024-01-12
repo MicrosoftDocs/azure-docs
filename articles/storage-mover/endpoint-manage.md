@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/18/2023
+ms.date: 10/12/2023
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
@@ -29,9 +29,9 @@ Current doc score: 100 (3365 words and 0 issues)
 
 While the term *endpoint* is often used in networking, it's used in the context of the Storage Mover service to describe a storage location with a high level of detail.
 
-A storage mover endpoint is a resource that contains the path to either a source or destination location and other relevant information. Endpoints are used in the creation of a job definition to define the source and target locations for a particular copy operation. Only certain types of endpoints may be used as a source or a target, respectively. For example, data contained within an NFS (Network File System) file share endpoint can only be copied to a blob storage container. Similarly, copy operations  with an SMB-based (Server Message Block) file share target can only be migrated to an Azure file share,
+A storage mover endpoint is a resource that contains the path to either a source or destination location and other relevant information. Endpoints are used in the creation of a job definition to define the source and target locations for a particular copy operation. Only certain types of endpoints can be used as a source or a target, respectively. For example, data contained within an NFS (Network File System) file share endpoint can only be copied to a blob storage container. Similarly, copy operations  with an SMB-based (Server Message Block) file share target can only be migrated to an Azure file share,
 
-This article guides you through the creation and management of Azure Storage Mover endpoints. To follow these examples, you need a top-level storage mover resource. If you haven't yet created one, follow the steps within the [Create a Storage Mover resource](storage-mover-create.md) article before continuing.
+This article guides you through the creation and management of Azure Storage Mover endpoints. To follow these examples, you need a top-level storage mover resource. If you haven't created one, follow the steps within the [Create a Storage Mover resource](storage-mover-create.md) article before continuing.
 
 After you complete the steps within this article, you'll be able to create and manage endpoints using the Azure portal and Azure PowerShell.
 
@@ -39,13 +39,13 @@ After you complete the steps within this article, you'll be able to create and m
 
 Within the Azure Storage Mover resource hierarchy, a migration project is used to organize migration jobs into logical tasks or components. A migration project in turn contains at least one job definition, which describes both the source and target locations for your migration project. The [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md) article contains more detailed information about the relationships between a Storage Mover, its endpoints, and its projects.
 
-Because a migration requires both a well-defined source and target, endpoints are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While there's only a single endpoint resource, the properties of each endpoint may vary based on its type. For example, NFS (Network File System) shares, SMB  shares, and Azure Storage blob container endpoints each require fundamentally different information.
+Because a migration requires both a well-defined source and target, endpoints are parented to the top-level storage mover resource. This placement allows you to reuse endpoints across any number of job definitions. While only a single endpoint resource exists, the properties of each individual endpoint might vary based on its type. For example, NFS (Network File System) shares, SMB  shares, and Azure Storage blob container endpoints each require fundamentally different information.
 
 [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
 
 ### SMB endpoints
 
- SMB uses the ACL (access control list) concept and user-based authentication to provide access to shared files for selected users. To maintain security, Storage Mover relies on Azure Key Vault integration to securely store and tightly control access to user credentials and other secrets. During a migration, storage mover agent resources  connect to your SMB endpoints with Key Vault secrets rather than with unsecure hard-coded credentials. This approach greatly reduces the chance that secrets may be accidentally leaked.
+ SMB uses the ACL (access control list) concept and user-based authentication to provide access to shared files for selected users. To maintain security, Storage Mover relies on Azure Key Vault integration to securely store and tightly control access to user credentials and other secrets. During a migration, storage mover agent resources  connect to your SMB endpoints with Key Vault secrets rather than with unsecure hard-coded credentials. This approach greatly reduces the chance that secrets might be accidentally leaked.
 
 After your local file share source is configured, add secrets for both a username and a password to your Key Vault. You need to supply both your Key Vault's name or Uniform Resource Identifier (URI), and the names or URIs of the credential secrets when creating your SMB endpoints.
 
@@ -97,7 +97,7 @@ Azure Storage Mover supports migration scenarios using NFS and SMB protocols. Th
 
 ### Create a source endpoint
 
-Source endpoints identify locations from which your data is migrated. Source endpoints are used to define the origin the data specified within your migration project. Azure Storage Mover handles source locations in the form of file shares. These locations may reside on Network Attached Storage (NAS), a server, or even on a workstation. Common protocols for file shares are SMB (Server Message Block) and NFS (Network File System).
+Source endpoints identify locations from which your data is migrated. Source endpoints are used to define the origin the data specified within your migration project. Azure Storage Mover handles source locations in the form of file shares. These locations might reside on Network Attached Storage (NAS), a server, or even on a workstation. Common protocols for file shares are SMB (Server Message Block) and NFS (Network File System).
 
 The following steps describe the process of creating a source endpoint.
 
@@ -115,7 +115,12 @@ The following steps describe the process of creating a source endpoint.
 
       :::image type="content" source="media/endpoint-manage/endpoint-source-create.png" alt-text="Screenshot of the Endpoint Overview page highlighting the location of the Create Endpoint link." lightbox="media/endpoint-manage/endpoint-source-create-lrg.png":::
 
-   1. Within the **Create source endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. The host name or IP address value must be either an IPv4 address, or fully qualified domain or host name. You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
+   1. Within the **Create source endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. The host name or IP address value must be either an IPv4 address, or fully qualified domain or host name.
+
+      > [!IMPORTANT]
+      > Depending on your DNS configuration, you may need to use your fully qualified domain name (FQDN) instead of your hostname.
+
+       You can also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
 
       Storage mover agents use secrets stored within Key Vault to connect to SMB endpoints. When you create an SMB source endpoint, you need to provide both the name of the Key Vault containing the secrets and the names of the secrets themselves.
 
@@ -123,9 +128,9 @@ The following steps describe the process of creating a source endpoint.
 
       :::image type="content" source="media/endpoint-manage/key-vault.png" alt-text="Screenshot of the Create Source pane showing the drop-down list containing a resource group's Key Vaults.":::
 
-      After you've selected the appropriate Key Vault, you can supply values for the required **Select secret for username** and **Select secret for password** fields. These values can be supplied by providing the URI to the secrets, or by selecting the secrets from a list. Select the **Select secret** button to enable the menu and select the username and password values. Alternatively, you can enable the **Enter secret from URI** option and supply the appropriate URI to the username and password secret.
+      After you select the appropriate Key Vault, you can supply values for the required **Select secret for username** and **Select secret for password** fields. These values can be supplied by providing the URI to the secrets, or by selecting the secrets from a list. Select the **Select secret** button to enable the menu and select the username and password values. Alternatively, you can enable the **Enter secret from URI** option and supply the appropriate URI to the username and password secret.
 
-      The values for host and share name are concatenated to form the full migration source path. The path value is displayed in the **Full source path** field. Copy the path provided and verify that you're able to access it before committing your changes. Finally, when you've confirmed that all values are correct and that you can access the source path, select **Create** to add your new endpoint.
+      The values for host and share name are concatenated to form the full migration source path. The path value is displayed in the **Full source path** field. Copy the path provided and verify that you're able to access it before committing your changes. Finally, after confirming that all values are correct and that you can access the source path, select **Create** to add your new endpoint.
 
       :::image type="content" source="media/endpoint-manage/secrets.png" alt-text="Screenshot of the Create Endpoint pane showing the location of the Secrets options."  lightbox="media/endpoint-manage/secrets-lrg.png":::
 
@@ -137,7 +142,7 @@ The following steps describe the process of creating a source endpoint.
 
    The `New-AzStorageMoverSmbEndpoint` and `New-AzStorageMoverNfsEndpoint` cmdlets are used to create a new endpoint within a [storage mover resource](storage-mover-create.md) you previously deployed.
 
-   If you haven't yet installed the `Az.StorageMover` module:
+   If you haven't installed the `Az.StorageMover` module:
 
    ```powershell
    ## Ensure you are running the latest version of PowerShell 7
@@ -158,7 +163,12 @@ The following steps describe the process of creating a source endpoint.
    > [!CAUTION]
    > Renaming endpoint resources is not supported. It's a good idea to ensure that you've named the project appropriately since you won't be able to change much of the endpoint name after it is provisioned. You may, however, choose to create a new endpoint with the same properties and a different name as shown in a later section. Refer to the [resource naming convention](../azure-resource-manager/management/resource-name-rules.md#microsoftstoragesync) to choose a supported name.
 
-   1. It's always a good idea to create and use variables to store lengthy or potentially complex strings. Copy the sample code block and supply values for the required parameters. The `-Description` parameter is optional and is added in the [View and edit an endpoint's properties](#view-and-edit-an-endpoints-properties) section.
+   1. It's always a good idea to create and use variables to store lengthy or potentially complex strings. 
+
+      > [!IMPORTANT]
+      > Depending on your DNS configuration, you may need to use your fully qualified domain name (FQDN) instead of your hostname.
+
+      Copy the sample code block and supply values for the required parameters. The `-Description` parameter is optional and is added in the [View and edit an endpoint's properties](#view-and-edit-an-endpoints-properties) section.
 
       ```powershell
       
@@ -272,7 +282,7 @@ The following steps describe the process of creating a target endpoint.
 
       [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
 
-      Depending on the target type you choose, select either your **Blob container** or your **File share** from the corresponding drop-down list. Finally, you may add an optional **Description** value for your target of up to 1024 characters in length and select **Create** to deploy your endpoint.
+      Depending on the target type you choose, select either your **Blob container** or your **File share** from the corresponding drop-down list. Finally, you can add an optional **Description** value for your target of up to 1024 characters in length and select **Create** to deploy your endpoint.
 
       :::image type="content" source="media/endpoint-manage/endpoint-target-create.png" alt-text="Screenshot of the Create Endpoint pane showing the location of the required fields and Create button."  lightbox="media/endpoint-manage/endpoint-target-create-lrg.png":::
 
@@ -339,7 +349,7 @@ The following steps describe the process of creating a target endpoint.
 
 ## View and edit an endpoint's properties
 
-Depending on your use case, you may need to retrieve either a specific endpoint, or a complete list of all your endpoint resources. You may also need to add or edit an endpoint's description.
+Depending on your use case, you might need to retrieve either a specific endpoint, or a complete list of all your endpoint resources. You might also need to add or edit an endpoint's description.
 
 Follow the steps in this section to view endpoints accessible to your Storage Mover resource.
 
@@ -441,7 +451,7 @@ Follow the steps in this section to view endpoints accessible to your Storage Mo
 
 ## Delete an endpoint
 
-The removal of an endpoint resource should be a relatively rare occurrence in your production environment, though there may be occasions where it may be helpful. To delete a Storage Mover endpoint resource, follow the provided example.
+The removal of an endpoint resource should be a relatively rare occurrence in your production environment, though there might be occasions where it might be helpful. To delete a Storage Mover endpoint resource, follow the provided example.
 
 > [!WARNING]
 > Deleting an endpoint is a permanent action and cannot be undone. It's a good idea to ensure that you're prepared to delete the endpoint since you will not be able to restore it at a later time.

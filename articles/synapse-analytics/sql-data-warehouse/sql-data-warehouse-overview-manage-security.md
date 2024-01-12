@@ -30,13 +30,13 @@ Firewall rules are used by both the [logical SQL server](/azure/azure-sql/databa
 
 As a best practice, you should restrict the IP address ranges allowed through your server-level firewall as much as possible.  To access your dedicated SQL pool (formerly SQL DW) from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  
 
-Dedicated SQL pool (formerly SQL DW) uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see see [Azure SQL Database firewall rules](/azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Dedicated SQL pool (formerly SQL DW) uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see [Azure SQL Database firewall rules](/azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 Connections to your dedicated SQL pool (formerly SQL DW) are encrypted by default.  Modifying connection settings to disable encryption are ignored.
 
 ## Authentication
 
-Authentication refers to how you prove your identity when connecting to the database. Dedicated SQL pool (formerly SQL DW) currently supports SQL Server Authentication with a username and password, and with Azure Active Directory.
+Authentication refers to how you prove your identity when connecting to the database. Dedicated SQL pool (formerly SQL DW) currently supports SQL Server Authentication with a username and password, and with Microsoft Entra ID.
 
 When you created the server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
 
@@ -59,7 +59,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 To give a user permission to perform additional operations such as creating logins or creating new databases, assign the user to the `Loginmanager` and `dbmanager` roles in the master database.
 
-For more information on these additional roles and authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database](/azure/azure-sql/database/logins-create-manage?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  For more information on connecting using Azure Active Directory, see [Connecting by using Azure Active Directory Authentication](sql-data-warehouse-authentication.md).
+For more information on these additional roles and authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database](/azure/azure-sql/database/logins-create-manage?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  For more information on connecting using Microsoft Entra ID, see [Connecting by using Microsoft Entra authentication](sql-data-warehouse-authentication.md).
 
 ## Authorization
 

@@ -1,14 +1,14 @@
 ---
 title: Localization string IDs - Azure Active Directory B2C
 description: Specify the IDs for a content definition with an ID of api.signuporsignin in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 04/19/2022
+ms.date: 11/14/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -519,7 +519,7 @@ The following IDs are used for [Restful service technical profile](restful-techn
 
 ## Microsoft Entra multifactor authentication error messages
 
-The following IDs are used for an [Microsoft Entra multifactor authentication technical profile](multi-factor-auth-technical-profile.md) error message:
+The following IDs are used for an [Microsoft Entra ID multifactor authentication technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
 | --- | ------------- |
@@ -551,7 +551,7 @@ The following IDs are used for an [Microsoft Entra multifactor authentication te
 
 ## Microsoft Entra SSPR
 
-The following IDs are used for [Microsoft Entra SSPR technical profile](aad-sspr-technical-profile.md) error messages:
+The following IDs are used for [Microsoft Entra ID SSPR technical profile](aad-sspr-technical-profile.md) error messages:
 
 | ID | Default value |
 | --- | ------------- |
@@ -615,7 +615,8 @@ The following IDs are used for claims transformations error messages:
 | `DateTimeGreaterThan` |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Claim value comparison failed: The provided left operand is greater than the right operand.|
 | `UserMessageIfClaimsTransformationStringsAreNotEqual` |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|
 
-### Claims transformations example
+### Claims transformations example 1:
+This example shows localized messages for local account signup.
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -623,6 +624,17 @@ The following IDs are used for claims transformations error messages:
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="DateTimeGreaterThan">Expiration date must be greater that the current date.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationStringsAreNotEqual">The email entry fields do not match. Please enter the same email address in both fields and try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+### Claims transformations example 2:
+This example shows localized messages for local account password reset.
+
+```xml
+<LocalizedResources Id="api.localaccountpasswordreset.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">You cannot use the old password</LocalizedString>    
   </LocalizedStrings>
 </LocalizedResources>
 ```

@@ -22,7 +22,7 @@ This tutorial shows you how to use Azure Data Factory to incrementally sync data
 
 If you haven't already created a database or table in your Azure SQL Edge deployment, use one of these methods to create one:
 
-- Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) or [Azure Data Studio](/sql/azure-data-studio/download/) to connect to SQL Edge. Run a SQL script to create the database and table.
+- Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) or [Azure Data Studio](/azure-data-studio/download-azure-data-studio//) to connect to SQL Edge. Run a SQL script to create the database and table.
 - Create a database and table by using [sqlcmd](/sql/tools/sqlcmd-utility/) by directly connecting to the SQL Edge module. For more information, see [Connect to the Database Engine by using sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
 - Use SQLPackage.exe to deploy a DAC package file to the SQL Edge container. You can automate this process by specifying the SqlPackage file URI as part of the module's desired properties configuration. You can also directly use the SqlPackage.exe client tool to deploy a DAC package to SQL Edge.
 

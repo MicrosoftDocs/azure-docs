@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/22/2023
+ms.date: 11/29/2023
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -412,8 +412,7 @@ You'll now add the prepared node to the first node and form the cluster. Before 
 
 ## Configure virtual IPs
 
-For Azure consistent services and NFS, you'll also need to define a virtual IP that allows you to connect to a clustered device as opposed to a specific node. A virtual IP is an available IP in the cluster network and any client connecting to the cluster network on the two-node device should be able to access this IP.
-
+For Azure consistent services and NFS, you'll also need to define a virtual IP that allows you to connect to a clustered device as opposed to a specific node. A virtual IP is an available IP in the cluster network and any client connecting to the cluster network on the two-node device should be able to access this IP. Azure consistent services and NFS must be on the same network.
 
 ### For Azure Consistent Services
 
@@ -526,7 +525,14 @@ Select **Next: Kubernetes >** to next configure your compute IPs for Kubernetes.
 After the virtual switches are created, you can enable the switches for Kubernetes compute traffic.
 
 1. In the local UI, go to the **Kubernetes** page.
-1. Specify a workload from the options provided. If prompted, confirm the option you selected and then select **Apply**.
+1. Specify a workload from the options provided.
+   - If you are working with an Azure Private MEC solution, select the option for **an Azure Private MEC solution in your environment**.
+   - If you are working with an SAP Digital Manufacturing solution or another Microsoft partner solution, select the option for **a SAP Digital Manufacturing for Edge Computing or another Microsoft partner solution in your environment**.
+   - For other workloads, select the option for **other workloads in your environment**.
+   
+    If prompted, confirm the option you specified and then select **Apply**.
+
+    To use PowerShell to specify the workload, see detailed steps in [Change Kubernetes workload profiles](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-workload-profiles).
 
    ![Screenshot of the Workload selection options on the Kubernetes page of the local UI for two node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-kubernetes-workload-selection.png)
 

@@ -17,11 +17,15 @@ The Azure Linux container host on AKS uses a native AKS image that provides one 
 
 ## How to use Azure Linux on AKS
 
+> [!NOTE]
+> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][azurelinuxdocumentation].
+
 To get started using the Azure Linux container host for AKS, see:
 
 * [Creating a cluster with Azure Linux][azurelinux-cluster-config]
 * [Add an Azure Linux node pool to your existing cluster][azurelinux-node-pool]
 * [Ubuntu to Azure Linux migration][ubuntu-to-azurelinux]
+* [Azure Linux supported GPU SKUs](../azure-linux/intro-azure-linux.md#azure-linux-container-host-supported-gpu-skus)
 
 ## How to upgrade Azure Linux nodes
 

@@ -13,11 +13,11 @@ zone_pivot_groups: ase-pro-version
 
 # Private mobile network design requirements
 
-This article helps you design and prepare for implementing a private 4G or 5G network based on Azure Private 5G Core (AP5GC). It aims to provide an understanding of how these networks are constructed and the decisions that you need to make as you plan your network.
+This article helps you design and prepare for implementing a private 4G, or 5G network based on Azure Private 5G Core (AP5GC). It aims to provide an understanding of how these networks are constructed and the decisions that you need to make as you plan your network.
 
 ## Azure Private MEC and Azure Private 5G Core
 
-[Azure private multi-access edge compute (MEC)](../private-multi-access-edge-compute-mec/overview.md) is a solution that combines Microsoft compute, networking, and application services into a deployment at enterprise premises (the edge). These edge deployments are managed centrally from the cloud. Azure Private 5G Core is an Azure service within Azure Private Multi-access Edge Compute (MEC) that provides 4G and 5G core network functions at the enterprise edge. At the enterprise edge site, devices attach across a cellular radio access network (RAN) and are connected via the Azure Private 5G Core service to upstream networks, applications, and resources. Optionally, devices may use the local compute capability provided by Azure Private MEC to process data streams at very low latency, all under the control of the enterprise.
+[Azure private multi-access edge compute (MEC)](../private-multi-access-edge-compute-mec/overview.md) is a solution that combines Microsoft compute, networking, and application services into a deployment at enterprise premises (the edge). These edge deployments are managed centrally from the cloud. Azure Private 5G Core is an Azure service within Azure Private Multi-access Edge Compute (MEC) that provides 4G and 5G core network functions at the enterprise edge. At the enterprise edge site, devices attach across a cellular radio access network (RAN) and are connected via the Azure Private 5G Core service to upstream networks, applications, and resources. Optionally, devices might use the local compute capability provided by Azure Private MEC to process data streams at very low latency, all under the control of the enterprise.
 
 :::image type="content" source="media/private-5g-elements.png" alt-text="Diagram displaying the components of a private network solution. UEs, RANs and sites are at the edge, while Azure region management is in the cloud.":::
 
@@ -30,6 +30,7 @@ The following capabilities must be present to allow user equipment (UEs) to atta
 - There must be a RAN, sending and receiving the cellular signal, to all parts of the enterprise site that contain UEs needing service.
 - There must be a packet core instance connected to the RAN and to an upstream network. The packet core is responsible for authenticating the UE's SIMs as they connect across the RAN and request service from the network. It applies policy to the resulting data flows to and from the UEs; for example, to set a quality of service.
 - The RAN, packet core, and upstream network infrastructure must be connected via Ethernet so that they can pass IP traffic to one another.
+- The site hosting the packet core must have a continuous, high speed connection to the internet (100 Mbps minimum) to allow for service management, telemetry, diagnostics, and upgrades.
 
 ## Designing a private mobile network
 
@@ -107,7 +108,7 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png" alt-text="Diagram of a layer 3 network with N6 Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png":::
 
 - Layer 3 network without Network Address Translation (NAT)  
-  This network topology is a similar solution, but UE IP address ranges must be configured as static routes in the data network router with the N6 NAT IP address as the next hop address. As with the the previous solution, this topology supports up to six data networks.
+  This network topology is a similar solution, but UE IP address ranges must be configured as static routes in the data network router with the N6 NAT IP address as the next hop address. As with the previous solution, this topology supports up to six data networks.
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png" alt-text="Diagram of a layer 3 network without Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png":::
 
 - Flat layer 2 network  
@@ -137,7 +138,7 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
 
 ### Subnets and IP addresses
 
-You may have existing IP networks at the enterprise site that the private cellular network will have to integrate with. This might mean, for example:
+You might have existing IP networks at the enterprise site that the private cellular network will have to integrate with. This might mean, for example:
 
 - Selecting IP subnets and IP addresses for AP5GC that match existing subnets without clashing addresses.
 - Segregating the new network via IP routers or using the private RFC 1918 address space for subnets.
@@ -149,9 +150,9 @@ You need to document the IPv4 subnets that will be used for the deployment and a
 
 ### Network access
 
-Your design must reflect the enterprise’s rules on what networks and assets should be reachable by the RAN and UEs on the private 5G network. For example, they might be permitted to access local Domain Name System (DNS), Dynamic Host Configuration Protocol (DHCP), the internet, or Azure, but not a factory operations local area network (LAN). You may need to arrange for remote access to the network so that you can troubleshoot issues without requiring a site visit. You also need to consider how the enterprise site will be connected to upstream networks such as Azure for management and/or for access to other resources and applications outside of the enterprise site.
+Your design must reflect the enterprise’s rules on what networks and assets should be reachable by the RAN and UEs on the private 5G network. For example, they might be permitted to access local Domain Name System (DNS), Dynamic Host Configuration Protocol (DHCP), the internet, or Azure, but not a factory operations local area network (LAN). You might need to arrange for remote access to the network so that you can troubleshoot issues without requiring a site visit. You also need to consider how the enterprise site will be connected to upstream networks such as Azure for management and/or for access to other resources and applications outside of the enterprise site.
 
-You need to agree with the enterprise team which IP subnets and addresses will be allowed to communicate with each other. Then, create a routing plan and/or access control list (ACL) configuration that implements this agreement on the local IP infrastructure. You may also use virtual local area networks (VLANs) to partition elements at layer 2, configuring your switch fabric to assign connected ports to specific VLANs (for example, to put the Azure Stack Edge port used for RAN access into the same VLAN as the RAN units connected to the Ethernet switch). You should also agree with the enterprise to set up an access mechanism, such as a virtual private network (VPN), that allows your support personnel to remotely connect to the management interface of each element in the solution. You also need an IP link between Azure Private 5G Core and Azure for management and telemetry.
+You need to agree with the enterprise team which IP subnets and addresses will be allowed to communicate with each other. Then, create a routing plan and/or access control list (ACL) configuration that implements this agreement on the local IP infrastructure. You might also use virtual local area networks (VLANs) to partition elements at layer 2, configuring your switch fabric to assign connected ports to specific VLANs (for example, to put the Azure Stack Edge port used for RAN access into the same VLAN as the RAN units connected to the Ethernet switch). You should also agree with the enterprise to set up an access mechanism, such as a virtual private network (VPN), that allows your support personnel to remotely connect to the management interface of each element in the solution. You also need an IP link between Azure Private 5G Core and Azure for management and telemetry.
 
 ### RAN compliance
 
@@ -161,19 +162,19 @@ The RAN that you use to broadcast the signal across the enterprise site must com
 - You have received permission for the RAN to broadcast using spectrum in a certain location, for example, by grant from a telecom operator, regulatory authority or via a technological solution such as a Spectrum Access System (SAS).
 - The RAN units in a site have access to high-precision timing sources, such as Precision Time Protocol (PTP) and GPS location services.
 
-You should ask your RAN partner for the countries/regions and frequency bands for which the RAN is approved. You may find that you need to use multiple RAN partners to cover the countries and regions in which you provide your solution. Although the RAN, UE and packet core all communicate using standard protocols, we recommend that you perform interoperability testing for the specific 4G Long-Term Evolution (LTE) or 5G standalone (SA) protocol between Azure Private 5G Core, UEs and the RAN prior to any deployment at an enterprise customer.
+You should ask your RAN partner for the countries/regions and frequency bands for which the RAN is approved. You might find that you need to use multiple RAN partners to cover the countries and regions in which you provide your solution. Although the RAN, UE and packet core all communicate using standard protocols, we recommend that you perform interoperability testing for the specific 4G Long-Term Evolution (LTE) or 5G standalone (SA) protocol between Azure Private 5G Core, UEs and the RAN prior to any deployment at an enterprise customer.
 
-Your RAN will transmit a Public Land Mobile Network Identity (PLMN ID) to all UEs on the frequency band it is configured to use. You should define the PLMN ID and confirm your access to spectrum. In some countries/regions, spectrum must be obtained from the national/regional regulator or incumbent telecommunications operator. For example, if you're using the band 48 Citizens Broadband Radio Service (CBRS) spectrum, you may need to work with your RAN partner to deploy a Spectrum Access System (SAS) domain proxy on the enterprise site so that the RAN can continuously check that it is authorized to broadcast.
+Your RAN will transmit a Public Land Mobile Network Identity (PLMN ID) to all UEs on the frequency band it is configured to use. You should define the PLMN ID and confirm your access to spectrum. In some countries/regions, spectrum must be obtained from the national/regional regulator or incumbent telecommunications operator. For example, if you're using the band 48 Citizens Broadband Radio Service (CBRS) spectrum, you might need to work with your RAN partner to deploy a Spectrum Access System (SAS) domain proxy on the enterprise site so that the RAN can continuously check that it is authorized to broadcast.
 
 #### Maximum Transmission Units (MTUs)
 
 The Maximum Transmission Unit (MTU) is a property of an IP link, and it is configured on the interfaces at each end of the link. Packets that exceed an interface's configured MTU are split into smaller packets via IPv4 fragmentation prior to sending and are then reassembled at their destination. However, if an interface's configured MTU is higher than the link's supported MTU, the packet will fail to be transmitted correctly.
 
-To avoid transmission issues caused by IPv4 fragmentation, a 4G or 5G packet core instructs UEs what MTU they should use. However, UEs do not always respect the MTU signaled by the packet core.
+To avoid transmission issues caused by IPv4 fragmentation, a 4G, or 5G packet core instructs UEs what MTU they should use. However, UEs do not always respect the MTU signaled by the packet core.
 
 IP packets from UEs are tunneled through from the RAN, which adds overhead from encapsulation. The MTU value for the UE should therefore be smaller than the MTU value used between the RAN and the packet core to avoid transmission issues.
 
-RANs typically come pre-configured with an MTU of 1500. The packet core’s default UE MTU is 1440 bytes to allow for encapsulation overhead. These values maximize RAN interoperability, but risk that certain UEs will not observe the default MTU and will generate larger packets that require IPv4 fragmentation and that may be dropped by the network. If you are affected by this issue, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher, which allows a sufficient overhead for the encapsulation and avoids fragmentation with a UE using a standard MTU of 1500.
+RANs typically come pre-configured with an MTU of 1500. The packet core’s default UE MTU is 1440 bytes to allow for encapsulation overhead. These values maximize RAN interoperability, but risk that certain UEs will not observe the default MTU and will generate larger packets that require IPv4 fragmentation and that might be dropped by the network. If you are affected by this issue, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher, which allows a sufficient overhead for the encapsulation and avoids fragmentation with a UE using a standard MTU of 1500.
 
 You can also change the UE MTU signaled by the packet core. We recommend setting the MTU to a value within the range supported by your UEs and 60 bytes below the MTU signaled by the RAN. Note that:
 
@@ -201,7 +202,7 @@ Building enterprise networks using automation and other programmatic techniques 
 
 We recommend adopting a programmatic, *infrastructure as code* approach to your deployments. You can use templates or the Azure REST API to build your deployment using parameters as inputs with values that you have collected during the design phase of the project. You should save provisioning information such as SIM data, switch/router configuration, and network policies in machine-readable format so that, in the event of a failure, you can reapply the configuration in the same way as you originally did. Another best practice to recover from failure is to deploy a spare Azure Stack Edge server to minimize recovery time if the first unit fails; you can then use your saved templates and inputs to quickly recreate the deployment. For more information on deploying a network using templates, refer to [Quickstart: Deploy a private mobile network and site - ARM template](deploy-private-mobile-network-with-site-arm-template.md).
 
-You must also consider how you integrate other Azure products and services with the private enterprise network. These products include [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) and [role-based access control (RBAC)](../role-based-access-control/overview.md), where you must consider how tenants, subscriptions and resource permissions will align with the business model that exists between you and the enterprise, and as your own approach to customer system management. For example, you might use [Azure Blueprints](../governance/blueprints/overview.md) to set up the subscriptions and resource group model that works best for your organization.
+You must also consider how you integrate other Azure products and services with the private enterprise network. These products include [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) and [role-based access control (RBAC)](../role-based-access-control/overview.md), where you must consider how tenants, subscriptions and resource permissions will align with the business model that exists between you and the enterprise, and as your own approach to customer system management. For example, you might use [Azure Blueprints](../governance/blueprints/overview.md) to set up the subscriptions and resource group model that works best for your organization.
 
 ## Next steps
 

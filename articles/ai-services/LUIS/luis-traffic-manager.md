@@ -7,9 +7,9 @@ author: aahill
 manager: nitinme
 ms.devlang: javascript
 ms.custom: seodec18, devx-track-azurepowershell
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: language-understanding
+#services: cognitive-services
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: how-to
 ms.date: 08/20/2019
 #Customer intent: As an advanced user, I want to understand how to use multiple LUIS endpoint keys to increase the number of endpoint requests my application receives.
