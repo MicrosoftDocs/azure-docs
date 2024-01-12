@@ -17,7 +17,7 @@ ms.reviewer: rapadman
 
 See the prerequisites that are listed at [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites).
 
-## Set up an application to use Microsoft Entra pod-managed identity authentication for Prometheus remote write
+## Set up an application to use Microsoft Entra pod-managed identity authentication
 
 The process to set up Prometheus remote write for an application by using Microsoft Entra pod-managed identity authentication involves completing the following tasks:
 
@@ -30,7 +30,7 @@ The process to set up Prometheus remote write for an application by using Micros
 
 The tasks are described in the following sections.
 
-### Register a user-assigned managed identity with Microsoft Entra ID
+### Register a managed identity with Microsoft Entra ID
 
 Create a user-assigned managed identity or register an existing user-assigned managed identity.
 
@@ -46,7 +46,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee <manag
 
 The node resource group of the AKS cluster contains resources that you use in other steps in this process. This resource group has the name `MC_<AKS-RESOURCE-GROUP>_<AKS-CLUSTER-NAME>_<REGION>`. You can find the resource group name by using the **Resource groups** menu in the Azure portal.
 
-### Assign the Monitoring Metrics Publisher role to the user-assigned managed identity
+### Assign the Monitoring Metrics Publisher role to the managed identity
 
 ```azurecli
 az role assignment create --role "Monitoring Metrics Publisher" --assignee <managed identity clientID> --scope <NodeResourceGroupResourceId> 
@@ -80,7 +80,7 @@ kubectl create -f aadpodidentitybinding.yaml
 
 The `aadpodidbinding` label must be added to the Prometheus pod for the pod-managed identity to take effect. You can add the label by updating the *deployment.yaml* file or by injecting labels when you deploy the sidecar container as described in the next section.
 
-### Deploy a sidecar container to set up remote write on the Prometheus cluster
+### Deploy a sidecar container to set up remote write
 
 1. Copy the following YAML and save it to a file. The YAML uses port 8081 as the listening port. If you use a different port, modify that value in the YAML.
 

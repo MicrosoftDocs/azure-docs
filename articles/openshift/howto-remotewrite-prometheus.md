@@ -1,6 +1,6 @@
 ---
-title: Set up remote write to Azure Monitor managed service for Prometheus
-description: Learn how to set up remote write to send data from the default Prometheus server running in your Azure Red Hat OpenShift cluster.
+title: Set up remote write for Azure Monitor managed service for Prometheus
+description: Learn how to set up remote write to send data from the default Prometheus server running in your Azure Red Hat OpenShift cluster to your Azure Monitor workspace.
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift

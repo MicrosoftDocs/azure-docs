@@ -26,11 +26,11 @@ This article applies to the following cluster configurations:
 
 See the prerequisites that are listed at [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites).
 
-## Set up an application to use Microsoft Entra authentication for Prometheus remote write
+## Set up an application to use Microsoft Entra authentication
 
 The process to set up Prometheus remote write for an application by using Microsoft Entra authentication involves completing the following tasks:
 
-1. Register an application with Microsoft Entra.
+1. Register an application with Microsoft Entra ID.
 1. Get the client ID of the Microsoft Entra application.
 1. Assign the Monitoring Metrics Publisher role on the data collection rule to the application.
 1. Create an Azure key vault and generate a certificate.
@@ -138,7 +138,7 @@ This step is required only if you didn't turn on Azure Key Vault Provider for Se
     kubectl apply -f secretproviderclass.yml
     ```
 
-### Deploy a sidecar container to set up remote write on the Prometheus server
+### Deploy a sidecar container to set up remote write
 
 1. Copy the following YAML and save it to a file. The YAML uses port 8081 as the listening port. If you use a different port, modify that value in the YAML.
 

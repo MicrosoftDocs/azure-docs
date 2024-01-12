@@ -23,7 +23,7 @@ To send data from a Prometheus server by using remote write with Microsoft Entra
 - An installed mutating admission webhook. For more information, see [Mutating Admission Webhook - Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html).
 - Prometheus running in the cluster. This article assumes that the Prometheus cluster is set up by using the [kube-prometheus stack](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html), but you can set up Prometheus by using other methods.
 
-## Set up a workload to use Microsoft Entra Workload ID authentication for Prometheus remote write
+## Set up a workload to use Microsoft Entra Workload ID authentication
 
 The process to set up Prometheus remote write for an application by using Microsoft Entra Workload ID authentication involves completing the following tasks:
 
@@ -140,7 +140,7 @@ EOF
 az ad app federated-credential create --id ${APPLICATION_OBJECT_ID} --parameters @params.json
 ```
 
-### Deploy a sidecar container to set up remote write on the Prometheus server
+### Deploy a sidecar container to set up remote write
 
 > [!IMPORTANT]
 >

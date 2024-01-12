@@ -24,9 +24,9 @@ This article applies to the following cluster configurations:
 
 See the prerequisites that are listed at [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites).
 
-## Set up an application to use Microsoft Entra authentication for Prometheus remote write
+## Set up an application to use managed identity authentication
 
-The process to set up Prometheus remote write for an application by using Microsoft Entra authentication involves completing the following tasks:
+The process to set up Prometheus remote write for an application by using managed identity authentication involves completing the following tasks:
 
 1. Locate the AKS node resource group.
 1. Get the client ID of the user-assigned managed identity.
@@ -97,7 +97,7 @@ This step isn't required if you're using an AKS identity. An AKS identity alread
     az vmss identity assign -g <AKS-NODE-RESOURCE-GROUP> -n <AKS-VMSS-NAME> --identities <USER-ASSIGNED-IDENTITY-RESOURCE-ID>
     ```
 
-### Deploy a sidecar container to set up remote write on the Prometheus server
+### Deploy a sidecar container to set up remote write
 
 1. Copy the following YAML and save it to a file. The YAML uses port 8081 as the listening port. If you use a different port, modify that value in the YAML.
 
