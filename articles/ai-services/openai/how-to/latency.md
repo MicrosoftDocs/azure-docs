@@ -66,9 +66,9 @@ o	Generate fewer responses: The best_of & n parameters can greatly increase late
 In summary, reducing the number of tokens generated per request reduces the latency of each request.
 
 ### Streaming
-Setting `stream: true` in a request makes the service return tokens as soon as they're available, instead of waiting for the full sequence of tokens to be generated. It doesn't change the time to get all the tokens, but it reduces the time for first response. This aproach provides a better user experience since end-suers can read the response as it is generated. 
+Setting `stream: true` in a request makes the service return tokens as soon as they're available, instead of waiting for the full sequence of tokens to be generated. It doesn't change the time to get all the tokens, but it reduces the time for first response. This approach provides a better user experience since end-users can read the response as it is generated. 
 
-Streaming is also valuable with large calls that take a long time to process. Many clients and intermediary layers have timeouts on individual calls. Long generation calls might be cancelled due to client-side time outs. By streaming the data back, you can ensure incremental data is received. 
+Streaming is also valuable with large calls that take a long time to process. Many clients and intermediary layers have timeouts on individual calls. Long generation calls might be canceled due to client-side time outs. By streaming the data back, you can ensure incremental data is received. 
 
 
 
@@ -82,7 +82,7 @@ Streaming impacts perceived latency. With streaming enabled you receive tokens b
 
 Sentiment analysis, language translation, content generation.
 
-There are many use cases where you are performing some bulk task where you only care about the finished result, not the real-time response. If streaming is disabled, you won't receive any tokens until the model has finished the entire response.
+There are many use cases where you're performing some bulk task where you only care about the finished result, not the real-time response. If streaming is disabled, you won't receive any tokens until the model has finished the entire response.
 
 ### Content filtering
 
@@ -96,23 +96,23 @@ Learn more about requesting modifications to the default, [content filtering pol
 
 
 ### Separation of workloads
-Mixing different workloads on the same endpoint can negatively affect latency. This is because (1) they are batched together during inference and short calls can be waiting for longer completions and (2) mixing the calls can reduce your cache hit rate as they are both competing for the same space. When possible, it is recommended to have separate deployments for each workload.
+Mixing different workloads on the same endpoint can negatively affect latency. This is because (1) they're batched together during inference and short calls can be waiting for longer completions and (2) mixing the calls can reduce your cache hit rate as they're both competing for the same space. When possible, it's recommended to have separate deployments for each workload.
 
 ### Prompt Size
-While prompt size has smaller affect on latency than the generation size it will affect the overall time, especially when the size grows large. 
+While prompt size has smaller influence on latency than the generation size it affects the overall time, especially when the size grows large. 
 
 ### Batching
-If you are sending multiple requests to the same endpoint, you can batch the requests into a single call. This will reduce the number of requests you need to make and depending on the scenario it might improve overall response time. We recommend testing this method to see if it helps. 
+If you're sending multiple requests to the same endpoint, you can batch the requests into a single call. This reduces the number of requests you need to make and depending on the scenario it might improve overall response time. We recommend testing this method to see if it helps. 
 
 ## How to measure your throughput
 We recommend measuring your overall throughput on a deployment with two measures:
--	Calls per minute: The number of API inference calls you are making per minute. This can be measured in Azure-monitor using the Azure OpenAI Requests metric and splitting by the ModelDeploymentName
+-	Calls per minute: The number of API inference calls you're making per minute. This can be measured in Azure-monitor using the Azure OpenAI Requests metric and splitting by the ModelDeploymentName
 -	Total Tokens per minute: The total number of tokens being processed per minute by your deployment. This includes prompt & generated tokens. This is often further split into measuring both for a deeper understanding of deployment performance. This can be measured in Azure-Monitor using the Processed Inference tokens metric. 
 
 You can learn more about [Monitoring the Azure OpenAI Service](./monitoring.md).
 
 ## How to measure per-call latency
-The time it takes for each call depends on how long it takes to read the model, generate the output, and apply content filters. The way you measure the time will vary if you are using streaming or not. We suggest a different set of measures for each case. 
+The time it takes for each call depends on how long it takes to read the model, generate the output, and apply content filters. The way you measure the time will vary if you're using streaming or not. We suggest a different set of measures for each case. 
 
 You can learn more about [Monitoring the Azure OpenAI Service](./monitoring.md).
 
@@ -128,7 +128,7 @@ Time from the first token to the last token, divided by the number of generated 
 
 ## Summary
 
-* **Model latency**: If model latency is important to you we recommend trying out our latest models in the [GPT-3.5 Turbo model series](../concepts/models.md).
+* **Model latency**: If model latency is important to you, we recommend trying out our latest models in the [GPT-3.5 Turbo model series](../concepts/models.md).
 
 * **Lower max tokens**: OpenAI has found that even in cases where the total number of tokens generated is similar the request with the higher value set for the max token parameter will have more latency.
 

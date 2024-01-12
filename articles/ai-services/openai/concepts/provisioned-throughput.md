@@ -25,24 +25,24 @@ The provisioned throughput capability allows you to specify the amount of throug
 An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. A deployment provides customer access to a model for inference and integrates more features like Content Moderation ([See content moderation documentation](content-filter.md)).
 
 > [!NOTE]
-> Provisioned throughput unit(PTU) quota is different from standard quota in Azure OpenAI and are not available by default. To learn more about this offering contact your Microsoft Account Team.
+> Provisioned throughput unit (PTU) quota is different from standard quota in Azure OpenAI and is not available by default. To learn more about this offering contact your Microsoft Account Team.
 
 ## What do you get?
 
 | Topic | Provisioned|
 |---|---|
-| What is it? | Provides guaranteed throughput at smaller increments than the existing provisioned offer. Deployments have a consistent max latency for a given model-version |
+| What is it? | Provides guaranteed throughput at smaller increments than the existing provisioned offer. Deployments have a consistent max latency for a given model-version. |
 | Who is it for? | Customers who want guaranteed throughput with minimal latency variance. |
-| Quota | Provisioned-managed throughput Units for a given model |
+| Quota | Provisioned-managed throughput Units for a given model. |
 | Latency | Max latency constrained from the model. Overall latency is a factor of call shape.  |
-| Utilization | Provisioned-managed Utilization measure provided in Azure Monitor |
-| Estimating size | Provided calculator in the studio & benchmarking script |
+| Utilization | Provisioned-managed Utilization measure provided in Azure Monitor. |
+| Estimating size | Provided calculator in the studio & benchmarking script. |
 
 ## Key concepts
 
 ### Provisioned throughput units
 
-Provisioned throughput Units (PTU) are units of model processing capacity that customers you can reserve and deploy for processing prompts and generating completions. The minimum PTU deployment, increments, and processing capacity associated with each unit varies by model type & version.
+Provisioned throughput units (PTU) are units of model processing capacity that customers you can reserve and deploy for processing prompts and generating completions. The minimum PTU deployment, increments, and processing capacity associated with each unit varies by model type & version.
 
 ### Deployment types
 
@@ -57,7 +57,7 @@ az cognitiveservices account deployment create \
 --model-version 0613  \
 --model-format OpenAI \
 --sku-capacity 100 \
---sku-name Provisioned-Managed 
+--sku-name ProvisionedManaged 
 ```
 
 ### Quota
