@@ -65,6 +65,7 @@ ms.custom: include file, ignite-2022
 | &nbsp; |[Google Cloud Storage](../connector-google-cloud-storage.md) |
 | &nbsp; |[HDFS](../connector-hdfs.md) |
 | &nbsp; |[Generic HTTP](../connector-http.md)|
+| &nbsp; |[Microsoft Fabric Lakehouse](../connector-microsoft-fabric-lakehouse.md) |
 | &nbsp; |[Oracle Cloud Storage](../connector-oracle-cloud-storage.md) |
 | &nbsp; |[SFTP](../connector-sftp.md) |
 | **Generic protocol** |[Generic OData](../connector-odata.md) |
