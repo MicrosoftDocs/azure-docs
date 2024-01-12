@@ -57,7 +57,7 @@ To create a compute instance in Azure AI Studio:
     :::image type="content" source="../media/compute/compute-scheduling.png" alt-text="Screenshot of the option to enable idle shutdown and create a schedule." lightbox="../media/compute/compute-scheduling.png":::
 
     > [!IMPORTANT]
-    > The compute can't be idle if you have [prompt flow runtime](./create-manage-runtime.md) in **Running** status on the compute. You need to delete any active runtime before the compute instance can be eligible for idle shutdown. You also can't have any active [VS Code (Web)](./vscode-web.md) sessions hosted on the compute instance.
+    > The compute can't be idle if you have [prompt flow runtime](./create-manage-runtime.md) in **Running** status on the compute. You need to delete any active runtime before the compute instance can be eligible for idle shutdown. You also can't have any active [VS Code (Web)](./develop-in-vscode.md) sessions hosted on the compute instance.
 
 1. You can update the schedule days and times to meet your needs. You can also add additional schedules. For example, you can create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday. You can create a total of four schedules per compute instance.
 
@@ -84,7 +84,7 @@ Note that disabling SSH prevents SSH access from the public internet. But when a
 To avoid getting charged for a compute instance that is switched on but inactive, you can configure when to shut down your compute instance due to inactivity. 
 
 > [!IMPORTANT]
-> The compute can't be idle if you have [prompt flow runtime](./create-manage-runtime.md) in **Running** status on the compute. You need to delete any active runtime before the compute instance can be eligible for idle shutdown. You also can't have any active [VS Code (Web)](./vscode-web.md) sessions hosted on the compute instance.
+> The compute can't be idle if you have [prompt flow runtime](./create-manage-runtime.md) in **Running** status on the compute. You need to delete any active runtime before the compute instance can be eligible for idle shutdown. You also can't have any active [VS Code (Web)](./develop-in-vscode.md) sessions hosted on the compute instance.
 
 The setting can be configured during compute instance creation or for existing compute instances.
 

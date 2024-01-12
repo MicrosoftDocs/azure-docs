@@ -57,6 +57,11 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
     * Customers don't own the default outbound access IP. This IP might change, and any dependency on it could cause issues in the future.
 
+Some examples of configurations that will not work when using default outbound access:
+- When you have multiple NICs on the same VM, note that default outbound IPs will not consistently be the same across all NICs.
+- When scaling up/down Virtual Machine Scale sets, default outbound IPs assigned to individual instances can and will often change.
+- Similarly, default outbound IPs are not consistent or contigious across VM instances in a Virtual Machine Scale Set.
+
 ## How can I transition to an explicit method of public connectivity (and disable default outbound access)?
  
 There are multiple ways to turn off default outbound access. The following sections describe the options available to you.
