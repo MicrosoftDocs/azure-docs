@@ -21,7 +21,7 @@ This article walks you through the process of onboarding to [Provisioned Through
 
 ## Sizing and estimation: provisioned managed only
 
-Determining the right amount of provisioned throughput, or PTUs, you require for your workload is an essential step to optimizing performance and cost. This article describes how to use the Azure OpenAI capacity planning tool. The tool will provide you an estimate of the required PTU and cost of your workload.
+Determining the right amount of provisioned throughput, or PTUs, you require for your workload is an essential step to optimizing performance and cost. This section describes how to use the Azure OpenAI capacity planning tool. The tool provides you an estimate of the required PTU.
 
 ### Estimate provisioned throughput and cost
 
@@ -55,7 +55,7 @@ The total number of PTUs you can purchase via commitments is limited to the amou
 |Scope |Quota is specific to a subscription and region, and is shared across all Azure OpenAI resources | Commitments are an attribute of an Azure OpenAI resource, and are scoped to deployments within that resource.  A subscription might contain as many active commitments as there are resources.|
 |Granularity| Quota is granted specific to a model family (for example, GPT-4) but is shareable across model versions within the family| Commitments aren't model or version specific.  for example A resource’s 1000 PTU commitment can cover deployments of both GPT-4 and GPT-35-Turbo|
 |Capacity guarantee| Having quota doesn't guarantee that capacity is available when you create the deployment| Capacity availability to cover committed PTUs is guaranteed as long as the commitment is active.|
-|Increases/Decreases| New quota can be requested and approved at any time, independent of your commitment renewal dates | The number of PTUs covered by a commitment can be increased at any time, but may not be decreased except at the time of renewal.|
+|Increases/Decreases| New quota can be requested and approved at any time, independent of your commitment renewal dates | The number of PTUs covered by a commitment can be increased at any time, but can not be decreased except at the time of renewal.|
 
 Quota and commitments work together to govern the creation of deployments within your subscriptions.  To create a provisioned deployment, two criteria must be met:
 
@@ -64,7 +64,7 @@ Quota and commitments work together to govern the creation of deployments within
 
 ### Commitment Properties and Charging Model
 
-A commitment is defined by several properties.
+A commitment includes several properties.
 
 |Property|Description|When Set|
 |---|---|---|
@@ -72,13 +72,13 @@ A commitment is defined by several properties.
 |Committed PTUs| The number of PTUs covered by the commitment. | Initially set at commitment creation, and can be increased at any time, but not decreased.|
 |Term| The term of the commitment. A commitment expires one month from its creation date. The renewal policy defines what happens next. | Commitment creation |
 |Expiration Date| The expiration date of the commitment. This time of expiration is midnight UTC.| Initially, 30 days from creation. However, the expiration date changes if the commitment is renewed.|
-|Renewal Policy| There are three options for what to do upon expiration: <br><br> - Autorenew:  A new commitment term begins for another 30 days at the current number of PTUs <br>- Autorenew with different settings: This setting is the same as *Autorenew*, except that the number of PTUs committed upon renewal can be decreased <br>- Don't autorenew: Upon expiration, the commitment ends and is not renewed.| Initially set at commitment creation, and can be changed at any time.|
+|Renewal Policy| There are three options for what to do upon expiration: <br><br> - Autorenew:  A new commitment term begins for another 30 days at the current number of PTUs <br>- Autorenew with different settings: This setting is the same as *Autorenew*, except that the number of PTUs committed upon renewal can be decreased <br>- Don't autorenew: Upon expiration, the commitment ends and isn't renewed.| Initially set at commitment creation, and can be changed at any time.|
 
 ### Commitment Charges
 
 Provisioned Throughput Commitments generate charges against your Azure subscription at the following times:
 
-- At commitment creation.  The charge is computed according to the current monthly PTU rate and the number of PTUs committed.   You will recieve a single up-front charge on your invoice.
+- At commitment creation.  The charge is computed according to the current monthly PTU rate and the number of PTUs committed.   you'll recieve a single up-front charge on your invoice.
 
 - At commitment renewal.  If the renewal policy is set to autorenew, a new monthly charge is generated based on the PTUs committed in the new term.  This will appear as a single up-front charge on your invoice.
 

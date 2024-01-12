@@ -24,11 +24,11 @@ This looks at the overall capacity of your deployment – how many requests per 
 
 For a standard deployment, the quota assigned to your deployment partially determines the amount of throughput you can achieve. However, quota only determines the admission logic for calls to the deployment and isn't directly enforcing throughput. Due to per-call latency variations, you might not be able to achieve throughput as high as your quota. [Learn more on managing quota](./quota.md).
 
-In a provisioned deployment, we allocate a set amount of model processing capacity for your endpoint. The amount of throughput that you can achieve on the endpoint is a factor of the input size, output size, call rate and cache match rate. The number of concurrent calls and total tokens processed can vary based on these values. The following steps walk through how to assess the throughput you can get a given worklaod in a provisioned deployment:
+In a provisioned deployment, A set amount of model processing capacity is allocated to your endpoint. The amount of throughput that you can achieve on the endpoint is a factor of the input size, output size, call rate and cache match rate. The number of concurrent calls and total tokens processed can vary based on these values. The following steps walk through how to assess the throughput you can get a given workload in a provisioned deployment:
 
 1.	Use the Capacity calculator for a sizing estimate. 
 
-2.	Benchmark the load using real traffic workload. Measure the utilization & tokens processed metrics from Azure Monitor. Run for an extended period. The [Azure OpenAI Benchmarking repository](https://aka.ms/aoai/benchmarking) contains code for running this on your deployment. This code can be extended to use your own data and workload characteristics, which will be the most accurate. 
+2.	Benchmark the load using real traffic workload. Measure the utilization & tokens processed metrics from Azure Monitor. Run for an extended period. The [Azure OpenAI Benchmarking repository](https://aka.ms/aoai/benchmarking) contains code for running the benchmark. Finally, the most accurate approach is to run a  test with your own data and workload characteristics.
 
 Here are a few examples for GPT-4 0613 model:
 
@@ -38,40 +38,45 @@ Here are a few examples for GPT-4 0613 model:
 | 1000 |	50 |	300	| 700 |
 | 5000 |	100 | 	50 |	600 |
 
-Once you understand the number of PTUs that are required for a given workload you can expect the number of PTUs to scale roughly linearly with call rate (might be slightly sublinear ) when the workload distribution remains constant.
+The number of PTUs scales roughly linearly with call rate (might be sublinear) when the workload distribution remains constant.
 
 
 ### Latency: The per-call response times 
 
-The high level definition of latency in this context is the amount of time it takes to get a response back from the model. For completion and chat completion requests, latency is largely dependent on model type as well as the number of tokens generated and returned. The number of tokens sent to the model as part of the input token limit, has a smaller overall affect on latency.
+The high level definition of latency in this context is the amount of time it takes to get a response back from the model. For completion and chat completion requests, latency is largely dependent on model type, the number of tokens in the prompt and the number of tokens generated. In general, each prompt token adds little time compared to each incremental token generated.
 
-Estimating your expected per-call latency can be challenging with these models. Latency of a completion request can vary based on four primary factors: (1) the model, (2) the number of tokens in the prompt, (3) the number of tokens generated, and (4) the overall load on the deployment & system. The overall time is primarily determined by 1 and 3. The next section goes into more details on the anatomy of a large language model inference call.
+Estimating your expected per-call latency can be challenging with these models. Latency of a completion request can vary based on four primary factors: (1) the model, (2) the number of tokens in the prompt, (3) the number of tokens generated, and (4) the overall load on the deployment & system. One and three are often the main contributors to the total time. The next section goes into more details on the anatomy of a large language model inference call.
 
 ## Improve performance
 There are several factors that you can control to improve per-call latency of your application.
 
 ### Model selection
 
-Latency varies based on what model you're using. For an identical request, it's expected that different models have different latencies for the chat completions call. If your use case requires the lowest latency models with the fastest response times, we recommend the latest models in the [GPT-3.5 Turbo model series](../concepts/models.md#gpt-35-models).
+Latency varies based on what model you're using. For an identical request, expect that different models have different latencies for the chat completions call. If your use case requires the lowest latency models with the fastest response times, we recommend the latest models in the [GPT-3.5 Turbo model series](../concepts/models.md#gpt-35-models).
 
 ### Generation size and Max tokens
 
 When you send a completion request to the Azure OpenAI endpoint, your input text is converted to tokens that are then sent to your deployed model. The model receives the input tokens and then begins generating a response. It's an iterative sequential process, one token at a time. Another way to think of it is like a for loop with `n tokens = n iterations`. For most models, generating the response is the slowest step in the process.  
 
-At the time of the request the requested generation size (max_tokens parameter) is used as an initial estimate of the generation size. The compute-time for generating the full size is then reserved by the model as the request is processed. Once the generation is completed, the remaining quota is released. Ways to reduce the number of tokens:
+At the time of the request, the requested generation size (max_tokens parameter) is used as an initial estimate of the generation size. The compute-time for generating the full size is reserved the model as the request is processed. Once the generation is completed, the remaining quota is released. Ways to reduce the number of tokens:
 o	Set the `max_token` parameter on each call as small as possible.
 o	Include stop sequences to prevent generating extra content. 
-o	Generate fewer responses: best_of & n: parameters can greatly increase latency if they're configured to generate multiple outputs, which occurs when these parameters are set to values greater than 1.
+o	Generate fewer responses: The best_of & n parameters can greatly increase latency because they  generate multiple outputs. For the fastest response, either don't specify these values or set them to 1.
 
-Reducing the number of tokens generated per request will reduce the latency of each request.
+In summary, reducing the number of tokens generated per request reduces the latency of each request.
 
 ### Streaming
+Setting `stream: true` in a request makes the service return tokens as soon as they're available, instead of waiting for the full sequence of tokens to be generated. It doesn't change the time to get all the tokens, but it reduces the time for first response. This aproach provides a better user experience since end-suers can read the response as it is generated. 
+
+Streaming is also valuable with large calls that take a long time to process. Many clients and intermediary layers have timeouts on individual calls. Long generation calls might be cancelled due to client-side time outs. By streaming the data back, you can ensure incremental data is received. 
+
+
 
 **Examples of when to use streaming**:
 
 Chat bots and conversational interfaces.
 
-Streaming impacts perceived latency. If you have streaming enabled you'll receive tokens back in chunks as soon as they're available. From a user perspective, this often feels like the model is responding faster even though the overall time to complete the request remains the same.
+Streaming impacts perceived latency. With streaming enabled you receive tokens back in chunks as soon as they're available. For end-users, this approach often feels like the model is responding faster even though the overall time to complete the request remains the same.
 
 **Examples of when streaming is less important**:
 
