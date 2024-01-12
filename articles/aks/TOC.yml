@@ -105,14 +105,14 @@
           href: network-observability-overview.md
     - name: Security
       items:
+        - name: Security concepts
+          href: concepts-security.md
         - name: Access and identity
           href: concepts-identity.md
         - name: Security vulnerability management
           href: concepts-vulnerability-management.md
         - name: Security Baseline
           href: /security/benchmark/azure/baselines/aks-security-baseline?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Container Security
-          href: concepts-security.md
         - name: Confidential Containers security policy
           href: ../confidential-computing/confidential-containers-aks-security-policy.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Security controls by Azure Policy
