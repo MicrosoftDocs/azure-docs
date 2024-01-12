@@ -18,7 +18,7 @@ This article discusses how rate limiting works for ExpressRoute circuits created
 
 An ExpressRoute circuit consists of two links that connects the Customer/Provider edge to the Microsoft Enterprise Edge (MSEE) routers. If your circuit bandwidth is 1 Gbps and you distribute your traffic evenly across both links, you can achieve a maximum throughput of 2 Gbps (two links * 1 Gbps). Rate limiting restricts your throughput to the configured bandwidth if you exceed it on either link. The ExpressRoute circuit SLA is only guaranteed for the bandwidth that you configured. For example, if you purchased a 1-Gbps circuit, you're guaranteed a maximum throughput of 1 Gbps.
 
-:::image type="content" source="./media/provider-rate-limit/circuit.png" alt-text="Screenshot of the throughput per seconds metrics for an ExpressRoute Direct circuit.":::
+:::image type="content" source="./media/provider-rate-limit/circuit.png" alt-text="Diagram of rate limiting on an ExpressRoute circuit over provider ports.":::
 
 ## How can I determine what my circuit throughput is?
 
