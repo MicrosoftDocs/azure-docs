@@ -42,11 +42,12 @@ The following diagram shows the architecture of the system:
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-- An Azure subscription and one of the following roles:
+- An Azure subscription. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- One of the following roles:
   - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
   - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
   - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
-See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites) for more information. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+For more information, see [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites).
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
@@ -54,11 +55,12 @@ See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pi
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-- An Azure subscription and one of the following roles:
+- An Azure subscription, If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- One of the following roles:
   - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
   - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
   - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
-See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites) for more information. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+For more information, see [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites).
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
@@ -73,22 +75,24 @@ See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pi
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-- An Azure subscription and one of the following roles:
+- An Azure subscription, If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- One of the following roles:
   - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
   - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
   - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
-See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites) for more information. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+For more information, see [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-- An Azure subscription and one of the following roles:
+- An Azure subscription, If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- One of the following roles:
   - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
   - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
   - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
-See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites) for more information. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+For more information, see [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
