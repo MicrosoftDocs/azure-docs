@@ -458,7 +458,7 @@ To deploy the application, you use a manifest file to create all the objects req
 
 ## Delete the cluster
 
-If you don't plan on going through the following tutorials, clean up unnecessary resources to avoid Azure charges.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges.
 
 ### [Azure CLI](#tab/azure-cli)
 
