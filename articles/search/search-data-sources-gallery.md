@@ -2373,7 +2373,7 @@ BA Insight's SharePoint Connector allows you to connect to SharePoint 2019, fetc
 
 by [Accenture](https://www.accenture.com)
 
-The SharePoint connector will crawl content from any SharePoint site collection URL. The connector will retrieve Sites, Lists, Folders, List Items and Attachments, as well as other pages (in .aspx format). Supports SharePoint running in the Microsoft O365 offering.
+The SharePoint connector will crawl content from any SharePoint site collection URL. The connector will retrieve Sites, Lists, Folders, List Items and Attachments, as well as other pages (in .aspx format). Supports SharePoint running in the Microsoft 365 offering.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/SharePoint+Online+Connector)
 
