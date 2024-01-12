@@ -119,7 +119,7 @@ The following code shows you how to parse the results of the various Analyze ope
 
 ### Exceptions
 
-The `analyze` methods throw [HttpResponseException](https://learn.microsoft.com/java/api/com.azure.core.exception) when the service responds with a non-success HTTP status code. The exception's `getResponse().getStatusCode()` holds the HTTP response status code. The exception's `getMessage()` contains a detailed message that allows you to diagnose the issue:
+The `analyze` methods throw [HttpResponseException](/java/api/com.azure.core.exception) when the service responds with a non-success HTTP status code. The exception's `getResponse().getStatusCode()` holds the HTTP response status code. The exception's `getMessage()` contains a detailed message that allows you to diagnose the issue:
 
 ```java
 try {
@@ -151,7 +151,7 @@ Message: Status code 400, "{"error":{"code":"InvalidRequest","message":"Image fo
 
 ### Enable HTTP request/response logging
 
-Reviewing the HTTP request sent or response received over the wire to the Image Analysis service can be useful in troubleshooting. The Image Analysis client library supports a built-in console logging framework for temporary debugging purposes. It also supports more advanced logging using the [SLF4J](https://www.slf4j.org/) interface. For detailed information, see [Use logging in the Azure SDK for Java](https://learn.microsoft.com/azure/developer/java/sdk/troubleshooting-overview#use-logging-in-the-azure-sdk-for-java).
+Reviewing the HTTP request sent or response received over the wire to the Image Analysis service can be useful in troubleshooting. The Image Analysis client library supports a built-in console logging framework for temporary debugging purposes. It also supports more advanced logging using the [SLF4J](https://www.slf4j.org/) interface. For detailed information, see [Use logging in the Azure SDK for Java](/azure/developer/java/sdk/troubleshooting-overview#use-logging-in-the-azure-sdk-for-java).
 
 The sections below discusses enabling console logging using the built-in framework.
 
@@ -185,7 +185,7 @@ ImageAnalysisClient client = new ImageAnalysisClientBuilder()
     .buildClient();
 ```
 
-The enum [HttpLogDetailLevel](https://learn.microsoft.com/java/api/com.azure.core.http.policy.httplogdetaillevel) defines the supported logging levels.
+The enum [HttpLogDetailLevel](/java/api/com.azure.core.http.policy.httplogdetaillevel) defines the supported logging levels.
 
 By default, when logging, certain HTTP header and query parameter values are redacted. It is possible to override this default by specifying which headers and query parameters are safe to log:
 
