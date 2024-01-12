@@ -20,7 +20,7 @@ To send data from a Prometheus server by using remote write, you need:
 
 - An [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md). If you don't already have a workspace, you must [create a new workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace).
 
-## Register a Microsoft Entra application for remote write
+## Register an application with Microsoft Entra ID
 
 1. Complete the steps to [register an application with Microsoft Entra ID](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) and create a service principal.
 
@@ -47,7 +47,7 @@ The application must have the Monitoring Metrics Publisher role for the data col
 
 1. In the Azure portal, go to the instance of Azure Monitor for your subscription.
 
-1. On the resource menu under **Settings**, select **Data Collection Rules**.
+1. On the resource menu, select **Data Collection Rules**.
 
 1. Select the data collection rule that is associated with your Azure Monitor workspace.
 
@@ -57,13 +57,15 @@ The application must have the Monitoring Metrics Publisher role for the data col
 
 1. Select the **Monitoring Metrics Publisher** role, and then select **Next**.
 
-1. Select **User, group, or service principal**, and then choose **Select members**. Select the application that you created, and then choose **Select**.
+1. Select **User, group, or service principal**, and then choose **Select members**. Select the application that you registered, and then choose **Select**.
 
-1. Select **Review + assign** to complete the role assignment.
+1. To complete the role assignment, select **Review + assign**.
 
 ## Create a secret in your Azure Red Hat OpenShift cluster
 
-To authenticate by using a remote write endpoint, you use the OAuth 2.0 authentication method from the [supported remote write authentication settings](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#supported_remote_write_authentication_settings_configuring-the-monitoring-stack). To begin, create a secret by using the client ID and client secret:
+To authenticate by using a remote write endpoint, you use the OAuth 2.0 authentication method from the [supported remote write authentication settings](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#supported_remote_write_authentication_settings_configuring-the-monitoring-stack).
+
+To begin, create a secret by using the client ID and client secret:
 
 ```yaml
 cat << EOF | oc apply -f -

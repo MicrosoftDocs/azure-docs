@@ -26,13 +26,13 @@ The process to set up Prometheus remote write for an application by using Micros
 1. Assign the Monitoring Metrics Publisher role to the user-assigned managed identity.
 1. Create an Azure identity binding.
 1. Add the aadpodidbinding label to the Prometheus pod.
-1. Deploy a sidecar container to set up remote write on the Prometheus server.
+1. Deploy a sidecar container to set up remote write on the Prometheus cluster.
 
 The tasks are described in the following sections.
 
 ### Register a user-assigned managed identity with Microsoft Entra ID
 
-Create a user-assigned managed identity or use an existing user-assigned managed identity.
+Create a user-assigned managed identity or register an existing user-assigned managed identity.
 
 For information about creating a managed identity, see [Set up remote write for Azure Monitor managed service for Prometheus by using managed identity authentication](./prometheus-remote-write-managed-identity.md#get-the-client-id-of-the-user-assigned-managed-identity).
 
@@ -44,7 +44,7 @@ az role assignment create --role "Managed Identity Operator" --assignee <managed
 az role assignment create --role "Virtual Machine Contributor" --assignee <managed identity clientID> --scope <Node ResourceGroup Id> 
 ```  
 
-The node resource group of the AKS cluster contains resources that you use in other steps in this process. This resource group has the name MC_\<AKS-RESOURCE-GROUP\>_\<AKS-CLUSTER-NAME\>_\<REGION\>. You can find the resource group name by using the **Resource groups** menu in the Azure portal.
+The node resource group of the AKS cluster contains resources that you use in other steps in this process. This resource group has the name `MC_<AKS-RESOURCE-GROUP>_<AKS-CLUSTER-NAME>_<REGION>`. You can find the resource group name by using the **Resource groups** menu in the Azure portal.
 
 ### Assign the Monitoring Metrics Publisher role to the user-assigned managed identity
 
@@ -78,9 +78,9 @@ kubectl create -f aadpodidentitybinding.yaml
 
 ### Add the aadpodidbinding label to the Prometheus pod
 
-The `aadpodidbinding` label must be added to the Prometheus pod for the pod-managed identity to take effect. You can do this by updating the *deployment.yaml* file or by injecting labels when you deploy the sidecar as described in the next step.
+The `aadpodidbinding` label must be added to the Prometheus pod for the pod-managed identity to take effect. You can add the label by updating the *deployment.yaml* file or by injecting labels when you deploy the sidecar container as described in the next section.
 
-### Deploy a sidecar container to set up remote write on the Prometheus server
+### Deploy a sidecar container to set up remote write on the Prometheus cluster
 
 1. Copy the following YAML and save it to a file. The YAML uses port 8081 as the listening port. If you use a different port, modify that value in the YAML.
 

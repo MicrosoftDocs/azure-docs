@@ -53,7 +53,7 @@ export SERVICE_ACCOUNT_NAME="<name of service account associated with Prometheus
 export SERVICE_ACCOUNT_ISSUER="<your service account issuer URL>"
 ```  
 
-For `SERVICE_ACCOUNT_NAME`, check to see whether a service account (separate from the *default* service account) is already associated with the Prometheus pod. Look for the value of `serviceaccountName` or `serviceAccount` (deprecated) in the `spec` of your Prometheus pod. Use this value if it exists. If `serviceaccountName` or `serviceAccount` don't exist , enter the name of the service account you want to associate with your Prometheus pod.
+For `SERVICE_ACCOUNT_NAME`, check to see whether a service account (separate from the *default* service account) is already associated with the Prometheus pod. Look for the value of `serviceaccountName` or `serviceAccount` (deprecated) in the `spec` of your Prometheus pod. Use this value if it exists. If `serviceaccountName` or `serviceAccount` don't exist, enter the name of the service account you want to associate with your Prometheus pod.
 
 ### Create a Microsoft Entra application or user-assigned managed identity and grant permissions
 

@@ -79,7 +79,7 @@ The application must have the Monitoring Metrics Publisher role on the data coll
 
     :::image type="content" source="media/prometheus-remote-write-active-directory/select-application.png" alt-text="Screenshot that shows selecting the application." lightbox="media/prometheus-remote-write-active-directory/select-application.png":::
 
-1. Select **Review + assign** to complete the role assignment.
+1. To complete the role assignment, select **Review + assign**.
 
 ### Create an Azure key vault and generate a certificate
 
@@ -177,5 +177,5 @@ For verification and troubleshooting information, see [Azure Monitor managed ser
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
 - [Remote write in Azure Monitor managed service for Prometheus](prometheus-remote-write.md)
 - [Set up remote write for Azure Monitor managed service for Prometheus by using managed identity authentication](./prometheus-remote-write-managed-identity.md)
-- [Set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra Workload ID (preview)](./prometheus-remote-write-azure-workload-identity.md)
-- [Set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)
+- [Set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra Workload ID (preview) authentication](./prometheus-remote-write-azure-workload-identity.md)
+- [Set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra pod-managed identity (preview) authentication](./prometheus-remote-write-azure-ad-pod-identity.md)
