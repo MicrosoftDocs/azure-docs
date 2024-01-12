@@ -307,7 +307,7 @@ If you provide an incorrect app port value when running an Azure Functions app, 
       ```bash
       DaprConfig: {
         ...
-          appPort: <DAPR_APP_PORT>
+        appPort: <DAPR_APP_PORT>
         ...
       }
       ```
@@ -317,7 +317,7 @@ If you provide an incorrect app port value when running an Azure Functions app, 
       ```
       annotations:
         ...
-          dapr.io/app-port: "<DAPR_APP_PORT>"
+        dapr.io/app-port: "<DAPR_APP_PORT>"
         ...
       ```
 
