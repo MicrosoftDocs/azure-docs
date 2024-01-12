@@ -123,7 +123,7 @@ Content-Type:application/fhir+json
 
 Once $import is initiated, an empty response body with a **callback** link is returned in the `Content-location` header of the response together with ```202-Accepted``` status code. Store  this callback link to check the import status.
 
-When using $import, remember it doesn't support updating files in place. Always change the file name if you make any edits after the first import. Using the same file name can make the FHIR service ignore your updated file for import. 
+$import operation registration is implemented as idempotent call (same registration payload yields same registration). This affects ability to re-process files with the same name. Refrain from updating files in-place, instead we suggest you use different file name for updated data, or, if update in-place with same file name is unavoidable, add e-tags in the registration payload.
 
 To check import status, make the REST call with the ```GET``` method to the **callback** link returned in the previous step.
 You can interpret the response using the following table:
