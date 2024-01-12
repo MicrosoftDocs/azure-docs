@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.topic: how-to 
 ms.date: 01/12/2024
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Migrate function apps from Azure Service Bus extension version 4.x to version 5.x 
