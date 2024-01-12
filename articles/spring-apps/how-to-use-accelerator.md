@@ -387,7 +387,7 @@ Use the following steps to install the extension and configure it properly:
 
    Search "Tanzu App Accelerator" in Extensions in VS Code and click install button to install the [extension](https://marketplace.visualstudio.com/items?itemName=vmware.tanzu-app-accelerator).
 
-2. Assign developer tools endpoint for your Azure Spring Apps service instance.
+1. Assign developer tools endpoint for your Azure Spring Apps service instance.
 
    Go to **Developer Tools** pane and click the **Assign endpoint** button to generate endpoint URL.
 
@@ -395,7 +395,7 @@ Use the following steps to install the extension and configure it properly:
 
    The `Developer Tools URL` is part of "App Live View URL" or "App Accelerator URL". Its value is similar to `https://tx-enterprise-devtoolportal-552d9.svc.azuremicroservices.io/`
 
-3. Config Tanzu Application Platform GUI URL in VS Code extension settings.
+1. Config Tanzu Application Platform GUI URL in VS Code extension settings.
 
    **Tanzu Application Platform GUI URL**: The URL to an instance of the Tanzu Developer Portal. Used to fetch the catalog of accelerators.
 
@@ -403,7 +403,7 @@ Use the following steps to install the extension and configure it properly:
 
    The remaining parameters, such as **Azure Issuer URL** and **Azure Client ID**, are explained in the section of [Support Single-Sign-On for Tanzu Developer Portal URL](./how-to-use-accelerator.md#support-single-sign-on-for-tanzu-developer-portal-url).
 
-4. Access the extension and you will see the accelerator list and you can click any accelerator project to do further actions.
+1. Access the extension and you will see the accelerator list and you can click any accelerator project to do further actions.
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot that shows the VS Code extension accelerator list." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
 
@@ -428,7 +428,7 @@ To support SSO for Tanzu Developer Portal URL, some configuration changes need t
 
    **Metadata URL**: The URI of a JSON file with generic OIDC provider configuration. The value of this URL is in format: `https://login.microsoftonline.com/<tenant id>/v2.0/.well-known/openid-configuration`.
 
-2. Assign developer tools endpoint for your Azure Spring Apps service instance.
+1. Assign developer tools endpoint for your Azure Spring Apps service instance.
 
    Go to **Developer Tools** pane and click the **Assign endpoint** button to generate endpoint URL.
 
@@ -436,9 +436,9 @@ To support SSO for Tanzu Developer Portal URL, some configuration changes need t
 
    The `Developer Tools URL` is part of "App Live View URL" or "App Accelerator URL", something like `https://tx-enterprise-devtoolportal-552d9.svc.azuremicroservices.io/`
 
-3. Access the `Developer Tools URL` will bring up an authentication window. Once you successfully login your account you can access the Dev Tools Portal.
+1. Access the `Developer Tools URL` will bring up an authentication window. Once you successfully login your account you can access the Dev Tools Portal.
 
-4. Config application registration configurations.
+1. Config application registration configurations.
 
    Go to the **Authentication** pane for your Microsoft Entra app and add redirect URIs to Platform configurations as listed below.
 
@@ -449,7 +449,7 @@ To support SSO for Tanzu Developer Portal URL, some configuration changes need t
 
    :::image type="content" source="media/how-to-use-accelerator/app-configuration-single-sign-on.png" alt-text="Screenshot that shows Microsoft Entra app configuration." lightbox="media/how-to-use-accelerator/app-configuration-single-sign-on.png":::
 
-5. Change the configuration settings of extension.
+1. Change the configuration settings of extension.
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-settings-single-sign-on.png" alt-text="Screenshot that shows the VS Code extension settings for SSO." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-settings-single-sign-on.png":::
 
@@ -461,7 +461,7 @@ To support SSO for Tanzu Developer Portal URL, some configuration changes need t
    **Azure Client ID (Optional)**: The OIDC Client ID provided by Azure Springs Applications Enterprise configuration.
    Leave this field empty, if your Tanzu Developer Portal does not require authentication.
 
-6. Access the extension and you will see the windows popup as shown in picture below.
+1. Access the extension and you will see the windows popup as shown in picture below.
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-popup.png" alt-text="Screenshot that shows the VS Code extension popup windows." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-popup.png":::
 
@@ -473,7 +473,7 @@ To support SSO for Tanzu Developer Portal URL, some configuration changes need t
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-allow-open.png" alt-text="Screenshot that shows the allow open windows." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-allow-open.png":::
 
-10. Click **Open** and you will see the accelerator list and you can click any accelerator project to do further actions.
+1. Click **Open** and you will see the accelerator list and you can click any accelerator project to do further actions.
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot that shows the VS Code extension accelerator list." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
 
@@ -484,7 +484,7 @@ When you set up a private Git repository and enable HTTPS with a self-signed cer
 Use the following steps to configure accelerators with a self-signed certificate:
 
 1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
-2. Configure the certificate for the accelerator by using the Azure portal or the Azure CLI.
+1. Configure the certificate for the accelerator by using the Azure portal or the Azure CLI.
 
 #### [Azure portal](#tab/Portal)
 
