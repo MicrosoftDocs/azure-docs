@@ -223,7 +223,7 @@ You can access resources in a storage account by any language that can make HTTP
 
 ### Azure Storage data movement API
 
-- [Storage Data Movement Client Library for .NET](../common/storage-use-data-movement-library)
+- [Storage Data Movement Client Library for .NET](storage-use-data-movement-library.md)
 
 ### Tools and utilities
 
