@@ -4,7 +4,7 @@ description: Use the Azure CLI to create and update APIs, API versions, and API 
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 01/12/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to automate processes to register and update APIs in my Azure API center.
@@ -48,22 +48,6 @@ By default, the command sets the API's **Lifecycle stage** to *design*.
 > After creating an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update) command.
 
 
-<!-- `kind' parameter appears to be required but isn't documented that way in command help -->
-
-<!-- Need to find out how metadata works and whether custom metadata covers just the custom properties or also built-in  
-
-You can set more API properties using other command parameters. For example, set [metadata properties](key-concepts.md#metadata-properties) you've defined for APIs by passing values using the `--custom-properties` parameter:
-
-
-
-```azurecli-interactive
-az apic api create \
-    --resource-group myResourceGroup --service myAPICenter \
-    --name petstore-api --title "Petstore API" --kind "rest" \
-    --custom-properties '{"lifecycleStage":"Design","apiType":"OpenAPI"}'
-```
--->
-
 ### 2. Create an API version
 
 Use the [az apic api version create](/cli/azure/apic/api/version#az_apic_api_version_create) command to create a version for your API. 
@@ -75,7 +59,6 @@ az apic api version create --resource-group myResourceGroup \
     --service myAPICenter --api-name petstore-api \
     --version v1-0-0 --title "v1-0-0"
 ```
-<!-- title param is supposed to be optional but command fails without it -->
 
 ### 3. Create API definition and add specification file 
 
@@ -110,6 +93,19 @@ az apic api definition import-specification \
 > [!TIP]
 > You can import the specification file inline by setting the `--format` parameter to `inline` and passing the file contents using the `--value` parameter.
 
+### Export a specification file
+
+To export an API specification from your API center to a local file, use the [az apic api definition export-specification](/cli/azure/apic/api/definition#az_apic_api_definition_export_specification) command.
+
+The following example exports the specification file from the *openapi* definition that you created in the previous section to a local file named *specificationFile.json*.
+
+```azurecli-interactive
+az apic api definition export-specification \
+    --resource-group myResourceGroup --service myAPICenter \
+    --api-name petstore-api --version-name v1-0-0 \
+    --definition-name openapi --file-name "/Path/to/specificationFile.json"
+```
+
 ## Register API from a specification file - single step
 
 You can register an API from a local specification file in a single step by using the [az apic api register](/cli/azure/apic/api#az-apic-api-register) command. With this option, a default API version and definition are created automatically for the API.
@@ -128,7 +124,6 @@ az apic api register --resource-group myResourceGroup \
 
 After registering an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update), [az apic api version update](/cli/azure/apic/api/version#az_apic_api_version_update), and [az apic api definition update](/cli/azure/apic/api/definition#az_apic_api_definition_update) commands.
 
-
 ## Delete API resources
 
 Use the [az apic api delete](/cli/azure/apic/api#az_apic_api_delete) command to delete an API and all of its version and definition resources. For example:
@@ -143,4 +138,4 @@ To delete individual API versions and definitions, use [az apic api version dele
 
 ## Related content
 
-* See the [Azure CLI reference for API Center](/cli/azure/apic) for a complete command list and examples.
+See the [Azure CLI reference for API Center](/cli/azure/apic) for a complete command list, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata-schema), and [API Center services](/cli/azure/apic/service).
