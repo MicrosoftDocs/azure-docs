@@ -64,10 +64,10 @@ You can then choose any shared access policy from the **Shared access policy** d
 The SDKs you can use to connect to the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 
 | Language | SDK | Example |
-| -------- | --- | ------ |
+| -------- | --- | ------- |
 | .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [ReadD2cMessages .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/getting%20started/ReadD2cMessages) |
 | Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs |  |
-| Node.js | https://www.npmjs.com/package/@azure/event-hubs | Node.js | [read-d2c-messages Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
+| Node.js | https://www.npmjs.com/package/@azure/event-hubs | [read-d2c-messages Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
 | Python | https://pypi.org/project/azure-eventhub/ | [read-dec-messages Python](https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
 
 The product integrations you can use with the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
