@@ -201,16 +201,15 @@ You can cancel a rolling upgrade in progress using the Azure Portal by selecting
 
 
 ### [CLI](#tab/cli3)
-You can stop a rolling upgrade in progress using [az vmss rolling-upgrade cancel](/cli/azure/vmss#az-vmss-rolling-upgrade)
+You can stop a rolling upgrade in progress using [az vmss rolling-upgrade cancel](/cli/azure/vmss#az-vmss-rolling-upgrade). If you do not see any output after running the command, it means the cancel request was successful.
 
 ```azurecli
 az vmss rolling-upgrade cancel --name myScaleSet --resource-group myResourceGroup
 
-
 ```
 
 ### [PowerShell](#tab/powershell3)
-You can stop a rolling upgrade in progress using [Stop-AzVmssRollingUpgrade](/powershell/module/az.compute/stop-azvmssrollingupgrade)
+You can stop a rolling upgrade in progress using [Stop-AzVmssRollingUpgrade](/powershell/module/az.compute/stop-azvmssrollingupgrade).
 
 
 ```azurepowershell
