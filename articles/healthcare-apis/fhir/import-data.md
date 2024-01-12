@@ -123,6 +123,8 @@ Content-Type:application/fhir+json
 
 Once $import is initiated, an empty response body with a **callback** link is returned in the `Content-location` header of the response together with ```202-Accepted``` status code. Store  this callback link to check the import status.
 
+When using $import, remember it doesn't support updating files in place. Always change the file name if you make any edits after the first import. Using the same file name can make the FHIR service ignore your updated file for import. 
+
 To check import status, make the REST call with the ```GET``` method to the **callback** link returned in the previous step.
 You can interpret the response using the following table:
 
@@ -196,7 +198,6 @@ Incase the ID of the resource isn't known, do a history search on the entire res
 ## Troubleshooting
 
 Lets walk-through solutions to some error codes you may encounter during the import operation.
-
 ### 200 OK, but there's an error with the URL in the response
 
 **Behavior:** Import operation succeeds and returns ```200 OK```. However, `error.url` are present in the response body. Files present at the `error.url` location contain JSON fragments similar to below example:
