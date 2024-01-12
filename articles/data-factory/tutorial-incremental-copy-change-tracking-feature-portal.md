@@ -6,7 +6,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ---
 
 # Incrementally copy data from Azure SQL Database to Blob Storage by using change tracking in the Azure portal

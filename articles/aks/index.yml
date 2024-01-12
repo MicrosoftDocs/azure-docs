@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: mgoedtel
   ms.author: magoedte
-  ms.date: 09/26/2023
+  ms.date: 01/12/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -54,7 +54,7 @@ landingContent:
             url: ./learn/quick-kubernetes-deploy-cli.md
           - text: Azure PowerShell
             url: ./learn/quick-kubernetes-deploy-powershell.md
-          - text: Azure Portal
+          - text: Azure portal
             url: ./learn/quick-kubernetes-deploy-portal.md
           - text: Resource Manager template
             url: ./learn/quick-kubernetes-deploy-rm-template.md

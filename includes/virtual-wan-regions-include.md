@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 04/19/2022
+ ms.date: 12/15/2023
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -17,7 +17,7 @@ Virtual WAN is available for the following regions:
 |Geopolitical region | Azure regions|
 |---|---|
 | Australia Government | Australia Central, Australia Central 2 |
-| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Switzerland North, Switzerland West, West Europe, UK West, UK South |
+| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Switzerland North, Switzerland West, West Europe, UK West, UK South, Sweden Central |
 | North America | East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |
 | Asia | East Asia, Southeast Asia |
 | India | India West, India Central, India South |

@@ -170,7 +170,7 @@ landingContent:
             url: concept-metrics.md
       - linkListType: how-to-guide
         links:
-          - text: Stream app logs in real-time
+          - text: Stream app logs in real time
             url: how-to-log-streaming.md
           - text: Monitor using Application Insights
             url: how-to-application-insights.md

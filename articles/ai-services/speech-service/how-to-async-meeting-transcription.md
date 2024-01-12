@@ -2,7 +2,6 @@
 title: Asynchronous meeting transcription - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use asynchronous meeting transcription using the Speech service. Available for Java and C# only.
-#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to

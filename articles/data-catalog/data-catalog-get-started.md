@@ -1,10 +1,11 @@
 ---
-title: 'Quickstart: Create an Azure Data Catalog'
+title: Create an Azure Data Catalog
 description: This quickstart describes how to create an Azure Data Catalog using the Azure portal.
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 12/07/2022
+ms.date: 12/13/2023
 ms.custom: mode-ui
+ROBOTS: NOINDEX
 #Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
 
@@ -25,7 +26,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To get started, you need to have:
 
-* A [Microsoft Azure](https://azure.microsoft.com/) subscription.
+* A Microsoft Azure subscription.
 * You need to have your own [Microsoft Entra tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.
