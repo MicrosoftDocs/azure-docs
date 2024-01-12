@@ -20,11 +20,11 @@ You can protect your data and guard against extended downtime by creating VM res
 
 An individual VM restore point is a resource that stores VM configuration and point-in-time application-consistent snapshots of all the managed disks attached to the VM. You can use VM restore points to easily capture multidisk-consistent backups. VM restore points contain a disk restore point for each of the attached disks. A disk restore point consists of a snapshot of an individual managed disk.
 
-VM restore points support both application consistency and crash consistency (in preview). Fill out this [form](https://forms.office.com/r/LjLBt6tJRL) if you want to try crash-consistent restore points in preview.
+VM restore points support both application consistency and crash consistency.
 
 Application consistency is supported for VMs running Windows operating systems and support file system consistency for VMs running Linux operating systems. Application-consistent restore points use Volume Shadow Copy Service (VSS) writers (or pre- and postscripts for Linux) to ensure the consistency of the application data before a restore point is created. To get an application-consistent restore point, the application running in the VM needs to provide a VSS writer (for Windows) or pre- and postscripts (for Linux) to achieve application consistency.
 
-A multidisk crash-consistent VM restore point stores the VM configuration and point-in-time write-order-consistent snapshots for all managed disks attached to a VM. This information is the same as the status of data in the VM after a power outage or a crash. The `consistencyMode` optional parameter has to be set to `crashConsistent` in the creation request. This feature is currently in preview.
+A multidisk crash-consistent VM restore point stores the VM configuration and point-in-time write-order-consistent snapshots for all managed disks attached to a VM. This information is the same as the status of data in the VM after a power outage or a crash. The `consistencyMode` optional parameter has to be set to `crashConsistent` in the creation request.
 
 > [!NOTE]
 > For disks configured with read/write host caching, multidisk crash consistency can't be guaranteed because writes that occur while the snapshot is taken might not be acknowledged by Azure Storage. If maintaining consistency is crucial, we recommend that you use the application-consistency mode.
@@ -44,13 +44,27 @@ Currently, you can create restore points in only one VM at a time. You can't cre
 > [!NOTE]
 > A virtual machine scale set with Uniform orchestration isn't supported by restore points. You can't create restore points of VMs inside a virtual machine scale set with Uniform orchestration.
 
+## Throttling limits for Restore points
+
+**Scope** | **Operation** | **Limit**
+--- | --- | ---
+VM | RestorePoints.RestorePointOperation.PUT (Create new **Application Consistent**) | 3
+VM | RestorePoints.RestorePointOperation.PUT (Create new **Crash Consisten**t) | 3
+Target restore point collection | RestorePoints.RestorePointOperation.PUT (Copy any VM Restore Point) | 3
+
+The throttling would fail with error code 429. Please retry the operation after the specified duration.
+
 ## Limitations
 
 - Restore points are supported only for managed disks.
-- Ultra-disks, ephemeral OS disks, and shared disks aren't supported.
-- The API version for an application-consistent restore point is March 1, 2021, or later.
-- The API version for a crash-consistent restore point is July 1, 2021, or later (in preview).
-- A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections.
+- Ultra disks, Premium SSD v2 disks, Write-accelerated disks, Ephemeral OS disks, and shared disks aren't supported for crash consistency mode.
+- Ephemeral OS disks, and shared disks aren't supported for application consistency mode.
+- The API version for an application-consistent restore point is 2021-03-01, or later.
+- The API version for a crash-consistent restore point is 2021-07-01, or later.
+- Crash consistent restore point is supported on all Azure public regions.
+- Crash consistent restore point is supported for VM sizes that support Premium storage like DSv2.
+- Crash consistent restore points are not supported via portal. We will enable this soon.
+- A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections or consistency type.
 - Concurrent creation of restore points for a VM isn't supported.
 - Restore points for virtual machine scale sets in Uniform orchestration mode aren't supported.
 - Movement of VMs between resource groups or subscriptions isn't supported when the VM has restore points. Moving the VM between resource groups or subscriptions doesn't update the source VM reference in the restore point and causes a mismatch of Resource Manager IDs between the actual VM and the restore points.

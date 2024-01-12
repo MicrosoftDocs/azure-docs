@@ -105,14 +105,14 @@
           href: network-observability-overview.md
     - name: Security
       items:
+        - name: Security concepts
+          href: concepts-security.md
         - name: Access and identity
           href: concepts-identity.md
         - name: Security vulnerability management
           href: concepts-vulnerability-management.md
         - name: Security Baseline
           href: /security/benchmark/azure/baselines/aks-security-baseline?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Container Security
-          href: concepts-security.md
         - name: Confidential Containers security policy
           href: ../confidential-computing/confidential-containers-aks-security-policy.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Security controls by Azure Policy
@@ -321,8 +321,6 @@
               href: gpu-multi-instance.md
             - name: Node pool snapshot
               href: node-pool-snapshot.md
-            - name: Use multiple node pools
-              href: use-multiple-node-pools.md
             - name: Use system node pools
               href: use-system-pools.md
             - name: Resize node pools
@@ -348,7 +346,13 @@
         - name: Proximity placement groups
           href: reduce-latency-ppg.md
         - name: Cluster Autoscaler
-          href: cluster-autoscaler.md
+          items:
+            - name: Cluster Autoscaler overview
+              href: cluster-autoscaler-overview.md
+            - name: Use the Cluster Autoscaler on AKS
+              href: cluster-autoscaler.md
+        - name: Node autoprovision
+          href: node-autoprovision.md
         - name: Availability Zones
           href: availability-zones.md
     - name: Cluster management
@@ -376,7 +380,7 @@
             - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Scanning images in ACR registries
-              href: ../defender-for-cloud/defender-for-containers-introduction.mdtoc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Cluster security
           items:
             - name: Azure kubelogin
@@ -535,12 +539,6 @@
               href: istio-deploy-ingress.md
             - name: Use HTTP application routing add-on (retired)
               href: http-application-routing.md
-            - name: Use unmanaged ingress-nginx
-              items:
-                - name: Create an Ingress controller
-                  href: ingress-basic.md
-                - name: Use TLS with an ingress controller
-                  href: ingress-tls.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer

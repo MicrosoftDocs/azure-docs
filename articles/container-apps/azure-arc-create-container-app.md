@@ -91,7 +91,7 @@ The following example creates a Node.js app.
     --name $myContainerApp \
     --environment $myConnectedEnvironment \
     --environment-type connected \
-    --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+    --image mcr.microsoft.com/k8se/quickstart:latest \
     --target-port 80 \
     --ingress 'external'
 

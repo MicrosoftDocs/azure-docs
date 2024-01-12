@@ -4,7 +4,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 05/19/2022
+ms.date: 12/19/2023
 ms.author: aahi
 ---
 Use the following **GET** request to get your project details. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 

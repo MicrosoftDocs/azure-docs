@@ -39,6 +39,18 @@
       href: how-to/model-catalog.md
     - name: Azure AI capabilities
       href: how-to/models-foundation-azure-ai.md
+  - name: SDK and CLI
+    items:  
+    - name: Azure AI Generative SDK
+      items:
+      - name: Overview
+        href: how-to/sdk-generative-overview.md
+      - name: Get started with the Azure AI SDK
+        href: how-to/sdk-install.md
+    - name: Get started with the Azure AI CLI
+      href: how-to/cli-install.md
+    - name: Work with Azure AI projects in VS Code
+      href: how-to/develop-in-vscode.md
   - name: Create Azure AI projects and resources
     items:
     - name: Azure AI resources overview
@@ -47,6 +59,8 @@
       href: how-to/create-azure-ai-resource.md
     - name: Create an Azure AI project
       href: how-to/create-projects.md
+    - name: Create and manage compute
+      href: how-to/create-manage-compute.md
   - name: Data and connections
     items:
     - name: Connections
@@ -95,6 +109,8 @@
         href: how-to/prompt-flow-tools/prompt-tool.md
       - name: Python tool
         href: how-to/prompt-flow-tools/python-tool.md
+      - name: Azure OpenAI GPT-4 Turbo with Vision tool
+        href: how-to/prompt-flow-tools/azure-open-ai-gpt-4v-tool.md
       - name: Vector Index Lookup tool
         href: how-to/prompt-flow-tools/vector-index-lookup-tool.md
       - name: Content Safety tool
@@ -151,16 +167,6 @@
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
       href: how-to/troubleshoot-deploy-and-monitor.md
-  - name: Set up your development environment
-    items:
-    - name: Get started with the Azure AI SDK
-      href: how-to/sdk-install.md
-    - name: Get started with the Azure AI CLI
-      href: how-to/cli-install.md
-    - name: Get started with projects in VS Code (Web)
-      href: how-to/vscode-web.md
-    - name: Create and manage compute
-      href: how-to/create-manage-compute.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
@@ -205,6 +211,7 @@
   items:
   - name: Azure AI SDK for Python
     href: /python/api/overview/azure/ai
+    displayName: reference
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../ai-services/policy-reference.md?context=/azure/ai-studio/context/context

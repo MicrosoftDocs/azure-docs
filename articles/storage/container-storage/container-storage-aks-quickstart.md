@@ -114,7 +114,7 @@ If you intend to use Azure Elastic SAN Preview or Azure Disks as backing storage
 
 If you already have an AKS cluster deployed, skip this section and go to [Install Azure Container Storage on an existing AKS cluster](#install-azure-container-storage-on-an-existing-aks-cluster).
 
-Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. You'll need a node pool of at least three Linux VMs. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
+Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group-name>` with your own values, and specify which VM type you want to use. You'll need a node pool of at least three Linux VMs. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`.
 
 Optional storage pool parameters:
 
@@ -136,7 +136,7 @@ The deployment will take 10-15 minutes to complete.
 To get the list of available storage pools, run the following command:
 
 ```azurecli-interactive
-kubectl get sp –n acstor
+kubectl get sp -n acstor
 ```
 
 > [!IMPORTANT]

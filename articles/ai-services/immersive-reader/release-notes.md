@@ -15,6 +15,18 @@ ms.author: rwaller
 
 # Immersive Reader JavaScript SDK Release Notes
 
+## Version 1.4.0
+
+This release contains new feature, security vulnerability fixes, and updates to code samples.
+
+#### New Features
+
+* Subdomain regex validation updated to allow private links
+
+#### Improvements
+
+* Update code samples to use v1.4.0
+
 ## Version 1.3.0
 
 This release contains new features, security vulnerability fixes, and updates to code samples.

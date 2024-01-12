@@ -22,6 +22,7 @@ This page provides latest news and updates regarding feature additions, engine v
 ## Release: December 2023
 * Public preview of [Server logs](./how-to-server-logs-portal.md).
 * General availability of [TLS Version 1.3 support](./concepts-networking-ssl-tls.md#tls-versions).
+* General availability of [Microsoft Defender support](./concepts-security.md)
 
 ## Release: November 2023
 * General availability of PostgreSQL 16 for Azure Database for PostgreSQL – Flexible Server.

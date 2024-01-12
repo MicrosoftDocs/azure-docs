@@ -9,7 +9,11 @@ ms.custom: template-overview
 ms.service: certification
 ---
 
+
+
 # What is the Azure Certified Device program?
+> [!Note]
+> The Azure Certified Device program has met its goals and will conclude on February 23, 2024. This means that the Azure Certified Device catalog, along with certifications for Azure Certified Device, Edge Managed, and IoT Plug and Play will no longer be available after this date. However, the Edge Secured-core program will remain active and will be relocated to a new home at [aka.ms/EdgeSecuredCoreHome](https://aka.ms/EdgeSecuredCoreHome).
 
 Thank you for your interest in the Azure Certified Device program! Azure Certified Device is a free program that enables you to differentiate, certify, and promote your IoT devices built to run on Azure. From intelligent cameras to connected sensors to edge infrastructure, this enhanced IoT device certification program helps device builders increase their product visibility and saves customers time in building solutions.
 
