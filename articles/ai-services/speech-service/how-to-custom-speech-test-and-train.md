@@ -270,7 +270,7 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 
 ### Custom display text formatting data for training
 
-Learn more about [display text formatting with speech to text](./display-text-format.md).
+Learn more about [preparing display text formatting data](./how-to-custom-speech-display-text-format.md) and [display text formatting with speech to text](./display-text-format.md).
 
 Automatic Speech Recognition output display format is critical to downstream tasks and one-size doesn’t fit all. Adding Custom Display Format rules allows users to define their own lexical-to-display format rules to improve the speech recognition service quality on top of Microsoft Azure Custom Speech Service.
 
