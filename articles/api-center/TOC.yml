@@ -26,7 +26,7 @@
             href: configure-environments-deployments.md
 - name: API inventory
   items:
-      - name: Manage inventory with Azure CLI
+      - name: Manage inventory - Azure CLI
         href: manage-apis-azure-cli.md
 #- name: API governance
 #- name: API discovery and consumption

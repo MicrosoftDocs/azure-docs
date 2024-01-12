@@ -1,18 +1,18 @@
 ---
 title: Manage API inventory in Azure API Center - Azure CLI
-description: Use the Azure CLI to create and manage APIs, API versions, and API definitions in your Azure API center.
+description: Use the Azure CLI to create and update APIs, API versions, and API definitions in your Azure API center.
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 01/02/2024
+ms.date: 01/11/2024
 ms.author: danlep 
 ms.custom: 
-# Customer intent: As an API program manager, I want to automate processes to register and manage APIs in my Azure API center.
+# Customer intent: As an API program manager, I want to automate processes to register and update APIs in my Azure API center.
 ---
 
 # Use the Azure CLI to manage the API inventory
 
-This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md) inventory. You can use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
+This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md) inventory. Use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -24,7 +24,7 @@ This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in t
     [!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
     > [!NOTE]
-    > `az apic` commands require the `apic-extension` extension to the Azure CLI. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+    > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
 
 ## Register API, API version, and definition
 
@@ -37,14 +37,24 @@ Use the [az apic api create](/cli/azure/apic/api#az_apic_api_create) command to 
 The following example creates an API named *Petstore API* in the *myResourceGroup* resource group and *myAPICenter* API center. The API is a REST API.
 
 ```azurecli-interactive
-az apic api create  --resource-group myResourceGroup 
+az apic api create  --resource-group myResourceGroup \
     --service myAPICenter --name petstore-api \
     --title "Petstore API" --kind "rest"
 ```
 
-You can set more API properties using other command parameters. For example, set [metadata properties](key-concepts.md#metadata-properties) you've defined for APIs by passing values using the `--custom-properties` parameter:
+By default, the command sets the API's **Lifecycle stage** to *design*.
+
+> [!NOTE]
+> After creating an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update) command.
+
+
+<!-- `kind' parameter appears to be required but isn't documented that way in command help -->
 
 <!-- Need to find out how metadata works and whether custom metadata covers just the custom properties or also built-in  
+
+You can set more API properties using other command parameters. For example, set [metadata properties](key-concepts.md#metadata-properties) you've defined for APIs by passing values using the `--custom-properties` parameter:
+
+
 
 ```azurecli-interactive
 az apic api create \
@@ -53,9 +63,6 @@ az apic api create \
     --custom-properties '{"lifecycleStage":"Design","apiType":"OpenAPI"}'
 ```
 -->
-
-> [!NOTE]
-> After creating an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update) command.
 
 ### 2. Create an API version
 
@@ -88,7 +95,7 @@ az apic api definition create --resource-group myResourceGroup \
 
 Import a specification file to the definition using the [az apic api definition import-specification](/cli/azure/apic/api/definition#az_apic_api_definition_import_specification) command.
 
-The following example imports an OpenAPI specification file from a URL to the *openapi* definition that you created in the previous step. The `name` and `version` properties of the specification resource are passed as JSON. 
+The following example imports an OpenAPI specification file from a publicly accessible URL to the *openapi* definition that you created in the previous step. The `name` and `version` properties of the specification resource are passed as JSON. 
 
 
 ```azurecli-interactive
@@ -100,8 +107,10 @@ az apic api definition import-specification \
     --specification '{"name":"openapi","version":"3.0.2"}'
 ```
 
+> [!TIP]
+> You can import the specification file inline by setting the `--format` parameter to `inline` and passing the file contents using the `--value` parameter.
 
-## Register an API from a specification file - single step
+## Register API from a specification file - single step
 
 You can register an API from a local specification file in a single step by using the [az apic api register](/cli/azure/apic/api#az-apic-api-register) command. With this option, a default API version and definition are created automatically for the API.
 
@@ -110,10 +119,12 @@ The following example registers an API in the *myAPICenter* API center from a lo
 
 ```azurecli-interactive
 az apic api register --resource-group myResourceGroup \
-    --service myAPICenter --api-location "C:\Path\to\specificationFile.json"
+    --service myAPICenter --api-location "/Path/to/specificationFile.json"
 ```
 
-The command sets the API properties such as name and type from values in the definition file. It creates a default API version named *1-0-0* and a default definition named according to the specification format (for example, *openapi*).
+* The command sets the API properties such as name and type from values in the definition file. 
+* By default, the command sets the API's **Lifecycle stage** to *design*.
+* It creates a default API version named *1-0-0* and a default definition named according to the specification format (for example, *openapi*).
 
 After registering an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update), [az apic api version update](/cli/azure/apic/api/version#az_apic_api_version_update), and [az apic api definition update](/cli/azure/apic/api/definition#az_apic_api_definition_update) commands.
 
