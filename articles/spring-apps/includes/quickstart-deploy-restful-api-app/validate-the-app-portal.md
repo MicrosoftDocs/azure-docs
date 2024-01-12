@@ -17,7 +17,7 @@ You can now access the RESTful API to see if it works.
 
 ### 5.1. Request an access token
 
-The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you must register another application in Microsoft Entra ID and grant permissions to the client application, which is named `ToDoWeb`.
+The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you're required to register another application in Microsoft Entra ID and grant permissions to the client application, which is named `ToDoWeb`.
 
 #### Register the client application
 

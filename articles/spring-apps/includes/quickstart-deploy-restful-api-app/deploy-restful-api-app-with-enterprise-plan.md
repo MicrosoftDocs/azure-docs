@@ -166,7 +166,7 @@ Use the following steps to create a new resource group.
 
 ### 3.3. Install extension and register namespace
 
-Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace: `Microsoft.SaaS`:
+Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the `Microsoft.SaaS` namespace:
 
    ```azurecli
    az extension add --name spring --upgrade
@@ -253,19 +253,19 @@ After the application instance and the PostgreSQL instance are created, the appl
        --identifier-uris ${TODO_APP_URL}
    ```
 
-1. Use the following command to create service principal for the application:
+1. Use the following command to create a service principal for the application:
 
    ```azurecli
    az ad sp create --id ${TODO_APP_URL}
    ```
 
-1. Use the following command to generate permission ids:
+1. Use the following command to generate permission IDs:
 
    ```azurecli
    permissionid1=$(uuidgen);permissionid2=$(uuidgen);permissionid3=$(uuidgen)
    ```
 
-1. Add the following scopes as json：
+1. Add the following scopes as JSON：
 
    ```azurecli
    api=$(echo '{
@@ -317,7 +317,7 @@ After the application instance and the PostgreSQL instance are created, the appl
    az account show --query "tenantId" --output tsv
    ```
 
-1. Use the following command to get the application-id to use in the next steps:
+1. Use the following command to get the application ID to use in the next steps:
 
    ```azurecli
    appid=$(az ad app show --id ${TODO_APP_URL} \
@@ -397,7 +397,7 @@ The RESTful APIs act as a resource server, which is protected by Microsoft Entra
    az ad app permission admin-consent --id ${TODOWEB_APP_URL}
    ```
 
-1. Use the following command to get the client ID of the `ToDoWeb` app used in 'Obtain the access token' step :
+1. Use the following command to get the client ID of the `ToDoWeb` app used in the [Obtain the access token](#obtain-the-access-token) step:
 
    ```azurecli
    az ad app show --id ${TODOWEB_APP_URL} \
@@ -417,13 +417,13 @@ The RESTful APIs act as a resource server, which is protected by Microsoft Entra
 
 #### Update the OAuth2 configuration for Swagger UI authorization
 
-1. use the following command to get the object id of the `ToDoWeb` app:
+1. Use the following command to get the object ID of the `ToDoWeb` app:
 
    ```azurecli
    az ad app show --id ${TODOWEB_APP_URL} --query id
    ```
 
-1. use the following command to get the url of your `simple-todo-api` ASA app:
+1. Use the following command to get the url of your `simple-todo-api` app:
 
    ```azurecli
    az spring app show --name ${APP_NAME} \
@@ -431,7 +431,7 @@ The RESTful APIs act as a resource server, which is protected by Microsoft Entra
        --query properties.url
    ```
 
-1. Use the following command to update the OAuth2 configuration for Swagger UI authorization, replace **\<object-id>** and **\<url>** with the parameters you got. Then, you can authorize users to acquire access tokens through the ToDoWeb app.
+1. Use the following command to update the OAuth2 configuration for Swagger UI authorization, replace **\<object-id>** and **\<url>** with the parameters you got. Then, you can authorize users to acquire access tokens through the `ToDoWeb` app.
 
    ```azurecli
    az rest --method PATCH \
