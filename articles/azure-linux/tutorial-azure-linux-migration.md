@@ -1,6 +1,6 @@
 ---
 title: Azure Linux Container Host for AKS tutorial - Migrating to Azure Linux
-description: In this Azure Linux Container Host for AKS tutorial, you will learn how to migrate your nodes to Azure Linux nodes.
+description: In this Azure Linux Container Host for AKS tutorial, you learn how to migrate your nodes to Azure Linux nodes.
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
@@ -10,12 +10,12 @@ ms.date: 01/12/2024
 
 # Tutorial: Migrate nodes to Azure Linux
 
-In this tutorial, part three of five, you will migrate your existing nodes to Azure Linux. You can migrate your existing nodes to Azure Linux using one of the following methods:
+In this tutorial, part three of five, you migrate your existing nodes to Azure Linux. You can migrate your existing nodes to Azure Linux using one of the following methods:
 
 * Remove existing node pools and add new Azure Linux node pools.
 * In-place OS SKU migration (Preview).
 
-If you don't have any existing nodes to migrate to Azure Linux, skip to the [next tutorial](./tutorial-azure-linux-telemetry-monitor.md). In later tutorials, you'll learn how to enable telemetry and monitoring in your clusters and upgrade Azure Linux nodes.
+If you don't have any existing nodes to migrate to Azure Linux, skip to the [next tutorial](./tutorial-azure-linux-telemetry-monitor.md). In later tutorials, you learn how to enable telemetry and monitoring in your clusters and upgrade Azure Linux nodes.
 
 ## Prerequisites
 
@@ -46,10 +46,10 @@ You can now migrate your existing Ubuntu node pools to Azure Linux by changing t
 
 ### Limitations
 
-There are several settings that can block the OS SKU migration request. To ensure a successful migration, please review the following guidelines and limitations:
+There are several settings that can block the OS SKU migration request. To ensure a successful migration, review the following guidelines and limitations:
 
-* The OS SKU migration feature is not available through Terraform, PowerShell, or the Azure portal.
-* The OS SKU migration feature is not able to rename existing node pools.
+* The OS SKU migration feature isn't available through Terraform, PowerShell, or the Azure portal.
+* The OS SKU migration feature isn't able to rename existing node pools.
 * Ubuntu and Azure Linux are the only supported Linux OS SKU migration targets.
 * AgentPool `count` field must not change during the migration.
 * An Ubuntu OS SKU with `UseGPUDedicatedVHD` enabled can't perform an OS SKU migration.
@@ -62,7 +62,7 @@ There are several settings that can block the OS SKU migration request. To ensur
 * [Install the `aks-preview` extension](#install-the-aks-preview-extension).
 * [Register the `OSSKUMigrationPreview` feature flag on your subscription](#register-the-osskumigrationpreview-feature-flag).
 * An existing AKS cluster with at least one Ubuntu node pool.
-* We recommend that you ensure your workloads configure and run successfully on the Azure Linux container host before attempting to use the OS SKU migration feature. You can do this by [deploying an Azure Linux cluster](./quickstart-azure-cli.md) in dev/prod and verifying your service remains healthy.
+* We recommend that you ensure your workloads configure and run successfully on the Azure Linux container host before attempting to use the OS SKU migration feature by [deploying an Azure Linux cluster](./quickstart-azure-cli.md) in dev/prod and verifying your service remains healthy.
 * Ensure the migration feature is working for you in test/dev before using the process on a production cluster.
 * Ensure that your pods have enough [Pod Disruption Budget](../aks/operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets) to allow AKS to move pods between VMs during the upgrade.
 * You need Azure CLI version 0.5.172 or higher. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
@@ -254,16 +254,16 @@ There are several settings that can block the OS SKU migration request. To ensur
 
 Once the migration is complete on your test clusters, you should verify the following to ensure a successful migration:
 
-* If your migration target is Azure Linux, run the `kubectl get nodes -o wide` command. The output should show "CBL-Mariner/Linux" are your OS image and ".cm2" at the end of your kernel version.
-* Verify that all of your pods and daemonsets are running on the new node pool using the `kubectl get pods -o wide -A` command.
-* Verify that all of the node labels in your upgraded node pool are what you expect using the `kubectl get nodes --show-labels` command.
+* If your migration target is Azure Linux, run the `kubectl get nodes -o wide` command. The output should show `CBL-Mariner/Linux` as your OS image and `.cm2` at the end of your kernel version.
+* Run the `kubectl get pods -o wide -A` command to verify that all of your pods and daemonsets are running on the new node pool.
+* Run the `kubectl get nodes --show-labels` command to verify that all of the node labels in your upgraded node pool are what you expect.
 
 ***We recommend monitoring the health of your service for a couple weeks before migrating your production clusters***.
 
 ### Run the OS SKU migration on your production clusters
 
-1. Upgrade your existing templates to set `OSSKU=AzureLinux`. In ARM template, this requires setting `"OSSKU: "AzureLinux"` in the `agentPoolProfile` section. In Bicep, this requires setting `osSku: "AzureLinux"` in the `agentPoolProfile` section. Make sure that your `apiVersion` is set to `2023-07-01` or later.
-2. Redeploy your ARM template for the cluster to apply the new `OSSKU` setting. During this deploy, your cluster will behave as if it's taking a node image upgrade. Your cluster will surge capacity, and then reboot your existing nodes one by one into the latest AKS image from your new OS SKU.
+1. Update your existing templates to set `OSSKU=AzureLinux`. In ARM templates, you use `"OSSKU: "AzureLinux"` in the `agentPoolProfile` section. In Bicep, you use `osSku: "AzureLinux"` in the `agentPoolProfile` section. Make sure that your `apiVersion` is set to `2023-07-01` or later.
+2. Redeploy your ARM template for the cluster to apply the new `OSSKU` setting. During this deploy, your cluster behaves as if it's taking a node image upgrade. Your cluster surges capacity, and then reboots your existing nodes one by one into the latest AKS image from your new OS SKU.
 
 ### Rollback
 
@@ -282,7 +282,7 @@ In this tutorial, you migrated existing nodes to Azure Linux using one of the fo
 * Cordon, drain, and remove the existing nodes.
 * In-place OS SKU migration (Preview).
 
-In the next tutorial, you'll learn how to enable telemetry to monitor  your clusters.
+In the next tutorial, you learn how to enable telemetry to monitor your clusters.
 
 > [!div class="nextstepaction"]
 > [Enable telemetry and monitoring](./tutorial-azure-linux-telemetry-monitor.md)
