@@ -231,12 +231,20 @@ Error     :
 
 
 ### [CLI](#tab/cli4)
-
+To restart a rolling upgrade after it has been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [az vmss update](/cli/azure/vmss#az-vmss-update)
 ```azurecli
-az vmss rolling-upgrade start
+az vmss update --name myScaleSet --rescoure-group myResourceGroup
 ```
-### [PowerShell](#tab/powershell4)
 
+
+### [PowerShell](#tab/powershell4)
+To restart a rolling upgrade after it has been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
+
+```azurepowershell
+$VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+
+Update-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet -VirtualMachineScaleSet $VMSS
+```    
 ---
 
 ## Troubleshooting
