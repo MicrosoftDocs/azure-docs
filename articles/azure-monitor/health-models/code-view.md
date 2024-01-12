@@ -9,7 +9,7 @@ ms.date: 12/12/2023
 
 # Code view in Azure Monitor health models
 
-The code view for Azure Monitor health models enables you to view and modify the underlying JSON data structure that defines the health model. While the [designer view](./designer-view.md) is the recommended way to create and modify health models, the code view can be useful for making bulk changes. For example, use search and replace with the JSON to rename a large number of nodes or copy and paste a large number of nodes from another health model. You can also use the code view to create an [ARM template](./resource-manager-health-model.md) for a fully templatized deployment.
+The code view for Azure Monitor health models enables you to view and modify the underlying JSON data structure that defines the health model. While the [designer view](./create-model.md#designer-view) is the recommended way to create and modify health models, the code view can be useful for making bulk changes. For example, use search and replace with the JSON to rename a large number of nodes or copy and paste a large number of nodes from another health model. You can also use the code view to create an [ARM template](./resource-manager-health-model.md) for a fully templatized deployment.
 
 :::image type="content" source="./media/health-model-code/health-model-resource-code-pane.png" lightbox="./media/health-model-code/health-model-resource-code-pane.png" alt-text="Screenshot of a health model resource in the Azure portal with the Code pane selected.":::
 
@@ -27,7 +27,7 @@ The code view for Azure Monitor health models enables you to view and modify the
 | `azureMonitorWorkspaceResourceId` | Resource ID of the Azure Monitor workspace for nodes that are configured for Prometheus signals. |
 | `impact` | Specifies the [impact](./health-state.md#impact) of the node's health state.<br>Must be set to one of the following values:<br><br>- `Standard` (default)<br>- `Limited`<br>- `Suppressed`. |
 | `childNodeIds` | Array of `nodeId` values for any nodes that should be children of the current node. |
-| `visual` | Horizontal and vertical position of the node in the [designer view](./designer-view.md). |
+| `visual` | Horizontal and vertical position of the node in the [designer view](./create-model.md#designer-view). |
 | `healthTargetPercentage` | Value for the target service level. Only used on the root entity.  |
 
 ## Example definition for an `AggregationNode` entity

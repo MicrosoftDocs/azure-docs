@@ -1,6 +1,7 @@
 ---
 title: Troubleshoot health models in Azure Monitor
 description: Learn how to troubleshoot issues with health models in Azure Monitor.
+ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/12/2023

@@ -1,6 +1,6 @@
 ---
-title: Resource Manager template samples for Log Analytics workspaces
-description: Sample Azure Resource Manager templates to deploy Log Analytics workspaces and configure data sources in Azure Monitor.
+title: Resource Manager template samples for Azure Monitor health models
+description: Sample Azure Resource Manager templates to deploy Azure Monitor health model.
 ms.topic: sample
 ms.custom: devx-track-arm-template
 author: bwren
@@ -8,7 +8,7 @@ ms.author: bwren
 ms.date: 08/08/2023
 ---
 
-# Resource Manager template samples for Log Analytics workspaces in Azure Monitor
+# Resource Manager template samples for Azure Monitor health models
 
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and define an [Azure Monitor health model](./overview.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 

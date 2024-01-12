@@ -1,6 +1,6 @@
 ---
-title: Create a health model resource in Azure Monitor
-description: Learn now to create a health model resource.
+title: Deploy health models in Azure Monitor
+description: Deploy health models in Azure Monitor using the Azure portal, Resource Manager, or Terraform.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -14,8 +14,6 @@ ms.date: 12/12/2023
 
 ## [Azure portal](#tab/portal)
 
-
-The `nodes: []` section can become very complex. Using the [Designer view](./designer-view.md) with the [Code view](./code-view.md) can help to define a health model via the UI and take the code artifacts over to Infra-as-Code.
 
 
 1. Select **Health Models** from the **Monitor** menu in the Azure portal.

@@ -68,15 +68,6 @@ To add a new entities to the model, click **Add** and select the entity type to 
 | Azure resources | An **Azure resource** from the current subscription or a subscription that you can access. The health model can use any metrics or logs that are associated with the resource. This includes [platform metrics](), [resource logs](), and data collected from insights such as [VM insights]() and [container insights](). |
 | Aggregate entities | Aggregate entities represent parts of an application that aren't an Azure resource. The functionality of the aggregate entities are identical, but each is intended to represent a different type of entity. Their health is set by the aggregate of the health of their child entities. You can also add a [log query]() or [Prometheus metrics query]() to set its health state.<br><br>- **User flows** - High level business-oriented set of functionality that allows users of the system to achieve specific goals. Possible examples include *add comment*, *checkout*, *clean data*, and *generate report*.<br>- **System components** - Broader and more technical than user flows. Possible examples include *supporting API services* and *backend workers*.<br>- **Generic entity** - Meant to be used for maximum flexibility when neither user flow or system component have appropriate context in the model. |
 
-## Add new entities
-
-To add a new entities to the model, click **Add** and select the entity type to add.
-
-| Entity Type | Description |
-|:-------|:------------|
-| Azure resources | An **Azure resource** from the current subscription or a subscription that you can access. The health model can use any metrics or logs that are associated with the resource. This includes [platform metrics](), [resource logs](), and data collected from insights such as [VM insights]() and [container insights](). |
-| Aggregate entities | Aggregate entities represent parts of an application that aren't an Azure resource. The functionality of the aggregate entities are identical, but each is intended to represent a different type of entity. Their health is set by the aggregate of the health of their child entities. You can also add a [log query]() or [Prometheus metrics query]() to set its health state.<br><br>- **User flows** - High level business-oriented set of functionality that allows users of the system to achieve specific goals. Possible examples include *add comment*, *checkout*, *clean data*, and *generate report*.<br>- **System components** - Broader and more technical than user flows. Possible examples include *supporting API services* and *backend workers*.<br>- **Generic entity** - Meant to be used for maximum flexibility when neither user flow or system component have appropriate context in the model. |
-
 ## Entity properties
 
 
@@ -126,8 +117,6 @@ The **Alert rules** tab displays any alert rules configured on the Azure resourc
 **Metric signals** lets you configure which resource metrics should be evaluated to determine the health state of this entity. For some resource types, there are _suggested_ signals available, which you can add via **Add all suggested**. These contain both, which metric to watch and sensible thresholds. Verify the added signals and adjust them for your scenario as needed.
 
 
-
-
 Clicking **Create alert rule for health of this entity** guides you to the creation wizard for setting up new alert rules.
 
 ### Edit Metric signals
@@ -148,4 +137,4 @@ All editing, besides the Alert Rule creation, is done **locally** in the browser
 
 
 ## Next steps
-- See [Using the health model designer view in Azure Monitor](./designer-view.md) for guidance on adding entities to your health model.
+- See [Using the health model designer view in Azure Monitor](./create-model.md#designer-view) for guidance on adding entities to your health model.
