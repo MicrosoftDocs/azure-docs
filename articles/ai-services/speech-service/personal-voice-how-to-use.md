@@ -29,7 +29,7 @@ Here's example SSML in a request for text to speech with the voice name and the 
 
 ```xml
 <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'>
-    <voice xml:lang='en-US' xml:gender='Male' name='PhoenixV2Neural'> 
+    <voice name='PhoenixV2Neural'> 
     <mstts:ttsembedding speakerProfileId='your speaker profile ID here'> 
     I'm happy to hear that you find me amazing and that I have made your trip planning easier and more fun. 我很高兴听到你觉得我很了不起，我让你的旅行计划更轻松、更有趣。Je suis heureux d'apprendre que vous me trouvez incroyable et que j'ai rendu la planification de votre voyage plus facile et plus amusante.  
     </mstts:ttsembedding> 

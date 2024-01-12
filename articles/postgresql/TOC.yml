@@ -30,12 +30,9 @@
             href: migrate/best-practices-seamless-migration-single-to-flexible.md
           - name: Troubleshoot networking and connectivity issues
             href: migrate/troubleshooting-networking-and-connectivity-issues.md  
-      - name: Migrate data with pg_dump and pg_restore
-        href: single-server/how-to-migrate-using-dump-and-restore.md
+      - name: Migrate data with pg_dump
+        href: migrate/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
-      - name: Migrate data with pg_dump and psql
-        href: single-server/how-to-migrate-using-export-and-import.md
-        displayName: import , export
       - name: Minimal-downtime migration with DMS
         href: single-server/how-to-migrate-online.md
         displayName: dms, data migration service
@@ -324,6 +321,8 @@
           href: flexible-server/how-to-stop-start-server-cli.md
       - name: Configure server logs
         items:
+        - name: Azure portal
+          href: flexible-server/how-to-server-logs-cli.md
         - name: Azure portal
           href: flexible-server/how-to-server-logs-portal.md
     - name: Encryption with CMK
@@ -802,8 +801,6 @@
         href: single-server/how-to-upgrade-using-dump-and-restore.md
       - name: Upgrade/migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
-      - name: Upgrade/migrate data with pg_dump and psql
-        href: single-server/how-to-migrate-using-export-and-import.md
 - name: Samples
   items:
   - name: Azure CLI samples
