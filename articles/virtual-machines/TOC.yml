@@ -979,6 +979,8 @@
         href: ./extensions/key-vault-windows.md
     - name: Azure Policy guest configuration
       href: ./extensions/guest-configuration.md
+    - name: Application Health Extension
+      href: ./extensions/health-extension.md
     - name: Custom Script
       items:
       - name: Linux - version 2
@@ -2081,6 +2083,10 @@
     href: /azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+- name: Cost optimization
+  items:
+  - name: Overview
+    href: ./plan-to-manage-costs.md
 - name: Resources
   items:
   - name: Cloud adoption framework

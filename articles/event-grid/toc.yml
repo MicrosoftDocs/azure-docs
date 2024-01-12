@@ -617,15 +617,35 @@ items:
     - name: PowerShell
       href: /powershell/module/az.eventgrid
     - name: REST
-      href: /rest/api/eventgrid
+      items:
+      - name: Preview
+        href: /rest/api/eventgrid/controlplane/operation-groups?view=rest-eventgrid-controlplane-2023-12-15-preview&preserve-view=true
+      - name: GA
+        href: /rest/api/eventgrid/controlplane/operation-groups?view=rest-eventgrid-controlplane-2022-06-15&preserve-view=true
     - name: .NET
-      href: /dotnet/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
+      - name: GA
+        href: /dotnet/api/overview/azure/event-grid
     - name: Java
-      href: /java/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /java/api/overview/azure/messaging-eventgrid-readme?view=azure-java-preview&preserve-view=true
+      - name: GA
+        href: /java/api/overview/azure/event-grid
     - name: Python
-      href: /python/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /python/api/overview/azure/eventgrid-readme?view=azure-python-preview&preserve-view=true
+      - name: GA
+        href: /python/api/overview/azure/event-grid
     - name: Node.js
-      href: /javascript/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /javascript/api/overview/azure/eventgrid-readme?view=azure-node-preview&preserve-view=true
+      - name: GA
+        href: /javascript/api/overview/azure/event-grid      
     - name: Quotas and limits
       href: quotas-limits.md
   - name: Resources

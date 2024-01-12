@@ -1,35 +1,33 @@
 ---
-title: Copy and transform data in Microsoft Fabric Lakehouse (Preview) 
+title: Copy and transform data in Microsoft Fabric Lakehouse 
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy and transform data to and from Microsoft Fabric Lakehouse (Preview) using Azure Data Factory or Azure Synapse Analytics pipelines.
+description: Learn how to copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/08/2023
+ms.date: 01/08/2024
 ---
 
-# Copy and transform data in Microsoft Fabric Lakehouse (Preview) using Azure Data Factory or Azure Synapse Analytics
+# Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Microsoft Fabric Lakehouse is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. In order to achieve seamless data access across all compute engines in Microsoft Fabric, go to [Lakehouse and Delta Tables](/fabric/data-engineering/lakehouse-and-delta-tables) to learn more.
 
-This article outlines how to use Copy activity to copy data from and to Microsoft Fabric Lakehouse (Preview) and use Data Flow to transform data in Microsoft Fabric Lakehouse (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+This article outlines how to use Copy activity to copy data from and to Microsoft Fabric Lakehouse and use Data Flow to transform data in Microsoft Fabric Lakehouse. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
-> [!IMPORTANT]
-> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 
 This Microsoft Fabric Lakehouse connector is supported for the following capabilities:
 
-| Supported capabilities|IR | Managed private endpoint|
-|---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |- |
+| Supported capabilities|IR | 
+|---------| --------| 
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 
 *&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
@@ -73,10 +71,10 @@ The Microsoft Fabric Lakehouse connector supports the following authentication t
 
 To use service principal authentication, follow these steps.
 
-1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
+1. [Register an application with the Microsoft Identity platform](../active-directory/develop/quickstart-register-app.md) and [add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret). Afterwards, make note of these values, which you use to define the linked service:
 
-    - Application ID
-    - Application key
+    - Application (client) ID, which is the service principal ID in the linked service.
+    - Client secret value, which is the service principal key in the linked service.
     - Tenant ID
 
 2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
@@ -104,7 +102,7 @@ These properties are supported for the linked service:
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalCredentialType | The credential type to use for service principal authentication. Allowed values are **ServicePrincipalKey** and **ServicePrincipalCert**. | Yes |
-| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes |
+| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's client secret value. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
 
 **Example: using service principal key authentication**
@@ -397,7 +395,7 @@ Assuming you have the following source folder structure and want to copy the fil
 
 | Sample source structure                                      | Content in FileListToCopy.txt                             | ADF configuration                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| filesystem<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- File system: `filesystem`<br>- Folder path: `FolderA`<br><br>**In copy activity source:**<br>- File list path: `filesystem/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line with the relative path to the path configured in the dataset. |
+| filesystem<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Folder path: `FolderA`<br><br>**In copy activity source:**<br>- File list path: `Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line with the relative path to the path configured in the dataset. |
 
 
 #### Some recursive and copyBehavior examples
