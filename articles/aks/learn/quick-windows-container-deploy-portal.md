@@ -88,9 +88,12 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     The following sample output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
-    NAME                                STATUS   ROLES   AGE     VERSION
-    aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m     v1.16.7
-    aksnpwin987654                      Ready    agent   108s    v1.16.7
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-41946322-vmss000001   Ready    agent   28h   v1.27.7
+    aks-agentpool-41946322-vmss000002   Ready    agent   28h   v1.27.7
+    aks-npwin-41946322-vmss000000       Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000001    Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000002    Ready    agent   28h   v1.27.7
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -111,9 +114,12 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     The following sample output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
-    NAME                                STATUS   ROLES   AGE     VERSION
-    aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m     v1.16.7
-    aksnpwin987654                      Ready    agent   108s    v1.16.7
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-41946322-vmss000001   Ready    agent   28h   v1.27.7
+    aks-agentpool-41946322-vmss000002   Ready    agent   28h   v1.27.7
+    aks-npwin-41946322-vmss000000       Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000001    Ready    agent   28h   v1.27.7
+    aks-userpool-41946322-vmss000002    Ready    agent   28h   v1.27.7
     ```
 
 ---
@@ -171,7 +177,8 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-1. If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+    If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```console
@@ -188,6 +195,8 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 ## Test the application
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. Occasionally, the service can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
+
+1. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make all pods are `Running` before proceeding.
 
 1. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
@@ -212,12 +221,9 @@ When the application runs, a Kubernetes service exposes the application front en
 
     :::image type="content" source="media/quick-windows-container-deploy-portal/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application." lightbox="media/quick-windows-container-deploy-portal/asp-net-sample-app.png":::
 
-    > [!NOTE]
-    > If you receive a connection timeout when trying to load the page, you should verify the sample app is ready using the `kubectl get pods --watch` command. Sometimes, the Windows container isn't started by the time your external IP address is available.
-
 ## Delete resources
 
-If you don't plan on going through the following tutorials, you should delete your cluster to avoid incurring Azure charges.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], you should delete your cluster to avoid incurring Azure charges.
 
 1. In the Azure portal, navigate to your resource group.
 1. Select **Delete resource group**.

@@ -50,6 +50,7 @@ packages:
 write_files:
   - owner: www-data:www-data
     path: /etc/nginx/sites-available/default
+    defer: true
     content: |
       server {
         listen 80;
@@ -64,6 +65,7 @@ write_files:
       }
   - owner: azureuser:azureuser
     path: /home/azureuser/myapp/index.js
+    defer: true
     content: |
       var express = require('express')
       var app = express()
@@ -178,6 +180,7 @@ packages:
 write_files:
   - owner: www-data:www-data
     path: /etc/nginx/sites-available/default
+    defer: true
     content: |
       server {
         listen 80;
@@ -195,6 +198,7 @@ write_files:
       }
   - owner: azureuser:azureuser
     path: /home/azureuser/myapp/index.js
+    defer: true
     content: |
       var express = require('express')
       var app = express()

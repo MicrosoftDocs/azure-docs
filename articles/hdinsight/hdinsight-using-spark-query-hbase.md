@@ -4,7 +4,7 @@ description: Use the Spark HBase Connector to read and write data from a Spark c
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 12/09/2022
+ms.date: 01/04/2024
 ---
 
 # Use Apache Spark to read and write Apache HBase data
