@@ -76,7 +76,7 @@ landingContent:
             url: ./learn/quick-kubernetes-deploy-cli.md
           - text: Azure PowerShell
             url: ./learn/quick-kubernetes-deploy-powershell.md
-          - text: Azure Portal
+          - text: Azure portal
             url: ./learn/quick-kubernetes-deploy-portal.md
           - text: Resource Manager template
             url: ./learn/quick-kubernetes-deploy-rm-template.md
@@ -141,6 +141,8 @@ landingContent:
             url: concepts-security.md#node-security
           - text: Security baseline
             url: /security/benchmark/azure/baselines/aks-security-baseline?context=%2Fazure%2Faks%2Fcontext%2Faks-context
+          - text: Windows AKS customer stories
+            url: windows-aks-customer-stories.md
       - linkListType: how-to-guide
         links:
           - text: Upgrade from Windows Server 2019 to 2022

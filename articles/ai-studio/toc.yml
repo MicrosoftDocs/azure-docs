@@ -49,8 +49,8 @@
         href: how-to/sdk-install.md
     - name: Get started with the Azure AI CLI
       href: how-to/cli-install.md
-    - name: Get started with projects in VS Code (Web)
-      href: how-to/vscode-web.md
+    - name: Work with Azure AI projects in VS Code
+      href: how-to/develop-in-vscode.md
   - name: Create Azure AI projects and resources
     items:
     - name: Azure AI resources overview

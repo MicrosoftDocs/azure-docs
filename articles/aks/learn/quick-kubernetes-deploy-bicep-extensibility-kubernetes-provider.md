@@ -385,7 +385,7 @@ It takes a few minutes to create the AKS cluster. Wait for the cluster successfu
 
 ## Delete the cluster
 
-If you don't plan on going through the following tutorials, clean up unnecessary resources to avoid Azure charges.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges.
 
 ### [Azure CLI](#tab/azure-cli)
 
