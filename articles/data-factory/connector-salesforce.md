@@ -247,7 +247,6 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceV2Source**. | Yes |
 | SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset will be retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
-| readBehavior | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is the former. <br>Allowed values: **query** (default), **queryAll**.  | Yes |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -276,8 +275,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
         "typeProperties": {
             "source": {
                 "type": "SalesforceV2Source",
-                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
-                "readBehavior": "query"
+                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c"
             },
             "sink": {
                 "type": "<sink type>"
@@ -336,10 +334,6 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
 ```
 
 ## Query tips
-
-### Retrieve deleted records from the Salesforce Recycle Bin
-
-To query the soft deleted records from the Salesforce Recycle Bin, you can specify `readBehavior` as `queryAll`. 
 
 ## Data type mapping for Salesforce
 
