@@ -79,7 +79,7 @@ For more information, see the [SDK installation guide](../../sdk/install-sdk.md?
 
 Open a text editor and copy the following content to a new file. Save the file as `ImageAnalysis.java`
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/quickstart.java?name=snippet_single)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysis.java?name=snippet_single)]
 
 > [!TIP]
 > The code analyzes an image from a URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
