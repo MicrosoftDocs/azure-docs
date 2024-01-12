@@ -1,9 +1,9 @@
 ---
 title: Migrate Azure Service Bus extension for Azure Functions to version 5.x 
-description: This article shows you how to upgrade your existing function apps using the Azure Service Bus extension version 5.x to be able to use version 5.x of the extension. 
+description: This article shows you how to upgrade your existing function apps using the Azure Service Bus extension version 4.x to be able to use version 5.x of the extension. 
 ms.service: azure-functions
 ms.topic: how-to 
-ms.date: 11/13/2023
+ms.date: 01/12/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -85,7 +85,7 @@ The underlying SDK used by extension changed to use the [Azure.Messaging.Service
 
 ---
 
-::: zone-end
+::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Update the extension bundle
@@ -104,22 +104,12 @@ To update your application to use the latest extension bundle, update your `host
 }
 ```
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
 ## Modify your function code
 
 The Azure Functions Azure Service Bus extension version 5 is built on top of the Azure.Messaging.ServiceBus SDK version 3, which removed support for the `Message` class. Instead, use the `ServiceBusReceivedMessage` type to receive message metadata from Service Bus Queues and Subscriptions.
-
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
-
-## Modify your function code
-
-After you update your `host.json` to use the correct extension bundle version and modify your `function.json` to use the correct attribute names, there are no further code changes required.
-
-::: zone-end
+::: zone-end  
 
 ## Next steps
 
