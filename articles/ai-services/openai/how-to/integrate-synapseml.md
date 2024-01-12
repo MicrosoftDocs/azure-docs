@@ -35,7 +35,7 @@ This tutorial shows how to apply large language models at a distributed scale by
    - To install SynapseML for your Apache Spark cluster, see [Install SynapseML](#install-synapseml).
 
 > [!NOTE]
-> The `OpenAICompletion()` transformer is designed to work with the [Azure OpenAI Service legacy models](/azure/ai-services/openai/concepts/legacy-models) like `Text-Davinci-003`, which supports prompt-based completions. Newer models like the current `GPT-3.5 Turbo` and `GPT-4` model series are designed to work with the new chat completion API that expects a specially formatted array of messages as input. If you working with embeddings or chat completion models, please check the [Chat Completion](#chat-completion) and [Generating Text Embeddings](generating-text-embeddings) sections bellow.
+> The `OpenAICompletion()` transformer is designed to work with the [Azure OpenAI Service legacy models](/azure/ai-services/openai/concepts/legacy-models) like `Text-Davinci-003`, which supports prompt-based completions. Newer models like the current `GPT-3.5 Turbo` and `GPT-4` model series are designed to work with the new chat completion API that expects a specially formatted array of messages as input. If you working with embeddings or chat completion models, please check the [Chat Completion](#chat-completion) and [Generating Text Embeddings](#generating-text-embeddings) sections bellow.
 > 
 > The Azure OpenAI SynapseML integration supports the latest models via the [OpenAIChatCompletion()](https://github.com/microsoft/SynapseML/blob/0836e40efd9c48424e91aa10c8aa3fbf0de39f31/cognitive/src/main/scala/com/microsoft/azure/synapse/ml/cognitive/openai/OpenAIChatCompletion.scala#L24) transformer.
 
