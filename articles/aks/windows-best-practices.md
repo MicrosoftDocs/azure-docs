@@ -34,7 +34,7 @@ You might want to containerize existing applications and run them using Windows 
 
 AKS uses Windows Server 2019 and Windows Server 2022 as the host OS versions and only supports process isolation. AKS doesn't support container images built by other versions of Windows Server. For more information, see [Windows container version compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information, see the [AKS release notes][aks-release-notes].
+Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of service and won't be supported in future releases. For more information, see the [AKS release notes][aks-release-notes].
 
 ## Networking
 
