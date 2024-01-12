@@ -10,7 +10,7 @@ ms.service: azure-functions
 
 Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for the following extensions:
 
-- [Apache Kafka](#kafka)
+- [Apache Kafka](#apache-kafka)
 - [Azure Cosmos DB](#azure-cosmos-db)
 - [Azure Event Hubs](#event-hubs)
 - [Azure Queue Storage](#storage-queues)
@@ -50,25 +50,25 @@ This table summarizes the `host.json` values that are used for the _target execu
 
 | Extension                                                      | host.json values                                                  | Default Value |
 | -------------------------------------------------------------- | ----------------------------------------------------------------- | ------------- |
+| Event Hubs (Extension v5.x+)                                   | extensions.eventHubs.maxEventBatchSize                            |       100<sup>*</sup>      |
+| Event Hubs (Extension v3.x+)                                   | extensions.eventHubs.eventProcessorOptions.maxBatchSize           |       10      |
+| Event Hubs (if defined)                                        | extensions.eventHubs.targetUnprocessedEventThreshold              |       n/a     |
 | Service Bus (Extension v5.x+, Single Dispatch)                 | extensions.serviceBus.maxConcurrentCalls                          |       16      |
 | Service Bus (Extension v5.x+, Single Dispatch Sessions Based)  | extensions.serviceBus.maxConcurrentSessions                       |       8       |
 | Service Bus (Extension v5.x+, Batch Processing)                | extensions.serviceBus.maxMessageBatchSize                         |       1000    |
 | Service Bus (Functions v2.x+, Single Dispatch)                 | extensions.serviceBus.messageHandlerOptions.maxConcurrentCalls    |       16      |
 | Service Bus (Functions v2.x+, Single Dispatch Sessions Based)  | extensions.serviceBus.sessionHandlerOptions.maxConcurrentSessions |       2000    |
 | Service Bus (Functions v2.x+, Batch Processing)                | extensions.serviceBus.batchOptions.maxMessageCount                |       1000    |
-| Event Hubs (Extension v5.x+)                                   | extensions.eventHubs.maxEventBatchSize                            |       100<sup>1</sup>      |
-| Event Hubs (Extension v3.x+)                                   | extensions.eventHubs.eventProcessorOptions.maxBatchSize           |       10      |
-| Event Hubs (if defined)                                        | extensions.eventHubs.targetUnprocessedEventThreshold              |       n/a     |
 | Storage Queue                                                  | extensions.queues.batchSize                                       |       16      |
 
-<sup>1</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package. In earlier versions, this was 10.
+<sup>*</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package. In earlier versions, this value was 10.
 
 For some binding extensions, _target executions per instance_ is set using a function attribute:
 
 | Extension         | Function trigger setting | Default Value | 
 | ----------------- | ------------------------ | ------------- |
-| Azure Cosmos DB   | `maxItemsPerInvocation`    |  100          |
-| Kafka             | `lagThreshold`             | 1000          |
+| Apache Kafka      | `lagThreshold`           |   1000        |
+| Azure Cosmos DB   | `maxItemsPerInvocation`  |    100        |
 
 To learn more, see the [example configurations for the supported extensions](#supported-extensions).
 
@@ -78,9 +78,9 @@ In [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#pre
 
 | Extension Name | Minimum Version Needed | 
 | -------------- | ---------------------- |
+| Apache Kafka   |         3.9.0          | 
 | Azure Cosmos DB |         4.1.0         |
 | Event Hubs     |         5.2.0          |
-| Kafka          |         3.9.0          | 
 | Service Bus    |         5.9.0          |
 | Storage Queue  |         5.1.0          |
 
@@ -368,9 +368,11 @@ Examples for the Python v2 programming model and the JavaScript v4 programming m
 > [!NOTE]
 > Since Azure Cosmos DB is a partitioned workload, the target instance count for the database is capped by the number of physical partitions in your container. To learn more about Azure Cosmos DB scaling, see [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
 
-### Kafka
+### Apache Kafka
 
-The Apache Kafka extension uses a function-level attribute, `LagThreshold`. Reducing this setting causes more instances to be created. The way you set this function-level attribute depends on your function language.
+The Apache Kafka extension uses a function-level attribute, `LagThreshold`. For Kafka, the number of _desired instances_ is calculated based on the total consumer lag divided by the `LagThreshold` setting. For a given lag, reducing the lag threshold increases the number of desired intances.  
+
+The way you set this function-level attribute depends on your function language.
 
 #### [C#](#tab/csharp)
 
@@ -394,9 +396,59 @@ public static void Run(
 
 #### [Java](#tab/java) 
 
-Java example pending.
+```java
+public class KafkaTriggerMany {
+    @FunctionName("KafkaTriggerMany")
+    public void runMany(
+            @KafkaTrigger(
+                name = "kafkaTriggerMany",
+                topic = "topic",  
+                brokerList="%BrokerList%",
+                consumerGroup="$Default", 
+                username = "$ConnectionString", 
+                password = "EventHubConnectionString",
+                authenticationMode = BrokerAuthenticationMode.PLAIN,
+                protocol = BrokerProtocol.SASLSSL,
+                LagThreshold = 100,
+                // sslCaLocation = "confluent_cloud_cacert.pem", // Enable this line for windows.
+                cardinality = Cardinality.MANY,
+                dataType = "string"
+             ) String[] kafkaEvents,
+            final ExecutionContext context) {
+            for (String kevent: kafkaEvents) {
+                context.getLogger().info(kevent);
+            }
+```
 
-#### [JavaScript/PowerShell/Python](#tab/node+powershell+python)
+#### [Python](#tab/python)
+
+For Functions languages that use `function.json`, the `LagThreshold` parameter is defined in the specific binding, as in this Kafka Event Hubs trigger example:
+
+```json
+{
+      "scriptFile": "main.py",
+      "bindings": [
+        {
+          "type": "kafkaTrigger",
+          "name": "kevent",
+          "topic": "topic",
+          "brokerList": "%BrokerList%",
+          "username": "$ConnectionString",
+          "password": "EventHubConnectionString",
+          "consumerGroup" : "functions",
+          "protocol": "saslSsl",
+          "authenticationMode": "plain",
+          "lagThreshold": "100"
+          "FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED" : 1,
+          "TARGET_BASED_SCALING_ENABLED" : 1
+        }
+    ]
+}
+```
+
+The Python v2 programming model isn't currently supported by the Kafka extension.
+
+#### [JavaScript/PowerShell/TypeScript](#tab/node+powershell+typescript)
 
 For Functions languages that use `function.json`, the `LagThreshold` parameter is defined in the specific binding, as in this Kafka Event Hubs trigger example:
 
@@ -422,7 +474,7 @@ For Functions languages that use `function.json`, the `LagThreshold` parameter i
 }
 ```
 
-Examples for the Python v2 programming model and the JavaScript v4 programming model aren't yet available.
+The Node.js v4 programming model isn't currently supported by the Kafka extension.
 
 ---
 
