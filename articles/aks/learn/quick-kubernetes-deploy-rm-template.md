@@ -14,11 +14,11 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 - Deploy an AKS cluster using an Azure Resource Manager template.
 - Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+
 ## Before you begin
 
 This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../concepts-clusters-workloads.md).
-
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -26,14 +26,26 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 - To deploy an ARM template, you need write access on the resources you're deploying and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to deploy a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
+You can use either Azure CLI or Azure PowerShell to connect to the cluster and deploy the application.
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+This article requires Azure CLI version 2.0.64 or later. If using Azure Cloud Shell, the latest version is already installed.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+If you're running PowerShell locally, install the `Az PowerShell` module. If using Azure Cloud Shell, the latest version is already installed.
+
 ### Create an SSH key pair
 
 To create an AKS cluster using an ARM template, you provide an SSH public key. If you need this resource, follow the steps in this section. Otherwise, skip to the [Review the template](#review-the-template) section.
 
-To access AKS nodes, you connect using an SSH key pair (public and private), which you generate using the `ssh-keygen` command. By default, these files are created in the *~/.ssh* directory. Running the `ssh-keygen` command will overwrite any SSH key pair with the same name already existing in the given location.
+To access AKS nodes, you connect using an SSH key pair (public and private). To create an SSH key pair:
 
 1. Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
-2. Create an SSH key pair using the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command or the `ssh-keygen` command.
+1. Create an SSH key pair using the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command or the `ssh-keygen` command.
 
     ```azurecli
     # Create an SSH key pair using Azure CLI
@@ -45,11 +57,13 @@ To access AKS nodes, you connect using an SSH key pair (public and private), whi
     ssh-keygen -t rsa -b 4096
     ```
 
-To deploy the template, you must provide the public key from the SSH pair. To retrieve the public key, call [az sshkey show](/cli/azure/sshkey#az-sshkey-show):
+1. To deploy the template, you must provide the public key from the SSH pair. To retrieve the public key, call [az sshkey show](/cli/azure/sshkey#az-sshkey-show):
 
-```azurecli
-az sshkey show --name "mySSHKey" --resource-group "myResourceGroup" --query "publicKey"
-```
+    ```azurecli
+    az sshkey show --name "mySSHKey" --resource-group "myResourceGroup" --query "publicKey"
+    ```
+
+By default, the SSH key files are created in the *~/.ssh* directory. Running the `az sshkey create` or `ssh-keygen` command will overwrite any existing SSH key pair with the same name.
 
 For more information about creating SSH keys, see [Create and manage SSH keys for authentication in Azure][ssh-keys].
 
