@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/20/2023
+ms.date: 01/12/2024
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage network connections so that I can enable dev boxes to connect to my existing networks and deploy them in the desired region.
 ---
@@ -161,47 +161,7 @@ Microsoft Dev Box requires a configured and working Active Directory join, which
 > [!NOTE]
 > Microsoft Dev Box automatically creates a resource group for each network connection, which holds the network interface cards (NICs) that use the virtual network assigned to the network connection. The resource group has a fixed name based on the name and region of the network connection. You can't change the name of the resource group, or specify an existing resource group.
 
-## Attach a network connection to a dev center
-
-You need to attach a network connection to a dev center before you can use it in projects to create dev box pools.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
-
-1. Select the dev center that you created, and then select **Networking**.
-
-1. Select **+ Add**.
-
-1. On the **Add network connection** pane, select the network connection that you created earlier, and then select **Add**.
-
-   :::image type="content" source="./media/how-to-manage-network-connection/add-network-connection.png" alt-text="Screenshot that shows the pane for adding a network connection." lightbox="./media/how-to-manage-network-connection/add-network-connection.png":::
-
-After you attach a network connection, the Azure portal runs several health checks on the network. You can view the status of the checks on the resource overview page.
-
-:::image type="content" source="./media/how-to-manage-network-connection/network-connection-grid-populated.png" alt-text="Screenshot that shows the status of a network connection.":::
-
-You can add network connections that pass all health checks to a dev center and use them to create dev box pools. Dev boxes within dev box pools are created and domain joined in the location of the virtual network assigned to the network connection.
-
-To resolve any errors, see [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
-
-## Remove a network connection from a dev center
-
-You can remove a network connection from a dev center if you no longer want to use it to connect to network resources. Network connections can't be removed if one or more dev box pools are using them.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
-
-1. Select the dev center that you created, and then select **Networking**.
-
-1. Select the network connection that you want to remove, and then select **Remove**.
-
-   :::image type="content" source="./media/how-to-manage-network-connection/remove-network-connection.png" alt-text="Screenshot that shows the Remove button on the network connection page.":::
-
-1. Review the warning message, and then select **OK**.
-
-The network connection is no longer available for use in the dev center.
+[!INCLUDE [attach or remove a network connection.](./includes/attach-remove-network-connections.md)]
 
 ## Related content
 
