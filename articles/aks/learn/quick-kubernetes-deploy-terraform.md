@@ -88,7 +88,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-2. Display the name of your new Kubernetes cluster using the [`az aks list`](/cli/azure/aks#az-aks-list) command.
+2. Display the name of your new Kubernetes cluster using the [az aks list](/cli/azure/aks#az-aks-list) command.
 
     ```azurecli-interactive
     az aks list \
@@ -377,6 +377,8 @@ To deploy the application, you use a manifest file to create all the objects req
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
+    If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+
 2. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest.
 
     ```console
@@ -442,7 +444,7 @@ When the application runs, a Kubernetes service exposes the application front en
     sp=$(terraform output -raw sp)
     ```
 
-1. Delete the service principal using the [`az ad sp delete`](/cli/azure/ad/sp#az-ad-sp-delete) command.
+1. Delete the service principal using the [az ad sp delete](/cli/azure/ad/sp#az-ad-sp-delete) command.
 
     ```azurecli-interactive
     az ad sp delete --id $sp

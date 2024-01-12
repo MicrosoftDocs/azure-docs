@@ -32,7 +32,7 @@ An [Azure resource group][azure-resource-group] is a logical group in which Azur
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-- Create a resource group using the [`New-AzResourceGroup`][new-azresourcegroup] cmdlet.
+- Create a resource group using the [New-AzResourceGroup][new-azresourcegroup] cmdlet.
 
     ```azurepowershell
     New-AzResourceGroup -Name myResourceGroup -Location eastus
@@ -50,7 +50,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 
 ## Create AKS cluster
 
-To create an AKS cluster, use the [`New-AzAksCluster`][new-azakscluster] cmdlet. The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity.
+To create an AKS cluster, use the [New-AzAksCluster][new-azakscluster] cmdlet. The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity.
 
 ```azurepowershell
 New-AzAksCluster -ResourceGroupName myResourceGroup `
@@ -67,15 +67,15 @@ After a few minutes, the command completes and returns information about the clu
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, use the `Install-AzAksCliTool` cmdlet.
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, call the `Install-AzAksCliTool` cmdlet.
 
-1. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. This command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. This command downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurepowershell
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
     ```
 
-1. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command. This command returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
     ```azurepowershell
     kubectl get nodes
@@ -337,7 +337,7 @@ To deploy the application, you use a manifest file to create all the objects req
 
     If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
 
-1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```console
     kubectl apply -f aks-store-quickstart.yaml
@@ -360,9 +360,9 @@ To deploy the application, you use a manifest file to create all the objects req
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-1. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make all pods are `Running` before proceeding.
+1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make all pods are `Running` before proceeding.
 
-1. Check for a public IP address for the store-front application. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
+1. Check for a public IP address for the store-front application. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
     ```azurecli-interactive
     kubectl get service store-front --watch
@@ -390,7 +390,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Delete the cluster
 
-If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. Remove the resource group, container service, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. Remove the resource group, container service, and all related resources by calling the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name myResourceGroup

@@ -41,7 +41,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 ### Create an SSH key pair
 
 1. Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
-1. Create an SSH key pair using the [`az sshkey create`][az-sshkey-create] Azure CLI command or the `ssh-keygen` command.
+1. Create an SSH key pair using the [az sshkey create][az-sshkey-create] Azure CLI command or the `ssh-keygen` command.
 
     ```azurecli
     # Create an SSH key pair using Azure CLI
@@ -336,13 +336,13 @@ To deploy the application, you use a manifest file to create all the objects req
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create an Azure resource group using the [`az group create`][az-group-create] command.
+1. Create an Azure resource group using the [az group create][az-group-create] command.
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
     ```
 
-1. Deploy the Bicep file using the [`az deployment group create`][az-deployment-group-create] command.
+1. Deploy the Bicep file using the [az deployment group create][az-deployment-group-create] command.
 
     ```azurecli
     az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters clusterName=<cluster-name> dnsPrefix=<dns-previs> linuxAdminUsername=<linux-admin-username> sshRSAPublicKey='<ssh-key>'
@@ -350,13 +350,13 @@ To deploy the application, you use a manifest file to create all the objects req
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Create an Azure resource group using the [`New-AzResourceGroup`][new-azresourcegroup] cmdlet.
+1. Create an Azure resource group using the [New-AzResourceGroup][new-azresourcegroup] cmdlet.
 
     ```azurepowershell
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
 
-1. Deploy the Bicep file using the [`New-AzResourceGroupDeployment`][new-azresourcegroupdeployment] cmdlet.
+1. Deploy the Bicep file using the [New-AzResourceGroupDeployment][new-azresourcegroupdeployment] cmdlet.
 
     ```azurepowershell
     New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./main.bicep -clusterName=<cluster-name> -dnsPrefix=<dns-prefix> -linuxAdminUsername=<linux-admin-username> -sshRSAPublicKey="<ssh-key>"
@@ -389,7 +389,7 @@ If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up un
 
 ### [Azure CLI](#tab/azure-cli)
 
-Remove the resource group, container service, and all related resources using the [`az group delete`][az-group-delete] command.
+Remove the resource group, container service, and all related resources using the [az group delete][az-group-delete] command.
 
 ```azurecli
 az group delete --name myResourceGroup --yes --no-wait
@@ -397,7 +397,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Remove the resource group, container service, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet.
+Remove the resource group, container service, and all related resources using the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name myResourceGroup
