@@ -114,9 +114,11 @@ To add the condition using the code editor, copy the condition code sample below
 After entering your code, switch back to the visual editor to validate it.
 
 > [!NOTE]
-> If you try to perform an action in the role assignment that is *not* the action specified in the condition, `!(ActionMatches)` evaluates to true and the overall condition evaluates to true. This result allows the action to be performed.
+> If you try to perform an action in the assigned role that is *not* the action restricted by the condition, `!(ActionMatches)` evaluates to true and the overall condition evaluates to true. This result allows the action to be performed.
 >
-> If you try to perform the specified action in the role assignment, `!(ActionMatches)` evaluates to false, so the expression is evaluated. If the expression evaluates to true, the overall condition evaluates to true and allows the action to be performed. Otherwise, the action is not allowed to be performed.
+> If you try to perform the action restricted by the condition, `!(ActionMatches)` evaluates to false, so the expression is evaluated. If the expression evaluates to true, the overall condition evaluates to true and allows the action to be performed. Otherwise, the action is not allowed to be performed.
+>
+> In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks for the blob index tag.
 >
 >To learn more about how conditions are formatted and evaluated, see [Conditions format](../../role-based-access-control/conditions-format.md).
 
