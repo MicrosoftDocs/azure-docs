@@ -3,7 +3,7 @@ title: Understand Azure Disk Storage billing
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 11/15/2023
+ms.date: 01/12/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -178,9 +178,9 @@ You will be billed for the provisioned size of the disk, the additional IOPS and
     - ZRS Snapshots
 
 ## See also
-- [Azure Managed Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
-- [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
-- [Create a file share](storage-how-to-create-file-share.md) and [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md).
+- [Azure Managed Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/)
+- [Planning for an Azure Files deployment](../storage/files/storage-files-planning.md) and [Planning for an Azure File Sync deployment](../storage/file-sync/file-sync-planning.md)
+- [Create an SMB Azure file share](../storage/files/storage-how-to-create-file-share.md) and [Deploy Azure File Sync](../storage/file-sync/file-sync-deployment-guide.md)
 
 ## Notes 
 - Merge info from https://learn.microsoft.com/azure/virtual-machines/disks-types#billing
