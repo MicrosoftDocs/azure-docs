@@ -11,12 +11,7 @@ ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowersh
 ---
 # Configure Rolling Upgrades on Virtual Machine Scale Sets
 
-Rolling Upgrade Policy is the safest way to apply updates to instances in a Virtual Machine Scale Set. Performing updates in batches ensures that your scale set maintains a set number of instances that are still available to take traffic, meaning you do not need to take down your entire workload to push a change. 
-
-Rolling Upgrade Policy is best suited for Production workloads but can also be useful in Development environments. 
-
-Automatic Guest OS updates? 
-
+Rolling Upgrade Policy is the safest way to apply updates to instances in a Virtual Machine Scale Set. Performing updates in batches ensures that your scale set maintains a set number of instances that are still available to take traffic, meaning you do not need to take down your entire workload to push a change. Rolling Upgrade Policy is best suited for Production workloads but can also be useful in Development environments. 
 
 
 ## Requirements
@@ -25,10 +20,16 @@ When using a Rolling Upgrade Policy, the scale set must also have a [health prob
 Virtual Machine Scale Sets using Uniform Orchestration Mode can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration Mode, Application Health Extension is required as Health probes are not supported on Flexible Orchestration Mode. 
 
 ## Exceptions to Rolling Upgrade Policy
+When configuring the rolling upgrade batch size, scale sets will ensure that upgrades do not occur on multiple fault domains at the same time. This means that even if you were to select 100% batch size, the actual batch size would be limited to prevent updates occurring in multiple fault domains at once. This would result in a batch size closer to 30% rather than 100%. 
 
-Instance Protection
+If you wish to bypass this built in protection, you can override the default fault domain policies using the Rolling Upgrade Policy Override feature.
 
-Rolling Upgrade batch size % of 100%
+> [!IMPORTANT]
+> Overriding the default behavior of rolling upgrades to ignore fault domains is not suggested for production workloads. By enabling this feature you are forfitting any associated SLAs that would normally come with Rolling Upgrades. 
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName RollingUpgradePolicyOverride -ProviderNamespace Microsoft.Compute
+```
 
 ## Concepts
 Below are some common settings associated with Rolling Upgrade Policy. 
