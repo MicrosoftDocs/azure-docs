@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/09/2024
+ms.date: 01/11/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Four new recommendations for Azure Stack HCI resource type](#four-new-recommendations-for-azure-stack-hci-resource-type) | January 11, 2024 | February 2024 |
 | [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
 | [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
@@ -40,13 +41,28 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
+## Four new recommendations for Azure Stack HCI resource type
+
+**Announcement date: January 11, 2024**
+
+**Estimated date for change: February 2024**
+
+Azure Stack HCI is set to be a new resource type that can be managed through Microsoft Defender for Cloud. We're adding four recommendations that are specific to the HCI resource type:
+
+| Recommendation | Description  | Severity |
+|----------|----------|----------|
+| Azure Stack HCI servers should meet Secured-core requirements | Ensure that all Azure Stack HCI servers meet the Secured-core requirements. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | Low |
+| Azure Stack HCI servers should have consistently enforced application control policies | At a minimum, apply the Microsoft WDAC base policy in enforced mode on all Azure Stack HCI servers. Applied Windows Defender Application Control (WDAC) policies must be consistent across servers in the same cluster. | High |
+| Azure Stack HCI systems should have encrypted volumes | Use BitLocker to encrypt the OS and data volumes on Azure Stack HCI systems | High |
+| Host and VM networking should be protected on Azure Stack HCI systems | Protect data on the Azure Stack HCI host’s network and on virtual machine network connections. | Low |
+
 ## Defender for Servers built-in vulnerability assessment (Qualys) retirement path
 
 **Announcement date: January 9, 2024**
 
 **Estimated date for change: May 2024**
 
-The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path which is estimated to complete on **May 1st, 2024**. If you are currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft defender vulnerability management solution](how-to-transition-to-built-in.md).
+The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path which is estimated to complete on **May 1st, 2024**. If you're currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft Defender vulnerability management solution](how-to-transition-to-built-in.md).
  
 For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can read [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 
@@ -58,7 +74,7 @@ You can also check out the [common questions about the transition to Microsoft D
 
 **Estimated date for change: March 2024**
 
-The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is now on a retirement path completing on **March 1st, 2024**. If you are currently using container vulnerability assessment powered by Qualys, start planning your transition to [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md).
+The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is now on a retirement path completing on **March 1st, 2024**. If you're currently using container vulnerability assessment powered by Qualys, start planning your transition to [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md).
 
 For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, see [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy Microsoft Entra joined VMs in Azure Virtual Desktop - Azure
-description: How to configure and deploy Microsoft Entra joined VMs in Azure Virtual Desktop.
+title: Microsoft Entra joined session hosts in Azure Virtual Desktop
+description: Learn about using Microsoft Entra joined session hosts in Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 manager: femila
@@ -11,7 +11,7 @@ ms.date: 11/14/2023
 ms.author: helohr
 ---
 
-# Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop
+# Microsoft Entra joined session hosts in Azure Virtual Desktop
 
 This article will walk you through the process of deploying and accessing Microsoft Entra joined virtual machines in Azure Virtual Desktop. Microsoft Entra joined VMs remove the need to have line-of-sight from the VM to an on-premises or virtualized Active Directory Domain Controller (DC) or to deploy Microsoft Entra Domain Services. In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
 
