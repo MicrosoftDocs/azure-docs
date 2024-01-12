@@ -26,6 +26,8 @@ This article provides details about the features and enhancements made to Azure 
 **Storage size support in FHIR service beyond 4TB** 
 
 By default each FHIR instance is limited to storage capacity of 4TB. To provision a FHIR instance with storage capacity beyond 4TB, create support request with Issue type 'Service and Subscription limit (quotas)'.
+> [!NOTE]
+> Due to issue in billing metrics for storage. Customers opting for more than 4TB storage capacity will not be billed for storage till the issue is addressed.
 
 ## December 2023
 
