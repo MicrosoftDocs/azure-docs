@@ -75,8 +75,6 @@ landingContent:
         links:
           - text: Model configuration
             url: radiology-insights/model-configuration.md
-          - text: Patient information
-            url: radiology-insights/patient-info.md
           - text: Inference information
             url: radiology-insights/inferences.md
       - linkListType: quickstart
