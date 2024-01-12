@@ -1,0 +1,9 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/ai-studio/how-to/vscode-web.md",
+      "redirect_url": "/azure/ai-studio/how-to/develop-in-vscode",
+      "redirect_document_id": true
+    }
+  ]
+}
