@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 ## Prerequisites
 
-This guide assumes you have successfully followed the steps in the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) page. This means:
+This guide assumes you've followed the steps in the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) page. This means:
 
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
 * You have the appropriate SDK package installed and you have a running [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) application. You can modify this quickstart application based on code examples here.
@@ -119,7 +119,7 @@ The following code shows you how to parse the results of the various Analyze ope
 
 ### Exceptions
 
-The `analyze` methods throw [HttpResponseException](https://learn.microsoft.com/java/api/com.azure.core.exception) when the service responds with a non-success HTTP status code. The exception's `getResponse().getStatusCode()` will hold the HTTP response status code. The exception's `getMessage()` contains a detailed message that will allow you to diagnose the issue:
+The `analyze` methods throw [HttpResponseException](https://learn.microsoft.com/java/api/com.azure.core.exception) when the service responds with a non-success HTTP status code. The exception's `getResponse().getStatusCode()` holds the HTTP response status code. The exception's `getMessage()` contains a detailed message that allows you to diagnose the issue:
 
 ```java
 try {
@@ -141,7 +141,7 @@ Status code: 401
 Message: Status code 401, "{"error":{"code":"401","message":"Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource."}}"
 ```
 
-Or when you provide an image in a format that is not recognized:
+Or when you provide an image in a format that isn't recognized:
 
 ```
 Exception: HttpResponseException
@@ -151,13 +151,13 @@ Message: Status code 400, "{"error":{"code":"InvalidRequest","message":"Image fo
 
 ### Enable HTTP request/response logging
 
-Reviewing the HTTP request sent or response received over the wire to the Image Analysis service can be useful in troubleshooting. The Image Analysis client library supports a built-in console logging framework for temporary debugging purposes. It also supports more advanced logging using the [SLF4J](https://www.slf4j.org/) interface. For detailed information see [Use logging in the Azure SDK for Java](https://learn.microsoft.com/azure/developer/java/sdk/troubleshooting-overview#use-logging-in-the-azure-sdk-for-java).
+Reviewing the HTTP request sent or response received over the wire to the Image Analysis service can be useful in troubleshooting. The Image Analysis client library supports a built-in console logging framework for temporary debugging purposes. It also supports more advanced logging using the [SLF4J](https://www.slf4j.org/) interface. For detailed information, see [Use logging in the Azure SDK for Java](https://learn.microsoft.com/azure/developer/java/sdk/troubleshooting-overview#use-logging-in-the-azure-sdk-for-java).
 
 The sections below discusses enabling console logging using the built-in framework.
 
 #### By setting environment variables
 
-You can enable console logging of HTTP request and response for your entire application by setting the following two environment variables. Note that this change will affect every Azure client that supports logging HTTP request and response.
+You can enable console logging of HTTP request and response for your entire application by setting the following two environment variables. This change affects every Azure client that supports logging HTTP request and response.
 
 * Set environment variable `AZURE_LOG_LEVEL` to `debug`
 * Set environment variable `AZURE_HTTP_LOG_DETAIL_LEVEL` to one of the following values:
@@ -211,4 +211,4 @@ For example, to get a complete un-redacted log of the HTTP request, apply the fo
         .addAllowedQueryParamName("model-version"))
 ```
 
-Add more to the above to get a completely un-redacted HTTP response. When you share an un-redacted log, make sure it does not contain secrets such as your subscription key.
+Add more to the above to get an un-redacted HTTP response. When you share an un-redacted log, make sure it doesn't contain secrets such as your subscription key.
