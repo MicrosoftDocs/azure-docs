@@ -116,7 +116,7 @@ Update the properties section of your ARM template with the Upgrade Policy you w
 
 ### [PowerShell](#tab/powershell2)
 
-
+---
 
 ## Cancel a Rolling Upgrade
 
@@ -128,7 +128,7 @@ Update the properties section of your ARM template with the Upgrade Policy you w
 
 ### [PowerShell](#tab/powershell3)
 
-
+---
 
 ## Restart a Rolling Upgrade
 
@@ -140,7 +140,7 @@ Update the properties section of your ARM template with the Upgrade Policy you w
 
 ### [PowerShell](#tab/powershell4)
 
-
+---
 
 ## Troubleshooting
 
