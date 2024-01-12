@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 12/14/2023
+ms.date: 1/10/2024
 ms.author: eur
 ---
 
@@ -156,7 +156,7 @@ Here are the grammar punctuation rules:
 
 #### Spelling correction
 
-The name `CVOID-19` might be recognized as `covered 19`. To make sure that `COVID-19 is a virus` is displayed instead of `covered 19 is a virus`, use the following rewrite rule:
+The name `COVID-19` might be recognized as `covered 19`. To make sure that `COVID-19 is a virus` is displayed instead of `covered 19 is a virus`, use the following rewrite rule:
 
 ```text
 #rewrite
