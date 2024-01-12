@@ -106,4 +106,4 @@ Since calls are accepted until utilization reaches 100%, you're allowed to burst
 ## Next steps
 
 - [Learn about the onboarding steps for provisioned deployments](../how-to/provisioned-throughput-onboarding.md)
-- [Provisioned Throughput Units (PTU) getting started guide](./provisioned-get-started.md) 
+- [Provisioned Throughput Units (PTU) getting started guide](../how-to//provisioned-get-started.md) 
