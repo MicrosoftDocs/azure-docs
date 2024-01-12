@@ -24,6 +24,14 @@ Availability zone support for Azure Functions is available on both Premium (Elas
 
 Azure Functions supports a [zone-redundant deployment](availability-zones-service-support.md#azure-services-with-availability-zone-support).  The function app platform automatically spreads the instances in the plan across all zones of the selected region. For example, in a region with three zones, if an instance count is larger than three and the number of instances is divisible by three, the instances are distributed evenly. Otherwise, instance counts beyond 3 * N are distributed across the remaining one or two zones. A zone redundant function app automatically distributes the instances your app runs on between the availability zones in the region. For apps running in a zone-redundant Premium plan, even as the app scales in and out, the instances the app is running on are still evenly distributed between availability zones.
 
+When you configure Functions as zone redundant, the platform automatically spreads the function instances across three zones in the selected region.  
+
+Instance spreading with a zone-redundant deployment is determined inside the following rules, even as the app scales in and out:
+
+- The minimum Function Plan instance count is three. 
+- If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. 
+- Any instance counts beyond 3*N are spread across the remaining one or two zones.
+
 >[!IMPORTANT]
 >Azure Functions can run on the Azure App Service platform. In the App Service platform, plans that host Premium plan function apps are referred to as Elastic Premium plans, with SKU names like EP1. If you choose to run your function app on a Premium plan, make sure to create a plan with an SKU name that starts with "E", such as EP1. App Service plan SKU names that start with "P", such as P1V2 (Premium V2 Small plan), are actually [Dedicated hosting plans](../azure-functions/dedicated-plan.md). Because they are Dedicated and not Elastic Premium, plans with SKU names starting with "P" won't scale dynamically and may increase your costs.
 
