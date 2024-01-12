@@ -346,7 +346,11 @@
         - name: Proximity placement groups
           href: reduce-latency-ppg.md
         - name: Cluster Autoscaler
-          href: cluster-autoscaler.md
+          items:
+            - name: Cluster Autoscaler overview
+              href: cluster-autoscaler-overview.md
+            - name: Use the Cluster Autoscaler on AKS
+              href: cluster-autoscaler.md
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability Zones
