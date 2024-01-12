@@ -124,7 +124,7 @@ Find more open-source Azure Maps projects.
 [BotBuilder Location]: https://github.com/Microsoft/BotBuilder-Location
 [Cesium JS]: https://cesium.com/cesiumjs/
 [Code samples]: /samples/browse/?products=azure-maps
-[geocoding services]: /rest/api/maps/search
+[geocoding services]: /rest/api/maps/search?view=rest-maps-1.0
 [Implement IoT spatial analytics using Azure Maps]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing
 [leaflet]: https://leafletjs.com
 [LiveMaps]: https://github.com/Azure-Samples/LiveMaps

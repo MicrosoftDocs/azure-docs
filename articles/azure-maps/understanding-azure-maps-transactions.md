@@ -101,8 +101,8 @@ The following table summarizes the Azure Maps services that generate transaction
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Render]: /rest/api/maps/render
 [Route]: /rest/api/maps/route
-[Search v1]: /rest/api/maps/search
-[Search v2]: /rest/api/maps/search-v2
+[Search v1]: /rest/api/maps/search?view=rest-maps-1.0
+[Search v2]: /rest/api/maps/search
 [Spatial]: /rest/api/maps/spatial
 [Tileset]: /rest/api/maps-creator/tileset
 [Timezone]: /rest/api/maps/timezone

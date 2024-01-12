@@ -238,7 +238,7 @@ Stay up to date on Azure Maps:
 [Render]: /rest/api/maps/render
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
-[Search]: /rest/api/maps/search
+[Search]: /rest/api/maps/search?view=rest-maps-1.0
 [Spatial]: /rest/api/maps/spatial
 [TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
 [Timezone]: /rest/api/maps/timezone
