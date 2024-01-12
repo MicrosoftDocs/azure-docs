@@ -87,8 +87,8 @@ Azure OpenAI on your data supports the following data sources:
 |Blob storage container     | Azure AI Search | Use an existing blob storage container to be ingested into an Azure blob storage database.         |
 | [Azure AI Search](/azure/search/search-what-is-azure-search)   | Azure AI Search | Use an existing Azure AI Search database to be used with Azure OpenAI on your data.      |
 |[Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/)     | Azure Cosmos DB for MongoDB vCore        | Use an existing Azure Cosmos DB for MongoDB vCore to be used with Azure OpenAI on your data.        |
-| [Pinecone](https://www.pinecone.io/)   | Use an existing Pinecone database to be used with Azure OpenAI on your data.        |         |
-| [Elasticsearch](https://www.elastic.co/)   | Use an existing Elasticsearch database to be used with Azure OpenAI on your data.        |         |
+| [Pinecone](https://www.pinecone.io/)   | Pinecone | Use an existing Pinecone database to be used with Azure OpenAI on your data.        |         
+| [Elasticsearch](https://www.elastic.co/)   | Elasticsearch | Use an existing Elasticsearch database to be used with Azure OpenAI on your data.        |         
 
 You can use Azure OpenAI studio, Azure AI studio, or the [ingestion API](../reference.md#start-an-ingestion-job) to connect existing supported databases (to upload files and select URLs for ingestion, use Azure OpenAI studio). For example, to add a data source using Azure Open AI Studio:
 
