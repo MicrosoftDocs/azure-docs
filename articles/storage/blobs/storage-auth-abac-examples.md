@@ -14,7 +14,7 @@ ms.date: 01/11/2024
 
 # Example Azure role assignment conditions for Blob Storage
 
-This article list some examples of role assignment conditions for controlling access to Azure Blob Storage.
+This article lists some examples of role assignment conditions for controlling access to Azure Blob Storage.
 
 [!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 

@@ -29,6 +29,9 @@
       href: quickstart-golang.md
     - name: Deploy a custom container
       href: quickstart-custom-container.md
+    - name: Use ARM template
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
 - name: Deployment and configuration
   items:
     - name: Deployment best practices
@@ -85,9 +88,6 @@
       href: configure-connect-to-azure-storage.md
     - name: Automate provisioning
       items:
-        - name: Use ARM template
-          displayName: Resource Manager
-          href: quickstart-arm-template.md
         - name: Use Bicep
           href: provision-resource-bicep.md
         - name: Use Terraform

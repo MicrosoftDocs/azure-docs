@@ -5,8 +5,4 @@ items:
   items:
   - name: Azure Spring Apps
     tocHref: /azure/spring-apps
-    topicHref: /azure/spring-apps/index
-    items:
-    - name: Enterprise plan
-      tocHref: /
-      topicHref: /azure/spring-apps/enterprise/index
+    topicHref: /azure/spring-apps/index  
