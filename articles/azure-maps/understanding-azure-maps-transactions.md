@@ -91,8 +91,8 @@ The following table summarizes the Azure Maps services that generate transaction
 [Conversion]: /rest/api/maps-creator/conversion
 [Creator table]: #azure-maps-creator
 [Data registry]: /rest/api/maps/data-registry
-[v1]: /rest/api/maps/data
-[v2]: /rest/api/maps/data-v2
+[v1]: /rest/api/maps/data?view=rest-maps-1.0
+[v2]: /rest/api/maps/data
 [How to create data registry]: how-to-create-data-registries.md
 [Dataset]: /rest/api/maps-creator/dataset
 [Feature State]: /rest/api/maps-creator/feature-state
