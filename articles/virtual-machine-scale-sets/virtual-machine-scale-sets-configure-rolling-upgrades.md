@@ -31,24 +31,18 @@ Instance Protection
 Rolling Upgrade batch size % of 100%
 
 ## Concepts
+Below are some common settings associated with Rolling Upgrade Policy. 
 
-**Upgrade Policy Mode:** <br>The Upgrade Policy modes available on Virtual Machine Scale sets are Automatic, Manual and Rolling. 
-
-**Rolling upgrade batch size %:** <br>Specifies how many of the total instances of your scale set you wish to be upgraded at one time. For example, a batch size of 20% when you have 10 instances in your scale set will result in upgrade batches with 2 instances each. 
-
-**Pause time between batches (sec):** Specifies how long you want your scale set to wait between upgrading batches. For example, a pause time of 10 seconds means that once a batch has successfully upgraded and the instances are back to taking traffic again, the scale set will wait 10 seconds before starting the next batch. 
-
-**Max unhealthy instance %:** <br>Specifies the allowed total number of instances marked as unhealthy before and during the Rolling Upgrade. For example, a max unhealthy instance % of 20 means if you have a scale set of 10 instances and more than 2 instances in the entire scale set report back as unhealthy, the Rolling Upgrade will cancel.  
-
-**Max unhealthy upgrade %:**<br> Specifies the allowed total number of instances marked as unhealthy after being upgrade. For example, a max unhealthy upgrade % of 20 means if you have a scale set of 10 instances and more than 2 instances in the entire scale set report back as unhealthy after being upgraded, the Rolling Upgrade will cancel. This is an important setting because it allows the scale set to catch unstable or poor updates before they roll out to the entire scale set. 
-
-**Prioritize unhealthy instances:** <br>Tells the scale set to upgrade instances marked as unhealthy before upgrading instances marked as healthy. For example, if you have some instances in your scale set that show as failed or unhealthy when a Rolling Upgrade begins, the scale set will ensure to update those instances ahead of the other instances in the scale set. 
-
-**Enable cross-zone upgrade:** <br>Allows the scale set to ignore Availability Zone boundaries when determining batches. 
-
-**MaxSurge:** <br>With MaxSurge enabled, new instances are created in the scale set using the latest scale model in batches. Once the batch of new instances is successfully created and marked as healthy, instances matching the old scale set model are deleted. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. It is important to ensure you have enough quota in your subscription and region to utilize MaxSurge. 
-
-With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. Rolling upgrades without MaxSurge does not require additional quota however, it does result in your scale set having reduced capacity during the upgrade process. 
+|Setting | Description |
+|---|---|
+|**Upgrade Policy Mode:** | The Upgrade Policy modes available on Virtual Machine Scale sets are Automatic, Manual and Rolling. | 
+|**Rolling upgrade batch size %:** | Specifies how many of the total instances of your scale set you wish to be upgraded at one time. For example, a batch size of 20% when you have 10 instances in your scale set will result in upgrade batches with 2 instances each. |
+|**Pause time between batches (sec):** |Specifies how long you want your scale set to wait between upgrading batches. For example, a pause time of 10 seconds means that once a batch has successfully upgraded and the instances are back to taking traffic again, the scale set will wait 10 seconds before starting the next batch. |
+|**Max unhealthy instance %:** |Specifies the allowed total number of instances marked as unhealthy before and during the Rolling Upgrade. For example, a max unhealthy instance % of 20 means if you have a scale set of 10 instances and more than 2 instances in the entire scale set report back as unhealthy, the Rolling Upgrade will cancel. |
+| **Max unhealthy upgrade %:**|Specifies the allowed total number of instances marked as unhealthy after being upgrade. For example, a max unhealthy upgrade % of 20 means if you have a scale set of 10 instances and more than 2 instances in the entire scale set report back as unhealthy after being upgraded, the Rolling Upgrade will cancel. This is an important setting because it allows the scale set to catch unstable or poor updates before they roll out to the entire scale set. |
+|**Prioritize unhealthy instances:** |Tells the scale set to upgrade instances marked as unhealthy before upgrading instances marked as healthy. For example, if you have some instances in your scale set that show as failed or unhealthy when a Rolling Upgrade begins, the scale set will ensure to update those instances ahead of the other instances in the scale set. |
+| **Enable cross-zone upgrade:** |Allows the scale set to ignore Availability Zone boundaries when determining batches. |
+| **MaxSurge:** |With MaxSurge enabled, new instances are created in the scale set using the latest scale model in batches. Once the batch of new instances is successfully created and marked as healthy, instances matching the old scale set model are deleted. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. It is important to ensure you have enough quota in your subscription and region to utilize MaxSurge. <br><br>With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. Rolling upgrades without MaxSurge does not require additional quota however, it does result in your scale set having reduced capacity during the upgrade process. |
 
 
 ## Setting or Updating the Rolling Upgrade Policy
