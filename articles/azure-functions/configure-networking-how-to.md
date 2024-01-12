@@ -37,15 +37,19 @@ Use Bicep or Azure Resource Manager (ARM) [quickstart templates](https://github.
 
 When you have an existing function app, you can't directly secure the storage account currently being used by the app. You must instead swap-out the existing storage account for a new, secured storage account.
 
+### 1. Enable virtual network integration
+
 As a prerequisite, you need to enable virtual network integration for your function app.
 
 1. Choose a function app with a storage account that doesn't have service endpoints or private endpoints enabled.
 
 1. [Enable virtual network integration](./functions-networking-options.md#enable-virtual-network-integration) for your function app.
 
+### 2. Create a secured storage account 
+
 Set up a secured storage account for your function app: 
 
-1. Create or configure a second storage account. This is going to be the secured storage account that your function app will use instead.
+1. [Create a second storage account](../storage/common/storage-account-create.md). This is going to be the secured storage account that your function app will use instead. You can also use an existing storage account not already being used by Functions.
 
 1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) in the new storage account.
 
@@ -59,21 +63,28 @@ Set up a secured storage account for your function app:
 
 1. Copy the connection string for this storage account. You need this string for later.
 
-Now you're ready to configure your function app to communicate with your secured storage account:
+Now you're ready to configure your function app to communicate with the newly secured storage account.
+
+### 3. Enable content share routing
+
+You should now restrict traffic to the file share used by Functions to use only the virtual network.
 
 1. [Enable content share routing](../app-service/configure-vnet-integration-routing.md#content-share) to have your function app communicate with your storage account through its virtual network. 
 
-    * Navigate to the **Networking** tab of your function app. Under **Outbound traffic configuration**, select the subnet associated with your virtual network integration.
+1. Navigate to the **Networking** tab of your function app. Under **Outbound traffic configuration**, select the subnet associated with your virtual network integration.
 
     * In the new page, check the box for **Content storage** under **Configuration routing**.
+
+### 4. Update application settings
+
+Finally, you need to update your application settings to point at the new secure storage account.
 
 1. Update the **Application Settings** under the **Configuration** tab of your function app to the following:
 
     | Setting name | Value | Comment |
     |----|----|----|
-    | `AzureWebJobsStorage`| Storage connection string | This is the connection string for a secured storage account. |
-    | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |  Storage connection string | This is the connection string for a secured storage account. This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. |
-    | `WEBSITE_CONTENTSHARE` | File share | The name of the file share created in the secured storage account where the project deployment files reside. This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. |
+    | `AzureWebJobsStorage`<br>`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | Storage connection string | This is the connection string for the new secured storage account, which you saved earlier. |
+    | `WEBSITE_CONTENTSHARE` | File share | The name of the file share created in the secured storage account where the project deployment files reside. |
 
 1. Select **Save** to save the application settings. Changing app settings causes the app to restart.  
 
