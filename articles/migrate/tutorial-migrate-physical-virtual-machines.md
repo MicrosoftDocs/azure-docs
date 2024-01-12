@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 07/26/2023
+ms.date: 01/12/2023
 ms.custom: MVC, engagement-fy23
 ---
 
@@ -192,10 +192,10 @@ Now, select machines for migration.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replicate.png" alt-text="Screenshot on selecting Replicate option.":::
 
-2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
+2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
 4. In **Process Server**, select the name of the replication appliance.
-5. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines**.   
+5. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines**.   
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/source-settings.png" alt-text="Screenshot on source settings.":::
 
