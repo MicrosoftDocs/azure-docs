@@ -292,7 +292,7 @@ configuration to a MOF file and create a machine configuration package.
 
 Some modules might have compatibility issues with machine configuration. The most common
 problems are related to .NET framework vs .NET core. Detailed technical information is available on
-the page, [Differences between Windows PowerShell 5.1 and PowerShell 7.x][07].
+the page, [Differences between Windows PowerShell 5.1 and PowerShell 7.x][https://learn.microsoft.com/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.4].
 
 One option to resolve compatibility issues is to run commands in Windows PowerShell from within a
 module that's imported in PowerShell 7, by running `powershell.exe`. You can review a sample module

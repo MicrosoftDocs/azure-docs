@@ -1,10 +1,10 @@
 ---
-title: Migrate to NFS Azure file shares
-description: Learn how to migrate from Linux file servers to NFS Azure file shares using open source file copy tools. Compare the performance of common file copy tools.
+title: Migrate to NFS Azure file shares from Linux
+description: Learn how to migrate from Linux file servers to NFS Azure file shares using recommended open source file copy tools. Compare the performance of file copy tools fpsync and rsync.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 01/08/2023
 ms.author: kendownie
 ---
 

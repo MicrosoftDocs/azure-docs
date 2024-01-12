@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion using the Developer SKU.
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 12/04/2023
+ms.date: 01/11/2024
 ms.author: cherylmc
 ms.custom: references_regions
 ---
@@ -27,7 +27,7 @@ The Bastion Developer SKU is a new [lower-cost](https://azure.microsoft.com/pric
 
 When you deploy Bastion using the Developer SKU, the deployment requirements are different than when you deploy using other SKUs. Typically when you create a bastion host, a host is deployed to the AzureBastionSubnet in your virtual network. The Bastion host is dedicated for your use. When using the Developer SKU, a bastion host isn't deployed to your virtual network and you don't need an AzureBastionSubnet. However, the Developer SKU bastion host isn't a dedicated resource and is, instead, part of a shared pool.
 
-Because the Developer SKU bastion resource isn't dedicated, the features for the Developer SKU are limited. See the Bastion configuration settings [SKU](configuration-settings.md) section for features by SKU. For more information about pricing, see the [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion/) page. You can always upgrade the Developer SKU to a higher SKU if you need more features. See [Upgrade a SKU](upgrade-sku.md).
+Because the Developer SKU bastion resource isn't dedicated, the features for the Developer SKU are limited. See the Bastion configuration settings [SKU](configuration-settings.md) section for features by SKU. You can always upgrade the Developer SKU to a higher SKU if you need more features. See [Upgrade a SKU](upgrade-sku.md).
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -41,6 +41,7 @@ Because the Developer SKU bastion resource isn't dedicated, the features for the
   * If you need example values, see the [Example values](#values) section.
   * If you already have a virtual network, make sure it's selected on the Networking tab when you create your VM.
   * If you don't have a virtual network, you can create one at the same time you create your VM.
+  * If you have a virtual network, make sure you have the rights to write to it.
 
 * **Required VM roles:**
 
