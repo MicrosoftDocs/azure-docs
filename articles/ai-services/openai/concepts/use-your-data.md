@@ -84,7 +84,7 @@ Azure OpenAI on your data supports the following data sources:
 |---------|---------|---------|
 |Local file upload    | Azure AI Search        | Upload files from your local machine to be stored in an Azure blob storage database, and ingested into Azure AI Search.         |
 |URL/Web pages    | Azure AI Search        | Select URLs from the web to be stored in an Azure blob storage database, and ingested into Azure AI Search.         |
-|Blob storage container     | Azure AI Search | Use an existing blob storage container to be ingested into an Azure blob storage database.         |
+|Blob storage container     | Azure AI Search | Use an existing blob storage container to be ingested into an Azure AI Search database.         |
 | [Azure AI Search](/azure/search/search-what-is-azure-search)   | Azure AI Search | Use an existing Azure AI Search database to be used with Azure OpenAI on your data.      |
 |[Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/)     | Azure Cosmos DB for MongoDB vCore        | Use an existing Azure Cosmos DB for MongoDB vCore to be used with Azure OpenAI on your data.        |
 | [Pinecone](https://www.pinecone.io/)   | Pinecone | Use an existing Pinecone database to be used with Azure OpenAI on your data.        |         
