@@ -55,9 +55,9 @@ An age mismatch occurs when the document gives a certain age for the patient, wh
 
 Request and json output: age_mm_textLimited
 
-[Example input json](age_mm_textLimited.xml.jsonrequest)
+[Example input json](Example_Inference_AgeMismatch.xml.jsonrequest)
 
-[Example output json](age_mm_textLimited.xml.jsonresponse)
+[Example output json](Example_Inference_AgeMismatch.xml.jsonresponse)
 
 
 **Laterality Discrepancy**
@@ -85,11 +85,11 @@ The meaning of this field is as follows:
 
 A mismatch with discrepancy type “textLaterityMissing” has no token extensions.
 
-Request and json output: lat_mm_textLimited
 
-[Example input json](lat_mm_textLimited.xml.jsonrequest)
 
-[Example output json](lat_mm_textLimited.xml.jsonresponse)
+[Example input json](Example_Inference_LateralityDiscrepancy.xml.jsonrequest)
+
+[Example output json](Example_Inference_LateralityDiscrepancy.xml.jsonresponse)
 
 
 
@@ -101,7 +101,10 @@ Field “sexIndication” contains one coding with a SNOMED concept for either M
 1. 248153007: MALE (FINDING)
 2. 248152002: FEMALE (FINDING)
 
-Request and json output: RadInsights_Example1Limited
+[Example input json](Example_Inference_SexMismatch.xml.jsonrequest)
+[Example output json](Example_Inference_SexMismatch.xml.jsonresponse)
+
+
 
 **Complete Order Discrepancy**
 CompleteOrderDiscrepancy is created if there's a complete orderedProcedure - meaning that some body parts need to be mentioned in the text, and possibly also measurements for some of them - and not all the body parts or their measurements are in the text.
@@ -118,7 +121,13 @@ Field “ordertype” contains one Coding, with one of the following Loinc codes
 
 Fields “missingBodyParts” and/or “missingBodyPartsMeasurements” contain body parts (radlex codes) that are missing or whose measurements are missing. The token extensions refer to body parts or measurements that are present (or words that imply them).
         
-Request and json output: compl_mismatchLimited
+
+
+[Example input json](Example_Inference_CompleteOrderDiscrepancy.xml.jsonrequest)
+[Example output json](Example_Inference_CompleteOrderDiscrepancy.xml.jsonresponse)
+
+
+
         
 **Limited Order Discrepancy**
   
@@ -137,6 +146,9 @@ Field “ordertype” contains one Coding, with one of the following Loinc codes
 Fields “presentBodyParts” and/or “presentBodyPartsMeasurements” contain body parts (radlex codes) that are present or whose measurements are present. The token extensions refer to body parts or measurements that are present (or words that imply them).
         
 Request and json output: compl_mismatch3Limited
+
+[Example input json](Example_Inference_LimitedOrderDiscrepancy.xml.jsonrequest)
+[Example output json](Example_Inference_LimitedOrderDiscrepancy.xml.jsonresponse)
 
 **Finding**
 
@@ -246,6 +258,12 @@ Every component has either field “valueQuantity” or “valueRange” set.
 If “valueQuantity” is set, then “valueQuantity.value” is always set. In most cases, “valueQuantity.unit” is set. It's possible that “valueQuantity.comparator” is also set, to either “>”, “<”, “>=” or “<=”. For example, the component is set to “<=” for “the tumor is up to 2 cm”.
 If “valueRange” is set, then “valueRange.low” and “valueRange.high” are set to quantities with the same data as described in the previous paragraph. This field contains, for example, “The tumor is between 2.5 cm and 2.6 cm in size".
 
+
+[Example input json](Example_Inference_Finding.xml.jsonrequest)
+[Example output json](Example_Inference_Finding.xml.jsonresponse)
+
+
+
 **Critical Result**
 This inference is made for a new medical problem that requires attention within a specific time frame, possibly urgently.
 - kind: RadiologyInsightsInferenceType.criticalResult
@@ -256,7 +274,10 @@ Field “result.finding”, if set, contains the same information as the “find
 
 Next to token extensions, there can be an extension for a section. This field contains the most specific section that the first token of the critical result is in (or to be precise, the first token that is in a section). This section is in the same format as a section for a finding.
 
-Request and json output: recommendation_textCRLimited
+
+
+[Example input json](Example_Inference_CriticalResult.xml.jsonrequest)
+[Example output json](Example_Inference_CriticalResult.xml.jsonresponse)
 
 **Follow-up Recommendation**
 
@@ -311,6 +332,10 @@ This type has the following fields, the first 2 of which are always filled:
 4. “contrast”: not set.
 5. “view”: not set.
 
+
+[Example input json](Example1_Inference_followupRecommendation.xml.jsonrequest)
+[Example output json](Example1_Inference_followupRecommendation.xml.jsonresponse)
+
 **follow up Communication**
 
 This inference is created when findings or test results were communicated to a medical professional.
@@ -322,6 +347,9 @@ This inference is created when findings or test results were communicated to a m
 Field “wasAcknowledged” is set to true if the communication was verbal (nonverbal communication might not have reached the recipient yet and cannot be considered acknowledged). Field “dateTime” is set if the date-time of the communication is known. Field “recipient” is set if the recipient(s) are known. See the OpenAPI spec for its possible values.
 
 Request and json output: CommunicationTestLimited
+
+[Example input json](Example_Inference_followupCommunication.xml.jsonrequest)
+[Example output json](Example_Inference_followupCommunication.xml.jsonresponse)
 
 **Radiology Procedure**
 
@@ -335,7 +363,9 @@ Field “imagingProcedures” contains one or more instances of an imaging proce
 Field “procedureCodes”, if set, contains LOINC codes.
 Field “orderedProcedure” contains the description(s) and the code(s) of the ordered procedure(s) as given by the client. The descriptions are in field “orderedProcedure.description”, separated by “;;”. The codes are in “orderedProcedure.code.coding”. In every coding in the array, only field “coding” is set.
         
-Request and json output: ContrastMismatch 1Limited
+
+[Example input json](Example_Inference_radiologyProcedure.xml.jsonrequest)
+[Example output json](Example_Inference_radiologyProcedure.xml.jsonresponse)
 
 ## Next steps
 

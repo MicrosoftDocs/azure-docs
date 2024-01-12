@@ -86,9 +86,9 @@ As a result, the model includes evidence for all inferences.
 - The model checks for follow-up recommendations with no specific radiologic modality.
 - The model provides a single focused sentence as evidence for the recommendation. 
 
-[Example input json](CDARecommendation_GuidelineFalseUnspecTrueLimited.xml.jsonrequest)
+[Example input json](Example2_Inference_followupRecommendation.xml.jsonrequest)
 
-[Example output json](CDARecommendation_GuidelineFalseUnspecTrueLimited.xml.jsonresponse)
+[Example output json](Example2_Inference_followupRecommendation.xml.jsonresponse)
 
 
 
@@ -103,9 +103,9 @@ As a result, the model includes evidence for all inferences.
 - The model checks for a recommendation in a guideline.
 - The model provides a single focused sentence as evidence for the finding. 
 
-[Example input json](CDARecommendation_GuidelineTrueUnspecFalseLimited.xml.jsonrequest)
+[Example input json](Example1_Inference_followupRecommendation.xml.jsonrequest)
 
-[Example output json](CDARecommendation_GuidelineTrueUnspecFalseLimited.xml.jsonresponse)
+[Example output json](Example1_Inference_followupRecommendation.xml.jsonresponse)
 
 ## Next steps
 
