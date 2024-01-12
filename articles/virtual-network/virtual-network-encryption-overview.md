@@ -21,7 +21,7 @@ Whenever Azure customer traffic moves between datacenters, Microsoft applies a d
 For more information about encryption in Azure, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
 
 > [!IMPORTANT]
-> Azure Virtual Network encryption is currently GA in the following regions: **UK South** and **Swiss North**. Azure Virtual Network encryption is in public preview in the remaining regions listed later in the article.
+> Azure Virtual Network encryption is currently GA in the following regions: **UK South**, **Swiss North**, and **West Central US**. Azure Virtual Network encryption is in public preview in the remaining regions listed later in the article.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -59,13 +59,13 @@ General Availability (GA) of Azure Virtual Network encryption is available in th
 
 - Swiss North
 
+- West Central US
+
 Azure Virtual Network encryption is available in the following regions during the public preview:
 
 - East US 2 EUAP
 
 - Central US EUAP
-
-- West Central US
 
 - East US
 
