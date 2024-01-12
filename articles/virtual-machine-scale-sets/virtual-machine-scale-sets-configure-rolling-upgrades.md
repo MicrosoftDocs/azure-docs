@@ -65,7 +65,12 @@ Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/v
 az vmss update \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --set upgradePolicy.rollingUpgradePolicy.maxSurge=true
+    --set upgradePolicy.rollingUpgradePolicy.maxSurge=true \
+    --max-batch-instance-percent 20 \
+    --max-unhealthy-instance-percent 20 \
+    --max-unhealthy-upgraded-instance-percent 20 \
+    --pause-time-between-batches "PT0S"\
+    --prioritize-unhealthy-instances true \
 ```
 
 ### [PowerShell](#tab/powershell1)
@@ -74,12 +79,22 @@ Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/m
 ```azurepowershell-interactive
 $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
+Set-AzVmssRollingUpgradePolicy `
+   -VirtualMachineScaleSet $VMSS `
+   -MaxBatchInstancePercent 20 `
+   -MaxUnhealthyInstancePercent 20 `
+   -MaxUnhealthyUpgradedInstancePercent 20 `
+   -PauseTimeBetweenBatches "PT30S" `
+   -EnableCrossZoneUpgrade True `
+   -PrioritizeUnhealthyInstance True `
+   -MaxSurge True
+
 Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -UpgradePolicyMode "Rolling" -VirtualMachineScaleSet $vmss
 ```
 
 ### [ARM Template](#tab/template1)
 
-Update the properties section of your ARM template with the Upgrade Policy you wish to use. 
+Update the properties section of your ARM template and set the upgrade policy to Rolling and various rolling upgrade options.  
 
 
 ``` ARM Template
@@ -119,9 +134,11 @@ Additionally, you can view exactly what changes are being rolled out in the Acti
 
 You can get the status of a rolling upgrade in progress using [az vmss rolling-upgrade get-latest](/cli/azure/vmss#az-vmss-rolling-upgrade)
 
-```azure-cli
+```azurecli-interactive
 az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResourceGroup
+```
 
+```cli
 {
   "location": "eastus",
   "policy": {
@@ -147,8 +164,7 @@ az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResource
   },
   "type": "Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades"
 }
-
-
+```
 
 ```
 
@@ -158,8 +174,11 @@ az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResource
 
 You can get the status of a rolling upgrade in progress using [Get-AzVmssRollingUpgrade](/powershell/module/az.compute/get-azvmssrollingupgrade)
 
-```azurepowershell
+```azurepowershell-interactive
 Get-AzVMssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet
+```dotnetcli
+
+```powershell
 
 Policy                                  : 
   MaxBatchInstancePercent               : 20
@@ -182,7 +201,6 @@ Progress                                :
 Type                                    : Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades
 Location                                : eastus
 Tags                                    : {}
-
 ```
 ---
 
@@ -197,24 +215,24 @@ You can cancel a rolling upgrade in progress using the Azure Portal by selecting
 ### [CLI](#tab/cli3)
 You can stop a rolling upgrade in progress using [az vmss rolling-upgrade cancel](/cli/azure/vmss#az-vmss-rolling-upgrade). If you do not see any output after running the command, it means the cancel request was successful.
 
-```azurecli
+```azurecli-interactive
 az vmss rolling-upgrade cancel --name myScaleSet --resource-group myResourceGroup
-
 ```
 
 ### [PowerShell](#tab/powershell3)
 You can stop a rolling upgrade in progress using [Stop-AzVmssRollingUpgrade](/powershell/module/az.compute/stop-azvmssrollingupgrade).
 
 
-```azurepowershell
+```azurepowershell-interactive
 Stop-AzVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet
+```
 
+```powershell
 Name      : f78e1b14-720a-4c53-9656-79a43bd10adc
 StartTime : 1/12/2024 8:40:46 PM
 EndTime   : 1/12/2024 8:45:18 PM
 Status    : Succeeded
 Error     : 
-
 ```
 ---
 
@@ -240,10 +258,6 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet -VirtualMachin
 ```    
 ---
 
-## Troubleshooting
-
-
 
 ## Next steps
-You can also perform common management tasks on Virtual Machine Scale Sets using the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
-
+You can also perform manual upgrades on Virtual Machine Scale Sets. For more information, see [Performing Manual Upgrades](virtual-machine-scale-sets-perform-manual-upgrades.md).
