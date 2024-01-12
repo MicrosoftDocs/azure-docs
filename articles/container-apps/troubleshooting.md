@@ -116,10 +116,16 @@ You can use the **diagnose and solve problems** tool to discover issues with you
 
 ## Verify accessibility of container image
 
-- Verify your container environment firewall isn't blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
-- If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./networking.md#dns).
+If you receive an error message when you try to deploy a new revision, verify Container Apps is able to pull your container image.
 
-For more information, see [Networking in Azure Container Apps environment] (./networking.md).
+- Verify your container environment firewall isn't blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
+- If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./networking.md#dns).
+- For a Docker container that can run as a console application, run:
+    ```
+    docker run --rm <YOUR_CONTAINER_IMAGE>
+    ```
+
+For more information, see [Networking in Azure Container Apps environment](./networking.md).
 
 ## Review ingress configuration
 
