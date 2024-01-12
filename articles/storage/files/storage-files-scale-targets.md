@@ -96,6 +96,30 @@ File scale targets apply to individual files stored in Azure file shares.
 
 <sup>3 Azure Files supports 10,000 open handles on the root directory and 2,000 open handles per file and directory within the share. The number of active users supported per share is dependent on the applications that are accessing the share. If you're using Azure Files to store disk images for large-scale virtual desktop workloads, you might run out of handles for the root directory or per file/directory. In this case, you might need to use two Azure file shares. If your applications aren't opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.</sup>
 
+### Virtual desktop sizing guidance for Azure Files
+
+A popular use case for Azure Files is storing user profile containers for Azure Virtual Desktop, using either FSLogix or App attach. In large scale deployments, you might run out of handles for the root directory or per file/directory. This section describes how handles are consumed by VHDX files and composite images (CIMs), and provides sizing guidance depending on the technology you're using.
+
+#### FSLogix with VHDX files
+
+If you're using FSLogix as a user profile solution, your profile containers are VHDX files, and they're mounted in a user context, not a system context. FSLogix users are likely to run out of handles for the root directory if there are a large number of user profiles. This is because every mount by a user shares the root directory handle pool in all scenarios, so every mount of any VHDX in the share consumes a root directory handle.
+
+If you're hitting the upper limit of 10,000 concurrent handles for the root directory, use an additional Azure file share.
+
+#### App attach with VHDX files
+
+If you're using App attach to dynamically attach applications, you can either store user profiles as VHDX files or use CimFS.
+
+If you're using App attach with VHDX files, the VHDX files are mounted in a system context, not a user context, and they are shared and read-only. More than one handle on the VHDX file can be consumed by a connecting user or system. Therefore, the scale limits are per VM, and the number of users is irrelevant. In this case, you might run out of handles for the VHDX file or the directory containing the VHDX file before the root directory.
+
+To stay within Azure files scale limits, the number of VMs multiplied by the number of apps must be less than 10,000, and the number of VMs per app can't exceed 2,000. So the constraint is whatever you hit first.
+
+If you're hitting the upper limits of maximum concurrent handles, use an additional Azure file share.
+
+#### App attach with CimFS
+
+If you're using App attach with composite images/CimFS, the scale limits are per VM, not per user. The number of VMs per app can't exceed 2,000, so you might run out of handles per file/directory. If this happens, use an additional Azure file share.
+
 ## Azure File Sync scale targets
 
 The following table indicates which targets are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:
