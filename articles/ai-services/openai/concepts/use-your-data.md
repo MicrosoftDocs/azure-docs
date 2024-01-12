@@ -94,7 +94,7 @@ You can use Azure OpenAI studio, Azure AI studio, or the [ingestion API](../refe
 
 1. Navigate to [Azure OpenAI studio](https://oai.azure.com/portal) and select the **Bring your data**.
 
-    :::image type="content" source="../media/use-your-data/bring-your-data-landing-page.png" alt-text="A screenshot of the Azure OpenAI Studio landing page." lightbox="../media/use-your-data/bring-your-data-landing page.png":::
+    :::image type="content" source="../media/use-your-data/bring-your-data-landing-page.png" alt-text="A screenshot of the Azure OpenAI Studio landing page." lightbox="../media/use-your-data/bring-your-data-landing-page.png":::
 
 1. In the pane that appears, select your data source option. For example, you can choose **Upload files** to upload files to an Azure blob storage And Azure AI Search service. Follow the steps that appear for your selected data source to add it, and start ingesting it.
 
