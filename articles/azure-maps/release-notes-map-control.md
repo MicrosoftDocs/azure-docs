@@ -16,6 +16,20 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.1.0] (January 12, 2024)
+
+#### New features (3.1.0)
+
+- Added a new control, `atlas.control.ScaleControl`, to display a scale bar on the map.
+
+- Introduced functions for accessing, updating, and deleting a feature state.
+
+#### Bug fixes (3.1.0)
+
+- Addressed the issue of layer ordering after a style update, when a user layer is inserted before another user layer.
+
+- **\[BREAKING\]** Aligned the polygon fill pattern behavior with Maplibre. Now, the `fillPattern` option consistently disables the `fillColor` option. When configuring `fillColor` for polygon layers, ensure that `fillPattern` is set to `undefined`.
+
 ### [3.0.3] (November 29, 2023)
 
 #### New features (3.0.3)
@@ -373,6 +387,18 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2
 
+### [2.3.6] (January 12, 2024)
+
+#### New features (2.3.6)
+
+- Added a new control, `atlas.control.ScaleControl`, to display a scale bar on the map.
+
+- Introduced functions for accessing, updating, and deleting a feature state.
+
+#### Bug fixes (2.3.6)
+
+- Addressed the issue of layer ordering after a style update, when a user layer is inserted before another user layer.
+
 ### [2.3.5] (November 29, 2023)
 
 #### Other changes (2.3.5)
@@ -522,6 +548,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.1.0]: https://www.npmjs.com/package/azure-maps-control/v/3.1.0
 [3.0.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.3
 [3.0.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.2
 [3.0.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.1
@@ -536,6 +563,7 @@ Stay up to date on Azure Maps:
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.3.6]: https://www.npmjs.com/package/azure-maps-control/v/2.3.6
 [2.3.5]: https://www.npmjs.com/package/azure-maps-control/v/2.3.5
 [2.3.4]: https://www.npmjs.com/package/azure-maps-control/v/2.3.4
 [2.3.3]: https://www.npmjs.com/package/azure-maps-control/v/2.3.3
