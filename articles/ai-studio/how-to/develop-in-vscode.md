@@ -1,41 +1,42 @@
 ---
-title: Get started with Azure AI projects in VS Code (Web)
+title: Work with Azure AI projects in VS Code
 titleSuffix: Azure AI Studio
-description: This article provides instructions on how to get started with Azure AI projects in VS Code (Web).
+description: This article provides instructions on how to get started with Azure AI projects in VS Code.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 1/10/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
 ---
 
-# Get started with Azure AI projects in VS Code (Web)
+# Get started with Azure AI projects in VS Code
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-Azure AI Studio supports developing in VS Code for the Web. In this scenario, VS Code is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance. To work in your local environment instead, or to learn more, follow the steps in [Install the Azure AI SDK](sdk-install.md) and [Install the Azure AI CLI](cli-install.md).
+Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance. To work in your local environment instead, or to learn more, follow the steps in [Install the Azure AI SDK](sdk-install.md) and [Install the Azure AI CLI](cli-install.md).
 
-## Launch VS Code (Web) from Azure AI Studio
+## Launch VS Code from Azure AI Studio
 
-1. Go to the Azure AI Studio homepage at [aka.ms/AzureAIStudio](https://aka.ms/AzureAIStudio).
+1. Go to [Azure AI Studio](https://ai.azure.com).
 
-1. Got to **Build** > **Projects** and select or create the project you want to work with.
+1. Go to **Build** > **Projects** and select or create the project you want to work with.
 
-1. At the top-right of any page in the **Build** tab, select **Open project in VS Code (Web)**
+1. At the top-right of any page in the **Build** tab, select **Open project in VS Code (Web)** if you want to work in the browser. If you want to work in your local VS Code instance instead, select the dropdown arrow and choose **Open project in VS Code (Desktop)**.
 
-1. Select or create the compute instance that you want to use. 
+1. Within the dialog that opened following the previous step, select or create the compute instance that you want to use.
 
 1. Once the compute is running, select **Set up** which configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted.
 
     > [!WARNING]
-    > Even if you enable and configure idle shutdown on your compute instance, any computes that host this custom container for VS Code (Web) won't idle shutdown. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container. We are working to improve this experience. Scheduled startup and shutdown should still work as expected.
+    > Even if you [enable and configure idle shutdown on your compute instance](./create-manage-compute.md#configure-idle-shutdown), any computes that host this custom container for VS Code won't idle shutdown. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
 
-1. Once the container is ready, select **Launch**. This launches VS Code (Web) in a new browser tab connected to *vscode.dev*. 
+1. Once the container is ready, select **Launch**. This launches your previously selected VS Code experience, remotely connected to a custom development environment running on your compute instance.
 
+    If you selected VS Code (Web), a new browser tab connected to *vscode.dev* opens. If you selected VS Code (Desktop), a new local instance of VS Code opens on your local machine.
 
 ## The custom container folder structure
 
@@ -80,22 +81,27 @@ If you prefer to work interactively, the Azure AI CLI has everything you need to
 
 ### Working with prompt flows
 
-You can use the Azure AI SDK and Azure AI CLI to create, reference and work with the flows.
+You can use the Azure AI SDK and Azure AI CLI to create, reference and work with prompt flows.
 
-Prompt flows already created in the Azure AI Studio can be found at `shared\Users\{user-name}\promptflow`. You can also create new flows in your `code` or `shared` folder using the CLIs and SDKs.
+Prompt flows already created in the Azure AI Studio can be found at `shared\Users\{user-name}\promptflow`. You can also create new flows in your `code` or `shared` folder using the Azure AI CLI and SDK.
 
-- To reference an existing flow using the Azure AI CLI, use `ai flow invoke`.
-- To create a new flow using the Azure AI CLI, use `ai flow new`.
+- To reference an existing flow using the AI CLI, use `ai flow invoke`.
+- To create a new flow using the AI CLI, use `ai flow new`.
 
-For prompt flow specific capabilities that aren't present in the AI SDK and CLI, you can work directly with the Prompt flow CLI or SDK, or the Prompt flow VS Code extension (all preinstalled in this environment). For more information, see [prompt flow capabilities](https://microsoft.github.io/promptflow/reference/index.html).
+Prompt flow will automatically use the Azure AI connections your project has access to when you use the AI CLI or SDK.
+
+You can also work with the prompt flow extension in VS Code, which is preinstalled in this environment. Within this extension, you can set the connection provider to your Azure AI project. See [consume connections from Azure AI](https://microsoft.github.io/promptflow/cloud/azureai/consume-connections-from-azure-ai.html).
+
+For prompt flow specific capabilities that aren't present in the AI SDK and CLI, you can work directly with the prompt flow CLI or SDK. For more information, see [prompt flow capabilities](https://microsoft.github.io/promptflow/reference/index.html).
 
 ## Remarks
 
 If you plan to work across multiple code and data directories, or multiple repositories, you can use the split root file explorer feature in VS Code. To try this feature, follow these steps:
+
 1. Enter *Ctrl+Shift+p* to open the command palette. Search for and select **Workspaces: Add Folder to Workspace**.
 1. Select the repository folder that you want to load. You should see a new section in your file explorer for the folder you opened. If it was a repository, you can now work with source control in VS Code.
 1. If you want to save this configuration for future development sessions, again enter *Ctrl+Shift+p* and select **Workspaces: Save Workspace As**. This action saves a config file to your current folder.
-    
+
 For cross-language compatibility and seamless integration of Azure AI capabilities, explore the Azure AI Hub at [https://aka.ms/azai](https://aka.ms/azai). Discover app templates and SDK samples in your preferred programming language.
 
 ## Next steps
