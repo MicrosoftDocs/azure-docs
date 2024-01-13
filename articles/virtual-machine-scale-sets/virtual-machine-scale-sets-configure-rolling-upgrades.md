@@ -161,7 +161,6 @@ az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResource
     "startTime": "2024-01-12T20:20:04.4363788+00:00"
   },
   "type": "Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades"
-}
 ```
 
 ### [PowerShell](#tab/powershell2)
@@ -212,7 +211,6 @@ az vmss rolling-upgrade cancel --name myScaleSet --resource-group myResourceGrou
 
 ### [PowerShell](#tab/powershell3)
 You can stop a rolling upgrade in progress using [Stop-AzVmssRollingUpgrade](/powershell/module/az.compute/stop-azvmssrollingupgrade).
-
 
 ```azurepowershell
 Stop-AzVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet
