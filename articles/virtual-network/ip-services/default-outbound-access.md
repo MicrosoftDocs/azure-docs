@@ -2,7 +2,6 @@
 title: Default outbound access in Azure
 titleSuffix: Azure Virtual Network
 description: Learn about default outbound access in Azure.
-services: virtual-network
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network
