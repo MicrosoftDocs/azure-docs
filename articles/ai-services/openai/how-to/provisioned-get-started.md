@@ -175,7 +175,7 @@ We recommend the following workflow:
 * For more information on provisioned deployments, check out [What is provisioned throughput?](../concepts/provisioned-throughput.md)
 * For more information on retry logic within each SDK, check out:
     * [Python reference documentation](https://github.com/openai/openai-python?tab=readme-ov-file#retries)
-    * [.NET reference documentation](/dotnet/api/azure.ai.openai.openaiclientoptions?view=azure-dotnet-preview)
-    * [Java reference documentation](/java/api/com.azure.ai.openai.openaiclientbuilder?view=azure-java-preview#com-azure-ai-openai-openaiclientbuilder-retryoptions(com-azure-core-http-policy-retryoptions))
-    * [JavaScript reference documentation](/javascript/api/@azure/openai/openaiclientoptions?view=azure-node-preview#@azure-openai-openaiclientoptions-retryoptions)
+    * [.NET reference documentation](/dotnet/api/azure.ai.openai.openaiclientoptions?view=azure-dotnet-preview&preserve-view=true)
+    * [Java reference documentation](/java/api/com.azure.ai.openai.openaiclientbuilder?view=azure-java-preview&preserve-view=true#com-azure-ai-openai-openaiclientbuilder-retryoptions(com-azure-core-http-policy-retryoptions))
+    * [JavaScript reference documentation](/javascript/api/@azure/openai/openaiclientoptions?view=azure-node-preview&preserve-view=true#@azure-openai-openaiclientoptions-retryoptions)
     * [GO reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#ChatCompletionsOptions)
