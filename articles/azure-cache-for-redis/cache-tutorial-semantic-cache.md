@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use Azure Cache for Redis as a Semantic Cache'
+title: 'Tutorial: Use Azure Cache for Redis as a semantic cache'
 description: In this tutorial, you learn how to use Azure Cache for Redis as a semantic cache.
 author: flang-msft
 ms.author: franlanglois
@@ -10,7 +10,7 @@ ms.date: 01/08/2024
 #CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a semantic cache with an AI-based large language model.
 ---
 
-# Tutorial: Use Azure Cache for Redis as a Semantic Cache
+# Tutorial: Use Azure Cache for Redis as a semantic cache
 
 In this tutorial, you use Azure Cache for Redis as a semantic cache with an AI-based large language model (LLM). You use Azure Open AI Service to generate LLM responses to queries and cache those responses using Azure Cache for Redis, delivering faster responses and lowering costs.
 
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
 - An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** and **gpt-35-turbo-instruct** models deployed. These models are currently only available in [certain regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). See the [resource deployment guide](../ai-services/openai/how-to/create-resource.md) for instructions on how to deploy the models.
 
-## Create an Azure Cache for Redis Instance
+## Create an Azure Cache for Redis instance
 
 Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md) guide. On the **Advanced** page, make sure that you added the **RediSearch** module and  chose the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
 
@@ -64,7 +64,7 @@ Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis
    pip install openai langchain redis tiktoken
    ```
 
-## Create Azure OpenAI Models
+## Create Azure OpenAI models
 
 Make sure you have two models deployed to your Azure OpenAI resource:
 
@@ -257,7 +257,7 @@ Finally, query the LLM to get an AI generated response. If you're using a Jupyte
     
 1. Change the query from `Please write a poem about cute kittens` to `Write a poem about cute kittens` and run cell 5 again. You should see the _exact same output_ and a _lower wall time_ than the original query. Even though the query changed, the _semantic meaning_ of the query remained the same so the same cached output was returned. This is the advantage of semantic caching!
 
-## Change the Similarity Threshold
+## Change the similarity threshold
 
 1. Try running a similar query with a different meaning, like `Please write a poem about cute puppies`. Notice that the cached result is returned here as well. The semantic meaning of the word `puppies` is close enough to the word `kittens` that the cached result is returned.
 
