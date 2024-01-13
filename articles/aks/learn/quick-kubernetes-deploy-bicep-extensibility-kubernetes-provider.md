@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using the Bicep extensibility Kubernetes provider'
-description: Learn how to quickly create a Kubernetes cluster using the Bicep extensibility Kubernetes provider and deploy an application in Azure Kubernetes Service (AKS). 
+title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Bicep extensibility Kubernetes provider'
+description: Learn how to quickly deploy a Kubernetes cluster using the Bicep extensibility Kubernetes provider and deploy an application in Azure Kubernetes Service (AKS). 
 ms.topic: quickstart
 ms.custom: devx-track-bicep
-ms.date: 12/27/2023
-#Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
+ms.date: 01/11/2024
+#Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Bicep extensibility Kubernetes provider (Preview)
+# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Bicep extensibility Kubernetes provider (preview)
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
 
@@ -26,6 +26,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 >  }
 > }
 > ```
+
+> [!NOTE]
+> To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
 ## Before you begin
 
@@ -432,4 +435,5 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [new-azresourcegroupdeployment]: /powershell/module/az.resources/new-azresourcegroupdeployment
 [az-sshkey-create]: /cli/azure/sshkey#az_sshkey_create
-[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
+[baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
