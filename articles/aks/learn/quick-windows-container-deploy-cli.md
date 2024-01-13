@@ -24,11 +24,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-<<<<<<< HEAD
 - This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
-=======
-- This quickstart requires version 2.0.64 or later of the Azure CLI. If you are using Azure Cloud Shell, then the latest version is already installed.
->>>>>>> 297d29d3321caed72e601869ef0f33cdf479563e
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set](/cli/azure/account#az-account-set) command.
 
