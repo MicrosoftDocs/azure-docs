@@ -220,7 +220,7 @@ Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/
 > The Azure Monitor OpenTelemetry Distros include custom mapping and logic to automatically emit [Application Insights standard metrics](standard-metrics.md).
 
 > [!TIP]
-> At this time, all OpenTelemetry metrics whether generated from instrumentation libraries or manual coding are considered "custom metrics" for billing purposes. [Learn More](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+> All OpenTelemetry metrics whether generated from instrumentation libraries or manual coding are currently considered "custom metrics" for billing purposes. [Learn More](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ### Add a community instrumentation library
 
