@@ -18,6 +18,16 @@ Seismic Store is a cloud-based solution for storing and managing datasets of any
 
 Sdutil is a command-line Python tool for interacting with Seismic Store. You can use sdutil to perform basic operations like uploading data to Seismic Store, downloading datasets from Seismic Store, managing users, and listing folder contents.
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> Set up and run the sdutil tool.
+> Obtain the Seismic Store URI.
+> Create a subproject.
+> Register a user.
+> Use sdutil to manage datasets with Seismic Store.
+> Run tests to validate the sdutil tool's functionalities.
+
 ## Prerequisites
 
 Install the following prerequisites based on your OS.
@@ -67,7 +77,7 @@ Install required dependencies:
 
 ### Configuration
 
-1. Clone the [sdutil repository](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/home/-/tree/master) from the community Azure Stable branch and open in your favorite editor.
+1. Clone the [sdutil repository](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/home/-/tree/master) from the community `azure-stable` branch and open in your favorite editor.
 
 2. Replace the contents of `config.yaml` in the `sdlib` folder with the following YAML. Fill in the three templatized values (two instances of `<meds-instance-url>` and one instance of `<put refresh token here...>`).
 
@@ -136,7 +146,7 @@ Install required dependencies:
       * user    : user authorization utilities
     ```
 
-2. If this is your first time using the tool, you must run the `sdutil config init` command to initialize the configuration:
+2. If this is your first time using the tool, run the `sdutil config init` command to initialize the configuration:
 
     ```bash
       python sdutil config init
@@ -148,20 +158,20 @@ Install required dependencies:
       python sdutil auth login
     ```
 
-    After you successfully sign in, your credentials are valid for a week. You don't need to sign in again unless the credentials expire (after one week). If credentials expire, the system requires you to sign in again.
+    After you successfully sign in, your credentials are valid for a week. You don't need to sign in again unless the credentials expire.
 
     > [!NOTE]
-    > If you aren't getting the message about successful sign-in, make sure your three environment variables are set and you've followed all steps in the "Configuration" section above.
+    > If you aren't getting the message about successful sign-in, make sure that your three environment variables are set and that you followed all steps in the "Configuration" section earlier in this tutorial.
 
 ## Seismic Store resources
 
-Before you start using the system, it's important to understand how Seismic Store manages resources. There are three different types of resources that Seismic Store manages:
+Before you start using the system, it's important to understand how Seismic Store manages resources. Seismic Store manages three types of resources:
 
 - **Tenant project**: The main project. The tenant is the first section of the Seismic Store path.
 - **Subproject**: The working subproject, which is directly linked under the main tenant project. The subproject is the second section of the Seismic Store path.
 - **Dataset**: The dataset entity. The dataset is the third and last section of the Seismic Store path. You can specify the dataset resource by using the form `path/dataset_name`. In that form, `path` is optional and has the same meaning as a directory in a generic file system. The `dataset_name` part is the name of the dataset entity.
 
-The Seismic Store URI is a string that you use to uniquely address a resource in the system. You can obtain in by appending the prefix `sd://` to the required resource path:
+The Seismic Store URI is a string that you use to uniquely address a resource in the system. You can obtain it by appending the prefix `sd://` to the required resource path:
 
 ```code
   sd://<tenant>/<subproject>/<path>*/<dataset>
@@ -202,7 +212,7 @@ Only a tenant admin can create a subproject resource with the following sdutil c
 
 ## User management
 
-To be able to use Seismic Store, a user must be registered to at least a subproject resource with a role that defines their access level. Seismic store supports two different roles scoped at subproject level:
+To be able to use Seismic Store, users must be registered to at least a subproject resource with a role that defines their access level. Seismic store supports two roles scoped at subproject level:
 
 - **Admin**: Read/write access and user management.
 - **Viewer**: Read/list access.
@@ -304,53 +314,53 @@ Run the changelog script (`./changelog-generator.sh`) to automatically generate 
 
 ## Usage for Azure Data Manager for Energy
 
-The Azure Data Manager for Energy instance is using the OSDU&trade; M12 version of sdutil. Use the following steps if you want to use sdutil to use the Scientific Data Management System (SDMS) API of your Azure Data Manager for Energy instance.
+The Azure Data Manager for Energy instance is using the OSDU&trade; M12 version of sdutil. Complete the following steps if you want to use sdutil to take advantage of the Scientific Data Management System (SDMS) API of your Azure Data Manager for Energy instance:
 
-1. Ensure you have followed the [installation](#prerequisites) and [configuration](#configuration) steps from above. This includes downloading the SDUTIL source code, configuring your Python virtual environment, editing the `config.yaml` file and setting your three environment variables.
+1. Ensure that you followed the earlier [installation](#prerequisites) and [configuration](#configuration) steps. These steps include downloading the sdutil source code, configuring your Python virtual environment, editing the `config.yaml` file, and setting your three environment variables.
 
 2. Run the following commands to do tasks in Seismic Store.
 
     - Initialize:
 
-       ```code
-         (sdutilenv) > python sdutil config init
-         [one] Azure
-         Select the cloud provider: **enter 1**
-         Insert the Azure (azureGlabEnv) application key: **just press enter--no need to provide a key**
+      ```code
+        (sdutilenv) > python sdutil config init
+        [one] Azure
+        Select the cloud provider: **enter 1**
+        Insert the Azure (azureGlabEnv) application key: **just press enter--no need to provide a key**
 
-         sdutil successfully configured to use Azure (azureGlabEnv)
+        sdutil successfully configured to use Azure (azureGlabEnv)
 
-         Should display sign in success message. Credentials expiry set to 1 hour.
-       ```
+        Should display sign in success message. Credentials expiry set to 1 hour.
+      ```
 
     - Sign in:
 
-       ```bash
-         python sdutil config init
-         python sdutil auth login
-       ```
+      ```bash
+        python sdutil config init
+        python sdutil auth login
+      ```
 
     - List files in Seismic Store:
 
-       ```bash
-         python sdutil ls sd://<tenant> # e.g. sd://<instance-name>-<datapartition>
-         python sdutil ls sd://<tenant>/<subproject> # e.g. sd://<instance-name>-<datapartition>/test
-       ```
+      ```bash
+        python sdutil ls sd://<tenant> # e.g. sd://<instance-name>-<datapartition>
+        python sdutil ls sd://<tenant>/<subproject> # e.g. sd://<instance-name>-<datapartition>/test
+      ```
 
     - Upload a file from your local machine to Seismic Store:
 
-       ```bash
-         python sdutil cp local-dir/file-name-at-source.txt sd://<datapartition>/test/file-name-at-destination.txt
-       ```
+      ```bash
+        python sdutil cp local-dir/file-name-at-source.txt sd://<datapartition>/test/file-name-at-destination.txt
+      ```
 
     - Download a file from Seismic Store to your local machine:
 
-       ```bash
-         python sdutil cp sd://<datapartition>/test/file-name-at-ddms.txt local-dir/file-name-at-destination.txt
-       ```
+      ```bash
+        python sdutil cp sd://<datapartition>/test/file-name-at-ddms.txt local-dir/file-name-at-destination.txt
+      ```
 
-       > [!NOTE]
-       > Don't use the `cp` command to download VDS files. The VDS conversion results in multiple files, so the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls that access a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
+      > [!NOTE]
+      > Don't use the `cp` command to download VDS files. The VDS conversion results in multiple files, so the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls that access a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
 
 OSDU&trade; is a trademark of The Open Group.
 
@@ -359,4 +369,4 @@ OSDU&trade; is a trademark of The Open Group.
 Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Steps to interact with Well Delivery DDMS](tutorial-well-delivery-ddms.md)
+> [Tutorial: Work with well data records by using Well Delivery DDMS APIs](tutorial-well-delivery-ddms.md)

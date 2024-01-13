@@ -19,6 +19,7 @@ Manifest ingestion provides the capability to ingest manifests into an Azure Dat
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Ingest sample manifests into an Azure Data Manager for Energy instance by using Postman.
 > * Search for storage metadata records created during manifest ingestion by using Postman.
 
@@ -54,7 +55,7 @@ Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entit
 
    To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman).
 
-1. Update `CURRENT_VALUE` for the Postman environment with the information that you obtained in the details of the Azure Data Manager for Energy instance.
+1. Update **CURRENT VALUE** for the Postman environment with the information that you obtained in the details of the Azure Data Manager for Energy instance.
 
 1. The Postman collection for manifest ingestion contains multiple requests, which have to be executed sequentially.
 

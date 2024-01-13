@@ -19,6 +19,7 @@ Comma-separated values (CSV) parser ingestion provides the capability to ingest 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Ingest a sample wellbore data CSV file into an Azure Data Manager for Energy instance by using Postman.
 > * Search for storage metadata records created during CSV ingestion by using Postman.
 
@@ -54,7 +55,7 @@ Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entit
 
    To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman).
   
-1. Update `CURRENT_VALUE` for the Postman environment with the information that you obtained in the details of the Azure Data Manager for Energy instance.
+1. Update **CURRENT VALUE** for the Postman environment with the information that you obtained in the details of the Azure Data Manager for Energy instance.
 
 1. The Postman collection for CSV parser ingestion contains a total of 10 requests, which have to be executed sequentially.
 
