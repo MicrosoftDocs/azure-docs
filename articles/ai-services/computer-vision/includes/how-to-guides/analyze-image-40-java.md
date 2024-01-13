@@ -60,17 +60,16 @@ Use an **ImageAnalysisOptions** object to specify various options for the Analyz
 
 ### Select visual features
 
-The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. For an explanation of each feature, see the [Overview](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0).
+
 
 > [!IMPORTANT]
 > The visual features `Captions` and `DenseCaptions` are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 > [!NOTE]
-> Feature name differences:
+> **Feature name differences**
 >
 > The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**, whereas the SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
-
-For an explanation of each feature, see the [Overview](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0).
 
 [!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_features)]
 
@@ -88,12 +87,9 @@ To use a custom model, create the [ImageAnalysisOptions](/java/api/com.azure.ai.
 
 ## Call the Analyze API
 
-This section shows you how to make an analysis call to the service using the standard model, and get the results.
-
+This section shows you how to make an analysis call to the service. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the non-blocking **analyzeAsync** method.
 
 Call the **analyze** method on the **ImageAnalysisClient** object, as shown here. Use the input objects created in the above sections.
-
-The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the non-blocking **analyzeAsync** method.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_call)]
 
@@ -113,7 +109,6 @@ The code is similar to the standard model case. The only difference is that resu
 The following code shows you how to parse the results of the various Analyze operations.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_results)]
-
 
 ## Troubleshooting
 
