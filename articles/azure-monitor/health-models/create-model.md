@@ -127,6 +127,22 @@ The list of available metrics for the selected resource type are getting populat
 
 :::image type="content" source="./media/health-model-create-modify-with-designer/edit-metric-signal-dialog.png" lightbox="./media/health-model-create-modify-with-designer/edit-metric-signal-dialog.png" alt-text="Screenshot of the Edit metric signal dialog in the Azure portal.":::
 
+## Edit log signals
+Before you can add a log signal to an entity, you connect it to a Log Analytics workspace. For an Azure resource entity, click **select a workspace**in the **Log Signals** section of the **Signals** tab. For an aggregate entity, click **Log Analytics signals** in the **General** tab.
+
+| Setting | Description |
+|:---|:---|
+| Name | Name of the signal as it appears in the health model. |
+| Query text | The text of the log query to run. Click **Edit query** to create a new query or edit an existing one. Log Analytics interface is displayed where you can write queries and test the results. |
+| Query time range | The frequency that the query is run. The query will only retrieve data from this time range. The value is set in the query editor when you edit the query. It is only displayed here. |
+| Value column name | The name of the column returned from the query that contains the value to compare to the thresholds. |
+| Unit | Label for the units of the value returned from the query. This doesn't affect the results but only how the value is displayed. |
+| Data type | The data type of the value returned from the query, either **Numeric** or **Text**. If numeric, then only numeric comparisons are avilable in the threshold. If text, then a particular string of text can be used for the threshold. |
+|  Enabled | Determines whether the signal is used to calculate the health state of the entity. |
+| Degraded threshold | If this calculation is true, and the Unhealthy calculation is false, then the state of the entity is set to **Degraded**. If both this and the Unhealthy calculation are false, then the health of the entity is set to **Healthy**. |
+| Unhealthy threshold | If this calculation is true, then the state of the entity is set to **Unhealthy**. If this calculation is false, then the **Degraded** threshold is checked. |
+
+
 ### Create Alert rule
 
 After clicking the **Create alert rule for health of this entity**, the Azure Alert rule creation wizard appears. The default **Signal name** is set to **Health score per node**, and health status is quantified numerically as follows: `100` for healthy, `50` for degraded, and `0` for unhealthy.

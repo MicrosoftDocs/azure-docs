@@ -32,3 +32,5 @@ Set a service level for the health model to define your commitment to your custo
 :::image type="content" source="media/overview/sample-service-level.png" lightbox="media/overview/sample-service-level.png" alt-text="Screenshot of service level view for an example health model. ":::
 
 ## Next steps
+
+- [Create a health model](./create-model.md).

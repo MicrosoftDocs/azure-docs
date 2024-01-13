@@ -59,10 +59,12 @@ items:
         href: health-models/nested-health-models.md
     - name: Analyze
       items:
-      - name: Views
-        href: health-models/views.md
-      - name: Queries
+      - name: Health state
+        href: health-models/graph-view.md
+      - name: Service levels
         href: health-models/service-levels.md
+      - name: Query health state
+        href: health-models/query-health.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot health models

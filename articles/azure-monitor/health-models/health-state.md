@@ -22,13 +22,14 @@ The health state is updated regularly, so you can always view an up-to-date heal
 | Unhealthy | The entity is not working but or is working with unacceptable performance. Counts as downtime for service level. |
 
 ## Signals
-The health of an entity is determined by one or more signals. A signal is a metric or log query that is evaluated on a schedule. The result of the signal is compared to a threshold to determine the health state of the entity.
+The health of an entity is determined by one or more signals. A signal is a metric or log query that is evaluated on a schedule. The result of the signal is compared to a threshold to determine the health state of the entity. You can automatically enable a set of recommended signals for many resource types, and you can also create your own custom signals.
+
+The health state may also be affected by any children entities depending on their impact setting. If there are multiple signals affecting an entity's health, the worst case will be used. For example, if a an entity has two signals, one that is degraded and one that is unhealthy, the entity will be unhealthy.
+
+
 
 
 ## Impact
-*Impact* refers to how the health an entity impacts the health of its parents. The different impact settings are described in the following table.
-
-### Impact
 The *impact* of an entity determines how its health state is propagated to its parent(s). Each entity in the health model has an impact setting that applies to any of the parent entities that entity is connected to. The following table describes the different impact settings.
 
 | Option | Description |
@@ -42,3 +43,5 @@ The following sample shows the effect of each impact setting. Each of the child 
 This sample also shows the worst-case rollup of the parent health states to the root entity. Each of the parent entities are configured for standard impact meaning their health state will propagate to the root entity which is their parent.  The root entity is in an unhealthy state because this is the worst case of the entities directly underneath it. 
 
 :::image type="content" source="media/health-state/health-impact.png" lightbox="media/health-state/health-impact.png" alt-text="Screenshot of an example health model showing different impact settings. ":::
+
+## Next steps
