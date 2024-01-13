@@ -21,16 +21,16 @@ zone_pivot_groups: programming-languages-vision-40-sdk
 [!INCLUDE [C# include](../includes/setup-sdk/csharp.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-cpp"
-[!INCLUDE [C++ include](../includes/setup-sdk/cpp.md)]
-::: zone-end
-
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python include](../includes/setup-sdk/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java include](../includes/setup-sdk/java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript include](../includes/setup-sdk/javascript.md)]
 ::: zone-end
 
 ## Next steps
