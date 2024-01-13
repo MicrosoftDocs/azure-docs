@@ -183,4 +183,4 @@ In this quickstart, you learned how to install the Image Analysis client SDK and
 >[Call the Analyze Image 4.0 API](../../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
-* Sample source code can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk).
+* Sample source code can be found on [GitHub](https://aka.ms/azsdk/image-analysis/samples/java).
