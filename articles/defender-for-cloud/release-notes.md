@@ -35,7 +35,7 @@ DevOps security exposes security findings as annotations in Pull Requests (PR) t
 
 By default, PR annotations are enabled only for High severity Infrastructure as Code (IaC) findings. Customers will still need to configure Microsoft Security for DevOps (MSDO) to run in PR builds and enable the Build Validation policy for CI builds in Azure DevOps repository settings. Customers can disable the PR Annotation feature for specific repositories from within the DevOps security blade repository configuration options.
 
-Learn more about [enabling Pull Request annotations for Azure DevOps](https://learn.microsoft.com/azure/defender-for-cloud/enable-pull-request-annotations#enable-pull-request-annotations-in-azure-devops).
+Learn more about [enabling Pull Request annotations for Azure DevOps](enable-pull-request-annotations.md#enable-pull-request-annotations-in-azure-devops).
 
 
 ### Recommendations released for preview: Nine new Azure security recommendations
