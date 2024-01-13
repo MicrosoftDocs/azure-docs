@@ -39,7 +39,7 @@ Get started with the Image Analysis 4.0 REST API or client SDK to set up a basic
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [JavaScript SDK quickstart](../includes/quickstarts-sdk/image-analysis-js-sdk-40.md)]
+[!INCLUDE [JavaScript SDK quickstart](../includes/quickstarts-sdk/image-analysis-node-sdk-40.md)]
 
 ::: zone-end
 
