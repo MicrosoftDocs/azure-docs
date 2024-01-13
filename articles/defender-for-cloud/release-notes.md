@@ -24,7 +24,19 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
+| January 12 | [DevOps security Pull Request annotations are now enabled by default for Azure DevOps connectors](#devops-security-pull-request-annotations-are-now-enabled-by-default-for-azure-devops-connectors) |
 | January 4 | [Recommendations released for preview: Nine new Azure security recommendations](#recommendations-released-for-preview-nine-new-azure-security-recommendations) |
+
+### DevOps security Pull Request annotations are now enabled by default for Azure DevOps connectors
+
+January 12, 2024
+
+DevOps security exposes security findings as annotations in Pull Requests (PR) to help developers prevent and fix potential security vulnerabilities and misconfigurations before they enter production. As of January 12, 2024, PR annotations are now enabled by default for all new and existing Azure DevOps repositories that are connected to Defender for Cloud. 
+
+By default, PR annotations are enabled only for High severity Infrastructure as Code (IaC) findings. Customers will still need to configure Microsoft Security for DevOps (MSDO) to run in PR builds and enable the Build Validation policy for CI builds in Azure DevOps repository settings. Customers can disable the PR Annotation feature for specific repositories from within the DevOps security blade repository configuration options.
+
+Learn more about [enabling Pull Request annotations for Azure DevOps](https://learn.microsoft.com/azure/defender-for-cloud/enable-pull-request-annotations#enable-pull-request-annotations-in-azure-devops).
+
 
 ### Recommendations released for preview: Nine new Azure security recommendations
 
