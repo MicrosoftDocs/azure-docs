@@ -34,7 +34,7 @@ If your scale set is part of a Service Fabric cluster, *Automatic* mode is the o
 ### Manual Upgrade Policy
 When using a Manual Upgrade Policy, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale set model. New instances added to the scale set use the most update-to-date model available. 
 
-Manual Upgrade policy is best suited for workloads where the instances in the scale set are composed of different configurations and each configuration might require different updates and changes.
+Manual Upgrade Policy is best suited for workloads where the instances in the scale set are composed of different configurations and each configuration might require different updates and changes.
 
 ### Rolling Upgrade Policy
 
@@ -95,4 +95,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ---
 
 ## Next steps
-You can also perform common management tasks on Virtual Machine Scale Sets using the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+Learn how to [set the Upgrade Policy](virtual-machine-scale-sets-set-upgrade-policy.md) of your Virtual Machine Scale Set.

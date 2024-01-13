@@ -12,7 +12,7 @@ ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowersh
 # Change the Upgrade Policy on Virtual Machine Scale Sets
 
 
-The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. 
+The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. Depending on your scenario, you may want to use a particular Upgrade Policy, like Manual or Automatic, when setting up and developing your workload. Once you are ready to move to Production, you then might want to change it to Rolling. 
 
 ### [Portal](#tab/portal2)
 
@@ -20,7 +20,7 @@ Select the Virtual Machine Scale Set you want to change the Upgrade Policy for. 
 
 If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
 
-:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/change-upgrade-policy.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
+:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/change-upgrade-policy.png" alt-text="Screenshot showing changing the Upgrade Policy and enabling MaxSurge in the Azure portal.":::
 
 
 ### [CLI](#tab/cli2)
@@ -64,4 +64,4 @@ If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtua
 
 
 ## Next steps
-You can also perform common management tasks on Virtual Machine Scale Sets using the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+Learn how to [configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) on Virtual Machine Scale Sets. 

@@ -56,7 +56,7 @@ Select the Virtual Machine Scale Set you want to change the Upgrade Policy for. 
 
 Configure the properties to best suite your requirements. 
 
-:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-policy-portal.png" alt-text="Screenshot showing changing the upgrade policy and enabling MaxSurge in the Azure portal.":::
+:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-policy-portal.png" alt-text="Screenshot showing changing the Upgrade Policy and enabling MaxSurge in the Azure portal.":::
 
 
 ### [CLI](#tab/cli1)
@@ -95,7 +95,7 @@ Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -UpgradePo
 
 ### [ARM Template](#tab/template1)
 
-Update the properties section of your ARM template and set the upgrade policy to Rolling and various rolling upgrade options.  
+Update the properties section of your ARM template and set the Upgrade Policy to Rolling and various rolling upgrade options.  
 
 
 ``` ARM Template
@@ -239,15 +239,13 @@ Error     :
 
 ## Restart a Rolling Upgrade
 
-### [Portal](#tab/portal4)
-
+If you decide to cancel a Rolling Upgrade, any additional changes that result in the scale set model to also change will trigger a new Rolling Upgrade. If you want to restart a Rolling Upgrade that has been canceled, you can use various APIs to trigger a generic model update. This will tell the scale set to check if all the instances are up to date with the latest model and if any are not, a Rolling Upgrade will begin. 
 
 ### [CLI](#tab/cli4)
 To restart a rolling upgrade after it has been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [az vmss update](/cli/azure/vmss#az-vmss-update)
 ```azurecli
 az vmss update --name myScaleSet --rescoure-group myResourceGroup
 ```
-
 
 ### [PowerShell](#tab/powershell4)
 To restart a rolling upgrade after it has been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
@@ -261,4 +259,4 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet -VirtualMachin
 
 
 ## Next steps
-You can also perform manual upgrades on Virtual Machine Scale Sets. For more information, see [Performing Manual Upgrades](virtual-machine-scale-sets-perform-manual-upgrades.md).
+Learn how to [perform manual upgrades](virtual-machine-scale-sets-perform-manual-upgrades.md) on Virtual Machine Scale Sets. 

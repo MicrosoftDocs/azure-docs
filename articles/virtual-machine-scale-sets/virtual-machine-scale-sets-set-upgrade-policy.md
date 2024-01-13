@@ -11,20 +11,20 @@ ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowersh
 ---
 # Set the Upgrade Policy on Virtual Machine Scale Sets
 
-The Upgrade Policy can be set during the scale set creation process or changed post deployment. If you do not explicitly set the upgrade policy, it will default to Manual. To setting the Upgrade Policy of an existing scale set deployment, see [Changing the Upgrade Policy](virtual-machine-scale-sets-change-upgrade-policy.md).
+The Upgrade Policy can be set during the scale set creation process or changed post deployment. If you don't explicitly set the Upgrade Policy, it defaults to Manual. To change the Upgrade Policy of an existing scale set deployment, see [Changing the Upgrade Policy](virtual-machine-scale-sets-change-upgrade-policy.md).
 
 ### [Portal](#tab/portal)
 
 During the Virtual Machine Scale Set creation in the Azure portal, under the **Management** tab, set the Upgrade Policy to **Rolling**, **Automatic**, or **Manual**. 
 
-If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
+If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/pick-upgrade-policy.png" alt-text="Screenshot showing deploying a scale set and enabling MaxSurge.":::
 
 ### [CLI](#tab/cli)
 When creating a new scale set using Azure CLI, use [az vmss create](/cli/azure/vmss#az-vmss-create) and the `-upgrade-policy-mode` parameter. Choose `Automatic`, `Manual` or `Rolling`. 
 
-If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
+If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and and suggestions.
 
 ```azurecli-interactive
 az vmss create \
@@ -39,7 +39,9 @@ az vmss create \
 ```
 
 ### [PowerShell](#tab/powershell)
-When creating a new scale set using Azure PowerShell, use [New-AzVmss](/powershell/module/az.compute/new-azvmss) and the `UpgradePolicyMode` parameter. Choose `"Automatic"`, `"Manual"`" or `"Rolling"` If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
+When creating a new scale set using Azure PowerShell, use [New-AzVmss](/powershell/module/az.compute/new-azvmss) and the `UpgradePolicyMode` parameter. Choose `"Automatic"`, `"Manual"`" or `"Rolling"` 
+
+If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and and suggestions.
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -54,9 +56,9 @@ New-AzVmss `
 ```
 
 ### [ARM Template](#tab/template)
-When using an ARM template, add the upgradePolicy to the properties section. 
+When using an ARM template, add the upgradePolicy to the properties section of your template 
 
-If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for additional configuration options and suggestions.
+If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and and suggestions.
 
 ```ARM
 "properties": {
@@ -69,4 +71,4 @@ If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtua
 
 
 ## Next steps
-You can also perform common management tasks on Virtual Machine Scale Sets using the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+Learn how to [change the Upgrade Policy](virtual-machine-scale-sets-change-upgrade-policy.md) of your Virtual Machine Scale Set. 
