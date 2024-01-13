@@ -110,7 +110,7 @@ Point the current path to the folder containing the extracted deployment package
 ```
 
 2. Installing required Az modules.
-Az modules contain cmdlets to deploy Azure resources, which are used to create resources. Install the required Az PowerShell Modules using this command. For more details of Az Modules, refer [link](https://docs.microsoft.com/powershell/azure/install-az-ps). You must point current path to the extracted folder location.
+Az modules contain cmdlets to deploy Azure resources, which are used to create resources. Install the required Az PowerShell Modules using this command. For more details of Az Modules, refer [link](/powershell/azure/install-az-ps). You must point current path to the extracted folder location.
 
 ``` PowerShell
 Set-Prerequisites
