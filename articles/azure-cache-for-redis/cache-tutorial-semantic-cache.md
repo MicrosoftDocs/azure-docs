@@ -72,7 +72,7 @@ Make sure you have two models deployed to your Azure OpenAI resource:
 
 - An embeddings model that converts queries into vectors to allow them to be compared to past queries. We use the **text-embedding-ada-002 (Version 2)** model for this tutorial.
 
-See [Deploy a model](/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) for more detailed instructions. Record the name you chose for each model deployment.
+See [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) for more detailed instructions. Record the name you chose for each model deployment.
 
 ## Import libraries and set up connection information
 
@@ -122,7 +122,7 @@ To successfully make a call against Azure OpenAI, you need an **endpoint** and a
 1. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Cache for Redis instance.
 
     > [!IMPORTANT]
-    > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview.md) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
+    > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](/azure/key-vault/general/overview.md) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
   
 1. Execute code cell 2.
 
