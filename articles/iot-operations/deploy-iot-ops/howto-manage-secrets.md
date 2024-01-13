@@ -78,7 +78,7 @@ Create a client secret that will be added to your Kubernetes cluster to authenti
 
 1. Provide an optional description for the secret, then select **Add**.
 
-1. Copy the **Value** from your new secret. You'll use these values later when you run `az iot ops init`.
+1. Copy the **Value** from your new secret. You'll use this value later when you run `az iot ops init`.
 
 Retrieve the service principal Object Id
 
