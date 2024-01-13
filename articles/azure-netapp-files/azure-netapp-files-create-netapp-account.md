@@ -47,11 +47,10 @@ You must register your subscription for using the NetApp Resource Provider. For 
 1. Select **Create**.
    The NetApp account you created now appears in the Azure NetApp Files pane.
 
-If you didn't register your subscription for using the NetApp Resource Provider, you receive the following error when you try to create the first NetApp account:
-
- ```
-{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '20xx-xx-xx'.\"\r\n }\r\n}"}]}
-```
+> [!NOTE]
+> If you didn't register your subscription for using the NetApp Resource Provider, you receive the following error when you try to create the first NetApp account:
+>
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '20xx-xx-xx'.\"\r\n }\r\n}"}]}`
 
 ## Next steps
 
