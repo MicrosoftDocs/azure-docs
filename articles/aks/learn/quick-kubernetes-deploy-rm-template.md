@@ -155,7 +155,7 @@ If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubect
     aks-agentpool-27442051-vmss000000   Ready    agent   10m   v1.27.7
     aks-agentpool-27442051-vmss000001   Ready    agent   10m   v1.27.7
     aks-agentpool-27442051-vmss000002   Ready    agent   11m   v1.27.7
-        ```
+    ```
 
 ---
 
