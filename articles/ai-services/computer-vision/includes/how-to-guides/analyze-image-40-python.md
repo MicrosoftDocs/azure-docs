@@ -78,7 +78,7 @@ To use a custom model, create the [ImageAnalysisOptions](/python/api/azure-ai-vi
 
 The following code calls the Analyze API with the features you selected above and additional options, defined below. 
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=call)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_call)]
 
 ### Select smart cropping aspect ratios
 
@@ -98,7 +98,7 @@ You can specify the language of the returned data. The language is optional, wit
 
 The following code shows you how to parse the results of the various Analyze operations.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=result)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_result)]
 
 
 <!--
@@ -117,7 +117,7 @@ The code is similar to the standard model case. The only difference is that resu
 
 ### Exceptions
 
-The `analyze` methods raise an [HttpResponseError](https://learn.microsoft.com/python/api/azure-core/azure.core.exceptions.httpresponseerror) exception for a non-success HTTP status code response from the service. The exception's `status_code` will be the HTTP response status code. The exception's `error.message` contains a detailed message that will allow you to diagnose the issue:
+The `analyze` methods raise an [HttpResponseError](/python/api/azure-core/azure.core.exceptions.httpresponseerror) exception for a non-success HTTP status code response from the service. The exception's `status_code` will be the HTTP response status code. The exception's `error.message` contains a detailed message that will allow you to diagnose the issue:
 
 ```python
 try:
