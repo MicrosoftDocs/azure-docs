@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal"
-description: Shows how to quickly stand up WebLogic Server on Azure Virtual Machine
+description: Shows how to quickly stand up WebLogic Server on Azure Virtual Machine.
 author: KarlErickson
 ms.author: haiche
 ms.topic: quickstart
@@ -34,9 +34,9 @@ The following steps show you how to find the WLS with Admin Server offer and fil
 
 1. In the search bar at the top of the portal, enter *weblogic*. In the auto-suggested search results, in the **Marketplace** section, select **Oracle WebLogic Server With Admin Server**.
 
-  :::image type="content" source="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png" alt-text="Screenshot of Azure portal showing WLS in search results." lightbox="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png":::
+   :::image type="content" source="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png" alt-text="Screenshot of Azure portal showing WLS in search results." lightbox="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png":::
 
-  You can also go directly to the offer with this [portal link](https://aka.ms/wls-vm-admin).
+   You can also go directly to the offer with this [portal link](https://aka.ms/wls-vm-admin).
 
 1. On the offer page, select **Create**.
 
@@ -187,7 +187,7 @@ Use the following steps to run a sample application in the WLS.
 
 1. Paste the fully qualified URL in an internet-connected web browser. If you deployed the recommended sample app, you should see the following page.
 
-   :::image type="content" source="media/weblogic-server-azure-virtual-machine/testwebapp.png" alt-text="Screenshot of the test web app.":::
+   :::image type="content" source="media/weblogic-server-azure-virtual-machine/test-webapp.png" alt-text="Screenshot of the test web app.":::
 
 ## Connect to the virtual machine
 
