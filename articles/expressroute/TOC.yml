@@ -89,6 +89,8 @@
     href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
+  - name: Rate limit for service provider ports
+    href: provider-rate-limit.md
   - name: Routing Microsoft 365 traffic over ExpressRoute 
     href: using-expressroute-for-microsoft365.md
   - name: Routing Microsoft PSTN traffic over ExpressRoute
