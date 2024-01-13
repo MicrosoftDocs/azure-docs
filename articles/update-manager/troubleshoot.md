@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 11/30/2023
+ms.date: 01/13/2024
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -137,7 +137,7 @@ You can also download and run the [Windows Update troubleshooter](https://suppor
 Schedule patching hasn't installed the patches on the VMs and gives an error as 'ShutdownOrUnresponsive'.
 
 #### Resolution
-Schedules triggered on machines deleted and recreated with the same resource ID within 8 hours may fail with ShutdownOrUnresponsive error due to a known limitation. It will be resolved by December, 2023.
+Schedules triggered on machines deleted and recreated with the same resource ID within 8 hours may fail with ShutdownOrUnresponsive error due to a known limitation.
 
 ### Unable to apply patches for the shutdown machines
 
