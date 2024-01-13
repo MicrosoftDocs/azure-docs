@@ -120,6 +120,8 @@ items:
       items:
       - name: Azure Image Analysis Java SDK samples
         href: https://aka.ms/azsdk/image-analysis/samples/java
+      - name: Azure Image Analysis Python SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/python
       - name: Azure Image Analysis other samples
         href: https://github.com/Azure-Samples/azure-ai-vision-sdk
     - name: Version 3.2
@@ -243,7 +245,7 @@ items:
       - name: .NET
         href: /dotnet/api/azure.ai.vision.imageanalysis
       - name: Python
-        href: /python/api/azure-ai-vision
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/python
       - name: C++
         href: /cpp/cognitive-services/vision
       - name: Java

@@ -152,7 +152,7 @@ tools:
     url: /javascript/api/@azure/cognitiveservices-computervision/
   - title: Python
     imageSrc: media/index/logo_python.svg
-    url: /python/api/azure-ai-vision
+    url: https://aka.ms/azsdk/image-analysis/ref-docs/python
   - title: C++
     imageSrc: media/index/logo-cplusplus.svg
     url: /cpp/cognitive-services/vision
