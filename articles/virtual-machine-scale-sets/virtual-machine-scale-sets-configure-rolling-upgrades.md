@@ -135,12 +135,9 @@ Additionally, you can view exactly what changes are being rolled out in the Acti
 
 You can get the status of a rolling upgrade in progress using [az vmss rolling-upgrade get-latest](/cli/azure/vmss#az-vmss-rolling-upgrade)
 
-```azurecli-interactive
+```azurecli
 az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResourceGroup
-```
 
-```cli
-{
   "location": "eastus",
   "policy": {
     "maxBatchInstancePercent": 20,
@@ -167,19 +164,12 @@ az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResource
 }
 ```
 
-```
-
-
-
 ### [PowerShell](#tab/powershell2)
 
 You can get the status of a rolling upgrade in progress using [Get-AzVmssRollingUpgrade](/powershell/module/az.compute/get-azvmssrollingupgrade)
 
-```azurepowershell-interactive
+```azurepowershell
 Get-AzVMssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet
-```dotnetcli
-
-```powershell
 
 Policy                                  : 
   MaxBatchInstancePercent               : 20
@@ -216,7 +206,7 @@ You can cancel a rolling upgrade in progress using the Azure Portal by selecting
 ### [CLI](#tab/cli3)
 You can stop a rolling upgrade in progress using [az vmss rolling-upgrade cancel](/cli/azure/vmss#az-vmss-rolling-upgrade). If you do not see any output after running the command, it means the cancel request was successful.
 
-```azurecli-interactive
+```azurecli
 az vmss rolling-upgrade cancel --name myScaleSet --resource-group myResourceGroup
 ```
 
@@ -224,11 +214,9 @@ az vmss rolling-upgrade cancel --name myScaleSet --resource-group myResourceGrou
 You can stop a rolling upgrade in progress using [Stop-AzVmssRollingUpgrade](/powershell/module/az.compute/stop-azvmssrollingupgrade).
 
 
-```azurepowershell-interactive
+```azurepowershell
 Stop-AzVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myScaleSet
-```
 
-```powershell
 Name      : f78e1b14-720a-4c53-9656-79a43bd10adc
 StartTime : 1/12/2024 8:40:46 PM
 EndTime   : 1/12/2024 8:45:18 PM
@@ -243,6 +231,7 @@ If you decide to cancel a Rolling Upgrade, any additional changes that result in
 
 ### [CLI](#tab/cli4)
 To restart a rolling upgrade after it has been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [az vmss update](/cli/azure/vmss#az-vmss-update)
+
 ```azurecli
 az vmss update --name myScaleSet --rescoure-group myResourceGroup
 ```
