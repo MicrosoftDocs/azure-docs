@@ -243,11 +243,9 @@ items:
       - name: Image Analysis REST API v4.0
         href: https://aka.ms/vision-4-0-ref
       - name: .NET
-        href: /dotnet/api/azure.ai.vision.imageanalysis
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/csharp
       - name: Python
         href: https://aka.ms/azsdk/image-analysis/ref-docs/python
-      - name: C++
-        href: /cpp/cognitive-services/vision
       - name: Java
         href: https://aka.ms/azsdk/image-analysis/ref-docs/java
     - name: Version 3.2

@@ -146,16 +146,13 @@ tools:
   items:
   - title: C#
     imageSrc: media/index/logo_Csharp.svg
-    url: /dotnet/api/azure.ai.vision.imageanalysis
+    url: https://aka.ms/azsdk/image-analysis/ref-docs/csharp
   - title: Node.js
     imageSrc: media/index/logo_nodejs.svg
     url: /javascript/api/@azure/cognitiveservices-computervision/
   - title: Python
     imageSrc: media/index/logo_python.svg
     url: https://aka.ms/azsdk/image-analysis/ref-docs/python
-  - title: C++
-    imageSrc: media/index/logo-cplusplus.svg
-    url: /cpp/cognitive-services/vision
   - title: Go
     imageSrc: media/index/logo_go.svg
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision

@@ -24,8 +24,7 @@ The Vision SDK supports the following languages and platforms:
 
 | Programming language | Quickstart | API Reference | Platform support |
 |----------------------|------------|-----------|------------------|
-| C# <sup>1</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)  | [reference](/dotnet/api/azure.ai.vision.imageanalysis) | Windows, UWP, Linux |
-| C++ <sup>2</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-cpp)  | [reference](/cpp/cognitive-services/vision) | Windows, Linux |
+| C# <sup>1</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)  | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/csharp) | Windows, UWP, Linux |
 | Python | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-python) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/python) | Windows, Linux |
 | Java | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-java) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/java) | Windows, Linux |
 
@@ -36,19 +35,20 @@ The Vision SDK supports the following languages and platforms:
 
 ## GitHub samples
 
-Numerous samples are available in the [Azure-Samples/azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository on GitHub.
+Numerous samples are available in the SDK repositories on GitHub.
+- [C#](https://aka.ms/azsdk/image-analysis/samples/csharp)
+- [Python](https://aka.ms/azsdk/image-analysis/samples/python)
+- [Java](https://aka.ms/azsdk/image-analysis/samples/java)
+- [JavaScript](https://aka.ms/azsdk/image-analysis/samples/js)
+
 
 ## Getting help
 
-If you need assistance using the Vision SDK or would like to report a bug or suggest new features, open a [GitHub issue in the samples repository](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues). The SDK development team monitors these issues.
+If you need assistance using the Vision SDK or would like to report a bug or suggest new features, open a GitHub issue in the respective SDK repo. The SDK development team monitors these issues.
 
 Before you create a new issue:
 * Make sure you first scan to see if a similar issue already exists.
 * Find the sample closest to your scenario and run it to see if you see the same issue in the sample code.
-
-## Release notes
-
-See the [release notes on GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/README.md#news).
 
 
 
