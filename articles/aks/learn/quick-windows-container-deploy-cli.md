@@ -337,5 +337,4 @@ To learn more about AKS, and to walk through a complete code-to-deployment examp
 [kubernetes-service]: ../concepts-network.md#services
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
 [win-faq-change-admin-creds]: ../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster
-[az-provider-show]: /cli/azure/provider#az_provider_show
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
