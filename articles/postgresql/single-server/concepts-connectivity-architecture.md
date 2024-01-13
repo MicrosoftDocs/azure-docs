@@ -89,6 +89,7 @@ The following table lists the gateway IP addresses of the Azure Database for Pos
 | West US 2 | 13.66.226.202, 13.66.136.192,13.66.136.195     | 13.66.136.192/29, 40.78.240.192/29, 40.78.248.192/29|
 | West US 3 | 20.150.184.2     | 20.150.168.32/29, 20.150.176.32/29, 20.150.184.32/29 |
 
+
 ## Frequently asked questions
 
 ### What you need to know about this planned maintenance?
