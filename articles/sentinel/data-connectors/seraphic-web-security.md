@@ -16,20 +16,20 @@ The Seraphic Web Security data connector provides the capability to ingest [Sera
 
 | Connector attribute | Description |
 | --- | --- |
-| **Log Analytics table(s)** | graphQueriesTableName |
+| **Log Analytics table(s)** | SeraphicWebSecurity_CL |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Seraphic Security](https://seraphicsecurity.com) |
 
 ## Query samples
 **All Seraphic Web Security events**
    ```kusto
-   graphQueriesTableName
+    SeraphicWebSecurity_CL
    | where bd_type_s == 'Event'
    | sort by TimeGenerated desc
    ```
 **All Seraphic Web Security alerts**
    ```kusto
-   graphQueriesTableName
+    SeraphicWebSecurity_CL
    | where bd_type_s == 'Alert'
    | sort by TimeGenerated desc
    ```
