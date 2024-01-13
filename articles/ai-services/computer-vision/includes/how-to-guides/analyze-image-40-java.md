@@ -30,7 +30,7 @@ Start by creating a **ImageAnalysisClient** object. For example:
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible image URL, a local image file name, or by copying the image into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
+You can select an image by providing a publicly accessible image URL, or a local image file copied into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
 
 ### Image URL
 
@@ -60,7 +60,7 @@ Use an **ImageAnalysisOptions** object to specify various options for the Analyz
 
 ### Select visual features
 
-The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. For an explanation of each feature, see the [Overview](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0).
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer.
 
 
 > [!IMPORTANT]
