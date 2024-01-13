@@ -10,7 +10,7 @@ ms.custom:
 # Customer intent: As an API program manager, I want to automate processes to register and update APIs in my Azure API center.
 ---
 
-# Use the Azure CLI to manage the API inventory
+# Use the Azure CLI to manage your API inventory
 
 This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md) inventory. Use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
 
