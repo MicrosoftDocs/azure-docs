@@ -13,8 +13,7 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-The Image Analysis service provides AI algorithms for processing images and returning information about their content. In a single service call, you can extract one or more visual features from the image simultaneously, including getting a caption for the image, extracting text shown in the image (OCR) and detecting objects. For more information on the service and the supported visual features, see [Image Analysis overview](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0), and the [Concepts](/azure/ai-services/computer-vision/concept-tag-images-40) page.
-
+Use the Image Analysis client SDK for Python to analyze an image to read text and generate an image caption. This quickstart analyzes a remote image and prints the results to the console.
 
 [Reference documentation](https://aka.ms/azsdk/image-analysis/ref-docs/python) | [Package (PyPi)](https://aka.ms/azsdk/image-analysis/package/pypi) | [Samples](https://aka.ms/azsdk/image-analysis/samples/python)
 
@@ -45,10 +44,10 @@ The Image Analysis service provides AI algorithms for processing images and retu
 
 1. Copy the following code into *quickstart.py*:
 
-> [!TIP]
-> The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
+    > [!TIP]
+    > The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/quickstart.py?name=snippet_single)]
+    [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/quickstart.py?name=snippet_single)]
 
 1. Then run the application with the `python` command on your quickstart file.
 

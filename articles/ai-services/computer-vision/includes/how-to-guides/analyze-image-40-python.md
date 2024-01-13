@@ -41,13 +41,11 @@ You can use the following sample image URL.
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_url)]
 
 
-
 ### Local image
 
+Alternatively, you can read the data from the local image file you want to analyze.
 
-In your script, read the data from the local image file you want to analyze.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_url)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_file)]
 
 ## Select visual features
 
@@ -117,7 +115,7 @@ The code is similar to the standard model case. The only difference is that resu
 
 ### Exceptions
 
-The `analyze` methods raise an [HttpResponseError](/python/api/azure-core/azure.core.exceptions.httpresponseerror) exception for a non-success HTTP status code response from the service. The exception's `status_code` will be the HTTP response status code. The exception's `error.message` contains a detailed message that will allow you to diagnose the issue:
+The `analyze` methods raise an [HttpResponseError](/python/api/azure-core/azure.core.exceptions.httpresponseerror) exception for a non-success HTTP status code response from the service. The exception's `status_code` is the HTTP response status code. The exception's `error.message` contains a detailed message that allows you to diagnose the issue:
 
 ```python
 try:
@@ -187,4 +185,4 @@ client = ImageAnalysisClient(
 
 <!-- END SNIPPET -->
 
-None redacted logs are generated for log level `logging.DEBUG` only. Be sure to protect none redacted logs to avoid compromising security. For more information see [Configure logging in the Azure libraries for Python](https://aka.ms/azsdk/python/logging)
+None redacted logs are generated for log level `logging.DEBUG` only. Be sure to protect none redacted logs to avoid compromising security. For more information, see [Configure logging in the Azure libraries for Python](https://aka.ms/azsdk/python/logging)
