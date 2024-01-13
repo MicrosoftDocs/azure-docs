@@ -781,6 +781,8 @@
         ]
       },
       "manager": {
+        "articles/ai-studio/**/*.md": "nitinme",
+        "articles/ai-services/**/*.md": "nitinme",
         "articles/app-service/**/*.md": "mijacobs",
         "articles/app-service-mobile/**/*.md": "crdun",
         "articles/automanage/*md": "mamccrea",
@@ -797,8 +799,6 @@
         "articles/batch/**/*.md": "mamccrea",
         "articles/cloud-shell/**/*.md": "jasongroce",
         "articles/connectors/*.md": "mijacobs",
-        "articles/ai-studio/**/*.md": "nitinme",
-        "articles/ai-services/**/*.md": "nitinme",
         "articles/defender-for-cloud/*.md": "raynew",
         "articles/defender-for-iot/organizations/*.md": "raynew",
         "articles/defender-for-iot/organizations/**/*.md": "raynew",
@@ -806,6 +806,8 @@
         "articles/deployment-environments/**/*.md": "j-martens",
         "articles/dev-box/**/*.md": "j-martens",
         "articles/devtest-labs/**/*.md": "j-martens",
+        "articles/genomics/**/*.md": "scottpolly",
+        "articles/genomics/**/*.yml": "scottpolly",
         "articles/integration-environments/*.md": "mijacobs",
         "articles/lab-services/**/*.md": "j-martens",
         "articles/logic-apps/*.md": "mijacobs",
