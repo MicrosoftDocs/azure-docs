@@ -124,6 +124,8 @@ Several filters are available for customizing a blob inventory report:
 
 
 
+
+
 View the JSON for inventory rules by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal. Filters are specified within a rule definition.
 
 ```json
@@ -251,6 +253,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | Version (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 | DeletedTime (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 | RemainingRetentionDays (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+
 
 
 ## Inventory run
@@ -419,6 +422,10 @@ An inventory job can take a longer amount of time in these cases:
 ### Inventory jobs can't write reports to containers that have an object replication policy
 
 An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make the reports immutable when they're partially completed which can cause inventory jobs to fail.
+
+### Inventory and Immutable Storage
+
+In instances where immutable storage is enabled, it's essential to be aware of a specific limitation pertaining to Inventory reports. Due to the inherent characteristics of immutable storage, notably its write-once, read-many (WORM) nature, the execution of Inventory reports is constrained. The results cannot be written when immutable storage is active. This stands as a known limitation, and we recommend planning your reporting activities accordingly.
 
 ## Next steps
 

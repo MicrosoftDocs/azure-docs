@@ -2,6 +2,7 @@
 title: Manage HDInsight on AKS clusters using .NET SDK (Preview)
 description: Manage HDInsight on AKS clusters using .NET SDK.
 ms.service: hdinsight-aks
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 11/23/2023
 ---

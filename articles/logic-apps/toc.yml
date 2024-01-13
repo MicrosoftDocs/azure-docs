@@ -169,8 +169,8 @@ items:
       href: logic-apps-azure-functions.md
     - name: Call logic apps with Azure Functions
       href: logic-apps-scenario-function-sb-trigger.md
-    - name: Call logic apps from Power Automate and Power Apps
-      href: call-from-power-automate-power-apps.md
+    - name: Call workflows from Power Apps
+      href: call-from-power-apps.md
     - name: Call, trigger, or nest logic apps
       href: logic-apps-http-endpoint.md
     - name: Get bulk data with pagination

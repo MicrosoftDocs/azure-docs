@@ -3,9 +3,10 @@ title: Hardware specifications of the hosts
 description: Hosts used to build or scale clusters come from an isolated pool of hosts.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 11/12/2023
+ms.date: 1/03/2024
 author: suzizuber
 ms.author: v-szuber
+ms.custom: engagement-fy23
 ---
 
 <!-- Used in plan-private-cloud-deployment.md and concepts-private-cloud-clusters.md -->
@@ -19,7 +20,7 @@ Azure VMware Solution clusters are based upon hyper-converged infrastructure. Th
 | AV52      | Dual Intel Xeon Platinum 8270 CPUs (Cascade Lake microarchitecture) with 26 cores/CPU @ 2.7 GHz / 4.0 GHz Turbo, Total 52 physical cores (104 logical cores with hyperthreading) | 1,536  | 1.5 (Intel Cache) | 38.40 (NVMe) | 4x 25-Gb/s NICs (2 for management & control plane, 2 for customer traffic) | Selected regions (*) |
 | AV64      | Dual Intel Xeon Platinum 8370C CPUs (Ice Lake microarchitecture) with 32 cores/CPU @ 2.8 GHz / 3.5 GHz Turbo, Total 64 physical cores (128 logical cores with hyperthreading) |  1,024  | 3.84 (NVMe) | 15.36 (NVMe) | 1x 100 Gb/s NIC | Selected regions (**) |
 
-An Azure VMware Solution cluster requires a minimum number of three hosts. You can only use hosts of the same type in a single Azure VMware Solution private cloud. Hosts used to build or scale clusters come from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted before being added to a cluster.
+An Azure VMware Solution cluster requires a minimum number of three hosts. You can only use hosts of the same type in a single Azure VMware Solution private cloud. Hosts used to build or scale clusters come from an isolated pool of hosts. Those hosts passed hardware tests and had all data securely deleted before being added to a cluster.
 
 (*) details available via the Azure pricing calculator.
 

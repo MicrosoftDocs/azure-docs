@@ -4,7 +4,7 @@ description: Determine the types, sizes, and retention policies for HDInsight ac
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/07/2022
+ms.date: 01/04/2024
 ---
 
 # Manage logs for an HDInsight cluster
@@ -59,7 +59,7 @@ It's important to understand the workload types running on your HDInsight cluste
 
 * Consider how you can collect logs from the cluster, or from more than one cluster, and collate them for purposes such as auditing, monitoring, planning, and alerting. You might use a custom solution to access and download the log files regularly, and combine and analyze them to provide a dashboard display. You can also add  other capabilities for alerting for security or failure detection. You can build these utilities using PowerShell, the HDInsight SDKs, or code that accesses the Azure classic deployment model.
 
-* Consider whether a monitoring solution or service would be a useful benefit. The Microsoft System Center provides an [HDInsight management pack](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). You can also use third-party tools such as Apache Chukwa and Ganglia to collect and centralize logs. Many companies offer services to monitor Hadoop-based big data solutions, for example: Centerity, Compuware APM, Sematext SPM, and Zettaset Orchestrator.
+* Consider whether a monitoring solution or service would be a useful benefit. The Microsoft System Center provides an [HDInsight management pack](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). You can also use third-party tools such as Apache Chukwa and Ganglia to collect and centralize logs. Many companies offer services to monitor Hadoop-based big data solutions, for example: `Centerity`, Compuware APM, Sematext SPM, and Zettaset Orchestrator.
 
 ## Step 2: Manage cluster service versions and view logs
 
@@ -119,7 +119,7 @@ YARN aggregates logs across all containers on a worker node and stores those log
 /app-logs/<user>/logs/<applicationId>
 ```
 
-The aggregated logs aren't directly readable, as they're written in a TFile binary format indexed by container. Use the YARN ResourceManager logs or CLI tools to view these logs as plain text for applications or containers of interest.
+The aggregated logs aren't directly readable, as they're written in a `TFile` binary format indexed by container. Use the YARN `ResourceManager` logs or CLI tools to view these logs as plain text for applications or containers of interest.
 
 #### YARN CLI tools
 

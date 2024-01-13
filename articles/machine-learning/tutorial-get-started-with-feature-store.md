@@ -113,15 +113,15 @@ Not applicable.
 
 1. Install the Azure Machine Learning CLI extension.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=install-ml-ext-cli)]
+   [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=install-ml-ext-cli)]
 
 1. Authenticate.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=auth-cli)]
+   [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=auth-cli)]
 
 1. Set the default subscription.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=set-default-subs-cli)]
+   [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=set-default-subs-cli)]
 
 ---
 
@@ -180,7 +180,7 @@ This tutorial doesn't need explicit installation of these resources, because the
 
    ### [SDK and CLI track](#tab/SDK-and-CLI-track)
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=create-fs-cli)]
+   [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=create-fs-cli)]
 
    > [!NOTE]
    > - The default blob store for the feature store is an ADLS Gen2 container.
@@ -283,7 +283,7 @@ This tutorial doesn't need explicit installation of these resources, because the
 
    For more information more about access control, see [Manage access control for managed feature store](./how-to-setup-access-control-feature-store.md).
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=assign-aad-ds-role-cli)]  
+   [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=assign-aad-ds-role-cli)]  
 
 ## Prototype and develop a feature set
 
@@ -356,7 +356,7 @@ As a best practice, entities help enforce use of the same join key definition ac
 
    Create an `account` entity that has the join key `accountID` of type `string`.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=register-acct-entity-cli)]
+   [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=register-acct-entity-cli)]
 
 ---
 
@@ -370,7 +370,7 @@ Use this code to register a feature set asset with the feature store. You can th
 
 ### [SDK and CLI track](#tab/SDK-and-CLI-track)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=register-txn-fset-cli)]
+[!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=register-txn-fset-cli)]
 
 ---
 
@@ -408,7 +408,7 @@ The Storage Blob Data Reader role must be assigned to your user account on the o
 
    Execute this code cell for role assignment. The permissions might need some time to propagate.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=grant-rbac-to-user-identity-cli)]
+   [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=grant-rbac-to-user-identity-cli)]
 
 ---
 
@@ -460,7 +460,7 @@ The Storage Blob Data Reader role must be assigned to your user account on the o
    > The sample data used in this notebook is small. Therefore, this parameter is set to 1 in the
    > featureset_asset_offline_enabled.yaml file.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=enable-offline-mat-txns-fset-cli)]
+   [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=enable-offline-mat-txns-fset-cli)]
 
 ---
 
@@ -495,7 +495,7 @@ The Storage Blob Data Reader role must be assigned to your user account on the o
 
    This code cell materializes data by current status *None* or *Incomplete* for the defined feature window.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=backfill-txns-fset-cli)]  
+   [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=backfill-txns-fset-cli)]  
 
 ---
 
