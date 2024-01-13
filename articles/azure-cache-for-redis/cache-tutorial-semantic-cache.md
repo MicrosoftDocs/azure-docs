@@ -14,7 +14,7 @@ ms.date: 01/08/2024
 
 In this tutorial, you use Azure Cache for Redis as a semantic cache with an AI-based large language model (LLM). You use Azure Open AI Service to generate LLM responses to queries and cache those responses using Azure Cache for Redis, delivering faster responses and lowering costs.
 
-Because Azure Cache for Redis offers built-in vector search capability, _semantic caching_ can be accomplished. This means that you can both return cached responses for identical queries and also for queries that are similar in meaning, even if the text isn't the same.
+Because Azure Cache for Redis offers built-in vector search capability, you can also perform  _semantic caching_. You can return cached responses for identical queries and also for queries that are similar in meaning, even if the text isn't the same.
 
 In this tutorial, you learn how to:
 
@@ -68,11 +68,11 @@ Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis
 
 Make sure you have two models deployed to your Azure OpenAI resource:
 
-- An LLM that provides text responses. We use the **GPT-3.5-turbo-instruct** model for this.
+- An LLM that provides text responses. We use the **GPT-3.5-turbo-instruct** model for this tutorial.
 
-- An embeddings model that converts queries into vectors to allow them to be compared to past queries. We use the **text-embedding-ada-002 (Version 2)** model for this.
+- An embeddings model that converts queries into vectors to allow them to be compared to past queries. We use the **text-embedding-ada-002 (Version 2)** model for this tutorial.
 
-See [Deploy a model](../ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) for more detailed instructions. Record the name you chose for each model deployment.
+See [Deploy a model](/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) for more detailed instructions. Record the name you chose for each model deployment.
 
 ## Import libraries and set up connection information
 
@@ -88,32 +88,32 @@ To successfully make a call against Azure OpenAI, you need an **endpoint** and a
 
 1. Add the following code to a new code cell:
 
-```python
-   # Code cell 2
-
-import openai
-import redis
-import os
-import langchain
-from langchain.llms import AzureOpenAI
-from langchain.embeddings import AzureOpenAIEmbeddings
-from langchain.globals import set_llm_cache
-from langchain.cache import RedisSemanticCache
-import time
-
-
-AZURE_ENDPOINT=<your-openai-endpoint>
-API_KEY=<your-openai-key>
-API_VERSION="2023-05-15"
-LLM_DEPLOYMENT_NAME=<your-llm-model-name>
-LLM_MODEL_NAME="gpt-35-turbo-instruct"
-EMBEDDINGS_DEPLOYMENT_NAME=<your-embeddings-model-name>
-EMBEDDINGS_MODEL_NAME="text-embedding-ada-002"
-
-REDIS_ENDPOINT = <your-redis-endpoint>
-REDIS_PASSWORD = <your-redis-password>
-
-```
+    ```python
+       # Code cell 2
+    
+    import openai
+    import redis
+    import os
+    import langchain
+    from langchain.llms import AzureOpenAI
+    from langchain.embeddings import AzureOpenAIEmbeddings
+    from langchain.globals import set_llm_cache
+    from langchain.cache import RedisSemanticCache
+    import time
+    
+    
+    AZURE_ENDPOINT=<your-openai-endpoint>
+    API_KEY=<your-openai-key>
+    API_VERSION="2023-05-15"
+    LLM_DEPLOYMENT_NAME=<your-llm-model-name>
+    LLM_MODEL_NAME="gpt-35-turbo-instruct"
+    EMBEDDINGS_DEPLOYMENT_NAME=<your-embeddings-model-name>
+    EMBEDDINGS_MODEL_NAME="text-embedding-ada-002"
+    
+    REDIS_ENDPOINT = <your-redis-endpoint>
+    REDIS_PASSWORD = <your-redis-password>
+    
+    ```
 
 1. Update the value of `API_KEY` and `RESOURCE_ENDPOINT` with the key and endpoint values from your Azure OpenAI deployment.
 
@@ -121,8 +121,8 @@ REDIS_PASSWORD = <your-redis-password>
 
 1. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Cache for Redis instance.
 
-  > [!IMPORTANT]
-  > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview.md) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
+    > [!IMPORTANT]
+    > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview.md) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
   
 1. Execute code cell 2.
 
@@ -132,131 +132,136 @@ Next, you initialize the LLM and embeddings models
 
 1. Add the following code to a new code cell:
 
-```python
-   # Code cell 3
+    ```python
+       # Code cell 3
+    
+    llm = AzureOpenAI(
+        deployment_name=LLM_DEPLOYMENT_NAME,
+        model_name="gpt-35-turbo-instruct",
+        openai_api_key=API_KEY,
+        azure_endpoint=AZURE_ENDPOINT,
+        openai_api_version=API_VERSION,
+    )
+    embeddings = AzureOpenAIEmbeddings(
+        azure_deployment=EMBEDDINGS_DEPLOYMENT_NAME,
+        model="text-embedding-ada-002",
+        openai_api_key=API_KEY,
+        azure_endpoint=AZURE_ENDPOINT,
+        openai_api_version=API_VERSION
+    )
+    ```
 
-llm = AzureOpenAI(
-    deployment_name=LLM_DEPLOYMENT_NAME,
-    model_name="gpt-35-turbo-instruct",
-    openai_api_key=API_KEY,
-    azure_endpoint=AZURE_ENDPOINT,
-    openai_api_version=API_VERSION,
-)
-embeddings = AzureOpenAIEmbeddings(
-    azure_deployment=EMBEDDINGS_DEPLOYMENT_NAME,
-    model="text-embedding-ada-002",
-    openai_api_key=API_KEY,
-    azure_endpoint=AZURE_ENDPOINT,
-    openai_api_version=API_VERSION
-)
-```
-
-Execute code cell 3.
+1. Execute code cell 3.
 
 ## Set up Redis as a semantic cache
 
-Next, specify Redis as a semantic cache for your LLM. Add the following code to a new code cell:
+Next, specify Redis as a semantic cache for your LLM. 
 
-```python
-   # Code cell 4
+1. Add the following code to a new code cell:
 
-redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
-set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, score_threshold=0.05))
-```
-
-> [!IMPORTANT]
-> The value of the `score_threshold` parameter determines how similar two queries need to be in order to return a cached result. The lower the number, the more similar the queries need to be.
-> You can play around with this value to fine-tune it to your application.
-
-Execute code cell 4.
+    ```python
+       # Code cell 4
+    
+    redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
+    set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, score_threshold=0.05))
+    ```
+    
+    > [!IMPORTANT]
+    > The value of the `score_threshold` parameter determines how similar two queries need to be in order to return a cached result. The lower the number, the more similar the queries need to be.
+    > You can play around with this value to fine-tune it to your application.
+    
+1. Execute code cell 4.
 
 ## Query and get responses from the LLM
 
 Finally, query the LLM to get an AI generated response. If you're using a Jupyter notebook, you can add `%%time` at the top of the cell to output the amount of time taken to execute the code.
-Add the following code to a new code cell and execute it:
 
-```python
-# Code cell 5
-%%time
-response = llm("Please write a poem about cute kittens.")
-print(response)
-```
+1. Add the following code to a new code cell and execute it:
 
-You should see an output and output similar to this:
+    ```python
+    # Code cell 5
+    %%time
+    response = llm("Please write a poem about cute kittens.")
+    print(response)
+    ```
+    
+    You should see an output and output similar to this:
 
-```output
-Fluffy balls of fur,
-With eyes so bright and pure,
-Kittens are a true delight,
-Bringing joy into our sight.
+    ```output
+    Fluffy balls of fur,
+    With eyes so bright and pure,
+    Kittens are a true delight,
+    Bringing joy into our sight.
+    
+    With tiny paws and playful hearts,
+    They chase and pounce, a work of art,
+    Their innocence and curiosity,
+    Fills our hearts with such serenity.
+    
+    Their soft meows and gentle purrs,
+    Are like music to our ears,
+    They curl up in our laps,
+    And take the stress away in a snap.
+    
+    Their whiskers twitch, they're always ready,
+    To explore and be adventurous and steady,
+    With their tails held high,
+    They're a sight to make us sigh.
+    
+    Their tiny faces, oh so sweet,
+    With button noses and paw-sized feet,
+    They're the epitome of cuteness,
+    ...
+    Cute kittens, a true blessing,
+    In our hearts, they'll always be reigning.
+    CPU times: total: 0 ns
+    Wall time: 2.67 s
+    ```
+    
+    The `Wall time` shows a value of 2.67 seconds. That's how much real-world time it took to query the LLM and for the LLM to generate a response.
 
-With tiny paws and playful hearts,
-They chase and pounce, a work of art,
-Their innocence and curiosity,
-Fills our hearts with such serenity.
+1. Execute cell 5 again. You should see the exact same output, but with a smaller wall time:
 
-Their soft meows and gentle purrs,
-Are like music to our ears,
-They curl up in our laps,
-And take the stress away in a snap.
-
-Their whiskers twitch, they're always ready,
-To explore and be adventurous and steady,
-With their tails held high,
-They're a sight to make us sigh.
-
-Their tiny faces, oh so sweet,
-With button noses and paw-sized feet,
-They're the epitome of cuteness,
-...
-Cute kittens, a true blessing,
-In our hearts, they'll always be reigning.
-CPU times: total: 0 ns
-Wall time: 2.67 s
-```
-
-The `Wall time` shows a value of 2.67 seconds. That's how much real-world time it took to query the LLM and for the LLM to generate a response.
-Execute cell 5 again. You should see the exact same output, but with a smaller wall time:
-
-```output
-Fluffy balls of fur,
-With eyes so bright and pure,
-Kittens are a true delight,
-Bringing joy into our sight.
-
-With tiny paws and playful hearts,
-They chase and pounce, a work of art,
-Their innocence and curiosity,
-Fills our hearts with such serenity.
-
-Their soft meows and gentle purrs,
-Are like music to our ears,
-They curl up in our laps,
-And take the stress away in a snap.
-
-Their whiskers twitch, they're always ready,
-To explore and be adventurous and steady,
-With their tails held high,
-They're a sight to make us sigh.
-
-Their tiny faces, oh so sweet,
-With button noses and paw-sized feet,
-They're the epitome of cuteness,
-...
-Cute kittens, a true blessing,
-In our hearts, they'll always be reigning.
-CPU times: total: 0 ns
-Wall time: 575 ms
-```
-
-The wall time appears to have dropped by a factor of five--all the way down to 575 milliseconds.
-
-Change the query from `Please write a poem about cute kittens` to `Write a poem about cute kittens` and run cell 5 again. **You should see the exact same output and a lower wall time than the original query**. Even though the query changed, the _semantic meaning_ of the query remained the same so the same cached output was returned. This is the advantage of semantic caching!
+    ```output
+    Fluffy balls of fur,
+    With eyes so bright and pure,
+    Kittens are a true delight,
+    Bringing joy into our sight.
+    
+    With tiny paws and playful hearts,
+    They chase and pounce, a work of art,
+    Their innocence and curiosity,
+    Fills our hearts with such serenity.
+    
+    Their soft meows and gentle purrs,
+    Are like music to our ears,
+    They curl up in our laps,
+    And take the stress away in a snap.
+    
+    Their whiskers twitch, they're always ready,
+    To explore and be adventurous and steady,
+    With their tails held high,
+    They're a sight to make us sigh.
+    
+    Their tiny faces, oh so sweet,
+    With button noses and paw-sized feet,
+    They're the epitome of cuteness,
+    ...
+    Cute kittens, a true blessing,
+    In our hearts, they'll always be reigning.
+    CPU times: total: 0 ns
+    Wall time: 575 ms
+    ```
+    
+    The wall time appears to shorten by a factor of five--all the way down to 575 milliseconds.
+    
+1. Change the query from `Please write a poem about cute kittens` to `Write a poem about cute kittens` and run cell 5 again. You should see the _exact same output_ and a _lower wall time_ than the original query. Even though the query changed, the _semantic meaning_ of the query remained the same so the same cached output was returned. This is the advantage of semantic caching!
 
 ## Change the Similarity Threshold
 
 1. Try running a similar query with a different meaning, like `Please write a poem about cute puppies`. Notice that the cached result is returned here as well. The semantic meaning of the word `puppies` is close enough to the word `kittens` that the cached result is returned.
-2. The similarity threshold can be modified to determine when the semantic cache should return a cached result and when it should return a new output from the LLM. In code cell 4, change `score_threshold` from `0.05` to `0.01`:
+
+1. The similarity threshold can be modified to determine when the semantic cache should return a cached result and when it should return a new output from the LLM. In code cell 4, change `score_threshold` from `0.05` to `0.01`:
 
    ```python
    # Code cell 4
@@ -265,44 +270,44 @@ Change the query from `Please write a poem about cute kittens` to `Write a poem 
     set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, score_threshold=0.01))
     ```
 
-3. Try the query `Please write a poem about cute puppies` again. You should receive a new output that's specific to puppies:
+1. Try the query `Please write a poem about cute puppies` again. You should receive a new output that's specific to puppies:
 
-```output
-Oh, little balls of fluff and fur
-With wagging tails and tiny paws
-Puppies, oh puppies, so pure
-The epitome of cuteness, no flaws
-
-With big round eyes that melt our hearts
-And floppy ears that bounce with glee
-Their playful antics, like works of art
-They bring joy to all they see
-
-Their soft, warm bodies, so cuddly
-As they curl up in our laps
-Their gentle kisses, so lovingly
-Like tiny, wet, puppy taps
-
-Their clumsy steps and wobbly walks
-As they explore the world anew
-Their curiosity, like a ticking clock
-Always eager to learn and pursue
-
-Their little barks and yips so sweet
-Fill our days with endless delight
-Their unconditional love, so complete
-...
-For they bring us love and laughter, year after year
-Our cute little pups, in every way.
-CPU times: total: 15.6 ms
-Wall time: 4.3 s
-```
-
-You likely need to fine-tune the similarity threshold based on your application to ensure that the right sensitivity is used when determining which queries to cache.
+    ```output
+    Oh, little balls of fluff and fur
+    With wagging tails and tiny paws
+    Puppies, oh puppies, so pure
+    The epitome of cuteness, no flaws
+    
+    With big round eyes that melt our hearts
+    And floppy ears that bounce with glee
+    Their playful antics, like works of art
+    They bring joy to all they see
+    
+    Their soft, warm bodies, so cuddly
+    As they curl up in our laps
+    Their gentle kisses, so lovingly
+    Like tiny, wet, puppy taps
+    
+    Their clumsy steps and wobbly walks
+    As they explore the world anew
+    Their curiosity, like a ticking clock
+    Always eager to learn and pursue
+    
+    Their little barks and yips so sweet
+    Fill our days with endless delight
+    Their unconditional love, so complete
+    ...
+    For they bring us love and laughter, year after year
+    Our cute little pups, in every way.
+    CPU times: total: 15.6 ms
+    Wall time: 4.3 s
+    ```
+    
+    You likely need to fine-tune the similarity threshold based on your application to ensure that the right sensitivity is used when determining which queries to cache.
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-## Related Content
+## Related content
 
 - [Learn more about Azure Cache for Redis](cache-overview.md)
 - Learn more about Azure Cache for Redis [vector search capabilities](./cache-overview-vector-similarity.md)
