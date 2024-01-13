@@ -54,7 +54,7 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
 
 ## Request host quota for CSP customers 
 
-CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](https://learn.microsoft.com/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
+CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
 
 Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from Partner Center.
 
