@@ -139,6 +139,6 @@ catch (RequestFailedException e)
     }
 }
 ```
-You can learn more about how to enable SDK logging [here](https://learn.microsoft.com/dotnet/azure/sdk/logging).
+You can learn more about how to enable SDK logging [here](/dotnet/azure/sdk/logging).
 
 
