@@ -138,6 +138,7 @@ You can get the status of a rolling upgrade in progress using [az vmss rolling-u
 ```azurecli
 az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResourceGroup
 
+{
   "location": "eastus",
   "policy": {
     "maxBatchInstancePercent": 20,
@@ -161,6 +162,7 @@ az vmss rolling-upgrade get-latest --name myScaleSet --resource-group myResource
     "startTime": "2024-01-12T20:20:04.4363788+00:00"
   },
   "type": "Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades"
+}
 ```
 
 ### [PowerShell](#tab/powershell2)
