@@ -369,9 +369,9 @@ items:
     - name: Client-side
       items:
       - name: Kotlin (Android)
-        href: https://aka.ms/liveness-sample-java
+        href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-android-api-reference
       - name: Swift (iOS)
-        href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme
+        href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-api-reference
 - name: Spatial Analysis
   items:
   - name: Spatial Analysis overview
