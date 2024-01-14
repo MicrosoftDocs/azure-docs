@@ -152,8 +152,11 @@ ErGwScale is available in preview in the following regions:
 
 * Australia East
 * France Central
+* Italy North
 * North Europe
+* Norway East
 * Sweden Central
+* UAE North
 * West US 3
 
 ### Autoscaling vs. fixed scale unit
