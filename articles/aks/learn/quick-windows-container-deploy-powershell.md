@@ -11,8 +11,6 @@ ms.custom: devx-track-azurepowershell
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you use Azure PowerShell to deploy an AKS cluster that runs Windows Server containers. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
-:::image type="content" source="media/quick-windows-container-deploy-powershell/asp-net-sample-app.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-windows-container-deploy-powershell/asp-net-sample-app.png":::
-
 > [!NOTE]
 > To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
@@ -253,7 +251,11 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. Occasionally, the service can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 
-1. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make all pods are `Running` before proceeding.
+1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make all pods are `Running` before proceeding.
+
+    ```console
+    kubectl get pods
+    ```
 
 1. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
@@ -276,7 +278,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 1. See the sample app in action by opening a web browser to the external IP address of your service.
 
-    :::image type="content" source="media/quick-windows-container-deploy-powershell/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application.":::
+    :::image type="content" source="media/quick-windows-container-deploy-powershell/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application." lightbox="media/quick-windows-container-deploy-powershell/asp-net-sample-app.png":::
 
 ## Delete resources
 

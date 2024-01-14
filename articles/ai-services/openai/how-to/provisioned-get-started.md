@@ -65,7 +65,7 @@ az cognitiveservices account deployment create \
 --sku-name ProvisionedManaged
 ```
 
-REST, ARM template, Bicep and Terraform can also be used to create deployments. See the section on automating deployments in the [Managing Quota](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest#automate-deployment) how-to guide and replace the `sku.name` with "ProvisionedManaged" rather than "Standard."
+REST, ARM template, Bicep and Terraform can also be used to create deployments. See the section on automating deployments in the [Managing Quota](quota.md?tabs=rest#automate-deployment) how-to guide and replace the `sku.name` with "ProvisionedManaged" rather than "Standard."
 
 ## Make your first calls
 The inferencing code for provisioned deployments is the same a standard deployment type. The following code snippet shows a chat completions call to a GPT-4 model.  For your first time using these models programmatically, we recommend starting with our [quickstart guide](../quickstart.md). Our recommendation is to use the OpenAI library with version 1.0 or greater since this includes retry logic within the library.
@@ -171,11 +171,11 @@ We recommend the following workflow:
 
 ## Next Steps
 
-* For more information on cloud application best practices, check out [Best practices in cloud applications](https://learn.microsoft.com/azure/architecture/best-practices/index-best-practices)
+* For more information on cloud application best practices, check out [Best practices in cloud applications](/azure/architecture/best-practices/index-best-practices)
 * For more information on provisioned deployments, check out [What is provisioned throughput?](../concepts/provisioned-throughput.md)
 * For more information on retry logic within each SDK, check out:
     * [Python reference documentation](https://github.com/openai/openai-python?tab=readme-ov-file#retries)
-    * [.NET reference documentation](https://learn.microsoft.com/dotnet/api/azure.ai.openai.openaiclientoptions?view=azure-dotnet-preview)
-    * [Java reference documentation](https://learn.microsoft.com/java/api/com.azure.ai.openai.openaiclientbuilder?view=azure-java-preview#com-azure-ai-openai-openaiclientbuilder-retryoptions(com-azure-core-http-policy-retryoptions))
-    * [JavaScript reference documentation](https://learn.microsoft.com/javascript/api/@azure/openai/openaiclientoptions?view=azure-node-preview#@azure-openai-openaiclientoptions-retryoptions)
+    * [.NET reference documentation](/dotnet/api/azure.ai.openai.openaiclientoptions?view=azure-dotnet-preview&preserve-view=true)
+    * [Java reference documentation](/java/api/com.azure.ai.openai.openaiclientbuilder?view=azure-java-preview&preserve-view=true#com-azure-ai-openai-openaiclientbuilder-retryoptions(com-azure-core-http-policy-retryoptions))
+    * [JavaScript reference documentation](/javascript/api/@azure/openai/openaiclientoptions?view=azure-node-preview&preserve-view=true#@azure-openai-openaiclientoptions-retryoptions)
     * [GO reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#ChatCompletionsOptions)
