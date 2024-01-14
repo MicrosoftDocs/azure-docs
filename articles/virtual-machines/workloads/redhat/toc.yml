@@ -17,6 +17,6 @@
 - name: Red Hat Enterprise Java on Azure
   items: 
   - name: JBoss EAP on Azure
-    href: /azure/developer/java/ee/jboss-on-azure
+    href: jboss-eap-single-server-azure-vm.md
   - name: Migrate JBoss EAP to Azure App Service
     href: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service
