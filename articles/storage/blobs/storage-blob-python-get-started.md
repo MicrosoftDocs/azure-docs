@@ -110,7 +110,7 @@ An easy and secure way to authorize access and connect to Blob Storage is to obt
 
 The following example creates a `BlobServiceClient` object using `DefaultAzureCredential`:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_DAC":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_auth.py" id="Snippet_get_service_client_DAC":::
 
 If your project uses asynchronous APIs, instantiate `BlobServiceClient` using `async with`:
 
@@ -127,7 +127,7 @@ async with BlobServiceClient(account_url, credential=credential) as blob_service
 
 To use a shared access signature (SAS) token, provide the token as a string and initialize a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object. If your account URL includes the SAS token, omit the credential parameter.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_SAS":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_auth.py" id="Snippet_get_service_client_SAS":::
 
 If your project uses asynchronous APIs, instantiate `BlobServiceClient` using `async with`:
 
@@ -155,11 +155,11 @@ To learn more about generating and managing SAS tokens, see the following articl
 
 To use a storage account shared key, provide the key as a string and initialize a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_account_key":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_auth.py" id="Snippet_get_service_client_account_key":::
 
 You can also create a `BlobServiceClient` object using a connection string.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_connection_string":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_auth.py" id="Snippet_get_service_client_connection_string":::
 
 If your project uses asynchronous APIs, instantiate `BlobServiceClient` using `async with`:
 

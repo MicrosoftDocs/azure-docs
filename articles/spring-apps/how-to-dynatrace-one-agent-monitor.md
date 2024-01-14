@@ -72,7 +72,7 @@ az spring app deploy \
     --resource-group <your-resource-group-name> \
     --service <your-Azure-Spring-Apps-name> \
     --name <your-application-name> \
-    --jar-path app.jar \
+    --artifact-path app.jar \
     --env \
         DT_TENANT=<your-environment-ID> \
         DT_TENANTTOKEN=<your-tenant-token> \

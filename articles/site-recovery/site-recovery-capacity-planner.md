@@ -4,7 +4,7 @@ description: Use this article to estimate capacity when setting up disaster reco
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 12/14/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 

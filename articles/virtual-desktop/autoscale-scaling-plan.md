@@ -17,8 +17,6 @@ To learn more about autoscale, see [Autoscale scaling plans and example scenario
 >[!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
 > - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI.
-> - Autoscale doesn't support scaling of ephemeral disks.
-> - Autoscale doesn't support scaling of generalized or sysprepped VMs with machine-specific information removed. For more information, see [Remove machine-specific information by generalizing a VM before creating an image](../virtual-machines/generalize.md).
 > - You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
 > - Autoscale is available in Azure and Azure Government.
 

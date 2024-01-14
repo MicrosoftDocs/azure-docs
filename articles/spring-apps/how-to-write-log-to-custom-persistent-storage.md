@@ -129,7 +129,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
         --resource-group <resource-group-name> \
         --name <app-name> \
         --service <spring-instance-name> \
-        --jar-path <path-to-jar-file>
+        --artifact-path <path-to-jar-file>
    ```
 
 1. Use the following command to check your application's console log:

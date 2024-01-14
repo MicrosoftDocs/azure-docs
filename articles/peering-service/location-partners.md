@@ -33,6 +33,7 @@ The following table provides information on the Peering Service connectivity par
 | [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)| Africa |
 | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/)| Asia, Europe, North America |
 | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) | Asia, North America |
+| [France-IX](https://www.franceix.net/en/english-services/cloud-access/microsoft-azure-peering-service) | Europe |
 | [IIJ](https://www.iij.ad.jp/en/) | Japan |
 | [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/)| Europe |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) | Oceania  |
@@ -114,6 +115,7 @@ The following table provides information on the Peering Service connectivity par
 | Marseilles | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | Mumbai | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | New York | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
+| Paris | [France-IX](https://www.franceix.net/en/english-services/cloud-access/microsoft-azure-peering-service) |
 | San Jose | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Santiago | [PIT Chile](https://www.pitchile.cl/wp/maps/) |
 | Seattle | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |

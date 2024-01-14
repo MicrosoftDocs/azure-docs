@@ -348,6 +348,28 @@ std::string getEnvironmentVariable(const char* name)
 
 You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/samples).
 
+## Use a custom endpoint
+
+The custom endpoint is functionally identical to the standard endpoint that's used for text to speech requests. 
+
+One difference is that the `EndpointId` must be specified to use your custom voice via the Speech SDK. You can start with the [text to speech quickstart](../../../get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
+
+```cpp
+auto speechConfig = SpeechConfig::FromSubscription(speechKey, speechRegion);
+speechConfig->SetSpeechSynthesisVoiceName("YourCustomVoiceName");
+speechConfig->SetEndpointId("YourEndpointId");
+```
+
+To use a custom voice via [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup-voice.md#use-voice-elements), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="YourCustomVoiceName">
+        This is the text that is spoken. 
+    </voice>
+</speak>
+```
+
 ## Run and use a container
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.

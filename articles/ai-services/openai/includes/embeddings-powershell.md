@@ -143,7 +143,7 @@ param(
     [string]$content
 )
     # tab, line breaks, empty space
-    $replace = @('\t','\r\n','\n','\r','  ')
+    $replace = @('\t','\r\n','\n','\r')
     # non-UTF8 characters
     $replace += @('[^\x00-\x7F]')
     # html
@@ -157,7 +157,7 @@ param(
     # markdown
     $replace += @('###','##','#','```')
     $replace | ForEach-Object {
-        $content = $content -replace $_, ' '
+        $content = $content -replace $_, ' ' -replace '  ',' '
     }
     return $content
 }

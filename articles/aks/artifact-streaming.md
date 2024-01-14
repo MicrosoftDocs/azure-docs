@@ -75,7 +75,7 @@ Enablement on ACR is a prerequisite for Artifact Streaming on AKS. For more info
 4. Push or import an image to the registry using the [`az acr import`][az-acr-import] command.
 
     ```azurecli-interactive
-    az acr import -source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
+    az acr import --source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
     ```
 
 5. Create a streaming artifact from the image using the [`az acr artifact-streaming create`][az-acr-artifact-streaming-create] command.

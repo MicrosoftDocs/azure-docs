@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Review the Bicep file
 
-In this quickstart, you create a shared query called _Count VMs by OS_. To try this query in SDK or in portal with Resource Graph Explorer, see [Samples - Count virtual machines by OS type](./samples/starter.md#count-os).
+In this quickstart, you create a shared query called _Count VMs by OS_. To try this query in SDK or in portal with Resource Graph Explorer, see [Samples - Count virtual machines by OS type](./samples/starter.md#count-virtual-machines-by-os-type).
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
