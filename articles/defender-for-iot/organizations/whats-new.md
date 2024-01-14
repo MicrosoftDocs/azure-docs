@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Cloud-based sensor updates now lists all available update versions](#cloud-based-sensor-updates-now-lists-all-available-update-versions) <br> |
+| **OT networks** | - [Azure portal now allows sensor software updates for any available versions](#azure-portal-now-allows-sensor-software-updates-for-any-available-versions) <br> |
 
 ### Azure portal now allows sensor software updates for any available versions
 
