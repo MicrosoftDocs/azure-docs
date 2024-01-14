@@ -78,7 +78,8 @@ Output for this command will look similar to the following and specify whether a
 When you enable VM Insights for a machine, the following agents are installed. For the network requirements for these agents, see [Network requirements](../agents/log-analytics-agent.md#network-requirements).
 
 > [!IMPORTANT]
-> VM Insights support for the Azure Monitor agent is currently in public preview. The Azure Monitor agent has several advantages over the Log Analytics agent. It's the preferred agent for virtual machines and virtual machine scale sets. For a comparison of the agent and information on migrating, see [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
+> Azure Monitor Agent has several advantages over the legacy Log Analytics agent, which will be deprecated by August 2024. After this date, Microsoft will no longer provide any support for the Log Analytics agent. [Migrate to Azure Monitor agent](../agents/azure-monitor-agent-migration.md) before August 2024 to continue ingesting data. 
+
 
 - **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or Virtual Machine Scale Set and delivers it to the Log Analytics workspace.
 - **Dependency agent**: Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM Insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor agent or Log Analytics agent to deliver its data to Azure Monitor.
