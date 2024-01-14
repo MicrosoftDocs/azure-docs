@@ -5,14 +5,12 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/07/2024
+ms.date: 01/14/2024
 ---
 
 # Enable agentless scanning for VMs
 
 Agentless scanning provides visibility into installed software and software vulnerabilities on your workloads to extend vulnerability assessment coverage to server workloads without a vulnerability assessment agent installed.
-
-Learn more about [agentless scanning](concept-agentless-data-collection.md).
 
 Agentless vulnerability assessment uses the Microsoft Defender Vulnerability Management engine to assess vulnerabilities in the software installed on your VMs, without requiring Defender for Endpoint to be installed. Vulnerability assessment shows software inventory and vulnerability results in the same format as the agent-based assessments.
 
@@ -31,7 +29,7 @@ When you enable agentless vulnerability assessment:
 
 - If you select **Vulnerability assessment with Qualys or BYOL integrations** - Defender for Cloud shows the agent-based results by default. Results from the agentless scan are shown for machines that don't have an agent installed or from machines that aren't reporting findings correctly.
 
-    If you want to change the default behavior so that Defender for Cloud always displays results from MDVM (regardless of a third-party agent solution), select the [Microsoft Defender Vulnerability Management](auto-deploy-vulnerability-assessment.md#automatically-enable-a-vulnerability-assessment-solution) setting in the vulnerability assessment solution.
+    To change the default behavior to always display results from MDVM (regardless if a third-party agent solution), select the [Microsoft Defender Vulnerability Management](auto-deploy-vulnerability-assessment.md#automatically-enable-a-vulnerability-assessment-solution) setting in the vulnerability assessment solution.
 
 ## Enabling agentless scanning for machines
 
@@ -93,13 +91,13 @@ After you enable agentless scanning, software inventory and vulnerability inform
 
 ### Enable agentless scanning in GCP
 
-1. From Defender for Cloud's menu, select **Environment settings**. 
+1. In Defender for Cloud, select **Environment settings**. 
 1. Select the relevant project or organization. 
 1. For either the Defender Cloud Security Posture Management (CSPM) or Defender for Servers P2 plan, select  **Settings**. 
 
     :::image type="content" source="media/enable-agentless-scanning-vms/gcp-select-plan.png" alt-text="Screenshot that shows where to select the plan for GCP projects." lightbox="media/enable-agentless-scanning-vms/gcp-select-plan.png":::
 
-1. In the settings pane, turn on  **Agentless scanning**.
+1. Toggle Agentless scanning to **On**.
 
     :::image type="content" source="media/enable-agentless-scanning-vms/gcp-select-agentless.png" alt-text="Screenshot that shows where to select agentless scanning." lightbox="media/enable-agentless-scanning-vms/gcp-select-agentless.png":::
 
@@ -115,7 +113,7 @@ Security alerts appear on the portal only in cases where threats are detected on
 
 ### Create an EICAR test file for Linux
 
-Before you start, ensure that you [enable the Defender for Endpoint agent](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration) and that you have [excluded EICAR threat](/microsoft-365/security/defender-endpoint/linux-exclusions?view=o365-worldwide).
+Before you start, if you have Defender for Endpoint agent or anti-virus software enabled, you must [exclude the EICAR threat](/microsoft-365/security/defender-endpoint/linux-exclusions?view=o365-worldwide) file before running the test or it will be detected and automatically deleted.
 
 **To create an EICAR test file for Linux**:
 
@@ -131,7 +129,7 @@ Before you start, ensure that you [enable the Defender for Endpoint agent](integ
     FILE_PATH="/tmp/eicar_test_file.txt" 
        
     # Write the EICAR string to the file 
-    echo $EICAR_STRING > $FILE_PATH 
+    echo -n $EICAR_STRING > $FILE_PATH 
        
     # Check if the file was created and contains the correct string 
     if [ -f "$FILE_PATH" ]; then 
@@ -174,9 +172,9 @@ The alert `EICAR_Test_File malware was detected (Agentless)` will appear within 
 
 Agentless scanning applies to all of the eligible machines in the subscription. To prevent specific machines from being scanned, you can exclude machines from agentless scanning based on your pre-existing environment tags. When Defender for Cloud performs the continuous discovery for machines, excluded machines are skipped.
 
-To configure machines for exclusion:
+**To configure machines for exclusion**:
 
-1. From Defender for Cloud's menu, open **Environment settings**.
+1. In Defender for Cloud, select **Environment settings**.
 1. Select the relevant subscription or multicloud connector.
 1. For either the Defender Cloud Security Posture Management (CSPM) or Defender for Servers P2 plan, select **Settings**.
 1. For agentless scanning, select **Edit configuration**.
@@ -187,14 +185,13 @@ To configure machines for exclusion:
 
     :::image type="content" source="media/enable-vulnerability-assessment-agentless/agentless-scanning-exclude-tags.png" alt-text="Screenshot of the tag and value fields for excluding machines from agentless scanning.":::
 
-1. Select **Save** to apply the changes.
+1. Select **Save**.
 
 ## Next steps
 
-In this article, you learned about how to scan your machines for software vulnerabilities without installing an agent.
-
 Learn more about:
 
+- [Agentless scanning](concept-agentless-data-collection.md).
 - [Vulnerability assessment with Microsoft Defender for Endpoint](deploy-vulnerability-assessment-defender-vulnerability-management.md)
 - [Vulnerability assessment with Qualys](deploy-vulnerability-assessment-vm.md)
 - [Vulnerability assessment with BYOL solutions](deploy-vulnerability-assessment-byol-vm.md)
