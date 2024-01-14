@@ -46,14 +46,14 @@ You can customize the timeline view to suit your needs by changing the grouping 
 
 1. From the timeline view of the alerts page, select the **Edit** icon in the groups box at the top of the page.
 
-  :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline-edit-pencil.png" alt-text="Screenshot that shows the pencil icon to edit the timeline view of the alerts page in the Azure portal.":::
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline-edit-pencil.png" alt-text="Screenshot that shows the pencil icon to edit the timeline view of the alerts page in the Azure portal.":::
 
 1. In the **Edit group** pane, drag and drop the fields to group by. You can change the order of the groupings, and add new dimensions, tags, labels, and more. Validation is run on the grouping to make sure that the grouping is valid. If you are at the alerts page for a specific resource, the options for grouping are filtered by that resource, and you can only group by items related to the resource.
 
-For AKS clusters, we provide suggested views based on popular groupings.
+    For AKS clusters, we provide suggested views based on popular groupings.
 1. Select **Save**.
 
-  :::image type="content" source="media/alerts-managing-alert-instances/alerts-edit-timeline-view.png" alt-text="Screenshot that shows the edit group pane in the timeline view of the alerts page in the Azure portal.":::
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-edit-timeline-view.png" alt-text="Screenshot that shows the edit group pane in the timeline view of the alerts page in the Azure portal.":::
 1. The timeline displays the alerts grouped by the fields you selected. Alerts that do not logically belong in the grouping you selected are listed in a group called "Other".
 1. When you have the grouping you want, select **Save view** to save the view.
 
@@ -65,7 +65,6 @@ You can save up to 10 views of the alerts timeline. The **default** view is the 
 1. Select **Save view as** to save a new view.
 1. Mark a view as **Favorite** to see that view every time you come to the **Alerts** page. 
 1. Select **Browse all views** to see all the views you have saved, select a favorite view, or delete a view.
-
 
 ## Alert details page
 
