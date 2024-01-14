@@ -20,17 +20,13 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Azure portal now allows sensor software updates for any available versions](#azure-portal-now-allows-sensor-software-updates-for-any-available-versions) <br> |
+| **OT networks** | - [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) <br> |
 
-### Azure portal now allows sensor software updates for any available versions
+### Sensor update in Azure portal now supports selecting a specific version
 
-When an organization adds new sensors over time, these new sensors are automatically deployed with the latest software version. This leads to a situation where some sensors run the latest version while some still run the older versions. Over time, your system might end up with sensors running several different software versions, which is hard for the deployment team to maintain.    
+When you update the sensor in the Azure portal, you can now choose to update to any of the available, previous versions (versions other than the latest version). Previously, sensors onboarded to Microsoft Defender for IoT on the Azure portal were automatically updated to the latest version.
 
-Now, instead of automatically deploying the sensor with the latest version of the monitoring software, you can choose to deploy any of the previous versions available. This choice allows you to deploy a sensor to a specific software version, for example, the version run on all other sensors, which makes system maintenance easier. 
-
-This option is now available during the process of sending the software to the sensor, and is performed from Defender for IoT in the Azure portal. For example:
-
-:::image type="content" source="media/whats-new/choose-older-version-to-send-to-package.png" alt-text="screenshot showing the option to choose an older version of the monitoring software to the sensor" lightbox="media/whats-new/choose-older-version-to-send-to-package.png":::
+You might want to update your sensor to a specific version for various reasons, including the use of a more stable version, for testing purposes, or to align all sensors to the same version. <!--For example: :::image type="content" source="media/whats-new/choose-older-version-to-send-to-package.png" alt-text="screenshot showing the option to choose an older version of the monitoring software to the sensor" lightbox="media/whats-new/choose-older-version-to-send-to-package.png"::: -->
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
