@@ -89,13 +89,7 @@ This procedure describes how to send a software version update to one or more OT
 
 1. In the **Send package** pane that appears, under **Available versions**, select the software version from the list. If the version you need doesn't appear, select **Show more** to list all available versions.
     
-    Check to make sure that you're sending the software to the sensors you want to update.
-
-    To jump to the release notes for the new version, select **Learn more** at the top of the pane. <!-- I dont see this is it still needed? -->
-
-<!-- :::image type="content" source="media/whats-new/choose-older-version-to-send-to-package.png" alt-text="screenshot showing the option to choose an older version of the monitoring software to the sensor" lightbox="media/whats-new/choose-older-version-to-send-to-package.png":::-->
-
-<!-- Check the list numbers are correct in final version without these comment sections -->
+    To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
 1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, with the percentage complete automatically updating in the progress bar, so you can see that the process has started and letting you track its progress until the transfer is complete. For example:
 
