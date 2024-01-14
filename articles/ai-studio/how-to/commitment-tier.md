@@ -2,15 +2,15 @@
 title: Commitment tier pricing for Azure AI
 titleSuffix: Azure AI Studio
 description: Learn how to sign up for commitment tier pricing instead of pay-as-you-go pricing.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: eur
-ms.author: eur
+ms.reviewer: siarora
+ms.author: larryfr
+author: Blackmist 
 ---
 
 # Commitment tier pricing for Azure AI

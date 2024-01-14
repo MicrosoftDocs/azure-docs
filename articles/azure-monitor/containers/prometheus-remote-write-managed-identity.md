@@ -115,7 +115,7 @@ See [Azure Monitor managed service for Prometheus remote write](prometheus-remot
 
 ## Next steps
 
-- [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
+- [Collect Prometheus metrics from an AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
 - [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
 - [Remote-write in Azure Monitor Managed Service for Prometheus using Microsoft Entra ID](./prometheus-remote-write-active-directory.md)
