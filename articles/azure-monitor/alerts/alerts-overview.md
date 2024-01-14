@@ -90,7 +90,7 @@ This table describes when a stateful alert is considered resolved:
 
 ## Recommended alert rules
 
-If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal).
+You can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal).
 
 The system compiles a list of recommended alert rules based on:
 

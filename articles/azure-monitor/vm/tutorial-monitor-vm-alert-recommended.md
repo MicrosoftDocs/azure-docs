@@ -26,18 +26,12 @@ To complete the steps in this article you need the following:
 
 - An Azure virtual machine to monitor.
 
-> [!IMPORTANT]
-> If the VM has any other alert rules associate with it, then recommended alerts will not be available. You can access recommended alerts by removing any alert rules targeted to the VM.
-
-
 ## Create recommended alert rules
 From the menu for the VM, select **Alerts** in the **Monitoring** section. Select **View + enable**.
 
 :::image type="content" source="media/tutorial-monitor-vm/enable-recommended-alerts.png" alt-text="Screenshot of option to enable recommended alerts for a virtual machine." lightbox="media/tutorial-monitor-vm/enable-recommended-alerts.png":::
 
-
 A list of recommended alert rules is displayed. You can select which ones to create and change their recommended threshold if you want. Ensure that **Email** is enabled and provide an email address to be notified when any of the alerts fire. An [action group](../alerts/action-groups.md) will be created with this address. If you already have an action group that you want to use, you can specify it instead.
-
 
 :::image type="content" source="media/tutorial-monitor-vm/set-up-recommended-alerts.png" alt-text="Screenshot of recommended alert rule configuration." lightbox="media/tutorial-monitor-vm/set-up-recommended-alerts.png":::
 

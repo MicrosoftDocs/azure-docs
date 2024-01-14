@@ -55,7 +55,7 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 
 ## Enable recommended alert rules in the Azure portal
 
-If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or enable recommended out-of-the-box alert rules in the Azure portal.
+You can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or enable recommended out-of-the-box alert rules in the Azure portal.
 
 The system compiles a list of recommended alert rules based on:
 - The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
