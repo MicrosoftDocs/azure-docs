@@ -30,7 +30,7 @@ Now, instead of automatically deploying the sensor monitoring software to the la
 
 This option is now available during the process of sending the software to the sensor, and is performed from Defender for IoT in the Azure portal. For example:
 
-:::image type="content" source="/media/whats-new/choose-older-version-to-send-to-package.png" alt-text="screenshot showing the option to choose an older version of the monitoring software to the sensor":::
+:::image type="content" source="media/whats-new/choose-older-version-to-send-to-package.png" alt-text="screenshot showing the option to choose an older version of the monitoring software to the sensor" lightbox="media/whats-new/choose-older-version-to-send-to-package.png":::
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 

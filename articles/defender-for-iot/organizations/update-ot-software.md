@@ -87,7 +87,13 @@ This procedure describes how to send a software version update to one or more OT
 
     :::image type="content" source="media/update-ot-software/remote-update-step-1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/remote-update-step-1.png":::
 
-1. In the **Send package** pane that appears, check to make sure that you're sending the software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
+1. In the **Send package** pane that appears, under **Available versions**, choose the software version you want to send to the sensor <!--by selecting the radiobutton??-->.OR select the software version from the list. Select Show more to list all available versions, if the version you need does not appear. <!-- swap this sentence around? If the version you need does not appear, select Show more to list all available versions -->
+    
+    Check to make sure that you're sending the software to the sensor you want to update.  
+
+    To jump to the release notes for the new version, select **Learn more** at the top of the pane. <!-- I dont see this is it still needed? -->
+
+<!-- do we need to add image screenshot - if we do add we should remove one of the other 2 images. I am not soo worried about including this but here is a link for an image :::image type="content" source="media/whats-new/choose-older-version-to-send-to-package.png" alt-text="screenshot showing the option to choose an older version of the monitoring software to the sensor" lightbox="media/whats-new/choose-older-version-to-send-to-package.png":::-->
 
 1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, with the percentage complete automatically updating in the progress bar, so you can see that the process has started and letting you track its progress until the transfer is complete. For example:
 
@@ -107,7 +113,7 @@ Run the sensor update only when you see the :::image type="icon" source="media/u
 
     :::image type="content" source="media/update-ot-software/remote-update-step-2.png" alt-text="Screenshot of the Update sensor option." lightbox="media/update-ot-software/remote-update-step-2.png":::
 
-1. The **Update sensor** pane displays a list sites for the sensors chosen. Expand the site listing and sensors of all available updates, from your current version to the latest version. Select the update version you want to apply to the sensor. <!-- placeholder for image of the update screen -->
+1. In the **Update sensor** pane that appears, verify your update details. 
 
     When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing**, and an update progress bar appears showing you the percentage complete. The bar automatically updates, so that you can track the progress until the installation is complete.
 
