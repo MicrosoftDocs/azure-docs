@@ -87,7 +87,7 @@ This procedure describes how to send a software version update to one or more OT
 
     :::image type="content" source="media/update-ot-software/remote-update-step-1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/remote-update-step-1.png":::
 
-1. In the **Send package** pane that appears, under **Available versions**, choose the software version you want to send to the sensor <!--by selecting the radiobutton??-->.OR select the software version from the list. Select Show more to list all available versions, if the version you need does not appear. <!-- swap this sentence around? If the version you need does not appear, select Show more to list all available versions -->
+1. In the **Send package** pane that appears, under **Available versions**, choose the software version you want to send to the sensor <!--by selecting the radiobutton??-->.OR select the software version from the list. Select Show more to list all available versions, if the version you need doesn't appear. <!-- swap this sentence around? If the version you need doesn't appear, select Show more to list all available versions -->
     
     Check to make sure that you're sending the software to the sensor you want to update.  
 

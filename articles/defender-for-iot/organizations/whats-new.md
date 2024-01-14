@@ -24,9 +24,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Azure portal now allows sensor software updates for any available versions
 
-When an organization adds new sensors over time, the deployed software versions will be different, as new sensors are automatically deployed with the latest software version. This leads to a situation where some sensors have been upgraded while some still run the older versions. Over time, your system ends up with sensors running different software versions, which is hard for the deployment team to maintain.    
+When an organization adds new sensors over time, these new sensors are automatically deployed with the latest software version. This leads to a situation where some sensors run the latest version while some still run the older versions. Over time, your system might end up with sensors running several different software versions, which is hard for the deployment team to maintain.    
 
-Now, instead of automatically deploying the sensor monitoring software to the latest version, you can now choose to deploy any of the previous versions available. This choice allows you to deploy a sensor to a specific software version, for example the version run on all other sensors, even if this is not the latest version. 
+Now, instead of automatically deploying the sensor with the latest version of the monitoring software, you can choose to deploy any of the previous versions available. This choice allows you to deploy a sensor to a specific software version, for example, the version run on all other sensors, which makes system maintenance easier. 
 
 This option is now available during the process of sending the software to the sensor, and is performed from Defender for IoT in the Azure portal. For example:
 
