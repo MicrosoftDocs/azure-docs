@@ -25,7 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| [Update to agentless VM scanning built-in Azure role](#update-to-agentless-VM-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
+| [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |January 14, 2024 | February 2024 |
 | [Four new recommendations for Azure Stack HCI resource type](#four-new-recommendations-for-azure-stack-hci-resource-type) | January 11, 2024 | February 2024 |
 | [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
