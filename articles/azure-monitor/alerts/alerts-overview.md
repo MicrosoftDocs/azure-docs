@@ -4,7 +4,7 @@ description: Learn about Azure Monitor alerts, alert rules, action processing ru
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: overview 
-ms.date: 09/12/2023
+ms.date: 01/14/2024
 ms.custom: template-overview 
 ms.reviewer: harelbr
 ---

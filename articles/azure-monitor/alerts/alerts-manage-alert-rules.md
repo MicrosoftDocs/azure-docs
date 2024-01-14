@@ -5,7 +5,7 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 10/25/2023
+ms.date: 01/14/2024
 ms.reviewer: harelbr
 ---
 # Manage your alert rules
