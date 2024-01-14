@@ -8,7 +8,7 @@ ms.author: gimondra
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/01/2022
 ---
 

@@ -52,7 +52,7 @@ The following table shows the different possible scenarios that will cause an au
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
+| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft Defender XDR.<br>- A new incident is created manually. |
 | **When incident is updated**<br> | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
 | **When alert is created**<br> | - An alert is created by a scheduled analytics rule.
 
@@ -106,7 +106,7 @@ One of these properties is **Updated by**. This property lets you track the type
 - an alert grouping (that added alerts to the incident)
 - a playbook
 - an automation rule
-- Microsoft 365 Defender
+- Microsoft Defender XDR
 
 Using this condition, for example, you can instruct this automation rule to run on any change made to an incident, except if it was made by another automation rule.
 

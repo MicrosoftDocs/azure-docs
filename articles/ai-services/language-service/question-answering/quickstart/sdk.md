@@ -3,7 +3,7 @@ title: "Quickstart: Use SDK to create and manage project - custom question answe
 description: This quickstart shows you how to create and manage your project using custom question answering.
 ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 12/19/2023
 author: jboback
 ms.author: jboback
 recommendations: false

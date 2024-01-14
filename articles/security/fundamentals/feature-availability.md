@@ -230,7 +230,7 @@ Office 365 GCC is paired with Microsoft Entra ID in Azure. Office 365 GCC High a
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| **[Microsoft 365 Defender](../../sentinel/connect-microsoft-365-defender.md)** |  |  |
+| **[Microsoft Defender XDR](../../sentinel/connect-microsoft-365-defender.md)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |

@@ -2,7 +2,6 @@
 title: Language identification - Speech service
 titleSuffix: Azure AI services
 description: Language identification is used to determine the language being spoken in audio when compared against a list of provided languages.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

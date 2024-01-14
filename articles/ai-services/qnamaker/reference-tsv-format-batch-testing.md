@@ -9,7 +9,7 @@ author: jboback
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: reference
-ms.date: 10/24/2019
+ms.date: 12/19/2023
 ---
 
 # Batch testing TSV format

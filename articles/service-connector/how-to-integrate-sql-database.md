@@ -58,7 +58,7 @@ Use the connection details below to connect compute services to Azure SQL Databa
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;authentication=ActiveDirectoryMSI;` |
 
-#### [SpringBoot](#tab/sql-me-id-spring)
+#### [SpringBoot](#tab/sql-me-id-springBoot)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                                                       |
@@ -119,7 +119,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a syste
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;msiClientId=<msiClientId>;authentication=ActiveDirectoryMSI;` |
 
-#### [SpringBoot](#tab/sql-me-id-spring)
+#### [SpringBoot](#tab/sql-me-id-springBoot)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                                                       |
@@ -183,7 +183,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 > | --------------------------------- | ------------| ------------ |
 > | `AZURE_SQL_CONNECTIONSTRING` | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;user=<sql-username>;password=<sql-password>;` |
 
-#### [SpringBoot](#tab/sql-secret-spring)
+#### [SpringBoot](#tab/sql-secret-springBoot)
 
 > [!div class="mx-tdBreakAll"]
 >
@@ -293,7 +293,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;user=<client-Id>;password=<client-secret>;authentication=ActiveDirectoryServicePrincipal;` |
 
 
-#### [SpringBoot](#tab/sql-me-id-spring)
+#### [SpringBoot](#tab/sql-me-id-springBoot)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                     |

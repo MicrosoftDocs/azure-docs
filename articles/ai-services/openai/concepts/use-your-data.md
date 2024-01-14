@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 11/14/2023
+ms.date: 01/09/2023
 recommendations: false
 ---
 
@@ -37,7 +37,7 @@ Azure OpenAI on your data supports the following filetypes:
 
 * `.txt`
 * `.md`
-* `.html` 
+* `.html`
 * Microsoft Word files
 * Microsoft PowerPoint files
 * PDF
@@ -53,7 +53,7 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
     * Doesn't lead to significant data loss.
     * Doesn't add unexpected noise to your data.  
 
-    This will impact the quality of the model response. 
+    This will affect the quality of the model response. 
 
 ## Ingesting your data
 
@@ -104,9 +104,9 @@ Upgrade to a higher pricing tier or delete unused assets.
 
 **Preprocessing Timeout Issues** 
 
-*Could not execute skill because the Web Api request failed*
+*Could not execute skill because the Web API request failed*
 
-*Could not execute skill because Web Api skill response is invalid* 
+*Could not execute skill because Web API skill response is invalid* 
 
 Resolution: 
 
@@ -134,8 +134,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 
 > [!IMPORTANT]
 > * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or higher SKU** to enable semantic search or vector search. See [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity) for more information.
-> * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic
-> * If you enable vector search, you need to enable public network access for your Azure OpenAI resources.
+> * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, and Arabic.
 
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
@@ -162,7 +161,7 @@ Mapping these fields correctly helps ensure the model has better response and ci
 After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
 * [Web app](#using-the-web-app)
 * [REST API](../reference.md#azure-ai-search)
-* [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample08_UseYourOwnData.cs)
+* [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/AzureOnYourData.cs)
 * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
 * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/bringYourOwnData.js)
 * [PowerShell](../use-your-data-quickstart.md?tabs=command-line%2Cpowershell&pivots=programming-language-powershell#example-powershell-commands)
@@ -187,7 +186,7 @@ Use the script [provided on GitHub](https://github.com/microsoft/sample-app-aoai
 
 To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an existing Azure Cosmos DB for MongoDB vCore index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
 
-1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, click **Select or add data source**. In the panel that appears, select **Azure Cosmos DB for MongoDB vCore** as the data source. 
+1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, select **Add your data**. In the panel that appears, select **Azure Cosmos DB for MongoDB vCore** as the data source. 
 1. Select your Azure subscription and database account, then connect to your Azure Cosmos DB account by providing your Azure Cosmos DB account username and password.
     
     :::image type="content" source="../media/use-your-data/add-mongo-data-source.png" alt-text="A screenshot showing the screen for adding Mongo DB as a data source in Azure OpenAI Studio." lightbox="../media/use-your-data/add-mongo-data-source.png":::
@@ -209,6 +208,27 @@ To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an exis
 After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
 * [Web app](#using-the-web-app)
 * [REST API](../reference.md#azure-cosmos-db-for-mongodb-vcore)
+
+# [URL/web address](#tab/url-web)
+
+Currently, you can add your data from a URL/web address. Your data from a URL/web address needs to have the following characteristics to be properly ingested:
+
+* A public website, such as [Using your data with Azure OpenAI Service - Azure OpenAI | Microsoft Learn](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search). Note that you cannot add a URL/Web address with access control, such as with password.
+
+* An HTTPS website.
+
+* The size of content in each URL is smaller than 5MB.  
+
+* The website can be downloaded as one of the [supported file types](#data-formats-and-file-types).
+
+You can use URL as a data source in both the Azure OpenAI Studio and the [ingestion API](../reference.md#start-an-ingestion-job). To use URL/web address as a data source, you need to have an Azure AI Search resource and an Azure Blob Storage resource. When using the Ingestion API you need to create a container first. Only one layer of nested links is supported. Only up to 20 links, on the web page will be fetched.
+
+:::image type="content" source="../media/use-your-data/url.png" alt-text="A screenshot of the Azure OpenAI use your data url/webpage studio configuration page." lightbox="../media/use-your-data/url.png":::
+
+Once you have added the URL/web address for data ingestion, the web pages from your URL are fetched and saved to your Azure Blob Storage account with a container name: `webpage-<index name>`. Each URL will be saved into a different container within the account. Then the files are indexed into an Azure AI Search index, which is used for retrieval when you’re chatting with the model.
+
+When you want to reuse the same URL/web address, you can select [Azure AI Search](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search) as your data source and select the index you created with your URL previously. Then you can use the already indexed files instead of having the system crawl your URL again. You can use the Azure AI Search index directly and delete the storage container to free up your storage space.
+
 ---
 
 
@@ -221,26 +241,6 @@ You can modify the following additional settings in the **Data parameters** sect
 |---------|---------|
 |**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 5. This is the `topNDocuments` parameter in the API.     |
 | **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
-
-## Azure Role-based access controls (Azure RBAC) for adding data sources
-
-To add a new data source to Azure OpenAI on your data, you need the following Azure RBAC roles.
-
-
-|Azure RBAC role  | Which resource needs this role? | Needed when  |
-|---------|---------|---------|
-| [Cognitive Services OpenAI Contributor](../how-to/role-based-access-control.md#cognitive-services-openai-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to use Azure OpenAI on your data.   |
-|[Search Index Data Reader](/azure/role-based-access-control/built-in-roles#search-index-data-reader) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You want to use Azure OpenAI on your data.        |
-|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You plan to create a new Azure AI Search index.        |
-|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.  | The Azure AI Search and Azure OpenAI resources, to access the storage account.       |
-| [Cognitive Services OpenAI User](../how-to/role-based-access-control.md#cognitive-services-openai-user) | The web app, to access the Azure OpenAI resource. | You want to deploy a web app.   |
-| [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
-| [Cognitive Services Contributor Role](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to deploy a [web app](#using-the-web-app).   |
-
-## Virtual network support & private endpoint support
-
-* For instructions on setting up your resources to work on a virtual private network or private endpoint, see [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md)
-* Azure OpenAI, Azure AI Search, and Azure Storage Accounts can be protected under private endpoints and virtual private networks.
 
 ## Document-level access control
 
@@ -337,7 +337,7 @@ Use the following sections to help you configure Azure OpenAI on your data for o
 
 ### System message
 
-Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There's no token limit for the system message, but will be included with every API call and counted against the overall token limit. The system message will be truncated if it's greater than 400 tokens. 
+Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There are token limits that apply to the system message, used with every API call, and counted against the overall token limit. The system message will be truncated if it exceeds the token limits listed in the [token estimation](#token-usage-estimation-for-azure-openai-on-your-data) section.
 
 For example, if you're creating a chatbot where the data consists of transcriptions of quarterly financial earnings calls, you might use the following system message:
 
@@ -356,6 +356,7 @@ Set a limit on the number of tokens per model response. The upper limit for Azur
 ### Limit responses to your data 
 
 This option encourages the model to respond using your data only, and is selected by default. If you unselect this option, the model might more readily apply its internal knowledge to respond. Determine the correct selection based on your use case and scenario. 
+
 
 
 ### Interacting with the model
@@ -386,7 +387,6 @@ Avoid asking long questions and break them down into multiple questions if possi
 * We recommend using a system message to inform the model that your data is in another language. For example:
 
 *   *"**You are an AI assistant designed to help users extract information from retrieved Japanese documents. Please scrutinize the Japanese documents carefully before formulating a response. The user's query will be in Japanese, and you must response also in Japanese."*
-
 
 * If you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
 
@@ -422,7 +422,7 @@ When customizing the app, we recommend:
 
 - Resetting the chat session (clear chat) if the user changes any settings. Notify the user that their chat history will be lost.
 
-- Clearly communicating the impact on the user experience that each setting you implement will have.
+- Clearly communicating the effect on the user experience that each setting you implement will have.
 
 - When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
@@ -439,11 +439,11 @@ When customizing the app, we recommend:
 
     1. Select Microsoft as the identity provider. The default settings on this page will restrict the app to your tenant only, so you don't need to change anything else here. Then select **Add**
     
-    Now users will be asked to sign in with their Microsoft Entra account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's login information in any other way other than verifying they are a member of your tenant.
+    Now users will be asked to sign in with their Microsoft Entra account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's sign-in information in any other way other than verifying they are a member of your tenant.
 
 ### Chat history
 
-You can enable chat history for your users of the web app. By enabling the feature, your users will have access to their individual previous queries and responses. 
+You can enable chat history for your users of the web app. If you enable the feature, your users will have access to their individual previous queries and responses. 
 
 To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal)
 
@@ -463,6 +463,8 @@ Deleting your web app does not delete your Cosmos DB instance automatically. To 
 ### Using the API
 
 After you upload your data through Azure OpenAI studio, you can make a call against Azure OpenAI models through APIs. Consider setting the following parameters even if they are optional for using the API.
+
+
 
 
 
@@ -537,6 +539,7 @@ When you chat with a model, providing a history of the chat will help the model 
 ## Token usage estimation for Azure OpenAI on your data
 
 
+
 | Model                   | Total tokens available | Max tokens for system message | Max tokens for model response |
 |-------------------------|------------------------|------------------------------------|------------------------------------|
 | ChatGPT Turbo (0301) 8k | 8000                   | 400                                | 1500                               |
@@ -545,6 +548,7 @@ When you chat with a model, providing a history of the chat will help the model 
 | GPT-4 32k               | 32000                  | 2000                               | 6400                               |
 
 The table above shows the total number of tokens available for each model type. It also determines the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
+
 
 
 * The meta prompt (MP): if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens is 4036 tokens. Otherwise (for example if `inScope=False`) the maximum is 3444 tokens. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt as well as the query rewriting prompts for retrieval.
@@ -568,5 +572,7 @@ token_output = TokenEstimator.estimate_tokens(input_text)
 
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)
+
+* [Securely use Azure OpenAI on your data](../how-to/use-your-data-securely.md)
 
 * [Introduction to prompt engineering](./prompt-engineering.md)

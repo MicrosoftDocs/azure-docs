@@ -190,6 +190,35 @@ The deployment task supports 3 types of operations,  validate only, deploy and v
    > [!NOTE]
    > The deployment task needs to download dependency JS files from this endpoint **web.azuresynapse.net** when the operation type is selected as **Validate** or **Validate and deploy**. Please ensure the endpoint **web.azuresynapse.net** is allowed if network policies are enabled on the VM.
 
+The validate and deploy operation works in both classic and YAML pipeline. The sample YAML file is as below: 
+
+ ```yaml
+    pool:
+      vmImage: ubuntu-latest
+
+    resources:
+      repositories:
+      - repository: <repository name>
+        type: git
+        name: <name>
+        ref: <user/collaboration branch>
+
+    steps:
+      - checkout: <name>
+      - task: Synapse workspace deployment@2
+        continueOnError: true    
+        inputs:
+          operation: 'validateDeploy'
+          ArtifactsFolder: '$(System.DefaultWorkingDirectory)/ArtifactFolder'
+          TargetWorkspaceName: 'target workspace name'
+          azureSubscription: 'target Azure resource manager connection name'
+          ResourceGroupName: 'target workspace resource group'
+          DeleteArtifactsNotInTemplate: true
+          OverrideArmParameters: >
+            -key1 value1
+            -key2 value2
+``` 
+
 **Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
 
 You can choose the operation types based on the use case. Following part is an example of the deploy.
@@ -477,6 +506,9 @@ Here's an explanation of how the preceding template is constructed, by resource 
 - Under `typeProperties`, two properties are parameterized:
   - The `maxConcurrency` property has a default value and is the `string` type. The default parameter name of the `maxConcurrency` property is  `<entityName>_properties_typeProperties_maxConcurrency`.
   - The `recurrence` property also is parameterized. All properties under the `recurrence` property are set to be parameterized as strings, with default values and parameter names. An exception is the `interval` property, which is parameterized as the `int` type. The parameter name is suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly, the `freq` property is a string and is parameterized as a string. However, the `freq` property is parameterized without a default value. The name is shortened and suffixed, such as `<entityName>_freq`.
+
+  > [!NOTE]
+  > A maximum of 50 triggers is supported currently.
 
 **`linkedServices`**
 

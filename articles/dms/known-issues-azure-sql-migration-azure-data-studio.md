@@ -255,6 +255,15 @@ This article provides a list of known issues and troubleshooting steps associate
 
 ## Error code: 2060 - SqlSchemaCopyFailed
 
+- **Message**: `Login failed for user 'Domain\MachineName$`.
+
+- **Cause**: This error generally happens when customer uses Windows authentication to login the source. The customer provides Windows authentication credential but SHIR converts it to machine account (Domain\MachineName$).
+
+- **Recommendation**: Possible solutions for this issue are:
+  1) Add login for machine account "Domain\MachineName$" to the source SQL Server. [How to Create a SQL Server Computer Account Login](https://stackoverflow.com/questions/38680366/how-to-add-a-new-sql-server-machine-account).
+  2) Or Use SQL login to connect to source SQL Server in Azure Data Studio.
+  3) Or As an alternative, Migrate the database schema from source to target by using [PowerShell](/powershell/module/az.datamigration/new-azdatamigrationsqlserverschema) or  the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects](/azure-data-studio/extensions/sql-database-project-extension) extension in Azure Data Studio.
+  
 - **Message**: `The SELECT permission was denied on the object 'sql_logins', database 'master', schema 'sys'.`
 
 - **Cause**: The account customers use to connect Azure SQL Database lacks the permission to access `sys.sql_logins` table.
@@ -263,11 +272,21 @@ This article provides a list of known issues and troubleshooting steps associate
 
   1. Add 'sysadmin' role to the account, which grants the admin permission.
 
-  1. If customers can't use admin account or can't grant admin permission to the account, they can create a user in master and grant **dbmanager** and **loginmanager** permission to the user. For example,
+  1. If customers can't use sysadmin account or can't grant sysadmin permission to the account, then minimum permission on source SQL Server required is "db_owner" and on target Azure SQL DB create a user in master and grant **##MS_DatabaseManager##**,**##MS_DatabaseConnector##**, **##MS_DefinitionReader##** and **##MS_LoginManager##** fixed server roles to the user. For example,
 
      ```sql
      -- Run the script in the master
-     CREATE USER testuser FROM LOGIN testlogin;
+     -- Please run the script on Master database
+     CREATE LOGIN testuser with Password = '*********';
+     ALTER SERVER ROLE ##MS_DefinitionReader## ADD MEMBER [testuser]; 
+      GO
+     ALTER SERVER ROLE ##MS_DatabaseConnector## ADD MEMBER [testuser]; 
+      GO
+     ALTER SERVER ROLE ##MS_DatabaseManager## ADD MEMBER [testuser]; 
+      GO
+     ALTER SERVER ROLE ##MS_LoginManager## ADD MEMBER [testuser]; 
+      GO
+     CREATE USER testuser from login testuser;
      EXEC sp_addRoleMember 'dbmanager', 'testuser';
      EXEC sp_addRoleMember 'loginmanager', 'testuser';
      ```

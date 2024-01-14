@@ -36,7 +36,7 @@ You can also control cache settings from the Azure portal by setting [CDN cachin
 The preferred method for setting a web server's `Cache-Control` header is to use caching rules in the Azure portal. For more information about CDN caching rules, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN Standard from Edgio** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Edgio** profiles, you must use the [Azure CDN rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Edgio** profiles. For **Azure CDN Premium from Edgio** profiles, you must use the [Azure CDN rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
 
 **To navigate to the CDN caching rules page**:
 
@@ -123,7 +123,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## Testing the Cache-Control header
-You can easily verify the TTL settings of your web content. With your browser's [developer tools](/microsoft-edge/devtools-guide-chromium/overview), test that your web content includes the `Cache-Control` response header. You can also use a tool such as **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
+You can easily verify the TTL settings of your web content. With your browser's developer tools, test that your web content includes the `Cache-Control` response header. You can also use a tool such as **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
 
 ## Next Steps
 * [Read details about the **clientCache** element](/iis/configuration/system.webServer/staticContent/clientCache)

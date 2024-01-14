@@ -76,7 +76,7 @@ You can create a [service principal](../active-directory/develop/app-objects-and
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
                             --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
-                            --sdk-auth
+                            --json-auth
 ```
 
 In the previous example, replace the placeholders with your subscription ID, resource group name, and app name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to the following JSON snippet. Copy this JSON object for later.
@@ -217,10 +217,10 @@ The following examples show how to set up the environment for the different supp
 **.NET**
 
 ```yaml
-    - name: Setup Dotnet 3.3.x
-      uses: actions/setup-dotnet@v1
+    - name: Setup Dotnet 6.0.x
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '3.3.x'
+        dotnet-version: '6.0.x'
 ```
 
 **ASP.NET**
@@ -236,7 +236,7 @@ The following examples show how to set up the environment for the different supp
 
 ```yaml
     - name: Setup Java 1.8.x
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v3
       with:
         # If your pom.xml <maven.compiler.source> version is not in 1.8.x,
         # change the Java version to match the version in pom.xml <maven.compiler.source>
@@ -247,7 +247,7 @@ The following examples show how to set up the environment for the different supp
 
 ```yaml
 env:
-  NODE_VERSION: '14.x'                # set this to the node version to use
+  NODE_VERSION: '18.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -256,7 +256,7 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
 ```
@@ -264,7 +264,7 @@ jobs:
 
 ```yaml
     - name: Setup Python 3.x 
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v4
       with:
         python-version: 3.x
 ```
@@ -359,7 +359,7 @@ on: [push]
 env:
   AZURE_WEBAPP_NAME: my-app-name    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
+  DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
 
 jobs:
   build:
@@ -371,7 +371,7 @@ jobs:
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
       
@@ -449,9 +449,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v3
       with:
         java-version: 1.8
     - name: Build with Maven
@@ -490,7 +490,7 @@ on: [push]
 env:
   AZURE_WEBAPP_NAME: my-app-name   # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '14.x'                # set this to the node version to use
+  NODE_VERSION: '18.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -499,7 +499,7 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
     - name: npm install, build, and test
@@ -536,9 +536,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Python 3.x
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.x
     - name: Install dependencies
@@ -570,7 +570,7 @@ on: [push]
 env:
   AZURE_WEBAPP_NAME: my-app    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
+  DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
 
 jobs:
   build:
@@ -586,7 +586,7 @@ jobs:
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
       
@@ -675,12 +675,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v3
       with:
         java-version: 1.8
     - name: Build with Maven
@@ -712,7 +712,7 @@ name: Node.js
 env:
   AZURE_WEBAPP_NAME: my-app   # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '14.x'                # set this to the node version to use
+  NODE_VERSION: '18.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -727,7 +727,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
     - name: Setup Node ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
     
@@ -768,14 +768,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Set up Python 3.x
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.x
     - name: Install dependencies
@@ -811,7 +811,7 @@ permissions:
 env:
   AZURE_WEBAPP_NAME: my-app    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
+  DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
 
 jobs:
   build:
@@ -829,7 +829,7 @@ jobs:
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
       
@@ -928,14 +928,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - uses: azure/login@v1
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v3
       with:
         java-version: 1.8
     - name: Build with Maven
@@ -972,7 +972,7 @@ name: Node.js
 env:
   AZURE_WEBAPP_NAME: my-app   # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '14.x'                # set this to the node version to use
+  NODE_VERSION: '18.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -989,7 +989,7 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         
     - name: Setup Node ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
     
@@ -1034,7 +1034,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
     - uses: azure/login@v1
       with:
@@ -1043,7 +1043,7 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
     - name: Set up Python 3.x
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.x
     - name: Install dependencies

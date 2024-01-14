@@ -398,16 +398,7 @@ You can remove CORS:
 
 ## Understand billing transactions
 
-Azure Maps doesn't count billing transactions for:
-
-- 5xx HTTP Status Codes
-- 401 (Unauthorized)
-- 403 (Forbidden)
-- 408 (Timeout)
-- 429 (TooManyRequests)
-- CORS preflight requests
-
-For more information on billing transactions and other Azure Maps pricing information, see [Azure Maps pricing].
+[!INCLUDE [Understand billing transactions](./includes/understand-billing-transactions.md)]
 
 ## Next steps
 
@@ -439,7 +430,7 @@ To learn more about authenticating the Azure Maps Control with Microsoft Entra I
 [Data]: /rest/api/maps/data
 [Creator]: /rest/api/maps-creator/
 [Spatial]: /rest/api/maps/spatial
-[Search]: /rest/api/maps/search
+[Search]: /rest/api/maps/search?view=rest-maps-1.0
 [Route]: /rest/api/maps/route
 
 [How to configure Azure RBAC for Azure Maps]: how-to-manage-authentication.md

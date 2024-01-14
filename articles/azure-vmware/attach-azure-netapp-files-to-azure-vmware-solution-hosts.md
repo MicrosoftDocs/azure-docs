@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 07/14/2023
+ms.date: 11/27/2023
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -36,7 +36,7 @@ Before you begin the prerequisites, review the [Performance best practices](#per
     1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
     1. Create a volume with **Standard** [network features](../azure-netapp-files/configure-network-features.md) if available for ExpressRoute FastPath connectivity.
     1. Under the **Protocol** section, select **Azure VMware Solution Datastore** to indicate the volume is created to use as a datastore for Azure VMware Solution private cloud.
-    1. If you're using [export policies](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) to control, access to Azure NetApp Files volumes, enable the Azure VMware private cloud IP range, not individual host IPs. Faulty hosts in a private cloud could get replaced so if the IP isn't enabled, connectivity to datastore will be impacted.
+    1. If you're using [export policies](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) to control access to Azure NetApp Files volumes, enable the Azure VMware private cloud IP range, not individual host IPs. Faulty hosts in a private cloud could get replaced. If the IP isn't enabled, connectivity to datastore is impacted.
 
 >[!NOTE]
 >Azure NetApp Files datastores for Azure VMware Solution are generally available. To use it, you must register Azure NetApp Files datastores for Azure VMware Solution.
@@ -87,7 +87,7 @@ There are some important best practices to follow for optimal performance of NFS
   >[!IMPORTANT]
   > If you've changed the Azure NetApp Files volumes performance tier after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch.
 
-- Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type will determine volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 8, but it can be increased to a maximum of 256 by submitting a support ticket. To submit a support ticket, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+- Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type determines volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 8, but it can be increased to a maximum of 256 by submitting a support ticket. To submit a support ticket, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 -  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](../availability-zones/az-overview.md#availability-zones) using the [the availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
  
 For performance benchmarks that Azure NetApp Files datastores deliver for VMs on Azure VMware Solution, see [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](../azure-netapp-files/performance-benchmarks-azure-vmware-solution.md).  
@@ -117,13 +117,13 @@ Under **Manage**, select **Storage**.
 1. Under **Associated cluster**, in the **Client cluster** field, select one or more clusters to associate the volume as a datastore.
 1. Under **Data store**, create a personalized name for your **Datastore name**.
     1. When the datastore is created, you should see all of your datastores in the **Storage**.
-    2. You'll also notice that the NFS datastores are added in vCenter.
+    2. Notice that the NFS datastores are added in vCenter.
 
 ### [Azure CLI](#tab/azure-cli)
 
 To attach an Azure NetApp Files volume to your private cloud using Azure CLI, follow these steps:
 
-1. Verify the subscription is registered to `CloudSanExperience` feature in the **Microsoft.AVS** namespace. If it's not already registered, then register it.
+1. Verify the subscription is registered to `CloudSanExperience` feature in the **Microsoft.AVS** namespace. If it's not, register it.
 
     `az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"`
 
@@ -136,7 +136,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
     `az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"`
 
     `az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"`
-1. Verify the subscription is registered to `AnfDatastoreExperience` feature in the **Microsoft.AVS** namespace. If it's not already registered, then register it.
+1. Verify the subscription is registered to `AnfDatastoreExperience` feature in the **Microsoft.AVS** namespace. If it's not, register it.
 
     `az feature register --name " AnfDatastoreExperience" --namespace "Microsoft.AVS"`
 
@@ -173,8 +173,10 @@ Cloud Backup for Virtual Machines is a plug-in for Azure VMware Solution that pr
 
 ## Service level change for Azure NetApp Files datastore
 
-Based on the performance requirements of the datastore, you can change the service level of the Azure NetApp Files volume used for the datastore by following the instructions to [dynamically change the service level of a volume for Azure NetApp Files](../azure-netapp-files/dynamic-change-volume-service-level.md).
-Changing the service level has no impact on the datastore or private cloud. There is no downtime and the volume's IP address/mount path remain unchanged. However, the volume's resource ID will change as a result of the capacity pool change. To correct any metadata mismatch, re-run the datastore creation in Azure CLI for the existing datastore with the new Resource ID for the Azure NetApp Files volume:
+Based on performance requirements of the datastore, you can change the service level of the Azure NetApp Files volume used for the datastore. Use the instructions provided to [dynamically change the service level of a volume for Azure NetApp Files](../azure-netapp-files/dynamic-change-volume-service-level.md).
+
+Changing the service level has no effect on the datastore or private cloud. There's no downtime and the volume IP address/mount path remains unchanged. However, the volume resource ID changes as a result of the capacity pool change. To correct any metadata mismatch, rerun the datastore creation in Azure CLI for the existing datastore with the new Resource ID for the Azure NetApp Files volume:
+
 ```azurecli
 az vmware datastore netapp-volume create \
     --name <name of existing datastore> \
@@ -201,7 +203,7 @@ You can use the instructions provided to disconnect an Azure NetApp Files-based 
 
 ## Next steps
 
-Now that you've attached a datastore on Azure NetApp Files-based NFS volume to your Azure VMware Solution hosts, you can create your VMs. Use the following resources to learn more.
+Now that you attached a datastore on Azure NetApp Files-based NFS volume to your Azure VMware Solution hosts, you can create your VMs. Use the following resources to learn more.
 
 - [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md)
 - Datastore protection using [Azure NetApp Files snapshots](../azure-netapp-files/snapshots-introduction.md)
@@ -226,7 +228,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **Should Azure NetApp Files be in the same subscription as the private cloud?** 
 
-    It's recommended to create the Azure NetApp Files volumes for the datastores in the same VNet that has connectivity to the private cloud.
+    The recommendation is to create the Azure NetApp Files volumes for the datastores in the same virtual network that has connectivity to the private cloud.
 
 - **How many datastores are we supporting with Azure VMware Solution?**
 
@@ -250,16 +252,16 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **What happens if a new node is added to the cluster, or an existing node is removed from the cluster?**
 
-    When you add a new node to the cluster, it will automatically gain access to the datastore. Removing an existing node from the cluster won't affect the datastore. 
+    When you add a new node to the cluster, it automatically gains access to the datastore. Removing an existing node from the cluster doesn't affect the datastore. 
 
 - **How are the datastores charged, is there an additional charge?**
 
-    Azure NetApp Files NFS volumes that are used as datastores will be billed following the [capacity pool based billing model](../azure-netapp-files/azure-netapp-files-cost-model.md). Billing will depend on the service level. There's no extra charge for using Azure NetApp Files NFS volumes as datastores.
+    Azure NetApp Files NFS volumes that are used as datastores are billed following the [capacity pool based billing model](../azure-netapp-files/azure-netapp-files-cost-model.md). Billing depends on the service level. There's no extra charge for using Azure NetApp Files NFS volumes as datastores.
 
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within the same Azure VMware Solution SDDC?**
 
-    Yes, you can select multiple clusters at the time of creating the datastore. Additional clusters may be added or removed after the initial creation as well.
+    Yes, you can select multiple clusters at the time of creating the datastore. More clusters can be added or removed after the initial creation as well.
 
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within different Azure VMware Solution SDDCs?**
 
-    Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different SDDCs. Each SDDC will need connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network. Latency considerations apply.
+    Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different SDDCs. Each SDDC needs connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network. Latency considerations apply.

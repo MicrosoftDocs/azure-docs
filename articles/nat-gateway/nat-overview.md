@@ -25,10 +25,11 @@ NAT Gateway provides dynamic SNAT port functionality to automatically scale outb
 Azure NAT Gateway provides outbound connectivity for many Azure resources, including: 
 * Azure virtual machines or virtual machine scale-sets in a private subnet
 * [Azure Kubernetes Services (AKS) clusters](/azure/aks/nat-gateway)
+* [Azure Container group](/azure/container-instances/container-instances-nat-gateway)
 * [Azure Function Apps](/azure/azure-functions/functions-how-to-use-nat-gateway)
 * [Azure Firewall subnet](/azure/firewall/integrate-with-nat-gateway)
 * [Azure App Services instances](/azure/app-service/networking/nat-gateway-integration) (web applications, REST APIs, and mobile backends) through [virtual network integration](/azure/app-service/overview-vnet-integration)
-* [Azure Databricks with secure cluster connectivity and a default VNet](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-default-managed-vnet) or with [VNet injection](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-vnet-injection).
+* [Azure Databricks](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-default-managed-vnet) or with [VNet injection](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-vnet-injection).
 
 ## Azure NAT Gateway benefits
 

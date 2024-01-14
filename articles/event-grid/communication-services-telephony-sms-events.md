@@ -46,7 +46,8 @@ This section contains an example of what that data would look like for each even
         "SegmentsSucceeded": 1,
         "SegmentsFailed": 0
       }
-    ]
+    ],
+    "Tag": "Optional customer-tag set in the original message"
   },
   "eventType": "Microsoft.Communication.SMSDeliveryReportReceived",
   "dataVersion": "1.0",

@@ -94,7 +94,7 @@ While the DNS setup can be achieved many different ways, this example uses an ex
 After the level 4 cluster and Layered Network Management are ready, perform the following steps.
 1. Confirm the IP address of Layered Network Management service with the following command:
     ```bash
-    kubectl get services
+    kubectl get services -n azure-iot-operations
     ```
     The output should look like the following. The IP address of the service is `20.81.111.118`.
 
@@ -106,7 +106,7 @@ After the level 4 cluster and Layered Network Management are ready, perform the 
 1. View the config maps with following command:
     
     ```bash
-    kubectl get cm
+    kubectl get cm -n azure-iot-operations
     ```
     
     The output should look like the following example:
@@ -124,7 +124,7 @@ After the level 4 cluster and Layered Network Management are ready, perform the 
       export PARENT_IP_ADDR="20.81.111.118"
     
     # run the script to generate a config map yaml
-      kubectl get cm aio-lnm-level4-client-config -o yaml | yq eval '.metadata = {"name": "coredns-custom", "namespace": "kube-system"}' -| sed 's/PARENT_IP/'"$PARENT_IP_ADDR"'/' > configmap-custom-level4.yaml
+      kubectl get cm aio-lnm-level4-client-config -n azure-iot-operations -o yaml | yq eval '.metadata = {"name": "coredns-custom", "namespace": "kube-system"}' -| sed 's/PARENT_IP/'"$PARENT_IP_ADDR"'/' > configmap-custom-level4.yaml
     ```
 
     This step creates a file named `configmap-custom-level4.yaml`

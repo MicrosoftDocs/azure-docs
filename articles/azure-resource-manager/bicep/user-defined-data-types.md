@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 12/06/2023
 ---
 
 # User-defined data types in Bicep
@@ -19,6 +19,9 @@ You can use the `type` statement to define user-defined data types. In addition,
 ```bicep
 type <user-defined-data-type-name> = <type-expression>
 ```
+
+> [!NOTE]
+> The [`@allowed` decorator](./parameters.md#decorators) is only permitted on [`param` statements](./parameters.md). To declare that a property must be one of a set of predefined values in a `type` or [`output`](./outputs.md) statement, use union type syntax. Union type syntax may also be used in [`param` statements](./parameters.md).
 
 The valid type expressions include:
 
@@ -68,7 +71,7 @@ The valid type expressions include:
     }
     ```
 
-    Each property in an object consists of key and value. The key and value are separated by a colon `:`. The key may be any string (values that would not be a valid identifier must be enclosed in quotes), and the value may be any type syntax expression.
+    Each property in an object consists of key and value. The key and value are separated by a colon `:`. The key may be any string (values that wouldn't be a valid identifier must be enclosed in quotes), and the value may be any type syntax expression.
 
     Properties are required unless they have an optionality marker `?` after the property value. For example, the `sku` property in the following example is optional:
 
@@ -92,6 +95,13 @@ The valid type expressions include:
     }
     ```
 
+    The following sample shows how to use the union type syntax to list a set of predefined values:
+
+    ```bicep
+    type obj = {
+      level: 'bronze' | 'silver' | 'gold'
+    }
+    ```
     **Recursion**
 
     Object types may use direct or indirect recursion so long as at least leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
@@ -103,7 +113,7 @@ The valid type expressions include:
     }
     ```
 
-    But the following would not be valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
+    But the following type definition wouldn't be valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
 
     ```bicep
     type invalidRecursiveObjectType = {
@@ -136,7 +146,7 @@ The valid type expressions include:
     type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 
-In addition to be used in the `type` statement, type expressions can also be used in these places for creating user-defined date types:
+In addition to be used in the `type` statement, type expressions can also be used in these places for creating user-defined data types:
 
 - As the type clause of a `param` statement. For example:
 
@@ -246,7 +256,7 @@ param serviceConfig ServiceConfig = { type: 'bar', value: true }
 output config object = serviceConfig
 ```
 
-The parameter value is validated based on the discriminated property value.  In the preceeding example, if the *serviceConfig* parameter value is of type *foo*, it undergoes validation using the *FooConfig*type. Likewise, if the parameter value is of type *bar*, validation is performed using the *BarConfig* type, and this pattern continues for other types as well.
+The parameter value is validated based on the discriminated property value.  In the preceding example, if the *serviceConfig* parameter value is of type *foo*, it undergoes validation using the *FooConfig*type. Likewise, if the parameter value is of type *bar*, validation is performed using the *BarConfig* type, and this pattern continues for other types as well.
 
 ## Import types between Bicep files (Preview)
 

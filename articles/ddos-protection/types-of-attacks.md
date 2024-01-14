@@ -7,7 +7,7 @@ ms.service: ddos-protection
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 12/07/2023
 ms.author: abell
 ---
 # Types of attacks Azure DDoS Protection mitigates

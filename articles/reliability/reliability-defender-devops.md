@@ -49,13 +49,18 @@ To request recovery of a connector created in a downed region:
         1.  Issue type: `Technical`
         1.  Service type: `Microsoft Defender for Cloud`
         1.  Summary: "Region outage - DevOps Connector recovery"
-        1.  Problem type: `Onboarding and Settings`
+        1.  Problem type: `Defender CSPM plan`
         1.  Problem subtype: `DevOps security`
 
-1. Copy the Resource ID of the new and old DevOps connectors. This information is available in Azure Resource Graph.  ResourceID format:
+1. Copy the Resource ID of the new and old DevOps connectors. This information is available in Azure Resource Graph.  Resource ID format: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{connectorName}`
 
+   You can run the query below using [Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal) to find the Resource ID:
    ```
-   /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{connectorName}
+   resources
+    | extend connectorType = tostring(parse_json(properties["environmentName"]))
+    | where type == "microsoft.security/securityconnectors"
+    | where connectorType in ("AzureDevOps", "Github", "GitLab")
+    | project connectorResourceId = id, region = location
 
 1. Once the DevOps resources have been released from the old connector and appear for the new connector, [reconfigure the pull request annotations](/azure/defender-for-cloud/enable-pull-request-annotations) as needed.
 

@@ -19,7 +19,7 @@ This article outlines troubleshooting for scenarios where you're having problems
   * Subscription ID
   * Cluster name and resource group
   * AKS hybrid cluster name and resource group
-* Become familiar with the procedures in [Connect to the AKS hybrid cluster](/azure/AkS/Hybrid/create-aks-hybrid-preview-cli#connect-to-the-aks-hybrid-cluster).
+* Become familiar with the procedures in [Connect to the AKS hybrid cluster](/azure/aks/tutorial-kubernetes-deploy-cluster).
 
 ## Common scenarios
 

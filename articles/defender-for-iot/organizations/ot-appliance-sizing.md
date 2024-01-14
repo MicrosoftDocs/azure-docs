@@ -51,7 +51,7 @@ Use the following hardware profiles for production line monitoring, typically in
 |L60    | Up to 10 Mbps        |   100      |Physical / Virtual|
 
 > [!IMPORTANT]
-> <a name="l60"></a>Defender for IoT software versions later than 23.2 are planned to require a minimum disk size of 100 GB. Therefore, the L60 hardware profile, which supports 60 GB of hard disk, will be deprecated in versions later than 23.2.
+> <a name="l60"></a>Upcoming Defender for IoT software versions are planned to require a minimum disk size of 100 GB. When that happens, the L60 hardware profile, which supports 60 GB of hard disk, will be deprecated.
 >
 > We recommend that you plan any new deployments accordingly, using hardware profiles that support at least 100 GB. Migration steps from the L60 hardware profile will be provided together with the L60 deprecation.
 

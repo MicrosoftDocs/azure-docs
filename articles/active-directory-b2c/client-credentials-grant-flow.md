@@ -21,7 +21,8 @@ The OAuth 2.0 client credentials grant flow permits an app (confidential client)
 
 In the client credentials flow, permissions are granted directly to the application itself by an administrator. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action since there's no user involved in the authentication. This article covers the steps needed to authorize an application to call an API, and how to get the tokens needed to call that API.
 
-**This feature is in public preview.**
+> [!NOTE]
+> **This feature is in public preview.**
 
 ## App registration overview
 

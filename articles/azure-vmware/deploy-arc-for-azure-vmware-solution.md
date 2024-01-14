@@ -3,8 +3,8 @@ title: Deploy Arc-enabled Azure VMware Solution
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 11/03/2023
-ms.custom: references_regions, devx-track-azurecli
+ms.date: 12/08/2023
+ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 ---
 
 # Deploy Arc-enabled Azure VMware Solution
@@ -13,8 +13,8 @@ In this article, learn how to deploy Arc for Azure VMware Solution. Once you set
 
 - Identify your VMware vSphere resources (VMs, templates, networks, datastores, clusters/hosts/resource pools) and register them with Arc at scale. 
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
-- Permit developers and application teams to use VM operations on-demand with [Role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview).
-- Install the Arc-connected machine agent to [govern, protect, configure, and monitor](https://learn.microsoft.com/azure/azure-arc/servers/overview#supported-cloud-operations) them.
+- Permit developers and application teams to use VM operations on-demand with [Role-based access control](/azure/role-based-access-control/overview).
+- Install the Arc-connected machine agent to [govern, protect, configure, and monitor](/azure/azure-arc/servers/overview#supported-cloud-operations) them.
 - Browse your VMware vSphere resources (vms, templates, networks, and storage) in Azure
 
 
@@ -38,13 +38,13 @@ The following requirements must be met in order to use Azure Arc-enabled Azure V
 
 You need the following items to ensure you're set up to begin the onboarding process to deploy Arc for Azure VMware Solution.
 
-- Validate the regional support before you start the onboarding process. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview#supported-regions).
-- A [management VM](https://learn.microsoft.com/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter.
-- From the Management VM, verify you  have access to [vCenter Server and NSX-T manager portals](https://learn.microsoft.com/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
+- Validate the regional support before you start the onboarding process. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For details, see [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview#supported-regions).
+- A [management VM](/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter.
+- From the Management VM, verify you  have access to [vCenter Server and NSX-T manager portals](/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
 - A resource group in the subscription where you have an owner or contributor role.
-- An unused, isolated [NSX Data Center network segment](https://learn.microsoft.com/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment used for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one gets created.
+- An unused, isolated [NSX Data Center network segment](/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment used for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one gets created.
 - Verify your Azure subscription is enabled and has connectivity to Azure end points.
-- The firewall and proxy URLs must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. See the [Azure eArc resource bridge (Preview) network requirements](https://learn.microsoft.com/azure/azure-arc/resource-bridge/network-requirements).
+- The firewall and proxy URLs must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. See the [Azure eArc resource bridge (Preview) network requirements](/azure/azure-arc/resource-bridge/network-requirements).
 - Verify your vCenter Server version is 6.7 or higher.
 - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
 - A datastore with a minimum of 100 GB of free disk space is available through the resource pool or cluster. 
@@ -65,14 +65,14 @@ az provider register --namespace Microsoft.KubernetesConfiguration
 az provider register --namespace Microsoft.ResourceConnector 
 az provider register --namespace Microsoft.AVS
 ```
-Alternately, users can sign into their Subscription, navigate to the **Resource providers** tab, and register themselves on the resource providers mentioned previously.
+Alternately, users can sign in to their Subscription, navigate to the **Resource providers** tab, and register themselves on the resource providers mentioned previously.
 
 
 ## Onboard process to deploy Azure Arc
 
 Use the following steps to guide you through the process to onboard Azure Arc for Azure VMware Solution.
 
-1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
+1. Sign in to the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
 2. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -151,7 +151,7 @@ When the script is run successfully, check the status to see if Azure Arc is now
 
 Recover from failed deployments 
 
-If the Azure Arc resource bridge deployment fails, consult the [Azure Arc resource bridge troubleshooting](https://learn.microsoft.com/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge) guide. While there can be many reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. Learn more about the [KVA timeout error](https://learn.microsoft.com/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge#kva-timeout-error) and how to troubleshoot. 
+If the Azure Arc resource bridge deployment fails, consult the [Azure Arc resource bridge troubleshooting](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge) guide. While there can be many reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. Learn more about the [KVA timeout error](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge#kva-timeout-error) and how to troubleshoot. 
 
 ## Discover and project your VMware vSphere infrastructure resources to Azure
 
@@ -173,7 +173,7 @@ Once you connected your Azure VMware Solution private cloud to Azure, you can br
 2. Select the resource(s) you want to enable, then select **Enable in Azure**.
 3. Select your Azure **Subscription** and **Resource Group**, then select **Enable**.
 
-  The enable action starts a deployment and creates a resource in Azure, creating representations for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control (RBAC) granularly. 
+  The enable action starts a deployment and creates a resource in Azure, creating representations for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly. 
 
 4. Repeat the previous steps for one or more network, resource pool, and VM template resources.
 
@@ -185,8 +185,8 @@ Before you install an extension, you need to enable guest management on the VMwa
 
 Before you can install an extension, ensure your target machine meets the following conditions:
 
-- Is running a [supported operating system](https://learn.microsoft.com/azure/azure-arc/servers/prerequisites#supported-operating-systems).
-- Is able to connect through the firewall to communicate over the internet and these [URLs](https://learn.microsoft.com/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
+- Is running a [supported operating system](/azure/azure-arc/servers/prerequisites#supported-operating-systems).
+- Is able to connect through the firewall to communicate over the internet and these [URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
 - Has VMware tools installed and running.
 - Is powered on and the resource bridge has network connectivity to the host running the VM.
 
@@ -215,4 +215,4 @@ When the extension installation steps are completed, they trigger deployment and
 
 ## Supported extensions and management services
 
-Perform VM operations on VMware VMs through Azure using [supported extensions and management services](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure#supported-extensions-and-management-services)
+Perform VM operations on VMware VMs through Azure using [supported extensions and management services](/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure#supported-extensions-and-management-services)

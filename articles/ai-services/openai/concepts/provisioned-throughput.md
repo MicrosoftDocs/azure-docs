@@ -52,6 +52,6 @@ We introduced a new deployment type called **ProvisionedManaged** which provides
 
 Provisioned throughput quota represents a specific amount of total throughput you can deploy. Quota in the Azure OpenAI Service is managed at the subscription level meaning that it can be consumed by different resources within that subscription.
 
-Quota is specific to a (deployment type, mode, region) triplet and isn't interchangeable. Meaning you can't use quota for GPT-4 to deploy GPT-35-turbo. Customers can raise a support request to move the quota across deployment types, models, or regions but we can't guarantee that it will be possible.
+Quota is specific to a (deployment type, model, region) triplet and isn't interchangeable. Meaning you can't use quota for GPT-4 to deploy GPT-35-turbo. Customers can raise a support request to move the quota across deployment types, models, or regions but we can't guarantee that it will be possible.
 
 While we make every attempt to ensure that quota is always deployable, quota does not represent a guarantee that the underlying capacity is available for the customer to use. The service assigns capacity to the customer at deployment time and if capacity is unavailable the deployment will fail with an out of capacity error.
