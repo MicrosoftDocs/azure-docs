@@ -106,7 +106,7 @@ resource healthModel 'Microsoft.HealthModel/healthmodels@2022-11-01-preview' = {
 | Argument | Description |
 |:---|:---|
 | `identity` | For more information, see [Identity](./configure-identity.md). |
-| `properties` | Contains the HM configuration:<ul><li>`activeState` can be set to `Inactive` or `Active`.</li><li>`refreshInterval` is the execution interval of the Health Model.</li><li>`nodes`. For more information, see [Nodes](#nodes).</li></ul> |
+| `properties` | Contains the health model configuration:<br>- `activeState` - Can be set to `Inactive` or `Active`.<br>- `refreshInterval` - Execution interval of the Health Model.<br>- `nodes` - See [Code view](./code-view.md) |
 
 
 

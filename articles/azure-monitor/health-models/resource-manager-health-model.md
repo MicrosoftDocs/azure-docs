@@ -12,7 +12,7 @@ ms.date: 08/08/2023
 
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and define an [Azure Monitor health model](./overview.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-The `node` section of the JSON includes the definition of the health model. See [Code view in Azure Monitor health models](./create-model.md#designer-view) for details on this definition. One method is to define the health model using the [designer view](./designer-view.md) and the copy and paste the definition from the code view.
+The `node` section of the JSON includes the definition of the health model. See [Code view in Azure Monitor health models](./create-model.md#designer-view) for details on this definition. One method is to define the health model using the [designer view](./create-model.md#designer-view) and the copy and paste the definition from the code view.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

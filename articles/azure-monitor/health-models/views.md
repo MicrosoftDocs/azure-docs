@@ -1,6 +1,6 @@
 ---
 title: View state of Azure Monitor health model (preview)
-description: Learn how to query health data in Azure Monitor health models.
+description: Desdcribes the different views available to view the health state of your Azure Monitor health models and their included entities.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -12,16 +12,16 @@ ms.date: 12/12/2023
 ## Graph view
 The graph view shows the latest snapshot of a health model with its full structure displayed and the current state of each node. The **Generated** timestamp on the top right specifies when the snapshot was taken and the current refresh interval for the model.
 
-:::image type="content" source="./media/health-model-snapshot-graph/health-model-resource-graph-view-pane.png" lightbox="./media/health-model-snapshot-graph/health-model-resource-graph-view-pane.png" alt-text="Screenshot of a health model resource in the Azure portal with the Graph pane selected.":::
+:::image type="content" source="./media/views/health-model-resource-graph-view-pane.png" lightbox="./media/views/health-model-resource-graph-view-pane.png" alt-text="Screenshot of a health model resource in the Azure portal with the Graph pane selected.":::
 
 ## Entity details
 
 Hover over an entity view its type and current health state. Click on an entity to view its detail. 
 When you click on an entity, you can see more detail like its health state history.
 
-:::image type="content" source="./media/health-model-snapshot-graph/graph-tab-entity-detail.png" lightbox="./media/health-model-snapshot-graph/graph-tab-entity-detail.png" alt-text="Screenshot of the Entity detail dialog for a health model resource in the Azure portal.":::
+:::image type="content" source="./media/views/graph-tab-entity-detail.png" lightbox="./media/health-model-snapshot-graph/views.png" alt-text="Screenshot of the Entity detail dialog for a health model resource in the Azure portal.":::
 
-| Section | |
+| Section | Description |
 |:---|:---|
 | Entity health history | Graphical history of the health of this entity over time. Click the time range to specify another time range. The time grain is set automatically based on the length of the time range. |
 | Metric signals | List of any metric signals for the entity and their last result and health state. Click on a metric to open it in metrics explorer for further analysis.<br>Only displayed for entities with metric signals.|

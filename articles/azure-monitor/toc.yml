@@ -60,7 +60,7 @@ items:
     - name: Analyze
       items:
       - name: Health state
-        href: health-models/graph-view.md
+        href: health-models/views.md
       - name: Service levels
         href: health-models/service-levels.md
       - name: Query health state
