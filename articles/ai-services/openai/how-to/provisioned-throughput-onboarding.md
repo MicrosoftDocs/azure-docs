@@ -122,19 +122,26 @@ With the plan ready, the next step is to create the commitments.  Commitments ar
 
 For each new commitment you need to create, follow these steps:
 
-1. Launch the Provisioned Throughput purchase dialog.
+1. Launch the Provisioned Throughput purchase dialog by selecting  **Quotas** > **Provisioned** > **Click here to purchase**.
 
-:::image type="content" source="../media/how-to/provisioned-onboarding/quota.png" alt-text="Screenshot of the purchase dialog" lightbox="../media/how-to/provisioned-onboarding/quota.png":::
+:::image type="content" source="../media/how-to/provisioned-onboarding/quota.png" alt-text="Screenshot of the purchase dialog." lightbox="../media/how-to/provisioned-onboarding/quota.png":::
 
 2. Select the Azure OpenAI resource and purchase the commitment.
 
-:::image type="content" source="../media/how-to/provisioned-onboarding/commitment-tier.png" alt-text="Screenshot of commitment purchase UI" lightbox="../media/how-to/provisioned-onboarding/quota.png":::
+| Setting | Notes |
+|---------|-------|
+| **Select a resource** | Choose the resource where you will create the provisioned deployment. Once you have purchased the commitment, you will be unable to use the PTUs on another resource until the current commitment expires. |
+| **Amount to commit (PTU)** | Choose the number of PTUs you're committing to. This number can be increased later, but can't be decreased |
+| **Commitment tier for current period** | The commitment period is set to one month. |
+| **Renewal settings** | Select Purchase. A confirmation dialog will be displayed. After you confirm, your PTUs will be committed, and you can use them to create a provisioned deployment. |
+
+:::image type="content" source="../media/how-to/provisioned-onboarding/commitment-tier.png" alt-text="Screenshot of commitment purchase UI." lightbox="../media/how-to/provisioned-onboarding/quota.png":::
 
 ### Adding Provisioned Throughput Units to existing commitments
 
 The steps are the same as in the previous example, but you'll increase the **amount to commit (PTU)** value.
 
-:::image type="content" source="../media/how-to/provisioned-onboarding/increase-commitment.png" alt-text="Screenshot of commitment purchase UI with an increase in the amount to commit value" lightbox="../media/how-to/provisioned-onboarding/increase-commitment.png":::
+:::image type="content" source="../media/how-to/provisioned-onboarding/increase-commitment.png" alt-text="Screenshot of commitment purchase UI with an increase in the amount to commit value." lightbox="../media/how-to/provisioned-onboarding/increase-commitment.png":::
 
 ### Managing commitments
 
@@ -186,8 +193,6 @@ The same approaches apply in moving the commitment and deployment within the reg
 ### View and edit an existing resource
 
 In Azure OpenAI Studio, select **Quota** > **Provisioned** > **Manage Commitment Tiers** and select a resource with an existing commitment to view/change it.
-
-:::image type="content" source="../media/how-to/provisioned-onboarding/edit.png" alt-text="Screenshot of commitment purchase UI with info on commitment expiration date" lightbox="../media/how-to/provisioned-onboarding/edit.png":::
 
 ## Next steps
 
