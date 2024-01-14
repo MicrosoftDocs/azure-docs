@@ -62,7 +62,7 @@ Quota and commitments work together to govern the creation of deployments within
 - Quota must be available for the desired model within the desired region and subscription.  This means you can't exceed your subscription/region-wide limit for the model.
 - Committed PTUs must be available on the resource where you create the deployment. (The capacity you assign to the deployment is paid-for).
 
-### Commitment Properties and Charging Model
+### Commitment properties and charging model
 
 A commitment includes several properties.
 
@@ -74,7 +74,7 @@ A commitment includes several properties.
 |Expiration Date| The expiration date of the commitment. This time of expiration is midnight UTC.| Initially, 30 days from creation. However, the expiration date changes if the commitment is renewed.|
 |Renewal Policy| There are three options for what to do upon expiration: <br><br> - Autorenew:  A new commitment term begins for another 30 days at the current number of PTUs <br>- Autorenew with different settings: This setting is the same as *Autorenew*, except that the number of PTUs committed upon renewal can be decreased <br>- Don't autorenew: Upon expiration, the commitment ends and isn't renewed.| Initially set at commitment creation, and can be changed at any time.|
 
-### Commitment Charges
+### Commitment charges
 
 Provisioned Throughput Commitments generate charges against your Azure subscription at the following times:
 
