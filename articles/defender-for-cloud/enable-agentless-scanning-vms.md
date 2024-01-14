@@ -147,27 +147,6 @@ The alert `EICAR_Test_File malware was detected (Agentless)` will appear within 
 
 :::image type="content" source="media/enable-agentless-scanning-vms/test-file-alert.jpg" alt-text="Screenshot of the EICAR test file alert screen for Linux." lightbox="media/enable-agentless-scanning-vms/test-file-alert.jpg":::
 
-### Create an EICAR test file for Windows
-
-Before starting you will need to: 
-- [Install Windows PowerShell](/powershell/scripting/install/installing-powershell-on-windows).
-- Ensure that you [enable the Defender for Endpoint agent](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
-- [Exclude EICAR threat](/microsoft-365/security/defender-endpoint/configure-exclusions-microsoft-defender-antivirus?view=o365-worldwide).
-
-**To create an EICAR test file for Windows**:
-
-1. Open Windows PowerShell.
-
-1. Execute the following command:
-
-    ```bash
-    $EICAR_STRING = 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-CLOUD-TEST-FILE!$H+H*' 
-    ```
-
-The alert `EICAR_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
-
-:::image type="content" source="media/enable-agentless-scanning-vms/test-file-alert.jpg" alt-text="Screenshot of the EICAR test file alert screen for Windows." lightbox="media/enable-agentless-scanning-vms/test-file-alert.jpg":::
-
 ## Exclude machines from scanning
 
 Agentless scanning applies to all of the eligible machines in the subscription. To prevent specific machines from being scanned, you can exclude machines from agentless scanning based on your pre-existing environment tags. When Defender for Cloud performs the continuous discovery for machines, excluded machines are skipped.
