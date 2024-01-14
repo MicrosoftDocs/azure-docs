@@ -323,7 +323,9 @@
     - name: Microsoft Defender for Cloud DevOps security
       href: reliability-defender-devops.md
     - name: Microsoft Fabric
-      href: reliability-fabric.md  
+      href: reliability-fabric.md
+    - name: Microsoft Purview
+      href: reliability-microsoft-purview.md
   - name:  Azure Service Manager retirement
     items:
     - name: Overview

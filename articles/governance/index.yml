@@ -18,7 +18,7 @@ highlightedContent:
   items:
     - title: Governance overview
       itemType: overview
-      url: ./azure-management.md
+      url: ./management-groups/azure-management.md
     - title: Governance YouTube channel
       itemType: video
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
