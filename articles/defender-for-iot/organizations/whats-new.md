@@ -22,17 +22,15 @@ Features released earlier than nine months ago are described in the [What's new 
 |---------|---------|
 | **OT networks** | - [Cloud-based sensor updates now lists all available update versions](#cloud-based-sensor-updates-now-lists-all-available-update-versions) <br> |
 
-### Cloud-based sensor updates now lists all available update versions
-or 
-### Choice of update versions for Cloud-based sensor update
+### Azure portal now allows sensor software updates for any available versions
 
-As an organization adds sensors over time, the software versions on the sensors will be different. As sensors are updated, the update process automatically loads the latest version of the sensor software to the cloud based sensor. This leads to a situation where some sensors have been upgraded and some still run the original versions used during onboarding. Over time, your system ends up with sensors running different versions of the software, which is hard for the deployment team to maintain.    
+When an organization adds new sensors over time, the deployed software versions will be different, as new sensors are automatically deployed with the latest software version. This leads to a situation where some sensors have been upgraded while some still run the older versions. Over time, your system ends up with sensors running different software versions, which is hard for the deployment team to maintain.    
 
-Now, instead of automatically updating the sensor monitoring software to the latest version, you can now choose to update to any of the update versions available. This choice allows you to update a sensor to a specific version, for example the version run on all other sensors, even if this is not the latest version.
- 
-When updating a cloud-based sensor from Defender for IoT in the Azure portal, open the  **Update Sensor** pane using the menu link and choose from the list of available update versions. For example:
+Now, instead of automatically deploying the sensor monitoring software to the latest version, you can now choose to deploy any of the previous versions available. This choice allows you to deploy a sensor to a specific software version, for example the version run on all other sensors, even if this is not the latest version. 
 
-<!-- add screen shot when available.-->
+This option is now available during the process of sending the software to the sensor, and is performed from Defender for IoT in the Azure portal. For example:
+
+:::image type="content" source="/media/whats-new/choose-older-version-to-send-to-package.png" alt-text="screenshot showing the option to choose an older version of the monitoring software to the sensor":::
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
