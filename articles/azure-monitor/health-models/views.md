@@ -19,7 +19,7 @@ The graph view shows the latest snapshot of a health model with its full structu
 Hover over an entity view its type and current health state. Click on an entity to view its detail. 
 When you click on an entity, you can see more detail like its health state history.
 
-:::image type="content" source="./media/views/graph-tab-entity-detail.png" lightbox="./media/health-model-snapshot-graph/views.png" alt-text="Screenshot of the Entity detail dialog for a health model resource in the Azure portal.":::
+:::image type="content" source="./media/views/graph-tab-entity-detail.png" lightbox="./media/views/graph-tab-entity-detail.png.png" alt-text="Screenshot of the Entity detail dialog for a health model resource in the Azure portal.":::
 
 | Section | Description |
 |:---|:---|

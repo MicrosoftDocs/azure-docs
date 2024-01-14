@@ -26,6 +26,9 @@ The health of an entity is determined by one or more signals. A signal is a metr
 
 The health state may also be affected by any children entities depending on their impact setting. If there are multiple signals affecting an entity's health, the worst case will be used. For example, if a an entity has two signals, one that is degraded and one that is unhealthy, the entity will be unhealthy.
 
+The following example shows an Azure resource entity representing an event hub with metric signals. It has one child resource representing a storage account. Each of the signals has a different health state. The event hub entity's health is set to Unhealthy because this is the worst case of the signals affecting it.
+
+:::image type="content" source="media/health-state/health-signals.png" lightbox="media/health-state/health-signals.png" alt-text="Screenshot of an example health model showing different impact settings. ":::
 
 
 
