@@ -12,20 +12,22 @@ ms.date: 12/20/2023
 
 This article describes how to use the **Common Event Format (CEF) via AMA (Preview)** connector to quickly filter and ingest logs in the Common Event Format (CEF) from multiple security devices and appliances over Syslog.
 
-The connector uses the Azure Monitor Agent (AMA), which uses Data Collection Rules (DCRs) to choose the systems to monitor, and to filter the logs before they're ingested, for better performance and more efficient querying and analysis.
+The connector uses the Azure Monitor Agent (AMA), which takes instructions from Data Collection Rules (DCRs). DCRs specify the systems to monitor, and they define filters to apply to the logs before they're ingested, for better performance and more efficient querying and analysis.
+
+You can also collect (non-CEF) Syslog logs with the Azure Monitor Agent. Learn how to [configure Syslog and create a DCR](../azure-monitor/agents/data-collection-syslog.md).
 
 > [!IMPORTANT]
 >
 > The CEF via AMA connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects the logs in the CEF format. 
+The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects logs sent by your security devices and appliances in the CEF format. 
 
 - [Set up the connector](#set-up-the-common-event-format-cef-via-ama-connector)
 - [Learn more about the connector](#how-microsoft-sentinel-collects-cef-logs-with-the-azure-monitor-agent)
 
 > [!IMPORTANT]
 >
-> On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following this change, you might need to review and update custom queries. For more details, see the [recommended actions section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232) in this blog post. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.   
+> On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following this change, you might need to review and update custom queries. For more details, see the **"Recommended actions"** section in [this blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.   
 
 ## Overview 
 
@@ -45,13 +47,13 @@ This diagram illustrates the architecture of CEF log collection in Microsoft Sen
 
 The data ingestion process using the Azure Monitor Agent uses the following components and data flows:
 
-- **CEF log sources.** These are your various security devices and appliances in your environment that produce logs in CEF format. These devices are configured to send their logs over TCP port 514 to the...
+- **CEF log sources:** These are your various security devices and appliances in your environment that produce logs in CEF format. These devices are configured to send their log messages over TCP port 514, not to their local Syslog daemon, but instead to the **Syslog daemon on the Log forwarder**.
 
-- **Log forwarder.** This is a dedicated Linux VM that your organization sets up to collect the logs from your CEF log sources. The VM can be on-premises, in Azure, or in another cloud. This log forwarder itself has two components:
-    - A **Syslog daemon** (either `rsyslog` or `syslog-ng`) that collects the logs on TCP port 514. The daemon then sends these logs\* to...
-    - The **Azure Monitor Agent** that you install on the log forwarder by [setting up the data connector according to the instructions below](#set-up-the-common-event-format-cef-via-ama-connector). The agent parses the logs and then sends them to...
+- **Log forwarder:** This is a dedicated Linux VM that your organization sets up to collect the log messages from your CEF log sources. The VM can be on-premises, in Azure, or in another cloud. This log forwarder itself has two components:
+    - The **Syslog daemon** (either `rsyslog` or `syslog-ng`) collects the log messages on TCP port 514. The daemon then sends these logs\* to the **Azure Monitor Agent**.
+    - The **Azure Monitor Agent** that you install on the log forwarder by [setting up the data connector according to the instructions below](#set-up-the-common-event-format-cef-via-ama-connector). The agent parses the logs and then sends them to your **Microsoft Sentinel (Log Analytics) workspace**.
 
-- Your **Microsoft Sentinel (Log Analytics) workspace**, where you can query the logs and perform analytics on them to detect and respond to security threats.
+- Your **Microsoft Sentinel (Log Analytics) workspace:** CEF logs sent here end up in the *CommonSecurityLog* table, where you can query the logs and perform analytics on them to detect and respond to security threats.
 
     > [!NOTE]
     > 
@@ -63,10 +65,10 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 
 The setup process for the CEF via AMA connector has two parts:
 
-- **Create a Data Collection Rule (DCR)**, which installs the Azure Monitor Agent on the log forwarder.
-    - [Using the Azure portal](?tabs=portal#create-a-data-collection-rule-dcr)
-    - [Using the Azure Monitor API](?tabs=api#create-a-data-collection-rule-dcr)
-- [**Run the "installation" script**](#run-the-installation-script), which configures the Syslog daemon on the log forwarder.
+- **Install the Azure Monitor Agent and create a Data Collection Rule (DCR)**.
+    - [Using the Azure portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr)
+    - [Using the Azure Monitor API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr)
+- [**Run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the Syslog daemon.
 
 ### Prerequisites
 
@@ -116,11 +118,11 @@ If your devices are sending Syslog and CEF logs over TLS (because, for example, 
 - [Encrypt Syslog traffic with TLS – rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html)
 - [Encrypt log messages with TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)
 
-### Create a Data Collection Rule (DCR)
+### Install the AMA and create a Data Collection Rule (DCR)
 
-You can create the DCR in two ways:  
-- [Microsoft Sentinel portal](?tabs=portal#create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs per workspace.
-- [Azure Monitor API](?tabs=api#create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level.
+You can perform this step in one of two ways:
+- Deploy and configure the **CEF via AMA** data connector in the [Microsoft Sentinel portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs per workspace. The AMA will be installed automatically on the VMs you select in the connector configuration.
+- Send HTTP requests to the [Azure Monitor API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level. The downside is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
 
 Select the appropriate tab below to see the instructions for each way.
 
@@ -190,7 +192,7 @@ You can create Data Collection Rules (DCRs) using the [Azure Monitor API](/rest/
 
 Copy the request below by selecting the *copy* icon in the upper right corner of the frame.
 
-Paste it in a command prompt ***WHERE? in the VM? In an Azure command prompt? In any client?***
+Paste it in a command prompt, in Postman or in any other REST API client of your choosing.
 
 ```rest
 GET
