@@ -156,7 +156,7 @@ The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24
 
 1. Open the file to validate that it contains the content from stage 2.
 
-### Create a test file with PowerShell
+#### Create a test file with PowerShell
 
 1. Open PowerShell.
 
