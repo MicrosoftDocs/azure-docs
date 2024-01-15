@@ -208,6 +208,8 @@ Examples of using the Python logging library can be found on [GitHub](https://gi
 
 Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/README.md#officially-supported-instrumentations) by default.
 
+---
+
 **Footnotes**
 - ¹: Supports automatic reporting of *unhandled/uncaught* exceptions
 - ²: Supports OpenTelemetry Metrics

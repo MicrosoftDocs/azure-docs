@@ -110,7 +110,7 @@ Since the scoring script and environment are automatically included with the fou
 
 ##### Shared quota
 
-If you're deploying a Llama model from the model catalog but don't have enough quota available for the deployment, Azure Machine Learning allows you to use quota from a shared quota pool for a limited time. For _Llama-2-70b_ and _Llama-2-70b-chat_ model deployment, access to the shared quota is available only to customers with [Enterprise Agreement subscriptions](/azure/cost-management-billing/manage/create-enterprise-subscription). For more information on shared quota, see [Azure Machine Learning shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota).
+If you're deploying a Llama-2, Phi, Nemotron, Mistral, Dolly or Deci-DeciLM model from the model catalog but don't have enough quota available for the deployment, Azure Machine Learning allows you to use quota from a shared quota pool for a limited time. For more information on shared quota, see [Azure Machine Learning shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota).
 
 :::image type="content" source="media/how-to-use-foundation-models/deploy-llama-model-with-shared-quota.png" alt-text="Screenshot showing the option to deploy a Llama model temporarily, using shared quota." lightbox="media/how-to-use-foundation-models/deploy-llama-model-with-shared-quota.png":::
 
