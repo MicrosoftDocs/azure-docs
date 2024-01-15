@@ -18,6 +18,8 @@ Authorization with Microsoft Entra ID provides superior security and ease of use
 
 Authorization with Microsoft Entra ID is available for all general-purpose and Blob storage accounts in all public regions and national clouds. Only storage accounts created with the Azure Resource Manager deployment model support Microsoft Entra authorization.
 
+The **defaultToOAuthAuthentication** property of a storage account is not set by default and does not return a value until you explicitly set it.
+
 Blob storage additionally supports creating shared access signatures (SAS) that are signed with Microsoft Entra credentials. For more information, see [Grant limited access to data with shared access signatures](../common/storage-sas-overview.md).
 
 <a name='overview-of-azure-ad-for-blobs'></a>
