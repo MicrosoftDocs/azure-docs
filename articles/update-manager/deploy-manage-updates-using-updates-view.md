@@ -24,9 +24,25 @@ The **Updates (preview)** enables you to discover a vulnerability and allows you
 
 ## Summarized view
 
+In Azure Update Manager home page, **Overview** blade, you can view the updates. It provides a summary of pending updates. Select the individual updates to see a detailed view of each of the pending category of updates.
 
 
+## Updates list view
 
+You can use either the **Overview** blade or **Updates (preview)** blade that provides a list view of the updates pending on your environment. Select on the cards to filter the Windows and Linux updates. Alternatively, you can use the filter options at the top of **Resource group**, **Location**,  **Resource type**, **Workloads**, **Update Classifications** to filter the updates. Using the options at the top, you can edit columns, export data to CSV or see the query powering this view.
+Using the ribbon on the top you can view the number of machines that don't have periodic assessment enabled on them and suggestions to enable periodic assessment on them.
+We recommend to enable periodic assessment to see the latest pending updates on the machines.
+Select any row of the Machine(s) column to view the list of all machines on which the update is applicable. Using this option, you can view all the machines on which the update is applicable and pending.
+You can also trigger **One-time update** to install the update on demand or use **Schedule updates** option to schedule update installation on a later date.
+
+
+You can also multi-select updates from the **Updates** list view and perform **One-time updates** or **Schedule updates**.
+
+
+**One-time update** - Allows you to install update(s) on the applicable machines on demand and you can take instant action about the pending update(s). For more information on how to use One-time update, see [how to deploy on demand updates](deploy-updates.md).
+
+
+**Schedule updates** - Allows you to install updates later. You must select a date in future when you would like to install the update(s) and specify an end date when the schedule must end. For more details on scheduled updates, see [how to schedule updates](scheduled-patching.md)
 
 
 ## Next steps
