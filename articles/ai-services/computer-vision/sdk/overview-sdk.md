@@ -27,6 +27,7 @@ The Vision SDK supports the following languages and platforms:
 | C# <sup>1</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)  | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/csharp) | Windows, UWP, Linux |
 | Python | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-python) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/python) | Windows, Linux |
 | Java | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-java) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/java) | Windows, Linux |
+| JavaScript | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-js) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/js) | Windows, Linux |
 
 
 <sup>1 The Vision SDK for C# is based on .NET Standard 2.0. See [.NET Standard](/dotnet/standard/net-standard?tabs=net-standard-2-0#net-implementation-support) documentation.</sup>

@@ -220,7 +220,9 @@ The following one-channel PNG image is the response for the `foregroundMatting` 
 
 The API returns an image the same size as the original for the `foregroundMatting` mode, but at most 16 megapixels (preserving image aspect ratio) for the `backgroundRemoval` mode.
 
+## Error codes
 
+[!INCLUDE [image-analysis-error-codes-40](../includes/image-analysis-error-codes-40.md)]
 
 ---
 

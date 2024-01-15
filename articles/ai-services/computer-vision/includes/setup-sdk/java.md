@@ -61,11 +61,11 @@ Follow these steps to install the Image Analysis SDK for Java using Apache Maven
 
 1. Install [Gradle](https://gradle.org/install).
 1. In a command prompt run `gradle -v` to confirm successful installation.
-1. Create you Java application using Gradle. See for example [Building Java Applications Sample](https://docs.gradle.org/8.3/samples/sample_building_java_applications.html).
+1. Create your Java application using Gradle. See for example [Building Java Applications Sample](https://docs.gradle.org/8.3/samples/sample_building_java_applications.html).
 1. Update your `build.gradle` file by inserting 4 new dependencies:
     ```gradle
     dependencies {
-        implementation 'com.azure:azure-ai-vision-imageanalysis:0.15.1-beta.1'
+        implementation 'com.azure:azure-ai-vision-imageanalysis:1.0.0-beta.1'
         implementation 'com.azure:azure-core-http-netty:1.13.6'
         implementation 'org.slf4j:slf4j-api:2.0.7'
         implementation 'org.slf4j:slf4j-simple:2.0.7'
