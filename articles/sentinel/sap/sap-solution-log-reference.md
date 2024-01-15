@@ -296,18 +296,19 @@ The **SAPAuditLogConfigRecommend** is a helper function designed to offer recomm
 
 ### SAPUsersGetVIP
 
-The [Microsoft Sentinel solution for SAP® applications](solution-overview.md) uses a concept of central user tagging, designed to help you lower false positives with minimal effort. Use the *SAPUsersGetVIP* function as follows:
+The [Microsoft Sentinel solution for SAP® applications](solution-overview.md) uses a concept of central user tagging and explicit exclusions, designed to help you lower false positives with minimal effort. Use the *SAPUsersGetVIP* function as follows:
 
-1. Tag users via the *SAP User Config* watchlist, either by tagging individual users with the *RunObsoleteProgOK* tag, or SAP user roles or profiles with the *SAP_ROLE* or *SAP_PROFILE* tags.
+1. Tag users in the *SAP_User_Config* watchlist as follows:
 
-  - Add multiple tags to each user in the *SAP User Config* watchlist, as needed to cover various scenarios.
-  - Use an asterisk (*****) as a wildcard to include users with a specific naming syntax template.
+  - Add multiple tags to each user in the *SAP_User_Config* watchlist, as needed to cover various scenarios. Each alert rule has its own relevant tags, if any, and you can add custom tags as needed.
 
-1. Add the **SAPUsersGetVIP** function in your analytics rules to request the lists of users you've defined to be excluded from alerts.
+  - Use an asterisk (*) as a wildcard to include users with a specific naming syntax template.
 
-For example, use the following KQL query in your analytics rule to exclude any users configured with the *RunObsoleteProgOK* tag in the *SAP_User_Config* watchlist, or any users with the *SAP_BASIS_ADMIN_ROLE* role or *SAP_ADMIN_PROFILE* profile.
+1. Add the **SAPUsersGetVIP** function in your analytics rules to request the lists of users you've defined to be excluded from alerts. In the function call, add an array with the tags, SAP roles, and SAP profiles that you'd like to exclude.
 
-When copying this sample, replace *SAP_BASIS_ADMIN_ROLE* role and *SAP_ADMIN_PROFILE* profile with your own SAP roles or profiles.
+For example, use the following KQL query in your analytics rule to exclude any users configured with the *RunObsoleteProgOK* tag in the *SAP_User_Config* watchlist, or any users with the sample *SAP_BASIS_ADMIN_ROLE* role or the sample *SAP_ADMIN_PROFILE* profile.
+
+When copying this sample function call, replace *SAP_BASIS_ADMIN_ROLE* role and *SAP_ADMIN_PROFILE* profile with your own SAP roles or profiles as needed.
 
 ```kusto
 // Execution of Obsolete/Insecure Program
@@ -342,12 +343,12 @@ The **SAPUsersGetVIP** function is commonly used in *Deterministic and Anomalous
 | ------------- | ------------- | ------------- | -------------  
 | The *SAP User Config* watchlist | SearchKey | Search Key |
 | The *SAP User Config* watchlist | SAPUser | The SAP User | OSS, DDIC  
-| The *SAP User Config* watchlist | Tags | String of tags, SAP roles, or SAP profiles assigned to user | RunObsoleteProgOK |  
+| The *SAP User Config* watchlist | Tags | String of tags assigned to user | RunObsoleteProgOK |  
 | The *SAP User Config* watchlist | User's Microsoft Entra Object ID | Microsoft Entra Object ID |   
 | The *SAP User Config* watchlist | User Identifier | AD User Identifier |
 | The *SAP User Config* watchlist | User on-premises Sid |  |
 | The *SAP User Config* watchlist | User Principal Name |  |
-| The *SAP User Config* watchlist | TagsList | A list of tags, SAP roles, or SAP profiles assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK |
+| The *SAP User Config* watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK |
 | Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  |
 | Logic | SpecialFocusTagged | Special focus indication | True, False  
 | Logic | IntersectionSize | The number of intersected Tags |
