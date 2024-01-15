@@ -29,7 +29,7 @@ Use analytics rules together with the [Microsoft Sentinel solution for SAP® app
 
 - The [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function now supports excluding users according to their SAP-given roles or profile.
 
-- The **SAP User Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
+- The **SAP_User_Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
 
 For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
 

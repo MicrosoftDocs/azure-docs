@@ -341,14 +341,14 @@ The **SAPUsersGetVIP** function is commonly used in *Deterministic and Anomalous
 
 | Source | Field | Description | Notes  
 | ------------- | ------------- | ------------- | -------------  
-| The *SAP User Config* watchlist | SearchKey | Search Key |
-| The *SAP User Config* watchlist | SAPUser | The SAP User | OSS, DDIC  
-| The *SAP User Config* watchlist | Tags | String of tags assigned to user | RunObsoleteProgOK |  
-| The *SAP User Config* watchlist | User's Microsoft Entra Object ID | Microsoft Entra Object ID |   
-| The *SAP User Config* watchlist | User Identifier | AD User Identifier |
-| The *SAP User Config* watchlist | User on-premises Sid |  |
-| The *SAP User Config* watchlist | User Principal Name |  |
-| The *SAP User Config* watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK |
+| The *SAP_User_Config* watchlist | SearchKey | Search Key |
+| The *SAP_User_Config* watchlist | SAPUser | The SAP User | OSS, DDIC  
+| The *SAP_User_Config* watchlist | Tags | String of tags assigned to user | RunObsoleteProgOK |  
+| The *SAP_User_Config* watchlist | User's Microsoft Entra Object ID | Microsoft Entra Object ID |   
+| The *SAP_User_Config* watchlist | User Identifier | AD User Identifier |
+| The *SAP_User_Config* watchlist | User on-premises Sid |  |
+| The *SAP_User_Config* watchlist | User Principal Name |  |
+| The *SAP_User_Config* watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK |
 | Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  |
 | Logic | SpecialFocusTagged | Special focus indication | True, False  
 | Logic | IntersectionSize | The number of intersected Tags |
