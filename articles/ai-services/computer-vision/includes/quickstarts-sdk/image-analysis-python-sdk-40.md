@@ -45,7 +45,7 @@ Use the Image Analysis client SDK for Python to analyze an image to read text an
 1. Copy the following code into *quickstart.py*:
 
     > [!TIP]
-    > The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
+    > The code shows analyzing an image URL. You can also analyze an image from the program memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
 
     [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/quickstart.py?name=snippet_single)]
 

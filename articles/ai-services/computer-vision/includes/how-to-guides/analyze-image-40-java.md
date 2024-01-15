@@ -25,35 +25,35 @@ To authenticate with the Image Analysis service, you need a Computer Vision key 
 
 Start by creating a **ImageAnalysisClient** object. For example:
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_client)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_client)]
 
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible image URL, or a local image file copied into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
+You can select an image by providing a publicly accessible image URL, or by reading image data into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
 
 ### Image URL
 
 Create a **URL** object for the image you want to analyze.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_url)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_url)]
 
 
-### Local image
+### Image buffer
 
-Create a new **BinaryData** object from the local image file you want to analyze. 
+Alternatively, you can read the data to the input buffer through a **BinaryData** object. For example, read from a local image file you want to analyze.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_file)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_file)]
 
 ## Select analysis options
 
-Use an **ImageAnalysisOptions** object to specify various options for the Analyze API call. <!-- these options only apply when you're using the standar (not custom) model-->
+Use an **ImageAnalysisOptions** object to specify various options for the Analyze API call. 
 
 - **Language**: You can specify the language of the returned data. The language is optional, with the default being English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language. 
 - **Gender neutral captions**: If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
 - **Crop aspect ratio**: An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **VisualFeatures.SmartCrops** (SDK) was selected as part the visual feature list. If you select smartCrop/VisualFeatures.SmartCrops but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_options)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_options)]
 
 
 ## Select visual features
@@ -64,12 +64,9 @@ The Analysis 4.0 API gives you access to all of the service's image analysis fea
 > [!IMPORTANT]
 > The visual features `Captions` and `DenseCaptions` are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
-> [!NOTE]
-> **Feature name differences**
->
-> The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**, whereas the SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_features)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_features)]
 
 <!--
 ### Set model name when using a custom model
@@ -85,11 +82,11 @@ To use a custom model, create the [ImageAnalysisOptions](/java/api/com.azure.ai.
 
 ## Call the Analyze API
 
-This section shows you how to make an analysis call to the service. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the non-blocking **analyzeAsync** method.
+This section shows you how to make an analysis call to the service. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can use a **ImageAnalysisAsyncClient** object instead, and call its **analyze** method which is non-blocking.
 
 Call the **analyze** method on the **ImageAnalysisClient** object, as shown here. Use the input objects created in the above sections.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_call)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_call)]
 
 <!--
 ### Get results using custom model
@@ -106,7 +103,7 @@ The code is similar to the standard model case. The only difference is that resu
 
 The following code shows you how to parse the results of the various Analyze operations.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_results)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_results)]
 
 ## Troubleshooting
 

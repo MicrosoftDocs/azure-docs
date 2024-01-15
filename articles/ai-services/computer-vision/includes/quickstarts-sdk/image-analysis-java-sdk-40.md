@@ -46,21 +46,15 @@ Open a console window and create a new folder for your quickstart application.
       <artifactId>image-analysis-quickstart</artifactId>
       <version>0.0</version>
       <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis -->
         <dependency>
           <groupId>com.azure</groupId>
           <artifactId>azure-ai-vision-imageanalysis</artifactId>
           <version>1.0.0-beta.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop -->
-        <!-- Optional: provide a slf4j implementation. Here we use a no-op implementation
-        just to make the slf4j console spew warning go away. We can still use the internal
-        logger in azure.core library. See
-        https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis#enable-http-requestresponse-logging -->
         <dependency>
           <groupId>org.slf4j</groupId>
           <artifactId>slf4j-nop</artifactId>
-          <version>1.7.36</version> <!-- {x-version-update;org.slf4j:slf4j-nop;external_dependency} -->
+          <version>1.7.36</version> 
         </dependency>
       </dependencies>
     </project>
@@ -82,7 +76,7 @@ Open a text editor and copy the following content to a new file. Save the file a
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysis.java?name=snippet_single)]
 
 > [!TIP]
-> The code analyzes an image from a URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
+> The code analyzes an image from a URL. You can also analyze an image from the program memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
 
 To compile the Java file, run the following command:
 

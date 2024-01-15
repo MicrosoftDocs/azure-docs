@@ -45,10 +45,10 @@ Numerous samples are available in the SDK repositories on GitHub.
 ## Getting help
 
 If you need assistance using the Vision SDK or would like to report a bug or suggest new features, open a GitHub issue in the respective SDK repo. The SDK development team monitors these issues.
-- [C#](https://aka.ms/azsdk/image-analysis/samples/csharp)
-- [Python](https://aka.ms/azsdk/image-analysis/samples/python)
-- [Java](https://aka.ms/azsdk/image-analysis/samples/java)
-- [JavaScript](https://aka.ms/azsdk/image-analysis/samples/js)
+- [C#](https://github.com/Azure/azure-sdk-for-dotnet/issues)
+- [Python](https://github.com/Azure/azure-sdk-for-python/issues)
+- [Java](https://github.com/Azure/azure-sdk-for-java/issues)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/issues)
 
 Before you create a new issue:
 * Make sure you first scan to see if a similar issue already exists.

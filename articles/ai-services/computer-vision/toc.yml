@@ -102,7 +102,7 @@ items:
   items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
-  - name: Vision SDK
+  - name: Image Analysis SDK
     items:
     - name: Overview
       href: sdk/overview-sdk.md

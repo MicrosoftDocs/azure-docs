@@ -8,15 +8,15 @@ ms.author: pafarley
 
 [Reference documentation](https://aka.ms/azsdk/image-analysis/ref-docs/python) | [Package (PyPi)](https://aka.ms/azsdk/image-analysis/package/pypi) | [Samples](https://aka.ms/azsdk/image-analysis/samples/python)
 
-This guide shows how to install the Vision SDK for Python.
+This guide shows how to install the Image Analysis SDK for Python.
 
 ## Platform requirements
 
 [!INCLUDE [Requirements](python-requirements.md)]
 
-## Install the Vision SDK for Python
+## Install the Image Analysis SDK for Python
 
-Before you install the Vision SDK for Python, make sure to satisfy the [platform requirements](#platform-requirements).
+Before you install the Image Analysis SDK for Python, make sure to satisfy the [platform requirements](#platform-requirements).
 
 **Choose your tool or IDE**
 
@@ -24,21 +24,21 @@ Before you install the Vision SDK for Python, make sure to satisfy the [platform
 
 ### Install from terminal
 
-To install the Vision SDK for Python, run this command in a terminal.
+To install the Image Analysis SDK for Python, run this command in a terminal.
 
 ```console
-python -m pip install azure-ai-vision-imageanalysis
+pip install azure-ai-vision-imageanalysis
 ```
 
-### Upgrade to the latest Vision SDK
+### Upgrade to the latest Image Analysis SDK
 
-To upgrade to the latest Vision SDK, run this command in a terminal:
+To upgrade to the latest Image Analysis SDK, run this command in a terminal:
 
 ```console
-python -m pip install --upgrade azure-ai-vision-imageanalysis
+pip install --upgrade azure-ai-vision-imageanalysis
 ```
 
-You can check which Vision SDK for Python version is currently installed by running this command in a terminal:
+You can check which Image Analysis SDK for Python version is currently installed by running this command in a terminal:
 
 ```console
 pip list
@@ -46,9 +46,9 @@ pip list
 
 # [VS Code](#tab/vscode)
 
-### Install the Vision SDK by using Visual Studio Code
+### Install the Image Analysis SDK by using Visual Studio Code
 
-To install the Vision SDK for Python:
+To install the Image Analysis SDK for Python:
 
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Run Visual Studio Code and install the Python extension:
@@ -59,17 +59,17 @@ To install the Vision SDK for Python:
    ![Screenshot that shows selections for installing the Python extension.](~/articles/ai-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. Select **Terminal** > **New Terminal** to open a terminal within Visual Studio Code. 
-1. At the terminal prompt, run the following command to install the Vision SDK for Python package. 
+1. At the terminal prompt, run the following command to install the Image Analysis SDK for Python package. 
     ```console
-    python -m pip install azure-ai-vision-imageanalysis
+    pip install azure-ai-vision-imageanalysis
     ```
 
-1. To upgrade to the latest Vision SDK, run this command in a terminal:
+1. To upgrade to the latest Image Analysis SDK, run this command in a terminal:
     ```console
-    python -m pip install --upgrade azure-ai-vision-imageanalysis
+    pip install --upgrade azure-ai-vision-imageanalysis
     ```
 
-1. You can check which Vision SDK for Python version is currently installed by running this command:
+1. You can check which Image Analysis SDK for Python version is currently installed by running this command:
     ```console
     pip list
     ```

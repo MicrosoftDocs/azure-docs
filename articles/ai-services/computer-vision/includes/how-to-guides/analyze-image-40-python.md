@@ -32,7 +32,7 @@ Start by creating a **ImageAnalysisClient** object using one of the constructors
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible image URL, or a local image file copied into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
+You can select an image by providing a publicly accessible image URL, or by reading image data into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
 
 ### Image URL
 
@@ -41,9 +41,9 @@ You can use the following sample image URL.
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_url)]
 
 
-### Local image
+### Image buffer
 
-Alternatively, you can read the data from the local image file you want to analyze.
+Alternatively, you can read the data to the input buffer. For example, read from a local image file you want to analyze.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_file)]
 
@@ -54,10 +54,6 @@ The Analysis 4.0 API gives you access to all of the service's image analysis fea
 > [!IMPORTANT]
 > Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
-> [!NOTE]
-> **Feature name differences**
->
-> The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**, whereas the SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_features)]
@@ -80,7 +76,7 @@ The following code calls the Analyze API with the features you selected above an
 
 ### Select smart cropping aspect ratios
 
-An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **VisualFeatures.SmartCrops** (SDK) was selected as part the visual feature list. If you select smartCrop/VisualFeatures.SmartCrops but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
+An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smart_crops_aspect_ratios** option (REST API) or **VisualFeatures.SMART_CROPS** (SDK) was selected as part the visual feature list. If you select smartCrop/VisualFeatures.SmartCrops but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 
 ### Select gender neutral captions
@@ -94,7 +90,7 @@ You can specify the language of the returned data. The language is optional, wit
 
 ## Get results from the service
 
-The following code shows you how to parse the results of the various Analyze operations.
+The following code shows you how to parse the results of the various **analyze** operations.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_result)]
 

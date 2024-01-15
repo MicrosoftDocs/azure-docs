@@ -47,7 +47,7 @@ Once you've created a new project, install the client SDK by right-clicking on t
 
 #### [Linux](#tab/linux)
 
-Follow the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-csharp) to install the Vision SDK for Linux.
+Follow the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-csharp) to install the Image Analysis SDK for Linux.
 
 ---
 

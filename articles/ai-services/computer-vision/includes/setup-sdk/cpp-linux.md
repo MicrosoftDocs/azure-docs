@@ -6,7 +6,7 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-Installing the Vision SDK package requires your device to support the APT/Debian package manager.
+Installing the Image Analysis SDK package requires your device to support the APT/Debian package manager.
 
 ### Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Debian 10 (Buster)
 
@@ -40,14 +40,14 @@ Installing the Vision SDK package requires your device to support the APT/Debian
    sudo dpkg -i packages-microsoft-prod.deb 
    ```
 
-1. Now install the Vision SDK Debian package required to build the sample:
+1. Now install the Image Analysis SDK Debian package required to build the sample:
 
     ```sh
     sudo apt update
     sudo apt install azure-ai-vision-dev-image-analysis
     ```
 
-1. Notice that the above package _azure-ai-vision-dev-image-analysis_ depends on other Vision SDK packages, which will be installed automatically. Run `apt list azure-ai-vision*` to see the list of installed Vision SDK packages:
+1. Notice that the above package _azure-ai-vision-dev-image-analysis_ depends on other Image Analysis SDK packages, which will be installed automatically. Run `apt list azure-ai-vision*` to see the list of installed Vision SDK packages:
    * _azure-ai-vision-dev-common_
    * _azure-ai-vision-dev-image-analysis_
    * _azure-ai-vision-runtime-common_

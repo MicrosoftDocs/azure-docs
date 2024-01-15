@@ -29,7 +29,7 @@ Start by creating a **ImageAnalysisClient** object. For example:
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible image URL, or a local image file copied into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
+You can select an image by providing a publicly accessible image URL, or by reading image data into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
 
 ### Image URL
 
@@ -38,16 +38,16 @@ Create a **Uri** object for the image you want to analyze.
 [!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_url)]
 
 
-### Local image
+### Image buffer
 
-Create a new **BinaryData** object from the local image file you want to analyze. 
+Alternatively, you can read the data to the input buffer through a **BinaryData** object. For example, read from a local image file you want to analyze.
 
 [!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_file)]
 
 
 ## Select analysis options
 
-Use an **ImageAnalysisOptions** object to specify various options for the Analyze API call. <!-- these options only apply when you're using the standard (not custom) model-->
+Use an **ImageAnalysisOptions** object to specify various options for the Analyze API call. 
 
 - **Language**: You can specify the language of the returned data. The language is optional, with the default being English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language. 
 - **Gender neutral captions**: If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
@@ -64,10 +64,7 @@ The Analysis 4.0 API gives you access to all of the service's image analysis fea
 > [!IMPORTANT]
 > The visual features `Captions` and `DenseCaptions` are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
-> [!NOTE]
-> **Feature name differences**
->
-> The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**, whereas the SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
+
 
 [!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_features)]
 
@@ -84,7 +81,7 @@ To use a custom model, create the [ImageAnalysisOptions](/dotnet/api/azure.ai.vi
 
 ## Call the Analyze API
 
-This section shows you how to make an analysis call to the service. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the non-blocking **analyzeAsync** method.
+This section shows you how to make an analysis call to the service. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the non-blocking **AnalyzeAsync** method.
 
 Call the **analyze** method on the **ImageAnalysisClient** object, as shown here. Use the input objects created in the above sections.
 
@@ -115,12 +112,13 @@ The code is similar to the standard model case. The only difference is that resu
 
 When you interact with Image Analysis using the .NET SDK, errors returned by the service correspond to the same HTTP status codes returned for REST API requests. For example, if you try to analyze an image that is not accessible due to a broken URL, a `400` status is returned, indicating a bad request.
 
+
 ### Handling exceptions
 
 In the following snippet, the error is handled gracefully by catching the exception and displaying additional information about the error.
 
 ```C# Snippet:ImageAnalysisException
-var imageUrl = new Uri("https://aka.ms.invalid/azai/vision/image-analysis-sample.jpg");
+var imageUrl = new Uri("https://some-host-name.com/non-existing-image.jpg");
 
 try
 {
@@ -128,7 +126,7 @@ try
 }
 catch (RequestFailedException e)
 {
-    if (e.Status == 400)
+    if (e.Status != 200)
     {
         Console.WriteLine("Error analyzing image.");
         Console.WriteLine($"HTTP status code {e.Status}: {e.Message}");
