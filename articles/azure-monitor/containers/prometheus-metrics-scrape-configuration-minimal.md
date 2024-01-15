@@ -1,9 +1,8 @@
 ---
 title: Minimal Prometheus ingestion profile in Azure Monitor
-description: Describes minimal ingestion profile in Azure Monitor managed service for Prometheus and how you can configure it collect more data.
+description: Describes minimal ingestion profile in Azure Monitor managed service for Prometheus and how you can configure it to collect more data.
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 09/28/2022
+ms.date: 1/28/2023
 ms.reviewer: aul
 ---
 

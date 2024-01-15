@@ -271,6 +271,13 @@ To create the alert, use the following steps:
 >[!NOTE]
 >SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer seeting can cause SNAT ports too be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
 
+### Alerts for NAT gateway resource health
+
+[Azure Resource Health](/azure/service-health/overview) provides information on the health state of your NAT gateway resource. The resource health of your NAT gateway is evaluated by measuring the datapath availability of your NAT gateway endpoint. You can set up alerts to notify you when the health state of your NAT gateway resource changes. To learn more about NAT gateway resource health and setting up alerts, see: 
+* [Azure NAT Gateway Resource Health](/azure/nat-gateway/resource-health)
+* [NAT Gateway Resource Health Alerts](/azure/nat-gateway/resource-health#resource-health-alerts)
+* [How to create Resource Health Alerts in the Azure portal](/azure/service-health/resource-health-alert-monitor-guide)
+
 ## Network Insights
 
 [Azure Monitor Network Insights](../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a preconfigured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 

@@ -9,7 +9,9 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
-  - name: Cost management
+  - name: Compare available plans
+    href: plan-comparison.md
+  - name: Manage costs
     href: cost-management.md
   - name: Compare Java application hosting options on Azure
     href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
@@ -118,7 +120,7 @@ items:
   - name: Security controls
     href: concept-security-controls.md
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+    href: /security/benchmark/azure/baselines/azure-spring-apps-security-baseline?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Azure Policy Security controls
     href: security-controls-policy.md
 - name: How-to guides
@@ -237,8 +239,10 @@ items:
         href: tutorial-circuit-breaker.md
       - name: Analyze logs and metrics
         href: diagnostic-services.md
-      - name: Stream logs in real time
+      - name: Stream app logs in real time
         href: how-to-log-streaming.md
+      - name: Stream managed component logs in real time
+        href: how-to-managed-component-log-streaming.md
       - name: Resilience4J Circuit Breaker Metrics
         href: how-to-circuit-breaker-metrics.md
       - name: Structured application log
@@ -502,7 +506,7 @@ items:
     - name: Disaster recovery
       items:
       - name: Redundancy and high availability
-        href: how-to-enable-redundancy-and-disaster-recovery.md
+        href: ../reliability/reliability-spring-apps.md?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Troubleshoot
       items:
       - name: Self-diagnose and solve problems
@@ -568,7 +572,7 @@ items:
   - name: Landing zone accelerator
     href: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Deploy to multiple regions
-    href: /azure/architecture/reference-architectures/microservices/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+    href: /azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Reference
   items:
   - name: API breaking changes

@@ -28,6 +28,8 @@ This article describes how to use the Azure IoT Operations (preview) portal to:
 
 These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQ broker and Azure IoT Data Processor (preview) pipelines.
 
+You can also use the Azure CLI to manage assets. To learn more, see [az iot ops asset](/cli/azure/iot/ops/asset). Currently, it's not possible to use the Azure CLI to manage asset endpoints.
+
 ## Prerequisites
 
 To configure an assets endpoint, you need a running instance of Azure IoT Operations.
@@ -45,6 +47,9 @@ When you sign in, the portal displays a list of the Azure Arc-enabled Kubernetes
 
 :::image type="content" source="media/howto-manage-assets-remotely/cluster-list.png" alt-text="Screenshot that shows the list of clusters in the Azure IoT Operations portal.":::
 
+> [!TIP]
+> You can use the filter box to search for clusters.
+
 ## Create an asset endpoint
 
 By default, an Azure IoT Operations deployment includes a built-in OPC PLC simulator. To create an asset endpoint that uses the built-in OPC PLC simulator:
@@ -52,6 +57,9 @@ By default, an Azure IoT Operations deployment includes a built-in OPC PLC simul
 1. Select **Asset endpoints** and then **Create asset endpoint**:
 
     :::image type="content" source="media/howto-manage-assets-remotely/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations portal.":::
+
+    > [!TIP]
+    > You can use the filter box to search for asset endpoints.
 
 1. Enter the following endpoint information:
 
@@ -70,34 +78,24 @@ When the OPC PLC simulator is running, data flows from the simulator, to the con
 
 ### Configure an asset endpoint to use a username and password
 
-The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password. If you want to use the `UsernamePassword` authentication mode, you must configure the asset endpoint accordingly.
+The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
 
-The following script shows how to create a secret for the username and password and add it to the Kubernetes store:
+To use the `UsernamePassword` authentication mode, complete the following steps:
 
-```sh
-# NAMESPACE is the namespace containing the MQ broker.
-export NAMESPACE="azure-iot-operations"
-
-# Set the desired username and password here.
-export USERNAME="username"
-export PASSWORD="password"
-
-echo "Storing k8s username and password generic secret..."
-kubectl create secret generic opc-ua-connector-secrets --from-literal=username=$USERNAME --from-literal=password=$PASSWORD --namespace $NAMESPACE
-```
-
-To configure the asset endpoint to use these secrets, select **Username & password** for the **User authentication** field. Then enter the following values for the **Username reference** and **Password reference** fields:
+1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-opc-ua-user-authentication-with-username-and-password) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
+2. In Azure IoT Operations portal, select **Username & password** for the **User authentication** field to configure the asset endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
 
 | Field | Value |
 | --- | --- |
-| Username reference | `@@sec_k8s_opc-ua-connector-secrets/username` |
-| Password reference | `@@sec_k8s_opc-ua-connector-secrets/password` |
-
-The following example YAML file shows the configuration for an asset endpoint that uses the `UsernamePassword` authentication mode. The configuration references the secret you created previously:
+| Username reference | `aio-opc-ua-broker-user-authentication/username` |
+| Password reference | `aio-opc-ua-broker-user-authentication/password` |
 
 ### Configure an asset endpoint to use a transport authentication certificate
 
-To configure the asset endpoint to use a transport authentication certificate, select **Use transport authentication certificate** for the **Transport authentication** field. Then enter the certificate thumbprint and the certificate password reference.
+To configure the asset endpoint to use a transport authentication certificate, complete the following steps:
+
+1. Follow the steps in [Configure OPC UA transport authentication](howto-configure-opcua-authentication-options.md#configure-opc-ua-transport-authentication) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
+2. In Azure IoT Operations portal, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
 
 ## Add an asset, tags, and events
 
@@ -106,6 +104,9 @@ To add an asset in the Azure IoT Operations portal:
 1. Select the **Assets** tab. If you haven't created any assets yet, you see the following screen:
 
     :::image type="content" source="media/howto-manage-assets-remotely/create-asset-empty.png" alt-text="Screenshot that shows an empty Assets tab in the Azure IoT Operations portal.":::
+
+    > [!TIP]
+    > You can use the filter box to search for assets.
 
     Select **Create asset**.
 
@@ -192,6 +193,9 @@ You can import up to 1000 OPC UA tags at a time from a CSV file:
 
 1. On the **Tags** page, select **Next** to go to the **Events** page.
 
+> [!TIP]
+> You can use the filter box to search for tags.
+
 ### Add individual events to an asset
 
 Now you can define the events associated with the asset. To add OPC UA events:
@@ -225,6 +229,9 @@ To export all the events from an asset to a CSV file, select **Export all** and 
 
 On the **Events** page, select **Next** to go to the **Review** page.
 
+> [!TIP]
+> You can use the filter box to search for events.
+
 ### Review your changes
 
 Review your asset and OPC UA tag and event details and make any adjustments you need:
@@ -233,7 +240,7 @@ Review your asset and OPC UA tag and event details and make any adjustments you 
 
 ## Update an asset
 
-Select the asset you created previously. Use the **Properties**, **Tags**, and **Events** tabs to make any changes:
+Find and select the asset you created previously. Use the **Properties**, **Tags**, and **Events** tabs to make any changes:
 
 :::image type="content" source="media/howto-manage-assets-remotely/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the Azure IoT Operations portal.":::
 

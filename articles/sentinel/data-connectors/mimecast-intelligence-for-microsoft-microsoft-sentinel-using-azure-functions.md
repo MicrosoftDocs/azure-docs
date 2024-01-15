@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions) connector for Microsoft Sentinel
 
-The data connector for Mimecast Intelligence for Microsoft provides regional threat intelligence curated from Mimecast’s email inspection technologies with pre-created dashboards to allow analysts to view insight into email based threats, aid in incident correlation and reduce investigation response times.  
+The data connector for Mimecast Intelligence for Microsoft provides regional threat intelligence curated from Mimecast’s email inspection technologies with pre-created dashboards to allow analysts to view insight into email-based threats, aid in incident correlation and reduce investigation response times.  
 Mimecast products and features required: 
 - Mimecast Secure Email Gateway 
 - Mimecast Threat Intelligence

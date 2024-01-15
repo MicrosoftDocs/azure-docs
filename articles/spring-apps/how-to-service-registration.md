@@ -26,7 +26,7 @@ Service registration and discovery are key requirements for maintaining a list o
 
 * Use Kubernetes Service Discovery approach to invoke calls among your apps.
 
-  Azure Spring Apps creates a corresponding Kubernetes service for every app running in it using the app name as the Kubernetes service name. You can invoke calls from one app to another app by using the app name in an HTTP/HTTPS request such as `http(s)://{app name}/path`. This approach is also suitable for the Enterprise plan. For more information, see the [Kubernetes registry code sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/k8s-service-registry).
+  Azure Spring Apps creates a corresponding Kubernetes service for every app running in it using the app name as the Kubernetes service name. You can invoke calls from one app to another app by using the app name in an HTTP/HTTPS request such as `http(s)://{app name}/path`. This approach is also suitable for the Enterprise plan. For more information, see the [Kubernetes registry code sample](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/k8s-service-registry).
 
   > [!NOTE]
   > This approach isn't suitable for Standard consumption and dedicated (Preview).

@@ -3,7 +3,7 @@ title: "Google Workspace (G Suite) (using Azure Functions) connector for Microso
 description: "Learn how to install the connector Google Workspace (G Suite) (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/29/2023
+ms.date: 01/06/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

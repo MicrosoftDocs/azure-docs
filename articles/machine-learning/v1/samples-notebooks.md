@@ -49,7 +49,27 @@ These instructions install the base SDK packages necessary for the quickstart an
 
 The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
 
-[!INCLUDE [aml-dsvm-server](../includes/aml-dsvm-server.md)]
+1. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+
+1. Add a workspace configuration file using either of these methods:
+
+    * In [Azure Machine Learning studio](https://ml.azure.com), select your workspace settings in the upper right, then select **Download config file**. 
+
+    ![Screenshot of download config.json.](../media/aml-dsvm-server/download-config.png)
+
+    * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) notebook.
+
+1. From the directory where you added the configuration file, clone [the Machine Learning Notebooks repository](https://aka.ms/aml-notebooks).
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git --depth 1
+    ```
+
+1. Start the notebook server from the directory, which now contains the clone and the config file.
+
+    ```bash
+    jupyter notebook
+    ```
 
 ## Next steps
 

@@ -22,7 +22,7 @@ The Dependency Agent collects data about processes running on the virtual machin
     - Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
     - For Linux, see [Dependency Agent Linux support](#dependency-agent-linux-support).
 
-## Upgrade Dependency Agent 
+## Install or upgrade Dependency Agent 
 
 You can upgrade the Dependency agent for Windows and Linux manually or automatically, depending on the deployment scenario and environment the machine is running in, using these methods:
 
@@ -32,7 +32,7 @@ You can upgrade the Dependency agent for Windows and Linux manually or automatic
 | Custom Azure VM images | Manual install of Dependency agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle.|
 | Non-Azure VMs | Manual install of Dependency agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
 
-### Upgrade Windows agent 
+### Manually install or upgrade Dependency Agent on Windows 
 
 Update the agent on a Windows VM from the command prompt, with a script or other automation solution, or by using the InstallDependencyAgent-Windows.exe Setup Wizard.  
 
@@ -61,7 +61,7 @@ Update the agent on a Windows VM from the command prompt, with a script or other
 
 3. To confirm the upgrade was successful, check the `install.log` for detailed setup information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
-### Upgrade Linux agent 
+### Manually install or upgrade Dependency Agent on Linux 
 
 Upgrade from prior versions of the Dependency Agent on Linux is supported and performed following the same command as a new installation.
 

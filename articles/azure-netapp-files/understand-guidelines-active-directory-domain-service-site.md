@@ -61,6 +61,7 @@ The required network ports are as follows:
 | Kerberos | 88 | UDP |
 | LDAP | 389 | TCP |
 | LDAP | 389 | UDP |
+| LDAP | 389 | TLS | 
 | LDAP | 3268 | TCP |
 | NetBIOS name | 138 | UDP |
 | SAM/LSA | 445 | TCP |
