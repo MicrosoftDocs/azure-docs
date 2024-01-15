@@ -158,7 +158,7 @@ The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24
 
 #### Create a test file with PowerShell
 
-1. Open PowerShell.
+1. Open PowerShell on your VM.
 
 1. Execute the following script.
 
