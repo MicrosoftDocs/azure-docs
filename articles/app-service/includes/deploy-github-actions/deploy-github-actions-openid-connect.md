@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 01/22/2024
 ---
 
-To deploy with OpenID Connect using the managed identity you configured, use the `azure/login@v1` action with the `client-id`, `tenant-id`, and `subscription-id` keys and reference the GitHub secrets that you [created earlier](../../deploy-github-actions.md#openid-connecttabopenid-1).
+To deploy with OpenID Connect using the managed identity you configured, use the `azure/login@v1` action with the `client-id`, `tenant-id`, and `subscription-id` keys and reference the GitHub secrets that you [created earlier](../../deploy-github-actions.md?tabs=openid#2-configure-the-github-secret).
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -265,5 +265,5 @@ jobs:
         az logout
 ```
 
----
+-----
 

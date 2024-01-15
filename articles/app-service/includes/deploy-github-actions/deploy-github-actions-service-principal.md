@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 01/22/2024
 ---
 
-To deploy with the service principal you configured, use the `azure/login@v1` action with the `creds` key and reference the `AZURE_CREDENTIALS` secret that you [created earlier](../deploy-github-actions.md#service-principaltabuserlevel-1).
+To deploy with the service principal you configured, use the `azure/login@v1` action with the `creds` key and reference the `AZURE_CREDENTIALS` secret that you [created earlier](../../deploy-github-actions.md?tabs=userlevel#2-configure-the-github-secret).
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -239,3 +239,4 @@ jobs:
         az logout
 ```
 
+-----

@@ -150,7 +150,7 @@ To learn how to create a Create an active directory application, service princip
 
 In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
-To use [app-level credentials](#generate-deployment-credentials), paste the contents of the downloaded publish profile file into the secret's value field. Name the secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
+To use [app-level credentials](#1-generate-deployment-credentials), paste the contents of the downloaded publish profile file into the secret's value field. Name the secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
 When you configure the GitHub workflow file later, you use the `AZURE_WEBAPP_PUBLISH_PROFILE` in the deploy Azure Web App action. For example:
     
@@ -164,7 +164,7 @@ When you configure the GitHub workflow file later, you use the `AZURE_WEBAPP_PUB
 
 In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
+To use [user-level credentials](#1-generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
 
 When you configure the GitHub workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 
@@ -227,6 +227,8 @@ The following examples show the part of the workflow that builds the web app, in
 # [OpenID Connect](#tab/openid)
 
 [!INCLUDE [deploy-github-actions-openid-connect](includes/deploy-github-actions/deploy-github-actions-openid-connect.md)]
+
+-----
 
 ## Next steps
 
