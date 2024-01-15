@@ -51,11 +51,14 @@ You can choose the version of Application Configuration Service when you create 
 
 Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your configuration files.
 
-To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
+To manage the service settings, open the **Settings** section. Within this area, you have the ability to configure three key aspects:
+1. Generation: Upgrade the service generation.
+2. Refresh Interval: Adjust the frequency at which the service checks for updates. 
+3. Repositories: Add new entries, or modify existing ones. This allows you to control which repoisitories the service monitors and pulls data from.
 
 :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-settings-repositories.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab and Repositories section highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-settings-repositories.png":::
 
-The following table describes the properties for each entry.
+The following table describes the properties for each repository entry.
 
 | Property      | Required? | Description                                                                                                                                                                                                                                                                                                                                  |
 |---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -144,15 +147,14 @@ The Application Configuration Service also supports polyglot apps like dotNET, G
 
 ## Refresh strategies
 
-Use the following steps to refresh your Java Spring Boot application configuration after you update the configuration file in the Git repository.
+When you modify and commit your configurations in a Git repository, several steps are involved before these changes are reflected in your applications. This process, though automated, involves distinct stages and components, each with its own timing and behavior.
+1. **Polling By Application Configuraiton Service**: The Application Configuration Service regularly polls the backend Git repositories to detect any changes. This polling occurs at a set frequency, defined by the 'refresh interval'. When a change is detected, Application Configuration Service updates the Kubernetes ConfigMap.
+2. **ConfigMap Update and Interaction with Kubelet Cache**: In Azure Spring Apps, this ConfigMap is mounted as a data volume to the relevant application. However, there is a natural delay in this process. This delay is due to the frequency at which the kubelet refreshes its cache to recognize changes in ConfigMaps.
+3. **Application Reads Updated Configuration**: Finally, your application running in the Azure Spring Apps environment can access the updated configuration values. It's important to note that existing beans in the Spring Context won't be refreshed to use the updated configurations automatically.
 
-1. Load the configuration to Application Configuration Service.
+You can adjust the polling refresh interval of the Application Configuration Service to align with your specific needs. To apply the updated configurations in your application, a restart or refresh action is necessary.
 
-   Azure Spring Apps manages the refresh frequency, which is set to 60 seconds.
-
-1. Load the configuration to your application.
-
-A Spring application holds the properties as the beans of the Spring Application Context via the Environment interface. The following list shows several ways to load the new configurations:
+In Spring applications, properties are hold or refrenced as the beans within the Spring Context. To load new configurations, consider the following methods:
 
 - Restart the application. Restarting the application always loads the new configuration.
 
