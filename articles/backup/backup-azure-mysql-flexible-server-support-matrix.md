@@ -1,0 +1,30 @@
+---
+title: Support matrix for Azure Database for MySQL - Flexible Server retention for long term by using Azure Backup
+description: Provides a summary of support settings and limitations when backing up Azure Database for MySQL - Flexible Server.
+ms.topic: conceptual
+ms.date: 10/14/2022
+ms.custom: references_regions
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+---
+
+# Support matrix for Azure Database for MySQL - Flexible Server retention for long term by using Azure Backup (preview)
+
+This article summarizes  the supported scenarios, considerations, and limitations for Azure Database for MySQL - Flexible Server backup and retention for long term by using [Azure Backup](./backup-overview.md).
+
+## Support scenarios
+
+MySQL - Flexible Server Long-term retention (LTR) data can be recovered in the specified storage containers that allow you to rebuild the MySQL - Flexible Server. You can restore this data as a new MySQL - Flexible Server with database native tools. 
+
+## Considerations
+
+This feature backs up the entire MySQL - Flexible Server to the Backup vault.
+
+## Limitations
+- Individual database- level granular selection is currently not supported.
+- The support for end-to-end MySQL - Flexible Server creation and database restoration by using Azure Backup is currently not available. 
+
+## Next steps
+
+- [About Azure Database for MySQL - Flexible Server retention for long term by using Azure Backup (preview)](backup-azure-mysql-flexible-server-about.md)
