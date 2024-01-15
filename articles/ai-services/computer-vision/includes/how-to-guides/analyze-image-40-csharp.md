@@ -24,7 +24,7 @@ To authenticate against the Image Analysis service, you need a Computer Vision k
 
 Start by creating a **ImageAnalysisClient** object. For example:
 
-[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_client)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_client)]
 
 
 ## Select the image to analyze
@@ -35,14 +35,14 @@ You can select an image by providing a publicly accessible image URL, or by read
 
 Create a **Uri** object for the image you want to analyze.
 
-[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_url)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_url)]
 
 
 ### Image buffer
 
 Alternatively, you can read the data to the input buffer through a **BinaryData** object. For example, read from a local image file you want to analyze.
 
-[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_file)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_file)]
 
 
 ## Select analysis options
@@ -54,7 +54,7 @@ Use an **ImageAnalysisOptions** object to specify various options for the Analyz
 - **Crop aspect ratio**: An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **VisualFeatures.SmartCrops** (SDK) was selected as part the visual feature list. If you select smartCrop/VisualFeatures.SmartCrops but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 
-[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_options)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_options)]
 
 
 ## Select visual features
@@ -66,7 +66,7 @@ The Analysis 4.0 API gives you access to all of the service's image analysis fea
 
 
 
-[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_features)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_features)]
 
 <!--
 ### Set model name when using a custom model
@@ -85,14 +85,14 @@ This section shows you how to make an analysis call to the service. The call is 
 
 Call the **analyze** method on the **ImageAnalysisClient** object, as shown here. Use the input objects created in the above sections.
 
-[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_call)]
 
 
 ## Get results from the service
 
 The following code shows you how to parse the results of the various Analyze operations.
 
-[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_results)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_results)]
 
 <!--
 ### Get results using custom model

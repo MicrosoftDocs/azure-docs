@@ -87,7 +87,7 @@ From the project directory, open the *Program.cs* file that was created previous
 > [!TIP]
 > The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
 
-[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/Program.cs?name=snippet_single)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/Program.cs?name=snippet_single)]
 
 
 #### [Visual Studio IDE](#tab/visual-studio)
