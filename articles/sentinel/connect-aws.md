@@ -166,30 +166,31 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
    - For the account type, instead of **This account**, choose **Another AWS account**.
    - In the **Account ID** field, enter the number **197857026523** (you can copy and paste it from here). This number is **Microsoft Sentinel's service account ID for AWS**. It tells AWS that the account using this role is a Microsoft Sentinel user.
    - In the options, select **Require external ID** (*do not* select *Require MFA*). In the **External ID** field, paste your Microsoft Sentinel **Workspace ID** that you copied in the previous step. This identifies *your specific Microsoft Sentinel account* to AWS.
-      For FairFax setup using Entra ID:
-   - Create an Identity Provider 
-      - Go to AWS IAM. 
+      *For FairFax setup using Entra ID:*
+   - *Create an Identity Provider* 
+      - *Go to AWS IAM.* 
 
-      - Click on Identity Providers. Click on Add Provider. Select OpenID Connect.  
+      - *Click on Identity Providers. Click on Add Provider. Select OpenID Connect.*  
 
-      - Add Provider URL as [sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/](https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/identity_providers/details/OPENID/arn%3Aaws%3Aiam%3A%3A072643944673%3Aoidc-provider%2Fsts.windows.net%2F33e01921-4d64-4f8c-a055-5bdaffd5e33d%2F)
+      - *Add Provider URL as [sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/](https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/identity_providers/details/OPENID/arn%3Aaws%3Aiam%3A%3A072643944673%3Aoidc-provider%2Fsts.windows.net%2F33e01921-4d64-4f8c-a055-5bdaffd5e33d%2F)*
 
-      - In the Audience add [api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
-            ](api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
-            )
+      - *In the Audience add [api://1462b192-27f7-4cb9-8523-0f4ecb54b47e](api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
+            )*
+            
 
-      - Click Get Thumbprint. It should be -“*626d44e704d1ceabe3bf0d53397464ac8080142c*” 
+      - *Click Get Thumbprint. It should be -“626d44e704d1ceabe3bf0d53397464ac8080142c”* 
 
-      - Click Add Provider 
+      - *Click Add Provider* 
 
-   - Create an assume role 
-            - Go to AWS IAM Click on Roles. Click on Create role 
+   - *Create an assume role* 
+            - *Go to AWS IAM Click on Roles. Click on Create role* 
 
-                  - Select “Web Identity” as trusted entity 
+                  - *Select “Web Identity” as trusted entity* 
 
-                        - From the Identity Provider drop down, select the identity provider created in previous stage. 
+                        - *From the Identity Provider drop down, select the identity provider created in previous stage.* 
 
-                              - Select audience [api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
+                              - *Select audience [api://1462b192-27f7-4cb9-8523-0f4ecb54b47e](api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
+                                                            )*[
                                                             ](api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
                                                             )
 
@@ -202,6 +203,8 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
       -   For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in the Microsoft Sentinel GitHub repository.
 
          - Name the role with a meaningful name that includes a reference to Microsoft Sentinel. Example: "*MicrosoftSentinelRole*".
+         - For FairFax, edit Trust policy and add 
+
          ### Add the AWS role and queue information to the S3 data connector
 
 1. In the browser tab open to the AWS console, enter the **Identity and Access Management (IAM)** service and navigate to the list of **Roles**. Select the role you created above.
