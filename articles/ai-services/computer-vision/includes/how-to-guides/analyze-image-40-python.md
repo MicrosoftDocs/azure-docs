@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: ai-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 08/01/2023
+ms.date: 01/15/2024
 ms.author: pafarley
 ---
 
@@ -50,11 +50,6 @@ Alternatively, you can read the data to the input buffer. For example, read from
 ## Select visual features
 
 The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
-
-> [!IMPORTANT]
-> Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
-
-
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_features)]
 

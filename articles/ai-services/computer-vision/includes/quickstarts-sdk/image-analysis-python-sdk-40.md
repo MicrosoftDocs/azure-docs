@@ -31,7 +31,7 @@ Use the Image Analysis client SDK for Python to analyze an image to read text an
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
 
-## Analyze Image
+## Analyze image
 
 1. Open a command prompt where you want the new project, and create a new file named *quickstart.py*.
 1. Run this command to install the Azure AI Vision client SDK:
