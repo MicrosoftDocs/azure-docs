@@ -52,7 +52,7 @@ jobs:
           
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using publish profile credentials'
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with: 
           app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
           package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
@@ -108,7 +108,7 @@ jobs:
       run: msbuild .\SampleWebApplication.sln
        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
-      uses: azure/webapps-deploy@v2
+      uses: azure/webapps-deploy@v3
       with: 
         app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/SampleWebApplication/'
@@ -152,7 +152,7 @@ jobs:
       run: mvn -B package --file pom.xml
       working-directory: complete
     - name: Azure WebApp
-      uses: Azure/webapps-deploy@v2
+      uses: Azure/webapps-deploy@v3
       with:
         app-name: my-app-name
         package: my/target/*.jar
@@ -208,7 +208,7 @@ jobs:
       working-directory:  my-app-path
                
     # deploy web app using Azure credentials
-    - uses: azure/webapps-deploy@v2
+    - uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
@@ -256,7 +256,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Deploy web App using GH Action azure/webapps-deploy
-      uses: azure/webapps-deploy@v2
+      uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}

@@ -198,21 +198,14 @@ A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in
 
 At a minimum, the workflow file would have the following distinct steps:
 
-| Step | Tasks |
-|---------|---------|
-|**Authentication** | 1. Authenticate with App Service using a GitHub secret. The GitHub secret would contain one of the following three credential types: <br/> - A publish profile. <br/> - A service principal. <br/> - A managed identity configured for OpenID Connect. |
-|**Build** | 1. Set up the environment. <br /> 2. Build the web app. |
-|**Deploy** | 1. Deploy the web app. |
+1. Authenticate with App Service using a GitHub secret. The GitHub secret would contain one of the following three credential types: 
+    - A publish profile. 
+    - A service principal.
+    - A managed identity configured for OpenID Connect.
+1. Build the web app.
+1. Deploy the web app.
 
-To deploy your code to an App Service app, use the `azure/webapps-deploy@v2` action. This action has four parameters:
-
-| **Parameter**  | **Explanation**  |
-|---------|---------|
-| **app-name** | (Required) Name of the App Service app. | 
-| **publish-profile** | (Optional) The publish profile to use. |
-| **package** | (Optional) Path to package or folder. The path can include *.zip, *.war, *.jar, or a folder to deploy. |
-| **slot-name** | (Optional) Enter an existing slot other than the production [slot](deploy-staging-slots.md). |
-| **working-directory** | (Optional) The web app root directory.|
+To deploy your code to an App Service app, you use the [azure/webapps-deploy@v3](https://github.com/Azure/webapps-deploy/tree/releases/v3) action. The action requires the name of your web app in `app-name` and, depending on your language stack, the path of the a *.zip, *.war, *.jar, or folder to deploy in `package`. For a complete list of possible inputs for the `azure/webapps-deploy@v3` action, see the [action.yml](https://github.com/Azure/webapps-deploy/blob/releases/v3/action.yml) definition.
 
 The following examples show the part of the workflow that builds the web app, in different supported languages.
 
