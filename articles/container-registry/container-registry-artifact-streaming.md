@@ -28,13 +28,13 @@ Here are few scenarios to use artifact streaming:
 
 Here are some brief aspects of artifact streaming:
 
-1. Customers with new and existing registries can start artifact streaming for specific repositories or tags.
+* Customers with new and existing registries can start artifact streaming for specific repositories or tags.
 
-1. Once artifact streaming is started, the original and the streaming artifact will be stored in the customer’s ACR.
+* Once artifact streaming is started, the original and the streaming artifact will be stored in the customer’s ACR.
 
-1. If the user decides to turn off artifact streaming for repositories or artifacts, the streaming and the original artifact will still be present.
+* If the user decides to turn off artifact streaming for repositories or artifacts, the streaming and the original artifact will still be present.
 
-1. If a customer deletes a repository or artifact with artifact streaming and Soft Delete enabled, then both the original and artifact streaming versions will be deleted. However, only the original version will be available on the soft delete blade.
+* If a customer deletes a repository or artifact with artifact streaming and Soft Delete enabled, then both the original and artifact streaming versions will be deleted. However, only the original version will be available on the soft delete blade.
 
 ## Availability and pricing information
 
@@ -55,9 +55,9 @@ Artifact streaming is currently in preview. The following limitations apply:
 
 ## Prerequisites
 
-> * You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.54.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
+* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.54.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
 
-> * Sign in to the [Azure portal](https://ms.portal.azure.com/). 
+* Sign in to the [Azure portal](https://ms.portal.azure.com/). 
 
 ## Start artifact streaming 
 
@@ -83,7 +83,7 @@ az group create -n my-streaming-test -l westus
 az acr create -n mystreamingtest -g my-streaming-test -l westus --sku premium
 ```
 
-1. Push or import an image to the registry through:
+2. Push or import an image to the registry through:
 
 For example, run the [az configure] command to configure the default ACR and [az acr import][az-acr-import] command to import a Jupyter Notebook image from Docker Hub into the `mystreamingtest` ACR.
 
@@ -92,7 +92,7 @@ az configure --defaults acr="mystreamingtest"
 az acr import -source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
 ```
 
-1. Create a artifact streaming from the Image
+3. Create a artifact streaming from the Image
 
 Initiates the creation of a streaming artifact from the specified image.
 
@@ -105,7 +105,7 @@ az acr artifact-streaming create --image jupyter/all-spark-notebook:latest
 >[!NOTE]
 > An operation ID is generated during the process for future reference to verify the status of the operation.
 
-1. Verify the generated artifact streaming in the Azure CLI.
+4. Verify the generated artifact streaming in the Azure CLI.
 
 For example, run the [az acr manifest list-referrers][az-acr-manifest-list-referrers] command to list the streaming artifacts for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
 
@@ -113,7 +113,7 @@ For example, run the [az acr manifest list-referrers][az-acr-manifest-list-refer
 az acr manifest list-referrers -n jupyter/all-spark-notebook:latest
 ```
 
-1. Cancel the artifact streaming creation (if needed)
+5. Cancel the artifact streaming creation (if needed)
 
 Cancel the streaming artifact creation if the conversion is not finished yet. It will stop the operation.
 
@@ -123,7 +123,7 @@ For example, run the [az acr artifact-streaming operation cancel][az-acr-artifac
 az acr artifact-streaming operation cancel --repository jupyter/all-spark-notebook --id c015067a-7463-4a5a-9168-3b17dbe42ca3
 ```
 
-1. Start auto-conversion on the repository
+6. Start auto-conversion on the repository
 
 Start auto-conversion in the repository for newly pushed or imported images. When started, new images pushed into that repository will trigger the generation of streaming artifacts.
 
@@ -136,7 +136,7 @@ For example, run the [az acr artifact-streaming update][az-acr-artifact-streamin
 az acr artifact-streaming update --repository jupyter/all-spark-notebook --enable-streaming true
 ```
 
-1. Verify the streaming conversion progress, after pushing a new image `jupyter/all-spark-notebook:newtag` to the above repository.
+7. Verify the streaming conversion progress, after pushing a new image `jupyter/all-spark-notebook:newtag` to the above repository.
 
 For example, run the [az acr artifact-streaming operation show][az-acr-artifact-streaming-operation-show] command to check the status of the conversion operation for the `jupyter/all-spark-notebook:newtag` image in the `mystreamingtest` ACR.
 
@@ -156,23 +156,23 @@ Follow the steps to create artifact streaming in the [Azure portal](https://port
 
 1. Navigate to your Azure Container Registry. 
 
-1. In the side **Menu**, under the **Services**, select **Repositories**.
+2. In the side **Menu**, under the **Services**, select **Repositories**.
 
-1. Select the latest imported image.
+3. Select the latest imported image.
 
-1. Convert the image and create artifact streaming in Azure portal.
+4. Convert the image and create artifact streaming in Azure portal.
 
    [![A screenshot of Azure portal with the create streaming artifact button highlighted](./media/container-registry-artifact-streaming/01-create-artifact-streaming-inline.png)](./media/container-registry-artifact-streaming/01-create-artifact-streaming-expanded.png#lightbox)
 
-1. Check the streaming artifact generated from the image in Referrers tab.     
+5. Check the streaming artifact generated from the image in Referrers tab.     
     
    [![A screenshot of Azure portal with the streaming artifact highlighted.](./media/container-registry-artifact-streaming/02-artifact-streaming-generated-inline.png)](./media/container-registry-artifact-streaming/02-artifact-streaming-generated-expanded.png#lightbox)
 
-1. You can also delete the artifact streaming from the repository blade. 
+6. You can also delete the artifact streaming from the repository blade. 
 
    [![A screenshot of Azure portal with the delete artifact streaming button higlighted](./media/container-registry-artifact-streaming/04-delete-artifact-streaming-inline.png)](./media/container-registry-artifact-streaming/04-delete-artifact-streaming-expanded.png#lightbox)
 
-1. You can also enable auto-conversion on the repository blade. Active means auto-conversion is enabled on the repository. Inactive means auto-conversion is disabled on the repository. 
+7. You can also enable auto-conversion on the repository blade. Active means auto-conversion is enabled on the repository. Inactive means auto-conversion is disabled on the repository. 
 
    [![A screenshot of Azure portal with the start artifact streaming button highlighted](./media/container-registry-artifact-streaming/03-start-artifact-streaming-inline.png)](./media/container-registry-artifact-streaming/03-start-artifact-streaming-expanded.png#lightbox)
 
