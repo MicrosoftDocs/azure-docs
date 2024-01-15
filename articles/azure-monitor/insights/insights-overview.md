@@ -7,6 +7,7 @@ ms.author: robb
 ms.date: 10/15/2022
 ms.reviewer: robb
 ---
+
 # Azure Monitor Insights overview
 
 Some services have a curated monitoring experience. That is, Microsoft provides customized functionality meant to act as a starting point for monitoring those services. These experiences are collectively known as *curated visualizations* with the larger more complex of them being called *Insights*.
