@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C application developer, I want to update the redirect URLs in my identity provider's applications to reference b2clogin.com or a custom domain, so that I can authenticate users with Azure AD B2C using the updated endpoints and policies.
+
 ---
 
 # Set redirect URLs to b2clogin.com for Azure Active Directory B2C

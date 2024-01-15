@@ -9,8 +9,12 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 01/11/2024
 ms.subservice: B2C
+
+
+#Customer intent: As an application developer integrating Azure Active Directory B2C, I want recommendations and best practices for integrating Azure AD B2C into my application environment, so that I can ensure a secure and efficient integration with Azure AD B2C.
+
 ---
 
 # Recommendations and best practices for Azure Active Directory B2C

@@ -11,8 +11,12 @@ ms.service: active-directory
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 06/12/2023
+ms.date: 01/11/2024
 ms.custom: "b2c-support"
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to monitor sign-in and auditing logs using Azure Monitor, so that I can route the logs to different monitoring solutions and gain insights into my environment.
+
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
