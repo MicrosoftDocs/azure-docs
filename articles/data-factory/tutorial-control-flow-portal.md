@@ -332,7 +332,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 
     :::image type="content" source="./media/tutorial-control-flow-portal/activity-run-error.png" alt-text="Activity run error":::
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial:
 
 > [!div class="checklist"]

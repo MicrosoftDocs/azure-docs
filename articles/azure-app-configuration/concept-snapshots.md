@@ -1,14 +1,14 @@
 ---
-title: Snapshots in Azure App Configuration (preview)
+title: Snapshots in Azure App Configuration
 description: Details of Snapshots in Azure App Configuration
 author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.topic: conceptual 
-ms.date: 05/16/2023
+ms.date: 11/15/2023
 ---
 
-# Snapshots (preview)
+# Snapshots
 
 A snapshot is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
 

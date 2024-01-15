@@ -43,7 +43,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
-- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
+- [cPacket Cloud Visbility](https://www.cpacket.com/solutions/cloud-visibility/)
 
 - [Big Switch Big Monitoring Fabric](https://www.arista.com/en/bigswitch)
 
@@ -57,7 +57,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
 
-- [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure)
+- [Fidelis Cybersecurity](https://fidelissecurity.com/)
 
 - [Flowmon](https://www.flowmon.com/en/blog/azure-vtap)
 

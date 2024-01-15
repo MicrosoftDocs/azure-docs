@@ -94,7 +94,7 @@ Find more open-source Azure Maps projects.
 > [!div class="nextstepaction"]
 > [Code samples]
 
-[Azure Maps & Azure Active Directory Samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
+[Azure Maps & Microsoft Entra ID Samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
 [Azure Maps .NET UWP IoT Remote Control]: https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control
 [Azure Maps Animation module]: https://github.com/Azure-Samples/azure-maps-animations
 [Azure Maps Bring Data Into View Control module]: https://github.com/Azure-Samples/azure-maps-bring-data-into-view-control
@@ -119,14 +119,14 @@ Find more open-source Azure Maps projects.
 [Azure Maps Spyglass Control module]: https://github.com/Azure-Samples/azure-maps-spyglass-control
 [Azure Maps Swipe Map module]: https://github.com/Azure-Samples/azure-maps-swipe-map
 [Azure Maps Sync Map module]: https://github.com/Azure-Samples/azure-maps-sync-maps
-[Azure Maps tile services]: /rest/api/maps/render-v2/get-map-tile
+[Azure Maps tile services]: /rest/api/maps/render/get-map-tile
 [Bot Framework - Point of Interest skill]: https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill
 [BotBuilder Location]: https://github.com/Microsoft/BotBuilder-Location
 [Cesium JS]: https://cesium.com/cesiumjs/
 [Code samples]: /samples/browse/?products=azure-maps
-[geocoding services]: /rest/api/maps/search
+[geocoding services]: /rest/api/maps/search?view=rest-maps-1.0
 [Implement IoT spatial analytics using Azure Maps]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing
 [leaflet]: https://leafletjs.com
 [LiveMaps]: https://github.com/Azure-Samples/LiveMaps
 [OpenLayers]: https://www.openlayers.org/
-[tile layers]: /rest/api/maps/render-v2/get-map-tile
+[tile layers]: /rest/api/maps/render/get-map-tile

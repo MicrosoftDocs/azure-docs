@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview networking options, includ
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 11/29/2023
 ms.author: rogarana
 ms.custom: references_regions
 ---

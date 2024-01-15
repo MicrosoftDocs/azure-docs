@@ -31,7 +31,7 @@ Azure Cache for Redis improves application performance by supporting common appl
 
 ## Redis versions
 
-Azure Cache for Redis supports OSS Redis version 4.0.x and 6.0.x. We've made the decision to skip Redis 5.0 to bring you the latest version. Previously, Azure Cache for Redis maintained a single Redis version. In the future, it will provide a newer major release upgrade and at least one older stable version. You can [choose which version](cache-how-to-version.md) works the best for your application.
+Azure Cache for Redis supports OSS Redis version 4.0.x and 6.0.x. We've made the decision to skip Redis 5.0 to bring you the latest version. Previously, Azure Cache for Redis maintained a single Redis version. In the future, you can choose from a newer major release upgrade and at least one older stable version. You can choose the version that works the best for your application.
 
 ## Service tiers
 
@@ -55,7 +55,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | Data encryption in transit |✔|✔|✔|✔|✔|
 | [Network isolation](cache-private-link.md) |✔|✔|✔|✔|✔|
 | [Scaling](cache-how-to-scale.md) |✔|✔|✔|Preview|Preview|
-| [OSS clustering](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
+| OSS clustering |-|-|✔|✔|✔|
 | [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|Preview|Preview|
 | [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|Available|Available|Available|
 | [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔ (Passive) |✔ (Active) |✔ (Active) |
@@ -72,7 +72,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 
 Consider the following options when choosing an Azure Cache for Redis tier:
 
-- **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB; the Premium tier 6 GB - 1.2 TB; the Enterprise tier 4 GB - 2 TB, and the Enterprise Flash tier 300 GB - 4.5 TB.  To create a Premium tier cache larger than 120 GB, you can use Redis OSS clustering. For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/). For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
+- **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB; the Premium tier 6 GB - 1.2 TB; the Enterprise tier 4 GB - 2 TB, and the Enterprise Flash tier 300 GB - 4.5 TB.  To create a Premium tier cache larger than 120 GB, you can use Redis OSS clustering. For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 - **Performance**: Caches in the Premium and Enterprise tiers are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. The Enterprise tier typically has the best performance for most workloads, especially with larger cache instances. For more information, see [Performance testing](cache-best-practices-performance.md).
 - **Dedicated core for Redis server**: All caches except C0 run dedicated vCPUs. The Basic, Standard, and Premium tiers run open source Redis, which by design uses only one thread for command processing. On these tiers, having more vCPUs usually improves throughput performance because Azure Cache for Redis uses other vCPUs for I/O processing or for OS processes. However, adding more vCPUs per instance may not produce linear performance increases. Scaling out usually boosts performance more than scaling up in these tiers. Enterprise and Enterprise Flash tier caches run on Redis Enterprise which is able to utilize multiple vCPUs per instance, which can also significantly increase performance over other tiers. For Enterprise and Enterprise flash tiers, scaling up is recommended before scaling out. For more information, see [Sharding and CPU utilization](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization).
 - **Network performance**: If you have a workload that requires high throughput, the Premium or Enterprise tier offers more bandwidth compared to Basic or Standard. Also within each tier, larger size caches have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that cause timeouts in your application.For more information, see [Performance testing](cache-best-practices-performance.md).

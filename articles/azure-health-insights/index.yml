@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Project Health Insights
-summary: Project Health Insights
+title: Azure AI Health Insights
+summary: Azure AI Health Insights
 metadata:
-  title: Project Health Insights
+  title: Azure AI Health Insights
   description: this article contains documentation regarding the different Health Decision Models from Health A.I.
-  ms.service: Project Health Insights
+  ms.service: Azure AI Health Insights
   ms.topic: landing-page 
   author: iBoonZ
   ms.author: behoorne
@@ -15,11 +15,11 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new 
 
 landingContent:
-  - title: About Project Health Insights
+  - title: About Azure AI Health Insights
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Project Health Insights?
+          - text: What is Azure AI Health Insights?
             url: overview.md
       - linkListType: quickstart
         links:
@@ -27,7 +27,7 @@ landingContent:
             url: deploy-portal.md
       - linkListType: how-to-guide
         links:
-          - text: How to Use Project Health Insights with containers 
+          - text: How to Use Azure AI Health Insights with containers 
             url: use-containers.md
           - text: How to configure the containers 
             url: configure-containers.md

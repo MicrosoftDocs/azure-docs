@@ -41,23 +41,35 @@ Azure Communications Gateway also offers metrics for monitoring your deployment.
 We expect your network to have two geographically redundant sites. You must provide networking connections between each site and:
 
 * The other site in your deployment, as cross-connects.
-* The two Azure Regions in which you deploy Azure Communications Gateway.
+* The Azure Regions in which you deploy Azure Communications Gateway.
 
 Connectivity between your networks and Azure Communications Gateway must meet any relevant network connectivity specifications.
 
-[!INCLUDE [communications-gateway-maps-or-expressroute](includes/communications-gateway-maps-or-expressroute.md)]
+- We strongly recommend using Microsoft Azure Peering Service Voice (also called MAPS Voice or MAPSV).
+- If you can't use MAPS Voice, we recommend ExpressRoute Microsoft Peering.
 
-The following diagram shows an operator network using MAPS or ExpressRoute (as recommended) to connect to Azure Communications Gateway.
+The following diagram shows an operator network using MAPS Voice or ExpressRoute (as recommended) to connect to Azure Communications Gateway.
 
-:::image type="content" source="media/azure-communications-gateway-network.svg" alt-text="Diagram that shows Azure Communications Gateway in two regions connecting to two sites in the operator network. The two sites in the operator network have cross-connects between them. The connections between the operator network use MAPS or ExpressRoute, as recommended." lightbox="media/azure-communications-gateway-network.svg":::
+:::image type="content" source="media/azure-communications-gateway-network.svg" alt-text="Diagram that shows Azure Communications Gateway in two regions connecting to two sites in the operator network. The two sites in the operator network have cross-connects between them. The connections between the operator network use MAPS Voice or ExpressRoute, as recommended." lightbox="media/azure-communications-gateway-network.svg":::
 
-For more information on how to route calls between Azure Communications Gateway and your network, see [Call routing requirements](reliability-communications-gateway.md#call-routing-requirements).
+For more information, see:
+
+- [Connectivity for Azure Communications Gateway](connectivity.md), including details of the IP connectivity.
+- [Reliability in Azure Communications Gateway](reliability-communications-gateway.md), including application-level call routing requirements for failover.
 
 ## SIP signaling support
 
 Azure Communications Gateway includes SIP trunks to your own network and can interwork between your existing core networks and the requirements of your chosen communications service.
 
 [!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)]
+
+To allow Azure Communications Gateway to identify the correct service for a call, you must configure the details of each number and its service(s) on Azure Communications Gateway. This is:
+- Required for Microsoft Teams Direct Routing.
+- Not required for Operator Connect (because Azure Communications Gateway defaults to Operator Connect for fixed line calls) or Teams Phone Mobile.
+
+You can also configure Azure Communications Gateway to add a custom header to messages associated with a number. You can use this to indicate the service and/or the enterprise associated with a call. Custom headers are supported for all services except Teams Phone Mobile.
+
+Configuring numbers with services and custom headers requires Azure Communications Gateway's Provisioning API. For more information, see [Provisioning API for Azure Communications Gateway](provisioning-platform.md).
 
 You can arrange more interworking function as part of your initial network design or at any time by raising a support request for Azure Communications Gateway. For example, you might need extra interworking configuration for:
 

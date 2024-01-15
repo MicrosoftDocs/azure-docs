@@ -4,8 +4,8 @@ description: JS recognize action how-to guide
 services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
-ms.date: 05/28/2023
+ms.subservice: call-automation
+ms.date: 11/20/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
@@ -17,7 +17,7 @@ ms.author: kpunjabi
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Have Node.js installed, you can install it from their [official website](https://nodejs.org).
 
-### For AI features (Public preview)
+### For AI features 
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 
@@ -93,7 +93,7 @@ await callAutomationClient.getCallConnection(callConnectionId)
 ```
 For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
-### Speech-to-Text Choices (Public Preview)
+### Speech-to-Text Choices 
 ``` javascript
 const choices = [ 
     {  
@@ -126,7 +126,7 @@ await callAutomationClient.getCallConnection(callConnectionId)
     .startRecognizing(targetParticipant, recognizeOptions); 
 ```
 
-### Speech-to-Text (Public Preview)
+### Speech-to-Text 
 
 ``` javascript
 const textToPlay = "Hi, how can I help you today?"; 
@@ -145,7 +145,7 @@ await callAutomationClient.getCallConnection(callConnectionId)
     .startRecognizing(targetParticipant, recognizeOptions); 
 ```
 
-### Speech-to-Text or DTMF (Public Preview)
+### Speech-to-Text or DTMF 
 
 ``` javascript
 const maxTonesToCollect = 1; 

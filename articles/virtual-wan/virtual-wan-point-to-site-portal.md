@@ -90,8 +90,12 @@ In this section, you create a connection between your virtual hub and your VNet.
 
 ## <a name="viewwan"></a>Point to site sessions dashboard
 
-To view your active point to site sessions, click on **Point-to-site Sessions**. This will show you all active point to site users that are connected to your User VPN gateway.
+1. To view your active point to site sessions, click on **Point-to-site Sessions**. This will show you all active point to site users that are connected to your User VPN gateway.
   :::image type="content" source="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-button.png" alt-text="Screenshot shows point to site blade in Virtual WAN." lightbox="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-button.png":::
+
+1. To disconnect users from the User VPN gateway, click the ... context menu and click "Disconnect".	
+
+ :::image type="content" source="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-disconnect.png" alt-text="Screenshot shows point to site sessions dashboard." lightbox="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-disconnect.png":::
 
 ## Modify settings
 

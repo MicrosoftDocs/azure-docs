@@ -1,6 +1,6 @@
 ---
 title: Trial Matcher frequently asked questions
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: Trial Matcher frequently asked questions
 services: azure-health-insights
 author: iBoonZ
@@ -14,7 +14,7 @@ ms.author: behoorne
 
 # Trial Matcher frequently asked questions
 
-You’ll find answers to commonly asked questions about Trial Matcher, part of Project Health Insights service, in this article
+You’ll find answers to commonly asked questions about Trial Matcher, part of Azure AI Health Insights service, in this article
 
 ## Is there a workaround for patients whose clinical documents exceed the # characters limit?
 Unfortunately, we don't support patients with clinical documents that exceed # characters limit. You might try excluding the progress notes.

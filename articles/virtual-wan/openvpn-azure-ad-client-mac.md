@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 11/21/2023
 ms.author: cherylmc
 
 ---
@@ -16,7 +16,7 @@ ms.author: cherylmc
 This article helps you configure a VPN client for a computer running macOS 10.15 and later to connect to a virtual network using Point-to-Site VPN and Microsoft Entra authentication. Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md).
 
 > [!NOTE]
-> * The Azure VPN Client may not be available in all regions due to local regulations.
+> * The Azure VPN Client might not be available in all regions due to local regulations.
 > * Microsoft Entra authentication is supported only for OpenVPN® protocol connections and requires the Azure VPN client.
 >
 
@@ -68,7 +68,7 @@ Before you can connect and authenticate using Microsoft Entra ID, you must first
    Configure the following settings:
 
    * **Connection Name:** The name by which you want to refer to the connection profile.
-   * **VPN Server:** This name is the name that you want to use to refer to the server. The name you choose here does not need to be the formal name of a server.
+   * **VPN Server:** This name is the name that you want to use to refer to the server. The name you choose here doesn't need to be the formal name of a server.
    * **Server Validation**
      * **Certificate Information:** The certificate CA.
      * **Server Secret:** The server secret.
@@ -83,7 +83,7 @@ Before you can connect and authenticate using Microsoft Entra ID, you must first
 1. Using your credentials, sign in to connect.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/add-4.png" alt-text="Screenshot of Azure VPN Client sign in to connect.":::
-1. Once connected, you will see the **Connected** status. When you want to disconnect, click **Disconnect** to disconnect the connection.
+1. Once connected, you'll see the **Connected** status. When you want to disconnect, click **Disconnect** to disconnect the connection.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/add-5.png" alt-text="Screenshot of Azure VPN Client connected and disconnect button.":::
 

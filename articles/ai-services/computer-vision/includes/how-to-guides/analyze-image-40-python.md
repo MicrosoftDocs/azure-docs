@@ -73,7 +73,7 @@ Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=visual_features)]
 
-
+<!--
 ### Set model name when using a custom model
 
 You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You don't need to specify visual features if you use a custom model.
@@ -81,7 +81,7 @@ You can also do image analysis with a custom trained model. To create and train 
 To use a custom model, create the [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and set the [model_name](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-model-name) property. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to set the [features](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-features) property, as you do with the standard model, since your custom model already implies the visual features the service extracts.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/custom-model/main.py?name=model_name)]
-
+-->
 
 ### Specify languages
 
@@ -137,7 +137,7 @@ This section shows you how to make an analysis call to the service using the sta
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=analyze)]
 
-
+<!--
 ### Get results using custom model
 
 This section shows you how to make an analysis call to the service, when using a custom model. 
@@ -146,7 +146,7 @@ This section shows you how to make an analysis call to the service, when using a
 The code is similar to the standard model case. The only difference is that results from the custom model are available on the **custom_tags** and/or **custom_objects** properties of the [ImageAnalysisResult](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisresult) object.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/custom-model/main.py?name=analyze)]
-
+-->
 
 ## Error codes
 

@@ -1,13 +1,13 @@
 ---
 title: Azure VM sizes - General purpose | Microsoft Docs
 description: Lists the different general purpose sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for sizes in this series.
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/26/2022
-ms.author: mamccrea
+ms.author: jushiman
 ---
 
 # General purpose virtual machine sizes

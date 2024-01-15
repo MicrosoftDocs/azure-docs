@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ---
 
 # Azure Data Factory - naming rules
@@ -25,6 +25,6 @@ The following table provides naming rules for Data Factory artifacts.
 | Resource Group |Unique across Microsoft Azure. Names are case-insensitive. | For more info, see [Azure naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). |
 | Pipeline parameters & variable  |Unique within the pipeline. Names are case-insensitive. | <ul><li>Validation check on parameter names and variable names is limited to uniqueness because of backward compatibility reason.</li><li>When use parameters or variables to reference entity names, for example linked service, the entity naming rules apply.</li><li>A good practice is to follow data flow transformation naming rules to name your pipeline parameters and variables.</li></ul> |
 
-## Next steps
+## Related content
 
 Learn how to create data factories by following step-by-step instructions in [Quickstart: create a data factory](quickstart-create-data-factory-powershell.md) article. 

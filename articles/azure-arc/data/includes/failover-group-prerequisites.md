@@ -10,7 +10,7 @@ ms.date: 08/01/2023
 
 ## Prerequisites
 
-The following prerequisites must be met before setting up failover groups between two Azure Arc-enabled SQL managed instances:
+The following prerequisites must be met before setting up failover groups between two instances of SQL Managed Instance enabled by Azure Arc:
 
 - An Azure Arc data controller and an Arc enabled SQL managed instance provisioned at the primary site with `--license-type` as one of `BasePrice` or `LicenseIncluded`. 
 - An Azure Arc data controller and an Arc enabled SQL managed instance provisioned at the secondary site with identical configuration as the primary in terms of:
@@ -27,7 +27,7 @@ The following prerequisites must be met before setting up failover groups betwee
 
 ## Deployment process
 
-To set up an Azure failover group between two Azure Arc-enabled SQL managed instances, complete the following steps:
+To set up an Azure failover group between two instances, complete the following steps:
 
 1. Create custom resource for distributed availability group at the primary site
 1. Create custom resource for distributed availability group at the secondary site
@@ -41,6 +41,6 @@ The following image shows a properly configured distributed availability group:
 
 ## Synchronization modes
 
-Failover groups in Azure Arc data services support two synchronization modes - `sync` and `async`. The synchronization mode directly impacts how the data is synchronized between the Azure Arc-enabled SQL managed instances, and potentially the performance on the primary managed instance. 
+Failover groups in Azure Arc data services support two synchronization modes - `sync` and `async`. The synchronization mode directly impacts how the data is synchronized between the instances, and potentially the performance on the primary managed instance. 
 
 If primary and secondary sites are within a few miles of each other, use `sync` mode. Otherwise use `async` mode to avoid any performance impact on the primary site.

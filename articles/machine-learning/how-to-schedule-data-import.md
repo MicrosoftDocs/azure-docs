@@ -381,7 +381,7 @@ Limitations:
 
 [!INCLUDE [CLI v2](includes/machine-learning-cli-v2.md)]
 
-:::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="list_schedule":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="list_schedule":::
 
 # [Python SDK](#tab/python)
 
@@ -391,7 +391,7 @@ Limitations:
 
 # [Studio](#tab/azure-studio)
 
-In the studio portal, under the **Jobs** extension, select the **All schedules** tab. That tab shows all your job schedules created by the SDK/CLI/UI, in a single list. In the schedule list, you have an overview of all schedules in this workspace, as shown in this screenshot:
+In the studio portal, under the **Jobs** extension, select the **All schedules** tab. That tab shows all your job schedules created by the SDK/cli/UI, in a single list. In the schedule list, you have an overview of all schedules in this workspace, as shown in this screenshot:
 
 :::image type="content" source="./media/how-to-schedule-pipeline-job/schedule-list.png" alt-text="Screenshot of the schedule tabs, showing the list of schedule in this workspace." lightbox= "./media/how-to-schedule-pipeline-job/schedule-list.png":::
 

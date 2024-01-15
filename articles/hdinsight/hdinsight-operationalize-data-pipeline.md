@@ -4,7 +4,7 @@ description: Set up and run an example data pipeline that is triggered by new da
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/23/2022
+ms.date: 01/10/2024
 ---
 
 # Operationalize a data analytics pipeline
@@ -111,7 +111,7 @@ To use the Oozie Web Console to view the status of your coordinator and workflow
         ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
         ```
 
-    1. From you ssh session, use the HDFS command to copy the file from your head node local storage to Azure Storage.
+    1. From your ssh session, use the HDFS command to copy the file from your head node local storage to Azure Storage.
 
         ```bash
         hadoop fs -mkdir /example/data/flights
@@ -510,7 +510,7 @@ As you can see, the majority of the coordinator is just passing configuration in
     </dataset>
     ```
 
-    The path to the data in HDFS is built dynamically according to the expression provided in the `uri-template` element. In this coordinator, a frequency of one day is also used with the dataset. While the start and end dates on the coordinator element control when the actions are scheduled (and defines their nominal times), the `initial-instance` and `frequency` on the dataset control the calculation of the date that is used in constructing the `uri-template`. In this case, set the initial instance to one day before the start of the coordinator to ensure that it picks up the first day's (1/1/2017) worth of data. The dataset's date calculation rolls forward from the value of `initial-instance` (12/31/2016) advancing in increments of dataset frequency (one day) until it finds the most recent date that doesn't pass the nominal time set by the coordinator (2017-01-01T00:00:00 GMT for the first action).
+    The path to the data in HDFS is built dynamically according to the expression provided in the `uri-template` element. In this coordinator, a frequency of one day is also used with the dataset. While the start and end dates on the coordinator element control when the actions are scheduled (and defines their nominal times), the `initial-instance` and `frequency` on the dataset control the calculation of the date that is used in constructing the `uri-template`. In this case, set the initial instance to one day before the start of the coordinator to ensure that it picks up the first day's (January 1, 2017) worth of data. The dataset's date calculation rolls forward from the value of `initial-instance` (12/31/2016) advancing in increments of dataset frequency (one day) until it finds the most recent date that doesn't pass the nominal time set by the coordinator (2017-01-01T00:00:00 GMT for the first action).
 
     The empty `done-flag` element indicates that when Oozie checks for the presence of input data at the appointed time, Oozie determines data whether available by presence of a directory or file. In this case, it's the presence of a csv file. If a csv file is present, Oozie assumes the data is ready and launches a workflow instance to process the file. If there's no csv file present, Oozie assumes the data isn't yet ready and that run of the workflow goes into a waiting state.
 
@@ -530,7 +530,7 @@ The three preceding points combine to yield a situation where the coordinator sc
 
 * Point 2: Oozie looks for data available in `sourceDataFolder/2017-01-FlightData.csv`.
 
-* Point 3: When Oozie finds that file, it schedules an instance of the workflow that will process the data for 2017-01-01. Oozie then continues processing for 2017-01-02. This evaluation repeats up to but not including 2017-01-05.
+* Point 3: When Oozie finds that file, it schedules an instance of the workflow that will process the data for January 1, 2017. Oozie then continues processing for 2017-01-02. This evaluation repeats up to but not including 2017-01-05.
 
 As with workflows, the configuration of a coordinator is defined in a `job.properties` file, which has a superset of the settings used by the workflow.
 
@@ -590,7 +590,7 @@ To run the pipeline with a coordinator, proceed in a similar fashion as for the 
 
     :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png" alt-text="Oozie Web Console Coordinator Jobs":::
 
-6. Select a coordinator instance to display the list of scheduled actions. In this case, you should see four actions with nominal times in the range from 1/1/2017 to 1/4/2017.
+6. Select a coordinator instance to display the list of scheduled actions. In this case, you should see four actions with nominal times in the range from January 1, 2017 to January 4, 2017.
 
     :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png" alt-text="Oozie Web Console Coordinator Job":::
 

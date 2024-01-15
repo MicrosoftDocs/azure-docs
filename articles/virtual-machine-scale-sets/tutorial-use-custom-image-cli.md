@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Use a custom VM image in a scale set with Azure CLI
 description: Learn how to use the Azure CLI to create a custom VM image that you can use to deploy a Virtual Machine Scale Set
-author: cynthn
+author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.date: 12/16/2022
 ms.reviewer: mimckitt
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc, devx-track-azurecli, devx-track-linux
 ---
 
@@ -115,6 +115,11 @@ az sig image-version create \
 
 
 ## Create a scale set from the image
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Create a scale set from the specialized image using [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
 
 Create the scale set using [`az vmss create`](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the image is a specialized image. 
@@ -128,7 +133,6 @@ az group create --name myResourceGroup --location eastus
 az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
-   --orchestration-mode flexible \
    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
    --specialized
 ```

@@ -5,7 +5,7 @@ description: Learn how to enable policy support to help protect your VMs by usin
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.topic: how-to
-ms.date: 07/25/2021
+ms.date: 12/01/2023
 ms.service: site-recovery
 ms.custom: template-how-to
 
@@ -53,9 +53,7 @@ With built-in Azure Policy capabilities, you have a way to enable Site Recovery 
   Interoperability with other policies applied as default by Azure (if any) | Supported
 
 > [!NOTE]
-> Site Recovery won't be enabled if:
-> - An unsupported VM is created within the scope of the policy.
-> - A VM is a part of both an availability set and a PPG.
+> Site Recovery won't be enabled if an unsupported VM is created within the scope of the policy.
 
 ## Create a policy assignment
 

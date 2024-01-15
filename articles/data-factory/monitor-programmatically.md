@@ -161,5 +161,5 @@ For a complete walk-through of creating and monitoring a pipeline using PowerShe
 
 For complete documentation on PowerShell cmdlets, see [Data Factory PowerShell cmdlet reference](/powershell/module/az.datafactory).
 
-## Next steps
+## Related content
 See [Monitor pipelines using Azure Monitor](monitor-using-azure-monitor.md) article to learn about using Azure Monitor to monitor Data Factory pipelines.

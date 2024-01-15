@@ -15,7 +15,7 @@ This article introduces workbooks for Azure Monitor workspaces and shows you how
 ## Prerequisites
 To query Prometheus metrics from an Azure Monitor workspace, you need the following:
 -	An Azure Monitor workspace. To create an Azure Monitor workspace, see [Create an Azure Monitor Workspace](./azure-monitor-workspace-overview.md?tabs=azure-portal.md).
--	Your Azure Monitor workspace must be [collecting Prometheus metrics](./prometheus-metrics-enable.md) from an AKS cluster.
+-	Your Azure Monitor workspace must be [collecting Prometheus metrics](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) from an AKS cluster.
 -	The user must be assigned role that can perform the **microsoft.monitor/accounts/read** operation on the Azure Monitor workspace.
 
 ## Prometheus Explorer workbook
@@ -47,7 +47,7 @@ Workbooks support many visualizations and Azure integrations. For more informati
 1.  Select **New**.
 1.	In the new workbook, select **Add**, and select **Add query** from the dropdown.
 :::image type="content" source="./media/prometheus-workbooks/prometheus-workspace-add-query.png" lightbox="./media/prometheus-workbooks/prometheus-workspace-add-query.png" alt-text="A screenshot showing the add content dropdown in a blank workspace.":::    
-1. Azure Workbooks use [data sources](../visualize/workbooks-data-sources.md#prometheus-preview) to set the source scope the data they present. To query Prometheus metrics, select the  **Data source** dropdown, and choose **Prometheus** .
+1. Azure Workbooks use [data sources](../visualize/workbooks-data-sources.md#prometheus) to set the source scope the data they present. To query Prometheus metrics, select the  **Data source** dropdown, and choose **Prometheus** .
 1.	From the **Azure Monitor workspace** dropdown, select your workspace.
 1.	Select your query type from **Prometheus query type** dropdown.
 1.	Write your PromQL query in the **Prometheus Query** field. 
@@ -80,6 +80,6 @@ This section provides answers to common questions.
 [!INCLUDE [prometheus-faq-i-see-gaps-in-metric-data](../includes/prometheus-faq-i-see-gaps-in-metric-data.md)]
 
 ## Next steps
-* [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)
+* [Collect Prometheus metrics from AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 * [Azure Monitor workspace](./azure-monitor-workspace-overview.md)
 * [Use Azure Monitor managed service for Prometheus as data source for Grafana using managed system identity](./prometheus-grafana.md)

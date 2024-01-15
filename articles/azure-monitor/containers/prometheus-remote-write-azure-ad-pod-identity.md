@@ -65,48 +65,7 @@ To configure remote write for Azure Monitor managed service for Prometheus using
 
       1. Copy the YAML below and save to a file.  
 
-    ```yml
-    prometheus: 
-      prometheusSpec: 
-        podMetadata: 
-          labels: 
-            aadpodidbinding: <AzureIdentityBindingSelector> 
-        externalLabels: 
-          cluster: <AKS-CLUSTER-NAME> 
-        remoteWrite: 
-        - url: 'http://localhost:8081/api/v1/write' 
-        containers: 
-        - name: prom-remotewrite 
-          image: <CONTAINER-IMAGE-VERSION> 
-          imagePullPolicy: Always 
-          ports: 
-            - name: rw-port 
-          containerPort: 8081 
-          livenessProbe: 
-            httpGet: 
-              path: /health
-              port: rw-port
-              initialDelaySeconds: 10 
-              timeoutSeconds: 10 
-          readinessProbe: 
-             httpGet: 
-              path: /ready
-              port: rw-port
-              initialDelaySeconds: 10 
-              timeoutSeconds: 10 
-        env: 
-          - name: INGESTION_URL 
-            value: <INGESTION_URL> 
-          - name: LISTENING_PORT 
-            value: '8081' 
-          - name: IDENTITY_TYPE 
-            value: userAssigned 
-          - name: AZURE_CLIENT_ID 
-            value: <MANAGED-IDENTITY-CLIENT-ID> 
-          # Optional parameter 
-          - name: CLUSTER 
-            value: <CLUSTER-NAME>         
-    ```
+      [!INCLUDE[pod-identity-yaml](../includes/prometheus-sidecar-remote-write-pod-identity-yaml.md)]
 
       b. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands.  
       
@@ -118,7 +77,7 @@ To configure remote write for Azure Monitor managed service for Prometheus using
     ```
 ## Next steps
 
-- [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
+- [Collect Prometheus metrics from an AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
 - [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
 - [Remote-write in Azure Monitor Managed Service for Prometheus using Microsoft Entra ID](./prometheus-remote-write-active-directory.md)

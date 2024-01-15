@@ -26,6 +26,7 @@ you'll first need to create a Network Fabric Controller and then a Cluster Manag
 - Set up Resource Groups to place and group resources in a logical manner
   that will be created for Operator Nexus platform.
 - Establish ExpressRoute connectivity from your WAN to an Azure Region
+- To enable Microsoft Defender for Endpoint for on-premises bare metal machines (BMMs), you must have selected a Defender for Servers plan in your Operator Nexus subscription prior to deployment. Additional information available [here](./howto-set-up-defender-for-cloud-security.md).
 
 ## On your premises prerequisites
 
@@ -226,7 +227,7 @@ Terminal Server has been deployed and configured as follows:
    - Installation Address:
    - FIC/Rack/Grid Location:
 4. Data provided to the operator and shared with storage array technician, which will be common to all installations:
-   - Purity Code Level: 6.1.14
+   - Purity Code Level: 6.5.1
    - Array Time zone: UTC
    - DNS Server IP Address: 172.27.255.201
    - DNS Domain Suffix: not set by operator during setup
@@ -235,7 +236,7 @@ Terminal Server has been deployed and configured as follows:
    - Syslog Secondary: 172.27.255.211
    - SMTP Gateway IP address or FQDN: not set by operator during setup
    - Email Sender Domain Name: domain name of the sender of the email (example.com)
-   - Email Address(es) to be alerted: List of emails where email alerts will be sent. (someone@example.com)
+   - Email Address(es) to be alerted: not set by operator during setup
    - Proxy Server and Port: not set by operator during setup
    - Management: Virtual Interface
      - IP Address: 172.27.255.200
