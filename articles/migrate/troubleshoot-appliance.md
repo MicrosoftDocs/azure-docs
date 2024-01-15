@@ -224,7 +224,7 @@ You can also run the commands from the command prompt on the appliance server by
 ssh <username>@<servername>
 ````
 
-Few Linux machines like Oracle/CentOS have a configuration value that requires **tty** option to be enabled by default which in turn causes an error. In such cases, you can disable this setting by adding **a!** character in the */etc/sudoers* file. You can also add the following at the end of */etc/sudoers/ file to ensure that no other configuration in this file can override the following:
+Few Linux machines like Oracle/CentOS have a configuration value that requires **tty** option to be enabled by default which can cause an error. In such cases, you can disable this setting by adding **a "!"** character in the **/etc/sudoers** file. You can also add the following at the end of **/etc/sudoers/** file to ensure that no other configuration in the file can override this:
 - Defaults    !visiblepw 
 - Defaults    !requiretty 
 
