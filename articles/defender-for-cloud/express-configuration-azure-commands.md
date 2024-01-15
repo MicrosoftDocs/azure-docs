@@ -12,7 +12,7 @@ ms.date: 01/15/2024
 
 This article lists the Azure Command Line Interface (CLI) commands that can be used with SQL vulnerability assessment express configuration.
 
-The examples in this article should be run in PowerShell; they are not for use with Bash.
+The examples in this article should be run in PowerShell; they aren't for use "as is" with Bash.
 
 - [Set SQL vulnerability assessment baseline on system database](#set-sql-vulnerability-assessment-baseline-on-system-database)
 - [Get SQL vulnerability assessment baseline on system database](#get-sql-vulnerability-assessment-baseline-on-system-database)
