@@ -181,7 +181,7 @@ Limit, Value
 - Maximum # encounters per request, 1
 - Maximum # characters per patient, 50,000 for data[i].content.value all combined
 
-# Request validation
+## Request validation
 
 Every request contains required and optional fields that should be provided to the Radiology Insights model. When you're sending data to the model, make sure that you take the following properties into account:
 

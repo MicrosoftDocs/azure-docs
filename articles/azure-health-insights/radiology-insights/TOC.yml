@@ -9,7 +9,7 @@ items:
 - name: Quickstarts
   items:
      - name: Use the Radiology Insights model
-       href: quickstart.md
+       href: get-started.md
 - name: Responsible use of AI
   items:
     - name: Transparency note for Radiology Insights

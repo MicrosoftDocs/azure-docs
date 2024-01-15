@@ -27,7 +27,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Model configuration
-            url: modelconfiguration.md
+            url: model-configuration.md
           - text: Inference information
             url: inferences.md
   - title: Use the Radiology Insights model
