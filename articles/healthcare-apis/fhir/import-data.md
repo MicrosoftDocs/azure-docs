@@ -123,6 +123,8 @@ Content-Type:application/fhir+json
 
 Once $import is initiated, an empty response body with a **callback** link is returned in the `Content-location` header of the response together with ```202-Accepted``` status code. Store  this callback link to check the import status.
 
+$import operation registration is implemented as idempotent call (same registration payload yields same registration). This affects ability to re-process files with the same name. Refrain from updating files in-place, instead we suggest you use different file name for updated data, or, if update in-place with same file name is unavoidable, add e-tags in the registration payload.
+
 To check import status, make the REST call with the ```GET``` method to the **callback** link returned in the previous step.
 You can interpret the response using the following table:
 
@@ -196,7 +198,6 @@ Incase the ID of the resource isn't known, do a history search on the entire res
 ## Troubleshooting
 
 Lets walk-through solutions to some error codes you may encounter during the import operation.
-
 ### 200 OK, but there's an error with the URL in the response
 
 **Behavior:** Import operation succeeds and returns ```200 OK```. However, `error.url` are present in the response body. Files present at the `error.url` location contain JSON fragments similar to below example:
