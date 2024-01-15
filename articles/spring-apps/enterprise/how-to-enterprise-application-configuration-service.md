@@ -56,7 +56,7 @@ To manage the service settings, open the **Settings** section. Within this area,
 2. Refresh Interval: Adjust the frequency at which the service checks for updates. 
 3. Repositories: Add new entries, or modify existing ones. This allows you to control which repoisitories the service monitors and pulls data from.
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-settings-repositories.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab and Repositories section highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-settings-repositories.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-settings.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-settings.png":::
 
 The following table describes the properties for each repository entry.
 
