@@ -79,7 +79,7 @@ To enable recommended alert rules:
 1. In the **Select alert rules** section, all recommended alerts are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like, or turn off an alert.
 1. Expand each of the alert rules to see its details. By default, the severity for each is **Informational**. You can change to another severity if you'd like.
 
-    :::image type="content" source="media/alerts-managing-alert-instances/configure-alert-severity.png" alt-text="Screenshot of recommended alert rule severity configuration." lightbox="media/tutorial-monitor-vm/configure-alert-severity.png":::
+    :::image type="content" source="media/alerts-managing-alert-instances/configure-alert-severity.png" alt-text="Screenshot of recommended alert rule severity configuration." lightbox="media/alerts-managing-alert-instances/configure-alert-severity.png":::
 
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
 1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
