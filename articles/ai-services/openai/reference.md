@@ -967,6 +967,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 | `quality` | string | Optional | `standard` | The quality of the generated images. Must be `hd` or `standard`. |
 | `response_format` | string | Optional | `url` | The format in which the generated images are returned Must be `url` (a URL pointing to the image) or `b64_json` (the base 64 byte code in JSON format). |
 | `style` | string | Optional | `vivid` | The style of the generated images. Must be `natural` or `vivid` (for hyper-realistic / dramatic images). |
+| `user` | string | Optional || A unique identifier representing your end-user, which can help to monitor and detect abuse. |
 
 
 #### Example request
