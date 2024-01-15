@@ -107,13 +107,13 @@ After you enable agentless scanning, software inventory and vulnerability inform
 1. Select  **Next: Review and generate**. 
 1. Select  **Update**. 
 
-##  Validate onboarding of the agentless malware scanning capability
+##  Validate the agentless malware scanner's deployment
 
 Security alerts appear on the portal only in cases where threats are detected on your environment. If you do not have any alerts it may be because there are no threats on your environment. You can validate that the device is properly onboarded and reporting to Defender for Cloud by creating an European Institute for Computer Antivirus Research (EICAR) test file.
 
 ### Create a test file for Linux
 
-1. Open a terminal window.
+1. Open a terminal window on the VM.
 
 1. Execute the following command:
 
@@ -162,7 +162,7 @@ The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24
 
 1. Execute the following script.
 
-    ```bash
+    ```powershell
     # virus test string 
 
     $TEST_STRING = '$$89-barbados-dublin-damascus-notice-pulled-natural-31$$' 
