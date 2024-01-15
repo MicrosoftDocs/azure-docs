@@ -108,14 +108,11 @@ The code is similar to the standard model case. The only difference is that resu
 
 ## Troubleshooting
 
-### Common errors
+### Exception handling
 
-When you interact with Image Analysis using the .NET SDK, errors returned by the service correspond to the same HTTP status codes returned for REST API requests. For example, if you try to analyze an image that is not accessible due to a broken URL, a `400` status is returned, indicating a bad request.
+When you interact with Image Analysis using the .NET SDK, any response from the service that doesn't have a `200` (success) status code results in an exception being thrown. For example, if you try to analyze an image that is not accessible due to a broken URL, a `400` status is returned, indicating a bad request, and a corresponding exception is thrown.
 
-
-### Handling exceptions
-
-In the following snippet, the error is handled gracefully by catching the exception and displaying additional information about the error.
+In the following snippet, errors are handled gracefully by catching the exception and displaying additional information about the error.
 
 ```C# Snippet:ImageAnalysisException
 var imageUrl = new Uri("https://some-host-name.com/non-existing-image.jpg");
