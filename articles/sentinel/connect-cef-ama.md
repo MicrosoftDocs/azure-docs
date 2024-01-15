@@ -67,7 +67,7 @@ The setup process for the CEF via AMA connector has two parts:
 
 - **Install the Azure Monitor Agent and create a Data Collection Rule (DCR)**.
     - [Using the Azure portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr)
-    - [Using the Azure Monitor API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr)
+    - [Using the Azure Monitor Logs Ingestion API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr)
 - [**Run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the Syslog daemon.
 
 ### Prerequisites
@@ -121,8 +121,9 @@ If your devices are sending Syslog and CEF logs over TLS (because, for example, 
 ### Install the AMA and create a Data Collection Rule (DCR)
 
 You can perform this step in one of two ways:
-- Deploy and configure the **CEF via AMA** data connector in the [Microsoft Sentinel portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs per workspace. The AMA will be installed automatically on the VMs you select in the connector configuration.
-- Send HTTP requests to the [Azure Monitor API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level. The downside is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
+- Deploy and configure the **CEF via AMA** data connector in the [Microsoft Sentinel portal](?tabs=portal#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs per workspace. The AMA will be installed automatically on the VMs you select in the connector configuration.  
+    **&mdash;OR&mdash;**
+- Send HTTP requests to the [Logs Ingestion API](?tabs=api#install-the-ama-and-create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level. The downside is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
 
 Select the appropriate tab below to see the instructions for each way.
 
@@ -184,113 +185,254 @@ In the **Resources** tab, select the machines on which you want to install the A
 
 - Select **Refresh** on the connector page to see the DCR displayed in the list.
 
-# [Azure Monitor API](#tab/api)
+# [Logs Ingestion API](#tab/api)
 
-You can create Data Collection Rules (DCRs) using the [Azure Monitor API](/rest/api/monitor/data-collection-rules). Learn more about [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md).
+#### Install the Azure Monitor Agent
 
-#### Create the request URL and header
+Follow these instructions, from the Azure Monitor documentation, to install the Azure Monitor Agent on your log forwarder. Remember to use the instructions for Linux, not those for Windows.
+- [Install the AMA using PowerShell](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-powershell)
+- [Install the AMA using the Azure CLI](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-cli)
+- [Install the AMA using an Azure Resource Manager template](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-resource-manager)
 
-Copy the request below by selecting the *copy* icon in the upper right corner of the frame.
+You can create Data Collection Rules (DCRs) using the [Azure Monitor Logs Ingestion API](/rest/api/monitor/data-collection-rules). Learn more about [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md).
 
-Paste it in a command prompt, in Postman or in any other REST API client of your choosing.
+#### Create the Data Collection Rule
 
-```rest
-GET
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version=2019-11-01-preview
-```
- 
-#### Create the request body
+Prepare a DCR file in JSON format. When you send the [API request to create the DCR](#create-the-request-url-and-header), include the contents of this file as the request body.
 
-Edit the template: 
-- Verify that the `streams` field is set to `Microsoft-CommonSecurityLog`.
-- Add the filter and facility log levels in the `facilityNames` and `logLevels` parameters.
+The following is an example of a DCR creation request:
 
-```rest
+```json
 {
-    "properties": {
-        "immutableId": "dcr-bcc4039c90f0489b80927bbdf1f26008", 
-        "dataSources": {
-            "syslog": [
-                {
-                    "streams": [
-                        "Microsoft-CommonSecurityLog"
-                    ],
-
-                    "facilityNames": [
-                        "*"
-                    ],
-                    "logLevels": [ "*"
-                    ],
-                    "name": "sysLogsDataSource-1688419672"
-                    }
-                ]
-            },
-            "destinations": { 
-                "logAnalytics": [
-                {
-                    "workspaceResourceId": "/subscriptions/{Your-Subscription-
-Id}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{SentinelWorkspaceName}", "workspaceId": "123x56xx-9123-xx4x-567x-89123xxx45",
-"name": "la-140366483"
-                }
-            ]
+  "location": "centralus",
+  "kind": "Linux",
+  "properties": {
+    "dataSources": {
+      "syslog": [
+        {
+          "name": "localsSyslog",
+          "streams": [
+            "Microsoft-CommonSecurityLog"
+          ],
+          "facilityNames": [
+            "auth",
+            "local0",
+            "local1",
+            "local2",
+            "local3",
+            "syslog"
+          ],
+          "logLevels": [
+            "Critical",
+            "Alert",
+            "Emergency"
+          ]
         },
-        "dataFlows": [
-            {
-                "streams": [
-                    "Microsoft-CommonSecurityLog"
-                ],
-                "destinations": [ 
-                    "la-140366483"
-                ]
-            }
-        ],
-        "provisioningState": "Succeeded"
+        {
+          "name": "authprivSyslog",
+          "streams": [
+            "Microsoft-CommonSecurityLog"
+          ],
+          "facilityNames": [
+            "authpriv"
+          ],
+          "logLevels": [
+            "Error",
+            "Alert",
+            "Critical",
+            "Emergency"
+          ]
+        }
+      ]
     },
-    "location": "westeurope", 
-    "tags": {},
-    "kind": "Linux",
-    "id": "/subscriptions/{Your-Subscription- Id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{DCRName}",
-    "name": "{DCRName}",
-    "type": "Microsoft.Insights/dataCollectionRules", 
-    "etag": "\"2401b6f3-0000-0d00-0000-618bbf430000\""
+    "destinations": {
+      "logAnalytics": [
+        {
+          "workspaceResourceId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/Contoso",
+          "workspaceId": "11111111-2222-3333-4444-555555555555",
+          "name": "DataCollectionEvent"
+        }
+      ]
+    },
+    "dataFlows": [
+      {
+        "streams": [
+          "Microsoft-CommonSecurityLog"
+        ],
+        "destinations": [
+          "DataCollectionEvent"
+        ]
+      }
+    ]
+  }
 }
 ```
-After you finish editing the template, use `POST` or `PUT` to deploy it:
 
-```rest
-PUT
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version=2019-11-01-preview
+- Verify that the `streams` field is set to `Microsoft-CommonSecurityLog`.
+- Add the filter and facility log levels in the `facilityNames` and `logLevels` parameters. See [examples below](#examples-of-facilities-and-log-levels-sections).
+
+##### Create the request URL and header
+
+1. Copy the request URL and header below by selecting the *copy* icon in the upper right corner of the frame.
+    - Substitute the appropriate values for the `{subscriptionId}` and `{resourceGroupName}` placeholders. 
+    - Enter a name of your choice for the DCR in place of the `{dataCollectionRuleName}` placeholder.
+
+    ```http
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version=2022-06-01
+    ```
+
+1. Paste the request URL and header in a REST API client of your choosing.
+
+##### Create the request body and send the request
+
+Copy and paste the DCR JSON file that you created (based on the example above) into the request body, and send it.
+ 
+Here's the response you should receive according to the sample request above:
+
+```json
+  {
+    "properties": {
+      "immutableId": "dcr-0123456789abcdef0123456789abcdef",
+      "dataSources": {
+        "syslog": [
+          {
+            "streams": [
+              "Microsoft-CommonSecurityLog"
+            ],
+            "facilityNames": [
+              "auth",
+              "local0",
+              "local1",
+              "local2",
+              "local3",
+              "syslog"
+            ],
+            "logLevels": [
+              "Critical",
+              "Alert",
+              "Emergency"
+            ],
+            "name": "localsSyslog"
+          },
+          {
+            "streams": [
+              "Microsoft-CommonSecurityLog"
+            ],
+            "facilityNames": [
+              "authpriv"
+            ],
+            "logLevels": [
+              "Error",
+              "Alert",
+              "Critical",
+              "Emergency"
+            ],
+            "name": "authprivSyslog"
+          }
+        ]
+      },
+      "destinations": {
+        "logAnalytics": [
+          {
+            "workspaceResourceId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/Contoso",
+            "workspaceId": "11111111-2222-3333-4444-555555555555",
+            "name": "DataCollectionEvent"
+          }
+        ]
+      },
+      "dataFlows": [
+        {
+          "streams": [
+            "Microsoft-CommonSecurityLog"
+          ],
+          "destinations": [
+            "DataCollectionEvent"
+          ]
+        }
+      ],
+      "provisioningState": "Succeeded"
+    },
+    "location": "centralus",
+    "kind": "Linux",
+    "id": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR",
+    "name": "Contoso-DCR",
+    "type": "Microsoft.Insights/dataCollectionRules",
+    "etag": "\"00000000-0000-0000-0000-000000000000\"",
+    "systemData": {
+    }
+  }
 ```
+
+#### Associate the DCR with the log forwarder
+
+Now you need to create a DCR Association (DCRA) that ties the DCR to the VM resource that hosts your log forwarder.
+
+This procedure follows the same steps as creating the DCR.
+
+##### Request URL and header
+
+```http
+PUT 
+https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/My-Log-Forwarder/providers/Microsoft.Insights/dataCollectionRuleAssociations/contoso-dcr-assoc?api-version=2022-06-01
+```
+
+##### Request body
+
+```json
+{
+  "properties": {
+    "dataCollectionRuleId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/contoso-dcr"
+  }
+}
+```
+
+Here's a sample response:
+
+```json
+{
+    "properties": {
+      "dataCollectionRuleId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/contoso-dcr"
+    },
+    "id": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/My-Log-Forwarder/providers/Microsoft.Insights/dataCollectionRuleAssociations/contoso-dcr-assoc",
+    "name": "contoso-dcr-assoc",
+    "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+    "etag": "\"00000000-0000-0000-0000-000000000000\"",
+    "systemData": {
+    }
+  }
+```
+
 #### Examples of facilities and log levels sections
 
 Review these examples of the facilities and log levels settings. The `name` field includes the filter name.
 
 This example collects events from the `cron`, `daemon`, `local0`, `local3` and `uucp` facilities, with the `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels:
 
-```rest
-    "syslog": [
-    {
-            "streams": [
-                "Microsoft-CommonSecurityLog"
+```json
+    "dataSources": {
+      "syslog": [
+        {
+        "name": "SyslogStream0",
+        "streams": [
+          "Microsoft-CommonSecurityLog"
         ],
         "facilityNames": [ 
-            "cron",
-            "daemon",
-            "local0",
-            "local3", 
-            "uucp"
+          "cron",
+          "daemon",
+          "local0",
+          "local3", 
+          "uucp"
         ],
- 
         "logLevels": [ 
-            "Warning", 
-            "Error", 
-            "Critical", 
-            "Alert", 
-            "Emergency"
-        ],
-        "name": "sysLogsDataSource-1688419672"
-    }
-]
+          "Warning", 
+          "Error", 
+          "Critical", 
+          "Alert", 
+          "Emergency"
+        ]
+      }
+    ]
+  }
 ```
 
 This example collects events for:
@@ -299,75 +441,77 @@ This example collects events for:
 - The `kern`, `local0`, `local5`, and `news` facilities with the `Critical`, `Alert`, and `Emergency` log levels 
 - The `mail` and `uucp` facilities with the `Emergency` log level
 
-```rest
-        "syslog": [
-            {
-                "streams": [ 
-                    "Microsoft-CommonSecurityLog"
-            ],
-                "facilityNames": [ 
-                    "authpriv", 
-                    "mark"
-            ],
-                "logLevels": [
-                    "Info",
-                    "Notice", 
-                    "Warning", 
-                    "Error", 
-                    "Critical", 
-                    "Alert", 
-                    "Emergency"
-            ],
-                "name": "sysLogsDataSource--1469397783"
+```json
+    "dataSources": {
+      "syslog": [
+        {
+          "name": "SyslogStream1",
+          "streams": [ 
+            "Microsoft-CommonSecurityLog"
+          ],
+          "facilityNames": [ 
+            "authpriv", 
+            "mark"
+          ],
+          "logLevels": [
+            "Info",
+            "Notice", 
+            "Warning", 
+            "Error", 
+            "Critical", 
+            "Alert", 
+            "Emergency"
+          ]
         },
         {
-                "streams": [ "Microsoft-CommonSecurityLog"
-            ],
-                "facilityNames": [ 
-                    "daemon"
-            ],
-                "logLevels": [ 
-                    "Warning", 
-                    "Error", 
-                    "Critical", 
-                    "Alert", 
-                    "Emergency"
-            ],
-     
-                "name": "sysLogsDataSource--1343576735"
+          "name": "SyslogStream2",
+          "streams": [ 
+            "Microsoft-CommonSecurityLog"
+          ],
+          "facilityNames": [ 
+            "daemon"
+          ],
+          "logLevels": [ 
+            "Warning", 
+            "Error", 
+            "Critical", 
+            "Alert", 
+            "Emergency"
+          ]
         },
         {
-                "streams": [ 
-                    "Microsoft-CommonSecurityLog"
-            ],
-                "facilityNames": [ 
-                    "kern",
-                    "local0",
-                    "local5", 
-                    "news"
-            ],
-                "logLevels": [ 
-                    "Critical", 
-                    "Alert", 
-                    "Emergency"
-            ],
-                "name": "sysLogsDataSource--1469572587"
+          "name": "SyslogStream3",
+          "streams": [ 
+            "Microsoft-CommonSecurityLog"
+          ],
+          "facilityNames": [ 
+            "kern",
+            "local0",
+            "local5", 
+            "news"
+          ],
+          "logLevels": [ 
+            "Critical", 
+            "Alert", 
+            "Emergency"
+          ]
         },
         {
-                "streams": [ 
-                    "Microsoft-CommonSecurityLog"
-            ],
-                "facilityNames": [ 
-                    "mail",
-                    "uucp"
-            ],
-                "logLevels": [ 
-                    "Emergency"
-            ],
-                "name": "sysLogsDataSource-1689584311"
+          "name": "SyslogStream4",
+          "streams": [ 
+            "Microsoft-CommonSecurityLog"
+          ],
+          "facilityNames": [ 
+            "mail",
+            "uucp"
+          ],
+          "logLevels": [ 
+            "Emergency"
+          ]
         }
-    ]
-}
+      ]
+    }
+
 ```
 
 ---
@@ -387,7 +531,7 @@ The "installation" script doesn't actually install anything, but it configures t
     sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
     ```
 
-# [Azure Monitor API](#tab/api)
+# [Logs Ingestion API](#tab/api)
 
 1. Copy the command line:
 
