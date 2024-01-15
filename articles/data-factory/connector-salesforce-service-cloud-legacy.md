@@ -359,6 +359,9 @@ When you copy data from Salesforce Service Cloud, the following mappings are use
 | Text (Encrypted) |String |
 | URL |String |
 
+> [!Note]
+> Salesforce Service Cloud Number type is mapping to Decimal type in Azure Data Factory and Azure Synapse pipelines as a service interim data type. Decimal type honors the defined precision and scale. For data whose decimal places exceeds the defined scale, its value will be rounded off in preview data and copy. To avoid getting such precision loss in Azure Data Factory and Azure Synapse pipelines, consider increasing the decimal places to a reasonably large value in **Custom Field Definition Edit** page of Salesforce Service Cloud.
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
