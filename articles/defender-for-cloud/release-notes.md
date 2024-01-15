@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 01/07/2024
+ms.date: 01/15/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -22,20 +22,28 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## January 2024
 
-| Date | Update |
-|--|--|
-| January 8 | [Public preview of agentless malware scanning for servers](#public-preview-of-agentless-malware-scanning-for-servers)|
+Learn more about [Agentless malware scanning](agentless-malware-scanning.md) for servers.
+| January 16 | [Public preview of agentless malware scanning for servers](#public-preview-of-agentless-malware-scanning-for-servers)|
+| January 15 | [General availability of Defender for Cloud's integration with Microsoft Defender XDR](#general-availability-of-defender-for-clouds-integration-with-microsoft-defender-xdr) |
 | January 4 | [Recommendations released for preview: Nine new Azure security recommendations](#recommendations-released-for-preview-nine-new-azure-security-recommendations) |
 
 ### Public preview of agentless malware scanning for servers
 
-January 8, 2024
+January 16, 2024
 
 We're announcing the release of Defender for Cloud's agentless malware detection for Azure virtual machines (VM), AWS EC2 instances and GCP VM instances, as a new feature included in [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features).
 
 Agentless malware detection for virtual machines uses [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows?view=o365-worldwide) engine to scan and detect malware and virus threats on your virtual machines. Any detected threats, trigger security alerts in Defender for Cloud, which allow you to investigate and remediate the detected threats. The Agentless malware scanner extends your malware detection coverage with frictionless onboarding and provides results within hours. The scanner doesn't leave a footprint and has no effect on your machine's performance.
 
-Learn more about [Agentless malware scanning](agentless-malware-scanning.md) for servers.
+### General availability of Defender for Cloud's integration with Microsoft Defender XDR
+
+January 15, 2024
+
+We're announcing the general availability (GA) of the integration between Defender for Cloud and Microsoft Defender XDR (formerly Microsoft 365 Defender).
+
+The integration brings competitive cloud protection capabilities into the Security Operations Center (SOC) day-to-day. With Microsoft Defender for Cloud and the Defender XDR integration, SOC teams can discover attacks that combine detections from multiple pillars, including Cloud, Endpoint, Identity, Office 365, and more.
+
+Learn more about [alerts and incidents in Microsoft Defender XDR](concept-integration-365.md).
 
 ### Recommendations released for preview: Nine new Azure security recommendations
 
