@@ -65,7 +65,7 @@ To avoid this scenario, use one of these methods:
 
 - Create the DCR via the API:
     1. [Create the request URL and header](connect-cef-ama.md#create-the-request-url-and-header). 
-    1. [Create the request body](connect-cef-ama.md#create-the-request-body).
+    1. [Create the request body](connect-cef-ama.md#create-the-request-body-and-send-the-request).
 
     See [examples of facilities and log levels sections](connect-cef-ama.md#examples-of-facilities-and-log-levels-sections).
 
