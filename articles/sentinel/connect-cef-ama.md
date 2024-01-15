@@ -521,8 +521,6 @@ This example collects events for:
 
 The "installation" script doesn't actually install anything, but it configures the Syslog daemon on your log forwarder properly to collect the logs.
 
-# [Microsoft Sentinel portal](#tab/portal)
-
 1. From the connector page, copy the command line that appears under **Run the following command to install and apply the CEF collector:** by selecting the *copy* icon next to it.
 
     :::image type="content" source="media/connect-cef-ama/run-install-script.png" alt-text="Screenshot of command line on connector page.":::
@@ -531,15 +529,6 @@ The "installation" script doesn't actually install anything, but it configures t
     ```python
     sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
     ```
-
-# [Logs Ingestion API](#tab/api)
-
-1. Copy the command line:
-
-    ```python
-    sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
-    ```
----
 
 1. Log in to the log forwarder machine where you just installed the AMA.
 
