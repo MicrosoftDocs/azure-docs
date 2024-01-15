@@ -83,8 +83,8 @@ These values will be used later in this article. Note that several other useful 
 
 > [!NOTE]
 > You may notice a similar output named **appDeploymentYaml**. The difference between output *appDeploymentTemplateYaml* and *appDeploymentYaml* is:
-> * *appDeploymentTemplateYaml* is only populated if you didn't deploy an application.
-> * *appDeploymentYaml* is only populated if you deployed an application.
+> * *appDeploymentTemplateYaml* is populated if and only if the deployment **does not include** an application.
+> * *appDeploymentYaml* is populated if and only if the deployment **does include** an application.
 
 ## Create an Azure SQL Database
 
@@ -141,9 +141,9 @@ java-app
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *aks* directory, there are five deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication-agic.yaml* is used in this quickstart to deploy the Open Liberty Application with AGIC. You can try to deploy the application without AGIC using the file *openlibertyapplication.yaml*. Besides, use the file *webspherelibertyapplication-agic.yaml* or *webspherelibertyapplication.yaml* to deploy the WebSphere Liberty Application with or without AGIC if you deployed WebSphere Liberty Operator in section [Create a Liberty on AKS deployment using the portal](#create-a-liberty-on-aks-deployment-using-the-portal).
+In the *aks* directory, there are five deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication-agic.yaml* is used in this quickstart to deploy the Open Liberty Application with AGIC. If desired, you can deploy the application without AGIC using the file *openlibertyapplication.yaml*. Use the file *webspherelibertyapplication-agic.yaml* or *webspherelibertyapplication.yaml* to deploy the WebSphere Liberty Application with or without AGIC if you deployed WebSphere Liberty Operator in section [Create a Liberty on AKS deployment using the portal](#create-a-liberty-on-aks-deployment-using-the-portal).
 
-In the *docker* directory, there are two files to create the application image with either Open Liberty (*Dockerfile*) or WebSphere Liberty (*Dockerfile-wlp*). You use the file *Dockerfile* to build the application image with Open Liberty in this quickstart. Similarily, use the file *Dockerfile-wlp* to build the application image with WebSphere Liberty if you deployed WebSphere Liberty Operator in section [Create a Liberty on AKS deployment using the portal](#create-a-liberty-on-aks-deployment-using-the-portal).
+In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty. These file are *Dockerfile* and *Dockerfile-wlp*, respectively. You use the file *Dockerfile* to build the application image with Open Liberty in this quickstart. Similarily, use the file *Dockerfile-wlp* to build the application image with WebSphere Liberty if you deployed WebSphere Liberty Operator in section [Create a Liberty on AKS deployment using the portal](#create-a-liberty-on-aks-deployment-using-the-portal).
 
 In directory *liberty/config*, the *server.xml* file is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
