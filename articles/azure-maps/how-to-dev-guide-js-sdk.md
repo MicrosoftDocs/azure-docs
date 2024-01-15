@@ -153,6 +153,52 @@ const credential = new AzureKeyCredential(process.env.MAPS_SUBSCRIPTION_KEY);
 const client = MapsSearch(credential);
 ```
 
+### Using a Shared Access Signature (SAS) Token Credential
+
+Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API.
+
+You can get the SAS token using [`AzureMapsManagementClient.accounts.listSas`][listSas] package. Please follow the section [Create and authenticate a `AzureMapsManagementClient`][azureMapsManagedmentClient] to setup first.
+
+Second, follow [Managed identities for Azure Maps][managedIdentity] to create a managed identity for your Azure Maps account. Copy the principal ID (object ID) of the managed identity.
+
+Third, you will need to install [Azure Core Authentication Package] package to use `AzureSASCredential`:
+
+```bash
+npm install @azure/core-auth
+```
+
+Finally, you can use the SAS token to authenticate the client:
+
+```javascript
+  const MapsSearch = require("@azure-rest/maps-search").default;
+  const { AzureSASCredential } = require("@azure/core-auth");
+  const { DefaultAzureCredential } = require("@azure/identity");
+  const { AzureMapsManagementClient } = require("@azure/arm-maps");
+
+  const subscriptionId = "<subscription ID of the map account>"
+  const resourceGroupName = "<resource group name of the map account>";
+  const accountName = "<name of the map account>";
+  const mapsAccountSasParameters = {
+    start: "<start time in ISO format>", // e.g. "2023-11-24T03:51:53.161Z"
+    expiry: "<expiry time in ISO format>", // maximum value to start + 1 day
+    maxRatePerSecond: 500,
+    principalId: "<principle ID (object ID) of the managed identity>",
+    signingKey: "primaryKey",
+  };
+  const credential = new DefaultAzureCredential();
+  const managementClient = new AzureMapsManagementClient(credential, subscriptionId);
+  const {accountSasToken} = await managementClient.accounts.listSas(
+    resourceGroupName,
+    accountName,
+    mapsAccountSasParameters
+  );
+  if (accountSasToken === undefined) {
+    throw new Error("No accountSasToken was found for the Maps Account.");
+  }
+  const sasCredential = new AzureSASCredential(accountSasToken);
+  const client = MapsSearch(sasCredential);
+```
+
 ## Geocoding
 
 The following code snippet demonstrates how, in a simple console application, to import the `azure-maps-search` package and get the coordinates of an address using [geocode] query:
@@ -377,6 +423,7 @@ main().catch((err) => {
 [Azure Identity library]: /javascript/api/overview/azure/identity-readme
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential
+[azureMapsManagedmentClient]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/arm-maps#create-and-authenticate-a-azuremapsmanagementclient
 [geocode]: /javascript/api/@azure-rest/maps-search/geocode
 [GetGeocoding]: /javascript/api/@azure-rest/maps-search/getgeocoding 
 [GeocodingResponseOutput]: /javascript/api/@azure-rest/maps-search/geocodingresponseoutput
@@ -392,6 +439,8 @@ main().catch((err) => {
 [js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
 [js route sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-route-rest/samples/
 [JS-SDK]: /javascript/api/@azure-rest/maps-search
+[listSas]: /javascript/api/%40azure/arm-maps/accounts?view=azure-node-latest#@azure-arm-maps-accounts-listsas
+[managedIdentity]: https://techcommunity.microsoft.com/t5/azure-maps-blog/managed-identities-for-azure-maps/ba-p/3666312
 [Node.js Release Working Group]: https://github.com/nodejs/release#release-schedule
 [Node.js]: https://nodejs.org/en/download/
 [search package]: https://www.npmjs.com/package/@azure-rest/maps-search
