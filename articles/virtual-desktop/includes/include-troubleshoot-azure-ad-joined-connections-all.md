@@ -21,7 +21,7 @@ If you've answered no to either of those questions, you'll need to reconfigure y
 > [!IMPORTANT] 
 > VM sign-ins don't support per-user enabled or enforced Microsoft Entra multifactor authentication. If you try to sign in with multifactor authentication on a VM, you won't be able to sign in and will receive an error message.
 
-If you have [integrated Microsoft Entra logs with Azure Monitor logs](/entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs), you can access your Microsoft Entra sign-in logs through Log Analytics, you can see if you've enabled multifactor authentication and which Conditional Access policy is triggering the event. The events shown are non-interactive user login events for the VM, which means the IP address will appear to come from the external IP address from which your VM accesses Microsoft Entra ID. 
+If you have [integrated Microsoft Entra logs with Azure Monitor logs](/entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs) to access your Microsoft Entra sign-in logs through Log Analytics, you can see if you've enabled multifactor authentication and which Conditional Access policy is triggering the event. The events shown are non-interactive user login events for the VM, which means the IP address will appear to come from the external IP address from which your VM accesses Microsoft Entra ID. 
 
 You can access your sign-in logs by running the following Kusto query:
 
