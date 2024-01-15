@@ -265,11 +265,11 @@ The output looks as follows:
 
 ## Considerations when deploying to batch inference
 
-Azure Machine Learning supports deploying MLflow models to batch endpoints without indicating an scoring script. This represents a convenient way to deploy models that require processing of big amounts of data in a batch-fashion. Azure Machine Learning uses information in the MLflow model specification to orchestrate the inference process.
+Azure Machine Learning supports deploying MLflow models to batch endpoints without indicating a scoring script. This represents a convenient way to deploy models that require processing of big amounts of data in a batch-fashion. Azure Machine Learning uses information in the MLflow model specification to orchestrate the inference process.
 
 ### How work is distributed on workers
 
-Batch Endpoints distribute work at the file level, for both structured and unstructured data. As a consequence, only [URI file](reference-yaml-data.md) and [URI folders](reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. For tabular data, batch endpoints doesn't take into account the number of rows inside of each file when distributing the work.
+Batch Endpoints distribute work at the file level, for both structured and unstructured data. As a consequence, only [URI file](reference-yaml-data.md) and [URI folders](reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. For tabular data, batch endpoints don't take into account the number of rows inside of each file when distributing the work.
 
 > [!WARNING]
 > Nested folder structures are not explored during inference. If you are partitioning your data using folders, make sure to flatten the structure beforehand.
@@ -314,7 +314,7 @@ You will typically select this workflow when:
 > * You model can't process each file at once because of memory constrains and it needs to read it in chunks.
 
 > [!IMPORTANT]
-> If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
+> If you choose to indicate a scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
 
 
 ### Steps
