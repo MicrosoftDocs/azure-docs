@@ -56,17 +56,9 @@ Use the Image Analysis client SDK for JavaScript to analyze an image to read tex
     npm install @azure-rest/ai-vision-image-analysis
     ```
 
-    Also install the async module:
-
-    ```console
-    npm install async
-    ```
-
     Your app's `package.json` file will be updated with the dependencies.
 
-    Create a new file, *index.js*. 
-
-1. Open *index.js* in a text editor and paste in the following code.
+1. Create a new file, *index.js*. Open it in a text editor and paste in the following code.
 
    [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/4-0/quickstart.js?name=snippet_single)]
 

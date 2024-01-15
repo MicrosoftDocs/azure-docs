@@ -72,7 +72,7 @@ You can specify the language of the returned data. The language is optional, wit
 
 The following code shows you how to parse the results of the various **analyze** operations.
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/4-0/how-to.js?name=snippet_node)]
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/4-0/how-to.js?name=snippet_results)]
 
 
 ## Troubleshooting
