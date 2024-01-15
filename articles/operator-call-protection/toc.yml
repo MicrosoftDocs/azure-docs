@@ -14,5 +14,7 @@ items:
     href: ../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
   - name: Deploy Azure Communications Gateway
     href: ../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+  - name: Integrate with Azure Communications Gateway's API
+    href: ../communications-gateway/integrate-with-provisioning-api.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
   - name: Set up Azure Operator Call Protection
     href: set-up-operator-call-protection.md
