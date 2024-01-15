@@ -14,14 +14,14 @@ This guide shows how to install the Vision SDK for Java.
 
 [!INCLUDE [Requirements](java-requirements.md)]
 
-## Install the Vision SDK for Java
+## Install the Image Analysis SDK for Java
 
 The Image Analysis SDK for Java is available as a Maven package. For more information, see the package <a href="https://aka.ms/azsdk/image-analysis/package/maven" target="_blank">azure-ai-vision-imageanalysis</a> in the Maven repository.
 
 
 # [Maven](#tab/maven)
 
-Follow these steps to install the Vision SDK for Java using Apache Maven:
+Follow these steps to install the Image Analysis SDK for Java using Apache Maven:
 
 1. Install [Apache Maven](https://maven.apache.org/download.cgi). On Linux, install from the distribution repositories if available.
 1. Open a command prompt and run `mvn -v` to confirm successful installation.
@@ -51,7 +51,7 @@ Follow these steps to install the Vision SDK for Java using Apache Maven:
     ```
 
 1. Update the version value in `<version>1.0.0-beta.1</version>` based on the latest version you find in the Maven repository for the [azure-ai-vision-imageanalysis](https://aka.ms/azsdk/image-analysis/package/maven) package.
-1. Run the following Maven command to install the Vision SDK and dependencies.
+1. Run the following Maven command to install the Image Analysis SDK and dependencies.
     ```console
     mvn clean dependency:copy-dependencies
     ```

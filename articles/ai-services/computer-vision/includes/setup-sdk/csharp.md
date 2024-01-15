@@ -8,20 +8,20 @@ ms.author: pafarley
 
 [Reference documentation](https://aka.ms/azsdk/image-analysis/ref-docs/csharp) | [Package (NuGet)](https://aka.ms/azsdk/image-analysis/package/nuget) | [Samples](https://aka.ms/azsdk/image-analysis/samples/csharp)
 
-This guide shows how to install the Vision SDK for C#. 
+This guide shows how to install the Image Analysis SDK for C#. 
 
 ## Platform requirements
 
 [!INCLUDE [Requirements](csharp-requirements.md)]
 
-## Install the Vision SDK for C#
+## Install the Image Analysis SDK for C#
 
-The Vision SDK for C# is available as a NuGet package and implements .NET Standard 2.0. For more information, see <a href="https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis" target="_blank">Azure.AI.Vision.ImageAnalysis</a>.
+The Image Analysis SDK for C# is available as a NuGet package and implements .NET Standard 2.0. For more information, see <a href="https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis" target="_blank">Azure.AI.Vision.ImageAnalysis</a>.
 
 
 # [Terminal](#tab/dotnetcli)
 
-The Vision SDK for C# can be installed from the [.NET CLI](https://dotnet.microsoft.com/download/dotnet/). To add a package reference in your project file, run this command in the folder where your `.csproj` file is located:
+The Image Analysis SDK for C# can be installed from the [.NET CLI](https://dotnet.microsoft.com/download/dotnet/). To add a package reference in your project file, run this command in the folder where your `.csproj` file is located:
 
 ```dotnetcli
 dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
@@ -29,7 +29,7 @@ dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 
 # [PowerShell](#tab/powershell)
 
-The Vision SDK for C# can be installed from the [.NET CLI](https://dotnet.microsoft.com/download/dotnet/). To add a package reference in your project file, run this command in the folder where your `.csproj` file is located:
+The Image Analysis SDK for C# can be installed from the [.NET CLI](https://dotnet.microsoft.com/download/dotnet/). To add a package reference in your project file, run this command in the folder where your `.csproj` file is located:
 
 ```powershell
 Install-Package Azure.AI.Vision.ImageAnalysis --prerelease
