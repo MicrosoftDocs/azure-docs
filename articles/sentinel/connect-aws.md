@@ -203,7 +203,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
       -   For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in the Microsoft Sentinel GitHub repository.
 
          - Name the role with a meaningful name that includes a reference to Microsoft Sentinel. Example: "*MicrosoftSentinelRole*".
-         - For FairFax, edit Trust policy and add 
+         - For FairFax, edit Trust policy and add another condition: "sts:RoleSessionName":"MicrosoftDefenderForClouds_<CustomerTenantID_OR_WorkSpaceID(Sentinel)>"
 
          ### Add the AWS role and queue information to the S3 data connector
 
