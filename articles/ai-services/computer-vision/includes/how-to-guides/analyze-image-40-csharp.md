@@ -24,7 +24,7 @@ To authenticate against the Image Analysis service, you need a Computer Vision k
 
 Start by creating a **ImageAnalysisClient** object. For example:
 
-[!code-java[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_client)]
+[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_client)]
 
 
 ## Select the image to analyze
@@ -33,16 +33,16 @@ You can select an image by providing a publicly accessible image URL, or a local
 
 ### Image URL
 
-Create a **URri** object for the image you want to analyze.
+Create a **Uri** object for the image you want to analyze.
 
-[!code-java[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_url)]
+[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_url)]
 
 
 ### Local image
 
 Create a new **BinaryData** object from the local image file you want to analyze. 
 
-[!code-java[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_file)]
+[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_file)]
 
 
 ## Select analysis options
@@ -51,10 +51,10 @@ Use an **ImageAnalysisOptions** object to specify various options for the Analyz
 
 - **Language**: You can specify the language of the returned data. The language is optional, with the default being English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language. 
 - **Gender neutral captions**: If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
-- **Crop aspect ratio**: An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
+- **Crop aspect ratio**: An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **VisualFeatures.SmartCrops** (SDK) was selected as part the visual feature list. If you select smartCrop/VisualFeatures.SmartCrops but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 
-[!code-java[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_options)]
+[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_options)]
 
 
 ## Select visual features
@@ -69,7 +69,7 @@ The Analysis 4.0 API gives you access to all of the service's image analysis fea
 >
 > The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**, whereas the SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
 
-[!code-java[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_features)]
+[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_features)]
 
 <!--
 ### Set model name when using a custom model
@@ -88,14 +88,14 @@ This section shows you how to make an analysis call to the service. The call is 
 
 Call the **analyze** method on the **ImageAnalysisClient** object, as shown here. Use the input objects created in the above sections.
 
-[!code-java[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_call)]
+[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_call)]
 
 
 ## Get results from the service
 
 The following code shows you how to parse the results of the various Analyze operations.
 
-[!code-java[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_results)]
+[!code-dotnet[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/HowTo.cs?name=snippet_results)]
 
 <!--
 ### Get results using custom model
