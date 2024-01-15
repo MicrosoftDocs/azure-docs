@@ -275,11 +275,17 @@ The following is an example of a DCR creation request:
 ##### Create the request URL and header
 
 1. Copy the request URL and header below by selecting the *copy* icon in the upper right corner of the frame.
-    - Substitute the appropriate values for the `{subscriptionId}` and `{resourceGroupName}` placeholders. 
-    - Enter a name of your choice for the DCR in place of the `{dataCollectionRuleName}` placeholder.
 
     ```http
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version=2022-06-01
+    ```
+
+    - Substitute the appropriate values for the `{subscriptionId}` and `{resourceGroupName}` placeholders. 
+    - Enter a name of your choice for the DCR in place of the `{dataCollectionRuleName}` placeholder.
+
+    Example:
+    ```http
+    PUT https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR-01?api-version=2022-06-01
     ```
 
 1. Paste the request URL and header in a REST API client of your choosing.
@@ -355,8 +361,8 @@ Here's the response you should receive according to the sample request above:
     },
     "location": "centralus",
     "kind": "Linux",
-    "id": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR",
-    "name": "Contoso-DCR",
+    "id": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR-01",
+    "name": "Contoso-DCR-01",
     "type": "Microsoft.Insights/dataCollectionRules",
     "etag": "\"00000000-0000-0000-0000-000000000000\"",
     "systemData": {
@@ -374,7 +380,7 @@ This procedure follows the same steps as creating the DCR.
 
 ```http
 PUT 
-https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/My-Log-Forwarder/providers/Microsoft.Insights/dataCollectionRuleAssociations/contoso-dcr-assoc?api-version=2022-06-01
+https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/LogForwarder-VM-1/providers/Microsoft.Insights/dataCollectionRuleAssociations/contoso-dcr-assoc?api-version=2022-06-01
 ```
 
 ##### Request body
@@ -382,7 +388,7 @@ https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/
 ```json
 {
   "properties": {
-    "dataCollectionRuleId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/contoso-dcr"
+    "dataCollectionRuleId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR-01"
   }
 }
 ```
@@ -392,9 +398,9 @@ Here's a sample response:
 ```json
 {
     "properties": {
-      "dataCollectionRuleId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/contoso-dcr"
+      "dataCollectionRuleId": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Insights/dataCollectionRules/Contoso-DCR-01"
     },
-    "id": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/My-Log-Forwarder/providers/Microsoft.Insights/dataCollectionRuleAssociations/contoso-dcr-assoc",
+    "id": "/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/LogForwarder-VM-1/providers/Microsoft.Insights/dataCollectionRuleAssociations/contoso-dcr-assoc",
     "name": "contoso-dcr-assoc",
     "type": "Microsoft.Insights/dataCollectionRuleAssociations",
     "etag": "\"00000000-0000-0000-0000-000000000000\"",
