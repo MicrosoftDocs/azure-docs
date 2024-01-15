@@ -8,9 +8,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating with Azure Active Directory B2C, I want to understand how claims providers work and how to configure their technical profiles, so that I can communicate with different parties and leverage their capabilities.
+
 ---
 
 # ClaimsProviders
