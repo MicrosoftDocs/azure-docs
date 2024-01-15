@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 01/11/2024
+ms.date: 01/15/2024
 ---
 
 # Microsoft Sentinel solution for SAP® applications data reference
@@ -305,17 +305,20 @@ The [Microsoft Sentinel solution for SAP® applications](solution-overview.md) u
 
 1. Add the **SAPUsersGetVIP** function in your analytics rules to request the lists of users you've defined to be excluded from alerts.
 
-For example, use the following KQL query in your analytics rule to exclude users with the *RunObsoleteProgOK*, *SAP_ROLE*, or *SAP_PROFILE* tags from triggering alerts. If you frequently create new users that you'd like to tag with an *RFC* prefix, add a single user to the *SAP User Config* watchlist as *RFC**, and tag it as *RunObsoleteProgOK*. This excludes all users with an *RFC* prefix from triggering alerts.
+For example, use the following KQL query in your analytics rule to exclude any users configured with the *RunObsoleteProgOK* tag in the *SAP_User_Config* watchlist, or any users with the *SAP_BASIS_ADMIN_ROLE* role or *SAP_ADMIN_PROFILE* profile.
+
+When copying this sample, replace *SAP_BASIS_ADMIN_ROLE* role and *SAP_ADMIN_PROFILE* profile with your own SAP roles or profiles.
 
 ```kusto
 // Execution of Obsolete/Insecure Program
 let ObsoletePrograms = _GetWatchlist("SAP - Obsolete Programs");
 // here you can exclude system users which are OK to run obsolete/ sensitive programs
-// by adding those users in the SAP_User_Config watchlist with a tag of 'RunObsoleteProgOK', 'SAP_ROLE', or 'SAP_PROFILE']
-let excludeUsersTags= dynamic(['RunObsoleteProgOK']);
-let excludedUsers= SAPUsersGetVIP(SearchForTags= dynamic(["RunObsoleteProgOK","SAP_ROLE", "SAP_PROFILE"]))| summarize by User2Exclude=SAPUser;
+// by adding those users in the SAP_User_Config watchlist with a tag of 'RunObsoleteProgOK'
+// can also specify SAP roles or SAP profiles that group the users you would like to exclude
+let excludeUsersTagsRolesProfiles= dynamic(["RunObsoleteProgOK","SAP_BASIS_ADMIN_ROLE", "SAP_ADMIN_PROFILE"]);
+let excludedUsers= SAPUsersGetVIP(SearchForTags= excludeUsersTagsRolesProfiles)| summarize by User2Exclude=SAPUser;
 // Query logic
-SAPAuditLog 
+SAPAuditLog
 | where MessageID == 'AUW'
 | where ABAPProgramName in (ObsoletePrograms) // The program is obsolete
 | join kind=leftantisemi excludedUsers on $left.User == $right.User2Exclude
@@ -324,28 +327,28 @@ SAPAuditLog
 The **SAPUsersGetVIP** function is commonly used in *Deterministic and Anomalous Audit Log Monitor* alerts. Associate a tag with an SAP audit log message ID, or extend the rule template to a custom rule that matches your organization's needs.
 
 > [!TIP]
-> We recommend that contacting your SAP system admin to understand which SAP users, roles, and profiles to include in your *SAP User Config* watchlist.
+> We recommend that contacting your SAP system admin to understand which SAP users, roles, and profiles to include in your *SAP_User_Config* watchlist.
 >
 
 **Parameters:**
 
 |Name  |Description  |Default value  |
 |---------|---------|---------|
-|**SearchForTags** (Optional)    |  When `SearchForTags` equals `All Tags`, all users are returned along with their tags. <br><br>Otherwise, only users bearing the tags specified in `SearchForTags` are returned. `TagsIntersect` shows the tags that are found, and `IntersectionSize` holds the number of tags that are found.      |   `dynamic('All Tags')`      |
-|**SpecialFocusTags** (Optional)     |   Returns all users bearing the tags specified in `SpecialFocusTags`, and marked those with `specialFocusTagged = true`.      |     `Do not return any in-focus users``    |
+|**SearchForTags** (Optional)    |  When `SearchForTags` equals `All Tags`, all users are returned along with their tags. <br><br>Otherwise, only users bearing the tags, SAP roles, or SAP profiles specified in `SearchForTags` are returned. `TagsIntersect` shows the tags that are found, and `IntersectionSize` holds the number of tags that are found.      |   `dynamic('All Tags')`      |
+|**SpecialFocusTags** (Optional)     |   Returns all users bearing the tags specified in `SpecialFocusTags`, and marked those with `specialFocusTagged = true`.      |     `Do not return any in-focus users`    |
 
 
 | Source | Field | Description | Notes  
 | ------------- | ------------- | ------------- | -------------  
 | The *SAP User Config* watchlist | SearchKey | Search Key |
 | The *SAP User Config* watchlist | SAPUser | The SAP User | OSS, DDIC  
-| The *SAP User Config* watchlist | Tags | string of tags assigned to user | RunObsoleteProgOK, SAP_ROLE, SAP_PROFILE |  
+| The *SAP User Config* watchlist | Tags | String of tags, SAP roles, or SAP profiles assigned to user | RunObsoleteProgOK |  
 | The *SAP User Config* watchlist | User's Microsoft Entra Object ID | Microsoft Entra Object ID |   
 | The *SAP User Config* watchlist | User Identifier | AD User Identifier |
 | The *SAP User Config* watchlist | User on-premises Sid |  |
 | The *SAP User Config* watchlist | User Principal Name |  |
-| The *SAP User Config* watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK;SAP_ROLE;SAP_PROFILE
-| Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK","SAP_ROLE","SAP_PROFILE"]  
+| The *SAP User Config* watchlist | TagsList | A list of tags, SAP roles, or SAP profiles assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK |
+| Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  |
 | Logic | SpecialFocusTagged | Special focus indication | True, False  
 | Logic | IntersectionSize | The number of intersected Tags |
 
