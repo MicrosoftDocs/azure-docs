@@ -300,9 +300,9 @@ The [Microsoft Sentinel solution for SAP® applications](solution-overview.md) u
 
 1. Tag users in the *SAP_User_Config* watchlist as follows:
 
-  - Add multiple tags to each user in the *SAP_User_Config* watchlist, as needed to cover various scenarios. Each alert rule has its own relevant tags, if any, and you can add custom tags as needed.
+    - Add multiple tags to each user in the *SAP_User_Config* watchlist, as needed to cover various scenarios. Each alert rule has its own relevant tags, if any, and you can add custom tags as needed.
 
-  - Use an asterisk (*) as a wildcard to include users with a specific naming syntax template.
+    - Use an asterisk (*) as a wildcard to include users with a specific naming syntax template.
 
 1. Add the **SAPUsersGetVIP** function in your analytics rules to request the lists of users you've defined to be excluded from alerts. In the function call, add an array with the tags, SAP roles, and SAP profiles that you'd like to exclude.
 
