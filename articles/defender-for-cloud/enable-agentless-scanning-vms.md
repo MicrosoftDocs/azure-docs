@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/14/2024
+ms.date: 01/15/2024
 ---
 
 # Enable agentless scanning for VMs
@@ -111,41 +111,102 @@ After you enable agentless scanning, software inventory and vulnerability inform
 
 Security alerts appear on the portal only in cases where threats are detected on your environment. If you do not have any alerts it may be because there are no threats on your environment. You can validate that the device is properly onboarded and reporting to Defender for Cloud by creating an European Institute for Computer Antivirus Research (EICAR) test file.
 
-### Create an EICAR test file for Linux
-
-Before you start, if you have Defender for Endpoint agent or anti-virus software enabled, you must [exclude the EICAR threat](/microsoft-365/security/defender-endpoint/linux-exclusions?view=o365-worldwide) file before running the test or it will be detected and automatically deleted.
-
-**To create an EICAR test file for Linux**:
+### Create a test file for Linux
 
 1. Open a terminal window.
 
 1. Execute the following command:
 
     ```bash
-    # EICAR test string 
-    EICAR_STRING='X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-CLOUD-TEST-FILE!$H+H*' 
-       
-    # File to be created 
-    FILE_PATH="/tmp/eicar_test_file.txt" 
-       
-    # Write the EICAR string to the file 
-    echo -n $EICAR_STRING > $FILE_PATH 
-       
-    # Check if the file was created and contains the correct string 
-    if [ -f "$FILE_PATH" ]; then 
-        if grep -Fq "$EICAR_STRING" "$FILE_PATH"; then 
-            echo "EICAR test file created and validated successfully." 
-        else 
-            echo "EICAR test file does not contain the correct string." 
-        fi 
-    else 
-        echo "Failed to create EICAR test file." 
-    fi 
+    # test string  
+    TEST_STRING='$$89-barbados-dublin-damascus-notice-pulled-natural-31$$'  
+     
+    # File to be created  
+    FILE_PATH="/tmp/virus_test_file.txt"  
+     
+    # Write the EICAR string to the file  
+    echo -n $TEST_STRING > $FILE_PATH  
+     
+    # Check if the file was created and contains the correct string  
+    if [ -f "$FILE_PATH" ]; then  
+        if grep -Fq "$TEST_STRING" "$FILE_PATH"; then  
+            echo "Virus test file created and validated successfully."  
+        else  
+            echo "Virus test file does not contain the correct string."  
+        fi  
+    else  
+        echo "Failed to create virus test file."  
+    fi
     ```
 
-The alert `EICAR_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
+The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
 
-:::image type="content" source="media/enable-agentless-scanning-vms/test-file-alert.jpg" alt-text="Screenshot of the EICAR test file alert screen for Linux." lightbox="media/enable-agentless-scanning-vms/test-file-alert.jpg":::
+### Create a test file for Windows
+
+#### Create a test file with a text document
+
+1. Create a text file on your VM.
+
+1. Paste the text `$$89-barbados-dublin-damascus-notice-pulled-natural-31$$` into the text file.
+
+    > [!IMPORTANT]
+    > Ensure that there are no extra spaces or lines in the text file.
+
+1. Save the file.
+
+1. Open the file to validate that it contains the content from stage 2.
+
+### Create a test file with PowerShell
+
+1. Open PowerShell.
+
+1. Execute the following script.
+
+    ```bash
+    # virus test string 
+
+    $TEST_STRING = '$$89-barbados-dublin-damascus-notice-pulled-natural-31$$' 
+    
+     
+    
+    # File to be created 
+    
+    $FILE_PATH = "C:\temp\virus_test_file.txt" 
+    
+     
+    
+    # Write the EICAR string to the file without a trailing newline 
+    
+    [IO.File]::WriteAllText($FILE_PATH, $TEST_STRING) 
+    
+     
+    
+    # Check if the file was created and contains the correct string 
+    
+    if (Test-Path -Path $FILE_PATH) { 
+    
+        $content = [IO.File]::ReadAllText($FILE_PATH) 
+    
+        if ($content -eq $TEST_STRING) { 
+    
+            Write-Host "Test file created and validated successfully." 
+    
+        } 
+    
+        else { 
+    
+            Write-Host "Test file does not contain the correct string." 
+    
+        } 
+    
+    } 
+    
+    else { 
+    
+        Write-Host "Failed to create test file." 
+    
+    }
+    ```
 
 ## Exclude machines from scanning
 
