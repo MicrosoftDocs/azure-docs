@@ -9,11 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 11/06/2023
-ms.custom: 
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer customizing the user interface in Azure Active Directory B2C, I want to know how to customize the default pages and host my own HTML and CSS files, so that I can provide a branded and seamless user experience in my application.
+
 ---
 
 # Customize the user interface with HTML templates in Azure Active Directory B2C
