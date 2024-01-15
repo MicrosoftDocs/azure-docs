@@ -144,10 +144,12 @@ let subnets = _GetWatchlist('subnetallowlist');
 
 The [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) provides functions you can use to exclude users or systems from triggering alerts.
 
-|Exclusion type  |Description |
-|---------|---------|
-|**Exclude users**     | Use the [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function to: <br><br>- Call tags for users you want to exclude from triggering alerts. Tag users in the *SAP_User_Config* watchlist, using asterisks (*) as wildcards to tag all users with a specified naming syntax.<br><br>    - List specific SAP roles and/or profiles you want to exclude from triggering alerts.        |
-|**Exclude systems**     |    Use functions that support the *SelectedSystemRoles* parameter to determine that only specific types of systems trigger alerts, including only *Production* systems, only *UAT* systems, or both.     |
+- **Exclude users**.  Use the [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function to:
+
+   - Call tags for users you want to exclude from triggering alerts. Tag users in the *SAP_User_Config* watchlist, using asterisks (*) as wildcards to tag all users with a specified naming syntax.
+   - List specific SAP roles and/or profiles you want to exclude from triggering alerts.     
+
+- **Exclude systems**. Use functions that support the *SelectedSystemRoles* parameter to determine that only specific types of systems trigger alerts, including only *Production* systems, only *UAT* systems, or both.  
 
 For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md).
 
