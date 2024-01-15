@@ -52,7 +52,7 @@ This graphic and the following text show how the parts of this connector solutio
 
 - The connector reads the message with the path, then fetches the files from the S3 bucket.
 
-- To connect to the SQS queue and the S3 bucket, Microsoft Sentinel uses AWS credentials and connection information embedded in the AWS S3 connector's configuration. The AWS credentials are configured with a role and a permissions policy giving them access to those resources. Similarly, the Microsoft Sentinel workspace ID is embedded in the AWS configuration, so there is in effect two-way authentication.
+- To connect to the SQS queue and the S3 bucket, Microsoft Sentinel uses AWS credentials and connection information embedded in the AWS S3 connector's configuration. The AWS credentials are configured with a role and a permissions policy giving them access to those resources. Similarly, the Microsoft Sentinel workspace ID is embedded in the AWS configuration, so there is in effect two-way authentication. For Fairfax, we utilize Entra ID for authenticating with AWS through AWS Single Sign-On, establishing an Identity Provider with OpenID Connect and an assumed role.
 
 ## Connect the S3 connector
 
@@ -75,6 +75,8 @@ This graphic and the following text show how the parts of this connector solutio
 ## Automatic setup
 
 To simplify the onboarding process, Microsoft Sentinel has provided a [PowerShell script to automate the setup](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/AWS-S3) of the AWS side of the connector - the required AWS resources, credentials, and permissions.
+
+For FairFax, use this this PowerShell script. 
 
 The script takes the following actions:
 
@@ -160,27 +162,47 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 1. In the details pane for the connector, select **Open connector page**.
 
 1. Under **Configuration**, expand **Setup with PowerShell script (recommended)**, then copy the **External ID (Workspace ID)** to your clipboard.
-
 1. In a different browser window or tab, open the AWS console. Follow the [instructions in the AWS documentation for creating a role for an AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html).
+   - For the account type, instead of **This account**, choose **Another AWS account**.
+   - In the **Account ID** field, enter the number **197857026523** (you can copy and paste it from here). This number is **Microsoft Sentinel's service account ID for AWS**. It tells AWS that the account using this role is a Microsoft Sentinel user.
+   - In the options, select **Require external ID** (*do not* select *Require MFA*). In the **External ID** field, paste your Microsoft Sentinel **Workspace ID** that you copied in the previous step. This identifies *your specific Microsoft Sentinel account* to AWS.
+      For FairFax setup using Entra ID:
+   - Create an Identity Provider 
+      - Go to AWS IAM. 
 
-    - For the account type, instead of **This account**, choose **Another AWS account**.
+      - Click on Identity Providers. Click on Add Provider. Select OpenID Connect.  
 
-    - In the **Account ID** field, enter the number **197857026523** (you can copy and paste it from here). This number is **Microsoft Sentinel's service account ID for AWS**. It tells AWS that the account using this role is a Microsoft Sentinel user.
+      - Add Provider URL as [sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/](https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/identity_providers/details/OPENID/arn%3Aaws%3Aiam%3A%3A072643944673%3Aoidc-provider%2Fsts.windows.net%2F33e01921-4d64-4f8c-a055-5bdaffd5e33d%2F)
 
-    - In the options, select **Require external ID** (*do not* select *Require MFA*). In the **External ID** field, paste your Microsoft Sentinel **Workspace ID** that you copied in the previous step. This identifies *your specific Microsoft Sentinel account* to AWS.
+      - In the Audience add [api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
+            ](api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
+            )
 
-    - Assign the necessary permissions policies. These policies include:
-        - `AmazonSQSReadOnlyAccess`
-        - `AWSLambdaSQSQueueExecutionRole`
-        - `AmazonS3ReadOnlyAccess`
-        - `ROSAKMSProviderPolicy`
-        - Additional policies for ingesting the different types of AWS service logs.
+      - Click Get Thumbprint. It should be -“*626d44e704d1ceabe3bf0d53397464ac8080142c*” 
 
-        For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in the Microsoft Sentinel GitHub repository.
+      - Click Add Provider 
 
-    - Name the role with a meaningful name that includes a reference to Microsoft Sentinel. Example: "*MicrosoftSentinelRole*".
+   - Create an assume role 
+            - Go to AWS IAM Click on Roles. Click on Create role 
 
-### Add the AWS role and queue information to the S3 data connector
+                  - Select “Web Identity” as trusted entity 
+
+                        - From the Identity Provider drop down, select the identity provider created in previous stage. 
+
+                              - Select audience [api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
+                                                            ](api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
+                                                            )
+
+   - Assign the necessary permissions policies. These policies include:
+      - `AmazonSQSReadOnlyAccess`
+      - `AWSLambdaSQSQueueExecutionRole`
+      - `AmazonS3ReadOnlyAccess`
+      - `ROSAKMSProviderPolicy`
+      - Additional policies for ingesting the different types of AWS service logs.
+      -   For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in the Microsoft Sentinel GitHub repository.
+
+         - Name the role with a meaningful name that includes a reference to Microsoft Sentinel. Example: "*MicrosoftSentinelRole*".
+         ### Add the AWS role and queue information to the S3 data connector
 
 1. In the browser tab open to the AWS console, enter the **Identity and Access Management (IAM)** service and navigate to the list of **Roles**. Select the role you created above.
 
@@ -295,6 +317,7 @@ Setting up this connector has two steps:
     > [!IMPORTANT]
     > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
 
+
 ---
 
 ## Next steps
@@ -303,3 +326,4 @@ In this document, you learned how to connect to AWS resources to ingest their lo
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
+
