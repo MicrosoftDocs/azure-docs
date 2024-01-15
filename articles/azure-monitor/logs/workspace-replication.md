@@ -52,12 +52,19 @@ The following regions and groups are currently supported.
 #### Data residency
 Different customers have different data residency requirements, which is why it’s important that **you** control where your data is stored. Workspace logs are only stored in primary and secondary locations you chose, and processed in the Azure geography(s) of your select regions. For more information, see [Supported regions and region groups](#supported-regions-and-region-groups).
 
+#### Sentinel and other products and experiences using Log Analytics
+There are various products and experiences that interact with Log Analytics workspaces. Some of these are *Compatible* with Workspace replication and failover, meaning they can work with workspaces that triggered failover and switched to another region, and therefore they gain improved resilience "by proxy". 
 
-## Enabling workspace replication
-Workspace replication can be enabled through a REST command. This command triggers a long running operation, meaning it can take a few minutes for the new settings to apply. Once replication is set, it may take up to **one hour** to be operational for all data types. Some data types may start replicating before others. Similarly, schema changes done at any time after enabling workspace replication can take up to one hour to start replicating. Examples are custom logs using new tables or custom fields, or diagnostic logs set up for new resource types.
+Sentinel, for example, is *compatible* with workspace replication. If a regional network issue causes log ingestion latency, Sentinel customers are also impacted. Customers that use replicated workspaces can trigger workspace failover to switch to another region, which benefits both Log Analytics and Sentinel. Yet, if the network issue impacts Sentinel operations directly (regardless of Log Analytics), switching to another regions won't mitigate the issue.
+
+Some Azure Monitor experiences aren't fully compatible with workspace replication and failover yet. That includes Application Insights, VM Insights and others, listed [here](#restrictions-and-limitations).
+
+
+## Enabling and disabling workspace replication
+Workspace replication can be enabled or disabled through a REST command. This command triggers a long running operation, meaning it can take a few minutes for the new settings to apply. Once replication is set, it may take up to **one hour** to be operational for all data types. Some data types may start replicating before others. Similarly, schema changes done at any time after enabling workspace replication can take up to one hour to start replicating. Examples are custom logs using new tables or custom fields, or diagnostic logs set up for new resource types.
 
 ### How to enable workspace replication
-To enable workspace replication, use the PUT command below. This call returns 202 Accepted and not 200, because it's a long running operation, which may take time to complete.
+To enable workspace replication, use the PUT command below. This call returns 200. It's a long running operation which may take time to complete, and you can track its exact state as explained later.
 
 > [!NOTE]
 > The Log Analytics Contributor role is required to enable replication.
@@ -78,10 +85,10 @@ body:
     "location": "<primary_location>"
 }
 
-Expected response: 202 Accepted
 ```
 
-You can then validate that workspace replication operation completed successfully. Use this GET request to check that the provisioning state changed from 'Updating' to 'Succeeded' and that the secondary location is set as expected:
+#### Tracking the workspace state
+To validate workspace replication operations completed successfully, use a GET request to verify the provisioning state changed from 'Updating' to 'Succeeded', and that the secondary location is set as expected:
  
 ```
 GET
@@ -105,6 +112,26 @@ To learn more about linking a DCR to a DCE during DCR creation, see step 5b in [
 
 > [!WARNING]
 > DCRs connected to a workspace's System DCE should target only this specific workspace. They **must not** target other destinations, such as additional workspaces or storage accounts.
+
+### How to disable workspace replication
+To disable workspace replication, use the PUT command below. This call returns 200. Just like the enable operation, disable may take time to complete, and you can track its exact state as explained in [Tracking the workspace state](#tracking-the-workspace-state).
+
+```
+PUT 
+
+https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
+
+body:
+{
+    "properties": {
+        "replication": {
+            "enabled": false
+        }
+    },
+    "location": "<primary_location>"
+}
+```
+
 
 ## Monitoring your workspace and service health
 Ingestion latency or query failures are examples of issues that can often be handled by failing over to your secondary region. Such issues can be detected using Service Health notifications and log queries.
@@ -152,10 +179,10 @@ GET
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
 ```
 
-Now, you can trigger failover with the below POST command. This call returns 202 Accepted and not 200, because it's a long running operation, which may take time to complete. Failover updates your DNS records, and even when that’s complete, it may take time for clients to get the updated DNS settings.
+Now, you can trigger failover with the below POST command. This call returns 202. It's a long running operation, which may take time to complete. Failover updates your DNS records, and even when that’s complete, it may take time for clients to get the updated DNS settings.
  
  ```
- POST 
+POST 
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/locations/<secondary_location>/workspaces/<workspace_name>/failover?api-version=2023-01-01-preview
 
 Expected response: 202 Accepted
@@ -180,6 +207,10 @@ Additionally, DCRs pointing to a System DCE must not send logs to any destinatio
 > Azure Monitor agents that use DCRs not pointing to the workspace DCE will not get the replication settings. As a result, logs collected by these DCRs are not replicated and won't be available when you failover.
 
 #### Restrictions and limitations
+Switching region (by trigerring failover) should only be used after the secondary workspace contains a useful amount of logs. We recommend that you wait at least 1 week after enabling replication and before triggering failover, to allow for sufficient data to be available on your secondary region.
+> [!NOTE]
+> For Sentinel enabled workspaces, it may take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace. 
+
 * During failover, workspace management operations aren't supported, including:
     * Changing workspace retention, pricing tier, daily cap, etc.
     * Changing network settings
@@ -193,6 +224,9 @@ The following features are partly supported or not supported yet:
 * Search Jobs and Restore operations - both search jobs ad Restore operations create tables and populate them with the operation outputs (the search results, or restored data). Once you enable workspace replication, new tables created for future search jobs and restore operations will be replicated to your secondary workspace. Tables populated **before** replication was enabled aren't replicated. 
 If a search job or a restore operation is still processed when you trigger failover, the outcome is unexpected. It may complete successfully but not be replicated or it may fail, depending on your workspace health and the exact timing.
 * Private links - Private links are currently not supported during failover.
+* Application Insights over Log Analytics workspaces
+* VM Insights
+* Container Insights
 
 ## Failback
 
@@ -210,7 +244,7 @@ To see which logs were replicated to your primary workspace, query the inactive 
 
 
 ### How to trigger failback
-You can trigger failback using the below POST command. Like failover, failback also returns 202 Accepted and not 200 because it’s a long running operation, which may take time to complete. Failback updates your DNS records, and even when that’s complete, it may take time for clients to get the updated DNS settings.
+You can trigger failback using the below POST command. Like failover, failback also returns 202 and is a long running operation, which may take time to complete. Failback updates your DNS records, and even when that’s complete, it may take time for clients to get the updated DNS settings.
 
 ```
 POST
