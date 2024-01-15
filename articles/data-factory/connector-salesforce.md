@@ -333,8 +333,6 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
 ]
 ```
 
-## Query tips
-
 ## Data type mapping for Salesforce
 
 When you copy data from Salesforce, the following mappings are used from Salesforce data types to interim data types within the service internally. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
