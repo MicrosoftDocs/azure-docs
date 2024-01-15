@@ -30,17 +30,19 @@ For customers with SAP solutions such as RISE with SAP Enterprise Cloud Services
 
 It's important to distinguish the responsibility between SAP and customer when enabling certain Azure scenarios. The following diagram illustrates most common situations.
 
-> [!div class="mx-tdBreakAll"]
-> |                                       | **SAP landscape management** | **SAP application operation** | **Network configuration**	| **App integration**	| **Data Federation**	| **Single Sign-On** |	**SIEM/SOAR** |
-> |:--------------------------------------|:----------------------:|:-----------------------:|:-------------------:|:-------------:|:-------------:|:-----------:|:-------:|
-> |Customer acts in own Azure Subscription| No                       | No	                     | Shared                | Yes             | Yes             | Yes           | Yes       |
-> |Customer acts within their SAP RISE managed application |	No	     | Yes	                     | Shared                | Yes             | Yes             | Yes           | Yes       |
-> |Customer requests SAP ECS to act in their SAP landscape |	Yes     | Yes                       | Shared                | No              | No              | No            | No        |
-> |Example scenario  |Deploy SAP system in Azure, software release upgrade | Setup transport route, SAP user management | [Setup network peering](./rise-integration-network.md#virtual-network-peering-with-sap-riseecs), adjust NSG rule | [Enable Power App to consume SAP interfaces](./rise-integration-services.md#on-premises-data-gateway) | [Enable PowerBI](./rise-integration-services.md#on-premises-data-gateway), Fabric, [Synapse](./rise-integration-services.md#integration-with-self-hosted-integration-runtime) to consume SAP data | [Enable MS Entra ID as SSO provider for Fiori](./rise-integration-security.md#single-sign-on-for-sap), OData APIs | [Defend SAP with Sentinel](./rise-integration-security.md#microsoft-sentinel-with-sap-rise) to block compromised users during attacks |
-
 [![Breakdown of responsibility between customer and SAP for different aspects of enablement of integration scenarios](./media/sap-rise-integration/sap-rise-integration-table.png)](./media/sap-rise-integration/sap-rise-integration-table.png)
 
 There might be some circumstances when an initial request needs to be placed with SAP RISE for enablement. However, most Azure scenarios depend on open network communication to available SAP interfaces and activities entirely within customer's responsibility. Diagram shown doesn't replace or extends an existing responsibility matrix between the customer and SAP RISE/ECS.
+
+## First steps
+
+Review the specifics within this document and then jump to individual documents for your scenario. From the integration table, some examples are listed.
+
+- [Setup network peering](./rise-integration-network.md#virtual-network-peering-with-sap-riseecs)
+- [Enable Power App to consume SAP interfaces](./rise-integration-services.md#on-premises-data-gateway)
+- [Enable PowerBI](./rise-integration-services.md#on-premises-data-gateway), Fabric, [Synapse](./rise-integration-services.md#integration-with-self-hosted-integration-runtime) to consume SAP data.
+- [Enable MS Entra ID as SSO provider](./rise-integration-security.md#single-sign-on-for-sap)
+- [Defend SAP at machine speed with Sentinel](./rise-integration-security.md#microsoft-sentinel-with-sap-rise) to block compromised users during attacks.
 
 ## Azure support
 
