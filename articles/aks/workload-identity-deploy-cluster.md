@@ -171,7 +171,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
     ```azurecli-interactive
     export KEYVAULT_RESOURCE_GROUP="myResourceGroup"
     export KEYVAULT_NAME="myKeyVault"
-    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${KEYVAULT_RESOURCE_GROUP}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'clientId' -o tsv)"
+    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'clientId' -o tsv)"
 
     az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
     ```
