@@ -62,7 +62,7 @@ Ensure that both the licensing package and servicing stack update (SSU) are down
 
 If installing the Extended Security Update enabled by Azure Arc fails with errors such as "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12029)" or "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12002)", you may need to update the intermediate certificate authorities trusted by your computer using one of the following two methods:
 
-1. Configure your network firewall and/or proxy server to allow access from the Windows Server 2012 (R2) machines to `https://microsoft.com/pkiops/certs`. This will allow the machine to automatically retrieve updated intermediate certificates as required and is Microsoft's preferred approach.
+1. Configure your network firewall and/or proxy server to allow access from the Windows Server 2012 (R2) machines to `https://www.microsoft.com/pkiops/certs`. This will allow the machine to automatically retrieve updated intermediate certificates as required and is Microsoft's preferred approach.
 1. Download all intermediate CAs from a machine with internet access, copy them to each Windows Server 2012 (R2) machine, and import them to the machine's intermediate certificate authority store:
     1. Download the 4 intermediate CA certificates:
         1. [Microsoft Azure TLS Issuing CA 01](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2001%20-%20xsign.crt)
