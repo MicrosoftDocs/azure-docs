@@ -84,7 +84,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
 |`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.applicationinsights.us`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
-|`microsoft.com/pkiops/certs`| Certificate download for ESUs |ESUs enabled by Azure Arc | Public |
+|`www.microsoft.com/pkiops/certs`| Certificate download for ESUs |ESUs enabled by Azure Arc | Public |
 
 #### [Microsoft Azure operated by 21Vianet](#tab/azure-china)
 
