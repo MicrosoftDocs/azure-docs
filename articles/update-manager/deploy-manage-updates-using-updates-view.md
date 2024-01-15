@@ -32,17 +32,16 @@ In Azure Update Manager home page, **Overview** blade, you can view the updates.
 ## Updates list view
 
 You can use either the **Overview** blade or **Updates (preview)** blade that provides a list view of the updates pending on your environment. 
-- Select on the cards to filter the Windows and Linux updates. Alternatively, you can use the filter options at the top of **Resource group**, **Location**,  **Resource type**, **Workloads**, **Update Classifications** to filter the updates. 
 - Using the options at the top you can edit columns, export data to CSV or see the query powering this view.
 - Using the ribbon on the top you can view the number of machines that don't have periodic assessment enabled on them and suggestions to enable periodic assessment on them.
+- Using the filter options at the top of **Resource group**, **Location**,  **Resource type**, **Workloads**, **Update Classifications** to filter the updates.  Alternatively, select on the cards to filter the Windows and Linux updates. 
 
   > [!NOTE]
   > We recommend to enable periodic assessment to see the latest pending updates on the machines.
 
    :::image type="content" source="./media/deploy-manage-updates-using-updates-view/updates-view.png" alt-text="Screenshot that shows the pending updates and various filter options from Updates." lightbox="./media/deploy-manage-updates-using-updates-view/updates-view.png":::
 
-- Select any row of the Machine(s) column to view the list of all machines on which the update is applicable. Using this option, you can view all the machines on which the update is applicable and pending.
-- You can also trigger **One-time update** to install the update on demand or use **Schedule updates** option to schedule update installation on a later date.
+- Select any row of the Machine(s) column to view the list of all machines on which the update is applicable. Using this option, you can view all the machines on which the update is applicable and pending. You can trigger **One-time update** to install the update on demand or use **Schedule updates** option to schedule update installation on a later date.
 
   :::image type="content" source="./media/deploy-manage-updates-using-updates-view/schedule-updates-applicable-machines.png" alt-text="Screenshot that shows the machines for which updates are applicable and pending." lightbox="./media/deploy-manage-updates-using-updates-view/schedule-updates-applicable-machines.png":::
 
