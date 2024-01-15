@@ -61,4 +61,4 @@ The **Azure Arc ScVmm VM Contributor** role is a built-in role that provides per
 
 ## Next steps
 
-[Create an Azure Arc VM](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/create-virtual-machine).
+[Create an Azure Arc VM](create-virtual-machine.md).

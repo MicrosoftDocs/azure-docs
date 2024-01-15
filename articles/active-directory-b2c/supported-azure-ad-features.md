@@ -8,9 +8,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: overview
-ms.date: 11/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C tenant administrator, I want to understand the differences between Microsoft Entra ID and Azure AD B2C features, so that I can effectively manage user accounts and configure the appropriate features for my tenant.
+
 ---
 
 # Supported Microsoft Entra ID features
