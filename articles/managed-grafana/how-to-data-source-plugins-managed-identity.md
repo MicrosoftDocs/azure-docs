@@ -71,6 +71,7 @@ Within the Standard service tier, users who have subscribed to the Grafana Enter
 * [Splunk](https://grafana.com/grafana/plugins/grafana-splunk-datasource)
 * [Splunk Infrastructure monitoring (SignalFx)](https://grafana.com/grafana/plugins/grafana-splunk-monitoring-datasource)
 * [Sqlyze Datasource](https://grafana.com/grafana/plugins/grafana-odbc-datasource)
+* [Sumo Logic](https://grafana.com/grafana/plugins/grafana-sumologic-datasource)
 * [Wavefront](https://grafana.com/grafana/plugins/grafana-wavefront-datasource)
 
 ### Other data sources
