@@ -4,7 +4,7 @@ description: Learn how to stream your security alerts to Microsoft Sentinel, SIE
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 01/11/2024
+ms.date: 01/15/2024
 ---
 
 # Stream alerts to monitoring solutions
@@ -14,13 +14,18 @@ Microsoft Defender for Cloud has the ability to stream security alerts into vari
 There are built-in Azure tools that are available that ensure you can view your alert data in the following solutions:
 
 - **Microsoft Sentinel**
-- **Microsoft Defender XDR**
 - **Splunk Enterprise and Splunk Cloud**
 - **Power BI**
 - **ServiceNow**
 - **IBM's QRadar**
 - **Palo Alto Networks**
 - **ArcSight**
+
+## Stream alerts to Defender XDR with the Defender XDR API
+
+Defender for Cloud natively integrates with [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide) allows you to use Defender XDR's incidents and alerts API to stream alerts and incidents into non-Microsoft solutions. Defender for Cloud customers can access one API for all Microsoft security products and can use this integration as an easier way to export alerts and incidents.
+
+Learn how to [integrate SIEM tools with Defender XDR](/microsoft-365/security/defender/configure-siem-defender?view=o365-worldwide).
 
 ## Stream alerts to Microsoft Sentinel
 
@@ -54,12 +59,6 @@ Another alternative for investigating Defender for Cloud alerts in Microsoft Sen
 
 > [!TIP]
 > Microsoft Sentinel is billed based on the volume of data that it ingests for analysis in Microsoft Sentinel and stores in the Azure Monitor Log Analytics workspace. Microsoft Sentinel offers a flexible and predictable pricing model. [Learn more at the Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
-
-## Stream alerts to Defender XDR
-
-Defender for Cloud natively integrates with [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide) allows you to use Defender XDR's incidents and alerts API to stream alerts and incidents into non-Microsoft solutions. Customers who have both [Microsoft Office 365 E5](https://www.microsoft.com/microsoft-365/enterprise/office-365-e5#overview) and Defender for Cloud can access one API for all Microsoft security products. Defender for Cloud customers can use this integration as an easier way to export alerts and incidents.
-
-Learn how to [integrate SIEM tools with Defender XDR](/microsoft-365/security/defender/configure-siem-defender?view=o365-worldwide).
 
 ## Stream alerts to QRadar and Splunk
 
