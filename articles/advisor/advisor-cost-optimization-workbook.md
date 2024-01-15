@@ -79,32 +79,30 @@ This tab focus on reviewing potential savings related to rate optimization of yo
 
 Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines OS costs. Using the workbook, you can identify the opportunities to leverage the AHUB for VM/VMSS (Windows and Linux), SQL (SQL Server VMs, SQL DB and SQL MI) and Azure Stack HCI (VMs and AKS).
 
+> NOTE
+> If you have selected Dev/Test subscription(s) within the scope of this Workbook, then you should already have discounts on Windows and SQL licenses, so recommendations here don’t apply to this subscription(s).
+
 #### **Windows VM/VMSS**
 
 Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines OS costs.
-If you have Software Assurance, you can enable [Hybrid Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator "Azure Hybrid Benefit Calculator").
+If you have Software Assurance, you can enable [Hybrid Benefit](https://learn.microsoft.com/windows-server/get-started/azure-hybrid-benefit). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator "Azure Hybrid Benefit Calculator").
 
-> NOTE
-> If you have Dev/Test subscription(s) within the scope of this Workbook, you should already have discounts on Windows licenses, so recommendations here don't apply to this subscription(s).
+> [!NOTE]
+> This query has a Quick Fix column that helps you to apply Azure Hybrid Benefit to Windows VMs..
 
 #### **Linux VM/VMSS**
 
-[Azure Hybrid Benefit for Linux](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
+[Azure Hybrid Benefit for Linux](https://learn.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
 
 #### **SQL**
 
 Azure Hybrid Benefit represents an excellent opportunity to save costs on SQL instances.
-If you have Software Assurance, you can enable [SQL Hybrid Benefit](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell).
-You can see potential savings using [Azure Hybrid Benefit Calculator ](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator "Azure Hybrid Benefit Calculator ")
-
-> NOTE
-> If you have selected Dev/Test subscription(s) within the scope of this Workbook, then you should already have discounts on SQL licenses, so recommendations here don’t apply to this subscription(s).
-
-
+If you have Software Assurance, you can enable [SQL Hybrid Benefit](https://learn.microsoft.com/azure/azure-sql/azure-hybrid-benefit).
+You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator "Azure Hybrid Benefit Calculator")
 
 #### **Azure Stack HCI**
 
-Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure Stack HCI. If you have Software Assurance, you can enable [Azure Stack HCI Hybrid Benefit](https://learn.microsoft.com/azure-stack/hci/concepts/azure-hybrid-benefit-hci?tabs=azure-portal).
+Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure Stack HCI. If you have Software Assurance, you can enable [Azure Stack HCI Hybrid Benefit](https://learn.microsoft.com/azure-stack/hci/concepts/azure-hybrid-benefit-hci).
 
 ### Azure Reservations
 
