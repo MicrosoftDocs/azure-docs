@@ -2,7 +2,7 @@
 title: Connect your GCP project
 description: Defend your GCP resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 11/23/2023
+ms.date: 01/03/2024
 ---
 
 # Connect your GCP project to Microsoft Defender for Cloud
@@ -234,7 +234,7 @@ To view all the active recommendations for your resources by resource type, use 
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Screenshot of GCP options in the asset inventory page's resource type filter." lightbox="media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png":::
 
-## Integrate with Microsoft Defender XDR (Preview)
+## Integrate with Microsoft Defender XDR
 
 When you enable Defender for Cloud, Defender for Cloud alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
 
