@@ -36,7 +36,7 @@ To interact with the Radiology Insights model, you can provide several model con
   }
 ```
 
-# Case finding
+## Case finding
 
 Through the model configuration, the API allows you to seek evidence from the provided clinical documents as part of the inferences.
 
@@ -45,7 +45,7 @@ Through the model configuration, the API allows you to seek evidence from the pr
 true | Evidence is returned as part of the inferences
 false  | No Evidence is returned
 
-# Inference Options
+## Inference Options
 
 **FindingOptions**
 - provideFocusedSentenceEvidence
@@ -72,7 +72,7 @@ This configuration overrules includeRecommendationsWithNoSpecifiedModality and p
 
 When includeEvidence is true, it depends on the value set on the two other configurations whether the evidence of the inference or a single focused sentence is given as evidence. 
 
-# Examples 
+## Examples 
 
 
 **Example 1** 

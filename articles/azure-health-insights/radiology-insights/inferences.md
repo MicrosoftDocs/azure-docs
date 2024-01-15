@@ -12,7 +12,10 @@ ms.author: JanSchietse
 ---
 
 
-## Inference information
+# Inference information
+
+## List of inferences in scope of RI
+
 - Age Mismatch
 - Laterality Discrepancy
 - Sex Mismatch
