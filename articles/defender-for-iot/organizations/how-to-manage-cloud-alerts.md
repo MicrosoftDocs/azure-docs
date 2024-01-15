@@ -56,7 +56,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
         | **Destination device address** | The IP address of the destination device. |
         | **Destination device** | The destination IP or MAC address, or the destination device name.|
         | **First detection** | The first time the alert was detected in the network. |
-        | **ID** |The unique alert ID.|
+        | **GUID** | The alert's globally-unique identifier (GUID), aligned with the alert's ID on the OT sensor. |
         | **Last activity** | The last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert deduplication |
         | **Protocol** | The protocol detected in the network traffic for the alert.|
         | **Sensor** |  The sensor that detected the alert.|
