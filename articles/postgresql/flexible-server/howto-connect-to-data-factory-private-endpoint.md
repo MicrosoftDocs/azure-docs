@@ -24,20 +24,7 @@ Data Factory offers three types of integration runtimes:
 - Self-hosted
 - Azure-SQL Server Integration Services (Azure-SSIS)
 
-<<<<<<< HEAD
-**[Azure Integration Runtime](../../data-factory/concepts-integration-runtime.md#azure-integration-runtime)** supports connecting to data stores and computes services with public accessible endpoints. Enabling Managed Virtual Network, Azure Integration Runtime supports connecting to data stores using private link service in private network environment. [Azure Database for PostgreSQL flexible server provides for private link connectivity in preview](../flexible-server/concepts-networking-private-link.md). 
-
-## Prerequisites
-
-- An Azure Database for PostgreSQL flexible server instance [privately networked via Azure Private Link](../flexible-server/concepts-networking-private-link.md).
-- An Azure integration runtime within a [data factory managed virtual network](../../data-factory/data-factory-private-link.md)
-
-
-## Create private endpoint in Azure Data Factory
-=======
 Choose the type that best serves your data integration capabilities and network environment requirements.
-
-Azure Database for PostgreSQL flexible server provides for Private Link connectivity in preview. For more information, see [this article](../flexible-server/concepts-networking-private-link.md).
 
 ## Prerequisites
 
