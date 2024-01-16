@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 01/14/2024
 ms.custom: references_regions
 ---
 
@@ -34,19 +34,19 @@ The table summarizes support for data-aware posture management.
 |What GCP data resources can I discover? | GCP storage buckets<br/> Standard Class<br/> Geo: region, dual region, multi region |
 |What permissions do I need for discovery? | Storage account: Subscription Owner<br/> **or**<br/> `Microsoft.Authorization/roleAssignments/*` (read, write, delete) **and** `Microsoft.Security/pricings/*` (read, write, delete) **and** `Microsoft.Security/pricings/SecurityOperators` (read, write)<br/><br/> Amazon S3 buckets  and RDS instances: AWS account permission to run Cloud Formation (to create a role). <br/><br/>GCP storage buckets: Google account permission to run script (to create a role). |
 |What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset) - .doc, .docm, .docx, .dot, .gz, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .csv, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.|
-|What Azure regions are supported? | You can discover Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East; Central India; Central US; East Asia; East US; East US 2; France Central; Germany West Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Central US; South India; Sweden Central; Switzerland North; UAE North; UK South; UK West: West Central US; West Europe; West US, West US3.<br/><br/> You can discover Azure SQL Databases in any region where Defender CSPM and Azure SQL Databases are supported. |
-|What AWS regions are supported? | S3:<br /><br />Asia Pacific (Mumbai); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Montreal); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); Europe (Stockholm); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br/><br/><br />RDS:<br /><br />Africa (Capetown); Asia Pacific (Hong Kong SAR); Asia Pacific (Hyderabad); Asia Pacific (Melbourne); Asia Pacific (Mumbai); Asia Pacific (Osaka); Asia Pacific (Seoul); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Central); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); Europe (Stockholm); Europe (Zurich); Middle East (UAE); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br /><br /> Discovery is done locally within the region. |
+|What Azure regions are supported? | You can discover Azure storage accounts in:<br/><br/> Asia East; Asia South East; Australia Central; Australia Central 2; Australia East; Australia South East; Brazil South; Brazil Southeast; Canada Central; Canada East; Europe North; Europe West; France Central; France South; Germany North; Germany West Central; India Central; India South; Japan East; Japan West; Jio India West; Korea Central; Korea South; Norway East; Norway West; South Africa North; South Africa West; Sweden Central; Switzerland North; Switzerland West; UAE North; UK South; UK West; US Central; US East; US East 2; US North Central; US South Central; US West; US West 2; US West 3; US West Central; <br/><br/> You can discover Azure SQL Databases in any region where Defender CSPM and Azure SQL Databases are supported. |
+|What AWS regions are supported? | S3:<br /><br />Asia Pacific (Mumbai); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Montreal); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); Europe (Stockholm); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br/><br/><br />RDS:<br /><br/>Africa (Capetown); Asia Pacific (Hong Kong SAR); Asia Pacific (Hyderabad); Asia Pacific (Melbourne); Asia Pacific (Mumbai); Asia Pacific (Osaka); Asia Pacific (Seoul); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Central); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); Europe (Stockholm); Europe (Zurich); Middle East (UAE); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br /><br /> Discovery is done locally within the region. |
 |What GCP regions are supported? | europe-west1, us-east1, us-west1, us-central1, us-east4, asia-south1, northamerica-northeast1|
 |Do I need to install an agent? | No, discovery requires no agent installation. |
-|What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t incur additional costs except for the respective plan costs. |
+|What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t incur extra costs except for the respective plan costs. |
 |What permissions do I need to view/edit data sensitivity settings? | You need one of these Microsoft Entra roles: Global Administrator,  Compliance Administrator, Compliance Data Administrator, Security Administrator, Security Operator.|
-| What permissions do I need to perform onboarding? | You need one of these Microsoft Entra roles: Security Admin, Contributor, Owner on the subscription level (where the GCP project/s reside in). For consuming the security findings: Security Reader, Security Admin, Reader, Contributor, Owner on the subscription level (where the GCP project/s reside). |
+| What permissions do I need to perform onboarding? | You need one of these [Azure role-based access control (Azure RBAC) roles](/azure/role-based-access-control/role-assignments-portal): Security Admin, Contributor, Owner on the subscription level (where the GCP project/s reside). For consuming the security findings: Security Reader, Security Admin, Reader, Contributor, Owner on the subscription level (where the GCP project/s reside). |
 
 ## Configuring data sensitivity settings
 
-The main steps for configuring data sensitivity setting include:
+The main steps for configuring data sensitivity settings include:
 
-- [Import custom sensitive info types/labels from Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels)
+- [Import custom sensitivity info types/labels from Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitivity-info-typeslabels)
 - [Customize sensitive data categories/types](data-sensitivity-settings.md#customize-sensitive-data-categoriestypes)
 - [Set the threshold for sensitivity labels](data-sensitivity-settings.md#set-the-threshold-for-sensitive-data-labels)
 

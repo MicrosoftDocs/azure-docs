@@ -25,11 +25,11 @@ a Hybrid Connections URL with client authorization utilizing the Azure Relay lib
 
 Modify your pom.xml file in your maven application package to include the following: 
   ```bash
-   	    <dependency>
-		    <groupId>com.microsoft.azure</groupId>
-		    <artifactId>azure-relay</artifactId>
-		    <version>0.0.6</version>
-	          </dependency>
+	<dependency>
+    	<groupId>com.microsoft.azure</groupId>
+    	<artifactId>azure-relay</artifactId>
+    	<version>0.0.6</version>
+	</dependency>
    ```
 Run `mvn dependency:copy-dependencies -DoutputDirectory=lib` in your mvn project to add the 
 dependency jar file in the lib directory of your project. This will also import all dependencies
@@ -44,36 +44,36 @@ of the `azure-relay` mvn package. This package provides functions to construct R
 	```
 2. Import the dependencies into your `Sender.java` class.
     ```java
-	import java.io.BufferedReader;
-	import java.io.IOException;
-	import java.io.InputStream;
-	import java.io.InputStreamReader;
-	import java.io.OutputStreamWriter;
-	import java.net.HttpURLConnection;
-	import java.net.MalformedURLException;
-	import java.net.URL;
-	import java.time.Duration;
-	import java.util.Scanner;
-	import com.microsoft.azure.relay.RelayConnectionStringBuilder;
-	import com.microsoft.azure.relay.TokenProvider;
+    import java.io.BufferedReader;
+    import java.io.IOException;
+    import java.io.InputStream;
+    import java.io.InputStreamReader;
+    import java.io.OutputStreamWriter;
+    import java.net.HttpURLConnection;
+    import java.net.MalformedURLException;
+    import java.net.URL;
+    import java.time.Duration;
+    import java.util.Scanner;
+    import com.microsoft.azure.relay.RelayConnectionStringBuilder;
+    import com.microsoft.azure.relay.TokenProvider;
 	```
 
 4. Add the following `constants` to the top of the `Sender.java` file to a `createConnectionString` 
    java function for the hybrid connection details.
 
     ```java
-    public static String createConnectionString(){
-        StringBuilder connectionString = new StringBuilder();
-        connectionString.append("Endpoint=sb://");
-        connectionString.append("{namespace}");
-        connectionString.append(".servicebus.windows.net/;SharedAccessKeyName=");
-        connectionString.append("{keyrule}");
-        connectionString.append(";SharedAccessKey=");
-        connectionString.append("{key}");
-        connectionString.append(";EntityPath=");
-        connectionString.append("{path}");
-        return connectionString.toString();
-		}
+	public static String createConnectionString(){
+	    StringBuilder connectionString = new StringBuilder();
+	    connectionString.append("Endpoint=sb://");
+	    connectionString.append("{namespace}");
+	    connectionString.append(".servicebus.windows.net/;SharedAccessKeyName=");
+	    connectionString.append("{keyrule}");
+	    connectionString.append(";SharedAccessKey=");
+	    connectionString.append("{key}");
+	    connectionString.append(";EntityPath=");
+	    connectionString.append("{path}");
+	    return connectionString.toString();
+	}
     ```
 	Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
     1. `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.

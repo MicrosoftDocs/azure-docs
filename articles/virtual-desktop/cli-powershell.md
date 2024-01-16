@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 02/01/2023
+ms.date: 01/08/2024
 ---
 # Use Azure CLI and Azure PowerShell with Azure Virtual Desktop
 
@@ -136,3 +136,4 @@ Now that you know how to use Azure CLI and Azure PowerShell with Azure Virtual D
 
 - [Create an Azure Virtual Desktop host pool with PowerShell or the Azure CLI](create-host-pools-powershell.md)
 - [Manage application groups using PowerShell or the Azure CLI](manage-app-groups-powershell.md)
+- For the full PowerShell reference documentation, see [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization).

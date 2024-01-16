@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 06/08/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating a RESTful service with Azure Active Directory B2C, I want to define a technical profile, so that I can send and receive data from the REST API using input and output claims collections.
+
 ---
 
 # Define a RESTful technical profile in an Azure Active Directory B2C custom policy

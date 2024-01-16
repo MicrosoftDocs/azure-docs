@@ -8,6 +8,7 @@ ms.date: 12/15/2023
 ms.topic: tutorial
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Enterprise scale for SAP Deployment Automation Framework
@@ -171,7 +172,7 @@ When you choose a name for your service principal, make sure that the name is un
 
     ```cloudshell-interactive
     export    ARM_SUBSCRIPTION_ID="<subscriptionId>"
-    export control_plane_env_code="MGMT"
+    export control_plane_env_code="LAB"
 
     az ad sp create-for-rbac --role="Contributor"           \
       --scopes="/subscriptions/${ARM_SUBSCRIPTION_ID}"      \
@@ -225,10 +226,10 @@ As a part of the SAP automation framework control plane, you can optionally crea
 
 If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
 
-Replace MGMT with your environment as necessary.
+Replace LAB with your environment as necessary.
 
 ```bash
-export            env_code="MGMT"
+export            env_code="LAB"
 
 
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
@@ -286,7 +287,7 @@ code .
     | Canada Central     | CACE        |
     | Central US         | CEUS        |
     | East US            | EAUS        |
-    | North Europe       | NOEU        |
+    | North Europe       | WEEU        |
     | South Africa North | SANO        |
     | Southeast Asia     | SOEA        |
     | UK South           | UKSO        |
@@ -296,7 +297,7 @@ code .
 
     ```terraform
     # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
-    environment = "MGMT"
+    environment = "LAB"
     # The location/region value is a mandatory field, it is used to control where the resources are deployed
     location = "westeurope"
 
@@ -339,7 +340,7 @@ code .
 
     ```terraform
     # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
-    environment = "MGMT"
+    environment = "LAB"
     # The location/region value is a mandatory field, it is used to control where the resources are deployed
     location = "westeurope"
 
@@ -362,9 +363,9 @@ Use the [deploy_controlplane.sh](bash/deploy-controlplane.md) script to deploy t
 
 The deployment goes through cycles of deploying the infrastructure, refreshing the state, and uploading the Terraform state files to the library storage account. All of these steps are packaged into a single deployment script. The script needs the location of the configuration file for the deployer and library, and some other parameters.
 
-For example, choose **North Europe** as the deployment location, with the four-character name `NOEU`, as previously described. The sample deployer configuration file `MGMT-NOEU-DEP00-INFRASTRUCTURE.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-NOEU-DEP00-INFRASTRUCTURE` folder.
+For example, choose **West Europe** as the deployment location, with the four-character name `WEEU`, as previously described. The sample deployer configuration file `LAB-WEEU-DEP05-INFRASTRUCTURE.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/LAB-WEEU-DEP05-INFRASTRUCTURE` folder.
 
-The sample SAP library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-NOEU-SAP_LIBRARY` folder.
+The sample SAP library configuration file `LAB-WEEU-SAP_LIBRARY.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/LAB-WEEU-SAP_LIBRARY` folder.
 
 Set the environment variables for the service principal:
 
@@ -396,8 +397,8 @@ export                  TF_use_webapp=true
 
 ```bash
 
-export            env_code="MGMT"
-export           vnet_code="DEP00"
+export            env_code="LAB"
+export           vnet_code="DEP05"
 export         region_code="<region_code>"
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
@@ -430,7 +431,7 @@ You need to note some values for upcoming steps. Look for this text block in the
 #########################################################################################
 #                                                                                       #
 #  Please save these values:                                                            #
-#     - Key Vault: MGMTNOEUDEP00user39B                                                 #
+#     - Key Vault: LABWEEUDEP05user39B                                                 #
 #     - Deployer IP: x.x.x.x                                                            #
 #     - Storage Account: mgmtnoeutfstate53e                                             #
 #     - Web Application Name: mgmt-noeu-sapdeployment39B                                #
@@ -441,7 +442,7 @@ You need to note some values for upcoming steps. Look for this text block in the
 
 2. Go to the [Azure portal](https://portal.azure.com).
 
-    Select **Resource groups**. Look for new resource groups for the deployer infrastructure and library. For example, you might see `MGMT-[region]-DEP00-INFRASTRUCTURE` and `MGMT-[region]-SAP_LIBRARY`.
+    Select **Resource groups**. Look for new resource groups for the deployer infrastructure and library. For example, you might see `LAB-[region]-DEP05-INFRASTRUCTURE` and `LAB-[region]-SAP_LIBRARY`.
 
     The contents of the deployer and SAP library resource group are shown here.
 
@@ -490,11 +491,11 @@ To connect to your deployer VM:
 
 1. Select or search for **Key vaults**.
 
-1. On the **Key vault** page, find the deployer key vault. The name starts with `MGMT[REGION]DEP00user`. Filter by **Resource group** or **Location**, if necessary.
+1. On the **Key vault** page, find the deployer key vault. The name starts with `LAB[REGION]DEP05user`. Filter by **Resource group** or **Location**, if necessary.
 
 1. On the **Settings** section in the left pane, select **Secrets**.
 
-1. Find and select the secret that contains **sshkey**. It might look like `MGMT-[REGION]-DEP00-sshkey`.
+1. Find and select the secret that contains **sshkey**. It might look like `LAB-[REGION]-DEP05-sshkey`.
 
 1. On the secret's page, select the current version. Then, copy the **Secret value**.
 
@@ -595,12 +596,12 @@ export       ARM_TENANT_ID="<tenantId>"
 
 ```bash
 
-export            env_code="MGMT"
-export           vnet_code="DEP00"
+export            env_code="LAB"
+export           vnet_code="DEP05"
 export         region_code="<region_code>"
 
 storage_accountname="mgmtneweeutfstate###"
-vault_name="MGMTNOEUDEP00user###"
+vault_name="LABWEEUDEP05user###"
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
@@ -623,8 +624,8 @@ ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
 You can deploy the web application using the following script:
 
 ```bash
-export            env_code="MGMT"
-export           vnet_code="DEP00"
+export            env_code="LAB"
+export           vnet_code="DEP05"
 export         region_code="<region_code>"
 export         webapp_name="<webAppName>"
 export              app_id="<appRegistrationId>"
@@ -655,12 +656,12 @@ az webapp restart --resource-group ${env_code}-${region_code}-${vnet_code}-INFRA
 1. Collect the following information in a text editor. This information was collected at the end of the "Deploy the control plane" phase.
 
     1. The name of the Terraform state file storage account in the library resource group:
-        - Following from the preceding example, the resource group is `MGMT-NOEU-SAP_LIBRARY`.
+        - Following from the preceding example, the resource group is `LAB-WEEU-SAP_LIBRARY`.
         - The name of the storage account contains `mgmtnoeutfstate`.
 
     1. The name of the key vault in the deployer resource group:
-        - Following from the preceding example, the resource group is `MGMT-NOEU-DEP00-INFRASTRUCTURE`.
-        - The name of the key vault contains `MGMTNOEUDEP00user`.
+        - Following from the preceding example, the resource group is `LAB-WEEU-DEP05-INFRASTRUCTURE`.
+        - The name of the key vault contains `LABWEEUDEP05user`.
 
     1. The public IP address of the deployer VM. Go to your deployer's resource group, open the deployer VM, and copy the public IP address.
 
@@ -668,11 +669,11 @@ az webapp restart --resource-group ${env_code}-${region_code}-${vnet_code}-INFRA
 
     1. The name of the deployer state file is found under the library resource group:
         - Select **Library resource group** > **State storage account** > **Containers** > `tfstate`. Copy the name of the deployer state file.
-        - Following from the preceding example, the name of the blob is `MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate`.
+        - Following from the preceding example, the name of the blob is `LAB-WEEU-DEP05-INFRASTRUCTURE.terraform.tfstate`.
 
 1. If necessary, register the Service Principal.
 
-    The first time an environment is instantiated, a Service Principal must be registered. In this tutorial, the control plane is in the `MGMT` environment and the workload zone is in `DEV`. Therefore, a Service Principal must be registered for the `DEV` environment.
+    The first time an environment is instantiated, a Service Principal must be registered. In this tutorial, the control plane is in the `LAB` environment and the workload zone is in `DEV`. Therefore, a Service Principal must be registered for the `DEV` environment.
 
     ```bash
     export ARM_SUBSCRIPTION_ID="<subscriptionId>"
@@ -713,7 +714,7 @@ Use the [install_workloadzone](bash/install-workloadzone.md) script to deploy th
     From the example region `northeurope`, the folder looks like:
 
     ```bash
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTRUCTURE
+    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
     ```
 
 1. Optionally, open the workload zone configuration file and, if needed, change the network logical name to match the network name.
@@ -727,13 +728,13 @@ Use the [install_workloadzone](bash/install-workloadzone.md) script to deploy th
 ```bash
 
 export tfstate_storage_account="<storageaccountName>"
-export       deployer_env_code="MGMT"
+export       deployer_env_code="LAB"
 export            sap_env_code="DEV"
 export             region_code="<region_code>"
 export               key_vault="<vaultName>"
 
-export      deployer_vnet_code="DEP01"
-export               vnet_code="SAP02"
+export      deployer_vnet_code="DEP05"
+export               vnet_code="SAP04"
 
 export     ARM_SUBSCRIPTION_ID="<subscriptionId>"
 export           ARM_CLIENT_ID="<appId>"
@@ -806,10 +807,10 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh                          \
 The deployment command for the `northeurope` example looks like:
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
-    --parameterfile DEV-NOEU-SAP01-X00.tfvars        \
+    --parameterfile DEV-WEEU-SAP01-X00.tfvars        \
     --type sap_system                                \
     --auto-approve
 ```
@@ -860,7 +861,7 @@ materials:
     - name:         "Kernel Part I ; OS: Linux on x86_64 64bit ; DB: Database independent"
 ```
 
-For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRUCTURE`. The deployer key vault name contains `MGMTNOEUDEP00user` in the name. You use this information to configure your deployer's key vault secrets.
+For this example configuration, the resource group is `LAB-WEEU-DEP05-INFRASTRUCTURE`. The deployer key vault name contains `LABWEEUDEP05user` in the name. You use this information to configure your deployer's key vault secrets.
 
 1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
 
@@ -931,7 +932,7 @@ The SAP application installation happens through Ansible playbooks.
 Go to the system deployment folder.
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00/
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00/
 ```
 
 Make sure you have the following files in the current folders: `sap-parameters.yaml` and `X00_host.yaml`.
@@ -1002,12 +1003,12 @@ Before you begin, sign in to your Azure account. Then, check that you're in the 
 
 ### Remove the SAP infrastructure
 
-Go to the `DEV-NOEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then, run this command:
+Go to the `DEV-WEEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then, run this command:
 
 ```bash
 export  sap_env_code="DEV"
-export   region_code="NOEU"
-export sap_vnet_code="SAP02"
+export   region_code="WEEU"
+export sap_vnet_code="SAP04"
 
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-${sap_vnet_code}-X00
 
@@ -1023,7 +1024,7 @@ Go to the `DEV-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE` folde
 ```bash
 
 export  sap_env_code="DEV"
-export   region_code="NOEU"
+export   region_code="WEEU"
 export sap_vnet_code="SAP01"
 
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-${sap_vnet_code}-INFRASTRUCTURE
@@ -1053,9 +1054,9 @@ export ARM_SUBSCRIPTION_ID="<subscriptionId>"
 Run the following command:
 
 ```bash
-export region_code="NOEU"
-export    env_code="MGMT"
-export   vnet_code="DEP00"
+export region_code="WEEU"
+export    env_code="LAB"
+export   vnet_code="DEP05"
 
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_controlplane.sh                                                                                                \

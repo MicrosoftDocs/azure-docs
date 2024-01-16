@@ -431,6 +431,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-retrieve-legacy-workbooks.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/workbooks-retrieve-legacy-workbooks",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-view-designer-conversions.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/visualize/workbooks-view-designer-conversions",
             "redirect_document_id": false
@@ -702,7 +707,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-transition-hybrid.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-onboard",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
             "redirect_document_id": false
         },
         {
@@ -1697,17 +1702,22 @@
         },
         {
             "source_path_from_root": "/articles/monitoring/monitoring-container-insights-onboard.md",
-            "redirect_url": "/azure/azure-monitor/insights/container-insights-onboard",
+            "redirect_url": "/azure/azure-monitor/insights/kubernetes-monitoring-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/containers/container-insights-enable-provisioned-clusters.md",
+            "redirect_url": "/azure/azure-monitor/insights/kubernetes-monitoring-enable",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/monitoring/monitoring-container-insights-optout.md",
-            "redirect_url": "/azure/azure-monitor/insights/container-insights-optout",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/container-insights-optout-openshift.md",
-            "redirect_url": "/azure/azure-monitor/insights/container-insights-optout-openshift-v3",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
             "redirect_document_id": false
         },
         {
@@ -4736,7 +4746,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/container-insights-agent-config.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-agent-config",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-data-collection-configmap",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-agent-config.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-data-collection-configmap",
             "redirect_document_id": false
         },
         {
@@ -4777,6 +4792,16 @@
         {
             "source_path_from_root": "/articles/azure-monitor/insights/container-insights-enable-new-cluster.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-new-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-aks.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
             "redirect_document_id": false
         },
         {
@@ -4831,27 +4856,27 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/container-insights-onboard.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-onboard",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/container-insights-optout.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/container-insights-optout-hybrid.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout-hybrid",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/container-insights-optout-openshift-v3.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout-openshift-v3",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/container-insights-optout-openshift-v4.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout-openshift-v4",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
             "redirect_document_id": false
         },
         {
@@ -4882,6 +4907,16 @@
         {
             "source_path_from_root": "/articles/azure-monitor/insights/container-insights-update-metrics.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-update-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-aks-policy.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable&tabs=policy#enable-container-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-provisioned-clusters.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable.md&tabs=cli#aks-hybrid-cluster",
             "redirect_document_id": false
         },
         {
@@ -5711,7 +5746,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus-metrics-addon.md",
-            "redirect_url": "/azure/azure-monitor/essentials/prometheus-metrics-enable",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
             "redirect_document_id": false
         },
         {
@@ -6056,7 +6091,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-using-migration-tool.md",
-            "redirect_url": "previous-versions/azure/azure-monitor/alerts/alerts-using-migration-tool",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-using-migration-tool",
             "redirect_document_id": false
         },
         {
@@ -6077,6 +6112,21 @@
         {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-filters.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer-filters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-configurations.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-getting-started.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-commonly-used-components.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-visualizations",
             "redirect_document_id": false
         },
         {
@@ -6216,17 +6266,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus.md",
-            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-enable",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-enable.md",
-            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-enable",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-disable.md",
-            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-disable",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
             "redirect_document_id": false
         },
         {
@@ -6300,6 +6350,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/containers/prometheus-metrics-disable.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-logging-v2.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-logs-schema",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-onboard.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/azure-monitor/azure-cli-metrics-alert-sample.md",
             "redirect_url": "/azure/azure-monitor/alerts/azure-cli-metrics-alert-sample",
             "redirect_document_id": false
@@ -6330,13 +6395,43 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-openshift-v3.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-openshift-v4.md",
-            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-cost-config.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-data-collection-dcr",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-hybrid.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-disable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-v2-migration.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-logs-schema",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/prometheus-metrics-enable.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable#enable-prometheus-and-grafana",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/prometheus-metrics-from-arc-enabled-cluster.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
             "redirect_document_id": false
         },
         {
@@ -6478,7 +6573,11 @@
             "source_path_from_root": "/articles/azure-monitor/logs/data-collection-rule-sample-custom-logs.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-samples",
             "redirect_document_id": false
-        }
-        
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/agents/data-collection-rule-sample-agent.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-samples",
+            "redirect_document_id": false
+        }        
     ]
 }

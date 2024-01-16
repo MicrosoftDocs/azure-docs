@@ -8,9 +8,9 @@ metadata:
   ms.service: azure-ai-studio
   ms.topic: landing-page
   ms.collection: collection
-  author: eric-urban
   ms.reviewer: eur
   ms.author: eur
+  author: eric-urban
   ms.date: 11/15/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -64,8 +64,8 @@ landingContent:
             url: how-to/sdk-install.md
           - text: Get started with the Azure AI CLI
             url: how-to/cli-install.md
-          - text: Get started with projects in VS Code (Web)
-            url: how-to/vscode-web.md
+          - text: Work with Azure AI projects in VS Code
+            url: how-to/develop-in-vscode.md
       - linkListType: concept
         links:
           - text: Connections for flows and indexing
