@@ -23,7 +23,9 @@ Container insights is a feature of Azure Monitor that collects and analyzes cont
 ## Data collected
 Container insights sends data to a [Log Analytics workspace](../logs/data-platform-logs.md) where you can analyze it using different features of Azure Monitor. Managed Prometheus sends data to an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) where it can be accessed by Managed Grafana. See [Monitoring data](../../aks/monitor-aks.md#monitoring-data) for further details on this data.
 
-:::image type="content" source="../media/container-insights-overview/aks-monitor-data.png" lightbox="../media/container-insights-overview/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from Kubernetes cluster using Container insights and related services." border="false":::
+:::image type="content" source="media/container-insights-overview/aks-monitor-data.png" lightbox="media/container-insights-overview/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from Kubernetes cluster using Container insights and related services." border="false":::
+
+
 
 ### Supported configurations
 Container insights supports the following environments:
