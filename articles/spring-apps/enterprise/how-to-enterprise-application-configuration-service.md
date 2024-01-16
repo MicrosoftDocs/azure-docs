@@ -52,9 +52,9 @@ You can choose the version of Application Configuration Service when you create 
 Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your configuration files.
 
 To manage the service settings, open the **Settings** section. Within this area, you have the ability to configure three key aspects:
-1. Generation: Upgrade the service generation.
-2. Refresh Interval: Adjust the frequency at which the service checks for updates. 
-3. Repositories: Add new entries, or modify existing ones. This allows you to control which repoisitories the service monitors and pulls data from.
+1. **Generation**: Upgrade the service generation.
+2. **Refresh Interval**: Adjust the frequency at which the service checks for updates. 
+3. **Repositories**: Add new entries, or modify existing ones. This allows you to control which repoisitories the service monitors and pulls data from.
 
 :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-settings.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-settings.png":::
 
