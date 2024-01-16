@@ -3,7 +3,7 @@ title: What's new in Azure Disk Storage
 description: Learn about new features and enhancements in Azure Disk Storage.   
 author: roygara
 ms.author: rogarana
-ms.date: 01/10/2024
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -12,15 +12,41 @@ ms.service: azure-disk-storage
 
 Azure Disk Storage regularly receives updates for new features and enhancements. This article provides information about what's new in Azure Disk Storage.
 
+## Update summary
+
+- [What's new in 2024](#whats-new-in-2024)
+    - [Quarter 1 (January, February, March)](#quarter-1-january-february-march)
+        - [Ultra Disk regional availability expansion](#ultra-disk-regional-availability-expansion)
+        - [Zone redundant storage disk regional availability expansion](#zone-redundant-storage-disk-regional-availability-expansion)
+- [What's new in 2023](#whats-new-in-2023)
+    - [Quarter 4 (October, November, December)](#quarter-4-october-november-december)
+        - [Encryption at host GA for Premium SSD v2 and Ultra Disks](#encryption-at-host-ga-for-premium-ssd-v2-and-ultra-disks)
+        - [New latency metrics (preview)](#new-latency-metrics-preview)
+        - [Expanded regional availability for Premium SSD v2](#expanded-regional-availability-for-premium-ssd-v2)
+        - [Expanded regional availability for ZRS disks](#expanded-regional-availability-for-zrs-disks)
+    - [Quarter 3 (July, August, September)](#quarter-3-july-august-september)
+        - [Expanded regional availability for ZRS disks (1)](#expanded-regional-availability-for-zrs-disks-1)
+        - [Expanded regional availability for Premium SSD v2](#expanded-regional-availability-for-premium-ssd-v2-1)
+        - [General Availability - Incremental Snapshots for Premium SSD v2 and Ultra Disks](#general-availability---incremental-snapshots-for-premium-ssd-v2-and-ultra-disks)
+    - [Quarter 2 (April, May, June)](#quarter-2-april-may-june)
+        - [Expanded regional availability for Premium SSD v2 (2)](#expanded-regional-availability-for-premium-ssd-v2-2)
+        - [Expanded regional availability for ZRS disks (2)](#expanded-regional-availability-for-zrs-disks-2)
+        - [Preview - Azure Backup support for Premium SSD v2](#preview---azure-backup-support-for-premium-ssd-v2)
+    - [Quarter 1 (January, February, March) (1)](#quarter-1-january-february-march-1)
+        - [Expanded regional availability for Premium SSD v2 (3)](#expanded-regional-availability-for-premium-ssd-v2-3)
+        - [Preview - Performance plus](#preview---performance-plus)
+        - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks)
+        - [More transactions at no extra cost - Standard SSDs](#more-transactions-at-no-extra-cost---standard-ssds)
+
 ## What's new in 2024
 
 ### Quarter 1 (January, February, March)
 
-## Ultra Disk regional availability expansion
+#### Ultra Disk regional availability expansion
 
 Ultra Disks were made available in the UK West and Poland Central regions.
 
-## Zone redundant storage disk regional availability expansion
+#### Zone redundant storage disk regional availability expansion
 
 Zone Redundant Storage (ZRS) disks were made available in West US 3 and Germany Central regions.
 
@@ -32,7 +58,7 @@ Zone Redundant Storage (ZRS) disks were made available in West US 3 and Germany 
 
 Encryption at host was previously only available for Standard HDDs, Standard SSDs, and Premium SSDs. Encryption at host is now also available as a GA offering for Premium SSD v2 and Ultra Disks. For more information on encryption at host, see [Encryption at host - End-to-end encryption for your VM data](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-There are some additional restrictions for Premium SSD v2 and Ultra Disks that enable encryption at host. For more information, see [Restrictions (1)](disk-encryption.md#restrictions-1).
+There are some additional restrictions for Premium SSD v2 and Ultra Disks that enable encryption at host. For more information, see [Restrictions](disk-encryption.md#restrictions-1).
 
 #### New latency metrics (preview)
 
