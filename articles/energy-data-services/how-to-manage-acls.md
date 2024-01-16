@@ -13,6 +13,10 @@ ms.custom: template-how-to
 
 In this article, you learn how to add or remove ACLs from the data record in your Azure Data Manager for Energy instance.
 
+## Create a data group as ACL
+
+users.data.root is default member of all data groups when groups are created. If we try to remove users.data.root from that data group, you get error since it is enforced with hierarchy. Hence, in case a data record has 2 ACLs and a given user is member of one of the ACL as well as users.data.root, now if we remove this user from that ACL, the user remains to have access of the data record via users.data.root group. 
+
 ## Create a record with ACLs
 
 **Request format**
@@ -178,6 +182,7 @@ If you delete the last owner ACL from the data record, you get the error.
     ]
 }
 ```
+
 
 ## Next steps
 
