@@ -33,23 +33,7 @@ To get started, [connect your data source](../use-your-data-quickstart.md) using
 
 ## Azure Role-based access controls (Azure RBAC) for adding data sources
 
-To use Azure OpenAI on your data fully capability, you need the following Azure RBAC roles
-
-
-| Azure RBAC role |	Which resource needs this role?	| Needed when |
-|----|----|----|
-| Cognitive Services OpenAI Contributor | The Azure AI Search resource, to access Azure OpenAI resource. | You want to use Azure OpenAI on your data. |
-| Search Index Data Reader | The Azure OpenAI resource, to access the Azure AI Search resource.	| You want to use Azure OpenAI on your data. |
-| Search Service Contributor | The Azure OpenAI resource | to access the Azure AI Search resource. |You plan to create a new Azure AI Search index. |
-| Storage Blob Data Contributor | You have an existing Blob storage container that you want to use, instead of creating a new one. | The Azure AI Search and Azure OpenAI resources, to access the storage account. |
-| Cognitive Services OpenAI User | The web app, to access the Azure OpenAI resource. | You want to deploy a web app. |
-| Contributor | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
-| Cognitive Services Contributor Role | The Azure AI Search resource, to access Azure OpenAI resource.	| You want to deploy a web app. |
-
-## Add your data 
-
-When you want to use your data to chat with an Azure OpenAI model, it needs to be indexed in a database that can be used by the model. For some data sources (such as uploading files from your local machine or data contained in a blob storage account), Azure AI Search us used. 
-
+To use Azure OpenAI on your data fully, you may need to set one or more Azure RBAC roles. See [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md#role-assignments) for more information.
 
 ### Data formats and file types
 
@@ -75,47 +59,75 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
     This will affect the quality of the model response. 
 
+* If your files have special formatting, such as tables and columns, or bullet points, prepare your data with the data preperation script [available on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#optional-crack-pdfs-to-text)
+
 ### Supported data sources
 
-Azure OpenAI on your data supports the following data sources:
-
-
-|Data source  |Backing database  |Description  |
-|---------|---------|---------|
-|Local file upload    | Azure AI Search        | Upload files from your local machine to be stored in an Azure blob storage database, and ingested into Azure AI Search.         |
-|URL/Web pages    | Azure AI Search        | Select URLs from the web to be stored in an Azure blob storage database, and ingested into Azure AI Search.         |
-|Blob storage container     | Azure AI Search | Use an existing blob storage container to be ingested into an Azure AI Search database.         |
-| [Azure AI Search](/azure/search/search-what-is-azure-search)   | Azure AI Search | Use an existing Azure AI Search database to be used with Azure OpenAI on your data.      |
-|[Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/)     | Azure Cosmos DB for MongoDB vCore        | Use an existing Azure Cosmos DB for MongoDB vCore to be used with Azure OpenAI on your data.        |
-| [Pinecone](https://www.pinecone.io/)   | Pinecone | Use an existing Pinecone database to be used with Azure OpenAI on your data.        |         
-| [Elasticsearch](https://www.elastic.co/)   | Elasticsearch | Use an existing Elasticsearch database to be used with Azure OpenAI on your data.        |         
-
-You can use Azure OpenAI studio, Azure AI studio, or the [ingestion API](../reference.md#start-an-ingestion-job) to connect existing supported databases (to upload files and select URLs for ingestion, use Azure OpenAI studio). For example, to add a data source using Azure Open AI Studio:
-
-1. Navigate to [Azure OpenAI studio](https://oai.azure.com/portal) and select the **Bring your data**.
-
-    :::image type="content" source="../media/use-your-data/bring-your-data-landing-page.png" alt-text="A screenshot of the Azure OpenAI Studio landing page." lightbox="../media/use-your-data/bring-your-data-landing-page.png":::
-
-1. In the pane that appears, select your data source option. For example, you can choose **Upload files** to upload files to an Azure blob storage And Azure AI Search service. Follow the steps that appear for your selected data source to add it, and start ingesting it.
-
-    :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
-
-
-Once you complete the steps, your data is ingested to integrate the information with Azure OpenAI models.
-
-Use the following tabs to learn about the different data sources supported by Azure OpenAI. 
+When you want to use your data to chat with an Azure OpenAI model, your data will be chunked and stored in a search index so that relevant data can be found based on user queries. For some data sources (such as uploading files from your local machine or data contained in a blob storage account), Azure AI Search is used. 
 
 # [Azure AI Search](#tab/ai-search)
+
+When you choose the following data sources, your data is ingested into an Azure AI Search database:
+
+|Data source  | Description  |
+|---------|---------|
+|Upload files      | Upload files from your local machine to be stored in an Azure blob storage database, and ingested into Azure AI Search.         |
+|URL/Web pages        | Web content from the URLs is stored in an Azure Blob Storage account.         |
+|Azure Blob storage account | Upload files from an Azure Blob Storage account to be ingested into an Azure AI Search index.         |
+| [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI on your data.      |
 
 > [!TIP]
 > * For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). The script chunks data so that your response with the service will be more accurate. This script also supports scanned PDF files and images.
 
 You might want to consider using an Azure AI Search index when you either want to:
-* Upload data from your machine or specify URLs to ingest using the Azure OpenAI Studio.  
 * Customize the index creation process. 
 * Reuse an index created before by ingesting data from other data sources.
 
-**Data from Azure storage containers**
+
+Azure OpenAI on your data provides several search options you can use when you add your data source, leveraging the following types of search.
+
+* [Keyword search](/azure/search/search-lucene-query-architecture)
+
+* [Semantic search](/azure/search/semantic-search-overview)
+* [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [select regions](models.md#embeddings-models). 
+
+    To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.  
+
+> [!IMPORTANT]
+> * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or higher SKU** to enable semantic search or vector search. See [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity) for more information.
+> * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, and Arabic.
+
+| Search option       | Retrieval type | Additional pricing? |Benefits|
+|---------------------|------------------------|---------------------| -------- |
+| *keyword*            | Keyword search                       | No additional pricing.                    |Performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
+| *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |Improves the precision and relevance of search results by using a reranker (with AI models) to understand the semantic meaning of query terms and documents returned by the initial search ranker|
+| *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.                    |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
+| *hybrid (vector + keyword)*   | A hybrid of vector search and keyword search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
+| *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic and keyword search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Leverages vector embeddings, language understanding and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
+
+The optimal search option can vary depending on your dataset and use-case. You might need to experiment with multiple options to determine which works best for your use-case.
+
+## Document-level access control
+
+> [!NOTE] 
+> Document-level access control is supported when you select an existing Azure AI search as your data source.
+
+Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response will be trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes See [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md) for more information.
+
+
+### Index field mapping 
+
+If you're using your own index, you will be prompted in the Azure OpenAI Studio to define which fields you want to map for answering questions when you add your data source. You can provide multiple fields for *Content data*, and should include all fields that have text pertaining to your use case. 
+
+:::image type="content" source="../media/use-your-data/index-data-mapping.png" alt-text="A screenshot showing the index field mapping options in Azure OpenAI Studio." lightbox="../media/use-your-data/index-data-mapping.png":::
+
+In this example, the fields mapped to **Content data** and **Title** provide information to the model to answer questions. **Title** is also used to title citation text. The field mapped to **File name** generates the citation names in the response. 
+
+Mapping these fields correctly helps ensure the model has better response and citation quality. 
+
+# [Azure storage containers](#tab/storage-container)
+
+When you select an existing Azure storage container, the following steps are performed.
 
 1. Ingestion assets are created in Azure AI Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API](../reference.md#start-an-ingestion-job).  
 
@@ -124,11 +136,45 @@ You might want to consider using an Azure AI Search index when you either want t
 3. The preprocessed data is loaded from the chunks container, and indexed in the Azure AI Search index. 
 
 
-**Data from local file upload**
+### Schedule automatic index refreshes
+
+> [!NOTE] 
+> Automatic index refreshing is supported when you select an existing Azure Blob storage account.
+
+To keep your Azure AI Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **blob storage** as the data source. To enable an automatic index refresh:
+
+1. [Add a data source](../quickstart.md) using Azure OpenAI studio.
+1. Under **Select or add data source** select **Indexer schedule** and choose the refresh cadence you would like to apply.
+
+    :::image type="content" source="../media/use-your-data/indexer-schedule.png" alt-text="A screenshot of the indexer schedule in Azure OpenAI Studio." lightbox="../media/use-your-data/indexer-schedule.png":::
+
+After the data ingestion is set to a cadence other than once, Azure AI Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added, modified, or deleted from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. To update your data, you only need to upload the additional documents from the Azure portal. From the portal, select **Storage Account** > **Containers**. Select the name of the original container, then **Upload**. The index will pick up the files automatically after the scheduled refresh period. The intermediate assets created in the Azure AI Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
+   - `{Index Name}-index`
+   - `{Index Name}-indexer`
+   - `{Index Name}-indexer-chunk`
+   - `{Index Name}-datasource`
+   - `{Index Name}-skillset`
+
+To modify the schedule, you can use the [Azure portal](https://portal.azure.com/).
+
+1. Open your search resource page in the Azure portal
+1. Select **Indexers** from the left pane 
+    
+    :::image type="content" source="../media/use-your-data/indexers-azure-portal.png" alt-text="A screenshot of the indexers tab in the Azure portal." lightbox="../media/use-your-data/indexers-azure-portal.png":::
+
+1. Perform the following steps on the two indexers that have your index name as a prefix.
+    1. Select the indexer to open it. Then select the **settings** tab.
+    1. Update the schedule to the desired cadence from "Schedule" or specify a custom cadence from "Interval (minutes)"
+        
+        :::image type="content" source="../media/use-your-data/indexer-schedule-azure-portal.png" alt-text="A screenshot of the settings page for an individual indexer." lightbox="../media/use-your-data/indexer-schedule-azure-portal.png":::
+
+    1. Select **Save**.
+
+# [Upload files](#tab/file-upload)
 
 Using Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
 
-**Data from URLs**
+# [Web pages](#tab/web-pages)
 
 Using Azure OpenAI Studio, you can paste URLs and the service will store the webpage content, using it when generating responses from the model.The content in URLs/web addresses that you use need to have the following characteristics to be properly ingested:
 
@@ -147,6 +193,7 @@ You can use URL as a data source in both the Azure OpenAI Studio. To use URL/web
 Once you have added the URL/web address for data ingestion, the web pages from your URL are fetched and saved to your Azure Blob Storage account with a container name: `webpage-<index name>`. Each URL will be saved into a different container within the account. Then the files are indexed into an Azure AI Search index, which is used for retrieval when you’re chatting with the model.
 
 When you want to reuse the same URL/web address, you can select [Azure AI Search](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search) as your data source and select the index you created with your URL previously. Then you can use the already indexed files instead of having the system crawl your URL again. You can use the Azure AI Search index directly and delete the storage container to free up your storage space.
+
 
 ### Search options
 
@@ -172,16 +219,6 @@ Azure OpenAI on your data provides several search options you can use when you a
 | *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic and keyword search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Leverages vector embeddings, language understanding and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
 
 The optimal search option can vary depending on your dataset and use-case. You might need to experiment with multiple options to determine which works best for your use-case.
-
-### Index field mapping 
-
-If you're using your own index, you will be prompted in the Azure OpenAI Studio to define which fields you want to map for answering questions when you add your data source. You can provide multiple fields for *Content data*, and should include all fields that have text pertaining to your use case. 
-
-:::image type="content" source="../media/use-your-data/index-data-mapping.png" alt-text="A screenshot showing the index field mapping options in Azure OpenAI Studio." lightbox="../media/use-your-data/index-data-mapping.png":::
-
-In this example, the fields mapped to **Content data** and **Title** provide information to the model to answer questions. **Title** is also used to title citation text. The field mapped to **File name** generates the citation names in the response. 
-
-Mapping these fields correctly helps ensure the model has better response and citation quality. 
 
 # [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
 
@@ -235,6 +272,7 @@ TBD
 
 After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
 * [Web app](#using-the-web-app)
+* [Power Virtual Agents](#using-power-virtual-agents)
 * [REST API](../reference.md#azure-ai-search)
 * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/AzureOnYourData.cs)
 * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
