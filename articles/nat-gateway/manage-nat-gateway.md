@@ -377,7 +377,7 @@ resource updatedsubnet01 'Microsoft.Network/virtualNetworks/subnets@2023-06-01' 
   parent: vnet
   name: existingSubnetName
   properties: {
-    addressPrefix: vnet.properties.subnets[0].properties.addressPrefix  // This line fixes the issue.
+    addressPrefix: vnet.properties.subnets[0].properties.addressPrefix
     natGateway: {
       id: natgateway.id
     }
@@ -437,6 +437,10 @@ az network nat gateway delete \
     --name myNATgateway \
     --resource-group myResourceGroup
 ```
+
+# [**Bicep**](#tab/manage-nat-bicep)
+
+Use the Azure portal, Azure PowerShell, or Azure CLI to remove a NAT gateway from a subnet and delete the resource.
 
 ---
 
