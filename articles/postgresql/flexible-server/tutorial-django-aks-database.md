@@ -388,4 +388,4 @@ az group delete --name django-project --yes --no-wait
 - Learn how to [enable continuous deployment](../../aks/deployment-center-launcher.md)
 - Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md)
 - Learn how to manage your [postgres flexible server](./quickstart-create-server-cli.md)
-- Learn how to [configure server parameters](./howto-configure-server-parameters-using-cli.md) for your database server.
+- Learn how to [configure server parameters](./how-to-configure-server-parameters-using-cli.md) for your database server.

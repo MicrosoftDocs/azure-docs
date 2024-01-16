@@ -91,7 +91,7 @@ landingContent:
           - text: Connect securely using TLS
             url: flexible-server/how-to-connect-tls-ssl.md        
           - text: Configure and access logs
-            url: flexible-server/howto-configure-and-access-logs.md
+            url: flexible-server/how-to-configure-and-access-logs.md
           - text: Schedule maintenance
             url: flexible-server/how-to-maintenance-portal.md
 

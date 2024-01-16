@@ -326,7 +326,7 @@ The 'active' column in the `pg_replication_slots` view indicates whether there's
 ```sql
 SELECT * FROM pg_replication_slots;
 ```
-[Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds.
+[Set alerts](how-to-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds.
 
 
 ## Limitations

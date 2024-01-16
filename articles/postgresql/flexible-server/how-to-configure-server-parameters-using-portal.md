@@ -118,5 +118,5 @@ PostgreSQL allows you to specify time zones in three different forms:
 ## Next steps
 Learn about:
 - [Overview of server parameters in Azure Database for PostgreSQL - Flexible Server](concepts-server-parameters.md)
-- [Configure Azure Database for PostgreSQL - Flexible Server parameters via CLI](howto-configure-server-parameters-using-cli.md)
+- [Configure Azure Database for PostgreSQL - Flexible Server parameters via CLI](how-to-configure-server-parameters-using-cli.md)
   

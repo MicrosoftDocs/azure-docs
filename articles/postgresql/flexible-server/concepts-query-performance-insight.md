@@ -34,7 +34,7 @@ Query Performance Insight provides intelligent query analysis for Azure Postgres
 > [!NOTE]
 > **Query Store Wait Sampling** is currently **disabled**. Query Performance Insight depends on Query Store wait sampling data. You need to enable it by setting the dynamic server parameter `pgms_wait_sampling.query_capture_mode` to **ALL**.
 
-3. **[Log analytics workspace](howto-configure-and-access-logs.md)** is configured for storing 3 log categories including - PostgreSQL Sessions logs, PostgreSQL Query Store and Runtime and PostgreSQL Query Store Wait Statistics. To configure log analytics, refer [Log analytics workspace](howto-configure-and-access-logs.md#configure-diagnostic-settings).
+3. **[Log analytics workspace](how-to-configure-and-access-logs.md)** is configured for storing 3 log categories including - PostgreSQL Sessions logs, PostgreSQL Query Store and Runtime and PostgreSQL Query Store Wait Statistics. To configure log analytics, refer [Log analytics workspace](how-to-configure-and-access-logs.md#configure-diagnostic-settings).
 
 > [!NOTE]
 > The **Query Store data is not being transmitted to the log analytics workspace**. The PostgreSQL logs (Sessions data / Query Store Runtime / Query Store Wait Statistics) is not being sent to the log analytics workspace, which is necessary to use Query Performance Insight. To configure the logging settings for category PostgreSQL sessions and send the data to a log analytics workspace.

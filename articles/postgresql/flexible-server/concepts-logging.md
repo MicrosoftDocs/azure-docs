@@ -21,7 +21,7 @@ Audit logging is made available through a Postgres extension, `pgaudit`. To lear
 
 You can configure Postgres standard logging on your server using the logging server parameters. To learn more about Postgres log parameters, visit the [When To Log](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) and [What To Log](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) sections of the Postgres documentation. Most, but not all, Postgres logging parameters are available to configure in Azure Database for PostgreSQL.
 
-To learn how to configure parameters in Azure Database for PostgreSQL, see the [portal documentation](howto-configure-server-parameters-using-portal.md) or the [CLI documentation](howto-configure-server-parameters-using-cli.md).
+To learn how to configure parameters in Azure Database for PostgreSQL, see the [portal documentation](how-to-configure-server-parameters-using-portal.md) or the [CLI documentation](how-to-configure-server-parameters-using-cli.md).
 
 > [!NOTE]
 > Configuring a high volume of logs, for example statement logging, can add significant performance overhead. 
@@ -61,6 +61,6 @@ The following table describes the fields for the **PostgreSQLLogs** type. Depend
 
 ## Next steps
 
-- Learn more about how to [Configure and Access Logs](howto-configure-and-access-logs.md).
+- Learn more about how to [Configure and Access Logs](how-to-configure-and-access-logs.md).
 - Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 - Learn more about [audit logs](concepts-audit.md)

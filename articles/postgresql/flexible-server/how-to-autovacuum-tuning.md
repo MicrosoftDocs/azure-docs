@@ -293,4 +293,4 @@ Using the feature troubleshooting guides which is available on the Azure Databas
 
 - [High CPU Utilization](how-to-high-cpu-utilization.md)
 - [High Memory Utilization](how-to-high-memory-utilization.md)
-- [Server Parameters](howto-configure-server-parameters-using-portal.md)
+- [Server Parameters](how-to-configure-server-parameters-using-portal.md)

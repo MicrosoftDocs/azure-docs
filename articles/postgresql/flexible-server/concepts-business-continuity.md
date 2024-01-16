@@ -103,8 +103,8 @@ Below are some unplanned failure scenarios and the recovery process.
 ### Configure your database after recovery from regional failure
 
 * If you are using geo-restore or geo-replica to recover from an outage, you must make sure that the connectivity to the new server is properly configured so that the normal application function can be resumed. You can follow the [Post-restore tasks](concepts-backup-restore.md#geo-redundant-backup-and-restore).
-* If you've previously set up a diagnostic setting on the original server, make sure to do the same on the target server if necessary as explained in [Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server](howto-configure-and-access-logs.md).
-* Setup telemetry alerts, you need to make sure your existing alert rule settings are updated to map to the new server. For more information about alert rules, see [Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server](howto-alert-on-metrics.md).
+* If you've previously set up a diagnostic setting on the original server, make sure to do the same on the target server if necessary as explained in [Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server](how-to-configure-and-access-logs.md).
+* Setup telemetry alerts, you need to make sure your existing alert rule settings are updated to map to the new server. For more information about alert rules, see [Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server](how-to-alert-on-metrics.md).
 
 
 > [!IMPORTANT]
