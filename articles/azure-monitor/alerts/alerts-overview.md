@@ -120,13 +120,13 @@ Use [log alert rules](alerts-create-log-alert-rule.md) to monitor all resources 
 
 You can also create resource-centric alerts instead of workspace-centric alerts by using **Split by dimensions**. When you split on the resourceId column, you will get one alert per resource that meets the condition.
 
-Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to an Log Analytics workspace, there is no additional cost. 
+Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to a Log Analytics workspace, there is no additional cost. 
 
 If you use metric data at scale in the Log Analytics workspace, pricing will change based on the data ingestion.
 
 ### Using Azure policies for alerting at scale
 
-You can use [Azure policies](/azure/governance/policy/overview) to set up alerts at-scale. This has the advantage of easily implementing alerts at-scale. You can see how this is implementated with [Azure Monitor baseline alerts](https://aka.ms/amba).
+You can use [Azure policies](/azure/governance/policy/overview) to set up alerts at-scale. This has the advantage of easily implementing alerts at-scale. You can see how this is implemented with [Azure Monitor baseline alerts](https://aka.ms/amba).
 
 Keep in mind that if you use policies to create alert rules, you may have the increased overhead of maintaining a large alert rule set.
 
