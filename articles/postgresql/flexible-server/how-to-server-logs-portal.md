@@ -70,7 +70,7 @@ To download server logs, perform the following steps.
 
     :::image type="content" source="./media/how-to-server-logs-portal/5-how-to-server-log.png" alt-text="Screenshot showing server Logs - Disable.":::
 
-3. Select Save.
+3. Select Save
 
 ## Next steps
 - To enable and disable Server logs from CLI, you can refer to the [article.](./how-to-server-logs-cli.md)
