@@ -21,7 +21,7 @@ sections:
       - question: |
           Can I add hierarchical partition keys to existing containers?
         answer: |
-          Adding hierarchical partition keys to existing containers isn't supported. However, you can create a new container with your desired hierarchical partition key and run a container copy job to copy data from your existing container to your new one. For more information on how to do copy data, see [intra-account container copy jobs](intra-account-container-copy.md).
+          Adding hierarchical partition keys to existing containers isn't supported. However, you can create a new container with your desired hierarchical partition key and run a container copy job to copy data from your existing container to your new one. For more information on how to do copy data, see [container copy jobs](container-copy.md).
       - question: |
           Is there a storage limit on the size of a logical partition key?
         answer: |
@@ -45,7 +45,7 @@ sections:
       - question: |
           I created a hierarchy of keys that doesn't have much cardinality. What should I do?
         answer: |
-          You may be in a scenario where your workload is only hitting a few physical partitions out of all your partitions. This scenario might mean one or more levels of your hierarchical partition key has low cardinality. To troubleshoot scenario, we always recommend recreating your hierarchical partition key and you can use DTS to change your key and copy over your container's data to your new container. If this step isn't possible, there are two workarounds we suggest ensuring uniform distribution of your data
+          You might be in a scenario where your workload is only hitting a few physical partitions out of all your partitions. This scenario might mean one or more levels of your hierarchical partition key has low cardinality. To troubleshoot scenario, we always recommend recreating your hierarchical partition key and you can use DTS to change your key and copy over your container's data to your new container. If this step isn't possible, there are two workarounds we suggest ensuring uniform distribution of your data
           
           - **Approach 1**:        
 

@@ -1,7 +1,7 @@
 ---
 title: Create and run component-based ML pipelines (CLI)
 titleSuffix: Azure Machine Learning
-description: Create and run machine learning pipelines using the Azure Machine Learning CLI. 
+description: Create and run machine learning pipelines using the Azure Machine Learning CLI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,12 @@ ms.author: zhanxia
 ms.reviewer: lagayhar
 ms.date: 05/26/2022
 ms.topic: how-to
-ms.custom: devplatv2, devx-track-azurecli, event-tier1-build-2022, build-2023
+ms.custom:
+  - devplatv2
+  - devx-track-azurecli
+  - event-tier1-build-2022
+  - build-2023
+  - ignite-2023
 ms.devlang: azurecli, cliv2
 ---
 
@@ -67,7 +72,7 @@ az ml compute list
 If you don't have it, create a cluster called `cpu-cluster` by running:
 
 > [!NOTE]
-> Skip this step to use [serverless compute (preview)](./how-to-use-serverless-compute.md).
+> Skip this step to use [serverless compute](./how-to-use-serverless-compute.md).
 
 ```azurecli
 az ml compute create -n cpu-cluster --type amlcompute --min-instances 0 --max-instances 10
@@ -98,7 +103,7 @@ Let's take a look at the pipeline definition in the *3b_pipeline_with_data/pipel
 
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace `default_compute: azureml:cpu-cluster` with `default_compute: azureml:serverless` in this file.
+> To use [serverless compute](how-to-use-serverless-compute.md), replace `default_compute: azureml:cpu-cluster` with `default_compute: azureml:serverless` in this file.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 

@@ -2,18 +2,22 @@
 title: Configure Azure Active Directory B2C as a SAML IdP to your applications
 title-suffix: Azure Active Directory B2C
 description: Learn how to configure Azure Active Directory B2C to provide SAML protocol assertions to your applications (service providers).
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 06/24/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating SAML applications with Azure AD B2C, I want to register a SAML application in Azure AD B2C, so that I can authenticate users using the SAML protocol and achieve single sign-on with SAML-based applications.
+
 ---
 
 # Register a SAML application in Azure AD B2C

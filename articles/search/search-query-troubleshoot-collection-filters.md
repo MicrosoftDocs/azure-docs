@@ -1,18 +1,19 @@
 ---
 title: Troubleshooting OData collection filters
-titleSuffix: Azure Cognitive Search
-description: Learn approaches for resolving OData collection filter errors in Azure Cognitive Search queries.
+titleSuffix: Azure AI Search
+description: Learn approaches for resolving OData collection filter errors in Azure AI Search queries.
 
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/30/2023
-
 ---
-# Troubleshooting OData collection filters in Azure Cognitive Search
+# Troubleshooting OData collection filters in Azure AI Search
 
-To [filter](query-odata-filter-orderby-syntax.md) on collection fields in Azure Cognitive Search, you can use the [`any` and `all` operators](search-query-odata-collection-operators.md) together with **lambda expressions**. A lambda expression is a sub-filter that is applied to each element of a collection.
+To [filter](query-odata-filter-orderby-syntax.md) on collection fields in Azure AI Search, you can use the [`any` and `all` operators](search-query-odata-collection-operators.md) together with **lambda expressions**. A lambda expression is a sub-filter that is applied to each element of a collection.
 
 Not every feature of filter expressions is available inside a lambda expression. Which features are available differs depending on the data type of the collection field that you want to filter. This can result in an error if you try to use a feature in a lambda expression that isn't supported in that context. If you're encountering such errors while trying to write a complex filter over collection fields, this article will help you troubleshoot the problem.
 
@@ -48,7 +49,7 @@ The rules for writing valid collection filters are different for each data type.
 Inside lambda expressions for string collections, the only comparison operators that can be used are `eq` and `ne`.
 
 > [!NOTE]
-> Azure Cognitive Search does not support the `lt`/`le`/`gt`/`ge` operators for strings, whether inside or outside a lambda expression.
+> Azure AI Search does not support the `lt`/`le`/`gt`/`ge` operators for strings, whether inside or outside a lambda expression.
 
 The body of an `any` can only test for equality while the body of an `all` can only test for inequality.
 
@@ -109,7 +110,7 @@ Like string collections, `Edm.GeographyPoint` collections have some rules for ho
 - In the body of an `all`, the `geo.intersects` function must be negated. Conversely, in the body of an `any`, the `geo.intersects` function must not be negated.
 - In the body of an `any`, geo-spatial expressions can be combined using `or`. In the body of an `all`, such expressions can be combined using `and`.
 
-The above limitations exist for similar reasons as the equality/inequality limitation on string collections. See [Understanding OData collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md) for a deeper look at these reasons.
+The above limitations exist for similar reasons as the equality/inequality limitation on string collections. See [Understanding OData collection filters in Azure AI Search](search-query-understand-collection-filters.md) for a deeper look at these reasons.
 
 Here are some examples of filters on `Edm.GeographyPoint` collections that are allowed:
 
@@ -181,7 +182,7 @@ However, there are limitations on how such comparison expressions can be combine
 
 Lambda expressions over complex collections support a much more flexible syntax than lambda expressions over collections of primitive types. You can use any filter construct inside such a lambda expression that you can use outside one, with only two exceptions.
 
-First, the functions `search.ismatch` and `search.ismatchscoring` aren't supported inside lambda expressions. For more information, see [Understanding OData collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md).
+First, the functions `search.ismatch` and `search.ismatchscoring` aren't supported inside lambda expressions. For more information, see [Understanding OData collection filters in Azure AI Search](search-query-understand-collection-filters.md).
 
 Second, referencing fields that aren't *bound* to the range variable (so-called *free variables*) isn't allowed. For example, consider the following two equivalent OData filter expressions:
 
@@ -201,16 +202,16 @@ This limitation shouldn't be a problem in practice since it's always possible to
 
 The following table summarizes the rules for constructing valid filters for each collection data type.
 
-[!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
+[!INCLUDE [Limitations on OData lambda expressions in Azure AI Search](../../includes/search-query-odata-lambda-limitations.md)]
 
 For examples of how to construct valid filters for each case, see [How to write valid collection filters](#bkmk_examples).
 
-If you write filters often, and understanding the rules from first principles would help you more than just memorizing them, see [Understanding OData collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md).
+If you write filters often, and understanding the rules from first principles would help you more than just memorizing them, see [Understanding OData collection filters in Azure AI Search](search-query-understand-collection-filters.md).
 
 ## Next steps  
 
-- [Understanding OData collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md)
-- [Filters in Azure Cognitive Search](search-filters.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
+- [Understanding OData collection filters in Azure AI Search](search-query-understand-collection-filters.md)
+- [Filters in Azure AI Search](search-filters.md)
+- [OData expression language overview for Azure AI Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure AI Search REST API&#41;](/rest/api/searchservice/Search-Documents)

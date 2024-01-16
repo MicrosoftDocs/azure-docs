@@ -2,10 +2,12 @@
 title: Buy an Azure reservation
 description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2022
+  - ignite-2023
 ms.topic: how-to
 ms.date: 10/31/2023
 ms.author: banders
@@ -40,7 +42,7 @@ You have four options to scope a reservation, depending on your needs:
 - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
 - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.
 - **Shared scope** - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. If a subscription is moved to different billing context, the benefit no longer applies to the subscription. It continues to apply to other subscriptions in the billing context.
-    - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Active Directory tenants in an enrollment.
+    - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Microsoft Entra tenants in an enrollment.
     - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
     - For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
 - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
@@ -88,6 +90,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Data Explorer](/azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Disk Storage](../../virtual-machines/disks-reserved-capacity.md)
+- [Microsoft Fabric](fabric-capacity.md)
 - [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
@@ -100,7 +103,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 
 You can pay for reservations with monthly payments. Unlike an up-front purchase where you pay the full amount, the monthly payment option divides the total cost of the reservation evenly over each month of the term. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly.
 
-If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
+If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount might vary, depending on the current month's market exchange rate for your local currency.
 
 Monthly payments aren't available for: Databricks, Synapse Analytics - Prepurchase, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
 

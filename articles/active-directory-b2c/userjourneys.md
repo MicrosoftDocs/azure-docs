@@ -1,16 +1,20 @@
 ---
 title: UserJourneys  
 description: Specify the UserJourneys element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 01/27/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C into an application, I want to understand how user journeys, authorization technical profiles, orchestration steps, preconditions, claims provider selection, claims exchanges, and journey lists work, so that I can configure the policy file correctly and ensure a successful user flow.
+
 ---
 
 # UserJourneys

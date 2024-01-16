@@ -2,16 +2,20 @@
 title: Deploy custom policies with GitHub Actions
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using GitHub Actions.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer, I want to automate the deployment of Azure Active Directory B2C custom policies using GitHub Actions, so that I can easily manage and deploy my custom policies without manual intervention.
+
 ---
 
 # Deploy custom policies with GitHub Actions

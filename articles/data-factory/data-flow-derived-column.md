@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Derived column transformation in mapping data flow
@@ -86,6 +86,6 @@ MoviesYear derive(
             ) ~> CleanData
 ```
 
-## Next steps
+## Related content
 
 - Learn more about the [Mapping Data Flow expression language](data-transformation-functions.md).

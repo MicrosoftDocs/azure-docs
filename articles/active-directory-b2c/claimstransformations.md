@@ -1,16 +1,20 @@
 ---
 title: ClaimsTransformations - Azure Active Directory B2C  
 description: Definition of the ClaimsTransformations element in the Identity Experience Framework Schema of Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer creating custom policies in Azure Active Directory B2C, I want to understand how to use claims transformations, so that I can convert and manipulate claims in user journeys.
+
 ---
 
 # ClaimsTransformations

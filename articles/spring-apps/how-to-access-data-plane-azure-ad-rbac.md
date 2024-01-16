@@ -76,7 +76,7 @@ For config server endpoints and detailed path information, see [ResourceControll
 
 After the role is assigned, you can register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Apps with Microsoft Entra token authentication. Both Config Server and Service Registry support [custom REST template](https://cloud.spring.io/spring-cloud-config/reference/html/#custom-rest-template) to inject the bearer token for authentication.
 
-For more information, see the samples [Access Azure Spring Apps managed Config Server](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-config-server-client) and [Access Azure Spring Apps managed Service Registry](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-eureka-client). The following sections explain some important details in these samples.
+For more information, see the samples [Access Azure Spring Apps managed Config Server](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-config-server-client) and [Access Azure Spring Apps managed Service Registry](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-eureka-client). The following sections explain some important details in these samples.
 
 **In *AccessTokenManager.java*:**
 
@@ -94,7 +94,7 @@ credentials = new ApplicationTokenCredentials(
 
 **In *CustomConfigServiceBootstrapConfiguration.java*:**
 
-`CustomConfigServiceBootstrapConfiguration` implements the custom REST template for Config Server and injects the token from Microsoft Entra ID as `Authorization` headers. You can find this file in the [Config Server sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-config-server-client).
+`CustomConfigServiceBootstrapConfiguration` implements the custom REST template for Config Server and injects the token from Microsoft Entra ID as `Authorization` headers. You can find this file in the [Config Server sample](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-config-server-client).
 
 ```java
 public class RequestResponseHandlerInterceptor implements ClientHttpRequestInterceptor {
@@ -114,7 +114,7 @@ public class RequestResponseHandlerInterceptor implements ClientHttpRequestInter
 
 **In *CustomRestTemplateTransportClientFactories.java*:**
 
-The previous two classes are for the implementation of the custom REST template for Spring Cloud Service Registry. The `intercept` part is the same as in the Config Server above. Be sure to add `factory.mappingJacksonHttpMessageConverter()` to the message converters. You can find this file in the [Spring Cloud Service Registry sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-eureka-client).
+The previous two classes are for the implementation of the custom REST template for Spring Cloud Service Registry. The `intercept` part is the same as in the Config Server above. Be sure to add `factory.mappingJacksonHttpMessageConverter()` to the message converters. You can find this file in the [Spring Cloud Service Registry sample](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-eureka-client).
 
 ```java
 private RestTemplate customRestTemplate() {

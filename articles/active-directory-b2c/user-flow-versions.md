@@ -1,16 +1,20 @@
 ---
 title: User flow versions in Azure Active Directory B2C  
 description: Learn about the versions of user flows available in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 08/17/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to understand the differences between Recommended user flows and Standard (Legacy) user flows, so that I can choose the appropriate user flow version for my application and ensure it is maintained and updated.
+
 ---
 
 # User flow versions in Azure Active Directory B2C

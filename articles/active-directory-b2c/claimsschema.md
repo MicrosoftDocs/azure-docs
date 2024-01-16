@@ -1,17 +1,21 @@
 ---
 title: "ClaimsSchema: Azure Active Directory B2C"
 description: Specify the ClaimsSchema element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 03/06/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a policy administrator or developer, I want to understand the structure and attributes of the ClaimsSchema element, so that I can define and manage claim types in the policy effectively.
+
 ---
 
 # ClaimsSchema

@@ -2,17 +2,16 @@
 title: User flows and custom policies in Azure Active Directory B2C  
 titleSuffix: Azure AD B2C
 description: Learn more about built-in user flows and the custom policy extensible policy framework of Azure Active Directory B2C.
-services: active-directory-b2c
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/24/2022
-ms.custom: project-no-code, engagement-fy23
+ms.date: 11/09/2023
 ms.author: godonnell
 ms.subservice: B2C
+
+# Customer intent: As a developer, I want to understand the difference between user flows and custom policies, so that I can choose the best method for my business needs. I want to understand the scenarios that can be enabled with each method, and how to integrate them with my applications.
+
 ---
 
 # User flows and custom policies overview
@@ -27,7 +26,7 @@ In Azure AD B2C, there are two ways to provide identity user experiences:
 
 The following screenshot shows the user flow settings UI, versus custom policy configuration files.
 
-:::image type="content" source="media/user-flow-overview/user-flow-vs-custom-policy.png" alt-text="Screenshot of the user flow settings UI, versus custom policy configuration files." lightbox="media/user-flow-overview/user-flow-vs-custom-policy.png":::
+:::image type="content" source="media/user-flow-overview/user-flow-vs-custom-policy.png" alt-text="Screenshot of the user flow settings UI versus custom policy configuration files." lightbox="media/user-flow-overview/user-flow-vs-custom-policy.png":::
 
 This article gives a brief overview of user flows and custom policies, and helps you decide which method will work best for your business needs.
 
@@ -38,8 +37,8 @@ To set up the most common identity tasks, the Azure portal includes several pred
 You can configure user flow settings like these to control identity experience behaviors in your applications:
 
 * Account types used for sign-in, such as social accounts like a Facebook, or local accounts that use an email address and password for sign-in
-* Attributes to be collected from the consumer, such as first name, postal code, or country/region of residency
-* Microsoft Entra multifactor authentication
+* Attributes to be collected from the consumer, such as first name, last name, postal code, or country/region of residency
+* Multifactor authentication
 * Customization of the user interface
 * Set of claims in a token that your application receives after the user completes the user flow
 * Session management
@@ -51,7 +50,7 @@ Most of the common identity scenarios for apps can be defined and implemented ef
 
 Custom policies are configuration files that define the behavior of your Azure AD B2C tenant user experience. While user flows are predefined in the Azure AD B2C portal for the most common identity tasks, custom policies can be fully edited by an identity developer to complete many different tasks.
 
-A custom policy is fully configurable and policy-driven. It orchestrates trust between entities in standard protocols. For example, OpenID Connect, OAuth, SAML, and a few non-standard ones, for example REST API-based system-to-system claims exchanges. The framework creates user-friendly, white-labeled experiences.
+A custom policy is fully configurable and policy-driven. It orchestrates trust between entities in standard protocols such as OpenID Connect, OAuth, SAML. As well as a few non-standard ones, for example REST API-based system-to-system claims exchanges. The framework creates user-friendly, white-labeled experiences.
 
 The custom policy gives you the ability to construct user journeys with any combination of steps. For example:
 
@@ -62,7 +61,7 @@ The custom policy gives you the ability to construct user journeys with any comb
 
 Each user journey is defined by a policy. You can build as many or as few policies as you need to enable the best user experience for your organization.
 
-![Diagram showing an example of a complex user journey enabled by IEF](media/user-flow-overview/custom-policy-diagram.png)
+:::image type="content" source="media/user-flow-overview/custom-policy-diagram.png" alt-text="Diagram showing an example of a complex user journey enabled by IEF":::
 
 A custom policy is defined by multiple XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey orchestration steps, and other aspects of the identity experience.
 
@@ -90,14 +89,13 @@ You can create many user flows, or custom policies of different types in your te
 
 When a user wants to sign in to your application, the application initiates an authorization request to a user flow- or custom policy-provided endpoint. The user flow or custom policy defines and controls the user's experience. When they complete a user flow, Azure AD B2C generates a token, then redirects the user back to your application.
 
-![Mobile app with arrows showing flow between Azure AD B2C sign-in page](media/user-flow-overview/app-integration.png)
+:::image type="content" source="media/user-flow-overview/app-integration.png" alt-text="Mobile app with arrows showing flow between Azure AD B2C sign-in page":::
 
 Multiple applications can use the same user flow or custom policy. A single application can use multiple user flows or custom policies.
 
 For example, to sign in to an application, the application uses the *sign up or sign in* user flow. After the user has signed in, they may want to edit their profile. To edit the profile, the application initiates another authorization request, this time using the *profile edit* user flow.
 
 Your application triggers a user flow by using a standard HTTP authentication request that includes the user flow or custom policy name. A customized [token](tokens-overview.md) is received as a response.
-
 
 ## Next steps
 

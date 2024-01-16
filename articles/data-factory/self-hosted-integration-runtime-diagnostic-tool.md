@@ -35,7 +35,7 @@ The execution result and detail log messages are generated as a HTML report. You
 
 :::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/diagnostic-report.png" alt-text="Screenshot that shows the diagnostic result report.":::
 
-## Next steps
+## Related content
 
 - Review [integration runtime concepts in Azure Data Factory](./concepts-integration-runtime.md).
 

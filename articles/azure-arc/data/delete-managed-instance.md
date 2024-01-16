@@ -1,6 +1,6 @@
 ---
-title: Delete an Azure Arc-enabled SQL Managed Instance
-description: Learn how to delete an Azure Arc-enabled SQL Managed Instance and optionally, reclaim associated Kubernetes persistent volume claims (PVCs).
+title: Delete a SQL Server Managed Instance enabled by Azure Arc
+description: Learn how to delete a SQL Server Managed Instance enabled by Azure Arc and optionally, reclaim associated Kubernetes persistent volume claims (PVCs).
 ms.custom: kr2b-contr-experiment, devx-track-azurecli
 services: azure-arc
 ms.service: azure-arc
@@ -12,11 +12,11 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Delete an Azure Arc-enabled SQL Managed Instance
+# Delete a SQL Server Managed Instance enabled by Azure Arc
 
-In this how-to guide, you'll find and then delete an Azure Arc-enabled SQL Managed Instance. Optionally, after deleting managed instances, you can reclaim associated Kubernetes persistent volume claims (PVCs).
+In this how-to guide, you'll find and then delete a SQL Managed Instance enabled by Azure Arc. Optionally, after deleting managed instances, you can reclaim associated Kubernetes persistent volume claims (PVCs).
 
-1. Find existing Azure Arc-enabled SQL Managed Instances:
+1. Find existing instances:
 
    ```azurecli
    az sql mi-arc list --k8s-namespace <namespace> --use-k8s
@@ -107,10 +107,10 @@ By design, deleting a SQL Managed Instance doesn't remove its associated [PVCs](
       persistentvolumeclaim "logs-demo-mi-0" deleted
       ```
   
-## Next steps
+## Related content
 
-Learn more about [Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
+Learn more about [Features and Capabilities of SQL Managed Instance enabled by Azure Arc](managed-instance-features.md)
 
 [Start by creating a Data Controller](create-data-controller-indirect-cli.md)
 
-Already created a Data Controller? [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+Already created a Data Controller? [Create a SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)

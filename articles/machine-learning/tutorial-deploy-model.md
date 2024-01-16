@@ -35,6 +35,10 @@ The steps you'll take are:
 > * Get details of the second deployment
 > * Roll out the new deployment and delete the first one
 
+This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial.  The video shows how to create a notebook, create a compute instance, and clone the notebook. The steps are also described in the following sections.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=7d0e09a5-c319-4e6a-85e2-c9601a0fba68]
+
 ## Prerequisites
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
@@ -160,7 +164,7 @@ In this tutorial, we'll walk you through the steps of implementing a _managed on
 
 ## Create an online endpoint
 
-Now that you have a registered model, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using a universally unique identifier [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier). For more information on the endpoint naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+Now that you have a registered model, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using a universally unique identifier [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier). For more information on the endpoint naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 
 
 ```python
@@ -406,7 +410,7 @@ ml_client.online_deployments.begin_create_or_update(green_deployment).result()
 ```
 
 ## Update traffic allocation for deployments
-You can split production traffic between deployments. You may first want to test the `green` deployment with sample data, just like you did for the `blue` deployment. Once you've tested your green deployment, allocate a small percentage of traffic to it.
+You can split production traffic between deployments. You might first want to test the `green` deployment with sample data, just like you did for the `blue` deployment. Once you've tested your green deployment, allocate a small percentage of traffic to it.
 
 
 ```python

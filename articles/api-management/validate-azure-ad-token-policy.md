@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 10/19/2023
 ms.author: danlep
 ---
 
@@ -58,7 +58,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 | Attribute                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| tenant-id | Tenant ID or URL  of the Microsoft Entra service. Policy expressons are allowed.| Yes | N/A |
+| tenant-id | Tenant ID or URL  of the Microsoft Entra service. Policy expressions are allowed.| Yes | N/A |
 | header-name                     | The name of the HTTP header holding the token. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                       | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | `Authorization`                                                                               |
 | query-parameter-name            | The name of the query parameter holding the token. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | token-value                     | Expression returning a string containing the token. You must not return `Bearer` as part of the token value. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                          | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
@@ -92,7 +92,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 ### Usage notes
 
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Microsoft Entra authentication by applying the `validate-azure-ad-token` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
-* When using a custom header (`header-name`), the header value cannot be prefixed with `Bearer ` and should be removed.
+* [Microsoft Entra ID for customers (preview)](/entra/external-id/customers/concept-supported-features-customers) is not supported.
 
 ## Examples
 

@@ -5,9 +5,9 @@ summary: The Trial Matcher is designed to match patients to potentially suitable
 
 metadata:
   title: Trial Matcher documentation
-  titleSuffix: Project Health Insights
+  titleSuffix: Azure AI Health Insights
   description: The Trial Matcher is designed to match patients to potentially suitable clinical trials and find group of potentially eligible patients to a list of clinical trials.
-  ms.service: Project Health Insights
+  ms.service: Azure AI Health Insights
   ms.topic: landing-page 
   author: iBoonZ
   ms.collection: collection

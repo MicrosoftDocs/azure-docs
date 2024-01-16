@@ -24,7 +24,7 @@ This quick-start guide is designed to help you get started with using Nexus virt
 
 Before deploying the virtual machine template, let's review the content to understand its structure. 
 
-:::code language="json" source="includes/virtual-machine/virtual-machine-bicep-template.bicep":::
+:::code language="bicep" source="includes/virtual-machine/virtual-machine-bicep-template.bicep":::
 
 Once you have reviewed and saved the template file named ```virtual-machine-bicep-template.bicep```, proceed to the next section to deploy the template.
 

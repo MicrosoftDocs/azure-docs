@@ -1,10 +1,12 @@
 ---
 title: Key Phrase Extraction cognitive skill
-titleSuffix: Azure Cognitive Search
-description: Evaluates unstructured text, and for each record, returns a list of key phrases in an AI enrichment pipeline in Azure Cognitive Search.
-author: LiamCavanagh
-ms.author: liamca
+titleSuffix: Azure AI Search
+description: Evaluates unstructured text, and for each record, returns a list of key phrases in an AI enrichment pipeline in Azure AI Search.
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 12/09/2021
 ---
@@ -30,16 +32,16 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See the [full list of supported languages](../ai-services/language-service/key-phrase-extraction/language-support.md). |
+| `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code isn't specified,  English (en) is used as the default language code. <br/> See the [full list of supported languages](../ai-services/language-service/key-phrase-extraction/language-support.md). |
 | `maxKeyPhraseCount`   | (Optional) The maximum number of key phrases to produce. |
-| `modelVersion`   | (Optional) Specifies the [version of the model](../ai-services/language-service/concepts/model-lifecycle.md) to use when calling the key phrase API. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary.  |
+| `modelVersion`   | (Optional) Specifies the [version of the model](../ai-services/language-service/concepts/model-lifecycle.md) to use when calling the key phrase API. It defaults to the latest available when not specified. We recommend you don't specify this value unless it's necessary.  |
 
 ## Skill inputs
 
 | Input	 | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `languageCode`	|  A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See the [full list of supported languages](../ai-services/language-service/key-phrase-extraction/language-support.md). |
+| `languageCode`	|  A string indicating the language of the records. If this parameter isn't specified, the default language code is used to analyze the records. <br/>See the [full list of supported languages](../ai-services/language-service/key-phrase-extraction/language-support.md). |
 
 ## Skill outputs
 
@@ -59,7 +61,7 @@ Consider a SQL record that has the following fields:
 }
 ```
 
-Then your skill definition may look like this:
+Then your skill definition might look like this:
 
 ```json
  {
@@ -85,7 +87,7 @@ Then your skill definition may look like this:
 
 ##	Sample output
 
-For the example above, the output of your skill will be written to a new node in the enriched tree called "document/myKeyPhrases" since that is the `targetName` that we specified. If you don’t specify a `targetName`, then it would be "document/keyPhrases".
+For the previous example, the output of your skill is written to a new node in the enriched tree called "document/myKeyPhrases" since that is the `targetName` that we specified. If you don’t specify a `targetName`, then it would be "document/keyPhrases".
 
 #### document/myKeyPhrases 
 ```json
@@ -99,12 +101,12 @@ For the example above, the output of your skill will be written to a new node in
 ]
 ```
 
-You may use "document/myKeyPhrases" as input into other skills, or as a source of an [output field mapping](cognitive-search-output-field-mapping.md).
+You can use "document/myKeyPhrases" as input into other skills, or as a source of an [output field mapping](cognitive-search-output-field-mapping.md).
 
 ## Warnings
-If you provide an unsupported language code, a warning is generated and key phrases are not extracted.
-If your text is empty, a warning will be produced.
-If your text is larger than 50,000 characters, only the first 50,000 characters will be analyzed and a warning will be issued.
+If you provide an unsupported language code, a warning is generated and key phrases aren't extracted.
+If your text is empty, a warning is produced.
+If your text is larger than 50,000 characters, only the first 50,000 characters are analyzed and a warning is issued.
 
 ## See also
 

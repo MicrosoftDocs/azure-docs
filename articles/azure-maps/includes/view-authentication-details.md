@@ -20,7 +20,7 @@ To view your Azure Maps account authentication details in the Azure portal:
 
 3. Under **Settings** in the left pane, select **Authentication**.
 
-    :::image type="content" border="true" source="../media/how-to-manage-authentication/view-authentication-keys.png" alt-text="Authentication details.":::
+    :::image type="content" border="false" source="../media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps authentication options in the Azure portal." lightbox="../media/shared/get-key.png":::
 
 Three values are created when the Azure Maps account is created. They're used to support two types of authentication in Azure Maps:
 - **Microsoft Entra authentication**: The `Client ID` represents the account that is to be used for REST API requests. The `Client ID` value should be stored in application configuration, and then it should be retrieved before making Azure Maps HTTP requests that use Microsoft Entra authentication.

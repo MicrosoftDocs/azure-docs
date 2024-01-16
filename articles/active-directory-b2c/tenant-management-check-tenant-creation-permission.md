@@ -2,18 +2,22 @@
 title: Review tenant creation permission in Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
 description: Learn how to check tenant creation permission in Azure Active Directory B2C before you create tenant
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: tutorial
-ms.custom: project-no-code, b2c-docs-improvements
-ms.date: 01/30/2023
+ms.custom: b2c-docs-improvements
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: "As an Azure AD B2C administrator, I want to restrict non-admin users from creating tenants, so that I can ensure security and prevent unauthorized access. Additionally, as a non-admin user, I want to check if I have permission to create a tenant, so that I can proceed with the necessary actions."
+
 ---
 
 # Review tenant creation permission in Azure Active Directory B2C

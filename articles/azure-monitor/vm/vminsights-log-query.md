@@ -116,7 +116,7 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 |FirstReportedDateTime |The first time the provider reported the indicator. |
 |LastReportedDateTime |The last time the indicator was seen by Interflow. |
 |IsActive |Indicates indicators are deactivated with *True* or *False* value. |
-|ReportReferenceLink |Links to reports related to a given observable. |
+|ReportReferenceLink |Links to reports related to a given observable. To report a false alert or get more details about the malicious IP, open a Support case and provide this link. |
 |AdditionalInformation |Provides additional information, if applicable, about the observed threat. |
 
 ### Ports 

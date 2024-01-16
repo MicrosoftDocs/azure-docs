@@ -2,12 +2,12 @@
 title: how to call the Key Phrase Extraction API
 titleSuffix: Azure AI services
 description: How to extract key phrases by using the Key Phrase Extraction API.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom: language-service-key-phrase, ignite-fall-2021
 ---

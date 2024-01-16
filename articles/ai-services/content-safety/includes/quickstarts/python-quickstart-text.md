@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Analyze text content with Python"
-description: In this quickstart, get started using the Content Safety Python SDK to analyze text content for objectionable material.
-services: cognitive-services
+description: In this quickstart, get started using the Azure AI Content Safety Python SDK to analyze text content for objectionable material.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
@@ -48,7 +48,7 @@ The following section walks through a sample request with the Python SDK.
         key = os.environ["CONTENT_SAFETY_KEY"]
         endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
     
-        # Create an Content Safety client
+        # Create an Azure AI Content Safety client
         client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
     
         # Contruct request
@@ -80,6 +80,10 @@ The following section walks through a sample request with the Python SDK.
         analyze_text()
     ```
 1. Replace `"Your input text"` with the text content you'd like to use.
+    > [!TIP]
+    > Text size and granularity
+    >
+    > The default maximum length for text submissions is **10K** characters.
 1. Then run the application with the `python` command on your quickstart file.
 
     ```console
