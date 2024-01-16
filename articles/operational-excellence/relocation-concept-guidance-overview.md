@@ -42,16 +42,17 @@ The following tables provide links to each Azure service relocation document.
 
 | **Product**  |
 | --- | 
-[Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)|
-[Azure Key Vault]()|
+
+[Azure Key Vault](./relocation-key-vault.md)|
 [Azure Virtual Network](./relocation-virtual-network.md)|
 
 ### ![An icon that signifies this service is mainstream.](./media/relocation/icon-mainstream.svg) Mainstream services
 
 | **Product**  |
 | --- | 
-[Azure Monitor - Log Analytics]()|
-
+[Azure Monitor - Log Analytics](./relocation-log-analytics.md)|
+[Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)|
+[Azure Private Link](./relocation-private-link.md) |
 
 
 ## Additional information
