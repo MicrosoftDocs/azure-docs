@@ -5,13 +5,17 @@ title: include file
  author: sethmanheim
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 12/06/2023
+ ms.date: 01/16/2024
  ms.author: sethm
  ms.custom: include file
 ---
 
-> [!IMPORTANT]
-> Firebase Cloud Messaging (FCM) is a service that, among other things, facilitates developers sending push notifications to Google Play-supported Android devices. Azure Notification Hubs currently communicates with FCM using the legacy HTTP protocol. FCM v1 is an updated API that offers more features and capabilities. Google announced that they are deprecating FCM legacy HTTP and will stop supporting it on June 20, 2024. Therefore, developers who use Azure Notification Hubs to communicate with Google Play-supported Android devices today, will need to migrate their applications and notification payloads to the newer format. Azure Notification Hubs will continue to support FCM legacy HTTP until Google stops accepting requests. Once the new FCM integration is complete, Azure Notification Hubs will announce when you can begin migrating. For more information, see the [migration steps](#migration-steps) in the next section.
+> [!NOTE]
+> The core capabilities for the integration of Azure Notification Hubs (ANH) with Firebase Cloud Messaging (FCM) v1 are ready for testing. As a reminder, Google will stop supporting FCM Legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then. All methods of onboarding will be ready for migration by March 1, 2024.
+>
+> To help with this transition, we invite you to join our preview program and test the FCM v1 onboarding process for REST APIs in February 2024. This gives you early access to the new features and capabilities, as well as the opportunity to provide feedback and report any issues.
+>
+> If you are interested in joining the preview program, [contact us by email](mailto:nhtalk@microsoft.com) by January 25, 2024. We will reply with instructions on how to onboard to FCM v1 using the Azure portal or the REST API. You will also receive a link to our documentation and support channels.
 
 ## Migration steps
 
