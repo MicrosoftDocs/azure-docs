@@ -59,7 +59,7 @@ The following file shows the MLmodel file associated with an MLflow model.
 
 __MLmodel__
 
-:::code language="yaml" source="~/azureml-examples-main/sdk/python/endpoints/online/mlflow/sklearn-diabetes/model/MLmodel" highlight="19-20":::
+:::code language="yaml" source="~/azureml-examples-main/sdk/python/endpoints/online/mlflow/sklearn-diabetes/model/MLmodel" highlight="19-25":::
 
 > [!TIP]
 > Signatures in MLflow models are optional but highly recommended, as they provide a convenient way to detect data compatibility issues early. For more information about how to log models with signatures, see [Logging models with a custom signature, environment or samples](how-to-log-mlflow-models.md#logging-models-with-a-custom-signature-environment-or-samples).
