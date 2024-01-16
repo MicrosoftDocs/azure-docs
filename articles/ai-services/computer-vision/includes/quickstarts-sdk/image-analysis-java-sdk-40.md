@@ -59,13 +59,14 @@ Open a console window and create a new folder for your quickstart application.
       </dependencies>
     </project>
     ```
+
+1. Update the version value (`1.0.0-beta.1`) based on the latest available version of the [azure-ai-vision-imageanalysis](https://aka.ms/azsdk/image-analysis/package/maven) package in the Maven repository. 
 1. Install the SDK and dependencies by running the following in the project directory:
     ```console
     mvn clean dependency:copy-dependencies
     ```
 1. Once the operation succeeds, verify that the folders `target\dependency` were creating and they contain `.jar` files.
 
-For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-java).
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
 
@@ -81,7 +82,7 @@ Open a text editor and copy the following content to a new file. Save the file a
 To compile the Java file, run the following command:
 
 ```console
-javac ImageAnalysis.java -cp ".;target\dependency\*"
+javac ImageAnalysis.java -cp ".;target/dependency/*"
 ``` 
 
 You should see the file `ImageAnalysis.class` created in the current folder.
@@ -89,7 +90,7 @@ You should see the file `ImageAnalysis.class` created in the current folder.
 To run the application, run the following command:
 
 ```console
-java -cp ".;target\dependency\*" ImageAnalysis
+java -cp ".;target/dependency/*" ImageAnalysis
 ``` 
 
 ## Output
