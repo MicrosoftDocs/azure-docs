@@ -58,6 +58,10 @@ To manage the service settings, open the **Settings** section. Within this area,
 
 :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-settings.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service page with the Settings tab highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-settings.png":::
 
+If your current generation is *Gen1*, you can upgrade to *Gen 2* for better performance. For more information, see [Upgrade from Gen1 to Gen2](./how-to-enterprise-application-configuration-service.md#upgrade-from-gen1-to-gen2).
+
+The **Refresh Interval** specifies the frequency (in seconds) for checking updates in the repository. The minimum allowable value is *0*, which disables automatic refresh. For optimal performance, it is recommended to set this interval at a minimum of 60 seconds.
+
 The following table describes the properties for each repository entry.
 
 | Property      | Required? | Description                                                                                                                                                                                                                                                                                                                                  |
