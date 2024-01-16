@@ -6,10 +6,14 @@ author: kengaderdus
 manager: CelesteDG
 
 ms.author: kengaderdus
-ms.date: 10/01/2021
+ms.date: 01/11/2024
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
+
+
+#Customer intent: As a developer, I want to access downloadable solution guides and training for Azure Active Directory B2C, so that I can understand how to implement and leverage Azure AD B2C for customer identity management in my applications.
+
 ---
 
 # Solutions and Training for Azure Active Directory B2C

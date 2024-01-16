@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 03/11/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a web application, I want to configure Azure AD B2C authentication in my app, so that I can securely sign users in and validate their ID tokens.
+
 ---
 
 # Configure authentication in a sample web app by using Azure AD B2C

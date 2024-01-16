@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer working with Azure Active Directory B2C custom policies, I want to define a claims transformation technical profile, so that I can manipulate claims values, validate claims, or set default values for a set of output claims.
+
 ---
 
 # Define a claims transformation technical profile in an Azure Active Directory B2C custom policy
