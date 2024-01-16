@@ -36,7 +36,7 @@ The process to set up Prometheus remote write for an application by using Micros
 1. Create an Azure key vault and generate a certificate.
 1. Add a certificate to the Microsoft Entra application.
 1. Add a CSI driver and storage for the cluster.
-1. Deploy a sidecar container to set up remote write on the Prometheus server.
+1. Deploy a sidecar container to set up remote write.
 
 The tasks are described in the following sections.
 
@@ -95,7 +95,7 @@ The application must be assigned the Monitoring Metrics Publisher role on the da
     :::image type="content" source="media/prometheus-remote-write-active-directory/upload-certificate.png" alt-text="Screenshot that shows uploading a certificate for a Microsoft Entra application." lightbox="media/prometheus-remote-write-active-directory/upload-certificate.png":::
 
 > [!WARNING]
-> Certificates have an expiration date, and it's the responsibility of the user to keep certificates valid.
+> Certificates have an expiration date. It's the responsibility of the user to keep certificates valid.
 
 ### Add a CSI driver and storage for the cluster
 
@@ -146,9 +146,9 @@ This step is required only if you didn't turn on Azure Key Vault Provider for Se
 
     | Value | Description |
     |:---|:---|
-    | `<CLUSTER-NAME>` | The name of your Azure Kubernetes Service (AKS) cluster. |
+    | `<CLUSTER-NAME>` | The name of your AKS cluster. |
     | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1`<br>The remote write container image version.   |
-    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page of the Azure Monitor workspace. |
+    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
     | `<APP-REGISTRATION -CLIENT-ID>` | The client ID of your application. |
     | `<TENANT-ID>` | The tenant ID of the Microsoft Entra application. |
     | `<CERT-NAME>` | The name of the certificate.  |

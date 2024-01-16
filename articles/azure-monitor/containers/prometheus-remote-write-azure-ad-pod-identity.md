@@ -28,7 +28,7 @@ The process to set up Prometheus remote write for an application by using Micros
 1. Assign the Monitoring Metrics Publisher role to the user-assigned managed identity.
 1. Create an Azure identity binding.
 1. Add the aadpodidbinding label to the Prometheus pod.
-1. Deploy a sidecar container to set up remote write on the Prometheus cluster.
+1. Deploy a sidecar container to set up remote write.
 
 The tasks are described in the following sections.
 

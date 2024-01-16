@@ -9,7 +9,7 @@ ms.date: 09/10/2023
 ms.reviewer: rapadman
 ---
 
-# Send data to Azure Monitor from Prometheus by using Microsoft Entra Workload ID (preview) authentication
+# Send Prometheus data to Azure Monitor by using Microsoft Entra Workload ID (preview) authentication
 
 This article describes how to set up [remote write](prometheus-remote-write.md) to send data from your Azure Monitor managed Prometheus cluster by using Microsoft Entra Workload ID authentication.
 
@@ -28,11 +28,11 @@ To send data from a Prometheus server by using remote write with Microsoft Entra
 The process to set up Prometheus remote write for a workload by using Microsoft Entra Workload ID authentication involves completing the following tasks:
 
 1. Set up the workload identity.
-1. Create a Microsoft Entra application or user-assigned managed identity.
+1. Create a Microsoft Entra application or user-assigned managed identity and grant permissions.
 1. Assign the Monitoring Metrics Publisher role on the workspace data collection rule to the application.
 1. Create or update your Kubernetes service account Prometheus pod.
 1. Establish federated identity credentials between the identity and the service account issuer and subject.
-1. Deploy a sidecar container to set up remote write on the Prometheus server.
+1. Deploy a sidecar container to set up remote write.
 
 The tasks are described in the following sections.
 
@@ -75,7 +75,9 @@ For information about assigning the role, see [Assign the Monitoring Metrics Pub
 
 Often, a Kubernetes service account is created and associated with the pod running the Prometheus container. If you're using the kube-prometheus stack, the code automatically creates the prometheus-kube-prometheus-prometheus service account.
 
-If no Kubernetes service account is associated with Prometheus besides the default service account, create a new service account specifically for the pod running Prometheus. To create the service account, run the following kubectl command:
+If no Kubernetes service account except the default service account is associated with Prometheus, create a new service account specifically for the pod running Prometheus.
+
+To create the service account, run the following kubectl command:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -144,13 +146,15 @@ az ad app federated-credential create --id ${APPLICATION_OBJECT_ID} --parameters
 
 > [!IMPORTANT]
 >
-> - The Prometheus pod must have the following label: `azure.workload.identity/use: "true"`
-> - The remote write sidecar container requires the following environment values:
->   - `INGESTION_URL` - The metrics ingestion endpoint as shown on the **Overview** page of the Azure Monitor workspace.
->   - `LISTENING_PORT` – `8081` (any port is supported).
->   - `IDENTITY_TYPE` – `workloadIdentity`.
+>The Prometheus pod must have the following label: `azure.workload.identity/use: "true"`
+>
+> The remote write sidecar container requires the following environment values:
+>
+> - `INGESTION_URL`: The metrics ingestion endpoint that's shown on the **Overview** page for the Azure Monitor workspace
+> - `LISTENING_PORT`: `8081` (any port is supported)
+> - `IDENTITY_TYPE`: `workloadIdentity`
 
-1. Copy the following YAML and save it to a file. The YAML uses port 8081 as the listening port. If you use a different port, modify that value in the YAML:
+1. Copy the following YAML and save it to a file. The YAML uses port 8081 as the listening port. If you use a different port, modify that value in the YAML.
 
    [!INCLUDE [prometheus-sidecar-remote-write-workload-identity-yaml](../includes/prometheus-sidecar-remote-write-workload-identity-yaml.md)]
 
@@ -160,7 +164,7 @@ az ad app federated-credential create --id ${APPLICATION_OBJECT_ID} --parameters
     |:---|:---|
     | `<CLUSTER-NAME>` | The name of your AKS cluster. |
     | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1` <br>The remote write container image version. |
-    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page of the Azure Monitor workspace. |
+    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
 
 1. Use Helm to apply the YAML file and update your Prometheus configuration:
 
