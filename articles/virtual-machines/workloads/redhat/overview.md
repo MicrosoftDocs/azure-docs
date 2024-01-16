@@ -15,7 +15,7 @@ ms.author: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-Red Hat workloads are supported through a variety of offerings on Azure. Red Hat Enterprise Linux (RHEL) images are at the core of RHEL workloads, as is the Red Hat Update Infrastructure (RHUI).
+Red Hat workloads are supported through a variety of offerings on Azure. Red Hat Enterprise Linux (RHEL) images are at the core of RHEL workloads, as is the Red Hat Update Infrastructure (RHUI). Red Hat JBoss EAP is also supported on Azure, see [Red Hat JBoss EAP](#red-hat-jboss-eap).
 
 ## Red Hat Enterprise Linux images
 
@@ -55,9 +55,9 @@ Azure provides Red Hat Update Infrastructure only for pay-as-you-go RHEL VMs. RH
 
 RHEL images connected to RHUI update by default to the latest minor version of RHEL when a `yum update` is run. This behavior means that a RHEL 7.4 VM might get upgraded to RHEL 7.7 if a `yum update` operation is run on it. This behavior is by design for RHUI. To mitigate this upgrade behavior, switch from regular RHEL repositories to [Extended Update Support repositories](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
-## Red Hat Middleware
+## Red Hat JBoss EAP
 
-Microsoft and Azure have partnered to develop a variety of solutions for running Red Hat Middleware on Azure. Learn more about JBoss EAP on Azure Virtual Machines and Azure App service at [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure).
+Microsoft and Azure have partnered to develop a variety of solutions for running Red Hat Middleware on Azure. Learn more about JBoss EAP on Azure Virtual Machines, Azure App service and Azure Red Hat OpenShift at [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure?toc=/azure/virtual-machines/workloads/redhat/toc.json&bc=/azure/virtual-machines/workloads/redhat/breadcrumb/toc.json).
 
 ## Next steps
 
