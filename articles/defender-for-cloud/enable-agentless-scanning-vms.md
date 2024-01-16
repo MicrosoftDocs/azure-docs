@@ -109,7 +109,7 @@ After you enable agentless scanning, software inventory and vulnerability inform
 
 ##  Validate the agentless malware scanner's deployment
 
-Security alerts appear on the portal only in cases where threats are detected on your environment. If you do not have any alerts it may be because there are no threats on your environment. You can validate that the device is properly onboarded and reporting to Defender for Cloud by creating an European Institute for Computer Antivirus Research (EICAR) test file.
+Security alerts appear on the portal only in cases where threats are detected on your environment. If you do not have any alerts it may be because there are no threats on your environment. You can validate that the device is properly onboarded and reporting to Defender for Cloud by creating a test file.
 
 ### Create a test file for Linux
 
@@ -124,7 +124,7 @@ Security alerts appear on the portal only in cases where threats are detected on
     # File to be created  
     FILE_PATH="/tmp/virus_test_file.txt"  
      
-    # Write the EICAR string to the file  
+    # Write the test string to the file  
     echo -n $TEST_STRING > $FILE_PATH  
      
     # Check if the file was created and contains the correct string  
@@ -156,6 +156,8 @@ The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24
 
 1. Open the file to validate that it contains the content from stage 2.
 
+The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
+
 #### Create a test file with PowerShell
 
 1. Open PowerShell on your VM.
@@ -175,7 +177,7 @@ The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24
     
      
     
-    # Write the EICAR string to the file without a trailing newline 
+    # Write the test string to the file without a trailing newline 
     
     [IO.File]::WriteAllText($FILE_PATH, $TEST_STRING) 
     
@@ -207,6 +209,8 @@ The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24
     
     }
     ```
+
+The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
 
 ## Exclude machines from scanning
 

@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 01/15/2024
+ms.date: 01/16/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -22,7 +22,6 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## January 2024
 
-Learn more about [Agentless malware scanning](agentless-malware-scanning.md) for servers.
 | January 16 | [Public preview of agentless malware scanning for servers](#public-preview-of-agentless-malware-scanning-for-servers)|
 | January 15 | [General availability of Defender for Cloud's integration with Microsoft Defender XDR](#general-availability-of-defender-for-clouds-integration-with-microsoft-defender-xdr) |
 | January 12 | [DevOps security Pull Request annotations are now enabled by default for Azure DevOps connectors](#devops-security-pull-request-annotations-are-now-enabled-by-default-for-azure-devops-connectors) |
@@ -34,7 +33,9 @@ January 16, 2024
 
 We're announcing the release of Defender for Cloud's agentless malware detection for Azure virtual machines (VM), AWS EC2 instances and GCP VM instances, as a new feature included in [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features).
 
-Agentless malware detection for virtual machines uses [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows?view=o365-worldwide) engine to scan and detect malware and virus threats on your virtual machines. Any detected threats, trigger security alerts in Defender for Cloud, which allow you to investigate and remediate the detected threats. The Agentless malware scanner extends your malware detection coverage with frictionless onboarding and provides results within hours. The scanner doesn't leave a footprint and has no effect on your machine's performance.
+Agentless malware detection for VMs is now included in our agentless scanning platform. Agentless malware scanning utilizes [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows?view=o365-worldwide) anti-malware engine to scan and detect malicious files. Any detected threats, trigger security alerts directly into Defender for Cloud and Defender XDR, where they can be investigated and remediated. The Agentless malware scanner complements the agent-based coverage with a second layer of threat detection with frictionless onboarding and has no effect on your machine's performance.
+
+Learn more about [agentless malware scanning](agentless-malware-scanning.md) for servers and [agentless scanning for VMs](concept-agentless-data-collection.md).
 
 ### General availability of Defender for Cloud's integration with Microsoft Defender XDR
 
