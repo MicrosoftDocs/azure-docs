@@ -1,6 +1,6 @@
 ---
-title: How to use Application Insights Java In-Process Agent in Azure Spring Apps
-description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Apps.
+title: How to use Application Insights Java In-Process Agent in Azure Spring Apps for enterprise plan
+description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Apps for enterprise plan.
 author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event
 zone_pivot_groups: spring-apps-tier-selection
 ---
 
-# Use Application Insights Java In-Process Agent in Azure Spring Apps
+# Use Application Insights Java In-Process Agent in Azure Spring Apps for enterprise plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.

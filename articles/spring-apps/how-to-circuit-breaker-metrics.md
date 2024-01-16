@@ -35,6 +35,14 @@ Use the following steps to build and deploy the sample applications.
    cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
    ```
 
+1. Create Azure Spring Apps.
+
+   ```azurecli
+   az spring create \
+       --resource-group ${resource-group-name} \
+       --name ${Azure-Spring-Apps-instance-name}
+   ```
+
 1. Create applications with endpoints.
 
    ```azurecli
@@ -106,11 +114,11 @@ Use the following steps to build and deploy the sample applications.
 >   /fluxdelay/{seconds}
 >   ```
 
-## Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal).
-
-## Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
 ## Locate Resilence4j Metrics on the Azure portal
+
+1. Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights-enterprise.md#manage-application-insights-using-the-azure-portal).
+
+1. Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 1. In your Azure Spring Apps instance, select **Application Insights** in the navigation pane and then select **Application Insights** on the page.
 

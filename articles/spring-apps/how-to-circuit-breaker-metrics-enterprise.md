@@ -1,6 +1,6 @@
 ---
-title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer
-description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer in Azure Spring Apps.
+title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer for enterprise plan
+description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer for enterprise plan in Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
@@ -9,7 +9,7 @@ ms.date: 12/15/2020
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer (Preview)
+# Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer for enterprise plan (Preview)
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -37,11 +37,11 @@ Use the following steps to build and deploy the sample applications.
 
 1. Create Azure Spring Apps.
 
-> [!NOTE]
-> If your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps, it's necessary to run the following commands:
-> ```azurecli
-> az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan asa-ent-hr-mtr
-> ```
+   > [!NOTE]
+   > If your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps, it's necessary to run the following commands:
+   > ```azurecli
+   > az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan asa-ent-hr-mtr
+   > ```
 
    ```azurecli
    az spring create \
@@ -121,11 +121,11 @@ Use the following steps to build and deploy the sample applications.
 >   /fluxdelay/{seconds}
 >   ```
 
-## Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights-enterprise.md#manage-application-insights-using-the-azure-portal).
-
-## Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
 ## Locate Resilence4j Metrics on the Azure portal
+
+1. Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights-enterprise.md#manage-application-insights-using-the-azure-portal).
+
+1. Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 1. In your Azure Spring Apps instance, select **Application Insights** in the navigation pane and then select **Application Insights** on the page.
 
