@@ -91,18 +91,15 @@ The `aud` claim in an access token identifies the intended recipient of the toke
 
 #### Specify the permissions with the `allowedDataActions` array
 
-Include at least one permission string in the `allowedDataActions` array. You can include any valid permission strings, but avoid duplicates.
+Include at least one permission string in the `allowedDataActions` array. The only supported Data Action is `Read`.
 
 | **Valid permission string** | **Description** |
 |---|---|
 | Read | Allows resource `GET` requests. |
-| Write | Allows resource `PUT` and `POST` requests. |
-| Delete | Allows resource `DELETE` requests. |
-| Export | Allows `GET` requests to [$export](export-data.md) operations. |
 
 ## Next steps
 
-[Use Use Azure Active Directory B2C to grant access to the FHIR service](azure-ad-b2c-setup.md)
+[Use Azure Active Directory B2C to grant access to the FHIR service](azure-ad-b2c-setup.md)
 
 [Troubleshoot identity provider configuration](troubleshoot-identity-provider-configuration.md)
 

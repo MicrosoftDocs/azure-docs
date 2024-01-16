@@ -27,7 +27,7 @@ Here are the error messages that occur if the FHIR service SMART identity provid
 | **One or more SMART applications are null.** | The `applications` element for one or more identity providers is null or contains no applications. | Ensure all identity provider configurations have at least one application configured. |
 | **One or more SMART application `allowedDataActions` contain duplicate elements.** | The `allowedDataActions` array in one or more application configurations contains duplicate values. | Remove any duplicate values in the `allowedDataActions` arrays. |
 | **One or more SMART application `allowedDataActions` values are invalid.** | The only acceptable value in the `allowedDataActions` array is `Read`.| Remove any nonconforming values from the `allowedDataActions` arrays. |
-| **One or more SMART application `allowedDataActions` values are null, empty, or invalid.** | The `allowedDataActions` array in one or more application configurations is null, empty, or malformed. | Ensure the `allowedDataActions` element is an array of string values that contains only one of each of the four possible values `Read`, `Write`, `Delete`, or `Export`. |
+| **One or more SMART application `allowedDataActions` values are null, empty, or invalid.** | The `allowedDataActions` array in one or more application configurations is null, empty, or malformed. | The only acceptable value in the `allowedDataActions` array is `Read`. |
 | **One or more SMART application `audience` values are null, empty, or invalid.** | The `audience` string in one or more application configurations is null, empty, or malformed. | Ensure the `audience` string isn't null or empty and that the value is a string type. |
 | **All SMART identity provider application client ids must be unique.** | The `clientId` value in one or more application configurations is the same value as another `clientId` value. | Ensure all `clientId` values are unique (including across identity provider configurations). |
 | **One or more SMART application client id values are null, empty, or invalid.** | The `clientId` string in one or more application configurations is null, empty, or malformed. | Ensure the `clientId` string isn't null or empty and that the value is a string type. |
@@ -89,7 +89,9 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 
 ---
 
-10. **Verify the scp (scope claim)**. The `scp` claim is required. If it's missing, the request fails. The format of the scp claim must conform to [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data). An acceptable variation of SMART on FHIR v1 Scopes replaces any forward slash (/) with a period (.) and asterisk (*) with `all`. For example, an acceptable version of the SMART on FHIR scope `patient/*.*` is `patient.all.all`.
+10. **Verify the scp (scope claim)**. The `scp` claim is required. If it's missing, the request fails. The format of the scp claim must conform to [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data). It's important to note that the FHIR service currently only supports Read scopes. An acceptable variation of SMART on FHIR v1 Scopes replaces any forward slash (/) with a period (.) and asterisk (*) with `all`. For example, an acceptable version of the SMART on FHIR scope `patient/*.read` is `patient.all.read`.
+
+NOTE: At this time, only `read` scopes are supported.
 
 ---
 
