@@ -4,7 +4,7 @@ description: include file
 services: load-balancer
 ms.service: sap-on-azure
 ms.topic: include
-ms.date: 01/10/2024
+ms.date: 01/16/2024
 author: dennispadia
 ms.author: depadia
 ---
@@ -16,10 +16,10 @@ $db_fip = New-AzLoadBalancerFrontendIpConfig -Name MyDBFrontendIpName -SubnetId 
 # Create backend pool
 $bePool = New-AzLoadBalancerBackendAddressPoolConfig -Name MyBackendPool
 
-# Create health probes for ASCS and ERS
+# Create health probe
 $db_healthprobe = New-AzLoadBalancerProbeConfig -Name MyDBHealthProbe -Protocol 'tcp' -Port MyDBHealthProbePort -IntervalInSeconds 5 -ProbeThreshold 2 -ProbeCount 1
 
-# Create load balancing rules for ASCS and ERS
+# Create load balancing rule
 $db_rule = New-AzLoadBalancerRuleConfig -Name MyDBRuleName -Probe $db_healthprobe -Protocol 'All' -IdleTimeoutInMinutes 30 -FrontendIpConfiguration $db_fip -BackendAddressPool $bePool -EnableFloatingIP
 
 # Create the load balancer resource

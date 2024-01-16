@@ -4,7 +4,7 @@ description: include file
 services: load-balancer
 ms.service: sap-on-azure
 ms.topic: include
-ms.date: 01/10/2024
+ms.date: 01/16/2024
 author: dennispadia
 ms.author: depadia
 ---
@@ -13,13 +13,13 @@ ms.author: depadia
 # Create the load balancer resource with frontend IP. Allocation of private IP address is dynamic using below command. If you want to pass static IP address, include parameter --private-ip-address.
 az network lb create -g MyResourceGroup -n MyLB --sku Standard --vnet-name MyVMsVirtualNetwork --subnet MyVMsSubnet --backend-pool-name MyBackendPool --frontend-ip-name MyDBFrontendIpName
 
-# Create the health probe for ASCS and ERS
+# Create the health probe
 az network lb probe create -g MyResourceGroup --lb-name MyLB -n MyDBHealthProbe --protocol tcp --port MyDBHealthProbePort --interval 5 --probe-threshold 2
  
-# Create load balancing rule for ASCS and ERS
+# Create load balancing rule
 az network lb rule create -g MyResourceGroup --lb-name MyLB -n MyDBRuleName --protocol All --frontend-ip-name MyDBFrontendIpName --frontend-port 0 --backend-pool-name MyBackendPool --backend-port 0 --probe-name MyDBHealthProbe --idle-timeout-in-minutes 30 --enable-floating-ip 
 
-# Add ASCS and ERS VMs in backend pool
+# Add database VMs in backend pool
 az network nic ip-config address-pool add --address-pool MyBackendPool --ip-config-name DBVm1IpConfigName --nic-name DBVm1NicName -g MyResourceGroup --lb-name MyLB
 az network nic ip-config address-pool add --address-pool MyBackendPool --ip-config-name DBVm2IpConfigName --nic-name DBVm2NicName -g MyResourceGroup --lb-name MyLB
 ```

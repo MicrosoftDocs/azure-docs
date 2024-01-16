@@ -173,9 +173,13 @@ During VM configuration, you have an option to create or select exiting load bal
 
 #### [Azure CLI](#tab/lb-azurecli)
 
+The full set of Azure CLI codes display the setup of the load balancer, which include two VMs in the backend pool. Based on the number of VMs in your HANA scale-out, you may need to add more VMs in the backend pool.
+
 [!INCLUDE [Configure Azure standard load balancer using Azure CLI](../../../includes/sap-load-balancer-db-azurecli.md)]
 
 #### [PowerShell](#tab/lb-powershell)
+
+The full set of PowerShell code display the setup of the load balancer, which include two VMs in the backend pool. Based on the number of VMs in your HANA scale-out, you may need to add more VMs in the backend pool.
 
 [!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-db-powershell.md)]
 
@@ -189,8 +193,8 @@ During VM configuration, you have an option to create or select exiting load bal
 
 > [!IMPORTANT]
 >
-> * Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter `net.ipv4.tcp_timestamps` to `0`. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> * See also SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+> * Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter `net.ipv4.tcp_timestamps` to `0`. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md) and SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ### Deploy NFS
 
