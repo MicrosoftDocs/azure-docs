@@ -384,7 +384,7 @@ az spring build-service builder buildpack-binding delete \
     --builder-name <your-builder-name> \
 ```
 
-For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
+For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights-enterprise.md).
 
 ---
 

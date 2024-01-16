@@ -170,7 +170,7 @@ As a quick reference, the articles listed previously and the articles in the fol
 * [Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md)
 * [Deploy polyglot apps in Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md)
 * [Enable system-assigned managed identity for an application in Azure Spring Apps](how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier)
-* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md?pivots=sc-enterprise-tier)
+* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights-enterprise.md)
 
 ## Standard consumption and dedicated plan
 

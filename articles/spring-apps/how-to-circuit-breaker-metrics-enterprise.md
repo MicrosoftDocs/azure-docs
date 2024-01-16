@@ -121,7 +121,7 @@ Use the following steps to build and deploy the sample applications.
 >   /fluxdelay/{seconds}
 >   ```
 
-## Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal).
+## Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights-enterprise.md#manage-application-insights-using-the-azure-portal).
 
 ## Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
@@ -157,5 +157,5 @@ Use the following steps to build and deploy the sample applications.
 
 ## Next steps
 
-* [Application insights](./how-to-application-insights.md)
+* [Application insights](./how-to-application-insights-enterprise.md)
 * [Circuit breaker dashboard](./tutorial-circuit-breaker.md)

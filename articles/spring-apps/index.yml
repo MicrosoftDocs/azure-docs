@@ -83,7 +83,7 @@ landingContent:
       - text: View Enterprise plan offering
         url: how-to-enterprise-marketplace-offer.md
       - text: Application Insights using Java In-Process Agent
-        url: how-to-application-insights.md?pivots=sc-enterprise-tier
+        url: how-to-application-insights-enterprise.md
       - text: Enable system-assigned managed identity
         url: how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier
 
