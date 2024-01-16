@@ -57,7 +57,7 @@ sections:
         answer: |
           For Kafka clients to communicate with Kafka brokers, they must be able to reach the brokers over the network. For HDInsight clusters, the Virtual Network (VNet) is the security boundary. Hence, the easiest way to connect clients to your HDInsight cluster is to create clients within the same VNet as the cluster. Other scenarios include:
           
-          * Connecting clients in a different Azure VNet – Peer the cluster VNet and the client VNet and configure the cluster for [IP Advertising](apache-kafka-connect-vpn-gateway.md#configure-kafka-for-ip-advertising). When using IP advertising, Kafka clients must use Broker IP addresses to connect with the brokers, instead of Fully Qualified Domain Names (FQDNs).
+          * To connect clients in a different Azure VNet – Peer the cluster VNet and the client VNet and configure the cluster for [IP Advertising](apache-kafka-connect-vpn-gateway.md#configure-kafka-for-ip-advertising). When using IP advertising, Kafka clients must use Broker IP addresses to connect with the brokers, instead of Fully Qualified Domain Names (FQDNs).
           
           * Connecting on-premises clients – Using a VPN network and setting up custom DNS servers as described in [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
           
@@ -82,14 +82,14 @@ sections:
           * use a minimum replication factor of 4 in regions with only two fault domains
           * disable unclean leader elections
           * set **min.insync.replicas** to 2 or more - this changes the number of replicas which must be completely in sync with the leader before a write can proceed
-          * set the **acks** property to **all** - this property requires all replicas to acknowledge all messages
+          * set the `acks` property to **all** - this property requires all replicas to acknowledge all messages
           
           Configuring Kafka for higher data consistency affects the availability of brokers to produce requests.
           
       - question: |
           Can I replicate my data to multiple clusters?
         answer: |
-          Yes, data can be replicated to multiple clusters using Kafka MirrorMaker. See details on setting up MirrorMaker can be found in [Mirror Apache Kafka topics](apache-kafka-mirroring.md). Additionally, there are other self-managed open-source technologies and vendors that can help achieve replication to multiple clusters such as [Brooklin](https://github.com/linkedin/Brooklin/).
+          Yes, data can be replicated to multiple clusters using Kafka MirrorMaker. See details on setting up MirrorMaker can be found in [Mirror Apache Kafka topics](apache-kafka-mirroring.md). Additionally, there are other self-managed open-source technologies and vendors that can help achieve replication to multiple clusters such as [`Brooklin`](https://github.com/linkedin/Brooklin/).
           
       - question: |
           Can I upgrade my cluster? How should I upgrade my cluster?
