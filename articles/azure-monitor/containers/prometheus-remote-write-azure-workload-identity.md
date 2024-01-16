@@ -146,7 +146,7 @@ az ad app federated-credential create --id ${APPLICATION_OBJECT_ID} --parameters
 >
 > - The Prometheus pod must have the following label: `azure.workload.identity/use: "true"`
 > - The remote write sidecar container requires the following environment values:
->   - `INGESTION_URL` - The metrics ingestion endpoint as shown on the Overview page for the Azure Monitor workspace.
+>   - `INGESTION_URL` - The metrics ingestion endpoint as shown on the **Overview** page of the Azure Monitor workspace.
 >   - `LISTENING_PORT` – `8081` (any port is supported).
 >   - `IDENTITY_TYPE` – `workloadIdentity`.
 
@@ -160,7 +160,7 @@ az ad app federated-credential create --id ${APPLICATION_OBJECT_ID} --parameters
     |:---|:---|
     | `<CLUSTER-NAME>` | The name of your AKS cluster. |
     | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1` <br>The remote write container image version. |
-    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
+    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page of the Azure Monitor workspace. |
 
 1. Use Helm to apply the YAML file and update your Prometheus configuration:
 

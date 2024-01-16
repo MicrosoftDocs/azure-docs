@@ -52,7 +52,7 @@ This article uses the kubelet identity. The name of this identity is `<AKS-CLUST
 
 :::image type="content" source="media/prometheus-remote-write-managed-identity/resource-group-details.png" alt-text="Screenshot that shows a list of resources that are in the node resource group." lightbox="media/prometheus-remote-write-managed-identity/resource-group-details.png":::
 
-Select the `<AKS-CLUSTER-NAME>-agentpool` managed identity. On the **Overview** page, copy and retain the value for **Client ID**. For more information, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+Select the `<AKS-CLUSTER-NAME>-agentpool` managed identity. On the **Overview** page, copy the value for **Client ID**. For more information, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 :::image type="content" source="media/prometheus-remote-write-managed-identity/client-id.png" alt-text="Screenshot that shows a client ID on an overview page of a managed identity." lightbox="media/prometheus-remote-write-managed-identity/client-id.png":::
 
@@ -109,9 +109,9 @@ This step isn't required if you're using an AKS identity. An AKS identity alread
     |:---|:---|
     | `<AKS-CLUSTER-NAME>` | The name of your Azure Kubernetes Service (AKS) cluster. |
     | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1`<br> The remote write container image version.   |
-    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
-    | `<MANAGED-IDENTITY-CLIENT-ID>` | The value for **Client ID** from the **Overview** page for the managed identity |
-    | `<CLUSTER-NAME>` | Name of the cluster that Prometheus is running on |
+    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page of the Azure Monitor workspace. |
+    | `<MANAGED-IDENTITY-CLIENT-ID>` | The value for **Client ID** from the **Overview** page of the managed identity. |
+    | `<CLUSTER-NAME>` | Name of the cluster that Prometheus is running on. |
 
    > [!IMPORTANT]
    > For Azure Government cloud, add the following environment variables in the `env` section of the YAML file:
