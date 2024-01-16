@@ -129,6 +129,22 @@ Along with simple string and number inputs, the SAP connector accepts the follow
   1. In the action named **\[BAPI] Call method in SAP**, disable the auto-commit feature.
   1. Call the action named **\[BAPI] Commit transaction** instead.
 
+### IP-based connections to a message server (load-balanced configuration)
+
+If a connection to an SAP Message Server (i.e. load balancer) is specified by IP address, the connection may fail with an error message similar to "hostname SAPDBSERVER01.example.com unknown." **Even though the connection is specified by IP address**
+the message server will instruct the connector to use a hostname for its connection to the backend server. (i.e. the server behind the load balancer) If the hostname cannot be resolved by DNS, the connection fails. There are two workarounds to this
+connection failure:
+
+#### Workarounds/Fixes
+
+1. Make sure that the machine making the connection (generally, a machine hosting an On-Premise Data Gateway) can resolve the hostnames returned by the message server. __OR__
+2. Change/add the SAP setting `ms/lg_with_hostname=0` in transaction `RZ11`
+
+#### Background
+
+SAP released an upgrade to their .NET connector (NCo) to 3.1, which changed the way that it requests connections to backend servers from message servers. It now uses a new API for application server resolution by the message server, if it is not
+forced into the older API by the `ms/lg_with_hostname=0` setting.  
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
