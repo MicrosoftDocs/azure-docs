@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 01/16/2024
 ms.author: jianleishen
 ---
 
@@ -29,7 +29,7 @@ This MySQL connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -78,17 +78,15 @@ The following properties are supported for MySQL linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MySql** | Yes |
-| connectionString | Specify information needed to connect to the Azure Database for MySQL instance.<br/> You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| driverVersion | The driver version that you use. The value is v2. | Yes |
+| server | The name of your MySQL Server. | Yes |
+| port | The port number to connect to the MySQL server. |No|
+| database | Your MySQL database name. |Yes|
+| username | Your user name.|Yes|
+| password | The password for the user name. | Yes |  
+| sslMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g., `SSLMode=<0/1/2/3/4>`.<br/>Options: DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Yes |
+| useSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>`;<br/>Options: Enabled (1) / Disabled (0) **(Default)** | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
-
-A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. More properties you can set per your case:
-
-| Property | Description | Options | Required |
-|:--- |:--- |:--- |:--- |
-| SSLMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g.,  `SSLMode=<0/1/2/3/4>`.| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
-| SSLCert | The full path and name of a .pem file containing the SSL certificate used for proving the identity of the client. <br/> To specify a private key for encrypting this certificate before sending it to the server, use the `SSLKey` property.| | Yes, if using two-way SSL verification. |
-| SSLKey | The full path and name of a file containing the private key used for encrypting the client-side certificate during two-way SSL verification.|  | Yes, if using two-way SSL verification. |
-| UseSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(Default)** | No |
 
 **Example:**
 
@@ -98,7 +96,13 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
     "properties": {
         "type": "MySql",
         "typeProperties": {
-            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+             "server": "<server>",
+             "port": <port>,
+             "database": "<database>",
+             "username": "<username>",
+             "sslmode": <sslmode>,
+             "usesystemtruststore": <UseSystemTrustStore>,
+             "driverVersion": "v2"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -116,7 +120,12 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
     "properties": {
         "type": "MySql",
         "typeProperties": {
-            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;",
+            "server": "<server>",
+            "port": <port>,
+            "database": "<database>",
+            "username": "<username>",
+            "sslmode": <sslmode>,
+            "usesystemtruststore": <UseSystemTrustStore>,
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -124,7 +133,8 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName>" 
-            }
+            },
+            "driverVersion": "v2"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -133,7 +143,6 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
     }
 }
 ```
-
 If you were using MySQL linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward.
 
 **Previous payload:**
@@ -145,12 +154,48 @@ If you were using MySQL linked service with the following payload, it is still s
         "type": "MySql",
         "typeProperties": {
             "server": "<server>",
+            "port": <port>,
             "database": "<database>",
             "username": "<username>",
+            "sslmode": <sslmode>,
+            "usesystemtruststore": <UseSystemTrustStore>,
             "password": {
                 "type": "SecureString",
                 "value": "<password>"
-            }
+            },
+            "driverVersion": "v2"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+When you use the legacy driver version, the following properties are supported:
+
+A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. More properties you can set per your case:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to: **MySql** | Yes |
+| connectionString | Specify information needed to connect to the Azure Database for MySQL instance.<br/> You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| sslMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g., `SSLMode=<0/1/2/3/4>`.<br/>Options: DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Yes |
+| SSLCert | The full path and name of a .pem file containing the SSL certificate used for proving the identity of the client. <br/> To specify a private key for encrypting this certificate before sending it to the server, use the `SSLKey` property.| Yes, if using two-way SSL verification. |
+| SSLKey | The full path and name of a file containing the private key used for encrypting the client-side certificate during two-way SSL verification.| Yes, if using two-way SSL verification. |
+| useSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>`;<br/>Options: Enabled (1) / Disabled (0) **(Default)** | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. | No |
+
+**Example:**
+
+```json
+{
+    "name": "MySQLLinkedService",
+    "properties": {
+        "type": "MySql",
+        "typeProperties": {
+            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -246,10 +291,10 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
-| `bit(1)` |`Boolean` |
-| `bit(M), M>1`|`Byte[]`|
+| `bit(1)` |`UInt64` |
+| `bit(M), M>1`|`UInt64`|
 | `blob` |`Byte[]` |
-| `bool` |`Int16` |
+| `bool` |`Boolean` |
 | `char` |`String` |
 | `date` |`Datetime` |
 | `datetime` |`Datetime` |
@@ -262,6 +307,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `int unsigned` |`Int64`|
 | `integer` |`Int32` |
 | `integer unsigned` |`Int64` |
+| `json` |`String` |
 | `long varbinary` |`Byte[]` |
 | `long varchar` |`String` |
 | `longblob` |`Byte[]` |
@@ -285,10 +331,17 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `varchar` |`String` |
 | `year` |`Int` |
 
-
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Migrate the MySQL linked service
+
+Migrating your MySQL linked service is highly recommended if you use the legacy version. Take the following steps:  
+
+1. Create a new MySQL linked service and configure it by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
+
+1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
