@@ -24,7 +24,7 @@ If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtua
 ### [CLI](#tab/cli)
 When creating a new scale set using Azure CLI, use [az vmss create](/cli/azure/vmss#az-vmss-create) and the `-upgrade-policy-mode` parameter. Choose `Automatic`, `Manual` or `Rolling`. 
 
-If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and and suggestions.
+If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
 
 ```azurecli-interactive
 az vmss create \
