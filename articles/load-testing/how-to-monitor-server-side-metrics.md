@@ -63,11 +63,11 @@ Use the following steps to view and update the list of resource metrics for a lo
 
 1. Select **Run** to run the load test with the new configuration settings.
 
-    :::image type="content" source="media/how-to-monitor-server-side-metrics/run-load-test.png" alt-text="Screenshot that shows the 'Run' button for running the load test from the test details page.":::  
+    :::image type="content" source="media/how-to-monitor-server-side-metrics/run-load-test.png" alt-text="Screenshot that shows the 'Run' button for running the load test from the test details page." lightbox="media/how-to-monitor-server-side-metrics/run-load-test.png":::  
 
     Notice that the test result dashboard now shows the updated server-side metrics.
 
-    :::image type="content" source="media/how-to-monitor-server-side-metrics/dashboard-updated-metrics.png" alt-text="Screenshot that shows the updated server-side metrics on the test result dashboard.":::
+    :::image type="content" source="media/how-to-monitor-server-side-metrics/dashboard-updated-metrics.png" alt-text="Screenshot that shows the updated server-side metrics on the test result dashboard." lightbox="media/how-to-monitor-server-side-metrics/dashboard-updated-metrics.png":::
 
 > [!NOTE]
 > When you update the load test configuration of a load test, all future test runs use the updated configuration. You can also update app components and metrics on the load testing dashboard. In this case, the configuration changes only apply to the current test run.
