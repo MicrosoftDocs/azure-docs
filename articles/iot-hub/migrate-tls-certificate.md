@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 01/05/2024
+ms.date: 01/16/2024
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -23,7 +23,7 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 
 ## Timeline
 
-The IoT Hub team began migrating IoT hubs in February, 2023 and the migration is complete except for hubs that have already been approved for a later migration. If your IoT hub is found to be using the Baltimore certificate without an agreement in place with the product team, your hub will be migrated without any further notice.
+The IoT Hub migration is complete except for hubs that have already been approved for an extension. If your IoT hub is found to be using the Baltimore certificate without an agreement in place with the product team, your hub will be migrated without any further notice.
 
 After all IoT hubs have migrated, DPS will perform its migration between January 15 and September 30, 2024.
 
@@ -35,7 +35,7 @@ For each IoT hub with an extension agreement in place, you can expect the follow
 
 ### Request an extension
 
-As of August, 2023 the extension request process is closed for IoT Hub and IoT Central. If your IoT hub is found to be using the Baltimore certificate without an extension agreement in place with the product team, your hub will be migrated without any further notice.
+As of August 2023 the extension request process is closed for IoT Hub and IoT Central. If your IoT hub is found to be using the Baltimore certificate without an extension agreement in place with the product team, your hub will be migrated without any further notice.
 
 ## Required steps
 
@@ -104,7 +104,7 @@ Yes, IoT Central uses both IoT Hub and DPS in the backend. The TLS migration wil
 
 You can migrate your application from the Baltimore CyberTrust Root to the DigiCert Global G2 Root on your own schedule. We recommend the following process:
 
-1. **Keep the Baltimore CyberTrust Root on your device until the transition period is completed on 15 February 2024** (necessary to prevent connection interruption). 
+1. **Keep the Baltimore CyberTrust Root on your device until the transition period is completed on September 30, 2024** (necessary to prevent connection interruption). 
 2. **In addition** to the Baltimore Root, ensure the DigiCert Global G2 Root is added to your trusted root store.
 3. Make sure you aren’t pinning any intermediate or leaf certificates and are using the public roots to perform TLS server validation.
 4. In your IoT Central application you can find the Root Certification settings under **Settings** > **Application** > **Baltimore Cybertrust Migration**.  
@@ -122,7 +122,7 @@ Also, as part of the migration, your IoT hub might get a new IP address. If your
 
 ### When can I remove the Baltimore Cybertrust Root from my devices?
 
-You can remove the Baltimore root certificate once all stages of the migration are complete. If you only use IoT Hub, then you can remove the old root certificate after the IoT Hub migration is scheduled to complete on October 15, 2023. If you use Device Provisioning Service or IoT Central, then you need to keep both root certificates on your device until the DPS migration is scheduled to complete on February 15, 2024.
+You can remove the Baltimore root certificate once all stages of the migration are complete. If you only use IoT Hub, then you can remove the old root certificate after the IoT Hub migration is scheduled to complete on October 15, 2023. If you use Device Provisioning Service or IoT Central, then you need to keep both root certificates on your device until the DPS migration is scheduled to complete on September 30, 2024.
 
 ## Troubleshoot
 
