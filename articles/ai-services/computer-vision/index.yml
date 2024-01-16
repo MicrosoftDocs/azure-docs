@@ -142,7 +142,7 @@ conceptualContent:
 
 tools:
   title: Software development kits (SDKs)
-  summary: Get started with the Vision SDK in your favorite programming language.
+  summary: Get started with the Image Analysis SDK in your favorite programming language.
   items:
   - title: C#
     imageSrc: media/index/logo_Csharp.svg

@@ -1,7 +1,7 @@
 ---
-title: Vision SDK Overview
+title: Image Analysis SDK Overview
 titleSuffix: Azure AI services
-description: This page gives you an overview of the Azure AI Vision SDK for Image Analysis.
+description: This page gives you an overview of the Azure AI Image Analysis SDK.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,27 +12,22 @@ ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
 
-# Vision SDK overview
+# Image Analysis SDK overview
 
-The Vision SDK (preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref).
+The Image Analysis SDK (preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref).
 
-[!INCLUDE [License Notice](../includes/setup-sdk/license-notice-sdk.md)]
 
 ## Supported languages
 
-The Vision SDK supports the following languages and platforms:
+The Image Analysis SDK supports the following languages and platforms:
 
 | Programming language | Quickstart | API Reference | Platform support |
 |----------------------|------------|-----------|------------------|
-| C# <sup>1</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)  | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/csharp) | Windows, UWP, Linux |
-| Python | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-python) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/python) | Windows, Linux |
-| Java | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-java) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/java) | Windows, Linux |
-| JavaScript | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-js) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/js) | Windows, Linux |
+| C# <sup>1</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)  | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/csharp) | Windows, Linux, MacOS |
+| Python | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-python) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/python) | Windows, Linux, MacOS |
+| Java | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-java) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/java) | Windows, Linux, MacOS |
+| JavaScript | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-js) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/js) | Windows, Linux, MacOS |
 
-
-<sup>1 The Vision SDK for C# is based on .NET Standard 2.0. See [.NET Standard](/dotnet/standard/net-standard?tabs=net-standard-2-0#net-implementation-support) documentation.</sup>
-
-<sup>2 ANSI-C isn't a supported programming language for the Vision SDK.</sup>
 
 ## GitHub samples
 
@@ -45,8 +40,8 @@ Numerous samples are available in the SDK repositories on GitHub.
 
 ## Getting help
 
-If you need assistance using the Vision SDK or would like to report a bug or suggest new features, open a GitHub issue in the respective SDK repo. The SDK development team monitors these issues.
-- [C#](https://github.com/Azure/azure-sdk-for-dotnet/issues)
+If you need assistance using the Image Analysis SDK or would like to report a bug or suggest new features, open a GitHub issue in the respective SDK repo. The SDK development team monitors these issues.
+- [C#](https://github.com/Azure/azure-sdk-for-net/issues)
 - [Python](https://github.com/Azure/azure-sdk-for-python/issues)
 - [Java](https://github.com/Azure/azure-sdk-for-java/issues)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/issues)

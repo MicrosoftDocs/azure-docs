@@ -6,7 +6,7 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-The Vision SDK for C++ is compatible with Windows and Linux.
+The Image Analysis SDK for C++ ais compatible with Windows, Linux, and MacOS.
 
 # [Windows](#tab/windows)
 
@@ -16,7 +16,7 @@ You must install the [Microsoft Visual C++ Redistributable for Visual Studio 201
 
 # [Linux](#tab/linux)
 
-The Vision SDK for C# only supports **Ubuntu 18.04/20.04/22.04** and **Debian 9/10/11** on the x64 architecture when used with Linux.
+The Image Analysis SDK for C++ only supports **Ubuntu 18.04/20.04/22.04** and **Debian 9/10/11** on the x64 architecture when used with Linux.
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 

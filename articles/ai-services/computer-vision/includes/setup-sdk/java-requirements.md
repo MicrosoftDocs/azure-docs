@@ -6,7 +6,8 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-The Vision SDK for Java is compatible with Windows and Linux.
+The Image Analysis SDK for Java is compatible with Windows, Linux, and MacOS.
+- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above installed.
 
 # [Windows](#tab/windows)
 
@@ -16,7 +17,7 @@ The Java SDK uses native binaries. You must install the [Microsoft Visual C++ Re
 
 # [Linux](#tab/linux)
 
-The Vision SDK for Java only supports **Ubuntu 18.04/20.04/22.04** and **Debian 9/10/11** on the x64 architecture when used with Linux.
+The Image Analysis SDK for Java only supports **Ubuntu 18.04/20.04/22.04** and **Debian 9/10/11** on the x64 architecture when used with Linux.
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 

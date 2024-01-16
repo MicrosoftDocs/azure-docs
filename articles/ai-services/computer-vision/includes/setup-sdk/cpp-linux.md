@@ -47,7 +47,7 @@ Installing the Image Analysis SDK package requires your device to support the AP
     sudo apt install azure-ai-vision-dev-image-analysis
     ```
 
-1. Notice that the above package _azure-ai-vision-dev-image-analysis_ depends on other Image Analysis SDK packages, which will be installed automatically. Run `apt list azure-ai-vision*` to see the list of installed Vision SDK packages:
+1. Notice that the above package _azure-ai-vision-dev-image-analysis_ depends on other Image Analysis SDK packages, which will be installed automatically. Run `apt list azure-ai-vision*` to see the list of installed Image Analysis SDK packages:
    * _azure-ai-vision-dev-common_
    * _azure-ai-vision-dev-image-analysis_
    * _azure-ai-vision-runtime-common_
@@ -86,7 +86,7 @@ You should see package documents in the /usr/share/doc/azure-ai-vision-* folders
 
 ## Cleanup
 
-The Vision SDK Debian packages can be removed by running this single command:
+The Image Analysis SDK Debian packages can be removed by running this single command:
 
 ```
  sudo apt-get purge azure-ai-vision-*
@@ -94,7 +94,7 @@ The Vision SDK Debian packages can be removed by running this single command:
 
 ## Required libraries for run-time distribution
 
-The folder `/usr/lib/azure-ai-vision` contains several shared object libraries (`.so` files), needed to support different sets of Vision SDK APIs. For Image Analysis, only the following subset is needed when you distribute a run-time package of your application:
+The folder `/usr/lib/azure-ai-vision` contains several shared object libraries (`.so` files), needed to support different sets of Image Analysis SDK APIs. For Image Analysis, only the following subset is needed when you distribute a run-time package of your application:
 
 ```
 libAzure-AI-Vision-Native.so

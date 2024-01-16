@@ -1,7 +1,7 @@
 ---
-title: Install the Vision SDK
+title: Install the Image Analysis SDK
 titleSuffix: Azure AI services
-description: In this guide, you learn how to install the Vision SDK for your preferred programming language.
+description: In this guide, you learn how to install the Image Analysis SDK for your preferred programming language.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,9 +13,8 @@ ms.custom: devx-track-python, devx-track-csharp, devx-track-extended-java
 zone_pivot_groups: programming-languages-vision-40-sdk
 ---
 
-# Install the Vision SDK
+# Install the Image Analysis SDK
 
-[!INCLUDE [License Notice](../includes/setup-sdk/license-notice-sdk.md)]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](../includes/setup-sdk/csharp.md)]
