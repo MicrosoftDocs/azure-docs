@@ -132,7 +132,7 @@ If the analyzer can't parse the input, it returns `(Unknown)`. An example is if 
         }
     ],
     "errors": [],
-    "modelVersion": "2021-01-05"
+    "modelVersion": "2023-12-01"
 }
 ```
 
