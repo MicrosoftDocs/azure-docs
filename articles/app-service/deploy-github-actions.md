@@ -218,10 +218,7 @@ A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in
 
 At a minimum, the workflow file would have the following distinct steps:
 
-1. Authenticate with App Service using a GitHub secret. The GitHub secret would contain one of the following three credential types: 
-    - A publish profile. 
-    - A service principal.
-    - A managed identity configured for OpenID Connect.
+1. Authenticate with App Service using the GitHub secret you created.
 1. Build the web app.
 1. Deploy the web app.
 
