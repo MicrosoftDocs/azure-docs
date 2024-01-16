@@ -55,6 +55,13 @@ The following tables provide links to each Azure service relocation document.
 [Azure Private Link](./relocation-private-link.md) |
 
 
+
+### ![An icon that signifies this service is strategic.](./media/relocation/icon-strategic.svg) Strategic services
+
+| **Product**  |
+| --- | 
+[Azure Automation](./relocation-automation.md)|
+
 ## Additional information
 
 - [Azure Resources Mover documentation](/azure/resource-mover/)

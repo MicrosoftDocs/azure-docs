@@ -29,7 +29,7 @@
     - name: Strategic services
       items:
       - name: Azure Automation
-        href: not-yet.md
+        href: relocation-automation.md
       - name: Microsoft Defender for Cloud
         href: not-yet.md
       - name: Microsoft Sentinel
