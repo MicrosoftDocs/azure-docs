@@ -13,17 +13,17 @@ ms.date: 11/30/2021
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article provides a step-by-step procedure for using the Azure portal to perform point-in-time recoveries in a flexible server through backups. You can perform this procedure to the latest restore point or to a custom restore point within your retention period.
+This article provides a step-by-step procedure for using the Azure portal to perform point-in-time recoveries in Azure Database for PostgreSQL flexible server through backups. You can perform this procedure to the latest restore point or to a custom restore point within your retention period.
 
 ## Prerequisites
 
-To complete this how-to guide, you need Azure Database for PostgreSQL - Flexible Server. The procedure is also applicable for a flexible server that's configured with zone redundancy.
+To complete this how-to guide, you need an Azure Database for PostgreSQL flexible server instance. The procedure is also applicable for an Azure Database for PostgreSQL flexible server instance that's configured with zone redundancy.
 
 ## Restore to the latest restore point
 
-Follow these steps to restore your flexible server to the latest restore point by using an existing backup:
+Follow these steps to restore your Azure Database for PostgreSQL flexible server instance to the latest restore point by using an existing backup:
 
-1. In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to restore the backup from.
+1. In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL flexible server instance that you want to restore the backup from.
 
 2. Select **Overview** from the left pane, and then select **Restore**.
    
@@ -39,9 +39,9 @@ Follow these steps to restore your flexible server to the latest restore point b
 
 ## Restore to a custom restore point
 
-Follow these steps to restore your flexible server to a custom restore point by using an existing backup:
+Follow these steps to restore your Azure Database for PostgreSQL flexible server instance to a custom restore point by using an existing backup:
 
-1. In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to restore the backup from.
+1. In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL flexible server instance that you want to restore the backup from.
 
 2. Select **Overview** from the left pane, and then select **Restore**.
  
@@ -80,7 +80,7 @@ If your source server is configured with geo-redundant backup, you can restore t
 > [!NOTE]
 > For the first time that you perform a geo-restore, wait at least one hour after you create the source server.
 
-1. In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to geo-restore the backup from.
+1. In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL flexible server instance that you want to geo-restore the backup from.
 
 2. Select **Overview** from the left pane, and then select **Restore**.
  

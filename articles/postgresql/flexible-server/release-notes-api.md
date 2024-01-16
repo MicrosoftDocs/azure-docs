@@ -19,7 +19,7 @@ This page provides latest news and updates regarding the recommended API version
 ## API Releases
 
 > [!NOTE]
-> Every Stable and Preview API version is cummulative. This means that it includes the previous features in addition to the features included under the Comments column.
+> Every Stable and Preview API version is cumulative. This means that it includes the previous features in addition to the features included under the Comments column.
 
 | API Version | Stable/Preview | Comments |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ This page provides latest news and updates regarding the recommended API version
 
 ## Contacts
 
-For any questions or suggestions you might have on Azure Database for PostgreSQL flexible server, send an email to the Azure Database for PostgreSQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Please note that this email address isn't a technical support alias.
+For any questions or suggestions you might have on Azure Database for PostgreSQL flexible server, send an email to the Azure Database for PostgreSQL flexible server Team ([@Ask Azure Database for PostgreSQL flexible server](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Please note that this email address isn't a technical support alias.
 
 In addition, consider the following points of contact as appropriate:
 
