@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client'
 description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis and Redisson as Redis client
-author: backwind1233
+author: KarlErickson
 ms.author: zhihaoguo
 ms.date: 01/05/2024
 ms.topic: quickstart
@@ -22,6 +22,7 @@ If you want to skip straight to the code, see the [Java quickstart](https://gith
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [Use Microsoft Entra ID for cache authentication](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## Create an Azure Cache for Redis
@@ -36,18 +37,18 @@ Depending on your operating system, add environment variables for your **Host na
 
 ```CMD 
 set REDIS_CACHE_HOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
-set REDIS_CACHE_KEY=<YOUR_PRIMARY_ACCESS_KEY>
+set USERNAME=<USERNAME>
 ```
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
-export REDIS_CACHE_KEY=<YOUR_PRIMARY_ACCESS_KEY>
+export USERNAME=<USERNAME>
 ```
 
 Replace the placeholders with the following values:
 
 - `<YOUR_HOST_NAME>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
-- `<YOUR_PRIMARY_ACCESS_KEY>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
+- `<USERNAME>`: Object ID of your managed identity or service principal.
 
 ## Create a new Java app
 
@@ -63,6 +64,12 @@ Open the *pom.xml* file and add a dependency for [Redisson](https://github.com/r
 
 ```xml
     <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+        <version>1.8.2</version>
+    </dependency>
+
+    <dependency>
         <groupId>org.redisson</groupId>
         <artifactId>redisson</artifactId>
         <version>3.24.3</version>
@@ -76,6 +83,9 @@ Open *App.java* and replace the code with the following code:
 ```java
 package example.demo;
 
+import com.azure.core.credential.TokenRequestContext;
+import com.azure.identity.DefaultAzureCredential;
+import com.azure.identity.DefaultAzureCredentialBuilder;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
@@ -94,10 +104,21 @@ import java.time.LocalDateTime;
  */
 public class App {
     public static void main(String[] args) {
+        //Construct a Token Credential from Identity library, e.g. DefaultAzureCredential / ClientSecretCredential / Client CertificateCredential / ManagedIdentityCredential etc.
+        DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
+
+        // Fetch a Microsoft Entra token to be used for authentication.
+        // Note: The Scopes parameter will change as the Microsoft Entra authentication support hits public preview and eventually GA's.
+        String token = defaultAzureCredential
+                .getToken(new TokenRequestContext()
+                .addScopes("acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default")).block().getToken();
+
         // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
         Config redissonconfig = new Config();
-        redissonconfig.useSingleServer().setPassword(System.getenv("REDIS_CACHE_KEY"))
-            .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")));
+        redissonconfig.useSingleServer()
+            .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")))
+            .setUsername( System.getenv("USERNAME")) // (*Required), Username is Object ID of your managed identity or service principal
+            .setPassword(token); // Microsoft Entra access token as password is required.
 
         RedissonClient redissonClient = Redisson.create(redissonconfig);
 
@@ -125,7 +146,7 @@ public class App {
 }
 ```
 
-This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. 
+This code shows you how to connect to an Azure Cache for Redis instance using Microsoft Entra ID with Redisson client library. The code also stores and retrieves a string value in the cache. 
 
 Save *App.java*.
 
