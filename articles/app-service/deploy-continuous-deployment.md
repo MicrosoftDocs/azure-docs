@@ -72,7 +72,7 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 4. App Service Build Service is the default build provider.
 
     > [!NOTE]
-    > To use Azure Pipelines as the build provider for your App Service app, configure CI/CD directly from Azure Pipelines. Don't configure it in App Service. The **Azure Pipelines** option just points you in the right direction.
+    > To use Azure Pipelines as the build provider for your App Service app, configure it directly from Azure Pipelines. Don't configure it in App Service. The **Azure Pipelines** option just points you in the right direction.
 
 1. Select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy continuously. 
 
@@ -104,12 +104,12 @@ You're not limited to the options provided in the Deployment Center, but App Ser
 
 # [GitHub Actions](#tab/githubactions)
 
-The GitHub Actions build provider is available for [CI/CD from GitHub](?tabs=github#configure-the-deployment-source). It completes these actions to set up CI/CD:
+The GitHub Actions build provider is available only for [GitHub deployment](?tabs=github#configure-the-deployment-source). When configured from the app's Deployment Center, it completes these actions to set up CI/CD:
 
 - Deposits a GitHub Actions workflow file into your GitHub repository to handle build and deploy tasks to App Service.
-- For basic authentication, adds the publishing profile for your app as a GitHub secret. The workflow file uses this secret to authenticate with App Service.
+- For basic authentication, adds the publish profile for your app as a GitHub secret. The workflow file uses this secret to authenticate with App Service.
 - For user-assigned identity, see [What does the user-assigned identity option do for GitHub Actions?](#what-does-the-user-assigned-identity-option-do-for-github-actions)
-- Captures information from the [workflow run logs](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) and displays it on the **Logs** tab in your app's Deployment Center.
+- Captures information from the [workflow run logs](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) and displays it on the **Logs** tab in the Deployment Center.
 
 You can customize the GitHub Actions build provider in these ways:
 
