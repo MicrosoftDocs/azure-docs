@@ -25,6 +25,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
+| [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |January 14, 2024 | February 2024 |
 | [Four new recommendations for Azure Stack HCI resource type](#four-new-recommendations-for-azure-stack-hci-resource-type) | January 11, 2024 | February 2024 |
 | [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
 | [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
@@ -40,6 +42,25 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Update to agentless VM scanning built-in Azure role
+
+**Announcement date: January 14, 2024**
+
+**Estimated date of change: February 2024**
+
+In Azure, agentless scanning for VMs uses a built-in role (called [VM scanner operator](/azure/defender-for-cloud/faq-permissions)) with the minimum necessary permissions required to scan and assess your VMs for security issues. To continuously provide relevant scan health and configuration recommendations for VMs with encrypted volumes, an update to this role's permissions is planned. The update includes the addition of the ```Microsoft.Compute/DiskEncryptionSets/read``` permission. This permission solely enables improved identification of encrypted disk usage in VMs. It does not provide Defender for Cloud any additional capabilities to decrypt or access the content of these encrypted volumes beyond the encryption methods [already supported](/azure/defender-for-cloud/concept-agentless-data-collection#availability) prior to this change. This change is expected to take place during February 2024 and no action is required on your end.
+
+## Deprecation of two recommendations related to PCI
+
+**Announcement date: January 14, 2024**
+
+**Estimated date for change: February 2024**
+
+The following two recommendations related to PCI (Permission Creep Index) are set for deprecation:
+
+- `Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)`
+- `Over-Provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)`
 
 ## Four new recommendations for Azure Stack HCI resource type
 
@@ -63,7 +84,7 @@ Azure Stack HCI is set to be a new resource type that can be managed through Mic
 **Estimated date for change: May 2024**
 
 The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path which is estimated to complete on **May 1st, 2024**. If you're currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft Defender vulnerability management solution](how-to-transition-to-built-in.md).
- 
+
 For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can read [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 
 You can also check out the [common questions about the transition to Microsoft Defender Vulnerability Management solution](faq-scanner-detection.yml).
