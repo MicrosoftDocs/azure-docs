@@ -23,14 +23,14 @@ This page shows supported authentication methods and clients to connect Apache K
 
 Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
-| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string         | Service principal |
-| ------------------ | -------------------------------- | ------------------------------ | ---------------------------------- | ----------------- |
-| .NET               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Node.js            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| None               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
+|--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
+| .NET               | No                               | No                             | Yes                        | No                |
+| Java               | No                               | No                             | Yes                        | No                |
+| Java - Spring Boot | No                               | No                             | Yes                        | No                |
+| Node.js            | No                               | No                             | Yes                        | No                |
+| Python             | No                               | No                             | Yes                        | No                |
+| None               | No                               | No                             | Yes                        | No                |
 
 ## Default environment variable names or application properties
 
