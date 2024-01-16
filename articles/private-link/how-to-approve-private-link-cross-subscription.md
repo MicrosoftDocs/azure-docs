@@ -37,7 +37,7 @@ Sign in to **subscription-1** in the [Azure portal](https://portal.azure.com).
 
 ## Register the resource providers for subscription-1
 
-For the private endpoint connection to complete successfully, the Microsoft.Network and Microsoft.Storage resource providers must be registered in **subscription-1**. Use the following steps to register the resource providers. If the `Microsoft.Network` and `Microsoft.Storage` resource providers are already registered, skip this step.
+For the private endpoint connection to complete successfully, the `Microsoft.Network` and `Microsoft.Storage` resource providers must be registered in **subscription-1**. Use the following steps to register the resource providers. If the `Microsoft.Network` and `Microsoft.Storage` resource providers are already registered, skip this step.
 
 > [!IMPORTANT]
 > If you're using a different resource type, you must register the resource provider for that resource type if it's not already registered.
@@ -93,7 +93,7 @@ Sign in to **subscription-2** in the [Azure portal](https://portal.azure.com).
 
 ## Register the resource providers for subscription-2
 
-For the private endpoint connection to complete successfully, the Microsoft.Storage and Microsoft.Network resource provider must be registered in **subscription-2**. Use the following steps to register the resource providers. If the `Microsoft.Storage` and `Microsoft.Network` resource providers are already registered, skip this step.
+For the private endpoint connection to complete successfully, the `Microsoft.Storage` and `Microsoft.Network` resource provider must be registered in **subscription-2**. Use the following steps to register the resource providers. If the `Microsoft.Storage` and `Microsoft.Network` resource providers are already registered, skip this step.
 
 > [!IMPORTANT]
 > If you're using a different resource type, you must register the resource provider for that resource type if it's not already registered.
