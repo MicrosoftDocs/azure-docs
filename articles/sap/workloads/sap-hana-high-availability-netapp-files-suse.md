@@ -11,7 +11,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 09/15/2023
+ms.date: 01/16/2024
 ms.author: ampatel
 ---
 
