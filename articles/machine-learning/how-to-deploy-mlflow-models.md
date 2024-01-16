@@ -96,7 +96,7 @@ The sections that follow focus more on MLflow models deployed to Azure Machine L
 Regardless of the input type used, Azure Machine Learning requires you to provide inputs in a JSON payload, within the dictionary key `input_data`. Because this key isn't required when using the command `mlflow models serve` to serve models, payloads can't be used interchangeably for Azure Machine Learning online endpoints and the MLflow built-in server.
 
 > [!IMPORTANT]
-> **MLflow 2.0 advisory**: Notice that the payload's structure has changed in MLflow 2.0.
+> **MLflow 2.0 advisory**: Notice that the payload's structure changed in MLflow 2.0.
 
 This section shows different payload examples and the differences for a model that is deployed in the MLflow built-in server versus the Azure Machine Learning inferencing server.
 
