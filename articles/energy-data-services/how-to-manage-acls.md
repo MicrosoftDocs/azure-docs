@@ -15,6 +15,7 @@ In this article, you learn how to add or remove ACLs from the data record in you
 
 ## Create a data group as ACL
 Run the following curl command in Azure Cloud Shell to create a new data group, e.g., data.sampledb.viewer, in the specific data partition of the Azure Data Manager for Energy instance.
+
 **Request format**
 
 ```bash
