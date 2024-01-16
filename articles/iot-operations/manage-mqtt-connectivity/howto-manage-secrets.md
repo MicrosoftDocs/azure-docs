@@ -64,7 +64,7 @@ The type of secret you're using determines which of the following fields you can
 
 - `vaultSecret`: Use this field when you're using a regular secret. For example, you can use this field for configuring a *BrokerAuthentication* resource with the `usernamePassword` field.
 - `vaultCert`: Use this field when you're using the certificate type secret with client certificate and key. For example, you can use this field for enabling TLS on a *BrokerListener*.
-- `vaultCaChainSecret`: Use this field when you're using a Key Vault certificate type secret that contains the full CA chain of the client certificate in PFX format. This field is for when you need IoT MQ to present the CA chain of the client certificate to a remote connection. For example, you can use this field for configuring a *MqttBridgeConnector* resource with the `remoteBrokerConnection` field.
+- `vaultCaChainSecret`: Use this field when you need to present a full certificate chain, with all extra intermediate or root certificates, to the remote server. For example, you can use this field for configuring a *MqttBridgeConnector* resource with the `remoteBrokerConnection` field. To use this field, import X.509 certificates without private keys in PEM format as a multi-line regular secret (not certificate-type) to Key Vault. This field should be used in addition to `vaultCert` that has the client certificate and privat key.
 
 ## Examples
 

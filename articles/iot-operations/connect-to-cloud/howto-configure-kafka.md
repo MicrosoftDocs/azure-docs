@@ -296,6 +296,9 @@ authentication:
         vaultCert:
           name: my-cert
           # version: 939ecc2...
+        ## If presenting full chain also  
+        # vaultCaChainSecret:
+        #   name: my-chain
 ```
 
 Or, if presentinng the full chain is required, upload the full chain cert and key to AKV as a PFX file and use the `vaultCaChainSecret` field instead.
