@@ -16,7 +16,7 @@ ms.custom: include file
 | Maximum nodes per node pool (Virtual Machine Scale Sets node pools) | 1000 |
 | Maximum node pools per cluster | 100 |
 | Maximum pods per node: with [Kubenet][Kubenet] networking plug-in<sup>1</sup> | Maximum: 250 <br /> Azure CLI default: 110 <br /> Azure Resource Manager template default: 110 <br /> Azure portal deployment default: 30 |
-| Maximum pods per node: with [Azure Container Networking Interface (Azure CNI)][Azure CNI]<sup>1</sup> | Maximum: 250. <br /> Maximum recommended for Windows Server containers: 110. <br /> Default: 30 |
+| Maximum pods per node: with [Azure Container Networking Interface (Azure CNI)][Azure CNI]<sup>1</sup> | Maximum: 250 <br /> Maximum recommended for Windows Server containers: 110 <br /> Default: 30 |
 | Open Service Mesh (OSM) AKS addon | Kubernetes Cluster Version: AKS Supported Versions<br />OSM controllers per cluster: 1<br />Pods per OSM controller: 1600<br />Kubernetes service accounts managed by OSM: 160 |
 | Maximum load-balanced kubernetes services per cluster  with [Standard Load Balancer SKU][standard-load-balancer] | 300 |
 | Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU | 100 |
