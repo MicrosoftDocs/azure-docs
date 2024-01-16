@@ -22,9 +22,8 @@ Run the following curl command in Azure Cloud Shell to create a new data group, 
     curl --location --request POST "https://<URI>/api/entitlements/v2/groups/" \
     --header 'data-partition-id: <data-partition>' \
     --header 'Authorization: Bearer <access_token>'
-    --data '
-    {
-       "description": "string",
+    --data-raw '{
+       "description": "<data-group-description>",
        "name": "data.sampledb.viewer"
     }
 ```
