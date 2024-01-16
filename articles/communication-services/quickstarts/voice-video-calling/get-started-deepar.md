@@ -107,7 +107,7 @@ await deepAR.clearEffect();
 ```
 To disable the background blur, you can pass `false` to deepar.backgroundBlur API.
 
-## Stop the video processing
+## Disable DeepAR during the video call
 
 In case you want to disable DeepAR during the video call.
 You need to call deepar.stopVideo();
@@ -116,7 +116,6 @@ Invoking deepar.stopVideo will also end the current media stream captured from t
 ```javascript
 await outputVideoStream.switchSource(cameras[0]);
 await deepAR.stopVideo();
-
 ```
 
 ## Next steps
