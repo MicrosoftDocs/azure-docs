@@ -75,7 +75,7 @@ To learn how to define network rules, see [Managing virtual network rules](elast
 
 After you have enabled the desired endpoints and granted access in your network rules, you can connect to the appropriate Elastic SAN volumes using the iSCSI protocol. To learn how to configure client connections, see the articles on how to connect to [Linux](elastic-san-connect-linux.md), [Windows](elastic-san-connect-windows.md), or [Azure Kubernetes Service cluster](elastic-san-connect-aks.md).
 
-iSCSI sessions can periodically disconnect and reconnect over the course of the day. These disconnects and reconnects are part of regular maintenance or the result of network fluctuations. You shouldn't experience and performance degradation as a result of these disconnects and reconnects, and the connections should re-establish by themselves. If a connection doesn't re-establish itself, or you're experiencing performance degradation, raise a support ticket.
+iSCSI sessions can periodically disconnect and reconnect over the course of the day. These disconnects and reconnects are part of regular maintenance or the result of network fluctuations. You shouldn't experience any performance degradation as a result of these disconnects and reconnects, and the connections should re-establish by themselves. If a connection doesn't re-establish itself, or you're experiencing performance degradation, raise a support ticket.
 
 > [!NOTE]
 > If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
