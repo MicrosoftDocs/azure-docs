@@ -19,10 +19,11 @@ Container insights is a feature of Azure Monitor that collects and analyzes cont
 > Container insights collects metric data from your cluster in addition to logs. This functionality has been replaced by [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). You can analyze that data using built-in dashboards in [Managed Grafana](../../managed-grafana/overview.md) and alert on them using [prebuilt Prometheus alert rules](container-insights-metric-alerts.md).
 > 
 > You can continue to have Container insights collect metric data so you can use the Container insights monitoring experience. Or you can save cost by disabling this collection and using Grafana for metric analysis. See [Configure data collection in Container insights using data collection rule](container-insights-data-collection-dcr.md) for configuration options.
+> 
 ## Data collected
 Container insights sends data to a [Log Analytics workspace](../logs/data-platform-logs.md) where you can analyze it using different features of Azure Monitor. Managed Prometheus sends data to an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) where it can be accessed by Managed Grafana. See [Monitoring data](../../aks/monitor-aks.md#monitoring-data) for further details on this data.
 
-:::image type="content" source="../../aks/media/monitor-aks/aks-monitor-data.png" lightbox="../../aks/media/monitor-aks/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from Kubernetes cluster using Container insights and related services." border="false":::
+:::image type="content" source="../media/container-insights-overview/aks-monitor-data.png" lightbox="../media/container-insights-overview/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from Kubernetes cluster using Container insights and related services." border="false":::
 
 ### Supported configurations
 Container insights supports the following environments:
