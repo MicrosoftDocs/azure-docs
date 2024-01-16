@@ -23,9 +23,9 @@ OSDU&trade; is a trademark of The Open Group.
 
 | Prerequisite | Details |
 | ------------ | ------- |
-Active Azure subscription | You need the Azure subscription ID in which you want to install Azure Data Manager for Energy. You need to have appropriate permissions to create Azure resources in this subscription.
+Active Azure subscription | You need the Azure subscription ID in which you want to install Azure Data Manager for Energy. You need appropriate permissions to create Azure resources in this subscription.
 Application ID | You need an [application ID](../active-directory/develop/application-model.md) (often called an app ID or a client ID). This application ID is used for authentication to Microsoft Entra ID and is associated with your Azure Data Manager for Energy instance. You can [create an application ID](../active-directory/develop/quickstart-register-app.md) by going to Active Directory and selecting **App registrations** > **New registration**.
-Client secret | Sometimes called an application password, a client secret is a string value that your app can use in place of a certificate to identity itself. You can [create a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) by selecting **Certificates & secrets** > **Client secrets** > **New client secret**. Record the secret's value for use in your client application code. This secret value is never displayed again after you leave this page.
+Client secret | Sometimes called an application password, a client secret is a string value that your app can use in place of a certificate to identity itself. You can [create a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) by selecting **Certificates & secrets** > **Client secrets** > **New client secret**. Record the secret's value for use in your client application code. This value is never displayed again after you leave this page.
 
 ## Create an Azure Data Manager for Energy instance
 
@@ -82,7 +82,7 @@ Client secret | Sometimes called an application password, a client secret is a s
 
    [![Screenshot of the tab for reviewing details for an Azure Data Manager for Energy instance before creation, including validation results.](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details-sku.png)](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details-sku.png#lightbox)
 
-1. Optional step: On the **Review + create** tab, you can download an Azure Resource Manager (ARM) template and use it for automated deployments of Azure Data Manager for Energy in the future. Select **View automation template**.
+1. Optional step: On the **Review + create** tab, you can download an Azure Resource Manager template and use it for automated deployments of Azure Data Manager for Energy in the future. Select **View automation template**.
 
 1. Select **Create** to start the deployment.
 
@@ -96,7 +96,7 @@ You can find the newly created Azure Data Manager for Energy resource in your re
 
 ## Delete an Azure Data Manager for Energy instance
 
-Deleting an Azure Data Manager for Energy instance also deletes any data that the instance ingested. This action is permanent, and you can't recover ingested data after deletion.
+Deleting an Azure Data Manager for Energy instance also deletes any data that the instance ingested. This action is permanent. You can't recover ingested data after deletion.
 
 To delete an Azure Data Manager for Energy instance:
 
@@ -108,7 +108,7 @@ To delete an Azure Data Manager for Energy instance:
 
 ## Next steps
 
-After you provision an Azure Data Manager for Energy instance, you can learn about user management on this instance.
+After you provision an Azure Data Manager for Energy instance, you can learn about user management on this instance:
 
 > [!div class="nextstepaction"]
 > [How to manage users](how-to-manage-users.md)

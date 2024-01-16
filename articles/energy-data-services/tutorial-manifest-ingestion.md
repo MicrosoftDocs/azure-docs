@@ -42,7 +42,7 @@ Before you start this tutorial, complete the following prerequisites.
   | `DNS`                | URI                      | `<instance>.energy.Azure.com`         | Find this value on the overview page of the Azure Data Manager for Energy instance.|
   | `data-partition-id`  | Data partitions        | `<instance>-<data-partition-name>`  | Find this value on the overview page of the Azure Data Manager for Energy instance.|
 
-Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user running this tutorial.
+Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 
 ### Set up Postman and execute requests
 
@@ -53,11 +53,11 @@ Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entit
    * [Manifest ingestion Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflows.postman_collection.json)
    * [Manifest ingestion Postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json)
 
-   To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman).
+   To import the Postman collection and environment variables, follow the steps in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman).
 
 1. Update **CURRENT VALUE** for the Postman environment with the information that you obtained in the details of the Azure Data Manager for Energy instance.
 
-1. The Postman collection for manifest ingestion contains multiple requests, which have to be executed sequentially.
+1. The Postman collection for manifest ingestion contains multiple requests that you must execute sequentially.
 
    Be sure to choose **Ingestion Workflow Environment** before you trigger the Postman collection.
 

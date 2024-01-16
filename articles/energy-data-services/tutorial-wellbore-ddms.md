@@ -166,7 +166,7 @@ Method: `DELETE`
 
 ## Next step
 
-Go to the following tutorial to learn how to use the sdutil command-line tool to load seismic data into Seismic Store:
+Read the following tutorial to learn how to use the sdutil command-line tool to load seismic data into Seismic Store:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Use sdutil to load data into Seismic Store](tutorial-seismic-ddms-sdutil.md)

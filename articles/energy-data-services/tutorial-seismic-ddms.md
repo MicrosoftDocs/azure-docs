@@ -131,7 +131,7 @@ Method: `POST`
 
 ## Next step
 
-As an alternative user experience to Postman, you can use the sdutil command-line Python tool to directly interact with the seismic store. Use the following tutorial to get started:
+As an alternative user experience to Postman, you can use the sdutil command-line Python tool to directly interact with Seismic Store. Use the following tutorial to get started:
 
 > [!div class="nextstepaction"]
 > [Use sdutil to load data into Seismic Store](./tutorial-seismic-ddms-sdutil.md)

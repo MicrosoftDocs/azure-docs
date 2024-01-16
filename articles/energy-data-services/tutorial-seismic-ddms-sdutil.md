@@ -14,23 +14,24 @@ ms.custom: template-tutorial
 
 # Tutorial: Use sdutil to load data into Seismic Store
 
-Seismic Store is a cloud-based solution for storing and managing datasets of any size. It provides a secure way to access datasets through a scoped authorization mechanism. Seismic Store overcomes cloud providers' object size limitations by managing generic datasets as multi-independent objects.
+Seismic Store is a cloud-based solution for storing and managing datasets of any size. It provides a secure way to access datasets through a scoped authorization mechanism. Seismic Store overcomes cloud providers' object size limitations by managing generic datasets as multiple independent objects.
 
 Sdutil is a command-line Python tool for interacting with Seismic Store. You can use sdutil to perform basic operations like uploading data to Seismic Store, downloading datasets from Seismic Store, managing users, and listing folder contents.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> Set up and run the sdutil tool.
-> Obtain the Seismic Store URI.
-> Create a subproject.
-> Register a user.
-> Use sdutil to manage datasets with Seismic Store.
-> Run tests to validate the sdutil tool's functionalities.
+>
+> - Set up and run the sdutil tool.
+> - Obtain the Seismic Store URI.
+> - Create a subproject.
+> - Register a user.
+> - Use sdutil to manage datasets with Seismic Store.
+> - Run tests to validate the sdutil tool's functionalities.
 
 ## Prerequisites
 
-Install the following prerequisites based on your OS.
+Install the following prerequisites based on your operating system.
 
 Windows:
 
@@ -47,21 +48,21 @@ Unix/Mac
 - [64-bit Python 3.8.3](https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz)
 - [Apple Xcode C++ Build Tools](https://developer.apple.com/xcode/cpp)
 
-Sdutil requires other modules noted in `requirements.txt`. You can either install the modules as is or install them in virtual environment to keep your host clean from package conflicts. If you don't want to install them in a virtual environment, skip the four virtual environment commands in the following code. Additionally, if you're using Mac instead of Ubuntu or WSL - Ubuntu 20.04, either use `homebrew` instead of `apt-get` as your package manager, or manually install `apt-get`.
+Sdutil requires other modules noted in `requirements.txt`. You can either install the modules as is or install them in a virtual environment to keep your host clean from package conflicts. If you don't want to install them in a virtual environment, skip the four virtual environment commands in the following code. Additionally, if you're using Mac instead of Ubuntu or WSL - Ubuntu 20.04, either use `homebrew` instead of `apt-get` as your package manager, or manually install `apt-get`.
 
 ```bash
-  # check if virtualenv is already installed
+  # Check if virtualenv is already installed
   virtualenv --version
 
-  # if not, install it via pip or apt-get
+  # If not, install it via pip or apt-get
   pip install virtualenv
   # or sudo apt-get install python3-venv for WSL
 
-  # create a virtual environment for sdutil
+  # Create a virtual environment for sdutil
   virtualenv sdutilenv
   # or python3 -m venv sdutilenv for WSL
 
-  # activate the virtual environment
+  # Activate the virtual environment
   Windows:    sdutilenv/Scripts/activate  
   Linux:      source sdutilenv/bin/activate
 ```
@@ -69,7 +70,7 @@ Sdutil requires other modules noted in `requirements.txt`. You can either instal
 Install required dependencies:
 
 ```bash
-  # run this from the extracted sdutil folder
+  # Run this from the extracted sdutil folder
   pip install -r requirements.txt
 ```
 
@@ -152,7 +153,7 @@ Install required dependencies:
       python sdutil config init
     ```
 
-3. Before you start using the tool and performing any operations, you must sign in to the system. When you run the following command, sdutil opens a sign-in page in a web browser.
+3. Before you start using the tool and performing any operations, you must sign in to the system. When you run the following command, sdutil opens a sign-in page in a web browser:
 
     ```bash
       python sdutil auth login
@@ -161,7 +162,7 @@ Install required dependencies:
     After you successfully sign in, your credentials are valid for a week. You don't need to sign in again unless the credentials expire.
 
     > [!NOTE]
-    > If you aren't getting the message about successful sign-in, make sure that your three environment variables are set and that you followed all steps in the "Configuration" section earlier in this tutorial.
+    > If you aren't getting the message about successful sign-in, make sure that your three environment variables are set and that you followed all steps in the [Configuration](#configuration) section earlier in this tutorial.
 
 ## Seismic Store resources
 
@@ -195,7 +196,7 @@ You can address every resource by using the corresponding `sdpath` section:
 
 A subproject in Seismic Store is a working unit where a user can save datasets. The system can handle multiple subprojects under a tenant project.
 
-Only a tenant admin can create a subproject resource with the following sdutil command:
+Only a tenant admin can create a subproject resource by using the following sdutil command:
 
 ```code
   > python sdutil mk *sdpath *admin@email *legaltag (options)
@@ -212,12 +213,12 @@ Only a tenant admin can create a subproject resource with the following sdutil c
 
 ## User management
 
-To be able to use Seismic Store, users must be registered to at least a subproject resource with a role that defines their access level. Seismic store supports two roles scoped at subproject level:
+To be able to use Seismic Store, users must be registered to at least a subproject resource with a role that defines their access level. Seismic store supports two roles scoped at the subproject level:
 
 - **Admin**: Read/write access and user management.
 - **Viewer**: Read/list access.
 
-Only a subproject admin can register a user with the following sdutil command:
+Only a subproject admin can register a user by using the following sdutil command:
 
 ```code
   > python sdutil user [ *add | *list | *remove | *roles ] (options)
@@ -235,22 +236,22 @@ Only a subproject admin can register a user with the following sdutil command:
 The following code is an example of how to use sdutil to manage datasets with Seismic Store. This example uses `sd://gtc/carbon` as the subproject resource.
 
 ```bash
-  # create a new file
+  # Create a new file
   echo "My Test Data" > data1.txt
 
-  # upload the created file to Seismic Store
+  # Upload the created file to Seismic Store
   ./sdutil cp data1.txt sd://gtc/carbon/test/mydata/data.txt
 
-  # list the content of the Seismic Store subproject
+  # List the contents of the Seismic Store subproject
   ./sdutil ls sd://gtc/carbon/test/mydata/  (display: data.txt)
   ./sdutil ls sd://gtc                      (display: carbon)
   ./sdutil ls sd://gtc/carbon               (display: test/)
   ./sdutil ls sd://gtc/carbon/test          (display: data/)
 
-  # download the file from Seismic Store:
+  # Download the file from Seismic Store
   ./sdutil cp sd://gtc/carbon/test/mydata/data.txt data2.txt
 
-  # check if file original file match the one downloaded from seismic store
+  # Check if the original file matches the one downloaded from Seismic Store
   diff data1.txt data2.txt
 ```
 
@@ -261,27 +262,27 @@ The test folder contains a set of integral/unit and regression tests written for
 Use this code for requirements:
 
 ```bash
-  # install required dependencies:  
+  # Install required dependencies  
   pip install -r test/e2e/requirements.txt
 ```
 
 Use this code for integral/unit tests:
 
 ```bash
-  # run integral/unit test
+  # Run integral/unit test
   ./devops/scripts/run_unit_tests.sh
 
-  # test execution parameters
+  # Test execution parameters
   --mnt-volume = sdapi root dir (default=".")
 ```
 
 Use this code for regression tests:
 
 ```bash
-  # run regression test
+  # Run regression test
   ./devops/scripts/run_regression_tests.sh --cloud-provider= --service-url= --service-key= --idtoken= --tenant= --subproject=
 
-  # test execution parameters
+  # Test execution parameters
   --mnt-volume = sdapi root dir (default=".")
   --disable-ssl-verify (to disable ssl verification)
 ```
@@ -314,7 +315,7 @@ Run the changelog script (`./changelog-generator.sh`) to automatically generate 
 
 ## Usage for Azure Data Manager for Energy
 
-The Azure Data Manager for Energy instance is using the OSDU&trade; M12 version of sdutil. Complete the following steps if you want to use sdutil to take advantage of the Scientific Data Management System (SDMS) API of your Azure Data Manager for Energy instance:
+The Azure Data Manager for Energy instance uses the OSDU&trade; M12 version of sdutil. Complete the following steps if you want to use sdutil to take advantage of the Scientific Data Management System (SDMS) API of your Azure Data Manager for Energy instance:
 
 1. Ensure that you followed the earlier [installation](#prerequisites) and [configuration](#configuration) steps. These steps include downloading the sdutil source code, configuring your Python virtual environment, editing the `config.yaml` file, and setting your three environment variables.
 
@@ -343,8 +344,8 @@ The Azure Data Manager for Energy instance is using the OSDU&trade; M12 version 
     - List files in Seismic Store:
 
       ```bash
-        python sdutil ls sd://<tenant> # e.g. sd://<instance-name>-<datapartition>
-        python sdutil ls sd://<tenant>/<subproject> # e.g. sd://<instance-name>-<datapartition>/test
+        python sdutil ls sd://<tenant> # For example, sd://<instance-name>-<datapartition>
+        python sdutil ls sd://<tenant>/<subproject> # For example, sd://<instance-name>-<datapartition>/test
       ```
 
     - Upload a file from your local machine to Seismic Store:

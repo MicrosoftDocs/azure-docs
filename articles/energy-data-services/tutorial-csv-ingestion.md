@@ -42,7 +42,7 @@ Before you start this tutorial, complete the following prerequisites.
   | `DNS`                | URI                      | `<instance>.energy.Azure.com`         | Find this value on the overview page of the Azure Data Manager for Energy instance.|
   | `data-partition-id`  | Data partitions        | `<instance>-<data-partition-name>`  | Find this value on the overview page of the Azure Data Manager for Energy instance.|
 
-Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user running this tutorial.
+Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 
 ### Set up Postman and execute requests
 
@@ -53,11 +53,11 @@ Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entit
    * [CSV workflow Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflows.postman_collection.json)  
    * [CSV workflow Postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json)
 
-   To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman).
+   To import the Postman collection and environment variables, follow the steps in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman).
   
 1. Update **CURRENT VALUE** for the Postman environment with the information that you obtained in the details of the Azure Data Manager for Energy instance.
 
-1. The Postman collection for CSV parser ingestion contains a total of 10 requests, which have to be executed sequentially.
+1. The Postman collection for CSV parser ingestion contains 10 requests that you must execute sequentially.
 
    Be sure to choose **Ingestion Workflow Environment** before you trigger the Postman collection.
 
@@ -84,7 +84,7 @@ To ingest a sample wellbore data CSV file into the Azure Data Manager for Energy
 1. **Get Schema details**: Get the schema created in the previous step and validate it.
 1. **Create a Legal Tag**: Create a legal tag that will be added to the CSV data for data compliance purposes.
 1. **Get a signed URL for uploading a CSV file**: Get the signed URL path to which the CSV file will be uploaded.
-1. **Upload a CSV file**: Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) sample to your local machine, and select this file in Postman by clicking the **Select File** button.
+1. **Upload a CSV file**: Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) sample to your local machine, and then select this file in Postman by clicking the **Select File** button.
 
     :::image type="content" source="media/tutorial-csv-ingestion/tutorial-select-csv-file.png" alt-text="Screenshot of uploading a CSV file." lightbox="media/tutorial-csv-ingestion/tutorial-select-csv-file.png":::
 1. **Upload CSV file metadata**: Upload the file metadata information, such as file location and other relevant fields.
@@ -98,7 +98,7 @@ To search for the storage metadata records created during the CSV ingestion by u
 
 * **Search for ingested CSV records**: Search for the CSV records created earlier.
 
-:::image type="content" source="media/tutorial-csv-ingestion/tutorial-search-success.png" alt-text="Screenshot of searching ingested CSV records." lightbox="media/tutorial-csv-ingestion/tutorial-search-success.png":::
+  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-search-success.png" alt-text="Screenshot of searching ingested CSV records." lightbox="media/tutorial-csv-ingestion/tutorial-search-success.png":::
 
 ## Next step
 

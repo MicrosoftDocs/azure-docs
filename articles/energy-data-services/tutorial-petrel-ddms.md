@@ -85,7 +85,7 @@ To use this cURL-generated token, you must update `access_token` in your `Collec
 
 ## Use Petrel DDMS APIs to work with Petrel projects
 
-Successfully completing the Postman requests that are described in the following Petrel DDMS APIs indicates successful interaction with your saved Petrel projects. Although the API provides a way to upload data, we recommended that you upload your projects via DELFI Petrel Project Explorer. All of the following API calls assume that you have a project uploaded to Petrel Project Explorer.
+Successfully completing the Postman requests that are described in the following Petrel DDMS APIs indicates successful interaction with your saved Petrel projects. Although the API provides a way to upload data, we recommend that you upload your projects via DELFI Petrel Project Explorer. All of the following API calls assume that you have a project uploaded to Petrel Project Explorer.
 
 ### Create a legal tag
 
@@ -183,7 +183,11 @@ Method: `PUT`
 
 ### Search through projects
 
-You can search through Petrel projects by using many fields. The call returns all matching project IDs. The API supports full-text search on string fields, range queries based on date, and numeric or string fields, along with geo-spatial search.
+You can search through Petrel projects by using many fields. The call returns all matching project IDs. The API supports:
+
+- Full-text search on string fields.
+- Range queries based on date, numeric, or string fields.
+- Geospatial search.
 
 API: *Project* > **Search Projects**
 
@@ -191,13 +195,12 @@ Method: `POST`
 
 :::image type="content" source="media/tutorial-petrel-ddms/search-projects-pdsv2.png" alt-text="Screenshot that shows the API that deletes a well record." lightbox="media/tutorial-petrel-ddms/search-projects-pdsv2.png":::
 
-## Next step
+## Related content
 
-Use one of the following DELFI links to read another tutorial that involves Petrel Project Explorer and Petrel workflows:
+Use the following DELFI links to read other tutorials that involve Petrel Project Explorer and Petrel workflows:
 
-> [!div class="nextstepaction"]
-> [Get started with Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/299EC605-5CC6-4CD9-9B07-482B16426769)\
-> [Open a project saved in Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/20AACC1C-E501-4436-9FC9-03427C21B12E)\
-> [Upload ZGY data from Petrel to the DELFI Data Ecosystem (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/9F76FDB2-7817-491A-995F-A18D558A191C)\
-> [Import ZGY data from the DELFI Data Ecosystem to Petrel (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/B0B8DA1A-74B6-4109-B80D-25FF4A75C57D)\
-> [Save a Petrel project in Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/C86C74BE-6FF9-4962-AEBF-887897B95D4B)
+- [Get started with Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/299EC605-5CC6-4CD9-9B07-482B16426769)\
+- [Open a project saved in Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/20AACC1C-E501-4436-9FC9-03427C21B12E)\
+- [Upload ZGY data from Petrel to the DELFI Data Ecosystem (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/9F76FDB2-7817-491A-995F-A18D558A191C)\
+- [Import ZGY data from the DELFI Data Ecosystem to Petrel (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/B0B8DA1A-74B6-4109-B80D-25FF4A75C57D)\
+- [Save a Petrel project in Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/C86C74BE-6FF9-4962-AEBF-887897B95D4B)

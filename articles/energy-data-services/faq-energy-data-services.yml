@@ -29,7 +29,7 @@ sections:
       questions:
         - question: Where does Azure Data Manager for Energy store customer data?
           answer: >
-             By default, Azure Data Manager for Energy replicates customer data to the [Azure paired regions](https://learn.microsoft.com/azure/reliability/cross-region-replication-azure#azure-paired-regions) for resiliency. The service doesn't replicate or move data outside the geography in which the customer created the instance. In regions that require data to remain within the sovereign geography (such as Brazil), the service always keeps customer data within the same region. For more information on the regions that support disaster recovery and cross-region data replication, see [Reliability in Azure Data Manager for Energy](reliability-energy-data-services.md).
+             By default, Azure Data Manager for Energy replicates customer data to [Azure paired regions](https://learn.microsoft.com/azure/reliability/cross-region-replication-azure#azure-paired-regions) for resiliency. The service doesn't replicate or move data outside the geography in which the customer created the instance. In regions that require data to remain within the sovereign geography (such as Brazil), the service always keeps customer data within the same region. For more information on the regions that support disaster recovery and cross-region data replication, see [Reliability in Azure Data Manager for Energy](reliability-energy-data-services.md).
             
     - name: Pricing and billing
       questions:
@@ -47,11 +47,11 @@ sections:
 
         - question: Are there any charges for data storage?
           answer: >
-            Standard Azure Storage rates apply. This is free to customers during the period. 
+            Standard Azure Storage rates apply after the free trial period. 
 
         - question: Are there any charges for data transfer?
           answer: >
-            Standard Azure data transfer rates apply. This is free to customers during the period. 
+            Standard Azure data transfer rates apply after the free trial period. 
            
         - question: Will I be charged for Azure Data Manager for Energy separately from the applications that I use on top of the platform?
           answer: >
@@ -65,7 +65,7 @@ sections:
       questions:
         - question: How do I raise a support request for Azure Data Manager for Energy?
           answer: > 
-            In the Azure portal, search for **Support.** Select **Help + Support**, followed by **Create a support request**. You can select **Azure Data Manager for Energy** in the service option to raise a bug with Azure Data Manager for Energy.
+            In the Azure portal, search for **Support.** Select **Help + Support** > **Create a support request**. You can select **Azure Data Manager for Energy** in the service option to raise a bug with Azure Data Manager for Energy.
 
     - name: Service updates
       questions:
@@ -75,5 +75,5 @@ sections:
             
         - question: Can I move an Azure Data Manager for Energy resource from one subscription or resource group to another? 
           answer: > 
-            Currently, you can't move an Azure Data Manager for Energy resource from one subscription or resource group to another. Instead, you can delete the existing Azure Data Manager for Energy instance in the current resource group or subscription, and then create a new Azure Data Manager for Energy instance in the target resource group or subscription. Then, reingest the data into the new Azure Data Manager for Energy instance.
+            Currently, you can't move an Azure Data Manager for Energy resource from one subscription or resource group to another. Instead, you can delete the existing Azure Data Manager for Energy instance in the current resource group or subscription, and then create a new Azure Data Manager for Energy instance in the target resource group or subscription. Then, reingest the data into the new instance.
 
