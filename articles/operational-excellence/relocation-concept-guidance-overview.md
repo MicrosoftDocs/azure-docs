@@ -4,7 +4,7 @@ description: Relocation guidance overview for Microsoft Azure products and servi
 author: anaharris-ms
 ms.service: reliability
 ms.topic: conceptual
-ms.date: 01/12/2024
+ms.date: 01/16/2024
 ms.author: anaharris
 ms.custom: subject-reliability
 ---
