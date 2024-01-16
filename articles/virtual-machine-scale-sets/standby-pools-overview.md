@@ -51,7 +51,7 @@ requirements are very strict.
 ### Pricing
 
 There is no direct cost associated with using Standby Pools. Users are charged based on the resources 
-deployed into the Standby Pool. For more information on Virtual Machine billing, see [VM power states and billing documentation](..virtual-machines/states-billing.md)
+deployed into the Standby Pool. For more information on Virtual Machine billing, see [VM power states and billing documentation](../virtual-machines/states-billing.md)
 
 **Deallocated VM State:** Leveraging a Standby Pool with VMs in the Deallocated State is a great way to reduce the cost while keeping your scale out times fast. VMs in the deallocated state do not incur any compute costs, only the associated resources incur costs. 
 

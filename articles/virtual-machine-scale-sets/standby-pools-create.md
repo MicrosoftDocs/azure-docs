@@ -47,7 +47,7 @@ Contributor”
 If you are leveraging a customized image in Compute Gallery, ensure to assign Standby Pool Resource 
 Provider the **Compute Gallery Sharing Admin** permissions as well.
 
-For more information on assigning roles, see [Assign Azure roles using the Azure portal](../azure/role-based-access-control/role-assignments-portal.md)
+For more information on assigning roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
 ## Create a Standby Pool
 
