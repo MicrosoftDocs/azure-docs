@@ -22,8 +22,6 @@ The demo [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-sam
 
 ## Prerequisites
 
-* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal).
-* Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 * Install Git, Maven, and Java, if not already installed on the development computer.
 
 ## Build and deploy apps
@@ -59,11 +57,13 @@ Use the following steps to build and deploy the sample applications.
        --resource-group ${resource-group-name} \
        --service ${Azure-Spring-Apps-instance-name} \
        --name resilience4j \
+       --env resilience4j.circuitbreaker.instances.backendA.registerHealthIndicator=true \
        --artifact-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1-SNAPSHOT.jar
    az spring app deploy \
        --resource-group ${resource-group-name} \
        --service ${Azure-Spring-Apps-instance-name} \
        --name reactive-resilience4j \
+       --env resilience4j.circuitbreaker.instances.backendA.registerHealthIndicator=true \
        --artifact-path ./spring-cloud-circuitbreaker-demo-reactive-resilience4j/target/spring-cloud-circuitbreaker-demo-reactive-resilience4j-0.0.1-SNAPSHOT.jar
    ```
 
@@ -105,6 +105,10 @@ Use the following steps to build and deploy the sample applications.
 >   /delay/{seconds}
 >   /fluxdelay/{seconds}
 >   ```
+
+## Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal).
+
+## Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ## Locate Resilence4j Metrics on the Azure portal
 

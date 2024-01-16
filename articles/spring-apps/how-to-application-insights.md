@@ -15,7 +15,7 @@ zone_pivot_groups: spring-apps-tier-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
 This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Apps.
 
@@ -77,8 +77,6 @@ When the **Application Insights** feature is enabled, you can:
 
 ## Manage Application Insights using the Azure portal
 
-::: zone pivot="sc-standard"
-
 Enable the Java In-Process Agent by using the following procedure.
 
 1. Go to the **service | Overview** page of your service instance, then select **Application Insights** in the **Monitoring** section.
@@ -93,54 +91,6 @@ Enable the Java In-Process Agent by using the following procedure.
 > [!NOTE]
 > Don't use the same Application Insights instance in different Azure Spring Apps instances, or you're shown mixed data.
 
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-You can use the Portal to check or update the current settings in Application Insights.
-
-### Enable Application Insights using the Azure portal
-
-1. Select **Application Insights**.
-1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
-
-   :::image type="content" source="media/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
-
-1. Edit **Application Insights** or **Sampling rate**, then select **Save**.
-
-### Disable Application Insights
-
-1. Select **Application Insights**.
-1. Select **Unbind binding** to disable Application Insights.
-
-   :::image type="content" source="media/how-to-application-insights/application-insights-unbind-binding.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Unbind binding' option.":::
-
-### Change Application Insights Settings
-
-Select the name under the *Application Insights* column to open the Application Insights section.
-
-:::image type="content" source="media/how-to-application-insights/application-insights-change-settings.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing.":::
-
-### Edit Application Insights buildpack bindings in Build Service
-
-To check and update the current settings for the Application Insights buildpack bindings in Build Service, follow these steps:
-
-1. Select **Build Service**.
-1. Choose your builder.
-1. Select **Edit** under the Bindings column.
-
-Application Insights settings are found in the *ApplicationInsights* item listed under the *Binding type* column.
-
-1. Select the **Bound** hyperlink, or select **Edit Binding** under the ellipse, to open and edit the Application Insights buildpack bindings.
-
-   :::image type="content" source="media/how-to-application-insights/application-insights-builder-settings.png" alt-text="Screenshot of Azure portal 'Edit bindings for default builder' pane.":::
-
-1. Edit the binding settings, then select **Save**.
-
-   :::image type="content" source="media/how-to-application-insights/application-insights-edit-binding.png" alt-text="Screenshot of Azure portal 'Edit binding' pane.":::
-
-::: zone-end
-
 ## Manage Application Insights using Azure CLI
 
 You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-instance-name>* placeholder refers to the name of your Azure Spring Apps instance.
@@ -149,8 +99,6 @@ You can manage Application Insights using Azure CLI commands. In the following c
 
 To configure Application Insights when creating an Azure Spring Apps instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
 
-::: zone pivot="sc-standard"
-
 ```azurecli
 az spring create \
     --resource-group <resource-group-name> \
@@ -158,26 +106,9 @@ az spring create \
     --app-insights <name-or-resource-ID> \
     --sampling-rate <sampling-rate>
 ```
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-```azurecli
-az spring create \
-    --resource-group <resource-group-name> \
-    --name "service-instance-name" \
-    --app-insights <name-or-resource-ID> \
-    --sampling-rate <sampling-rate>
-    --sku Enterprise
-```
-
-::: zone-end
 
 You can also use an Application Insights connection string (preferred) or instrumentation key, as shown in the following example.
 
-::: zone pivot="sc-standard"
-
 ```azurecli
 az spring create \
     --resource-group <resource-group-name> \
@@ -185,50 +116,17 @@ az spring create \
     --app-insights-key <connection-string-or-instrumentation-key> \
     --sampling-rate <sampling-rate>
 ```
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-```azurecli
-az spring create \
-    --resource-group <resource-group-name> \
-    --name <service-instance-name> \
-    --app-insights-key <connection-string-or-instrumentation-key> \
-    --sampling-rate <sampling-rate>
-    --sku Enterprise
-```
-
-::: zone-end
 
 ### Disable Application Insights
 
 To disable Application Insights when creating an Azure Spring Apps instance, use the following command:
 
-::: zone pivot="sc-standard"
-
 ```azurecli
 az spring create \
     --resource-group <resource-group-name> \
     --name <service-instance-name> \
     --disable-app-insights
 ```
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-```azurecli
-az spring create \
-    --resource-group <resource-group-name> \
-    --name <service-instance-name> \
-    --disable-app-insights
-    --sku Enterprise
-```
-
-::: zone-end
-
-::: zone pivot="sc-standard"
 
 ### Check Application Insights settings
 
@@ -273,76 +171,7 @@ az spring app-insights update \
     --disable
 ```
 
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-### Manage Application Insights buildpack bindings
-
-This section applies to the Enterprise plan only, and provides instructions that supplement the previous section.
-
-The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
-
-To create an Application Insights buildpack binding, use the following command:
-
-```azurecli
-az spring build-service builder buildpack-binding create \
-    --resource-group <your-resource-group-name> \
-    --service <your-service-instance-name> \
-    --name <your-binding-name> \
-    --builder-name <your-builder-name> \
-    --type ApplicationInsights \
-    --properties sampling-percentage=<your-sampling-percentage> \
-                 connection-string=<your-connection-string>
-```
-
-To list all buildpack bindings, and find Application Insights bindings the type `ApplicationInsights`, use the following command:
-
-```azurecli
-az spring build-service builder buildpack-binding list \
-    --resource-group <your-resource-group-name> \
-    --service <your-service-resource-name> \
-    --builder-name <your-builder-name>
-```
-
-To replace an Application Insights buildpack binding, use the following command:
-
-```azurecli
-az spring build-service builder buildpack-binding set \
-    --resource-group <your-resource-group-name> \
-    --service <your-service-instance-name> \
-    --name <your-binding-name> \
-    --builder-name <your-builder-name> \
-    --type ApplicationInsights \
-    --properties sampling-percentage=<your-sampling-percentage> \
-                 connection-string=<your-connection-string>
-```
-
-To get an Application Insights buildpack binding, use the following command:
-
-```azurecli
-az spring build-service builder buildpack-binding show \
-    --resource-group <your-resource-group-name> \
-    --service <your-service-instance-name> \
-    --name <your-binding-name> \
-    --builder-name <your-builder-name> \
-```
-
-To delete an Application Insights buildpack binding, use the following command:
-
-```azurecli
-az spring build-service builder buildpack-binding delete \
-    --resource-group <your-resource-group-name> \
-    --service <your-service-instance-name> \
-    --name <your-binding-name> \
-    --builder-name <your-builder-name> \
-```
-
-::: zone-end
-
 ## Automation
-
-::: zone pivot="sc-standard"
 
 The following sections describe how to automate your deployment using Bicep, Azure Resource Manager templates (ARM templates) or Terraform.
 
@@ -455,17 +284,7 @@ resource "azurerm_spring_cloud_service" "example" {
 }
 ```
 
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-Automation in the Enterprise plan is pending support. Documentation is added as soon as it's available.
-
-::: zone-end
-
 ## Java agent update/upgrade
-
-::: zone pivot="sc-standard"
 
 The Java agent is updated/upgraded regularly with the JDK, which may affect the following scenarios.
 
@@ -475,16 +294,6 @@ The Java agent is updated/upgraded regularly with the JDK, which may affect the 
 * Existing applications that use the Java agent before updating/upgrading aren't affected.
 * Applications created after updating/upgrading use the new version of the Java agent.
 * Existing applications that didn't previously use the Java agent require restart or redeployment to use the new version of the Java agent.
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-The Java agent is updated/upgraded when the buildpack is updated.
-
-::: zone-end
-
-::: zone pivot="sc-standard"
 
 ## Java agent configuration hot-loading
 
@@ -496,8 +305,6 @@ Azure Spring Apps has enabled a hot-loading mechanism to adjust the settings of 
 * When the Java agent has been previously enabled, changes to the Application Insights instance and/or SamplingRate do NOT require applications to be restarted.
 * If you enable the Java agent, then you must restart applications.
 * When you disable the Java agent, applications stop sending all monitoring data after a delay in minutes. You can restart applications to remove the agent from the Java runtime environment.
-
-::: zone-end
 
 ## Concept matching between Azure Spring Apps and Application Insights
 
