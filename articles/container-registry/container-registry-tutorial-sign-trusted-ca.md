@@ -138,7 +138,8 @@ Here are the requirements for certificates issued by a CA:
   - The `exportable` property must be set to `false`.
   - Select a supported key type and size from the [Notary Project specification](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#algorithm-selection).
 
-For integration with [Image Integrity](https://learn.microsoft.com/en-us/azure/aks/image-integrity?tabs=azure-cli) the `contentType` should be set to `application/x-pem-file`.
+> [!IMPORTANT]
+> To ensure successful integration with [Image Integrity](/azure/aks/image-integrity), the content type of the certificate should be PEM. 
 > [!NOTE]
 > This guide uses version 1.0.1 of the AKV plugin. Prior versions of the plugin had a limitation that required a specific certificate order in a certificate chain. Version 1.0.1 of the plugin does not have this limitation so it is recommended that you use version 1.0.1 or later.
 
