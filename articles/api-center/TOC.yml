@@ -42,5 +42,5 @@
             href: /java/api/overview/azure/apicenter
           - name: Python
             href: https://pypi.org/project/azure-mgmt-apicenter
-      - name: Resource ManagerForm template
+      - name: Resource Manager template
         href: /azure/templates/microsoft.apicenter/allversions
