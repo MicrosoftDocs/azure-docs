@@ -3,7 +3,7 @@ title: Disable basic authentication for deployment
 description: Learn how to secure App Service deployment by disabling basic authentication.
 keywords: azure app service, security, deployment, FTP, MsDeploy
 ms.topic: article
-ms.date: 11/05/2023
+ms.date: 01/24/2024
 author: cephalin
 ms.author: cephalin
 ---
@@ -54,10 +54,20 @@ To confirm that Git access is blocked, try [local Git deployment](deploy-local-g
 
 ## Deployment without basic authentication
 
-When you disable basic authentication, deployment methods based on basic authentication stop working, such as FTP and local Git deployment. For alternate deployment methods, see [Authentication types by deployment methods in Azure App Service](deploy-authentication-types.md).
+When you disable basic authentication, deployment methods that depend on basic authentication stop working. The following table show how various deployment methods behave when basic authentication is disabled, and if there's any fallback mechanism. For more information, see [Authentication types by deployment methods in Azure App Service](deploy-authentication-types.md).
 
-<!-- Azure Pipelines with App Service deploy task (manual config) need the newer version hosted agent that supports vs2022.
-OIDC GitHub actions -->
+| Deployment method | When basic authentication is disabled |
+|-|-|
+| Visual Studio deployment | Doesn't work. |
+| [FTP](deploy-ftp.md) | Doesn't work. |
+| [Local Git](deploy-local-git.md) | Doesn't work. |
+| Azure CLI | In Azure CLI 2.48.1 or higher, the following commands fall back to Entra ID authentication:<br/>- [az webapp up](/cli/azure/webapp#az-webapp-up)<br/>- [az webapp deploy](/cli/azure/webapp#az-webapp-deploy)<br/>- [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip)<br/>- [az webapp log deployment show](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-show)<br/>- [az webapp log deployment list](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-list)<br/>- [az webapp log download](/cli/azure/webapp/log#az-webapp-log-download)<br/>- [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail)<br/>- [az webapp browse](/cli/azure/webapp#az-webapp-browse)<br/>- [az webapp create-remote-connection](/cli/azure/webapp#az-webapp-create-remote-connection)<br/>- [az webapp ssh](/cli/azure/webapp#az-webapp-ssh)<br/>- [az functionapp deploy](/cli/azure/functionapp#az-functionapp-deploy)<br/>- [az functionapp log deployment list](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-list)<br/>- [az functionapp log deployment show](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-show)<br/>- [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) |
+| [Maven plugin](https://github.com/microsoft/azure-maven-plugins) or [Gradle plugin](https://github.com/microsoft/azure-gradle-plugins) | Works. The plugin doesn't use basic authentication. |
+| [GitHub with App Service Build Service](deploy-continuous-deployment.md?tabs=github) | - GitHub webhooks can't authenticate anymore. App Service Build Service (Kudu) uses GitHub webhooks to trigger deployments, which require basic authentication. <br/> - Any new configuration of GitHub deployment using the App Service Build Service is automatically changed to use GitHub Actions as the build provider, using a user-assigned identity. [If your Azure account doesn't have the permissions to create the identity](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials), you get an error notification. |
+| [GitHub Actions](deploy-continuous-deployment.md?tabs=github) | - An existing GitHub Actions workflow that uses **basic authentication** can't authenticate. In the Deployment Center, disconnect the existing GitHub configuration and create a new GitHub Actions configuration with the **user-assigned identity** option. <br/> - If the existing GitHub Actions deployment is manually configured, follow the guidance in [Deploy to App Service using GitHub Actions](deploy-github-actions.md) to use a service principal or OpenID Connect instead. <br/> - For new GitHub Actions configuration in the Deployment Center, you get an error when you try to **basic authentication** as the authentication type. Instead, use the **user-assigned identity** option. |
+| Deployment in [create wizard](https://portal.azure.com/#create/Microsoft.WebSite) | When **Basic authentication** is set to **Disable** and Continuous deployment set to **Enable**, GitHub Actions is configured with OpenID Connect authentication. |
+| [BitBucket](deploy-continuous-deployment.md?tabs=bitbucket) | Doesn't work. |
+| [Azure Pipelines](deploy-azure-pipelines.md) with [AzureRmWebAppDeployment](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task | - Use the latest AzureRmWebAppDeployment task. <br/> - The **Publish Profile (`PublishProfile`)** connection type doesn't work, because it uses basic authentication. Change the connection type to **Azure Resource Manager (`AzureRM`)**. <br/> - On Windows Pipelines agents, the [deployment method used by the task](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4#deployment-methods) may need to be modified. When **Web Deploy** is used (`DeploymentType: 'webDeploy'`) and basic authentication is disabled, the task authenticates with Microsoft Entra ID. There are additional requirements for the Windows agent if you're not using `windows-latest`. For more information, see [I can't Web Deploy to my Azure App Service using Microsoft Entra ID authentication from my Windows agent](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4?view=azure-pipelines#i-cant-web-deploy-to-my-azure-app-service-using-microsoft-entra-id-authentication-from-my-windows-agent). |
 
 ## Create a custom role with no permissions for basic authentication
 
@@ -152,3 +162,8 @@ The following are corresponding policies for slots:
 - [Remediation policy for FTP](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff493116f-3b7f-4ab3-bf80-0c2af35e46c2)
 - [Remediation policy for SCM](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2c034a29-2a5f-4857-b120-f800fe5549ae)
 
+## Frequently asked questions
+
+#### Why do I get a warning in Visual Studio saying that basic authentication is disabled?
+
+Visual Studio requires basic authentication to deploy to Azure App Service. The warning reminds you that the configuration on your app has changed and you can no longer deploy to it. Either you have disabled basic authentication on the app yourself, or your organization policy enforces that basic authentication is disabled for App Service apps.

@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 01/22/2024
 ---
 
-The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` GitHub secret that you created earlier.
+The `publish-profile` input should reference the `AZURE_WEBAPP_PUBLISH_PROFILE` GitHub secret that you [created earlier](../../deploy-github-actions.md?tabs=applevel#2-configure-the-github-secret).
 
 # [ASP.NET Core](#tab/aspnetcore)
 

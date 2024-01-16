@@ -2,7 +2,7 @@
 title: Configure CI/CD with GitHub Actions
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with GitHub Actions. Customize the build tasks and execute complex deployments.
 ms.topic: article
-ms.date: 01/22/2023
+ms.date: 01/22/2024
 ms.reviewer: ushan
 ms.custom: github-actions-azure, devx-track-azurecli
 author: cephalin
@@ -16,19 +16,39 @@ Get started with [GitHub Actions](https://docs.github.com/en/actions/learn-githu
 ## Prerequisites 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
-- A working Azure App Service app. 
-    - .NET: [Create an ASP.NET Core web app in Azure](quickstart-dotnetcore.md)
-    - ASP.NET: [Create an ASP.NET Framework web app in Azure](./quickstart-dotnetcore.md?tabs=netframework48)
-    - JavaScript: [Create a Node.js web app in Azure App Service](quickstart-nodejs.md)  
-    - Java: [Create a Java app on Azure App Service](quickstart-java.md)
-    - Python: [Create a Python app in Azure App Service](quickstart-python.md)
+- A GitHub account. If you don't have one, sign up for [free](https://github.com/join).
 
-## Create a workflow from the Deployment Center
+## Set up GitHub Actions deployment when creating the app
 
-You can quickly get started with GitHub Actions by using the App Service Deployment Center. This turn-key method automatically generates a workflow file based on your application stack and commits it to your GitHub repository in the correct directory. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
+GitHub Actions deployment is integrated into the default [app creation wizard](https://portal.azure.com/#create/Microsoft.WebSite). You just need to set **Continuous deployment** to **Enable** in the Deployment tab, and configure the organization, repository, and branch you want.
 
-## Set up a workflow manually
+:::image type="content" source="media/deploy-github-actions/create-wizard-deployment.png" alt-text="A screenshot showing how to enable GitHub Actions deployment in the App Service create wizard":::
+
+When you enable continuous deployment, the app creation wizard automatically picks the authentication method based on the basic authentication selection and configures your app and your GitHub repository accordingly:
+
+| Basic authentication selection | Authentication method |
+|-|-|
+|Disable| [User-assigned identity (OpenID Connect)](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions) |
+|Enable| [Basic authentication](configure-basic-auth-disable.md) |
+
+> [!NOTE]
+> If you receive an error when creating your app saying that your Azure account doesn't have certain permissions, it may not have [the required permissions to create and configure the user-assigned identity](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). For an alternative, see [Set up GitHub Actions deployment from the Deployment Center](#set-up-github-actions-deployment-from-the-deployment-center)
+
+## Set up GitHub Actions deployment from the Deployment Center
+
+For an existing app, you can get started quickly with GitHub Actions by using the App Service Deployment Center. This turn-key method automatically generates a workflow file based on your application stack and commits it to your GitHub repository in the correct directory. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md?tabs=github).
+
+The Deployment Center also lets you easily configure the more secure OpenID Connect authentication with [the **user-assigned identity** option](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions). 
+
+The Deployment Center also lets you select an existing user-assigned managed identity for the GitHub configuration. If your Azure account doesn't let you [create a user-assigned identity during app creation](#set-up-github-actions-deployment-when-creating-the-app), you can:
+
+1. Create the app without deployment settings.
+1. Get a user-assigned identity from your Azure administrator [with the required role](deploy-continuous-deployment.md#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app).
+1. In the Deployment Center of your app, [enable GitHub Actions deployment](deploy-continuous-deployment.md?tabs=github#configure-the-deployment-source) with the **user-assigned identity** option and select the identity in the **Identity** dropdown.
+
+For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
+
+## Set up a GitHub Actions workflow manually
 
 You can also deploy a workflow without using the Deployment Center.
 
@@ -88,7 +108,7 @@ In the previous example, replace the placeholders with your subscription ID, res
 
 # [OpenID Connect](#tab/openid)
 
-OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
+OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](/azure/developer/github/connect-from-azure) is more complex but offers hardened security.
 
 1.  If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
 
@@ -222,6 +242,8 @@ The following examples show the part of the workflow that builds the web app, in
 [!INCLUDE [deploy-github-actions-openid-connect](includes/deploy-github-actions/deploy-github-actions-openid-connect.md)]
 
 -----
+
+## Frequently asked questions
 
 ## Next steps
 
