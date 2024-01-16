@@ -67,7 +67,7 @@ For Linux servers, based on the features you want to perform, you can create a u
 ### Option 1
 - You need a sudo user account on the servers that you want to discover. Use this account to pull configuration and performance metadata, perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
 - You need to enable sudo access on /usr/bin/bash to execute the commands listed [here](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
-- Make sure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
+- Make sure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
 - Azure Migrate supports the following Linux OS distributions for discovery using an account with sudo access:
 
     Operating system | Versions
@@ -136,7 +136,7 @@ After the appliance is connected, it gathers configuration and performance data 
 
 Support | Details
 --- | ---
-**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. <br /><br /> You can discover up to 750 SQL Server instances or 15,000 SQL databases, whichever is less, from a single appliance. It is recommended that you ensure that an appliance is scoped to discover less than 600 servers running SQL to avoid scaling issues.
+**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/Bare metal environments and IaaS Servers of other public clouds such as AWS, GCP, etc. <br /><br /> You can discover up to 750 SQL Server instances or 15,000 SQL databases, whichever is less, from a single appliance. It's recommended that you ensure that an appliance is scoped to discover less than 600 servers running SQL to avoid scaling issues.
 **Windows servers** | Windows Server 2008 and later are supported.
 **Linux servers** | Currently not supported.
 **Authentication mechanism** | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
