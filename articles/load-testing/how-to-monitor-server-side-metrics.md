@@ -14,7 +14,7 @@ ms.topic: how-to
 
 In this article, you learn how to capture and monitor server-side application metrics when running a load test with Azure Load Testing. When you run a load test for an Azure-hosted application, Azure Load Testing collects resource metrics for your application components and presents them in the load testing dashboard.
 
-To capture metrics during your load test, you update the load test configuration and [select the Azure components](#select-azure-application-components) that make up your application. The service automatically selects the most relevant resource metrics for these app components, depending on the type of component. Optionally, you can [update the list of server-side metrics](#select-server-side-resource-metrics) for each Azure component.
+To capture metrics during your load test, you update the load test configuration and [add the Azure app components](#add-azure-app-components-to-a-load-test) that make up your application. The service automatically selects the most relevant resource metrics for these app components, depending on the type of component. Optionally, you can [update the list of server-side metrics](#configure-resource-metrics-for-a-load-test) for each Azure component.
 
 Azure Load Testing integrates with Azure Monitor to capture server-side resource metrics for Azure-hosted applications. Read more about which [Azure resource types that Azure Load Testing supports](./resource-supported-azure-resource-types.md).
 
