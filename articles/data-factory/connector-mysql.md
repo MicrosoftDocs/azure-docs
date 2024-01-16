@@ -97,7 +97,7 @@ The following properties are supported for MySQL linked service:
         "type": "MySql",
         "typeProperties": {
              "server": "<server>",
-             "port": <port>,
+             "port": 3306,
              "database": "<database>",
              "username": "<username>",
              "sslmode": <sslmode>,
@@ -121,7 +121,7 @@ The following properties are supported for MySQL linked service:
         "type": "MySql",
         "typeProperties": {
             "server": "<server>",
-            "port": <port>,
+            "port": 3306,
             "database": "<database>",
             "username": "<username>",
             "sslmode": <sslmode>,
@@ -143,49 +143,23 @@ The following properties are supported for MySQL linked service:
     }
 }
 ```
-If you were using MySQL linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward.
 
-**Previous payload:**
-
-```json
-{
-    "name": "MySQLLinkedService",
-    "properties": {
-        "type": "MySql",
-        "typeProperties": {
-            "server": "<server>",
-            "port": <port>,
-            "database": "<database>",
-            "username": "<username>",
-            "sslmode": <sslmode>,
-            "usesystemtruststore": <UseSystemTrustStore>,
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            },
-            "driverVersion": "v2"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-When you use the legacy driver version, the following properties are supported:
-
-A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. More properties you can set per your case:
+If you use the legacy driver version, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MySql** | Yes |
 | connectionString | Specify information needed to connect to the Azure Database for MySQL instance.<br/> You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. | No |
+
+A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. More properties you can set per your case:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
 | sslMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g., `SSLMode=<0/1/2/3/4>`.<br/>Options: DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Yes |
 | SSLCert | The full path and name of a .pem file containing the SSL certificate used for proving the identity of the client. <br/> To specify a private key for encrypting this certificate before sending it to the server, use the `SSLKey` property.| Yes, if using two-way SSL verification. |
 | SSLKey | The full path and name of a file containing the private key used for encrypting the client-side certificate during two-way SSL verification.| Yes, if using two-way SSL verification. |
 | useSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>`;<br/>Options: Enabled (1) / Disabled (0) **(Default)** | No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. | No |
 
 **Example:**
 
@@ -294,7 +268,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `bit(1)` |`UInt64` |
 | `bit(M), M>1`|`UInt64`|
 | `blob` |`Byte[]` |
-| `bool` |`Boolean` |
+| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by defult ) |
 | `char` |`String` |
 | `date` |`Datetime` |
 | `datetime` |`Datetime` |
