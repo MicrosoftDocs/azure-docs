@@ -34,7 +34,9 @@ Azure Operator Insights requires two separate types of resources.
     - Data Products provide [metrics for monitoring the quality of your data](concept-data-quality-monitoring.md).
     - Data Products are designed for specific types of source data and provide specialized processing for that source data. For more information, see [Data types](concept-data-types.md).
 
-:::image type="content" source="media/concept-data-quality-monitoring/operator-insights-architecture.svg" alt-text="Diagram of Azure Operator Insights Data Product architecture. It shows ingestion from on-premises data sources, processing in a Data Product, and analysis and use in Logic Apps and Power BI." lightbox="media/concept-data-quality-monitoring/operator-insights-architecture.svg":::
+:::image type="complex" source="media/operator-insights-architecture.svg" alt-text="Diagram of ingestion agents and Data Products for Azure Operator Insights " lightbox="media/operator-insights-architecture.svg":::
+    Diagram of the Azure Operator Insights architecture. It shows ingestion by ingestion agents from on-premises data sources, processing in a Data Product, and analysis and use in Logic Apps and Power BI.
+:::image-end:::
 
 We provide the following Data Products.
 
