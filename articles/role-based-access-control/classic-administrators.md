@@ -39,7 +39,7 @@ What should I do if a strong dependency on Co-Administrators?
 
 - Email ACARDeprecation@microsoft.com and describe your scenario.
 
-## View classic Co-Administrators
+## View Co-Administrators
 
 Follow these steps to view the Co-Administrators for a subscription using the Azure portal.
 
@@ -53,17 +53,17 @@ Follow these steps to view the Co-Administrators for a subscription using the Az
 
     ![Screenshot that opens Classic administrators](./media/shared/classic-administrators.png)
 
-## Assess classic Co-Administrators
+## Assess Co-Administrators
 
 Use the following table to assess how to remove or re-assign Co-Administrators.
 
 | Assessment | Next steps|
 | --- | --- |
-| User no longer needs access | Follow steps to [remove Co-Administrator](#remove-a-classic-co-administrator). |
-| User still needs some access, but not full access | 1. Determine the Azure role the user needs.<br/>2. Determine the scope the user needs.<br/>3. Follow steps to [assign an Azure role to user](role-assignments-portal.md).<br/>4. [Remove Co-Administrator](#remove-a-classic-co-administrator). |
-| User needs the same access as a Co-Administrator | 1. Assign the [Owner role at subscription scope](role-assignments-portal-subscription-admin.md).<br/>2. [Remove Co-Administrator](#remove-a-classic-co-administrator). |
+| User no longer needs access | Follow steps to [remove Co-Administrator](#remove-a-co-administrator). |
+| User still needs some access, but not full access | 1. Determine the Azure role the user needs.<br/>2. Determine the scope the user needs.<br/>3. Follow steps to [assign an Azure role to user](role-assignments-portal.md).<br/>4. [Remove Co-Administrator](#remove-a-co-administrator). |
+| User needs the same access as a Co-Administrator | 1. Assign the [Owner role at subscription scope](role-assignments-portal-subscription-admin.md).<br/>2. [Remove Co-Administrator](#remove-a-co-administrator). |
 
-## Remove a classic Co-Administrator
+## Remove a Co-Administrator
 
 > [!IMPORTANT]
 > Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
@@ -86,7 +86,7 @@ Follow these steps to remove a Co-Administrator.
 
     ![Screenshot that removes co-administrator](./media/classic-administrators/remove-coadmin.png)
 
-## Add a classic Co-Administrator
+## Add a Co-Administrator
 
 > [!IMPORTANT]
 > Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
@@ -113,7 +113,7 @@ Follow these steps to remove a Co-Administrator.
 
     ![Screenshot that adds co-administrator](./media/classic-administrators/add-coadmin.png)
 
-## Add a guest user as a classic Co-Administrator
+## Add a guest user as a Co-Administrator
 
 To add a guest user as a Co-Administrator, follow the same steps as in the previous [Add a Co-Administrator](#add-a-co-administrator) section. The guest user must meet the following criteria:
 
@@ -140,7 +140,7 @@ Note that the [Azure built-in roles](../role-based-access-control/built-in-roles
 
 For information that compares member users and guest users, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md).
 
-## Change the classic Service Administrator
+## Change the Service Administrator
 
 Only the Account Administrator can change the Service Administrator for a subscription. By default, when you sign up for an Azure subscription, the Service Administrator is the same as the Account Administrator.
 
@@ -166,7 +166,7 @@ Follow these steps to change the Service Administrator in the Azure portal.
 
 1. Click **OK** to save the change.
 
-### Limitations for changing the classic Service Administrator
+### Limitations for changing the Service Administrator
 
 There can only be one Service Administrator per Azure subscription. Changing the Service Administrator will behave differently depending on whether the Account Administrator is a Microsoft account or whether it is a Microsoft Entra account (work or school account).
 
@@ -179,7 +179,7 @@ If the Account Administrator is a Microsoft Entra account, you can change the Se
 
 For more information about Microsoft accounts and Microsoft Entra accounts, see [What is Microsoft Entra ID?](../active-directory/fundamentals/active-directory-whatis.md).
 
-## Remove the classic Service Administrator
+## Remove the Service Administrator
 
 You might want to remove the Service Administrator, for example, if they are no longer with the company. If you do remove the Service Administrator, you must have a user who is assigned the [Owner](built-in-roles.md#owner) role at subscription scope to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
 
