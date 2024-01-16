@@ -448,14 +448,15 @@ items:
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:
+    - name: Azure Monitor features
+      displayName: containers, kubernetes
+      href: containers/container-insights-overview.md
     - name: Full stack monitoring
       displayName: containers
       href: containers/monitor-kubernetes.md
     - name: Best practices
       displayName: containers, kubernetes
       href: best-practices-containers.md
-    - name: Container insights overview
-      href: containers/container-insights-overview.md
     - name: Enable monitoring
       items:
       - name: Onboard cluster
