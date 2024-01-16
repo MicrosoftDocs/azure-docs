@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/15/2024
+ms.date: 01/16/2024
 ---
 
 # Enable agentless scanning for VMs
@@ -141,6 +141,8 @@ Security alerts appear on the portal only in cases where threats are detected on
 
 The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
 
+:::image type="content" source="media/enable-agentless-scanning-vms/test-alert.jpg" alt-text="Screenshot of the test alert that appears in Defender for Cloud for Linux." lightbox="media/enable-agentless-scanning-vms/test-alert.jpg":::
+
 ### Create a test file for Windows
 
 #### Create a test file with a text document
@@ -157,6 +159,8 @@ The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24
 1. Open the file to validate that it contains the content from stage 2.
 
 The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
+
+:::image type="content" source="media/enable-agentless-scanning-vms/test-alert.jpg" alt-text="Screenshot of the test alert that appears in Defender for Cloud for Windows because of the text file that was created." lightbox="media/enable-agentless-scanning-vms/test-alert.jpg":::
 
 #### Create a test file with PowerShell
 
@@ -211,6 +215,8 @@ The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24
     ```
 
 The alert `MDC_Test_File malware was detected (Agentless)` will appear within 24 hours in the Defender for Cloud Alerts page and in the Defender XDR portal.
+
+:::image type="content" source="media/enable-agentless-scanning-vms/test-alert.jpg" alt-text="Screenshot of the test alert that appears in Defender for Cloud for Windows with because of the PowerShell script." lightbox="media/enable-agentless-scanning-vms/test-alert.jpg":::
 
 ## Exclude machines from scanning
 
