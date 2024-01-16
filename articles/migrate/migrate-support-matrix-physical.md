@@ -67,7 +67,7 @@ For Linux servers, based on the features you want to perform, you can create a u
 ### Option 1
 - You need a sudo user account on the servers that you want to discover. Use this account to pull configuration and performance metadata, perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
 - You need to enable sudo access on /usr/bin/bash to execute the commands listed [here](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
-- Make sure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
+- Make sure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
 - Azure Migrate supports the following Linux OS distributions for discovery using an account with sudo access:
 
     Operating system | Versions
@@ -136,7 +136,7 @@ After the appliance is connected, it gathers configuration and performance data 
 
 Support | Details
 --- | ---
-**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. <br /><br /> You can discover up to 750 SQL Server instances or 15,000 SQL databases, whichever is less, from a single appliance. It is recommended that you ensure that an appliance is scoped to discover less than 600 servers running SQL to avoid scaling issues.
+**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/Bare metal environments and IaaS Servers of other public clouds such as AWS, GCP, etc. <br /><br /> You can discover up to 750 SQL Server instances or 15,000 SQL databases, whichever is less, from a single appliance. It's recommended that you ensure that an appliance is scoped to discover less than 600 servers running SQL to avoid scaling issues.
 **Windows servers** | Windows Server 2008 and later are supported.
 **Linux servers** | Currently not supported.
 **Authentication mechanism** | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
@@ -160,123 +160,172 @@ The following are sample scripts for creating a login and provisioning it with t
   ```sql
   -- Create a login to run the assessment
   use master;
-	  DECLARE @SID NVARCHAR(MAX) = N'';
-    CREATE LOGIN [MYDOMAIN\MYACCOUNT] FROM WINDOWS;
-	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'MYDOMAIN\MYACCOUNT'
-	IF (ISNULL(@SID,'') != '')
-		PRINT N'Created login [MYDOMAIN\MYACCOUNT] with SID = ' + @SID
-	ELSE
-		PRINT N'Login creation failed'
+  DECLARE @SID NVARCHAR(MAX) = N'';
+  CREATE LOGIN [MYDOMAIN\MYACCOUNT] FROM WINDOWS;
+  SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'MYDOMAIN\MYACCOUNT'
+  IF (ISNULL(@SID,'') != '')
+    PRINT N'Created login [MYDOMAIN\MYACCOUNT] with SID = ' + @SID
+  ELSE
+    PRINT N'Login creation failed'
   GO    
- 
-  -- Create user in every database other than tempdb and model and provide minimal read-only permissions. 
-  use master;
-    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY CREATE USER [MYDOMAIN\MYACCOUNT] FOR LOGIN [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
-    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY GRANT SELECT ON sys.sql_expression_dependencies TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
-    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY GRANT VIEW DATABASE STATE TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
+
+  -- Create user in every database other than tempdb, model and secondary AG databases(with connection_type = ALL) and provide minimal read-only permissions.
+  USE master;
+  EXECUTE sp_MSforeachdb '
+    USE [?];
+    IF (''?'' NOT IN (''tempdb'',''model''))
+    BEGIN
+      DECLARE @is_secondary_replica BIT = 0;
+      IF CAST(PARSENAME(CAST(SERVERPROPERTY(''ProductVersion'') AS VARCHAR), 4) AS INT) >= 11
+      BEGIN
+        DECLARE @innersql NVARCHAR(MAX);
+        SET @innersql = N''
+          SELECT @is_secondary_replica = IIF(
+            EXISTS (
+                SELECT 1
+                FROM sys.availability_replicas a
+                INNER JOIN sys.dm_hadr_database_replica_states b
+                ON a.replica_id = b.replica_id
+                WHERE b.is_local = 1
+                AND b.is_primary_replica = 0
+                AND a.secondary_role_allow_connections = 2
+                AND b.database_id = DB_ID()
+            ), 1, 0
+          );
+        '';
+        EXEC sp_executesql @innersql, N''@is_secondary_replica BIT OUTPUT'', @is_secondary_replica OUTPUT;
+      END
+      IF (@is_secondary_replica = 0)
+      BEGIN
+        CREATE USER [MYDOMAIN\MYACCOUNT] FOR LOGIN [MYDOMAIN\MYACCOUNT];
+        GRANT SELECT ON sys.sql_expression_dependencies TO [MYDOMAIN\MYACCOUNT];
+        GRANT VIEW DATABASE STATE TO [MYDOMAIN\MYACCOUNT];
+      END
+    END'
   GO
- 
+
   -- Provide server level read-only permissions
   use master;
-    BEGIN TRY GRANT SELECT ON sys.sql_expression_dependencies TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT EXECUTE ON OBJECT::sys.xp_regenumkeys TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT VIEW DATABASE STATE TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT VIEW SERVER STATE TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT VIEW ANY DEFINITION TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  GRANT SELECT ON sys.sql_expression_dependencies TO [MYDOMAIN\MYACCOUNT];
+  GRANT EXECUTE ON OBJECT::sys.xp_regenumkeys TO [MYDOMAIN\MYACCOUNT];
+  GRANT EXECUTE ON OBJECT::sys.xp_instance_regread TO [MYDOMAIN\MYACCOUNT];
+  GRANT VIEW DATABASE STATE TO [MYDOMAIN\MYACCOUNT];
+  GRANT VIEW SERVER STATE TO [MYDOMAIN\MYACCOUNT];
+  GRANT VIEW ANY DEFINITION TO [MYDOMAIN\MYACCOUNT];
   GO
- 
-  -- Required from SQL 2014 onwards for database connectivity.
-  use master;
-    BEGIN TRY GRANT CONNECT ANY DATABASE TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-  GO
- 
+
   -- Provide msdb specific permissions
   use msdb;
-    BEGIN TRY GRANT EXECUTE ON [msdb].[dbo].[agent_datetime] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobsteps] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syssubsystems] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobhistory] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syscategories] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobs] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmaintplan_plans] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syscollector_collection_sets] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_profile] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_profileaccount] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  GRANT EXECUTE ON [msdb].[dbo].[agent_datetime] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysjobsteps] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[syssubsystems] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysjobhistory] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[syscategories] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysjobs] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysmaintplan_plans] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[syscollector_collection_sets] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_profile] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_profileaccount] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [MYDOMAIN\MYACCOUNT];
   GO
- 
+  
   -- Clean up
   --use master;
-  -- EXECUTE sp_MSforeachdb 'USE [?]; BEGIN TRY DROP USER [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;'
-  -- BEGIN TRY DROP LOGIN [MYDOMAIN\MYACCOUNT] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  -- EXECUTE sp_MSforeachdb 'USE [?]; DROP USER [MYDOMAIN\MYACCOUNT]'
+  -- DROP LOGIN [MYDOMAIN\MYACCOUNT];
   --GO
-   ```
+  ```
 
 #### SQL Server Authentication
   
    ```sql
-  -- Create a login to run the assessment
+  --- Create a login to run the assessment
   use master;
-	-- NOTE: SQL instances that host replicas of Always On Availability Groups must use the same SID for the SQL login. 
-	  -- After the account is created in one of the members, copy the SID output from the script and include this value 
-	  -- when executing against the remaining replicas.
-	  -- When the SID needs to be specified, add the value to the @SID variable definition below.
-    DECLARE @SID NVARCHAR(MAX) = N'';
-	IF (@SID = N'')
-	BEGIN
-		CREATE LOGIN [evaluator]
-			WITH PASSWORD = '<provide a strong password>'
-	END
-	ELSE
-	BEGIN
-		DECLARE @SQLString NVARCHAR(500) = 'CREATE LOGIN [evaluator]
-			WITH PASSWORD = ''<provide a strong password>''
-			, SID = '+@SID 
+  -- NOTE: SQL instances that host replicas of Always On Availability Groups must use the same SID for the SQL login.
+    -- After the account is created in one of the members, copy the SID output from the script and include this value
+    -- when executing against the remaining replicas.
+    -- When the SID needs to be specified, add the value to the @SID variable definition below.
+  DECLARE @SID NVARCHAR(MAX) = N'';
+  IF (@SID = N'')
+  BEGIN
+    CREATE LOGIN [evaluator]
+        WITH PASSWORD = '<provide a strong password>'
+  END
+  ELSE
+  BEGIN
+    DECLARE @SQLString NVARCHAR(500) = 'CREATE LOGIN [evaluator]
+      WITH PASSWORD = ''<provide a strong password>''
+      , SID = ' + @SID
     EXEC SP_EXECUTESQL @SQLString
-	END
-	SELECT @SID = N'0x'+CONVERT(NVARCHAR(35), sid, 2) FROM sys.syslogins where name = 'evaluator'
-	IF (ISNULL(@SID,'') != '')
-		PRINT N'Created login [evaluator] with SID = '''+ @SID +'''. If this instance hosts any Always On Availability Group replica, use this SID value when executing the script against the instances hosting the other replicas'
-	ELSE
-		PRINT N'Login creation failed'
-  GO    
- 
-  -- Create user in every database other than tempdb and model and provide minimal read-only permissions. 
-  use master;
-    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY CREATE USER [evaluator] FOR LOGIN [evaluator]END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
-    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY GRANT SELECT ON sys.sql_expression_dependencies TO [evaluator]END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
-    EXECUTE sp_MSforeachdb 'USE [?]; IF (''?'' NOT IN (''tempdb'',''model''))  BEGIN TRY GRANT VIEW DATABASE STATE TO [evaluator]END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH'
+  END
+  SELECT @SID = N'0x'+CONVERT(NVARCHAR(100), sid, 2) FROM sys.syslogins where name = 'evaluator'
+  IF (ISNULL(@SID,'') != '')
+    PRINT N'Created login [evaluator] with SID = '''+ @SID +'''. If this instance hosts any Always On Availability Group replica, use this SID value when executing the script against the instances hosting the other replicas'
+  ELSE
+    PRINT N'Login creation failed'
   GO
- 
+  
+  -- Create user in every database other than tempdb, model and secondary AG databases(with connection_type = ALL) and provide minimal read-only permissions.
+  USE master;
+  EXECUTE sp_MSforeachdb '
+    USE [?];
+    IF (''?'' NOT IN (''tempdb'',''model''))
+    BEGIN
+      DECLARE @is_secondary_replica BIT = 0;
+      IF CAST(PARSENAME(CAST(SERVERPROPERTY(''ProductVersion'') AS VARCHAR), 4) AS INT) >= 11
+      BEGIN
+        DECLARE @innersql NVARCHAR(MAX);
+        SET @innersql = N''
+          SELECT @is_secondary_replica = IIF(
+            EXISTS (
+              SELECT 1
+              FROM sys.availability_replicas a
+              INNER JOIN sys.dm_hadr_database_replica_states b
+                ON a.replica_id = b.replica_id
+              WHERE b.is_local = 1
+                AND b.is_primary_replica = 0
+                AND a.secondary_role_allow_connections = 2
+                AND b.database_id = DB_ID()
+            ), 1, 0
+          );
+        '';
+        EXEC sp_executesql @innersql, N''@is_secondary_replica BIT OUTPUT'', @is_secondary_replica OUTPUT;
+      END
+
+      IF (@is_secondary_replica = 0)
+      BEGIN
+          CREATE USER [evaluator] FOR LOGIN [evaluator];
+          GRANT SELECT ON sys.sql_expression_dependencies TO [evaluator];
+          GRANT VIEW DATABASE STATE TO [evaluator];
+      END
+    END'
+  GO
+  
   -- Provide server level read-only permissions
-  use master;
-    BEGIN TRY GRANT SELECT ON sys.sql_expression_dependencies TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT EXECUTE ON OBJECT::sys.xp_regenumkeys TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT VIEW DATABASE STATE TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT VIEW SERVER STATE TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT VIEW ANY DEFINITION TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  USE master;
+  GRANT SELECT ON sys.sql_expression_dependencies TO [evaluator];
+  GRANT EXECUTE ON OBJECT::sys.xp_regenumkeys TO [evaluator];
+  GRANT EXECUTE ON OBJECT::sys.xp_instance_regread TO [evaluator];
+  GRANT VIEW DATABASE STATE TO [evaluator];
+  GRANT VIEW SERVER STATE TO [evaluator];
+  GRANT VIEW ANY DEFINITION TO [evaluator];
   GO
- 
-  -- Required from SQL 2014 onwards for database connectivity.
-  use master;
-    BEGIN TRY GRANT CONNECT ANY DATABASE TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-  GO
- 
+  
   -- Provide msdb specific permissions
-  use msdb;
-    BEGIN TRY GRANT EXECUTE ON [msdb].[dbo].[agent_datetime] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobsteps] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syssubsystems] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobhistory] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syscategories] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysjobs] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmaintplan_plans] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[syscollector_collection_sets] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_profile] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_profileaccount] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
-    BEGIN TRY GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  USE msdb;
+  GRANT EXECUTE ON [msdb].[dbo].[agent_datetime] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysjobsteps] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[syssubsystems] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysjobhistory] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[syscategories] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysjobs] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysmaintplan_plans] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[syscollector_collection_sets] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_profile] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_profileaccount] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [evaluator];
   GO
- 
+  
   -- Clean up
   --use master;
   -- EXECUTE sp_MSforeachdb 'USE [?]; BEGIN TRY DROP USER [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;'
