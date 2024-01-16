@@ -346,7 +346,7 @@ In this section, you turn on real authentication by adding the `Authorize` attri
 
    ![OAuth Complete hosted in Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-   You prompt to authorize the chat app's access to your GitHub account. Select the **Authorize** button.
+   You proYou're prompted to authorize the chat app's access to your GitHub account. Select the **Authorize** button.
 
    ![Authorize OAuth App](media/signalr-concept-authenticate-oauth/signalr-authorize-oauth-app.png)
 
