@@ -409,12 +409,9 @@
         items:
         - name: Autoscale
           items:
-          - name: Create a scaling plan
+          - name: Create and assign a scaling plan
             displayName: autoscale, scale, virtual machines, vms
             href: autoscale-scaling-plan.md
-          - name: Assign a scaling plan
-            displayName: autoscale, scale, virtual machines, vms
-            href: autoscale-new-existing-host-pool.md
           - name: Set up autoscale diagnostics
             displayName: autoscale, scale, virtual machines, vms
             href: autoscale-diagnostics.md
