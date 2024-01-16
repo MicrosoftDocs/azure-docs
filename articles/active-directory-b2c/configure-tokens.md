@@ -5,11 +5,15 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer configuring token lifetimes in Azure Active Directory B2C, I want to understand the options and settings available for token lifetime and compatibility, so that I can customize them to fit the needs of my application and ensure secure access to resources.
+
 ---
 
 # Configure tokens in Azure Active Directory B2C
