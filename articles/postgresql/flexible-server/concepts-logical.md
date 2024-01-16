@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
+Azure Database for PostgreSQL flexible server supports the following logical data extraction and replication methodologies:
 
 1. **Logical replication**
    1. Using PostgreSQL [native logical replication](https://www.postgresql.org/docs/current/logical-replication.html) to replicate data objects. Logical replication allows fine-grained control over the data replication, including table-level data replication.
@@ -59,7 +59,7 @@ Logical decoding:
 
 1. Save the changes and restart the server to apply the changes.
 
-1. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
+1. Confirm that your Azure Database for PostgreSQL flexible server instance allows network traffic from your connecting resource.
 
 1. Grant the admin user replication permissions.
 
@@ -73,13 +73,13 @@ Logical decoding:
 
 ## Use logical replication and logical decoding
 
-Using native logical replication is the simplest way to replicate data out of Postgres. You can use the SQL interface or the streaming protocol to consume the changes. You can also use the SQL interface to consume changes using logical decoding.
+Using native logical replication is the simplest way to replicate data out of Azure Database for PostgreSQL flexible server. You can use the SQL interface or the streaming protocol to consume the changes. You can also use the SQL interface to consume changes using logical decoding.
 
 ### Native logical replication
 
 Logical replication uses the terms 'publisher' and 'subscriber'.
-- The publisher is the PostgreSQL database you're sending data **from**.
-- The subscriber is the PostgreSQL database you're sending data **to**.
+- The publisher is the Azure Database for PostgreSQL flexible server database you're sending data **from**.
+- The subscriber is the Azure Database for PostgreSQL flexible server database you're sending data **to**.
 
 Here's some sample code you can use to try out logical replication.
 
@@ -126,7 +126,7 @@ Visit the PostgreSQL documentation to understand more about [logical replication
 
 ### Use logical replication between databases on the same server
 
-When you're aiming to set up logical replication between different databases residing on the same PostgreSQL server, it's essential to follow specific guidelines to avoid implementation restrictions that are currently present. As of now, creating a subscription that connects to the same database cluster will only succeed if the replication slot isn't created within the same command; otherwise, the `CREATE SUBSCRIPTION` call hangs, on a `LibPQWalReceiverReceive` wait event. This happens due to an existing restriction within Postgres engine, which might be removed in future releases.
+When you're aiming to set up logical replication between different databases residing on the same Azure Database for PostgreSQL flexible server instance, it's essential to follow specific guidelines to avoid implementation restrictions that are currently present. As of now, creating a subscription that connects to the same database cluster will only succeed if the replication slot isn't created within the same command; otherwise, the `CREATE SUBSCRIPTION` call hangs, on a `LibPQWalReceiverReceive` wait event. This happens due to an existing restriction within Postgres engine, which might be removed in future releases.
 
 To effectively set up logical replication between your "source" and "target" databases on the same server while circumventing this restriction, follow the steps outlined below:
 
@@ -145,7 +145,7 @@ CREATE PUBLICATION pub FOR TABLE basic;
 SELECT pg_create_logical_replication_slot('myslot', 'pgoutput');
 ```
 
-Thereafter, in your target database, create a subscription to the previously created publication, ensuring that `create_slot` is set to `false` to prevent PostgreSQL from creating a new slot, and correctly specifying the slot name that was created in the previous step. Before running the command, replace the placeholders in the connection string with your actual database credentials:
+Thereafter, in your target database, create a subscription to the previously created publication, ensuring that `create_slot` is set to `false` to prevent Azure Database for PostgreSQL flexible server from creating a new slot, and correctly specifying the slot name that was created in the previous step. Before running the command, replace the placeholders in the connection string with your actual database credentials:
 
 ```sql
 -- Run this on the target database
@@ -326,17 +326,17 @@ The 'active' column in the `pg_replication_slots` view indicates whether there's
 ```sql
 SELECT * FROM pg_replication_slots;
 ```
-[Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds.
+[Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** Azure Database for PostgreSQL flexible server metrics to notify you when the values increase past normal thresholds.
 
 
 ## Limitations
 
 - **Logical replication** limitations apply as documented [here](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
 
-- **Slots and HA failover** - When using [high-availability (HA)](concepts-high-availability.md) enabled servers with Azure Database for PostgreSQL - Flexible Server, be aware that logical replication slots aren't preserved during failover events. To maintain logical replication slots and ensure data consistency after a failover, it's recommended to use the PG Failover Slots extension. For more information on enabling this extension, please refer to the [documentation](concepts-extensions.md#pg_failover_slots-preview).
+- **Slots and HA failover** - When using [high-availability (HA)](concepts-high-availability.md) enabled servers with Azure Database for PostgreSQL flexible server, be aware that logical replication slots aren't preserved during failover events. To maintain logical replication slots and ensure data consistency after a failover, it's recommended to use the PG Failover Slots extension. For more information on enabling this extension, please refer to the [documentation](concepts-extensions.md#pg_failover_slots-preview).
 
 > [!IMPORTANT]  
-> You must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise, the WAL files accumulate in the primary, filling up the storage. Suppose the storage threshold exceeds a certain threshold, and the logical replication slot is not in use (due to a non-available subscriber). In that case, the Flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation.
+> You must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise, the WAL files accumulate in the primary, filling up the storage. Suppose the storage threshold exceeds a certain threshold, and the logical replication slot is not in use (due to a non-available subscriber). In that case, the Azure Database for PostgreSQL flexible server instance automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation.
 
 ## Related content
 
