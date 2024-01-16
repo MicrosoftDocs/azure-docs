@@ -41,7 +41,7 @@ If this is your first interaction with **Firmware analysis,** then you'll need t
 1. Select **Firmware analysis**.
 1. Select a region to use for storage.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/select-region.png" alt-text="Screenshot that shows selecting an Azure Region.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/select-region-updated.png" alt-text="Screenshot that shows selecting an Azure Region.":::
 
 ## Upload a firmware image for analysis
 
