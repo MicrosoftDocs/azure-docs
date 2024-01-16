@@ -15,11 +15,13 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 ## 6. Clean up resources
 
-You can delete the Azure resource group, which includes all the resources in the resource group. Use the following steps to delete the entire resource group, including the newly created service:
+You can delete the Azure resource group, which includes all the resources in the resource group.
 
 ::: zone pivot="sc-enterprise"
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Use the following steps to delete the entire resource group, including the newly created service:
 
 1. Locate your resource group in the Azure portal.
 
@@ -42,6 +44,8 @@ az group delete --name ${RESOURCE_GROUP}
 ::: zone pivot="sc-consumption-plan"
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+Use the following steps to delete the entire resource group, including the newly created service:
 
 1. Locate your resource group in the Azure portal.
 
