@@ -17,7 +17,7 @@ ms.date: 11/30/2021
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 
-This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
+This article provides step-by-step procedure to perform point-in-time recoveries in Azure Database for PostgreSQL flexible server using backups.
 
 ## Prerequisites
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -28,13 +28,13 @@ This article provides step-by-step procedure to perform point-in-time recoveries
     az login
     ````
 
-- If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the ```az account set``` command.
+- If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the `az account set` command.
 `
     ```azurecli
     az account set --subscription <subscription id>
     ```
 
-- Create a PostgreQL Flexible Server if you haven't already created one using the ```az postgres flexible-server create``` command.
+- Create an Azure Database for PostgreSQL flexible server instance if you haven't already created one using the `az postgres flexible-server create` command.
 
     ```azurecli
     az postgres flexible-server create --resource-group myresourcegroup --name myservername
@@ -83,7 +83,7 @@ az postgres flexible-server geo-restore --source-server
                                  [--subscription]
                                  
 ```
-**Example:** To perform a geo-restore of a source server 'mydemoserver' which is located in region East US to a new server 'mydemoserver-restored' in it’s geo-paired location West US with the same network setting you can run following command.
+**Example:** To perform a geo-restore of a source server 'mydemoserver' which is located in region East US to a new server 'mydemoserver-restored' in its geo-paired location West US with the same network setting you can run following command.
 
 ```azurecli
 az postgres flexible-server geo-restore \

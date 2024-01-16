@@ -17,7 +17,7 @@ ms.custom: github-actions-azure, mode-other, devx-track-azurecli
 
 [!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
-Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/).
+Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for PostgreSQL flexible server](https://azure.microsoft.com/services/postgresql/).
 
 ## Prerequisites
 
@@ -25,8 +25,8 @@ You need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub repository with sample data (`data.sql`). If you don't have a GitHub account, [sign up for free](https://github.com/join).
-- An Azure Database for PostgreSQL server.
-    - [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](../single-server/quickstart-create-server-database-portal.md)
+- An Azure Database for PostgreSQL flexible server instance.
+    - [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance in the Azure portal](../single-server/quickstart-create-server-database-portal.md)
 
 ## Workflow file overview
 
@@ -43,13 +43,13 @@ The file has two sections:
 
 [!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
 
-## Copy the PostgreSQL connection string
+## Copy the Azure Database for PostgreSQL flexible server connection string
 
-In the Azure portal, go to your Azure Database for PostgreSQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string looks similar to this.
+In the Azure portal, go to your Azure Database for PostgreSQL flexible server instance and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string looks similar to this.
 
 > [!IMPORTANT]  
-> - For Single server use ```user=adminusername@servername```  . Note the ```@servername``` is required.
-> - For Flexible server , use ```user= adminusername``` without the  ```@servername```.
+> - For Azure Database for PostgreSQL single server, use ```user=adminusername@servername```  . Note the ```@servername``` is required.
+> - For Azure Database for PostgreSQL flexible server, use ```user= adminusername``` without the  ```@servername```.
 
 ```output
 psql host={servername.postgres.database.azure.com} port=5432 dbname={your_database} user={adminusername} password={your_database_password} sslmode=require
@@ -127,7 +127,7 @@ You use the connection string as a GitHub secret.
 
     ---
 
-1. Use the Azure PostgreSQL Deploy action to connect to your PostgreSQL instance. Replace `POSTGRESQL_SERVER_NAME` with the name of your server. You should have a PostgreSQL data file named `data.sql` at the root level of your repository.
+1. Use the Azure PostgreSQL Deploy action to connect to your Azure Database for PostgreSQL flexible server instance. Replace `POSTGRESQL_SERVER_NAME` with the name of your server. You should have an Azure Database for PostgreSQL flexible server data file named `data.sql` at the root level of your repository.
 
     ```yaml
      - uses: azure/postgresql@v1
@@ -215,11 +215,11 @@ You use the connection string as a GitHub secret.
 
 1. Open the first result to see detailed logs of your workflow's run.
 
-    :::image type="content" source="media/how-to-deploy-github-action/gitbub-action-postgres-success.png" alt-text="Log of GitHub Actions run" lightbox="media/how-to-deploy-github-action/gitbub-action-postgres-success.png":::
+    :::image type="content" source="media/how-to-deploy-github-action/gitbub-action-postgres-success.png" alt-text="Log of GitHub Actions run." lightbox="media/how-to-deploy-github-action/gitbub-action-postgres-success.png":::
 
 ## Clean up resources
 
-When your Azure PostgreSQL database and repository are no longer needed, clean up the resources you deployed by deleting the resource group and your GitHub repository.
+When your Azure Database for PostgreSQL flexible server database and repository are no longer needed, clean up the resources you deployed by deleting the resource group and your GitHub repository.
 
 ## Next steps
 

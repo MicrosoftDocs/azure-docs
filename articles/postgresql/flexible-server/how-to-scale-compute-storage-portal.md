@@ -18,20 +18,20 @@ ms.date: 11/30/2021
 This article provides steps to perform scaling operations for compute and storage. You're able to change your compute tiers between burstable, general purpose, and memory optimized SKUs, including choosing the number of vCores that is suitable to run your application. You can also scale up your storage. Expected IOPS are shown based on the compute tier, vCores and the storage capacity. The cost estimate is also shown based on your selection.
 
 > [!IMPORTANT]
-> You cannot scale down the storage.
+> You can't scale down the storage.
 
 ## Prerequisites
 
 To complete this how-to guide, you need:
 
--   You must have an Azure Database for PostgreSQL - Flexible Server. The same procedure is also applicable for flexible server configured with zone redundancy.
+-   You must have an Azure Database for PostgreSQL flexible server instance. The same procedure is also applicable for an Azure Database for PostgreSQL flexible server instance configured with zone redundancy.
 
 
 ## Scaling the compute tier and size
 
 Follow these steps to choose the compute tier.
  
-1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to restore the backup from.
+1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL flexible server instance that you want to restore the backup from.
 
 2.  Select **Compute+storage**.
 
@@ -47,7 +47,7 @@ Follow these steps to choose the compute tier.
 6.  If you want to change the number of vCores, you can select the drop-down of **Compute size** and select the desired number of vCores/Memory from the list.
     
     - Burstable compute tier:
-    :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="burstable compute":::
+    :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="Screenshot that shows burstable compute.":::
 
     - General purpose compute tier:
     :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="Screenshot that shows general-purpose compute.":::
@@ -64,7 +64,7 @@ Follow these steps to choose the compute tier.
 
 Follow these steps to increase your storage size.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server for which you want to increase the storage size.
+1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL flexible server instance for which you want to increase the storage size.
 
 2.  Select **Compute+storage**.
 
@@ -87,9 +87,9 @@ Follow these steps to increase your storage size.
 
 ## Storage autogrow 
 
-Use below steps to enable storage autogrow for your flexible server and automatically scale your storage in most cases.
+Use below steps to enable storage autogrow for your Azure Database for PostgreSQL flexible server instance and automatically scale your storage in most cases.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose the flexible server for which you want to increase the storage size.
+1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL flexible server instance for which you want to increase the storage size.
 
 2.  Select **Compute+storage**.
 
@@ -112,9 +112,9 @@ Use below steps to enable storage autogrow for your flexible server and automati
 
 ### Scaling up
 
-Use the below steps to scale up the performance tier on your flexible server.
+Use the below steps to scale up the performance tier on your Azure Database for PostgreSQL flexible server instance.
 
-1. In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to scale up.
+1. In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL flexible server instance that you want to scale up.
 
 2. Select **Compute + storage**.
 
@@ -134,9 +134,9 @@ Use the below steps to scale up the performance tier on your flexible server.
 
 ### Scaling down 
 
-Use the below steps to scale down the performance tier on your flexible server.
+Use the below steps to scale down the performance tier on your Azure Database for PostgreSQL flexible server instance.
 
-1. In the [Azure portal](https://portal.azure.com/), choose the flexible server that you want to scale down.
+1. In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL flexible server instance that you want to scale down.
 
 2. Select **Compute + storage**.
 

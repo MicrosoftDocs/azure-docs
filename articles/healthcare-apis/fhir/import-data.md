@@ -69,7 +69,7 @@ Content-Type:application/fhir+json
 | ----------- | ----------- | ----------- | ----------- |
 | type   |  Resource type of input file   | 1..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. |
 |URL   |  Azure storage url of input file   | 1..1 | URL value of the input file that can't be modified. |
-| etag   |  Etag of the input file on Azure storage used to verify the file content hasn't changed. | 0..1 |  Etag value of the input file that can't be modified. |
+| etag   |  Etag of the input file on Azure storage; used to verify the file content has not changed after $import registration. | 0..1 |  Etag value of the input file. |
 
 **Sample body for import:**
 

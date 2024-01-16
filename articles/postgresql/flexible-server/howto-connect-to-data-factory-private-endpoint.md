@@ -26,8 +26,6 @@ Data Factory offers three types of integration runtimes:
 
 Choose the type that best serves your data integration capabilities and network environment requirements.
 
-Azure Database for PostgreSQL flexible server provides for Private Link connectivity in preview. For more information, see [this article](../flexible-server/concepts-networking-private-link.md).
-
 ## Prerequisites
 
 - An Azure Database for PostgreSQL flexible server instance that's [privately networked via Azure Private Link](../flexible-server/concepts-networking-private-link.md)
@@ -48,7 +46,6 @@ az resource create --id /subscriptions/<subscription_id>/resourceGroups/<resourc
   "groupId": "postgresqlServer"
 }'
 ```
-
 > [!NOTE]  
 > An alternative command to create a private endpoint in Data Factory by using the Azure CLI is [az datafactory managed-private-endpoint create](/cli/azure/datafactory/managed-private-endpoint).
 
@@ -62,15 +59,15 @@ After you provision a private endpoint, you can approve it by following the **Ma
 
 ## Add a networked server data source in Data Factory
 
-After you provision and approve a private endpoint, you can create a connection to Azure Database for PostgreSQL flexible server by using a Data Factory connector.
+When provisioning succeeds and the endpoint is approved, you can finally create a connection to PGFlex using the Azure Database for PostgreSQL flexible server Data Factory connector.
 
-In the previous steps, when you selected the server for which you created the private endpoint, the private endpoint was also selected automatically.
+In the preceding steps, when you selected the server for which you created the private endpoint, the private endpoint was also selected automatically.
 
 1. Select a database, enter a username and password, and select **SSL** as the encryption method. The following screenshot shows an example.
 
    :::image type="content" source="./media/howto-connect-to-data-factory-private-endpoint/data-factory-data-source-connection.png" alt-text="Example screenshot of connection properties." lightbox="./media/howto-connect-to-data-factory-private-endpoint/data-factory-data-source-connection.png":::
 
-1. Select **Test connection**. A "Connection Successful" message should appear.
+1. Select **Test connection**. A **Connection successful** message should appear next to the **Test connection** button.
 
 ## Next step
 
