@@ -142,21 +142,21 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-06-0
 
 ## Delete a Standby Pool
 
-### [Portal](#tab/portal1)
+### [Portal](#tab/portal2)
 
 
-### [CLI](#tab/cli1)
+### [CLI](#tab/cli2)
 
 ```azurecli-interartive
 az standbypool delete --resource-group myResourceGroup --name myStandbyPool
 ```
-### [PowerShell](#tab/powershell1)
+### [PowerShell](#tab/powershell2)
 
 ```azurepowershell-interative
 Delete-AzStandbyPool -ResourceGroup myResourceGroup -Name myStandbyPool 
 ```
 
-### [REST API](#tab/rest1)
+### [REST API](#tab/rest2)
 
 ```HTTP
 Delete https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-06-01-preview
