@@ -13,16 +13,16 @@ ms.date: 8/14/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-You can list, show, and update configuration parameters for an Azure Database for PostgreSQL server through the Azure portal. In addition, you can also click on the **Server Parameter Tabs** to easily view parameter group as **Modified**, **Static**, **Dynamic** and **Read-Only**.
+You can list, show, and update configuration parameters for an Azure Database for PostgreSQL flexible server instance through the Azure portal. In addition, you can also click on the **Server Parameter Tabs** to easily view parameter group as **Modified**, **Static**, **Dynamic** and **Read-Only**.
 
 ## Prerequisites
 To step through this how-to guide you need:
-- [Azure Database for PostgreSQL - Flexible server](quickstart-create-server-portal.md)
+- [An Azure Database for PostgreSQL flexible server instance](quickstart-create-server-portal.md)
 
 ## Viewing and editing parameters
 1. Open the [Azure portal](https://portal.azure.com).
 
-2. Select your Azure Database for PostgreSQL server.
+2. Select your Azure Database for PostgreSQL flexible server instance.
 
 3. Under the **SETTINGS** section, select **Server parameters**. The page shows a list of parameters, their values, and descriptions.
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/3-overview-of-parameters.png" alt-text="Screenshot of overview page for parameters.":::
@@ -117,6 +117,6 @@ PostgreSQL allows you to specify time zones in three different forms:
 
 ## Next steps
 Learn about:
-- [Overview of server parameters in Azure Database for PostgreSQL](concepts-server-parameters.md)
+- [Overview of server parameters in Azure Database for PostgreSQL - Flexible Server](concepts-server-parameters.md)
 - [Configure Azure Database for PostgreSQL - Flexible Server parameters via CLI](howto-configure-server-parameters-using-cli.md)
   

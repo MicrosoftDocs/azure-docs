@@ -20,10 +20,10 @@ You can list, show, and update configuration parameters for an Azure PostgreSQL 
 ## Prerequisites
 
 To step through this how-to guide, you need:
-- Create an Azure Database for PostgreSQL server and database by following [Create an Azure Database for PostgreSQL](quickstart-create-server-cli.md)
+- Create an Azure Database for PostgreSQL flexible server instance and database by following [Create an Azure Database for PostgreSQL flexible server instance](quickstart-create-server-cli.md)
 - Install [Azure CLI](/cli/azure/install-azure-cli) command-line interface on your machine or use the [Azure Cloud Shell](../../cloud-shell/overview.md) in the Azure portal using your browser.
 
-## List server parameters for a flexible server
+## List server parameters for an Azure Database for PostgreSQL flexible server instance
 
 To list all modifiable parameters in a server and their values, run the [az postgres flexible-server parameter list](/cli/azure/postgres/flexible-server/parameter) command.
 
@@ -45,7 +45,7 @@ az postgres flexible-server parameter show --name log_min_messages --resource-gr
 
 ## Modify server parameter value
 
-You can also modify the value of a certain server parameter, which updates the underlying configuration value for the PostgreSQL server engine. To update the parameter, use the [az postgres flexible-server parameter set](/cli/azure/postgres/flexible-server/parameter) command. 
+You can also modify the value of a certain server parameter, which updates the underlying configuration value for the Azure Database for PostgreSQL flexible server engine. To update the parameter, use the [az postgres flexible-server parameter set](/cli/azure/postgres/flexible-server/parameter) command. 
 
 To update the **log\_min\_messages** server parameter of server **mydemoserver.postgres.database.azure.com** under resource group **myresourcegroup.**
 
@@ -63,4 +63,4 @@ This command resets the **log\_min\_messages** parameter to the default value **
 
 ## Next steps
 
-- To configure and access server logs, see [Server Logs in Azure Database for PostgreSQL](concepts-logging.md)
+- To configure and access server logs, see [Server Logs in Azure Database for PostgreSQL - Flexible Server](concepts-logging.md)
