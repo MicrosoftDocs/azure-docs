@@ -18,6 +18,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- January 2024
+  - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - December 2023
   - [Vaulted backup and Cross Region Restore for support for AKS (preview)](#vaulted-backup-and-cross-region-restore-for-support-for-aks-preview)
 - November 2023
@@ -79,6 +81,22 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+
+## Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)
+
+Azure Backup and Azure Database Services provide a new backup solution for the MySQL - Flexible Servers that support retaining backups for up to **10 years**. This feature provides you access to:
+
+- Comprehensive data protection for different levels of data loss due to  accidental deletions or ransomware attacks.
+- Customer controlled scheduled and on-demand backups.
+- Isolated backups stored in a separate security and fault domain.
+- Long-term retention of backups.
+- Centralized monitoring of all backup operations and jobs.
+
+Azure Backup and Azure Database services together help you build an enterprise-class backup solution for Azure MySQL - Flexible Server. You can meet your data protection and compliance needs with a customer-controlled backup policy that enables retention of backups for up to 10 years. This feature allows you to back up the entire MySQL - Flexible Server to long-term Azure Backup vault storage. You  can also restore the backups to your storage account and use the native MySQL tools to re-create the MySQL Server. Currently, you can use the Azure portal to perform the MySQL - Flexible Server database protection operations.
+
+For more information, see [About Azure Database for MySQL - Flexible Server retention for long term (preview)](backup-azure-mysql-flexible-server-about.md).
+
 
 
 ## Vaulted backup and Cross Region Restore for support for AKS (preview)
