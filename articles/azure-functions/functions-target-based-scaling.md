@@ -1,7 +1,7 @@
 ---
 title: Target-based scaling in Azure Functions
 description: Explains target-based scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 01/09/2024
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.service: azure-functions
 ---
@@ -86,7 +86,7 @@ In [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#pre
 
 ## Dynamic concurrency support
 
-Target-based scaling introduces faster scaling, and uses defaults for _target executions per instance_. When using Service Bus or Storage queues, you can also enable [dynamic concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the _target executions per instance_ value is determined automatically by the dynamic concurrency feature. It starts with limited concurrency and identifies the best setting over time.
+Target-based scaling introduces faster scaling, and uses defaults for _target executions per instance_. When using Service Bus, Storage queues, or Kafka, you can also enable [dynamic concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the _target executions per instance_ value is determined automatically by the dynamic concurrency feature. It starts with limited concurrency and identifies the best setting over time.
 
 ## Supported extensions
 
@@ -372,7 +372,7 @@ Examples for the Python v2 programming model and the JavaScript v4 programming m
 
 The Apache Kafka extension uses a function-level attribute, `LagThreshold`. For Kafka, the number of _desired instances_ is calculated based on the total consumer lag divided by the `LagThreshold` setting. For a given lag, reducing the lag threshold increases the number of desired intances.  
 
-The way you set this function-level attribute depends on your function language.
+The way you set this function-level attribute depends on your function language. This example sets the threshold to `100`.
 
 #### [C#](#tab/csharp)
 
