@@ -32,7 +32,7 @@ Select the tab that corresponds to your build provider to continue.
 
 # [GitHub](#tab/github)
 
-4. [GitHub Actions](#what-are-the-build-providers?tabs=githubactions) is the default build provider. To change the provider, select **Change provider** > **App Service Build Service** > **OK**.
+4. [GitHub Actions](?tabs=githubactions#what-are-the-build-providers) is the default build provider. To change the provider, select **Change provider** > **App Service Build Service** > **OK**.
 
 1. If you're deploying from GitHub for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
 
@@ -120,7 +120,7 @@ You can customize the GitHub Actions build provider in these ways:
 # [App Service Build Service](#tab/appservice)
 
 > [!NOTE]
-> App Service Build Service requires [basic authentication to be enabled](configure-basic-authentication-disable.md) for the webhook to work. For better security, choose one of the other build providers. For more information, see [Deployment without basic authentication](configure-basic-auth-disable.md#deployment-without-basic-authentication).
+> App Service Build Service requires [basic authentication to be enabled](configure-basic-auth-disable.md) for the webhook to work. For better security, choose one of the other build providers. For more information, see [Deployment without basic authentication](configure-basic-auth-disable.md#deployment-without-basic-authentication).
 
 App Service Build Service is the deployment and build engine native to App Service, otherwise known as Kudu. When this option is selected, App Service adds a webhook into the repository you have authorized. Any code push to the repository triggers the webhook, and App Service pulls the changes into its repository and performs any deployment tasks. For more information, see [Deploying from GitHub (Kudu)](https://github.com/projectkudu/kudu/wiki/Deploying-from-GitHub).
 
@@ -129,7 +129,7 @@ Resources:
 * [Investigate common problems with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-# [Azure Pipelines](#tab/appservice)
+# [Azure Pipelines](#tab/pipelines)
 
 Azure Pipelines is part of Azure DevOps. You can configure a pipeline to build, test, and deploy your app to App Service from [any supported source repository](/azure/devops/pipelines/repos). 
 
@@ -147,7 +147,6 @@ For more information, see [Deploy to App Service using Azure Pipelines](deploy-a
 - [What does the user-assigned identity option do for GitHub Actions?](#what-does-the-user-assigned-identity-option-do-for-github-actions)
 - [Why do I see the error, "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
 - [Why do I see the error, "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
-- [What does the build provider App Service Build Service do?](#what-does-the-build-provider-app-service-build-service-do)
 
 #### Does the GitHub Actions build provider work with basic authentication if basic authentication is disabled?
 
