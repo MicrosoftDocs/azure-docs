@@ -107,9 +107,9 @@ After you enable agentless scanning, software inventory and vulnerability inform
 1. Select  **Next: Review and generate**. 
 1. Select  **Update**. 
 
-##  Validate the agentless malware scanner's deployment
+##  Test the agentless malware scanner's deployment
 
-Security alerts appear on the portal only in cases where threats are detected on your environment. If you do not have any alerts it may be because there are no threats on your environment. You can validate that the device is properly onboarded and reporting to Defender for Cloud by creating a test file.
+Security alerts appear on the portal only in cases where threats are detected on your environment. If you do not have any alerts it may be because there are no threats on your environment. You can test to see that the device is properly onboarded and reporting to Defender for Cloud by creating a test file.
 
 ### Create a test file for Linux
 
