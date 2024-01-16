@@ -26,8 +26,8 @@ $db_rule = New-AzLoadBalancerRuleConfig -Name MyDBRuleName -Probe $db_healthprob
 $lb = New-AzLoadBalancer -ResourceGroupName MyResourceGroup -Name MyLB -Location MyRegion -Sku 'Standard' -FrontendIpConfiguration $db_fip -BackendAddressPool $bePool -LoadBalancingRule $db_rule -Probe $db_healthprobe
 ```
 
+</br>
 <details>
-
 <summary>Expand to view full PowerShell code</summary>
 
 ```azurepowershell-interactive

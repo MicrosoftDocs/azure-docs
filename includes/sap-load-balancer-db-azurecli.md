@@ -24,8 +24,8 @@ az network nic ip-config address-pool add --address-pool MyBackendPool --ip-conf
 az network nic ip-config address-pool add --address-pool MyBackendPool --ip-config-name DBVm2IpConfigName --nic-name DBVm2NicName -g MyResourceGroup --lb-name MyLB
 ```
 
+</br>
 <details>
-
 <summary>Expand to view full CLI code</summary>
 
 ```azurecli-interactive
