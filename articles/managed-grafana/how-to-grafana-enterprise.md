@@ -39,6 +39,7 @@ Grafana Enterprise plugins, as of October 2023:
 - Splunk
 - Splunk Infrastructure Monitoring
 - Sqlyze Datasource
+- Sumo Logic
 - Wavefront
 
 > [!NOTE]

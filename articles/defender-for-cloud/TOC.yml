@@ -400,7 +400,7 @@
           href: alerts-suppression-rules.md
         - name: Export alerts and recommendations
           items:
-            - name: Export to a SIEM, SOAR, or ITSM
+            - name: Stream alerts to monitoring solutions
               displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight,
                 Monitor, Graph, Sentinel,
               href: export-to-siem.md

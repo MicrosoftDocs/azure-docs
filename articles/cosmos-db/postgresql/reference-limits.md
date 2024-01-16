@@ -6,7 +6,7 @@ author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/03/2024
+ms.date: 01/08/2024
 ---
 
 # Azure Cosmos DB for PostgreSQL limits and limitations
@@ -104,7 +104,6 @@ currently **not supported**:
 If [Microsoft Entra ID](./concepts-authentication.md#azure-active-directory-authentication-preview) is enabled on an Azure Cosmos DB for PostgreSQL cluster, the following is currently **not supported**:
 
 * PostgreSQL 11, 12, and 13
-* PgBouncer
 * Microsoft Entra groups
 
 ### Database creation

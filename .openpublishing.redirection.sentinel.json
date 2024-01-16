@@ -216,11 +216,6 @@
             "redirect_document_id": true
           },
           {
-            "source_path": "articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-          },
-          {
             "source_path": "articles/sentinel/data-connectors/okta-single-sign-on-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/okta-single-sign-on-using-azure-functions",
             "redirect_document_id": true
@@ -484,6 +479,11 @@
             "source_path": "articles/sentinel/data-connectors/cyberpion-security-logs.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
-          }  
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/azure-active-directory-identity-protection.md",
+            "redirect_url": "/azure/sentinel/data-connectors/microsoft-entra-id-protection",
+            "redirect_document_id": true
+          }
     ]
 }
