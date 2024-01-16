@@ -58,7 +58,7 @@ New-AzVmss `
 ### [ARM Template](#tab/template)
 When using an ARM template, add the upgradePolicy to the properties section of your template 
 
-If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and and suggestions.
+If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
 
 ```ARM
 "properties": {
