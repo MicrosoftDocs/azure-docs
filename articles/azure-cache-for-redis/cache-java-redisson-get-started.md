@@ -33,7 +33,7 @@ If you want to skip straight to the code, see the [Java quickstart](https://gith
 
 ## Setting up the working environment 
 
-Depending on your operating system, add environment variables for your **Host name** and **Primary access key**. Open a command prompt, or a terminal window, and set up the following values:
+Depending on your operating system, add environment variables for your **Host name** and **USERNAME**. Open a command prompt, or a terminal window, and set up the following values:
 
 ```CMD 
 set REDIS_CACHE_HOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
