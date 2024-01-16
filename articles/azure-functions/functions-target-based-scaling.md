@@ -338,7 +338,33 @@ namespace CosmosDBSamplesV2
 
 Java example pending.
 
-#### [JavaScript/PowerShell/Python](#tab/node+powershell+python)
+#### [Python](#tab/python)
+
+For Functions languages that use `function.json`, the `MaxItemsPerInvocation` parameter is defined in the specific binding, as in this Azure Cosmos DB trigger example
+
+```json
+{
+    "scriptFile": "main.py",
+    "bindings": [
+        {
+          "type": "cosmosDBTrigger",
+          "maxItemsPerInvocation": 100,
+          "connection": "MyCosmosDb",
+          "leaseContainerName": "leases",
+          "containerName": "collectionName",
+          "databaseName": "databaseName",
+          "leaseDatabaseName": "databaseName",
+          "createLeaseContainerIfNotExists": false,
+          "startFromBeginning": false,
+          "name": "input"
+        }
+    ]
+}
+```
+
+Examples for the Python v2 programming model aren't yet available.
+
+#### [JavaScript/PowerShell/TypeScript](#tab/node+powershell)
 
 For Functions languages that use `function.json`, the `MaxItemsPerInvocation` parameter is defined in the specific binding, as in this Azure Cosmos DB trigger example:
 
@@ -361,7 +387,7 @@ For Functions languages that use `function.json`, the `MaxItemsPerInvocation` pa
 }
 ```
 
-Examples for the Python v2 programming model and the JavaScript v4 programming model aren't yet available.
+Examples for the Node.js v4 programming model aren't yet available.
 
 ---
 
@@ -448,7 +474,7 @@ For Functions languages that use `function.json`, the `LagThreshold` parameter i
 
 The Python v2 programming model isn't currently supported by the Kafka extension.
 
-#### [JavaScript/PowerShell/TypeScript](#tab/node+powershell+typescript)
+#### [JavaScript/PowerShell/TypeScript](#tab/node+powershell)
 
 For Functions languages that use `function.json`, the `LagThreshold` parameter is defined in the specific binding, as in this Kafka Event Hubs trigger example:
 
