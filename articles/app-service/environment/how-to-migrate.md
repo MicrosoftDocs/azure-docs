@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 12/14/2023
+ms.date: 1/16/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -273,6 +273,12 @@ After you add your custom domain suffix details, the "Migrate" button will be en
 ## 8. Migrate to App Service Environment v3
 
 Once you complete all of the above steps, you can start migration. Make sure you understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what happens during this time. This step takes three to six hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. Scaling and modifications to your existing App Service Environment are blocked during this step.
+
+> [!NOTE]
+> In rare cases, you might see a notification in the portal that says "Migration to App Service Environment v3 failed" after you start migration. There's a known bug that might trigger this notification even if the migration is progressing. Check the activity log for the App Service Environment to determine the validity of this error message.
+>
+> :::image type="content" source="./media/migration/migration-error.png" alt-text="Screenshot that shows the potential error notification after starting migration.":::
+>
 
 Detailed migration statuses are only available when using the Azure CLI at this time. For more information, see the CLI guidance under the Azure CLI section for Migrate to App Service Environment v3.
 
