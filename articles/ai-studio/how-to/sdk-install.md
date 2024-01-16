@@ -102,7 +102,7 @@ You can install the Azure AI SDK locally as described previously, or run it via 
 
 ### Option 1: Using VS Code (web) in Azure AI Studio
 
-VS Code (web) in Azure AI Studio creates and runs the development container on a compute instance. To get started with this approach, follow the instructions in [How to work with Azure AI Studio projects in VS Code (Web)](vscode-web.md).
+VS Code (web) in Azure AI Studio creates and runs the development container on a compute instance. To get started with this approach, follow the instructions in [Work with Azure AI projects in VS Code](develop-in-vscode.md).
 
 Our prebuilt development environments are based on a docker container that has the Azure AI Generative SDK, the Azure AI CLI, the prompt flow SDK, and other tools. It's configured to run VS Code remotely inside of the container. The docker container is defined in [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/en-us/product/devcontainers/python/about). 
 
@@ -127,5 +127,5 @@ The Azure AI code samples in GitHub Codespaces help you quickly get started with
 ## Next steps
 
 - [Get started building a sample copilot application](https://github.com/azure/aistudio-copilot-sample)
-- [Try the Azure AI CLI from Azure AI Studio in a browser](vscode-web.md)
+- [Try the Azure AI CLI from Azure AI Studio in a browser](develop-in-vscode.md)
 - [Azure SDK for Python reference documentation](/python/api/overview/azure/ai)

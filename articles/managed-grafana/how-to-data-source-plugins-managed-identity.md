@@ -54,10 +54,13 @@ Within the Standard service tier, users who have subscribed to the Grafana Enter
 
 * [AppDynamics](https://grafana.com/grafana/plugins/dlopes7-appdynamics-datasource)
 * [Azure Devops](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
+* [Databricks](https://grafana.com/grafana/plugins/grafana-databricks-datasource)
 * [DataDog](https://grafana.com/grafana/plugins/grafana-datadog-datasource)
 * [Dynatrace](https://grafana.com/grafana/plugins/grafana-dynatrace-datasource)
 * [GitLab](https://grafana.com/grafana/plugins/grafana-gitlab-datasource)
 * [Honeycomb](https://grafana.com/grafana/plugins/grafana-honeycomb-datasource)
+* [Jira](https://grafana.com/grafana/plugins/grafana-jira-datasource)
+* [Looker](https://grafana.com/grafana/plugins/grafana-looker-datasource)
 * [MongoDB](https://grafana.com/grafana/plugins/grafana-mongodb-datasource)
 * [New Relic](https://grafana.com/grafana/plugins/grafana-newrelic-datasource)
 * [Oracle Database](https://grafana.com/grafana/plugins/grafana-oracle-datasource)
@@ -67,6 +70,8 @@ Within the Standard service tier, users who have subscribed to the Grafana Enter
 * [Snowflake](https://grafana.com/grafana/plugins/grafana-snowflake-datasource)
 * [Splunk](https://grafana.com/grafana/plugins/grafana-splunk-datasource)
 * [Splunk Infrastructure monitoring (SignalFx)](https://grafana.com/grafana/plugins/grafana-splunk-monitoring-datasource)
+* [Sqlyze Datasource](https://grafana.com/grafana/plugins/grafana-odbc-datasource)
+* [Sumo Logic](https://grafana.com/grafana/plugins/grafana-sumologic-datasource)
 * [Wavefront](https://grafana.com/grafana/plugins/grafana-wavefront-datasource)
 
 ### Other data sources
