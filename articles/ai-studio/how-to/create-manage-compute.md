@@ -111,6 +111,15 @@ You can start or stop a compute instance from the Azure AI Studio.
 
     :::image type="content" source="../media/compute/compute-start-stop.png" alt-text="Screenshot of the option to start or stop a compute instance." lightbox="../media/compute/compute-start-stop.png":::
 
+## Switch compute instance runtime to automatic runtime
+
+Automatic runtime have following advantages over compute instance runtime:
+- Automatic manage lifecycle of runtime and underlying compute. You don't need to manually create and managed them anymore.
+- Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
+
+We would recommend you to switch to automatic runtime if you're using compute instance runtime. If you have a compute instance runtime, you can switch it to an automatic runtime (preview) by using the following steps:
+- Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Packages specified in `requirements.txt` will be installed when the runtime is started. 
+- If you want to keep the automatic runtime (preview) as long running compute like compute instance, you can disable the idle shutdown toggle under automatic runtime (preview) edit option.
 
 ## Next steps
 
