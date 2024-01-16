@@ -88,6 +88,14 @@
     href: virtual-machine-scale-sets-instance-protection.md
   - name: Attach VMs to a scale set
     href: virtual-machine-scale-sets-attach-detach-vm.md
+  - name: Standby Pools
+    items: 
+    - name: Overview
+      href: virtual-machine-scale-sets-standby-pools-overview.md
+    - name: Create a Standby Pool
+      href: standby-pools-create.md
+    - name: Update or delete a Standby Pools\
+      href: standby-pools-update-delete.md
   - name: Working with large uniform scale sets
     href: virtual-machine-scale-sets-placement-groups.md
 - name: Reliability
