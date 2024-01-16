@@ -55,7 +55,7 @@ Select the Virtual Machine Scale Set you want to change the Upgrade Policy for. 
 
 Configure the properties to best suite your requirements. 
 
-:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-policy-portal.png" alt-text="Screenshot showing changing the Upgrade Policy and enabling MaxSurge in the Azure Portal.":::
+:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-policy-portal.png" alt-text="Screenshot showing changing the Upgrade Policy and enabling MaxSurge in the Azure portal.":::
 
 
 ### [CLI](#tab/cli1)
