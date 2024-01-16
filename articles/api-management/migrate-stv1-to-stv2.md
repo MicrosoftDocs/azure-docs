@@ -262,7 +262,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 - **Can I roll back the migration if required?**
 
-   Yes, you can. If there's a failure during the migration process, the instance will automatically roll back to the stv1 platform. However, if you encounter any other issues post migration, you can roll back only if you have requested an extension to the old gateway purge. By default, the old gateway is purged in 15 mins that can be extended up to 48 hours by contacting support in advance. You should make sure to contact support before the old gateway is purged, if a rollback is required. Note to contact support if  the instance is stuck in an "Updating" status for more than 2 hours.
+   Yes, you can. If there's a failure during the migration process, the instance will automatically roll back to the stv1 platform. However, if you encounter any other issues post migration, you can roll back only if you have requested an extension to the old gateway purge. By default, the old gateway is purged in 15 mins that can be extended up to 48 hours by contacting support in advance. You should make sure to contact support before the old gateway is purged, if a rollback is required. 
 
 - **Is there any change required in custom domain/private DNS zones?**
 

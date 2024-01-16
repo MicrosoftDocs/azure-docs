@@ -5,13 +5,17 @@ description: Learn how Identity Protection gives you visibility into risky sign-
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 11/23/2021
+ms.date: 01/11/2024
 
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
 
 ms.collection: M365-identity-device-management
+
+
+#Customer intent: As an Azure AD B2C application owner, I want to enhance the security of my applications by using Identity Protection and Conditional Access, so that I can detect and respond to risky authentications and enforce organizational policies.
+
 ---
 
 # Identity Protection and Conditional Access for Azure AD B2C
