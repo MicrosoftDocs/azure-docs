@@ -20,7 +20,7 @@ When using a Rolling Upgrade Policy, the scale set must also have a [health prob
 Virtual Machine Scale Sets using Uniform Orchestration Mode can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration Mode, Application Health Extension is required as Health probes aren't supported on Flexible Orchestration Mode. 
 
 ## Exceptions to Rolling Upgrade Policy
-When configuring the rolling upgrade batch size, scale sets ensure that upgrades don't occur on multiple fault domains at the same time. Even if you were to select 100% batch size, the actual batch size would be limited to prevent updates occurring in multiple fault domains at once. This results in a batch size closer to 30% rather than 100%. 
+When configuring the rolling upgrade batch size, scale sets ensure that upgrades don't occur on multiple fault domains at the same time. Even if you were to select 100% batch size, the actual batch size would be limited to prevent updates occurring in multiple fault domains at once. 
 
 If you wish to bypass this protection, you can override the default fault domain policies using the Rolling Upgrade Policy Override feature.
 
@@ -36,8 +36,8 @@ Register-AzProviderFeature -FeatureName RollingUpgradePolicyOverride -ProviderNa
 |Setting | Description |
 |---|---|
 |**Upgrade Policy Mode:** | The Upgrade Policy modes available on Virtual Machine Scale sets are Automatic, Manual and Rolling. | 
-|**Rolling upgrade batch size %** | Specifies how many of the total instances of your scale set you wish to be upgraded at one time. For example, a batch size of 20% when you have 10 instances in your scale set results in upgrade batches with twi instances each. |
-|**Pause time between batches (sec)** |Specifies how long you want your scale set to wait between upgrading batches. For example, a pause time of 10 seconds means that once a batch has successfully upgraded and the instances are back to taking traffic again, the scale set will wait 10 seconds before starting the next batch. |
+|**Rolling upgrade batch size %** | Specifies how many of the total instances of your scale set you wish to be upgraded at one time. For example, a batch size of 20% when you have 10 instances in your scale set results in upgrade batches with two instances each. |
+|**Pause time between batches (sec)** |Specifies how long you want your scale set to wait between upgrading batches. For example, a pause time of 10 seconds means that once a batch has successfully, the scale set will wait 10 seconds before starting the next batch. |
 |**Max unhealthy instance %** |Specifies the allowed total number of instances marked as unhealthy before and during the Rolling Upgrade. For example, a max unhealthy instance % of 20 means if you have a scale set of 10 instances and more than two instances in the entire scale set report back as unhealthy, the Rolling Upgrade is canceled. |
 | **Max unhealthy upgrade %**|Specifies the allowed total number of instances marked as unhealthy after being upgrade. For example, a max unhealthy upgrade % of 20 means if you have a scale set of 10 instances and more than two instances in the entire scale set report back as unhealthy after being upgraded, the Rolling Upgrade is canceled. This is an important setting because it allows the scale set to catch unstable or poor updates before they roll out to the entire scale set. |
 |**Prioritize unhealthy instances** |Tells the scale set to upgrade instances marked as unhealthy before upgrading instances marked as healthy. For example, if you have some instances in your scale set that shows as failed or unhealthy when a Rolling Upgrade begins, the scale set updates those instances ahead of the other instances in the scale set. |
@@ -47,7 +47,7 @@ Register-AzProviderFeature -FeatureName RollingUpgradePolicyOverride -ProviderNa
 
 ## Setting or updating the Rolling Upgrade Policy
 
-While you're able to configure the Rolling Upgrade Policy during scale set creation, because using Rolling Upgrade Policy requires a health probe, or an application health extension and there are additional settings associated with Rolling Upgrade Policy. It's suggested to first create your scale set using Manual Upgrade Policy and once you have confirmed your health probe or application health extension is properly reporting back your application health, update your Upgrade Policy from Manual to Rolling and update the Policy settings to your desired configuration. 
+While you're able to configure the Rolling Upgrade Policy during scale set creation, because using Rolling Upgrade Policy requires a health probe, or an application health extension and there are other settings associated with Rolling Upgrade Policy. It's suggested to first create your scale set using Manual Upgrade Policy and once you have confirmed your health probe or application health extension is properly reporting back your application health, update your Upgrade Policy from Manual to Rolling and update the Policy settings to your desired configuration. 
 
 ### [Portal](#tab/portal1)
 
@@ -125,7 +125,7 @@ When a Rolling Upgrade is triggered in the Azure Portal, a banner appears at the
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-status-portal.png" alt-text="Screenshot showing details of the rolling upgrade in the Azure Portal.":::
 
-Additionally, you can view exactly what changes are being rolled out in the Activity Log. The Rolling Upgrade event will be under "Create or Update Virtual Machine Scale Set". Select "Change History" to review what is being updated. 
+Additionally, you can view exactly what changes are being rolled out in the Activity Log. The Rolling Upgrade event is under "Create or Update Virtual Machine Scale Set". Select "Change History" to review what is being updated. 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-activity-log.png" alt-text="Screenshot showing the rolling upgrade details in the Activity Log.":::
 
@@ -198,7 +198,7 @@ Tags                                    : {}
 ## Cancel a Rolling Upgrade
 
 ### [Portal](#tab/portal3)
-You can cancel a rolling upgrade in progress using the Azure Portal by selecting the "view details" in the banner above your scale set. In the pop-up window, you can view the current status and at the bottom will be a "cancel upgrade". 
+You can cancel a rolling upgrade in progress using the Azure Portal by selecting the **view details** in the banner above your scale set. In the pop-up window, you can view the current status and at the bottom will be a **cancel upgrade** option. 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-cancel-portal.png" alt-text="Screenshot showing the rolling upgrade details in the Activity Log.":::
 
