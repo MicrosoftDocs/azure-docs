@@ -65,3 +65,6 @@ consumed.
 - Creation of pooled resources is subject to the resource availability in each region.
 - If using autoscale to trigger scaling, autoscale takes into account the metrics associated with your VMs in your scale set and the VMs in the pool. This could result in unexpected scale out events. This is currently being addressed. 
 - Deploying a Standby Pool attached to a Zonal scale set is not currently supported. The pool itself will be deployed zonally, however scaling out can cause random VMs to enter a failed state. This work is in progress. 
+
+
+## Next steps
