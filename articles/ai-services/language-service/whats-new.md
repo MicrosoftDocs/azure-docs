@@ -16,6 +16,9 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## January 2024
+
+* Expanded [language detection](./language-detection/overview.md) support for additional scripts according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924) is now available starting in API version `2023-11-15-preview`.
 ## November 2023
 
 * [Named Entity Recognition Container](./named-entity-recognition/how-to/use-containers.md) is now Generally Available (GA).

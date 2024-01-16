@@ -48,7 +48,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
+curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2023-11-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key:<your-language-resource-key>" \
 -d \
@@ -77,19 +77,23 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 
 ```json
 {
-	"kind": "LanguageDetectionResults",
-	"results": {
-		"documents": [{
-			"id": "1",
-			"detectedLanguage": {
-				"name": "English",
-				"iso6391Name": "en",
-				"confidenceScore": 1.0
-			},
-			"warnings": []
-		}],
-		"errors": [],
-		"modelVersion": "2022-10-01"
-	}
+    "kind": "LanguageDetectionResults",
+    "results": {
+        "documents": [
+            {
+                "id": "1",
+                "detectedLanguage": {
+                    "name": "English",
+                    "iso6391Name": "en",
+                    "confidenceScore": 1.0,
+                    "script": "Latin",
+                    "scriptCode": "Latn"
+                },
+                "warnings": []
+            }
+        ],
+        "errors": [],
+        "modelVersion": "2023-12-01"
+    }
 }
 ```

@@ -7,7 +7,7 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 01/16/2024
 ms.author: jboback
 ms.custom: language-service-language-detection, ignite-fall-2021
 ---
@@ -50,7 +50,7 @@ Analysis is performed upon receipt of the request. Using the language detection 
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
 
-Language detection will return one predominant language for each document you submit, along with it's [ISO 639-1](https://www.iso.org/standard/22109.html) name, a human-readable name, and a confidence score. A positive score of 1 indicates the highest possible confidence level of the analysis.
+Language detection will return one predominant language for each document you submit, along with it's [ISO 639-1](https://www.iso.org/standard/22109.html) name, a human-readable name, a confidence score, script name and script code according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924). A positive score of 1 indicates the highest possible confidence level of the analysis.
 
 ### Ambiguous content
 
@@ -82,30 +82,30 @@ The language detection model now has additional context to make a better judgmen
 
 ```json
 {
-    "documents":[
-        {
-            "detectedLanguage":{
-                "confidenceScore":0.62,
-                "iso6391Name":"en",
-                "name":"English"
+    "documents": [
+            {
+                "id": "1",
+                "detectedLanguage": {
+                    "name": "English",
+                    "iso6391Name": "en",
+                    "confidenceScore": 0.99,
+                    "script": "Latin",
+                    "scriptCode": "Latn"
+                },
+                "warnings": []
             },
-            "id":"1",
-            "warnings":[
-                
-            ]
-        },
-        {
-            "detectedLanguage":{
-                "confidenceScore":1.0,
-                "iso6391Name":"fr",
-                "name":"French"
-            },
-            "id":"2",
-            "warnings":[
-                
-            ]
-        }
-    ],
+            {
+                "id": "2",
+                "detectedLanguage": {
+                    "name": "French",
+                    "iso6391Name": "fr",
+                    "confidenceScore": 1.0,
+                    "script": "Latin",
+                    "scriptCode": "Latn"
+                },
+                "warnings": []
+            }
+        ],
     "errors":[
         
     ],
@@ -156,13 +156,58 @@ The resulting output consists of the predominant language, with a score of less 
 
 ```json
 {
+    "kind": "LanguageDetectionResults",
+    "results": {
+        "documents": [
+            {
+                "id": "1",
+                "detectedLanguage": {
+                    "name": "Spanish",
+                    "iso6391Name": "es",
+                    "confidenceScore": 0.97,
+                    "script": "Latin",
+                    "scriptCode": "Latn"
+                },
+                "warnings": []
+            }
+        ],
+        "errors": [],
+        "modelVersion": "2023-12-01"
+    }
+}
+```
+
+## Script name and script code content
+
+To distinguish between multiple scripts used to write certain languages, such as Kazakh, the Language Detection feature returns a script name and script code according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924).  
+Input
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "text": "How are you?"
+        }
+    ]
+}
+```
+
+**Output**
+
+The resulting output consists of the predominant language, along with a script name, script code, and confidence score.
+
+```json
+{
     "documents": [
         {
             "id": "1",
             "detectedLanguage": {
-                "name": "Spanish",
+                "name": "English",
                 "iso6391Name": "es",
-                "confidenceScore": 0.88
+                "confidenceScore": 0.99, 
+                "script": "Latin",
+                "scriptCode": "Latn",
             },
             "warnings": []
         }
