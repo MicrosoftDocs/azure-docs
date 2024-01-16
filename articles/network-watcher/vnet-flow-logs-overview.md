@@ -225,7 +225,7 @@ If you want to retain data forever and don't want to apply any retention policy,
 
 ## Pricing
 
-VNet flow logs are not currently billed. In future, VNet flow logs will be charged per gigabyte of "Network Logs Collected" and come with a free tier of 5 GB/month per subscription. If traffic analytics is enabled with VNet flow logs, then existing traffic analytics pricing is applicable. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+At this time, "Network Logs Collected" for VNet flow logs is not currently billed. In the future, "Network Logs Collected" will be billed per gigabyte and include a free tier of 5 GB/Month of log collection. Enabling traffic analytics for VNet flow logs will incur existing traffic analytics pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 ## Availability
 
