@@ -68,7 +68,7 @@ The Postman collection for Petrel DDMS contains requests that you can use to int
 
 1. To send the request, select **Send**.
 
-This request will generate an access token and assign it as the authorization method for future requests.
+This request generates an access token and assigns it as the authorization method for future requests.
 
 You can also generate a token by using the cURL command in Postman or a terminal to generate a bearer token. Use the values from your Azure Data Manager for Energy instance.
 
@@ -81,11 +81,11 @@ You can also generate a token by using the cURL command in Postman or a terminal
           --data-urlencode 'scope={{SCOPE}}'  
 ```
 
-To use this cURL generated token, you must update `access_token` in your `Collection` variables with the value after `Bearer` in the response.
+To use this cURL-generated token, you must update `access_token` in your `Collection` variables with the value after `Bearer` in the response.
 
 ## Use Petrel DDMS APIs to work with Petrel projects
 
-Successfully completing the Postman requests that are described in the following Petrel DDMS APIs indicates successful interaction with your saved Petrel projects. Although the API provides a means of uploading data, we recommended that you upload your projects via the DELFI Petrel Explorer. All of the following API calls assume that you have a project uploaded to Petrel Explorer.
+Successfully completing the Postman requests that are described in the following Petrel DDMS APIs indicates successful interaction with your saved Petrel projects. Although the API provides a way to upload data, we recommended that you upload your projects via DELFI Petrel Project Explorer. All of the following API calls assume that you have a project uploaded to Petrel Project Explorer.
 
 ### Create a legal tag
 
@@ -101,9 +101,9 @@ For more information, see [Manage legal tags](how-to-manage-legal-tags.md).
 
 ### Add users to an entitlement group
 
-For users to have the proper permissions to make the Petrel DDMS API calls, they must be part of the `users.datalake.admins@{data-partition-id}.dataservices.energy` entitlement group. This call adds a user to the proper group.
+For users to have the proper permissions to make Petrel DDMS API calls, they must be part of the `users.datalake.admins@{data-partition-id}.dataservices.energy` entitlement group. This call adds a user to the proper group.
 
-The **USER** in this case is the Client ID/OID contained in the token used for authentication. For example, if you generate a token using a client ID of `8cdxxxxxxxxxxxx`, you must add `8cdxxxxxxxxxxxx` to the **users.datalake.admins** group.
+The user in this case is the client ID or OID in the token that's used for authentication. For example, if you generate a token by using a client ID of `8cdxxxxxxxxxxxx`, you must add `8cdxxxxxxxxxxxx` to the `users.datalake.admins` group.
 
 API: **Setup** > **Add User to DATALAKE Admins**
 
@@ -115,7 +115,7 @@ Method: `POST`
 
 Use a project ID to return the corresponding Petrel project record in your Azure Data Manager for Energy instance.
 
-API: **Project** > **Get Project**.
+API: *Project* > **Get Project**
 
 Method: `GET`
 
@@ -125,7 +125,7 @@ Method: `GET`
 
 Use a project ID to delete a project and the associated Petrel project record data in your Azure Data Manager for Energy instance.
 
-API: **Project** > **Delete Project**
+API: *Project* > **Delete Project**
 
 Method: `DELETE`
 
@@ -135,7 +135,7 @@ Method: `DELETE`
 
 Use a project ID and a version ID to get the Petrel version record that's associated with the project and version in your Azure Data Manager for Energy instance.
 
-API: **Project** > **Get Project Version**
+API: *Project* > **Get Project Version**
 
 Method: `GET`
 
@@ -145,7 +145,7 @@ Method: `GET`
 
 Use a project ID to get a shared access signature (SAS) URL so you can download the data of the corresponding project from your Azure Data Manager for Energy instance.
 
-API: **Project** > **Get Project Download**
+API: *Project* > **Get Project Download**
 
 Method: `GET`
 
@@ -153,9 +153,9 @@ Method: `GET`
 
 ### Get a project upload URL
 
-Use a Project ID to get two SAS URLs. One URL uploads data to the corresponding project in your Azure Data Manager for Energy instance. The other URL downloads data from the corresponding project in your Azure Data Manager for Energy instance.
+Use a project ID to get two SAS URLs. One URL uploads data to the corresponding project in your Azure Data Manager for Energy instance. The other URL downloads data from the corresponding project in your Azure Data Manager for Energy instance.
 
-API: **Project** > **Get Signed Upload URL**
+API: *Project* > **Get Signed Upload URL**
 
 Method: `POST`
 
@@ -173,19 +173,19 @@ Making a `PUT` call to this URL uploads the contents of `body` to the blob stora
 
 ### Update a project
 
-Given a project ID, SAS upload URL, and a Petrel Project record, updates the Petrel Project record in your Azure Data Manager for Energy with the new values provided. Can also upload data to a given project but doesn't have to.
+Use a project ID and a SAS upload URL to update a Petrel project record in Azure Data Manager for Energy with the new values. You can also upload data to a project if you want.
 
-API: **Project** > **Update Project**
+API: *Project* > **Update Project**
 
 Method: `PUT`
 
-:::image type="content" source="media/tutorial-petrel-ddms/update-project-pdsv2.png" alt-text="Screenshot that shows the API that updates project." lightbox="media/tutorial-petrel-ddms/update-project-pdsv2.png":::
+:::image type="content" source="media/tutorial-petrel-ddms/update-project-pdsv2.png" alt-text="Screenshot that shows the API that updates a project." lightbox="media/tutorial-petrel-ddms/update-project-pdsv2.png":::
 
-### Search projects
+### Search through projects
 
-Allows the user to search through Petrel Projects given many fields. The call returns all match Project IDs. The API supports full text search on string fields, range queries on date, numeric or string fields, along with geo-spatial search.
+You can search through Petrel projects by using many fields. The call returns all matching project IDs. The API supports full-text search on string fields, range queries based on date, and numeric or string fields, along with geo-spatial search.
 
-API: **Project** > **Search Projects**
+API: *Project* > **Search Projects**
 
 Method: `POST`
 
@@ -193,7 +193,7 @@ Method: `POST`
 
 ## Next step
 
-Visit the following DELFI links for further tutorials involving Petrel Explorer and Petrel workflows:
+Use one of the following DELFI links to read another tutorial that involves Petrel Project Explorer and Petrel workflows:
 
 > [!div class="nextstepaction"]
 > [Get started with Project Explorer (slb.com)](https://guru.delfi.slb.com/content/1015/help/1/en-US/299EC605-5CC6-4CD9-9B07-482B16426769)\
