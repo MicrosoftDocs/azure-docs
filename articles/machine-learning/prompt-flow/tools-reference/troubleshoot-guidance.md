@@ -174,12 +174,12 @@ In prompt flow flow page with successful run, you can find the raw inputs and ou
 
 :::image type="content" source="../media/faq/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "../media/faq/view-full-output.png":::
 
-`Trace` section should the each request and response to LLM tool, you can check raw message send to LLM model and raw response from LLM model.
+`Trace` section include the each request and response to LLM tool, you can check raw message send to LLM model and raw response from LLM model.
 
 :::image type="content" source="../media/faq/trace-llm-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "../media/faq/trace-llm-tool.png":::
 
 ## How to fix 409 error in from Azure OpenAI? 
 
-If you may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Lean more about [Azure OpenAI rate limit](../../../ai-services/openai/quotas-limits.md).
+You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Lean more about [Azure OpenAI rate limit](../../../ai-services/openai/quotas-limits.md).
 
 :::image type="content" source="../media/faq/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "../media/faq/429-rate-limit.png":::
