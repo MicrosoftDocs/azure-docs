@@ -73,7 +73,7 @@ Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an 
 
 |SSH parameter |Description |Default value |
 |-----|-----|-----|
-|--generate-ssh-key |If you don't have your own SSH key, specify `--generate-ssh-key`. The Azure CLI first looks for the key in the `~/.ssh/` directory. The key is used if it exists. If the key doesn't exist, the Azure CLI automatically generates a set of SSH keys and saves them in the specified or default directory.||
+|--generate-ssh-key |If you don't have your own SSH key, specify `--generate-ssh-key`. The Azure CLI automatically generates a set of SSH keys and saves them in the specified or default directory.||
 |--ssh-key-vaule |Public key path or key contents to install on node VMs for SSH access. For example, `ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm`.|`~.ssh\id_rsa.pub` |
 |--no-ssh-key | If you don't require an SSH key, specify this argument. However, AKS automatically generates a set of SSH keys because the Azure Virtual Machine resource dependency doesn't support an empty SSH key file. As a result, the keys aren't returned and can't be used to SSH into the node VMs. ||
 
@@ -182,7 +182,7 @@ Use the [az aks nodepool add][az-aks-nodepool-add] command to add a node pool, a
 az aks nodepool add --cluster-name myManagedCluster --name mynodepool --resource-group myResourceGroup --ssh-access disabled  
 ```
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster indicating *mynodepool* has been successfully created. The following example resembles the output and the results related to disabling SSH:
+After a few minutes, the command completes and returns JSON-formatted information about the cluster indicating *mynodepool* was successfully created. The following example resembles the output and the results related to disabling SSH:
 
 ```output
 "securityProfile": {
@@ -198,7 +198,7 @@ Use the [az aks nodepool update][az-aks-nodepool-update] command with the `--ssh
 az aks nodepool update --cluster-name myManagedCluster --name mynodepool --resource-group myResourceGroup --ssh-access disabled
 ```
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster indicating *mynodepool* has been successfully created. The following example resembles the output and the results related to disabling SSH:
+After a few minutes, the command completes and returns JSON-formatted information about the cluster indicating *mynodepool* was successfully created. The following example resembles the output and the results related to disabling SSH:
 
 ```output
 "securityProfile": {
