@@ -1040,7 +1040,7 @@ items:
           - name: Send to Excel
             href: logs/log-excel.md
     - name: Migrate from Splunk to Azure Monitor Logs
-      href: logs/migrate-splunk-to-azure-monitor-logs.md 
+      href: logs/migrate-splunk-to-azure-monitor-logs.md
 - name: Insights
   items:
   - name: Overview
