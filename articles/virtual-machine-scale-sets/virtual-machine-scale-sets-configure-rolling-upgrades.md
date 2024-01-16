@@ -198,7 +198,7 @@ Tags                                    : {}
 ## Cancel a Rolling Upgrade
 
 ### [Portal](#tab/portal3)
-You can cancel a rolling upgrade in progress using the Azure Portal by selecting the **view details** in the banner above your scale set. In the pop-up window, you can view the current status and at the bottom will be a **cancel upgrade** option. 
+You can cancel a rolling upgrade in progress using the Azure portal by selecting the **view details** in the banner above your scale set. In the pop-up window, you can view the current status and at the bottom will be a **cancel upgrade** option. 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-cancel-portal.png" alt-text="Screenshot showing the rolling upgrade details in the Activity Log.":::
 
