@@ -10,7 +10,7 @@ ms.author: lwainstein
 
 # Stream Google Cloud Platform logs into Microsoft Sentinel
 
-Organizations are increasingly moving to multi-cloud architectures, whether by design or due to ongoing requirements. A growing number of these organizations use applications and store data on multiple public clouds, including the Google Cloud Platform (GCP).
+Organizations are increasingly moving to multicloud architectures, whether by design or due to ongoing requirements. A growing number of these organizations use applications and store data on multiple public clouds, including the Google Cloud Platform (GCP).
 
 This article describes how to ingest GCP data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in your multi-cloud environment.
 
