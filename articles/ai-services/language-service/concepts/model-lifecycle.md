@@ -33,7 +33,7 @@ Preview models used for preview features do not maintain a minimum retirement pe
 By default, API and SDK requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model to be used (not recommended).
 
 > [!NOTE]
-> * If you are using a model version that is not listed in the table, then it was subjected to the expiration policy.
+> If you are using a model version that is not listed in the table, then it was subjected to the expiration policy.
 
 Use the table below to find which model versions are supported by each feature:
 
