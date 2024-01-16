@@ -61,7 +61,7 @@ Example of a multi-target system replication system. For more information, see [
 ![Diagram showing an example of a HANA scale-up multi-target system replication system.](./media/sap-hana-high-availability/sap-hana-high-availability-scale-up-hsr-multi-target.png)
 
 1. Deploy Azure resources for the third node. Depending on your requirements, you can use a different Azure region for disaster recovery purposes.  
-   Steps required for the third site are similar to [virtual machines for HANA scale-up cluster](./sap-hana-high-availability.md#deploy-for-linux). Third site will use Azure infrastructure, operating system and HANA version matching the existing Pacemaker cluster, with the following exceptions:
+   Steps required for the third site are similar to [virtual machines for HANA scale-up cluster](./sap-hana-high-availability.md#prepare-the-infrastructure). Third site will use Azure infrastructure, operating system and HANA version matching the existing Pacemaker cluster, with the following exceptions:
    - No load balancer deployed for third site and no integration with existing cluster load balancer for the VM of third site
    - Don't install OS packages SAPHanaSR, SAPHanaSR-doc and OS package pattern ha_sles on third site VM
    - No integration into the cluster for VM or HANA resources of the third site

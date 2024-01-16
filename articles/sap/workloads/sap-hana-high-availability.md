@@ -31,7 +31,7 @@ ms.author: radeltch
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
 [401162]:https://launchpad.support.sap.com/#/notes/401162
 
-[sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
+[sles-for-sap-bp]:https://documentation.suse.com/sbp-supported.html
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 
@@ -46,7 +46,6 @@ This article describes how to deploy and configure the VMs, install the cluster 
 Before you begin, read the following SAP Notes and papers:
 
 - SAP Note [1928533]. The note includes:
-
   - The list of Azure VM sizes that are supported for the deployment of SAP software.
   - Important capacity information for Azure VM sizes.
   - The supported SAP software, operating system (OS), and database combinations.
@@ -65,10 +64,9 @@ Before you begin, read the following SAP Notes and papers:
 - [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide] guide.
 - [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] guide.
 - [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
-- [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp]:
-
-  - Setting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications 12 SP1). The guide contains all the required information to set up SAP HANA system replication for on-premises development. Use this guide as a baseline.
-  - Setting up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications 12 SP1).
+- [SUSE Linux Enterprise Server for SAP Applications best practices guides][sles-for-sap-bp]:
+  - Setting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications). The guide contains all the required information to set up SAP HANA system replication for on-premises development. Use this guide as a baseline.
+  - Setting up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications).
 
 ## Plan for SAP HANA high availability
 

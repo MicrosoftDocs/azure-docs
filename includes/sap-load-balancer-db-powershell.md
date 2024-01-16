@@ -27,6 +27,7 @@ $lb = New-AzLoadBalancer -ResourceGroupName MyResourceGroup -Name MyLB -Location
 ```
 
 <details>
+
 <summary>Expand to view full PowerShell code</summary>
 
 ```azurepowershell-interactive

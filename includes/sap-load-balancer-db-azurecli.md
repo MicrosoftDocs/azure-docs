@@ -25,6 +25,7 @@ az network nic ip-config address-pool add --address-pool MyBackendPool --ip-conf
 ```
 
 <details>
+
 <summary>Expand to view full CLI code</summary>
 
 ```azurecli-interactive
