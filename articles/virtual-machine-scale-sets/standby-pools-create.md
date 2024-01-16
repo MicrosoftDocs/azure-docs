@@ -56,19 +56,122 @@ For more information on assigning roles, see [Assign Azure roles using the Azure
 
 ### [CLI](#tab/cli1)
 
-
+```azurecli-interartive
+az standbypool create \
+   --resource-group myResourceGroup 
+   --name myStandbyPool \
+   --max-ready-capacity 20 \
+   --virtual-machine-state "Deallocated" \
+   --attached-scale-set "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+```
 ### [PowerShell](#tab/powershell1)
 
+```azurepowershell-interative
+Create-AzStandbyPool `
+   -ResourceGroup myResourceGroup 
+   -Name myStandbyPool `
+   -MaxReadyCapacity 20 `
+   -VirtualMachineState "Deallocated" 
+   -AttachedScaleSet "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+```
 
 ### [ARM Template](#tab/template1)
+```ARM
+{
+ "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+ "contentVersion": "1.0.0.0",
+ "parameters": {},
+ "resources": [
+     {
+         "type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
+         "apiVersion": "2023-06-01-preview",
+         "name": "{StandbyPoolName}",
+         "location": "{Location}",
+         "properties": {
+         "maxReadyCapacity": 20,
+         "virtualMachineState": "Running",
+         "attachedVirtualMachineScaleSetIds": []
+         }
+     }
+ ]
+}
 
+```
 
 ### [REST API](#tab/rest1)
 
-
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-06-01-preview
+{
+    "type": "Microsoft.StandbyPool/standbyVirtualMachinePools",
+    "name": "myStandbyPool",
+    "location": "North Europe",
+    "properties": {
+        "maxReadyCapacity": 50,
+        "virtualMachineState":"Deallocated",
+        "attachedVirtualMachineScaleSetIds": [          
+"/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{scaleSetName}"
+        ]
+    }
+}
+```
 ### [Terraform](#tab/terraform1)
+```terraform
+terraform {
+     required_providers {
+         azapi = {
+             source = "Azure/azapi"
+             version = "=0.1.0"
+             }
+     azurerm = {
+         source = "hashicorp/azurerm"
+         version = "=3.0.2"
+         }
+     }
+}
+provider "azapi" {
+     default_location = "{Location}"
+     skip_provider_registration = false
+    }
+provider "azurerm" {
+     features {}
+    }
+resource "azapi_resource" "standbyVirtualMachinePool" {
+     type = Microsoft.StandbyPool/standbyVirtualMachinePools@2023-06-01-preview
+     parent_id = "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/"
+     name = "{StandbyPoolName}"
+     location = "{Location}"
+     body = jsonencode({
+     properties = {
+     maxReadyCapacity = 20
+     virtualMachineState = "Running"
+     attachedVirtualMachineScaleSetIds = ["/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}"]
+         }
+     })
+ schema_validation_enabled = false
+ ignore_missing_property = false
+}
+```
+
+### [Bicep](#tab/bicep1)
+```bicep
+param location string = resourceGroup().location
+
+resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-06-01-preview' = {
+    name: {StandbyPoolName}
+    location: location
+    properties: {
+        maxReadyCapacity: 20
+        virtualMachineState: 'Running'
+        attachedVirtualMachineScaleSetIds: ['/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}]
+        }
+    } 
+```
+
 
 ---
 
 
 ## Next steps
+
+Learn how to [update and delete a Standby Pool](standby-pools-update-delete.md)

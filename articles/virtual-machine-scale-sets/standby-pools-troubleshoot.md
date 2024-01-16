@@ -24,3 +24,5 @@ in the platform attempting to create the VMs in the Standby Pool but unable to s
 the create operation. Check for multiple types of quotas such as Cores, NICs, IP Addresses, etc.
 
 ## Next steps
+
+Learn more about [Standby Pools for Virtual Machine Scale Sets](standby-pools-overview.md)

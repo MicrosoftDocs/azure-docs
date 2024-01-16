@@ -68,3 +68,5 @@ consumed.
 
 
 ## Next steps
+
+Learn how to [create a Standby Pool](standby-pools-create.md)
