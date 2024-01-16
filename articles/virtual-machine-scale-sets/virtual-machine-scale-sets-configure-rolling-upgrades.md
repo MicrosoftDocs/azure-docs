@@ -119,7 +119,7 @@ Update the properties section of your ARM template and set the Upgrade Policy to
 
 ### [Portal](#tab/portal2)
 
-When a Rolling Upgrade is triggered in the Azure Portal, a banner appears at the top of your scale set resource informing you that a Rolling Upgrade is in progress. You can click on view details to see the status of the rolling upgrade. When all updates are complete, the banner disappears. 
+When a Rolling Upgrade is triggered in the Azure portal, a banner appears at the top of your scale set resource informing you that a Rolling Upgrade is in progress. You can click on view details to see the status of the rolling upgrade. When all updates are complete, the banner disappears. 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-banner.png" alt-text="Screenshot showing banner when a rolling upgrade is taking place.":::
 
