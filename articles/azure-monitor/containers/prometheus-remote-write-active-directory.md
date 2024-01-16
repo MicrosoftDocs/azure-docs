@@ -7,32 +7,32 @@ ms.custom: devx-track-azurecli
 ms.date: 11/01/2022
 ---
 
-# Send data to your Azure Monitor workspace from a Prometheus server by using Microsoft Entra authentication
+# Send Prometheus data to Azure Monitor by using Microsoft Entra authentication
 
-This article describes how to set up [remote write](prometheus-remote-write.md) to send data from self-managed Prometheus running in your Azure Kubernetes Service (AKS) cluster or Azure Arc-enabled Kubernetes cluster by using Microsoft Entra authentication.
+This article describes how to set up [remote write](prometheus-remote-write.md) to send data from a self-managed Prometheus server running in your Azure Kubernetes Service (AKS) cluster or Azure Arc-enabled Kubernetes cluster by using Microsoft Entra authentication.
 
 ## Cluster configurations
 
 This article applies to the following cluster configurations:
 
-- An Azure Kubernetes Service cluster
-- An Azure Arc-enabled Kubernetes cluster
-- A Kubernetes cluster running in a different cloud or on-premises
+- Azure Kubernetes Service cluster
+- Azure Arc-enabled Kubernetes cluster
+- Kubernetes cluster running in a different cloud or on-premises
 
 > [!NOTE]
-> For an AKS cluster or an Azure Arc-enabled Kubernetes cluster, managed identity authentication is recommended. See [Azure Monitor managed service for Prometheus remote write for managed identity](prometheus-remote-write-managed-identity.md).
+> For an AKS cluster or an Azure Arc-enabled Kubernetes cluster, we recommend that you use managed identity authentication. For more information, see [Azure Monitor managed service for Prometheus remote write for managed identity](prometheus-remote-write-managed-identity.md).
 
 ## Prerequisites
 
-See the prerequisites that are listed at [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites).
+The prerequisites that are described in [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites) apply to the processes that are described in this article.
 
-## Set up an application to use Microsoft Entra authentication
+## Set up an application for Microsoft Entra ID
 
 The process to set up Prometheus remote write for an application by using Microsoft Entra authentication involves completing the following tasks:
 
 1. Register an application with Microsoft Entra ID.
 1. Get the client ID of the Microsoft Entra application.
-1. Assign the Monitoring Metrics Publisher role on the data collection rule to the application.
+1. Assign the Monitoring Metrics Publisher role on the workspace data collection rule to the application.
 1. Create an Azure key vault and generate a certificate.
 1. Add a certificate to the Microsoft Entra application.
 1. Add a CSI driver and storage for the cluster.
@@ -50,18 +50,16 @@ Complete the steps to [register an application with Microsoft Entra ID](../../ac
 
 ### Get the client ID of the Microsoft Entra application
 
-To get the client ID of the application:
-
 1. In the Azure portal, go to the **Microsoft Entra ID** menu and select **App registrations**.
 1. In the list of applications, copy and retain the value for **Application (client) ID** for the registered application.
 
 :::image type="content" source="media/prometheus-remote-write-active-directory/application-client-id.png" alt-text="Screenshot that shows the application or client ID of a Microsoft Entra application." lightbox="media/prometheus-remote-write-active-directory/application-client-id.png":::
 
-### Assign the Monitoring Metrics Publisher role on the data collection rule to the application
+### Assign the Monitoring Metrics Publisher role on the workspace data collection rule to the application
 
-The application must have the Monitoring Metrics Publisher role on the data collection rule that is associated with your Azure Monitor workspace.
+The application must be assigned the Monitoring Metrics Publisher role on the data collection rule that is associated with your Azure Monitor workspace.
 
-1. On the resource menu for your Azure Monitor workspace, select **Overview**. Under **Data collection rule**, select the link.
+1. On the resource menu for your Azure Monitor workspace, select **Overview**. For **Data collection rule**, select the link.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/azure-monitor-account-data-collection-rule.png" alt-text="Screenshot that shows the data collection rule that's used by Azure Monitor workspace." lightbox="media/prometheus-remote-write-managed-identity/azure-monitor-account-data-collection-rule.png":::
 
@@ -75,7 +73,7 @@ The application must have the Monitoring Metrics Publisher role on the data coll
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/add-role-assignment.png" alt-text="Screenshot that shows a list of role assignments." lightbox="media/prometheus-remote-write-managed-identity/add-role-assignment.png":::
 
-1. Select **User, group, or service principal**, and then choose **Select members**. Select the application that you created and choose **Select**.
+1. Select **User, group, or service principal**, and then choose **Select members**. Select the application that you created, and then choose **Select**.
 
     :::image type="content" source="media/prometheus-remote-write-active-directory/select-application.png" alt-text="Screenshot that shows selecting the application." lightbox="media/prometheus-remote-write-active-directory/select-application.png":::
 
@@ -92,12 +90,12 @@ The application must have the Monitoring Metrics Publisher role on the data coll
 ### Add a certificate to the Microsoft Entra application
 
 1. On the resource menu for your Microsoft Entra application, select **Certificates & secrets**.
-1. Select **Upload certificate** and select the certificate that you downloaded.
+1. On the **Certificates** tab, select **Upload certificate** and select the certificate that you downloaded.
 
     :::image type="content" source="media/prometheus-remote-write-active-directory/upload-certificate.png" alt-text="Screenshot that shows uploading a certificate for a Microsoft Entra application." lightbox="media/prometheus-remote-write-active-directory/upload-certificate.png":::
 
 > [!WARNING]
-> Certificates have an expiration date, and it's the responsibility of the user to keep these certificates valid.
+> Certificates have an expiration date, and it's the responsibility of the user to keep certificates valid.
 
 ### Add a CSI driver and storage for the cluster
 
@@ -106,13 +104,13 @@ The application must have the Monitoring Metrics Publisher role on the data coll
 
 This step is required only if you didn't turn on Azure Key Vault Provider for Secrets Store CSI Driver when you created your cluster.
 
-1. Run the following Azure CLI command to turn on Azure Key Vault Provider for Secrets Store CSI Driver for your cluster:
+1. To turn on Azure Key Vault Provider for Secrets Store CSI Driver for your cluster, run the following Azure CLI command:
 
     ```azurecli
     az aks enable-addons --addons azure-keyvault-secrets-provider --name <aks-cluster-name> --resource-group <resource-group-name>
     ```
 
-1. Run the following commands to give the identity access to the key vault:
+1. To give the identity access to the key vault, run these commands:
 
     ```azurecli
     # show client id of the managed identity of the cluster
@@ -150,7 +148,7 @@ This step is required only if you didn't turn on Azure Key Vault Provider for Se
     |:---|:---|
     | `<CLUSTER-NAME>` | The name of your Azure Kubernetes Service (AKS) cluster. |
     | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1`<br>The remote write container image version.   |
-    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
+    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page of the Azure Monitor workspace. |
     | `<APP-REGISTRATION -CLIENT-ID>` | The client ID of your application. |
     | `<TENANT-ID>` | The tenant ID of the Microsoft Entra application. |
     | `<CERT-NAME>` | The name of the certificate.  |
@@ -174,8 +172,8 @@ For verification and troubleshooting information, see [Azure Monitor managed ser
 ## Related content
 
 - [Collect Prometheus metrics from an AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
-- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
+- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
 - [Remote write in Azure Monitor managed service for Prometheus](prometheus-remote-write.md)
-- [Set up remote write for Azure Monitor managed service for Prometheus by using managed identity authentication](./prometheus-remote-write-managed-identity.md)
-- [Set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra Workload ID (preview) authentication](./prometheus-remote-write-azure-workload-identity.md)
-- [Set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra pod-managed identity (preview) authentication](./prometheus-remote-write-azure-ad-pod-identity.md)
+- [Send Prometheus data to Azure Monitor by using managed identity authentication](./prometheus-remote-write-managed-identity.md)
+- [Send Prometheus data to Azure Monitor by using Microsoft Entra Workload ID (preview) authentication](./prometheus-remote-write-azure-workload-identity.md)
+- [Send Prometheus data to Azure Monitor by using Microsoft Entra pod-managed identity (preview) authentication](./prometheus-remote-write-azure-ad-pod-identity.md)

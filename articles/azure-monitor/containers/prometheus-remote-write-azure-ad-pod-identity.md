@@ -1,6 +1,6 @@
 ---
-title: Set up remote write for Prometheus by using Microsoft Entra pod-managed identity 
-description: Learn how to set up remote write for Azure Monitor managed service for Prometheus by using a Microsoft Entra pod-managed identity (preview) 
+title: Set up Prometheus remote write by using Microsoft Entra pod-managed identity authentication
+description: Learn how to set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra pod-managed identity (preview) authentication.
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
@@ -8,16 +8,18 @@ ms.date: 05/11/2023
 ms.reviewer: rapadman
 ---
 
-# Set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra pod-managed identity (preview) authentication
+# Send Prometheus data to Azure Monitor by using Microsoft Entra pod-managed identity (preview) authentication
+
+This article describes how to set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra pod-managed identity (preview) authentication.
 
 > [!NOTE]
-> The remote write sidecar container should be set up only by using the following steps, and only if the Azure Kubernetes Service (AKS) cluster already has the Microsoft Entra pod turned on. This approach is not recommended because Microsoft Entra pod-managed identities have been deprecated to be replaced by [Microsoft Entra Workload ID](/azure/active-directory/workload-identities/workload-identities-overview).
+> The remote write sidecar container that's described in this article should be set up only by using the following steps, and only if the Azure Kubernetes Service (AKS) cluster already has a Microsoft Entra pod enabled. Microsoft Entra pod-managed identities have been deprecated to be replaced by [Microsoft Entra Workload ID](/azure/active-directory/workload-identities/workload-identities-overview). We recommend that you use Microsoft Entra Workload ID authentication.
 
 ## Prerequisites
 
-See the prerequisites that are listed at [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites).
+The prerequisites that are described in [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites) apply to the processes that are described in this article.
 
-## Set up an application to use Microsoft Entra pod-managed identity authentication
+## Set up an application for Microsoft Entra pod-managed identity
 
 The process to set up Prometheus remote write for an application by using Microsoft Entra pod-managed identity authentication involves completing the following tasks:
 
@@ -90,7 +92,8 @@ The `aadpodidbinding` label must be added to the Prometheus pod for the pod-mana
 
    ```azurecli
    # set the context to your cluster 
-   az aks get-credentials -g <aks-rg-name> -n <aks-cluster-name> 
+   az aks get-credentials -g <aks-rg-name> -n <aks-cluster-name>
+
    # use Helm to update your remote write config 
    helm upgrade -f <YAML-FILENAME>.yml prometheus prometheus-community/kube-prometheus-stack --namespace <namespace where Prometheus pod resides>
    ```
@@ -104,6 +107,6 @@ For verification and troubleshooting information, see [Azure Monitor managed ser
 - [Collect Prometheus metrics from an AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
 - [Remote write in Azure Monitor managed service for Prometheus](prometheus-remote-write.md)
-- [Set up remote write in Azure Monitor managed service for Prometheus by using Microsoft Entra authentication](./prometheus-remote-write-active-directory.md)
-- [Set up remote write for Azure Monitor managed service for Prometheus by using managed identity authentication](./prometheus-remote-write-managed-identity.md)
-- [Set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra Workload ID (preview) authentication](./prometheus-remote-write-azure-workload-identity.md)
+- [Send Prometheus data to Azure Monitor by using Microsoft Entra authentication](./prometheus-remote-write-active-directory.md)
+- [Send Prometheus data to Azure Monitor by using managed identity authentication](./prometheus-remote-write-managed-identity.md)
+- [Send Prometheus data to Azure Monitor by using Microsoft Entra Workload ID (preview) authentication](./prometheus-remote-write-azure-workload-identity.md)

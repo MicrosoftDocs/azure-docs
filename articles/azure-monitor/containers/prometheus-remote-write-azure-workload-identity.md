@@ -9,7 +9,7 @@ ms.date: 09/10/2023
 ms.reviewer: rapadman
 ---
 
-# Send data to your Azure Monitor workspace from a Prometheus server by using Microsoft Entra Workload ID (preview) authentication
+# Send data to Azure Monitor from Prometheus by using Microsoft Entra Workload ID (preview) authentication
 
 This article describes how to set up [remote write](prometheus-remote-write.md) to send data from your Azure Monitor managed Prometheus cluster by using Microsoft Entra Workload ID authentication.
 
@@ -23,13 +23,13 @@ To send data from a Prometheus server by using remote write with Microsoft Entra
 - An installed mutating admission webhook. For more information, see [Mutating Admission Webhook - Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html).
 - Prometheus running in the cluster. This article assumes that the Prometheus cluster is set up by using the [kube-prometheus stack](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html), but you can set up Prometheus by using other methods.
 
-## Set up a workload to use Microsoft Entra Workload ID authentication
+## Set up a workload for Microsoft Entra Workload ID
 
-The process to set up Prometheus remote write for an application by using Microsoft Entra Workload ID authentication involves completing the following tasks:
+The process to set up Prometheus remote write for a workload by using Microsoft Entra Workload ID authentication involves completing the following tasks:
 
 1. Set up the workload identity.
 1. Create a Microsoft Entra application or user-assigned managed identity.
-1. Assign the Monitoring Metrics Publisher role on the data collection rule to the application.
+1. Assign the Monitoring Metrics Publisher role on the workspace data collection rule to the application.
 1. Create or update your Kubernetes service account Prometheus pod.
 1. Establish federated identity credentials between the identity and the service account issuer and subject.
 1. Deploy a sidecar container to set up remote write on the Prometheus server.
@@ -53,7 +53,7 @@ export SERVICE_ACCOUNT_NAME="<name of service account associated with Prometheus
 export SERVICE_ACCOUNT_ISSUER="<your service account issuer URL>"
 ```  
 
-For `SERVICE_ACCOUNT_NAME`, check to see whether a service account (separate from the *default* service account) is already associated with the Prometheus pod. Look for the value of `serviceaccountName` or `serviceAccount` (deprecated) in the `spec` of your Prometheus pod. Use this value if it exists. If `serviceaccountName` or `serviceAccount` don't exist, enter the name of the service account you want to associate with your Prometheus pod.
+For `SERVICE_ACCOUNT_NAME`, check to see whether a service account (separate from the *default* service account) is already associated with the Prometheus pod. Look for the value of `serviceaccountName` or `serviceAccount` (deprecated) in the `spec` of your Prometheus pod. Use this value if it exists. If `serviceaccountName` and `serviceAccount` don't exist, enter the name of the service account you want to associate with your Prometheus pod.
 
 ### Create a Microsoft Entra application or user-assigned managed identity and grant permissions
 
@@ -67,9 +67,9 @@ az ad sp create-for-rbac --name "${APPLICATION_NAME}"
 az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}"
 ```
 
-### Assign the Monitoring Metrics Publisher role on the data collection rule to the application or managed identity
+### Assign the Monitoring Metrics Publisher role on the workspace data collection rule to the application or managed identity
 
-For information about assigning the role, see [Assign the Monitoring Metrics Publisher role on the data collection rule to the managed identity](prometheus-remote-write-managed-identity.md#assign-the-monitoring-metrics-publisher-role-on-the-data-collection-rule-to-the-managed-identity).
+For information about assigning the role, see [Assign the Monitoring Metrics Publisher role on the workspace data collection rule to the managed identity](prometheus-remote-write-managed-identity.md#assign-the-monitoring-metrics-publisher-role-on-the-workspace-data-collection-rule-to-the-managed-identity).
 
 ### Create or update your Kubernetes service account Prometheus pod
 
@@ -181,6 +181,6 @@ For verification and troubleshooting information, see [Azure Monitor managed ser
 - [Collect Prometheus metrics from an AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
 - [Remote write in Azure Monitor managed service for Prometheus](prometheus-remote-write.md)
-- [Set up remote write in Azure Monitor managed service for Prometheus by using Microsoft Entra authentication](./prometheus-remote-write-active-directory.md)
-- [Set up remote write for Azure Monitor managed service for Prometheus by using managed identity authentication](./prometheus-remote-write-managed-identity.md)
-- [Set up remote write for Azure Monitor managed service for Prometheus by using Microsoft Entra pod-managed identity (preview) authentication](./prometheus-remote-write-azure-ad-pod-identity.md)
+- [Send Prometheus data to Azure Monitor by using Microsoft Entra authentication](./prometheus-remote-write-active-directory.md)
+- [Send Prometheus data to Azure Monitor by using managed identity authentication](./prometheus-remote-write-managed-identity.md)
+- [Send Prometheus data to Azure Monitor by using Microsoft Entra pod-managed identity (preview) authentication](./prometheus-remote-write-azure-ad-pod-identity.md)
