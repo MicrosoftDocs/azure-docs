@@ -9,7 +9,7 @@ ms.reviewer: viviandiec
 
 # Azure Monitor features for Kubernetes monitoring
 
-[Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) and [Container insights](#container-insights) work together for complete monitoring of your Kubernetes environment. This article describes both features and the data they collect.
+[Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) and Container insights work together for complete monitoring of your Kubernetes environment. This article describes both features and the data they collect.
 
 [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed service based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation. It allows you to collect and analyze metrics from your Kubernetes cluster at scale and analyze them using prebuilt dashboards in [Grafana](../../managed-grafana/overview.md).
 
