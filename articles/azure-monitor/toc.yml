@@ -477,36 +477,38 @@ items:
           href: ../managed-grafana/how-to-connect-to-data-source-privately.md
         - name: Container insights
           href: containers/container-insights-private-link.md
-      - name: Enable remote write
+      - name: Configure Prometheus
         items:
-        - name: Overview
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write.md
-        - name: Managed identity
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-managed-identity.md
-        - name: Microsoft Entra ID
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-active-directory.md
-        - name: Microsoft Entra pod identity
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-azure-ad-pod-identity.md
-        - name: Microsoft Entra Workload ID (preview)
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-azure-workload-identity.md
-      - name: KEDA integration
-        displayName: Prometheus
-        href: containers/integrate-keda.md
-      - name: Prometheus Microsoft Entra authorization proxy
-        displayName: Prometheus
-        href: containers/prometheus-authorization-proxy.md
+        - name: Enable remote write
+          items:
+          - name: Overview
+            displayName: Prometheus,remote-write
+            href: containers/prometheus-remote-write.md
+          - name: Managed identity
+            displayName: Prometheus,remote-write
+            href: containers/prometheus-remote-write-managed-identity.md
+          - name: Microsoft Entra ID
+            displayName: Prometheus,remote-write
+            href: containers/prometheus-remote-write-active-directory.md
+          - name: Microsoft Entra pod identity
+            displayName: Prometheus,remote-write
+            href: containers/prometheus-remote-write-azure-ad-pod-identity.md
+          - name: Microsoft Entra Workload ID (preview)
+            displayName: Prometheus,remote-write
+            href: containers/prometheus-remote-write-azure-workload-identity.md
+          - name: KEDA integration
+            displayName: Prometheus
+            href: containers/integrate-keda.md
+          - name: Entra authorization proxy
+            displayName: Prometheus
+            href: containers/prometheus-authorization-proxy.md
       - name: Legacy authentication
         href: containers/container-insights-authentication.md
       - name: Supported region mappings
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
-    - name: Configure monitoring
+    - name: Configure data collection
       items:
       - name: Prometheus (metrics)
         items:
@@ -532,10 +534,11 @@ items:
         items:
         - name: Configure data collection
           items:
-          - name: ConfigMap
+          - name: Configure with ConfigMap
             displayName: Container insights
             href: containers/container-insights-data-collection-configmap.md
-          - name: Data collection rule
+          - name: Configure with  Data collection rule
+            displayName: Container insights
             href: containers/container-insights-data-collection-dcr.md
         - name: Log schema
           href: containers/container-insights-logs-schema.md
