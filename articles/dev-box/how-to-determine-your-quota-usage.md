@@ -1,5 +1,5 @@
 --- 
-title: How to determine your resource usage and quota 
+title: Determine your resource usage and quota 
 description: Learn how to determine where the Dev Box resources for your subscription are used and if you have any spare capacity against your quota.  
 services: dev-box
 ms.service: dev-box
@@ -11,11 +11,14 @@ ms.date: 01/09/2024
 
 # Determine resource usage and quota for Microsoft Dev Box  
 
-To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a _quota_. 
+To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a quota.  There are different types of quota related to Dev Box that you might see in the Developer portal and Azure portal, such as quota for Dev Box vCPU for box creation as well as portal resource limits for Dev Centers, network connections, and Dev Box Definitions.
 
 Keeping track of how your quota of virtual machine cores is being used across your subscriptions can be difficult. You might want to know what your current usage is, how much is remaining, and in what regions you have capacity. To help you understand where and how you're using your quota, Azure provides the **Usage + Quotas** page in the Azure portal. 
 
-## Determine your Dev Box usage and quota by subscription
+For example, if dev box users encounter a vCPU quota error such as, *QuotaExceeded*, error during dev box creation there may be a need to increase this quota. A great place to start is to determine the current quota available.   
+
+
+## Determine your Dev Box usage and quota by subscription in Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and go to the subscription you want to examine. 
 
@@ -59,3 +62,6 @@ Each subscription has its own **Usage + quotas** page that covers all the variou
 
 - Check the default quota for each resource type by subscription type with [Microsoft Dev Box limits](../azure-resource-manager/management/azure-subscription-service-limits.md#microsoft-dev-box-limits)
 - Learn how to [request a quota limit increase](./how-to-request-quota-increase.md)
+- You can also check your Dev Box quota using either: 
+   - REST API: [Usages - List By Location - REST API (Azure Dev Center)](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
+   - CLI:  [az devcenter admin usage](/cli/azure/devcenter/admin/usage) 

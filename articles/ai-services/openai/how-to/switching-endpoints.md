@@ -7,7 +7,7 @@ ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 11/22/2023
+ms.date: 01/06/2023
 manager: nitinme
 ---
 
@@ -166,7 +166,7 @@ embedding = client.embeddings.create(
 
 ## Azure OpenAI embeddings multiple input support
 
-OpenAI currently allows a larger number of array inputs with text-embedding-ada-002. Azure OpenAI currently supports input arrays up to 16 for text-embedding-ada-002 Version 2. Both require the max input token limit per API request to remain under 8191 for this model.
+OpenAI and Azure OpenAI currently support input arrays up to 2048 input items for text-embedding-ada-002. Both require the max input token limit per API request to remain under 8191 for this model.
 
 <table>
 <tr>
@@ -190,7 +190,7 @@ embedding = client.embeddings.create(
 <td>
 
 ```python
-inputs = ["A", "B", "C"] #max array size=16
+inputs = ["A", "B", "C"] #max array size=2048
 
 embedding = client.embeddings.create(
   input=inputs,

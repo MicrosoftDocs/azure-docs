@@ -6,7 +6,7 @@ description: Learn how to generate embeddings with Azure OpenAI
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 01/16/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -126,7 +126,9 @@ return $response.data.embedding
 
 ### Verify inputs don't exceed the maximum length
 
-The maximum length of input text for our latest embedding models is 8192 tokens. You should verify that your inputs don't exceed this limit before making a request.
+- The maximum length of input text for our latest embedding models is 8192 tokens. You should verify that your inputs don't exceed this limit before making a request.
+- If sending an array of inputs in a single embedding request the max array size is 2048.
+
 
 ## Limitations & risks
 

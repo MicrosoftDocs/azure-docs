@@ -59,8 +59,9 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
 1. Use the dev box tile in the developer portal to track the progress of creation.
 
-   
-
+   > [!Note]
+   > If you encounter a vCPU quota error with a *QuotaExceeded* message, ask your administrator to [request an increased quota limit](/azure/dev-box/how-to-request-quota-increase). If your admin can't increase the quota limit at this time, try selecting another pool with a region close to your location.  
+      
    :::image type="content" source="./media/quickstart-create-dev-box/dev-box-tile-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating.":::
 
 
