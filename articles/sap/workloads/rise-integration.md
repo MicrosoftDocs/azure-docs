@@ -26,6 +26,24 @@ For customers with SAP solutions such as RISE with SAP Enterprise Cloud Services
 - [Integrating Azure services with SAP RISE](./rise-integration-services.md)
 - [Identity and security in Azure with SAP RISE](./rise-integration-security.md)
 
+## Enablement of integration scenarios 
+
+It's important to distinguish the responsibility between SAP and customer when enabling certain Azure scenarios. The following diagram illustrates most common situations.
+
+[![Diagram showing the breakdown of responsibility between customer and SAP for different aspects of enablement of integration scenarios.](./media/sap-rise-integration/sap-rise-integration-table.png)](./media/sap-rise-integration/sap-rise-integration-table.png)
+
+There might be some circumstances when an initial request needs to be placed with SAP RISE for enablement. However, most Azure scenarios depend on open network communication to available SAP interfaces and activities entirely within customer's responsibility. Diagram shown doesn't replace or extends an existing responsibility matrix between the customer and SAP RISE/ECS.
+
+## First steps
+
+Review the specifics within this document and then jump to individual documents for your scenario. From the integration table, some examples are listed.
+
+- [Setup network peering](./rise-integration-network.md#virtual-network-peering-with-sap-riseecs)
+- [Enable Power App to consume SAP interfaces](./rise-integration-services.md#on-premises-data-gateway)
+- [Enable Power BI](./rise-integration-services.md#on-premises-data-gateway), Fabric and Synapse to consume SAP data.
+- [Enable Microsoft Entra ID as SSO provider](./rise-integration-security.md#single-sign-on-for-sap)
+- [Defend SAP at machine speed with Sentinel](./rise-integration-security.md#microsoft-sentinel-with-sap-rise) to block compromised users during attacks.
+
 ## Azure support
 
 SAP RISE customers in Azure have the SAP landscape run by SAP in an Azure subscription owned by SAP. The subscription and all Azure resources of your SAP environment are visible to and managed by SAP only. In turn, the customer's own Azure environment contains applications that interact with the SAP systems. Elements such as virtual networks, network security groups, firewalls, routing, Azure services such as Azure Data Factory and others running inside the customer subscription access the SAP managed landscape. When you engage with Azure support, only resources in your own subscriptions are in scope. Contact SAP for issues with any resources operated in SAP's Azure subscriptions for your RISE workload.

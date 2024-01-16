@@ -101,7 +101,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 **<sup>2</sup>** GPT-4 Turbo with Vision Preview = `gpt-4` (vision-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **vision-preview**.
 
 > [!CAUTION]
-> We don't recommend using these models in production. We will upgrade all deployments of these models to a future stable version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
+> We don't recommend using preview models in production. We will upgrade all deployments of preview models to a future stable version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
 
 > [!NOTE]
 > Regions where GPT-4 (0314) & (0613) are listed as available have access to both the 8K and 32K versions of the model
@@ -110,8 +110,8 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 | Model Availability | gpt-4 (0314) | gpt-4 (0613) | gpt-4 (1106-preview) | gpt-4 (vision-preview) | 
 |---|:---|:---|:---|:---|
-| Available to all subscriptions with Azure OpenAI access | | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | Switzerland North <br> West US | 
-| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | East US <br> East US 2 <br> Japan East <br> UK South | | Australia East <br>Sweden Central|
+| Available to all subscriptions with Azure OpenAI access | | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | Sweden Central <br> Switzerland North <br> West US | 
+| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | East US <br> East US 2 <br> Japan East <br> UK South | | Australia East |
 
 ### GPT-3.5 models
 
@@ -147,6 +147,9 @@ These models can only be used with Embedding API requests.
 |---|---| :---:|:---:|:---:|
 | `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> Norway East <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe <br> West US |8,191 | Sep 2021 | 1,536 |
 | `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | Sep 2021 | 1,536 |
+
+> [!NOTE]
+> When sending an array of inputs for embedding, the max number of input items in the array per call to the embedding endpoint is 2048.
 
 ### DALL-E models (Preview)
 

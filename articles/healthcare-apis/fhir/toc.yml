@@ -39,11 +39,14 @@ items:
           href: troubleshoot-identity-provider-configuration.md
 - name: Configuration
   expanded: true
-  items: 
-    - name: Customer-managed keys best practices
-      href: customer-managed-keys.md
-    - name: Configure customer-managed keys
-      href: configure-customer-managed-keys.md
+  items:
+    - name: Customer-managed keys
+      expanded: false
+      items:
+      - name: Configure customer-managed keys
+        href: configure-customer-managed-keys.md
+      - name: Customer-managed keys best practices
+        href: customer-managed-keys.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
     - name: Enable diagnostic settings in the FHIR service
@@ -96,11 +99,12 @@ items:
         - name: De-identified export
           href: de-identified-export.md
     - name: $import
-      items: 
-        - name: Configure settings for bulk-import
-          href: configure-import-data.md
-        - name: Use bulk-import
-          href: import-data.md
+      expanded: false
+      items:
+      - name: Configure settings for bulk-import  
+        href: configure-import-data.md
+      - name: Import FHIR data 
+        href: import-data.md 
     - name: $member-match
       href: tutorial-member-match.md
     - name: Patient/$everything
