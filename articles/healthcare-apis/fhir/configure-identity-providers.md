@@ -91,7 +91,7 @@ The `aud` claim in an access token identifies the intended recipient of the toke
 
 #### Specify the permissions with the `allowedDataActions` array
 
-Include at least one permission string in the `allowedDataActions` array. The only supported Data Action is `Read`.
+Include at least one permission string in the `allowedDataActions` array. You can include any valid permission strings, but avoid duplicates.
 
 | **Valid permission string** | **Description** |
 |---|---|
