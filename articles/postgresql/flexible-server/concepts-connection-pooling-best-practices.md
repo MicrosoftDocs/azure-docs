@@ -108,7 +108,7 @@ When utilizing this approach, PgBouncer is deployed as a centralized service, in
 
 ### I. PgBouncer deployed in ubuntu VM behind Azure Load Balancer
 
-**PgBouncer** connection proxy is set up between the application and database layer behind a Azure Load Balancer as shown in the image. In this pattern multiple PgBouncer instances are deployed behind a load balancer as a service to mitigate single point of failure. This pattern is also suitable in scenarios where the application is running on a managed service like Azure App Services or Azure Functions and connecting to **PgBouncer** service for easy integration with your existing infrastructure.
+**PgBouncer** connection proxy is set up between the application and database layer behind an Azure Load Balancer as shown in the image. In this pattern multiple PgBouncer instances are deployed behind a load balancer as a service to mitigate single point of failure. This pattern is also suitable in scenarios where the application is running on a managed service like Azure App Services or Azure Functions and connecting to **PgBouncer** service for easy integration with your existing infrastructure.
 
 Refer [link](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)  to install and set up PgBouncer connection pooling proxy with Azure Database for PostgreSQL flexible server.
 

@@ -91,7 +91,7 @@ You can see the full list of all the task inputs when using Azure CLI task with 
 Having issues with CLI Task, see [how to troubleshoot Build and Release](/azure/devops/pipelines/troubleshooting/troubleshooting).
 
 ## Next steps 
-Here are some related tasks that can be used to deploy with Azure Piplelines.
+Here are some related tasks that can be used to deploy with Azure Pipelines.
 
 - [Azure Resource Group Deployment](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
 - [Azure Web App Deployment](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment)

@@ -49,7 +49,7 @@ The following table describes the fields for the **PostgreSQLLogs** type. Depend
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel_s | Logging level, example: LOG, ERROR, NOTICE |
-| processId_d | Process id of the PostgreSQL backend |
+| processId_d | Process ID of the PostgreSQL backend |
 | sqlerrcode_s | PostgreSQL Error code that follows the SQL standard's conventions for SQLSTATE codes |
 | Message | Primary log message | 
 | Detail | Secondary log message (if applicable) |

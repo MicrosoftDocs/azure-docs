@@ -117,7 +117,7 @@ When using Azure Database for PostgreSQL flexible server for a busy database wit
    
 ### Stop/start operation
 
-- Once you stop the Azure Database for PostgreSQL flexible server instance, it automatically starts after 7- days. 
+- Once you stop the Azure Database for PostgreSQL flexible server instance, it automatically starts after 7 days. 
 
 ### Scheduled maintenance
 

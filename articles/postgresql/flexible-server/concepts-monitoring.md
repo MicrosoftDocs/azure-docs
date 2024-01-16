@@ -57,7 +57,7 @@ You can use enhanced metrics for Azure Database for PostgreSQL flexible server t
 
 #### Enabling enhanced metrics
 
-- Most of these new metrics are *disabled* by default. There are a few exceptions though, which are enabled by default. Rightmost column in the following tables indicate whether each metric is enabled by default or not.
+- Most of these new metrics are *disabled* by default. There are a few exceptions though, which are enabled by default. Rightmost column in the following tables indicates whether each metric is enabled by default or not.
 - To enable those metrics which are not enabled by default, set the server parameter `metrics.collector_database_activity` to `ON`. This parameter is dynamic and doesn't require an instance restart.
 
 ##### List of enhanced metrics
@@ -140,7 +140,7 @@ You can choose from the following categories of enhanced metrics:
 
 ### Autovacuum metrics
 
-Autovacuum metrics can be used to monitor and tune autovaccum performance for Azure Database for PostgreSQL flexible server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics, and you can split and filter metrics data by using the DatabaseName dimension.
+Autovacuum metrics can be used to monitor and tune autovacuum performance for Azure Database for PostgreSQL flexible server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics, and you can split and filter metrics data by using the DatabaseName dimension.
 
 #### How to enable autovacuum metrics
 
@@ -201,7 +201,7 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 
 ### Database availability metric
 
-Is-db-alive is an database server availability metric for Azure Database for PostgreSQL flexible server, that returns `[1 for available]` and `[0 for not-available]`. Each metric is emitted at a *1 minute* frequency, and has up to *93 days* of retention. Customers can configure alerts on the metric.
+Is-db-alive is a database server availability metric for Azure Database for PostgreSQL flexible server that returns `[1 for available]` and `[0 for not-available]`. Each metric is emitted at a *1 minute* frequency, and has up to *93 days* of retention. Customers can configure alerts on the metric.
 
 |Display Name                                     |Metric ID                      |Unit   |Description                                                                                             |Dimension   |Default enabled|
 |-------------------------------------------------|-------------------------------|-------|--------------------------------------------------------------------------------------------------------|------------|---------------|

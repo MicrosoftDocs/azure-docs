@@ -13,7 +13,7 @@ ms.date: 1/4/2024
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-**Business continuity** in Azure Database for PostgreSQL flexible server refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In most of the cases, Azure Database for PostgreSQL flexible server handles disruptive events happens that might happen in the cloud environment and keep your applications and business processes running. However, there are some events that can't be handled automatically such as:
+**Business continuity** in Azure Database for PostgreSQL flexible server refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In most of the cases, Azure Database for PostgreSQL flexible server handles disruptive events that might happen in the cloud environment and keep your applications and business processes running. However, there are some events that can't be handled automatically such as:
 
 - User accidentally deletes or updates a row in a table.
 - Earthquake causes a power outage and temporarily disables an availability zone or a region.
@@ -60,7 +60,7 @@ When the Azure Database for PostgreSQL flexible server instance is configured wi
 
 ##  Unplanned downtime mitigation
 
-Unplanned downtimes can occur as a result of unforeseen disruptions such as underlying hardware fault, networking issues, and software bugs. If the database server configured with high availability goes down unexpectedly, then the standby replica is activated and the clients can resume their operations. If not configured with high availability (HA), then if the restart attempt fails, a new database server is automatically provisioned. While an unplanned downtime can't be avoided, Azure Database for PostgreSQL flexible server helps mitigating the downtime by automatically performing recovery operations without requiring human intervention. 
+Unplanned downtimes can occur as a result of unforeseen disruptions such as underlying hardware fault, networking issues, and software bugs. If the database server configured with high availability goes down unexpectedly, then the standby replica is activated and the clients can resume their operations. If not configured with high availability (HA), then if the restart attempt fails, a new database server is automatically provisioned. While an unplanned downtime can't be avoided, Azure Database for PostgreSQL flexible server helps mitigate the downtime by automatically performing recovery operations without requiring human intervention. 
 
 Though we continuously strive to provide high availability, there are times when Azure Database for PostgreSQL flexible server does incur outage causing unavailability of the databases and thus impacting your application. When our service monitoring detects issues that cause widespread connectivity errors, failures or performance issues, the service automatically declares an outage to keep you informed.
 

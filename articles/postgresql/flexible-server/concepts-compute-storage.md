@@ -95,7 +95,7 @@ Storage is available in the following fixed sizes:
 | 32 TiB | 20,000 |
 
 
-Your VM type also have IOPS limits. Even though you can select any storage size independently from the server type, you might not be able to use all IOPS that the storage provides, especially when you choose a server with a few vCores.
+Your VM type also has IOPS limits. Even though you can select any storage size independently from the server type, you might not be able to use all IOPS that the storage provides, especially when you choose a server with a few vCores.
 You can add storage capacity during and after the creation of the server.
 
 > [!NOTE]  
