@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 11/30/2023
+ms.date: 01/16/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about VNet flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
@@ -225,7 +225,7 @@ If you want to retain data forever and don't want to apply any retention policy,
 
 ## Pricing
 
-At this time, "Network Logs Collected" for VNet flow logs is not currently billed. In the future, "Network Logs Collected" will be billed per gigabyte and include a free tier of 5 GB/Month of log collection. Enabling traffic analytics for VNet flow logs will incur existing traffic analytics pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+Currently, VNet flow logs aren't billed. In the future, VNet flow logs will be billed per gigabyte of *Network Logs Collected* and will come with a free tier of 5 GB/month per subscription. If VNet flow logs are configured with traffic analytics enabled, existing traffic analytics pricing applies. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 ## Availability
 
@@ -239,7 +239,7 @@ VNet flow logs is available in the following regions during the preview:
 - West US
 - West US 2
 
-To sign up to obtain access to the public preview, see [VNet flow logs - public preview sign up](https://aka.ms/VNetflowlogspreviewsignup).
+To sign up to get access to the public preview, see [VNet flow logs - public preview sign up](https://aka.ms/VNetflowlogspreviewsignup).
 
 ## Related content
 
