@@ -13,15 +13,15 @@ ms.date: 4/3/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-PostgreSQL logs are available on every node of a flexible server. You can ship logs to a storage server, or to an analytics service. The logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance.
+Azure Database for PostgreSQL flexible server logs are available on every node of a flexible server. You can ship logs to a storage server, or to an analytics service. The logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance.
 
 ## Configure diagnostic settings
 
-You can enable diagnostic settings for your Postgres server using the Azure portal, CLI, REST API, and PowerShell. The log category to select is **PostgreSQLLogs**.
+You can enable diagnostic settings for your Azure Database for PostgreSQL flexible server instance using the Azure portal, CLI, REST API, and PowerShell. The log category to select is **PostgreSQLLogs**.
 
 To enable resource logs using the Azure portal:
 
-1. In the portal, go to *Diagnostic Settings* in the navigation menu of your Postgres server.
+1. In the portal, go to *Diagnostic Settings* in the navigation menu of your Azure Database for PostgreSQL flexible server instance.
    
 2. Select *Add Diagnostic Setting*.
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Add diagnostic settings button":::
@@ -41,11 +41,11 @@ To enable resource logs using PowerShell, CLI, or REST API, visit the [diagnosti
 
 The way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) article. For Event Hubs, see the [stream Azure logs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) article.
 
-For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgres logs use the **AzureDiagnostics** collection mode, so they can be queried from the AzureDiagnostics table. The fields in the table are described below. Learn more about querying and alerting in the [Azure Monitor Logs query](../../azure-monitor/logs/log-query-overview.md) overview.
+For Azure Monitor Logs, logs are sent to the workspace you selected. The Azure Database for PostgreSQL flexible server logs use the **AzureDiagnostics** collection mode, so they can be queried from the AzureDiagnostics table. The fields in the table are described below. Learn more about querying and alerting in the [Azure Monitor Logs query](../../azure-monitor/logs/log-query-overview.md) overview.
 
 The following are queries you can try to get started. You can configure alerts based on queries.
 
-Search for all Postgres logs for a particular server in the last day.
+Search for all Azure Database for PostgreSQL flexible server logs for a particular server in the last day.
 
 ```kusto
 AzureDiagnostics
@@ -53,7 +53,7 @@ AzureDiagnostics
 | where Category == "PostgreSQLLogs"
 | where TimeGenerated > ago(1d) 
 ```
-Search for all non-localhost connection attempts. Below query will show results over the last 6 hours for any Postgres server logging in this workspace.
+Search for all non-localhost connection attempts. Below query will show results over the last 6 hours for any Azure Database for PostgreSQL flexible server logging in this workspace.
 
 ```kusto
 AzureDiagnostics
@@ -61,7 +61,7 @@ AzureDiagnostics
 | where Category == "PostgreSQLLogs" and TimeGenerated > ago(6h)
 ```
 
-Search for PostgreSQL Sessions collected from `pg_stat_activity` system view for a particular server in the last day.
+Search for Azure Database for PostgreSQL flexible server Sessions collected from `pg_stat_activity` system view for a particular server in the last day.
 
 ```kusto
 AzureDiagnostics
@@ -70,7 +70,7 @@ AzureDiagnostics
 | where TimeGenerated > ago(1d) 
 ```
 
-Search for PostgreSQL Query Store Runtime statistics collected from `query_store.qs_view` for a particular server in the last day. It requires Query Store to be enabled.
+Search for Azure Database for PostgreSQL flexible server Query Store Runtime statistics collected from `query_store.qs_view` for a particular server in the last day. It requires Query Store to be enabled.
 
 ```kusto
 AzureDiagnostics
@@ -79,7 +79,7 @@ AzureDiagnostics
 | where TimeGenerated > ago(1d) 
 ```
 
-Search for PostgreSQL Query Store Wait Statistics collected from `query_store.pgms_wait_sampling_view` for a particular server in the last day. It requires Query Store Wait Sampling to be enabled.
+Search for Azure Database for PostgreSQL flexible server Query Store Wait Statistics collected from `query_store.pgms_wait_sampling_view` for a particular server in the last day. It requires Query Store Wait Sampling to be enabled.
 
 ```kusto
 AzureDiagnostics
@@ -88,7 +88,7 @@ AzureDiagnostics
 | where TimeGenerated > ago(1d) 
 ```
 
-Search for PostgreSQL Autovacuum and Schema statistics for each database in a particular server within the last day.
+Search for Azure Database for PostgreSQL flexible server Autovacuum and Schema statistics for each database in a particular server within the last day.
 
 ```kusto
 AzureDiagnostics
@@ -97,7 +97,7 @@ AzureDiagnostics
 | where TimeGenerated > ago(1d) 
 ```
 
-Search for PostgreSQL remaining transactions and multixacts till emergency autovacuum or wraparound protection for each database in a particular server within the last day.
+Search for Azure Database for PostgreSQL flexible server remaining transactions and multixacts till emergency autovacuum or wraparound protection for each database in a particular server within the last day.
 
 ```kusto
 AzureDiagnostics

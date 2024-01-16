@@ -131,16 +131,16 @@ Generative AI has a wide range of applications across various domains and indust
 
 ## Next steps
 
-Visit the following articles to learn how to perform semantic search with Azure Database for PostgreSQL Flexible Server and Azure OpenAI, and how to leverage the power of Azure Cognitive Services to analyze sentiment, detect language, extract key phrases, and more advanced operations you can apply on text.
+Visit the following articles to learn how to perform semantic search with Azure Database for PostgreSQL flexible server and Azure OpenAI, and how to leverage the power of Azure Cognitive Services to analyze sentiment, detect language, extract key phrases, and more advanced operations you can apply on text.
 
 > [!div class="nextstepaction"]
 > [Generate vector embeddings with Azure OpenAI](./generative-ai-azure-openai.md)
 
 > [!div class="nextstepaction"]
-> [Integrate Azure Database for PostgreSQL Flexible Server with Azure Cognitive Services](./generative-ai-azure-cognitive.md)
+> [Integrate Azure Database for Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services](./generative-ai-azure-cognitive.md)
 
 > [!div class="nextstepaction"]
-> [Implement Semantic Search with Azure Database for PostgreSQL Flexible Server and Azure OpenAI](./generative-ai-semantic-search.md)
+> [Implement Semantic Search with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI](./generative-ai-semantic-search.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about vector similarity search using pgvector](./how-to-use-pgvector.md)
