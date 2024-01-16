@@ -15,11 +15,8 @@ This article summarizes  the supported scenarios, considerations, and limitation
 
 ## Support scenarios
 
-MySQL - Flexible Server Long-term retention (LTR) data can be recovered in the specified storage containers that allow you to rebuild the MySQL - Flexible Server. You can restore this data as a new MySQL - Flexible Server with database native tools. 
-
-## Considerations
-
-This feature backs up the entire MySQL - Flexible Server to the Backup vault.
+- This feature backs up the entire MySQL - Flexible Server to the Backup vault.
+- You can recover the MySQL - Flexible Server long-term retention (LTR) data in the specified storage containers that allow to rebuild the MySQL - Flexible Server. You can also restore this data as a new MySQL - Flexible Server with database native tools. 
 
 ## Limitations
 - Individual database- level granular selection is currently not supported.
