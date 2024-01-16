@@ -27,16 +27,47 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
     > [!NOTE]
     > The subscription you use must have GPU VM quota.
+
 * Azure CLI version 2.47.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * Helm v3 installed. For more information, see [Installing Helm](https://helm.sh/docs/intro/install/).
 * The Kubernetes command-line client, kubectl, installed and configured. For more information, see [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+* [Install the Azure CLI AKS preview extension](#enable-the-azure-cli-preview-extension).
+* [Register the AI toolchain operator add-on feature flag](#register-the-ai-toolchain-operator-add-on-feature-flag).
 
-## Enable the Azure CLI preview extension
+### Install the Azure CLI preview extension
 
-* Enable the Azure CLI preview extension using the [`az extension add`][az-extension-add] command.
+1. Install the Azure CLI preview extension using the [`az extension add`][az-extension-add] command.
 
     ```azurecli-interactive
     az extension add --name aks-preview
+    ```
+
+2. Update the extension to make sure you have the latest version using the [`az extension update`][az-extension-update] command.
+
+    ```azurecli-interactive
+    az extension update --name aks-preview
+    ```
+
+### Register the AI toolchain operator add-on feature flag
+
+1. Register the AIToolchainOperatorPreview feature flag using the [`az feature register`][az-feature-register] command.
+
+    ```azurecli-interactive
+    az feature register --namespace "Microsoft.ContainerService" --name "AIToolchainOperatorPreview"
+    ```
+
+    It takes a few minutes for the registration to complete.
+
+2. Verify the registration using the [`az feature show`][az-feature-show] command.
+
+    ```azurecli-interactive
+    az feature show --namespace "Microsoft.ContainerService" --name "AIToolchainOperatorPreview"
+    ```
+
+3. When the status reflects *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
+
+    ```azurecli-interactive
+    az provider register --namespace "Microsoft.ContainerService"
     ```
 
 ### Export environment variables
@@ -163,3 +194,7 @@ For more inference model options, see the [KAITO GitHub repository](https://gith
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az_identity_federated_credential_create
 [az-account-set]: /cli/azure/account#az_account_set
 [az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-provider-register]: /cli/azure/provider#az_provider_register
