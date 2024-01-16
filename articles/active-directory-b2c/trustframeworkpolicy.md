@@ -8,9 +8,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer creating custom policies for Azure Active Directory B2C, I want to understand the structure and elements of the TrustFrameworkPolicy XML files, so that I can define the necessary attributes, elements, and references for my policies.
+
 ---
 
 # TrustFrameworkPolicy

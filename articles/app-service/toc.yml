@@ -25,10 +25,11 @@
       href: quickstart-python.md
     - name: Deploy WordPress
       href: quickstart-wordpress.md
-    - name: Deploy Go (experimental)
-      href: quickstart-golang.md
     - name: Deploy a custom container
       href: quickstart-custom-container.md
+    - name: Use ARM template
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
 - name: Deployment and configuration
   items:
     - name: Deployment best practices
@@ -85,9 +86,6 @@
       href: configure-connect-to-azure-storage.md
     - name: Automate provisioning
       items:
-        - name: Use ARM template
-          displayName: Resource Manager
-          href: quickstart-arm-template.md
         - name: Use Bicep
           href: provision-resource-bicep.md
         - name: Use Terraform
@@ -497,8 +495,6 @@
           href: /troubleshoot/azure/app-service/backing-up-restoring-and-cloning-microsoft-azure-app-services?toc=/azure/app-service/toc.json
         - name: Built-in Linux containers FAQs
           href: /troubleshoot/azure/app-service/faqs-app-service-linux?toc=/azure/app-service/toc.json
-        - name: Configuration and management FAQs for Web Apps
-          href: /troubleshoot/azure/app-service/web-apps-configuration-and-management-faqs?toc=/azure/app-service/toc.json
         - name: Deployment FAQs for Web Apps
           href: /troubleshoot/azure/app-service/web-apps-deployment-faqs?toc=/azure/app-service/toc.json
         - name: FAQs about scaling web apps

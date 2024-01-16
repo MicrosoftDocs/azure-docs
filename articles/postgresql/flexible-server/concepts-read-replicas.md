@@ -38,7 +38,7 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 ### Considerations
 
-Read replicas are primarily designed for scenarios where offloading queries is beneficial, and a slight lag is manageable. They are optimized to provide near realtime updates from the primary for most workloads, making them an excellent solution for read-heavy scenarios. However, it's important to note that they are not intended for synchronous replication scenarios requiring up-to-the-minute data accuracy. While the data on the replica eventually becomes consistent with the primary, there may be a delay, which typically ranges from a few seconds to minutes, and in some heavy workload or high-latency scenarios, this could extend to hours. Typically, read replicas in the same region as the primary has less lag than geo-replicas, as the latter often deals with geographical distance-induced latency. For more insights into the performance implications of geo-replication, refer to [Geo-replication](#geo-replication) section. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay.
+Read replicas are primarily designed for scenarios where offloading queries is beneficial, and a slight lag is manageable. They are optimized to provide near real time updates from the primary for most workloads, making them an excellent solution for read-heavy scenarios. However, it's important to note that they are not intended for synchronous replication scenarios requiring up-to-the-minute data accuracy. While the data on the replica eventually becomes consistent with the primary, there may be a delay, which typically ranges from a few seconds to minutes, and in some heavy workload or high-latency scenarios, this could extend to hours. Typically, read replicas in the same region as the primary has less lag than geo-replicas, as the latter often deals with geographical distance-induced latency. For more insights into the performance implications of geo-replication, refer to [Geo-replication](#geo-replication) section. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay.
 
 > [!NOTE]  
 > For most workloads, read replicas offer near-real-time updates from the primary. However, with persistent heavy write-intensive primary workloads, the replication lag could continue to grow and might only be able to catch up with the primary. This might also increase storage usage at the primary as the WAL files are only deleted once received at the replica. If this situation persists, deleting and recreating the read replica after the write-intensive workloads are completed, you can bring the replica back to a good state for lag.
@@ -48,17 +48,19 @@ Read replicas are primarily designed for scenarios where offloading queries is b
 
 A read replica can be created in the same region as the primary server and in a different one. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can also have replicas in any global region of Azure that supports Azure Database for PostgreSQL. Additionally, we support special regions [Azure Government](../../azure-government/documentation-government-welcome.md) and [Azure in China](https://learn.microsoft.com/azure/china/overview-operations). The special regions now supported are:
+You can have a primary server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can also have replicas in any global region of Azure that supports Azure Database for PostgreSQL. Additionally, we support special regions [Azure Government](../../azure-government/documentation-government-welcome.md) and [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations). The special regions now supported are:
 
 - **Azure Government regions**:
   - US Gov Arizona
   - US Gov Texas
   - US Gov Virginia
 
-- **Azure in China regions**:
+- **Microsoft Azure operated by 21Vianet regions**:
   - China North 3
   - China East 3
 
+> [!NOTE]
+> The preview features - virtual endpoints and promote to primary server - are not currently supported in the special regions listed above.
 
 ### Use paired regions for disaster recovery purposes
 
@@ -83,7 +85,7 @@ A primary server for Azure Database for PostgreSQL - Flexible Server can be depl
 
 When you start the create replica workflow, a blank Azure Database for the PostgreSQL server is created. The new server is filled with the data on the primary server. For the creation of replicas in the same region, a snapshot approach is used. Therefore, the time of creation is independent of the size of the data. Geo-replicas are created using the base backup of the primary instance, which is then transmitted over the network; therefore, the creation time might range from minutes to several hours, depending on the primary size.
 
-In Azure Database for PostgreSQL - Flexible Server, the creation operation of replicas is considered successful only when the entire backup of the primary instance copies to the replica destination and the transaction logs synchronize up to the threshold of a maximum 1-GB lag.
+In Azure Database for PostgreSQL - Flexible Server, the creation operation of replicas is considered successful only when the entire backup of the primary instance copies to the replica destination and the transaction logs synchronize up to the threshold of a maximum 1GB lag.
 
 To achieve a successful create operation, avoid making replicas during times of high transactional load. For example, it's best to avoid creating replicas during migrations from other sources to Azure Database for PostgreSQL - Flexible Server or during excessive bulk load operations. If you're migrating data or loading large amounts of data right now, it's best to finish this task first. After completing it, you can then start setting up the replicas. Once the migration or bulk load operation has finished, check whether the transaction log size has returned to its normal size. Typically, the transaction log size should be close to the value defined in the max_wal_size server parameter for your instance. You can track the transaction log storage footprint using the [Transaction Log Storage Used](concepts-monitoring.md#default-metrics) metric, which provides insights into the amount of storage used by the transaction log. By monitoring this metric, you can ensure that the transaction log size is within the expected range and that the replica creation process might be started.
 
@@ -150,11 +152,14 @@ Furthermore, to ease the connection process, the Azure portal provides ready-to-
 
 "Promote" refers to the process where a replica is commanded to end its replica mode and transition into full read-write operations.
 
+> [!IMPORTANT]  
+> Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica independently. An user action is always required for the promote operation.
+
 Promotion of replicas can be done in two distinct manners:
 
 **Promote to primary server (preview)**
 
-This action elevates a replica to the role of the primary server. In the process, the current primary server is demoted to a replica role, swapping their roles. For a successful promotion, it's necessary to have a [virtual endpoint](#virtual-endpoints-preview) configured for both the current primary as the writer endpoint, and the replica intended for promotion as the reader endpoint. The promotion will only be successful if the targeted replica is included in the reader endpoint configuration, or if a reader virtual endpoint has yet to be established.
+This action elevates a replica to the role of the primary server. In the process, the current primary server is demoted to a replica role, swapping their roles. For a successful promotion, it's necessary to have a [virtual endpoint](#virtual-endpoints-preview) configured for both the current primary as the writer endpoint, and the replica intended for promotion as the reader endpoint. The promotion will only be successful if the targeted replica is included in the reader endpoint configuration.
 
 The diagram below illustrates the configuration of the servers prior to the promotion and the resulting state after the promotion operation has been successfully completed.
 
@@ -180,8 +185,8 @@ For both promotion methods, there are more options to consider:
 
 - **Forced**: This option is designed for rapid recovery in scenarios such as regional outages. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state. If you promote the replica using this option, the lag at the time you delink the replica from the primary will indicate how much data is lost.
 
-> [!IMPORTANT]  
-> Promote operation is not automatic. In the event of a primary server failure, the system won't switch to the read replica independently. An user action is always required for the promote operation.
+> [!IMPORTANT]
+> The **Forced** option skips all the checks, for instance, the server symmetry requirement, and proceeds with promotion because it is designed for unexpected scenarios. If you use the "Forced" option without fulfilling the requirements for read replica specified in this documentation, you might experience issues such as broken replication. It is crucial to understand that this option prioritizes immediate availability over data consistency and should be used with caution.
 
 Learn how to [promote replica to primary](how-to-read-replicas-portal.md#promote-replicas) and [promote to independent server and remove from replication](how-to-read-replicas-portal.md#promote-replica-to-independent-server).
 
@@ -192,7 +197,7 @@ Read replicas are treated as separate servers in terms of control plane configur
 The promote operation won't carry over specific configurations and parameters. Here are some of the notable ones:
 
 - **PgBouncer**: [The built-in PgBouncer](concepts-pgbouncer.md) connection pooler's settings and status aren't replicated during the promotion process. If PgBouncer was enabled on the primary but not on the replica, it will remain disabled on the replica after promotion. Should you want PgBouncer on the newly promoted server, you must enable it either prior to or following the promotion action.
-- **Geo-redundant backup storage**: Geo-backup settings aren't transferred. Since replicas can't have geo-backup enabled, the promoted primary (formerly the replica) won't have it post-promotion. The feature can only be activated at the server's creation time.
+- **Geo-redundant backup storage**: Geo-backup settings aren't transferred. Since replicas can't have geo-backup enabled, the promoted primary (formerly the replica) won't have it post-promotion. The feature can only be activated at the standard server's creation time (not a replica).
 - **Server Parameters**: If their values differ on the primary and read replica, they won't be changed during promotion. It's essential to note that parameters influencing shared memory size must have the same values on both the primary and replicas. This requirement is detailed in the [Server parameters](#server-parameters) section.
 - **Microsoft Entra authentication**: If the primary had [Microsoft Entra authentication](concepts-azure-ad-authentication.md) configured, but the replica was set up with PostgreSQL authentication, then after promotion, the replica won't automatically switch to Microsoft Entra authentication. It retains the PostgreSQL authentication. Users need to manually configure Microsoft Entra authentication on the promoted replica either before or after the promotion process.
 - **High Availability (HA)**: Should you require [HA](concepts-high-availability.md) after the promotion, it must be configured on the freshly promoted primary server, following the role reversal.

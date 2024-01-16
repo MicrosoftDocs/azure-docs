@@ -2,13 +2,13 @@
 title: Overview of the Azure AI Generative SDK packages
 titleSuffix: Azure AI Studio
 description: This article provides overview of the Azure AI Generative SDK packages.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: overview
 ms.date: 12/15/2023
 ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Overview of the Azure AI Generative SDK packages

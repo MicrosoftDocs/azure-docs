@@ -1,11 +1,9 @@
 ---
 title: Azure Arc-enabled Open Service Mesh
-description: Open Service Mesh (OSM) extension on Azure Arc-enabled Kubernetes cluster
+description: Deploy the Open Service Mesh (OSM) extension on Azure Arc-enabled Kubernetes cluster
 ms.custom: ignite-2022, devx-track-azurecli, devx-track-arm-template
-ms.date: 10/12/2022
+ms.date: 01/11/2024
 ms.topic: tutorial
-author: mayurigupta13
-ms.author: mayg
 ---
 
 # Azure Arc-enabled Open Service Mesh
@@ -13,6 +11,8 @@ ms.author: mayg
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
 OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI](https://smi-spec.io/) APIs, and works by injecting an Envoy proxy as a sidecar container next to each instance of your application. [Read more](https://docs.openservicemesh.io/#features) on the service mesh scenarios enabled by Open Service Mesh.
+
+All components of Azure Arc-enabled OSM are deployed on availability zones, making them zone redundant.
 
 ## Installation options and requirements
 
@@ -67,8 +67,9 @@ export RESOURCE_GROUP=<resource-group-name>
 If you're using an OpenShift cluster, skip to the [OpenShift installation steps](#install-osm-on-an-openshift-cluster).
 
 Create the extension:
+
 > [!NOTE]
-> If you would like to pin a specific version of OSM, add the `--version x.y.z` flag to the `create` command. Note that this will set the value for `auto-upgrade-minor-version` to false.
+> To pin a specific version of OSM, add the `--version x.y.z` flag to the `create` command. Note that this will set the value for `auto-upgrade-minor-version` to false.
 
 ```azurecli-interactive
 az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
@@ -181,8 +182,10 @@ Now, [install OSM with custom values](#setting-values-during-osm-installation).
 [cert-manager](https://cert-manager.io/) is a provider that can be used for issuing signed certificates to OSM without
 the need for storing private keys in Kubernetes. Refer to OSM's [cert-manager documentation](https://docs.openservicemesh.io/docs/guides/certificates/)
 and [demo](https://docs.openservicemesh.io/docs/demos/cert-manager_integration/) to learn more.
+
 > [!NOTE]
 > Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace in commands or specify with flag `--osm-namespace arc-osm-system`.
+
 To install OSM with cert-manager as the certificate provider, create or append to your existing JSON settings file the `certificateProvider.kind`
 value set to cert-manager as shown here. To change from the default cert-manager values specified in OSM documentation,
 also include and update the subsequent `certmanager.issuer` lines.
@@ -218,8 +221,6 @@ To set required values for configuring Contour during OSM installation, append t
 }
 ```
 
-Now, [install OSM with custom values](#setting-values-during-osm-installation).
-
 ### Setting values during OSM installation
 
 Any values that need to be set during OSM installation need to be saved to a single JSON file and passed in through the Azure CLI
@@ -227,20 +228,19 @@ install command.
 
 After you create a JSON file with applicable values as described in the custom installation sections, set the file path as an environment variable:
 
-   ```azurecli-interactive
-   export SETTINGS_FILE=<json-file-path>
-   ```
+```azurecli-interactive
+export SETTINGS_FILE=<json-file-path>
+```
 
-Run the `az k8s-extension create` command to create the OSM extension, passing in the settings file using the
+Run the `az k8s-extension create` command to create the OSM extension, passing in the settings file using the `--configuration-settings-file` flag:
 
-`--configuration-settings-file` flag:
-   ```azurecli-interactive
-   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm --configuration-settings-file $SETTINGS_FILE
-   ```
+```azurecli-interactive
+az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm --configuration-settings-file $SETTINGS_FILE
+```
 
 ## Install Azure Arc-enabled OSM using ARM template
 
-After connecting your cluster to Azure Arc, create a JSON file with the following format, making sure to update the \<cluster-name\> and \<osm-arc-version\> values:
+After connecting your cluster to Azure Arc, create a JSON file with the following format, making sure to update the `<cluster-name>` and `<osm-arc-version>` values:
 
 ```json
 {
@@ -307,7 +307,7 @@ export TEMPLATE_FILE_NAME=<template-file-path>
 export DEPLOYMENT_NAME=<desired-deployment-name>
 ```
 
-Run this command to install the OSM extension using the az CLI:
+Run this command to install the OSM extension:
 
 ```azurecli-interactive
 az deployment group create --name $DEPLOYMENT_NAME --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE_NAME
@@ -317,7 +317,9 @@ You should now be able to view the OSM resources and use the OSM extension in yo
 
 ## Install Azure Arc-enabled OSM using built-in policy
 
-A built-in policy is available on Azure portal under the category of **Kubernetes** by the name of **Azure Arc-enabled Kubernetes clusters should have the Open Service Mesh extension installed**. This policy can be assigned at the scope of a subscription or a resource group. The default action of this policy is **Deploy if not exists**. However, you can choose to audit the clusters for extension installations by changing the parameters during assignment. You're also prompted to specify the version you wish to install (v1.0.0-1 or higher) as a parameter.
+A built-in policy is available on Azure portal under the **Kubernetes** category: **Azure Arc-enabled Kubernetes clusters should have the Open Service Mesh extension installed**. This policy can be assigned at the scope of a subscription or a resource group.
+
+The default action of this policy is **Deploy if not exists**. However, you can choose to audit the clusters for extension installations by changing the parameters during assignment. You're also prompted to specify the version you wish to install (v1.0.0-1 or higher) as a parameter.
 
 ## Validate installation
 
@@ -360,15 +362,17 @@ You should see a JSON output similar to:
 }
 ```
 
+For more commands that you can use to validate and troubleshoot the deployment of the Open Service Mesh (OSM) extension components on your cluster, see [our troubleshooting guide](extensions-troubleshooting.md#azure-arc-enabled-open-service-mesh)
+
 ## OSM controller configuration
 
-OSM deploys a MeshConfig resource `osm-mesh-config` as a part of its control plane in arc-osm-system namespace. The purpose of this MeshConfig is to provide the mesh owner/operator the ability to update some of the mesh configurations based on their needs. to view the default values, use the following command.
+OSM deploys a MeshConfig resource `osm-mesh-config` as a part of its control plane in `arc-osm-system` namespace. The purpose of this MeshConfig is to provide the mesh owner/operator the ability to update some of the mesh configurations based on their needs. To view the default values, use the following command.
 
 ```azurecli-interactive
 kubectl describe meshconfig osm-mesh-config -n arc-osm-system
 ```
 
-The output would show the default values:
+The output shows the default values:
 
 ```azurecli-interactive
   Certificate:
@@ -416,6 +420,7 @@ For more information, see the [Config API reference](https://docs.openservicemes
 
 > [!NOTE]
 > Values in the MeshConfig `osm-mesh-config` are persisted across upgrades.
+
 Changes to `osm-mesh-config` can be made using the `kubectl patch` command. In the following example, the permissive traffic policy mode is changed to false.
 
 ```azurecli-interactive
@@ -436,7 +441,7 @@ Alternatively, to edit `osm-mesh-config` in Azure portal, select **Edit configur
 
 ## Using Azure Arc-enabled OSM
 
-To start using OSM capabilities, you need to first onboard the application namespaces to the service mesh. Download the OSM CLI from [OSM GitHub releases page](https://github.com/openservicemesh/osm/releases/). Once the namespaces are added to the mesh, you can configure the SMI policies to achieve the desired OSM capability.
+To start using OSM capabilities, you need to first onboard the application namespaces to the service mesh. Download the OSM CLI from the [OSM GitHub releases page](https://github.com/openservicemesh/osm/releases/). Once the namespaces are added to the mesh, you can configure the SMI policies to achieve the desired OSM capability.
 
 ### Onboard namespaces to the service mesh
 
@@ -445,18 +450,19 @@ Add namespaces to the mesh by running the following command:
 ```azurecli-interactive
 osm namespace add <namespace_name>
 ```
+
 Namespaces can be onboarded from Azure portal as well by selecting **+Add** in the cluster's Open Service Mesh section.
 
 [![+Add button located on top of the Open Service Mesh section](media/tutorial-arc-enabled-open-service-mesh/osm-portal-add-namespace.jpg)](media/tutorial-arc-enabled-open-service-mesh/osm-portal-add-namespace.jpg#lightbox)
 
-More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/guides/app_onboarding/#onboard-services).
+For more information about onboarding services, see the [Open Service Mesh documentation](https://docs.openservicemesh.io/docs/guides/app_onboarding/#onboard-services).
 
 ### Configure OSM with Service Mesh Interface (SMI) policies
 
 You can start with a [sample application](https://docs.openservicemesh.io/docs/getting_started/install_apps/) or use your test environment to try out SMI policies.
 
 > [!NOTE]
-> If you are using a sample applications, ensure that their versions match the version of the OSM extension installed on your cluster. For example, if you are using v1.0.0 of the OSM extension, use the bookstore manifest from release-v1.0 branch of OSM upstream repository.
+> If you use sample applications, ensure that their versions match the version of the OSM extension installed on your cluster. For example, if you are using v1.0.0 of the OSM extension, use the bookstore manifest from release-v1.0 branch of OSM upstream repository.
 
 ### Configuring your own Jaeger, Prometheus and Grafana instances
 
@@ -526,21 +532,23 @@ InsightsMetrics
 ### Navigating the OSM dashboard
 
 1. Access your Arc connected Kubernetes cluster using this [link](https://aka.ms/azmon/osmux).
-2. Go to Azure Monitor and navigate to the Reports tab to access the OSM workbook.
+2. Go to Azure Monitor and navigate to the **Reports** tab to access the OSM workbook.
 3. Select the time-range & namespace to scope your services.
 
 [![OSM workbook](media/tutorial-arc-enabled-open-service-mesh/osm-workbook.jpg)](media/tutorial-arc-enabled-open-service-mesh/osm-workbook.jpg#lightbox)
 
 #### Requests tab
 
-- This tab shows a summary of all the http requests sent via service to service in OSM.
+The **Requests** tab shows a summary of all the http requests sent via service to service in OSM.
+
 - You can view all the services by selecting the service in the grid.
 - You can view total requests, request error rate & P90 latency.
 - You can drill down to destination and view trends for HTTP error/success code, success rate, pod resource utilization, and latencies at different percentiles.
 
 #### Connections tab
 
-- This tab shows a summary of all the connections between your services in Open Service Mesh.
+The **Connections** tab shows a summary of all the connections between your services in Open Service Mesh.
+
 - Outbound connections: total number of connections between Source and destination services.
 - Outbound active connections: last count of active connections between source and destination in selected time range.
 - Outbound failed connections: total number of failed connections between source and destination service.
@@ -590,17 +598,8 @@ When you use the `az k8s-extension` command to delete the OSM extension, the `ar
 > [!NOTE]
 > Use the az k8s-extension CLI to uninstall OSM components managed by Arc. Using the OSM CLI to uninstall is not supported by Arc and can result in undesirable behavior.
 
-## Troubleshooting
-
-Refer to the [extension troubleshooting guide](extensions-troubleshooting.md#azure-arc-enabled-open-service-mesh) for help with issues.
-
-## Frequently asked questions
-
-### Is the extension of Azure Arc-enabled OSM zone redundant?
-
-Yes, all components of Azure Arc-enabled OSM are deployed on availability zones and are hence zone redundant.
-
 ## Next steps
 
-> **Just want to try things out?**  
-> Get started quickly with an [Azure Arc Jumpstart](https://aka.ms/arc-jumpstart-osm) scenario using Cluster API.
+- Just want to try things out? Get started quickly with an [Azure Arc Jumpstart](https://aka.ms/arc-jumpstart-osm) scenario using Cluster API.
+- Get [troubleshooting help for Azure Arc-enabled OSM](extensions-troubleshooting.md#azure-arc-enabled-open-service-mesh).
+- - Explore other [extensions for Arc-enabled Kubernetes](extensions-release.md).

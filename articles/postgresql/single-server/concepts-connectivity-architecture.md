@@ -90,6 +90,7 @@ The following table lists the gateway IP address subnets of the Azure Database f
 | West US 2    | 13.66.136.192/29, 40.78.240.192/29, 40.78.248.192/29|
 | West US 3     | 20.150.168.32/29, 20.150.176.32/29, 20.150.184.32/29 |
 
+
 ## Frequently asked questions
 
 ### What you need to know about this planned maintenance?

@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/23/2022
+ms.date: 01/04/2024
 ---
 
 # B2B errors and solutions for Azure Logic Apps
