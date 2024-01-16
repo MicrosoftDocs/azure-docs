@@ -8,7 +8,7 @@ ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 01/16/2024
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to use Azure Key Vault or Kubernetes secrets so that I can securely manage secrets.
 ---
