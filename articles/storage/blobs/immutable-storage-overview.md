@@ -147,7 +147,7 @@ When you enable blob inventory, Azure Storage generates an inventory report on a
 For more information about blob inventory, see [Azure Storage blob inventory](blob-inventory.md).
 
 > [!NOTE]
-> A version-level immutable policy on the account can prevent an inventory job configuration. Also, if there is an immutable policy configured on the destination container of inventory report then also, the report configuration will tend to fail. 
+> You can't configure an inventory policy in an account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy. 
 
 ## Pricing
 
