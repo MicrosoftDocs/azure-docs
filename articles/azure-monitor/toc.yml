@@ -35,6 +35,40 @@ items:
       href: essentials/tutorial-metrics.md
     - name: Collect and view resource logs
       href: essentials/tutorial-resource-logs.md
+  - name: Health models
+    items:
+    - name: Overview
+      href: health-models/overview.md
+    - name: Concepts
+      items:
+      - name: Health state
+        href: health-models/health-state.md
+      - name: Health modeling
+        href: /azure/well-architected/mission-critical/mission-critical-health-modeling
+      - name: Define a health model
+        href: https://www.youtube.com/watch?v=9C4RUuqZG8w
+    - name: Create and configure
+      items:
+      - name: Create a health model
+        href: health-models/create-model.md
+      - name: Code view
+        href: health-models/code-view.md
+      - name: Configure identity
+        href: health-models/configure-identity.md
+      - name: Nested health models
+        href: health-models/nested-health-models.md
+    - name: Analyze
+      items:
+      - name: Health state
+        href: health-models/views.md
+      - name: Service levels
+        href: health-models/service-levels.md
+      - name: Query health state
+        href: health-models/query-health.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot health models
+        href: health-models/troubleshoot.md
   - name: Monitor applications with Application Insights
     items:
     - name: Application Insights overview
@@ -1040,7 +1074,7 @@ items:
           - name: Send to Excel
             href: logs/log-excel.md
     - name: Migrate from Splunk to Azure Monitor Logs
-      href: logs/migrate-splunk-to-azure-monitor-logs.md
+      href: logs/migrate-splunk-to-azure-monitor-logs.md 
 - name: Insights
   items:
   - name: Overview
@@ -1443,6 +1477,8 @@ items:
       href: essentials/data-collection-endpoint-sample.md
     - name: Diagnostic settings
       href: essentials/resource-manager-diagnostic-settings.md
+    - name: Health models
+      href: health-models/resource-manager-health-model.md
     - name: Log Analytics workspaces
       href: logs/resource-manager-workspace.md
     - name: Log Analytics clusters
