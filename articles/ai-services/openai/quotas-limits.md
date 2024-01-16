@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 01/12/2024
+ms.date: 01/16/2024
 ms.author: mbullwin
 ---
 
@@ -37,7 +37,13 @@ The following sections provide you with a quick guide to the default quotas and 
 | Max training job time (job will fail if exceeded) | 720 hours |
 | Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
 | Max size of all files per upload (Azure OpenAI on your data) | 16 MB |
+| Max number or inputs in array with `/embeddings` | 2048 |
+| Max number of `/chat/completions` messages | 2048 |
+| Max number of `/chat/completions` functions | 128 |
+| Max number of `/chat completions` tools | 128 |
 | Maximum number of Provisioned throughput units per deployment | 100,000 |
+
+
 
 ## Regional quota limits
 

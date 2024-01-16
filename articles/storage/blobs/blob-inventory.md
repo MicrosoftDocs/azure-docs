@@ -425,7 +425,7 @@ An object replication policy can prevent an inventory job from writing inventory
 
 ### Inventory and Immutable Storage
 
-In instances where immutable storage is enabled, it's essential to be aware of a specific limitation pertaining to Inventory reports. Due to the inherent characteristics of immutable storage, notably its write-once, read-many (WORM) nature, the execution of Inventory reports is constrained. The results cannot be written when immutable storage is active. This stands as a known limitation, and we recommend planning your reporting activities accordingly.
+You can't configure an inventory policy in the account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy.
 
 ## Next steps
 
