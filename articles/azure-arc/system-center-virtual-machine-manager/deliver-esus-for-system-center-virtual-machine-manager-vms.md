@@ -13,9 +13,9 @@ keywords: "VMM, Arc, Azure"
 
 # Deliver ESUs for SCVMM VMs through Arc
 
-Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) allows you to enroll all the Windows Server 2012/2012 R2 VMs managed by your SCVMM server in [Extended Security Updates](https://learn.microsoft.com/windows-server/get-started/extended-security-updates-overview) (ESUs) at scale. 
+Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) allows you to enroll all the Windows Server 2012/2012 R2 VMs managed by your SCVMM server in [Extended Security Updates](/windows-server/get-started/extended-security-updates-overview) (ESUs) at scale. 
 
-ESUs allow you to leverage cost flexibility in the form of pay-as-you-go Azure billing and enhanced delivery experience in the form of built-in inventory and keyless delivery. In addition, ESUs enabled by Azure Arc give you access to Azure management services such as [Azure Update Manager](https://learn.microsoft.com/azure/update-manager/overview?tabs=azure-vms), [Azure Automation Change Tracking and Inventory](https://learn.microsoft.com/azure/automation/change-tracking/overview?tabs=python-2), and [Azure Policy Guest Configuration](https://learn.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management/guest-configuration-policy) at no additional cost. 
+ESUs allow you to leverage cost flexibility in the form of pay-as-you-go Azure billing and enhanced delivery experience in the form of built-in inventory and keyless delivery. In addition, ESUs enabled by Azure Arc give you access to Azure management services such as [Azure Update Manager](/azure/update-manager/overview?tabs=azure-vms), [Azure Automation Change Tracking and Inventory](/azure/automation/change-tracking/overview?tabs=python-2), and [Azure Policy Guest Configuration](/azure/cloud-adoption-framework/manage/azure-server-management/guest-configuration-policy) at no additional cost. 
 
 This article provides the steps to procure and deliver ESUs to WS 2012 and 2012 R2 SCVMM VMs onboarded to Azure Arc-enabled SCVMM. 
 
@@ -46,7 +46,7 @@ This article provides the steps to procure and deliver ESUs to WS 2012 and 2012 
 You can select one or more Arc-enabled SCVMM VMs to link to an ESU license. Once you've linked a VM to an activated ESU license, the VM is eligible to receive Windows Server 2012 and 2012 R2 ESUs.
 
 >[!Note]
-> You have the flexibility to configure your patching solution of choice to receive these updates – whether it's [Azure Update Manager](https://learn.microsoft.com/azure/update-center/overview), [Windows Server Update Services](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus), Microsoft Updates, [Microsoft Endpoint Configuration Manager](https://learn.microsoft.com/mem/configmgr/core/understand/introduction), or a third-party patch management solution.
+> You have the flexibility to configure your patching solution of choice to receive these updates – whether it's [Azure Update Manager](/azure/update-center/overview), [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus), Microsoft Updates, [Microsoft Endpoint Configuration Manager](/mem/configmgr/core/understand/introduction), or a third-party patch management solution.
 
 1.	Select the **Eligible Resources** tab to view a list of all your Arc-enabled server machines running Windows Server 2012 and 2012 R2, including SCVMM machines that are guest management enabled. The **ESUs status** column indicates whether the machine is ESUs enabled.
  

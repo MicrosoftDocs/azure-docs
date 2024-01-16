@@ -272,12 +272,12 @@ The next tutorial demonstrates how to display a route between two locations.
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [free account]: https://azure.microsoft.com/free/
-[Fuzzy Search service]: /rest/api/maps/search/get-search-fuzzy
+[Fuzzy Search service]: /rest/api/maps/search/get-search-fuzzy?view=rest-maps-1.0
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [MapControlCredential]: /javascript/api/azure-maps-rest/atlas.service.mapcontrolcredential
 [pipeline]: /javascript/api/azure-maps-rest/atlas.service.pipeline
 [Route to a destination]: tutorial-route-location.md
-[Search API]: /rest/api/maps/search
+[Search API]: /rest/api/maps/search?view=rest-maps-1.0
 [Search for points of interest]: https://samples.azuremaps.com/?sample=search-for-points-of-interest
 [search tutorial]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Search
 [searchURL]: /javascript/api/azure-maps-rest/atlas.service.searchurl

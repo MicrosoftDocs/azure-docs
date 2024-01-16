@@ -1250,6 +1250,7 @@
   "articles/event-grid/.openpublishing.redirection.event-grid.json",
   "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
   "articles/governance/policy/.openpublishing.redirection.policy.json",
+  "articles/governance/policy/.openpublishing.redirection.resource-graph.json",
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
   "articles/hdinsight-aks/.openpublishing.redirection.hdinsight-aks.json",
   "articles/healthcare-apis/.openpublishing.redirection.healthcare-apis.json",
