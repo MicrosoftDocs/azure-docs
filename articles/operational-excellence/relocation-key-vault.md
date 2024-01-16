@@ -4,7 +4,7 @@ description: Learn how to relocate Azure Key Vault to a new region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 01/10/2024
+ms.date: 01/16/2024
 ms.service: postgresql
 ms.topic: how-to
 ---
@@ -27,12 +27,12 @@ A relocation for Key Vault can follow either a Cold Standby or Warm Standby [rel
 
 In the diagram below,
 
-- **Warm standby** is depicted by the amber flow lines which comprises of redeployment of the target instance and updating dependent configuration and endpoints. 
+- The usage of **Azure DevOps Pipeline** is shown by the amber flow lines. Pipeline usage includes the redeployment of the target instance and the update of dependent configuration and endpoints.
+- The usage of the **Azure Portal or scripts** is shown by the red flow lines. Portal or script usage includes the redeployment of the target instance along with data movement and update of dependent configuration and endpoints.
 
-- **Cold standby** is depicted by the red flow lines which comprises of redeployment of the target instance along with data movement and updating dependent configuration and endpoints.
 
+:::image type="content" source="media/relocation/keyvault/akv_pattern_design.png" alt-text="Diagram illustrating usage for Azure DevOps pipeline and usage for Azure Portal or scripts for Key Vault.":::
 
-:::image type="content" source="media/relocation/keyvault/akv_pattern_design.png" alt-text="Diagram illustrating warm and cold standby relocation methods for Key Vault.":::
 
 
 ## Relocation considerations
@@ -85,5 +85,5 @@ To relocate a Key Vault instance without that doesn't have any client specific d
     >You can also create the new key vault by using [Azure portal](../key-vault/general/quick-create-portal.md), the [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 
-1. Restore your downloaded secret, key, and certificates to your new key vault by following the steps in [Azure Key Vault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli).
-1. Before deleting your old key vault, verify that the new vault contains all of the required keys, secrets, and certificates. 
+1. Restore your downloaded secret, key, and certificates. If you used **encrypted backup**, add them to your new key vault by following the steps in [Azure Key Vault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli). Otherwise, if you used **manual non-encrypted backup**, import them to your new key vault.
+1. Before deleting your old key vault, verify that the new vault contains all of the required keys, secrets, and certificates. Ensure the key vault isn't needed to decrypt old encrypted backups of virtual machines, databases, or any other dependent Azure services in the source region.

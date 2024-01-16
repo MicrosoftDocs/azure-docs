@@ -8,18 +8,40 @@
     href: relocation-concept-guidance-overview.md
   - name: Relocation guides by service
     items:
-    - name: Azure Database for PostgreSQL
-      href: relocation-postgresql-flexible-server.md
-    - name: Azure Key Vault
-      href: relocation-key-vault.md
-    - name: Azure Monitor - Log Analytics
-      href: not-yet.md
-    - name: Azure Private Endpoint
-      href: not-yet.md 
-    - name: Azure Private Link
-      href: relocation-private-link.md  
-    - name: Azure Virtual Network
-      href: relocation-virtual-network.md    
+    - name: Databases
+      items:
+      - name: Azure Database for PostgreSQL
+        href: relocation-postgresql-flexible-server.md
+    - name: Integration
+      items:
+      - name: Event Hub
+        href: not-yet.md
+    - name: Management and governance
+      items:
+      - name: Azure Automation
+        href: not-yet.md
+      - name: Azure Monitor - Log Analytics Workspace
+        href: relocation-log-analytics.md
+    - name: Networking
+      items:
+      - name: Azure Private Endpoint
+        href: not-yet.md 
+      - name: Azure Private Link
+        href: relocation-private-link.md  
+      - name: Azure Virtual Network
+        href: relocation-virtual-network.md  
+    - name: Security
+      items:
+      - name: Azure Sentinel
+        href: not-yet.md
+      - name: Azure Key Vault
+        href: relocation-key-vault.md
+      - name: Microsoft Defender for Cloud
+        href: not-yet.md
+    - name: Storage
+      items:
+      - name: Storage Account
+        href: not-yet.md
 - name: Resources
   items:
   - name: Operational Excellence in Microsoft Azure Well-Architected Framework
