@@ -28,7 +28,7 @@ To use the **Firmware analysis** page to analyze your firmware security, your fi
 
 - Your image must be less than 1 GB in size.
 
-To learn more about the roles that are required to perform firmware analysis and share your analysis results, please see [Defender for IoT Firmware Analysis Azure RBAC](/articles/defender-for-iot/device-builders/defender-for-iot-firmware-analysis-rbac.md).
+To learn more about what roles you need to perform firmware analysis and share your analysis results, see [Defender for IoT Firmware Analysis Azure RBAC](/articles/defender-for-iot/device-builders/defender-for-iot-firmware-analysis-rbac.md).
 
 ## Select the region for storing firmware images
 
