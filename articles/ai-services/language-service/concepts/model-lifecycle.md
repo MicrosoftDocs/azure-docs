@@ -34,7 +34,6 @@ By default, API and SDK requests will use the latest Generally Available model. 
 
 > [!NOTE]
 > * If you are using a model version that is not listed in the table, then it was subjected to the expiration policy.
-> * Abstractive document and conversation summarization do not provide model versions other than the latest available.
 
 Use the table below to find which model versions are supported by each feature:
 
@@ -49,7 +48,7 @@ Use the table below to find which model versions are supported by each feature:
 | Question answering                                  | `latest*`                                      |                                             |
 | Text Analytics for health                           | `latest*`                                      | `2022-08-15-preview`, `2023-01-01-preview**`|
 | Key phrase extraction                               | `latest*`                                      |                                             | 
-| Document summarization                              |  `latest*`                                      |                       |
+| Summarization                              |  `latest*`                                      |                       |
 
 
 \* Latest Generally Available (GA) model version
