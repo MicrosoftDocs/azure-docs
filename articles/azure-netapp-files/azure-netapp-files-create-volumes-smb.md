@@ -118,10 +118,13 @@ Before creating an SMB volume, you need to create an Active Directory connection
     * Select your **Active Directory** connection from the drop-down list.  
     
     * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
-        - It must be unique within each subnet in the region. 
-        - It must start with an alphabetical character.
+        - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region. 
+        - For volumes in availability zones, it must be unique within each availability zone.*  
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.   
+    
+    [!INCLUDE [File path uniqueness preview registration](../includes/file-path-uniqueness.md)]
+
 
     * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
 

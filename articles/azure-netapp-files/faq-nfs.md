@@ -39,7 +39,13 @@ You can specify whether the root account can access the volume or not by using t
 
 ## Can I use the same file path (volume creation token) for multiple volumes?
 
-Yes, you can. However, the file path must be unique within each subnet.     
+For volumes not in an availability zone or volumes in the same availability zone, you can use the same file path (creation token). However, the file path must be unique within each delegated subnet.  
+
+For volumes deployed to different availability zones within the same region, the same file path (creation token) can be used. 
+
+For volumes deployed to different regions, the same file path (creation token) can be used. 
+
+For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
 ## When I try to access NFS volumes through a Windows client, why does the client take a long time to search folders and subfolders?
 

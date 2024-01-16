@@ -113,10 +113,13 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     * Select **NFS** as the protocol type for the volume.   
 
     * Specify a unique **file path** for the volume. This path is used when you create mount targets. The requirements for the path are as follows:   
-        - It must be unique within each subnet in the region. 
+        - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region. 
+        - For volumes in availability zones, it must be unique within each availability zone.*  
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.
+
+    [!INCLUDE [File path uniqueness preview registration](../includes/file-path-uniqueness.md)]
 
     * Select the **Version** (**NFSv3** or **NFSv4.1**) for the volume.  
 
