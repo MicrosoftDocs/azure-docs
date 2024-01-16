@@ -396,7 +396,7 @@ Examples for the Node.js v4 programming model aren't yet available.
 
 ### Apache Kafka
 
-The Apache Kafka extension uses a function-level attribute, `LagThreshold`. For Kafka, the number of _desired instances_ is calculated based on the total consumer lag divided by the `LagThreshold` setting. For a given lag, reducing the lag threshold increases the number of desired intances.  
+The Apache Kafka extension uses a function-level attribute, `LagThreshold`. For Kafka, the number of _desired instances_ is calculated based on the total consumer lag divided by the `LagThreshold` setting. For a given lag, reducing the lag threshold increases the number of desired instances.  
 
 The way you set this function-level attribute depends on your function language. This example sets the threshold to `100`.
 
