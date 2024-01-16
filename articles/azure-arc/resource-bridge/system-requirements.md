@@ -155,6 +155,8 @@ Notice that the IP addresses for the gateway, control plane, appliance VM and DN
 
 Arc resource bridge may require a separate user account with the necessary roles to view and manage resources in the on-premises infrastructure (such as Arc-enabled VMware vSphere). If so, during creation of the configuration files, the `username` and `password` parameters will be required. The account credentials are then stored in a configuration file locally within the appliance VM.  
 
+> [!WARNING]
+> Arc resource bridge can only use a user account that does not have multifactor authentication enabled. 
 If the user account is set to periodically change passwords, [the credentials must be immediately updated on the resource bridge](maintenance.md#update-credentials-in-the-appliance-vm). This user account may also be set with a lockout policy to protect the on-premises infrastructure, in case the credentials aren't updated and the resource bridge makes multiple attempts to use expired credentials to access the on-premises control center.
 
 For example, with Arc-enabled VMware, Arc resource bridge needs a separate user account for vCenter with the necessary roles. If the [credentials for the user account change](troubleshoot-resource-bridge.md#insufficient-permissions), then the credentials stored in Arc resource bridge must be immediately updated by running `az arcappliance update-infracredentials` from the [management machine](#management-machine-requirements). Otherwise, the appliance will make repeated attempts to use the expired credentials to access vCenter, which will result in a lockout of the account.
