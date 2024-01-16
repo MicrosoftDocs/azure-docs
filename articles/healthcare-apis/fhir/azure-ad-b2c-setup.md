@@ -429,7 +429,7 @@ Obtain an access token to test the authentication flow.
 1. Copy the fully qualified scope from the **Expose an API** section of the B2C resource application.
 
       ```http
-      {YOUR_APPLICATION_ID_URI}/patient.all.all
+      {YOUR_APPLICATION_ID_URI}/patient.all.read
       ```
 
    :::image type="content" source="media/azure-ad-b2c-setup/postman-urls.png" alt-text="Screenshot showing Postman URLs" lightbox="media/azure-ad-b2c-setup/postman-urls.png":::
