@@ -9,7 +9,7 @@ author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.date: 01/12/2024
+ms.date: 01/16/2024
 ms.topic: concept-article
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, event-tier1-build-2022, update-code
 ms.devlang: azurecli
