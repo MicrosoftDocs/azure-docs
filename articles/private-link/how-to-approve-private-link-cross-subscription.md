@@ -58,7 +58,7 @@ Sign in to **subscription-1** in the [Azure portal](https://portal.azure.com).
 
 ## Obtain storage account resource ID
 
-You'll need the storage account resource ID to create the private endpoint connection in **subscription-2**. Use the following steps to obtain the storage account resource ID.
+You need the storage account resource ID to create the private endpoint connection in **subscription-2**. Use the following steps to obtain the storage account resource ID.
 
 1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
 
@@ -72,9 +72,9 @@ You'll need the storage account resource ID to create the private endpoint conne
 
 Sign in to **subscription-2** in the [Azure portal](https://portal.azure.com).
 
-## Register the Microsoft.Storage resource provider
+## Register the `Microsoft.Storage` resource provider
 
-For the private endpoint connection to complete successfully, the Microsoft.Storage resource provider must be registered in **subscription-2**. Use the following steps to register the resource provider. If the Microsoft.Storage resource provider is already registered, skip this step.
+For the private endpoint connection to complete successfully, the Microsoft.Storage resource provider must be registered in **subscription-2**. Use the following steps to register the resource provider. If the `Microsoft.Storage` resource provider is already registered, skip this step.
 
 > [!IMPORTANT]
 > If you're using a different resource type, you must register the resource provider for that resource type if it's not already registered.
@@ -137,7 +137,7 @@ For the private endpoint connection to complete successfully, the Microsoft.Stor
 
 ## Approve private endpoint connection
 
-The private endpoint connection is in a **Pending** state until it's approved. Use the following steps to approve the private endpoint connection in **subscription-1**.
+The private endpoint connection is in a **Pending** state until approved. Use the following steps to approve the private endpoint connection in **subscription-1**.
 
 1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints**.
 
