@@ -13,6 +13,8 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
+# QuickStart: Integrate DeepAR filters to your video calls
+
 In some usage scenarios, you may want to apply some video processing to the original camera video, such as background blur or background replacement.
 This can provide a better user experience.
 The Azure Communication Calling video effects package provide several video processing functions. However, this is not the only choice.
@@ -56,11 +58,71 @@ The canvas is required as this provides a way for ACS Web SDK to consume the vid
 
 ## Connect the input and output
 
+To start a video call, you need to create a `LocalVideoStream` object as the video input in SDK.
+```javascript
+const deviceManager = await callClient.getDeviceManager();
+const cameras = await deviceManager.getCameras();
+const camera = cameras[0]
+const localVideoStream = new LocalVideoStream(camera);
+await call.startVideo(localVideoStream);
+```
+By doing this, ACS SDK will directly send out the video from camera without being processed by DeepAR.
+We need to create a path to forward the video acquired from ACS SDK to DeepAR SDK.
 
+```javascript
+const deviceManager = await callClient.getDeviceManager();
+const cameras = await deviceManager.getCameras();
+const camera = cameras[0]
+const inputVideoStream = new LocalVideoStream(camera);
+const inputMediaStream = await inputVideoStream.getMediaStream();
+const video = document.createElement('video');
+video.autoplay = true;
+video.srcObject = inputMediaStream;
+deepAR.setVideoElement(video, false);
+```
+Now we have finished configuring the input video. To configure the output video, we need another `LocalVideoStream`.
+
+```javascript
+const outputMediaStream = canvas.captureStream(30);
+const outputVideoStream = new LocalVideoStream(outputMediaStream);
+await call.startVideo(outputVideoStream);
+```
+
+## Start the effect
+
+In DeepAR, effects and background processing are independent, which means you can apply the filter while enabling the background blur or background replacement.
+```javascript
+// apply the effect
+await deepAR.switchEffect('https://cdn.jsdelivr.net/npm/deepar/effects/lion');
+// enable the background blur
+await deepAR.backgroundBlur(true, 8);
+
+```
+
+## Stop the effect
+
+If you want to stop the effect, you can invoke deepar.clearEffect API
+```javascript
+await deepAR.clearEffect();
+```
+To disable the background blur, you can pass `false` to deepar.backgroundBlur API.
+
+## Stop the video processing
+
+In case you want to disable DeepAR during the video call.
+You need to call deepar.stopVideo();
+Invoking deepar.stopVideo will also end the current media stream captured from the canvas.
+
+```javascript
+await outputVideoStream.switchSource(cameras[0]);
+await deepAR.stopVideo();
+
+```
 
 ## Next steps
 For more information, see the following articles:
 
-- Learn about [Video effects](./get-started-video-effects.md?pivots=platform-web)
-- Learn more about [Add video calling to your app](./get-started-with-video-calling.md?pivots=platform-web)
-- DeepAR documentation. [Getting started | DeepAR](https://docs.deepar.ai/deepar-sdk/platforms/web/getting-started)
+- Learn about [Video effects](./get-started-video-effects.md?pivots=platform-web).
+- Learn about [Add video calling to your app](./get-started-with-video-calling.md?pivots=platform-web).
+- Learn more about [](../../how-tos/calling-sdk/manage-video?pivots=platform-web).
+- DeepAR documentation. [Getting started | DeepAR](https://docs.deepar.ai/deepar-sdk/platforms/web/getting-started).
