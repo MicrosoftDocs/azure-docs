@@ -28,6 +28,3 @@ Firebase Cloud Messaging (FCM) legacy API will be deprecated by July 2024. You c
 1. Stop sending notifications to FCM legacy: once you remove all FCM legacy devices, stop sending notifications to FCM legacy. All notifications should be sent exclusively to FCM v1 at this point, and you should be fully migrated.
 
 If you have any questions or issues, contact our support team.
-
-## Integration steps
-
