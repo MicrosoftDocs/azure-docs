@@ -50,6 +50,37 @@ This example shows a [C# function](dotnet-isolated-process-guide.md) that receiv
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
 
+On this other example instead of using the return statement to send the message we have an HTTP trigger function which will send a reply different from the message sent.
+
+```cs
+[Function("HttpSendMsg")]
+public async Task<OutputType> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req, FunctionContext context)
+{
+   _logger.LogInformation($"C# HTTP trigger function processed a request for {context.InvocationId}.");
+
+   HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
+   await response.WriteStringAsync("HTTP response: Message sent");
+            
+   return new OutputType()
+   {
+       OutputEvent = "MyMessage",
+       HttpResponse = response
+   };
+}
+```
+And create a class OutputType to help:
+
+```cs
+ public class OutputType
+{
+   [ServiceBusOutput("TopicOrQueueName", Connection = "ServiceBusConnection")]
+   public string OutputEvent { get; set; }
+
+   public HttpResponseData HttpResponse { get; set; }
+}
+```
+
+
 # [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
@@ -64,6 +95,25 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 ---
+
+On this other example instead of using the return statement to send the message we have an HTTP trigger function which will send a reply different from the message sent.
+
+```cs
+[FunctionName("HttpTrigger1")]
+public static async Task<IActionResult> Run(
+[HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, 
+[ServiceBus("TopicOrQueueName", Connection = "ServiceBusConnection")] IAsyncCollector<string> message, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    await message.AddAsync("MyMessage");
+    await message.AddAsync("MyMessage2");
+
+    string responseMessage = "This HTTP triggered sent a message to Service Bus.";
+
+    return new OkObjectResult(responseMessage);
+}
+```
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
