@@ -98,6 +98,9 @@ The systems listed in the following table are considered compatible with Azure I
 
 <sup>2</sup> Installation packages are made available on the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
+> [!NOTE]
+> [CentOS Linux 7 will reach end of life (EOL) on June 30, 2024](https://www.redhat.com/en/topics/linux/centos-linux-eol). Beginning July 2024, CentOS 7 won't be an IoT Edge *tier 2* supported platform. If you take no action, CentOS 7 based IoT Edge devices continue to work but ongoing security patches and bug fixes in the host packages for CentOS 7 won't be available after June 30, 2024. To continue to receive support and security updates, we recommend that you update your host OS to a *tier 1* supported platform. For more information, see the [Update your IoT Edge devices on CentOS 7 announcement](include link to the blog post).
+
 ## Releases
 
 The following table lists the currently supported releases. IoT Edge release assets and release notes are available on the [azure-iotedge releases](https://github.com/Azure/azure-iotedge/releases) page.
