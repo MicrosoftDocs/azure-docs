@@ -123,7 +123,7 @@ When a Rolling Upgrade is triggered in the Azure Portal, a banner appears at the
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-banner.png" alt-text="Screenshot showing banner when a rolling upgrade is taking place.":::
 
-:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-status-portal.png" alt-text="Screenshot showing details of the rolling upgrade in the Azure Portal.":::
+:::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-status-portal.png" alt-text="Screenshot showing details of the rolling upgrade in the Azure portal.":::
 
 Additionally, you can view exactly what changes are being rolled out in the Activity Log. The Rolling Upgrade event is under "Create or Update Virtual Machine Scale Set". Select "Change History" to review what is being updated. 
 
