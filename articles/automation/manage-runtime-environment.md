@@ -3,7 +3,7 @@ title: Manage Runtime environment and associated runbooks in Azure Automation
 description: This article tells how to manage runbooks in Runtime environment and associated runbooks Azure Automation
 services: automation
 ms.subservice: process-automation
-ms.date: 12/29/2023
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -63,7 +63,7 @@ An Azure Automation account in supported public region (except Central India, Ge
     
        :::image type="content" source="./media/manage-runtime-environment/create-runtime-environment.png" alt-text="Screenshot shows the entries in basics tab of create runtime environment.":::
 
-1. Select **Next** and in the **Packages** tab, upload the packages required during the runbook execution. The *Az PowerShell package* is uploaded by default for all PowerShell Runtime environments, which includes all cmdlets for managing Azure resources. You can choose the version of Az package from the dropdown.
+1. Select **Next** and in the **Packages** tab, upload the packages required during the runbook execution. The *Az PowerShell package* is uploaded by default for all PowerShell Runtime environments, which includes all cmdlets for managing Azure resources. You can choose the version of Az package from the dropdown. Select **None** if you don't want the Package to be uploaded during runbook execution.
 
    :::image type="content" source="./media/manage-runtime-environment/packages-runtime-environment.png" alt-text="Screenshot shows the selections in packages tab of create runtime environment.":::
  
@@ -144,6 +144,15 @@ GET
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments?api-version=2023-05-15-preview 
 ```
 ---
+
+### View components of Az PowerShell package
+
+To view all the component packages of *Az PowerShell package*, run `Get-Module -ListAvailable` cmdlet in a PowerShell runbook. 
+
+Job output would show all the component packages and their versions.
+
+:::image type="content" source="./media/manage-runtime-environment/view-components-powershell-package.png" alt-text="Screenshot shows the components of powershell package." lightbox="./media/manage-runtime-environment/view-components-powershell-package.png":::
+
 
 ### Delete Runtime environment
 
@@ -265,7 +274,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 
 ### Update Runbook
 
-You can update runbook by changing the Runtime environment linked to the runbook. You can choose single or multiple runbooks for update.
+You can update runbook by changing the Runtime environment linked to the runbook. You can choose single or multiple runbooks for update. Runbook in running status would not be impacted by changing the Runtime environment linked to that runbook.
 
 #### [Azure portal](#tab/update-runbook-portal)
 1. In your Automation account, under **Process Automation**, select **Runbooks**.
@@ -317,9 +326,10 @@ To test runbook execution before publishing Runtime environment changes, follow 
    :::image type="content" source="./media/manage-runtime-environment/access-runbook.png" alt-text="Screenshot shows how to go to Runbooks page to select runbook." lightbox="./media/manage-runtime-environment/access-runbook.png":::
 
 1. In the **Edit runbook** page, select **Edit in Portal** to open the text editor.
-1. The Runtime environment field shows the existing configuration. Select the new Runtime environment from the dropdown list .
+1. The Runtime environment field shows the existing configuration. Select the new Runtime environment from the dropdown list.
 
    :::image type="content" source="./media/manage-runtime-environment/edit-runbook.png" alt-text="Screenshot shows how to select new Runtime environment." lightbox="./media/manage-runtime-environment/edit-runbook.png":::
+
 1. Select **Test pane** to test runbook execution with the updated Runtime environment. Select **Start** to begin the test run.
 1. Close the test pane and make the required changes in Runbook code or Runtime environment if necessary.
 1. Select **Publish** to update the Runtime environment linked to the runbook. 

@@ -3,7 +3,7 @@ title: Add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environme
 titleSuffix: Azure Automation
 description: This article shows how to add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environment.
 services: automation
-ms.date: 01/03/2024
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -35,8 +35,11 @@ You can run Azure CLI commands in runbooks linked with PowerShell 7.2 Runtime en
 1. On **Packages** tab, in the **Package version** dropdown list, you would see **Az version 8.3** and **Azure CLI version 2.52.0** already present.
 1. Select **+Add from gallery** to add more packages from gallery and select **Next**.
 1. On **Review + create** tab, review the entries and select **Create**.
-
+      
    A notification appears to confirm that a Runtime environment is successfully created.
+   
+   :::image type="content" source="./media/quickstart-cli-support-powershell-runbook-runtime-environment/create-runtime-environment.png" alt-text="Screenshot shows how to create a runtime environment." lightbox="./media/quickstart-cli-support-powershell-runbook-runtime-environment/create-runtime-environment.png":::
+
 
 ## Create Runbook
 

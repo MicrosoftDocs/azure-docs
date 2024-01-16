@@ -3,7 +3,7 @@ title: Runtime environment in Azure Automation
 description: This article provides an overview on Runtime environment in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/03/2024
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -41,6 +41,12 @@ Runtime environment captures the following details about the job execution envir
 > [!NOTE]
 > Azure CLI commands are supported (public preview) in runbooks associated with PowerShell 7.2 Runtime environment. Azure CLI commands version 2.52.0 is available as a default package in PowerShell 7.2 Runtime environment.
 
+## Azure CLI package in Runtime environment 
+
+Azure CLI commands are supported (public preview) in runbooks associated with PowerShell 7.2 Runtime environment. **Azure CLI version 2.56.0** is available as a default package in PowerShell 7.2 Runtime environment. Azure Automation closely follows the release cadence of newer versions of Azure CLI and supports them in runbooks. 
+
+Runbooks linked to PowerShell 7.2 Runtime environment would always execute with the latest Azure CLI version supported by Azure Automation. Likewise, versions declared end-of-support by parent product Azure CLI would no longer be supported by Azure Automation as these could potentially suffer from bugs or security vulnerabilities. Ensure your runbooks are designed to execute seamlessly in newer versions of Azure CLI.
+
 ## System-generated Runtime environments
 
 Azure Automation creates system-generated Runtime environments based on the Runtime language, version, and packages/modules present in your Azure Automation account. There are six system-generated Runtime environments:
@@ -52,11 +58,12 @@ Azure Automation creates system-generated Runtime environments based on the Runt
 - Python-3.8
 - Python-3.10
 
+  :::image type="content" source="./media/runtime-environment-overview/system-generated.png" alt-text="Screenshot shows the system generated Runtime environment." lightbox="./media/runtime-environment-overview/system-generated.png":::
+
 You can't edit these Runtime environments. However, any changes that are made in Modules/Packages for the Automation account are automatically reflected in these system-generated Runtime environments. 
 
 > [!NOTE]
 > Packages present in System-generated Runtime environments are unique to your Azure Automation account and might vary across different accounts. 
-
 
 ## Key Benefits
 
@@ -74,7 +81,7 @@ You can't edit these Runtime environments. However, any changes that are made in
 - RBAC permissions cannot be assigned to Runtime environment.
 - Runtime environment can't be configured through Azure Automation extension for Visual Studio Code.
 - Deleted Runtime environments cannot be recovered.  
-- The feature is only supported through Azure portal and REST API.
+- The feature is only supported through Azure portal and [REST API](https://review.learn.microsoft.com/rest/api/automation/operation-groups?view=rest-automation-2023-05-15-preview&branch=automation202305).
 
 ## Switch between new and old experience
 

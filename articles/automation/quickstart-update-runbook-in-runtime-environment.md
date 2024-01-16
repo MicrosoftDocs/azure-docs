@@ -3,17 +3,17 @@ title: Update PowerShell runbook in Azure Runtime environment
 titleSuffix: Azure Automation
 description: This article shows how to update a runbook from PowerShell 5.1 to PowerShell 7.2 in Runtime environment.
 services: automation
-ms.date: 01/02/2024
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.custom: references_regions
 ---
 
 # Update runbook from PowerShell 5.1 to PowerShell 7.2
 
-Using the Runtime environment, you can upgrade a runbook from one Runtime version to the other by creating a different Runtime environment and then linking the runbook to it.
+Using the Runtime environment, you can upgrade a runbook from one Runtime version to the other by creating a different Runtime environment and then linking the runbook to it. You can follow similar steps for updating Python runbooks. 
 
 > [!NOTE]
-> A runbook can be mapped to a single Runtime environment, while a specific Runtime environment can be mapped to multiple runbooks.
+> [PowerShell 7.1](https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3#powershell-end-of-support-dates) and [Python 2.7](https://devguide.python.org/versions/) are no longer supported by their respective parent products PowerShell and Python. We recommend that you update outdated runbooks to latest supported versions using Runtime environment.
 
 ## Prerequisites
 
