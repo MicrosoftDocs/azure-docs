@@ -13,93 +13,146 @@ ms.date: 01/11/2024
 
 # Approve private link connections across subscriptions 
 
-<!-- Required: Article headline - H1
-
-Identify the product or service and the task the
-article describes.
-
--->
-
-[Introduce and explain the purpose of the article.]
-
-<!-- Required: Introductory paragraphs (no heading)
-
-Write a brief introduction that can help the user
-determine whether the article is relevant for them
-and to describe the task the article covers.
-
--->
+Azure Private Link enables you to connect privately to Azure resources. Private Link connections are scoped to a specific subscription. This article shows you how to approve a private endpoint connection across subscriptions.
 
 ## Prerequisites
 
-<!-- Required: Prerequisites - H2
+- Two active Azure subscriptions. 
+    
+    - One subscription hosts the Azure resource and the other subscription contains the consumer private endpoint and virtual network.
 
-"Prerequisites" must be the first H2 in the article.
+- An administrator account for each subscription or an account with permissions in each subscription to create and manage resources.
 
-List any items that are needed for the integration,
-such as permissions or software.
+Resources used in this article:
 
-Provide free trial account information if it's available.
+| Resource | Subscription | Resource group | Location |
+| --- | --- | --- | --- |
+| **storage1** *(This name is unique, replace with the name you create)* | subscription-1 | test-rg | East US 2 |
+| **vnet-1** | subscription-2 | test-rg | East US 2 |
+| **private-endpoint** | subscription-2 | test-rg | East US 2 |
 
-If you need to sign in to a portal to do the quickstart, 
-provide instructions and a link.
+## Sign in to subscription-1
 
-If there aren't any prerequisites, in a new paragraph
-under the "Prerequisites" H2, enter "None" in plain text
-(not as a bulleted list item).
+Sign in to **subscription-1** in the [Azure portal](https://portal.azure.com).
 
--->
+## Create a resource group
 
-## "[verb] * [noun]"
+1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
 
-[Introduce the procedure.]
+1. Select **+ Create**.
 
-1. Procedure step
-1. Procedure step
-1. Procedure step
+1. In the **Basics** tab of **Create a resource group**, enter or select the following information:
 
-<!-- Required: Steps to complete the task - H2
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select **subscription-1**. |
+    | Resource group | Enter **test-rg**. |
+    | Region | Select **East US 2**. |
 
-In one or more H2 sections, organize procedures. A section
-contains a major grouping of steps that help the user complete
-a task.
+1. Select **Review + Create**.
 
-Begin each section with a brief explanation for context, and
-provide an ordered list of steps to complete the procedure.
+1. Select **Create**.
 
-If it applies, provide sections that describe alternative tasks or
-procedures.
+[!INCLUDE [create-storage-account.md](../../includes/create-storage-account.md)]
 
--->
+## Obtain storage account resource ID
 
-## Next step -or- Related content
+You'll need the storage account resource ID to create the private endpoint connection in **subscription-2**. Use the following steps to obtain the storage account resource ID.
 
-> [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
+1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
 
--or-
+1. Select **storage1** or the name of your existing storage account.
 
-* [Related article title](link.md)
-* [Related article title](link.md)
-* [Related article title](link.md)
+1. In **Settings**, select **Endpoints**.
 
-<!-- Optional: Next step or Related content - H2
+1. Copy the entry in **Storage account resource ID**.
 
-Consider adding one of these H2 sections (not both):
+## Sign in to subscription-2
 
-A "Next step" section that uses 1 link in a blue box 
-to point to a next, consecutive article in a sequence.
+Sign in to **subscription-2** in the [Azure portal](https://portal.azure.com).
 
--or- 
+## Register the Microsoft.Storage resource provider
 
-A "Related content" section that lists links to 
-1 to 3 articles the user might find helpful.
+For the private endpoint connection to complete successfully, the Microsoft.Storage resource provider must be registered in **subscription-2**. Use the following steps to register the resource provider. If the Microsoft.Storage resource provider is already registered, skip this step.
 
--->
+> [!IMPORTANT]
+> If you're using a different resource type, you must register the resource provider for that resource type if it's not already registered.
 
-<!--
+1. In the search box at the top of the portal, enter **Subscription**. Select **Subscriptions** in the search results.
 
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
+1. Select **subscription-2**.
 
--->
+1. In **Settings**, select **Resource providers**.
+
+1. In the **Resource providers** filter box, enter **Microsoft.Storage**. Select **Microsoft.Storage**.
+
+1. Select **Register**.
+
+[!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
+
+## Create private endpoint
+
+1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints**.
+
+1. Select **+ Create** in **Private endpoints**.
+
+1. In the **Basics** tab of **Create a private endpoint**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select **subscription-2**. |
+    | Resource group | Select **test-rg** |
+    | **Instance details** |   |
+    | Name | Enter **private-endpoint**. |
+    | Network Interface Name | Leave the default of **private-endpoint-nic**. |
+    | Region | Select **East US 2**. |
+
+1. Select **Next: Resource**.
+
+1. Select **Connect to an Azure resource by resource ID or alias**.
+
+1. In **Resource ID or alias**, paste the storage account resource ID that you copied earlier.
+
+1. In **Target sub-resource**, enter **blob**.
+
+1. Select **Next: Virtual Network**.
+
+1. In **Virtual Network**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Networking** |  |
+    | Virtual network | Select **vnet-1 (test-rg)**. |
+    | Subnet | Select **subnet-1**. |
+
+1. Select **Next: DNS**.
+
+1. Select **Next: Tags**.
+
+1. Select **Review + Create**.
+
+1. Select **Create**.
+
+## Approve private endpoint connection
+
+The private endpoint connection is in a **Pending** state until it's approved. Use the following steps to approve the private endpoint connection in **subscription-1**.
+
+1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints**.
+
+1. Select **Pending connections**.
+
+1. Select the box next to your storage account in **subscription-1**.
+
+1. Select **Approve**.
+
+1. Select **Yes** in **Approve connection**.
+
+## Next steps
+
+In this article, you learned how to approve a private endpoint connection across subscriptions. To learn more about Azure Private Link, continue to the following articles:
+
+- [Azure Private Link overview](private-link-overview.md)
+
+- [Azure Private endpoint overview](private-endpoint-overview.md)
