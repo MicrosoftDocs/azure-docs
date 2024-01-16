@@ -500,7 +500,7 @@ Microsoft Defender for Cloud now supports the latest [CIS Azure Security Foundat
 |Date |Update  |
 |----------|----------|
 | September 27 | [Data security dashboard available in public preview](#data-security-dashboard-available-in-public-preview) |
-| September 21 | [Preview release: New autoprovisioning process for SQL Server on machines plan] |(#preview-release-new-autoprovisioning-process-for-sql-server-on-machines-plan) |
+| September 21 | [Preview release: New autoprovisioning process for SQL Server on machines plan](#preview-release-new-autoprovisioning-process-for-sql-server-on-machines-plan) |
 | September 20 | [GitHub Advanced Security for Azure DevOps alerts in Defender for Cloud](#github-advanced-security-for-azure-devops-alerts-in-defender-for-cloud) |
 | September 11 | [Exempt functionality now available for Defender for APIs recommendations](#exempt-functionality-now-available-for-defender-for-apis-recommendations) |
 | September 11 | [Create sample alerts for Defender for APIs detections](#create-sample-alerts-for-defender-for-apis-detections) |

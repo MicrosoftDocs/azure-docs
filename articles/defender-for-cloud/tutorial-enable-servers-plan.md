@@ -143,7 +143,7 @@ Learn more about agentless scanning and how to [enable agentless scanning](enabl
 
 ## Enable the plan at the resource level
 
-While our recommendation is to enable Defender for Servers on the entire Azure subscription, to protect all existing and future resources in it, there are some cases where more flexibility is required for excluding specific resources or to manage security configurations at a lower hierarchy level than subscription. Resource level enablement is available for **Azure machines** and on-premises with **Azure Arc** as part of Defender for Servers plans:
+While our recommendation is to enable Defender for Servers on the entire Azure subscription, to protect all existing and future resources in it, there are some cases where more flexibility is required to exclude specific resources or to manage security configurations at a lower hierarchy level than subscription. Resource level enablement is available for **Azure machines** and on-premises with **Azure Arc** as part of Defender for Servers plans:
 
 - **Defender for Servers Plan 1**: you can enable / disable the plan at the resource level.
 - **Defender for Servers Plan 2**: you can only disable the plan at the resource level. For example, it’s possible to enable the plan at the subscription level and disable specific resources, however it’s not possible to enable the plan only for specific resources.
@@ -154,7 +154,7 @@ Supported resource types include:
 
 - Azure VMs
 - On-premises with Azure Arc
-- VMSS Flex
+- Azure Virtual Machine Scale Sets Flex
 
 ### Enablement via REST API
 
