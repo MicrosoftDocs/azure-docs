@@ -52,8 +52,6 @@ When you get results from language detection, you can stream the results to an a
 
 Language detection will return one predominant language for each document you submit, along with it's [ISO 639-1](https://www.iso.org/standard/22109.html) name, a human-readable name, a confidence score, script name and script code according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924). A positive score of 1 indicates the highest possible confidence level of the analysis.
 
-> [!NOTE]
-> The script name and script code will be returned on input documents larger than 12 characters.
 
 ### Ambiguous content
 
@@ -183,7 +181,11 @@ The resulting output consists of the predominant language, with a score of less 
 ## Script name and script code content
 
 To distinguish between multiple scripts used to write certain languages, such as Kazakh, the Language Detection feature returns a script name and script code according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924).  
-Input
+
+> [!NOTE]
+> The script name and script code will be returned on input documents larger than 12 characters.
+
+**Input**
 
 ```json
 {
