@@ -342,6 +342,9 @@ When deploying SAP MaxDB into Azure, you must review your backup methodology. Ev
 
 Backing up and restoring a database in Azure works the same way as it does for on-premises systems, so you can use standard SAP MaxDB backup/restore tools, which are described in one of the SAP MaxDB documentation documents listed in SAP Note [767598]. 
 
+#### <a name="01885ad6-88cf-4d5a-bdb5-6d43a6eed53e"></a>Backup and Restore with Azure Backup
+You can also integrate MaxDB backup with **Azure Backup** using the third-party backup tool **Maxback** (https://maxback.io). MaxBack allows you to backup and restore MaxDB on Windows with VSS integration, which is also used by Azure Backup. The advantage of using Azure Backup is that backup and restore is done at the storage level. MaxBack ensures that the database is in the right state for backup and restore, and automatically handles log volume backups. 
+
 #### <a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Performance Considerations for Backup and Restore
 As in bare-metal deployments, backup and restore performance are dependent on how many volumes can be read in parallel and the throughput of those volumes. Therefore, one can assume:
 
