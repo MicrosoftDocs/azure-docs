@@ -91,7 +91,7 @@ Workspace managed virtual network is the recommended way to support network isol
 
 ## Known limitations
 
-- Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
+- AI studio don't support bring your own virtual network only support workspace managed virtual network.
 - Managed online endpoint only supports workspace with managed virtual network. If you want to use your own virtual network, you might need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
 
 ## Next steps
