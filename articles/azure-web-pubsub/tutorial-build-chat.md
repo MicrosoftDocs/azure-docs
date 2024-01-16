@@ -63,7 +63,7 @@ Copy the fetched **ConnectionString** and it's used later in this tutorial as th
 
 ## Create the application
 
-In Azure Web PubSub, there are two roles, server and client. This concept is similar to the server and client roles in a web application. Server is responsible for managing the clients, listen, and respond to client messages, while client's role is to send user's messages to server, and receive messages from server and visualize them to end user.
+In Azure Web PubSub, there are two roles, server and client. This concept is similar to the server and client roles in a web application. Server is responsible to manage the clients, listen, and respond to client messages. Client is responsible to send and receive user's messages from server and visualize them for end user. 
 
 In this tutorial, we build a real-time chat web application. In a real web application, server's responsibility also includes authenticating clients and serving static web pages for the application UI. 
 
@@ -351,7 +351,7 @@ We use the [Javalin](https://javalin.io/) web framework to host the web pages an
     }
     ```
 
-    Depending on your setup, you might need to explicitly set the language level to Java 8. This can be done in the pom.xml. Add the following snippet:
+    Depending on your setup, you might need to explicitly set the language level to Java 8. This step can be done in the pom.xml. Add the following snippet:
     ```xml
     <build>
         <plugins>
@@ -557,7 +557,7 @@ app.use(handler.getMiddleware());
 In the above code, we simply print a message to console when a client is connected. You can see we use `req.context.userId` so we can see the identity of the connected client.
 
 # [Java](#tab/java)
-For now, you need to implement the event handler by your own in Java, the steps are straight forward following [the protocol spec](./reference-cloud-events.md) and illustrated below.
+For now, you need to implement the event handler by your own in Java, the steps are straight forward following [the protocol spec](./reference-cloud-events.md) and illustrated in the below list:
 
 1. Add HTTP handler for the event handler path, let's say `/eventhandler`. 
 
@@ -665,7 +665,7 @@ Implement the `OnMessageReceivedAsync()` method in `Sample_ChatApp`.
     }
     ```
 
-    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can throw an exception here. The middleware delivers the exception message to service and service drops current client connection. Don't forget to include the `using Microsoft.Azure.WebPubSub.Common;` statement at the beginning of the `Program.cs` file.
+    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can throw an exception here. The middleware delivers the exception message to service and service drops current client connection. Don't forget to include the `using Microsoft.Azure.WebPubSub.Common;` statement at the defining of the `Program.cs` file.
 
 2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
 
@@ -730,7 +730,7 @@ The complete code sample of this tutorial can be found [here][code-csharp-net6],
 
     This event handler uses `WebPubSubServiceClient.sendToAll()` to broadcast the received message to all clients.
 
-    You can see `handleUserEvent` also has a `res` object where you can send message back to the event sender. Here we simply call `res.success()` to make the WebHook return 200 (note this call is required even you don't want to return anything back to client, otherwise the WebHook never returns and client connection is closed).
+    You can see `handleUserEvent` also has a `res` object where you can send message back to the event sender. Here we simply call `res.success()` to make the WebHook return 200 (note this call is required even you don't want to return anything back to client, otherwise the WebHook never returns and client connection closes).
 
 2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
 

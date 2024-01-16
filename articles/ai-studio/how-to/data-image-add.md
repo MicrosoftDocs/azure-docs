@@ -2,12 +2,13 @@
 title: 'Use your image data with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Use this article to learn about using your image data for image generation in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 12/11/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Azure OpenAI on your data with images using GPT-4 Turbo with Vision (preview)

@@ -591,7 +591,7 @@
 - name: Work with foundation models
   items:
     - name: Model Catalog Overview
-      href: concept-foundation-models.md
+      href: concept-model-catalog.md
     - name: Open source models curated by Azure Machine Learning
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
@@ -650,7 +650,7 @@
           items:
             - name: Submit batch run and evaluate a flow 
               href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
-            - name: Develop a customized evaluation flow
+            - name: Customize evaluation flow and metrics
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
             - name: Evaluate your Semantic Kernel with prompt flow
               href: ./prompt-flow/how-to-evaluate-semantic-kernel.md
@@ -698,6 +698,8 @@
               href: ./prompt-flow/tools-reference/serp-api-tool.md
             - name: Open Model LLM tool
               href: ./prompt-flow/tools-reference/open-model-llm-tool.md
+            - name: Azure OpenAI GPT-4 Turbo with Vision tool
+              href: ./prompt-flow/tools-reference/azure-open-ai-gpt-4v-tool.md
             - name: OpenAI GPT-4V tool
               href: ./prompt-flow/tools-reference/openai-gpt-4v-tool.md
             - name: Troubleshoot Guidance
@@ -892,8 +894,6 @@
               href: how-to-deploy-mlflow-models-online-endpoints.md
             - name: Use a custom container to deploy a model to an online endpoint
               href: how-to-deploy-custom-container.md
-            - name: Use online endpoints in studio
-              href: how-to-use-managed-online-endpoint-studio.md
             - name: High performance serving with Triton
               href: how-to-deploy-with-triton.md
             - name: Use REST to deploy a model as an online endpoint
@@ -914,10 +914,16 @@
               href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints
               href: how-to-access-resources-from-endpoints-managed-identities.md
+            - name: Secret injection in online endpoints
+              href: concept-secret-injection.md
+            - name: Deploy to online endpoints with secret injection
+              href: how-to-deploy-online-endpoint-with-secret-injection.md
     - name: Batch endpoints
       items:
         - name: Batch endpoints
           href: concept-endpoints-batch.md
+        - name: Create jobs and input data for batch endpoints
+          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Deploy models
           items:
             - name: Deploy models for scoring in batch endpoints
@@ -944,8 +950,6 @@
               href: how-to-use-batch-scoring-pipeline.md
             - name: Create batch endpoints from pipeline jobs
               href: how-to-use-batch-pipeline-from-job.md
-        - name: Create jobs and input data for batch endpoints
-          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Troubleshoot batch endpoints
           href: how-to-troubleshoot-batch-endpoints.md
         - name: Security

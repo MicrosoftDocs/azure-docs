@@ -3,7 +3,7 @@ title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-linux
-ms.date: 11/23/2023
+ms.date: 01/03/2024
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -36,17 +36,16 @@ Microsoft Defender for Cloud CSPM service acquires a Microsoft Entra token with 
 
 The Microsoft Entra token is exchanged with AWS short living credentials and Defender for Cloud's CSPM service assumes the CSPM IAM role (assumed with web identity).
 
-Since the principle of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
+Since the principal of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
 
 - audience validation
 
-- signing of the token
-
+- token digital signature validation
 - certificate thumbprint
 
 The Microsoft Defender for Cloud CSPM role is assumed only after the validation conditions defined at the trust relationship have been met. The conditions defined for the role level are used for validation within AWS and allows only the Microsoft Defender for Cloud CSPM application (validated audience) access to the specific role (and not any other Microsoft token).
 
-After the Microsoft Entra token validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which CSPM service uses to scan the AWS account.
+After the Microsoft Entra token is validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which the CSPM service uses to scan the AWS account.
 
 ## Prerequisites
 
@@ -115,7 +114,7 @@ AWS Systems Manager manages autoprovisioning by using the SSM Agent. Some Amazon
 
 Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html), which enables core functionality for the AWS Systems Manager service.
 
-**You must have the SSM Agent for auto provisioning Arc agent on EC2 machines. If the SSM doesn't exist, or is removed from the EC2, the Arc provisioning won’t be able to proceed.**
+**You must have the SSM Agent for auto provisioning Arc agent on EC2 machines. If the SSM doesn't exist, or is removed from the EC2, the Arc provisioning won't be able to proceed.**
 
 > [!NOTE]
 > As part of the cloud formation template that is run during the onboarding process, an automation process is created and triggered every 30 days, over all the EC2s that existed during the initial run of the cloud formation. The goal of this scheduled scan is to ensure that all the relevant EC2s have an IAM profile with the required IAM policy that allows Defender for Cloud to access, manage, and provide the relevant security features (including the Arc agent provisioning). The scan does not apply to EC2s that were created after the run of the cloud formation.
@@ -276,7 +275,7 @@ To view all the active recommendations for your resources by resource type, use 
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Screenshot of AWS options in the asset inventory page's resource type filter." lightbox="media/quickstart-onboard-aws/aws-resource-types-in-inventory.png":::
 
-## Integrate with Microsoft Defender XDR (Preview)
+## Integrate with Microsoft Defender XDR
 
 When you enable Defender for Cloud, Defender for Cloud alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
 
@@ -302,4 +301,5 @@ Connecting your AWS account is part of the multicloud experience available in Mi
 - [Protect all of your resources with Defender for Cloud](enable-all-plans.md).
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [GCP projects](quickstart-onboard-gcp.md).
 - Get answers to [common questions](faq-general.yml) about onboarding your AWS account.
-- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector).
+- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshoot-connectors).
+
