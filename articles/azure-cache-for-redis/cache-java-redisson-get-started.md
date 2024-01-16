@@ -3,7 +3,7 @@ title: 'Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client
 description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis and Redisson as Redis client
 author: KarlErickson
 ms.author: zhihaoguo
-ms.date: 01/05/2024
+ms.date: 01/16/2024
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
@@ -13,16 +13,16 @@ ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-trac
 
 # Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client
 
-In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Redisson](https://redisson.org/) Redis client and [JCache](https://redisson.org/glossary/jcache.html) to have access to a secure, dedicated cache that is accessible from any application within Azure.
+In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Redisson](https://redisson.org/) Redis client and JCP stardand JCache API to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Skip to the code on GitHub
 
-If you want to skip straight to the code, see the [Java quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java-redisson-jcache) on GitHub.
+This quickstart uses the Maven archetype feature to generate the scaffolding for the app. The quickstart directs you to modify the generated code to arrive at the working sample app. If you want to skip straight to the completed code, see the [Java quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java-redisson-jcache) on GitHub.
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Use Microsoft Entra ID for cache authentication](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication)
+- [Use Microsoft Entra ID for cache authentication](azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## Create an Azure Cache for Redis
@@ -145,7 +145,7 @@ public class App {
 }
 ```
 
-This code shows you how to connect to an Azure Cache for Redis instance using Microsoft Entra ID with Redisson client library. The code also stores and retrieves a string value in the cache. 
+This code shows you how to connect to an Azure Cache for Redis instance using Microsoft Entra ID with the JCache API support from the Redisson client library. The code also stores and retrieves a string value in the cache. For more information on JCache, see the [JCache specification](https://jcp.org/en/jsr/detail?id=107).
 
 Save *App.java*.
 
