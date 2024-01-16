@@ -28,7 +28,7 @@ To complete this quickstart, you need:
 
 Microsoft Dev Box enables you to create cloud-hosted developer workstations in a self-service way. You can create and manage dev boxes by using the developer portal.
 
-Depending on the project configuration and your permissions, you have access to different projects and associated dev box configurations.
+Depending on the project configuration and your permissions, you have access to different projects and associated dev box configurations. If you have a choice of projects and dev box pools, select the project and dev box pool that best fits your needs. For example, you might choose a project that has a dev box pool located near to you for least latency.
 
 To create a dev box in the Microsoft Dev Box developer portal:
 

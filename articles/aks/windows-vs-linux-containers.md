@@ -1,17 +1,17 @@
 ---
-title: Windows container considerations in Kubernetes
+title: Windows container considerations in Azure Kubernetes Service
 titleSuffix: Azure Kubernetes Service
-description: See the Windows container considerations in Kubernetes.
+description: See the Windows container considerations with Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.date: 10/05/2023
+ms.date: 12/13/2023
 ms.author: schaffererin
 author: schaffererin
 
 ---
 
-# Windows container considerations in Kubernetes
+# Windows container considerations with Azure Kubernetes Service
 
-When you create deployments that use Windows Server containers on Azure Kubernetes Service (AKS), there are a few differences relative to Linux deployments you should keep in mind. For a detailed comparison of the differences between Windows and Linux in upstream Kubernetes, please see [Windows containers in Kubernetes](https://kubernetes.io/docs/concepts/windows/intro/).
+When you create deployments that use Windows Server containers on Azure Kubernetes Service (AKS), there are a few differences relative to Linux deployments you should keep in mind. For a detailed comparison of the differences between Windows and Linux in upstream Kubernetes, see [Windows containers in Kubernetes](https://kubernetes.io/docs/concepts/windows/intro/).
 
 Some of the major differences include:
 
