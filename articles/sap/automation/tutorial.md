@@ -172,7 +172,7 @@ When you choose a name for your service principal, make sure that the name is un
 
     ```cloudshell-interactive
     export    ARM_SUBSCRIPTION_ID="<subscriptionId>"
-    export control_plane_env_code="MGMT"
+    export control_plane_env_code="LAB"
 
     az ad sp create-for-rbac --role="Contributor"           \
       --scopes="/subscriptions/${ARM_SUBSCRIPTION_ID}"      \
@@ -226,10 +226,10 @@ As a part of the SAP automation framework control plane, you can optionally crea
 
 If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
 
-Replace MGMT with your environment as necessary.
+Replace LAB with your environment as necessary.
 
 ```bash
-export            env_code="MGMT"
+export            env_code="LAB"
 
 
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
@@ -297,7 +297,7 @@ code .
 
     ```terraform
     # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
-    environment = "MGMT"
+    environment = "LAB"
     # The location/region value is a mandatory field, it is used to control where the resources are deployed
     location = "westeurope"
 
@@ -340,7 +340,7 @@ code .
 
     ```terraform
     # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
-    environment = "MGMT"
+    environment = "LAB"
     # The location/region value is a mandatory field, it is used to control where the resources are deployed
     location = "westeurope"
 
@@ -363,9 +363,9 @@ Use the [deploy_controlplane.sh](bash/deploy-controlplane.md) script to deploy t
 
 The deployment goes through cycles of deploying the infrastructure, refreshing the state, and uploading the Terraform state files to the library storage account. All of these steps are packaged into a single deployment script. The script needs the location of the configuration file for the deployer and library, and some other parameters.
 
-For example, choose **North Europe** as the deployment location, with the four-character name `NOEU`, as previously described. The sample deployer configuration file `MGMT-NOEU-DEP00-INFRASTRUCTURE.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-NOEU-DEP00-INFRASTRUCTURE` folder.
+For example, choose **West Europe** as the deployment location, with the four-character name `WEEU`, as previously described. The sample deployer configuration file `LAB-WEEU-DEP05-INFRASTRUCTURE.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/LAB-WEEU-DEP05-INFRASTRUCTURE` folder.
 
-The sample SAP library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-NOEU-SAP_LIBRARY` folder.
+The sample SAP library configuration file `LAB-NOEU-SAP_LIBRARY.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/LAB-NOEU-SAP_LIBRARY` folder.
 
 Set the environment variables for the service principal:
 
