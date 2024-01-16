@@ -229,7 +229,7 @@ authentication:
         secretName: cs-secret
 ```
 
-To use Azure Key Vault instead of Kubernetes secrets, create an Azure Key Vault secret with the connection string `Endpoint=sb://..`, reference it with `vaultSecret`, and specify the username as `"$ConnectionString"` in the configuraion.
+To use Azure Key Vault instead of Kubernetes secrets, create an Azure Key Vault secret with the connection string `Endpoint=sb://..`, reference it with `vaultSecret`, and specify the username as `"$ConnectionString"` in the configuration.
 
 ```yaml
 authentication:
@@ -301,7 +301,7 @@ authentication:
         #   name: my-chain
 ```
 
-Or, if presentinng the full chain is required, upload the full chain cert and key to AKV as a PFX file and use the `vaultCaChainSecret` field instead.
+Or, if presenting the full chain is required, upload the full chain cert and key to AKV as a PFX file and use the `vaultCaChainSecret` field instead.
 
 ```yaml
 # ...

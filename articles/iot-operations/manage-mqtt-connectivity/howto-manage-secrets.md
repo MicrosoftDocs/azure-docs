@@ -58,13 +58,13 @@ The `keyVault` field is available wherever Kubernetes secrets (`secretName`) are
 | vaultCaChainSecret | Yes, when using certificate chain | Specifies the certificate chain in the Azure Key Vault. |
 | vaultCaChainSecret.name | Yes | Specifies the name of the certificate chain. |
 | vaultCaChainSecret.version | No | Specifies the version of the certificate chain. |
-| username | No | Used only for Event Hub Kafka connector, see [Send and receive messages between Azure IoT MQ and Event Hubs or Kafka](../connect-to-cloud/howto-configure-kafka.md). |
+| username | No | Used only for Event Hubs Kafka connector, see [Send and receive messages between Azure IoT MQ and Event Hubs or Kafka](../connect-to-cloud/howto-configure-kafka.md). |
 
 The type of secret you're using determines which of the following fields you can use:
 
 - `vaultSecret`: Use this field when you're using a regular secret. For example, you can use this field for configuring a *BrokerAuthentication* resource with the `usernamePassword` field.
 - `vaultCert`: Use this field when you're using the certificate type secret with client certificate and key. For example, you can use this field for enabling TLS on a *BrokerListener*.
-- `vaultCaChainSecret`: Use this field when you need to present a full certificate chain, with all extra intermediate or root certificates, to the remote server. For example, you can use this field for configuring a *MqttBridgeConnector* resource with the `remoteBrokerConnection` field. To use this field, import X.509 certificates without private keys in PEM format as a multi-line regular secret (not certificate-type) to Key Vault. This field should be used in addition to `vaultCert` that has the client certificate and privat key.
+- `vaultCaChainSecret`: Use this field when you need to present a full certificate chain, with all extra intermediate or root certificates, to the remote server. For example, you can use this field for configuring a *MqttBridgeConnector* resource with the `remoteBrokerConnection` field. To use this field, import X.509 certificates without private keys in PEM format as a multi-line regular secret (not certificate-type) to Key Vault. This field should be used in addition to `vaultCert` that has the client certificate and private key.
 
 ## Examples
 
