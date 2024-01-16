@@ -65,7 +65,7 @@ You can learn more about [Kubernetes data plane hardening](kubernetes-workload-p
 
 ## Vulnerability assessment
 
-Defender for Containers scans the container images in Azure Container Registry (ACR) and Amazon AWS Elastic Container Registry (ECR) to provide agentless vulnerability assessment for your container images, including registry and runtime recommendations, remediation guidance, near real-time scan of new images, real-world exploit insights, exploitability insights, and more.
+Defender for Containers scans the container images in Azure Container Registry (ACR) and Amazon AWS Elastic Container Registry (ECR) to provide agentless vulnerability assessment for your container images, including registry and runtime recommendations, remediation guidance, quick scans of new images, real-world exploit insights, exploitability insights, and more.
 
 Vulnerability information powered by Microsoft Defender Vulnerability Management is added to the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph) for contextual risk, calculation of attack paths, and hunting capabilities.
 
