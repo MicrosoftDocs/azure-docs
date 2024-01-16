@@ -32,7 +32,7 @@ After server creation you can scale between the various [pricing tiers](https://
 2. You can change the **Compute Tier** , **vCore**, **Storage** to scale up the server using higher compute tier or scale up within the same tier by increasing storage or vCores to your desired value.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/scale-server.png" alt-text="Scaling storage for Azure Database for PostgreSQL flexible server.":::
+> :::image type="content" source="./media/how-to-manage-server-portal/scale-server.png" alt-text="Scaling storage for Azure Database for PostgreSQL flexible server.":::
 
 > [!Important]
 > - Storage can't be scaled down.
@@ -48,7 +48,7 @@ You can change the administrator role's password using the Azure portal.
 2. Enter a new password and confirm the password. The textbox will prompt you about password complexity requirements.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="Reset your password for Azure Database for PostgreSQL flexible server.":::
+> :::image type="content" source="./media/how-to-manage-server-portal/reset-password.png" alt-text="Reset your password for Azure Database for PostgreSQL flexible server.":::
 
 3. Select **Save** to save the new password.
 
@@ -59,13 +59,13 @@ You can delete your server if you no longer need it.
 1. Select your server in the Azure portal. In the **Overview** window select **Delete**.
 2. Type the name of the server into the input box to confirm that you want to delete the server.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="Delete the Azure Database for PostgreSQL flexible server instance.":::
+   :::image type="content" source="./media/how-to-manage-server-portal/delete-server.png" alt-text="Delete the Azure Database for PostgreSQL flexible server instance.":::
 
    > [!IMPORTANT]
    > Deleting a server is irreversible.
 
   > [!div class="mx-imgBorder"]
-  > ![Delete the Azure Database for PostgreSQL flexible server instance](./media/howto-manage-server-portal/delete-server.png)  
+  > ![Delete the Azure Database for PostgreSQL flexible server instance](./media/how-to-manage-server-portal/delete-server.png)  
 
 3. Select **Delete**.
 
