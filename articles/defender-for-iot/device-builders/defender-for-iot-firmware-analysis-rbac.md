@@ -16,13 +16,13 @@ The most used roles by Defender for IoT Firmware Analysis’s users are Owner, C
 ## Understanding the Representation of Firmware Images in the Azure Resource Hierarchy
 Azure organizes resources into resource hierarchies, which are in a top-down structure, and you can assign roles at each level of the hierarchy. The level at which you assign a role is the "scope," and lower scopes may inherit roles assigned at higher scopes. To learn more about the levels of hierarchy and how to effectively organize your resources into the hierarchy, visit [Organize your Azure resources effectively](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources).
 
-When you register your subscription to the Defender for IoT Firmware Analysis tool, the action automatically creates the **FirmwareAnalysisRG** resource group for you. To locate **FirmwareAnalysisRG**, navigate to your Resource Groups page in the left menu:
+When you register your subscription to the Defender for IoT Firmware Analysis tool, the action automatically creates the **FirmwareAnalysisRG** Resource Group for you. To locate **FirmwareAnalysisRG**, navigate to your Resource Groups page in the left menu:
 
-:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/firmware-analysis-rg.png" alt-text="Location of the FirmwareAnalysisRG resource group.":::
+:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/firmware-analysis-rg.png" alt-text="Location of the FirmwareAnalysisRG Resource Group.":::
  
 Within **FirmwareAnalysisRG** is the **default** resource, of type **Microsoft.iotfirmwaredefense.workspace**. This resource is hidden by default, so to see it, you must toggle “Show hidden types”:
 
-:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/default-workspace.png" alt-text="A resource named 'default' is hidden. To reveal, toggle 'Show hidden types'.":::
+:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/default-workspace.png" alt-text="Toggle 'Show hidden types' to reveal a resource named 'default'.":::
  
 Although the **default** workspace resource isn't something that you'll regularly interact with, each firmware image that you upload will be represented as a resource and stored here.
 
@@ -55,7 +55,7 @@ Actions like these involve Role Based Access Control (RBAC). To effectively use 
 
 ## Defender for IoT Firmware Analysis Roles, Scopes, and Capabilities
 
-The following table summarizes what roles you need to perform certain actions. Note that these roles and permissions apply at the Subscription and Resource Group levels, unless otherwise stated.
+The following table summarizes what roles you need to perform certain actions. These roles and permissions apply at the Subscription and Resource Group levels, unless otherwise stated.
 
 **Action** | **Role required**
 :---|:---
@@ -70,9 +70,9 @@ To upload firmware images, first confirm that you have sufficient permission to 
 Once you have confirmed that you have an appropriate role to upload firmware images, refer to the following tutorial to upload a firmware image for analysis: [Analyze a firmware image with Microsoft Defender for IoT](/articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md). 
 
 ## Inviting third parties to interact with your firmware analysis results
-If you'd like to invite someone to interact solely with your firmware analysis results without having access to other parts of your organization, like other resource groups within your subscription, you'll need to invite them as a Firmware Analysis Admin at the FirmwareAnalysisRG resource group level. 
+If you'd like to invite someone to interact solely with your firmware analysis results without having access to other parts of your organization, like other resource groups within your subscription, you'll need to invite them as a Firmware Analysis Admin at the FirmwareAnalysisRG Resource Group level. 
 
-Follow the tutorial here to invite a third party: [Assign Azure roles to external guest users using the Azure portal](/articles/role-based-access-control/role-assignments-external-users.md#add-a-guest-user-to-your-directory). Keep in mind that for Step 3, you'll be navigating to the **FirmwareAnalysisRG** resource group. And at Step 7, select the **Firmware Analysis Admin** role.
+Follow the tutorial here to invite a third party: [Assign Azure roles to external guest users using the Azure portal](/articles/role-based-access-control/role-assignments-external-users.md#add-a-guest-user-to-your-directory). Keep in mind that for Step 3, you'll be navigating to the **FirmwareAnalysisRG** Resource Group. And at Step 7, select the **Firmware Analysis Admin** role.
 
 > [!Note]
 > If you received an email to join an organization, be sure to check your Junk folder for the invitation email if you don't see it in your inbox.
