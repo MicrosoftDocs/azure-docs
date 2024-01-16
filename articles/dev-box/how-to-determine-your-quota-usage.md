@@ -18,7 +18,7 @@ Keeping track of how your quota of virtual machine cores is being used across yo
 For example, if dev box users encounter a vCPU quota error such as, *QuotaExceeded*, error during dev box creation there may be a need to increase this quota. A great place to start is to determine the current quota available.   
 
 
-## Determine your Dev Box usage and quota by subscription in Azure Portal
+## Determine your Dev Box usage and quota by subscription in Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and go to the subscription you want to examine. 
 
