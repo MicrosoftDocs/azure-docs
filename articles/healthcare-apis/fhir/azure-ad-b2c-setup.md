@@ -309,7 +309,7 @@ When you follow the steps to [GET FHIR resource](use-postman.md#get-fhir-resourc
 
 #### Create a patient resource in the FHIR service
 
-It's important to note that users in the B2C tenant aren't able to create, read, update, or delete any resources until the user is linked to a FHIR resource, for example as patient or practitioner. A user with the `FhirDataWriter` or `FhirDataContributor` role in the Microsoft Entra ID where the FHIR service is tenanted must perform this step.
+It's important to note that users in the B2C tenant aren't able to read any resources until the user is linked to a FHIR resource, for example as patient or practitioner. A user with the `FhirDataWriter` or `FhirDataContributor` role in the Microsoft Entra ID where the FHIR service is tenanted must perform this step.
 
 1. Create a patient with a specific identifier by changing the method to `PUT` and executing a request to `{{fhirurl}}/Patient/1` with this body:
 
