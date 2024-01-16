@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot guidance
 titleSuffix: Azure Machine Learning
-description: This article addresses frequent questions about tool usage.
+description: This article addresses frequent questions prompt flow usage.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
@@ -16,7 +16,7 @@ ms.date: 09/05/2023
 
 # Troubleshoot guidance
 
-This article addresses frequent questions about tool usage.
+This article addresses frequent questions about prompt flow usage.
 
 ## "Package tool isn't found" error occurs when you update the flow for a code-first experience
 
@@ -165,3 +165,21 @@ Follow these steps to find Python packages installed in runtime:
 - Run the flow. Then you can find `packages.txt` in the flow folder.
 
   :::image type="content" source="../media/faq/list-packages.png" alt-text="Screenshot that shows finding Python packages installed in runtime." lightbox = "../media/faq/list-packages.png":::
+
+## Flow run related issues
+
+### How to find the raw inputs and outputs of in LLM tool for further investigation?
+
+In prompt flow flow page with successful run, you can find the raw inputs and outputs of LLM tool in the output section. Click the `view full output` button to view full output. 
+
+:::image type="content" source="../media/faq/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "../media/faq/view-full-output.png":::
+
+`Trace` section should the each request and response to LLM tool, you can check raw message send to LLM model and raw response from LLM model.
+
+:::image type="content" source="../media/faq/trace-llm-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "../media/faq/trace-llm-tool.png":::
+
+## How to fix 409 error in from Azure OpenAI? 
+
+If you may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Lean more about [Azure OpenAI rate limit](../../../ai-services/openai/quotas-limits.md).
+
+:::image type="content" source="../media/faq/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "../media/faq/429-rate-limit.png":::
