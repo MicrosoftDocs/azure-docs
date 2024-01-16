@@ -1,12 +1,12 @@
 ---
-title: List and download server logs with Azure CLI
-description: This article describes how to list and download Azure Database for PostgreSQL - Flexible Server logs by using the Azure CLI.
+title: Download server logs for Azure Database for PostgreSQL - Flexible Server with Azure CLI
+description: This article describes how to download server logs using Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
 author: varun-dhawan
 ms.author: varundhawan
 ms.topic: conceptual
-ms.date: 1/10/2024
+ms.date: 1/16/2024
 ---
 
 # List and download Azure Database for PostgreSQL - Flexible Server logs by using the Azure CLI
