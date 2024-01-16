@@ -13,7 +13,7 @@ ms.date: 12/31/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article outlines best practices for using Query Store in Azure Database for PostgreSQL.
+This article outlines best practices for using Query Store in Azure Database for PostgreSQL flexible server.
 
 ## Set the optimal query capture mode
 
