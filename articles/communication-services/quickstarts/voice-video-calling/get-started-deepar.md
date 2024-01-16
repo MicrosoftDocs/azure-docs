@@ -122,5 +122,5 @@ await deepAR.stopVideo();
 For more information, see the following articles:
 
 - Learn about [Video effects](./get-started-video-effects.md?pivots=platform-web).
-- Learn more about [](../../how-tos/calling-sdk/manage-video?pivots=platform-web).
+- Learn more about [Manage video during calls](../../how-tos/calling-sdk/manage-video?pivots=platform-web).
 - DeepAR documentation. [Getting started | DeepAR](https://docs.deepar.ai/deepar-sdk/platforms/web/getting-started).
