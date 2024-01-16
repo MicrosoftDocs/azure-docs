@@ -24,8 +24,8 @@ Let's try DeepAR to enrich your video with Argumented Reality!
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
-- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../identity/access-tokens.md). You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
+- An Azure Communication Service resource. Further details can be found in the [Create an Azure Communication Services resource](../create-communication-resource.md) quickstart.
+- An Azure Communication Services voice and video calling enabled client. [Add video calling to your app](./get-started-with-video-calling.md?pivots=platform-web).
 - DeepAR license key. [Getting started | DeepAR](https://docs.deepar.ai/deepar-sdk/platforms/web/getting-started).
 
 ## How video input and output work between ACS Web SDK and DeepAR
@@ -123,6 +123,5 @@ await deepAR.stopVideo();
 For more information, see the following articles:
 
 - Learn about [Video effects](./get-started-video-effects.md?pivots=platform-web).
-- Learn about [Add video calling to your app](./get-started-with-video-calling.md?pivots=platform-web).
 - Learn more about [](../../how-tos/calling-sdk/manage-video?pivots=platform-web).
 - DeepAR documentation. [Getting started | DeepAR](https://docs.deepar.ai/deepar-sdk/platforms/web/getting-started).
