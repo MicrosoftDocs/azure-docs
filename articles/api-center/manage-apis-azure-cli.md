@@ -30,7 +30,7 @@ This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in t
 
 The following steps show how to create an API and associate a single API version and API definition. For background about the data model in API Center, see [Key concepts](key-concepts.md).
 
-### 1. Create an API
+### Create an API
 
 Use the [az apic api create](/cli/azure/apic/api#az_apic_api_create) command to create an API in your API center. 
 
@@ -48,7 +48,7 @@ By default, the command sets the API's **Lifecycle stage** to *design*.
 > After creating an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update) command.
 
 
-### 2. Create an API version
+### Create an API version
 
 Use the [az apic api version create](/cli/azure/apic/api/version#az_apic_api_version_create) command to create a version for your API. 
 
@@ -60,7 +60,7 @@ az apic api version create --resource-group myResourceGroup \
     --version v1-0-0 --title "v1-0-0"
 ```
 
-### 3. Create API definition and add specification file 
+### Create API definition and add specification file 
 
 Use the [az apic api definition](/cli/azure/apic/api/definition) commands to add a definition and an accompanying specification file for an API version.
 
