@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, edwardhe, azla
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 06/13/2023
+ms.date: 01/10/2024
 ---
 
 # Enable stateful mode for stateless built-in connectors in Azure Logic Apps
