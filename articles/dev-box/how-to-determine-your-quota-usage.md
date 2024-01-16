@@ -63,6 +63,5 @@ Each subscription has its own **Usage + quotas** page that covers all the variou
 - Check the default quota for each resource type by subscription type with [Microsoft Dev Box limits](../azure-resource-manager/management/azure-subscription-service-limits.md#microsoft-dev-box-limits)
 - Learn how to [request a quota limit increase](./how-to-request-quota-increase.md)
 - You can also check your Dev Box quota using either: 
-- REST API - [Usages - List By Location - REST API (Azure Dev Center) | Microsoft Learn](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
-- CLI - [az devcenter admin usage | Microsoft Learn |](/cli/azure/devcenter/admin/usage?view=azure-cli-latest) 
-
+   - REST API: [Usages - List By Location - REST API (Azure Dev Center)](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
+   - CLI:  [az devcenter admin usage](/cli/azure/devcenter/admin/usage) 
