@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure file
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/11/2024
+ms.date: 01/17/2024
 ms.author: kendownie
 ---
 
@@ -102,9 +102,12 @@ A popular use case for Azure Files is storing user profile containers and disk i
 
 #### FSLogix
 
-If you're using [FSLogix with Azure Virtual Desktop](../../virtual-desktop/fslogix-containers-azure-files.md), your user profile containers are either Virtual Hard Disk (VHD) or Hyper-V Virtual Hard Disk (VHDX) files, and they're mounted in a user context, not a system context. FSLogix users are likely to run out of handles for the root directory if there are a large number of user profiles. This is because every mount by a user shares the root directory handle pool in all scenarios, so every mount of any VHDX file in the share consumes a root directory handle.
+If you're using [FSLogix with Azure Virtual Desktop](../../virtual-desktop/fslogix-containers-azure-files.md), your user profile containers are either Virtual Hard Disk (VHD) or Hyper-V Virtual Hard Disk (VHDX) files, and they're mounted in a user context, not a system context. Each user will open a single root directory handle, which should be to the file share. Azure Files can support a maximum of 10,000 users assuming you have the file share (`\\storageaccount.file.core.windows.net\sharename`) + the profile directory (`%sid%_%username%`) + profile container (`profile_%username.vhd(x)`).
 
-If you have a large number of FSLogix users and you're hitting the limit of 10,000 concurrent handles for the root directory, try using an additional Azure file share and distributing the profile containers between the shares.
+If you're hitting the limit of 10,000 concurrent handles for the root directory or users are seeing poor performance, try using an additional Azure file share and distributing the containers between the shares.
+
+> [!WARNING]
+> While Azure Files can support up to 10,000 users from a single file share, it's critical to properly test your workloads against the size and type of file share you've created. Your requirements might vary based on users, profile size, and workload.
 
 #### App attach with CimFS
 
@@ -138,8 +141,8 @@ The following table indicates which targets are soft, representing the Microsoft
 | File size | 100 GiB | No |
 | Minimum file size for a file to be tiered | Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size will be 8 KiB. | Yes |
 
-> [!Note]  
-> An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync will not be able to operate.
+> [!NOTE]
+> An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync won't be able to operate.
 
 ## Azure File Sync performance metrics
 
