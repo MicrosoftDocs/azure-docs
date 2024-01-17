@@ -50,8 +50,8 @@ Alternatively, you can read the data to the input buffer through a **BinaryData*
 Use an **ImageAnalysisOptions** object to specify various options for the Analyze API call. 
 
 - **Language**: You can specify the language of the returned data. The language is optional, with the default being English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language. 
-- **Gender neutral captions**: If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
-- **Crop aspect ratio**: An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **VisualFeatures.smartCrops** (SDK) was selected as part the visual feature list. If you select smartCrop/VisualFeatures.smartCrops but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
+- **Gender neutral captions**: If you're extracting captions or dense captions (using **VisualFeatures.caption** or **VisualFeatures.denseCaptions**), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
+- **Crop aspect ratio**: An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when **VisualFeatures.smartCrops** was selected as part the visual feature list. If you select **VisualFeatures.smartCrops** but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_options)]
 
@@ -82,9 +82,11 @@ To use a custom model, create the [ImageAnalysisOptions](/java/api/com.azure.ai.
 
 ## Call the Analyze API
 
-This section shows you how to make an analysis call to the service. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can use a **ImageAnalysisAsyncClient** object instead, and call its **analyze** method which is non-blocking.
+This section shows you how to make an analysis call to the service. 
 
-Call the **analyze** method on the **ImageAnalysisClient** object, as shown here. Use the input objects created in the above sections.
+Call the **analyze** method on the **ImageAnalysisClient** object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can use a **ImageAnalysisAsyncClient** object instead, and call its **analyze** method which is non-blocking. 
+
+Use the input objects created in the above sections. To analyze from an image buffer instead of URL, replace `imageURL` in the method call with `imageBuffer`.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_call)]
 
