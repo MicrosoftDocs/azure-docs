@@ -485,9 +485,9 @@ Follow these steps to create your App Service resources and publish your project
 
     -----
 
-1. Select the **Next: Deployment >** button at the bottom of the page.
+1. Select the **Deployment** tab at the top of the page
 
-1. In the **Deployment** tab, under **GitHub Actions settings** make sure **Continuous deployment** is *Enable*.
+1. Under **GitHub Actions settings**, set **Continuous deployment** to *Enable*.
 
 1. Under **GitHub Actions details**, authenticate with your GitHub account, and select the following options:
 
