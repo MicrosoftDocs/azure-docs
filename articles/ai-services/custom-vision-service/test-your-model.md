@@ -2,7 +2,7 @@
 title: Test and retrain a model - Custom Vision Service
 titleSuffix: Azure AI services
 description: Learn how to test an image and then use it to retrain your model in the Custom Vision service.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

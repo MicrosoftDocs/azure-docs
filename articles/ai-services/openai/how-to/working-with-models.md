@@ -5,7 +5,7 @@ description: Learn about managing model deployment life cycle, updates, & retire
 ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 10/04/2023
-ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai, devx-track-azurepowershell
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -17,7 +17,7 @@ keywords:
 
 Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. [Model availability varies by region](../concepts/models.md).
 
-You can get a list of models that are available for both inference and fine-tuning by your Azure OpenAI resource by using the [Models List API](/rest/api/cognitiveservices/azureopenaistable/models/list).
+You can get a list of models that are available for both inference and fine-tuning by your Azure OpenAI resource by using the [Models List API](/rest/api/azureopenai/models/list).
 
 ## Model updates
 

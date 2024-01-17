@@ -24,7 +24,7 @@ sections:
         answer: |
           Azure for Students is available only to students who meet the following requirements:
           
-          - You must affirm that you are age 18 or older and attend an accredited, degree-granting, two-year or four-year educational institution where you’re a full-time student. 
+          - You must affirm that you attend an accredited, degree-granting, two-year or four-year educational institution where you’re a full-time student. 
           - You must verify your academic status through your organization's email address.
           - See the [Azure for Students Offer](https://azure.microsoft.com/offers/ms-azr-0170p/) for detailed terms of use.
           
@@ -358,11 +358,9 @@ sections:
       - question: |
           How and when do we renew our Azure Dev Tools for Teaching subscription?
         answer: |
-          Sixty days before your membership expires, you'll start receiving email reminders to renew your subscription. In a renewal email, select the [renewal link](https://portal.azureforeducation.microsoft.com/).
+          Sixty days before your membership expires, you'll start receiving email reminders to renew your subscription.
           
           If you don't receive these reminder emails and are concerned that your subscription is about to expire, [contact us](https://aka.ms/adt4tsupport).
-          
-          Alternatively, go to the [Azure Dev Tools for Teaching - Renew page](https://portal.azureforeducation.microsoft.com/), and complete the renewal process.
           
           To check the expiration date of your subscription, go to the [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/account/Subscriptions), and look under **Subscriptions**.
           

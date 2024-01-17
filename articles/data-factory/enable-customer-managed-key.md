@@ -153,6 +153,6 @@ The following settings will be added in ARM template. These properties can be pa
 > [!NOTE]
 > Adding the encryption setting to the ARM templates adds a factory-level setting that will override other factory level settings, such as git configurations, in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, please refer to [Global Parameters in CI/CD](author-global-parameters.md#cicd).
 
-## Next steps
+## Related content
 
 Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios.

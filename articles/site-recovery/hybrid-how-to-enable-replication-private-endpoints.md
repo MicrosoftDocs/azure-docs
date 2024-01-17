@@ -4,7 +4,7 @@ description: This article describes how to configure replication for on-premises
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2023
 ms.custom: subject-rbac-steps, engagement-fy23
 ---
@@ -146,7 +146,7 @@ To protect the machines in the on-premises source network, you'll need one priva
 
       Ensure that you choose to create a new DNS zone for every new private endpoint connecting to the same vault. If you choose an existing private DNS zone, the previous CNAME records are overwritten. See [Private endpoint guidance](../private-link/private-endpoint-overview.md#private-endpoint-properties) before you continue.
 
-      If your environment has a hub and spoke model, you need only one private endpoint and only one private DNS zone for the entire setup. This is because all your virtual networks already have peering enabled between them. For more information, see [Private endpoint DNS integration](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server).
+      If your environment has a hub and spoke model, you need only one private endpoint and only one private DNS zone for the entire setup. This is because all your virtual networks already have peering enabled between them. For more information, see [Private endpoint DNS integration](../private-link/private-endpoint-dns-integration.md#virtual-network-workloads-without-custom-dns-server).
 
       To manually create the private DNS zone, follow the steps in [Create private DNS zones and add DNS records manually](#create-private-dns-zones-and-add-dns-records-manually).
 

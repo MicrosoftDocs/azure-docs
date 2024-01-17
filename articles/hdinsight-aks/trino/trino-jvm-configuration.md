@@ -41,7 +41,7 @@ The following example sets the initial and max heap size to 6 GB and 10 GB for b
                         "fileName": "jvm.config",
                         "values": {
                             "-Xms": "6G",
-                            "-Xmm": "10G"
+                            "-Xmx": "10G"
                         }
                     }
                 ]                

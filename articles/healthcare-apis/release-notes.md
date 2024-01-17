@@ -6,21 +6,104 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 09/08/2023
+ms.date: 1/3/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
 
 # Release notes: Azure Health Data Services
 
-> Azure Health Data Services is Generally Available. 
+> Azure Health Data Services is generally available. 
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
 
 This article provides details about the features and enhancements made to Azure Health Data Services, including the different services (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## January 2024
+
+### FHIR Service
+**Storage size support in FHIR service beyond 4TB** 
+
+By default each FHIR instance is limited to storage capacity of 4TB. To provision a FHIR instance with storage capacity beyond 4TB, create support request with Issue type 'Service and Subscription limit (quotas)'.
+> [!NOTE]
+> Due to issue in billing metrics for storage. Customers opting for more than 4TB storage capacity will not be billed for storage till the issue is addressed.
+
+## December 2023
+
+### Azure Health Data Services
+
+**Encryption with customer-managed keys is generally available for the FHIR and DICOM services**
+
+Data stored in Azure Health Data Services is automatically and seamlessly encrypted with service-managed keys managed by Microsoft. You can enable data encryption with customer-managed keys (CMK) for new and existing FHIR® and DICOM® services, providing your organization with improved flexibility to manage access controls.
+
+Learn more:
+
+- [Configure customer-managed keys for the FHIR service](fhir/configure-customer-managed-keys.md)
+- [Configure customer-managed keys for the DICOM service](dicom/configure-customer-managed-keys.md)
+
+### DICOM service
+
+**Store and manage medical imaging data with Azure Data Lake Storage (Preview)**
+
+With the integration of Azure Data Lake Storage available for preview, organizations can now enjoy full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs. By using Azure Data Lake Storage with the DICOM service, organizations are able to:
+
+- Enable direct access to medical imaging data stored by the DICOM service using Azure storage APIs and DICOMweb APIs, providing more flexibility to access and work with the data.
+- Open medical imaging data up to the entire ecosystem of tools for working with Azure storage, including AzCopy, Azure Storage Explorer, and the Data Movement library.
+- Unlock new analytics and AI/ML scenarios by using services that natively integrate with Azure Data Lake Storage, including Azure Synapse, Azure Databricks, Azure Machine Learning, and Microsoft Fabric.
+- Grant controls to manage storage permissions, access controls, tiers, and rules.
+
+Learn more: 
+
+- [Azure Data Lake Storage integration for the DICOM service in Azure Health Data Services](dicom/dicom-data-lake.md)
+- [Deploy the DICOM service with Azure Data Lake Storage](dicom/deploy-dicom-services-in-azure-data-lake.md)
+
+### FHIR service
+
+**Additional capabilities added to the $export operation**
+
+The $export operation supports exporting versioned resources and soft deleted resources. For more information, see [Export query parameters](fhir/export-data.md).
+
+## November 2023
+
+### Azure Health Data Services
+
+**Unified Azure portal landing page**
+
+In the Azure portal, we launched a unified landing page that lets users access all Microsoft Healthcare Data and AI Services in one place. The landing page makes it easier to find and use all related Healthcare Data and AI Services and includes links to relevant documentation to help users get started. To check out the landing page, sign into your Azure subscription and then search for **Healthcare Data and AI Services**.
+
+### FHIR service
+
+**Bulk delete capability available for public preview**
+
+$bulk-delete allows you to delete resources from FHIR server asynchronously. The bulk delete operation can be executed at the system level or for individual resource types. For more information, see [bulk-delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md).
+
+**$import operation supports importing soft deleted resources**
+
+The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. For more information, see [Fix SQL Import for Soft Delete and History](https://github.com/microsoft/fhir-server/pull/3530).
+
+**Performance improvement of FHIR queries**
+
+In this release we improved performance of FHIR queries with _include parameter. For more information, see [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
+
+**Bug fixes**
+- **Searching with _include and wildcard resulted in query failure**. The issue is fixed and permits only the wild character  “*” to be present for _include and _revinclude searches. For more information, see [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541).
+
+- **Multiple export jobs created resulting in increase data storage volume**. Due to a bug, Export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. For more information, see [Fix export](https://github.com/microsoft/fhir-server/pull/3567).
+
+- **Retriable exception for import operation, when using duplicate files**. In case of duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. This fix addresses the issue. Import operations with same file are no longer retriable. For information, see [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557).
+
+
+## October 2023
+
+### DICOM Service
+**Bulk import is available for public preview**
+
+Bulk import simplifies the process of adding data to the DICOM service. When enabled, the capability creates a storage container and .dcm files that are copied to the container are automatically added to the DICOM service. For more information, see [Import DICOM files (preview)](./../healthcare-apis/dicom/import-files.md).  
+
 ## September 2023
+
+### FHIR service
 
 **Retirement announcement for Azure API for FHIR**
 
@@ -43,7 +126,7 @@ With Incremental Load mode, customers can:
 1.	Ingest versioned FHIR resources.
 1.	Maintain the lastUpdated field value in FHIR resources during ingestion.
 1. Supports conditional references
-For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
+For details on Incremental Import, see [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
 
 **Batch-Bundle parallelization capability available in Public Preview**
 
@@ -800,4 +883,3 @@ Learn about:
 [Release notes: Azure API for FHIR](./azure-api-for-fhir/release-notes.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
-

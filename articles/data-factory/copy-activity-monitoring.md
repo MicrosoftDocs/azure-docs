@@ -160,7 +160,7 @@ Copy activity execution details and performance characteristics are also returne
 }
 ```
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 \- [Copy activity overview](copy-activity-overview.md)

@@ -84,7 +84,7 @@ GET {{FHIR_URL}}/metadata
 To see the search parameters in the capability statement, navigate to `CapabilityStatement.rest.resource.searchParam` to see the search parameters for each resource and `CapabilityStatement.rest.searchParam` to find the search parameters for all resources.
 
 > [!NOTE]
-> The Azure API for FHIR does not automatically create or index any search parameters that are not defined by the FHIR specification. However, we do provide support for you to to define your own [search parameters](how-to-do-custom-search.md).
+> The Azure API for FHIR does not automatically create or index any search parameters that are not defined by the FHIR specification. However, we do provide support for you to define your own [search parameters](how-to-do-custom-search.md).
 
 ### Composite search parameters
 Composite search allows you to search against value pairs. For example, if you were searching for a height observation where the person was 60 inches, you would want to make sure that a single component of the observation contained the code of height **and** the value of 60. You wouldn't want to get an observation where a weight of 60 and height of 48 was stored, even though the observation would have entries that qualified for value of 60 and code of height, just in different component sections. 

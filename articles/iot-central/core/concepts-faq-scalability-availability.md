@@ -42,7 +42,7 @@ An incident that requires disaster recovery could range from a subset of service
 
 ### Applications created after April 2023
 
-IoT Central applications created after March 2023 initially have a single IoT hub. If the IoT hub becomes unavailable, the application becomes unavailable. However, IoT Central automatically scales the application and adds a new IoT hub for each 10,000 connected devices. If you require multiple IoT hubs for applications with fewer than 10,000 devices, submit a request to [IoT Central customer support](../../iot/iot-support-help.md?toc=%2Fazure%2Fiot-central%2Ftoc.json&bc=%2Fazure%2Fiot-central%2Fbreadcrumb%2Ftoc.json).
+IoT Central applications created after April 2023 initially have a single IoT hub. If the IoT hub becomes unavailable, the application becomes unavailable. However, IoT Central automatically scales the application and adds a new IoT hub for each 10,000 connected devices. If you require multiple IoT hubs for applications with fewer than 10,000 devices, submit a request to [IoT Central customer support](../../iot/iot-support-help.md?toc=%2Fazure%2Fiot-central%2Ftoc.json&bc=%2Fazure%2Fiot-central%2Fbreadcrumb%2Ftoc.json).
 
 Use the `az iot central device manual-failover` command to check if your application currently uses a single IoT hub. This command returns an error if the application currently has a single IoT hub.
 

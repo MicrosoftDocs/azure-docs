@@ -2,7 +2,7 @@
 title: Prepare your data and upload to Storage Account
 titleSuffix: Azure AI services
 description: Prepare your data and upload to Storage Account
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector

@@ -22,6 +22,10 @@
       href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Disaster recovery using Azure DNS and Traffic Manager
       href: disaster-recovery-dns-traffic-manager.md
+    - name: Choose a secure network topology
+      href: secure-network-topology.md
+    - name: Choose a secure application delivery service
+      href: secure-application-delivery.md
   - name: Plan and design
     items:
     - name: Support for working remotely

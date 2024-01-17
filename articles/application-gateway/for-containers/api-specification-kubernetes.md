@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 9/25/2023
+ms.date: 11/6/2023
 ms.author: greglin
 ---
 
@@ -152,8 +152,8 @@ has been accepted by the controller.</p>
 <em>(Optional)</em>
 <p>Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
-<li>&ldquo;Ready&rdquo;</li>
+<li>"Accepted"</li>
+<li>"Ready"</li>
 </ul>
 </td>
 </tr>
@@ -355,22 +355,28 @@ particular BackendTLSPolicy condition type has been raised.</p>
 When the given BackendTLSPolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidBackendTLSPolicy&#34;</p></td>
-<td><p>BackendTLSPolicyReasonInvalid is the reason when the BackendTLSPolicy isn't Accepted</p>
+<td><p>BackendTLSPolicyReasonInvalid is the reason when the BackendTLSPolicy isn&rsquo;t Accepted</p>
+</td>
+</tr><tr><td><p>&#34;InvalidGroup&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalidGroup is used when the group is invalid</p>
 </td>
 </tr><tr><td><p>&#34;InvalidKind&#34;</p></td>
 <td><p>BackendTLSPolicyReasonInvalidKind is used when the kind/group is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidName&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalidName is used when the name is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidSecret&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalidSecret is used when the Secret is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidService&#34;</p></td>
+<td><p>BackendTLSPolicyReasonInvalidService is used when the Service is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
 <td><p>BackendTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
 </td>
 </tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
-<td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref isn't permitted</p>
-</td>
-</tr><tr><td><p>&#34;ServiceNotFound&#34;</p></td>
-<td><p>BackendTLSPolicyReasonServiceNotFound is used when the ref service isn't found</p>
-</td>
-</tr><tr><td><p>&#34;Degraded&#34;</p></td>
-<td><p>ReasonDegraded is the backendTLSPolicyConditionReason when the backendTLSPolicy has been incorrectly programmed</p>
+<td><p>BackendTLSPolicyReasonRefNotPermitted is used when the ref isn&rsquo;t permitted</p>
 </td>
 </tr></tbody>
 </table>
@@ -389,19 +395,10 @@ field.</p>
 </tr>
 </thead>
 <tbody><tr><td><p>&#34;Accepted&#34;</p></td>
-<td><p>BackendTLSPolicyConditionAccepted is used to set the BackendTLSPolicyCondition to Accepted</p>
-</td>
-</tr><tr><td><p>&#34;Ready&#34;</p></td>
-<td><p>BackendTLSPolicyConditionReady is used to set the condition to Ready</p>
+<td><p>BackendTLSPolicyConditionAccepted is used to set the BackendTLSPolicyConditionType to Accepted</p>
 </td>
 </tr><tr><td><p>&#34;ResolvedRefs&#34;</p></td>
-<td><p>BackendTLSPolicyConditionResolvedRefs is used to set the BackendTLSPolicyCondition to ResolvedRefs
-This is used with the following Reasons :
-*BackendTLSPolicyReasonRefNotPermitted
-*BackendTLSPolicyReasonInvalidKind
-*BackendTLSPolicyReasonServiceNotFound
-*BackendTLSPolicyInvalidCertificateRef
-*ReasonDegraded</p>
+<td><p>BackendTLSPolicyConditionResolvedRefs is used to set the BackendTLSPolicyCondition to ResolvedRefs</p>
 </td>
 </tr></tbody>
 </table>
@@ -466,7 +463,7 @@ string
 <td>
 <code>clientCertificateRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.SecretObjectReference">
+<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -602,7 +599,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe BackendTLSPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
+<li>"Accepted"</li>
 </ul>
 </td>
 </tr>
@@ -660,7 +657,7 @@ CommonTLSPolicyVerify
 <td>
 <code>caCertificateRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.SecretObjectReference">
+<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.SecretObjectReference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -690,7 +687,7 @@ certificate of the backend.</p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.FrontendTLSPolicySpec">FrontendTLSPolicySpec</a>)
 </p>
 <div>
-<p>CustomTargetRef is a reference to a custom resource that isn't part of the
+<p>CustomTargetRef is a reference to a custom resource that isn&rsquo;t part of the
 Kubernetes core API.</p>
 </div>
 <table>
@@ -705,7 +702,7 @@ Kubernetes core API.</p>
 <td>
 <code>name</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.ObjectName">
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.ObjectName">
 Gateway API .ObjectName
 </a>
 </em>
@@ -718,7 +715,7 @@ Gateway API .ObjectName
 <td>
 <code>kind</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.Kind">
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.Kind">
 Gateway API .Kind
 </a>
 </em>
@@ -743,7 +740,7 @@ Gateway API .Kind
 <td>
 <code>namespace</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.Namespace">
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.Namespace">
 Gateway API .Namespace
 </a>
 </em>
@@ -756,7 +753,7 @@ Gateway API .Namespace
 <td>
 <code>group</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.Group">
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.Group">
 Gateway API .Group
 </a>
 </em>
@@ -860,7 +857,7 @@ FrontendTLSPolicyStatus
 (<code>string</code> alias)</h3>
 <div>
 <p>FrontendTLSPolicyConditionReason defines the set of reasons that explain why a
-particular FrontTLSPolicy condition type has been raised.</p>
+particular FrontendTLSPolicy condition type has been raised.</p>
 </div>
 <table>
 <thead>
@@ -869,36 +866,36 @@ particular FrontTLSPolicy condition type has been raised.</p>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr><td><p>&#34;InvalidGroup&#34;</p></td>
-<td><p>FrontTLSPolicyReasonInvalidGroup is used when the group is invalid</p>
-</td>
-</tr><tr><td><p>&#34;InvalidKind&#34;</p></td>
-<td><p>FrontTLSPolicyReasonInvalidKind is used when the kind/group is invalid</p>
-</td>
-</tr><tr><td><p>&#34;InvalidName&#34;</p></td>
-<td><p>FrontTLSPolicyReasonInvalidName is used when the name is invalid</p>
-</td>
-</tr><tr><td><p>&#34;InvalidPolicyName&#34;</p></td>
-<td><p>FrontTLSPolicyReasonInvalidPolicyName is used when the name is invalid</p>
-</td>
-</tr><tr><td><p>&#34;InvalidPolicyType&#34;</p></td>
-<td><p>FrontTLSPolicyReasonInvalidPolicyType is used when the type is invalid</p>
-</td>
-</tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>FrontTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
-</td>
-</tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
-<td><p>FrontTLSPolicyReasonRefNotPermitted is used when the ref isn't permitted</p>
-</td>
-</tr><tr><td><p>&#34;Accepted&#34;</p></td>
-<td><p>FrontendTLSPolicyReasonAccepted is used to set the FrontTLSPolicyConditionReason to Accepted
-When the given FrontTLSPolicy is correctly configured</p>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
+<td><p>FrontendTLSPolicyReasonAccepted is used to set the FrontendTLSPolicyConditionReason to Accepted
+When the given FrontendTLSPolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidFrontendTLSPolicy&#34;</p></td>
-<td><p>FrontendTLSPolicyReasonInvalid is the reason when the FrontendTLSPolicy isn't Accepted</p>
+<td><p>FrontendTLSPolicyReasonInvalid is the reason when the FrontendTLSPolicy isn&rsquo;t Accepted</p>
 </td>
 </tr><tr><td><p>&#34;InvalidGateway&#34;</p></td>
 <td><p>FrontendTLSPolicyReasonInvalidGateway is used when the gateway is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidGroup&#34;</p></td>
+<td><p>FrontendTLSPolicyReasonInvalidGroup is used when the group is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidKind&#34;</p></td>
+<td><p>FrontendTLSPolicyReasonInvalidKind is used when the kind/group is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidName&#34;</p></td>
+<td><p>FrontendTLSPolicyReasonInvalidName is used when the name is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidPolicyName&#34;</p></td>
+<td><p>FrontendTLSPolicyReasonInvalidPolicyName is used when the policy name is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidPolicyType&#34;</p></td>
+<td><p>FrontendTLSPolicyReasonInvalidPolicyType is used when the policy type is invalid</p>
+</td>
+</tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
+<td><p>FrontendTLSPolicyReasonNoTargetReference is used when there is no target reference</p>
+</td>
+</tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
+<td><p>FrontendTLSPolicyReasonRefNotPermitted is used when the ref isn&rsquo;t permitted</p>
 </td>
 </tr></tbody>
 </table>
@@ -1035,7 +1032,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe FrontendTLSPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
+<li>"Accepted"</li>
 </ul>
 </td>
 </tr>
@@ -1061,6 +1058,73 @@ vocabulary to describe FrontendTLSPolicy state.</p>
 </td>
 </tr></tbody>
 </table>
+<h3 id="alb.networking.azure.io/v1.HTTPHeader">HTTPHeader
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HeaderFilter">HeaderFilter</a>)
+</p>
+<div>
+<p>HTTPHeader represents an HTTP Header name and value as defined by RFC 7230.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>name</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.HTTPHeaderName">
+HTTPHeaderName
+</a>
+</em>
+</td>
+<td>
+<p>Name is the name of the HTTP Header to be matched. Name matching MUST be
+case insensitive. (See <a href="https://tools.ietf.org/html/rfc7230#section-3.2">https://tools.ietf.org/html/rfc7230#section-3.2</a>).</p>
+<p>If multiple entries specify equivalent header names, the first entry with
+an equivalent name MUST be considered for a match. Subsequent entries
+with an equivalent header name MUST be ignored. Due to the
+case-insensitivity of header names, "foo" and "Foo" are considered
+equivalent.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>value</code><br/>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Value is the value of HTTP Header to be matched.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.HTTPHeaderName">HTTPHeaderName
+(<code>string</code> alias)</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HTTPHeader">HTTPHeader</a>)
+</p>
+<div>
+<p>HTTPHeaderName is the name of an HTTP header.</p>
+<p>Valid values include:</p>
+<ul>
+<li>"Authorization"</li>
+<li>"Set-Cookie"</li>
+</ul>
+<p>Invalid values include:</p>
+<ul>
+<li>":method" - ":" is an invalid character. This means that HTTP/2 pseudo
+headers are not currently supported by this type.</li>
+<li>"/invalid" - "/ " is an invalid character</li>
+</ul>
+</div>
 <h3 id="alb.networking.azure.io/v1.HTTPMatch">HTTPMatch
 </h3>
 <p>
@@ -1104,6 +1168,188 @@ string
 </td>
 </tr>
 </tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.HTTPPathModifier">HTTPPathModifier
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.Redirect">Redirect</a>, <a href="#alb.networking.azure.io/v1.URLRewriteFilter">URLRewriteFilter</a>)
+</p>
+<div>
+<p>HTTPPathModifier defines configuration for path modifiers.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>type</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.HTTPPathModifierType">
+HTTPPathModifierType
+</a>
+</em>
+</td>
+<td>
+<p>Type defines the type of path modifier. Additional types may be
+added in a future release of the API.</p>
+<p>Note that values may be added to this enum, implementations
+must ensure that unknown values will not cause a crash.</p>
+<p>Unknown values here must result in the implementation setting the
+Accepted Condition for the rule to be false</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>replaceFullPath</code><br/>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>ReplaceFullPath specifies the value with which to replace the full path
+of a request during a rewrite or redirect.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>replacePrefixMatch</code><br/>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>ReplacePrefixMatch specifies the value with which to replace the prefix
+match of a request during a rewrite or redirect. For example, a request
+to "/foo/bar" with a prefix match of "/foo" and a ReplacePrefixMatch
+of "/xyz" would be modified to "/xyz/bar".</p>
+<p>Note that this matches the behavior of the PathPrefix match type. This
+matches full path elements. A path element refers to the list of labels
+in the path split by the <code>/</code> separator. When specified, a trailing <code>/</code> is
+ignored. For example, the paths <code>/abc</code>, <code>/abc/</code>, and <code>/abc/def</code> would all
+match the prefix <code>/abc</code>, but the path <code>/abcd</code> would not.</p>
+<p>ReplacePrefixMatch is only compatible with a <code>PathPrefix</code> HTTPRouteMatch.
+Using any other HTTPRouteMatch type on the same HTTPRouteRule will result in
+the implementation setting the Accepted Condition for the Route to <code>status: False</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Request Path</th>
+<th>Prefix Match</th>
+<th>Replace Prefix</th>
+<th>Modified Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/foo/bar</td>
+<td>/foo</td>
+<td>/xyz</td>
+<td>/xyz/bar</td>
+</tr>
+<tr>
+<td>/foo/bar</td>
+<td>/foo</td>
+<td>/xyz/</td>
+<td>/xyz/bar</td>
+</tr>
+<tr>
+<td>/foo/bar</td>
+<td>/foo/</td>
+<td>/xyz</td>
+<td>/xyz/bar</td>
+</tr>
+<tr>
+<td>/foo/bar</td>
+<td>/foo/</td>
+<td>/xyz/</td>
+<td>/xyz/bar</td>
+</tr>
+<tr>
+<td>/foo</td>
+<td>/foo</td>
+<td>/xyz</td>
+<td>/xyz</td>
+</tr>
+<tr>
+<td>/foo/</td>
+<td>/foo</td>
+<td>/xyz</td>
+<td>/xyz/</td>
+</tr>
+<tr>
+<td>/foo/bar</td>
+<td>/foo</td>
+<td></td>
+<td>/bar</td>
+</tr>
+<tr>
+<td>/foo/</td>
+<td>/foo</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td>/foo</td>
+<td>/foo</td>
+<td></td>
+<td>/</td>
+</tr>
+<tr>
+<td>/foo/</td>
+<td>/foo</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td>/foo</td>
+<td>/foo</td>
+<td>/</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.HTTPPathModifierType">HTTPPathModifierType
+(<code>string</code> alias)</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HTTPPathModifier">HTTPPathModifier</a>)
+</p>
+<div>
+<p>HTTPPathModifierType defines the type of path redirect or rewrite.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;ReplaceFullPath&#34;</p></td>
+<td><p>FullPathHTTPPathModifier indicates that the full path will be replaced
+by the specified value.</p>
+</td>
+</tr><tr><td><p>&#34;ReplacePrefixMatch&#34;</p></td>
+<td><p>PrefixMatchHTTPPathModifier indicates that any prefix path matches will be
+replaced by the substitution value. For example, a path with a prefix
+match of "/foo" and a ReplacePrefixMatch substitution of "/bar" will have
+the "/foo" prefix replaced with "/bar" in matching requests.</p>
+<p>Note that this matches the behavior of the PathPrefix match type. This
+matches full path elements. A path element refers to the list of labels
+in the path split by the <code>/</code> separator. When specified, a trailing <code>/</code> is
+ignored. For example, the paths <code>/abc</code>, <code>/abc/</code>, and <code>/abc/def</code> would all
+match the prefix <code>/abc</code>, but the path <code>/abcd</code> would not.</p>
+</td>
+</tr></tbody>
 </table>
 <h3 id="alb.networking.azure.io/v1.HTTPSpecifiers">HTTPSpecifiers
 </h3>
@@ -1161,6 +1407,110 @@ HTTPMatch
 </tr>
 </tbody>
 </table>
+<h3 id="alb.networking.azure.io/v1.HeaderFilter">HeaderFilter
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressRewrites">IngressRewrites</a>)
+</p>
+<div>
+<p>HeaderFilter defines a filter that modifies the headers of an HTTP
+request or response. Only one action for a given header name is permitted.
+Filters specifying multiple actions of the same or different type for any one
+header name are invalid and will be rejected.
+Configuration to set or add multiple values for a header must use RFC 7230
+header value formatting, separating each value with a comma.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>set</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.HTTPHeader">
+[]HTTPHeader
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Set overwrites the request with the given header (name, value)
+before the action.</p>
+<p>Input:
+GET /foo HTTP/1.1
+my-header: foo</p>
+<p>Config:
+set:
+- name: "my-header"
+value: "bar"</p>
+<p>Output:
+GET /foo HTTP/1.1
+my-header: bar</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>add</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.HTTPHeader">
+[]HTTPHeader
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Add adds the given header(s) (name, value) to the request
+before the action. It appends to any existing values associated
+with the header name.</p>
+<p>Input:
+GET /foo HTTP/1.1
+my-header: foo</p>
+<p>Config:
+add:
+- name: "my-header"
+value: "bar,baz"</p>
+<p>Output:
+GET /foo HTTP/1.1
+my-header: foo,bar,baz</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>remove</code><br/>
+<em>
+[]string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Remove the given header(s) from the HTTP request before the action. The
+value of Remove is a list of HTTP header names. Note that the header
+names are case-insensitive (see
+<a href="https://datatracker.ietf.org/doc/html/rfc2616#section-4.2)">https://datatracker.ietf.org/doc/html/rfc2616#section-4.2)</a>.</p>
+<p>Input:
+GET /foo HTTP/1.1
+my-header1: foo
+my-header2: bar
+my-header3: baz</p>
+<p>Config:
+remove: ["my-header1", "my-header3"]</p>
+<p>Output:
+GET /foo HTTP/1.1
+my-header2: bar</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.HeaderName">HeaderName
+(<code>string</code> alias)</h3>
+<div>
+<p>HeaderName is the name of a header or query parameter.</p>
+</div>
 <h3 id="alb.networking.azure.io/v1.HealthCheckPolicy">HealthCheckPolicy
 </h3>
 <div>
@@ -1277,27 +1627,33 @@ particular HealthCheckPolicy condition type has been raised.</p>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr><td><p>&#34;InvalidReference&#34;</p></td>
-<td><p>HealthCheckPolicyInvalidReference is used when the reference is invalid</p>
-</td>
-</tr><tr><td><p>&#34;Accepted&#34;</p></td>
+<tbody><tr><td><p>&#34;Accepted&#34;</p></td>
 <td><p>HealthCheckPolicyReasonAccepted is used to set the HealthCheckPolicyConditionReason to Accepted
 When the given HealthCheckPolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidHealthCheckPolicy&#34;</p></td>
-<td><p>HealthCheckPolicyReasonInvalid is the reason when the HealthCheckPolicy isn't Accepted</p>
+<td><p>HealthCheckPolicyReasonInvalid is the reason when the HealthCheckPolicy isn&rsquo;t Accepted</p>
+</td>
+</tr><tr><td><p>&#34;InvalidGroup&#34;</p></td>
+<td><p>HealthCheckPolicyReasonInvalidGroup is used when the group is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidKind&#34;</p></td>
+<td><p>HealthCheckPolicyReasonInvalidKind is used when the kind/group is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidName&#34;</p></td>
+<td><p>HealthCheckPolicyReasonInvalidName is used when the name is invalid</p>
 </td>
 </tr><tr><td><p>&#34;InvalidPort&#34;</p></td>
 <td><p>HealthCheckPolicyReasonInvalidPort is used when the port is invalid</p>
 </td>
-</tr><tr><td><p>&#34;InvalidServiceReference&#34;</p></td>
-<td><p>HealthCheckPolicyReasonInvalidServiceReference is used when the service is invalid</p>
-</td>
-</tr><tr><td><p>&#34;InvalidTargetReference&#34;</p></td>
-<td><p>HealthCheckPolicyReasonInvalidTargetReference is used when the target is invalid</p>
+</tr><tr><td><p>&#34;InvalidService&#34;</p></td>
+<td><p>HealthCheckPolicyReasonInvalidService is used when the Service is invalid</p>
 </td>
 </tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
-<td><p>HealthCheckPolicyReasonNoTargetReference is used when the target isn't found</p>
+<td><p>HealthCheckPolicyReasonNoTargetReference is used when there is no target reference</p>
+</td>
+</tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
+<td><p>HealthCheckPolicyReasonRefNotPermitted is used when the ref isn&rsquo;t permitted</p>
 </td>
 </tr></tbody>
 </table>
@@ -1529,48 +1885,8 @@ constants so that operators and tools can converge on a common
 vocabulary to describe HealthCheckPolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
+<li>"Accepted"</li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="alb.networking.azure.io/v1.IngressBackendOverride">IngressBackendOverride
-</h3>
-<p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressListenerSetting">IngressListenerSetting</a>)
-</p>
-<div>
-<p>IngressBackendOverride allows a user to change the hostname on a request before it is sent to a backend service</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>service</code><br/>
-<em>
-string
-</em>
-</td>
-<td>
-<p>Service is the name of a backend service that this override refers to.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>backendHost</code><br/>
-<em>
-string
-</em>
-</td>
-<td>
-<p>BackendHost is the hostname that an incoming request will be mutated to use before being forwarded to the backend</p>
 </td>
 </tr>
 </tbody>
@@ -1594,14 +1910,14 @@ Only one of Name/Number should be defined.</p>
 <tbody>
 <tr>
 <td>
-<code>number</code><br/>
+<code>port</code><br/>
 <em>
 int32
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>Number indicates the TCP port number being referred to</p>
+<p>Port indicates the port  on the backend service</p>
 </td>
 </tr>
 <tr>
@@ -1626,7 +1942,7 @@ Protocol
 </em>
 </td>
 <td>
-<p>Protocol should be one of &ldquo;HTTP&rdquo;, &ldquo;HTTPS&rdquo;</p>
+<p>Protocol should be one of "HTTP", "HTTPS"</p>
 </td>
 </tr>
 </tbody>
@@ -1739,18 +2055,6 @@ backend on a port specified as https</p>
 </tr>
 <tr>
 <td>
-<code>pathPrefixOverride</code><br/>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>PathPrefixOverride will mutate requests going to the backend to be prefixed with this value</p>
-</td>
-</tr>
-<tr>
-<td>
 <code>sessionAffinity</code><br/>
 <em>
 <a href="#alb.networking.azure.io/v1.SessionAffinity">
@@ -1782,7 +2086,7 @@ IngressTimeouts
 <h3 id="alb.networking.azure.io/v1.IngressCertificate">IngressCertificate
 </h3>
 <p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressListenerTLS">IngressListenerTLS</a>)
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressRuleTLS">IngressRuleTLS</a>)
 </p>
 <div>
 <p>IngressCertificate defines a certificate and private key to be used with TLS.</p>
@@ -1878,15 +2182,16 @@ IngressExtensionSpec
 <table>
 <tr>
 <td>
-<code>listenerSettings</code><br/>
+<code>rules</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.IngressListenerSetting">
-[]IngressListenerSetting
+<a href="#alb.networking.azure.io/v1.IngressRuleSetting">
+[]IngressRuleSetting
 </a>
 </em>
 </td>
 <td>
-<p>Listeners defines a list of listeners to configure</p>
+<em>(Optional)</em>
+<p>Rules defines the rules per host</p>
 </td>
 </tr>
 <tr>
@@ -1916,8 +2221,6 @@ IngressExtensionStatus
 </em>
 </td>
 <td>
-<em>(Optional)</em>
-<p>Status describes the current state of the IngressExtension as enacted by the ALB controller</p>
 </td>
 </tr>
 </tbody>
@@ -1989,15 +2292,16 @@ field.</p>
 <tbody>
 <tr>
 <td>
-<code>listenerSettings</code><br/>
+<code>rules</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.IngressListenerSetting">
-[]IngressListenerSetting
+<a href="#alb.networking.azure.io/v1.IngressRuleSetting">
+[]IngressRuleSetting
 </a>
 </em>
 </td>
 <td>
-<p>Listeners defines a list of listeners to configure</p>
+<em>(Optional)</em>
+<p>Rules defines the rules per host</p>
 </td>
 </tr>
 <tr>
@@ -2034,16 +2338,16 @@ field.</p>
 <tbody>
 <tr>
 <td>
-<code>listenerSettings</code><br/>
+<code>rules</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.IngressListenerSettingStatus">
-[]IngressListenerSettingStatus
+<a href="#alb.networking.azure.io/v1.IngressRuleStatus">
+[]IngressRuleStatus
 </a>
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>ListenerSettings has detailed status information regarding each ListenerSetting</p>
+<p>Rules has detailed status information regarding each Rule</p>
 </td>
 </tr>
 <tr>
@@ -2074,20 +2378,20 @@ field.</p>
 <p>Conditions describe the current conditions of the IngressExtension.
 Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
-<li>&ldquo;Errors&rdquo;</li>
+<li>"Accepted"</li>
+<li>"Errors"</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<h3 id="alb.networking.azure.io/v1.IngressListenerPort">IngressListenerPort
+<h3 id="alb.networking.azure.io/v1.IngressRewrites">IngressRewrites
 </h3>
 <p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressListenerSetting">IngressListenerSetting</a>)
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressRuleSetting">IngressRuleSetting</a>)
 </p>
 <div>
-<p>IngressListenerPort describes a port a listener will listen on.</p>
+<p>IngressRewrites provides the various rewrites supported on a rule</p>
 </div>
 <table>
 <thead>
@@ -2099,50 +2403,68 @@ Known condition types are:</p>
 <tbody>
 <tr>
 <td>
-<code>port</code><br/>
+<code>type</code><br/>
 <em>
-int32
+<a href="#alb.networking.azure.io/v1.RewriteType">
+RewriteType
+</a>
 </em>
 </td>
 <td>
-<p>Port defines what TCP port the listener will listen on</p>
+<p>Type identifies the type of rewrite</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>protocol</code><br/>
+<code>requestHeaderModifier</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.Protocol">
-Protocol
+<a href="#alb.networking.azure.io/v1.HeaderFilter">
+HeaderFilter
 </a>
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>Protocol indicates if the port will be used for HTTP or HTTPS traffic.</p>
+<p>RequestHeaderModifier defines a schema that modifies request headers.</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>sslRedirectTo</code><br/>
+<code>responseHeaderModifier</code><br/>
 <em>
-int32
+<a href="#alb.networking.azure.io/v1.HeaderFilter">
+HeaderFilter
+</a>
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>SSLRedirectTo can be used to redirect HTTP traffic to HTTPS on the indicated port</p>
+<p>RequestHeaderModifier defines a schema that modifies response headers.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>urlRewrite</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.URLRewriteFilter">
+URLRewriteFilter
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>URLRewrite defines a schema that modifies a request during forwarding.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<h3 id="alb.networking.azure.io/v1.IngressListenerSetting">IngressListenerSetting
+<h3 id="alb.networking.azure.io/v1.IngressRuleSetting">IngressRuleSetting
 </h3>
 <p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressExtensionSpec">IngressExtensionSpec</a>)
 </p>
 <div>
-<p>IngressListenerSetting provides configuration options for listeners</p>
+<p>IngressRuleSetting provides configuration options for rules</p>
 </div>
 <table>
 <thead>
@@ -2167,14 +2489,14 @@ string
 <td>
 <code>tls</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.IngressListenerTLS">
-IngressListenerTLS
+<a href="#alb.networking.azure.io/v1.IngressRuleTLS">
+IngressRuleTLS
 </a>
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>TLS defines TLS settings for the Listener</p>
+<p>TLS defines TLS settings for the rule</p>
 </td>
 </tr>
 <tr>
@@ -2191,41 +2513,41 @@ IngressListenerTLS
 </tr>
 <tr>
 <td>
-<code>ports</code><br/>
+<code>rewrites</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.IngressListenerPort">
-[]IngressListenerPort
+<a href="#alb.networking.azure.io/v1.IngressRewrites">
+[]IngressRewrites
 </a>
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>Defines what ports and protocols a listener should listen on</p>
+<p>Rewrites defines the rewrites for the rule</p>
 </td>
 </tr>
 <tr>
 <td>
-<code>overrideBackendHostnames</code><br/>
+<code>requestRedirect</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.IngressBackendOverride">
-[]IngressBackendOverride
+<a href="#alb.networking.azure.io/v1.Redirect">
+Redirect
 </a>
 </em>
 </td>
 <td>
 <em>(Optional)</em>
-<p>OverrideBackendHostnames is a list of services on which incoming requests will have the value of the host header changed</p>
+<p>RequestRedirect defines the redirect behavior for the rule</p>
 </td>
 </tr>
 </tbody>
 </table>
-<h3 id="alb.networking.azure.io/v1.IngressListenerSettingStatus">IngressListenerSettingStatus
+<h3 id="alb.networking.azure.io/v1.IngressRuleStatus">IngressRuleStatus
 </h3>
 <p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressExtensionStatus">IngressExtensionStatus</a>)
 </p>
 <div>
-<p>IngressListenerSettingStatus describes the state of a listener setting</p>
+<p>IngressRuleStatus describes the state of a rule</p>
 </div>
 <table>
 <thead>
@@ -2243,7 +2565,7 @@ string
 </em>
 </td>
 <td>
-<p>Host identifies the listenerSetting this status describes</p>
+<p>Host identifies the rule this status describes</p>
 </td>
 </tr>
 <tr>
@@ -2267,18 +2589,18 @@ bool
 </td>
 <td>
 <em>(Optional)</em>
-<p>Valid indicates that there are no validation errors present on this listenerSetting</p>
+<p>Valid indicates that there are no validation errors present on this rule</p>
 </td>
 </tr>
 </tbody>
 </table>
-<h3 id="alb.networking.azure.io/v1.IngressListenerTLS">IngressListenerTLS
+<h3 id="alb.networking.azure.io/v1.IngressRuleTLS">IngressRuleTLS
 </h3>
 <p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressListenerSetting">IngressListenerSetting</a>)
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressRuleSetting">IngressRuleSetting</a>)
 </p>
 <div>
-<p>IngressListenerTLS provides options for configuring TLS settings on a listener</p>
+<p>IngressRuleTLS provides options for configuring TLS settings on a rule</p>
 </div>
 <table>
 <thead>
@@ -2299,33 +2621,11 @@ IngressCertificate
 </td>
 <td>
 <em>(Optional)</em>
-<p>Certificate specifies a TLS Certificate to configure a Listener with</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>policy</code><br/>
-<em>
-<a href="#alb.networking.azure.io/v1.IngressTLSPolicy">
-IngressTLSPolicy
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Policy configures a particular TLS Policy</p>
+<p>Certificate specifies a TLS Certificate to configure a rule with</p>
 </td>
 </tr>
 </tbody>
 </table>
-<h3 id="alb.networking.azure.io/v1.IngressTLSPolicy">IngressTLSPolicy
-</h3>
-<p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressListenerTLS">IngressListenerTLS</a>)
-</p>
-<div>
-<p>IngressTLSPolicy describes cipher suites and related TLS configuration options</p>
-</div>
 <h3 id="alb.networking.azure.io/v1.IngressTimeouts">IngressTimeouts
 </h3>
 <p>
@@ -2400,10 +2700,31 @@ FrontendTLSPolicyType
 </tr>
 </tbody>
 </table>
+<h3 id="alb.networking.azure.io/v1.PortNumber">PortNumber
+(<code>int32</code> alias)</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.Redirect">Redirect</a>)
+</p>
+<div>
+<p>PortNumber defines a network port.</p>
+</div>
+<h3 id="alb.networking.azure.io/v1.PreciseHostname">PreciseHostname
+(<code>string</code> alias)</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.Redirect">Redirect</a>, <a href="#alb.networking.azure.io/v1.URLRewriteFilter">URLRewriteFilter</a>)
+</p>
+<div>
+<p>PreciseHostname is the fully qualified domain name of a network host. This
+matches the RFC 1123 definition of a hostname with 1 notable exception that
+numeric IP addresses are not allowed.</p>
+<p>Note that as per RFC1035 and RFC1123, a <em>label</em> must consist of lower case
+alphanumeric characters or &lsquo;-&rsquo;, and must start and end with an alphanumeric
+character. No other punctuation is allowed.</p>
+</div>
 <h3 id="alb.networking.azure.io/v1.Protocol">Protocol
 (<code>string</code> alias)</h3>
 <p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HealthCheckPolicyConfig">HealthCheckPolicyConfig</a>, <a href="#alb.networking.azure.io/v1.IngressBackendPort">IngressBackendPort</a>, <a href="#alb.networking.azure.io/v1.IngressListenerPort">IngressListenerPort</a>)
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HealthCheckPolicyConfig">HealthCheckPolicyConfig</a>, <a href="#alb.networking.azure.io/v1.IngressBackendPort">IngressBackendPort</a>)
 </p>
 <div>
 <p>Protocol defines the protocol used for certain properties.
@@ -2429,6 +2750,145 @@ Valid Protocol values are:</p>
 </td>
 </tr><tr><td><p>&#34;TCP&#34;</p></td>
 <td><p>TCP implies that the service will be use plain TCP</p>
+</td>
+</tr></tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.Redirect">Redirect
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressRuleSetting">IngressRuleSetting</a>)
+</p>
+<div>
+<p>Redirect defines a filter that redirects a request. This
+MUST NOT be used on the same rule that also has a URLRewriteFilter.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>scheme</code><br/>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Scheme is the scheme to be used in the value of the <code>Location</code> header in
+the response. When empty, the scheme of the request is used.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>hostname</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.PreciseHostname">
+PreciseHostname
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Hostname is the hostname to be used in the value of the <code>Location</code>
+header in the response.
+When empty, the hostname in the <code>Host</code> header of the request is used.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>path</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.HTTPPathModifier">
+HTTPPathModifier
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Path defines parameters used to modify the path of the incoming request.
+The modified path is then used to construct the <code>Location</code> header. When
+empty, the request path is used as-is.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>port</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.PortNumber">
+PortNumber
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Port is the port to be used in the value of the <code>Location</code>
+header in the response.</p>
+<p>If no port is specified, the redirect port MUST be derived using the
+following rules:</p>
+<ul>
+<li>If redirect scheme is not-empty, the redirect port MUST be the well-known
+port associated with the redirect scheme. Specifically "http" to port 80
+and "https" to port 443. If the redirect scheme does not have a
+well-known port, the listener port of the Gateway SHOULD be used.</li>
+<li>If redirect scheme is empty, the redirect port MUST be the Gateway
+Listener port.</li>
+</ul>
+<p>Implementations SHOULD NOT add the port number in the &lsquo;Location&rsquo;
+header in the following cases:</p>
+<ul>
+<li>A Location header that will use HTTP (whether that is determined via
+the Listener protocol or the Scheme field) <em>and</em> use port 80.</li>
+<li>A Location header that will use HTTPS (whether that is determined via
+the Listener protocol or the Scheme field) <em>and</em> use port 443.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>
+<code>statusCode</code><br/>
+<em>
+int
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>StatusCode is the HTTP status code to be used in response.</p>
+<p>Note that values may be added to this enum, implementations
+must ensure that unknown values will not cause a crash.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.RewriteType">RewriteType
+(<code>string</code> alias)</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressRewrites">IngressRewrites</a>)
+</p>
+<div>
+<p>RewriteType identifies the rewrite type</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr><td><p>&#34;RequestHeaderModifier&#34;</p></td>
+<td><p>RequestHeaderModifier can be used to add or remove an HTTP
+header from an HTTP request before it is sent to the upstream target.</p>
+</td>
+</tr><tr><td><p>&#34;ResponseHeaderModifier&#34;</p></td>
+<td><p>ResponseHeaderModifier can be used to add or remove an HTTP
+header from an HTTP response before it is sent to the client.</p>
+</td>
+</tr><tr><td><p>&#34;URLRewrite&#34;</p></td>
+<td><p>URLRewrite can be used to modify a request during forwarding.</p>
 </td>
 </tr></tbody>
 </table>
@@ -2553,13 +3013,25 @@ particular RoutePolicy condition type has been raised.</p>
 When the given RoutePolicy is correctly configured</p>
 </td>
 </tr><tr><td><p>&#34;InvalidRoutePolicy&#34;</p></td>
-<td><p>RoutePolicyReasonInvalid is the reason when the RoutePolicy isn't Accepted</p>
+<td><p>RoutePolicyReasonInvalid is the reason when the RoutePolicy isn&rsquo;t Accepted</p>
+</td>
+</tr><tr><td><p>&#34;InvalidGroup&#34;</p></td>
+<td><p>RoutePolicyReasonInvalidGroup is used when the group is invalid</p>
 </td>
 </tr><tr><td><p>&#34;InvalidHTTPRoute&#34;</p></td>
 <td><p>RoutePolicyReasonInvalidHTTPRoute is used when the HTTPRoute is invalid</p>
 </td>
-</tr><tr><td><p>&#34;InvalidTargetReference&#34;</p></td>
-<td><p>RoutePolicyReasonInvalidTargetReference is used when there is no target reference</p>
+</tr><tr><td><p>&#34;InvalidKind&#34;</p></td>
+<td><p>RoutePolicyReasonInvalidKind is used when the kind/group is invalid</p>
+</td>
+</tr><tr><td><p>&#34;InvalidName&#34;</p></td>
+<td><p>RoutePolicyReasonInvalidName is used when the name is invalid</p>
+</td>
+</tr><tr><td><p>&#34;NoTargetReference&#34;</p></td>
+<td><p>RoutePolicyReasonNoTargetReference is used when there is no target reference</p>
+</td>
+</tr><tr><td><p>&#34;RefNotPermitted&#34;</p></td>
+<td><p>RoutePolicyReasonRefNotPermitted is used when the ref isn&rsquo;t permitted</p>
 </td>
 </tr></tbody>
 </table>
@@ -2591,7 +3063,7 @@ field.</p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>)
 </p>
 <div>
-<p>RoutePolicyConfig defines the schema for RoutePolicy specification. 
+<p>RoutePolicyConfig defines the schema for RoutePolicy specification.
 This allows the specification of the following attributes:
 * Timeouts
 * Session Affinity</p>
@@ -2728,7 +3200,7 @@ constants so that operators and tools can converge on a common
 vocabulary to describe RoutePolicy state.</p>
 <p>Known condition types are:</p>
 <ul>
-<li>&ldquo;Accepted&rdquo;</li>
+<li>"Accepted"</li>
 </ul>
 </td>
 </tr>
@@ -2860,6 +3332,55 @@ int32
 <em>(Optional)</em>
 <p>End defines the end of the range of status codes to use for HealthCheck checks.
 This is inclusive.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.URLRewriteFilter">URLRewriteFilter
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.IngressRewrites">IngressRewrites</a>)
+</p>
+<div>
+<p>URLRewriteFilter defines a filter that modifies a request during
+forwarding. At most one of these filters may be used on a rule. This
+MUST NOT be used on the same rule having an sslRedirect.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>hostname</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.PreciseHostname">
+PreciseHostname
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Hostname is the value to be used to replace the Host header value during
+forwarding.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>path</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.HTTPPathModifier">
+HTTPPathModifier
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Path defines a path rewrite.</p>
 </td>
 </tr>
 </tbody>

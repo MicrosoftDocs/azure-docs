@@ -1,6 +1,6 @@
 ---
-title: Rotate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
-description: Rotate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
+title: Rotate user-provided TLS certificate in indirectly connected SQL Server Managed Instance enabled by Azure Arc
+description: Rotate user-provided TLS certificate in indirectly connected SQL Server Managed Instance enabled by Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -11,16 +11,16 @@ ms.reviewer: mikeray
 ms.date: 12/15/2021
 ms.topic: how-to
 ---
-# Rotate certificate Azure Arc-enabled SQL Managed Instance (indirectly connected)
+# Rotate certificate SQL Server Managed Instance enabled by Azure Arc (indirectly connected)
 
-This article describes how to rotate user-provided Transport Layer Security(TLS) certificate for Azure Arc-enabled SQL Managed Instances in indirectly connected mode using Azure CLI or `kubectl` commands.  
+This article describes how to rotate user-provided Transport Layer Security(TLS) certificate for SQL Managed Instance enabled by Azure Arc in indirectly connected mode using Azure CLI or `kubectl` commands.  
 
 Examples in this article use OpenSSL. [OpenSSL](https://www.openssl.org/) is an open-source command-line toolkit for general-purpose cryptography and secure communication.
 
 ## Prerequisite 
 
 * [Install openssl utility ](https://www.openssl.org/source/) 
-* An Azure Arc-enabled SQL Managed Instance in indirectly connected mode
+* a SQL Managed Instance enabled by Azure Arc in indirectly connected mode
 
 ## Generate certificate request using `openssl` 
 
@@ -201,6 +201,6 @@ You can use the following kubectl command to apply this setting:
    kubectl apply -f <my-sql-mi-yaml-file>
 ```
 
-## Next steps
+## Related content
 - [View the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards)
 - [View SQL Managed Instance in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)

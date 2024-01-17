@@ -78,7 +78,7 @@ Using the [Azure portal](https://portal.azure.com):
 
    1. Select your Azure Database for PostgreSQL server.
    2. On the sidebar, select **Server Parameters**.
-   3. Search for the `pg_audit` parameters.
+   3. Search for the `pgaudit` parameters.
    4. Pick appropriate settings parameter to edit. For example to start logging set `pgaudit.log` to `WRITE`
        :::image type="content" source="./media/concepts-audit/pgaudit-config.png" alt-text="Screenshot showing Azure Database for PostgreSQL - configuring logging with pgaudit ":::
    5. Click **Save** button to save changes

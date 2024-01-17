@@ -16,7 +16,7 @@ Network Security Groups (NSGs) needed to configure virtual networks closely rese
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./networking.md#configuring-udr-with-azure-firewall) are supported. When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking.md#workload-profiles-environment-1) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Networking in Azure Container Apps environments](./networking.md#user-defined-routes-udr).
+In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./networking.md#configuring-udr-with-azure-firewall) are supported. When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking.md#workload-profiles-environment-2) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Networking in Azure Container Apps environments](./networking.md#user-defined-routes-udr).
 
 In the Consumption only environment, custom user-defined routes (UDRs) and ExpressRoutes aren't supported.
 
@@ -33,16 +33,17 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
-| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `30,000-32,676`<sup>2</sup> | Allow your Client IPs to access Azure Container Apps. |
-| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30,000-32,676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `31080` | Allow your Client IPs to access Azure Container Apps when using HTTP. |
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `31443` | Allow your Client IPs to access Azure Container Apps when using HTTPS. |
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
 
 # [Consumption only environment](#tab/consumption-only)
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
-| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443` | Allow your Client IPs to access Azure Container Apps.  |
-| TCP | Your client IPs | \* | The `staticIP` of your container app environment | `443` | Allow your Client IPs to access Azure Container Apps.  |
-| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30,000-32,676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `443` | Allow your Client IPs to access Azure Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
+| TCP | Your client IPs | \* | The `staticIP` of your container app environment | `80`, `443` | Allow your Client IPs to access Azure Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
 | TCP | Your container app's subnet | \* | Your container app's subnet | \* | Required to allow the container app envoy sidecar to connect to envoy service. |
 
 ---

@@ -101,7 +101,7 @@ For instructions on how to enable a managed identity for an Azure Digital Twins 
 
 Azure Digital Twins can connect to Event Hubs and Service Bus endpoints for sending event data, using those resources' public endpoints. However, if those resources are bound to a VNet, connectivity to the resources are blocked by default. As a result, this configuration prevents Azure Digital Twins from sending event data to your resources. 
 
-To resolve this, enable connectivity from your Azure Digital Twins instance to your Event Hubs or Service Bus resources through the the *trusted Microsoft service* option (see [Trusted Microsoft services for Event Hubs](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services) and [Trusted Microsoft services for Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services)). 
+To resolve this, enable connectivity from your Azure Digital Twins instance to your Event Hubs or Service Bus resources through the *trusted Microsoft service* option (see [Trusted Microsoft services for Event Hubs](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services) and [Trusted Microsoft services for Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services)). 
 
 You'll need to complete the following steps to enable the trusted Microsoft service connection.
 

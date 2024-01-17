@@ -170,4 +170,4 @@ However, this action only applies if they're using version 28 of the Pro client.
 [04]: https://ubuntu.com/security/livepatch/docs
 [05]: https://help.ubuntu.com/community/Repositories
 [06]: https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview
-[07]: https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements.html
+[07]: https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements/

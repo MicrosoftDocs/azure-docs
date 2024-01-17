@@ -135,7 +135,7 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
     `mount -v | grep /path/to/vol1`  
     `vol1:/path/to/vol1 on /path type nfs (rw,intr,tcp,nfsvers=3,rsize=16384,wsize=16384,addr=192.168.1.1)`.
 
-7. Change the read-only export policy back to the original export policy. See See [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
+7. Change the read-only export policy back to the original export policy. See [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
 
 8. Verify access using root and non-root users.
 

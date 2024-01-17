@@ -2,7 +2,7 @@
 title: Install and run Docker containers for the Anomaly Detector API
 titleSuffix: Azure AI services
 description: Use the Anomaly Detector API's algorithms to find anomalies in your data, on-premises using a Docker container.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector

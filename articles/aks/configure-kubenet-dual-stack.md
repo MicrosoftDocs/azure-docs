@@ -1,13 +1,13 @@
 ---
 title: Configure dual-stack kubenet networking in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
-description: Learn how to configure dual-stack kubenet networking in Azure Kubernetes Service (AKS)
+description: Learn how to configure dual-stack kubenet networking in Azure Kubernetes Service (AKS).
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 12/07/2023
+ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 ---
 
 # Use dual-stack kubenet networking in Azure Kubernetes Service (AKS)
@@ -298,12 +298,62 @@ Once the cluster has been created, you can deploy your workloads. This article w
 ## Expose the workload via a `LoadBalancer` type service
 
 > [!IMPORTANT]
-> There are currently **two limitations** pertaining to IPv6 services in AKS. These are both preview limitations and work is underway to remove them.
+> There are currently **two limitations** pertaining to IPv6 services in AKS.
 >
 > 1. Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Azure Linux node pools, this traffic can't be routed to a pod, so traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` fail. IPv6 services must be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node.
-> 2. Only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
+> 2. Starting from AKS v1.27, you can directly create a dualstack service. However, for older versions, only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
 
 # [kubectl](#tab/kubectl)
+
+### AKS starting from v1.27
+
+1. Expose the NGINX deployment using the `kubectl expose deployment nginx` command.
+
+    ```bash-interactive
+    kubectl expose deployment nginx --name=nginx --port=80 --type=LoadBalancer --overrides='{"spec":{"ipFamilyPolicy": "PreferDualStack", "ipFamilies": ["IPv4", "IPv6"]}}'
+    ```
+
+    You receive an output that shows the services have been exposed.
+
+    ```output
+    service/nginx exposed
+    ```
+
+2. Once the deployment is exposed and the `LoadBalancer` services are fully provisioned, get the IP addresses of the services using the `kubectl get services` command.
+
+    ```bash-interactive
+    kubectl get services
+    ```
+
+    ```output
+    NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
+    nginx        LoadBalancer   10.0.223.73   2603:1030:20c:9::22d,4.156.88.133   80:30664/TCP   2m11s
+    ```
+
+    ```bash-interactive
+    kubectl get services nginx -ojsonpath='{.spec.clusterIPs}'
+    ```
+
+    ```output
+    ["10.0.223.73","fd17:d93e:db1f:f771::54e"]
+    ```
+
+3. Verify functionality via a command-line web request from an IPv6 capable host. Azure Cloud Shell isn't IPv6 capable.
+
+    ```bash-interactive
+    SERVICE_IP=$(kubectl get services nginx -o jsonpath='{.status.loadBalancer.ingress[1].ip}')
+    curl -s "http://[${SERVICE_IP}]" | head -n5
+    ```
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Welcome to nginx!</title>
+    <style>
+    ```
+
+### AKS older than v1.27
 
 1. Expose the NGINX deployment using the `kubectl expose deployment nginx` command.
 
@@ -347,6 +397,68 @@ Once the cluster has been created, you can deploy your workloads. This article w
     ```
 
 # [YAML](#tab/yaml)
+
+### AKS starting from v1.27
+
+1. Expose the NGINX deployment using the following YAML manifest.
+
+    ```yml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        app: nginx
+      name: nginx
+    spec:
+      externalTrafficPolicy: Cluster
+      ipFamilyPolicy: PreferDualStack
+      ipFamilies:
+      - IPv4
+      - IPv6
+      ports:
+      - port: 80
+        protocol: TCP
+        targetPort: 80
+      selector:
+        app: nginx
+      type: LoadBalancer
+    ```
+
+2. Once the deployment is exposed and the `LoadBalancer` services are fully provisioned, get the IP addresses of the services using the `kubectl get services` command.
+
+    ```bash-interactive
+    kubectl get services
+    ```
+
+    ```output
+    NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
+    nginx        LoadBalancer   10.0.223.73   2603:1030:20c:9::22d,4.156.88.133   80:30664/TCP   2m11s
+    ```
+
+    ```bash-interactive
+    kubectl get services nginx -ojsonpath='{.spec.clusterIPs}'
+    ```
+
+    ```output
+    ["10.0.223.73","fd17:d93e:db1f:f771::54e"]
+    ```
+
+3. Verify functionality via a command-line web request from an IPv6 capable host. Azure Cloud Shell isn't IPv6 capable.
+
+    ```bash-interactive
+    SERVICE_IP=$(kubectl get services nginx -o jsonpath='{.status.loadBalancer.ingress[1].ip}')
+    curl -s "http://[${SERVICE_IP}]" | head -n5
+    ```
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Welcome to nginx!</title>
+    <style>
+    ```
+
+### AKS older than v1.27
 
 1. Expose the NGINX deployment using the following YAML manifest.
 

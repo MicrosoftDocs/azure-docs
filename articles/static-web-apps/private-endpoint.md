@@ -28,6 +28,9 @@ The default DNS resolution of the static web app still exists and routes to a pu
 
 If you are connecting from on-prem or do not wish to use a private DNS zone, manually configure the DNS records for your application so that requests are routed to the appropriate IP address of the private endpoint. You can find more information on private endpoint DNS resolution [here](../private-link/private-endpoint-dns.md).
 
+> [!NOTE]
+> Private endpoints restrict the incoming traffic going to the website to a specific virtual network. They do not apply to deployments of new site assets.
+
 ## Prerequisites
 
 - An Azure account with an active subscription.

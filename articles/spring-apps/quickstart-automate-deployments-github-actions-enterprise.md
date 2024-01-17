@@ -68,7 +68,7 @@ The automation associated with the sample application requires a Storage account
    az ad sp create-for-rbac \
        --role contributor \
        --scopes /subscriptions/<SUBSCRIPTION_ID> \
-       --sdk-auth
+       --json-auth
    ```
 
    The command should output a JSON object:
@@ -143,3 +143,4 @@ Continue on to any of the following optional quickstarts:
 - [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
 - [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
 - [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
+- [Integrate Azure Open AI](quickstart-fitness-store-azure-openai.md)

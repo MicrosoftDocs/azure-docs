@@ -6,9 +6,9 @@ ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 09/18/2023
-author: ericd-mst-github
+author: ju-shim
 ms.author: nikhilpatel
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.custom: devx-track-linux
 ---
 
@@ -125,7 +125,7 @@ You can also use the `packageFileName` (and the corresponding `configFileName`) 
 MyAppe.exe /S
 ```
 > [!TIP]
-> If your blob was originally named "myApp.exe" instead of "MyBlob", then the above script would have worked without setting the `packageFileName` property.
+> If your blob was originally named "myApp.exe" instead of "myapp", then the above script would have worked without setting the `packageFileName` property.
 
 
 ## Command interpreter  

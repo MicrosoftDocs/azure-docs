@@ -2,11 +2,11 @@
 title: Configure Azure Active Directory B2C with Bluink eID-Me for identity verification
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with eID-Me for identity verification 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/10/2023
 ms.author: gasinh

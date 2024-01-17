@@ -1,17 +1,17 @@
 ---
-title: HBv2-series VM overview - Azure Virtual Machines | Microsoft Docs 
-description: Learn about the HBv2-series VM size in Azure.  
-services: virtual-machines 
-tags: azure-resource-manager 
+title: HBv2-series VM overview - Azure Virtual Machines | Microsoft Docs
+description: Learn about the HBv2-series VM size in Azure.
+services: virtual-machines
+tags: azure-resource-manager
 ms.custom: devx-track-linux
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services 
-ms.topic: article 
-ms.date: 07/13/2023 
+ms.workload: infrastructure-services
+ms.topic: article
+ms.date: 07/13/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 --- 
 
  
@@ -41,7 +41,7 @@ Process pinning works on HBv2-series VMs because we expose the underlying silico
 | CPU Frequency (non-AVX)          | ~3.1 GHz (single + all cores)    | 
 | Memory                           | 4 GB/core (480 GB total)         | 
 | Local Disk                       | 960 GiB NVMe (block), 480 GB SSD (page file) | 
-| Infiniband                       | 200 Gb/s EDR Mellanox ConnectX-6 | 
+| Infiniband                       | 200 Gb/s HDR Mellanox ConnectX-6 | 
 | Network                          | 50 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC | 
 
 

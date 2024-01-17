@@ -399,7 +399,31 @@
     - name: PowerShell
       href: functions-reference-powershell.md
     - name: Python
-      href: functions-reference-python.md
+      items:
+        - name: Developer reference guide
+          displayName: python
+          href: functions-reference-python.md
+        - name: Programming models 
+          displayName: python
+          href: functions-reference-python.md#programming-model
+        - name: Python worker extensions
+          href: develop-python-worker-extensions.md
+        - name: Scale and performance recommendations 
+          displayName: python
+          href: python-scale-performance-reference.md
+        - name: Troubleshooting
+          items: 
+            - name: General troubleshooting
+              displayName: python
+              href: recover-python-functions.md
+            - name: Memory profiling
+              displayName: python
+              href: python-memory-profiler-reference.md
+        - name: Python library API reference for Functions    
+          href: /python/api/azure-functions/azure.functions
+        - name: Samples
+          displayName: python
+          href: /samples/browse/?products=azure-functions&languages=python
 - name: How-to guides
   items:
     - name: Develop
@@ -426,8 +450,6 @@
               items:
                 - name: Azure portal
                   href: functions-create-function-app-portal.md
-                - name: Kotlin using Maven
-                  href: functions-create-first-kotlin-maven.md
                 - name: Kotlin using IntelliJ
                   href: functions-create-maven-kotlin-intellij.md
                 - name: Linux App Service plan
@@ -439,8 +461,6 @@
                 - name: Linux container (Premium)
                   href: functions-deploy-container.md
                   displayName: container, Docker, custom
-                - name: Azure for Students Starter
-                  href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
               href: functions-create-cosmos-db-triggered-function.md
             - name: Blob storage trigger
@@ -512,6 +532,7 @@
           href: run-functions-from-deployment-package.md
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
+          displayName: bicep, ARM template
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
@@ -543,8 +564,9 @@
           items:
             - name: Migrate to model v4.x
               href: functions-node-upgrade-v4.md
-        - name: Update Java versions
-          href: update-java-versions.md  
+        - name: Update language versions
+          href: update-language-versions.md  
+          displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor
@@ -973,7 +995,15 @@
           - name: AZFD0005
             href: errors-diagnostics/diagnostic-events/azfd0005.md
           - name: AZFD0006
-            href: errors-diagnostics/diagnostic-events/azfd0006.md            
+            href: errors-diagnostics/diagnostic-events/azfd0006.md        
+          - name: AZFD0007
+            href: errors-diagnostics/diagnostic-events/azfd0007.md 
+          - name: AZFD0008
+            href: errors-diagnostics/diagnostic-events/azfd0008.md  
+          - name: AZFD0009
+            href: errors-diagnostics/diagnostic-events/azfd0009.md     
+          - name: AZFD0010
+            href: errors-diagnostics/diagnostic-events/azfd0010.md            
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
@@ -990,12 +1020,12 @@
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=compute
-    - name: Pricing
-      href: pricing.md
-    - name: Language support policy
-      href: language-support-policy.md
+    - name: Pricing details
+      href: https://azure.microsoft.com/pricing/details/functions/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
+    - name: Language support policy
+      href: language-support-policy.md
     - name: Quota information
       href: functions-scale.md#service-limits
     - name: Regional availability

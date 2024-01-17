@@ -81,7 +81,7 @@ Before you begin the tutorial:
   > [!IMPORTANT]  
   > For large number of logins, we recommend using automation. With PowerShell or Azure CLI you can use the `CSVFilePath` switch, that allows you to pass a CSV file type as a list of logins to be migrated.
   >
-  > Bulk login migrations might be time-consuming using Azure Data Studio, as you need to manually select each login to migrate on the the login selection screen.
+  > Bulk login migrations might be time-consuming using Azure Data Studio, as you need to manually select each login to migrate on the login selection screen.
 
 ## Open the Login Migration wizard in Azure Data Studio
 

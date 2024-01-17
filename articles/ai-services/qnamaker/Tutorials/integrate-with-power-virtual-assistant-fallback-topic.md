@@ -7,7 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 12/19/2023
 ---
 
 # Tutorial: Add your knowledge base to Power Virtual Agents

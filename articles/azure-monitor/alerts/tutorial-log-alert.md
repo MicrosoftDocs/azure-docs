@@ -2,7 +2,7 @@
 title: Tutorial - Create a log query alert for an Azure resource
 description: Tutorial to create a log query alert for an Azure resource.
 ms.topic: tutorial
-ms.date: 09/16/2021
+ms.date: 11/07/2023
 ---
 
 # Tutorial: Create a log query alert for an Azure resource

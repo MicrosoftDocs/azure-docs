@@ -141,8 +141,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
     * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
       
-        >[!IMPORTANT]
-        >You should enable Continuous Availability for Citrix App Layering, SQL Server, [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md), and FSLogix ODFC containers. Using SMB Continuous Availability shares for workloads other than Citrix App Layering, SQL Server, FSLogix user profile containers, or FSLogix ODFC containers is *not* supported. This feature is currently supported on Windows SQL Server. Linux SQL Server is not currently supported. If you are using a non-administrator (domain) account to install SQL Server, ensure that the account has the required security privilege assigned. If the domain account does not have the required security privilege (`SeSecurityPrivilege`), and the privilege cannot be set at the domain level, you can grant the privilege to the account by using the **Security privilege users** field of Active Directory connections. See [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection).
+        [!INCLUDE [SMB Continuous Availability warning](includes/smb-continuous-availability.md)]
 
         **Custom applications are not supported with SMB Continuous Availability.**
 

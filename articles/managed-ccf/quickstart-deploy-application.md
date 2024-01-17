@@ -6,7 +6,7 @@ ms.author: settiy
 ms.date: 09/08/2023
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-js
 ---
 
 # Quickstart: Deploy a JavaScript application to an Azure Managed CCF resource
@@ -16,6 +16,7 @@ In this quickstart tutorial, you will learn how to deploy an application to an A
 ## Prerequisites
 
 [!INCLUDE [Prerequisites](./includes/proposal-prerequisites.md)]
+- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.
 
 ## Download the service identity
 

@@ -6,7 +6,7 @@ summary: Learn how to run end-to-end tests for your web apps at scale with Micro
 metadata:
   title: Microsoft Playwright Testing Preview documentation
   description: Learn how to run end-to-end tests for your web apps at scale with Microsoft Playwright Testing Preview. Run Playwright tests with high parallelization across different operating system and browser combinations simultaneously. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more.
-  ms.service: load-testing
+  ms.service: playwright-testing
   ms.topic: landing-page
   ms.collection: collection
   ms.author: nicktrog

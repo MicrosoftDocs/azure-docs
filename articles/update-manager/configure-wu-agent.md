@@ -63,11 +63,11 @@ The Windows update client on Windows servers can get their patches from either o
 
 > [!NOTE]
 > For the application of patches, you can choose the update client at the time of installation, or later using Group policy or by directly editing the registry.
-> To get the non-operating system Microsoft patches or to install only the OS patches, we recommend you to change the patch repository as this is an operating system setting and not an option that you can configure within Update management center (preview).
+> To get the non-operating system Microsoft patches or to install only the OS patches, we recommend you to change the patch repository as this is an operating system setting and not an option that you can configure within Azure Update Manager.
 
 ### Edit the registry
 
-If scheduled patching is configured on your machine using the Update management center (preview), the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md#first-party-updates-on-windows).
+If scheduled patching is configured on your machine using the Azure Update Manager, the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md#first-party-updates-on-windows).
 
 ### Patching using group policy on Azure Update management
 

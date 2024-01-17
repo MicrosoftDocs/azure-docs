@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Azure OpenAI Service with the JavaScript SDK and the completions API'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Go SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
@@ -71,7 +71,7 @@ func main() {
 		Prompt:       []string{"What is Azure OpenAI, in 20 words or less"},
 		MaxTokens:    to.Ptr(int32(2048)),
 		Temperature:  to.Ptr(float32(0.0)),
-		DeploymentID: modelDeploymentID,
+		Deployment: modelDeploymentID,
 	}, nil)
 
 	if err != nil {

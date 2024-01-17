@@ -2,7 +2,6 @@
 title: Audio Content Creation - Speech service
 titleSuffix: Azure AI services
 description: Audio Content Creation is an online tool that allows you to run Text to speech synthesis without writing any code.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -77,7 +76,7 @@ Each step in the preceding diagram is described here:
 1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [prebuilt text to speech voices](language-support.md?tabs=tts). You can use prebuilt neural voices or a custom neural voice.
 
    > [!NOTE]
-   > Gated access is available for Custom Neural Voice, which allows you to create high-definition voices that are similar to natural-sounding speech. For more information, see [Gating process](./text-to-speech.md).
+   > Gated access is available for custom neural voice, which allows you to create high-definition voices that are similar to natural-sounding speech. For more information, see [Gating process](./text-to-speech.md).
 
 1. Select the content you want to preview, and then select **Play** (triangle icon) to preview the default synthesis output. 
 

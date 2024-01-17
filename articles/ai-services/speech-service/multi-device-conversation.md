@@ -2,7 +2,6 @@
 title: Multi-device Conversation overview - Speech service
 titleSuffix: Azure AI services
 description: Multi-device conversation makes it easy to create a speech or text conversation between multiple clients and coordinate the messages that are sent between them.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

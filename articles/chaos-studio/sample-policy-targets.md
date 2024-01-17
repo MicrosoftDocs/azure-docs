@@ -10,9 +10,16 @@ ms.service: chaos-studio
 ---
 
 # Azure Policy samples for adding resources to Azure Chaos Studio
-This article includes sample [Azure Policy](../governance/policy/overview.md) definitions that create [targets and capabilities](chaos-studio-targets-capabilities.md) for a specific resource type. You can automatically add resources to Azure Chaos Studio. First, you [deploy these samples as custom policy definitions](../governance/policy/tutorials/create-custom-policy-definition.md). Then you [assign the policy](../governance/policy/assign-policy-portal.md) to a scope.
+This article includes sample [Azure Policy](../governance/policy/overview.md) definitions that create [targets and capabilities](chaos-studio-targets-capabilities.md) for a specific resource type. You can automatically add resources to Azure Chaos Studio. First, you [deploy these samples as custom policy definitions](../governance/policy/tutorials/create-and-manage.md). Then you [assign the policy](../governance/policy/assign-policy-portal.md) to a scope.
 
 In these samples, we add service-direct targets and capabilities for each [supported resource type](chaos-studio-fault-providers.md) by using [targets and capabilities](chaos-studio-targets-capabilities.md).
+
+> [!NOTE]
+> Each of these policies differs slightly, and you should consult the documentation of the Resource (e.g. Compute, Storage, etc.) you are using in addition to these below sample definitions to ensure you are setting everything ocrrectly for your specific scenario
+
+
+> [!NOTE]
+> Make sure the subscription you are using for the automated Azure policy deployment has the correct [RBAC permissions](../governance/policy/overview.md) to do this. 
 
 ## Azure Cache for Redis policy definition
 
@@ -623,6 +630,10 @@ In these samples, we add service-direct targets and capabilities for each [suppo
   }
 }
 ```
+
+## Troubleshooting issues related to Azure Policy/RBAC
+Please visit [Troubleshoot errors with using Azure Policy](../governance/policy/troubleshoot/general.md) to do this. 
+
 
 ## Next steps
 

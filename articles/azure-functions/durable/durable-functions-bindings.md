@@ -21,14 +21,9 @@ Make sure to choose your Durable Functions development language at the top of th
 
 ## Python v2 programming model
 
-Durable Functions provides preview support of the new [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the PyPI package `azure-functions-durable`, version `1.2.2` or a later version. During the preview, you can provide feedback and suggestions in the [Durable Functions SDK for Python repo](https://github.com/Azure/azure-functions-durable-python/issues).
+Durable Functions is supported in the new [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the PyPI package `azure-functions-durable`, version `1.2.2` or a later version. You must also check `host.json` to make sure your app is referencing [Extension Bundles](../functions-bindings-register.md#extension-bundles) version 4.x to use the v2 model with Durable Functions. 
 
-Using [Extension Bundles](../functions-bindings-register.md#extension-bundles) isn't currently supported for the v2 model with Durable Functions. You'll instead need to manage your extensions manually as follows:
-
-1. Remove the `extensionBundle` section of your `host.json` file.
- 
-1. Run the `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` command on your terminal. This installs the Durable Functions extension for your app, which allows you to use the v2 model preview. For more information, see [func extensions install](../functions-core-tools-reference.md#func-extensions-install).
-
+You can provide feedback and suggestions in the [Durable Functions SDK for Python repo](https://github.com/Azure/azure-functions-durable-python/issues).
 ::: zone-end
 
 ## Orchestration trigger
@@ -549,7 +544,7 @@ public static Task Run(
     [DurableClient] IDurableOrchestrationClient starter)
 {
     // Orchestration input comes from the queue message content.
-    return starter.StartNewAsync("HelloWorld", input);
+    return starter.StartNewAsync<string>("HelloWorld", input);
 }
 ```
 

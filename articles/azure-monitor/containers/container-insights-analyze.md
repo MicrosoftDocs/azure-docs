@@ -13,8 +13,6 @@ Use the workbooks, performance charts, and health status in Container insights t
 This article helps you understand the two perspectives and how Azure Monitor helps you quickly assess, investigate, and resolve detected issues.
 
 
-The main differences in monitoring a Windows Server cluster with Container insights compared to a Linux cluster are described in [Features of Container insights](container-insights-overview.md#features-of-container-insights) in the overview article.
-
 
 ## Workbooks
 

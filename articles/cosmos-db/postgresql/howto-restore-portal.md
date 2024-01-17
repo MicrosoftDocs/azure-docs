@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022, references_regions
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 11/02/2023
 ---
 
 # Backup and point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
@@ -26,9 +26,10 @@ cluster using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
 
 > [!NOTE]
-> While cluster backups are always stored for 35 days, you may need to 
+> While cluster backups are always stored for 35 days, you might need to 
 > open a support request to restore the cluster to a point that is earlier
-> than the latest failover time. 
+> than the latest failover time. Maintenance and compute / storage scaling operations use
+> failovers to minimize downtime during these operations.
 
 ## Select type of cluster backup
 Enabling geo-redundant backup is possible during cluster creation on the **Scale** screen that can be accessed on the **Basics** tab. Click the **Save** button to apply your selection. 

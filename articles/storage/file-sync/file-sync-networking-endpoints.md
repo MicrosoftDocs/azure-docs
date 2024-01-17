@@ -38,7 +38,7 @@ When you create a private endpoint for an Azure resource, the following resource
 - **A private DNS zone**: If you've never deployed a private endpoint for this virtual network before, a new private DNS zone will be deployed for your virtual network. A DNS A record will also be created for Azure resource in this DNS zone. If you've already deployed a private endpoint in this virtual network, a new A record for Azure resource will be added to the existing DNS zone. Deploying a DNS zone is optional, however highly recommended to simplify the DNS management required.
 
 > [!Note]  
-> This article uses the DNS suffixes for the Azure Public regions, `core.windows.net` for storage accounts and `afs.azure.net` for Storage Sync Services. This commentary also applies to Azure Sovereign clouds such as the Azure US Government cloud - just substitute the the appropriate suffixes for your environment.
+> This article uses the DNS suffixes for the Azure Public regions, `core.windows.net` for storage accounts and `afs.azure.net` for Storage Sync Services. This commentary also applies to Azure Sovereign clouds such as the Azure US Government cloud - just substitute the appropriate suffixes for your environment.
 
 ### Create the storage account private endpoint
 # [Portal](#tab/azure-portal)

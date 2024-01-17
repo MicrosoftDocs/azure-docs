@@ -17,19 +17,24 @@ When the Azure Monitor agent for Linux is installed, it configures the local Sys
 :::image type="content" source="media/azure-monitor-agent/linux-agent-syslog-communication.png" lightbox="media/azure-monitor-agent/linux-agent-syslog-communication.png" alt-text="Diagram that shows Syslog daemon and Azure Monitor Agent communication.":::
 
 The following facilities are supported with the Syslog collector:
+* alert
+* audit
 * auth
 * authpriv
+* clock (formerly mark)
 * cron
 * daemon
-* mark
+* ftp
 * kern
+* local0-local7
 * lpr
 * mail
 * news
+* nopri
+* ntp
 * syslog
 * user
 * uucp
-* local0-local7
 
 For some device types that don't allow local installation of Azure Monitor Agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. For more information, see the [Sentinel tutorial](../../sentinel/forward-syslog-monitor-agent.md).
 
@@ -174,7 +179,7 @@ You need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
-- [Permissions to create DCR objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create DCR objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 
 ## Syslog record properties
 

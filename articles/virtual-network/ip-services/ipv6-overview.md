@@ -72,7 +72,7 @@ IPv6 for Azure Virtual Network includes the following capabilities:
 
 - Instance-level public IP provides IPv6 Internet connectivity directly to individual VMs.
 
-- [Add IPv6 to Existing IPv4-only deployments](../../load-balancer/ipv6-add-to-existing-vnet-powershell.md)- this feature enables you to easily add IPv6 connectivity to existing IPv4-only deployments without the need to recreate deployments.  The IPv4 network traffic is unaffected during this process so depending on your application and OS you may be able to add IPv6 even to live services.    
+- [Add IPv6 to Existing IPv4-only deployments](../../load-balancer/ipv6-add-to-existing-vnet-powershell.md)- this feature enables you to easily add IPv6 connectivity to existing IPv4-only deployments without the need to recreate deployments.  The IPv4 network traffic is unaffected during this process so depending on your application and OS you might be able to add IPv6 even to live services.    
 
 - Let Internet clients seamlessly access your dual stack application using their protocol of choice with Azure DNS support for IPv6 (AAAA) records. 
 
@@ -94,7 +94,7 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 
 - Dual-stack configurations that use floating IP can only be used with public load balancers, not internal load balancers.
 
-- Application Gateway v2 doesn't currently support IPv6. It can operate in a dual stack virtual network using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 doesn't support dual stack virtual networks.
+- Support for IPv6 in Application Gateway v2 is currently in public preview. For more information, see the [How to configure IPv6 Application Gateway](../../application-gateway/ipv6-application-gateway-portal.md) guides. Application Gateway v1 doesn't support a dual stack frontend.
 
 - The Azure platform (AKS, etc.) doesn't support IPv6 communication for Containers. 
 

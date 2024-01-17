@@ -30,15 +30,13 @@ Only users who have *Owner* or *Contributor* access on the Azure subscription ca
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings.
 
-## Purchase errors
+## Diagnostic settings are active even after disabling the Elastic resource or applying necessary tag rules
 
-- Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
+If logs are being emitted and diagnostic settings remain active on monitored resources even after the Elastic resource is disabled or tag rules have been modified to exclude certain resources, it's likely that there's a delete lock applied to the resource(s) or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve this, remove the delete lock from the resource or the resource group. If the lock is removed after the Elastic resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
 
-  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
+## Marketplace Purchase errors
 
-- The EA subscription doesn't allow Marketplace purchases.
-
-  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
 ## Get support
 

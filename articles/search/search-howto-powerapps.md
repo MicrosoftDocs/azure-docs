@@ -1,22 +1,24 @@
 ---
 title: 'Tutorial: Query from Power Apps'
-titleSuffix: Azure Cognitive Search
-description: Step-by-step guidance on how to build a Power App that connects to an Azure Cognitive Search index, sends queries, and renders results.
+titleSuffix: Azure AI Search
+description: Step-by-step guidance on how to build a Power App that connects to an Azure AI Search index, sends queries, and renders results.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 02/07/2023
 ---
 
-# Tutorial: Query a Cognitive Search index from Power Apps
+# Tutorial: Query an Azure AI Search index from Power Apps
 
-Use the rapid application development environment of Power Apps to create a custom app for your searchable content in Azure Cognitive Search.
+Use the rapid application development environment of Power Apps to create a custom app for your searchable content in Azure AI Search.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Connect to Azure Cognitive Search
+> * Connect to Azure AI Search
 > * Set up a query request
 > * Visualize results in a canvas app
 
@@ -49,7 +51,7 @@ A connector in Power Apps is a data source connection. In this step, create a cu
 1. Enter information in the General Page:
 
    * Icon background color (for instance, #007ee5)
-   * Description (for instance, "A connector to Azure Cognitive Search")
+   * Description (for instance, "A connector to Azure AI Search")
    * In the Host, enter your search service URL (such as `<yourservicename>.search.windows.net`)
    * For Base URL, enter "/"
 
@@ -147,7 +149,7 @@ A connector in Power Apps is a data source connection. In this step, create a cu
 
 When the connector is first created, you need to reopen it from the Custom Connectors list in order to test it. Later, if you make more updates, you can test from within the wizard.
 
-You'll need a [query API key](search-security-api-keys.md#find-existing-keys) for this task. Each time a connection is created, whether for a test run or inclusion in an app, the connector needs the query API key used for connecting to Azure Cognitive Search.
+You'll need a [query API key](search-security-api-keys.md#find-existing-keys) for this task. Each time a connection is created, whether for a test run or inclusion in an app, the connector needs the query API key used for connecting to Azure AI Search.
 
 1. On the far left, select **Custom Connectors**.
 
@@ -163,7 +165,7 @@ You'll need a [query API key](search-security-api-keys.md#find-existing-keys) fo
 
 1. In Test Operation, select **+ New Connection**.
 
-1. Enter a query API key. This is an Azure Cognitive Search query for read-only access to an index. You can [find the key](search-security-api-keys.md#find-existing-keys) in the Azure portal. 
+1. Enter a query API key. This is an Azure AI Search query for read-only access to an index. You can [find the key](search-security-api-keys.md#find-existing-keys) in the Azure portal. 
 
 1. In Operations, select the **Test operation** button. If you're successful you should see a 200 status, and in the body of the response you should see JSON that describes the search results.
 

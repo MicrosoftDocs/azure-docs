@@ -16,7 +16,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 1. Navigate to **Hive** > **Configs** > **Advanced** > **Advanced hive-log4j**. Review the following settings:
 
-    * `hive.root.logger=DEBUG,RFA`. This is the default value, modify the [log level](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) to `INFO` to print fewer logs entries.
+    * `hive.root.logger=DEBUG,RFA`. This is the default value, modify the log level to `INFO` to print fewer logs entries.
 
     * `log4jhive.log.maxfilesize=1024MB`. This is the default value, modify as desired.
 

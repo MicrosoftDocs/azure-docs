@@ -42,17 +42,17 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 * Ensure that you’re using the proper mount instructions for the volume. See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
-* The NFS client should be in the same VNet or peered VNet as the Azure NetApp Files volume. Connecting from outside the VNet is supported; however, it will introduce additional latency and decrease overall performance.
+* The NFS client should be in the same virtual network or peered virtual network as the Azure NetApp Files volume. Connecting from outside the virtual network is supported; however, it will introduce additional latency and decrease overall performance.
 
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
 
 ## Create an NFS volume
 
-1.	Click the **Volumes** blade from the Capacity Pools blade. Click **+ Add volume** to create a volume. 
+1.	Select the **Volumes** blade from the Capacity Pools blade. Select **+ Add volume** to create a volume. 
 
     ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.	In the Create a Volume window, click **Create**, and provide information for the following fields under the Basics tab:   
+2.	In the Create a Volume window, select **Create**, and provide information for the following fields under the Basics tab:   
     * **Volume name**      
         Specify the name for the volume that you are creating. 
 
@@ -79,15 +79,15 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
 
     * **Virtual network**  
-        Specify the Azure virtual network (VNet) from which you want to access the volume.  
+        Specify the Microsoft Azure Virtual Network from which you want to access the volume.  
 
-        The VNet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Vnet or from a Vnet that is in the same region as the volume through VNet peering. You can also access the volume from  your on-premises network through Express Route.   
+        The Virtual Network you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Virtual Network or from a virtual network that's in the same region as the volume through virtual network peering. You can also access the volume from your on-premises network through Express Route.   
 
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to Azure NetApp Files. 
         
-        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
+        If you have not delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each Virtual Network, only one subnet can be delegated to Azure NetApp Files.   
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
@@ -100,7 +100,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     * **Availability zone**   
         This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
 
-    * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
+    * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
         For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
@@ -109,7 +109,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         >[!NOTE]
         >By default, the `.snapshot` directory path is hidden from NFSv4.1 clients. Enabling the **Hide snapshot path** option will hide the .snapshot directory from NFSv3 clients; the directory will still be accessible.
 
-3. Click **Protocol**, and then complete the following actions:  
+3. Select **Protocol** then complete the following actions:  
     * Select **NFS** as the protocol type for the volume.   
 
     * Specify a unique **file path** for the volume. This path is used when you create mount targets. The requirements for the path are as follows:   
@@ -133,7 +133,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-4. Click **Review + Create** to review the volume details. Then click **Create** to create the volume.
+4. Select **Review + Create** to review the volume details. Select **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 
  

@@ -6,7 +6,7 @@ ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.author: allensu
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 11/06/2023
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 
@@ -15,7 +15,7 @@ ms.date: 06/06/2023
 You can customize egress for an AKS cluster to fit specific scenarios. By default, AKS will provision a standard SKU load balancer to be set up and used for egress. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
 
 This article covers the various types of outbound connectivity that are available in AKS clusters.
-how 
+ 
 > [!NOTE]
 > You can now update the `outboundType` after cluster creation. This feature is in preview. See [Updating `outboundType after cluster creation (preview)](#updating-outboundtype-after-cluster-creation-preview).
 

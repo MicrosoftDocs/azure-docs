@@ -41,7 +41,7 @@ Follow these steps to create a new console application.
     ```
 1. Replace the contents of `Program.cs` with the following code. 
 
- ```csharp
+    ```csharp
     using System;
     using System.IO;
     using System.Threading.Tasks;
@@ -59,7 +59,7 @@ Follow these steps to create a new console application.
         static string openAIEndpoint = Environment.GetEnvironmentVariable("OPEN_AI_ENDPOINT");
     
         // Enter the deployment name you chose when you deployed the model.
-        static string engine = "text-davinci-003";
+        static string engine = "gpt-35-turbo-instruct";
     
         // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         static string speechKey = Environment.GetEnvironmentVariable("SPEECH_KEY");
@@ -189,7 +189,7 @@ Follow these steps to create a new console application.
             }
         }
     }
-```
+    ```
 
 1. To increase or decrease the number of tokens returned by Azure OpenAI, change the `MaxTokens` property in the `CompletionsOptions` class instance. For more information tokens and cost implications, see [Azure OpenAI tokens](/azure/ai-services/openai/overview#tokens) and [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 
@@ -224,7 +224,7 @@ Now that you've completed the quickstart, here are some more considerations:
 
 - To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/ai-services/speech-service/language-identification.md). 
 - To change the voice that you hear, replace `en-US-JennyMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). If the voice doesn't speak the language of the text returned from Azure OpenAI, the Speech service doesn't output synthesized audio.
-- To use a different [model](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability), replace `text-davinci-003` with the ID of another [deployment](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model). Keep in mind that the deployment ID isn't necessarily the same as the model name. You named your deployment when you created it in [Azure OpenAI Studio](https://oai.azure.com/).
+- To use a different [model](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability), replace `gpt-35-turbo-instruct` with the ID of another [deployment](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model). Keep in mind that the deployment ID isn't necessarily the same as the model name. You named your deployment when you created it in [Azure OpenAI Studio](https://oai.azure.com/).
 - Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filtering](/azure/ai-services/openai/concepts/content-filter) article.
 
 ## Clean up resources

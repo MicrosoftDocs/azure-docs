@@ -1,29 +1,29 @@
 ---
 title: Troubleshoot Azure FarmBeats
 description: This article describes how to troubleshoot Azure FarmBeats.
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: riyazp
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Troubleshoot Azure FarmBeats
 
-This article provides solutions to common Azure FarmBeats issues. For additional help, contact our [Q&A Support Forum](/answers/topics/azure-farmbeats.html) or email us at farmbeatssupport@microsoft.com.
+This article provides solutions to common Azure FarmBeats issues. For extra help, contact our [Q&A Support Forum](/answers/topics/azure-farmbeats.html).
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information, see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
-> [!NOTE]
-  > If you have installed FarmBeats during April and your jobs are failing with an empty error message, your installation may not have been allocated any batch quota to prioritize support for critical health and safety organizations. See [here](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) for more information. You will need to request VMs to be allocated to the Batch account to run jobs successfully.
 
 ## Install issues
-
-  > [!NOTE]
-  > If you are restarting the install because of an error, ensure to delete the **Resource Group** or delete all resources from the Resource Group before re-triggering the installation.
+If you're restarting the install because of an error, ensure to delete the **Resource Group** or delete all resources from the Resource Group before retriggering the installation.
 
 ### Invalid Sentinel credentials
 
 The Sentinel credentials provided during install are incorrect. Restart the installation with the correct credentials.
 
-### The regional account quota of Batch Accounts for the specified subscription has been reached
+### The regional account quota of Batch Accounts for the specified subscription is reached
 
 Increase the quota, or delete the unused batch accounts and restart the installation.
 
@@ -49,13 +49,13 @@ Contact us with the following details:
 
 ### Can't view telemetry data
 
-**Symptom**: Devices or sensors are deployed, and you've linked FarmBeats with your device partner, but you can't get or view telemetry data on FarmBeats.
+**Symptom**: Devices or sensors are deployed, and device partner is linked to FarmBeats, but you can't get or view telemetry data on FarmBeats.
 
 **Corrective action**
 
 1. Go to your FarmBeats resource group.
-2. Select the **Event Hub** namespace ("sensor-partner-eh-namespace-xxxx"), click on "Event Hubs" and then check for the number of incoming messages in the event hub that is assigned to the partner
-3. Do either of the following:
+2. Select the **Event Hub** namespace ("sensor-partner-eh-namespace-xxxx"), select on "Event Hubs" and then check for the number of incoming messages in the event hub that is assigned to the partner
+3. Do either of the following steps:
 
    - If there are *no incoming messages*, contact your device partner.  
    - If there are *incoming messages*, contact us with your Datahub and Accelerator logs and captured telemetry.
@@ -64,13 +64,13 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
 
 ### Can't view telemetry data after ingesting historical/streaming data from your sensors
 
-**Symptom**: Devices or sensors are deployed, and you've created the devices/sensors on FarmBeats and ingested telemetry to the EventHub, but you can't get or view telemetry data on FarmBeats.
+**Symptom**: Devices or sensors are deployed, created on FarmBeats and ingested telemetry to the EventHub, but you can't get or view telemetry data on FarmBeats.
 
 **Corrective action**
 
-1. Ensure you have done the partner registration correctly - you can check this by going to your datahub swagger, navigate to /Partner API, Do a Get and check if the partner is registered. If not, follow these [steps](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) to add partner.
+1. Ensure partner registration is done correctly - you can check this by going to your datahub swagger, navigate to /Partner API, Do a Get and check if the partner is registered. If not, follow these [steps](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) to add partner.
 
-2. Ensure that you have used the correct Telemetry message format:
+2. Ensure that you used the correct Telemetry message format:
 
 ```json
 {
@@ -112,7 +112,7 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
 
 ### Device appears offline
 
-**Symptoms**: Devices are installed, and you've linked FarmBeats with your device partner. The devices are online and sending telemetry data, but they appear offline.
+**Symptoms**: Devices are installed, and FarmBeats is linked with your device partner. The devices are online and sending telemetry data, but they appear offline.
 
 **Corrective action**
 The reporting interval isn't configured for this device. To set the reporting interval, contact your device manufacturer. 
@@ -164,30 +164,30 @@ This issue might result from a temporary failure in the data pipeline. Create th
 **Corrective action**
 Check the email ID for which you're trying to add a role assignment. The email ID must be an exact match of the ID, which is registered for that user in the Active Directory. If the error persists, contact us with the error message/logs.
 
-### Unable to log in to Accelerator
+### Unable to sign-in to Accelerator
 
-**Message**: "Error: You are not authorized to call the service. Contact the administrator for authorization."
+**Message**: "Error: You aren't authorized to call the service. Contact the administrator for authorization."
 
 **Corrective action**
-Ask the administrator to authorize you to access the FarmBeats deployment. This can be done by doing a POST of the RoleAssignment APIs or through the Access Control in the **Settings** pane in Accelerator.  
+Ask the administrator to authorize you to access the FarmBeats deployment by doing a POST of the RoleAssignment APIs or through the Access Control in the **Settings** pane in Accelerator.  
 
-If you've already been granted access and facing this error, try again by refreshing the page. If the error persists, contact us with the error message/logs.
+If you have access and facing this error, try again by refreshing the page. If the error persists, contact us with the error message/logs.
 
 ![Screenshot that shows the authorization error.](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### Accelerator issues  
 
-**Issue**: You've received an Accelerator error of undetermined cause.
+**Issue**: You get an Accelerator error of undetermined cause.
 
 **Message**: "Error: An unknown error occurred."
 
 **Corrective action**
 This error occurs if you leave the page idle for too long. Refresh the page. If the error persists, contact us with the error message/logs.
 
-**Issue**: FarmBeats Accelerator isn't showing the latest version, even after you've upgraded FarmBeatsDeployment.
+**Issue**: FarmBeats Accelerator isn't showing the latest version, even after you upgraded FarmBeatsDeployment.
 
 **Corrective action**
-This error occurs because of service worker persistence in the browser. Do the following:
+This error occurs because of service worker persistence in the browser. Do the following steps:
 
 1. Close all browser tabs that have Accelerator open, and close the browser window.
 2. Start a new instance of the browser, and reload the Accelerator URI. This action loads the new version of Accelerator.
@@ -198,7 +198,7 @@ This error occurs because of service worker persistence in the browser. Do the f
 
 **Job failure message**: "Full authentication is required to access this resource."
 
-**Corrective action**: Do one of the following:
+**Corrective action**: Do one of the following steps:
 
 - Update FarmBeats with the correct username/password using the below steps and retry the job.
 
@@ -232,12 +232,12 @@ This error occurs because of service worker persistence in the browser. Do the f
 **Corrective action**:
 
 1. Open [Sentinel](https://scihub.copernicus.eu/dhus/) in your browser to see whether the website is accessible.
-2. If the website isn't accessible, check whether any firewall, company network, or other blocking software is preventing access to the website, and then take the necessary steps to allow the Sentinel URL. 
+2. If the website isn't accessible, check whether any firewall, company network, or other blocking software is preventing access to the website. After checking, take the necessary steps to allow the Sentinel URL. 
 3. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check whether the job is successful.  
 
 ### Sentinel server: Down for maintenance
 
-**Job failure message**: "The Copernicus Open Access Hub will be back soon! Sorry for the inconvenience, we're performing some maintenance at the moment. We'll be back online shortly!" 
+**Job failure message**: "The Copernicus Open Access Hub is back soon! Sorry for the inconvenience, we're performing some maintenance at the moment. We will be back online shortly!" 
 
 **Corrective action**:
 
@@ -253,11 +253,11 @@ This issue can occur if any maintenance activities are being done on the Sentine
 
 **Job failure message**: "Maximum number of two concurrent flows achieved by the user '\<username>'."
 
-**Meaning**: If a job fails because the maximum number of connections has been reached, the same Sentinel account is being used in multiple jobs.
+**Meaning**: If a job fails because the maximum number of connections are reached, the same Sentinel account is being used in multiple jobs.
 
-**Corrective action**: Try either of the following:
+**Corrective action**: Try either of the following options:
 
-* Wait for the other jobs to finish before re-running the failed job.
+* Wait for the other jobs to finish before rerunning the failed job.
 * Create a new Sentinel account, and then update the Sentinel username and password in FarmBeats.
 
 ### Sentinel server: Refused connection
@@ -276,7 +276,7 @@ This issue can occur if any maintenance activities are being done on the Sentine
 
 **Issue**: The **Soil Moisture map** was generated, but the map has mostly white areas.
 
-**Corrective action**: This issue can occur if the satellite indices generated for the time for which the map was requested has NDVI values that is less than 0.3. For more information, visit [Technical Guide from Sentinel](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi).
+**Corrective action**: This issue can occur if the satellite indices generated for the time for which the map was requested has NDVI values that are less than 0.3. For more information, visit [Technical Guide from Sentinel](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi).
 
 1. Rerun the job for a different date range and check if the NDVI values in the satellite indices are more than 0.3.
 
@@ -323,31 +323,31 @@ This issue can occur if any maintenance activities are being done on the Sentine
 ### Collect logs to troubleshoot weather data job failures
 
 1. Go to your FarmBeats resource group in the Azure portal.
-2. Click on the Data Factory service that is part of the resource group. The service will have a tag "sku: Datahub"
+2. Select on the Data Factory service that is part of the resource group. The service has a tag "sku: Datahub"
 
 > [!NOTE]
 > To view the tags of the services within the resource group, click on "Edit Columns" and add "Tags" to the resource group view
 
 :::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Screenshot that highlights the sku:Datahub tag.":::
 
-3. On the Overview page of the Data factory, click on **Author and Monitor**. A new tab opens on your browser. Click on **Monitor**
+3. On the Overview page of the Data factory, select on **Author and Monitor**. A new tab opens on your browser. Select on **Monitor**
 
 :::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Screenshot that highlights the Monitor menu option.":::
 
-4. You will see a list of pipeline runs that are part of the weather job execution. Click on the Job that you want to collect logs for
+4. You see a list of pipeline runs that are part of the weather job execution. Select on the Job that you want to collect logs for
  
 :::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Screenshot that highlights the Pipeline runs menu option and the selected job.":::
 
-5. On the pipeline overview page, you will see the list of activity runs. Make a note of the Run IDs of the activities that you want to collect logs for
+5. On the pipeline overview page, you see the list of activity runs. Make a note of the Run IDs of the activities that you want to collect logs for
  
 :::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Screenshot that shows the list of activity runs.":::
 
-6. Go back to your FarmBeats resource group in Azure portal and click on the Storage Account with the name **datahublogs-XXXX**
+6. Go back to your FarmBeats resource group in Azure portal and select on the Storage Account with the name **datahublogs-XXXX**
  
 :::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Screenshot that highlights the Storage Account with the name datahublogs-XXXX.":::
 
-7. Click on **Containers** -> **adfjobs**. In the Search box, enter the job Run ID that you noted in step 5 above.
+7. Select on **Containers** -> **adfjobs**. In the Search box, enter the job Run ID that you noted in step 5 above.
  
 :::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Project FarmBeats":::
 
-8. The search result will contain the folder which has the logs pertaining to the job. Download the logs and send it to farmbeatssupport@microsoft.com for assistance in debugging the issue.
+8. The search result contains the folder that has the logs pertaining to the job. Download the logs and send it to farmbeatssupport@microsoft.com for assistance in debugging the issue.

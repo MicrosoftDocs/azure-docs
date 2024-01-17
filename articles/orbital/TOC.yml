@@ -1,5 +1,5 @@
 items:
-- name: Azure Orbital - Documentation
+- name: Azure Orbital Ground Station - Documentation
   href: index.yml
 - name: Overview
   items:
@@ -42,6 +42,8 @@ items:
     href: update-tle.md
   - name: Receive real-time antenna telemetry
     href: receive-real-time-telemetry.md
+  - name: Prepare for launch
+    href: prepare-for-launch.md
   - name: Use Azure Resource Graph Queries
     href: resource-graph-samples.md
     

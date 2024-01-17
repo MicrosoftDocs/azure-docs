@@ -42,7 +42,7 @@ landingContent:
             url: release-notes.md
           - text: Important upcoming changes
             url: upcoming-changes.md
-          - text: Overview of Defender for DevOps
+          - text: Overview of DevOps security
             url: defender-for-devops-introduction.md
           - text: Microsoft cloud security benchmark in Defender for Cloud
             url: concept-regulatory-compliance.md

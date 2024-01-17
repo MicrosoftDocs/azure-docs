@@ -1,8 +1,8 @@
 ---
 title: Materials
 description: Rendering material description and material properties
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp

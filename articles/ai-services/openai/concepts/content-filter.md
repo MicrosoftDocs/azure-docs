@@ -6,7 +6,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 09/15/2023
+ms.date: 11/06/2023
 ms.custom: template-concept
 manager: nitinme
 keywords: 
@@ -19,7 +19,7 @@ keywords:
 
 Azure OpenAI Service includes a content filtering system that works alongside core models. This system works by running both the prompt and completion through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Variations in API configurations and application design might affect completions and thus filtering behavior.
 
-The content filtering models have been specifically trained and tested on the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
+The content filtering models for the hate, sexual, violence, and self-harm categories have been specifically trained and tested on the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
 In addition to the content filtering system, the Azure OpenAI Service performs monitoring to detect content and/or behaviors that suggest use of the service in a manner that might violate applicable product terms. For more information about understanding and mitigating risks associated with your application, see the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?tabs=text). For more information about how data is processed in connection with content filtering and abuse monitoring, see [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context#preventing-abuse-and-harmful-content-generation).  
 
@@ -27,25 +27,27 @@ The following sections provide information about the content filtering categorie
 
 ## Content filtering categories
 
-The content filtering system integrated in the Azure OpenAI Service contains neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
+The content filtering system integrated in the Azure OpenAI Service contains: 
+* Neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
+* Additional optional classification models aimed at detecting jailbreak risk and known content for text and code; these models are binary classifiers that flag whether user or model behavior qualifies as a jailbreak attack or match to known text or source code. The use of these models is optional, but use of protected material code model may be required for Customer Copyright Commitment coverage.
 
-### Categories
-
-|Category|Description|
-|--------|-----------|
-| Hate   |The hate category describes language attacks or uses that include pejorative or discriminatory language with reference to a person or identity group on the basis of certain differentiating attributes of these groups including but not limited to race, ethnicity, nationality, gender identity and expression, sexual orientation, religion, immigration status, ability status, personal appearance, and body size. |
-| Sexual | The sexual category describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one’s will, prostitution, pornography, and abuse. |
-| Violence | The violence category describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, etc.   |
-| Self-Harm | The self-harm category describes language related to physical actions intended to purposely hurt, injure, or damage one’s body, or kill oneself.|
-
-### Severity levels
+## Harm categories
 
 |Category|Description|
 |--------|-----------|
-|Safe    | Content might be related to violence, self-harm, sexual, or hate categories but the terms are used in general, journalistic, scientific, medical, and similar professional contexts, which are appropriate for most audiences. |
-|Low | Content that expresses prejudiced, judgmental, or opinionated views, includes offensive use of language, stereotyping, use cases exploring a fictional world (for example, gaming, literature) and depictions at low intensity.|
-| Medium | Content that uses offensive, insulting, mocking, intimidating, or demeaning language towards specific identity groups, includes depictions of seeking and executing harmful instructions, fantasies, glorification, promotion of harm at medium intensity. |
-|High | Content that displays explicit and severe harmful instructions, actions, damage, or abuse; includes endorsement, glorification, or promotion of severe harmful acts, extreme or illegal forms of harm, radicalization, or non-consensual power exchange or abuse.|
+| Hate and fairness   |Hate and fairness-related harms refer to any content that attacks or uses pejorative or discriminatory language with reference to a person or Identity groups on the basis of certain differentiating attributes of these groups including but not limited to race, ethnicity, nationality, gender identity groups and expression, sexual orientation, religion, immigration status, ability status, personal appearance and body size. </br></br> Fairness is concerned with ensuring that AI systems treat all groups of people equitably without contributing to existing societal inequities. Similar to hate speech, fairness-related harms hinge upon disparate treatment of Identity groups.    |
+| Sexual | Sexual describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, pregnancy, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one’s will, prostitution, pornography and abuse.   |
+| Violence | Violence describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, guns and related entities, such as manufactures, associations, legislation, etc.    |
+| Self-Harm | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one’s body or kill oneself.|
+| Jailbreak risk | Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. Such attacks can vary from intricate role play to subtle subversion of the safety objective. |
+| Protected Material for Text<sup>*</sup> | Protected material text describes known text content (for example, song lyrics, articles, recipes, and selected web content) that can be outputted by large language models.
+| Protected Material for Code | Protected material code describes source code that matches a set of source code from public repositories, which can be outputted by large language models without proper citation of source repositories.
+
+<sup>*</sup> If you are an owner of text material and want to submit text content for protection, please [file a request](https://aka.ms/protectedmaterialsform).
+
+[!INCLUDE [severity-levels](../../content-safety/includes/severity-levels.md)]
+
+
 
 ## Configurability (preview)
 
@@ -55,14 +57,14 @@ The default content filtering configuration is set to filter at the medium sever
 |-------------------|--------------------------|------------------------------|--------------|
 | Low, medium, high | Yes | Yes | Strictest filtering configuration. Content detected at severity levels low, medium and high is filtered.|
 | Medium, high      | Yes | Yes | Default setting. Content detected at severity level low is not filtered, content at medium and high is filtered.|
-| High              | If approved<sup>\*</sup>| If approved<sup>\*</sup> | Content detected at severity levels low and medium isn't filtered. Only content at severity level high is filtered. Requires approval<sup>\*</sup>.|
+| High              | Yes| Yes | Content detected at severity levels low and medium isn't filtered. Only content at severity level high is filtered.|
 | No filters | If approved<sup>\*</sup>| If approved<sup>\*</sup>| No content is filtered regardless of severity level detected. Requires approval<sup>\*</sup>.|
 
-<sup>\*</sup> Only customers who have been approved for modified content filtering  have full content filtering control, including configuring content filters at severity level high only or turning content filters off. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
+<sup>\*</sup> Only customers who have been approved for modified content filtering have full content filtering control and can turn content filters partially or fully off. Content filtering control does not apply to content filters for DALL-E (preview) or GPT-4 Turbo with Vision (preview). Apply for modified content filters using this form: [Azure OpenAI Limited Access Review: Modified Content Filtering (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMlBQNkZMR0lFRldORTdVQzQ0TEI5Q1ExOSQlQCN0PWcu). 
+
+Customers are responsible for ensuring that applications integrating Azure OpenAI comply with the [Code of Conduct](/legal/cognitive-services/openai/code-of-conduct?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext). 
 
 Content filtering configurations are created within a Resource in Azure AI Studio, and can be associated with Deployments. [Learn more about configurability here](../how-to/content-filters.md).  
-
-   :::image type="content" source="../media/content-filters/configuration.png" alt-text="Screenshot of the content filter configuration UI" lightbox="../media/content-filters/configuration.png":::
 
 ## Scenario details
 
@@ -110,7 +112,7 @@ The table below outlines the various ways content filtering can appear:
 
 ```
 
-### Scenario: Your API call asks for multiple responses (N>1) and at least 1 of the responses is filtered
+### Scenario: Your API call asks for multiple responses (N>1) and at least one of the responses is filtered
 
 | **HTTP Response Code** | **Response behavior**|
 |------------------------|----------------------|
@@ -155,7 +157,7 @@ The table below outlines the various ways content filtering can appear:
 
 **HTTP Response Code** | **Response behavior**
 |------------------------|----------------------|
-|400 |The API call will fail when the prompt triggers a content filter as configured. Modify the prompt and try again.|
+|400 |The API call fails when the prompt triggers a content filter as configured. Modify the prompt and try again.|
 
 **Example request payload:**
 
@@ -216,7 +218,7 @@ The table below outlines the various ways content filtering can appear:
 
 **HTTP Response Code** | **Response behavior**
 |------------|------------------------|----------------------|
-| 200 | For a given generation index, the last chunk of the generation will include a non-null `finish_reason` value. The value will be `content_filter` when the generation was filtered.|
+| 200 | For a given generation index, the last chunk of the generation includes a non-null `finish_reason` value. The value is `content_filter` when the generation was filtered.|
 
 **Example request payload:**
 
@@ -290,15 +292,32 @@ The table below outlines the various ways content filtering can appear:
 
 ## Annotations (preview)
 
-When annotations are enabled as shown in the code snippet below, the following information is returned via the API: content filtering category (hate, sexual, violence, self-harm); within each content filtering category, the severity level (safe, low, medium or high); filtering status (true or false).
+### Main content filters
+When annotations are enabled as shown in the code snippet below, the following information is returned via the API for the main categories (hate and fairness, sexual, violence, and self-harm): 
+- content filtering category (hate, sexual, violence, self_harm)
+- the severity level (safe, low, medium or high) within each content category
+- filtering status (true or false).
+
+### Optional models
+
+Optional models can be enabled in annotate (returns information when content was flagged, but not filtered) or filter mode (returns information when content was flagged and filtered).  
+
+When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models jailbreak risk, protected material text and protected material code:
+- category (jailbreak, protected_material_text, protected_material_code),
+- detected (true or false),
+- filtered (true or false).
+
+For the protected material code model, the following additional information is returned by the API:
+- an example citation of a public GitHub repository where a code snippet was found
+- the license of the repository.
+
+When displaying code in your application, we strongly recommend that the application also displays the example citation from the annotations. Compliance with the cited license may also be required for Customer Copyright Commitment coverage.
 
 Annotations are currently in preview for Completions and Chat Completions (GPT models); the following code snippet shows how to use annotations in preview:
 
-# [Python](#tab/python)
-
+# [OpenAI Python 0.28.1](#tab/python)
 
 ```python
-# Note: The openai-python library support for Azure OpenAI is in preview.
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
 
 import os
@@ -309,9 +328,8 @@ openai.api_version = "2023-06-01-preview" # API version required to test out Ann
 openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
 response = openai.Completion.create(
-    engine="text-davinci-003", # engine = "deployment_name".
-    prompt="{Example prompt where a severity level of low is detected}" 
-    # Content that is detected at severity level medium or high is filtered, 
+    engine="gpt-35-turbo", # engine = "deployment_name".
+    messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "Example prompt that leads to a protected code completion that was detected, but not filtered"}]     # Content that is detected at severity level medium or high is filtered, 
     # while content detected at severity level low isn't filtered by the content filters.
 )
 
@@ -322,72 +340,95 @@ print(response)
 ### Output
 
 ```json
-{
-  "choices": [
-    {
-      "content_filter_results": {
-        "hate": {
-          "filtered": false,
-          "severity": "safe"
-        },
-        "self_harm": {
-          "filtered": false,
-          "severity": "safe"
-        },
-        "sexual": {
-          "filtered": false,
-          "severity": "safe"
-        },
-        "violence": {
-          "filtered": false,
-          "severity": "low"
-        }
-      },
-      "finish_reason": "length",
-      "index": 0,
-      "logprobs": null,
-      "text": {"\")(\"Example model response will be returned\").}"
-    }
-  ],
-  "created": 1685727831,
-  "id": "cmpl-7N36VZAVBMJtxycrmiHZ12aK76a6v",
-  "model": "text-davinci-003",
-  "object": "text_completion",
-  "prompt_annotations": [
-    {
-      "content_filter_results": {
-        "hate": {
-          "filtered": false,
-          "severity": "safe"
-        },
-        "self_harm": {
-          "filtered": false,
-          "severity": "safe"
-        },
-        "sexual": {
-          "filtered": false,
-          "severity": "safe"
-        },
-        "violence": {
-          "filtered": false,
-          "severity": "safe"
-        }
-      },
-      "prompt_index": 0
-    }
-  ],
-  "usage": {
-    "completion_tokens": 16,
-    "prompt_tokens": 5,
-    "total_tokens": 21
-  }
-}
+{ 
+  "choices": [ 
+    { 
+      "content_filter_results": { 
+        "custom_blocklists": [], 
+        "hate": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "protected_material_code": { 
+          "citation": { 
+            "URL": " https://github.com/username/repository-name/path/to/file-example.txt", 
+            "license": "EXAMPLE-LICENSE" 
+          }, 
+          "detected": true,
+          "filtered": false 
+        }, 
+        "protected_material_text": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "self_harm": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "sexual": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "violence": { 
+          "filtered": false, 
+          "severity": "safe" 
+        } 
+      }, 
+      "finish_reason": "stop", 
+      "index": 0, 
+      "message": { 
+        "content": "Example model response will be returned ", 
+        "role": "assistant" 
+      } 
+    } 
+  ], 
+  "created": 1699386280, 
+  "id": "chatcmpl-8IMI4HzcmcK6I77vpOJCPt0Vcf8zJ", 
+  "model": "gpt-35-turbo", 
+  "object": "chat.completion", 
+  "prompt_filter_results": [ 
+    { 
+      "content_filter_results": { 
+        "custom_blocklists": [], 
+        "hate": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "jailbreak": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "profanity": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "self_harm": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "sexual": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "violence": { 
+          "filtered": false, 
+          "severity": "safe" 
+        } 
+      }, 
+      "prompt_index": 0 
+    } 
+  ], 
+  "usage": { 
+    "completion_tokens": 40, 
+    "prompt_tokens": 11, 
+    "total_tokens": 417 
+  } 
+} 
 ```
 
 The following code snippet shows how to retrieve annotations when content was filtered:
 
 ```python
-# Note: The openai-python library support for Azure OpenAI is in preview.
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
 
 import os
@@ -414,6 +455,29 @@ except openai.error.InvalidRequestError as e:
         for category, details in content_filter_result.items():
             print(f"{category}:\n filtered={details['filtered']}\n severity={details['severity']}")
 
+```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+# os.getenv() for the endpoint and key assumes that you are using environment variables.
+
+import os
+from openai import AzureOpenAI
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2023-10-01-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT") 
+    )
+
+response = client.completions.create(
+    model="gpt-35-turbo-instruct", # model = "deployment_name".
+    prompt="{Example prompt where a severity level of low is detected}" 
+    # Content that is detected at severity level medium or high is filtered, 
+    # while content detected at severity level low isn't filtered by the content filters.
+)
+
+print(response.model_dump_json(indent=2))
 ```
 
 # [JavaScript](#tab/javascrit)
@@ -480,6 +544,49 @@ main().catch((err) => {
   console.error("The sample encountered an error:", err);
 });
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell-interactive
+# Env: for the endpoint and key assumes that you are using environment variables.
+$openai = @{
+    api_key     = $Env:AZURE_OPENAI_KEY
+    api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+    api_version = '2023-10-01-preview' # this may change in the future
+    name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
+}
+
+$prompt = 'Example prompt where a severity level of low is detected'
+    # Content that is detected at severity level medium or high is filtered, 
+    # while content detected at severity level low isn't filtered by the content filters.
+
+$headers = [ordered]@{
+    'api-key' = $openai.api_key
+}
+
+$body = [ordered]@{
+    prompt    = $prompt
+    model      = $openai.name
+} | ConvertTo-Json
+
+# Send a completion call to generate an answer
+$url = "$($openai.api_base)/openai/deployments/$($openai.name)/completions?api-version=$($openai.api_version)"
+
+$response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'
+return $response.prompt_filter_results.content_filter_results | format-list
+```
+
+The `$response` object contains a property named `prompt_filter_results` that contains annotations
+about the filter results. If you prefer JSON to a .NET object, pipe the output to `ConvertTo-JSON`
+instead of `Format-List`.
+
+```output
+hate      : @{filtered=False; severity=safe}
+self_harm : @{filtered=False; severity=safe}
+sexual    : @{filtered=False; severity=safe}
+violence  : @{filtered=False; severity=safe}
+```
+
 ---
 
 For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using `2023-06-01-preview`.
@@ -521,6 +628,178 @@ For details on the inference REST API endpoints for Azure OpenAI and how to crea
 }
 ```
 
+## Streaming
+
+Azure OpenAI Service includes a content filtering system that works alongside core models. The following section describes the AOAI streaming experience and options in the context of content filters. 
+
+### Default
+
+The content filtering system is integrated and enabled by default for all customers. In the default streaming scenario, completion content is buffered, the content filtering system runs on the buffered content, and – depending on content filtering configuration – content is either returned to the user if it does not violate the content filtering policy (Microsoft default or custom user configuration), or it’s immediately blocked which returns a content filtering error, without returning harmful completion content. This process is repeated until the end of the stream. Content was fully vetted according to the content filtering policy before returned to the user. Content is not returned token-by-token in this case, but in “content chunks” of the respective buffer size. 
+
+### Asynchronous modified filter
+
+Customers who have been approved for modified content filters can choose Asynchronous Modified Filter as an additional option, providing a new streaming experience. In this case, content filters are run asynchronously, completion content is returned immediately with a smooth token-by-token streaming experience. No content is buffered, the content filters run asynchronously, which allows for zero latency in this context.  
+
+> [!NOTE]
+> Customers must be aware that while the feature improves latency, it can bring a trade-off in terms of the safety and real-time vetting of smaller sections of model output. Because content filters are run asynchronously, content moderation messages and the content filtering signal in case of a policy violation are delayed, which means some sections of harmful content that would otherwise have been filtered immediately could be displayed to the user. 
+ 
+**Annotations**: Annotations and content moderation messages are continuously returned during the stream. We strongly recommend to consume annotations and implement additional AI content safety mechanisms, such as redacting content or returning additional safety information to the user. 
+
+**Content filtering signal**: The content filtering error signal is delayed; in case of a policy violation, it’s returned as soon as it’s available, and the stream is stopped. The content filtering signal is guaranteed within ~1,000-character windows in case of a policy violation. 
+
+Approval for Modified Content Filtering is required for access to Streaming – Asynchronous Modified Filter. The application can be found [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu). To enable it via Azure OpenAI Studio please follow the instructions [here](/azure/ai-services/openai/how-to/content-filters) to create a new content filtering configuration, and select “Asynchronous Modified Filter” in the Streaming section, as shown in the below screenshot. 
+
+### Overview
+
+| Category | Streaming - Default | Streaming - Asynchronous Modified Filter |
+|---|---|---|
+|Status |GA |Public Preview |
+| Access | Enabled by default, no action needed |Customers approved for Modified Content Filtering can configure directly via Azure OpenAI Studio (as part of a content filtering configuration; applied on deployment-level) |
+| Eligibility |All customers |Customers approved for Modified Content Filtering |
+|Modality and Availability |Text; all GPT-models |Text; all GPT-models except gpt-4-vision |
+|Streaming experience |Content is buffered and returned in chunks |Zero latency (no buffering, filters run asynchronously) |
+|Content filtering signal |Immediate filtering signal |Delayed filtering signal (in up to ~1,000 char increments) |
+|Content filtering configurations |Supports default and any customer-defined filter setting (including optional models) |Supports default and any customer-defined filter setting (including optional models) | 
+
+### Annotations and sample response stream
+
+#### Prompt annotation message
+
+This is the same as default annotations.
+
+```json
+data: { 
+    "id": "", 
+    "object": "", 
+    "created": 0, 
+    "model": "", 
+    "prompt_filter_results": [ 
+        { 
+            "prompt_index": 0, 
+            "content_filter_results": { ... } 
+        } 
+    ], 
+    "choices": [], 
+    "usage": null 
+} 
+```
+
+#### Completion token message
+
+Completion messages are forwarded immediately. No moderation is performed first, and no annotations are provided initially. 
+
+```json
+data: { 
+    "id": "chatcmpl-7rAJvsS1QQCDuZYDDdQuMJVMV3x3N", 
+    "object": "chat.completion.chunk", 
+    "created": 1692905411, 
+    "model": "gpt-35-turbo", 
+    "choices": [ 
+        { 
+            "index": 0, 
+            "finish_reason": null, 
+            "delta": { 
+                "content": "Color" 
+            } 
+        } 
+    ], 
+    "usage": null 
+} 
+```
+
+#### Annotation message
+
+The text field will always be an empty string, indicating no new tokens. Annotations will only be relevant to already-sent tokens. There may be multiple Annotation Messages referring to the same tokens.  
+
+“start_offset” and “end_offset” are low-granularity offsets in text (with 0 at beginning of prompt) which the annotation is relevant to. 
+
+“check_offset” represents how much text has been fully moderated. It is an exclusive lower bound on the end_offsets of future annotations. It is nondecreasing. 
+
+```json
+data: { 
+    "id": "", 
+    "object": "", 
+    "created": 0, 
+    "model": "", 
+    "choices": [ 
+        { 
+            "index": 0, 
+            "finish_reason": null, 
+            "content_filter_results": { ... }, 
+            "content_filter_raw": [ ... ], 
+            "content_filter_offsets": { 
+                "check_offset": 44, 
+                "start_offset": 44, 
+                "end_offset": 198 
+            } 
+        } 
+    ], 
+    "usage": null 
+} 
+```
+
+
+### Sample response stream
+
+Below is a real chat completion response using  Asynchronous Modified Filter. Note how prompt annotations are not changed; completion tokens are sent without annotations; and new annotation messages are sent without tokens, instead associated with certain content filter offsets. 
+
+`{"temperature": 0, "frequency_penalty": 0, "presence_penalty": 1.0, "top_p": 1.0, "max_tokens": 800, "messages": [{"role": "user", "content": "What is color?"}], "stream": true}`
+
+```
+data: {"id":"","object":"","created":0,"model":"","prompt_annotations":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"choices":[],"usage":null} 
+
+data: {"id":"chatcmpl-7rCNsVeZy0PGnX3H6jK8STps5nZUY","object":"chat.completion.chunk","created":1692913344,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"role":"assistant"}}],"usage":null} 
+
+data: {"id":"chatcmpl-7rCNsVeZy0PGnX3H6jK8STps5nZUY","object":"chat.completion.chunk","created":1692913344,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":"Color"}}],"usage":null} 
+
+data: {"id":"chatcmpl-7rCNsVeZy0PGnX3H6jK8STps5nZUY","object":"chat.completion.chunk","created":1692913344,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":" is"}}],"usage":null} 
+
+data: {"id":"chatcmpl-7rCNsVeZy0PGnX3H6jK8STps5nZUY","object":"chat.completion.chunk","created":1692913344,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":" a"}}],"usage":null} 
+
+... 
+
+data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_reason":null,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"content_filter_offsets":{"check_offset":44,"start_offset":44,"end_offset":198}}],"usage":null} 
+
+... 
+
+data: {"id":"chatcmpl-7rCNsVeZy0PGnX3H6jK8STps5nZUY","object":"chat.completion.chunk","created":1692913344,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":"stop","delta":{}}],"usage":null} 
+
+data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_reason":null,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"content_filter_offsets":{"check_offset":506,"start_offset":44,"end_offset":571}}],"usage":null} 
+
+data: [DONE] 
+```
+
+### Sample response stream (blocking)
+
+`{"temperature": 0, "frequency_penalty": 0, "presence_penalty": 1.0, "top_p": 1.0, "max_tokens": 800, "messages": [{"role": "user", "content": "Tell me the lyrics to \"Hey Jude\"."}], "stream": true}`
+
+```
+data: {"id":"","object":"","created":0,"model":"","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"choices":[],"usage":null} 
+
+data: {"id":"chatcmpl-8JCbt5d4luUIhYCI7YH4dQK7hnHx2","object":"chat.completion.chunk","created":1699587397,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"role":"assistant"}}],"usage":null} 
+
+data: {"id":"chatcmpl-8JCbt5d4luUIhYCI7YH4dQK7hnHx2","object":"chat.completion.chunk","created":1699587397,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":"Hey"}}],"usage":null} 
+
+data: {"id":"chatcmpl-8JCbt5d4luUIhYCI7YH4dQK7hnHx2","object":"chat.completion.chunk","created":1699587397,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":" Jude"}}],"usage":null} 
+
+data: {"id":"chatcmpl-8JCbt5d4luUIhYCI7YH4dQK7hnHx2","object":"chat.completion.chunk","created":1699587397,"model":"gpt-35-turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":","}}],"usage":null} 
+
+... 
+
+data: {"id":"chatcmpl-8JCbt5d4luUIhYCI7YH4dQK7hnHx2","object":"chat.completion.chunk","created":1699587397,"model":"gpt-35- 
+
+turbo","choices":[{"index":0,"finish_reason":null,"delta":{"content":" better"}}],"usage":null} 
+
+data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_reason":null,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"content_filter_offsets":{"check_offset":65,"start_offset":65,"end_offset":1056}}],"usage":null} 
+
+data: {"id":"","object":"","created":0,"model":"","choices":[{"index":0,"finish_reason":"content_filter","content_filter_results":{"protected_material_text":{"detected":true,"filtered":true}},"content_filter_offsets":{"check_offset":65,"start_offset":65,"end_offset":1056}}],"usage":null} 
+
+data: [DONE] 
+```
+
+> [!IMPORTANT]
+> When content filtering is triggered for a prompt and a `"status": 400` is received as part of the response there may be a charge for this request as the prompt was evaluated by the service. [Charges will also occur](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) when a `"status":200` is received with `"finish_reason": "content_filter"`. In this case the prompt did not have any issues, but the completion generated by the model was detected to violate the content filtering rules which results in the completion being filtered.
+
 ## Best practices
 
 As part of your application design, consider the following best practices to deliver a positive experience with your application while minimizing potential harms:
@@ -528,11 +807,12 @@ As part of your application design, consider the following best practices to del
 - Decide how you want to handle scenarios where your users send prompts containing content that is classified at a filtered category and severity level or otherwise misuse your application.
 - Check the `finish_reason` to see if a completion is filtered.
 - Check that there's no error object in the `content_filter_result` (indicating that content filters didn't run).
+- If you're using the protected material code model in annotate mode, display the citation URL when you're displaying the code in your application.
 
 ## Next steps
 
 - Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
-- Apply for modified content filters via [this form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu).
+- Apply for modified content filters via [this form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMlBQNkZMR0lFRldORTdVQzQ0TEI5Q1ExOSQlQCN0PWcu).
 - Azure OpenAI content filtering is powered by [Azure AI Content Safety](https://azure.microsoft.com/products/cognitive-services/ai-content-safety).
 - Learn more about understanding and mitigating risks associated with your application: [Overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=/azure/ai-services/openai/context/context).
 - Learn more about how data is processed in connection with content filtering and abuse monitoring: [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context#preventing-abuse-and-harmful-content-generation).
