@@ -124,13 +124,14 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
     Enable ensemble stacking | Ensemble learning improves machine learning results and predictive performance by combining multiple models as opposed to using single models. [Learn more about ensemble models](concept-automated-ml.md#ensemble).
-    Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
+    Blocked models| Select models you want to exclude from the training job. <br><br> Allowing models is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Explain best model| Automatically shows explainability on the best model created by Automated ML.
+   Positive class label| Label that Automated ML will use to calculate binary metrics.
  
 
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings**, you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
-    ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+    ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization.png)
 
 1. The **[Optional] Limits** form allows you to do the following.
 
@@ -163,7 +164,7 @@ b. Provide a test dataset (preview) to evaluate the recommended model that autom
      * The test dataset shouldn't be the same as the training dataset or the validation dataset.
      * Forecasting jobs don't support train/test split.
         
-![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
+![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-and-test.png)
         
 ## Customize featurization
 
@@ -173,7 +174,6 @@ The following table summarizes the customizations currently available via the st
 
 Column| Customization
 ---|---
-Included | Specifies which columns to include for training.
 Feature type| Change the value type for the selected column.
 Impute with| Select what value to impute missing values with in your data.
 
