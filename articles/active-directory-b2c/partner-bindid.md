@@ -1,7 +1,7 @@
 ---
 title: Configure Transmit Security with Azure Active Directory B2C for passwordless authentication
 titleSuffix: Azure AD B2C
-description: Configure Azure AD B2C with Transmit Security BindID for passwordless customer authentication
+description: Configure Azure AD B2C with Transmit Security hosted login for passwordless customer authentication
 
 author: gargi-sinha
 manager: martinco
@@ -17,18 +17,18 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Transmit Security with Azure Active Directory B2C for passwordless authentication
 
-In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security](https://transmitsecurity.com/solutions/password-mfa-replacement) BindID, a passwordless authentication solution. BindID uses strong Fast Identity Online (FIDO2) biometric authentication for reliable omni-channel authentication. The solution ensures a smooth sign in experience for customers across devices and channels, while reducing fraud, phishing, and credential reuse.
+In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security](https://transmitsecurity.com/solutions/password-mfa-replacement) hosted passwordless authentication solution. Transmit Security uses strong Fast Identity Online (FIDO2) biometric authentication for reliable omni-channel authentication. The solution ensures a smooth sign in experience for customers across devices and channels, while reducing fraud, phishing, and credential reuse.
 
 ## Scenario description
 
 The following architecture diagram illustrates the implementation.
 
-![Diagram of the BindID and Azure AD B2C architecture.](media/partner-bindid/partner-bindid-architecture-diagram.png)
+![Diagram of the Transmit and Azure AD B2C architecture.](media/partner-bindid/partner-bindid-architecture-diagram.png)
 
 1. User opens the Azure AD B2C sign in page, and signs in or signs up.
-2. Azure AD B2C redirects the user to BindID using an OpenID Connect (OIDC) request.
-3. BindID authenticates the user using appless FIDO2 biometrics, such as fingerprint.
-4. A decentralized authentication response is returned to BindID. 
+2. Azure AD B2C redirects the user to Transmit Security using an OpenID Connect (OIDC) request.
+3. Transmit Security authenticates the user using appless FIDO2 biometrics, such as fingerprint.
+4. A decentralized authentication response is returned to Transmit Security. 
 5. The OIDC response passes to Azure AD B2C.
 6. User is granted or denied access to the application, based on verification results.
 
@@ -40,31 +40,29 @@ To get started, you need:
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md) 
-* A BindID tenant
+* A Transmit Security tenant
   * Go to transmitsecurity.com to [get started](https://developer.transmitsecurity.com/#try?utm_signup=dev_hub)
 * Register a web application in the Azure portal
   * [Tutorial: Register a web application in Azure Active Directory B2C](./tutorial-register-applications.md) 
 * Azure AD B2C custom policies
   * If you can't use the policies, see [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
-## Register an app in BindID 
+## Register an app in Transmit Security's Admin Portal 
 
 To get started:
 
-1. Go to developer.bindid.io to [Configure Your Application](https://developer.bindid.io/docs/guides/quickstart/topics/quickstart_web#step-1-configure-your-application).
-2. Add an application in [BindID Admin Portal](https://admin.bindid-sandbox.io/console/). Sign-in is required.
+1. Go to developer.transmitsecurity.com to [Create applications](https://developer.transmitsecurity.com/guides/user/create_new_application/).
+2. Add an application in Transmit Security's [Admin Portal](https://portal.transmitsecurity.io/login/email). Sign-in is required.
 
 | Property | Description |
 |:---------|:---------------------|
-| Name | Application name| 
-| Domain | Enter `your-B2C-tenant-name.onmicrosoft.com`. Replace `your-B2C-tenant` with your Azure AD B2C tenant.|
-| Redirect URIs | [https://jwt.ms/](https://jwt.ms/)
-| Redirect URLs | Enter `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-B2C-tenant` with your Azure AD B2C tenant. For a custom domain, replace `your-B2C-tenant-name.b2clogin.com` with your custom domain.|
+| Application name | Application name| 
+| Redirect URIs | Enter `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-B2C-tenant` with your Azure AD B2C tenant. For a custom domain, replace `your-B2C-tenant-name.b2clogin.com` with your custom domain.|
 
 3. Upon registration, a **Client ID** and **Client Secret** appear. 
 4. Record the values to use later.
 
-## Configure BindID as an identity provider in Azure AD B2C
+## Configure Transmit Security as an identity provider in Azure AD B2C
 
 For the following instructions, use the directory with your Azure AD B2C tenant.
 
@@ -77,13 +75,13 @@ For the following instructions, use the directory with your Azure AD B2C tenant.
 7. Select **Identity providers**.
 8. Select **New OpenID Connect provider**.
 9. Enter a **Name**.
-10. For **Metadata URL**, enter `https://signin.bindid-sandbox.io/.well-known/openid-configuration`.
+10. For **Metadata URL**, enter `https://api.transmitsecurity.io/cis/oidc/.well-known/openid-configuration`.
 11. For **Client ID**, enter the Client ID you recorded.
 12. For **Client secret**, enter the Client Secret you recorded.
 13. For the **Scope**, enter the `openid email`.
 14. For **Response type**, select **code**.
 15. For **Response mode**, select **form_post**.
-16. Under **Identity provider claims mapping**, for **User ID**, select `sub`.
+16. Under **Identity provider claims mapping**, for **Display name**, select `email`.
 17. For **Email**, select `email`.
 18. Select **Save**. 
 
@@ -95,7 +93,7 @@ For the following instructions, use the directory with your Azure AD B2C tenant.
 4. Select **Create**.
 5. Enter a **Name**.
 6. Under **Identity providers**, for **Local Accounts**, select **None**. This action disables email and password-based authentication.
-7. For **Custom identity providers**, select the created BindID Identity provider such as **Login with BindID**.  
+7. For **Custom identity providers**, select the created Transmit Security Identity provider such as **Login with Transmit Security**.  
 8. Select **Create**.
 
 ## Test the user flow
@@ -104,14 +102,14 @@ For the following instructions, use the directory with your Azure AD B2C tenant.
 2. Select the created user flow, such as **B2C_1_signupsignin**.
 3. For **Application**, select the web application you registered. The **Reply URL** is `https://jwt.ms`.
 4. Select **Run user flow**. 
-5. The browser is redirected to the BindID sign in page. 
+5. The browser is redirected to the Transmit Security sign in page. 
 6. Enter the registered account email. 
 7. Authenticates using appless FIDO2 biometrics, such as fingerprint. 
 8. The browser is redirect to `https://jwt.ms`. The contents appear for the token returned by Azure AD B2C.
 
-## Create a BindID policy key
+## Create a Transmit Security policy key
 
-Add the BindID application Client Secret as a policy key. For the following instructions, use the directory with your Azure AD B2C tenant.
+Add the Transmit Security application Client Secret as a policy key. For the following instructions, use the directory with your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the portal toolbar, select **Directories + subscriptions**.
@@ -126,11 +124,11 @@ Add the BindID application Client Secret as a policy key. For the following inst
 11. For **Key usage**, select **Signature**.
 12. Select **Create**.
 
-## Configure BindID as an identity provider
+## Configure Transmit Security as an identity provider
 
-To enable sign in with BindID, define BindID as a claims provider that Azure AD B2C communicates with through an endpoint. The endpoint provides claims used by Azure AD B2C to verify a user authenticated with digital identity on a device.
+To enable sign in with Transmit Security, define Transmit Security as a claims provider that Azure AD B2C communicates with through an endpoint. The endpoint provides claims used by Azure AD B2C to verify a user authenticated with digital identity on a device.
 
-Add BindID as a claims provider. To get started, obtain the custom policy starter packs from GitHub, then update the XML files in the SocialAndLocalAccounts starter pack with your Azure AD B2C tenant name:
+Add Transmit Security as a claims provider. To get started, obtain the custom policy starter packs from GitHub, then update the XML files in the SocialAndLocalAccounts starter pack with your Azure AD B2C tenant name:
     
 1. Open the zip folder [active-directory-b2c-custom-policy-starterpack-main.zip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository:
         
@@ -145,15 +143,15 @@ Add BindID as a claims provider. To get started, obtain the custom policy starte
   
     ```xml
      <ClaimsProvider>
-         <Domain>signin.bindid-sandbox.io</Domain>
-         <DisplayName>BindID</DisplayName>
+         <Domain>api.transmitsecurity.io</Domain>
+         <DisplayName>Transmit</DisplayName>
          <TechnicalProfiles>
-           <TechnicalProfile Id="BindID-OpenIdConnect">
-             <DisplayName>BindID</DisplayName>
+           <TechnicalProfile Id="TS-OpenIdConnect">
+             <DisplayName>Transmit</DisplayName>
              <Protocol Name="OpenIdConnect" />
              <Metadata>
-               <Item Key="METADATA">https://signin.bindid-sandbox.io/.well-known/openid-configuration</Item>
-                <!-- Update the Client ID below to the BindID Application ID -->
+               <Item Key="METADATA">https://api.transmitsecurity.io/cis/oidc/.well-known/openid-configuration</Item>
+                <!-- Update the Client ID below to the Transmit Security Application ID -->
                <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
                <Item Key="response_types">code</Item>
                <Item Key="scope">openid email</Item>
@@ -163,7 +161,7 @@ Add BindID as a claims provider. To get started, obtain the custom policy starte
                <Item Key="AccessTokenResponseFormat">json</Item>
              </Metadata>
              <CryptographicKeys>
-               <Key Id="client_secret" StorageReferenceId="B2C_1A_BindIDClientSecret" />
+               <Key Id="client_secret" StorageReferenceId="B2C_1A_TransmitClientSecret" />
              </CryptographicKeys>
              <OutputClaims>
                <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
@@ -182,7 +180,7 @@ Add BindID as a claims provider. To get started, obtain the custom policy starte
        </ClaimsProvider>    
     ```
 
-6. Set **client_id** with the BindID Application ID you recorded.
+6. Set **client_id** with the Transmit Security Application ID you recorded.
 7. Select **Save**.
 
 ## Add a user journey
@@ -204,7 +202,7 @@ Add the new identity provider to the user journey.
 2. Add a **ClaimsProviderSelection** XML element. 
 3. Set the value of **TargetClaimsExchangeId** to a friendly name.
 4. Add a **ClaimsExchange** element. 
-5. Set the **Id** to the value of the target claims exchange ID. This action links the BindID button to `BindID-SignIn`. 
+5. Set the **Id** to the value of the target claims exchange ID. This action links the Transmit Security button to `Transmit-SignIn`. 
 6. Update the **TechnicalProfileReferenceId** value to the technical profile ID you created.
 
 The following XML demonstrates orchestration user journey with the identity provider.
@@ -213,7 +211,7 @@ The following XML demonstrates orchestration user journey with the identity prov
     <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
       <ClaimsProviderSelections>
         ...
-        <ClaimsProviderSelection TargetClaimsExchangeId="BindIDExchange" />
+        <ClaimsProviderSelection TargetClaimsExchangeId="TSIDExchange" />
       </ClaimsProviderSelections>
       ...
     </OrchestrationStep>
@@ -221,7 +219,7 @@ The following XML demonstrates orchestration user journey with the identity prov
     <OrchestrationStep Order="2" Type="ClaimsExchange">
       ...
       <ClaimsExchanges>
-        <ClaimsExchange Id="BindIDExchange" TechnicalProfileReferenceId="BindID-OpenIdConnect" />
+        <ClaimsExchange Id="TSIDExchange" TechnicalProfileReferenceId="TS-OpenIdConnect" />
       </ClaimsExchanges>
     </OrchestrationStep>
 ```
@@ -234,8 +232,8 @@ See, [Azure-Samples/active-directory-b2c-custom-policy-starterpack](https://gith
 
 ```xml
   <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignInWithBindID" />
-    <TechnicalProfile Id="BindID-OpenIdConnect">
+    <DefaultUserJourney ReferenceId="SignUpOrSignInWithTS" />
+    <TechnicalProfile Id="TS-OpenIdConnect">
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="OpenIdConnect" />
       <OutputClaims>
@@ -276,7 +274,7 @@ For the following instructions, use the directory with your Azure AD B2C tenant.
 2. Under **Custom policies**, select **B2C_1A_signup_signin**.
 3. For **Application**, select the web application you registered. The **Reply URL** is `https://jwt.ms`.
 4. Select **Run now**. 
-5. The browser is redirected to the BindID sign in page. 
+5. The browser is redirected to the Transmit Security sign in page. 
 6. Enter the registered account email.
 7. Authenticate using appless FIDO2 biometrics, such as fingerprint. 
 8. The browser is redirect to `https://jwt.ms`. The token contents, returned by Azure AD B2C, appear.
@@ -287,4 +285,3 @@ For additional information, review the following articles:
 
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 - [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-- [`TransmitSecurity/azure-ad-b2c-bindid-integration`](https://github.com/TransmitSecurity/azure-ad-b2c-bindid-integration) See, Azure AD B2C Integration
