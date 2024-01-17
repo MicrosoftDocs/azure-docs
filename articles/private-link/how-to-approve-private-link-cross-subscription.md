@@ -7,17 +7,17 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: how-to 
 ms.date: 01/11/2024
-#customer intent: As a Network Administrator, I want the approve private link connections across Azure subscriptions.
+#customer intent: As a network administrator, I want to approve Private Link connections across Azure subscriptions.
 
 ---
 
-# Approve private link connections across subscriptions 
+# Approve Private Link connections across subscriptions
 
 Azure Private Link enables you to connect privately to Azure resources. Private Link connections are scoped to a specific subscription. This article shows you how to approve a private endpoint connection across subscriptions.
 
 ## Prerequisites
 
-- Two active Azure subscriptions. 
+- Two active Azure subscriptions:
     
     - One subscription hosts the Azure resource and the other subscription contains the consumer private endpoint and virtual network.
 
@@ -27,7 +27,7 @@ Resources used in this article:
 
 | Resource | Subscription | Resource group | Location |
 | --- | --- | --- | --- |
-| **storage1** *(This name is unique, replace with the name you create)* | subscription-1 | test-rg | East US 2 |
+| **storage1** *(This name is unique. Replace with the name you create.)* | subscription-1 | test-rg | East US 2 |
 | **vnet-1** | subscription-2 | test-rg | East US 2 |
 | **private-endpoint** | subscription-2 | test-rg | East US 2 |
 
@@ -60,7 +60,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Net
 
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create a resource group**, enter or select the following information:
+1. On the **Basics** tab of **Create a resource group**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -118,13 +118,13 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 1. Select **+ Create** in **Private endpoints**.
 
-1. In the **Basics** tab of **Create a private endpoint**, enter or select the following information:
+1. On the **Basics** tab of **Create a private endpoint**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |  |
     | Subscription | Select **subscription-2**. |
-    | Resource group | Select **test-rg** |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
     | Name | Enter **private-endpoint**. |
     | Network Interface Name | Leave the default of **private-endpoint-nic**. |
@@ -175,5 +175,4 @@ The private endpoint connection is in a **Pending** state until approved. Use th
 In this article, you learned how to approve a private endpoint connection across subscriptions. To learn more about Azure Private Link, continue to the following articles:
 
 - [Azure Private Link overview](private-link-overview.md)
-
-- [Azure Private endpoint overview](private-endpoint-overview.md)
+- [Azure private endpoint overview](private-endpoint-overview.md)
