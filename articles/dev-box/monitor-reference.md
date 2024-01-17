@@ -4,10 +4,10 @@ titleSuffix: Microsoft Dev Box
 description: Schema reference for dev center (DevCenter) diagnostic logs. Review the list of Azure Storage and Azure Monitor Logs properties included in monitoring data.
 services: dev-box
 ms.service: dev-box
-ms.topic: concept-article
+ms.topic: reference
 author: delvissantos
 ms.author: delvissantos
-ms.date: 01/11/2024
+ms.date: 01/17/2024
 ---
 
 # Microsoft dev center monitoring data reference
@@ -33,13 +33,7 @@ For a list of all Azure Monitor log categories and links to associated schemas, 
 
 ## Azure Monitor Logs tables
 
-<!-- Rose: The target link doesn't provide -- "a list of Kusto tables that a dev center uses" and the target title is completely wrong.
-     Would this link be more correct?
-     https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/tables-resourcetype#dev-centers
-     Title = "Azure Monitor Logs table reference organized by resource type > Dev Centers"
--->
-
-A dev center uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables that a dev center uses, see the [Azure Monitor Logs table reference](how-to-configure-dev-box-azure-diagnostic-logs.md) article.
+A dev center uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables that a dev center uses, see the [Azure Monitor Logs table reference organized by resource type](/azure-monitor/reference/tables/tables-resourcetype#dev-centers).
 
 ## Related content
 
