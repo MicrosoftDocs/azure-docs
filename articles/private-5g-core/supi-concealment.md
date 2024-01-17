@@ -89,9 +89,9 @@ The home network private keys are stored in Azure Key Vault. You must use the Az
 
 ## Create a user-assigned managed identity
 
-1. [https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity](Create a user-assigned managed identity). Make a note of its UAMI resource ID.
+1. [Create a user-assigned managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). Make a note of its UAMI resource ID.
 
-1. [https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/howto-assign-access-portal](Assign Key Vault Secrets Reader access) to the managed identity.
+1. [Assign Key Vault Secrets Reader access](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/howto-assign-access-portal) to the managed identity.
 
 ## Configure home network private keys on the packet core
 
