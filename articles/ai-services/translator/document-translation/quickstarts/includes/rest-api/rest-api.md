@@ -22,7 +22,7 @@ In this quickstart, we use the cURL command line tool to make Document Translati
 > macOS `curl -V`
 > Linux: `curl --version`
 
-If you don't have cURL installed, here are links for your platform:
+If cURL isn't installed, here are links for your platform:
 
 * [Windows](https://curl.haxx.se/windows/).
 * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows).

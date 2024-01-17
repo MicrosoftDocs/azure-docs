@@ -601,7 +601,7 @@ items:
                 href: /rest/api/language/2023-04-15-preview/text-analysis-runtime
               - name: Previous versions
                 items:
-                - name: v3.2-preview.2
+                - name: v3.2-preview.2 
                   href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Sentiment
                 - name: v3.1
                   href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment
