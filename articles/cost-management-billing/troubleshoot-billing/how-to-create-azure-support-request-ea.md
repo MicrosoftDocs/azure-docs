@@ -107,8 +107,8 @@ To create an Azure support ticket, an *organizational account* must have the EA 
 
 If you have an MSA, have an administrator create an organizational account for you. An enterprise administrator or partner administrator must then add your organizational account as an enterprise administrator or partner administrator. Then you can use your organizational account to file a support request.
 
-- To add an Enterprise Administrator, see [Create another enterprise administrator](ea-portal-administration.md#create-another-enterprise-administrator).
-- To add a Partner Administrator, see [Manage partner administrators](ea-partner-portal-administration.md#manage-partner-administrators).
+- To add an Enterprise Administrator, see [Create another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator).
+- To add a Partner Administrator, see [Manage partner administrators](../manage/ea-partner-portal-administration.md#manage-partner-administrators).
 
 ## Next steps
 

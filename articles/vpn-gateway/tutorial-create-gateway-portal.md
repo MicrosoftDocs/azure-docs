@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 11/20/2023
+ms.date: 01/17/2024
 
 ---
 
@@ -48,6 +48,12 @@ Create a VNet using the following values:
 [!INCLUDE [Create a VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 After you create your VNet, you can optionally configure Azure DDos Protection. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
+
+## Create a gateway subnet
+
+The virtual network gateway requires a specific subnet named **GatewaySubnet**. The gateway subnet is part of IP address range for your virtual network and contains the IP addresses that the virtual network gateway resources and services use. Specify a gateway subnet that is /27 or larger.
+
+[!INCLUDE [Create gateway subnet](../../includes/vpn-gateway-create-gateway-subnet-portal-include.md)]
 
 ## <a name="VNetGateway"></a>Create a VPN gateway
 

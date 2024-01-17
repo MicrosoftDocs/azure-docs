@@ -65,6 +65,9 @@
       href: tutorial-deploy-app-bicep-aks.md
     - name: KQL transformations for workspace data
       href: ../tutorial-log-transformation.md
+    - name: Connect using Spark
+      href: tutorial-spark-connector.md
+      displayName: Python, Scala, Spark, Java, Databricks
 - name: Samples
   items:
     - name: .NET
