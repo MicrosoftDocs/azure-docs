@@ -137,7 +137,7 @@ connection failure:
 
 #### Workarounds/Fixes
 
-1. Make sure that the machine making the connection (generally, a machine hosting an On-Premise Data Gateway) can resolve the hostnames returned by the message server. __OR__
+1. Make sure that the machine making the connection (the machine hosting the On-Premise Data Gateway for Azure connector, or the ISE connector host for ISE connector) can resolve the hostnames returned by the message server. __OR__
 2. Change/add the SAP setting `ms/lg_with_hostname=0` in transaction `RZ11`
 
 #### Background
