@@ -20,9 +20,7 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 ## Prerequisites
 
-- Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
-
-- The SAP built-in connector trigger named **When a message is received** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](../create-single-tenant-workflows-visual-studio-code.md).
+Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
 
 <a name="receive-messages-sap"></a>
 
@@ -103,13 +101,9 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ### [Standard](#tab/standard)
 
-The SAP built-in connector trigger named **When a message is received** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](../create-single-tenant-workflows-visual-studio-code.md).
+The SAP built-in trigger is a non-polling, Azure Functions-based trigger, not a SOAP-based, webhook trigger like the SAP managed trigger. So, the trigger doesn't include options to specify a polling schedule. The trigger is called only when a message arrives, so no polling is necessary.
 
 > [!NOTE]
->
-> The SAP built-in trigger is a non-polling, Azure Functions-based trigger, not a SOAP-based, 
-> webhook trigger like the SAP managed trigger. So, the trigger doesn't include options to specify 
-> a polling schedule. The trigger is called only when a message arrives, so no polling is necessary. 
 >
 > To send a response following the SAP built-in trigger, make sure to add the 
 > [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server) 

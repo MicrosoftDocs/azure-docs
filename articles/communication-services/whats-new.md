@@ -5,13 +5,15 @@ author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: conceptual
-ms.date: 10/05/2023
+ms.date: 12/07/2023
 ms.custom: template-concept, references_regions
 ---
 
-# What's new in Azure Communication Services, October 2023
+# What's new in Azure Communication Services, Holiday Edition, 2023
 
 We created this page to keep you updated on new features, blog posts, and other useful information related to Azure Communication Services. Be sure to check back monthly for all the newest and latest information!
+
+We're combining the November and December updates into one. **Have a terrific holiday, everyone!**
 
 <br>
 <br>
@@ -20,108 +22,87 @@ We created this page to keep you updated on new features, blog posts, and other 
 
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
-### Managed identities in public preview
-:::image type="content" source="./media/whats-new-images/10-23/managed-id.png" alt-text="A graphic showing Azure logos for security and the Azure Communication Services logo.":::
 
-We're thrilled to announce the support for Azure Managed Identities for Azure Communication Services in public preview This is an Azure Enterprise Promise that enhances security for customers, and simplifies workflows to manage identities in their Azure Communication Services resources.
+### Call Diagnostics now available in Public Preview
+:::image type="content" source="./media/whats-new-images/11-23/call-diagnostics.png" alt-text="A graphic showing icons that represent the ways that call diagnostics helps developers.":::
 
-
-[Read the documentation](./how-tos/managed-identity.md)
-
-[Try the quickstart to connect to Azure AI services](./concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md)
-
-[Try the quickstart to bring your own storage ](./quickstarts/call-automation/call-recording/bring-your-own-storage.md)
-<br>
-<br>
-
- 
-### Advanced messaging enables WhatsApp
-:::image type="content" source="./media/whats-new-images/10-23/adv-mess.png" alt-text="A graphic showing the Azure Communization Services logo and the WhatsApp logo.":::
-
-Available in public preview, developers can integrate WhatsApp Business Platform into their applications with Azure Communication Services Advanced Messaging.
- 
-The Advanced Messaging SDK from Azure Communication Services enables businesses to reach more customers at scale and deliver reliable communications to users worldwide.
+Azure Communication Services Call Diagnostics (CD) is a new feature that helps developers troubleshoot and improve their voice & video calling applications. It's an Azure Monitor experience that offers specialized telemetry and diagnostic pages in the Azure portal. With Call Diagnostics, developers can easily access and analyze data, visualizations, and insights for each call, and identify and resolve issues that affect the end-user experience. Call Diagnostics works with other ACS features, such as noise suppression and pre-call troubleshooting, to deliver beautiful, reliable video calling experiences that are easy to develop and operate. Call Diagnostics is now available in Public Preview. Try it today and see how Azure can help you make every call a success. 🚀
 
 
-**Effortlessly Connect with WhatsApp Users**
 
-WhatsApp is one of the most popular messaging apps. Businesses can now communicate with WhatsApp users that request to hear from them directly from their Azure applications. This enables efficient and effective communication with their target audiences that prefer effortless, personalized, and secure communications with their favorite brands.
- 
-**Incorporate WhatsApp into key communication scenarios**
-
-With Advanced Messaging, you can build conversational scenarios such as contact center support and professional advising, as well as notification and follow-up scenarios such as sending appointment reminders, transaction receipts, shipping updates, or one-time passcodes. You can also integrate WhatsApp with other communication channels such as SMS, email, chat, voice, and video using the Azure Communication Services platform. Adding WhatsApp as a channel to your application allows you to reach customers in one of the largest user communities spanning the globe.
+[Read the documentation.](./concepts/voice-video-calling/call-diagnostics.md)
 
 
-[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/advanced-messaging-enables-whatsapp/ba-p/3952721)
 <br>
 <br>
 
 
-### Pre-Registered Alpha IDs GA!
+### Email Simple Mail Transfer Protocol (SMTP) as Service
+:::image type="content" source="./media/whats-new-images/11-23/email-as-a-service.png" alt-text="A graphic showing the Azure logo for email and the Azure Communication Services logo.":::
 
-:::image type="content" source="./media/whats-new-images/10-23/geo-expansion-new.png" alt-text="A photograph of a map of the world showing multiple regions and a man pointing at one of them.":::
+Azure Communication Services Email Simple Mail Transfer Protocol (SMTP) as a Service is now in public preview. This service allows you to send emails from your line of business applications using a cloud-based SMTP relay that is secure, reliable, and compliant. You can use Microsoft Entra Application ID to authenticate your SMTP requests and apply the power of Exchange as a transport. Whether you need to send high-volume B2C communications or occasional notifications, this service can meet your needs and expectations.
 
-Alphanumeric Sender IDs is a one-way SMS messaging number type, formed by alphabetic and numeric characters that allow our customers to use their company name as sender of an SMS message providing improved brand recognition. Alphanumeric Sender IDs also support higher message throughput than toll-free and geographic numbers.
+
+
+[Read the documentation.](./concepts/email/email-smtp-overview.md)
+
+
+<br>
+<br>
+
+### Azure AI-powered Azure Communication Services Call Automation API Actions
+:::image type="content" source="./media/whats-new-images/11-23/advanced-call-automation-actions.png" alt-text="A graphic showing a server interacting with the cloud":::
+
+Azure AI-powered Call Automation API actions are now generally available for developers who want to create enhanced calling workflows using Azure AI Speech-to-Text, Text-to-Speech and other language understanding engines. These actions allow developers to play dynamic audio prompts and recognize voice input from callers, enabling natural conversational experiences and more efficient task handling. Developers can use these actions with any of the four major SDKs - .NET, Java, JavaScript and Python - and integrate them with their Azure Open AI solutions to create virtual assistants that go beyond simple IVRs. You can learn more about this release and its capabilities from the Microsoft Ignite 2023 announcements blog and on-demand session.
+
+[Read more in the Ignite Blog post.](https://techcommunity.microsoft.com/t5/azure-communication-services/ignite-2023-creating-value-with-intelligent-application/ba-p/3907629)
+
+[View the on-demand session from Ignite.](https://ignite.microsoft.com/en-US/sessions/18ac73bd-2d06-4b72-81d4-67c01ecb9735?source=sessions)
+
+[Read the documentation.](./concepts/call-automation/call-automation.md)
+
+[Try the quickstart.](./quickstarts/call-automation/quickstart-make-an-outbound-call.md)
+
+[Try a sample application.](./samples/call-automation-ai.md)
+<br>
+<br>
+
+
+
+### Job Router
+
+:::image type="content" source="./media/whats-new-images/11-23/job-router.png" alt-text="A photograph of a customer rep talking on the phone through a headset.":::
+
+Job Router APIs are now generally available for developers who want to use Azure Communication Services to create personalized customer experiences across multiple communication channels. These APIs allow developers to classify, queue, and distribute jobs to the most suitable workers based on various routing rules, using any of the three major SDKs - .NET, JavaScript, and Python. You can learn more about Job Router and how to use it with Azure AI Services from the Ignite 2023 announcement blog and prerecorded video.
  
-We're entering GA in five European regions that require preregistration to be able to use Alphanumeric Sender IDs: Norway, Finland, Slovakia, Slovenia and Czech Republic.
- 
+[Read more in the Ignite Blog post.](https://techcommunity.microsoft.com/t5/azure-communication-services/ignite-2023-creating-value-with-intelligent-application/ba-p/3907629)
 
-### Calling Web UI Library updates
-:::image type="content" source="./media/whats-new-images/10-23/ui-library.png" alt-text="A graphic showing the elements of the Azure Communication Services UI Library.":::
+[View the on-demand session from Ignite.](https://ignite.microsoft.com/en-US/sessions/18ac73bd-2d06-4b72-81d4-67c01ecb9735?source=sessions)
 
-The web version of our UI Library launched many new features this month, including:
+[Read the documentation.](./concepts/router/concepts.md)
 
-#### Blur and custom backgrounds
-We're excited to announce the general availability of blurred and custom backgrounds for desktop web within the Web UI SDK. These features make it easier for users to customize their video backgrounds and improve the overall video calling experience.
+[Try the quickstart.](./quickstarts/router/get-started-router.md)
+<br>
+<br>
 
-[Learn more about Custom Backgrounds](https://azure.github.io/communication-ui-library/?path=/docs/videoeffects--page)
+### Azure Bot Support
 
-#### Closed Captions in Interoperability
-Closed captions are a textual representation of audio during a video conversation that is displayed to users in real-time. Closed captions are also a useful tool for end users who prefer to read the audio text in order to engage more actively in conversations and meetings. Closed captions also help in scenarios where end users might be in noisy environments or having difficulties with their audio equipment. Azure Communication Services collaboration with Teams offers developers the ability to integrate these closed captions into their applications.
+:::image type="content" source="./media/whats-new-images/11-23/azure-bot-support.png" alt-text="A graphic showing the logos of Azure Bot Services and Azure Communication Services":::
 
-[Learn more about how you can use Closed captions for your application](./concepts/interop/enable-closed-captions.md)
+With this release, you can use Azure bots to enhance your Chat service and integrate with Azure AI services. This helps you automate routine tasks for your agents, such as getting customer information and answering frequently asked questions. This way, your agents can focus on complex queries and assist more customers.
 
-[Try the quickstart](./how-tos/calling-sdk/closed-captions-teams-interop-how-to.md)
-
-
-#### Interoperability Roles and Capabilities
-Support for interoperability Microsoft Teams roles and capabilities is now in general availability. This feature enables users to control what features other users can have within a call. This signals the enabling of the Capabilities API within the Azure Communication Services Web UI Library. With the Capabilities API, users within Microsoft Teams interoperability calls can be assigned different roles that have different capabilities and access to different features. For example, a presenter might have the ability to share their screen, while a participant might only have the ability to view the presenter's screen.
+[Try the quickstart.](./quickstarts/chat/quickstart-botframework-integration.md)
+[Read more about how to use adaptive cards.](https://adaptivecards.io/samples/)
+<br>
+<br>
 
 
-[Learn more about Roles and Capabilities](https://azure.github.io/communication-ui-library/?path=/docs/capabilities--page)
+### Managed Identities in Public Preview
+:::image type="content" source="./media/whats-new-images/11-23/managed-identities.png" lightbox="./media/whats-new-images/10-23/number-lookup-lightbox.png" alt-text="A banner showing images representing identity and security.":::
 
+Azure Communication Services now supports Azure Managed Identities, which are a feature of Microsoft Entra ID (formerly Azure Active Directory (Azure AD)) that allow resources to securely authenticate with other Azure services that support Entra authentication. Managed Identities is an [Azure Enterprise Promise](/entra/identity/managed-identities-azure-resources/overview) that improves security and simplifies workflows for customers, as they don't need to embed security credentials into their code. Managed Identities can be used in Azure Communication Services for various scenarios, such as connecting Cognitive Services, Azure Storage, and Key-Vault. You can learn more about this feature and how to use it from the Ignite 2023 announcement blog and prerecorded video.
 
-
-#### Pinned Layouts and Rendering Options
-Azure Communication Services UI library: Pinning and additional rendering options initially launched earlier in the year are now generally available. These features make it easier for developers to create responsive and flexible user interfaces.
-
-[Learn more about Pinned Layouts](https://azure.github.io/communication-ui-library/?path=/docs/ui-components-videogallery--video-gallery#pinning-participants)
-
-#### Raise Hands
-The Raise Hand feature, introduced in April this year, is now generally available in both the Azure Communication Services calling SDK and the stable version of the UI Web SDK from version 1.18.0. The ability to raise hands in a meeting is a game-changer when in large virtual meetings where users can raise hands to keep order while asking questions, participate in Q&A sessions, request assistance, vote, bid farewell politely, or even signify your readiness to move forward—all without interrupting the flow of conversation. 
-
-[Get started with Raise Hands](https://azure.github.io/communication-ui-library/?path=/docs/ui-components-controlbar-buttons-raisehand--raise-hand)
-
-
-
-
-### Calling Native UI Library picture in picture (PIP)
-
-With the new Picture in Picture (PiP) functionality, now in public preview, users can shrink the ongoing call into a small, draggable window. This feature allows for uninterrupted multitasking – whether you're browsing, checking notes, or using other apps, your call remains on-screen, ensuring you never miss a beat.
-
- 
-
-Another challenge many users faced in the past is the risk of breaking the call experience when switching between apps. The UI Library tackles this problem head-on. Now, users can easily go back to the same app or even switch to a different one without ever losing focus on the call. This means that if you're discussing a document on a call, you can seamlessly navigate to that document and back to the call, ensuring a fluid, integrated user experience.
-
-Start using this feature in [Android](https://github.com/Azure/communication-ui-library-android/releases/tag/calling-v1.5.0-beta.1) or [iOS](https://github.com/Azure/communication-ui-library-ios/releases/tag/AzureCommunicationUICalling_1.5.0-beta.1)
-
-### Number Lookup
-:::image type="content" source="./media/whats-new-images/10-23/number-lookup.png" lightbox="./media/whats-new-images/10-23/number-lookup-lightbox.png" alt-text="A diagram showing the number lookup architecture.":::
-
-The Azure Communication Services public preview of the Number Lookup API is now available. This service enables developers with the necessary tools to integrate simple, highly accurate, and fast number lookup capabilities into their application. The API is designed to provide the highest quality possible, with data aggregated from reliable suppliers and updated regularly and it’s easy to use, with simple integration and detailed documentation to guide developers through the process.
-
-[Read more in documentation](./concepts/numbers/number-lookup-concept.md)
-[Read the SDK overview](./concepts/numbers/number-lookup-sdk.md)
+[Try the quickstart.](./how-tos/managed-identity.md)
 
 
 <br>
@@ -130,27 +111,42 @@ The Azure Communication Services public preview of the Number Lookup API is now 
 Go deeper on common scenarios and learn more about how customers are using advanced Azure Communication 
 Services features.
 
-### HCLTech and Microsoft drive intelligent B2C communications for the enterprise
-:::image type="content" source="./media/whats-new-images/10-23/hcl.png" alt-text="A banner showing the logos of HCLTech and Microsoft Azure.":::
+### Azure Communication Services at DEVintersection & Microsoft Azure + AI Conference
+:::image type="content" source="./media/whats-new-images/11-23/devintersection.png" alt-text="A banner showing the logos of HCLTech and Microsoft Azure.":::
 
-We're excited to announce that our collaboration with HCLTech is now live, and we're able to bring the best of HCLTech's implementation to Microsoft clients globally to help them achieve more through intelligent B2C communications across every interaction with their customers, patients and consumers.
+Microsoft employees Shawn Henry and Dan Wahlin presented at the DEVintersection & Microsoft Azure + AI conference in Orlando, FL. Shawn and Dan presented four separate sessions plus a workshop. The sessions were: 
 
-To achieve more through intelligent communications, HCLTech brings together the best of Microsoft technology including Azure Communication Services, Azure AI Services, Azure OpenAI service, plus Microsoft Teams to create endpoint solutions between businesses and customers. These capabilities draw from an organization's data, such as a CRM system, and integrates with Azure's powerful data and analytics platform. The goal is to drive continuous customer satisfaction leading to brand loyalty harnessed by migrating all the organizations customer communications to one intelligent B2C communications platform with Microsoft.
+- Transform Customer Experiences with AI-assisted Voice, Video and Chat
+- Azure for WhatsApp, SMS, and Email Integration: A Developer's Guide
+- Take Your Apps to the Next Level with AI, Communication, and Organizational Data
+- Integrate Services Across the Microsoft Cloud to Enhance User Collaboration
+
+and the workshop was entitled "Integrate OpenAI, Communication, and Organizational Data Features into Line of Business Apps"
 
 
-[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/hcltech-and-microsoft-drive-intelligent-b2c-communications-for/ba-p/3968123)
+[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-at-devintersection-amp-amp/ba-p/3999834)
+
+[Read more about the conference](https://devintersection.com/#!/)
+
+### Ignite 2023: Creating value with intelligent application solutions for B2C communications
+:::image type="content" source="./media/whats-new-images/11-23/ignite.png" alt-text="A banner that says Microsoft Ignite 2023.":::
+
+Read a summary of all of the new features we announced at Ignite, including Azure AI Speech, Job Router and Azure AI Services!
+
+
+[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/ignite-2023-creating-value-with-intelligent-application/ba-p/3907629)
 
 
 <br>
 <br>
 
 
-### View of new features from October 2023
+### View of new features from November and December 2023
 :::image type="content" source="./media/whats-new-images/10-23/blog-new.png" alt-text="An abstract photo of a wavy metal roof shining in the sunlight." :::
 
-View the complete list of all features launched in October
+[View the complete list of all features launched in November and December.](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-december-2023-feature-updates/ba-p/4003567) of all new features added to Azure Communication Services in December.
 
-[View the complete list](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-october-2023-feature-updates/ba-p/3952205) of all new features added to Azure Communication Services in October.
+
 
 <br>
 <br>

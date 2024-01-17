@@ -25,6 +25,9 @@ To allow compute nodes to communicate securely with other virtual machines, or w
   - To create an Azure Resource Manager-based Virtual Network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). A Resource Manager-based Virtual Network is recommended for new deployments, and is supported only on pools that use Virtual Machine Configuration.
   - To create a classic Virtual Network, see [Create a virtual network (classic) with multiple subnets](/previous-versions/azure/virtual-network/create-virtual-network-classic). A classic Virtual Network is supported only on pools that use Cloud Services Configuration.
 
+    > [!IMPORTANT]
+    > Avoid using 172.17.0.0/16 for Azure Batch pool VNet. It is the default for Docker bridge network and may conflict with other networks that you want to connect to the VNet. Creating a virtual network for Azure Batch pool requires careful planning of your network infrastructure.
+
 ## General virtual network requirements
 
 * The Virtual Network must be in the same subscription and region as the Batch account you use to create your pool.

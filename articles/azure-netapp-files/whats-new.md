@@ -20,10 +20,15 @@ ms.author: anfdocs
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## January 2024
+
+* [Customer-managed keys](configure-customer-managed-keys.md) is now generally available (GA).
+
+    You still must register the feature before using it for the first time. 
   
 ## November 2023
 
-* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#supported-regions) in select US Gov regions
 * [Capacity pool enhancement:](azure-netapp-files-set-up-capacity-pool.md) New lower limits
 
     * 2 TiB capacity pool: The 2 TiB lower limit for capacity pools using Standard network features is now generally available (GA).

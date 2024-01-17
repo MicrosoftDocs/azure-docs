@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on for an Azure Virtual Desktop 
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 06/12/2023
+ms.date: 12/15/2023
 ---
 
 # Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID authentication
@@ -58,7 +58,9 @@ Before you can enable single sign-on, you must meet the following prerequisites:
 
 - Your session hosts must be [Microsoft Entra joined](/entra/identity/devices/concept-directory-join) or [Microsoft Entra hybrid joined](/entra/identity/devices/concept-hybrid-join). Session hosts joined to Microsoft Entra Domain Services or to Active Directory Domain Services only aren't supported.
 
-- [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) on your local device, or [Azure Cloud Shell](../cloud-shell/overview.md).
+   If your Microsoft Entra hybrid joined session hosts are in a different Active Directory domain than your user accounts, there must be a two-way trust between the two domains. Without the two-way trust, connections will fall back to older authentication protocols.
+
+- [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) version 2.9.0 or later on your local device or in [Azure Cloud Shell](../cloud-shell/overview.md).
 
 - A supported Remote Desktop client to connect to a remote session. The following clients are supported:
 
@@ -86,7 +88,7 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Import the *Authentication* and *Applications* Microsoft Graph modules and connect to Microsoft Graph with the `Application.Read.All` and `Application-RemoteDesktopConfig.ReadWrite.All` scopes by running the following commands:
+2. Make sure you installed the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) from the [prerequisites](#prerequisites), then import the *Authentication* and *Applications* Microsoft Graph modules and connect to Microsoft Graph with the `Application.Read.All` and `Application-RemoteDesktopConfig.ReadWrite.All` scopes by running the following commands:
 
    ```powershell
    Import-Module Microsoft.Graph.Authentication

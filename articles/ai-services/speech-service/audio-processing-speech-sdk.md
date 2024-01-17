@@ -2,14 +2,14 @@
 title: Use the Microsoft Audio Stack (MAS) - Speech service
 titleSuffix: Azure AI services
 description: An overview of the features, capabilities, and restrictions for audio processing using the Speech Software Development Kit (SDK).
-#services: cognitive-services
 author: hasyashah
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.author: hasshah
-ms.devlang: cpp, csharp, java
+ms.devlang: cpp
+# ms.devlang: cpp, csharp, java
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 

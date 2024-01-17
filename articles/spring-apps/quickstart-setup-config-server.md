@@ -31,10 +31,10 @@ Config Server is a centralized configuration service for distributed systems. It
 Set up your Config Server with the location of the git repository for the project by running the following command. Replace *\<service instance name>* with the name of the service you created earlier. The default value for service instance name that you set in the preceding quickstart doesn't work with this command.
 
 ```azurecli
-az spring config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --search-paths steeltoe-sample/config
+az spring config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/azure-spring-apps-samples --search-paths steeltoe-sample/config
 ```
 
-This command tells Config Server to find the configuration data in the [steeltoe-sample/config](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample/config) folder of the sample app repository. Since the name of the app that gets the configuration data is `planet-weather-provider`, the file that's used is [planet-weather-provider.yml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/HEAD/steeltoe-sample/config/planet-weather-provider.yml).
+This command tells Config Server to find the configuration data in the [steeltoe-sample/config](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/steeltoe-sample/config) folder of the sample app repository. Since the name of the app that gets the configuration data is `planet-weather-provider`, the file that's used is [planet-weather-provider.yml](https://github.com/Azure-Samples/azure-spring-apps-samples/blob/main/steeltoe-sample/config/planet-weather-provider.yml).
 
 ::: zone-end
 

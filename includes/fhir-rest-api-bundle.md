@@ -61,10 +61,14 @@ POST {{fhir_url}}
 } 
 ```
 
-In the case of a batch, each entry is treated as an individual interaction or operation. In the case of a transaction bundle, all interactions or operations either succeed or fail together. For a batch, or a successful transaction bundle, the response contains one entry for each entry in the request. For failed transaction bundle, FHIR service returns single OperationOutcome. 
-
+In the case of a batch, each entry is treated as an individual interaction or operation. 
 > [!NOTE]
 > For batch bundles there should be no interdependencies between different entries in FHIR bundle. The success or failure of one entry should not impact the success or failure of another entry.
+
+In the case of a transaction bundle, all interactions or operations either succeed or fail together. For failed transaction bundle, FHIR service returns single OperationOutcome. 
+Transaction bundle currently does not support
+1. Conditional Delete operation.
+2. Search operations using _search. 
 
 ### Batch bundle parallel processing in public preview 
 

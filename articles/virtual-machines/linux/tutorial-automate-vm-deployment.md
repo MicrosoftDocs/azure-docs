@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Customize a Linux VM with cloud-init in Azure 
-description: In this tutorial, you learn how to use cloud-init and Key Vault to customize Linux VMs the first time they boot in Azure 
-author: cynthn
+title: Tutorial - Customize a Linux VM with cloud-init in Azure
+description: In this tutorial, you learn how to use cloud-init and Key Vault to customize Linux VMs the first time they boot in Azure
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
 ms.date: 04/06/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.reviewer: mattmcinnes
 ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator or developer, I want learn about cloud-init so that I customize and configure Linux VMs in Azure on first boot to minimize the number of post-deployment configuration tasks required.
@@ -50,6 +50,7 @@ packages:
 write_files:
   - owner: www-data:www-data
     path: /etc/nginx/sites-available/default
+    defer: true
     content: |
       server {
         listen 80;
@@ -64,6 +65,7 @@ write_files:
       }
   - owner: azureuser:azureuser
     path: /home/azureuser/myapp/index.js
+    defer: true
     content: |
       var express = require('express')
       var app = express()
@@ -178,6 +180,7 @@ packages:
 write_files:
   - owner: www-data:www-data
     path: /etc/nginx/sites-available/default
+    defer: true
     content: |
       server {
         listen 80;
@@ -195,6 +198,7 @@ write_files:
       }
   - owner: azureuser:azureuser
     path: /home/azureuser/myapp/index.js
+    defer: true
     content: |
       var express = require('express')
       var app = express()

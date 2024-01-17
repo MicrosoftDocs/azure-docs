@@ -2,14 +2,15 @@
 title: How to add and manage data in your Azure AI project
 titleSuffix: Azure AI Studio
 description: Learn how to add and manage data in your Azure AI project
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # How to add and manage data in your Azure AI project
@@ -113,7 +114,7 @@ These steps explain how to create a File typed data in the Azure AI Studio:
 To create a data that is a File type, use the following code and update the `<>` placeholders with your information.
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -173,7 +174,7 @@ Use these steps to create a Folder typed data in the Azure AI Studio:
 To create a data that is a Folder type use the following code and update the `<>` placeholders with your information.
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -239,7 +240,7 @@ To archive *all versions* of the data under a given name, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -264,7 +265,7 @@ To archive a specific data version, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -293,7 +294,7 @@ To restore *all versions* of the data under a given name, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -320,7 +321,7 @@ To restore a specific data version, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential

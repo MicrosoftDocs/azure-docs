@@ -9,7 +9,8 @@ ms.service: azure-ai-translator
 ms.topic: quickstart
 ms.date: 09/06/2023
 ms.author: lajanuar
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups:  programming-languages-set-translator-sdk
 ---

@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 10/01/2023
+ms.date: 12/17/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL server parameters
@@ -742,7 +742,6 @@ The following [managed PgBouncer](./concepts-connection-pool.md) parameters can 
 * [lo_compat_privileges](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES) - Enables backward compatibility mode for privilege checks on large objects
 * [lock_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT) - Sets the maximum allowed duration (in milliseconds) of any wait for a lock. 0 turns this off
 * [log_autovacuum_min_duration](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#) - Sets the minimum execution time above which autovacuum actions are logged
-* [log_checkpoints](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS) - Logs each checkpoint
 * [log_connections](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CONNECTIONS) - Logs each successful connection
 * [log_destination](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DESTINATION) - Sets the destination for server log output
 * [log_disconnections](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS) - Logs end of a session, including duration

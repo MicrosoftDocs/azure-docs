@@ -17,6 +17,7 @@ Start exploring GPT-4 Turbo with Vision capabilities with a no-code approach thr
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
 - An Azure OpenAI Service resource. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about resource creation, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
+- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource.
 
 
 ## Go to Azure OpenAI Studio
@@ -99,7 +100,3 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 - [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
-
-## Next steps
-
-* Learn more in the [Azure OpenAI overview](../overview.md).

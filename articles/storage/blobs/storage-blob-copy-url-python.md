@@ -64,13 +64,13 @@ If you're copying a blob from a source within Azure, access to the source blob c
 
 The following example shows a scenario for copying a source blob within Azure. The [upload_blob_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob-from-url) method can optionally accept a Boolean parameter to indicate whether an existing blob should be overwritten, as shown in the example.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-copy-put-from-url.py" id="Snippet_copy_from_azure_put_blob_from_url":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url.py" id="Snippet_copy_from_azure_put_blob_from_url":::
 
 ## Copy a blob from a source outside of Azure
 
 You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-copy-put-from-url.py" id="Snippet_copy_from_external_source_put_blob_from_url":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url.py" id="Snippet_copy_from_external_source_put_blob_from_url":::
 
 ## Copy a blob from a source object URL asynchronously
 
@@ -89,11 +89,11 @@ Follow these steps to copy a blob from a source object URL using asynchronous AP
 
 1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that copies a blob from a source URL. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-copy-put-from-url-async.py" id="Snippet_create_client_async":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url_async.py" id="Snippet_create_client_async":::
 
 1. Add code to copy a blob from a source URL. The following code example is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `upload_blob_from_url` method.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-copy-put-from-url-async.py" id="Snippet_copy_from_azure_put_blob_from_url":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url_async.py" id="Snippet_copy_from_azure_put_blob_from_url":::
 
 With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
@@ -110,6 +110,6 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-copy-put-from-url.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-copy-put-from-url-async.py) code samples from this article (GitHub)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url_async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]

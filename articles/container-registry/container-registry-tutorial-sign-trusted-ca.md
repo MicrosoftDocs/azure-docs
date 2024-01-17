@@ -6,7 +6,7 @@ ms.author: yizha1
 ms.service: container-registry
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 6/9/2023
+ms.date: 10/31/2023
 ---
 
 # Sign container images with Notation and Azure Key Vault using a CA-issued certificate (Preview)
@@ -137,6 +137,9 @@ Here are the requirements for certificates issued by a CA:
 - Key properties:
   - The `exportable` property must be set to `false`.
   - Select a supported key type and size from the [Notary Project specification](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#algorithm-selection).
+
+> [!IMPORTANT]
+> To ensure successful integration with [Image Integrity](/azure/aks/image-integrity), the content type of certificate should be set to PEM.
 
 > [!NOTE]
 > This guide uses version 1.0.1 of the AKV plugin. Prior versions of the plugin had a limitation that required a specific certificate order in a certificate chain. Version 1.0.1 of the plugin does not have this limitation so it is recommended that you use version 1.0.1 or later.

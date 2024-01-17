@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 07/19/2023
+ms.date: 12/19/2023
 ms.author: jaysoni 
 ms.custom: devx-track-azurepowershell
 ---
@@ -59,6 +59,8 @@ To create a custom error page, you should
 You may reference internal or external images/CSS for this HTML file. For externally referenced resources, use absolute URLs that are publicly accessible. Be aware of the HTML file size when using base64-encoded inline images, JavaScript, or CSS.
 
 > [!Note]
+>  - Within the Azure ecosystem, you must use an Azure Blob storage account or Virtual Machine to host an error page. Note the Blob storage should be directly accessible as storage accounts fronted by Azure CDN services are currently not supported.
+>  - You may also choose to host the error pages at any remote location.
 >  - Relative links are not supported.
 
 ## How it works?

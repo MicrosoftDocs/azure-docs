@@ -1,14 +1,14 @@
 ---
 title: In-place upgrade of Red Hat Enterprise Linux images on Azure
 description: Learn how to do an in-place upgrade from Red Hat Enterprise 7.x images to the latest 8.x version.
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: mamccrea
+ms.author: jushiman
 ---
 
 # Red Hat Enterprise Linux in-place upgrades

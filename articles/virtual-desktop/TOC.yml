@@ -10,8 +10,14 @@
     displayName: azure virtul desktop, avd, overview, what is
     href: terminology.md
   - name: Service architecture and resilience
-    displayName: architecture
+    displayName: recommendations
     href: service-architecture-resilience.md
+  - name: Understand and estimate costs
+    displayName: per-user access pricing, per user access pricing, CAL, licensing
+    href: understand-estimate-costs.md
+  - name: Licensing
+    displayName: per-user access pricing, per user access pricing, CAL, costs
+    href: licensing.md
   - name: Prerequisites
     displayName: overview, get started
     href: prerequisites.md
@@ -64,7 +70,7 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Deploy a Windows 11 desktop
+  - name: Deploy a sample Windows 11 desktop
     displayName: tutorial
     href: tutorial-try-deploy-windows-11-desktop.md
 - name: Concepts
@@ -120,6 +126,9 @@
       - name: Delegated access
         displayName: identity
         href: delegated-access-virtual-desktop.md
+      - name: Recommendations for internal and external commercial purposes
+        displayName: identity
+        href: organization-internal-external-commercial-purposes-recommendations.md
     - name: Azure Virtual Desktop Agent
       href: agent-overview.md
     - name: Host pool load balancing methods
@@ -194,8 +203,8 @@
             href: scaling-automation-logic-apps.md
     - name: Security
       items:
-      - name: Security best practices
-        href: security-guide.md
+      - name: Security recommendations
+        href: security-recommendations.md
       - name: Apply Zero Trust principles
         href: /security/zero-trust/azure-infrastructure-avd?context=/azure/virtual-desktop/context/context
       - name: Security baseline
@@ -277,9 +286,9 @@
             href: windows-11-language-packs.md
       - name: Applications
         items:
-        - name: Publish applications
-          displayName: deploy, get started, apps, sandbox, Microsoft Store
-          href: publish-applications.md
+        - name: Publish applications with RemoteApp
+          displayName: deploy, get started, apps, sandbox, Microsoft Store, RemoteApp, streaming
+          href: publish-applications-stream-remoteapp.md
         - name: App attach
           items:
           - name: Create an MSIX image
@@ -368,6 +377,8 @@
       href: cli-powershell.md
     - name: Move resources between regions
       href: move-resources.md
+    - name: Enroll in per-user access pricing
+      href: enroll-per-user-access-pricing.md
     - name: Host pools
       items:
       - name: Customize RDP properties
@@ -398,12 +409,9 @@
         items:
         - name: Autoscale
           items:
-          - name: Create a scaling plan
+          - name: Create and assign a scaling plan
             displayName: autoscale, scale, virtual machines, vms
             href: autoscale-scaling-plan.md
-          - name: Assign a scaling plan
-            displayName: autoscale, scale, virtual machines, vms
-            href: autoscale-new-existing-host-pool.md
           - name: Set up autoscale diagnostics
             displayName: autoscale, scale, virtual machines, vms
             href: autoscale-diagnostics.md
@@ -644,8 +652,13 @@
   items:
   - name: User experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Pricing
+    items:
+    - name: Azure Virtual Desktop pricing
+      displayName: pricing, costs, per-user access pricing, per user access pricing, CAL
+      href: https://azure.microsoft.com/pricing/details/virtual-desktop/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning paths
     href: /training/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
   - name: Framework and architectures

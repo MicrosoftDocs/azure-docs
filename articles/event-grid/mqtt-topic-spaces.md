@@ -8,7 +8,7 @@ ms.custom:
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
-
+ms.subservice: mqtt
 ---
 # Topic Spaces in Azure Event Grid’s MQTT broker feature
 
