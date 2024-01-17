@@ -15,5 +15,5 @@ The following limit applies to multiple workspaces in Microsoft Sentinel. Limits
 |Description                   | Limit        |Dependency|
 -------------------------|--------------------|--------------------|
 | Incident view | 100 concurrently displayed workspaces | |
-| Log query | 100 Sentinel workspaces | [Log Analytics](../../azure-monitor/logs/cross-workspace-query.md#cross-resource-query-limits) |
+| Log query | 100 Sentinel workspaces | [Log Analytics](../../azure-monitor/logs/cross-workspace-query.md#limitations) |
 | Analytics rules | 20 Sentinel workspaces per query | |

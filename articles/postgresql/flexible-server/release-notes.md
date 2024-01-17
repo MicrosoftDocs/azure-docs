@@ -10,7 +10,7 @@ ms.custom:
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 11/30/2023
+ms.date: 12/11/2023
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -22,10 +22,11 @@ This page provides latest news and updates regarding feature additions, engine v
 ## Release: December 2023
 * Public preview of [Server logs](./how-to-server-logs-portal.md).
 * General availability of [TLS Version 1.3 support](./concepts-networking-ssl-tls.md#tls-versions).
+* General availability of [Microsoft Defender support](./concepts-security.md)
 
 ## Release: November 2023
 * General availability of PostgreSQL 16 for Azure Database for PostgreSQL – Flexible Server.
-* General availability of [near-zero downtime scaling](concepts-compute-storage.md).
+* General availability of [near-zero downtime scaling](./concepts-scaling-resources.md).
 * General availability of [Pgvector 0.5.1](concepts-extensions.md) extension.
 * Public preview of Italy North region.
 * Public preview of [premium SSD v2](concepts-compute-storage.md).

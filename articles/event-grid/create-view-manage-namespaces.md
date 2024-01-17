@@ -37,7 +37,7 @@ This article shows you how to use the Azure portal to create, view and manage an
     1. Select **Next: Networking** at the bottom of the page. 
     
         :::image type="content" source="media/create-view-manage-namespaces/create-namespace-basics-page.png" alt-text="Screenshot showing the Basics tab of Create namespace page.":::        
-1. Follow steps from [Configure IP firewall](configure-firewall.md) or [Configure private endpoints](configure-private-endpoints-mqtt.md) to configure IP firewall or private endpoints for the namespace, and then select **Next: Security** at the bottom of the page.
+1. Follow steps from [Configure IP firewall](configure-firewall.md) or [Configure private endpoints](mqtt-configure-private-endpoints.md) to configure IP firewall or private endpoints for the namespace, and then select **Next: Security** at the bottom of the page.
 1. On the **Security** page, create a managed identity by following instructions from [Enable managed identity for a namespace](event-grid-namespace-managed-identity.md), and then select **Next: Tags** at the bottom of the page. 
 1. On the **Tags** tab, add the tags in case you need them. Then, select **Next: Review + create** at the bottom of the page.
 6. On the **Review + create** tab, review your settings and select **Create**.

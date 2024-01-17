@@ -273,9 +273,9 @@ With Azure Monitor action groups, you can route alerts to other notification cha
 
 You can use the following interfaces supported by Azure Monitor to manage action groups and alert processing rules:
 
-- [Azure Monitor REST API reference](https://learn.microsoft.com/rest/api/monitor/)
-- [Azure Monitor PowerShell reference](https://learn.microsoft.com/powershell/module/az.monitor)
-- [Azure Monitor CLI reference](https://learn.microsoft.com/cli/azure/monitor)
+- [Azure Monitor REST API reference](/rest/api/monitor/)
+- [Azure Monitor PowerShell reference](/powershell/module/az.monitor)
+- [Azure Monitor CLI reference](/cli/azure/monitor)
 
 ### Suppress notifications during a planned maintenance window
 

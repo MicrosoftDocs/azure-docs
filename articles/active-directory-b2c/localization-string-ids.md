@@ -8,9 +8,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 04/19/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer implementing user interface localization in Azure Active Directory B2C, I want to access the list of localization string IDs, so that I can use them in my policy to support multiple locales or languages in the user journeys.
+
 ---
 
 # Localization string IDs
@@ -615,7 +619,8 @@ The following IDs are used for claims transformations error messages:
 | `DateTimeGreaterThan` |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Claim value comparison failed: The provided left operand is greater than the right operand.|
 | `UserMessageIfClaimsTransformationStringsAreNotEqual` |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|
 
-### Claims transformations example
+### Claims transformations example 1:
+This example shows localized messages for local account signup.
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -623,6 +628,17 @@ The following IDs are used for claims transformations error messages:
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="DateTimeGreaterThan">Expiration date must be greater that the current date.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationStringsAreNotEqual">The email entry fields do not match. Please enter the same email address in both fields and try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+### Claims transformations example 2:
+This example shows localized messages for local account password reset.
+
+```xml
+<LocalizedResources Id="api.localaccountpasswordreset.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">You cannot use the old password</LocalizedString>    
   </LocalizedStrings>
 </LocalizedResources>
 ```

@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on Android.
+description: Learn how to use the Calling composite on Android.
 author: mbellah
 
 ms.author: mbellah
@@ -8,37 +8,37 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling)
+For more information, see the [open-source Android UI Library](https://github.com/Azure/communication-ui-library-android) and the [sample application code](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling).
 
 ### Available orientations
 
-The following is a table of `CallCompositeSupportedScreenOrientation` with out of the box orientations. If you want to set orientation of the different screens of the composite, set the `CallCompositeSupportedScreenOrientation` into `CallComposite`.
+The following table lists `CallCompositeSupportedScreenOrientation` types for out-of-the-box orientations. If you want to set the orientation of the various screens of the composite, set `CallCompositeSupportedScreenOrientation` to `CallComposite`.
 
-|Orientation Mode| CallCompositeSupportedScreenOrientation|
+|Orientation mode| CallCompositeSupportedScreenOrientation type|
 |---------|---------|
-|PORTRAIT | CallCompositeSupportedScreenOrientation.PORTRAIT|
-|LANDSCAPE | CallCompositeSupportedScreenOrientation.LANDSCAPE|
-|REVERSE_LANDSCAPE | CallCompositeSupportedScreenOrientation.REVERSE_LANDSCAPE|
-|USER_LANDSCAPE | CallCompositeSupportedScreenOrientation.USER_LANDSCAPE|
-|FULL_SENSOR | CallCompositeSupportedScreenOrientation.FULL_SENSOR|
-|USER | CallCompositeSupportedScreenOrientation.USER|
+|`PORTRAIT` | `CallCompositeSupportedScreenOrientation.PORTRAIT`|
+|`LANDSCAPE` | `CallCompositeSupportedScreenOrientation.LANDSCAPE`|
+|`REVERSE_LANDSCAPE` | `CallCompositeSupportedScreenOrientation.REVERSE_LANDSCAPE`|
+|`USER_LANDSCAPE` | `CallCompositeSupportedScreenOrientation.USER_LANDSCAPE`|
+|`FULL_SENSOR` | `CallCompositeSupportedScreenOrientation.FULL_SENSOR`|
+|`USER` | `CallCompositeSupportedScreenOrientation.USER`|
 
 ### Orientation API
 
-`CallCompositeSupportedScreenOrientation` is a custom type for UI Library for Android. The name for the orientation type is defined by keeping similarity between Android Platform's orientation mode names. By default, the setup screen orientation is set with `PORTRAIT` mode and calling screen is set with `USER` mode. To set a different orientation for the screens other than default one, developers can pass `CallCompositeSupportedScreenOrientation`. Out of the box, the UI Library includes a set of `CallCompositeSupportedScreenOrientation` usable with the composite.
+`CallCompositeSupportedScreenOrientation` is a custom type for the Android UI Library. The name for the orientation type is defined by keeping similarity with the names of the Android platform's orientation modes.
 
-You can also obtain list of `CallCompositeSupportedScreenOrientation` by the static function `CallCompositeSupportedScreenOrientation.values()`.
+By default, the setup screen orientation is in `PORTRAIT` mode and the calling screen is in `USER` mode. To set a different orientation for the screens, you can pass `CallCompositeSupportedScreenOrientation`. Out of the box, the UI Library includes a set of `CallCompositeSupportedScreenOrientation` types that are usable with the composite.
 
-#### Usage
+You can also get a list of `CallCompositeSupportedScreenOrientation` types by using the static function `CallCompositeSupportedScreenOrientation.values()`.
 
-To set orientation, specify a `CallCompositeSupportedScreenOrientation` and pass it to the `CallCompositeBuilder`. For the example below, we'll set `FULL_SENSOR` for setup screen and `LANDSCAPE` for calling screen of the composite.
+To set the orientation, specify `CallCompositeSupportedScreenOrientation` and pass it to `CallCompositeBuilder`. The following example sets `FULL_SENSOR` for the setup screen and `LANDSCAPE` for the calling screen of the composite.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
 import com.azure.android.communication.ui.calling.models.CallCompositeSupportedScreenOrientation
 
-// CallCompositeSupportedLocale provides list of supported locale
+// CallCompositeSupportedLocale provides a list of supported locales
 val callComposite: CallComposite =
             CallCompositeBuilder()
             .setupScreenOrientation(CallCompositeSupportedScreenOrientation.FULL_SENSOR)
@@ -51,7 +51,7 @@ val callComposite: CallComposite =
 ```java
 import com.azure.android.communication.ui.calling.models.CallCompositeSupportedScreenOrientation;
 
-// CallCompositeSupportedLocale provides list of supported locale
+// CallCompositeSupportedLocale provides a list of supported locales
 CallComposite callComposite = 
     new CallCompositeBuilder()
         .setupScreenOrientation(CallCompositeSupportedScreenOrientation.FULL_SENSOR)

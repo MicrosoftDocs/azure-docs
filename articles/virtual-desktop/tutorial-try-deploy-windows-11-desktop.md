@@ -69,9 +69,7 @@ To create a personal host pool, workspace, application group, and session host V
    | Host pool type | Select **Personal**. This means that end users have a dedicated assigned session host that they always connect to. Selecting **Personal** shows a new option for **Assignment type**. |
    | Assignment type | Select **Automatic**. Automatic assignment means that a user automatically gets assigned the first available session host when they first sign in, which is then dedicated to that user. |
 
-   Once you've completed this tab, select **Next: Networking**.
-
-1. On the **Networking** tab, select **Enable public access from all networks**, where end users can access the feed and session hosts securely over the public internet. Once you've completed this tab, select **Next: Virtual Machines**.
+   Once you've completed this tab, select **Next: Virtual Machines**.
 
 1. On the **Virtual machines** tab, complete the following information:
 

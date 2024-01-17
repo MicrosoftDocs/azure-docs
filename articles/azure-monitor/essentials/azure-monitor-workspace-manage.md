@@ -79,7 +79,7 @@ resource workspace 'microsoft.monitor/accounts@2021-06-03-preview' = {
 
 When you create an Azure Monitor workspace, a new resource group is created. The resource group name has the following format: `MA_<azure-monitor-workspace-name>_<location>_managed`, where the tokenized elements are lowercased. The resource group contains both a data collection endpoint and a data collection rule with the same name as the workspace. The resource group and its resources are automatically deleted when you delete the workspace.
  
-To connect your Azure Monitor managed service for Prometheus to your Azure Monitor workspace, see [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)
+To connect your Azure Monitor managed service for Prometheus to your Azure Monitor workspace, see [Collect Prometheus metrics from AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 
 
 ## Delete an Azure Monitor workspace
@@ -133,12 +133,12 @@ Create a link between the Azure Monitor workspace and the Grafana workspace by u
 If your cluster is already configured to send data to an Azure Monitor managed service for Prometheus, you must disable it first using the following command:
 
 ```azurecli
-az aks update --disable-azuremonitormetrics -g <cluster-resource-group> -n <cluster-name> 
+az aks update --disable-azure-monitor-metrics -g <cluster-resource-group> -n <cluster-name> 
 ```
 
 Then, either enable or re-enable using the following command:
 ```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id 
+az aks update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id 
 <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
 ```
 
@@ -158,7 +158,7 @@ Output
 ### [Resource Manager](#tab/resource-manager)  
   
 
-To set up an Azure monitor workspace as a data source for Grafana using a Resource Manager template, see [Collect Prometheus metrics from AKS cluster](prometheus-metrics-enable.md?tabs=resource-manager#enable-prometheus-metric-collection)
+To set up an Azure monitor workspace as a data source for Grafana using a Resource Manager template, see [Collect Prometheus metrics from AKS cluster](../containers/kubernetes-monitoring-enable.md?tabs=arm#enable-prometheus-and-grafana)
 
 ---
 
@@ -178,6 +178,5 @@ Yes. When you use managed service for Prometheus, you can create your Azure Moni
 
 
 ## Next steps
-- [Link a Grafana instance to your Azure Monitor workspace](./prometheus-metrics-enable.md#enable-prometheus-metric-collection)
 - Learn more about the [Azure Monitor data platform](../data-platform.md).
 - [Azure Monitor workspace Overview](./azure-monitor-workspace-overview.md)
