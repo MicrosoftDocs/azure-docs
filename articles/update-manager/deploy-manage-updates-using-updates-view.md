@@ -16,7 +16,9 @@ ms.topic: how-to
 This article describes how to view the updates pending in your environment and how to deploy and manage the updates using the Updates (preview).
 
 
-The Updates (preview) allow you to see the number and type of updates pending on your Windows and Linux machines and there by decide on each of the pending updates. To view the latest pending updates on each of the machines, we recommend that you enable periodic assessment on all your machines. For more information, see [enable periodic assessment at scale using Policy](periodic-assessment-at-scale.md) or [enable using update settings](manage-update-settings.md).
+The Updates blade (preview) allow you to manage machines from an updates point of view. It implies that you can see how many Linux and Windows updates are pending and the update applies to which machines.
+
+number and type of updates pending on your Windows and Linux machines and there by decide on each of the pending updates. To view the latest pending updates on each of the machines, we recommend that you enable periodic assessment on all your machines. For more information, see [enable periodic assessment at scale using Policy](periodic-assessment-at-scale.md) or [enable using update settings](manage-update-settings.md).
 
 
 ## Use case: Identify a threat and apply an update on all pending machines
