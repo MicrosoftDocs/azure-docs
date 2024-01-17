@@ -3,7 +3,7 @@ title: Monitoring Azure Event Grid namespaces
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Event Grid's MQTT broker. 
 ms.topic: how-to
 ms.custom: subject-monitoring
-ms.date: 01/171/2024
+ms.date: 01/17/2024
 ---
 
 # Monitor Azure Event Grid namespaces 
