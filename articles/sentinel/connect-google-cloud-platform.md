@@ -157,11 +157,11 @@ Save the resources parameters for later use.
     terraform apply  
     ```
 
- To ingest logs from an entire organization using a single Pub/Sub, type: 
-    
-    ```    
-    terraform apply -var="organization-id= {organizationId} "					 
-    ```
+To ingest logs from an entire organization using a single Pub/Sub, type:
+
+```    
+terraform apply -var="organization-id= {organizationId} "					 
+```
 
 1. Type *yes*. 						 
 
@@ -206,7 +206,7 @@ Set up Continuous exports for Audit Logs.
 
 1. In the **Configuration** area, select **Add new**. 
 
-1. Type the resource parameters you created when you [created the GCP resources](#create-gcp-resources-via-the-terraform-api). Make sure that the Data Collection Endpoint Name and the Data Collection Rule Name begin with **Microsoft-Sentinel-** and select **Connect**. 
+1. Type the resource parameters you created when you [created the GCP resources](#set-up-gcp-environment). Make sure that the Data Collection Endpoint Name and the Data Collection Rule Name begin with **Microsoft-Sentinel-** and select **Connect**. 
 
 ## Verify that the GCP data is in the Microsoft Sentinel environment 
 
