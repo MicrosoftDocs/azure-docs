@@ -37,7 +37,7 @@ For more information, see [On-premises users and roles for OT monitoring with De
     | **Last detection** | The last time the alert was detected. <br><br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.  |
     | **Status** |The alert status: *New*, *Active*, *Closed*<br><br>For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).|
     | **Source Device** | The source device IP address, MAC, or device name. |
-    | **GUID** | The alert's globally-unique identifier (GUID), aligned with the alert's ID on the Azure portal. | 
+    | **ID** | The alert's ID, which is aligned with the alert ID on the Azure portal. If the [alert was merged with other sensors](alerts.md#alert-management-options) that detected the same alert, the ID is not aligned. |
 
     1. To view more details, select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: **Edit Columns** button.
 
