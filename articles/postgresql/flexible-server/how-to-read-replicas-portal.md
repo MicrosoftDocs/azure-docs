@@ -76,6 +76,127 @@ Before setting up a read replica for Azure Database for PostgreSQL flexible serv
 
       :::image type="content" source="./media/how-to-read-replicas-portal/primary-compute.png" alt-text="Screenshot of server settings." lightbox="./media/how-to-read-replicas-portal/primary-compute.png":::
 
+#### [CLI](#tab/cli)
+
+> [!NOTE]  
+> The commands provided in this guide are applicable for Azure CLI version 2.56.0 or higher. Ensure that you have the required version or a later one installed to execute these commands successfully. You can check your current Azure CLI version by running `az --version` in your command line interface. To update Azure CLI to the latest version, follow the instructions provided in the [Azure CLI documentation](/cli/azure/update-azure-cli).
+
+
+To view the configuration and current status of an Azure PostgreSQL Flexible Server, use the `az postgres flexible-server show` command. This command provides detailed information about the specified server.
+
+```azurecli-interactive
+az postgres flexible-server show \
+  --resource-group <resource-group> \
+  --name <server-name>
+```
+
+Replace `<resource-group>` and `<server-name>` with your specific resource group and the name of the server you wish to view.
+
+Review and note the following settings:
+
+  - Compute Tier, Processor, Size (ex `Standard_D8ads_v5`).
+  - Storage
+    - Type
+    - Storage size (ex `128`)
+    - autoGrow
+  - Network
+  - High Availability
+    - Enabled / Disabled
+    - Availability zone settings
+  - Backup settings
+    - Retention period
+    - Redundancy Options
+
+**Sample response**
+
+```json
+{
+  "administratorLogin": "myadmin",
+  "administratorLoginPassword": null,
+  "authConfig": {
+    "activeDirectoryAuth": "Disabled",
+    "passwordAuth": "Enabled",
+    "tenantId": null
+  },
+  "availabilityZone": "2",
+  "backup": {
+    "backupRetentionDays": 7,
+    "earliestRestoreDate": "2024-01-06T11:43:44.485537+00:00",
+    "geoRedundantBackup": "Disabled"
+  },
+  "createMode": null,
+  "dataEncryption": {
+    "geoBackupEncryptionKeyStatus": null,
+    "geoBackupKeyUri": null,
+    "geoBackupUserAssignedIdentityId": null,
+    "primaryEncryptionKeyStatus": null,
+    "primaryKeyUri": null,
+    "primaryUserAssignedIdentityId": null,
+    "type": "SystemManaged"
+  },
+  "fullyQualifiedDomainName": "{serverName}.postgres.database.azure.com",
+  "highAvailability": {
+    "mode": "Disabled",
+    "standbyAvailabilityZone": null,
+    "state": "NotEnabled"
+  },
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}",
+  "identity": null,
+  "location": "East US",
+  "maintenanceWindow": {
+    "customWindow": "Disabled",
+    "dayOfWeek": 0,
+    "startHour": 0,
+    "startMinute": 0
+  },
+  "minorVersion": "0",
+  "name": "{serverName}",
+  "network": {
+    "delegatedSubnetResourceId": null,
+    "privateDnsZoneArmResourceId": null,
+    "publicNetworkAccess": "Enabled"
+  },
+  "pointInTimeUtc": null,
+  "privateEndpointConnections": null,
+  "replica": {
+    "capacity": 5,
+    "promoteMode": null,
+    "promoteOption": null,
+    "replicationState": null,
+    "role": "Primary"
+  },
+  "replicaCapacity": 5,
+  "replicationRole": "Primary",
+  "resourceGroup": "{resourceGroupName}",
+  "sku": {
+    "name": "Standard_D8ads_v5",
+    "tier": "GeneralPurpose"
+  },
+  "sourceServerResourceId": null,
+  "state": "Ready",
+  "storage": {
+    "autoGrow": "Disabled",
+    "iops": 500,
+    "storageSizeGb": 128,
+    "throughput": null,
+    "tier": "P10",
+    "type": ""
+  },
+  "systemData": {
+    "createdAt": "2023-11-08T11:27:48.972812+00:00",
+    "createdBy": null,
+    "createdByType": null,
+    "lastModifiedAt": null,
+    "lastModifiedBy": null,
+    "lastModifiedByType": null
+  },
+  "tags": {},
+  "type": "Microsoft.DBforPostgreSQL/flexibleServers",
+  "version": "16"
+}
+
+```
+
 #### [REST API](#tab/restapi)
 
 To obtain information about the configuration of a server in Azure Database for PostgreSQL flexible server, especially to view settings for recently introduced features like storage auto-grow or private link, you should use the latest API version `2023-06-01-preview`. The `GET` request for this would be formatted as follows:
@@ -204,6 +325,21 @@ To create a read replica, follow these steps:
 
     :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="Screenshot of viewing the new replica in the replication window." lightbox="./media/how-to-read-replicas-portal/list-replica.png":::
 
+#### [CLI](#tab/cli)
+
+You can create a read replica for your Azure PostgreSQL Flexible Server by using the [`az postgres flexible-server replica create`](/cli/azure/postgres/flexible-server/replica#az-postgres-flexible-server-replica-create) command. 
+
+```azurecli-interactive
+az postgres flexible-server replica create \
+  --replica-name <replica-name> \
+  --resource-group <resource-group> \
+  --source-server <source-server-name> \
+  --location <location>
+```
+
+Replace `<replica-name>`, `<resource-group>`, `<source-server-name>` and `<location>` with your specific values.
+
+
 #### [REST API](#tab/restapi)
 
 Initiate an `HTTP PUT` request by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
@@ -274,6 +410,21 @@ Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{repli
 
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-attempt.png" alt-text="Screenshot of promotion error when missing virtual endpoint.":::
 
+#### [CLI](#tab/cli)
+You can create a virtual endpoint by using the [`az postgres flexible-server virtual-endpoint create`](/cli/azure/postgres/flexible-server/virtual-endpoint#az-postgres-flexible-server-virtual-endpoint-create) command. 
+
+```azurecli-interactive
+    az postgres flexible-server virtual-endpoint create \
+      --resource-group <resource-group> \
+      --server-name <primary-name> \
+      --name <virtual-endpoint-name> \
+      --endpoint-type ReadWrite \
+      --members <replica-name>
+```
+
+Replace `<resource-group>`, `<primary-name>`, `<virtual-endpoint-name>`, and `<replica-name>` with your specific values.
+
+
 #### [REST API](#tab/restapi)
 
 To create a virtual endpoint in a preview environment using Azure's REST API, you would use an `HTTP PUT` request. The request would look like this:
@@ -312,6 +463,30 @@ To list virtual endpoints in the preview version of Azure Database for PostgreSQ
 
     :::image type="content" source="./media/how-to-read-replicas-portal/virtual-endpoints-show.png" alt-text="Screenshot of virtual endpoints list." lightbox="./media/how-to-read-replicas-portal/virtual-endpoints-show.png":::
 
+#### [CLI](#tab/cli)
+
+You can view the details of the virtual endpoint using either the [`list`](/cli/azure/postgres/flexible-server/virtual-endpoint#az-postgres-flexible-server-virtual-endpoint-list) or [`show`](/cli/azure/postgres/flexible-server/virtual-endpoint#az-postgres-flexible-server-virtual-endpoint-show) command. Given that only one virtual endpoint is allowed per primary-replica pair, both commands will yield the same result.
+
+Here's an example of how to use the `list` command:
+
+```azurecli-interactive
+az postgres flexible-server virtual-endpoint list \
+      --resource-group <resource-group> \
+      --server-name <server-name>
+```
+
+Replace `<server-name>` with the name of your primary server and `<resource-group>` with the name of your resource group.
+
+Here's how you can use the `show` command:
+
+```azurecli-interactive
+az postgres flexible-server virtual-endpoint show \
+      --name <virtual-endpoint-name>
+      --resource-group <resource-group> \
+      --server-name <server-name>
+```
+In this command, replace `<virtual-endpoint-name>`,`<server-name>`, and `<resource-group>` with the respective names. `<server-name>` is the name of your primary server.
+
 #### [REST API](#tab/restapi)
 
 ```http request
@@ -349,6 +524,20 @@ To promote replica from the Azure portal, follow these steps:
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote.png" alt-text="Screenshot of how to select promote for a replica.":::
 
 6.  Select **Promote** to begin the process. Once it's completed, the roles reverse: the replica becomes the primary, and the primary will assume the role of the replica.
+
+#### [CLI](#tab/cli)
+
+When promoting a replica to a primary server in Azure PostgreSQL Flexible Server, use the `az postgres flexible-server replica promote` command. This process is essential for elevating a replica server to function as the primary server and demotion of current primary to replica role. Specify `--promote-mode switchover` and `--promote-option planned` in the command.
+
+```azurecli-interactive
+az postgres flexible-server replica promote \
+  --resource-group <resource-group> \
+  --name <replica-server-name> \
+  --promote-mode switchover \
+  --promote-option planned
+```
+
+Replace `<resource-group>` and `<replica-server-name>` with your specific resource group and replica server name. This command ensures a smooth transition of the replica to a primary role in a planned manner.
 
 #### [REST API](#tab/restapi)
 
@@ -400,6 +589,20 @@ Repeat the same operations to promote the original server to the primary.
 5.  For **Data sync**, ensure **Planned - sync data before promoting** is selected.
 
 6.  Select **Promote**, the process begins. Once it's completed, the roles reverse: the replica becomes the primary, and the primary will assume the role of the replica.
+
+#### [CLI](#tab/cli)
+
+This time, change the `<replica-server-name>` in the `az postgres flexible-server replica promote` command to refer to your old primary server, which is currently acting as a replica, and execute the request again.
+
+```azurecli-interactive
+az postgres flexible-server replica promote \
+  --resource-group <resource-group> \
+  --name <replica-server-name> \
+  --promote-mode switchover \
+  --promote-option planned
+```
+
+Replace `<resource-group>` and `<replica-server-name>` with your specific resource group and current replica server name.
 
 #### [REST API](#tab/restapi)
 
@@ -457,6 +660,21 @@ Create a secondary read replica in a separate region to modify the reader virtua
     
     :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
 
+#### [CLI](#tab/cli)
+
+You can create a secondary read replica by using the [`az postgres flexible-server replica create`](/cli/azure/postgres/flexible-server/replica#az-postgres-flexible-server-replica-create) command. 
+
+```azurecli-interactive
+az postgres flexible-server replica create \
+  --replica-name <replica-name> \
+  --resource-group <resource-group> \
+  --source-server <source-server-name> \
+  --location <location>
+```
+
+Choose a distinct name for `<replica-name>` to differentiate it from the primary server and any other replicas.
+Replace `<resource-group>`, `<source-server-name>` and `<location>` with your specific values.
+
 #### [REST API](#tab/restapi)
 
 You can create a secondary read replica by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
@@ -499,6 +717,21 @@ The location is set to `westus3`, but you can adjust this based on your geograph
 
 5.  Select **Save**. The reader endpoint will now be pointed at the secondary replica, and the promote operation will now be tied to this replica.
 
+#### [CLI](#tab/cli)
+
+You can now modify your reader endpoint to point to the newly created secondary replica by using a `az postgres flexible-server virtual-endpoint update` command. Remember to replace `<replica-name>` with the name of the newly created read replica.
+
+```azurecli-interactive
+az postgres flexible-server virtual-endpoint update \
+  --resource-group <resource-group> \
+  --server-name <server-name> \
+  --name <virtual-endpoint-name> \
+  --endpoint-type ReadWrite \
+  --members <replica-name>
+```
+
+Replace `<resource-group>`, `<server-name>`, `<virtual-endpoint-name>` and `<replica-name>` with your specific values.
+
 #### [REST API](#tab/restapi)
 
 You can now modify your reader endpoint to point to the newly created secondary replica by using a `PATCH` request. Remember to replace `{replicaserverName}` with the name of the newly created read replica.
@@ -539,6 +772,20 @@ Rather than switchover to a replica, it's also possible to break the replication
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-independent.png" alt-text="Screenshot of promoting the replica to independent server.":::
 
 6.  Select **Promote**, the process begins. Once completed, the server will no longer be a replica of the primary.
+
+
+#### [CLI](#tab/cli)
+
+When promoting a replica in Azure PostgreSQL Flexible Server, the default behavior is to promote it to an independent server. This is achieved using the [`az postgres flexible-server replica promote`](/cli/azure/postgres/flexible-server/replica#az-postgres-flexible-server-replica-promote) command without specifying the `--promote-mode` option, as `standalone` mode is assumed by default.
+
+```azurecli-interactive
+az postgres flexible-server replica promote \
+  --resource-group <resource-group> \
+  --name <replica-server-name>
+```
+
+In this command, replace `<resource-group>` and `<replica-server-name>` with your specific resource group name and the name of the first replica server that you created, that is not part of virtual endpoint anymore.
+
 
 
 #### [REST API](#tab/restapi)
@@ -588,6 +835,20 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 4. A delete confirmation dialog will appear. It will warn you: "This action will delete the virtual endpoint `virtualendpointName`. Any clients connected using these domains may lose access." Acknowledge the implications and confirm by clicking on **Delete**.
 
 
+#### [CLI](#tab/cli)
+
+To remove a virtual endpoint from an Azure PostgreSQL Flexible Server, you can use the [`az postgres flexible-server virtual-endpoint delete`](/cli/azure/postgres/flexible-server/virtual-endpoint#az-postgres-flexible-server-virtual-endpoint-delete) command. This action permanently deletes the specified virtual endpoint.
+
+```azurecli-interactive
+az postgres flexible-server virtual-endpoint delete \
+  --resource-group <resource-group> \
+  --server-name <server-name> \
+  --name <virtual-endpoint-name>
+```
+
+In this command, replace `<resource-group>`, `<server-name>`, and `<virtual-endpoint-name>` with your specific resource group, server name, and the name of the virtual endpoint you wish to delete.
+
+
 #### [REST API](#tab/restapi)
 
 To delete a virtual endpoint in a preview environment using Azure's REST API, you would issue an `HTTP DELETE` request. The request URL would be structured as follows:
@@ -595,7 +856,6 @@ To delete a virtual endpoint in a preview environment using Azure's REST API, yo
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{serverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
 ```
-
 
 ---
 
@@ -620,6 +880,17 @@ You can also delete the read replica from the **Replication** window by followin
     :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica02.png" alt-text="Screenshot of select the replica to delete." lightbox="./media/how-to-read-replicas-portal/delete-replica02.png":::
 
 5.  Acknowledge **Delete** operation.
+
+#### [CLI](#tab/cli)
+To delete a primary or replica server, use the [`az postgres flexible-server delete`](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-delete) command. If server has read replicas then read replicas should be deleted first before deleting the primary server.
+
+```azurecli-interactive
+az postgres flexible-server delete \
+  --resource-group <resource-group> \
+  --name <server-name>
+```
+
+Replace `<resource-group>` and `<server-name>` with the name of your resource group name and the replica server name you wish to delete.
 
 #### [REST API](#tab/restapi)
 To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
@@ -647,6 +918,17 @@ To delete a server from the Azure portal, follow these steps:
 3.  Enter the name of the primary server to delete. Select **Delete** to confirm the deletion of the primary server.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary-confirm.png" alt-text="Screenshot of confirming to delete the primary server.":::
+
+#### [CLI](#tab/cli)
+To delete a primary or replica server, use the [`az postgres flexible-server delete`](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-delete) command. If server has read replicas then read replicas should be deleted first before deleting the primary server.
+
+```azurecli-interactive
+az postgres flexible-server delete \
+  --resource-group <resource-group> \
+  --name <server-name>
+```
+
+Replace `<resource-group>` and `<server-name>` with the name of your resource group name and the primary server name you wish to delete.
 
 #### [REST API](#tab/restapi)
 To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
