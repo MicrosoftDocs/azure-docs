@@ -50,21 +50,9 @@ This example shows a [C# function](dotnet-isolated-process-guide.md) that receiv
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
 
-This example uses an `OutputType` object to both send an HTTP response and write an output message to the queue or event. 
+___
 
-This code defines the multiple output type `OutputType`, which includes the Service Bus output binding definition on `OutputEvent`:
-
-```cs
- public class OutputType
-{
-   [ServiceBusOutput("TopicOrQueueName", Connection = "ServiceBusConnection")]
-   public string OutputEvent { get; set; }
-
-   public HttpResponseData HttpResponse { get; set; }
-}
-```
-
-This code defines the HTTP trigger and returns a new `OutputType` object that contains both the HTTP response and the message.
+This example uses an HTTP trigger with an `OutputType` object to both send an HTTP response and write the output message. 
 
 ```cs
 [Function("HttpSendMsg")]
@@ -83,6 +71,18 @@ public async Task<OutputType> Run([HttpTrigger(AuthorizationLevel.Function, "get
 }
 ```
 
+This code defines the multiple output type `OutputType`, which includes the Service Bus output binding definition on `OutputEvent`:
+
+```cs
+ public class OutputType
+{
+   [ServiceBusOutput("TopicOrQueueName", Connection = "ServiceBusConnection")]
+   public string OutputEvent { get; set; }
+
+   public HttpResponseData HttpResponse { get; set; }
+}
+```
+
 # [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
@@ -96,7 +96,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
     return input.Text;
 }
 ```
----
+___
 
 On this other example instead of using the return statement to send the message we have an HTTP trigger function which will send a reply different from the message sent.
 
@@ -116,6 +116,8 @@ public static async Task<IActionResult> Run(
     return new OkObjectResult(responseMessage);
 }
 ```
+
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
