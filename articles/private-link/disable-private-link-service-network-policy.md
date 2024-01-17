@@ -15,7 +15,7 @@ ms.devlang: azurecli
 
 To choose a source IP address for your Azure Private Link service, the explicit disable setting `privateLinkServiceNetworkPolicies` is required on the subnet. This setting only applies for the specific private IP address you chose as the source IP of the Private Link service. For other resources in the subnet, access is controlled based on the network security group security rules definition.
 
-When you use the portal to create a Private Link service, this setting is automatically disabled as part of the creation process. Deployments using any Azure client (PowerShell, Azure CLI, or templates) require an extra step to change this property.
+When you use the portal to create an instance of the Private Link service, this setting is automatically disabled as part of the creation process. Deployments using any Azure client (PowerShell, Azure CLI, or templates) require an extra step to change this property.
 
 To enable or disable the setting, use one of the following options:
 
