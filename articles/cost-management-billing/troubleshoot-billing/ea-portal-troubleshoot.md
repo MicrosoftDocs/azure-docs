@@ -15,7 +15,7 @@ ms.reviewer: boalcsva
 This article describes some common issues that can occur with an Azure Enterprise Agreement (EA). The Azure EA portal is used to manage enterprise agreement users and costs. You might come across these issues when you're configuring or updating Azure EA portal access.
 
 > [!NOTE]
-> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](../manage/ea-direct-portal-get-started.md).
 >
 > As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
 > 
@@ -69,5 +69,5 @@ Or, if you get an _Invalid User_ error, it might be because the wrong account ty
 
 ## Next steps
 
-- Azure EA portal administrators should read [Azure EA portal administration](ea-portal-administration.md) to learn about common administrative tasks.
+- Azure EA portal administrators should read [Azure EA portal administration](../manage/ea-portal-administration.md) to learn about common administrative tasks.
 - Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about common issues for Azure EA Activation.
