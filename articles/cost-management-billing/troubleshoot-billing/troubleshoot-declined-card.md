@@ -68,7 +68,7 @@ Other troubleshooting articles for Azure Billing and Subscriptions
 
 - [Sign-up issues](../troubleshoot-subscription/troubleshoot-azure-sign-up.md)
 - [Subscription sign-in issues](../troubleshoot-subscription/troubleshoot-sign-in-issue.md)
-- [No subscriptions found](./troubleshoot-subscription/no-subscriptions-found.md)
+- [No subscriptions found](../troubleshoot-subscription/no-subscriptions-found.md)
 - [Enterprise cost view disabled](enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## Contact us for help
