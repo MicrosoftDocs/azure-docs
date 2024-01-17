@@ -158,6 +158,8 @@ items:
       href: manage-existing-sims.md
     - name: Manage SIM groups
       href: manage-sim-groups.md
+    - name: Enable SUPI concealment
+      href: supi-concealment.md
   - name: Local monitoring tools
     items:
     - name: Enable Microsoft Entra ID

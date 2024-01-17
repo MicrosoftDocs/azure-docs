@@ -141,6 +141,8 @@ landingContent:
             url: manage-existing-sims.md
           - text: Manage SIM groups
             url: manage-sim-groups.md
+          - text: Enable SUPI concealment
+            url: supi-concealment.md
   # Card
   - title: Monitor and diagnose your private mobile network
     linkLists:

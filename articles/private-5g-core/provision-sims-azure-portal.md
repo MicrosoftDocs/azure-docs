@@ -248,4 +248,5 @@ Complete this step if you want to enter provisioning values for your SIMs using 
 
 ## Next steps
 
-If you've configured static IP address allocation for your packet core instance(s) and you haven't already assigned static IP addresses to the SIMs you've provisioned, you can do so by following the steps in [Assign static IP addresses](manage-existing-sims.md#assign-static-ip-addresses).
+- If you've configured static IP address allocation for your packet core instance(s) and you haven't already assigned static IP addresses to the SIMs you've provisioned, you can do so by following the steps in [Assign static IP addresses](manage-existing-sims.md#assign-static-ip-addresses).
+- [Enable SUPI concealment](supi-concealment.md) if required.
