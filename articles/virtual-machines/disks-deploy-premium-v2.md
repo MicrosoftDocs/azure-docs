@@ -3,10 +3,10 @@ title: Deploy a Premium SSD v2 managed disk
 description: Learn how to deploy a Premium SSD v2 and about its regional availability.
 author: roygara
 ms.author: rogarana
-ms.date: 11/15/2023
+ms.date: 01/16/2024
 ms.topic: how-to
 ms.service: azure-disk-storage
-ms.custom: references_regions, ignite-2022, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Deploy a Premium SSD v2

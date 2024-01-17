@@ -6,6 +6,7 @@ ms.author: rogarana
 ms.date: 01/16/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
+ms.custom: references_regions
 ---
 
 # What's new for Azure Disk Storage
@@ -31,7 +32,7 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
     - [Quarter 2 (April, May, June)](#quarter-2-april-may-june)
         - [Expanded regional availability for Premium SSD v2 (2)](#expanded-regional-availability-for-premium-ssd-v2-2)
         - [Expanded regional availability for ZRS disks (2)](#expanded-regional-availability-for-zrs-disks-2)
-        - [Preview - Azure Backup support for Premium SSD v2](#preview---azure-backup-support-for-premium-ssd-v2)
+        - [Azure Backup support (preview) for Premium SSD v2](#azure-backup-support-preview-for-premium-ssd-v2)
     - [Quarter 1 (January, February, March) (1)](#quarter-1-january-february-march-1)
         - [Expanded regional availability for Premium SSD v2 (3)](#expanded-regional-availability-for-premium-ssd-v2-3)
         - [Preview - Performance plus](#preview---performance-plus)
@@ -97,13 +98,11 @@ In quarter 2, Premium SSD v2 disks were made available in the Southeast Asia, UK
 
 In quarter 2, ZRS disks were made available in the Australia East, Brazil South, Japan East, Korea Central, Qatar Central, UK South, East US, East US 2, South Central US, and Southeast Asia regions.
 
-#### Preview - Azure Backup support for Premium SSD v2
+#### Azure Backup support (preview) for Premium SSD v2
 
-Azure Backup added support for Azure virtual machines using Premium SSD v2 disks in the East US and West Europe regions. For more information, see the [Azure Update](https://azure.microsoft.com/updates/premium-ssd-v2-backup-support/).
+Azure Backup added preview support for Azure virtual machines using Premium SSD v2 disks in the East US and West Europe regions. For more information, see the [Azure Update](https://azure.microsoft.com/updates/premium-ssd-v2-backup-support/).
 
 ### Quarter 1 (January, February, March)
-
-- Premium SSD v2 available in East US 2, North Europe, and West US 2
 
 #### Expanded regional availability for Premium SSD v2
 
