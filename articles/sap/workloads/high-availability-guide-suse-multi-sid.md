@@ -53,7 +53,6 @@ Before you begin, refer to the following SAP Notes and papers first:
   * Important capacity information for Azure VM sizes
   * Supported SAP software, and operating system (OS) and database combinations
   * Required SAP kernel version for Windows and Linux on Microsoft Azure
-
 * SAP Note [2015553][2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP Note [2205917][2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
 * SAP Note [1944799][1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
@@ -66,8 +65,7 @@ Before you begin, refer to the following SAP Notes and papers first:
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [SUSE SAP HA Best Practice Guides][suse-ha-guide]
-  The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
+* [SUSE SAP HA Best Practice Guides][suse-ha-guide] - The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
 * [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 * [SUSE multi-SID cluster guide for SLES 12 and SLES 15](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
@@ -102,7 +100,9 @@ The presented configuration for this multi-SID cluster example with three SAP sy
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+>
+> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ## SAP NFS shares
 
@@ -142,7 +142,7 @@ This documentation assumes that:
 
 ### Prepare for SAP NetWeaver Installation
 
-1. Add configuration for the newly deployed system (that is, **NW2**, **NW3**) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-suse-netapp-files.md#deploy-azure-load-balancer-manually-via-azure-portal). Adjust the IP addresses, health probe ports, load-balancing rules for your configuration.  
+1. Add configuration for the newly deployed system (that is, **NW2**, **NW3**) to the existing Azure Load Balancer, following the instructions [configure Azure Load Balancer manually via Azure portal](./high-availability-guide-suse-netapp-files.md#configure-azure-load-balancer). Adjust the IP addresses, health probe ports, load-balancing rules for your configuration.  
 
 2. **[A]** Set up name resolution for the additional SAP systems. You can either use DNS server or modify `/etc/hosts` on all nodes. This example shows how to use the `/etc/hosts` file.  Adapt the IP addresses and the host names to your environment.
 

@@ -126,11 +126,44 @@ When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availabil
 * Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
 * Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP application layer (ASCS/ERS, SAP application servers).
 
-## Deploy Linux VMs manually via Azure portal
+## Prepare infrastructure
+
+The resource agent for SAP Instance is included in SUSE Linux Enterprise Server for SAP Applications. An image for SUSE Linux Enterprise Server for SAP Applications 12 or 15 is available in Azure Marketplace. You can use the image to deploy new VMs.
+
+### Deploy Linux VMs manually via Azure portal
 
 This document assumes that you've already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
 
-Deploy virtual machines for SAP ASCS, ERS, and application server instances. Choose a suitable SLES image that is supported with your SAP system. You can deploy VM in any one of the availability options - scale set, availability zone or availability set.
+Deploy virtual machines with SLES for SAP Applications image. Choose a suitable version of SLES image that is supported for SAP system. You can deploy VM in any one of the availability options - virtual machine scale set, availability zone, or availability set.
+
+### Configure Azure load balancer
+
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of SAP ASCS and SAP ERS.
+
+#### [Azure portal](#tab/lb-portal)
+
+[!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-ascs-ers-portal.md)]
+
+#### [Azure CLI](#tab/lb-azurecli)
+
+[!INCLUDE [Configure Azure standard load balancer using Azure CLI](../../../includes/sap-load-balancer-ascs-ers-azurecli.md)]
+
+#### [PowerShell](#tab/lb-powershell)
+
+[!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-ascs-ers-powershell.md)]
+
+---
+
+> [!IMPORTANT]
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+
+> [!NOTE]
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+
+> [!IMPORTANT]
+>
+> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ## Disable ID mapping (if using NFSv4.1)
 
@@ -172,56 +205,7 @@ The instructions in this section are only applicable, if using Azure NetApp File
 
 ## Setting up (A)SCS
 
-In this example, the resources were deployed manually via the [Azure portal](https://portal.azure.com/#home) .
-
-### Deploy Azure Load Balancer manually via Azure portal
-
-After you deploy the VMs for your SAP system, create a load balancer. Use VMs created for SAP ASCS/ERS instances in the backend pool.
-
-1. Create load balancer (internal, standard):
-   1. Create the frontend IP addresses
-      1. IP address 10.1.1.20 for the ASCS
-         1. Open the load balancer, select frontend IP pool, and click Add
-         2. Enter the name of the new frontend IP pool (for example **frontend.QAS.ASCS**)
-         3. Set the Assignment to Static and enter the IP address (for example **10.1.1.20**)
-         4. Click OK
-      2. IP address 10.1.1.21 for the ASCS ERS
-         * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
-   2. Create a single back-end pool:
-      1. Open the load balancer, select **Backend pools**, and then select **Add**.
-      2. Enter the name of the new back-end pool (for example, **backend.QAS**).
-      3. Select **NIC** for Backend Pool Configuration.
-      4. Select **Add a virtual machine**.
-      5. Select the virtual machines of the ASCS cluster.
-      6. Select **Add**.
-      7. Select **Save**.
-   3. Create the health probes
-      1. Port 620**00** for ASCS
-         1. Open the load balancer, select health probes, and click Add
-         2. Enter the name of the new health probe (for example **health.QAS.ASCS**)
-         3. Select TCP as protocol, port 620**00**, keep Interval 5  
-         4. Click OK
-      2. Port 621**01** for ASCS ERS
-            * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
-   4. Load-balancing rules
-      1. Create a backend pool for the ASCS
-         1. Open the load balancer, select Load-balancing rules and click Add
-         2. Enter the name of the new load balancer rule (for example **lb.QAS.ASCS**)
-         3. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.QAS.ASCS**, **backend.QAS** and **health.QAS.ASCS**)
-         4. Select **HA ports**
-         5. Increase idle timeout to 30 minutes
-         6. **Make sure to enable Floating IP**
-         7. Click OK
-         * Repeat the steps above to create load balancing rules for ERS (for example **lb.QAS.ERS**)
-
-> [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
-
-> [!NOTE]
-> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
-
-> [!IMPORTANT]
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+Next, you'll prepare and install the SAP ASCS and ERS instances.
 
 ### Create Pacemaker cluster
 
