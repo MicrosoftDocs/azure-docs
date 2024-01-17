@@ -25,7 +25,7 @@
       - name: Azure Private Link
         href: relocation-private-link.md  
       - name: Storage Account
-        href: not-yet.md
+        href: relocation-storage-account.md
     - name: Strategic services
       items:
       - name: Azure Automation
