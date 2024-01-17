@@ -94,7 +94,7 @@ Error responses can also be sent to the `redirect_uri` parameter so that the app
 ```http
 GET https://jwt.ms/#
 error=access_denied
-&error_description=the+user+canceled+the+authentication
+&error_description=AADB2C90091%3a+The+user+has+cancelled+entering+self-asserted+information.%0d%0aCorrelation+ID%3a+xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx%0d%0aTimestamp%3a+xxxx-xx-xx+xx%3a23%3a27Z%0d%0a
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
@@ -202,8 +202,8 @@ Error responses look like:
 
 ```json
 {
-    "error": "access_denied",
-    "error_description": "The user revoked access to the app."
+    "error": "invalid_grant",
+    "error_description": "AADB2C90080: The provided grant has expired. Please re-authenticate and try again. Current time: xxxxxxxxxx, Grant issued time: xxxxxxxxxx, Grant expiration time: xxxxxxxxxx\r\nCorrelation ID: xxxxxxxx-xxxx-xxxX-xxxx-xxxxxxxxxxxx\r\nTimestamp: xxxx-xx-16 xx:10:52Z\r\n"
 }
 ```
 
@@ -279,8 +279,8 @@ Error responses look like:
 
 ```json
 {
-    "error": "access_denied",
-    "error_description": "The user revoked access to the app.",
+    "error": "invalid_grant",
+    "error_description": "AADB2C90129: The provided grant has been revoked. Please reauthenticate and try again.\r\nCorrelation ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\r\nTimestamp: xxxx-xx-xx xx:xx:xxZ\r\n",
 }
 ```
 

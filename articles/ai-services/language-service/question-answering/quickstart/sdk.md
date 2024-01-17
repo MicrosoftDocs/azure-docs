@@ -7,7 +7,8 @@ ms.date: 12/19/2023
 author: jboback
 ms.author: jboback
 recommendations: false
-ms.devlang: csharp, python
+ms.devlang: csharp
+# ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-api, devx-track-dotnet
 zone_pivot_groups: custom-qna-quickstart
 ---
