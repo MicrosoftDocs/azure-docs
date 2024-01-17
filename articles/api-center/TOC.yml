@@ -24,11 +24,16 @@
             href: register-apis.md
           - name: 3 - Add environments and deployments
             href: configure-environments-deployments.md
-#- name: API inventory
+- name: API inventory
+  items:
+      - name: Manage inventory - Azure CLI
+        href: manage-apis-azure-cli.md
 #- name: API governance
 #- name: API discovery and consumption
 - name: Reference
   items:
+      - name: Azure CLI
+        href: /cli/azure/apic
       - name: REST API
         href: /rest/api/apicenter/
       - name: REST API SDKs
@@ -39,3 +44,5 @@
             href: /java/api/overview/azure/apicenter
           - name: Python
             href: https://pypi.org/project/azure-mgmt-apicenter
+      - name: Resource Manager template
+        href: /azure/templates/microsoft.apicenter/allversions
