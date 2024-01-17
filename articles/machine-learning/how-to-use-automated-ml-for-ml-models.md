@@ -269,7 +269,7 @@ To generate a Responsible AI dashboard for a particular model,
 
 
 
-    ![Select Explain best model from the Automated ML job configuration page](media/how-to-use-automated-ml-for-ml-models/best-model-selection.png)
+    ![Select Explain best model from the Automated ML job configuration page](media/how-to-use-automated-ml-for-ml-models/best-model-selection-updated.png)
 
 3. Proceed to the **Compute** page of the setup form and choose the **Serverless** option for your compute.
 
