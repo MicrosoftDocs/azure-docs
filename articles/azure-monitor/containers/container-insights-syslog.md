@@ -11,7 +11,7 @@ ms.reviewer: damendo
 Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. This includes the ability to collect logs from control plane components like kubelet. Customers can also use Syslog for monitoring security and health events, typically by ingesting syslog into a SIEM system like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
 
 > [!IMPORTANT]
-> Syslog collection is now GA. However due to slower rollouts towards the year end, the agent version with the GA changes will not be in all regions until January 2024.  Agent versions 3.1.16 and above have Syslog GA changes. Please check agent version before enabling in production.
+> Syslog collection is now GA. However due to slower rollouts towards the year end, the agent version with the GA changes will not be in all regions until the end of January 2024.  Agent versions 3.1.16 and above have Syslog GA changes. Please check agent version before enabling in production.
 
 ## Prerequisites 
 

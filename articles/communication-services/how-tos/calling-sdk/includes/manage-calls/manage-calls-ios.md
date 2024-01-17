@@ -178,6 +178,35 @@ call!.unmute { (error) in
 }
 ```
 
+## Mute other participants
+> [!NOTE]
+> This API is provided as a public preview for developers and may change based on feedback that we receive.
+
+To mute all other participants in a call, use the `muteAllRemoteParticipants` API on the call.
+
+```swift
+call!.muteAllRemoteParticipants { (error) in
+    if error == nil {
+        print("Successfully muted all remote participants.")
+    } else {
+        print("Failed to mute remote participants.")
+    }
+}
+```
+
+To mute a specific remote participant, use the `mute` API on a given remote participant.
+
+```swift
+remoteParticipant.mute { (error) in
+    if error == nil {
+        print("Successfully muted participant.")
+    } else {
+        print("Failed to mute participant.")
+    }
+}
+```
+
+
 ## Manage remote participants
 
 All remote participants are represented by the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance.

@@ -70,6 +70,6 @@ When using Azure Synapse Analytics as target, the **Staging Settings** is availa
 > [!NOTE]
 > We always use the last published configuration when starting a CDC. For running CDCs, while your data is being processed, you will be billed 4 v-cores of General Purpose Data Flows.
 
-## Next steps
+## Related content
 - [Learn how to set up a change data capture resource](how-to-change-data-capture-resource.md).
 - [Learn how to set up a change data capture resource with schema evolution](how-to-change-data-capture-resource-with-schema-evolution.md).

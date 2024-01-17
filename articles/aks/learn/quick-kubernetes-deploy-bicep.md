@@ -1,10 +1,10 @@
 ---
-title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Bicep'
-description: Learn how to quickly create a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS).
+title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Bicep'
+description: Learn how to quickly deploy a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS).
 ms.topic: quickstart
-ms.date: 10/23/2023
+ms.date: 12/27/2023
 ms.custom: mvc, subject-armbicep, devx-track-bicep, devx-track-azurecli, devx-track-linux
-#Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
+#Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Bicep
@@ -15,9 +15,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
 > [!NOTE]
-> This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
-
-:::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-bicep/aks-store-application.png":::
+> To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
 ## Before you begin
 
@@ -30,27 +28,27 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-* This article requires Azure CLI version 2.0.64 or later. If you're using Azure Cloud Shell, the latest version is already installed.
-* This article requires an existing Azure resource group. If you need to create one, you can use the [`az group create`][az-group-create] command.
+* This article requires Azure CLI version 2.0.64 or later. If you're using Azure Cloud Shell, the latest version is already installed there.
+* This article requires an existing Azure resource group. If you need to create one, you can use the [az group create][az-group-create] command.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* If you're running PowerShell locally, install the `Az PowerShell` module. If using Azure Cloud Shell, the latest version is already installed.
+* If you're running PowerShell locally, install the `Az PowerShell` module. If you're using Azure Cloud Shell, the latest version is already installed there.
 * You need the Bicep CLI. For more information, see [Azure PowerShell](../../azure-resource-manager/bicep/install.md#azure-powershell).
-* This article requires an existing Azure resource group. If you need to create one, you can use the [`New-AzAksCluster`][new-az-aks-cluster] cmdlet.
+* This article requires an existing Azure resource group. If you need to create one, you can use the [New-AzAksCluster][new-az-aks-cluster] cmdlet.
 
 ---
 
 * To create an AKS cluster using a Bicep file, you provide an SSH public key. If you need this resource, see the following section. Otherwise, skip to [Review the Bicep file](#review-the-bicep-file).
 * Make sure the identity you use to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
-* To deploy a Bicep file, you need write access on the resources you deploy and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to deploy a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+* To deploy a Bicep file, you need write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ### Create an SSH key pair
 
 1. Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
-2. Create an SSH key pair using the [`az sshkey create`][az-sshkey-create] Azure CLI command or the `ssh-keygen` command.
+2. Create an SSH key pair using the [az sshkey create][az-sshkey-create] Azure CLI command or the `ssh-keygen` command.
 
-    ```azurecli-interactive
+    ```azurecli
     # Create an SSH key pair using Azure CLI
     az sshkey create --name "mySSHKey" --resource-group "myResourceGroup"
 
@@ -79,17 +77,17 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 > [!IMPORTANT]
 > The Bicep file sets the `clusterName` param to the string *aks101cluster*. If you want to use a different cluster name, make sure to update the string to your preferred cluster name before saving the file to your computer.
 
-2. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     ### [Azure CLI](#tab/azure-cli)
 
-    ```azurecli-interactive
+    ```azurecli
     az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters dnsPrefix=<dns-prefix> linuxAdminUsername=<linux-admin-username> sshRSAPublicKey='<ssh-key>'
     ```
 
     ### [Azure PowerShell](#tab/azure-powershell)
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./main.bicep -dnsPrefix=<dns-prefix> -linuxAdminUsername=<linux-admin-username> -sshRSAPublicKey="<ssh-key>"
     ```
@@ -112,21 +110,21 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Install `kubectl` locally using the [`az aks install-cli`][az-aks-install-cli] command.
+1. Install `kubectl` locally using the [az aks install-cli][az-aks-install-cli] command.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks install-cli
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-3. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command. This command returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-    ```azurecli-interactive
+    ```azurecli
     kubectl get nodes
     ```
 
@@ -141,21 +139,21 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Install `kubectl` locally using the [`Install-AzAksKubectl`][install-azakskubectl] cmdlet.
+1. Install `kubectl` locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Install-AzAksKubectl
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. This command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
     ```
 
-3. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command. This command returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     kubectl get nodes
     ```
 
@@ -417,7 +415,9 @@ To deploy the application, you use a manifest file to create all the objects req
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-2. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+    If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+
+1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```console
     kubectl apply -f aks-store-quickstart.yaml
@@ -440,9 +440,13 @@ To deploy the application, you use a manifest file to create all the objects req
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-1. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make all pods are `Running` before proceeding.
+1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make all pods are `Running` before proceeding.
 
-2. Check for a public IP address for the store-front application. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
+    ```console
+    kubectl get pods
+    ```
+
+1. Check for a public IP address for the store-front application. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
     ```console
     kubectl get service store-front --watch
@@ -455,7 +459,7 @@ When the application runs, a Kubernetes service exposes the application front en
     store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
     ```
 
-3. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+1. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
     The following example output shows a valid public IP address assigned to the service:
 
@@ -464,27 +468,27 @@ When the application runs, a Kubernetes service exposes the application front en
     store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4h5m
     ```
 
-4. Open a web browser to the external IP address of your service to see the Azure Store app in action.
+1. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
     :::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-bicep/aks-store-application.png":::
 
 ## Delete the cluster
 
-If you don't plan on going through the following tutorials, clean up unnecessary resources to avoid Azure charges.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges.
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Remove the resource group, container service, and all related resources using the [`az group delete`][az-group-delete] command.
+* Remove the resource group, container service, and all related resources using the [az group delete][az-group-delete] command.
 
-    ```azurecli-interactive
+    ```azurecli
     az group delete --name myResourceGroup --yes --no-wait
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Remove the resource group, container service, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet
+* Remove the resource group, container service, and all related resources using the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Remove-AzResourceGroup -Name myResourceGroup
     ```
 
@@ -495,9 +499,9 @@ If you don't plan on going through the following tutorials, clean up unnecessary
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a sample multi-container application to it.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
-To learn more about AKS and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
+To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
@@ -522,3 +526,5 @@ To learn more about AKS and walk through a complete code to deployment example, 
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md
 [new-az-aks-cluster]: /powershell/module/az.aks/new-azakscluster
 [az-sshkey-create]: /cli/azure/sshkey#az_sshkey_create
+[baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json

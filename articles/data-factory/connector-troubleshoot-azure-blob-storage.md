@@ -68,7 +68,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Recommendation**: For more information about connection errors in the public endpoint, see [Connection error in public endpoint](security-and-access-control-troubleshoot-guide.md#connection-error-in-public-endpoint).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

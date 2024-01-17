@@ -2,7 +2,6 @@
 title: Speech Devices SDK release notes
 titleSuffix: Azure AI services
 description: The release notes provide a log of updates, enhancements, bug fixes, and changes to the Speech Devices SDK. This article is updated with each release of the Speech Devices SDK.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

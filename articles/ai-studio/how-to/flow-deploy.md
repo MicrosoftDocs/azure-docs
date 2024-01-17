@@ -2,14 +2,15 @@
 title: Deploy a flow as a managed online endpoint for real-time inference
 titleSuffix: Azure AI Studio
 description: Learn how to deploy a flow as a managed online endpoint for real-time inference with Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Deploy a flow for real-time inference
@@ -82,7 +83,7 @@ You can use the Azure AI Generative SDK to deploy a prompt flow as an online end
 
 ```python
 # Import required dependencies 
-from azure.ai.generative import AIClient 
+from azure.ai.resources.client import AIClient 
 from azure.ai.generative.entities.deployment import Deployment 
 from azure.ai.generative.entities.models import PromptflowModel 
 from azure.identity import InteractiveBrowserCredential as Credential 
@@ -123,13 +124,18 @@ print(client.deployments.invoke(deployment_name, "./request_file_pf.json"))
 For more information, see the sections below.
 
 > [!TIP]
-> For a guide about how to deploy a base model, see [Deploying models with Azure AI Studio](deploy-models.md).
+> For a guide about how to deploy a base model, see [Deploying models with Azure AI Studio](deploy-models-open.md).
 
 ## Settings and configurations
 
 ### Requirements text file
 
-Optionally you can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder. When you deploy prompt flow to managed online endpoint in UI, by default the deployment uses the environment created based on the latest prompt flow image and dependencies specified in the `requirements.txt` of the flow. 
+Optionally you can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder. When you deploy prompt flow to managed online endpoint in UI, by default the deployment uses the environment created based on the base image specified in the `flow.dag.yaml` and dependencies specified in the `requirements.txt` of the flow. 
+
+>[!Note]
+> The base image specified in the `flow.dag.yaml` must be created based on prompt flow base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>` and you can find the latest version [here](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list). If you don't specify the base image in the `flow.dag.yaml`, the deployment will use the default base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:latest`.
+
+:::image type="content" source="../media/prompt-flow/how-to-deploy-for-real-time-inference/flow-environment-image.png" alt-text="Screenshot of specifying base image in raw yaml file of the flow. " lightbox = "../media/prompt-flow/how-to-deploy-for-real-time-inference/flow-environment-image.png":::
 
 :::image type="content" source="../media/prompt-flow/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of a flow's requirements text file." lightbox = "../media/prompt-flow/how-to-deploy-for-real-time-inference/requirements-text.png":::
 

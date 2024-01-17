@@ -3,7 +3,7 @@ title: Troubleshoot Azure VM Image Builder
 description: This article helps you troubleshoot common problems and errors you might encounter when you're using Azure VM Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/27/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines

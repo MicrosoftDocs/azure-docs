@@ -20,6 +20,12 @@ ms.author: anfdocs
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## January 2024
+
+* [Customer-managed keys](configure-customer-managed-keys.md) is now generally available (GA).
+
+    You still must register the feature before using it for the first time. 
   
 ## November 2023
 

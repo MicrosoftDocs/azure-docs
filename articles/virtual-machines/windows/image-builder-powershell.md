@@ -3,7 +3,7 @@ title: Create a Windows VM with Azure VM Image Builder by using PowerShell
 description: In this article, you create a Windows VM by using the VM Image Builder PowerShell module.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/10/2022
 ms.topic: how-to
 ms.service: virtual-machines

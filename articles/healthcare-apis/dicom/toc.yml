@@ -34,7 +34,11 @@ items:
       href: dicom-digital-pathology.md
 - name: Configuration & operations
   expanded: true
-  items: 
+  items:
+    - name: Customer-managed keys best practices
+      href: customer-managed-keys.md
+    - name: Configure customer-managed keys
+      href: configure-customer-managed-keys.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Azure RBAC
@@ -68,7 +72,7 @@ items:
           href: dicom-extended-query-tags-overview.md
     - name: API versioning
       expanded: false
-      items:
+      items: 
         - name: API versioning policies
           href: api-versioning-dicom-service.md
         - name: DICOM service API v2 changes

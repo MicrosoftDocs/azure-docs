@@ -44,7 +44,7 @@ Organized by subject area.
 | [Predictive metric](/rest/api/monitor/predictive-metric) | Retrieves predicted autoscale metric data. |
 | ***Data Collection Endpoints*** |  |
 | [Data collection endpoints](/rest/api/monitor/data-collection-endpoints) | Create and manage a data collection endpoint and retrieve the data collection endpoints within a resource group or subscription. |
-| ***Data Collection Rules*** | Create and manage a data collection rule and retrieve the data collection rules within a resource group or subscription. |
+| ***Data Collection Rules*** |  |
 | [Data collection rule associations](/rest/api/monitor/data-collection-rule-associations) | Create and manage a data collection rule association and retrieve the data collection rule associations for a data collection endpoint, resource, or data collection rule. |
 | [Data collection rules](/rest/api/monitor/data-collection-rules) | Create and manage a data collection rule and retrieve the data collection rules within a resource group or subscription. |
 | ***Diagnostic Settings*** |  |

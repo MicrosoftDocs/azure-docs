@@ -98,6 +98,6 @@ The template defines six parameters:
 
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-15.png" alt-text="Screenshot that shows the results that return when the pipeline is triggered.":::
 	
-## Next steps
+## Related content
 
 - [Introduction to Azure Data Factory](introduction.md)

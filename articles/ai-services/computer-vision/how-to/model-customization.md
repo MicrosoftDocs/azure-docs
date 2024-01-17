@@ -76,7 +76,7 @@ To train a model with your own dataset, the dataset should be arranged in the CO
 
 ### Dataset annotation format
 
-Image Analysis uses the COCO file format for indexing/organizing the training images and their annotations. Below are examples and explanations of what specific format is needed for multiclass classification and object detection.
+Image Analysis uses the COCO file format for indexing/organizing the training images and their annotations. Below are examples and explanations of what specific format is needed for classification and object detection.
 
 Image Analysis model customization for classification is different from other kinds of vision training, as we utilize your class names, as well as image data, in training. So, be sure provide meaningful category names in the annotations.
 
@@ -260,9 +260,7 @@ You need to upload your training images to an Azure Blob Storage container. Go t
 
 To train a custom model, you need to associate it with a **Dataset** where you provide images and their label information as training data. In Vision Studio, select the **Datasets** tab to view your datasets.
 
-To create a new dataset, select **add new dataset**. Enter a name and select a dataset type: If you'd like to do image classification, select `Multi-class image classification`. If you'd like to do object detection, select `Object detection`.
-
-
+To create a new dataset, select **add new dataset**. In the popup window, enter a name and select a dataset type for your use case. **Image classification** models apply content labels to the entire image, while **Object detection** models apply object labels to specific locations in the image. **Product recognition** models are a subcategory of object detection models that are optimized for detecting retail products.
 
 ![Choose Blob Storage]( ../media/customization/create-dataset.png)
 
@@ -473,4 +471,4 @@ The API call returns an **ImageAnalysisResult** JSON object, which contains all 
 In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analyze Image 4.0 API, so you can call your custom model from an application using REST or library SDKs.
 
 * See the [Model customization concepts](../concept-model-customization.md) guide for a broad overview of this feature and a list of frequently asked questions.
-* [Call the Analyze Image API](./call-analyze-image-40.md). Note the sections [Set model name when using a custom model](./call-analyze-image-40.md#set-model-name-when-using-a-custom-model) and [Get results using custom model](./call-analyze-image-40.md#get-results-using-custom-model).
+* [Call the Analyze Image API](./call-analyze-image-40.md). <!--Note the sections [Set model name when using a custom model](./call-analyze-image-40.md#set-model-name-when-using-a-custom-model) and [Get results using custom model](./call-analyze-image-40.md#get-results-using-custom-model).-->

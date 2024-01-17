@@ -8,7 +8,7 @@ ms.custom:
 ms.topic: conceptual
 ms.author: alkuchar
 author: AwdotiaRomanowna
-ms.date: 06/16/2021
+ms.date: 12/23/2023
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
@@ -29,7 +29,7 @@ These backup files can't be exported or used to create servers outside Azure Dat
 
 ## Backup frequency
 
-Backups on flexible servers are snapshot based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are currently taken once daily. **The first snapshot is a full backup and consecutive snapshots are differential backups.**
+Backups on flexible servers are snapshot based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are currently taken once daily. If none of the databases in the server receive any furhter modifications after the last snapshot backup is taken, snapshots backups are suspended until new modifications are made in any of the databases, point at which a new snapshot is immediately taken. **The first snapshot is a full backup and consecutive snapshots are differential backups.**
 
 Transaction log backups happen at varied frequencies, depending on the workload and when the WAL file is filled and ready to be archived. In general, the delay (recovery point objective, or RPO) can be up to 15 minutes.
 
@@ -130,7 +130,7 @@ Later, the transaction logs and the daily backups are asynchronously copied to t
 
 The estimated time to recover the server (recovery time objective, or RTO) depends on factors like the size of the database, the last database backup time, and the amount of WAL to process until the last received backup data. The overall recovery time usually takes from a few minutes up to a few hours.
 
-During the geo-restore, the server configurations that can be changed include virtual network settings and the ability to remove geo-redundant backup from the restored server. Changing other server configurations--such as compute, storage, or pricing tier (Burstable, General Purpose, or Memory Optimized)--during geo-restore is not supported.
+During the geo-restore, the server configurations that can be changed include virtual network settings and the ability to remove geo-redundant backup from the restored server. Changing other server configurations -such as compute, storage, or pricing tier (Burstable, General Purpose, or Memory Optimized)- during geo-restore is not supported.
 
 For more information about performing a geo-restore, see the [how-to guide](how-to-restore-server-portal.md#perform-geo-restore).
 
@@ -172,7 +172,7 @@ After you restore the database, you can perform the following tasks to get your 
  
 ## Long-term retention (preview)
 
-Azure Backup and Azure PostgreSQL Services have built an enterprise-class long-term backup solution for Azure Database for PostgreSQL Flexible servers that retain backups for up to 10 years. You can use long-term retention independently or in addition to the automated backup solution offered by Azure PostgreSQL, which offers retention of up to 35 days. Automated backups are physical backups suited for operational recoveries, especially when you want to restore from the latest backups. Long-term backups help you with your compliance needs, are more granular, and are taken as logical backups using native pg_dump. In addition to long-term retention, the solution offers the following capabilities:
+Azure Backup and Azure PostgreSQL Services have built an enterprise-class long-term backup solution for Azure Database for PostgreSQL Flexible servers that retain backups for up to 10 years. You can use long-term retention independently or in addition to the automated backup solution offered by Azure PostgreSQL, which offer retention of up to 35 days. Automated backups are physical backups suited for operational recoveries, especially when you want to restore from the latest backups. Long-term backups help you with your compliance needs, are more granular, and are taken as logical backups using native pg_dump. In addition to long-term retention, the solution offers the following capabilities:
 
 
 -	Customer-controlled scheduled and on-demand backups at the individual database level.
@@ -183,8 +183,8 @@ Azure Backup and Azure PostgreSQL Services have built an enterprise-class long-t
 
 #### Limitations and Considerations
 
-- During the early preview, Long Term Retention is available only in East US1, West Europe, and Central India regions. Support for other regions is coming soon.
 - In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
+- In preview, you can perform LTR backups for all databases, single db backup support will be added in the future.
 
 
 
@@ -258,7 +258,7 @@ Azure Backup and Azure PostgreSQL Services have built an enterprise-class long-t
 
 * **Where can I see the backup usage?**
   
-    In the Azure portal, under **Monitoring**, select **Metrics**. In **Backup usage metric**, you can monitor the total backup usage.
+    In the Azure portal, under **Monitoring**, select **Metrics**. In **Backup Storage Used**, you can monitor the total backup usage.
 
 * **What happens to my backups if I delete my server?**
   

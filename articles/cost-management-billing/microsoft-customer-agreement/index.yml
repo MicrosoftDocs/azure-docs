@@ -89,7 +89,7 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: What is Active Directory?
+      - text: What is Microsoft Entra ID?
         url: ../../active-directory/fundamentals/active-directory-whatis.md
       - text: Manage tenants
         url: manage-tenants.md

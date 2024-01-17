@@ -183,7 +183,7 @@ The custom table must be created before you can send data to it. The table for t
     }
     '@
 
-    Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/MyTable_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+    Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/MyTable_CL?api-version=2022-10-01" -Method PUT -payload $tableParams
     ```
 
 ## Create data collection rule

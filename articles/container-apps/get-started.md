@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 03/29/2023
+ms.date: 01/10/2024
 ms.author: cshoe
 ms.custom: devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
@@ -100,12 +100,16 @@ az provider register --namespace Microsoft.OperationalInsights
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
+## Create a resource group
+
+```azurepowershell
+az group create --location centralus --resource-group my-container-apps
+```
 
 ## Create and deploy the container app
 
 Create and deploy your first container app with the `containerapp up` command. This command will:
 
-- Create the resource group
 - Create the Container Apps environment
 - Create the Log Analytics workspace
 - Create and deploy the container app using a public container image
@@ -121,7 +125,7 @@ az containerapp up \
   --resource-group my-container-apps \
   --location centralus \
   --environment 'my-container-apps' \
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
   --target-port 80 \
   --ingress external \
   --query properties.configuration.ingress.fqdn
@@ -135,7 +139,7 @@ az containerapp up `
   --resource-group my-container-apps `
   --location centralus `
   --environment  my-container-apps `
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
+  --image mcr.microsoft.com/k8se/quickstart:latest `
   --target-port 80 `
   --ingress external `
   --query properties.configuration.ingress.fqdn

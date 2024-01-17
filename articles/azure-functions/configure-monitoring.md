@@ -33,7 +33,7 @@ The following table summarizes the options available to each stack:
 | Java | By default: `host.json`<br/>Option to send logs directly: [Configure the Application Insights Java agent](../azure-monitor/app/monitor-functions.md#distributed-tracing-for-java-applications) |
 | PowerShell | `host.json` |
 
-When custom application logs are sent directly, the host no longer be emits them, and `host.json` no longer controls their behavior. Similarly, the options exposed by each stack only apply to custom logs, and they do not change the behavior of the other runtime logs described in this article. To control the behavior of all logs, you may need to make changes for both configurations.
+When custom application logs are sent directly, the host no longer emits them, and `host.json` no longer controls their behavior. Similarly, the options exposed by each stack only apply to custom logs, and they do not change the behavior of the other runtime logs described in this article. To control the behavior of all logs, you may need to make changes for both configurations.
 
 ## Configure categories
 

@@ -48,15 +48,15 @@ The following table shows the available models for each current preview and stab
 |Model|[2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
 |----------------|-----------|---|--|---|
 |[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
-|[Business Card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
+|[Business card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
 |[Contract](concept-contract.md)                          | ✔️| ✔️| n/a| n/a|
 |[Custom classifier](concept-custom-classifier.md)        | ✔️| ✔️| n/a| n/a|
 |[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
 |[Custom neural](concept-custom-neural.md)                | ✔️| ✔️| ✔️| n/a|
 |[Custom template](concept-custom-template.md)            | ✔️| ✔️| ✔️| ✔️|
-|[General Document](concept-general-document.md)          | deprecated| ✔️| ✔️| n/a|
-|[Health Insurance Card](concept-health-insurance-card.md)| ✔️| ✔️| ✔️| n/a|
-|[ID Document](concept-id-document.md)                    | ✔️| ✔️| ✔️| ✔️|
+|[General document](concept-general-document.md)          | deprecated| ✔️| ✔️| n/a|
+|[Health insurance card](concept-health-insurance-card.md)| ✔️| ✔️| ✔️| n/a|
+|[ID document](concept-id-document.md)                    | ✔️| ✔️| ✔️| ✔️|
 |[Invoice](concept-invoice.md)                            | ✔️| ✔️| ✔️| ✔️|
 |[Layout](concept-layout.md)                              | ✔️| ✔️| ✔️| ✔️|
 |[Read](concept-read.md)                                  | ✔️| ✔️| ✔️| n/a|

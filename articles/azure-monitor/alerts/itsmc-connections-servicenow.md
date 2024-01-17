@@ -26,10 +26,11 @@ For information about installing ITSMC, see [Add the IT Service Management Conne
 
 ### OAuth setup
 
-ServiceNow supported versions include Utah, Tokyo, San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
+ServiceNow supported versions include Vancouver, Utah, Tokyo, San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
 
 ServiceNow admins must generate a client ID and client secret for their ServiceNow instance. See the following information as required:
 
+- [Set up OAuth for Vancouver](https://docs.servicenow.com/bundle/vancouver-platform-administration/page/administer/general/concept/intro-now-platform-landing.html)
 - [Set up OAuth for Utah](https://docs.servicenow.com/bundle/utah-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Tokyo](https://docs.servicenow.com/bundle/tokyo-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for San Diego](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -140,9 +141,9 @@ When you're successfully connected and synced:
 
 The payload that is sent to ServiceNow has a common structure. The structure has a section of `<Description>` that contains all the alert data.
 
-The structure of the payload for all alert types except log search alert is [common schema](./alerts-common-schema.md).
+The structure of the payload for all alert types except log search V1 alert is [common schema](./alerts-common-schema.md).
 
-For Log Search Alerts (V1 and V2), the structure is:
+For Log Search Alerts (V1 only), the structure is:
 
 - Alert  (alert rule name) : \<value>
 - Search Query : \<value>

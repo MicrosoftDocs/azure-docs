@@ -1,7 +1,7 @@
 ---
 title: Python tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: The Python Tool empowers users to offer customized code snippets as self-contained executable nodes in prompt flow.
+description: The Python tool empowers you to offer customized code snippets as self-contained executable nodes in prompt flow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
@@ -17,7 +17,7 @@ ms.date: 11/02/2023
 
 # Python tool
 
-The Python Tool empowers users to offer customized code snippets as self-contained executable nodes in prompt flow. Users can effortlessly create Python tools, edit code, and verify results with ease.
+The Python tool empowers you to offer customized code snippets as self-contained executable nodes in prompt flow. You can easily create Python tools, edit code, and verify results.
 
 ## Inputs
 
@@ -36,41 +36,43 @@ The Python Tool empowers users to offer customized code snippets as self-contain
 | double                                              | param: float                    | Double type                                |
 | list                                                | param: list or param: List[T]   | List type                                  |
 | object                                              | param: dict or param: Dict[K, V] | Object type                                |
-| [Connection](../concept-connections.md) | param: CustomConnection         | Connection type will be handled specially |
+| [Connection](../concept-connections.md) | param: CustomConnection         | Connection type is handled specially |
 
+Parameters with the `Connection` type annotation are treated as connection inputs, which means:
 
-Parameters with `Connection` type annotation will be treated as connection inputs, which means:
-- Prompt flow extension will show a selector to select the connection.
-- During execution time, prompt flow will try to find the connection with the name same from parameter value passed in.
+- Prompt flow extension shows a selector to select the connection.
+- During execution time, prompt flow tries to find the connection with the same name from the parameter value passed in.
 
-> [!Note]
-> `Union[...]` type annotation is supported **ONLY** for connection type, for example, `param: Union[CustomConnection, OpenAIConnection]`.
+> [!NOTE]
+> The `Union[...]` type annotation is supported *only* for the connection type, for example, `param: Union[CustomConnection, OpenAIConnection]`.
 
 ## Outputs
 
-The return of the python tool function.
+Outputs are the return of the Python tool function.
 
-## How to write Python Tool?
+## Write with the Python tool
+
+Use the following guidelines to write with the Python tool.
 
 ### Guidelines
 
-1. Python Tool Code should consist of a complete Python code, including any necessary module imports.
+- Python tool code should consist of complete Python code, including any necessary module imports.
 
-2. Python Tool Code must contain a function decorated with @tool (tool function), serving as the entry point for execution. The @tool decorator should be applied only once within the snippet.
+- Python tool code must contain a function decorated with `@tool` (tool function), which serves as the entry point for execution. Apply the `@tool` decorator only once within the snippet.
 
-   *The sample in the next section defines python tool "my_python_tool" which decorated with @tool*
+   The sample in the next section defines the Python tool `my_python_tool`, which is decorated with `@tool`.
 
-3. Python tool function parameters must be assigned in 'Inputs' section
+- Python tool function parameters must be assigned in the `Inputs` section.
 
-    *The sample in the next section defines inputs "message" and assign with "world"*
+    The sample in the next section defines the input `message` and assigns it `world`.
 
-4. Python tool function shall have return
+- A Python tool function has a return.
 
-    *The sample in the next section returns a concatenated string*
+    The sample in the next section returns a concatenated string.
 
 ### Code
 
-This snippet shows the basic structure of a tool function. Prompt flow will read the function and extract inputs from function parameters and type annotations. 
+The following snippet shows the basic structure of a tool function. Prompt flow reads the function and extracts inputs from function parameters and type annotations.
 
 ```python
 from promptflow import tool
@@ -87,48 +89,50 @@ def my_python_tool(message: str, my_conn: CustomConnection) -> str:
 
 ```
 
-Inputs:
+#### Inputs
 
-| Name    | Type   | Sample Value in Flow Yaml | Value passed to function|
+| Name    | Type   | Sample value in flow YAML | Value passed to function|
 |---------|--------|-------------------------| ------------------------|
-| message | string | "world"                 | "world"                 |
-| my_conn | CustomConnection | "my_conn"               | CustomConnection object |
+| message | string | `world`                 | `world`                 |
+| my_conn | `CustomConnection` | `my_conn`               | `CustomConnection` object |
 
-Prompt flow will try to find the connection named 'my_conn' during execution time.
+Prompt flow tries to find the connection named `my_conn` during execution time.
 
-Outputs:
+#### Outputs
 
 ```python
 "hello world"
 ```
 
-## How to consume custom connection in Python Tool?
+## Custom connection in the Python tool
 
-If you are developing a python tool that requires calling external services with authentication, you can use the custom connection in prompt flow. It allows you to securely store the access key then retrieve it in your python code.
+If you're developing a Python tool that requires calling external services with authentication, use the custom connection in prompt flow. You can use it to securely store the access key and then retrieve it in your Python code.
 
 ### Create a custom connection
 
-Create a custom connection that stores all your LLM API KEY or other required credentials.
+Create a custom connection that stores all your large language model API key or other required credentials.
 
-1. Go to Prompt flow in your workspace, then go to **connections** tab.
-2. Select **Create** and select **Custom**.
-    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of flows on the connections tab highlighting the custom button in the drop-down menu. " lightbox = "../media/how-to-integrate-with-langchain/custom-connection-1.png":::
-1. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
-    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-2.png" alt-text="Screenshot of add custom connection point to the add key-value pairs button. " lightbox = "../media/how-to-integrate-with-langchain/custom-connection-2.png":::
+1. Go to prompt flow in your workspace, and then go to the **Connections** tab.
+1. Select **Create** > **Custom**.
+
+    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot that shows flows on the Connections tab highlighting the Custom button in the drop-down menu. " lightbox = "../media/how-to-integrate-with-langchain/custom-connection-1.png":::
+1. In the right pane, you can define your connection name. You can add multiple key-value pairs to store your credentials and keys by selecting **Add key-value pairs**.
+
+    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-2.png" alt-text="Screenshot that shows adding a custom connection point and the Add key-value pairs button." lightbox = "../media/how-to-integrate-with-langchain/custom-connection-2.png":::
 
 > [!NOTE]
-> - You can set one Key-Value pair as secret by **is secret** checked, which will be encrypted and stored in your key value.
-> - Make sure at least one key-value pair is set as secret, otherwise the connection will not be created successfully.
+> To set one key-value pair as secret, select the **is secret** checkbox. This option encrypts and stores your key value. Make sure at least one key-value pair is set as secret. Otherwise, the connection isn't created successfully.
 
+### Use a custom connection in Python
 
-### Consume custom connection in Python
+To use a custom connection in your Python code:
 
-To consume a custom connection in your python code, follow these steps:
+1. In the code section in your Python node, import the custom connection library `from promptflow.connections import CustomConnection`. Define an input parameter of the type `CustomConnection` in the tool function.
 
-1. In the code section in your python node, import custom connection library `from promptflow.connections import CustomConnection`, and define an input parameter of type `CustomConnection` in the tool function.
-    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-python-node-1.png" alt-text="Screenshot of doc search chain node highlighting the custom connection. " lightbox = "../media/how-to-integrate-with-langchain/custom-connection-python-node-1.png":::
-1. Parse the input to the input section, then select your target custom connection in the value dropdown.
-    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot of the chain node highlighting the connection. " lightbox = "../media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
+    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-python-node-1.png" alt-text="Screenshot that shows the doc search chain node highlighting the custom connection." lightbox = "../media/how-to-integrate-with-langchain/custom-connection-python-node-1.png":::
+1. Parse the input to the input section, and then select your target custom connection in the **Value** dropdown.
+
+    :::image type="content" source="../media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot that shows the chain node highlighting the connection." lightbox = "../media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
 
 For example:
 
@@ -137,7 +141,7 @@ from promptflow import tool
 from promptflow.connections import CustomConnection
 
 @tool
-def my_python_tool(message:str, myconn:CustomConnection) -> str:
+def my_python_tool(message: str, myconn: CustomConnection) -> str:
     # Get authentication key-values from the custom connection
     connection_key1_value = myconn.key1
     connection_key2_value = myconn.key2

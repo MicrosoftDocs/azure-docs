@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 03/28/2023
+ms.date: 01/02/2024
 ms.reviewer: ju-shim
 ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -43,7 +43,7 @@ In this mode, the scale set performs updates in batches with an optional pause t
 
 -  **Rolling Upgrades with MaxSurge enabled**
     
-    With MaxSurge enabled, new instances are created and brought up-to-date with the latest scale model in batches rather than taking down the old instances for upgrades. Once complete, the new instances are added to the scale set and the old instances are removed. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. 
+    With MaxSurge enabled, new instances are created in the scale set using the the latest scale model in batches. Once the batch of new instances are successfully created and marked as healthy, instances matching the old scale set model will be deleted. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. 
 
 
 When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.

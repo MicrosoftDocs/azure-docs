@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 11/22/2022
+ms.date: 12/19/2023
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 
@@ -47,11 +47,10 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 > [!NOTE]
 > You may need to invert the use of the single (') and double quotes (") within the JSON block if you decide to reference the JSON directly (instead of referencing the *customConfig.json* file) in the *--settings* parameter below. 
 
-
 ## Create a scale set
 
 > [!IMPORTANT]
->Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+> Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
 
 Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
@@ -86,6 +85,9 @@ az vmss extension set \
 ```
 
 Each VM instance in the scale set downloads and runs the script from GitHub. In a more complex example, multiple application components and files could be installed. If the scale set is scaled up, the new VM instances automatically apply the same Custom Script Extension definition and install the required application.
+
+> [!CAUTION]
+> File names are case sensitive. Use the exact file name stated in these instructions to avoid failure.
 
 ## Test your scale set
 To allow traffic to reach the web server, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule). The following example creates a rule named *myLoadBalancerRuleWeb*:

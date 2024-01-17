@@ -23,6 +23,12 @@ Model customization lets you train a specialized Image Analysis model for your o
 > [Python SDK quickstart](./how-to/model-customization.md?tabs=python)
 
 
+> [!IMPORTANT]
+> You can train a custom model using either the [Custom Vision service](/azure/ai-services/custom-vision-service/overview) or the Image Analysis 4.0 service with model customization. The following table compares the two services.
+>
+> [!INCLUDE [custom-vision-ia-compare](includes/custom-vision-ia-compare.md)]
+
+
 ## Scenario components
 
 The main components of a model customization system are the training images, COCO file, dataset object, and model object.

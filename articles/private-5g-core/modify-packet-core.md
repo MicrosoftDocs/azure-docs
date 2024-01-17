@@ -18,7 +18,7 @@ If you want to modify a packet core instance's local access configuration, follo
 
 ## Prerequisites
 
-- If you want to make changes to the packet core configuration or access network, refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to collect the new values and make sure they're in the correct format.
+- If you want to make changes to the packet core configuration or access network, refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to collect the new values and make sure they're in the correct format. If you want to enable UE usage monitoring, refer to [Collect UE usage tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values).
 
     > [!NOTE]
     > You can't update a packet core instance's **Technology type** or **Version** field.
@@ -51,6 +51,7 @@ The following changes will trigger the packet core to reinstall, during which yo
 The following changes require you to manually perform a reinstall, during which your service will be unavailable for up to two hours, before they take effect:
 
 - Changing access network configuration.
+- Enabling [monitoring UE usage with Event Hubs](ue-usage-event-hub.md).
 
 If you're making any of these changes to a healthy packet core instance, we recommend running this process during a maintenance window to minimize the impact on your service. Changes not listed here should not trigger a service interruption, but we recommend using a maintenance window in case of misconfiguration.
 
@@ -99,9 +100,7 @@ To modify the packet core and/or access network configuration:
   
    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) for the top-level configuration values.
    - Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values under **Access network**.
-   - If you want to enable UE Metric monitoring, use the information collected in [Collect UE Usage Tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
-    > [!NOTE]
-    > You must reinstall the packet core control pane** in order to use UE Metric monitoring if it was not already configured.
+   - If you want to enable UE usage monitoring, use the information collected in [Collect UE usage tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
 1. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).
    - If you want to configure a new or existing data network and attach it to the packet core instance, go to [Attach a data network](#attach-a-data-network).

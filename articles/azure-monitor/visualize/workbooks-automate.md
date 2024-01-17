@@ -301,9 +301,6 @@ In this example, the following steps facilitate the customization of an exported
 1. Use the new `reserializedData` variable in place of the original `serializedData` property.
 1. Deploy the new workbook resource by using the updated ARM template.
 
-### Limitations
-Currently, this mechanism can't be used to create workbook instances in the **Workbooks** gallery of Application Insights. We're working on addressing this limitation. In the meantime, we recommend that you use the **Troubleshooting Guides** gallery (workbookType: `tsg`) to deploy Application Insights-related workbooks.
-
 ## Next steps
 
 Explore how workbooks are being used to power the new [Storage insights experience](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json).

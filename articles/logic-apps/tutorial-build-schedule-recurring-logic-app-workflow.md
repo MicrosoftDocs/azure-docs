@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.custom: mvc, engagement-fy23
-ms.date: 09/13/2022
+ms.date: 01/04/2024
 ---
 
 # Tutorial: Create schedule-based automation workflows using Azure Logic Apps

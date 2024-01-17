@@ -55,6 +55,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Japan East
 *   Japan West
 *   Korea Central
+*   Korea South 
 *	North Central US
 *   North Europe
 *   Norway East
@@ -79,7 +80,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   West US 2
 *	West US 3 
 
-<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
+<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes (preview)](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
 
 * Australia Central
 * Australia Central 2
@@ -92,7 +93,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Central India
 * Central US
 * East Asia
-* East US 
+* East US* 
 * East US 2 
 * France Central 
 * Germany North
@@ -100,13 +101,14 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Japan East 
 * Japan West
 * Korea Central
+* Korea South
 * North Central US
 * North Europe 
 * Norway East
 * Norway West 
 * Qatar Central 
 * South Africa North
-* South Central US 
+* South Central US* 
 * South India
 * Southeast Asia 
 * Sweden Central
@@ -115,11 +117,13 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * UAE Central
 * UAE North 
 * UK South
+* UK West
 * West Europe 
 * West US 
-* West US 2  
+* West US 2*  
 * West US 3 
 
+\* Not all volume in this region are available for conversion. All volumes will be available for conversion in the future. 
 
 ## Considerations
 
@@ -173,7 +177,7 @@ This section explains concepts that help you with virtual network planning.
 
 ### Azure virtual networks
 
-Before provisioning an Azure NetApp Files volume, you need to create an Azure virtual network (VNet) or use one that already exists in your subscription. The VNet defines the network boundary of the volume.  For more information on creating virtual networks, see the [Azure Virtual Network documentation](../virtual-network/virtual-networks-overview.md).
+Before provisioning an Azure NetApp Files volume, you need to create an Azure virtual network (VNet) or use one that already exists in the same subscription. The VNet defines the network boundary of the volume.  For more information on creating virtual networks, see the [Azure Virtual Network documentation](../virtual-network/virtual-networks-overview.md).
 
 ### Subnets
 

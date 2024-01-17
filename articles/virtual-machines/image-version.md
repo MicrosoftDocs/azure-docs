@@ -15,7 +15,7 @@ ms.custom:
 
 # Create an image definition and an image version 
 
-A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Images can be created from a VM, VHD, snapshot, managed image, or another image version. 
+An [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Images can be created from a VM, VHD, snapshot, managed image, or another image version. 
 
 The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within a Microsoft Entra tenant, or publicly using a [community gallery](azure-compute-gallery.md#community). Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images. Many new features like ARM64, Accelerated Networking and TrustedVM are only supported through Azure Compute Gallery and not available for managed images.
 

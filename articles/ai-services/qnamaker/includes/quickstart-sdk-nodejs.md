@@ -2,7 +2,7 @@
 title: "Quickstart: QnA Maker client library for Node.js"
 description: This quickstart shows how to get started with the QnA Maker client library for Node.js.
 ms.topic: include
-ms.date: 06/18/2020
+ms.date: 12/19/2023
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 

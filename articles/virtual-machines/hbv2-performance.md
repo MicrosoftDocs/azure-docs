@@ -1,16 +1,16 @@
 ---
-title: HBv2-series VM size performance 
-description: Learn about performance testing results for HBv2-series VM sizes in Azure.  
-services: virtual-machines  
+title: HBv2-series VM size performance
+description: Learn about performance testing results for HBv2-series VM sizes in Azure.
+services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services 
+ms.workload: infrastructure-services
 ms.custom: devx-track-linux
-ms.topic: article 
-ms.date: 03/04/2023 
+ms.topic: article
+ms.date: 03/04/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 --- 
 
 # HBv2-series virtual machine sizes

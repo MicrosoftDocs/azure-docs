@@ -27,6 +27,9 @@ This feature provides two possible outputs based on the customer's needs:
 
 This service is currently in preview, and the API may change in the future.
 
+> [!IMPORTANT]
+> Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+
 ## Background removal examples
 
 The following example images illustrate what the Image Analysis service returns when removing the background of an image and creating an alpha matte. 

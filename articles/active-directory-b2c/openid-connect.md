@@ -8,10 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: conceptual
-ms.date: 11/22/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
+
+
+#Customer intent: As a web application developer, I want to implement web sign-in with OpenID Connect in Azure Active Directory B2C, so that I can securely authenticate users and outsource identity management experiences in my web applications to Microsoft Entra ID.
+
 ---
 
 # Web sign in with OpenID Connect in Azure Active Directory B2C

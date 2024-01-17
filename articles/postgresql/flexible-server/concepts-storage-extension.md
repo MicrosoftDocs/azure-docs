@@ -50,7 +50,7 @@ To load data from Azure Blob Storage, you need [allowlist](../../postgresql/flex
  CREATE EXTENSION azure_storage;
 ```
 
-When you create a storage account, Azure generates two 512-bit storage **account access keys** for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.Therefore, before you can import the data, you need to map  storage account using **account_add** method, providing **account access key** defined when account was created. Code snippet shows mapping storage account *'mystorageaccount'* where access key parameter is shown as string *'SECRET_ACCESS_KEY'*.
+When you create a storage account, Azure generates two 512-bit storage **account access keys** for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization. Therefore, before you can import the data, you need to map  storage account using **account_add** method, providing **account access key** defined when account was created. Code snippet shows mapping storage account *'mystorageaccount'* where access key parameter is shown as string *'SECRET_ACCESS_KEY'*.
 
 ```sql
 SELECT azure_storage.account_add('mystorageaccount', 'SECRET_ACCESS_KEY');

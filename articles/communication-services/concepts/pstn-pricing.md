@@ -499,6 +499,16 @@ All prices shown below are in USD.
 |-------------|---------------|-----------------|
 |Toll-free    |N/A            |Starting at USD 0.3345/min   |
 
+## Indonesia telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 25.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.3022/min   |
+
 
 ***
 

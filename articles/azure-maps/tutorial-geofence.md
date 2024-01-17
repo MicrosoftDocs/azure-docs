@@ -22,7 +22,6 @@ Azure Maps provides services to support the tracking of equipment entering and e
 
 > [!div class="checklist"]
 >
-> * Create an Azure Maps account with a global region.
 > * Upload [Geofencing GeoJSON data] that defines the construction site areas you want to monitor. You'll upload geofences as polygon coordinates to your Azure storage account, then use the [data registry] service to register that data with your Azure Maps account.
 > * Set up two [logic apps] that, when triggered, send email notifications to the construction site operations manager when equipment enters and exits the geofence area.
 > * Use [Azure Event Grid] to subscribe to enter and exit events for your Azure Maps geofence. You set up two webhook event subscriptions that call the HTTP endpoints defined in your two logic apps. The logic apps then send the appropriate email notifications of equipment moving beyond or entering the geofence.
@@ -30,32 +29,15 @@ Azure Maps provides services to support the tracking of equipment entering and e
 
 ## Prerequisites
 
-* This tutorial uses the [Postman] application, but you can use a different API development environment.
+* An [Azure Maps account]
+* A [subscription key]
+* An [Azure storage account]
+
+This tutorial uses the [Postman] application, but you can use a different API development environment.
 
 >[!IMPORTANT]
 >
-> * In the URL examples, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
-
-## Create an Azure Maps account with a global region
-
-The Geofence API async event requires the region property of your Azure Maps account be set to ***Global***. This setting isn't given as an option when creating an Azure Maps account in the Azure portal, however you do have several other options for creating a new Azure Maps account with the *global* region setting. This section lists the three methods that can be used to create an Azure Maps account with the region set to *global*.
-
-> [!NOTE]
-> The `location` property in both the ARM template and PowerShell `New-AzMapsAccount` command refer to the same property as the `Region` field in the Azure portal.
-
-### Use an ARM template to create an Azure Maps account with a global region
-
-[Create your Azure Maps account using an ARM template], making sure to set `location` to `global` in the `resources` section of the ARM template.
-
-### Use PowerShell to create an Azure Maps account with a global region
-
-```powershell
-New-AzMapsAccount -ResourceGroupName your-Resource-Group -Name name-of-maps-account -SkuName g2 -Location global
-```
-
-### Use Azure CLI to create an Azure Maps account with a global region
-
-The Azure CLI command [az maps account create] doesn’t have a location property, but defaults to `global`, making it useful for creating an Azure Maps account with a global region setting for use with the Geofence API async event.
+> In the URL examples, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Upload geofencing GeoJSON data
 
@@ -149,7 +131,7 @@ Create the geofence JSON file using the following geofence data. You'll upload t
    }
    ```
 
-Follow the steps outlined in the [How to create data registry] article to upload the geofence JSON file into your Azure storage account then register it in your Azure Maps account.
+Follow the steps outlined in the [How to create data registry] article to upload the geofence JSON file into your Azure storage account and register it in your Azure Maps account.
 
 > [!IMPORTANT]
 > Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the geofence you uploaded into your Azure storage account from your source code and HTTP requests.
@@ -164,7 +146,7 @@ To create the logic apps:
 
 2. In the upper-left corner of the Azure portal, select **Create a resource**.
 
-3. In the **Search the Marketplace** box, type **Logic App**.
+3. In the **Search services and marketplace** box, type **Logic App**.
 
 4. From the results, select **Logic App**. Then, select **Create**.
 
@@ -172,32 +154,33 @@ To create the logic apps:
     * The **Subscription** that you want to use for this logic app.
     * The **Resource group** name for this logic app. You can choose to **Create new** or **Use existing** resource group.
     * The **Logic App name** of your logic app. In this case, use `Equipment-Enter` as the name.
+    * Select **Consumption** as the **Plan type**. For more information, see [Billing and pricing models] in the Logic App documentation.
 
     For the purposes of this tutorial, keep all other values on their default settings.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Screenshot of create a logic app.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Screenshot of create a logic app.":::
 
-6. Select **Review + Create**. Review your settings and select **Create**.
+6. When you're done, select **Review + Create**. After Azure validates the information about your logic app resource, select **Create**.
 
 7. When the deployment completes successfully, select **Go to resource**.
 
-8. In the **Logic App Designer**, scroll down to the **Start with a common trigger** section. Select **When an HTTP request is received**.
+8. Select **Logic app designer** in the **Development Tools** section in the menu of the left, scroll down to the **Start with a common trigger** section. Select **When an HTTP request is received**.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Screenshot of create a logic app HTTP trigger.":::
+     :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Screenshot of create a logic app HTTP trigger.":::
 
 9. In the upper-right corner of Logic App Designer, select **Save**. The **HTTP POST URL** is automatically generated. Save the URL. You need it in the next section to create an event endpoint.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Screenshot of Logic App HTTP Request URL and JSON.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Screenshot of Logic App HTTP Request URL and JSON.":::
 
 10. Select **+ New Step**.
 
 11. In the search box, type `outlook.com email`. In the **Actions** list, scroll down and select **Send an email (V2)**.
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Screenshot of create a logic app designer.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Screenshot of create a logic app designer.":::
 
 12. Sign in to your Outlook account. Make sure to select **Yes** to allow the logic app to access the account. Fill in the fields for sending an email.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot of create a logic app send email step.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot of create a logic app send email step.":::
 
     >[!TIP]
     > You can retrieve GeoJSON response data, such as `geometryId` or `deviceId`, in your email notifications. You can configure Logic Apps to read the data sent by Event Grid. For information on how to configure Logic Apps to consume and pass event data into email notifications, see [Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps].
@@ -235,7 +218,7 @@ Create geofence exit and enter event subscriptions:
     * For **Endpoint Type**, choose `Web Hook`.
     * For **Endpoint**, copy the HTTP POST URL for the logic app enter endpoint that you created in the previous section. If you forgot to save it, you can just go back into Logic App Designer and copy it from the HTTP trigger step.
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot of Azure Maps events subscription details.":::
+    :::image type="content" border="false" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot of Azure Maps events subscription details.":::
 
 6. Select **Create**.
 
@@ -495,7 +478,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 In the preceding GeoJSON response, the equipment has exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true`, and the Operations Manager receives an email notification indicating that the equipment has exited a geofence.
 
-You can also [Send email notifications using Event Grid and Logic Apps] and check [Supported Events Handlers in Event Grid] using Azure Maps.
+You can also [Send email notifications using Event Grid and Logic Apps]. For more information,see [Event handlers in Azure Event Grid].
 
 ## Clean up resources
 
@@ -506,11 +489,12 @@ There are no resources that require cleanup.
 > [!div class="nextstepaction"]
 > [Handle content types in Azure Logic Apps]
 
-[az maps account create]: /cli/azure/maps/account?view=azure-cli-latest&preserve-view=true#az-maps-account-create
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Event Grid]: ../event-grid/overview.md
 [Azure Maps service geographic scope]: geographic-scope.md
 [Azure portal]: https://portal.azure.com
-[Create your Azure Maps account using an ARM template]: how-to-create-template.md
+[Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
+[Billing and pricing models]: /azure/logic-apps/logic-apps-pricing#standard-pricing
 [data registry]: /rest/api/maps/data-registry
 [Geofencing GeoJSON data]: geofence-geojson.md
 [Handle content types in Azure Logic Apps]: ../logic-apps/logic-apps-content-type.md
@@ -521,7 +505,8 @@ There are no resources that require cleanup.
 [Search Geofence Get API]: /rest/api/maps/spatial/getgeofence
 [Send email notifications using Event Grid and Logic Apps]: ../event-grid/publish-iot-hub-events-to-logic-apps.md
 [Spatial Geofence Get API]: /rest/api/maps/spatial/getgeofence
-[Supported Events Handlers in Event Grid]: ../event-grid/event-handlers.md
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Event handlers in Azure Event Grid]: ../event-grid/event-handlers.md
 [three event types]: ../event-grid/event-schema-azure-maps.md
 [Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps]: ../event-grid/publish-iot-hub-events-to-logic-apps.md
 [Upload Geofencing GeoJSON data section]: #upload-geofencing-geojson-data

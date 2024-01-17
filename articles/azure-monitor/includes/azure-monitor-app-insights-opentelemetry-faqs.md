@@ -3,7 +3,7 @@ author: AaronMaxwell
 ms.author: aaronmax
 ms.service: azure-monitor
 ms.topic: include
-ms.date: 10/13/2023
+ms.date: 12/15/2023
 ---
 
 ## Frequently asked questions
@@ -62,7 +62,7 @@ Adopting OpenTelemetry now prevents having to migrate at a later date.
 
 ### When should I use the Azure Monitor OpenTelemetry exporter?
 
-For .NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
+For ASP..NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
 
 For all other .NET scenarios, we recommend using our exporter: `Azure.Monitor.OpenTelemetry.Exporter`.
 
