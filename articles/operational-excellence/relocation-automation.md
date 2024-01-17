@@ -26,15 +26,11 @@ If your Azure Automation instance doesn't have any configuration and the instanc
 
 **To redeploy your Automation instance without data:**
 
-Redeploy the NetApp File instance by using Bicep or JSON. n such case we can redeploy the NetApp File instance using [Bicep](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-bicep), [ARM template](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-arm-template), or [Terraform](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-terraform).
+Redeploy the NetApp File instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-bicep).
 
 To view the available configuration templates, see [the complete Azure Template library](/azure/templates/).
 
-
 ## Redeploy with data migration
-
-Key Vault supports the following a [cold standby](/azure/cloud-adoption-framework/relocate/select) redeployment method.
-
 
 In the diagram below, the red flow lines illustrate redeployment of the target instance along with configuration movement.
 
@@ -53,8 +49,8 @@ In the diagram below, the red flow lines illustrate redeployment of the target i
 
 ### Redeploy your Automation instance to another region:**
 
-1. Manually create the Azure Automation instance with the required parameters and configurations or export the source Azure automation template and reconfigure the parameters as per the target. Deploy the template using CI/CD.
-1. Export all the associated runbooks from the source Azure Automation instance and import them to the target instance. Reconfigure the properties as per target. 
+1. Manually create the Azure Automation instance with the required parameters and configurations or export the source Azure automation template and reconfigure the parameters as per the target. Deploy the template using [ARM](/automation/quickstart-create-automation-account-template#deploy-the-template)  or [PowerShell](powershell/module/az.automation/import-azautomationrunbook?view=azps-11.2.0).
+1. Use PowerShell to export all associated runbooks from the source Azure Automation instance and import them to the target instance. Reconfigure the properties as per target. For more information, see [Export-AzAuotomationRunbook](/powershell/module/az.automation/export-azautomationrunbook?view=azps-11.2.0&viewFallbackFrom=azps-9.4.0).
 1. Associate the relocated Azure Automation instance to the target Log Analytics workspace.
 1. Configure the target virtual machines with desired state configuration from the relocated Azure Automation instance as per source.
 
