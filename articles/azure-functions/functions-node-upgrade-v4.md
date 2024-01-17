@@ -25,13 +25,19 @@ Version 4 is designed to provide Node.js developers with the following benefits:
 
 Version 4 of the Node.js programming model requires the following minimum versions:
 
+:::zone pivot="programming-language-javascript"
 - [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0
 - [Node.js](https://nodejs.org/en/download/releases/) v18+
-:::zone pivot="programming-language-typescript"
-- [TypeScript](https://www.typescriptlang.org/) v4+
-:::zone-end
 - [Azure Functions Runtime](./functions-versions.md) v4.25+
 - [Azure Functions Core Tools](./functions-run-local.md) v4.0.5382+ (if running locally)
+:::zone-end
+:::zone pivot="programming-language-typescript"
+- [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0
+- [Node.js](https://nodejs.org/en/download/releases/) v18+
+- [TypeScript](https://www.typescriptlang.org/) v4+
+- [Azure Functions Runtime](./functions-versions.md) v4.25+
+- [Azure Functions Core Tools](./functions-run-local.md) v4.0.5382+ (if running locally)
+:::zone-end
 
 ## Include the npm package
 
@@ -252,11 +258,27 @@ async function httpTrigger1(context: Context, req: HttpRequest): Promise<void> {
 
 Version 4 supports only one way of setting the primary output, through the return value:
 
+:::zone pivot="programming-language-javascript"
+
 ```javascript
 return { 
   body: `Hello, ${name}!` 
 };
 ```
+
+:::zone-end
+:::zone pivot="programming-language-typescript"
+
+```typescript
+async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+    // ...
+    return { 
+      body: `Hello, ${name}!` 
+    };
+}
+```
+
+:::zone-end
 
 # [v3](#tab/v3)
 
@@ -404,13 +426,13 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 - *Body*:
 
-    Use the `body` property for most types like a `string` or `Buffer`:
+    Use the `body` property to return most types like a `string` or `Buffer`:
 
     ```javascript
     return { body: "Hello, world!" };
     ```
 
-    Use the `jsonBody` property to most easily return a JSON response:
+    Use the `jsonBody` property for the easiest way to return a JSON response:
 
     ```javascript
     return { jsonBody: { hello: "world" } };
@@ -442,24 +464,13 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
     return { statusCode: 200 };
     ```
 
-- *Body*. You can set a body in several ways:
-
-    The following examples set a string body:
+- *Body*. You can set a body in several ways and it's the same regardless of the body type (`string`, `Buffer`, JSON object, etc.):
 
     ```javascript
     context.res.send("Hello, world!");
     context.res.end("Hello, world!");
     context.res = { body: "Hello, world!" };
     return { body: "Hello, world!" };
-    ```
-
-    The following examples set a JSON body:
-
-    ```javascript
-    context.res.send({ hello: "world" });
-    context.res.end({ hello: "world" });
-    context.res = { body: { hello: "world" } };
-    return { body: { hello: "world" } };
     ```
 
 - *Header*. You can set a header in several ways:
