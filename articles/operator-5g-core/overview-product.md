@@ -7,8 +7,6 @@ ms.service: private-5g-core
 ms.topic: overview #required; leave this attribute/value as-is.
 ms.date: 01/16/2024
 ---
-#CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
----
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
@@ -34,7 +32,6 @@ Use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
 
 -->
-
 # What is Azure Operator 5G Core?
 TODO: Add your heading
 
