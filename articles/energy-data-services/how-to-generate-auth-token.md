@@ -21,7 +21,6 @@ In this article, you learn how to generate the service principal auth token, a u
   
    :::image type="content" source="media/how-to-generate-auth-token/app-registration-uri.png" alt-text="Screenshot that shows adding the URI to the app.":::
 
-1. Fetch the `redirect-uri` (or reply URL) for your app to receive responses from Microsoft Entra ID.
 
 ## Fetch parameters
 
@@ -66,7 +65,14 @@ A `client-secret` is a string value your app can use in place of a certificate t
 
    :::image type="content" source="media/how-to-generate-auth-token/client-secret.png" alt-text="Screenshot that shows finding the client secret.":::
 
-#### Find the URL for your Azure Data Manager for Energy instance
+### Find redirect-uri
+1. Go to **App registrations**.
+1. Under the **Manage** section, select **Authentication**.
+1. Fetch the `redirect-uri` (or reply URL) for your app to receive responses from Microsoft Entra ID.
+
+ :::image type="content" source="media/how-to-generate-auth-token/redirect-uri.png" alt-text="Screenshot that shows redirect-uri.":::
+
+#### Find the adme-url for your Azure Data Manager for Energy instance
 
 1. Create an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 1. Go to your Azure Data Manager for Energy **Overview** page on the Azure portal.
