@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 11/08/2023
+ms.date: 01/17/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,26 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.2         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.2         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.4         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.4         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.5.4
+
+*Published: December 18, 2023*
+
+>[!NOTE]
+> Due to certain things that came up during development, there is no version 10.5.3.
+
+In this release, we've made the following changes:
+
+- Fixed theming update issues on iOS 17.
+- Addressed pop-up sheet layout bugs on iOS 17.
+- Sorted out daylight savings time issues for time zone redirection scenarios.
+- Repositioned the search box so that it's no longer clipped by the Dynamic Island.
+- Added support for camera redirection on an iPhone or iPad in portrait orientation. 
+- Resolved an issue where when you go to **Settings** > **Display** to view the resolution list, the list didn't update when you changed the orientation.
+- Added support for USB-C on iPhone 15 to enable native resolutions when you connect the device to an external display.
+- Added watermarking support for Azure Virtual Desktop scenarios. 
 
 ## Updates for version 10.5.2
 
