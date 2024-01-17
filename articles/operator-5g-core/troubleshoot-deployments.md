@@ -3,7 +3,7 @@ title: Troubleshoot deployment issues
 description: Review troubleshooting solutions for common AO5GC deployment issues.
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: private-5g-core
 ms.topic: troubleshooting-problem-resolution #don't change.
 ms.date: 01/08/2024
 

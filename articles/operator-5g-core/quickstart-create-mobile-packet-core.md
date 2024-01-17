@@ -3,7 +3,7 @@ title: Create a mobile packet core
 description: Learn the high-level process to create a mobile packet core in AO5GC.
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: private-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
 ms.date: 01/08/2024
 

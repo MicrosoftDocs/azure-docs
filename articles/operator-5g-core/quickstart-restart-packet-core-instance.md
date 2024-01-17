@@ -3,7 +3,7 @@ title: Restart a packet core instance
 description: Learn the high-level process to restart a mobile packet core instance in Azure Operator 5G Core.
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: private-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
 ms.date: 01/08/2024
 

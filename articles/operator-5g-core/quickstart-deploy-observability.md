@@ -3,7 +3,7 @@ title: Deploy AO5GC observability on AKS
 description: Learn the high-level process to deploy AO5GC observability on Advanced Kubernetes services.
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: private-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
 ms.date: 01/08/2024
 

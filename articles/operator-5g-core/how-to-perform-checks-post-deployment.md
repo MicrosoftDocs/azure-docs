@@ -3,7 +3,7 @@ title: Performing health checks post-deployment
 description: Learn how to ensure your deployment is running at its highest capacity by performing health checks post-deployment.
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: private-5g-core
 ms.topic: how-to #required; leave this attribute/value as-is.
 ms.date: 01/08/2024
 

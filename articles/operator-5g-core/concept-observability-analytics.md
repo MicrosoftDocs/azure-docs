@@ -3,7 +3,7 @@ title: Observability analytics
 description: Learn how observability analytics are used in AO5GC
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: private-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
 ms.date: 01/08/2024
 

@@ -3,7 +3,7 @@ title: Configure a network function
 description: Learn the high-level process for configuring a network function.
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: private-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
 ms.date: 01/08/2024
 

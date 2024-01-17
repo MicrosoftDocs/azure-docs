@@ -3,7 +3,7 @@ title: What is a network function?
 description: Learn about network functions that are used to deploy and run AO5GC
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: private-5g-core
 ms.topic: overview #required; leave this attribute/value as-is.
 ms.date: 01/08/2024
 
