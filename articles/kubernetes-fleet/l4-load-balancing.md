@@ -102,7 +102,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
               clusterSelectorTerms:
               - labelSelector:
                   matchLabels:
-                    fleet.azure.com/location: koreacentral
+                    fleet.azure.com/location: eastus
     ```
 
 1. Apply the `ClusterResourcePlacement`:
