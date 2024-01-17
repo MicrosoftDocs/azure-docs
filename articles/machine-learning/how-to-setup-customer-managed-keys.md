@@ -34,7 +34,7 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
     | Microsoft.MachineLearningServices | Creating the Azure Machine Learning workspace.
     | Microsoft.Storage    Azure | Storage Account is used as the default storage for the workspace.
     | Microsoft.KeyVault |Azure Key Vault is used by the workspace to store secrets.
-    | Microsoft.DocumentDB/databaseAccounts | Azure Cosmos DB instance that logs metadata for the workspace.
+    | Microsoft.DocumentDB | Azure Cosmos DB instance that logs metadata for the workspace.
     | Microsoft.Search/searchServices | Azure Search provides indexing capabilities for the workspace.
 
     For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
