@@ -25,7 +25,7 @@ The message is normal and expected.
 
 The message can appear for customers with the following Azure subscription agreement types:
 
-- [Microsoft Customer Agreement purchased directly through Azure.com](create-subscription.md)
+- [Microsoft Customer Agreement purchased directly through Azure.com](../manage/create-subscription.md)
     - You can have a maximum of five subscriptions in a Microsoft Customer Agreement purchased directly through Azure.com.
     - You can create one subscription per 24 hour period.
     - The ability to create other subscriptions is determined on an individual basis according to your history with Azure.
@@ -45,4 +45,4 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- Learn more about [Programmatically creating Azure subscriptions for a Microsoft Customer Agreement with the latest APIs](programmatically-create-subscription-microsoft-customer-agreement.md).
+- Learn more about [Programmatically creating Azure subscriptions for a Microsoft Customer Agreement with the latest APIs](../manage/programmatically-create-subscription-microsoft-customer-agreement.md).

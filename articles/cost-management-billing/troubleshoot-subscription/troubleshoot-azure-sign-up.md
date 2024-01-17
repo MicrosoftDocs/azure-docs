@@ -17,7 +17,7 @@ ms.author: banders
 You might experience an issue when you try to sign up for a new account in the Microsoft Azure portal. This short guide walks you through the sign-up process and discusses some common issues at each step.
 
 > [!NOTE]
-> If you already have an existing account and are looking for guidance to troubleshoot sign-in issues, see [Troubleshoot Azure subscription sign-in issues](./troubleshoot-sign-in-issue.md).
+> If you already have an existing account and are looking for guidance to troubleshoot sign-in issues, see [Troubleshoot Azure subscription sign-in issues](troubleshoot-sign-in-issue.md).
 
 ## Before you begin
 
@@ -110,7 +110,7 @@ Here are some other tips:
 
 #### Credit card declined or not accepted
 
-Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptions. To see what else might cause your card to be declined, see [Troubleshoot a declined card at Azure sign-up](./troubleshoot-declined-card.md).
+Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptions. To see what else might cause your card to be declined, see [Troubleshoot a declined card at Azure sign-up](../troubleshoot-billing/troubleshoot-declined-card.md).
 
 #### Credit card form doesn't support my billing address
 
@@ -163,10 +163,10 @@ To create an Azure In Open subscription, you must have a valid Online Service Ac
 
 Other troubleshooting articles for Azure Billing and Subscriptions
 
-- [Declined card](./troubleshoot-declined-card.md)
-- [Subscription sign-in issues](./troubleshoot-sign-in-issue.md)
+- [Declined card](../troubleshoot-billing/troubleshoot-declined-card.md)
+- [Subscription sign-in issues](troubleshoot-sign-in-issue.md)
 - [No subscriptions found](./no-subscriptions-found.md)
-- [Enterprise cost view disabled](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Enterprise cost view disabled](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## Contact us for help
 
