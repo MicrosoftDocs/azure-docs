@@ -129,20 +129,19 @@ Along with simple string and number inputs, the SAP connector accepts the follow
   1. In the action named **\[BAPI] Call method in SAP**, disable the auto-commit feature.
   1. Call the action named **\[BAPI] Commit transaction** instead.
 
-### IP-based connections to a message server (load-balanced configuration)
+### IP-based connections to SAP Message Server (load-balanced configuration)
 
-If a connection to an SAP Message Server (i.e. load balancer) is specified by IP address, the connection may fail with an error message similar to "hostname SAPDBSERVER01.example.com unknown." **Even though the connection is specified by IP address**
-the message server will instruct the connector to use a hostname for its connection to the backend application server (i.e. the server behind the load balancer). If the hostname cannot be resolved by DNS, the connection fails. There are two workarounds to this
+If you specify an IP address to connect to an SAP Message Server, for example, a load balancer, the connection might still fail with an error message similar to **"hostname SAPDBSERVER01.example.com unknown"**. The message server instructs the SAP connector to use a hostname for the connection to the backend SAP Application Server, or the server behind the load balancer. If DNS can't resolve the hostname, the connection fails.
+For this problem, the following workarounds or solutions exist:
 connection failure:
 
-#### Workarounds/Fixes
 
-1. Make sure that the machine making the connection (the machine hosting the On-Premise Data Gateway for Azure connector, or the ISE connector host for ISE connector) can resolve the hostnames returned by the message server. __OR__
-2. Change/add the SAP setting `ms/lg_with_hostname=0` in transaction `RZ11`
+- Make sure that the client making the connection, such as the computer with the on-premises data gateway for the SAP connector or the ISE connector host for the ISE-based SAP connector, can resolve the hostnames returned by the message server.
+-  In the transaction named **RZ11**, change or add the SAP setting named **ms/lg_with_hostname=0**.
 
-#### Background
+#### Problem context or background
 
-SAP released an upgrade to their .NET connector (NCo) to 3.1, which changed the way that it requests connections to backend servers from message servers. It now uses a new API for application server resolution by the message server, if it is not
+SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way that the connector requests connections to backend servers from message servers. The connector now uses a new API for application server resolution by the message server unless you force the connector to use the previous API through the setting named **ms/lg_with_hostname=0`**. For more information, see [SAP KB Article 3305039 - SMLG IP Address setting not considered during Logon Group login](https://me.sap.com/notes/3305039/E).
 forced into the older API by the `ms/lg_with_hostname=0` setting. See [SAP KB Article 3305039 - SMLG IP Address setting not considered during Logon Group login](https://me.sap.com/notes/3305039/E) for further information.
 
 ## Prerequisites
