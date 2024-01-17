@@ -5,13 +5,13 @@ author: kengaderdus
 manager: mwongerapk
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 12/11/2023
+ms.date: 01/17/2024
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#Customer intent: As a developer, I want to learn how to enable CAPTCHA in consumer-facing applications secured by Azure Active Directory B2C.
+#Customer intent: As a developer, I want to enable CAPTCHA in consumer-facing application that is secured by Azure Active Directory B2C.
 
 ---
 
@@ -19,7 +19,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) allows you to enable CAPTCHA prevent automated attacks on your consumer-facing applications. Azure AD B2C’s CAPTCHA supports both audio and visual captcha challenges. You can enable this security feature in both sign-up and sign-in flows of your local accounts. CAPTCHA isn't applicable for social identity providers' sign-in.   
+Azure Active Directory B2C (Azure AD B2C) allows you to enable CAPTCHA prevent to automated attacks on your consumer-facing applications. Azure AD B2C’s CAPTCHA supports both audio and visual captcha challenges. You can enable this security feature in both sign-up and sign-in flows for your local accounts. CAPTCHA isn't applicable for social identity providers' sign-in.   
 
 > [!NOTE]
 > This feature is in public preview
@@ -317,8 +317,8 @@ To enable CAPTCHA in MFA flow, you need to make an update in two technical profi
 ::: zone-end
 
 > [!NOTE]
-> - You can't add CAPTCHA to an MFA step in Sign up only user flow.
-> - In an MFA flow, CAPTCHA is applicable where the MFA method selected is SMS or phone call, SMS only or Phone call only.
+> - You can't add CAPTCHA to an MFA step in a sign-up only user flow.
+> - In an MFA flow, CAPTCHA is applicable where the MFA method you select is SMS or phone call, SMS only or Phone call only.
 
 ::: zone pivot="b2c-user-flow"
 ## Upload the custom policy files
@@ -329,3 +329,8 @@ Use the steps in [Upload the policies](tutorial-create-user-flows.md?pivots=b2c-
 
 Use the steps in [Test the custom policy](tutorial-create-user-flows.md?pivots=b2c-custom-policy#test-the-custom-policy) to test and confirm that CAPTCHA is enabled for your chosen flow. You should be prompted to enter the characters you see or hear depending on the CAPTCHA type, visual or audio, you choose.
 ::: zone-end
+
+## Next steps 
+
+- Learn how to [Define a CAPTCHA technical profile](captcha-technical-profile.md).
+- Learn how to [Configure CAPTCHA display control](display-control-captcha.md).

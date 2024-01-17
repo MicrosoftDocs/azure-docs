@@ -1,7 +1,7 @@
 ---
 title: Define a CAPTCHA technical profile in a custom policy
 titleSuffix: Azure AD B2C
-description: Define a captcha technical profile in a custom policy in Azure Active Directory B2C.
+description: Define a captcha technical profile custom policy in Azure Active Directory B2C.
 
 author: kengaderdus
 manager: mwongerapk
@@ -9,9 +9,11 @@ manager: mwongerapk
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 12/11/2023
+ms.date: 01/17/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+#Customer intent: As a developer integrating a customer-facing application with Azure Active Directory B2C, I want to define a CAPTCHA technical profile, so that I can secure sign-up and sign-in flows from automated attacks.
 ---
 
 # Define a CAPTCHA technical profile in an Azure Active Directory B2C custom policy
@@ -39,7 +41,7 @@ The following example shows a self-asserted technical profile for email sign-up:
 
 CAPTCHA technical profile operations has two operations:
 
-- **Get challenge operation** generates the captcha code string, then displays it on the user interface by using a [captcha display control](). The display includes a textbox. This operations request the user to input the characters they see or hear into the textbox. The user can switch between visual and audio challenge types as needed.
+- **Get challenge operation** generates the captcha code string, then displays it on the user interface by using a [captcha display control](display-control-captcha.md). The display includes an input textbox. This operation directs the user to input the characters they see or hear into the input textbox. The user can switch between visual and audio challenge types as needed.
 
 - **Verify code operation** verifies the characters input by the user.
 
@@ -54,6 +56,7 @@ The **InputClaims** element contains a list of claims to send to Azure AD B2C's 
  | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- |
 | challengeType | No | The CAPTCHA challenge type, Audio or Visual (default).|
+| azureregion | Yes | The service region that will serve the CAPTCHA challenge request. |
 
 ### Display claims
 
@@ -63,6 +66,7 @@ The **DisplayClaims** element contains a list of claims to be presented on the s
 | --------- | -------- | ----------- |
 | challengeString | Yes | The CAPTCHA challenge code.|
 
+
 ### Output claims
 
 The **OutputClaims** element contains a list of claims returned by the captcha technical profile.
@@ -71,7 +75,7 @@ The **OutputClaims** element contains a list of claims returned by the captcha t
 | --------- | -------- | ----------- |
 | challengeId | Yes | A unique identifier for CAPTCHA challenge code.|
 | challengeString | Yes | The CAPTCHA challenge code.|
-| azureregion | Yes | TODO|
+| azureregion | Yes | The service region that will serve the CAPTCHA challenge request.|
 
 
 ### Metadata

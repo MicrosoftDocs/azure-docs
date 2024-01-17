@@ -1,7 +1,7 @@
 ---
 title: Verify CAPTCHA code using CAPTCHA display controls
 titleSuffix: Azure AD B2C
-description: Learn how to use Azure AD B2C display controls to verify CAPTCHA code in custom policies.
+description: Learn how to define a CAPTCHA display controls custom policy in Azure AD B2C.
 
 author: kengaderdus
 manager: mwongerapk
@@ -9,9 +9,11 @@ manager: mwongerapk
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 12/11/2023
+ms.date: 01/17/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+#Customer intent: As a developer integrating customer-facing apps with Azure AD B2C, I want to learn how to define a CAPTCHA display control so that I can enable CAPTCHA in my authentication using Azure AD B2C's custom policies. 
 ---
 
 # Verify CAPTCHA challenge string using CAPTCHA display control
@@ -34,7 +36,7 @@ This table summarizes the elements that a CAPTCHA display control contains.
 |  InputClaims  |  Yes  |  One or more claims required as input to specify the captcha challenge type and to uniquely identify the challenge.  |
 |  DisplayClaims  |  Yes  |  The claims to be shown to the user such as the captcha challenge code, or collected from the user, such as code input by the user  |
 |    OutputClaim    |  No  | Any claim to be returned to the self-asserted page after the user completes captcha code verification process.   |
-|  Actions  |  Yes  |  CAPTCHA display control contains two actions, *GetChallenge* and *VerifyChallenge*. <br> *GetChallenge* action generate, then displays the captcha challenge code on the interface. This action contains a validation technical profile, which is usually the GetChallenge[CAPTCHA technical profile](captcha-technical-profile.md), to generate and display the CAPTCHA challenge string. <br> *VerifyChallenge* action verifies the CAPTCHA challenge code that the user inputs. This action contains a validation technical profile, which is usually the VerifyChallenge [CAPTCHA technical profile](captcha-technical-profile.md), to validate the CAPTCHA code that the user inputs.  |
+|  Actions  |  Yes  |  CAPTCHA display control contains two actions, *GetChallenge* and *VerifyChallenge*. <br> *GetChallenge* action generates, then displays a captcha challenge code on the user interface. <br> *VerifyChallenge* action verifies the CAPTCHA challenge code that the user inputs. |
 
 The following XML snippet code shows an examples of CaptchaProvider display control:
 
@@ -73,3 +75,7 @@ The following XML snippet code shows an examples of CaptchaProvider display cont
     ...
 </DisplayControls>
 ```
+
+## Next steps
+
+- [Enable CAPTCHA in Azure Active Directory B2C](add-captcha.md).
