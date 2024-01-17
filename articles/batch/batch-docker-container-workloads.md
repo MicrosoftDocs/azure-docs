@@ -3,7 +3,8 @@ title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
 ms.date: 01/10/2024
-ms.devlang: csharp, python
+ms.devlang: csharp
+# ms.devlang: csharp, python
 ms.custom: seodec18, devx-track-csharp, devx-track-linux
 ---
 
