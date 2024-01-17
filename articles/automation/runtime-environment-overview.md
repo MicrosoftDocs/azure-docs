@@ -3,7 +3,7 @@ title: Runtime environment in Azure Automation
 description: This article provides an overview on Runtime environment in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2024
+ms.date: 01/17/2024
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -35,11 +35,11 @@ Runtime environment captures the following details about the job execution envir
     
    |**Package Types** | **Description** |
    |---------|---------|
-   |**Default packages**  | The packages enable you to manage Azure resources. For example, Az PowerShell 8.0.0, Azure CLI 2.52.0|
+   |**Default packages**  | The packages enable you to manage Azure resources. For example, Az PowerShell 8.0.0, Azure CLI 2.56.0|
    |**Customer-provided packages** | These are custom packages that are required by runbooks during execution. The packages can be from: </br> - Public gallery: PSGallery, pypi </br> - Self-authored. |
 
 > [!NOTE]
-> Azure CLI commands are supported (public preview) in runbooks associated with PowerShell 7.2 Runtime environment. Azure CLI commands version 2.52.0 is available as a default package in PowerShell 7.2 Runtime environment.
+> Azure CLI commands are supported (public preview) in runbooks associated with PowerShell 7.2 Runtime environment. Azure CLI commands version 2.56.0 is available as a default package in PowerShell 7.2 Runtime environment.
 
 ## Azure CLI package in Runtime environment 
 
@@ -58,14 +58,14 @@ Azure Automation creates system-generated Runtime environments based on the Runt
 - Python-3.8
 - Python-3.10
 
-  :::image type="content" source="./media/runtime-environment-overview/system-generated.png" alt-text="Screenshot shows the system generated Runtime environment." lightbox="./media/runtime-environment-overview/system-generated.png":::
-
 You can't edit these Runtime environments. However, any changes that are made in Modules/Packages for the Automation account are automatically reflected in these system-generated Runtime environments. 
+
+:::image type="content" source="./media/runtime-environment-overview/system-generated.png" alt-text="Screenshot shows the system generated Runtime environment." lightbox="./media/runtime-environment-overview/system-generated.png":::
 
 > [!NOTE]
 > Packages present in System-generated Runtime environments are unique to your Azure Automation account and might vary across different accounts. 
 
-## Key Benefits
+## Key benefits
 
 - **Granular control** - enables you to configure the script execution environment by choosing the Runtime language, its version, and dependent modules.
 - **Runbook update** - allows easy portability of runbooks across different runtime versions by updating runtime environment of runbooks to keep pace with the latest PowerShell and Python releases. You can test updates before publishing them to production.

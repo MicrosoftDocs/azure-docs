@@ -33,7 +33,7 @@ Using the Runtime environment, you can upgrade a runbook from one Runtime versio
     1. From the **Language** dropdown list, select  **PowerShell**.
     1. In **Runtime version** for scripting language, select 7.2.
     1. Provide appropriate **Description**.
-1. On **Packages** tab, in the **Package version** dropdown list, you would see **Az version 8.3.0** and **Azure CLI version 2.52.0** packages already present.
+1. On **Packages** tab, in the **Package version** dropdown list, you would see **Az version 8.3.0** and **Azure CLI version 2.56.0** packages already present.
 1. Select **+Add from gallery** to add more packages from gallery and select **Next**.
 1. On **Review + create** tab, review the entries and select **Create**.
 

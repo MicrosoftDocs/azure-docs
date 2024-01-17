@@ -3,7 +3,7 @@ title: Manage Runtime environment and associated runbooks in Azure Automation
 description: This article tells how to manage runbooks in Runtime environment and associated runbooks Azure Automation
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2024
+ms.date: 01/17/2024
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -68,7 +68,7 @@ An Azure Automation account in supported public region (except Central India, Ge
    :::image type="content" source="./media/manage-runtime-environment/packages-runtime-environment.png" alt-text="Screenshot shows the selections in packages tab of create runtime environment.":::
  
    > [!NOTE]
-   > Azure CLI commands are supported (preview) in runbooks associated with PowerShell 7.2 Runtime environment. Azure CLI commands version 2.52.0 are available as a default package in PowerShell 7.2 Runtime environment.
+   > Azure CLI commands are supported (preview) in runbooks associated with PowerShell 7.2 Runtime environment. Azure CLI commands version 2.56.0 are available as a default package in PowerShell 7.2 Runtime environment.
 
 1. To upload more Packages required during runbook execution. Select **Add a file** to add the file(s) stored locally on your computer or select **Add from gallery** to upload packages from PowerShell gallery.
       
@@ -264,7 +264,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
             "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1" 
         } 
     }, 
-   “location”: “East US” 
+   "location": "East US"
 } 
 ```
 > [!NOTE]
@@ -301,7 +301,7 @@ PATCH
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runbooks/<runbookName>?api-version=2023-05-15-preview 
 { 
   "properties": { 
-    “type”: “PowerShell” 
+    "type": "PowerShell" 
     "runtimeEnvironment": "<runtimeEnvironmentName>" 
   } 
 } 
