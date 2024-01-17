@@ -276,13 +276,13 @@ The following example shows a C# class that returns an error message:
 ```csharp
 public class ResponseContent
 {
-  public string version { get; set; }
-  public int status { get; set; }
-  public string code { get; set; }
-  public string userMessage { get; set; }
-  public string developerMessage { get; set; }
-  public string requestId { get; set; }
-  public string moreInfo { get; set; }
+  public string Version { get; set; }
+  public int Status { get; set; }
+  public string Code { get; set; }
+  public string UserMessage { get; set; }
+  public string DeveloperMessage { get; set; }
+  public string RequestId { get; set; }
+  public string MoreInfo { get; set; }
 }
 ```
 
