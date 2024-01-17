@@ -15,10 +15,10 @@ ms.date: 01/16/2024
 
 Virtual network (VNet) flow logs are a feature of Azure Network Watcher. You can use them to log information about IP traffic flowing through a virtual network.
 
-Flow data from VNet flow logs is sent to Azure Storage. From there, you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS). The capability of VNet flow logs overcomes some of the existing limitations of [NSG flow logs](network-watcher-nsg-flow-logging-overview.md).
+Flow data from VNet flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS). VNet flow logs overcome some of the limitations of [NSG flow logs](network-watcher-nsg-flow-logging-overview.md).
 
 > [!IMPORTANT]
-> The feature of VNet flow logs is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The feature of VNet flow logs is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Why use flow logs?
 
@@ -66,7 +66,7 @@ In addition to existing support to identify traffic that [network security group
 Key properties of VNet flow logs include:
 
 - Flow logs operate at Layer 4 of the Open Systems Interconnection (OSI) model and record all IP flows going through a virtual network.
-- Logs are collected at one-minute intervals through the Azure platform and don't affect your Azure resources or network traffic.
+- Logs are collected at one-minute intervals through the Azure platform. They don't affect your Azure resources or network traffic.
 - Logs are written in the JavaScript Object Notation (JSON) format.
 - Each log record contains the network interface that the flow applies to, 5-tuple information, traffic direction, flow state, encryption state, and throughput information.
 - All traffic flows in your network are evaluated through the applicable [network security group rules](../virtual-network/network-security-groups-overview.md) or [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md).
@@ -76,7 +76,7 @@ Key properties of VNet flow logs include:
 VNet flow logs have the following properties:
 
 - `time`: Time in UTC when the event was logged.
-- `flowLogVersion`: Version of flow log schema.
+- `flowLogVersion`: Version of the flow log schema.
 - `flowLogGUID`: Resource GUID of the flow log resource.
 - `macAddress`: MAC address of the network interface where the event was captured.
 - `category`: Category of the event. The category is always `FlowLogFlowEvent`.
@@ -85,9 +85,9 @@ VNet flow logs have the following properties:
 - `operationName`: Always `FlowLogFlowEvent`.
 - `flowRecords`: Collection of flow records.
   - `flows`: Collection of flows. This property has multiple entries for access control lists (ACLs):
-    - `aclID`: Identifier of the resource that's evaluating traffic, either a network security group or Virtual Network Manager. For cases like traffic denied by encryption, this value is `unspecified`.
+    - `aclID`: Identifier of the resource that's evaluating traffic, either a network security group or Virtual Network Manager. For traffic that's denied because of encryption, this value is `unspecified`.
     - `flowGroups`: Collection of flow records at a rule level:
-      - `rule`: Name of the rule that allowed or denied the traffic. For traffic that's denied due to encryption, this value is `unspecified`.
+      - `rule`: Name of the rule that allowed or denied the traffic. For traffic that's denied because of encryption, this value is `unspecified`.
       - `flowTuples`: String that contains multiple properties for the flow tuple in a comma-separated format:
         - `Time Stamp`: Time stamp of when the flow occurred, in UNIX epoch format.
         - `Source IP`: Source IP address.
@@ -102,10 +102,10 @@ VNet flow logs have the following properties:
           - `E`: End, when a flow is terminated. Statistics are provided.
           - `D`: Deny, when a flow is denied.
         - `Flow encryption`: Encryption state of the flow. The table after this list describes the possible values.
-        - `Packets sent`: Total number of packets sent from source to destination since the last update.
-        - `Bytes sent`: Total number of packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload.
-        - `Packets received`: Total number of packets sent from destination to source since the last update.
-        - `Bytes received`: Total number of packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload.
+        - `Packets sent`: Total number of packets sent from the source to the destination since the last update.
+        - `Bytes sent`: Total number of packet bytes sent from the source to the destination since the last update. Packet bytes include the packet header and payload.
+        - `Packets received`: Total number of packets sent from the destination to the source since the last update.
+        - `Bytes received`: Total number of packet bytes sent from the destination to the source since the last update. Packet bytes include the packet header and payload.
 
 `Flow encryption` has the following possible encryption statuses:
 
@@ -115,8 +115,8 @@ VNet flow logs have the following properties:
 | `NX` | **Connection is unencrypted**. This event is logged in two scenarios: <br> - When encryption isn't configured. <br> - When an encrypted virtual machine communicates with an endpoint that lacks encryption (such as an internet endpoint). |
 | `NX_HW_NOT_SUPPORTED` | **Hardware is unsupported**. Encryption is configured, but the virtual machine is running on a host that doesn't support encryption. This problem usually happens because the field-programmable gate array (FPGA) isn't attached to the host or is faulty. Report this problem to Microsoft for investigation. |
 | `NX_SW_NOT_READY` | **Software isn't ready**. Encryption is configured, but the software component (GFT) in the host networking stack isn't ready to process encrypted connections. This problem can happen when the virtual machine is starting for the first time, is restarting, or is redeployed. It can also happen when there's an update to the networking components on the host where virtual machine is running. In all these scenarios, the packet is dropped. The problem should be temporary. Encryption should start working after either the virtual machine is fully up and running or the software update on the host is complete. If the problem has a longer duration, report it to Microsoft for investigation. |
-| `NX_NOT_ACCEPTED` | **Drop due to no encryption**. Encryption is configured on both source and destination endpoints, with a drop on unencrypted policies. If there's a failure to encrypt traffic, the packet is dropped. |
-| `NX_NOT_SUPPORTED` | **Discovery is unsupported**. Encryption is configured, but the encryption session wasn't established because discovery isn't supported in the host networking stack. In this case, the packet is dropped. If you encounter this problem, report it to Microsoft for investigation. |
+| `NX_NOT_ACCEPTED` | **Drop due to no encryption**. Encryption is configured on both source and destination endpoints, with a drop on unencrypted policies. If traffic encryption fails, the packet is dropped. |
+| `NX_NOT_SUPPORTED` | **Discovery is unsupported**. Encryption is configured, but the encryption session wasn't established because the host networking stack doesn't support discovery. In this case, the packet is dropped. If you encounter this problem, report it to Microsoft for investigation. |
 | `NX_LOCAL_DST` | **Destination is on the same host**. Encryption is configured, but the source and destination virtual machines are running on the same Azure host. In this case, the connection isn't encrypted by design. |
 | `NX_FALLBACK` | **Fall back to no encryption**. Encryption is configured with the allow-unencrypted policy for both source and destination endpoints. The system attempted encryption but had a problem. In this case, the connection is allowed but isn't encrypted. For example, a virtual machine initially landed on a node that supports encryption, but this support was removed later. |
 
@@ -207,7 +207,10 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 ## Considerations for storage accounts
 
 - **Location**: The storage account must be in the same region as the virtual network.
-- **Subscription**: The storage account must be in the same subscription of the virtual network or in a subscription that's associated with the same Microsoft Entra tenant of the virtual network's subscription.
+- **Subscription**: The storage account must be in either:
+
+  - The same subscription as the virtual network.
+  - A subscription that's associated with the same Microsoft Entra tenant as the virtual network's subscription.
 - **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the access keys to your storage account, VNet flow logs stop working. To fix this problem, you must disable and then re-enable VNet flow logs.
 
