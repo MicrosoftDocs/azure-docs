@@ -239,10 +239,10 @@ The `up` command uses the Dockerfile in the root of the repository to build the 
 ::: zone-end
 
 ::: zone pivot="without-dockerfile"
-For the container app to be accessible let's ensure we also enable ingress traffic to the correct port of where the application container listens. The containers are build to listen on port 8080.
+The container app needs to be accessible to ingress traffic. Ensure to expose port 8080 to listen for incoming requests.
 ::: zone-end
 
-In the command below, replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<owner>/<repository-name>` or `<owner>/<repository-name>`.
+In the command below, replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<OWNER>/<REPOSITORY-NAME>` or `<OWNER>/<REPOSITORY-NAME>`.
 
 # [Bash](#tab/bash)
 

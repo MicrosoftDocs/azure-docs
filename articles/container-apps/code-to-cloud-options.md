@@ -11,21 +11,22 @@ ms.author: cshoe
 
 # Select the right code-to-cloud path for Azure Container Apps
 
-You have several options available as you develop and deploy your apps to Azure Container Apps. As you evaluate your goals and the needs of your team, consider the following questions:
+You have several options available as you develop and deploy your apps to Azure Container Apps. As you evaluate your goals and the needs of your team, consdier the following.
 
-- Do you want to focus more on your application, your infrastructure or both?
-- Are you working on a team or as an individual? Which stage are you in with your application? Are you innovating rapidly or in a stable steady state?
-- How is your application currently packaged? Are you new to containers? or are there existing processes in place you're hoping to start from?
+- Is your focus more on your application or your infrastructure or both?
+- Which stage are you in with your application, are you innovating rapidly or in a stable steady state?
+- Are you new to containers?
 
-Your answers to these questions affect your preferred development and deployment strategies. Individuals who want to rapidly iterate features have different needs than structured teams deploying to mature production environments.
-
-This article helps you select the most appropriate option for how you develop and deploy your applications to Azure Container Apps.
+Your answers to these questions affect your preferred development and deployment strategies. This article helps you select the most appropriate option for how you develop and deploy your applications to Azure Container Apps.
 
 Depending on your situation, you may want to deploy from a [code editor](#code-editor), through the [Azure portal](#azure-portal), with a hosted [code repository](#code-repository), or via [infrastructure as code](#infrastructure-as-code). However, if you are new to containers, you can [learn more](#new-to-containers) about how containers can help your development process.
 
 ## New to containers
 
-Azure Container Apps can containerize your application for you. This can help get your started more quickly if you or team members are new to containers. Hereby Azure Container App's cloud build will automatically identify your application stack, and use [CNCF Buildpacks](https://buildpacks.io/) to turn it into a container image which then runs automatically. 
+You can simplify the development and deployment of your application by packaging your app into a "container". Containers allow you to wrap up your application and all its dependencies into a single unit that is portal and can be run easily on any container platform.
+
+If you're interested in deploying your application to Azure Container Apps, but don't want to define a container ahead of time, Container Apps can create a container. The Container Apps cloud build feature automatically identifies your application stack and uses [CNCF Buildpacks](https://buildpacks.io/) to generate a container image for you.
+
 
 Defining containers ahead of time often requires using Docker and publishing your container on a container registry. When you use the Container Apps cloud build, you don't have to worry about special container tooling or registries.
 
