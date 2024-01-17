@@ -101,7 +101,7 @@ All ConfigMaps should be applied to `kube-system` namespace for any cluster.
 
 ### Ingest only minimal metrics for the default targets
 
-This is the default behavior with the setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"`. Only metrics listed later in this article are ingested for each of the default targets, which in this case are `controlplane-apiserver` and `controlplane-etcd`.
+This is the default behavior with the setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"`. Only metrics listed later in this article are ingested for each of the default targets, which in this case is `controlplane-apiserver` and `controlplane-etcd`.
 
 ### Ingest all metrics from all targets
 
@@ -121,7 +121,7 @@ Perform the following steps to collect all metrics from all targets on the clust
 
 ### Ingest a few other metrics in addition to minimal metrics
 
-`Minimal ingestion profile` is a setting that helps reduce ingestion volume of metrics, as only metrics used by default dashboards, default recording rules & default alerts are collected. Perform the followig steps to customize this behavior.
+`Minimal ingestion profile` is a setting that helps reduce ingestion volume of metrics, as only metrics used by default dashboards, default recording rules & default alerts are collected. Perform the following steps to customize this behavior.
 
 1. Download the ConfigMap file [ama-metrics-settings-configmap][ama-metrics-settings-configmap] and rename it to `configmap-controlplane.yaml`.
 
@@ -186,7 +186,7 @@ There have been cases where the metric is documented, but it's not exposed from 
 
 ### No access to the Azure Monitor workspace
 
-When enabling the add-on, it's possible that you used an existing workspace and you might not have access to it. In that case, it might look like the metrics are not being collected and forwarded. Make sure that you create a new workspace when enabling the add-on or while creating the cluster.
+When enabling the add-on, if you specified an existing workspace that you might not have access to. In that case, it might look like the metrics are not being collected and forwarded. Make sure that you create a new workspace when enabling the add-on or while creating the cluster.
 
 ## Disable control plane metrics on your AKS cluster
 
