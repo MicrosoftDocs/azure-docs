@@ -442,15 +442,13 @@ If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, 
 
 :::zone pivot="programming-language-csharp"
 
-The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) has scripts that can help you create root CA, intermediate CA, and device certificates, and do proof-of-possession with the service to verify root and intermediate CA certificates. To learn more, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
-
-The [Group certificate verification sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service/samples/how%20to%20guides/GroupCertificateVerificationSample) in the [Azure IoT SDK for C# (.NET)](https://github.com/Azure/azure-iot-sdk-csharp) shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
+The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) has scripts that can help you create and manage certificates. To learn more, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
 :::zone-end
 
 :::zone pivot="programming-language-nodejs"
 
-The [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) has scripts that can help you create root CA, intermediate CA, and device certificates, and do proof-of-possession with the service to verify root and intermediate CA certificates. To learn more, see [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/tools).
+The [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) has scripts that can help you create and manage certificates. To learn more, see [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/tools).
 
 You can also use tools available in the  [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). To learn more, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
@@ -458,7 +456,7 @@ You can also use tools available in the  [Azure IoT C SDK](https://github.com/Az
 
 :::zone pivot="programming-language-java"
 
-The [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and do proof-of-possession with the service to verify root and intermediate CA certificates. To learn more, see [X509 certificate generator using DICE emulator](https://github.com/Azure/azure-iot-sdk-java/tree/main/provisioning/provisioning-tools/provisioning-x509-cert-generator).
+The [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) contains test tooling that can help you create and manage certificates. To learn more, see [X509 certificate generator using DICE emulator](https://github.com/Azure/azure-iot-sdk-java/tree/main/provisioning/provisioning-tools/provisioning-x509-cert-generator).
 
 :::zone-end
 

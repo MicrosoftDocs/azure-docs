@@ -40,7 +40,6 @@ In this tutorial, you'll complete the following objectives:
 > [!div class="checklist"]
 >
 > * Create a certificate chain of trust to organize a set of devices using X.509 certificates.
-> * Complete proof of possession with a signing certificate used with the certificate chain.
 > * Create a new group enrollment that uses the certificate chain.
 > * Set up the development environment.
 > * Provision a device using the certificate chain using sample code in the Azure IoT device SDK.
@@ -227,7 +226,7 @@ In this section, you'll generate an X.509 certificate chain of three certificate
 
 :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/example-device-cert-chain.png" alt-text="Diagram that shows relationship of root C A, intermediate C A, and device certificates." border="false":::
 
-[Root certificate](concepts-x509-attestation.md#root-certificate): You'll complete [proof of possession](how-to-verify-certificates.md) to verify the root certificate. This verification enables DPS to trust that certificate and verify certificates signed by it.
+[Root certificate](concepts-x509-attestation.md#root-certificate): You'll upload and verify the root certificate with DPS. This verification enables DPS to trust that certificate and verify certificates signed by it.
 
 [Intermediate certificate](concepts-x509-attestation.md#intermediate-certificate): It's common to use intermediate certificates to group devices logically by product lines, company divisions, or other criteria. This tutorial uses a certificate chain with one intermediate certificate, but in a production scenario you may have several. The intermediate certificate in this chain is signed by the root certificate. This certificate is provided to the enrollment group created in DPS to logically group a set of devices. This configuration allows managing a whole group of devices that have device certificates signed by the same intermediate certificate.
 
@@ -754,7 +753,7 @@ You'll use the following files in the rest of this tutorial:
 
 ## Verify ownership of the root certificate
 
-For DPS to be able to validate the device's certificate chain during authentication, you must upload and verify ownership of the root CA certificate. Because you created the root CA certificate in the last section, you'll auto-verify that it's valid when you upload it. Alternatively, you can do manual verification of the certificate if you're using a CA certificate from a 3rd-party. To learn more about verifying CA certificates, see [How to do proof-of-possession for X.509 CA certificates](how-to-verify-certificates.md).
+For DPS to be able to validate the device's certificate chain during authentication, you must upload and verify ownership of the root CA certificate. Because you created the root CA certificate in the last section, you'll automatically verify that it's valid when you upload it.
 
 To add the root CA certificate to your DPS instance, follow these steps:
 
@@ -773,19 +772,6 @@ To add the root CA certificate to your DPS instance, follow these steps:
 1. Make sure your certificate is shown in the certificate tab with a status of *Verified*.
   
     :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/verify-root-certificate.png" alt-text="Screenshot that shows the verified root C A certificate in the list of certificates.":::
-
-## (Optional) Manual verification of root certificate
-If you didn't choose to automatically verify the certificate during upload, you manually prove possession:
-
-1. Select the new CA certificate.
-
-1. Select Generate Verification Code in the Certificate Details dialog.
-
-1. Create a certificate that contains the verification code. For example, if you're using the Bash script supplied by Microsoft, run `./certGen.sh create_verification_certificate "<verification code>"` to create a certificate named `verification-code.cert.pem`, replacing `<verification code>` with the previously generated verification code. For more information, you can download the [files](https://github.com/Azure/azure-iot-sdk-c/tree/main/tools/CACertificates) relevant to your system to a working folder and follow the instructions in the [Managing CA certificates readme](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) to perform proof-of-possession on a CA certificate.
- 
-1. Upload `verification-code.cert.pem` to your provisioning service in the Certificate Details dialog.
-
-1. Select Verify.
 
 ## Update the certificate store on Windows-based devices
 
