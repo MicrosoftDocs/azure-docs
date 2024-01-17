@@ -1,6 +1,6 @@
 ---
 title: Create a Standby Pool for Virtual Machine Scale Sets
-description: Learn how to create a Standby Pool to reduce scale out latency with Virtual Machine Scale Sets
+description: Learn how to create a Standby Pool to reduce scale-out latency with Virtual Machine Scale Sets
 author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
@@ -40,7 +40,7 @@ In order for Standby Pools to successfully create Virtual Machines, you need to 
 8) Select the Standby Pool Resource Provider and select **Review + Assign**.
 9) Repeat the above steps and but in step 5, assign the **Network Contributor** role.  
 
-If you are leveraging a customized image in Compute Gallery, ensure to assign Standby Pool Resource Provider the **Compute Gallery Sharing Admin** permissions as well.
+If you're using a customized image in Compute Gallery, ensure to assign Standby Pool Resource Provider the **Compute Gallery Sharing Admin** permissions as well.
 
 For more information on assigning roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
@@ -49,17 +49,17 @@ For more information on assigning roles, see [Assign Azure roles using the Azure
 ### [Portal](#tab/portal1)
 A Standby Pool can be created as part of the Virtual Machine Scale Set creation process or created and attached to an existing scale set. 
 
-During Virtual Machine Scale Set creation, navigate to the **Managment** tab. Select **Add a Standby Pool**.
+During Virtual Machine Scale Set creation, navigate to the **Management** tab. Select **Add a Standby Pool**.
 
-:::image type="content" source="./media/standby-pools/create-standby-pool-1.png" alt-text="Image shows selecting to create a Standby Pool during scale set creation in the Azure Portal.":::
+:::image type="content" source="./media/standby-pools/create-standby-pool-1.png" alt-text="Image shows selecting to create a Standby Pool during scale set creation.":::
 
 Input the desired Max Ready Capacity and Virtual Machine State. 
 
-:::image type="content" source="./media/standby-pools/create-standby-pool-2.png" alt-text="Image shows selecting the Standby Pool configuration options in the Azure Portal during scale set creation.":::
+:::image type="content" source="./media/standby-pools/create-standby-pool-2.png" alt-text="Image shows selecting the Standby Pool configuration options during scale set creation.":::
 
 If you instead choose to create a Standby Pool on an existing Virtual Machine Scale set, navigate to the scale set you want to associate a Standby Pool with. Under **Availability + scale**, select **Standby Pool**. Select **Create Standby Pool** and input your desired configurations. 
 
-:::image type="content" source="./media/standby-pools/create-standby-pool-3.png" alt-text="Image shows selecting the Standby Pool configuration options in the Azure Portal during scale set creation.":::
+:::image type="content" source="./media/standby-pools/create-standby-pool-3.png" alt-text="Image shows updating the Standby Pool configuration option.":::
 
  
 
@@ -130,7 +130,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{
 
 
 ### [Terraform](#tab/terraform1)
-Create a Standby Pool and associate it with an existing Scale Set using Terraform. Include Standby Pool name, Location, Max Ready Capacity, Virtual Machine Running State and the scale set id you want associated. 
+Create a Standby Pool and associate it with an existing Scale Set using Terraform. Include Standby Pool name, Location, Max Ready Capacity, Virtual Machine Running State and the scale set ID you want associated. 
 
 ```terraform
 terraform {

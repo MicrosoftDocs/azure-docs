@@ -20,9 +20,9 @@ ms.reviewer: ju-shim
 ## Update a Standby Pool
 
 ### [Portal](#tab/portal1)
-To update the properties of an existing Standby Pool, navigate to the scale set that is associated with the Standby Pool you want to update. Under **Availability + scale** select **Standby Pool**. Select **Configuration Options** at the top of the screen. A window will pop-up allowing you to update the Standby Pool configurations.  
+To update the properties of an existing Standby Pool, navigate to the scale set that is associated with the Standby Pool you want to update. Under **Availability + scale** select **Standby Pool**. Select **Configuration Options** at the top of the screen. A window will pop up allowing you to update the Standby Pool configurations.  
 
-:::image type="content" source="./media/standby-pools/update-standby-pool-1.png" alt-text="Image shows updating an existing Standby Pool in the Azure Portal.":::
+:::image type="content" source="./media/standby-pools/update-standby-pool-1.png" alt-text="Image shows updating an existing Standby Pool.":::
 
 ### [CLI](#tab/cli1)
 Update an existing Standby Pool using [az standbypool update]().
@@ -148,9 +148,9 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-06-0
 ## Delete a Standby Pool
 
 ### [Portal](#tab/portal2)
-To delete an existing Standby Pool, navigate to the scale set that is associated with the Standby Pool you want to delete. Under **Availability + scale** select **Standby Pool**. Select **delete** at the top of the screen. This will delete the Standby Pool and all the instances inside of the pool.   
+To delete an existing Standby Pool, navigate to the scale set that is associated with the Standby Pool you want to delete. Under **Availability + scale** select **Standby Pool**. Select **delete** at the top of the screen. This deletes the Standby Pool and all the instances inside of the pool.   
 
-:::image type="content" source="./media/standby-pools/update-standby-pool-1.png" alt-text="Image shows deleting an existing Standby Pool in the Azure Portal.":::
+:::image type="content" source="./media/standby-pools/update-standby-pool-1.png" alt-text="Image shows deleting an existing Standby Pool.":::
 
 ### [CLI](#tab/cli2)
 Delete an existing Standby Pool using [az standbypool delete]().
