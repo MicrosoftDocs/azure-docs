@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor features for Kubernetes monitoring
-description: This article describes Container insights, which monitors the AKS Container insights solution, and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
+description: Describes Container insights and Managed Prometheus in Azure Monitor, which work together to monitor your Kubernetes clusters.
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/20/2023
@@ -79,7 +79,7 @@ Yes, Container Insights supports pod sandboxing through support for Kata Contain
 
 ## Next steps
 
-To begin monitoring your Kubernetes cluster, review [Enable Container insights](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring.
+- See [Enable monitoring for Kubernetes clusters](kubernetes-monitoring-enable.md) to enable Managed Prometheus and Container insights on your cluster.
 
 <!-- LINKS - external -->
 [aks-release-notes]: https://github.com/Azure/AKS/releases
