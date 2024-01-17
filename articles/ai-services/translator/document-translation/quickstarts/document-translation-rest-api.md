@@ -61,8 +61,6 @@ To get started, you need:
 
   1. After your resource has successfully deployed, select **Go to resource**.
 
-<!-- > [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Prerequisites) -->
 
 ### Retrieve your key and document translation endpoint
 
@@ -72,14 +70,9 @@ To get started, you need:
 
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 
-1. Copy and paste your **`key`** and **`document translation endpoint`** in a convenient location, such as *Microsoft Notepad*. Only one key is necessary to make an API call.
-
-1. You paste your **`key`** and **`document translation endpoint`** into the code samples to authenticate your request to the Document Translation service.
+1. You can copy and paste your **`key`** and **`document translation endpoint`** into the code samples to authenticate your request to the Document Translation service. Only one key is necessary to make an API call.
 
     :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot showing the get your key field in Azure portal.":::
-
-<!-- > [!div class="nextstepaction"]
-> [I ran into an issue retrieving my key and endpoint.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Retrieve-your-keys-and-endpoint) -->
 
 ## Create Azure Blob Storage containers
 
@@ -102,8 +95,6 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 > * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
 > * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](../how-to-guides/create-use-managed-identities.md) for authentication.
 
-<!-- > [!div class="nextstepaction"]
-> [I ran into an issue creating blob storage containers with authentication.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-blob-storage-containers) -->
 
 ### Sample document
 
