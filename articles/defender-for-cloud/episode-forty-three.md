@@ -1,15 +1,15 @@
 ---
-title: Agentless secrets scanning for virtual machines | Defender for Cloud in the field
-description: Learn about agentless secrets scanning for virtual machines
+title: Unified insights from Microsoft Entra Permissions Management | Defender for Cloud in the field
+description: Learn about unified insights from Microsoft Entra Permissions Management
 ms.topic: reference
 ms.date: 01/17/2024
 ---
 
-# Agentless secrets scanning for virtual machines
+# Unified insights from Microsoft Entra Permissions Management
 
-**Episode description**: In this episode of Defender for Cloud in the Field, Ortal Parpara joins Yuri Diogenes to talk about agentless secrets scanning for virtual machines in Microsoft Defender for Cloud. Ortal explains the use case scenario for this feature, how the feature works, and the prerequisites for this feature to work. The demonstration shows how the attack path uses this feature to provide more insights about secrets that are located in virtual machines, and how it can be used to detect potential cross-cloud attacks.
+**Episode description**: In this episode of Defender for Cloud in the Field, Sean Lee joins Yuri Diogenes to talk about the new unified insights from Microsoft Entra Permissions Management (CIEM) into Microsoft Defender for Cloud to enable comprehensive risk mitigation. Sean explains how this integration enables teams to drive least privilege access controls for cloud resources and receive actionable recommendations for resolving permissions risks across Azure, AWS, and GCP. Sean also demonstrates the recommendations that are included with this integration and how to remediate.
 
-> [!VIDEO https://aka.ms/docs/player?id=3eb19963-8988-44eb-8052-e2255616a95e]
+> [!VIDEO https://aka.ms/docs/player?id=28414ce1-1acb-486a-a327-802a654edc38]
 
 - [01:18](/shows/mdc-in-the-field/agentless-secret-scanning-for-virtual-machines#time=01m18s) - Understanding secrets scanning capability for VMs in Defender for Cloud
 - [02:40](/shows/mdc-in-the-field/agentless-secret-scanning-for-virtual-machines#time=02m40s) - How agentless scanning for VMs works
@@ -34,4 +34,4 @@ ms.date: 01/17/2024
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-forty-three.md)
+> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
