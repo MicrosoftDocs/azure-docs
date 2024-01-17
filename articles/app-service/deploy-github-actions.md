@@ -40,8 +40,7 @@ For an existing app, you can get started quickly with GitHub Actions by using th
 
 The Deployment Center also lets you easily configure the more secure OpenID Connect authentication with [the **user-assigned identity** option](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions).
 
-- If your Azure account has the needed permissions, it creates a user-assigned identity.
-- If your account [doesn't have the permissions](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials), it lets you select an existing user-assigned managed identity in the **Identity** dropdown. You can work with your Azure administrator to create a user-assigned managed identity with the [Website Contributor role](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app).
+If your Azure account has the [needed permissions](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials), you can select to create a user-assigned identity. Otherwise, you can select an existing user-assigned managed identity in the **Identity** dropdown. You can work with your Azure administrator to create a user-assigned managed identity with the [Website Contributor role](deploy-continuous-deployment.md#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app).
 
 For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md?tabs=github).
 
