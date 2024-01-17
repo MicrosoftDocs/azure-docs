@@ -19,12 +19,7 @@ ms.reviewer: ju-shim
 
 ## Update a Standby Pool
 
-### [Portal](#tab/portal1)
-To update the properties of an existing Standby Pool, navigate to the scale set that is associated with the Standby Pool you want to update. Under **Availability + scale** select **Standby Pool**. Select **Configuration Options** at the top of the screen. A window will pop up allowing you to update the Standby Pool configurations.  
-
-:::image type="content" source="./media/standby-pools/update-standby-pool-1.png" alt-text="Image shows updating an existing Standby Pool.":::
-
-### [CLI](#tab/cli1)
+### [CLI](#tab/cli)
 Update an existing Standby Pool using [az standbypool update]().
 
 ```azurecli-interactive
@@ -35,7 +30,7 @@ az standbypool update \
    --virtual-machine-state "Deallocated" \
    --attached-scale-set "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
-### [PowerShell](#tab/powershell1)
+### [PowerShell](#tab/powershell)
 Update an existing Standby Pool using [Update-AzStandbyPool]().
 
 ```azurepowershell-interactive
@@ -47,7 +42,7 @@ Update-AzStandbyPool `
    -AttachedScaleSet "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 
-### [ARM Template](#tab/template1)
+### [ARM Template](#tab/template)
 ```ARM
 {
  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -70,7 +65,7 @@ Update-AzStandbyPool `
 
 ```
 
-### [REST API](#tab/rest1)
+### [REST API](#tab/rest)
 Update an existing Standby Pool using the Microsoft.Standby Pool REST API.
 
 ```HTTP
@@ -88,7 +83,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{
     }
 }
 ```
-### [Terraform](#tab/terraform1)
+### [Terraform](#tab/terraform)
 ```terraform
 terraform {
      required_providers {
@@ -126,7 +121,7 @@ resource "azapi_resource" "standbyVirtualMachinePool" {
 }
 ```
 
-### [Bicep](#tab/bicep1)
+### [Bicep](#tab/bicep)
 ```bicep
 param location string = resourceGroup().location
 
@@ -147,25 +142,20 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-06-0
 
 ## Delete a Standby Pool
 
-### [Portal](#tab/portal2)
-To delete an existing Standby Pool, navigate to the scale set that is associated with the Standby Pool you want to delete. Under **Availability + scale** select **Standby Pool**. Select **delete** at the top of the screen. This deletes the Standby Pool and all the instances inside of the pool.   
-
-:::image type="content" source="./media/standby-pools/update-standby-pool-1.png" alt-text="Image shows deleting an existing Standby Pool.":::
-
-### [CLI](#tab/cli2)
+### [CLI](#tab/cli)
 Delete an existing Standby Pool using [az standbypool delete]().
 
 ```azurecli-interactive
 az standbypool delete --resource-group myResourceGroup --name myStandbyPool
 ```
-### [PowerShell](#tab/powershell2)
+### [PowerShell](#tab/powershell)
 Delete an existing Standby Pool using [Delete-AzStandbyPool]().
 
 ```azurepowershell-interactive
 Delete-AzStandbyPool -ResourceGroup myResourceGroup -Name myStandbyPool 
 ```
 
-### [REST API](#tab/rest2)
+### [REST API](#tab/rest)
 Delete an existing Standby Pool using Microsoft.Standby Pool REST API. 
 
 ```HTTP

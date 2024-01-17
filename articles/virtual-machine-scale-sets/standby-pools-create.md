@@ -11,7 +11,7 @@ ms.reviewer: ju-shim
 
 
 # Create a Standby Pool
-
+This article steps through creating a Standby Pool for Virtual Machine Scale Sets.
 
 ## Prerequisites
 
@@ -46,24 +46,7 @@ For more information on assigning roles, see [Assign Azure roles using the Azure
 
 ## Create a Standby Pool
 
-### [Portal](#tab/portal1)
-A Standby Pool can be created as part of the Virtual Machine Scale Set creation process or created and attached to an existing scale set. 
-
-During Virtual Machine Scale Set creation, navigate to the **Management** tab. Select **Add a Standby Pool**.
-
-:::image type="content" source="./media/standby-pools/create-standby-pool-1.png" alt-text="Image shows selecting to create a Standby Pool during scale set creation.":::
-
-Input the desired Max Ready Capacity and Virtual Machine State. 
-
-:::image type="content" source="./media/standby-pools/create-standby-pool-2.png" alt-text="Image shows selecting the Standby Pool configuration options during scale set creation.":::
-
-If you instead choose to create a Standby Pool on an existing Virtual Machine Scale set, navigate to the scale set you want to associate a Standby Pool with. Under **Availability + scale**, select **Standby Pool**. Select **Create Standby Pool** and input your desired configurations. 
-
-:::image type="content" source="./media/standby-pools/create-standby-pool-3.png" alt-text="Image shows updating the Standby Pool configuration option.":::
-
- 
-
-### [CLI](#tab/cli1)
+### [CLI](#tab/cli)
 Create a Standby Pool and associate it with an existing scale set using [az standbypool create]().
 
 ```azurecli-interactive
@@ -74,7 +57,7 @@ az standbypool create \
    --virtual-machine-state "Deallocated" \
    --attached-scale-set "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
-### [PowerShell](#tab/powershell1)
+### [PowerShell](#tab/powershell)
 Create a Standby Pool and associate it with an existing scale set using [Create-AzStandbyPool]().
 
 ```azurepowershell-interactive
@@ -86,7 +69,7 @@ Create-AzStandbyPool `
    -AttachedScaleSet "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 
-### [ARM Template](#tab/template1)
+### [ARM Template](#tab/template)
 
 ```ARM
 {
@@ -110,7 +93,7 @@ Create-AzStandbyPool `
 
 ```
 
-### [REST API](#tab/rest1)
+### [REST API](#tab/rest)
 Create a Standby Pool and associate it with an existing scale set using the Microsoft.StandbyPool REST command.
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-06-01-preview
@@ -129,7 +112,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{
 ```
 
 
-### [Terraform](#tab/terraform1)
+### [Terraform](#tab/terraform)
 Create a Standby Pool and associate it with an existing Scale Set using Terraform. Include Standby Pool name, Location, Max Ready Capacity, Virtual Machine Running State and the scale set ID you want associated. 
 
 ```terraform
@@ -169,7 +152,7 @@ resource "azapi_resource" "standbyVirtualMachinePool" {
 }
 ```
 
-### [Bicep](#tab/bicep1)
+### [Bicep](#tab/bicep)
 ```bicep
 param location string = resourceGroup().location
 
