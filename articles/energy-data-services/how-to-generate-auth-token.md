@@ -74,7 +74,7 @@ The `redirect-uri` of your app, where your app sends and receives the authentica
 
  :::image type="content" source="media/how-to-generate-auth-token/redirect-uri.png" alt-text="Screenshot that shows redirect-uri.":::
 
-#### Find the adme-url for your Azure Data Manager for Energy instance
+### Find the adme-url for your Azure Data Manager for Energy instance
 
 1. Create an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 1. Go to your Azure Data Manager for Energy **Overview** page on the Azure portal.
@@ -82,7 +82,7 @@ The `redirect-uri` of your app, where your app sends and receives the authentica
 
    :::image type="content" source="media/how-to-generate-auth-token/endpoint-url.png" alt-text="Screenshot that shows finding the URI for the Azure Data Manager for Energy instance.":::
 
-#### Find data-partition-id
+### Find data-partition-id
 
 You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance.
 
