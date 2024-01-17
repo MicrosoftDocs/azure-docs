@@ -27,7 +27,7 @@ The following sections provide information about known issues associated with th
 
 Chrome version 115 for Android introduced a regression when making video calls - the result of this bug is a user making a call on Azure Communication Services with this version of Chrome has no outgoing video in Group and Azure Communication Services-Microsoft Teams calls.
 - This regression is a known issue introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1469318)
-- As a short term mitigation instruct users to use Microsoft Edge or Firefox on Android, or avoid using Google Chrome 115/116 on Android
+- As a short term mitigation, instruct users to use Microsoft Edge or Firefox on Android, or avoid using Google Chrome 115/116 on Android
 
 ### Firefox Known Issues
 Firefox desktop browser support is now available in public preview. Known issues are:
@@ -73,7 +73,7 @@ On Android Chrome, if a user joins Azure Communication Services call several tim
 ### Some Android devices failing call scenarios except for group calls.
 
 Many specific Android devices fail to start, accept calls, and meetings. The devices that run into this issue, can't recover and fails on every attempt. These are mostly Samsung model A devices, particularly models A326U, A125U and A215U.
-- This regressuib is a known issue introduced on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=13223).
+- This regression is a known issue introduced on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=13223).
 
 ### Android Chrome mutes the call after browser goes to background for one minute
 
@@ -101,13 +101,13 @@ This problem can occur if another application or the operating system takes over
 - A user plays a YouTube video, for example, or starts a FaceTime call. Switching to another native application can capture access to the microphone or camera.
 - A user enables Siri, which captures access to the microphone.
 
-On iOS, for example, while on an Azure Communication Services call, if a PSTN call comes in, then a microphoneMutedUnexepectedly bad UFD israised and audio stops flowing in the Azure Communication Services call and the call is marked as muted. Once the PSTN call is over, the user has to unmute the Azure Communication Services call for audio to start flowing again in the Azure Communication Services call. In the case of Android Chrome when a PSTN call comes in, audio stops flowing in the Azure Communication Services call and the Azure Communication Services call isn't marked as muted. In this case, there's no microphoneMutedUnexepectedly UFD event. Once the PSTN call is finished, Android Chrome regains audio automatically and audio starts flowing normally again in the Azure Communication Services call.
+On iOS, for example, while on an Azure Communication Services call, if a PSTN call comes in, then a microphoneMutedUnexepectedly bad UFD is raised and audio stops flowing in the Azure Communication Services call and the call is marked as muted. Once the PSTN call is over, the user has to unmute the Azure Communication Services call for audio to start flowing again in the Azure Communication Services call. In the case of Android Chrome when a PSTN call comes in, audio stops flowing in the Azure Communication Services call and the Azure Communication Services call isn't marked as muted. In this case, there's no microphoneMutedUnexepectedly UFD event. Once the PSTN call is finished, Android Chrome regains audio automatically and audio starts flowing normally again in the Azure Communication Services call.
 
 In case camera is on and an interruption occurs, Azure Communication Services call may or may not lose the camera. If lost then camera is marked as off and user has to go turn it back on after the interruption  released the camera.
 
 Occasionally, microphone or camera devices aren't released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously.
 
-Incoming video streams don't stop rendering if the user is on iOS 15.2+ and is using SDK version 1.4.1-beta.1+, the unmute/start video steps is still required to restart outgoing audio and video. 
+Incoming video streams don't stop rendering if the user is on iOS 15.2+ and is using SDK version 1.4.1-beta.1+, the unmute/start video steps are still required to restart outgoing audio and video. 
 
 For iOS 15.4+, audio and video should be able to auto recover on most of the cases. On some edge cases, to unmute, application must call an API to 'unmute' (can be as a result of user action) to recover the outgoing audio.
 
@@ -210,7 +210,7 @@ This problem occurs in the following environments:
 
 The cause of this problem might be that acquiring your own stream from the same device has a side effect of running into race conditions. Acquiring streams from other devices might lead the user into insufficient USB/IO bandwidth, and the `sourceUnavailableError` rate skyrockets.  
 
-### Excessive use of certain APIs like mute/unmute resulst in throttling on Azure Communication Services infrastructure
+### Excessive use of certain APIs like mute/unmute results in throttling on Azure Communication Services infrastructure
 
 As a result of the mute/unmute API call, Azure Communication Services infrastructure informs other participants in the call about the state of audio of a local participant who invoked mute/unmute, so that participants in the call know who is muted/unmuted.
 Excessive use of mute/unmute is blocked in Azure Communication Services infrastructure. Throttling happens if the participant (or application on behalf of participant) attempts to mute/unmute continuously, every second, more than 15 times in a 30-second rolling window.
@@ -230,7 +230,7 @@ The following limitations are known issues in the Communication Services Call Au
 
 ## Group call limitations for JS web Calling SDK users		
 
-Up to 350 users can join a group call, room or Teams meeting. Only 100 users can join through JS web calling SDK or Teams web client, the remaining needs to join through Android/iOS/Windows calling SDK or Teams desktop/mobile client. Once the call size reaches 100+ participants in the call, only the top 4 most dominant speakers that have their video camera turned on are seen. When the number of people on the call is 100+, the viewable number of incoming renders goes from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos). When the number of users goes below 100, the number of supported incoming video goes back up to 3x3 (9 incoming videos).
+Up to 350 users can join a group call, room or Teams meeting. Only 100 users can join through JS web calling SDK or Teams web client, the remaining needs to join through Android/iOS/Windows calling SDK or Teams desktop/mobile client. Once the call size reaches 100+ participants in the call, only the top 4 most dominant speakers that have their video camera turned on are seen. When the number of people on the call is 100+, the viewable number of incoming renders goes from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos). When the number of users goes below 100, the number of supported incoming videos goes back up to 3x3 (9 incoming videos).
 
 ## Android API emulators
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22), some crashes are expected.  
