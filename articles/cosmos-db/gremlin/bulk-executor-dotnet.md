@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.date: 05/10/2022
 author: manishmsfte
 ms.author: mansha
-ms.devlang: csharp, java
+ms.devlang: csharp
+# ms.devlang: csharp, java
 ms.custom: ignite-2022, devx-track-dotnet, devx-track-extended-java
 ---
 
