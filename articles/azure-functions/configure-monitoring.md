@@ -278,7 +278,12 @@ With scale controller logging enabled, you're now able to [query your scale cont
 
 ## Enable Application Insights integration
 
-For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
+For a function app to send data to Application Insights, it needs to connect to the Application Insights resource using **only one** of these application settings:
+
+| Setting name | Description | 
+| ---- | ---- |
+| **[APPLICATIONINSIGHTS_CONNECTION_STRING](functions-app-settings.md#applicationinsights_connection_string)** | This is the recommended setting, which is required when your Application Insights instance runs in a sovereign cloud. The connection string supports other [new capabilities](../azure-monitor/app/migrate-from-instrumentation-keys-to-connection-strings.md#new-capabilities).   |
+| **[APPINSIGHTS_INSTRUMENTATIONKEY](functions-app-settings.md#appinsights_instrumentationkey)** | Legacy setting, which is deprecated by Application Insights in favor of the connection string setting. |
 
 When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md) or [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
 
@@ -288,12 +293,12 @@ To review the Application Insights resource being created, select it to expand t
 
 :::image type="content" source="media/functions-monitoring/enable-ai-new-function-app.png" alt-text="Screenshot of enabling Application Insights while creating a function app.":::
 
-When you select **Create**, an Application Insights resource is created with your function app, which has the `APPINSIGHTS_INSTRUMENTATIONKEY` set in application settings. Everything is ready to go.
+When you select **Create**, an Application Insights resource is created with your function app, which has the `APPLICATIONINSIGHTS_CONNECTION_STRING` set in application settings. Everything is ready to go.
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### Add to an existing function app 
 
-If an Application Insights resource wasn't created with your function app, use the following steps to create the resource. You can then add the instrumentation key from that resource as an [application setting](functions-how-to-use-azure-function-app-settings.md#settings) in your function app.
+If an Application Insights resource wasn't created with your function app, use the following steps to create the resource. You can then add the connection string from that resource as an [application setting](functions-how-to-use-azure-function-app-settings.md#settings) in your function app.
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **function app**, and then select your function app.
 
@@ -314,14 +319,14 @@ If an Application Insights resource wasn't created with your function app, use t
 
    The Application Insights resource is created in the same resource group and subscription as your function app. After the resource is created, close the **Application Insights** window.
 
-1. In your function app, select **Configuration** under **Settings**, and then select **Application settings**. If you see a setting named `APPINSIGHTS_INSTRUMENTATIONKEY`, Application Insights integration is enabled for your function app running in Azure. If for some reason this setting doesn't exist, add it using your Application Insights instrumentation key as the value.
+1. In your function app, select **Configuration** under **Settings**, and then select **Application settings**. If you see a setting named `APPLICATIONINSIGHTS_CONNECTION_STRING`, Application Insights integration is enabled for your function app running in Azure. If for some reason this setting doesn't exist, add it using your Application Insights connection string as the value.
 
 > [!NOTE]
-> Early versions of Functions used built-in monitoring, which is no longer recommended. When you're enabling Application Insights integration for such a function app, you must also [disable built-in logging](#disable-built-in-logging).  
+> Older function apps might be using `APPINSIGHTS_INSTRUMENTATIONKEY` instead of `APPLICATIONINSIGHTS_CONNECTION_STRING`. When possible, you should update your app to use the connection string instead of the instrumentation key.   
 
 ## Disable built-in logging
 
-When you enable Application Insights, disable the built-in logging that uses Azure Storage. The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If built-in logging is used in production, the logging record might be incomplete because of throttling on Azure Storage.
+Early versions of Functions used built-in monitoring, which is no longer recommended. When you enable Application Insights, disable the built-in logging that uses Azure Storage. The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If built-in logging is used in production, the logging record might be incomplete because of throttling on Azure Storage.
 
 To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For more information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings). Before you delete the app setting, ensure that no existing functions in the same function app use the setting for Azure Storage triggers or bindings.
 
