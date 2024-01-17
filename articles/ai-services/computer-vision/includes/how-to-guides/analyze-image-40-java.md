@@ -41,7 +41,7 @@ Create a **URL** object for the image you want to analyze.
 
 ### Image buffer
 
-Alternatively, you can read the data to the input buffer through a **BinaryData** object. For example, read from a local image file you want to analyze.
+Alternatively, you can pass in the image as a data array using a **BinaryData** object. For example, read from a local image file you want to analyze.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_file)]
 

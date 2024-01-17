@@ -38,7 +38,7 @@ You can use the following sample image URL.
 
 ### Image buffer
 
-Alternatively, you can read the data to the input buffer. For example, read from a local image file you want to analyze.
+Alternatively, you can pass in the image as a data array. For example, read from a local image file you want to analyze.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/4-0/how-to.js?name=snippet_file)]
 

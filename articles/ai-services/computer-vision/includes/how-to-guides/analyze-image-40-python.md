@@ -43,7 +43,7 @@ You can use the following sample image URL.
 
 ### Image buffer
 
-Alternatively, you can read the data to the input buffer. For example, read from a local image file you want to analyze.
+Alternatively, you can pass in the image as a data array. For example, read from a local image file you want to analyze.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_file)]
 
