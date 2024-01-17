@@ -489,7 +489,7 @@ az spring dev-tool create \
 
 ## Use Application Accelerator in VS Code
 
-You can access Application Accelerator directly in VS Code to operate your accelerator in the Azure Spring Apps Enterprise plan.
+You can bootstrap your project from one accelerator of Application Accelerator in an Azure Spring Apps Enterprise service instance in VS code directly.
 
 ### Prerequisites
 
