@@ -90,7 +90,7 @@ Error responses can also be sent to the `redirect_uri` parameter so that the app
 ```http
 GET https://jwt.ms/#
 error=access_denied
-&error_description=AADB2C90091%3a+The+user+has+cancelled+entering+self-asserted+information.%0d%0aCorrelation+ID%3a+xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx%0d%0aTimestamp%3a+2024-01-05+14%3a23%3a27Z%0d%0a
+&error_description=AADB2C90091%3a+The+user+has+cancelled+entering+self-asserted+information.%0d%0aCorrelation+ID%3a+xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx%0d%0aTimestamp%3a+xxxx-xx-xx+xx%3a23%3a27Z%0d%0a
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
