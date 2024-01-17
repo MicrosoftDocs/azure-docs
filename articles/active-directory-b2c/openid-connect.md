@@ -199,7 +199,7 @@ Error responses look like:
 ```json
 {
     "error": "invalid_grant",
-    "error_description": "AADB2C90080: The provided grant has expired. Please re-authenticate and try again. Current time: 1705367452, Grant issued time: 1704865840, Grant expiration time: 1704866140\r\nCorrelation ID: xxxxxxxx-xxxx-xxxX-xxxx-xxxxxxxxxxxx\r\nTimestamp: 2024-01-16 01:10:52Z\r\n"
+    "error_description": "AADB2C90080: The provided grant has expired. Please re-authenticate and try again. Current time: xxxxxxxxxx, Grant issued time: xxxxxxxxxx, Grant expiration time: xxxxxxxxxx\r\nCorrelation ID: xxxxxxxx-xxxx-xxxX-xxxx-xxxxxxxxxxxx\r\nTimestamp: xxxx-xx-16 xx:10:52Z\r\n"
 }
 ```
 
