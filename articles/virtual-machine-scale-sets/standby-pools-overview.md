@@ -53,7 +53,7 @@ requirements are strict.
 
 ## Pricing
 
->[IMPORTANT]
+>[!IMPORTANT]
 >The `VirtualMachineState` you choose will impact the cost of your Standby Pool. You can update the desired state at any point in time. 
 
 There's no direct cost associated with using Standby Pools. Users are charged based on the resources deployed into the Standby Pool. For more information on Virtual Machine billing, see [VM power states and billing documentation](../virtual-machines/states-billing.md)
