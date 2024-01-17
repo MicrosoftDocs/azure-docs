@@ -85,22 +85,24 @@ items:
           href: custom-disaster-recovery-client-side.md
         - name: How to configure multiple sessions for an MQTT client
           href: mqtt-establishing-multiple-sessions-per-client.md
-        - name: Enable managed identity for namespace
-          href: event-grid-namespace-managed-identity.md 
         - name: MQTT Request Response messaging
           href: mqtt-request-response-messages.md                
-        - name: Troubleshoot MQTT runtime issues
-          href: mqtt-troubleshoot-errors.md
         - name: Monitor
           items:
           - name: Monitoring data reference (MQTT delivery)
             href: monitor-mqtt-delivery-reference.md
+        - name: Troubleshoot
+          items:
+          - name: Troubleshoot MQTT runtime issues
+            href: mqtt-troubleshoot-errors.md
         - name: Secure
           items:
           - name: Allow access from specific IP addresses
             href: mqtt-configure-firewall.md
           - name: Allow access via private endpoints
             href: mqtt-configure-private-endpoints.md
+          - name: Enable managed identity for namespace
+            href: event-grid-namespace-managed-identity.md 
     - name: Namespace topics
       items:
       - name: Pull delivery overview
@@ -564,7 +566,7 @@ items:
           href: configure-firewall.md
         - name: Deliver events to Microsoft Entra protected endpoints
           href: secure-webhook-delivery.md
-      - name: Monitor and troubleshoot
+      - name: Monitor
         items:
         - name: Enable diagnostic logs
           href: enable-diagnostic-logs-topic.md
@@ -574,6 +576,8 @@ items:
           href: monitor-push-reference.md
         - name: Create alerts
           href: set-alerts.md
+      - name: Troubleshoot
+        items:
         - name: Troubleshoot Event Grid issues
           href: troubleshoot-issues.md          
         - name: Troubleshoot errors
