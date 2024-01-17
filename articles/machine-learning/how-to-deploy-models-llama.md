@@ -63,10 +63,10 @@ To create a deployment:
 2.  Choose a model you want to deploy from the Azure Machine Learning Studio [model catalog](change - add link). Alternatively, you can initiate deployment by selecting **Create** from the **Endpoints** option under **Assets** in your workspace.
    
 1. On the detail page, select **Deploy** and then **Pay-as-you-go**.
-   (change - add image)
+   (change - add image - Image 1 Select deploy and then Pay-as-you-go)
    
 3. On the deployment wizard, you see the option to explore more terms and conditions applied to the selected model and its pricing. Select **Azure Marketplace Terms** to learn about it.
-   (change - add image)
+   (change - add image - Image 2 – terms and conditions, and subscribe)
    
 5. If this is the first time you deployed the model in the workspace, you have to sign your workspace up for the particular offering from the Azure Marketplace. Each workspace has its own connection to the marketplace's offering, which, allows you to control and monitor spending per workspace. Select **Subscribe and Deploy**.
 
@@ -75,11 +75,11 @@ To create a deployment:
 
 1. Once you sign up the workspace for the offering, subsequent deployments don't require signing up (neither subscription-level permissions). If this is your case, select **Continue to deploy**.
 
-    (change - add image)
+    (change - add image - Image 3 – subsequent deployments don’t requiring re-subscribing)
 
 1. Give the deployment a name. Such name is part of the deployment API URL, which requires to be unique on each Azure region.
 
-    (change - add image):
+    (change - add image - Image 4 deployment name):
 
 1. Select **Deploy**.
 
@@ -357,7 +357,7 @@ The following is an example response:
 
 Llama 2 models can be deployed to real-time endpoints in Azure Machine Learning studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model including the virtual machines used to run it and the number of instances to handle the load you're expecting. Models deployed in this modality consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
 
-### Create a new deployment (change)
+### Create a new deployment
 
 # [Studio](#tab/azure-studio)
 
