@@ -149,6 +149,11 @@ PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/provider
 ```
 # [PowerShell](#tab/new-prereq-powershell)
 
+## Prerequisites
+
+- Patch mode = `AutomaticByPlatform`
+- `BypassPlatformSafetyChecksOnUserSchedule` = TRUE
+
 ### Enable on Windows VMs
 
 ```powershell-interactive
@@ -157,9 +162,9 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -PatchMode "AutomaticByPlat
 $AutomaticByPlatformSettings = $VirtualMachine.OSProfile.WindowsConfiguration.PatchSettings.AutomaticByPlatformSettings
  
 if ($null -eq $AutomaticByPlatformSettings) {
-	$VirtualMachine.OSProfile.WindowsConfiguration.PatchSettings.AutomaticByPlatformSettings = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.WindowsVMGuestPatchAutomaticByPlatformSettings -Property @{BypassPlatformSafetyChecksOnUserSchedule = $true}
+	 $VirtualMachine.OSProfile.WindowsConfiguration.PatchSettings.AutomaticByPlatformSettings = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.WindowsVMGuestPatchAutomaticByPlatformSettings -Property @{BypassPlatformSafetyChecksOnUserSchedule = $true}
 } else {
-  $AutomaticByPlatformSettings.BypassPlatformSafetyChecksOnUserSchedule = $true
+   $AutomaticByPlatformSettings.BypassPlatformSafetyChecksOnUserSchedule = $true
 }
  
 Update-AzVM -VM $VirtualMachine -ResourceGroupName "<resourceGroup>"
@@ -172,9 +177,9 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Linux -PatchMode "AutomaticByPlatfo
 $AutomaticByPlatformSettings = $VirtualMachine.OSProfile.LinuxConfiguration.PatchSettings.AutomaticByPlatformSettings
  
 if ($null -eq $AutomaticByPlatformSettings) {
-	$VirtualMachine.OSProfile.LinuxConfiguration.PatchSettings.AutomaticByPlatformSettings = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.LinuxVMGuestPatchAutomaticByPlatformSettings -Property @{BypassPlatformSafetyChecksOnUserSchedule = $true}
+	 $VirtualMachine.OSProfile.LinuxConfiguration.PatchSettings.AutomaticByPlatformSettings = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.LinuxVMGuestPatchAutomaticByPlatformSettings -Property @{BypassPlatformSafetyChecksOnUserSchedule = $true}
 } else {
-  $AutomaticByPlatformSettings.BypassPlatformSafetyChecksOnUserSchedule = $true
+   $AutomaticByPlatformSettings.BypassPlatformSafetyChecksOnUserSchedule = $true
 }
  
 Update-AzVM -VM $VirtualMachine -ResourceGroupName "<resourceGroup>"
