@@ -142,20 +142,20 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-06-0
 
 ## Delete a Standby Pool
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli1)
 Delete an existing Standby Pool using [az standbypool delete]().
 
 ```azurecli-interactive
 az standbypool delete --resource-group myResourceGroup --name myStandbyPool
 ```
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell1)
 Delete an existing Standby Pool using [Delete-AzStandbyPool]().
 
 ```azurepowershell-interactive
 Delete-AzStandbyPool -ResourceGroup myResourceGroup -Name myStandbyPool 
 ```
 
-### [REST API](#tab/rest)
+### [REST API](#tab/rest1)
 Delete an existing Standby Pool using Microsoft.Standby Pool REST API. 
 
 ```HTTP
