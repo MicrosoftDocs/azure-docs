@@ -62,7 +62,7 @@ az provider register --namespace Microsoft.ContainerService
 
 1. You need an [Azure Key Vault resource][akv-quickstart] to supply the certificate and key inputs to the Istio add-on.
 
-1. You need to generate root certificate, intermediate certificates, intermediate key, and the certitificate chain offline. Steps 1-3 from [here][istio-generate-certs] has an example on how to generate these files.
+1. You need to generate root certificate, intermediate certificates, intermediate key, and the certificate chain offline. Steps 1-3 from [here][istio-generate-certs] has an example of how to generate these files.
 
 1. Create secrets in Azure Key Vault using the certificates and key:
 
