@@ -1,6 +1,6 @@
 ---
-title: Azure mobile app alerts and notifications
-description: Use Azure mobile app notifications to get up-to-date alerts and information on your resources and services.
+title: Use Microsoft Entra ID with the Azure mobile app
+description: Use the Azure mobile app to manage users and groups with Microsoft Entra ID.
 ms.date: 01/16/2024
 ms.topic: conceptual
 ---
@@ -19,7 +19,7 @@ To acsess Microsoft Entra ID, open the Azure mobile app and sign in with your Az
 To invite a [guest user](/entra/external-id/what-is-b2b) to your tenant from the Azure mobile app:
 
 1. In **Microsoft Entra ID**, select **Users**, then select the **+** icon in the top right corner.
-1. Select **Invite user**, then enter the user's name and email address. You can optionally add a message that the user will see.
+1. Select **Invite user**, then enter the user's name and email address. You can optionally add a message for the user.
 1. Select **Invite** in the top right corner, then select **Save** to confirm your changes.
 
 ## Add users to a group
