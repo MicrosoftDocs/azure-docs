@@ -11,8 +11,6 @@ ms.custom: include file
 # azure-netapp-files-create-volumes.md
 # azure-netapp-files-create-volumes-smb.md
 # create-volumes-dual-protocol.md
-[!INCLUDE [File path uniqueness preview registration](../includes/file-path-uniqueness.md)]
-
 ---
 
 \*The ability to create volumes with the same file path in different availability zones is in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required.
