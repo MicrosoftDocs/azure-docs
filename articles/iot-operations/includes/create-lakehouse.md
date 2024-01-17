@@ -9,7 +9,7 @@ ms.author: dobett
 
 Create a lakehouse in your Microsoft Fabric workspace:
 
-1. Navigate to **Data Engineering** and then select **Lakehouse (Preview)**:
+1. Select **New** and **More options**, then choose **Lakehouse** from the list.
 
     :::image type="content" source="media/create-lakehouse/create-lakehouse.png" alt-text="Screenshot that shows how to create a lakehouse.":::
 
