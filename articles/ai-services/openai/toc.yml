@@ -31,7 +31,7 @@ items:
       href: gpt-v-quickstart.md
     - name: DALL-E (preview)
       href: dall-e-quickstart.md
-    - name: Use your data (preview)
+    - name: Use your data
       href: use-your-data-quickstart.md
     - name: Whisper (preview)
       href: whisper-quickstart.md
@@ -61,7 +61,7 @@ items:
       href: ./concepts/provisioned-throughput.md
     - name: System message templates
       href: ./concepts/system-message.md
-    - name: Using your data - text (preview)
+    - name: Using your data - text
       href: ./concepts/use-your-data.md
     - name: Using your data - image (preview)
       href: ./concepts/use-your-image-data.md

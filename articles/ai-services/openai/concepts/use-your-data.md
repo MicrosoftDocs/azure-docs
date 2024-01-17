@@ -12,7 +12,7 @@ ms.date: 01/09/2023
 recommendations: false
 ---
 
-# Azure OpenAI on your data (preview)
+# Azure OpenAI on your data 
 
 Azure OpenAI on your data enables you to run supported chat models such as GPT-35-Turbo and GPT-4 on your data without needing to train or fine-tune models. Running models on your data enables you to chat on top of, and analyze your data with greater accuracy and speed.
 
@@ -165,7 +165,7 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 
 Using Azure OpenAI Studio, you can upload files from your machine. The service then stores the files to an Azure storage container and performs ingestion from the container. 
 
-# [Web pages](#tab/web-pages)
+# [Web pages (preview)](#tab/web-pages)
 
 Using Azure OpenAI Studio, you can paste URLs and the service will store the webpage content, using it when generating responses from the model.The content in URLs/web addresses that you use need to have the following characteristics to be properly ingested:
 
@@ -230,10 +230,10 @@ When you add your Azure Cosmos DB for MongoDB vCore data source, you can specify
 
 :::image type="content" source="../media/use-your-data/mongo-index-mapping.png" alt-text="A screenshot showing the index field mapping options for Mongo DB." lightbox="../media/use-your-data/mongo-index-mapping.png":::
 
-# [Pinecone](#tab/pinecone)
+# [Pinecone (preview)](#tab/pinecone)
 TBD
 
-# [Elasticsearch](#tab/elasticsearch)
+# [Elasticsearch (preview)](#tab/elasticsearch)
 
 TBD
 
