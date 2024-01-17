@@ -170,15 +170,14 @@ If your Azure account has the [required permissions](#why-do-i-see-the-error-you
 
 #### Why do I see the error, "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials"?
 
-The message indicates that your Azure account doesn't have the required permissions to create a user-assigned managed identity for the GitHub Actions. The required permissions on your app are: 
+The message indicates that your Azure account doesn't have the required permissions to create a user-assigned managed identity for the GitHub Actions. The required permissions (scoped to your app) are: 
 
 - `Microsoft.Authorization/roleAssignments/write`
 - `Microsoft.ManagedIdentity/userAssignedIdentities/write`
 
-By default, the **User Access Administrator** role and **Owner** role have these permissions already, but the **Contributor** role doesn't. If you don't have the required permissions, work with your Azure administrator to do the following for you:
+By default, the **User Access Administrator** role and **Owner** role have these permissions already, but the **Contributor** role doesn't. If you don't have the required permissions, work with your Azure administrator to create a user-assigned managed identity with the [Website Contributor role](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app). In the Deployment Center, you can then select the identity in the **GitHub** > **Identity** dropdown.
 
-- Create a user-assigned managed identity.
-- Grant the identity the [Website Contributor role](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app).
+For more information on the alternative steps, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
 
 #### Why do I see the error, "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?
 

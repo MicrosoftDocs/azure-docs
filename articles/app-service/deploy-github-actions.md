@@ -36,17 +36,14 @@ When you enable continuous deployment, the app creation wizard automatically pic
 
 ## Set up GitHub Actions deployment from the Deployment Center
 
-For an existing app, you can get started quickly with GitHub Actions by using the App Service Deployment Center. This turn-key method automatically generates a workflow file based on your application stack and commits it to your GitHub repository in the correct directory. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md?tabs=github).
+For an existing app, you can get started quickly with GitHub Actions by using the App Service Deployment Center. This turn-key method automatically generates a GitHub Actions workflow file based on your application stack and commits it to your GitHub repository.
 
-The Deployment Center also lets you easily configure the more secure OpenID Connect authentication with [the **user-assigned identity** option](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions). 
+The Deployment Center also lets you easily configure the more secure OpenID Connect authentication with [the **user-assigned identity** option](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions).
 
-The Deployment Center also lets you select an existing user-assigned managed identity for the GitHub configuration. If your Azure account doesn't let you [create a user-assigned identity during app creation](#set-up-github-actions-deployment-when-creating-the-app), you can:
+- If your Azure account has the needed permissions, it creates a user-assigned identity.
+- If your account [doesn't have the permissions](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials), it lets you select an existing user-assigned managed identity in the **Identity** dropdown. You can work with your Azure administrator to create a user-assigned managed identity with the [Website Contributor role](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app).
 
-1. Create the app without deployment settings.
-1. Get a user-assigned identity from your Azure administrator [with the required role](deploy-continuous-deployment.md#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app).
-1. In the Deployment Center of your app, [enable GitHub Actions deployment](deploy-continuous-deployment.md?tabs=github#configure-the-deployment-source) with the **user-assigned identity** option and select the identity in the **Identity** dropdown.
-
-For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
+For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md?tabs=github).
 
 ## Set up a GitHub Actions workflow manually
 
