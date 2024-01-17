@@ -27,6 +27,8 @@ ms.custom: [references_regions]
 
 # How to deploy Llama 2 family of large language models with Azure Machine Learning studio
 
+(change - preview note)
+
 The Llama 2 family of large language models (LLMs) is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with Reinforcement Learning from Human Feedback (RLHF), called Llama-2-chat.
 
 Llama 2 can be deployed as a service with pay-as-you-go billing or with hosted infrastructure in real-time endpoints.
@@ -58,34 +60,34 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 To create a deployment:
 
 1.  Choose the workspace you want to deploy your models in
-2.  Choose a model you want to deploy from the Azure Machine Learning Studio [model catalog](link). Alternatively, you can initiate deployment by selecting **Create** from the **Endpoints** option under **Assets** in your workspace.
+2.  Choose a model you want to deploy from the Azure Machine Learning Studio [model catalog](change - add link). Alternatively, you can initiate deployment by selecting **Create** from the **Endpoints** option under **Assets** in your workspace.
    
 1. On the detail page, select **Deploy** and then **Pay-as-you-go**.
-   (image)
+   (change - add image)
    
 3. On the deployment wizard, you see the option to explore more terms and conditions applied to the selected model and its pricing. Select **Azure Marketplace Terms** to learn about it.
-   (image)
+   (change - add image)
    
 5. If this is the first time you deployed the model in the workspace, you have to sign your workspace up for the particular offering from the Azure Marketplace. Each workspace has its own connection to the marketplace's offering, which, allows you to control and monitor spending per workspace. Select **Subscribe and Deploy**.
 
     > [!NOTE]
-    > Subscribing a workspace to a particular offering from the Azure Marketplace requires (change this) **Contributor** or **Owner** access at the subscription level where the workspace is created. 
+    > (change - update RBAC) Subscribing a workspace to a particular offering from the Azure Marketplace requires (change this) **Contributor** or **Owner** access at the subscription level where the workspace is created. 
 
 1. Once you sign up the workspace for the offering, subsequent deployments don't require signing up (neither subscription-level permissions). If this is your case, select **Continue to deploy**.
 
-    (image)
+    (change - add image)
 
 1. Give the deployment a name. Such name is part of the deployment API URL, which requires to be unique on each Azure region.
 
-    (image):
+    (change - add image):
 
 1. Select **Deploy**.
 
-1. Once the deployment is ready, you're redirected to the deployments page.
+1. Once the deployment is ready, you're redirected to the deployed serverless endpoints page.
 
 1. Once your deployment is ready, you can select **Test** tab on the endpoint details page to start interacting with the model.
 
-1. You can also take note of the **Endpoint** URL and the **Secret** to call the deployment and generate completions.   
+1. You can also take note of the **Target** URL and the **Secret Key** to call the deployment and generate completions.   
 
 1. Additionally, you can find the deployment details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
 
@@ -97,11 +99,9 @@ Models deployed as a service can be consumed using either the chat or the comple
 
 1. Find and select the deployment you created.
 
-1. Open the **Test** tab.
+1. Copy the **Target** URL and the **Key** token values.   
 
-1. Select **View code** and copy the **Endpoint** URL and the **Key** token values.    (change)
-
-1. Make an API request depending on the type of model you deployed. For completions models such as `Llama-2-7b` use the [`/v1/completions`](#completions-api) API, for chat models such as `Llama-2-7b-chat` use the [`/v1/chat/completions`](#chat-api) API. See the [reference](#reference-for-llama-2-models-deployed-as-a-service) section for more details with examples.
+1. Make an API request depending on the type of model you deployed. For completions models such as `Llama-2-7b` use the [`<target_url>/v1/completions`](#completions-api) API, for chat models such as `Llama-2-7b-chat` use the [`<target_url>/v1/chat/completions`](#chat-api) API. See the [reference](#reference-for-llama-2-models-deployed-as-a-service) section for more details with examples.
 
 ### Reference for Llama 2 models deployed as a service
 
@@ -361,7 +361,7 @@ Llama 2 models can be deployed to real-time endpoints in Azure Machine Learning 
 
 ### Consuming Llama 2 models deployed to real-time endpoints
 
-For reference about how to invoke Llama 2 models deployed to real-time endpoints, see the model card in the Azure Machine Learning Studio [model catalog](link).
+For reference about how to invoke Llama 2 models deployed to real-time endpoints, see the model card in the Azure Machine Learning Studio [model catalog](change - add link).
 
 ## Cost and quotas
 
@@ -369,84 +369,24 @@ For reference about how to invoke Llama 2 models deployed to real-time endpoints
 
 Llama models deployed as a service are offered by Meta through the Azure Marketplace and integrated with Azure Machine Learning Studio for use. You can find the Azure Marketplace pricing when deploying or fine tuning models.
 
-Each time a workspace subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine tuning, However, multiple meters are available to track each scenario independently. See [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
+Each time a workspace subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine tuning, However, multiple meters are available to track each scenario independently. See (change - check link) [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
 
-(use same image)
+(change - use same image
 
 :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
+)
 
-Quota is managed per deployment. Each deployment has a rate limit of 20,000 tokens per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits don’t suffice your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits don’t suffice your scenarios.
 
-### Considerations for Llama 2 models deployed as real-time endpoints (check and change)
+### Considerations for Llama 2 models deployed as real-time endpoints
 
 Deploying Llama models and inferencing with real-time endpoints can be done by consuming Virtual Machine (VM) core quota that is assigned to your subscription a per-region basis. When you sign up for Azure Machine Learning Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once that happens, you can request for quota increase.  
 
 ## Content filtering (Check and change)
 
-Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. When deployed to real-time endpoints, you can opt out for this capability. Both the prompt and completion are run through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md).
+Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. When deployed to real-time endpoints, you can opt out for this capability. Both the prompt and completion are run through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md)(change - check link).
 
 ## Next steps (check and change)
 
-
-
-
-
-
-
-
-
-
-
-## "[verb] * [noun]"
-
-[Introduce the procedure.]
-
-1. Procedure step
-1. Procedure step
-1. Procedure step
-
-<!-- Required: Steps to complete the task - H2
-
-In one or more H2 sections, organize procedures. A section
-contains a major grouping of steps that help the user complete
-a task.
-
-Begin each section with a brief explanation for context, and
-provide an ordered list of steps to complete the procedure.
-
-If it applies, provide sections that describe alternative tasks or
-procedures.
-
--->
-
-## Next step -or- Related content
-
-> [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
-
--or-
-
-* [Related article title](link.md)
-* [Related article title](link.md)
-* [Related article title](link.md)
-
-<!-- Optional: Next step or Related content - H2
-
-Consider adding one of these H2 sections (not both):
-
-A "Next step" section that uses 1 link in a blue box 
-to point to a next, consecutive article in a sequence.
-
--or- 
-
-A "Related content" section that lists links to 
-1 to 3 articles the user might find helpful.
-
--->
-
-<!--
-
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
-
--->
+- Learn more about what you can do in [Azure ML Studio](change - add link to what is azure ML studio kind of page)
+- Get answers to frequently asked questions in the [Azure ML Studio FAQ article](change - add link)
