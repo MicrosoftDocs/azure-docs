@@ -22,8 +22,6 @@ ms.date: 01/17/2024
 - Learn more about [Microsoft Security](https://msft.it/6002T9HQY).
 - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS).
 
-
-
 - Follow us on social media:
 
   - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
