@@ -16,6 +16,16 @@ ms.custom: devx-track-csharp
 
 The Image Analysis SDK (preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref).
 
+> [!IMPORTANT]
+> **Breaking Changes in SDK version 1.0.0-beta.1**
+>
+> The Image Analysis SDK was rewritten in version 1.0.0-beta.1 to better align with other Azure SDKs. All APIs have changed. See the updated [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40), [samples](#github-samples) and [how-to-guides](/azure/ai-services/computer-vision/how-to/call-analyze-image-40) for information on how to use the new SDK.
+>
+> Major changes:
+> - The SDK now calls the generally available [Computer Vision REST API (2023-10-01)](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2023-10-01), instead of the preview [Computer Vision REST API (2023-04-01-preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/61d65934cd35050c20f73ab6).
+> - Support for JavaScript was added.
+> - C++ is no longer supported.
+> - Image Analysis with a custom model, and Image Segmentation (background removal) are no longer supported in the SDK, because the [Computer Vision REST API (2023-10-01)](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2023-10-01) does not yet support them. To use either feature, call the [Computer Vision REST API (2023-04-01-preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/61d65934cd35050c20f73ab6) directly (using the `Analyze` and `Segment` operations respectively).
 
 ## Supported languages
 
