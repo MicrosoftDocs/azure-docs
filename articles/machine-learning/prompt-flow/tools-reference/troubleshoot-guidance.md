@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot guidance
 titleSuffix: Azure Machine Learning
-description: This article addresses frequent questions about tool usage.
+description: This article addresses frequent questions prompt flow usage.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
@@ -16,7 +16,7 @@ ms.date: 09/05/2023
 
 # Troubleshoot guidance
 
-This article addresses frequent questions about tool usage.
+This article addresses frequent questions about prompt flow usage.
 
 ## "Package tool isn't found" error occurs when you update the flow for a code-first experience
 
@@ -64,13 +64,21 @@ Prompt flow relies on a file share storage to store a snapshot of the flow. If t
 
 :::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot that shows a flow missing an authoring page." lightbox = "../media/faq/flow-missing.png":::
 
-Prompt flow relies on a file share to store a snapshot of a flow. This error means that prompt flow service can operate a prompt flow folder in the file share storage, but the prompt flow UI can't find the folder in the file share storage. There are some potential reasons:
+There are possible reasons for this issue:
+- If you disabled public access to storage account, then you need have access to storage account either add you IP to the storage Firewall or add access studio through the virtual network which have private endpoint to the storage account.
 
-- Prompt flow relies on a datastore named `workspaceworkingdirectory` in your workspace, which uses `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`. Make sure your datastore uses the same container. If your datastore is using a different file share name, you need to use a new workspace.
+    :::image type="content" source="../media/faq/storage-account-networking-firewall.png" alt-text="Screenshot that shows firewall setting on storage account." lightbox = "../media/faq/storage-account-networking-firewall.png":::
 
-  ![Screenshot that shows the name of a file share in a datastore detail page.](../media/faq/file-share-name.png)
+- There are some cases, the account key in data store is out of sync with the storage account, you can try to update the account key in data store detail page to fix this.
 
-- If your file share storage is correctly named, try a different network environment, such as a home or company network. There's a rare case where a file share storage can't be accessed in some network environments even if it's enabled for public access.
+    :::image type="content" source="../media/faq/datastore-with-wrong-account-key.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "../media/faq/datastore-with-wrong-account-key.png":::
+ 
+- If you are using AI studio, the storage account need set CORS to allow AI studio access the storage account, otherwise, you will see the flow missing issue. You can add following CORS settings to the storage account to fix this issue.
+    - Go to storage account page, select `Resource sharing (CORS)` under `settings`, and select to `File service` tab.
+    - Allowed origins: `https://mlworkspace.azure.ai,https://ml.azure.com,https://*.ml.azure.com,https://ai.azure.com,https://*.ai.azure.com,https://mlworkspacecanary.azure.ai,https://mlworkspace.azureml-test.net`
+    - Allowed methods: `DELETE, GET, HEAD, POST, OPTIONS, PUT`
+
+    :::image type="content" source="../media/faq/resource-sharing-setting-storage-account.png" alt-text="Screenshot that shows data store with wrong account key." lightbox = "../media/faq/resource-sharing-setting-storage-account.png":::
 
 ## Runtime-related issues
 
@@ -165,3 +173,21 @@ Follow these steps to find Python packages installed in runtime:
 - Run the flow. Then you can find `packages.txt` in the flow folder.
 
   :::image type="content" source="../media/faq/list-packages.png" alt-text="Screenshot that shows finding Python packages installed in runtime." lightbox = "../media/faq/list-packages.png":::
+
+## Flow run related issues
+
+### How to find the raw inputs and outputs of in LLM tool for further investigation?
+
+In prompt flow, on flow page with successful run and run detail page, you can find the raw inputs and outputs of LLM tool in the output section. Click the `view full output` button to view full output. 
+
+:::image type="content" source="../media/faq/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "../media/faq/view-full-output.png":::
+
+`Trace` section includes each request and response to the LLM tool. You can check the raw message sent to the LLM model and the raw response from the LLM model.
+
+:::image type="content" source="../media/faq/trace-large-language-model-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "../media/faq/trace-large-language-model-tool.png":::
+
+## How to fix 409 error in from Azure OpenAI? 
+
+You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Learn more about [Azure OpenAI rate limit](../../../ai-services/openai/quotas-limits.md).
+
+:::image type="content" source="../media/faq/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "../media/faq/429-rate-limit.png":::
