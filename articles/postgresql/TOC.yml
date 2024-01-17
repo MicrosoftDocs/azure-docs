@@ -313,6 +313,8 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-server-logs-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-server-logs-cli.md
     - name: Encryption with CMK
       items:
       - name: Azure CLI
@@ -392,7 +394,7 @@
             href: flexible-server/how-to-enable-intelligent-performance-cli.md
     - name: Replication
       items:
-      - name: Azure portal, REST API
+      - name: Azure portal, CLI, REST API
         href: flexible-server/how-to-read-replicas-portal.md
         displayName: replica
   - name: Extensions

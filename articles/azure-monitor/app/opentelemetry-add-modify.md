@@ -3,7 +3,8 @@ title: Add, modify, and filter Azure Monitor OpenTelemetry for .NET, Java, Node.
 description: This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using Azure Monitor.
 ms.topic: conceptual
 ms.date: 12/15/2023
-ms.devlang: csharp, javascript, typescript, python
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
@@ -207,6 +208,8 @@ Logs
 Examples of using the Python logging library can be found on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples/logging).
 
 Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/README.md#officially-supported-instrumentations) by default.
+
+---
 
 **Footnotes**
 - ¹: Supports automatic reporting of *unhandled/uncaught* exceptions

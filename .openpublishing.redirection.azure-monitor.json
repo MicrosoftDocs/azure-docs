@@ -6578,7 +6578,11 @@
             "source_path_from_root": "/articles/azure-monitor/logs/data-collection-rule-sample-custom-logs.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-samples",
             "redirect_document_id": false
-        }
-        
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/agents/data-collection-rule-sample-agent.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-samples",
+            "redirect_document_id": false
+        }        
     ]
 }

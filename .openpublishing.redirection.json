@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+      "source_path": "articles/storage/common/storage-analytics-metrics.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-analytics-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/manage-storage-analytics-metrics.md",
+      "redirect_url": "/previous-versions/azure/storage/common/manage-storage-analytics-metrics",
+      "redirect_document_id": false
+    },
+    {
         "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
         "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
         "redirect_document_id": false
@@ -12054,6 +12064,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/governance/azure-management.md",
+            "redirect_url": "/azure/governance/management-groups/azure-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/resource-manager-policy.md",
             "redirect_url": "/azure/governance/policy/overview",
             "redirect_document_id": false
@@ -12833,6 +12848,17 @@
             "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip-powershell",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/load-balancer/configure-vm-scale-set-cli.md",
+            "redirect_url": "/azure/load-balancer/configure-vm-scale-set-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/configure-vm-scale-set-powershell.md",
+            "redirect_url": "/azure/load-balancer/configure-vm-scale-set-portal",
+            "redirect_document_id": true
+        },
+
         {
             "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-online.md",
             "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
@@ -22459,6 +22485,51 @@
         {
             "source_path_from_root": "/articles/reliability/disaster-recovery-guidance-overview.md",
             "redirect_url": "/azure/reliability/reliability-guidance-overview",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-nsg-portal.md",
+            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-nsg-powershell.md",
+            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-portal.md",
+            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-powershell.md",
+            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-vnet-powershell.md",
+            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-vnet-portal.md",
+            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-multi-tier-application.md",
+            "redirect_url": "/azure/app-service/tutorial-secure-ntier-app",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-classic-pportal.md",
+            "redirect_url": "/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024/",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-classic-ps.md",
+            "redirect_url": "/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024/",
             "redirect_document_id": false  
         }
     ]

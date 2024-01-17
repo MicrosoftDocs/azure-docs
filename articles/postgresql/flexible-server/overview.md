@@ -88,7 +88,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | --- | --- | --- | --- | --- |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| Brazil South | :heavy_check_mark: (v3 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Brazil South | :heavy_check_mark: (v3 only) | :x: $ | :heavy_check_mark: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -101,6 +101,8 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France South | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
+| Israel Central | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Italy North | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Jio India West | :heavy_check_mark: (v3 only) | :x: | :heavy_check_mark: | :x: |
@@ -119,6 +121,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland West | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| UAE Central* | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | US Gov Arizona | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | US Gov Texas | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
@@ -136,6 +139,7 @@ $ New Zone-redundant high availability deployments are temporarily blocked in th
 $$ New server deployments are temporarily blocked in these regions. Already provisioned servers are fully supported.
 
 ** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Any existing servers deployed in AZ with *no preference* (which you can check on the Azure portal) before the region started to support AZ, even when you enable zone-redundant HA, the standby is provisioned in the same AZ (same-zone HA) as the primary server. To enable zone-redundant high availability, [follow the steps](how-to-manage-high-availability-portal.md#enabling-zone-redundant-ha-after-the-region-supports-az).
+(*) Certain regions are access-restricted to support specific customer scenarios, such as in-country/region disaster recovery. These regions are available only upon request by creating a new support request.
 
 <!-- We continue to add more regions for flexible servers. -->
 > [!NOTE]  

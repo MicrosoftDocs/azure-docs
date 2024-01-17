@@ -42,9 +42,9 @@ When updating your Flexible server in scaling scenarios, we create a new copy of
 ### Precise Downtime Expectations
 
 * **Downtime Duration**: In most cases, the downtime ranges from 10 to 30 seconds.
-* **Additional Considerations**: After a scaling event, there's an inherent DNS `Time-To-Live` (TTL) period of approximately 30 seconds. This period isn't directly controlled by the scaling process but is a standard part of DNS behavior. So, from a application perspective, the total downtime experienced during scaling could be in the range of **40 to 60 seconds**.
+* **Additional Considerations**: After a scaling event, there's an inherent DNS `Time-To-Live` (TTL) period of approximately 30 seconds. This period isn't directly controlled by the scaling process but is a standard part of DNS behavior. So, from an application perspective, the total downtime experienced during scaling could be in the range of **40 to 60 seconds**.
 
-#### Limitations 
+#### Considerations and limitations 
 
 - In order for near-zero downtime scaling to work, you should enable all [inbound/outbound connections between the IPs in the delegated subnet when using VNET integrated networking](../flexible-server/concepts-networking-private.md#virtual-network-concepts). If these aren't enabled near zero downtime scaling process will not work and scaling will occur through the standard scaling workflow.
 - Near-zero downtime scaling won't work if there are regional capacity constraints or quota limits on customer subscriptions.
@@ -55,4 +55,4 @@ When updating your Flexible server in scaling scenarios, we create a new copy of
 
 ## Related content
 
-- [create a PostgreSQL server in the portal](how-to-manage-server-portal.md).
+- [Create a PostgreSQL server in the portal](how-to-manage-server-portal.md).

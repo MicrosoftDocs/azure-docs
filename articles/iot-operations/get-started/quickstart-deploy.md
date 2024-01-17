@@ -28,6 +28,8 @@ The services deployed in this quickstart include:
 * [Azure IoT Layered Network Management](../manage-layered-network/overview-layered-network.md)
 * [Observability](../monitor/howto-configure-observability.md)
 
+The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) and [Deploy Azure IoT Operations extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+
 ## Prerequisites
 
 Review the prerequisites based on the environment you use to host the Kubernetes cluster.
