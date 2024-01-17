@@ -644,7 +644,9 @@ The instructions in this section are applicable only if you're using Azure NetAp
 
 10. **[1]** Create the SAP cluster resources.
 
-    If you're using an ENSA1 architecture, define the resources as follows.
+    #### [ENSA1](#tab/ensa1)
+
+    For ENSA1 architecture, define the resources as follows.
 
     ```bash
     sudo crm configure property maintenance-mode="true"
@@ -698,14 +700,14 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="false"
     ```
 
-    SAP introduced support for [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
+    #### [ENSA2](#tab/ensa2)
+
+    For ENSA2 architecture, define the resources as follows.
 
     > [!NOTE]
     > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
     >
     > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster. For more information, see [Enqueue Replication 2 High Availability cluster with simple mount](https://documentation.suse.com/sbp/sap-15/html/SAP-S4HA10-setupguide-sle15/index.html#multicluster)
-
-    If you're using an ENSA2 architecture, define the resources as follows.
 
     ```bash
     sudo crm configure property maintenance-mode="true"
@@ -756,26 +758,28 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="false"
     ```
 
-    If you're upgrading from an older version and switching to ENSA2, see SAP Note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
+---
 
-    Make sure that the cluster status is OK and that all resources are started. It isn't important which node the resources are running on.
+If you're upgrading from an older version and switching to ENSA2, see SAP Note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
 
-    ```bash
-    sudo crm_mon -r
-    # Full list of resources:
-    # 
-    # stonith-sbd     (stonith:external/sbd): Started sap-cl2
-    #  Resource Group: g-NW1_ASCS
-    #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started sap-cl1
-    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started sap-cl1
-    #      rsc_sapstartsrv_NW1_ASCS00 (ocf::suse:SAPStartSrv):        Started sap-cl1
-    #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started sap-cl1
-    #  Resource Group: g-NW1_ERS
-    #      nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started sap-cl2
-    #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started sap-cl2
-    #      rsc_sapstartsrv_NW1_ERS01  (ocf::suse:SAPStartSrv):        Started sap-cl2
-    #      rsc_sap_NW1_ERS01  (ocf::heartbeat:SAPInstance):   Started sap-cl1
-    ```
+Make sure that the cluster status is OK and that all resources are started. It isn't important which node the resources are running on.
+
+```bash
+sudo crm_mon -r
+# Full list of resources:
+# 
+# stonith-sbd     (stonith:external/sbd): Started sap-cl2
+#  Resource Group: g-NW1_ASCS
+#      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started sap-cl1
+#      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started sap-cl1
+#      rsc_sapstartsrv_NW1_ASCS00 (ocf::suse:SAPStartSrv):        Started sap-cl1
+#      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started sap-cl1
+#  Resource Group: g-NW1_ERS
+#      nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started sap-cl2
+#      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started sap-cl2
+#      rsc_sapstartsrv_NW1_ERS01  (ocf::suse:SAPStartSrv):        Started sap-cl2
+#      rsc_sap_NW1_ERS01  (ocf::heartbeat:SAPInstance):   Started sap-cl1
+```
 
 ## Prepare the SAP application server
 
