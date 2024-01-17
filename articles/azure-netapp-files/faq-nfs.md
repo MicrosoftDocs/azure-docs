@@ -37,13 +37,13 @@ To avoid any issues with clients mounting NFSv4.2 and to comply with supportabil
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
 
-## Can I use the same file path (volume creation token) for multiple volumes?
+## Can I use the same file path for multiple volumes?
 
-For volumes not in an availability zone or volumes in the same availability zone, you can use the same file path (creation token). However, the file path must be unique within each delegated subnet.  
+For volumes not in an availability zone or volumes in the same availability zone, you can use the same file path. However, the file path must be unique within each delegated subnet.  
 
-For volumes deployed to different availability zones within the same region, the same file path (creation token) can be used. 
+For volumes deployed to different availability zones within the same region, the same file path can be used. 
 
-For volumes deployed to different regions, the same file path (creation token) can be used. 
+For volumes deployed to different regions, the same file path can be used. 
 
 For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 

@@ -80,13 +80,13 @@ See [Modify SMB share permissions](azure-netapp-files-create-volumes-smb.md#modi
 
 Azure NetApp Files also supports [access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) and [non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) on SMB and dual-protocol volumes. You can enable these features during or after the creation of an SMB or dual-protocol volume.
 
-## Can I use the same share name (volume creation token) for multiple volumes? 
+## Can I use the same share name for multiple volumes? 
 
-For volumes not in an availability zone or volumes in the same availability zone, you can use the same file path (creation token). However, the share name must be unique within each delegated subnet.  
+For volumes not in an availability zone or volumes in the same availability zone, you can use the same file path. However, the share name must be unique within each delegated subnet.  
 
-For volumes deployed to different availability zones within the same region, the same share name (creation token) can be used. 
+For volumes deployed to different availability zones within the same region, the same share name can be used. 
 
-For volumes deployed to different regions, the same share name (creation token) can be used. 
+For volumes deployed to different regions, the same share name can be used. 
 
 For more information, see For more information, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
