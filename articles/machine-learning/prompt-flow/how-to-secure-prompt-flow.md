@@ -42,7 +42,7 @@ Workspace managed virtual network is the recommended way to support network isol
     az ml workspace provision-network --subscription <sub_id> -g <resource_group_name> -n <workspace_name>
     ```
 
-2. Add workspace MSI as `Storage File Data Privileged Contributor` and `Storage Table Data Contributor` to storage account linked with workspace.
+2. Add workspace MSI as `Storage File Data Privileged Contributor` to storage account linked with workspace.
 
     2.1 Go to Azure portal, find the workspace.
 
@@ -66,7 +66,6 @@ Workspace managed virtual network is the recommended way to support network isol
     :::image type="content" source="./media/how-to-secure-prompt-flow/managed-identity-workspace.png" alt-text="Diagram showing how to assign storage file data privileged contributor role to workspace managed identity." lightbox = "./media/how-to-secure-prompt-flow/managed-identity-workspace.png":::
 
     > [!NOTE]
-    > You need follow the same process to assign `Storage Table Data Contributor` role to workspace managed identity.
     > This operation might take several minutes to take effect.
 
 3. If you want to communicate with [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md), you need to add related user defined outbound rules to related resource. The Azure Machine Learning workspace creates private endpoint in the related resource with auto approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
@@ -92,7 +91,7 @@ Workspace managed virtual network is the recommended way to support network isol
 
 ## Known limitations
 
-- Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
+- AI studio don't support bring your own virtual network, it only support workspace managed virtual network.
 - Managed online endpoint only supports workspace with managed virtual network. If you want to use your own virtual network, you might need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
 
 ## Next steps
