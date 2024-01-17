@@ -123,4 +123,4 @@ AzureDiagnostics
 
 ## Next steps
 - [Learn about logging in Azure Database for PostgreSQL flexible server](concepts-logging.md)
-- [Learn how to set up logging in Azure Database for PostgreSQL flexible server and how to access logs](howto-configure-and-access-logs.md)
+- [Learn how to setup logging in Azure Database for PostgreSQL flexible server and how to access logs](how-to-configure-and-access-logs.md)
