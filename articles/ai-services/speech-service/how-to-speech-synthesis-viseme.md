@@ -8,7 +8,8 @@ ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 10/23/2022
 ms.author: yulili
-ms.devlang: cpp, csharp, java, javascript, python
+ms.devlang: cpp
+# ms.devlang: cpp, csharp, java, javascript, python
 ms.custom: references_regions, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
