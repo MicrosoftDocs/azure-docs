@@ -30,7 +30,7 @@ az resource update --resource-group <group-name> --name <app-name> --resource-ty
 
 ## DNS app settings
 
-App Service has existing app settings to configure DNS servers and name resolution behavior. Site configuration will override the app settings if both exists. Site configuration has the advantage of being auditable with Azure Policy and validated at the time of configuration. We recommend you to use site configuration. 
+App Service has existing app settings to configure DNS servers and name resolution behavior. Site properties will override the app settings if both exists. Site properties has the advantage of being auditable with Azure Policy and validated at the time of configuration. We recommend you to use site properties. 
 
 You can still use the existing `WEBSITE_DNS_SERVER` app setting, and you can add custom DNS servers with either setting. If you want to add multiple DNS servers using the app setting, you must separate the servers by commas with no blank spaces added.
 
