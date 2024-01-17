@@ -13,7 +13,7 @@ ms.date: 01/16/2024
 
 To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a quota.  There are different types of quotas related to Dev Box that you might see in the Developer portal and Azure portal, such as quota for Dev Box vCPU for box creation as well as resource limits for Dev Centers, network connections, and Dev Box Definitions.
 
-Understanding quota limits that affect your Dev Box resources helps you to plan for future use. You can check the [default quota level](/azure/azure-resource-manager/management/azure-subscription-service-limits?branch=main#microsoft-dev-box-limits.md),  view your current usage, and determine how much quota remains in each region. By monitoring the rate at which your quota is used, you can plan and prepare to [request a quota limit increase](how-to-request-quota-increase.md) before you reach the quota limit for the resource.
+Understanding quota limits that affect your Dev Box resources helps you to plan for future use. You can check the [default quota level](/azure/azure-resource-manager/management/azure-subscription-service-limits?branch=main#microsoft-dev-box-limits) for each resource, view your current usage, and determine how much quota remains in each region. By monitoring the rate at which your quota is used, you can plan and prepare to [request a quota limit increase](how-to-request-quota-increase.md) before you reach the quota limit for the resource.
 
 To help you understand where and how you're using your quota, Azure provides the **Usage + Quotas** page in the Azure portal. Each subscription has its own **Usage + quotas** page that covers all the various services in the subscription.
 
@@ -32,7 +32,7 @@ For example, if dev box users encounter a vCPU quota error such as, *QuotaExceed
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/select-dev-box.png" alt-text="Screenshot showing the Usage and quotas page, with Dev Box highlighted in the Provider filter dropdown list." lightbox="media/how-to-determine-your-quota-usage/select-dev-box.png":::    
  
-1. In this example, you can see the **Quota name**, the **Region**, the **Subscription** the quota is assigned to, the **Current Usage**, and whether or not the limit is **Adjustable**.
+1. You can see the **Quota name**, the **Region**, the **Subscription** the quota is assigned to, the **Current Usage**, and whether or not the limit is **Adjustable**.
 
 1. Notice that Azure groups the usage by level: **Regular**, **Low**, and **No usage**: 
 
