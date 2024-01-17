@@ -58,18 +58,11 @@ landingContent:
             url: /training/modules/explore-api-management/  
       - linkListType: how-to-guide
         links:
-          - text: Add an API manually
-            url: add-api-manually.md
-          - text: Import an App Service web API 
-            url: import-app-service-as-api.md  
-      - linkListType: concept
-        links:
-         - text: API authentication and authorization 
-           url: authentication-authorization-overview.md
-         - text: API Management policies
-           url: api-management-howto-policies.md
-         - text: Networking options
-           url: virtual-network-concepts.md
+          - text: Import an OpenAPI specification
+            url: import-api-from-oas.md
+          - text: Import an Azure Function app as an API 
+            url: import-function-app-as-api.md  
+
 # Card
   - title: Common tasks
     linkLists:
@@ -93,6 +86,12 @@ landingContent:
             url: api-management-howto-developer-portal-customize.md  
       - linkListType: concept
         links:
+          - text: API authentication and authorization 
+            url: authentication-authorization-overview.md
+          - text: API Management policies
+            url: api-management-howto-policies.md
+          - text: Networking options
+            url: virtual-network-concepts.md
           - text: High availability
             url: high-availability.md
       - linkListType: reference
@@ -114,6 +113,9 @@ landingContent:
         links:
           - text: New v2 service tiers
             url: v2-service-tiers-overview.md
+          - text: Credential manager for OAuth 2.0 authorization
+            url: credentials-overview.md
+
 # Card
   - title: Related services
     linkLists:
