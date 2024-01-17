@@ -1,11 +1,11 @@
 ---
-title:  Overview of DICOM change feed - Azure Health Data Services
-description: In this article, you learn the concepts of DICOM change feed.
+title:  Change feed overview for the DICOM service in Azure Health Data Services
+description: Learn how to use the change feed in the DICOM service to access the logs of all the changes that occur in your orgganization's medical imaging data. The change feed allows you to query, process, and act upon the change events in a scalable and efficient way.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: conceptual
-ms.date: 10/9/2023
+ms.date: 1/17/2024
 ms.author: mmitrik
 ---
 

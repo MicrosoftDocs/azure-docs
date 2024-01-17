@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Update DICOM files
 
-The bulk update operation allows you to make changes to imaging metadata for multiple files stored in the DICOM&reg; service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use this API to perform updates to patient demographic changes and avoid the costs of repeating time-consuming uploads. 
+The bulk update operation lets you make changes to imaging metadata for multiple files stored in the DICOM&reg; service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use this API to perform updates to patient demographic changes and avoid the costs of repeating time-consuming uploads. 
 
 Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the [change feed](change-feed-overview.md) and persists the original, unmodified instances for future retrieval. 
 
@@ -68,7 +68,7 @@ Content-Type: application/json
 }
 ```
 
-If the operation fails to start successfully, the response will include information about the failure in the errors list, including UIDs of the failing instance(s). 
+If the operation fails to start successfully, the response includes information about the failure in the errors list, including UIDs of the failing instance(s). 
 
 ```http
 {
@@ -91,7 +91,7 @@ If the operation fails to start successfully, the response will include informat
 
 | Name              | Type                | Description                                                  |
 | ----------------- | ------------------- | ------------------------------------------------------------ |
-| 202 (Accepted)    | Operation Reference | A long-running operation has been started to update DICOM attributes |
+| 202 (Accepted)    | Operation Reference | A long-running operation was started to update DICOM attributes |
 | 400 (Bad Request) |                     | Request body has invalid data                                |
 
 ### Operation Status
@@ -127,7 +127,7 @@ GET {dicom-service-url}/{version}/operations/{operationId}
 
 | Name            | Type      | Description                                  |
 | --------------- | --------- | -------------------------------------------- |
-| 200 (OK)        | Operation | The operation with the specified ID has completed |
+| 200 (OK)        | Operation | The operation with the specified ID is complete |
 | 202 (Accepted)  | Operation | The operation with the specified ID is running |
 | 404 (Not Found) |           | Operation not found                   |
 
@@ -176,8 +176,8 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 | Patient's Weight | (0010,1030) | Weight of the patient in kilograms  |
 | Patient's Address | (0010,1040) | Legal address of the named patient  |
 | Military Rank | (0010,1080) | Military rank of patient  |
-| Branch of Service | (0010,1081) | Branch of the military. The country allegiance may also be included (for example, U.S. Army). |
-| Country of Residence | (0010,2150) | Country in which patient currently resides  |
+| Branch of Service | (0010,1081) | Branch of the military. The country or regional allegiance might also be included (for example, U.S. Army). |
+| Country of Residence | (0010,2150) | Country where a patient currently resides  |
 | Region of Residence | (0010,2152) | Region within patient's country of residence  |
 | Patient's Telephone Numbers | (0010,2154) | Telephone numbers at which the patient can be reached  |
 | Ethnic Group | (0010,2160) | Ethnic group or race of patient  |
@@ -205,4 +205,5 @@ There are a few limitations when you use the bulk update operation:
 - Only one bulk update operation can be performed at a time.
 - You can't delete only the latest version of a study or revert back to the original version. 
 - You can't update any field from non-null to a null value.
+
 [!INCLUDE [DICOM trademark statements](../includes/healthcare-apis-dicom-trademark.md)]
