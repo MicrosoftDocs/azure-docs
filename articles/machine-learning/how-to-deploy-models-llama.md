@@ -39,9 +39,6 @@ Certain models in the model catalog can be deployed as a service with pay-as-you
 
 Llama 2 models deployed as a service with pay-as-you-go are offered by Meta AI through the Azure Marketplace and they might add more terms of use and pricing.
 
-> [!NOTE]
-> Pay-as-you-go offering is only available in workspaces created in East US 2 and West US 3 regions.
-
 ### Offerings
 
 The following models are available for Llama 2 when deployed as a service with pay-as-you-go:
@@ -55,12 +52,16 @@ The following models are available for Llama 2 when deployed as a service with p
 
 If you need to deploy a different model, [deploy it to real-time endpoints](#deploy-llama-2-models-to-real-time-endpoints) instead.
 
+### Pre-requisites (change)
+
+1. Pay-as-you-go offering is only available in workspaces created in East US 2 and West US 3 regions.
+   
 ### Create a new deployment
 
 To create a deployment:
 
 1.  Choose the workspace you want to deploy your models in
-2.  Choose a model you want to deploy from the Azure Machine Learning Studio [model catalog](change - add link). Alternatively, you can initiate deployment by selecting **Create** from the **Endpoints** option under **Assets** in your workspace.
+2.  Choose a model you want to deploy from the Azure Machine Learning Studio [model catalog]( - add link). Alternatively, you can initiate deployment by selecting **Create** from the **Endpoints** option under **Assets** in your workspace.
    
 1. On the detail page, select **Deploy** and then **Pay-as-you-go**.
    (change - add image - Image 1 Select deploy and then Pay-as-you-go)
@@ -396,7 +397,7 @@ Llama models deployed as a service are offered by Meta through the Azure Marketp
 
 Each time a workspace subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine tuning, However, multiple meters are available to track each scenario independently. See (change - check link) [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
 
-(change - use same image
+(change - use same image as AI Studio
 
 :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
 )
