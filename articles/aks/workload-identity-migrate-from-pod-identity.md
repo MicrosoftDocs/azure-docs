@@ -8,9 +8,9 @@ ms.date: 07/31/2023
 
 # Migrate from pod managed-identity to workload identity
 
-This article focuses on migrating from a pod-managed identity to Azure Active Directory (Azure AD) workload identity for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
+This article focuses on migrating from a pod-managed identity to Microsoft Entra Workload ID for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
 
-If you aren't familiar with Azure AD workload identity, see the following [Overview][workload-identity-overview] article.
+If you aren't familiar with Microsoft Entra Workload ID, see the following [Overview][workload-identity-overview] article.
 
 ## Before you begin
 
@@ -24,7 +24,7 @@ For either scenario, you need to have the federated trust set up before you upda
 
 - [Create a managed identity](#create-a-managed-identity) credential.
 - Associate the managed identity with the kubernetes service account already used for the pod-managed identity or [create a new Kubernetes service account](#create-kubernetes-service-account) and then associate it with the managed identity.
-- [Establish a federated trust relationship](#establish-federated-identity-credential-trust) between the managed identity and Azure AD.
+- [Establish a federated trust relationship](#establish-federated-identity-credential-trust) between the managed identity and Microsoft Entra ID.
 
 ### Migrate from latest version
 
@@ -203,7 +203,7 @@ I0926 00:29:31.101998       1 proxy.go:129] proxy "msg"="successfully acquired t
 
 ## Remove pod-managed identity
 
-After you've completed your testing and the application is successfully able to get a token using the proxy sidecar, you can remove the Azure AD pod-managed identity mapping for the pod from your cluster, and then remove the identity.
+After you've completed your testing and the application is successfully able to get a token using the proxy sidecar, you can remove the Microsoft Entra pod-managed identity mapping for the pod from your cluster, and then remove the identity.
 
 1. Run the [az aks pod-identity delete][az-aks-pod-identity-delete] command to remove the identity from your pod. This should only be done after all pods in the namespace using the pod-managed identity mapping have migrated to use the sidecar.
 
@@ -213,7 +213,7 @@ After you've completed your testing and the application is successfully able to 
 
 ## Next steps
 
-This article showed you how to set up your pod to authenticate using a workload identity as a migration option. For more information about Azure AD workload identity, see the following [Overview][workload-identity-overview] article.
+This article showed you how to set up your pod to authenticate using a workload identity as a migration option. For more information about Microsoft Entra Workload ID, see the following [Overview][workload-identity-overview] article.
 
 <!-- INTERNAL LINKS -->
 [pod-annotations]: workload-identity-overview.md#pod-annotations

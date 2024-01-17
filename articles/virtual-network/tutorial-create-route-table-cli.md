@@ -120,7 +120,7 @@ Create a VM to be used as the NVA in the *DMZ* subnet with [az vm create](/cli/a
 az vm create \
   --resource-group myResourceGroup \
   --name myVmNva \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --public-ip-address "" \
   --subnet DMZ \
   --vnet-name myVirtualNetwork \
@@ -163,7 +163,7 @@ adminPassword="<replace-with-your-password>"
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPublic \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet Public \
   --admin-username azureuser \
@@ -177,7 +177,7 @@ Create a VM in the *Private* subnet.
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPrivate \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet Private \
   --admin-username azureuser \

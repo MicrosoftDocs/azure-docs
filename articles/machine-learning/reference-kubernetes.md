@@ -15,7 +15,7 @@ ms.date: 06/06/2022
 
 # Reference for configuring Kubernetes cluster for Azure Machine Learning
 
-This article contains reference information that may be useful when [configuring Kubernetes with Azure Machine Learning](./how-to-attach-kubernetes-anywhere.md).
+This article contains reference information for [configuring Kubernetes with Azure Machine Learning](./how-to-attach-kubernetes-anywhere.md).
 
 ## Supported Kubernetes version and region
 
@@ -163,7 +163,10 @@ spec:
        storage: 1Gi
 ```
 > [!IMPORTANT]
-> Only training job pods and batch-deployment pods will have access to the PVC(s); managed and Kubernetes online-deployment pods will not. In addition, only the pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
+> * Only the command job/component, hyperdrive job/component, and batch-deployment support custom data storage from PVC(s). 
+    > * The real-time online endpoint, AutoML job and PRS job do not support custom data storage from PVC(s).
+> * In addition, only the pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
+> AutoML job and Prs job will not have access to the PVC(s).
 
 
 ## Supported Azure Machine Learning taints and tolerations
@@ -394,10 +397,14 @@ More information about how to use ARM template can be found from [ARM template d
 
 | Date | Version |Version description |
 |---|---|---|
+|Nov 21, 2023 | 1.1.39|  Fixed vulnerabilities. Refined error message. Increased stability for relayserver API. |
+|Nov 1, 2023 | 1.1.37|  Update data plane envoy version. |
+|Oct 11, 2023 | 1.1.35|  Fix vulnerable image. Bug fixes. |
+|Aug 25, 2023 | 1.1.34|  Fix vulnerable image. Return more detailed identity error. Bug fixes. |
 |July 18, 2023 | 1.1.29|  Add new identity operator errors. Bug fixes. |
 |June 4, 2023 | 1.1.28 | Improve auto-scaler to handle multiple node pool. Bug fixes. |
 | Apr 18 , 2023| 1.1.26 | Bug fixes and vulnerabilities fix. | 
-| Mar 27, 2023| 1.1.25 | Add Azure machine learning job throttle. Fast fail for training job when SSH setup failed. Reduce Prometheus scrape interval to 30s. Improve error messages for inference. Fix vulnerable image. |
+| Mar 27, 2023| 1.1.25 | Add Azure Machine Learning job throttle. Fast fail for training job when SSH setup failed. Reduce Prometheus scrape interval to 30s. Improve error messages for inference. Fix vulnerable image. |
 | Mar 7, 2023| 1.1.23 | Change default instance-type to use 2Gi memory. Update metrics configurations for scoring-fe that add 15s scrape_interval. Add resource specification for mdc sidecar. Fix vulnerable image. Bug fixes.|
 | Feb 14, 2023 | 1.1.21 | Bug fixes.|
 | Feb 7, 2023 | 1.1.19 | Improve error return message for inference. Update default instance type to use 2Gi memory limit. Do cluster health check for pod healthiness, resource quota, Kubernetes version and extension version. Bug fixes|

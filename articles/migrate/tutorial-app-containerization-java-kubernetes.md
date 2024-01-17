@@ -4,7 +4,7 @@ description: Tutorial:Containerize & migrate Java web applications to Azure Kube
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, devx-track-javaee-wls-aks, migration-java, subject-rbac-steps, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, migration-java, subject-rbac-steps, devx-track-extended-java
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 01/04/2023
@@ -58,7 +58,7 @@ Before you begin this tutorial, you should:
 --- | ---
 **Identify a machine to install the tool** | A Windows machine to install and run the Azure Migrate: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the Java web applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Migrate: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy.
 **Application servers** | - Enable Secure Shell (SSH) connection on port 22 on the server(s) running the Java application(s) to be containerized. <br/>
-**Java web application** | The tool currently supports <br/><br/> - Applications running on Tomcat 8 or later.<br/> - Application servers on Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> - Applications using Java version 7 or later.  <br/><br/> The tool currently doesn't support <br/><br/> - Applications servers running multiple Tomcat instances <br/>  
+**Java web application** | The tool currently supports <br/><br/> - Applications running on Tomcat 8 or Tomcat 9.<br/> - Application servers on Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> - Applications using Java 7 or Java 8. <br/> If you have version outside of this,  find an image that supports your required versions and modify the dockerfile to replace image <br/><br/> The tool currently doesn't support <br/><br/> - Applications servers running multiple Tomcat instances <br/>  
 
 
 ## Prepare an Azure user account
@@ -67,7 +67,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Once your subscription is set up, you'll need an Azure user account with:
 - Owner permissions on the Azure subscription
-- Permissions to register Azure Active Directory apps
+- Permissions to register Microsoft Entra apps
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -91,15 +91,15 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-1. Your Azure account also needs **permissions to register Azure Active Directory apps.**
+1. Your Azure account also needs **permissions to register Microsoft Entra apps.**
 
-1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+1. In Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+1. In **User settings**, verify that Microsoft Entra users can register applications (set to **Yes** by default).
 
       ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
 
-1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Microsoft Entra App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Download and install Azure Migrate: App Containerization tool
 

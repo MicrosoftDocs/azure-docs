@@ -9,7 +9,8 @@ ms.topic: conceptual
 ms.date: 03/16/2023
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ---
 
@@ -232,7 +233,7 @@ new_item =   {
       "description":"Pick up strawberries",
       "isComplete":False
    }
-result = container.scripts.execute_stored_procedure(sproc=created_sproc,params=[[new_item]], partition_key=new_id) 
+result = container.scripts.execute_stored_procedure(sproc=created_sproc,params=[new_item], partition_key=new_id) 
 ```
 
 ---
@@ -402,7 +403,8 @@ The following code shows how to call a pretrigger using the Python SDK:
 ```python
 item = {'category': 'Personal', 'name': 'Groceries',
         'description': 'Pick up strawberries', 'isComplete': False}
-container.create_item(item, {'pre_trigger_include': 'trgPreValidateToDoItemTimestamp'})
+
+result = container.create_item(item, pre_trigger_include='trgPreValidateToDoItemTimestamp')
 ```
 
 ---
@@ -563,7 +565,7 @@ The following code shows how to call a post-trigger using the Python SDK:
 ```python
 item = {'category': 'Personal', 'name': 'Groceries',
         'description': 'Pick up strawberries', 'isComplete': False}
-container.create_item(item, {'post_trigger_include': 'trgPreValidateToDoItemTimestamp'})
+container.create_item(item, pre_trigger_include='trgPreValidateToDoItemTimestamp')
 ```
 
 ---

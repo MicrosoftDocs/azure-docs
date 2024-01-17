@@ -1,0 +1,36 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache-auth.md",
+            "redirect_url": "/azure/container-registry/tutorial-enable-artifact-cache-auth",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache-auth-cli.md",
+            "redirect_url": "/azure/container-registry/tutorial-enable-artifact-cache-auth-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache.md",
+            "redirect_url": "/azure/container-registry/tutorial-enable-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache-cli.md",
+            "redirect_url": "/azure/container-registry/tutorial-enable-artifact-cache-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-registry-cache.md",
+            "redirect_url": "/azure/container-registry/tutorial-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-troubleshoot-registry-cache.md",
+            "redirect_url": "/azure/container-registry/tutorial-troubleshoot-artifact-cache",
+            "redirect_document_id": false
+        }
+        
+     
+    ]
+}

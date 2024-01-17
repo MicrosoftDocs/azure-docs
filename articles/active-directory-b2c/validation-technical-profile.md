@@ -2,23 +2,27 @@
 title: Define a validation technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Validate claims by using a validation technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer implementing Azure Active Directory B2C custom policies, I want to define a validation technical profile, so that I can validate the output claims of a self-asserted technical profile and control the execution of subsequent validation technical profiles based on the success or failure of the validation.
+
 ---
 
 # Define a validation technical profile in an Azure Active Directory B2C custom policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims, or returns 4xx HTTP status code, with the following data. For more information, see [returning error message](restful-technical-profile.md#returning-validation-error-message)
+A validation technical profile is an ordinary technical profile from any protocol, such as [Microsoft Entra ID](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims, or returns 4xx HTTP status code, with the following data. For more information, see [returning error message](restful-technical-profile.md#returning-validation-error-message)
 
 ```json
 {

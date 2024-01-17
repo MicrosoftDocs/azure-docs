@@ -1,25 +1,25 @@
 ---
-title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
-description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
+title: Azure Kubernetes Services (AKS) Core Basic Concepts
+description: Learn about the core components that make up workloads and clusters in Kubernetes and their counterparts on Azure Kubernetes Services (AKS).
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 10/31/2022
+ms.date: 12/13/2023
 ---
 
-# Kubernetes core concepts for Azure Kubernetes Service (AKS)
+# Core Kubernetes concepts for Azure Kubernetes Service
 
 Application development continues to move toward a container-based approach, increasing our need to orchestrate and manage resources. As the leading platform, Kubernetes provides reliable scheduling of fault-tolerant application workloads. Azure Kubernetes Service (AKS), a managed Kubernetes offering, further simplifies container-based application deployment and management.
 
-This article introduces:
-* Core Kubernetes infrastructure components:
+This article introduces core concepts:
+* Kubernetes infrastructure components:
     * *control plane*
     * *nodes*
     * *node pools*
 * Workload resources: 
     * *pods*
     * *deployments*
-    * *sets* 
-* How to group resources into *namespaces*.
+    * *sets*
+* Group resources using *namespaces*.
 
 ## What is Kubernetes?
 
@@ -71,7 +71,7 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 | ----------------- | ------------- |  
 | `kubelet` | The Kubernetes agent that processes the orchestration requests from the control plane along with scheduling and running the requested containers. |  
 | *kube-proxy* | Handles virtual networking on each node. The proxy routes network traffic and manages IP addressing for services and pods. |  
-| *container runtime* | Allows containerized applications to run and interact with additional resources, such as the virtual network and storage. AKS clusters using Kubernetes version 1.19+ for Linux node pools use `containerd` as their container runtime. Beginning in Kubernetes version 1.20 for Windows node pools, `containerd` can be used in preview for the container runtime, but Docker is still the default container runtime. AKS clusters using prior versions of Kubernetes for node pools use Docker as their container runtime. |  
+| *container runtime* | Allows containerized applications to run and interact with additional resources, such as the virtual network or storage. AKS clusters using Kubernetes version 1.19+ for Linux node pools use `containerd` as their container runtime. Beginning in Kubernetes version 1.20 for Windows node pools, `containerd` can be used in preview for the container runtime, but Docker is still the default container runtime. AKS clusters using prior versions of Kubernetes for node pools use Docker as their container runtime. |  
 
 ![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -99,27 +99,42 @@ To maintain node performance and functionality, AKS reserves resources on each n
 
 Two types of resources are reserved:
 
-- **CPU**  
-    Reserved CPU is dependent on node type and cluster configuration, which may cause less allocatable CPU due to running additional features.
+#### CPU
 
-   | CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
-   |---|---|---|---|---|---|---|---|
-   |Kube-reserved (millicores)|60|100|140|180|260|420|740|
+Reserved CPU is dependent on node type and cluster configuration, which may cause less allocatable CPU due to running additional features.
 
-- **Memory**  
-    Memory utilized by AKS includes the sum of two values.
+| CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
+|---|---|---|---|---|---|---|---|
+|Kube-reserved (millicores)|60|100|140|180|260|420|740|
 
-   1. **`kubelet` daemon**   
-       The `kubelet` daemon is installed on all Kubernetes agent nodes to manage container creation and termination. 
-   
-        By default on AKS, `kubelet` daemon has the *memory.available<750Mi* eviction rule, ensuring a node must always have at least 750Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` will trigger to terminate one of the running pods and free up memory on the host machine.
+#### Memory
 
-   2. **A regressive rate of memory reservations** for the kubelet daemon to properly function (*kube-reserved*).
-      - 25% of the first 4 GB of memory
-      - 20% of the next 4 GB of memory (up to 8 GB)
-      - 10% of the next 8 GB of memory (up to 16 GB)
-      - 6% of the next 112 GB of memory (up to 128 GB)
-      - 2% of any memory above 128 GB
+Memory utilized by AKS includes the sum of two values.
+
+> [!IMPORTANT]
+> AKS 1.29 previews in January 2024 and includes certain changes to memory reservations. These changes are detailed in the following section.
+
+**AKS 1.29 and later**
+
+1. **`kubelet` daemon** has the *memory.available<100Mi* eviction rule by default. This ensures that a node always has at least 100Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` triggers the termination of one of the running pods and frees up memory on the host machine.
+2. **A rate of memory reservations** set according to the lesser value of: *20MB * Max Pods supported on the Node + 50MB* or *25% of the total system memory resources*.
+
+    **Examples**:
+   * If the VM provides 8GB of memory and the node supports up to 30 pods, AKS reserves *20MB * 30 Max Pods + 50MB = 650MB* for kube-reserved. `Allocatable space = 8GB - 0.65GB (kube-reserved) - 0.1GB (eviction threshold) = 7.25GB or 90.625% allocatable.`
+   * If the VM provides 4GB of memory and the node supports up to 70 pods, AKS reserves *25% * 4GB = 1000MB* for kube-reserved, as this is less than *20MB * 70 Max Pods + 50MB = 1450MB*.
+
+    For more information, see [Configure maximum pods per node in an AKS cluster](./azure-cni-overview.md#maximum-pods-per-node).
+
+**AKS versions prior to 1.29**
+
+1. **`kubelet` daemon** is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, `kubelet` daemon has the *memory.available<750Mi* eviction rule, ensuring a node must always have at least 750Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` will trigger to terminate one of the running pods and free up memory on the host machine.
+
+2. **A regressive rate of memory reservations** for the kubelet daemon to properly function (*kube-reserved*).
+   * 25% of the first 4GB of memory
+   * 20% of the next 4GB of memory (up to 8GB)
+   * 10% of the next 8GB of memory (up to 16GB)
+   * 6% of the next 112GB of memory (up to 128GB)
+   * 2% of any memory above 128GB
 
 >[!NOTE]
 > AKS reserves an additional 2GB for system process in Windows nodes that are not part of the calculated memory.
@@ -140,6 +155,9 @@ In addition to reservations for Kubernetes itself, the underlying node OS also r
 For associated best practices, see [Best practices for basic scheduler features in AKS][operator-best-practices-scheduler].
 
 ### Node pools
+
+> [!NOTE]
+> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
 
 Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains at least one node pool. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes.
 
@@ -200,7 +218,7 @@ Modifying any **Azure-created tags** on resources under the node resource group 
 To reduce the chance of changes in the node resource group affecting your clusters, you can enable node resource group lockdown to apply a deny assignment to your AKS resources. More information can be found in [Cluster configuration in AKS][configure-nrg].
 
 > [!WARNING]
-> If you have don't have node resource group lockdown enabled, you can directly modify any resource in the node resource group. Directly modifying resources in the node resource group can cause your cluster to become unstable or unresponsive.
+> If you don't have node resource group lockdown enabled, you can directly modify any resource in the node resource group. Directly modifying resources in the node resource group can cause your cluster to become unstable or unresponsive.
 
 ## Pods
 
@@ -305,7 +323,7 @@ Using the Kubernetes Scheduler, the Deployment Controller runs replicas on any a
 
 Two Kubernetes resources, however, let you manage these types of applications:
 
-- *StatefulSets* maintain the state of applications beyond an individual pod lifecycle, such as storage.
+- *StatefulSets* maintain the state of applications beyond an individual pod lifecycle.
 - *DaemonSets* ensure a running instance on each node, early in the Kubernetes bootstrap process.
 
 ### StatefulSets
@@ -320,7 +338,7 @@ Replicas in a StatefulSet are scheduled and run across any available node in an 
 
 ### DaemonSets
 
-For specific log collection or monitoring, you may need to run a pod on all, or selected, nodes. You can use *DaemonSet* deploy on one or more identical pods, but the DaemonSet Controller ensures that each node specified runs an instance of the pod.
+For specific log collection or monitoring, you may need to run a pod on all nodes or a select set of nodes. You can use *DaemonSets* to deploy to one or more identical pods. The DaemonSet Controller ensures that each node specified runs an instance of the pod.
 
 The DaemonSet Controller can schedule pods on nodes early in the cluster boot process, before the default Kubernetes scheduler has started. This ability ensures that the pods in a DaemonSet are started before traditional pods in a Deployment or StatefulSet are scheduled.
 
@@ -386,3 +404,4 @@ This article covers some of the core Kubernetes components and how they apply to
 [aks-service-level-agreement]: faq.md#does-aks-offer-a-service-level-agreement
 [aks-tags]: use-tags.md
 [aks-support]: support-policies.md#user-customization-of-agent-nodes
+[intro-azure-linux]: ../azure-linux/intro-azure-linux.md

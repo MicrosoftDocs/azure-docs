@@ -1,11 +1,13 @@
 ---
 title: Connect to Azure SQL
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to set up an indexer connection to Azure SQL Database  using a managed identity
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - ignite-2023
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 09/19/2022
@@ -15,13 +17,13 @@ ms.date: 09/19/2022
 
 This article explains how to set up an indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure Active Directory logins and require Azure role assignments to access data in Azure SQL.
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Microsoft Entra logins and require Azure role assignments to access data in Azure SQL.
 
 ## Prerequisites
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Assign an Azure admin role on SQL](/azure/azure-sql/database/authentication-aad-configure). The identity used on the indexer connection needs read permissions. You must be an Azure AD admin with a server in SQL Database or SQL Managed Instance to grant read permissions on a database.
+* [Assign an Azure admin role on SQL](/azure/azure-sql/database/authentication-aad-configure). The identity used on the indexer connection needs read permissions. You must be a Microsoft Entra admin with a server in SQL Database or SQL Managed Instance to grant read permissions on a database.
 
 * You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 
@@ -33,7 +35,7 @@ Follow the below steps to assign the search service or user-assigned managed ide
 
     ![Connect to Visual Studio](./media/search-managed-identities/connect-with-visual-studio.png "Connect to Visual Studio")
 
-2. Authenticate with your Azure AD account
+2. Authenticate with your Microsoft Entra account
 
     ![Authenticate](./media/search-managed-identities/visual-studio-authenticate.png "Authenticate")
 
@@ -52,7 +54,7 @@ Follow the below steps to assign the search service or user-assigned managed ide
 
 If you later change the search service identity or user-assigned identity after assigning permissions, you must remove the role membership and remove the user in the SQL database, then repeat the permission assignment. Removing the role membership and user can be accomplished by running the following commands:
 
- ```sql
+```sql
 sp_droprolemember 'db_datareader', [insert your search service name or user-assigned managed identity name];
 
 DROP USER IF EXISTS [insert your search service name or user-assigned managed identity name];
@@ -60,7 +62,7 @@ DROP USER IF EXISTS [insert your search service name or user-assigned managed id
 
 ## 2 - Add a role assignment
 
-In this section you'll, give your Azure Cognitive Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+In this section you'll, give your Azure AI Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 1. In the Azure portal, navigate to your Azure SQL Server page.
 

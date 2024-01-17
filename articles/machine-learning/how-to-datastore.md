@@ -9,13 +9,12 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 07/06/2023
-ms.custom: contperf-fy21q1, data4ml
+ms.date: 10/25/2023
+ms.custom: contperf-fy21q1, data4ml, ignite-2023, devx-track-azurecli
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource, to train my machine learning models.
 ---
 
 # Create datastores
-
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
@@ -416,6 +415,141 @@ Create the Azure Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_adls_datastore.yml
+```
+---
+
+---
+
+## Create a OneLake (Microsoft Fabric) datastore (preview)
+
+This section describes the creation of a OneLake datastore using various options. The OneLake datastore is part of Microsoft Fabric. At this time, Azure Machine Learning supports connecting to Microsoft Fabric Lakehouse artifacts that includes folders/ files and Amazon S3 shortcuts. For more information about Lakehouse, see [What is a lakehouse in Microsoft Fabric](/fabric/data-engineering/lakehouse-overview).
+
+To create a OneLake datastore, you need
+
+- Endpoint
+- Fabric workspace name or GUID
+- Artifact name or GUID
+
+information from your Microsoft Fabric instance. These three screenshots describe retrieval of these required information resources from your Microsoft Fabric instance:
+
+#### OneLake workspace name
+In your Microsoft Fabric instance, you can find the workspace information as shown in this screenshot. You can use either a GUID value, or a "friendly name" to create an Azure Machine Learning OneLake datastore.
+
+:::image type="content" source="media/how-to-datastore/fabric-workspace.png" alt-text="Screenshot that shows Fabric Workspace details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-workspace.png":::
+
+#### OneLake endpoint
+In your Microsoft Fabric instance, you can find the endpoint information as shown in this screenshot:
+
+:::image type="content" source="media/how-to-datastore/fabric-endpoint.png" alt-text="Screenshot that shows Fabric endpoint details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-endpoint.png":::
+
+#### OneLake artifact name
+In your Microsoft Fabric instance, you can find the artifact information as shown in this screenshot. You can use either a GUID value, or a "friendly name" to create an Azure Machine Learning OneLake datastore, as shown in this screenshot:
+
+:::image type="content" source="media/how-to-datastore/fabric-lakehouse.png" alt-text="Screenshot showing how to get Fabric LH artifact details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-lakehouse.png":::
+
+### Create a OneLake datastore
+
+# [Python SDK: Identity-based access](#tab/sdk-onelake-identity-access)
+
+```python
+from azure.ai.ml.entities import OneLakeDatastore, OneLakeArtifact
+from azure.ai.ml import MLClient
+
+ml_client = MLClient.from_config()
+
+store = OneLakeDatastore(
+    name="onelake_example_id",
+    description="Datastore pointing to an Microsoft fabric artifact.",
+    one_lake_workspace_name="AzureML_Sample_OneLakeWS",
+    endpoint="msit-onelake.dfs.fabric.microsoft.com"
+    artifact = OneLakeArtifact(
+        name="AzML_Sample_LH",
+        type="lake_house"
+    )
+)
+
+ml_client.create_or_update(store)
+```
+
+# [Python SDK: Service principal](#tab/sdk-onelake-sp)
+
+```python
+from azure.ai.ml.entities import AzureDataLakeGen1Datastore
+from azure.ai.ml.entities._datastore.credentials import ServicePrincipalCredentials
+from azure.ai.ml import MLClient
+
+ml_client = MLClient.from_config()
+
+rom azure.ai.ml.entities import OneLakeDatastore, OneLakeArtifact
+from azure.ai.ml import MLClient
+
+ml_client = MLClient.from_config()
+
+store = OneLakeDatastore(
+    name="onelake_example_sp",
+    description="Datastore pointing to an Microsoft fabric artifact.",
+    one_lake_workspace_name="AzureML_Sample_OneLakeWS",
+    endpoint="msit-onelake.dfs.fabric.microsoft.com"
+    artifact = OneLakeArtifact(
+    name="AzML_Sample_LH",
+    type="lake_house"
+    )
+    credentials=ServicePrincipalCredentials(
+        tenant_id= "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        client_id= "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        client_secret= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    ),
+)
+
+ml_client.create_or_update(store)
+```
+
+# [CLI: Identity-based access](#tab/cli-onelake-identity-based-access)
+Create the following YAML file (updating the values):
+
+```yaml
+# my_onelake_datastore.yml
+$schema: http://azureml/sdk-2-0/OneLakeDatastore.json
+name: onelake_example_id
+type: one_lake
+description: Credential-less datastore pointing to an OneLake Lakehouse.
+one_lake_workspace_name: "AzureML_Sample_OneLakeWS"
+endpoint: "msit-onelake.dfs.fabric.microsoft.com"
+artifact:
+  type: lake_house
+  name: "AzML_Sample_LH"
+```
+
+Create the Azure Machine Learning datastore in the CLI:
+
+```azurecli
+az ml datastore create --file my_onelake_datastore.yml
+```
+
+# [CLI: Service principal](#tab/cli-onelake-sp)
+Create the following YAML file (updating the values):
+
+```yaml
+# my_onelakesp_datastore.yml
+$schema: http://azureml/sdk-2-0/OneLakeDatastore.json
+name: onelake_example_id
+type: one_lake
+description: Credential-less datastore pointing to an OneLake Lakehouse.
+one_lake_workspace_name: "AzureML_Sample_OneLakeWS"
+endpoint: "msit-onelake.dfs.fabric.microsoft.com"
+artifact:
+  type: lake_house
+  name: "AzML_Sample_LH"
+credentials:
+  tenant_id: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+  client_id: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+  client_secret: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+Create the Azure Machine Learning datastore in the CLI:
+
+```azurecli
+az ml datastore create --file my_onelakesp_datastore.yml
 ```
 ---
 

@@ -304,7 +304,7 @@ The following tables provide coverage information for Azure Maps routing.
 | Somalia                                |                ✓                  |                   |             |
 | South Africa                           |                ✓                  |         ✓         |      ✓     |
 | South Sudan                            |                ✓                  |                   |             |
-| St. Helena, Ascension, and Tristan da Cunha |                ✓                  |                   |             |
+| St. Helena, Ascension, and Tristan da Cunha |           ✓                  |                   |             |
 | Sudan                                  |                ✓                  |                   |             |
 | Swaziland                              |                ✓                  |                   |             |
 | Syria                                  |                ✓                  |                   |             |
@@ -312,7 +312,7 @@ The following tables provide coverage information for Azure Maps routing.
 | Togo                                   |                ✓                  |                   |             |
 | Tunisia                                |                ✓                  |                   |             |
 | Uganda                                 |                ✓                  |                   |             |
-| United Arab Emirates                   |                                   |                   |             |
+| United Arab Emirates                   |                ✓                  |         ✓         |             |
 | Yemen                                  |                ✓                  |                   |             |
 | Zambia                                 |                ✓                  |                   |             |
 | Zimbabwe                               |                ✓                  |                   |             |

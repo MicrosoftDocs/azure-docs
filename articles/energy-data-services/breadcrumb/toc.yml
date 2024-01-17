@@ -1,0 +1,7 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Data Manager for Energy
+      tocHref: /azure/reliability/

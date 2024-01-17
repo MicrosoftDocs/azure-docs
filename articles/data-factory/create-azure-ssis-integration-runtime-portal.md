@@ -4,7 +4,7 @@ description: Learn how to create an Azure-SSIS integration runtime in Azure Data
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
 ---
@@ -96,9 +96,9 @@ If you select the check box, complete the following steps to bring your own data
 
    If you select an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR, you need to join your Azure-SSIS IR to a virtual network. For more information, see [Join an Azure-SSIS IR to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md).
       
-1. Select either the **Use AAD authentication with the system managed identity for Data Factory** or **Use AAD authentication with a user-assigned managed identity for Data Factory** check box to choose Azure AD authentication method for Azure-SSIS IR to access your database server that hosts SSISDB. Don't select any of the check boxes to choose SQL authentication method instead.
+1. Select either the **Use Microsoft Entra authentication with the system managed identity for Data Factory** or **Use Microsoft Entra authentication with a user-assigned managed identity for Data Factory** check box to choose Microsoft Entra authentication method for Azure-SSIS IR to access your database server that hosts SSISDB. Don't select any of the check boxes to choose SQL authentication method instead.
 
-   If you select any of the check boxes, you'll need to add the specified system/user-assigned managed identity for your data factory into an Azure AD group with access permissions to your database server. If you select the **Use AAD authentication with a user-assigned managed identity for Data Factory** check box, you can then select any existing credentials created using your specified user-assigned managed identities or create new ones. For more information, see [Enable Azure AD authentication for an Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
+   If you select any of the check boxes, you'll need to add the specified system/user-assigned managed identity for your data factory into a Microsoft Entra group with access permissions to your database server. If you select the **Use Microsoft Entra authentication with a user-assigned managed identity for Data Factory** check box, you can then select any existing credentials created using your specified user-assigned managed identities or create new ones. For more information, see [Enable Microsoft Entra authentication for an Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
 
 1. For **Admin Username**, enter the SQL authentication username for your database server that hosts SSISDB. 
 
@@ -285,7 +285,7 @@ On the **Connections** pane of **Manage** hub, switch to the **Integration runti
 
 1. For the remaining steps to set up an Azure-SSIS IR, see the [Provision an Azure SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section.
  
-## Next steps
+## Related content
 
 - [Create an Azure-SSIS IR via Azure PowerShell](create-azure-ssis-integration-runtime-powershell.md).
 - [Create an Azure-SSIS IR via Azure Resource Manager template](create-azure-ssis-integration-runtime-resource-manager-template.md).

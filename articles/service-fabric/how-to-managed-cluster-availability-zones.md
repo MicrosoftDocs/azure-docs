@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 11/09/2022
+ms.date: 10/02/2023
 ms.custom: engagement-fy23, devx-track-arm-template
 ---
 # Deploy a Service Fabric managed cluster across availability zones
@@ -237,9 +237,9 @@ The update should be done via ARM template by setting the zonalUpdateMode proper
             }
         }]
 ```
-2. Add a node to the node type from a cluster by following the procedure to [modify node type](how-to-managed-cluster-modify-node-type.md). 
+2. Add a node to a cluster by using the [az sf cluster node add PowerShell command](/cli/azure/sf/cluster/node?view=azure-cli-latest#az-sf-cluster-node-add()).
 
-3. Remove a node to the node type from a cluster by following the procedure to [modify node type](how-to-managed-cluster-modify-node-type.md).
+3. Remove a node from a cluster by using the [az sf cluster node remove PowerShell command](/cli/azure/sf/cluster/node?view=azure-cli-latest#az-sf-cluster-node-remove()).
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png

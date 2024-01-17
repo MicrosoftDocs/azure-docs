@@ -207,7 +207,7 @@ The CD pipeline uses the security token of the running build to authenticate to 
 1. For the `<Project Name> Build Service (<Organization Name>)`, allow `Contribute`, `Contribute to pull requests`, and `Create branch`.
 
 For more information, see:
-- [Grant VC Permissions to the Build Service](/azure/devops/pipelines/scripts/git-commands?preserve-view=true&tabs=yaml&view=azure-devops#version-control )
+- [Grant VC Permissions to the Build Service](/azure/devops/pipelines/scripts/git-commands?preserve-view=true&tabs=yaml&view=azure-devops#version-control)
 - [Manage Build Service Account Permissions](/azure/devops/pipelines/process/access-tokens?preserve-view=true&tabs=yaml&view=azure-devops#manage-build-service-account-permissions)
 
 

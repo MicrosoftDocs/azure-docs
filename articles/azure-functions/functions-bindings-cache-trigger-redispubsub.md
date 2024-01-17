@@ -6,9 +6,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
 ms.service: azure-functions
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
 ms.date: 08/07/2023
-
 ---
 
 # RedisPubSubTrigger Azure Function (preview)
@@ -31,7 +31,15 @@ Redis features [publish/subscribe functionality](https://redis.io/docs/interact/
 
 [!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
 
-### [In-process](#tab/in-process)
+### [Isolated worker model](#tab/isolated-process)
+
+The isolated process examples aren't available in preview.
+
+```csharp
+//TBD
+```
+
+### [In-process model](#tab/in-process)
 
 This sample listens to the channel `pubsubTest`.
 
@@ -68,14 +76,6 @@ public static void KeyeventTrigger(
 {
     logger.LogInformation(message);
 }
-```
-
-### [Isolated process](#tab/isolated-process)
-
-The isolated process examples aren't available in preview.
-
-```csharp
-//TBD
 ```
 
 ---

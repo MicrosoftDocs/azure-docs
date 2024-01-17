@@ -92,9 +92,6 @@ The following table lists the configurable properties that you can use to set up
 | `host-key-algorithm`       | No       | The host key algorithm. Should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
 | `strict-host-key-checking` | No       | Indicates whether the Config Server instance fails to start when using the private `host-key`. Should be *true* (default value) or *false*.                         |
 
-> [!NOTE]
-> Config Server uses RSA keys with SHA-1 signatures for now. If you're using GitHub, for RSA public keys added to GitHub before November 2, 2021, the corresponding private key is supported. For RSA public keys added to GitHub after November 2, 2021, the corresponding private key is not supported, and we suggest using basic authentication instead.
-
 ### Private repository with basic authentication
 
 The following table lists the configurable properties that you can use to set up a private Git repository with basic authentication.
@@ -208,7 +205,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/azure-spring-cloud-samples/config-server-repository.git
+          uri: https://github.com/azure-spring-apps-samples-pr/config-server-repository.git
           username: <username>
           password: <password/token>
 ```
@@ -330,7 +327,7 @@ Instead, you can automatically refresh values from Config Server by letting the 
    }
    ```
 
-For more information, see the [config-client-polling](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/config-client-polling) sample.
+For more information, see the [config-client-polling](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/config-client-polling) sample.
 
 ## Next steps
 

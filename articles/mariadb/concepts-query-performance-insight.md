@@ -9,6 +9,8 @@ ms.date: 06/24/2022
 ---
 # Query Performance Insight in Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 **Applies to:** Azure Database for MariaDB 10.2
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.

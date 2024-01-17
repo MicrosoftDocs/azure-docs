@@ -2,12 +2,11 @@
 title: "Immersive Reader SDK Release Notes"
 titleSuffix: Azure AI services
 description: Learn more about what's new in the Immersive Reader JavaScript SDK.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: guillasi
 
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.custom: devx-track-js
 ms.topic: release-notes
 ms.date: 11/15/2021
@@ -15,6 +14,18 @@ ms.author: rwaller
 ---
 
 # Immersive Reader JavaScript SDK Release Notes
+
+## Version 1.4.0
+
+This release contains new feature, security vulnerability fixes, and updates to code samples.
+
+#### New Features
+
+* Subdomain regex validation updated to allow private links
+
+#### Improvements
+
+* Update code samples to use v1.4.0
 
 ## Version 1.3.0
 

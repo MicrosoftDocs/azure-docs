@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-linux
-ms.date: 04/13/2023
+ms.date: 11/24/2023
 ---
 
 # Use Azure Blob storage Container Storage Interface (CSI) driver
@@ -33,6 +33,8 @@ Azure Blob storage CSI driver supports the following features:
 - You need the Azure CLI version 2.42 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 - Perform the steps in this [link][csi-blob-storage-open-source-driver-uninstall-steps] if you previously installed the [CSI Blob Storage open-source driver][csi-blob-storage-open-source-driver] to access Azure Blob storage from your cluster.
+> [!NOTE]
+> If the blobfuse-proxy is not enabled during the installation of the open source driver, the uninstallation of the open source driver will disrupt existing blobfuse mounts. However, NFS mounts will remain unaffected.
 
 ## Enable CSI driver on a new or existing AKS cluster
 
@@ -81,6 +83,8 @@ A storage class is used to define how an Azure Blob storage container is created
 
 * **Standard_LRS**: Standard locally redundant storage
 * **Premium_LRS**: Premium locally redundant storage
+* **Standard_ZRS**: Standard zone redundant storage
+* **Premium_ZRS**: Premium zone redundant storage
 * **Standard_GRS**: Standard geo-redundant storage
 * **Standard_RAGRS**: Standard read-access geo-redundant storage
 

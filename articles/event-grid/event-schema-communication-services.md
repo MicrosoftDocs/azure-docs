@@ -2,13 +2,13 @@
 title: Azure Communication Services as an Event Grid source - Overview
 description: This article describes how to use Azure Communication Services as an Event Grid event source.
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 09/19/2023
 ms.author: mikben
 ---
 
 # Event Handling in Azure Communication Services
 
-Azure Communication Services integrates with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to deliver real-time event notifications in a reliable, scalable and secure manner. The purpose of this article is to help you configure your applications to listen to Communication Services events. For example, you may want to update a database, create a work item and deliver a push notification whenever an SMS message is received by a phone number associated with your Communication Services resource.
+Azure Communication Services integrates with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to deliver real-time event notifications in a reliable, scalable, and secure manner. The purpose of this article is to help you configure your applications to listen to Communication Services events. For example, you may want to update a database, create a work item and deliver a push notification whenever an SMS message is received by a phone number associated with your Communication Services resource.
 
 Azure Event Grid is a fully managed event routing service, which uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../azure-functions/functions-overview.md). It can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](overview.md).
 
@@ -34,7 +34,7 @@ You can use the Azure portal or Azure CLI to subscribe to events emitted by your
 
 ## Event subjects
 
-The `subject` field of all Communication Services events identifies the user, phone number or entity that is targeted by the event. Common prefixes are used to allow simple [Event Grid Filtering](event-filtering.md).
+The `subject` field of all Communication Services events identifies the user, phone number, or entity that is targeted by the event. Common prefixes are used to allow simple [Event Grid filtering](event-filtering.md).
 
 | Subject Prefix                              | Communication Service Entity |
 | ------------------------------------------- | ---------------------------- |

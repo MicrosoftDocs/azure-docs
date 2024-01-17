@@ -30,10 +30,11 @@ There are three types of assessments that you can create using the Azure Migrate
 > [!NOTE]
 > If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool then shows the correct count for that assessment type. 
 
-An Azure SQL assessment provides one sizing criteria:
+An Azure SQL assessment provides two sizing criteria:
 
 **Sizing criteria** | **Details** | **Data**
 --- | --- | ---
+**As on-premises** | Assessments that make recommendations based on the on-premises SQL Server configuration alone | The Azure SQL configuration is based on the on-premises SQL Server configuration, which includes cores allocated, total memory allocated and database sizes.
 **Performance-based** | Assessments that make recommendations based on collected performance data | The Azure SQL configuration is based on performance data of SQL instances and databases, which includes CPU utilization, Memory utilization, IOPS (Data and Log files), throughput, and latency of IO operations.
 
 ## How do I assess my on-premises SQL servers?
@@ -56,8 +57,8 @@ The appliance collects performance data for compute settings with these steps:
 1. The appliance collects a real-time sample point. For SQL servers, it collects a sample point every 30 seconds.
 2. The appliance aggregates the sample data points collected every 30 seconds over 10 minutes. To create the data point, the appliance selects the peak values from all samples. It sends the max, mean and variance for each counter to Azure.
 3. Azure Migrate stores all the 10-minute data points for the last month.
-4. When you create an assessment, Azure Migrate identifies the appropriate data point to use for rightsizing. Identification is based on the percentile values for performance history and percentile utilization.
-    - For example, if the performance history is one week and the percentile utilization is the 95th percentile, the assessment sorts the 10-minute sample points for the last week. It sorts them in ascending order and picks the 95th percentile value for rightsizing.
+4. When you create an assessment, Azure Migrate identifies the appropriate data point to use for right-sizing. Identification is based on the percentile values for performance history and percentile utilization.
+    - For example, if the performance history is one week and the percentile utilization is the 95th percentile, the assessment sorts the 10-minute sample points for the last week. It sorts them in ascending order and picks the 95th percentile value for right-sizing.
     - The 95th percentile value makes sure you ignore any outliers, which might be included if you picked the 99th percentile.
     - If you want to pick the peak usage for the period and don't want to miss any outliers, select the 99th percentile for percentile utilization.
 5. This value is multiplied by the comfort factor to get the effective performance utilization data for these metrics that the appliance collects:
@@ -82,7 +83,7 @@ Target and pricing settings | **Currency** | The billing currency for your accou
 Target and pricing settings | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 Target and pricing settings | **VM uptime** | Specify the duration (days per month/hour per day) that servers/VMs run. This is useful for computing cost estimates for SQL Server on Azure VM where you're aware that Azure VMs might not run continuously. <br/> Cost estimates for servers where recommended target is *SQL Server on Azure VM* are based on the duration specified. Default is 31 days per month/24 hours per day.
 Target and pricing settings | **Azure Hybrid Benefit** | Specify whether you already have a Windows Server and/or SQL Server license. Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure. For example, if you have a SQL Server license and they're covered with active Software Assurance of SQL Server Subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
-Assessment criteria | **Sizing criteria** | Set to *Performance-based* by default, which means Azure Migrate collects performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized SQL Server on Azure VM and/or Azure SQL Database and/or Azure SQL Managed Instance configuration. 
+Assessment criteria | **Sizing criteria** | Set to *Performance-based* by default, which means Azure Migrate collects performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized SQL Server on Azure VM and/or Azure SQL Database and/or Azure SQL Managed Instance configuration. <br/><br/> You can change this to *As on-premises* to get recommendations based on just the on-premises SQL Sever configuration without the performance metric based optimizations.
 Assessment criteria | **Performance history** | Indicate the data duration on which you want to base the assessment. (Default is one day)
 Assessment criteria | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
 Assessment criteria | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage.
@@ -96,10 +97,10 @@ Azure SQL Database sizing | **Service Tier** | Choose the most appropriate servi
 Azure SQL Database sizing | **Instance type** | Defaulted to *Single database*.
 Azure SQL Database sizing | **Purchase model** | Defaulted to *vCore*.
 Azure SQL Database sizing | **Compute tier** | Defaulted to *Provisioned*.
-High availability and disaster recovery properties | **Disaster recovery region** | Defaulted to the [cross-region replication pair](../reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) of the Target location. In an unlikely event when the chosen Target location doesn't yet have such a pair, the specified Target location itself is chosen as the default disaster recovery region.
-High availability and disaster recovery properties | **Multi-subnet intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you want asynchronous data replication where some replication delays are tolerable. This allows higher durability using geo-redundancy. In the event of failover, data that hasn't yet been replicated may be lost. <br/><br/> Select **High availability** if you desire the data replication to be synchronous and no data loss due to replication delay is allowable. This setting allows assessment to leverage built-in high availability options in Azure SQL Databases and Azure SQL Managed Instances, and availability zones and zone-redundancy in Azure Virtual Machines to provide higher availability. In the event of failover, no data is lost.  
-High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound Internet access from Azure VMs. This allows the use of [Cloud Witness](https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to?view=azuresql&tabs=powershell) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound Internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
-High availability and disaster recovery properties | **Async commit mode intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you're using asynchronous commit availability mode to enable higher durability for the data without affecting performance. In the event of failover, data that hasn't yet been replicated may be lost. <br/><br/> Select **High availability** if you're using asynchronous commit data availability mode to improve availability and scale out read traffic. This setting allows assessment to leverage built-in high availability features in Azure SQL Databases, Azure SQL Managed Instances, and Azure Virtual Machines to provide higher availability and scale out.  
+High availability and disaster recovery properties | **Disaster recovery region** | Defaulted to the [cross-region replication pair](../reliability/cross-region-replication-azure.md#azure-paired-regions) of the Target location. In an unlikely event when the chosen Target location doesn't yet have such a pair, the specified Target location itself is chosen as the default disaster recovery region.
+High availability and disaster recovery properties | **Multi-subnet intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you want asynchronous data replication where some replication delays are tolerable. This allows higher durability using geo-redundancy. In the event of failover, data that hasn't yet been replicated might be lost. <br/><br/> Select **High availability** if you desire the data replication to be synchronous and no data loss due to replication delay is allowable. This setting allows assessment to leverage built-in high availability options in Azure SQL Databases and Azure SQL Managed Instances, and availability zones and zone-redundancy in Azure Virtual Machines to provide higher availability. In the event of failover, no data is lost.  
+High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound Internet access from Azure VMs. This allows the use of [Cloud Witness](/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to?tabs=powershell) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound Internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
+High availability and disaster recovery properties | **Async commit mode intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you're using asynchronous commit availability mode to enable higher durability for the data without affecting performance. In the event of failover, data that hasn't yet been replicated might be lost. <br/><br/> Select **High availability** if you're using asynchronous commit data availability mode to improve availability and scale out read traffic. This setting allows assessment to leverage built-in high availability features in Azure SQL Databases, Azure SQL Managed Instances, and Azure Virtual Machines to provide higher availability and scale out.  
 Security | **Security** | Defaulted to Yes, with Microsoft Defender for Cloud. <br/><br/> Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it will assess security readiness and costs for your Azure SQL MI/DB with Microsoft Defender for Cloud.   
 
 [Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate.
@@ -115,11 +116,11 @@ Security | **Security** | Defaulted to Yes, with Microsoft Defender for Cloud. <
 Readiness checks for different migration strategies: 
 
 #### Recommended deployment, Instances to SQL Server on Azure VM, Instances to Azure SQL MI, Database to Azure SQL DB:
-Azure SQL readiness for SQL instances and databases is based on a feature compatibility check with SQL Server on Azure VM, [Azure SQL Database](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql), and [Azure SQL Managed Instance](https://learn.microsoft.com/azure/azure-sql/migration-guides/managed-instance/sql-server-to-sql-managed-instance-assessment-rules?view=azuresql):
+Azure SQL readiness for SQL instances and databases is based on a feature compatibility check with SQL Server on Azure VM, [Azure SQL Database](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules), and [Azure SQL Managed Instance](/azure/azure-sql/migration-guides/managed-instance/sql-server-to-sql-managed-instance-assessment-rules):
 1. The Azure SQL assessment considers the SQL Server instance features that are currently used by the source SQL Server workloads (SQL Agent jobs, linked servers, etc.) and the user databases schemas (tables, views, triggers, stored procedures etc.) to identify compatibility issues.
 1. If there are no compatibility issues found, the instance is marked as **Ready** for the target deployment type (SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance)
 1. If there are non-critical compatibility issues, such as deprecated or unsupported features that don't block the migration to a specific target deployment type, the instance is marked as **Ready** (hyperlinked) with **warning** details and recommended remediation guidance. This includes the situation where the source data has an Always On Availability Group configuration and the required replicas exceed those available with the specific target deployment type. 
-1. If there are any compatibility issues that may block the migration to a specific target deployment type, the instance is marked as **Ready with conditions** with **issue** details and recommended remediation guidance.
+1. If there are any compatibility issues that might block the migration to a specific target deployment type, the instance is marked as **Ready with conditions** with **issue** details and recommended remediation guidance.
     - In the Recommended deployment, Instances to Azure SQL MI, and Instances to SQL Server on Azure VM readiness reports, if there's even one database in a SQL instance, which isn't ready for a particular target deployment type, the instance is marked as **Ready with conditions** for that deployment type.
 1. **Not ready**: The assessment couldn't find a SQL Server on Azure VM/Azure SQL MI/Azure SQL DB configuration meeting the desired configuration and performance characteristics. Review the recommendation to make the instance/server ready for the desired target deployment type.
 1. If the discovery is still in progress or there are any discovery issues for a SQL instance or database, the instance is marked as **Unknown** as the assessment couldn't compute the readiness for that SQL instance.
@@ -141,17 +142,67 @@ If you select the target deployment type as **Recommended** in the Azure SQL ass
 
 ### Security readiness
 
-If the database/instance is marked as **Ready** for the target deployment type Azure SQL DB/MI, it is automatically considered **Ready** for Microsoft Defender for SQL. 
-If the database/instance is marked as **Ready** for the target deployment type SQL Server on Azure VM, it is considered **Ready** for Microsoft Defender for SQL if it is running any of these versions:
+If the database/instance is marked as **Ready** for the target deployment type Azure SQL DB/MI, it's automatically considered **Ready** for Microsoft Defender for SQL. 
+If the database/instance is marked as **Ready** for the target deployment type SQL Server on Azure VM, it's considered **Ready** for Microsoft Defender for SQL if it's running any of these versions:
 - SQL Server versions 2012, 2014, 2016, 2017, 2019, 2022
-- For all other versions, it is marked as **Ready with Conditions**.
+- For all other versions, it's marked as **Ready with Conditions**.
 
 
 ## Calculate sizing
 
-### Instances to Azure SQL MI and Databases to Azure SQL DB configuration
+After the assessment determines the readiness and the recommended Azure SQL deployment type, it computes a specific service tier and Azure SQL configuration (SKU size) that can meet or exceed the on-premises SQL Server performance. This calculation depends on whether you're using *As on-premises* or *Performance-based* sizing criteria.
 
-After the assessment determines the readiness and the recommended Azure SQL deployment type, it computes a specific service tier and Azure SQL configuration (SKU size) that can meet or exceed the on-premises SQL instance performance:
+### As on-premises sizing calculation
+
+If you use As on-premises sizing criteria, the assessment uses only SQL instance configuration data and doesn't consider performance data. 
+
+#### Instances to Azure SQL MI and Databases to Azure SQL DB configuration
+The assessment computes a specific service tier and Azure SQL configuration (SKU size) that can meet or exceed the on-premises SQL instance configuration:
+1. During the discovery process, Azure Migrate collects SQL instance configuration that includes:
+    - vCores (allocated)        
+    - Memory (allocated)
+    - Total DB size and database file organizations
+        - Database size is calculated by adding all the data and log files.    
+1. The assessment aggregates all the configuration data and tries to find the best match across various Azure SQL service tiers and configurations and picks a configuration that can match or exceed the SQL instance requirements, optimizing the cost.
+
+#### Instances to SQL Server on Azure VM configuration
+*Instance to SQL Server on Azure VM* assessment report covers the ideal approach for migrating SQL Server instances and databases to SQL Server on Azure VM, adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?preserve-view=true&view=azuresql#vm-size).
+
+##### Storage sizing
+For storage sizing, the assessment maps each of the instance disk to an Azure disk. Sizing works as follows:
+
+- The disk size needed for each of the disks is the size of SQL Data and SQL Log drives. 
+
+- The assessment recommends creating a storage disk pool for all SQL Log and SQL Data drives. For temp drives, the assessment recommends storing the files in the local drive.  
+
+- If the assessment can't find a disk for the required size, it marks the instance as unsuitable for migrating to SQL Server on Azure VM
+- If the assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
+- If the environment type is *Production*, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD disk.
+    - If there are multiple eligible disks, assessment selects the disk with the lowest cost.
+
+##### Compute sizing
+After it calculates storage requirements, the assessment considers CPU and RAM requirements of the instance to find a suitable VM size in Azure. 
+- The assessment looks at the allocated cores and RAM to find a suitable Azure VM size. 
+- If no suitable size is found, the server is marked as unsuitable for Azure.
+- If a suitable size is found, Azure Migrate applies the storage calculations. It then applies location and pricing-tier settings for the final VM size recommendation.
+- If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
+> [!NOTE]
+>As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?preserve-view=true&view=azuresql#vm-size).
+
+#### Servers to SQL Server on Azure VM configuration
+For *All servers to SQL Server on Azure VM* migration strategy, refer compute and storage sizing [here](concepts-assessment-calculation.md#calculate-sizing-as-is-on-premises).
+
+> [!NOTE]
+> Confidence ratings are not applicable to Azure SQL assessments using *As on-premises* sizing criteria.
+
+
+### Performance-based sizing calculation
+
+If you use *Performance-based* sizing, the assessment uses both SQL instance configuration and performance data to generate recommendations that meet or exceed the performance requirements. 
+
+#### Instances to Azure SQL MI and Databases to Azure SQL DB configuration
+
+The assessment computes a specific service tier and Azure SQL configuration (SKU size) that can meet or exceed the on-premises SQL instance performance requirements:
 1. During the discovery process, Azure Migrate collects SQL instance configuration and performance that includes:
     - vCores (allocated) and CPU utilization (%)
         - CPU utilization for a SQL instance is the percentage of allocated CPU utilized by the instance on the SQL server
@@ -171,13 +222,13 @@ After the assessment determines the readiness and the recommended Azure SQL depl
         - Connection Mode: Read-only vs None
 1. The assessment aggregates all the configuration and performance data and tries to find the best match across various Azure SQL service tiers and configurations and picks a configuration that can match or exceed the SQL instance performance requirements, optimizing the cost.
 
-### Instances to SQL Server on Azure VM configuration
+#### Instances to SQL Server on Azure VM configuration
 
 *Instance to SQL Server on Azure VM* assessment report covers the ideal approach for migrating SQL Server instances and databases to SQL Server on Azure VM, adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?preserve-view=true&view=azuresql#vm-size).
 
-If the source is a SQL Server Always On Failover Cluster Instance (FCI), the assessment report covers the approach for migrating to a two-node SQL Server Failover Cluster Instance. This preserves the high availability and disaster recovery intents while adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices?view=azuresql&tabs=windows2012). 
+If the source is a SQL Server Always On Failover Cluster Instance (FCI), the assessment report covers the approach for migrating to a two-node SQL Server Failover Cluster Instance. This preserves the high availability and disaster recovery intents while adhering to the best practices. [Learn more](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices?view=azuresql&preserve-view=true&tabs=windows2012). 
 
-#### Storage sizing
+##### Storage sizing
 For storage sizing, the assessment maps each of the instance disk to an Azure disk. Sizing works as follows:
 
 - Assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. The disk size needed for each of the disks is the size of SQL Data and SQL Log drives. 
@@ -192,7 +243,7 @@ For storage sizing, the assessment maps each of the instance disk to an Azure di
 - If the environment type is *Production*, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD disk.
     - If there are multiple eligible disks, assessment selects the disk with the lowest cost.
 
-#### Compute sizing
+##### Compute sizing
 After it calculates storage requirements, the assessment considers CPU and RAM requirements of the instance to find a suitable VM size in Azure. 
 - The assessment looks at the effective utilized cores and RAM to find a suitable Azure VM size. *Effective utilized RAM or memory* for an instance is calculated by aggregating the buffer cache (buffer pool size in MB) for all the databases running in an instance.
 - If no suitable size is found, the server is marked as unsuitable for Azure.
@@ -203,10 +254,10 @@ After it calculates storage requirements, the assessment considers CPU and RAM r
 >As Azure SQL assessments are intended to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?preserve-view=true&view=azuresql#vm-size).
 
 
-### Servers to SQL Server on Azure VM configuration
+#### Servers to SQL Server on Azure VM configuration
 For *All servers to SQL Server on Azure VM* migration strategy, refer compute and storage sizing [here](concepts-assessment-calculation.md#calculate-sizing-performance-based).
 
-### Confidence ratings 
+### Confidence ratings
 Each Azure SQL assessment is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.
 - The confidence rating is assigned to an assessment. The rating is based on the availability of data points that are needed to compute the assessment.
 - For performance-based sizing, the assessment collects performance data of all the SQL instances and databases, which include:

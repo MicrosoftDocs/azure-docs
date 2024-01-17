@@ -133,6 +133,8 @@ The JSON key-values you created should look like this in App Configuration:
 
 :::image type="content" source="./media/create-json-settings.png" alt-text="Screenshot that shows the Config store containing JSON key-values.":::
 
+To check this, open your App Configuration resource in the Azure portal and go to **Configuration explorer**.
+
 ## Export JSON key-values to a file
 
 One of the major benefits of using JSON key-values is the ability to preserve the original data type of your values while exporting. If a key-value in App Configuration doesn't have JSON content type, its value will be treated as a string.

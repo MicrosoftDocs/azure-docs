@@ -13,7 +13,7 @@ ms.custom: compute-evergreen, devx-track-js
 # Build a Node.js chat application with Socket.IO on an Azure Cloud Service (classic)
 
 > [!TIP]
-> Socket.IO is now natively supported on Azure. To scale out a Socket.IO app to handle thousands of connections, it is often frustrating. Now that Azure natively supports Socket.IO, you can let Azure handle scalability and availability. [Learn more about how you can get any Socket.IO app running on Azure with a few lines of code](https://learn.microsoft.com/azure/azure-web-pubsub/socketio-overview). 
+> Socket.IO is now natively supported on Azure. To scale out a Socket.IO app to handle thousands of connections, it is often frustrating. Now that Azure natively supports Socket.IO, you can let Azure handle scalability and availability. [Learn more about how you can get any Socket.IO app running on Azure with a few lines of code](/azure/azure-web-pubsub/socketio-overview). 
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
@@ -198,21 +198,6 @@ In this tutorial you learned how to create a basic chat application hosted in an
 For more information, see also the [Node.js Developer Center](/azure/developer/javascript/).
 
 [chatwebsite]: ./cloud-services-nodejs-develop-deploy-app.md
-
-[Azure SLA]: https://www.windowsazure.com/support/sla/
-[Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
-[completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
-[Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
-[Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io/tree/0.9.14
-[Azure Considerations]: #windowsazureconsiderations
-[Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
-[Summary and Next Steps]: #summary
 [powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
-
-[chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
-[chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
-
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
-[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png

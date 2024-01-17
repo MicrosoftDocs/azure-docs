@@ -4,7 +4,7 @@ description: Learn how to manually update Azure Red Hat OpenShift cluster certif
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 10/05/2022
-author: johnmarc
+author: johnmarco
 ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, azure, update, certificates
 #Customer intent: I need to understand how to manually update my Azure Red Hat OpenShift cluster certificates.

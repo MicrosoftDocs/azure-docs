@@ -28,7 +28,7 @@ The test matrix includes the following operating systems:
 1. **Ubuntu** 20.04 with PowerShell Core 7.2.7
 
 >[!NOTE]
->- The extension should work anywhere in VS Code and it supports [PowerShell 7.2 or higher](https://learn.microsoft.com/powershell/scripting/install/PowerShell-Support-Lifecycle?view=powershell-7.3). For Windows PowerShell, only version 5.1 is supported.
+>- The extension should work anywhere in VS Code and it supports [PowerShell 7.2 or higher](/powershell/scripting/install/PowerShell-Support-Lifecycle?view=powershell-7.3&preserve-view=true). For Windows PowerShell, only version 5.1 is supported.
 >-  PowerShell Core 6 is end-of-life and not supported.
 
 

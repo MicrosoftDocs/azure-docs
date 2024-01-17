@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # Create users in Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article describes how you can create users in Azure Database for MariaDB.
 
 When you first created your Azure Database for MariaDB, you provided a server admin login user name and password. For more information, you can follow the [Quickstart](quickstart-create-mariadb-server-database-using-azure-portal.md). You can locate your server admin login user name from the Azure portal.

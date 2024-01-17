@@ -2,16 +2,20 @@
 title: Twilio Verify App with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate a sample online payment app in Azure AD B2C with the Twilio Verify API. Comply with PSD2 (Payment Services Directive 2) transaction requirements through dynamic linking and strong customer authentication.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C with Twilio Verify API, I want a walkthrough on how to integrate a sample online payment app with Twilio Verify API, so that I can comply with PSD2 transaction requirements through dynamic linking and strong customer authentication.
+
 ---
 
 # Integrating Twilio Verify App with Azure Active Directory B2C
@@ -22,7 +26,7 @@ In this walkthrough, learn how to integrate a sample online payment app in Azure
 
 To get started, you'll need:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 * A [trial account](https://www.twilio.com/try-twilio) at Twilio.
 
@@ -95,8 +99,7 @@ The following components make up the Twilio solution:
 Add the policy files to Azure AD B2C:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Navigate to **Azure AD B2C** > **Identity Experience Framework** > **Policy Keys**.
 1. Add a new key with the name **B2cRestTwilioClientId**. Select **manual**, and provide the value of the Twilio AccountSID.
@@ -114,6 +117,6 @@ For additional information, review the following articles:
 
 - Refer to GitHub for [Twilio integration code samples](https://github.com/azure-ad-b2c/samples/tree/master/policies/twilio-mfa-psd2)  
 
-- [Custom policies in AAD B2C](custom-policy-overview.md)
+- [Custom policies in Azure AD B2C](custom-policy-overview.md)
 
-- [Get started with custom policies in AAD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

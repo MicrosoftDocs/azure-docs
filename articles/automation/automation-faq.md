@@ -4,7 +4,7 @@ description: This article gives answers to frequently asked questions about Azur
 services: automation
 ms.topic: conceptual
 ms.custom: devx-track-python
-ms.date: 08/25/2021
+ms.date: 10/03/2023
 #Customer intent: As an implementer, I want answers to various questions.
 ---
 

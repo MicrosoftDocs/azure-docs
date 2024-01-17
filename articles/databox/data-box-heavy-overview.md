@@ -3,13 +3,13 @@ title: Microsoft Azure Data Box Heavy overview | Microsoft Docs in data
 description: Describes Azure Data Box, a hybrid solution that enables you to transfer massive amounts of data into Azure
 services: databox
 documentationcenter: NA
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: heavy
 ms.topic: overview
 ms.date: 10/20/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # What is Azure Data Box Heavy?
@@ -60,7 +60,7 @@ The Data Box Heavy device has the following features in this release.
 | Weight                                                  | ~ 500 lbs. <br>Device on locking wheels for transport|
 | Dimensions                                              | Width: 26 inches Height: 28 inches Length: 48 inches |
 | Rack space                                              | Cannot be rack-mounted|
-| Cables required                                         | 4 grounded 120 V / 10 A power cords (NEMA 5-15) included <br> Device supports up to 240 V power and has C-13 power receptacles <br> Use network cables compatible with [Mellanox MCX314A-BCCT](https://qnapdirect.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card?variant=31431916585011)  |
+| Cables required                                         | 4 grounded 120 V / 10 A power cords (NEMA 5-15) included <br> Device supports up to 240 V power and has C-13 power receptacles <br> Use network cables compatible with Mellanox MCX314A-BCCT  |
 | Power                                                    | 4 built-in power supply units (PSUs) shared across both the device nodes <br> 1,200 watt typical power draw|
 | Storage capacity                                        | ~ 1-PB raw, 70 disks of 14 TB each <br> 770-TB usable capacity|
 | Number of nodes                                          | 2 independent nodes per device (500 TB each) |

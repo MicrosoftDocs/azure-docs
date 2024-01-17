@@ -8,7 +8,7 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/21/2023
+ms.date: 01/08/2024
 ms.author: banders
 ---
 
@@ -21,8 +21,6 @@ This article applies to customers with a Microsoft Customer Agreement (MCA) and 
 There are two ways to pay for your bill for Azure. You can pay with the default payment method of your billing profile or you can make a one-time payment with **Pay now**.
 
 If you signed up for Azure through a Microsoft representative, then your default payment method is always set to *wire transfer*. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
-
-[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 
 If you have a Microsoft Online Services Program account, your default payment method is credit card. Payments are normally automatically deducted from your credit card, but you can also make one-time payments manually by credit card.
 
@@ -94,7 +92,7 @@ To make a partial payment, use the following steps.
 4. If any of your eligible invoices are due or past due, a blue **Pay now** link for the invoice is available. Select **Pay now**.
 5. In the Pay now window, select or tap **Select a payment method** to choose an existing credit card or add a new one.
 6. After you select a payment method, select **Pay now**.
-7. If the payment fails, the partial payment feature appears in the Pay now experience. The minimum partial payment amount is 1500. Enter an amount greater than 1500.
+7. If the payment fails, the partial payment feature appears in the Pay now experience. The minimum partial payment amount is 10,000 CNY. Enter an amount greater than 10,000 CNY.
 8. After you enter the amount, select the **Select a payment method** option to choose an existing credit card or add a new one. It's the card the first partial payment is applied to.
 9. After you select a payment method, select **Pay now**.
 10. Repeat steps 8 – 9 until you fully pay the invoice amount.

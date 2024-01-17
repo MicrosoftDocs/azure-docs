@@ -2,12 +2,11 @@
 title: Use the Azure Storage resource provider to access management resources
 description: The Azure Storage resource provider is a service that provides access to management resources for Azure Storage. You can use the Azure Storage resource provider to create, update, manage, and delete resources such as storage accounts, private endpoints, and account access keys.
 services: storage
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.author: akashdubey
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -17,7 +16,7 @@ ms.custom: devx-track-arm-template
 
 Azure Resource Manager is the deployment and management service for Azure. The Azure Storage resource provider is a service that is based on Azure Resource Manager and that provides access to management resources for Azure Storage. You can use the Azure Storage resource provider to create, update, manage, and delete resources such as storage accounts, private endpoints, and account access keys. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
-You can use the Azure Storage resource provider to perform actions such as creating or deleting a storage account or getting a list of storage accounts in a subscription. To authorize requests against the Azure Storage resource provider, use Azure Active Directory (Azure AD). This article describes how to assign permissions to management resources, and points to examples that show how to make requests against the Azure Storage resource provider.
+You can use the Azure Storage resource provider to perform actions such as creating or deleting a storage account or getting a list of storage accounts in a subscription. To authorize requests against the Azure Storage resource provider, use Microsoft Entra ID. This article describes how to assign permissions to management resources, and points to examples that show how to make requests against the Azure Storage resource provider.
 
 ## Management resources versus data resources
 
@@ -25,15 +24,15 @@ Microsoft provides two REST APIs for working with Azure Storage resources. These
 
 A request that reads or writes blob data requires different permissions than a request that performs a management operation. Azure RBAC provides fine-grained control over permissions to both types of resources. When you assign an Azure role to a security principal, make sure that you understand what permissions that principal will be granted. For a detailed reference that describes which actions are associated with each Azure built-in role, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-Azure Storage supports using Azure AD to authorize requests against Blob and Queue storage. For information about Azure roles for blob and queue data operations, see [Authorize access to blobs and queues using Active Directory](authorize-data-access.md).
+Azure Storage supports using Microsoft Entra ID to authorize requests against Blob and Queue storage. For information about Azure roles for blob and queue data operations, see [Authorize access to blobs and queues using Active Directory](authorize-data-access.md).
 
 ## Assign management permissions with Azure role-based access control (Azure RBAC)
 
-Every Azure subscription has an associated Azure Active Directory that manages users, groups, and applications. A user, group, or application is also referred to as a security principal in the context of the [Microsoft identity platform](../../active-directory/develop/index.yml). You can grant access to resources in a subscription to a security principal that is defined in the Active Directory by using Azure role-based access control (Azure RBAC).
+Every Azure subscription has an associated Microsoft Entra ID that manages users, groups, and applications. A user, group, or application is also referred to as a security principal in the context of the [Microsoft identity platform](../../active-directory/develop/index.yml). You can grant access to resources in a subscription to a security principal that is defined in the Active Directory by using Azure role-based access control (Azure RBAC).
 
 When you assign an Azure role to a security principal, you also indicate the scope at which the permissions granted by the role are in effect. For management operations, you can assign a role at the level of the subscription, the resource group, or the storage account. You can assign an Azure role to a security principal by using the [Azure portal](https://portal.azure.com/), the [Azure classic CLI](/cli/azure/install-classic-cli), [PowerShell](/powershell/azure/), or the [Azure Storage resource provider REST API](/rest/api/storagerp).
 
-For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) and [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) and [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### Built-in roles for management operations
 

@@ -24,33 +24,35 @@ An upload indicators API call has five components:
 1. Optionally process the HTTP response message header
 1. Optionally process the HTTP response message body
 
-## Register your client application with Azure AD
+<a name='register-your-client-application-with-azure-ad'></a>
 
-In order to authenticate to Microsoft Sentinel, the request to the upload indicators API requires a valid Azure AD access token. For more information on application registration, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) or see the basic steps as part of the [upload indicators API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
+## Register your client application with Microsoft Entra ID
+
+In order to authenticate to Microsoft Sentinel, the request to the upload indicators API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) or see the basic steps as part of the [upload indicators API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
+
+## Permissions
+
+This API requires the calling Microsoft Entra application to be granted the Microsoft Sentinel contributor role at the workspace level.
 
 ## Create the request
 
-This section covers the first three of the five components discussed earlier. You first need to acquire the access token from Azure AD, which you use to assemble your request message header.
+This section covers the first three of the five components discussed earlier. You first need to acquire the access token from Microsoft Entra ID, which you use to assemble your request message header.
 
 ### Acquire an access token
 
-Acquire an Azure AD access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md). [V1.0 and V2.0](../active-directory/develop/access-tokens.md#token-formats) are valid tokens accepted by the API.
+Acquire a Microsoft Entra access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md). [V1.0 and V2.0](/entra/identity-platform/access-tokens#token-formats) are valid tokens accepted by the API.
 
-To get a v1.0 token, use [ADAL](../active-directory/azuread-dev/active-directory-authentication-libraries.md) or send requests to the REST API in the following format:
-- POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/token`
-- Headers for using Azure AD App:
-- grant_type: "client_credentials"
-- client_id: {Client ID of Azure AD App}
-- client_secret: {Client secret of Azure AD App}
-- resource: `"https://management.azure.com/"`
+The version of the token (v1.0 or v2.0) that your application receives is determined by the `accessTokenAcceptedVersion` property in the [app manifest](/entra/identity-platform/reference-app-manifest#manifest-reference) of the API that your application is calling. If `accessTokenAcceptedVersion` is set to 1, then your application will receive a v1.0 token.
 
-To get a v2.0 token, use Microsoft Authentication Library [MSAL](../active-directory/develop/msal-overview.md) or send requests to the REST API in the following format:
+Use Microsoft Authentication Library [MSAL](/entra/identity-platform/msal-overview) to acquire either a v1.0 or v2.0 access token.  Or, send requests to the REST API in the following format:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token`
-- Headers for using Azure AD App:
+- Headers for using Microsoft Entra App:
 - grant_type: "client_credentials"
-- client_id: {Client ID of Azure AD App}
-- client_secret: {secret of Azure AD App}
+- client_id: {Client ID of Microsoft Entra App}
+- client_secret: {secret of Microsoft Entra App}
 - scope: `"https://management.azure.com/.default"`
+
+If `accessTokenAcceptedVersion` in the app manifest is set to 1, your application will receive a v1.0 access token even though it's calling the v2 token endpoint.
 
 The resource/scope value is the audience of the token. This API only accepts the following audiences:
 - `https://management.core.windows.net/`
@@ -85,10 +87,12 @@ Create the array of indicators using the STIX 2.1 indicator format specification
 |`id` (required)| string | An ID used to identify the indicator. See section [2.9](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_64yvzeku5a5c) for specifications on how to create an `id`. The format looks something like `indicator--<UUID>`|
 |`spec_version` (optional) | string | STIX indicator version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API will default to `2.1`|
 |`type` (required)|	string | The value of this property *must* be `indicator`.|
+|`created` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
+|`modified` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
 |`name` (optional)|	string | A name used to identify the indicator.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does.|
 |`description` (optional) | string | A description that provides more details and context about the indicator, potentially including its purpose and its key characteristics.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does. |
 |`indicator_types` (optional) | list of strings | A set of categorizations for this indicator.<br><br>The values for this property *should* come from the [indicator-type-ov](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_cvhfwe3t9vuo) |
-|`pattern` (required) | string | The detection pattern for this indicator *may* be expressed as a [STIX Patterning](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_e8slinrhxcc9) or another appropriate language such as SNORT, YARA, etc. |
+|`pattern` (required) | string | The detection pattern for this indicator *might* be expressed as a [STIX Patterning](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_e8slinrhxcc9) or another appropriate language such as SNORT, YARA, etc. |
 |`pattern_type` (required) | string | The pattern language used in this indicator.<br><br>The value for this property *should* come from [pattern types](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_9lfdvxnyofxw).<br><br>The value of this property *must* match the type of pattern data included in the pattern property.|
 |`pattern_version` (optional) | string | The version of the pattern language used for the data in the pattern property, which *must* match the type of pattern data included in the pattern property.<br><br>For patterns that don't have a formal specification, the build or code version that the pattern is known to work with *should* be used.<br><br>For the STIX pattern language, the specification version of the object determines the default value.<br><br>For other languages, the default value *should* be the latest version of the patterning language at the time of this object's creation.|
 |`valid_from` (required) | timestamp | The time from which this indicator is considered a valid indicator of the behaviors it's related to or represents.|
@@ -98,10 +102,10 @@ Create the array of indicators using the STIX 2.1 indicator format specification
 |`revoked` (optional) | boolean | Revoked objects are no longer considered valid by the object creator. Revoking an object is permanent; future versions of the object with this `id` *must not* be created.<br><br>The default value of this property is false.|
 |`labels` (optional) | list of strings | The `labels` property specifies a set of terms used to describe this object. The terms are user-defined or trust-group defined. These labels will display as **Tags** in Microsoft Sentinel.|
 |`confidence` (optional) | integer | The `confidence` property identifies the confidence that the creator has in the correctness of their data. The confidence value *must* be a number in the range of 0-100.<br><br>[Appendix A](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_1v6elyto0uqg) contains a table of normative mappings to other confidence scales that *must* be used when presenting the confidence value in one of those scales.<br><br>If the confidence property is not present, then the confidence of the content is unspecified.|
-|`lang` (optional) | string | The `lang` property identifies the language of the text content in this object. When present, it *must* be a language code conformant to [RFC5646](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#kix.yoz409d7eis1). If the property isn't present, then the language of the content is `en` (English).<br><br>This property *should* be present if the object type contains translatable text properties (for example, name, description).<br><br>The language of individual fields in this object *may* override the `lang` property in granular markings (see section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr)).|
-|`object_marking_refs` (optional, including TLP) | list of strings | The `object_marking_refs` property specifies a list of ID properties of marking-definition objects that apply to this object. For example, use the Traffic Light Protocol (TLP) marking definition ID to designate the sensitivity of the indicator source. For details of what marking-definition IDs to use for TLP content, see section [7.2.1.4](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_yd3ar14ekwrs)<br><br>In some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (that is, it can't contain any circular references).<br><br>See section [7.2.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_bnienmcktc0n) for further definition of data markings.|
+|`lang` (optional) | string | The `lang` property identifies the language of the text content in this object. When present, it *must* be a language code conformant to [RFC5646](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#kix.yoz409d7eis1). If the property isn't present, then the language of the content is `en` (English).<br><br>This property *should* be present if the object type contains translatable text properties (for example, name, description).<br><br>The language of individual fields in this object *might* override the `lang` property in granular markings (see section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr)).|
+|`object_marking_refs` (optional, including TLP) | list of strings | The `object_marking_refs` property specifies a list of ID properties of marking-definition objects that apply to this object. For example, use the Traffic Light Protocol (TLP) marking definition ID to designate the sensitivity of the indicator source. For details of what marking-definition IDs to use for TLP content, see section [7.2.1.4](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_yd3ar14ekwrs)<br><br>In some cases, though uncommon, marking definitions themselves might be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (that is, it can't contain any circular references).<br><br>See section [7.2.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_bnienmcktc0n) for further definition of data markings.|
 |`external_references` (optional) | list of object | The `external_references` property specifies a list of external references which refers to non-STIX information. This property is used to provide one or more URLs, descriptions, or IDs to records in other systems.|
-|`granular_markings` (optional) | list of [granular-marking](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) | The `granular_markings` property helps define parts of the indicator differently. For example, the indicator language is English, `en` but the description is German, `de`.<br><br>In some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (i.e., it can't contain any circular references).<br><br>See section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) for further definition of data markings.|
+|`granular_markings` (optional) | list of [granular-marking](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) | The `granular_markings` property helps define parts of the indicator differently. For example, the indicator language is English, `en` but the description is German, `de`.<br><br>In some cases, though uncommon, marking definitions themselves might be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (i.e., it can't contain any circular references).<br><br>See section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) for further definition of data markings.|
 
 
 ### Process the response message

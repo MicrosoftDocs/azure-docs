@@ -5,7 +5,7 @@ author: JAC0BSMITH
 ms.author: jacobsmith
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 09/07/2023
 ms.custom: template-how-to
 ---
 
@@ -25,7 +25,6 @@ In subsequent deployments of Operator Nexus, you will only need to create the NF
   necessary Azure Resource Providers:
   - Microsoft.NetworkCloud
   - Microsoft.ManagedNetworkFabric
-  - Microsoft.HybridContainerService
   - Microsoft.HybridNetwork
   - Microsoft.Storage 
   - Microsoft.Keyvault 
@@ -33,7 +32,6 @@ In subsequent deployments of Operator Nexus, you will only need to create the NF
   - Microsoft.ExtendedLocation 
   - Microsoft.HybridCompute 
   - Microsoft.HybridConnectivity 
-  - Microsoft.HybridContainerService 
   - Microsoft.Insights 
   - Microsoft.Kubernetes 
   - Microsoft.KubernetesConfiguration 
@@ -76,10 +74,9 @@ Install latest version of the
 ```
 
 >[!NOTE]
->The account must have permissions to read/write/publish in the subscription
+>Your account must have permissions to read/write/publish in the subscription
 
 ## Create steps
 
 - Step 1: [Create Network Fabric Controller](./howto-configure-network-fabric-controller.md)
 - Step 2: [Create Cluster Manager](./howto-cluster-manager.md)
-- 

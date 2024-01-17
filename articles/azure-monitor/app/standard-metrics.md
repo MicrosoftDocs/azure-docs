@@ -11,6 +11,8 @@ ms.reviewer: vitalyg
 
 Standard metrics are pre-aggregated during collection, they have better performance at query time. This makes them the best choice for dashboards and real-time alerting.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 ## Availability metrics
 
 Metrics in the Availability category enable you to see the health of your web application as observed from points around the world. [Configure the availability tests](../app/availability-overview.md) to start using any metrics from this category.
@@ -269,7 +271,7 @@ The count of trace statements logged with the TrackTrace() Application Insights 
 
 ## Next steps
 
-* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Metrics - Get - REST API](/rest/api/application-insights/metrics/get)
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * Learn about [Log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
 * [Log-based metrics queries and definitions](../essentials/app-insights-metrics.md).

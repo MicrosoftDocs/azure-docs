@@ -66,10 +66,11 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 
 ### Prerequisites
 
-- Install a supported version of Logstash. The plugin supports: 
-    - Logstash version 7.0 to 7.17.10.
-    - Logstash version 8.0 to 8.8.1. 
-    
+- Install a supported version of Logstash. The plugin supports the following Logstash versions: 
+    - 7.0 - 7.17.13
+    - 8.0 - 8.9
+    - 8.11
+
     > [!NOTE]
     > If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
 
@@ -376,7 +377,7 @@ To configure the Logstash configuration file to ingest the logs into a custom ta
 |---------|---------|
 |`client_app_Id` |The `Application (client) ID` value you create in step 3 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section. |
 |`client_app_secret` |The `Application (client) ID` value you create in step 5 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section. |
-|`tenant_id`     |Your subscription's tenant ID. You can find the tenant ID under **Home > Azure Active Directory > Overview > Basic Information**.         |
+|`tenant_id`     |Your subscription's tenant ID. You can find the tenant ID under **Home > Microsoft Entra ID > Overview > Basic Information**.         |
 |`data_collection_endpoint`   |The value of the `logsIngestion` URI in step 3 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section.       |
 |`dcr_immutable_id` |The value of the DCR `immutableId` in step 6 when you [create the DCR resources](#create-the-required-dcr-resources), according to the tutorial you used in this section. |
 |`dcr_stream_name` |For custom tables, as explained in step 6 when you [create the DCR resources](#create-dcr-resources-for-ingestion-into-a-custom-table), go to the JSON view of the DCR, and copy the `dataFlows` > `streams` property. See the `dcr_stream_name` in the [example](#example-output-plugin-configuration-section) below.<br><br>For standard tables, the value is `Custom-SyslogStream`. |
@@ -396,7 +397,7 @@ After you retrieve the required values:
 |`retransmission_time` |Sets the amount of time in seconds for retransmitting messages once sending failed. |`10` |
 |`compress_data` |When this field is `True`, the event data is compressed before using the API. Recommended for high throughput pipelines. |`False` |
 |`proxy` |Specify which proxy URL to use for all API calls. |None (field is empty) |
-|`proxy_aad` |Specify which proxy URL to use for API calls to Azure Active Directory. |Same value as 'proxy' (field is empty) |
+|`proxy_aad` |Specify which proxy URL to use for API calls to Microsoft Entra ID. |Same value as 'proxy' (field is empty) |
 |`proxy_endpoint` |Specify which proxy URL to use for API calls to the Data Collection Endpoint. |Same value as 'proxy' (field is empty) |
 
 #### Example: Output plugin configuration section

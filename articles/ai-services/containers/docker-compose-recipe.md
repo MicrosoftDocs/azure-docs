@@ -2,11 +2,11 @@
 title: Use Docker Compose to deploy multiple containers
 titleSuffix: Azure AI services
 description: Learn how to deploy multiple Azure AI containers. This article shows you how to orchestrate multiple Docker container images by using Docker Compose.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.custom: seodec18
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: aahi

@@ -8,7 +8,7 @@ ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 08/16/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -23,7 +23,7 @@ After your project administrator creates an Azure Machine Learning [image data l
 
 ## Prerequisites
 
-* A [Microsoft account](https://account.microsoft.com/account), or an Azure Active Directory account, for the organization and project.
+* A [Microsoft account](https://account.microsoft.com/account), or a Microsoft Entra account, for the organization and project.
 * Contributor-level access to the workspace that contains the labeling project.
 
 ## Sign in to the studio
@@ -165,6 +165,25 @@ Use the **Add or remove polygon points** tool ![This is the add or remove polygo
 To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete all regions tool](./media/how-to-label-data/delete-regions-tool.png).
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
+
+## Tag images and draw masks for semantic segmentation
+
+If your project is of type "Semantic segmentation (Preview)," use the paintbrush to paint a mask over the area you wish to tag.
+
+1. Select a tag for the area you will paint over.
+1. Select the **paintbrush** tool ![Screenshot of the Paintbrush tool.](./media/how-to-label-data/paintbrush-tool.png).
+1. Select the **size** tool![Screenshot of the Size tool.](./media/how-to-label-data/width-tool.png) to pick a size for your paintbrush.
+1. Paint over the area you wish to tag.  The color corresponding to your tag will be applied to the area you paint over.
+    
+    :::image type="content" source="media/how-to-label-data/paintbrush.gif" alt-text="Screenshot of paint area for cat and dog faces for semantic segmentation.":::
+
+To delete parts of the area, select **Eraser** tool.
+
+To change the tag for an area, select the new tag and re-paint the area.
+
+You can also use the [Polygon tool](#tag-images-and-specify-polygons-for-image-segmentation) to specify a region.
+
+After you create the areas for an image, select **Submit** to save your work, or your work in progress won't be saved. If you used the Polygon tool, all polygons will be converted to a mask when you submit.
 
 ## Label text
 

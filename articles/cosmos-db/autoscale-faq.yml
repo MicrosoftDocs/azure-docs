@@ -98,7 +98,7 @@ sections:
           
           For a container, use the following formula to estimate the initial autoscale maximum RU/s:
           
-          `MAX(1,000, current manual provisioned RU/s, maximum RU/s ever provisioned / 10, storage in GB × 100)` rounded to the nearest 1,000 RU/s.
+          `MAX(1,000, current manual provisioned RU/s, maximum RU/s ever provisioned / 10, storage in GB × 10)` rounded to the nearest 1,000 RU/s.
           
           The actual initial autoscale maximum RU/s might vary depending on your account configuration.
           

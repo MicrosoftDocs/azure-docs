@@ -101,22 +101,24 @@ Use a new resource group for each cluster so that you can distinguish between cl
 * Use firewall to handle outbound access policies.
 * Use the internal gateway that isn't open to the public internet.
 
-## Azure Active Directory
+<a name='azure-active-directory'></a>
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) is Microsoft's cloud-based identity and access management service.
+## Microsoft Entra ID
+
+[Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) is Microsoft's cloud-based identity and access management service.
 
 ### Policies
 
-* Disable conditional access policy using the IP address based policy. This requires service endpoints to be enabled on the VNETs where the clusters are deployed. If you use an external service for MFA (something other than AAD), the IP address based policy won't work
+* Disable conditional access policy using the IP address based policy. This requires service endpoints to be enabled on the VNETs where the clusters are deployed. If you use an external service for MFA (something other than Microsoft Entra ID), the IP address based policy won't work
 
-* `AllowCloudPasswordValidation` policy is required for federated users. Since HDInsight uses the username / password directly to get tokens from Azure AD, this policy has to be enabled for all federated users.
+* `AllowCloudPasswordValidation` policy is required for federated users. Since HDInsight uses the username / password directly to get tokens from Microsoft Entra ID, this policy has to be enabled for all federated users.
 
 * Enable service endpoints if you require conditional access bypass using Trusted IPs.
 
 ### Groups
 
 * Always deploy clusters with a group.
-* Use Azure AD to manage group memberships (easier than trying to manage the individual services in the cluster).
+* Use Microsoft Entra ID to manage group memberships (easier than trying to manage the individual services in the cluster).
 
 ### User accounts
 
@@ -124,49 +126,59 @@ Use a new resource group for each cluster so that you can distinguish between cl
 * Use group-based Ranger policies instead of individual policies.
 * Have a plan on how to manage users who shouldn't have access to clusters anymore.
 
-## Azure Active Directory Domain Services
+<a name='azure-active-directory-domain-services'></a>
 
-[Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) (Azure AD DS) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos / NTLM authentication that is fully compatible with Windows Server Active Directory.
+## Microsoft Entra Domain Services
 
-Azure AD DS is required for secure clusters to join a domain.
-HDInsight can't depend on on-premises domain controllers or custom domain controllers, as it introduces too many fault points, credential sharing, DNS permissions, and so on. For more information, see [Azure AD DS FAQs](../../active-directory-domain-services/faqs.yml).
+[Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos / NTLM authentication that is fully compatible with Windows Server Active Directory.
 
-### Choose correct Azure AD DS SKU 
+Microsoft Entra Domain Services is required for secure clusters to join a domain.
+HDInsight can't depend on on-premises domain controllers or custom domain controllers, as it introduces too many fault points, credential sharing, DNS permissions, and so on. For more information, see [Microsoft Entra Domain Services FAQs](../../active-directory-domain-services/faqs.yml).
 
-When creating your managed domain, [you can choose from different SKUs](/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) that offer varying levels of performance and features. The amount of ESP clusters and other applications that will be using the Azure AD-DS instance for authentication requests determines which SKU is appropriate for your organization. If you notice high CPU on your managed domain or your business requirements change, you can upgrade your SKU.
+<a name='choose-correct-azure-ad-ds-sku'></a>
 
-### Azure AD DS instance
+### Choose correct Microsoft Entra Domain Services SKU 
+
+When creating your managed domain, [you can choose from different SKUs](/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) that offer varying levels of performance and features. The amount of ESP clusters and other applications that will be using the Microsoft Entra Domain Services instance for authentication requests determines which SKU is appropriate for your organization. If you notice high CPU on your managed domain or your business requirements change, you can upgrade your SKU.
+
+<a name='azure-ad-ds-instance'></a>
+
+### Microsoft Entra Domain Services instance
 
 * Create the instance with the `.onmicrosoft.com domain`. This way, there won’t be multiple DNS servers serving the domain.
-* Create a self-signed certificate for the LDAPS and upload it to Azure AD DS.
+* Create a self-signed certificate for the LDAPS and upload it to Microsoft Entra Domain Services.
 * Use a peered virtual network for deploying clusters (when you have a number of teams deploying HDInsight ESP clusters, this will be helpful). This ensures that you don't need to open up ports (NSGs) on the virtual network with domain controller.
-* Configure the DNS for the virtual network properly (the Azure AD DS domain name should resolve without any hosts file entries).
+* Configure the DNS for the virtual network properly (the Microsoft Entra Domain Services domain name should resolve without any hosts file entries).
 * If you're restricting outbound traffic, make sure that you have read through the [firewall support in HDInsight](../hdinsight-restrict-outbound-traffic.md)
 
-### Consider Azure AD DS replica sets 
+<a name='consider-azure-ad-ds-replica-sets'></a>
 
-When you create an Azure AD DS managed domain, you define a unique namespace, and two domain controllers (DCs) are then deployed into your selected Azure region. This deployment of DCs is known as a replica set. [Adding additional replica sets](/azure/active-directory-domain-services/tutorial-create-replica-set) will provide resiliency and ensure availability of authentication services, which is critical for Azure HDInsight clusters.
+### Consider Microsoft Entra Domain Services replica sets 
+
+When you create a Microsoft Entra Domain Services managed domain, you define a unique namespace, and two domain controllers (DCs) are then deployed into your selected Azure region. This deployment of DCs is known as a replica set. [Adding additional replica sets](/azure/active-directory-domain-services/tutorial-create-replica-set) will provide resiliency and ensure availability of authentication services, which is critical for Azure HDInsight clusters.
 
 ### Configure scoped user/group synchronization 
 
-When you enable [Azure Active Directory Domain Services (Azure AD DS) for your ESP cluster](/azure/hdinsight/domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster), you can choose to synchronize all users and groups from Azure AD or scoped groups and their members. We recommend that you choose "Scoped" synchronization for the best performance. 
+When you enable [Microsoft Entra Domain Services for your ESP cluster](/azure/hdinsight/domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster), you can choose to synchronize all users and groups from Microsoft Entra ID or scoped groups and their members. We recommend that you choose "Scoped" synchronization for the best performance. 
 
-[Scoped synchronization](/azure/active-directory-domain-services/scoped-synchronization) can be modified with different group selections or converted to "All" users and groups if needed. You can't change the synchronization type from "All" to "Scoped" unless you delete and recreate the Azure AD DS instance.
+[Scoped synchronization](/azure/active-directory-domain-services/scoped-synchronization) can be modified with different group selections or converted to "All" users and groups if needed. You can't change the synchronization type from "All" to "Scoped" unless you delete and recreate the Microsoft Entra Domain Services instance.
 
-### Properties synced from Azure AD to Azure AD DS
+<a name='properties-synced-from-azure-ad-to-azure-ad-ds'></a>
 
-* Azure AD connect syncs from on-premises to Azure AD.
-* Azure AD DS syncs from Azure AD.
+### Properties synced from Microsoft Entra ID to Microsoft Entra Domain Services
 
-Azure AD DS syncs objects from Azure AD periodically. The Azure AD DS blade on the Azure portal displays the sync status. During each stage of sync, unique properties may get into conflict and renamed. Pay attention to the property mapping from Azure AD to Azure AD DS.
+* Microsoft Entra Connect syncs from on-premises to Microsoft Entra ID.
+* Microsoft Entra Domain Services syncs from Microsoft Entra ID.
 
-For more information, see [Azure AD UserPrincipalName population](../../active-directory/hybrid/plan-connect-userprincipalname.md), and [How Azure AD DS synchronization works](../../active-directory-domain-services/synchronization.md).
+Microsoft Entra Domain Services syncs objects from Microsoft Entra ID periodically. The Microsoft Entra Domain Services blade on the Azure portal displays the sync status. During each stage of sync, unique properties may get into conflict and renamed. Pay attention to the property mapping from Microsoft Entra ID to Microsoft Entra Domain Services.
+
+For more information, see [Microsoft Entra UserPrincipalName population](../../active-directory/hybrid/plan-connect-userprincipalname.md), and [How Microsoft Entra Domain Services synchronization works](../../active-directory-domain-services/synchronization.md).
 
 ### Password hash sync
 
-* Passwords are synced differently from other object types. Only non-reversible password hashes are synced in Azure AD and Azure AD DS
-* On-premises to Azure AD has to be enabled through AD Connect
-* Azure AD to Azure AD DS sync is automatic (latencies are under 20 minutes).
+* Passwords are synced differently from other object types. Only non-reversible password hashes are synced in Microsoft Entra ID and Microsoft Entra Domain Services
+* On-premises to Microsoft Entra ID has to be enabled through AD Connect
+* Microsoft Entra ID to Microsoft Entra Domain Services sync is automatic (latencies are under 20 minutes).
 * Password hashes are synced only when there's a changed password. When you enable password hash sync, all existing passwords don't get synced automatically as they're stored irreversibly. When you change the password, password hashes get synced.
 
 ### Set Ambari LDAP sync to run daily
@@ -206,7 +218,7 @@ Most common reasons:
 ### User Principal Name (UPN)
 
 * Please use lowercase for all services - UPNs are not case sensitive in ESP clusters, but
-* The UPN prefix should match both SAMAccountName in Azure AD-DS. Matching with the mail field is not required.
+* The UPN prefix should match both SAMAccountName in Microsoft Entra Domain Services. Matching with the mail field is not required.
 
 ### LDAP properties in Ambari configuration
 
@@ -231,13 +243,13 @@ If your TenantName & DomainName are different, you need to add a SALT value usin
 
 ### LDAP certificate renewal
 
-HDInsight will automatically renew the certificates for the managed identities you use for clusters with the Enterprise Security Package (ESP). However, there is a limitation when different managed identities are used for Azure AD DS and ADLS Gen2 that could cause the renewal process to fail. Follow the 2 recommendations below to ensure we are able to renew your certificates successfully:
+HDInsight will automatically renew the certificates for the managed identities you use for clusters with the Enterprise Security Package (ESP). However, there is a limitation when different managed identities are used for Microsoft Entra Domain Services and ADLS Gen2 that could cause the renewal process to fail. Follow the 2 recommendations below to ensure we are able to renew your certificates successfully:
 
-- If you use different managed identities for ADLS Gen2 and Azure AD DS clusters, then both of them should have the **Storage blob data Owner** and **HDInsight Domain Services Contributor** roles assigned to them.
+- If you use different managed identities for ADLS Gen2 and Microsoft Entra Domain Services clusters, then both of them should have the **Storage blob data Owner** and **HDInsight Domain Services Contributor** roles assigned to them.
 - HDInsight clusters require public IPs for certificate updates and other maintenance so **any policies that deny public IP on the cluster should be removed**.
 
 ## Next steps
 
-* [Enterprise Security Package configurations with Azure Active Directory Domain Services in HDInsight](./apache-domain-joined-configure-using-azure-adds.md)
+* [Enterprise Security Package configurations with Microsoft Entra Domain Services in HDInsight](./apache-domain-joined-configure-using-azure-adds.md)
 
-* [Synchronize Azure Active Directory users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md).
+* [Synchronize Microsoft Entra users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md).

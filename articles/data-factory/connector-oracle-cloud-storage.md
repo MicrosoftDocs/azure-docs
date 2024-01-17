@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 
@@ -28,7 +28,7 @@ This Oracle Cloud Storage connector is supported for the following capabilities:
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 Specifically, this Oracle Cloud Storage connector supports copying files as is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md). It takes advantage of Oracle Cloud Storage's S3-compatible interoperability.
 
@@ -246,5 +246,5 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 To learn details about the properties, check [Delete activity](delete-activity.md).
 
 
-## Next steps
+## Related content
 For a list of data stores that the Copy activity supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -11,6 +11,8 @@ ms.date: 06/24/2022
 ---
 # Configure server parameters in Azure Database for MariaDB using the Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 You can list, show, and update configuration parameters for an Azure Database for MariaDB server by using Azure CLI, the Azure command-line utility. A subset of engine configurations is exposed at the server-level and can be modified.
 
 >[!Note]

@@ -1,11 +1,11 @@
 ---
 title: Pattern syntax reference - LUIS
 description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted data is used by the client application.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: reference
 ms.date: 04/18/2022
 ---

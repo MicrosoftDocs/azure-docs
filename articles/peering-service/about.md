@@ -1,11 +1,13 @@
 ---
 title: Azure Peering Service overview
-description: Learn about Azure Peering Service.
+description: Learn about Azure Peering Service concepts and features to optimize network connectivity with Microsoft's global network.
 author: halkazwini
 ms.author: halkazwini
 ms.service: peering-service
 ms.topic: overview
-ms.date: 07/23/2023
+ms.date: 09/27/2023
+
+#CustomerIntent: As an administrator, I want learn about Azure Peering Service so I can optimize the connectivity to Microsoft.
 ---
 
 # Azure Peering Service overview
@@ -111,16 +113,16 @@ Service monitoring is offered to analyze user traffic and routing. The following
 
 To onboard a Peering Service connection:
 
-- Work with Internet Service provider (ISP) or Internet Exchange (IX) Partner to obtain a Peering Service to connect your network with the Microsoft network.
+- Work with internet service provider (ISP) or Internet Exchange (IX) Partner to obtain a Peering Service to connect your network with the Microsoft network.
 
 - Ensure the [connectivity provider](location-partners.md) is partnered with Microsoft for Peering Service. 
 
-## Next steps
+## FAQ
 
-- To learn about Peering Service connections, see [Peering Service connections](connection.md).
-- To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To find a service provider partner, see [Peering Service partners and locations](location-partners.md).
+For frequently asked questions about Peering Service, see [Azure Peering Service frequently asked questions (FAQ)](faq.yml).
+
+## Related content
+
 - To register Peering Service, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md).
-- To establish a Direct interconnect for Microsoft Azure Peering Service, see [Internet peering for Microsoft Azure Peering Services walkthrough](../../articles/internet-peering/walkthrough-direct-all.md)
-- To establish a Direct interconnect for Communications Services, see [Internet peering for Communications Services walkthrough](../../articles/internet-peering/walkthrough-communications-services-partner.md)
-- To establish a Direct interconnect for Exchange Router Server, see [Internet peering for Exchange Route Server walkthrough](../../articles/internet-peering/walkthrough-exchange-route-server-partner.md)
+- To learn about Peering Service connections, see [Peering Service connections](connection.md).
+- To find a service provider partner, see [Peering Service partners](location-partners.md).

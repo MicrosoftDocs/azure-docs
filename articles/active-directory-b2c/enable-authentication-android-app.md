@@ -1,16 +1,20 @@
 ---
 title: Enable authentication in an Android app - Azure AD B2C
 description:  Enable authentication in an Android application using Azure Active Directory B2C building blocks. Learn how to use Azure AD B2C to sign in and sign up users in an Android application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 09/16/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support, has-adal-ref"
+
+
+#Customer intent: As an Android app developer, I want to enable Azure AD B2C authentication in my own app, so that my users can sign in using Azure AD B2C and access protected resources.
+
 ---
 
 # Enable authentication in your own Android app by using Azure AD B2C
@@ -137,8 +141,7 @@ Configure where your application listens to the Azure AD B2C token response.
 To update the mobile app registration with your app redirect URI, do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select the application you registered in [Step 2.3: Register the mobile app](configure-authentication-sample-android-app.md#step-23-register-the-mobile-app).
 1. Select **Authentication**.

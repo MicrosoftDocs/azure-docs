@@ -6,7 +6,8 @@ ms.subservice: single-server
 author: SudheeshGH
 ms.author: sunaray
 ms.topic: how-to
-ms.devlang: csharp, golang, java, javascript, php, python, ruby
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ms.custom: devx-track-csharp
 ms.date: 06/20/2022
 ---
@@ -280,4 +281,4 @@ conn.connect(function(err) {
 ## Next steps
 
 * To learn about certificate expiry and rotation, refer [certificate rotation documentation](concepts-certificate-rotation.md)
-* Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
+* Review various application connectivity options following [Connection libraries for Azure Database for MySQL](../flexible-server/concepts-connection-libraries.md)

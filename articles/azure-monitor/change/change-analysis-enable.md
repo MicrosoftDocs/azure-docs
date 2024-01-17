@@ -4,10 +4,9 @@ description: Use Change Analysis in Azure Monitor to track and troubleshoot issu
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
-ms.contributor: cawa
-ms.date: 08/23/2022 
+ms.date: 11/17/2023 
 ms.subservice: change-analysis
-ms.custom:
+ms.custom: ignite-2022
 ---
 
 # Enable Change Analysis
@@ -22,16 +21,16 @@ Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource
 - Enter any UI entry point, like the Web App **Diagnose and Solve Problems** tool, or 
 - Bring up the Change Analysis standalone tab.
 
-In this guide, you'll learn the two ways to enable Change Analysis for Azure Functions and web app in-guest changes:
-- For one or a few Azure Functions or web apps, enable Change Analysis via the UI.
-- For a large number of web apps (for example, 50+ web apps), enable Change Analysis using the provided PowerShell script.
+In this guide, you learn the two ways to enable Change Analysis for Azure Functions and web app in-guest changes:
+- For one or a few Azure Functions or web apps, [enable Change Analysis via the UI](#enable-azure-functions-and-web-app-in-guest-change-collection-via-the-change-analysis-portal).
+- For a large number of web apps (for example, 50+ web apps), [enable Change Analysis using the provided PowerShell script](#enable-change-analysis-at-scale-using-powershell).
 
 > [!NOTE]
 > Slot-level enablement for Azure Functions or web app is not supported at the moment.
 
 ## Enable Azure Functions and web app in-guest change collection via the Change Analysis portal
 
-For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#diagnose-and-solve-problems-tool) section.
+For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#view-changes-using-the-diagnose-and-solve-problems-tool) section.
 
 > [!NOTE]
 > You may not immediately see web app in-guest file changes and configuration changes. Prepare for downtime and restart your web app to view changes within 30 minutes. If you still can't see changes, refer to [the troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app).
@@ -60,7 +59,7 @@ For web app in-guest changes, separate enablement is required for scanning code 
 
 If your subscription includes several web apps, run the following script to enable *all web apps* in your subscription.
 
-### Pre-requisites
+### Prerequisites
 
 PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
@@ -88,6 +87,14 @@ foreach ($webapp in $webapp_list)
     Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
 }
 ```
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How can I enable Change Analysis for a web application?
+
+Enable Change Analysis for web application in guest changes by using the [Diagnose and solve problems tool](./change-analysis-visualizations.md#view-changes-using-the-diagnose-and-solve-problems-tool).
 
 ## Next steps
 

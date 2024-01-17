@@ -27,7 +27,7 @@ For example, here are some events that publishers can send to subscribers throug
 
 * A new message appears in a queue.
 
-This tutorial creates a Consumption logic app resource that runs in [*multi-tenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through Azure Event Grid to the workflow. 
+This tutorial creates a Consumption logic app resource that runs in [*multitenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through Azure Event Grid to the workflow. 
 
 ![Screenshot showing the workflow designer with a workflow that monitors a virtual machine using Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/monitor-virtual-machine-logic-app-overview.png)
 
@@ -86,7 +86,7 @@ In this tutorial, you learn how to:
    > make sure that you create a *stateful* workflow, not a stateless workflow. This tutorial applies only 
    > to Consumption logic apps, which follow a different user experience. To add Azure Event Grid operations 
    > to your workflow in the designer, on the operations picker pane, make sure that you select the **Azure** tab. 
-   > For more information about multi-tenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
+   > For more information about multitenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multitenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
 
 1. When you're done, select **Review + create**. On the next pane, confirm the provided information, and select **Create**.
 
@@ -114,7 +114,7 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
 
    ![Screenshot that shows the workflow designer with the selected Azure Event Grid trigger.](./media/monitor-virtual-machine-changes-logic-app/logic-app-trigger.png)
 
-1. When prompted, sign in to Azure Event Grid with your Azure account credentials. In the **Tenant** list, which shows the Azure Active Directory tenant that's associated with your Azure subscription, check that the correct tenant appears, for example:
+1. When prompted, sign in to Azure Event Grid with your Azure account credentials. In the **Tenant** list, which shows the Microsoft Entra tenant that's associated with your Azure subscription, check that the correct tenant appears, for example:
 
    ![Screenshot that shows the workflow designer with the Azure sign-in prompt to connect to Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/sign-in.png)
 
@@ -122,8 +122,8 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
    > 
    > If you're signed in with a personal Microsoft account, such as @outlook.com or @hotmail.com, 
    > the Azure Event Grid trigger might not appear correctly. As a workaround, select 
-   > [Connect with Service Principal](../active-directory/develop/howto-create-service-principal-portal.md), 
-   > or authenticate as a member of the Azure Active Directory that's associated with 
+   > [Connect with Service Principal](/entra/identity-platform/howto-create-service-principal-portal), 
+   > or authenticate as a member of the Microsoft Entra that's associated with 
    > your Azure subscription, for example, *user-name*@emailoutlook.onmicrosoft.com.
 
 1. Now subscribe your logic app to events from the publisher. Provide the details about your event subscription as described in the following table, for example:

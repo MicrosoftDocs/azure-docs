@@ -141,7 +141,7 @@ The following procedure shows how to create a role with the minimum permission, 
     New-AzRoleDefinition -InputFile "<path-to-role-file>"
     New-AzRoleAssignment `
       -ResourceGroupName ExampleGroup `
-      -RoleDefinitionName "Key Vault resource manager template deployment operator" `
+      -RoleDefinitionName "Key Vault Bicep deployment operator" `
       -SignInName <user-principal-name>
     ```
 
@@ -200,6 +200,15 @@ module sql './sql.bicep' = {
     adminPassword: kv.getSecret('vmAdminPassword')
   }
 }
+```
+
+Also, `getSecret` function (or with the namespace qualifier `az.getSecret`) can be used in a `.bicepparam` file to retrieve the value of a secret from a key vault.
+
+```bicep
+using './main.bicep'
+
+param secureUserName = getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretUserName', 'exampleSecretVersion')
+param securePassword = az.getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretPassword')
 ```
 
 ## Reference secrets in parameters file

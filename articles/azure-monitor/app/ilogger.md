@@ -12,6 +12,8 @@ ms.reviewer: mmcc
 
 In this article, you learn how to capture logs with Application Insights in .NET apps by using the [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai] provider package. If you use this provider, you can query and analyze your logs by using the Application Insights tools.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 [nuget-ai]: https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights
 [nuget-ai-ws]: https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService
 
@@ -272,7 +274,20 @@ If any other type is used as a scope, it's stored under the property `Scope` in 
 
 `ApplicationInsightsLoggerProvider` captures `ILogger` logs and creates `TraceTelemetry` from them. If an `Exception` object is passed to the `Log` method on `ILogger`, `ExceptionTelemetry` is created instead of `TraceTelemetry`. 
 
-These telemetry items can be found in the same places as any other `TraceTelemetry` or `ExceptionTelemetry` items for Application Insights, including the Azure portal, analytics, or the Visual Studio local debugger.
+**Viewing ILogger Telemetry**
+
+In the Azure Portal:
+1. Go to the Azure Portal and access your Application Insights resource.
+2. Click on the "Logs" section inside Application Insights.
+3. Use Kusto Query Language (KQL) to query ILogger messages, usually stored in the `traces` table.
+   - Example Query: `traces | where message contains "YourSearchTerm"`.
+4. Refine your queries to filter ILogger data by severity, time range, or specific message content.
+
+In Visual Studio (Local Debugger):
+1. Start your application in debug mode within Visual Studio.
+2. Open the "Diagnostic Tools" window while the application runs.
+3. In the "Events" tab, ILogger logs appear along with other telemetry data.
+4. Utilize the search and filter features in the "Diagnostic Tools" window to locate specific ILogger messages.
 
 If you prefer to always send `TraceTelemetry`, use this snippet:
 
@@ -304,7 +319,7 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](../faq.yml).
+> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor.
 
 ### I don't have the SDK installed, and I use the Azure Web Apps extension to enable Application Insights for my ASP.NET Core applications. How do I use the new provider? 
 

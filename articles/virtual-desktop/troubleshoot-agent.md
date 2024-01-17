@@ -42,11 +42,11 @@ To resolve this issue, start the RDAgent boot loader:
 
 1. Select **Refresh**.
 
-1. If the service stops after you started and refreshed it, you may have a registration failure. For more information, see [INVALID_REGISTRATION_TOKEN](#error-invalid_registration_token).
+1. If the service stops after you started and refreshed it, you may have a registration failure. For more information, see [INVALID_REGISTRATION_TOKEN or EXPIRED_MACHINE_TOKEN](#error-invalid_registration_token-or-expired_machine_token).
 
-## Error: INVALID_REGISTRATION_TOKEN
+## Error: INVALID_REGISTRATION_TOKEN or EXPIRED_MACHINE_TOKEN
 
-On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with **INVALID_REGISTRATION_TOKEN** in the description, the registration token that has been used isn't recognized as valid.
+On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with **INVALID_REGISTRATION_TOKEN** or **EXPIRED_MACHINE_TOKEN** in the description, the registration token that has been used isn't recognized as valid.
 
 To resolve this issue, create a valid registration token:
 
@@ -157,7 +157,7 @@ To resolve this issue:
 
 1. Make sure [the agent can connect to the broker](#error-agent-cannot-connect-to-broker-with-invalid_form).
 
-1. Make sure [your VM has a valid registration token](#error-invalid_registration_token).
+1. Make sure [your VM has a valid registration token](#error-invalid_registration_token-or-expired_machine_token).
 
 1. Make sure [the VM registration token hasn't expired](./faq.yml). 
 
@@ -316,7 +316,7 @@ netsh winhttp set proxy proxy-server="http=<customerwebproxyhere>" bypass-list="
 
 If the session host doesn't pass the *MonitoringAgentCheck* health check, you'll need to check the *Remote Desktop Services Infrastructure Geneva Agent* and validate if it is functioning correctly on the session host:
 
-1. Verify if the Remote Desktop Services Infrastructure Geneva Agent is installed on the session host. You can verify this in the list of installed programs on the session host. If you see multiple version of this agent installed, uninstall older versions and only keep the latest version installed.
+1. Verify if the Remote Desktop Services Infrastructure Geneva Agent is installed on the session host. You can verify this in the list of installed programs on the session host. If you see multiple versions of this agent installed, uninstall older versions and only keep the latest version installed.
 
 1. If you don't find the Remote Desktop Services Infrastructure Geneva Agent installed on the session host, please review logs located under *C:\Program Files\Microsoft RDInfra\GenevaInstall.txt* and see if installation is failing due to an error.
 
@@ -451,7 +451,7 @@ You must generate a new registration key that is used to re-register your sessio
 
 ### Step 4: Reinstall the agent and boot loader
 
-Reinstalling the latest version of the agent and boot loader also automatically installs the side-by-side stack and Geneva monitoring agent. To reinstall the agent and boot loader:
+Reinstalling the latest version of the agent and boot loader also automatically installs the side-by-side stack and Geneva monitoring agent. To reinstall the agent and boot loader, follow these steps. This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-available-versions).
 
 1. Sign in to your session host VM as an administrator and run the agent installer and bootloader for your session host VM:
    

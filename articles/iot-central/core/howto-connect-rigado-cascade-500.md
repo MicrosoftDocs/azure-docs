@@ -3,7 +3,7 @@ title: Connect a Rigado Cascade 500 in Azure IoT Central
 description: Learn how to configure and connect a Rigado Cascade 500 gateway device to your IoT Central application. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2022
+ms.date: 11/27/2023
 services: iot-central
 ms.service: iot-central
 ms.topic: how-to
@@ -58,7 +58,7 @@ To connect the Cascade 500 device to your IoT Central application, you need to r
 
 1. Now select **SAS-IoT-Edge-Devices** and make a note of the **Primary key**:
 
-    :::image type="content" source="media/howto-connect-rigado-cascade-500/primary-key-sas.png" alt-text="Screenshot that shows the primary SAS key for you device connection group." lightbox="media/howto-connect-rigado-cascade-500/primary-key-sas.png":::
+    :::image type="content" source="media/howto-connect-rigado-cascade-500/primary-key-sas.png" alt-text="Screenshot that shows the primary SAS key for your device connection group." lightbox="media/howto-connect-rigado-cascade-500/primary-key-sas.png":::
 
 ## Contact Rigado to connect the gateway
 

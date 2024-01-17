@@ -1,8 +1,7 @@
 ---
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 10/31/2022
+ms.date: 12/19/2023
 author: aahill
 ms.author: aahi
 manager: nitinme

@@ -3,14 +3,14 @@ title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/30/2023
+ms.date: 09/27/2023
 ---
 
 # Configure your Bicep environment
 
-Bicep supports a configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience. If you don't add this file, Bicep uses default values.
+Bicep supports an optional configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience.
 
-To customize values, create this file in the directory where you store Bicep files. You can add `bicepconfig.json` files in multiple directories. The configuration file closest to the Bicep file in the directory hierarchy is used.
+To customize configuration, create this file in the same directory, or a parent directory of your Bicep files. If multiple parent directories contain `bicepconfig.json` files, Bicep uses configuration from the nearest one. If a configuration file is not found, Bicep uses default values.
 
 To configure Bicep extension settings, see [VS Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
 
@@ -36,28 +36,20 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 ## Enable experimental features
 
-You can enable preview features by adding:
+You can enable experimental features by adding the following section to your `bicepconfig.json` file.
+
+Here is an example of enabling features 'compileTimeImports' and 'userDefinedFunctions`. 
 
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "userDefinedTypes": true,
-    "extensibility": true
+    "compileTimeImports": true,
+    "userDefinedFunctions": true
   }
 }
 ```
 
-> [!WARNING]
-> To utilize the experimental features, it's necessary to have the latest version of [Azure CLI](./install.md#azure-cli).
-
-The preceding sample enables 'userDefineTypes' and 'extensibility`. The available experimental features include:
-
-- **extensibility**: Allows Bicep to use a provider model to deploy non-ARM resources. Currently, we only support a Kubernetes provider. See [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
-- **sourceMapping**: Enables basic source mapping to map an error location returned in the ARM template layer back to the relevant location in the Bicep file.
-- **resourceTypedParamsAndOutputs**: Enables the type for a parameter or output to be of type resource to make it easier to pass resource references between modules. This feature is only partially implemented. See [Simplifying resource referencing](https://github.com/azure/bicep/issues/2245).
-- **symbolicNameCodegen**: Allows the ARM template layer to use a new schema to represent resources as an object dictionary rather than an array of objects. This feature improves the semantic equivalent of the Bicep and ARM templates, resulting in more reliable code generation. Enabling this feature has no effect on the Bicep layer's functionality.
-- **userDefinedFunctions**: Allows you to define your own custom functions. See [User-defined functions in Bicep](./user-defined-functions.md).
-- **userDefinedTypes**: Allows you to define your own custom types for parameters. See [User-defined types in Bicep](https://aka.ms/bicepCustomTypes).
+For information on the current set of experimental features, see [Experimental Features](https://aka.ms/bicep/experimental-features).
 
 ## Next steps
 

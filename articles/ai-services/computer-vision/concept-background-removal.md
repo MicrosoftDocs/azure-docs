@@ -2,12 +2,11 @@
 title: Background removal - Image Analysis
 titleSuffix: Azure AI services
 description: Learn about background removal, an operation of Image Analysis
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 03/02/2023
 ms.author: pafarley
@@ -27,6 +26,9 @@ This feature provides two possible outputs based on the customer's needs:
 - An alpha matte that shows the opacity of the detected foreground object. This matte can be used to separate the foreground object from the background for further processing.
 
 This service is currently in preview, and the API may change in the future.
+
+> [!IMPORTANT]
+> Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 ## Background removal examples
 

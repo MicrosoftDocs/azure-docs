@@ -5,7 +5,7 @@ description: A legal hold stores blob data in a Write-Once, Read-Many (WORM) for
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 09/14/2022
 ms.author: normesta

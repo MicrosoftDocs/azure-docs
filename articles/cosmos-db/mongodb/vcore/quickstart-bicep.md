@@ -10,6 +10,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: quickstart
 ms.date: 08/28/2023
+ms.custom: devx-track-bicep
 ---
 
 # Quickstart: Create an Azure Cosmos DB for MongoDB vCore cluster by using a Bicep template
@@ -52,7 +53,7 @@ resource cluster 'Microsoft.DocumentDB/mongoClusters@2022-10-15-preview' = {
     nodeGroupSpecs: [
         {
             kind: 'Shard'
-            nodeCount: 1
+            shardCount: 1
             sku: 'M40'
             diskSizeGB: 128
             enableHa: false
@@ -70,6 +71,8 @@ resource firewallRules 'Microsoft.DocumentDB/mongoClusters/firewallRules@2022-10
   }
 }
 ```
+> [!NOTE]
+> Kindly note that in the above code, shardGroupSpecs is called nodeGroupSpecs. 
 
 Two Azure resources are defined in the Bicep file:
 

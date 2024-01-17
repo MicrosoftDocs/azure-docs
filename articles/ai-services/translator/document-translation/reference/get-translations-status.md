@@ -2,12 +2,11 @@
 title: Get translations status
 titleSuffix: Azure AI services
 description: The get translations status method returns a list of batch requests submitted and the status for each request.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
 ms.date: 07/18/2023
 ---

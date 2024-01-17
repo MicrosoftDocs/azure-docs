@@ -56,16 +56,18 @@ All the operations that are supported that extend the REST API.
 | [$member-match](tutorial-member-match.md)          | Yes       | Yes       |         |
 | [$patient-everything](patient-everything.md)    | Yes       | Yes       |         |
 | [$purge-history](purge-history.md)         | Yes       | Yes       |         |
+| [$import](import-data.md) |No |Yes | |
 
 ## Role-based access control
 
-FHIR service uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. 
+FHIR service uses [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) for access control. 
 
 ## Service limits
 
 * **Bundle size** - Each bundle is limited to 500 items.
+* **Subscription Limit** - By default, each subscription is limited to a maximum of 10 FHIR services. The limit can be used in one or many workspaces.
+* **Storage size** - By default each FHIR instance is limited to storage capacity of 4TB. To provision a FHIR instance with storage capacity beyond 4TB, create support request with Issue type 'Service and Subscription limit (quotas)'.
 
-* **Subscription Limit** - By default, each subscription is limited to a maximum of 10 FHIR services. The limit can be used in one or many workspaces. 
 
 ## Next steps
 

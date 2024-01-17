@@ -12,9 +12,6 @@ ms.date: 08/10/2023
 ---
 
 # Transform data by using the SQL Server Stored Procedure activity in Azure Data Factory or Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-stored-proc-activity.md)
-> * [Current version](transform-data-using-stored-procedure.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -88,7 +85,7 @@ The data type you specify for the parameter is the internal service type that ma
 - [Oracle  data type mapping](connector-oracle.md#data-type-mapping-for-oracle)
 - [SQL Server data type mapping](connector-sql-server.md#data-type-mapping-for-sql-server)
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [U-SQL Activity](transform-data-using-data-lake-analytics.md)

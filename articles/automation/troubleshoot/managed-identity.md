@@ -108,7 +108,7 @@ CategoryInfo : CloseError: (:) [Connect-AzureRmAccount], HttpRequestException + 
 The most common cause for this is that you didn't enable the identity before trying to use it. To verify this, run the following PowerShell runbook in the affected Automation account.
 
 ```powershell
-resource= "?resource=https://management.azure.com/"
+$resource= "?resource=https://management.azure.com/"
 $url = $env:IDENTITY_ENDPOINT + $resource
 $Headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $Headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER)

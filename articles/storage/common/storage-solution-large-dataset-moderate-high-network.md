@@ -5,6 +5,7 @@ services: storage
 author: stevenmatthew
 
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.date: 06/28/2022
 ms.author: shaas

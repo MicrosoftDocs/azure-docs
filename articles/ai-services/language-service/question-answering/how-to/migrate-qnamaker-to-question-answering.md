@@ -1,13 +1,12 @@
 ---
 title: Migrate from QnA Maker to Question Answering
 description: Details on features, requirements, and examples for migrating from QnA Maker to Question Answering
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.author: jboback
 author: jboback
 ms.manager: nitinme
 ms.topic: how-to
-ms.date: 08/08/2022
+ms.date: 12/19/2023
 ms.custom: language-service-question-answering
 ---
 # Migrate from QnA Maker to Question Answering 

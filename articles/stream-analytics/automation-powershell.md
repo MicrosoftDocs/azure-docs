@@ -423,7 +423,7 @@ We can check that everything is wired properly in the `Test Pane`.
 
 After that we need to `Publish` the job, which will allow us to link the runbook to a schedule. Creating and linking the schedule is a straightforward process that won't be discussed here. Now is a good time to remember that there are [workarounds](../automation/shared-resources/schedules.md#schedule-runbooks-to-run-more-frequently) to achieve schedule intervals under 1 hour.
 
-Finally, we can set up an alert. The first step is to enable logs via the [Diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=cli#create-diagnostic-settings) of the Automation Account. The second step is to capture errors via a query like we did for Functions.
+Finally, we can set up an alert. The first step is to enable logs via the [Diagnostic settings](../azure-monitor/essentials/create-diagnostic-settings.md?tabs=cli) of the Automation Account. The second step is to capture errors via a query like we did for Functions.
 
 ## Outcome
 

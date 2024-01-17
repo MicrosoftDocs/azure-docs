@@ -1,26 +1,26 @@
 ---
-title:  Using DICOMweb&trade;Standard APIs with C# - Azure Health Data Services
-description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with C#. 
+title:  Use C# and DICOMweb Standard APIs in Azure Health Data Services
+description: Learn how to use C# and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service. 
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: tutorial
-ms.date: 05/26/2022
+ms.date: 10/18/2023
 ms.author: mmitrik
 ---
 
-# Using DICOMweb&trade; Standard APIs with C#
+# Use C# and DICOMweb Standard APIs
 
-This tutorial uses C# to demonstrate working with the DICOM service.
+This article shows how to work with the DICOMweb service using C# and [sample .dcm DICOM&reg; files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
 
-In this tutorial, we'll use the following [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+Use these sample files:
 
-* blue-circle.dcm
-* dicom-metadata.csv
-* green-square.dcm
-* red-triangle.dcm
+- blue-circle.dcm
+- dicom-metadata.csv
+- green-square.dcm
+- red-triangle.dcm
 
-The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
+The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are:
 
 | File | StudyUID | SeriesUID | InstanceUID |
 | --- | --- | --- | ---|
@@ -29,17 +29,17 @@ The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is
 |blue-circle.dcm|1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420|1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207|1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114|
 
 > [!NOTE]
-> Each of these files represent a single instance and are part of the same study. Also, the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
+> Each of these files represents a single instance and is part of the same study. Also, the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
 
 ## Prerequisites
 
-To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM service deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMweb Standard APIs, you need an instance of the DICOM service deployed. For more information, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-After you've deployed an instance of the DICOM service, retrieve the URL for your App service:
+After you deploy an instance of the DICOM service, retrieve the URL for your app service:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search **Recent resources** and select your DICOM service instance.
-1. Copy the **Service URL** of your DICOM service. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
+1. Copy the **Service URL** of your DICOM service. Make sure to specify the version as part of the url when making requests. For more information, see [API versioning for the DICOM service](api-versioning-dicom-service.md).
 
 In your application, install the following NuGet packages:
 
@@ -49,7 +49,7 @@ In your application, install the following NuGet packages:
 
 ## Create a DicomWebClient
 
-After you've deployed your DICOM service, you'll create a DicomWebClient. Run the following code snippet to create DicomWebClient, which we'll be using for the rest of this tutorial. Ensure you have both NuGet packages installed as mentioned previously. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md).
+After you deploy your DICOM service, you create a DicomWebClient. Run the code snippet to create DicomWebClient, which you use for the rest of this tutorial. Ensure you have both NuGet packages installed. For more information, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md).
 
 ```c#
 string webServerUrl ="{Your DicomWeb Server URL}"
@@ -60,9 +60,9 @@ client.HttpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Head
 ```
 With the DicomWebClient, we can now perform the Store, Retrieve, Search, and Delete operations.
 
-## Store DICOM Instances (STOW)
+## Store DICOM instances (STOW)
 
-Using the DicomWebClient that we've created, we can now store DICOM files.
+By using the DicomWebClient, we can now store DICOM files.
 
 ### Store single instance
 
@@ -92,11 +92,11 @@ DicomWebResponse response = await client.StoreAsync(new[] { dicomFile }, "1.2.82
 
 Before moving on to the next part of the tutorial, upload the `green-square.dcm` file using either of the preceding methods.
 
-## Retrieving DICOM instance(s) (WADO)
+## Retrieve DICOM instance (WADO)
 
-The following code snippets will demonstrate how to perform each of the retrieve queries using the DicomWebClient created previously.
+The code snippets show how to perform each of the retrieve queries using the DicomWebClient created previously.
 
-The following variables will be used throughout the rest of the examples:
+The variables are used throughout the rest of the examples:
 
 ```c#
 string studyInstanceUid = "1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"; //StudyInstanceUID for all 3 examples
@@ -106,8 +106,6 @@ string sopInstanceUid = "1.2.826.0.1.3680043.8.498.47359123102728459884412887463
 
 ### Retrieve all instances within a study
 
-Retrieve all instances within a study retrieves all instances within a single study.
-
 _Details:_
 
 * GET /studies/{study}
@@ -116,7 +114,7 @@ _Details:_
 DicomWebResponse response = await client.RetrieveStudyAsync(studyInstanceUid);
 ```
 
-All three of the dcm files that we've uploaded previously are part of the same study, so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
+All three of the dcm files that you uploaded previously are part of the same study, so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
 
 ### Use the retrieved instances
 
@@ -147,7 +145,7 @@ _Details:_
 DicomWebResponse response = await client.RetrieveStudyMetadataAsync(studyInstanceUid);
 ```
 
-All three of the dcm files that we've uploaded previously are part of the same study, so the response should return the metadata for all three instances. Validate that the response has a status code of OK and that all the metadata is returned.
+All three of the dcm files that we uploaded previously are part of the same study, so the response should return the metadata for all three instances. Validate that the response has a status code of OK and that all the metadata is returned.
 
 ### Retrieve all instances within a series
 
@@ -348,7 +346,7 @@ _Details:_
 DicomWebResponse response = await client.DeleteSeriesAsync(studyInstanceUid, seriesInstanceUid);
 ```
 
-This response deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code will contain no content.
+This response deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code contains no content.
 
 ### Delete a specific study
 
@@ -364,9 +362,4 @@ DicomWebResponse response = await client.DeleteStudyAsync(studyInstanceUid);
 
 This response deletes the blue-circle instance (it's the only element left in the series) from the server. If it's successful, the response status code contains no content.
 
-### Next Steps
-
-For information about the DICOM service, see
-
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

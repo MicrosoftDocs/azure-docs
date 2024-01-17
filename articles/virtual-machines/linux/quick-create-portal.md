@@ -1,14 +1,14 @@
 ---
 title: Quickstart - Create a Linux VM in the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create a Linux virtual machine.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 3/29/2023
-ms.author: cynthn
-ms.reviewer: mattmcinnes
+ms.date: 01/04/2024
+ms.author: jushiman
+ms.reviewer: jushiman
 ms.custom: mvc, mode-ui, devx-track-linux
 ---
 
@@ -42,6 +42,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
     > Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see [Create virtual machines in an availability zone](../create-portal-availability-zone.md).
     > :::image type="content" source="../media/create-portal-availability-zone/preview.png" alt-text="Screenshot showing that you have the option to create virtual machines in multiple availability zones.":::
 
+1. On the right side, you see an example summary of the estimated costs. This updates as you select options that affect the cost, such as choosing *Ubuntu Server 22.04 LTS - Gen2* for your **Image**.
+
+
+   ![Screenshot of Linux virtual machine estimated cost on creation page in the Azure portal.](./media/quick-create-portal/linux-estimated-monthly-cost.png)
+
+   If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
 
 1. Under **Administrator account**, select **SSH public key**.
 
@@ -120,7 +126,25 @@ Use a web browser of your choice to view the default NGINX welcome page. Type th
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+### Delete resources
+When no longer needed, you can delete the resource group, virtual machine, and all related resources.
+
+1. On the Overview page for the VM, select the **Resource group** link.
+1. At the top of the page for the resource group, select **Delete resource group**. 
+1. A page will open warning you that you are about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
+
+
+### Auto-shutdown
+If the VM is still needed, Azure provides an Auto-shutdown feature for virtual machines to help manage costs and ensure you are not billed for unused resources.
+
+1. On the **Operations** section for the VM, select the **Auto-shutdown** option.
+1. A page will open where you can configure the auto-shutdown time. Select the **On** option to enable and then set a time that works for you.
+1. Once you have set the time, select **Save**  at the top to enable your Auto-shutdown configuration.
+
+> [!NOTE]
+> Remember to configure the time zone correctly to match your requirements, as (UTC) Coordinated Universal Time is the default setting in the Time zone dropdown.
+
+For more information see [Auto-shutdown](/azure/virtual-machines/auto-shutdown-vm).
 
 ## Next steps
 

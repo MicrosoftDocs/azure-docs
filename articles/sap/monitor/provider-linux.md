@@ -1,5 +1,5 @@
 ---
-title: Configure Linux provider for Azure Monitor for SAP solutions 
+title: Configure Linux provider for Azure Monitor for SAP solutions
 description: This article explains how to configure a Linux OS provider for Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
@@ -18,51 +18,77 @@ In this how-to guide, you learn how to create a Linux OS provider for Azure Moni
 - An Azure subscription.
 - An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](quickstart-portal.md) or the [quickstart for PowerShell](quickstart-powershell.md).
 - Install the [node exporter latest version](https://prometheus.io/download/#node_exporter) in each SAP host that you want to monitor, either BareMetal or Azure virtual machine (VM). For more information, see the [node exporter GitHub repository](https://github.com/prometheus/node_exporter).
+- Node exporter uses the default port 9100 to expose the metrics. If you want to use a custom port, make sure to open the port in the firewall and use the same port while creating the provider.
+- Default port 9100 or custom port that will be configured for node exporter should be open and listening on the Linux host.
 
 To install the node exporter on Linux:
 
-1. Run `wget https://github.com/prometheus/node_exporter/releases/download/v*/node_exporter-*.*-amd64.tar.gz`. Replace `*` with the version number.
+Right click on the relevant node exporter version for linux from https://prometheus.io/download/#node_exporter and copy the link address which will be used in the below command.
+For example - https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz
 
-1. Run `tar xvfz node_exporter-*.*-amd64.tar.gz`.
+1. Change to the directory where you want to install the node exporter.
+1. Run `wget https://github.com/prometheus/node_exporter/releases/download/v<xxx>/node_exporter-<xxx>.linux-amd64.tar.gz`. Replace `xxx` with the version number.
 
-1. Run `cd node_exporter-*.*-amd64`.
+1. Run `tar xvfz node_exporter-<xxx>.linux-amd64.tar.gz`
+
+1. Run `cd node_exporter-<xxx>linux-amd64`
 
 1. Run `./node_exporter`.
 
-1. The node exporter now starts collecting data. You can export the data at `http://IP:9100/metrics`.
+1. Run `./node_exporter --web.listen-address=":9100" &`
+
+1. The node exporter now starts collecting data. You can export the data at `http://<ip>:9100/metrics`.
 
 ## Script to set up the node exporter
 
 ```shell
 # To get the latest node exporter version from: https://prometheus.io/download/#node_exporter
-wget https://github.com/prometheus/node_exporter/releases/download/v*/node_exporter-*.*-amd64.tar.gz
-tar xvfz node_exporter-*.*-amd64.tar.gz
-if [[ "$(grep '^ID=' /etc/*-release)" == *"rhel"* ]]; then
-    echo "Open firewall port 9100 on the Linux host"
-    yum install firewalld -y
-    systemctl start firewalld
-    firewall-cmd --zone=public --permanent --add-port 9100/tcp
-else
-    sudo ufw allow 9100/tcp
-    sudo ufw reload
-fi
+# Right click on the linux node exporter version and copy the link address which will be used in the below command. For example - https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz
+# Change to the directory where you want to install the node exporter.
 
-cd node_exporter-*.*-amd64
+wget https://github.com/prometheus/node_exporter/releases/download/v<xxx>/node_exporter-<xxx>.linux-amd64.tar.gz
+tar xvfz node_exporter-<xxx>.linux-amd64.tar.gz
+cd node_exporter-<xxx>linux-amd64
 nohup ./node_exporter --web.listen-address=":9100" &
 ```
 
-### Set up a cron job to start node exporter on a VM restart
+### Set up a systemctl service to start node exporter on a Virtual Machine restart
 
-1. If the target VM is restarted or stopped, node exporter is also stopped. It must be manually started again to continue monitoring.
-1. Run the `sudo crontab -e` command to open a cron file.
-1. Add the command `@reboot cd /path/to/node/exporter && nohup ./node_exporter &` at the end of the cron file. This starts node exporter on a VM reboot.
+1. If the target VM is restarted or stopped, node exporter service is stopped. It must be manually started again to continue monitoring.
+1. Run the below commands to enable node exporter to run as a service.
+
+   > [!NOTE]
+   > Replace this `xxxx` with the version of node exporter. For example, `1.6.1`.
 
     ```shell
-    # If you do not have a crontab file already, create one by running the command: sudo crontab -e
-    sudo crontab -l > crontab_new
-    echo "@reboot cd /path/to/node/exporter && nohup ./node_exporter &" >> crontab_new
-    sudo crontab crontab_new
-    sudo rm crontab_new
+    # Change to the directory where node exporter bits are downloaded and copy the node_exporter folder to path /usr/bin
+    sudo mv node_exporter-<xxxx>.linux-amd64 /usr/bin
+    # Create a node_exporter as a service file under etc/systemd/system
+    sudo tee /etc/systemd/system/node_exporter.service<<EOF
+    [Unit]
+    Description=Node Exporter
+    After=network.target
+    [Service]
+    Type=simple
+    Restart=always
+    ExecStart=/usr/bin/node_exporter-<xxxx>.linux-amd64/node_exporter $ARGS
+    ExecReload=/bin/kill -HUP $MAINPID
+    [Install]
+    WantedBy=multi-user.target
+    EOF
+    # Reload the system daemon and start the node exporter service.
+
+    sudo systemctl daemon-reload
+    sudo systemctl start node_exporter
+    sudo systemctl enable node_exporter
+
+    # Check the status of node exporter if it is running in active(running) state.
+    sudo systemctl status node_exporter
+
+    # To test the node exporter running as a service
+    # NOTE - Downtime impacts the Business application running on VM
+    # Crash/Re-start the Virtual Machine, login back into VM and check node exporter status to be active(running)
+    sudo systemctl status node_exporter
     ```
 
 ## Prerequisites to enable secure communication
@@ -77,9 +103,9 @@ To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow
 1. Select **Add provider**.
 1. Configure the following settings for the new provider:
     1. For **Type**, select **OS (Linux)**.
-    1. For **Name**, enter a name that will be the identifier for the BareMetal instance.
+    1. For **Name**, enter a unique name of the provider.
     1. (Optional) Select **Enable secure communication**, choose a certificate type.
-    1. For **Node Exporter Endpoint**, enter `http://IP:9100/metrics`.
+    1. For **Node Exporter Endpoint**, enter `http://IP:9100/metrics` if default port 9100 is used. If a custom port is used, enter `http://IP:PORT/metrics`. Replace `IP` with the IP address of the Linux host and `PORT` with the custom port number.
     1. For the IP address, use the private IP address of the Linux host. Make sure the host and Azure Monitor for SAP solutions resource are in the same virtual network.
 1. Open firewall port 9100 on the Linux host.
     1. If you're using `firewall-cmd`, run `_firewall-cmd_ _--permanent_ _--add-port=9100/tcp_ ` and then run `_firewall-cmd_ _--reload_`.
@@ -98,13 +124,11 @@ Use these steps to resolve common errors.
 
 When the provider settings validation operation fails with the code `PrometheusURLConnectionFailure`:
 
-1. Open firewall port 9100 on the Linux host.
-    1. If you're using `firewall-cmd`, run `_firewall-cmd_ _--permanent_ _--add-port=9100/tcp_ ` and then run `_firewall-cmd_ _--reload_`.
-    1. If you're using `ufw`, run `_ufw_ _allow_ _9100/tcp_` and then run `_ufw_ _reload_`.
+1. Check the default port 9100 or custom port that is configured for node exporter is open and listening on the Linux host.
 1. Try to restart the node exporter agent:
-    1. Go to the folder where you installed the node exporter. The file name resembles `node_exporter-*.*-amd64`.
+    1. Go to the folder where you installed the node exporter (the file name resembles `node_exporter-<xxxx>-amd64`).
     1. Run `./node_exporter`.
-    1. Adding `nohup` and `&` to the preceding command decouples `node_exporter` from the Linux machine command line. If they're not included, `node_exporter` stops when the command line is closed.
+    1. Run `nohup ./node_exporter &` command to enable node_exporter. Adding nohup and & to above command decouples the node_exporter from linux machine commandline. If not included node_exporter would stop when the commandline is closed.
 1. Verify that the Prometheus endpoint is reachable from the subnet that you provided when you created the Azure Monitor for SAP solutions resource.
 
 ## Suggestion

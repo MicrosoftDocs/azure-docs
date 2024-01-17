@@ -2,16 +2,20 @@
 title: Claim resolvers in custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to use claims resolvers in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C custom policies, I want to understand how to use claim resolvers in my technical profiles, so that I can provide context information about authorization requests and populate claims with dynamic values.
+
 ---
 
 # About claim resolvers in Azure Active Directory B2C custom policies
@@ -173,7 +177,7 @@ You can use claims resolvers with the following elements:
 | Item | Element | Settings |
 | ----- | ----------------------- | --------|
 |Application Insights technical profile |`InputClaim` | |
-|[Azure Active Directory](active-directory-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
+|[Microsoft Entra](active-directory-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[OAuth2](oauth2-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[OpenID Connect](openid-connect-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[Claims transformation](claims-transformation-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|

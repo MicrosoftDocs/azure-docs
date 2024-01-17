@@ -59,7 +59,7 @@ Follow these steps to create a public IPv4 address with a Standard SKU named myS
 > [!NOTE]
 > In regions with [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select **No Zone** (default), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
 
-You can associate the public IP address you created with a Windows or Linux [virtual machine](../../virtual-machines/overview.md). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md#azure-cli). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+You can associate the public IP address you created with a Windows or Linux [virtual machine](../../virtual-machines/overview.md). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 # [**Basic SKU**](#tab/option-1-create-public-ip-basic)
 
@@ -136,7 +136,7 @@ Follow these steps to create a public IPv4 address with a Standard SKU and routi
 > [!NOTE]
 > In regions with [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select **No Zone** (default), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
 
-You can associate the public IP address you created with a Windows or Linux [virtual machine](../../virtual-machines/overview.md). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md#azure-cli). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+You can associate the public IP address you created with a Windows or Linux [virtual machine](../../virtual-machines/overview.md). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 # [**Tier**](#tab/option-1-create-public-ip-tier)
 

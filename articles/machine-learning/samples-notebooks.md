@@ -33,9 +33,10 @@ This article shows you how to access the repository from the following environme
 The easiest way to get started with the samples is to complete the [Create resources to get started](quickstart-create-resources.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the Azure Machine Learning Notebooks repository. No downloads or installation necessary.
 
 To view example notebooks:
-    1. Sign in to [studio](https://ml.azure.com) and select your workspace if necessary.
-    1. Select **Notebooks**.
-    1. Select the **Samples** tab. Use the **SDK v2** folder for examples using Python SDK v2.
+
+1. Sign in to [studio](https://ml.azure.com) and select your workspace if necessary.
+1. Select **Notebooks**.
+1. Select the **Samples** tab. Use the **SDK v2** folder for examples using Python SDK v2.
 
 
 ## Option 2: Access on your own notebook server
@@ -51,7 +52,27 @@ These instructions install the base SDK packages necessary for the quickstart an
 
 The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
 
-[!INCLUDE [aml-dsvm-server](includes/aml-dsvm-server-v2.md)]
+1. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+
+1. Download a workspace configuration file:
+
+    * Sign in to [Azure Machine Learning studio](https://ml.azure.com)
+    * Select your workspace settings in the upper right
+    * Select **Download config file**
+
+    ![Screenshot of download config.json.](./media/aml-dsvm-server/download-config.png)
+
+1. From the directory where you added the configuration file, clone the [the AzureML-Examples repository](https://aka.ms/aml-notebooks).
+
+    ```bash
+    git clone https://github.com/Azure/azureml-examples.git --depth 1
+    ```
+
+1. Start the notebook server from the directory, which now contains the clone and the config file.
+
+    ```bash
+    jupyter notebook
+    ```
 
 ## Next steps
 

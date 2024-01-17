@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 # Monitor copy activity
@@ -160,7 +160,7 @@ Copy activity execution details and performance characteristics are also returne
 }
 ```
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 \- [Copy activity overview](copy-activity-overview.md)

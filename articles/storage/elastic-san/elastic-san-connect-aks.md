@@ -31,7 +31,7 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - Meet the [compatibility requirements](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md#container-images--kubernetes-compatibility) for the iSCSI CSI driver
 - [Deploy an Elastic SAN Preview](elastic-san-create.md)
-- [Configure a virtual network endpoint](elastic-san-networking.md#configure-a-virtual-network-endpoint)
+- [Configure a virtual network endpoint](elastic-san-networking.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
 ## Limitations
@@ -57,13 +57,13 @@ kubectl -n kube-system get pod -o wide -l app=csi-iscsi-node
 
 You need the volume's StorageTargetIQN, StorageTargetPortalHostName, and StorageTargetPortalPort.
 
-You may get them with the following Azure PowerShell command:
+You can get them with the following Azure PowerShell command:
 
 ```azurepowershell
 Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $searchedVolumeGroup -Name $searchedVolume 
 ```
 
-You may also get them with the following Azure CLI command:
+You can also get them with the following Azure CLI command:
 
 ```azurecli
 az elastic-san volume show --elastic-san-name --name --resource-group --volume-group-name

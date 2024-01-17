@@ -141,7 +141,8 @@ You can do the following tasks with no downtime:
 * Increase the bandwidth of your ExpressRoute circuit, provided there's capacity available on the port.
 
   > [!IMPORTANT]
-  > Downgrading the bandwidth of a circuit is not supported.
+  > * Downgrading the bandwidth of a circuit is not supported.
+  > * To determine if there is available capacity for a bandwidth upgrade, submit a support request.
 
 * Change the metering plan from *Metered Data* to *Unlimited Data*.
 

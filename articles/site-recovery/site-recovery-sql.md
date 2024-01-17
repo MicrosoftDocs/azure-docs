@@ -158,7 +158,7 @@ Site Recovery is application agnostic. Site Recovery can help protect any versio
 
 ### Does ASR Work with SQL Transactional Replication?
 
-Due to ASR using file-level copy, SQL cannot guarantee that the servers in an associated SQL replication topology are in sync at the time of ASR failover. This may cause the logreader and/or distribution agents to fail due to LSN mismatch, which can break replication. If you failover the publisher, distributor, or subscriber in a replication topology, you need to rebuild replication. It is recommended to [reinitialize the subscription to SQL Server](https://learn.microsoft.com/sql/relational-databases/replication/reinitialize-a-subscription?view=sql-server-ver16).
+Due to ASR using file-level copy, SQL cannot guarantee that the servers in an associated SQL replication topology are in sync at the time of ASR failover. This may cause the logreader and/or distribution agents to fail due to LSN mismatch, which can break replication. If you failover the publisher, distributor, or subscriber in a replication topology, you need to rebuild replication. It is recommended to [reinitialize the subscription to SQL Server](/sql/relational-databases/replication/reinitialize-a-subscription).
 
 
 ## Next steps

@@ -1,6 +1,7 @@
 ---
 title: "Tutorial: Use GitHub Actions to deploy to App Service and connect to a database"
 description: Deploy a database-backed ASP.NET core app to Azure with GitHub Actions
+author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 01/09/2023

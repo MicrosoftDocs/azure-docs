@@ -6,9 +6,8 @@ summary: The cloud-based Azure AI Vision API provides developers with access to 
 metadata:
   title: Azure AI Vision documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
   description: The cloud-based Azure AI Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
-  services: cognitive-services
-  ms.service: cognitive-services
-  ms.subservice: computer-vision
+  #services: cognitive-services
+  ms.service: azure-ai-vision
   ms.topic: hub-page
   author: PatrickFarley
   ms.author: pafarley
@@ -162,7 +161,7 @@ tools:
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
   - title: Java
     imageSrc: /media/logos/logo_java.svg
-    url: /java/api/com.microsoft.cognitiveservices.speech
+    url: /java/api/com.azure.ai.vision.imageanalysis
 
 
 additionalContent:

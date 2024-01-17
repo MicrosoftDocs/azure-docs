@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 07/17/2023
+ms.date: 09/15/2023
 ms.author: radeltch
 ---
 
@@ -44,13 +44,13 @@ This article describes how to deploy and configure Azure virtual machines (VMs),
 * [NFS on Azure Files](../../storage/files/files-nfs-protocol.md).
 * [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).
 
-The simple mount configuration is expected to be the [default](https://documentation.suse.com/sbp/sap/single-html/SAP-S4HA10-setupguide-simplemount-sle15/#id-introduction) for new implementations on SLES for SAP Applications 15.
+The simple mount configuration is expected to be the default for new implementations on SLES for SAP Applications 15.
 
 ## Prerequisites  
 
 The following guides contain all the required information to set up a NetWeaver HA system:
 
-* [SAP S/4 HANA - Enqueue Replication 2 High Availability Cluster With Simple Mount](https://documentation.suse.com/sbp/sap/html/SAP-S4HA10-setupguide-simplemount-sle15/index.html)
+* [SAP S/4 HANA - Enqueue Replication 2 High Availability Cluster With Simple Mount](https://documentation.suse.com/sbp/sap-15/html/SAP-S4HA10-setupguide-sle15/index.html)
 * [Use of Filesystem resource for ABAP SAP Central Services (ASCS)/ERS HA setup not possible](https://www.suse.com/support/kb/doc/?id=000019944)
 * SAP Note [1928533][1928533], which has:  
   * A list of Azure VM sizes that are supported for the deployment of SAP software
@@ -700,6 +700,8 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure location loc_sap_NW1_failover_to_ers rsc_sap_NW1_ASCS00 rule 2000: runs_ers_NW1 eq 1
     sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS01:stop symmetrical=false
    
+    sudo crm_attribute --delete --name priority-fencing-delay
+
     sudo crm node online sap-cl1
     sudo crm configure property maintenance-mode="false"
     ```
@@ -709,7 +711,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     > [!NOTE]
     > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
     >
-    > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster. For more information, see [Enqueue Replication 2 High Availability cluster with simple mount](https://documentation.suse.com/sbp/sap/html/SAP-S4HA10-setupguide-simplemount-sle15/index.html#multicluster)
+    > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster. For more information, see [Enqueue Replication 2 High Availability cluster with simple mount](https://documentation.suse.com/sbp/sap-15/html/SAP-S4HA10-setupguide-sle15/index.html#multicluster)
 
     If you're using an ENSA2 architecture, define the resources as follows.
 

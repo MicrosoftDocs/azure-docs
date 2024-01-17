@@ -150,7 +150,7 @@ Once the private endpoints created for the vault in your VNet have been approved
 
 In the VM, in the locked down network, ensure the following:
 
-1. The VM should have access to Azure AD.
+1. The VM should have access to Microsoft Entra ID.
 2. Execute **nslookup** on the backup URL (`xxxxxxxx.privatelink.<geo>.backup.windowsazure.com`) from your VM, to ensure connectivity. This should return the private IP assigned in your virtual network.
 
 ### Configure backup

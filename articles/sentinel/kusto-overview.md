@@ -62,7 +62,7 @@ A good place to start learning Kusto Query Language is to understand the overall
 
 This concept of passing data down the pipeline makes for a very intuitive structure, as it is easy to create a mental picture of your data at each step.
 
-To illustrate this, let's take a look at the following query, which looks at Azure Active Directory (Azure AD) sign-in logs. As you read through each line, you can see the keywords that indicate what's happening to the data. We've included the relevant stage in the pipeline as a comment in each line.
+To illustrate this, let's take a look at the following query, which looks at Microsoft Entra sign-in logs. As you read through each line, you can see the keywords that indicate what's happening to the data. We've included the relevant stage in the pipeline as a comment in each line.
 
 > [!NOTE]
 > You can add comments to any line in a query by preceding them with a double slash (` // `).

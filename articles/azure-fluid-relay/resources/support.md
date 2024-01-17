@@ -1,9 +1,6 @@
 ---
 title: Azure Fluid Relay support
 description: Help and support options for Azure Fluid Relay.
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 08/19/2021
 ms.topic: reference
 ms.service: azure-fluid

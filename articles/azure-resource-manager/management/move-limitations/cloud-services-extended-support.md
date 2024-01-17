@@ -8,9 +8,6 @@ ms.custom: hirshah, devx-track-arm-template
 
 # Move guidance for Cloud Services (extended support) deployment model resources
 
-> [!IMPORTANT]
-> The move feature is under development for Cloud Services (extended support) and not available for Production use yet. The guidance will be updated once the feature is deployed for all customers and regions.
-
 The steps to move resources deployed through the Cloud Services (extended support) model differ based on whether you're moving the resources within a subscription or to a new subscription.
 
 ## Move in the same subscription

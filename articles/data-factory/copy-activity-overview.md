@@ -13,9 +13,6 @@ ms.author: jianleishen
 
 # Copy activity in Azure Data Factory and Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory that you're using:"]
-> * [Version 1](v1/data-factory-data-movement-activities.md)
-> * [Current version](copy-activity-overview.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -39,7 +36,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 :::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="Copy activity overview":::
 
 > [!NOTE]
-> If a self-hosted integration runtime is used in either a source or sink data store within a Copy activity, then both the source and sink must be accessible from the server hosting the integartion runtime for the Copy activity to be successful.
+> If a self-hosted integration runtime is used in either a source or sink data store within a Copy activity, then both the source and sink must be accessible from the server hosting the integration runtime for the Copy activity to be successful.
 
 ## Supported data stores and formats
 
@@ -268,7 +265,7 @@ When you move data from source to destination store, copy activity provides an o
 ## Session log
 You can log your copied file names, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session sign in copy activity](copy-activity-log.md) for details.
 
-## Next steps
+## Related content
 See the following quickstarts, tutorials, and samples:
 
 - [Copy data from one location to another location in the same Azure Blob storage account](quickstart-create-data-factory-dot-net.md)

@@ -2,12 +2,12 @@
 title: 'Tutorial: Deploy a Spring Boot app connected to Apache Kafka on Confluent Cloud with Service Connector in Azure Spring Apps'
 description: Create a Spring Boot app connected to Apache Kafka on Confluent Cloud with Service Connector in Azure Spring Apps.
 ms.devlang: java
-ms.custom: event-tier1-build-2022, devx-track-extended-java
-author: mcleanbyron
-ms.author: mcleans
+ms.custom: event-tier1-build-2022, devx-track-extended-java, devx-track-azurecli
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 05/03/2022
+ms.date: 11/20/2023
 ---
 
 # Tutorial: Deploy a Spring Boot app connected to Apache Kafka on Confluent Cloud with Service Connector in Azure Spring Apps
@@ -20,11 +20,13 @@ Learn how to access Apache Kafka on Confluent Cloud for a Spring Boot applicatio
 > * Build and deploy the Spring Boot app
 > * Connect Apache Kafka on Confluent Cloud to Azure Spring Apps using Service Connector
 
-## Set up your initial environment
+## Prerequisites
 
-1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-2. Install Java 8 or 11.
-3. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.18.0 or higher, with which you run commands in any shell to provision and configure Azure resources.
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+
+* Java 8 or a more recent version with long-term support (LTS) 1.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Clone or download the sample app
 
@@ -34,7 +36,7 @@ Learn how to access Apache Kafka on Confluent Cloud for a Spring Boot applicatio
     git clone https://github.com/Azure-Samples/serviceconnector-springcloud-confluent-springboot/
     ```
 
-1. Navigate into that folder:
+1. Navigate into the following folder:
 
     ```Bash
     cd serviceconnector-springcloud-confluent-springboot
@@ -56,13 +58,13 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
     :::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-cloud-env.png" alt-text="Cloud environment of Apache Kafka on Confluent Cloud" lightbox="media/tutorial-java-spring-confluent-kafka/confluent-cloud-env.png":::
 
-1. Create a Kafka cluster with the following information
+1. Create a Kafka cluster with the following information:
 
     * Cluster type: Standard
     * Region/zones: eastus(Virginia), Single Zone
     * Cluster name: `cluster_1` or any other name.
 
-1. In **Cluster overview** -> **Cluster settings**, get the Kafka **bootstrap server url** and take note it down.
+1. In **Cluster overview** -> **Cluster settings**, note the Kafka **Bootstrap server** URL.
 
     :::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-cluster-setting.png" alt-text="Cluster settings of Apache Kafka on Confluent Cloud" lightbox="media/tutorial-java-spring-confluent-kafka/confluent-cluster-setting.png":::
 
@@ -73,7 +75,7 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
 ### Create an Azure Spring Apps instance
 
-Create an instance of Azure Spring Apps by following [the Azure Spring Apps quickstart](../spring-apps/quickstart.md) in Java. Make sure your Azure Spring Apps instance is created in [the region that has Service Connector support](concept-region-support.md).
+Create an instance of Azure Spring Apps by following [the Azure Spring Apps quickstart](../spring-apps/quickstart.md) in Java. Make sure your Azure Spring Apps instance is created in [a region that has Service Connector support](concept-region-support.md).
 
 ## Build and deploy the app
 
@@ -87,7 +89,7 @@ Create an instance of Azure Spring Apps by following [the Azure Spring Apps quic
     az account set --subscription <Name or ID of your subscription>
     ```
 
-1. Build the project using gradle
+1. Build the project using gradle.
 
     ```Bash
     ./gradlew build
@@ -99,7 +101,7 @@ Create an instance of Azure Spring Apps by following [the Azure Spring Apps quic
     az spring-cloud app create -n hellospring -s <service-instance-name> -g <your-resource-group-name> --assign-endpoint true
     ```
 
-## Create service connection using Service Connector
+## Create a service connection using Service Connector
 
 #### [CLI](#tab/Azure-CLI)
 
@@ -110,14 +112,15 @@ az spring-cloud connection create confluent-cloud -g <your-spring-cloud-resource
 ```
 
 Replace the following placeholder texts with your own data:
+
 * Replace *`<your-resource-group-name>`* with the resource group name that you created for your Apps Spring Apps instance.
-* Replace *`<kafka-bootstrap-server-url>`* with your kafka bootstrap server url (the value should be like `pkc-xxxx.eastus.azure.confluent.cloud:9092`)
+* Replace *`<kafka-bootstrap-server-url>`* with your Kafka bootstrap server URL. For example: `pkc-xxxx.eastus.azure.confluent.cloud:9092`.
 * Replace *`<cluster-api-key>`* and *`<cluster-api-secret>`* with your cluster API key and secret.
-* Replace *`<kafka-schema-registry-endpoint>`* with your kafka Schema Registry endpoint (the value should be like `https://psrc-xxxx.westus2.azure.confluent.cloud`)
+* Replace *`<kafka-schema-registry-endpoint>`* with your Kafka Schema Registry endpoint. For example: `https://psrc-xxxx.westus2.azure.confluent.cloud`.
 * Replace *`<registry-api-key>`* and *`<registry-api-secret>`* with your kafka Schema Registry API key and secret.
 
 > [!NOTE]
-> If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again. 
+> If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again.
 
 #### [Portal](#tab/Azure-portal)
 

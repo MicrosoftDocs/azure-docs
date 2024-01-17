@@ -1,6 +1,6 @@
 ---
 title: Create an experiment using a Chaos Mesh fault with the Azure portal
-description: Create an experiment that uses an AKS Chaos Mesh fault by using Azure Chaos Studio Preview with the Azure portal.
+description: Create an experiment that uses an AKS Chaos Mesh fault by using Azure Chaos Studio with the Azure portal.
 author: prasha-microsoft 
 ms.topic: how-to
 ms.date: 04/21/2022
@@ -11,7 +11,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 # Create a chaos experiment that uses a Chaos Mesh fault to kill AKS pods with the Azure portal
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause periodic Azure Kubernetes Service (AKS) pod failures on a namespace by using a chaos experiment and Azure Chaos Studio Preview. Running this experiment can help you defend against service unavailability when there are sporadic failures.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause periodic Azure Kubernetes Service (AKS) pod failures on a namespace by using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against service unavailability when there are sporadic failures.
 
 Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source chaos engineering platform for Kubernetes, to inject faults into an AKS cluster. Chaos Mesh faults are [service-direct](chaos-studio-tutorial-aks-portal.md) faults that require Chaos Mesh to be installed on the AKS cluster. You can use these same steps to set up and run an experiment for any AKS Chaos Mesh fault.
 
@@ -22,7 +22,7 @@ Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source cha
 
 ## Limitations
 
-* You can use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking.md). Any commands issued to the private cluster, including the steps in this article to set up Chaos Mesh, need to follow the [private cluster guidance](../aks/private-clusters.md). Recommended methods include connecting from a VM in the same virtual network or using the [AKS command invoke](../aks/command-invoke.md) feature.
+* You can use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking.md). Any commands issued to the private cluster, including the steps in this article to set up Chaos Mesh, need to follow the [private cluster guidance](../aks/private-clusters.md). Recommended methods include connecting from a VM in the same virtual network or using the [AKS command invoke](../aks/access-private-cluster.md) feature.
 * AKS Chaos Mesh faults are only supported on Linux node pools.
 * Currently, Chaos Mesh faults don't work if the AKS cluster has [local accounts disabled](../aks/manage-local-accounts-managed-azure-ad.md).
 * If your AKS cluster is configured to only allow authorized IP ranges, you need to allow Chaos Studio's IP ranges. You can find them by querying the `ChaosStudio` [service tag with the Service Tag Discovery API or downloadable JSON files](../virtual-network/service-tags-overview.md). 
@@ -66,13 +66,16 @@ You can also [use the installation instructions on the Chaos Mesh website](https
 Chaos Studio can't inject faults against a resource unless that resource is added to Chaos Studio first. You add a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. AKS clusters have only one target type (service-direct), but other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Each type of Chaos Mesh fault is represented as a capability like PodChaos, NetworkChaos, and IOChaos.
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Search for **Chaos Studio (preview)** in the search bar.
+1. Search for **Chaos Studio** in the search bar.
 1. Select **Targets** and go to your AKS cluster.
 
    ![Screenshot that shows the Targets view in the Azure portal.](images/tutorial-aks-targets.png)
 1. Select the checkbox next to your AKS cluster. Select **Enable targets** and then select  **Enable service-direct targets** from the dropdown menu.
 
    ![Screenshot that shows enabling targets in the Azure portal.](images/tutorial-aks-targets-enable.png)
+
+1. Confirm that the desired resource is listed. Select **Review + Enable**, then **Enable**.
+
 1. A notification appears that indicates that the resources you selected were successfully enabled.
 
    ![Screenshot that shows the notification showing that the target was successfully enabled.](images/tutorial-aks-targets-enable-confirm.png)
@@ -82,13 +85,13 @@ You've now successfully added your AKS cluster to Chaos Studio. In the **Targets
 ## Create an experiment
 Now you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
 
-1. Select the **Experiments** tab in Chaos Studio. In this view, you can see and manage all your chaos experiments. Select **Add an experiment**
+1. Select the **Experiments** tab in Chaos Studio. In this view, you can see and manage all your chaos experiments. Select **Create** > **New experiment**.
 
    ![Screenshot that shows the Experiments view in the Azure portal.](images/tutorial-aks-add.png)
 1. Fill in the **Subscription**, **Resource Group**, and **Location** where you want to deploy the chaos experiment. Give your experiment a name. Select **Next: Experiment designer**.
 
    ![Screenshot that shows adding basic experiment details.](images/tutorial-aks-add-basics.png)
-1. You're now in the Chaos Studio experiment designer. The experiment designer allows you to build your experiment by adding steps, branches, and faults. Give a friendly name to your **Step** and **Branch** and select **Add fault**.
+1. You're now in the Chaos Studio experiment designer. The experiment designer allows you to build your experiment by adding steps, branches, and faults. Give a friendly name to your **Step** and **Branch** and select **Add action > Add fault**.
 
    ![Screenshot that shows the experiment designer.](images/tutorial-aks-add-designer.png)
 1. Select **AKS Chaos Mesh Pod Chaos** from the dropdown list. Fill in **Duration** with the number of minutes you want the failure to last and **jsonSpec** with the following information:

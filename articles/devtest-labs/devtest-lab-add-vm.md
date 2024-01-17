@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to add a virtual machine (VM) to 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 05/22/2023
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 
