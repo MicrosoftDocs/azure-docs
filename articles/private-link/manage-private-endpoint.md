@@ -180,7 +180,7 @@ Use the following steps to manage a private endpoint connection in the Azure por
 
 1. You can change the state of the connection by selecting from the options at the top.
 
-## Manage private endpoint connections on a customer- or-partner-owned Private Link service
+## Manage private endpoint connections on a customer- or partner-owned Private Link service
 
 Use the following PowerShell and Azure CLI commands to manage private endpoint connections on Microsoft partner services or customer-owned services.
 
