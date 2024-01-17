@@ -14,7 +14,7 @@ ms.author: banders
 
 A billing threshold is a level of spending that, when met, triggers an authorization to the primary payment method associated to your Azure account. If the service consumption surpasses the billing threshold, Microsoft may attempt an authorization on the primary payment method. If the bank approves the authorization, it will be immediately reversed. There will be no settlement record on your bank statement.
 
-However, if the authorization on the card is declined, you're asked to update the primary payment method in order to continue using the services. For information about how to manage your card information, including changing or removing a card, see [Add, update, or remove a credit card](change-credit-card.md).
+However, if the authorization on the card is declined, you're asked to update the primary payment method in order to continue using the services. For information about how to manage your card information, including changing or removing a card, see [Add, update, or remove a credit card](../manage/change-credit-card.md).
 
 ## How am I notified by Microsoft for a threshold billing authorization?
 

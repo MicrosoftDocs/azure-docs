@@ -6,7 +6,8 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.devlang: csharp, java
+ms.devlang: csharp
+# ms.devlang: csharp, java
 ms.custom: cogserv-non-critical-speech, devx-track-csharp, devx-track-extended-java
 zone_pivot_groups: programming-languages-set-twenty-one
 ---

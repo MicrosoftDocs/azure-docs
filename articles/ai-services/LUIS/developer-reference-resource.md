@@ -8,7 +8,8 @@ author: aahill
 manager: nitinme
 ms.topic: reference
 ms.date: 01/12/2021
-ms.devlang: csharp, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
 ---
 
