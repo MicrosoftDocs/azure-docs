@@ -188,7 +188,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 
 3. Export Key Vault URL:
     ```azurecli-interactive
-    export KEYVAULT_URL="$(az keyvault show -g ${RESOURCE_GROUP} -n ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
+    export KEYVAULT_URL="$(az keyvault show -g ${KEYVAULT_RESOURCE_GROUP} -n ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
     ```
 
 4. Deploy a pod that references the service account and Key Vault URL above:
