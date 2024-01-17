@@ -3,7 +3,8 @@ title: 'Quickstart: Create a Go web app'
 description: Deploy your first Go (GoLang) Hello World to Azure App Service in minutes.
 ms.topic: quickstart
 ms.date: 10/13/2022
-ms.devlang: golangms.author: msangapu
+ms.devlang: golang
+ms.author: msangapu
 author: msangapu-msft
 ---
 
