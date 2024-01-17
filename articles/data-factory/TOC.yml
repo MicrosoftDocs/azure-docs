@@ -1325,8 +1325,8 @@ items:
       href: delete-dags-in-managed-airflow.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
-    - name: Create a private requirement Package
-      href: airflow-create-private-requirement-package.md
+    - name: Install a Private Package
+      href: airflow-install-private-package.md
     - name: Enable Azure Key Vault for Airflow
       href: enable-azure-key-vault-for-managed-airflow.md
     - name: Kubernetes secret to access private container registry

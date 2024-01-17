@@ -172,28 +172,28 @@ This example demonstrates how to search for a cross street based on the coordina
 > [Best practices for Azure Maps Search service]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps Search service]: /rest/api/maps/search
+[Azure Maps Search service]: /rest/api/maps/search?view=rest-maps-1.0
 [Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
 [Best Practices for Search]: how-to-use-best-practices-for-search.md#geobiased-search-results
-[Entity Types]: /rest/api/maps/search/getsearchaddressreverse#entitytype
-[Fuzzy Search URI Parameters]: /rest/api/maps/search/getsearchfuzzy#uri-parameters
-[Fuzzy Search]: /rest/api/maps/search/getsearchfuzzy
-[Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
-[Get Search Address]: /rest/api/maps/search/getsearchaddress
-[point of interest result]: /rest/api/maps/search/getsearchpoi#searchpoiresponse
+[Entity Types]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0#entitytype
+[Fuzzy Search URI Parameters]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0#uri-parameters
+[Fuzzy Search]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0
+[Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0
+[Get Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0
+[point of interest result]: /rest/api/maps/search/getsearchpoi?view=rest-maps-1.0#searchpoiresponse
 [Post Search Address Batch]: /rest/api/maps/search/postsearchaddressbatch
-[Post Search Address Reverse Batch]: /rest/api/maps/search/postsearchaddressreversebatch
+[Post Search Address Reverse Batch]: /rest/api/maps/search/postsearchaddressreversebatch?view=rest-maps-1.0
 [Postman]: https://www.postman.com/
-[Reverse Address Search Results]: /rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult
-[Reverse Address Search]: /rest/api/maps/search/getsearchaddressreverse
-[Reverse Search Parameters]: /rest/api/maps/search/getsearchaddressreverse#uri-parameters
-[Road Use Types]: /rest/api/maps/search/getsearchaddressreverse#uri-parameters
+[Reverse Address Search Results]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0#searchaddressreverseresult
+[Reverse Address Search]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0
+[Reverse Search Parameters]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0#uri-parameters
+[Road Use Types]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0#uri-parameters
 [Route]: /rest/api/maps/route
-[Search Address Reverse Cross Street]: /rest/api/maps/search/getsearchaddressreversecrossstreet
-[Search Address]: /rest/api/maps/search/getsearchaddress
+[Search Address Reverse Cross Street]: /rest/api/maps/search/getsearchaddressreversecrossstreet?view=rest-maps-1.0
+[Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0
 [Search Coverage]: geocoding-coverage.md
-[Search Polygon API]: /rest/api/maps/search/getsearchpolygon
-[Search]: /rest/api/maps/search
+[Search Polygon API]: /rest/api/maps/search/getsearchpolygon?view=rest-maps-1.0
+[Search]: /rest/api/maps/search?view=rest-maps-1.0
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[URI Parameter reference]: /rest/api/maps/search/getsearchfuzzy#uri-parameters
+[URI Parameter reference]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0#uri-parameters
 [Weather]: /rest/api/maps/weather
