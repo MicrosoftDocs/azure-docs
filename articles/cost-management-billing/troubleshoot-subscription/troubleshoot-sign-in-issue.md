@@ -61,7 +61,7 @@ This problem occurs if you selected at the wrong directory, or if your account d
 To fix this issue:
 
 - Verify that the correct Azure directory is selected by selecting your account at the top-right corner.
-- If the correct Azure directory is selected, but you still receive the error message, have your account [added as an Owner](./add-change-subscription-administrator.md).
+- If the correct Azure directory is selected, but you still receive the error message, have your account [added as an Owner](../manage/add-change-subscription-administrator.md).
 
 ## Additional help resources
 

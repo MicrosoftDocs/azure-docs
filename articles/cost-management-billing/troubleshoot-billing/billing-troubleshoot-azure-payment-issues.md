@@ -44,7 +44,7 @@ If an existing card has to be deleted, one of the following actions is required:
 
 ## Unable to delete an old payment method after adding a new payment method
 
-The new payment instrument might not be associated with the subscription. To help associate the payment instrument with the subscription, see [Add, update, or remove a credit card for Azure](change-credit-card.md).
+The new payment instrument might not be associated with the subscription. To help associate the payment instrument with the subscription, see [Add, update, or remove a credit card for Azure](../manage/change-credit-card.md).
 
 ## Unable to delete a payment method because of `Cannot delete payment method` error
 
@@ -66,7 +66,7 @@ Check with your bank for the following issues:
 
 Sign out of all active Azure sessions, and then follow the steps in the [Browse InPrivate in Microsoft Edge article](https://support.microsoft.com/help/4026200/microsoft-edge-browse-inprivate)  to start an InPrivate session within Microsoft Edge or Internet Explorer.
 
-In the private session, follow the steps at [How to change a credit card](change-credit-card.md) to update or change the credit card information.
+In the private session, follow the steps at [How to change a credit card](../manage/change-credit-card.md) to update or change the credit card information.
 
 You can also try to do the following actions:
 
