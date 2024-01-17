@@ -167,8 +167,8 @@ For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/g
 | Price of a single other operations (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (2000 * operation price)** | **$0.00088**   | **$0.00088**   | **$0.00104**   |
 | Price of a single write operation (price / 10,000)       | $0.0000055     | $0.00001       | $0.000018      |
-| **Cost to write (1000 * operation price)**               | **$3.53**      | **$0.0055**    | **$0.01**      |
-| **Total cost (listing + properties + write)**            | **$3.5309**    | **$0.0064**    | **$0.0110**    |
+| **Cost to write (1000 * operation price)**               | **$0.0055**     | **$0.01**    | **$0.018**      |
+| **Total cost (listing + properties + write)**            | **$0.****0064**    | **$0.****0109**    | **$0.****0190**    |
 
 ### Cost of copying blobs to another account in the same region
 
