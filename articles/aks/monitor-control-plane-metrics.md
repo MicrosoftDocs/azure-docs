@@ -230,4 +230,4 @@ After evaluating this preview feature, [share your feedback][share-feedback]. We
 [prometheus-troubleshooting]: ../azure-monitor/containers/prometheus-metrics-troubleshoot.md
 [node-metrics]: ../azure-monitor/containers/prometheus-metrics-scrape-default.md
 [list-of-default-metrics-aks-control-plane]: control-plane-metrics-default-list.md
-[az-feature-unregister]: /cli/azure/feature?view=azure-cli-latest#az-feature-unregister
+[az-feature-unregister]: /cli/azure/feature#az-feature-unregister
