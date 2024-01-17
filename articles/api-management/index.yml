@@ -50,24 +50,24 @@ landingContent:
         links:
           - text: Import and publish your first API
             url: import-and-publish.md
+          - text: Transform and protect your API
+            url: transform-api.md
       - linkListType: learn  
         links:
           - text: Explore API Management
             url: /training/modules/explore-api-management/  
       - linkListType: how-to-guide
         links:
-          - text: Import an OpenAPI specification
-            url: import-api-from-oas.md
-          - text: Import a GraphQL API
-            url: graphql-apis-overview.md
+          - text: Add an API manually
+            url: add-api-manually.md
           - text: Import an App Service web API 
             url: import-app-service-as-api.md  
       - linkListType: concept
         links:
          - text: API authentication and authorization 
            url: authentication-authorization-overview.md
-         - text: API Management policy reference
-           url: api-management-policies.md
+         - text: API Management policies
+           url: api-management-howto-policies.md
          - text: Networking options
            url: virtual-network-concepts.md
 # Card
@@ -77,23 +77,31 @@ landingContent:
         links:
           - text: Set and edit API policies
             url: set-edit-policies.md
-          - text: Customize the developer portal
-            url: api-management-howto-developer-portal-customize.md
-          - text: Create subscriptions
-            url: api-management-howto-create-subscriptions.md
+          - text: Configure a custom domain name
+            url: configure-custom-domain.md
+          - text: Integrate with Application Insights 
+            url: api-management-howto-app-insights.md
           - text: Deploy to VNet - external mode
             url: api-management-using-with-vnet.md
           - text: Deploy to VNet - internal mode
             url: api-management-using-with-internal-vnet.md
           - text: Configure with Application Gateway
             url: api-management-howto-integrate-internal-vnet-appgateway.md
-# Card
-  - title: What's new
-    linkLists:
+          - text: Set up inbound private endpoint
+            url: private-endpoint.md
+          - text: Customize the developer portal
+            url: api-management-howto-developer-portal-customize.md  
       - linkListType: concept
         links:
-          - text: New v2 service tiers
-            url: v2-service-tiers-overview.md
+          - text: High availability
+            url: high-availability.md
+      - linkListType: reference
+        links:
+          - text: API Management policy reference
+            url: api-management-policies.md
+# Card
+  - title: New content
+    linkLists:
       -  linkListType: how-to-guide
          links:
           - text: Import a gRPC API
@@ -102,6 +110,10 @@ landingContent:
             url: protect-with-defender-for-apis.md   
           - text: Author policies using Microsoft Copilot for Azure
             url: /azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json            
+      - linkListType: concept
+        links:
+          - text: New v2 service tiers
+            url: v2-service-tiers-overview.md
 # Card
   - title: Related services
     linkLists:
