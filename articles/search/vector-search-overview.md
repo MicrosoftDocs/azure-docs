@@ -40,7 +40,7 @@ The following diagram shows the indexing and query workflows for vector search.
 
 On the indexing side, Azure AI Search takes vector embeddings and uses a [nearest neighbors algorithm](vector-search-ranking.md) to co-locate similar vectors together in the search index (vectors about popular movies are closer than vectors about popular dog breeds). 
 
-How you get embeddings from your source content depends on your approach and whether you can use preview features. You can vectorize or generate embeddings using models from OpenAI, Azure OpenAI, and any number of providers, over a wide range of source content including text, images, videos, and audio. You can then push pre-vectorized content to [vector fields](vector-search-how-to-create-index.md) in a search index. That's the generally available approach. If you can use preview features, Azure AI Search provides [integrated data chunking and vectorization](vector-search-integrated-vectorization.md) in an indexer pipeline. You still provide the resources (endpoints and connection information), but Azure AI Search makes all of the calls and handles the transitions.
+How you get embeddings from your source content depends on your approach and whether you can use preview features. You can vectorize or generate embeddings using models from OpenAI, Azure OpenAI, and any number of providers, over a wide range of source content including text, images, and other content types supported by the models. You can then push pre-vectorized content to [vector fields](vector-search-how-to-create-index.md) in a search index. That's the generally available approach. If you can use preview features, Azure AI Search provides [integrated data chunking and vectorization](vector-search-integrated-vectorization.md) in an indexer pipeline. You still provide the resources (endpoints and connection information), but Azure AI Search makes all of the calls and handles the transitions.
 
 On the query side, in your client application, collect the query input from a user. You can then add an encoding step that converts the input into a vector, and then send the vector query to your index on Azure AI Search for a similarity search. As with indexing, you can deploy the [integrated vectorization (preview)](vector-search-integrated-vectorization.md) to convert text inputs to a vector. For either approach, Azure AI Search returns documents with the requested `k` nearest neighbors (kNN) in the results.
 
@@ -61,9 +61,9 @@ Scenarios for vector search include:
 
 + **Vector search for text**. Encode text using embedding models such as OpenAI embeddings or open source models such as SBERT, and retrieve documents with queries that are also encoded as vectors.
 
-+ **Vector search across different data types (multi-modal)**. Encode images, text, audio, and video, or even a mix of them (for example, with models like CLIP) and do a similarity search across them.
++ **Vector search across different content types (multimodal)**. Encode images and text using multimodal embeddings (for example, with [OpenAI CLIP](https://github.com/openai/CLIP) or [GPT-4 Turbo with Vision](/azure/ai-services/openai/whats-new#gpt-4-turbo-with-vision-now-available) in Azure OpenAI) and query an embedding space composed of vectors from both content types.
 
-+ **Multi-lingual search**. Use a multi-lingual embeddings model to represent your document in multiple languages in a single vector space to find documents regardless of the language they are in.
++ **Multilingual search**. Use a multilingual embeddings model to represent your document in multiple languages in a single vector space to find documents regardless of the language they are in.
 
 + [**Hybrid search**](hybrid-search-overview.md). Vector search is implemented at the field level, which means you can build queries that include both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic ranking](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.
 
@@ -91,13 +91,11 @@ If you're new to vectors, this section explains some core concepts.
 
 ### About vector search
 
-Vector search is a method of information retrieval where documents and queries are represented as vectors instead of plain text. In vector search, machine learning models generate the vector representations of source inputs, which can be text, images, audio, or video content. Having a mathematic representation of content provides a common basis for search scenarios. If everything is a vector, a query can find a match in vector space, even if the associated original content is in different media or in a different language than the query.
+Vector search is a method of information retrieval where documents and queries are represented as vectors instead of plain text. In vector search, machine learning models generate the vector representations of source inputs, which can be text, images, or other content. Having a mathematic representation of content provides a common basis for search scenarios. If everything is a vector, a query can find a match in vector space, even if the associated original content is in different media or language than the query.
 
 ### Why use vector search
 
-Vectors can overcome the limitations of traditional keyword-based search by using machine learning models to capture the meaning of words and phrases in context, rather than relying solely on lexical analysis and matching of individual query terms. By capturing the intent of the query, vector search can return more relevant results that match the user's needs, even if the exact terms aren't present in the document. 
-
-Additionally, vector search can be applied to different types of content, such as images and videos, not just text. This enables new search experiences such as multi-modal search or cross-language search in multi-lingual applications.
+When searchable content is represented as vectors, a query can find close matches in similar content. The embedding model used for vector generation knows which words and concepts are similar, and it places the resulting vectors close together in the embedding space. For example, vectorized source documents about "clouds" and "fog" are more likely to show up in a query about "mist" because they're semantically similar, even if they aren't a lexical match.
 
 ### Embeddings and vectorization
 

@@ -8,7 +8,8 @@ ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: travisw
-ms.devlang: csharp, golang, java
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java
 ms.custom: cogserv-non-critical-speech, devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-voice-assistants
 ---

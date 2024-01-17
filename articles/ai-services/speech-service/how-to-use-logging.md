@@ -8,7 +8,8 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 07/05/2019
-ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
+ms.devlang: cpp
+# ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-python
 ---
 
