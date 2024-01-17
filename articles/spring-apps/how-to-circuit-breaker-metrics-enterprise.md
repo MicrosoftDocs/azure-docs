@@ -127,7 +127,7 @@ Use the following steps to build and deploy the sample applications.
 
 1. Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
-1. In your Azure Spring Apps instance, select **Application Insights** in the navigation pane and then select **Application Insights** on the page.
+1. In your Azure Spring Apps instance, select **Application Insights** in the navigation pane and then select the default Application Insights on the page.
 
    :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights-enterprise.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Enterprise Application Insights page with the Application Insights on the button bar highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights-enterprise.png":::
 
