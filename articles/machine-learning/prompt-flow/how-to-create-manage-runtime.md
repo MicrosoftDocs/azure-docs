@@ -197,7 +197,7 @@ If you select **Use customized environment**, you first need to rebuild the envi
 
 ## Switch compute instance runtime to automatic runtime (preview)
 
-Automatic runtime (preview) have following advantages over compute instance runtime:
+Automatic runtime (preview) has following advantages over compute instance runtime:
 - Automatic manage lifecycle of runtime and underlying compute. You don't need to manually create and managed them anymore.
 - Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
 
