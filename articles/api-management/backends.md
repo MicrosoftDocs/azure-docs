@@ -91,8 +91,7 @@ The backend circuit breaker is an implementation of the [circuit breaker pattern
 
 > [!NOTE]
 > * Currently, the backend circuit breaker isn't supported in the **Consumption** tier of API Management.
-> * Because of the distributed nature of the API Management architecture, circuit breaker tripping rules are only approximate.
-
+> * Because of the distributed nature of the API Management architecture, circuit breaker tripping rules are approximate. Different instances of the gateway do not synchronize and will apply circuit breaker rules based on the information on the same instance.
 
 ### Example
 
@@ -183,7 +182,7 @@ To create a backend pool, set the `type` property of the backend to `pool` and s
 
 > [!NOTE]
 > * Currently, you can only include single backends in a backend pool. You can't add a backend of type `pool` to another backend pool.
-> * Because of the distributed nature of the API Management architecture, backend load balancing is approximate.
+> * Because of the distributed nature of the API Management architecture, backend load balancing is approximate. Different instances of the gateway do not synchronize and will load balance based on the information on the same instance.
 
 
 ### Example
