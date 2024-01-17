@@ -23,7 +23,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
     kubectl edit secretproviderclass aio-default-spc -n azure-iot-operations
     ```
 
-1. Add a new entry to the array of secrets for your new Azure Key Vault secret. The `spec` section looks like the following example:
+1. Add a new `AIOFabricSecret` entry to the array of secrets for your new Azure Key Vault secret. Use the `spec` section in the following example for reference:
 
     ```yaml
     # Edit the object below. Lines beginning with a '#' will be ignored,

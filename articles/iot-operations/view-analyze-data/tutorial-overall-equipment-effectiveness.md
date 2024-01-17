@@ -54,7 +54,7 @@ Complete the following tasks to prepare your environment:
 
 Make a note of your workspace ID and lakehouse ID, you need them later. You can find these values in the URL that you use to access your lakehouse:
 
-`https://msit.powerbi.com/groups/<your workspace ID>/lakehouses/<your lakehouse ID>?experience=data-engineering`
+`https://msit.powerbi.com/groups/<your-workspace-ID>/lakehouses/<your-lakehouse-ID>?experience=data-engineering`
 
 ### Add a secret to your cluster
 
@@ -66,7 +66,7 @@ In this tutorial, you simulate the Redmond and Seattle sites. Each site has two 
 
 :::image type="content" source="media/tutorial-overall-equipment-effectiveness/contoso-bakery-production-lines.svg" alt-text="Diagram that shows the Contoso Bakery production lines." border="false":::
 
-To calculate OEE for Contoso Bakery, you need data from the following three data sources:
+To calculate OEE for Contoso Bakery, you need data from three data sources: production line assets, production data, and operator data. The following sections provide detail on each of these.
 
 ### Production line assets
 
@@ -142,7 +142,7 @@ The following snippet shows an example of the measurements the simulator sends t
 
 ### Production data
 
-_Production data_ is product related data such as the type of baked good and the customer. Production data is accessible from an HTTP endpoint.
+_Production data_ is product-related data, such as the type of baked good and the customer. Production data is accessible from an HTTP endpoint.
 
 Each production line produces goods for a specific customer. The following snippet shows an example of production data:
 
@@ -167,7 +167,7 @@ Each production line produces goods for a specific customer. The following snipp
 
 ### Operator data
 
-_Operator data_ is operator related data such as the name of operator, the shift, and any performance targets. Operator data is accessible from an HTTP endpoint.
+_Operator data_ is operator-related data, such as the name of operator, the shift, and any performance targets. Operator data is accessible from an HTTP endpoint.
 
 There are three shifts in each 24-hour facility. An operator supervises each shift. Each operator has performance targets based on their past performance. The following snippet shows an example of production data:
 
@@ -206,7 +206,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-ope
 > [!CAUTION]
 > The previous configuration adds an insecure **BrokerListener** to connect the simulator to the MQTT broker. Don't use this configuration in a production environment.
 
-Run the following command to deploy the GRPC callout service that returns simulated production and operator data to your cluster:
+Run the following command to deploy the gRPC callout service that returns simulated production and operator data to your cluster:
 
 ```console
 kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/http-grpc-callout/manifest.yml
@@ -228,7 +228,7 @@ In this tutorial, you create three pipelines:
 
 - The _operation data reference pipeline_ ingests operations data from the HTTP endpoint and writes it to the _operation-data_ reference dataset.
 
-- The _process pipeline_ ingests the sensor measurements from the production line assets, transforms and enriches the measurement data with data from the two reference datasets. The pipeline then writes the transformed and enriched data to a Microsoft Fabric lakehouse.
+- The _process pipeline_ ingests the sensor measurements from the production line assets, and transforms and enriches the measurement data with data from the two reference datasets. The pipeline then writes the transformed and enriched data to a Microsoft Fabric lakehouse.
 
 ### Production data reference pipeline
 
@@ -238,13 +238,13 @@ To create the _production-data_ dataset:
 
 1. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
-1. Select **Get Started** and navigate to **Azure IoT Operations Instances** to see a list of the clusters you have access to.
+1. Select **Get started** and navigate to **Azure IoT Operations instances** to see a list of the clusters you have access to.
 
 1. Select your instance and then select **Data pipelines**. Here, you can author the Data Processor pipelines, create the reference data sets, and deploy them to your Azure Arc-enabled Kubernetes cluster.
 
 1. Select **Reference datasets**. Then select **Create reference dataset**.
 
-1. Enter the information from the following table and select **Create dataset**. It can take up to a minute for the reference dataset to deploy to the Kubernetes cluster and show up in the portal.
+1. Enter the information from the following table, which includes adding one property.
 
     | Field           | Value             |
     |-----------------|-------------------|
@@ -253,13 +253,15 @@ To create the _production-data_ dataset:
     | Property Path 1 | `.Line`           |
     | Primary Key 1   | `Yes`             |
 
-1. Select **Create**.
+1. Select **Create**. It can take up to a minute for the reference dataset to deploy to the Kubernetes cluster and show up in the portal.
 
 To create the _production-data-reference_ pipeline that ingests the data from the HTTP endpoint and then saves it in the _production-data_ dataset:
 
-1. Navigate to **Data pipelines** and select **Create pipeline**.
+1. Navigate back to **Data pipelines** and select **Create pipeline**.
 
-1. Select the **HTTP Endpoint** input source, use the information from the following table to configure it, and select **Apply**:
+1. Select the title of the pipeline on the top left corner, rename it to _production-data-reference_, and **Apply** the change.
+
+1. Select **Configure source** and then select **HTTP Endpoint**. Use the information from the following table to configure it:
 
     | Field                      | Value                                         |
     |----------------------------|-----------------------------------------------|
@@ -271,15 +273,17 @@ To create the _production-data-reference_ pipeline that ingests the data from th
     | API Request – Request Body | `{}`                                          |
     | Request Interval           | `1m`                                          |
 
-1. Select **Add stages** and then select **Delete** to delete the stage.
+    Select **Apply**. 
+
+1. In the pipeline diagram, select **Add stages** and then select **Delete** to delete the stage.
 
 1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
 1. Select **Add destination** and then select **Reference datasets**.
 
-1. Select **production-data** in the **Dataset** field, select **Apply**.
+1. Select **production-data** in the **Dataset** field, and select **Apply**.
 
-1. Name your pipeline _production-data-reference_ and then select **Save** to save it.
+1. Select **Save** to save the pipeline.
 
 You now have a pipeline that queries an HTTP endpoint for production reference data to store in a reference dataset.
 
@@ -289,15 +293,11 @@ To make the operations data available to the enrichment stage in the process pip
 
 To create the _operations-data_ dataset:
 
-1. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
-
-1. Select **Get Started** and navigate to **Azure IoT Operations Instances** to see a list of the clusters you have access to.
-
-1. Select your instance and then select **Data pipelines**. Here, you can author the data processing pipeline, create the reference data sets, and deploy them to your Azure Arc-enabled Kubernetes cluster.
+1. In the [Azure IoT Operations](https://iotoperations.azure.com) portal, make sure you're still on the **Data pipelines** page.
 
 1. Select **Reference datasets**. Then select **Create reference dataset**.
 
-1. Enter the information from the following table and select **Create dataset**. It can take up to a minute for the reference dataset to deploy to the Kubernetes cluster and show up in the portal.
+1. Enter the information from the following table, which includes adding one property.
 
     | Field           | Value             |
     |-----------------|-------------------|
@@ -306,13 +306,15 @@ To create the _operations-data_ dataset:
     | Property Path 1 | `.Shift`          |
     | Primary Key 1   | `Yes`             |
 
-1. Select **Create**.
+1. Select **Create**. It can take up to a minute for the reference dataset to deploy to the Kubernetes cluster and show up in the portal.
 
 To create the _operations-data-reference_ pipeline that ingests the data from the HTTP endpoint and then saves it in the _operations-data_ dataset:
 
-1. Navigate to **Data pipelines** and select **Create pipeline**.
+1. Navigate back to **Data pipelines** and select **Create pipeline**.
 
-1. Select the **HTTP Endpoint** input source, enter the information from the following table, and select **Apply**:
+1. Select the title of the pipeline on the top left corner, rename it to _operations-data-reference_, and **Apply** the change.
+
+1. Select **Configure source** and then select **HTTP Endpoint**. Use the information from the following table to configure it:
 
     | Field                      | Value                                         |
     |----------------------------|-----------------------------------------------|
@@ -324,6 +326,8 @@ To create the _operations-data-reference_ pipeline that ingests the data from th
     | API Request – Request Body | `{}`                                          |
     | Request Interval           | `1m`                                          |
 
+    Select **Apply**. 
+
 1. Select **Add stages** and then select **Delete** to delete the stage.
 
 1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
@@ -332,7 +336,7 @@ To create the _operations-data-reference_ pipeline that ingests the data from th
 
 1. Select **operations-data** in the **Dataset** field, select **Apply**.
 
-1. Name your pipeline _operations-data-reference_ and then select **Save** to save it.
+1. Select **Save** to save the pipeline.
 
 You now have a pipeline that queries an HTTP endpoint for operations reference data to store in a reference dataset.
 
@@ -345,11 +349,11 @@ Now you can build the process pipeline that:
 
 To create the _oee-process-pipeline_ pipeline:
 
-1. Navigate to **Data pipelines** and select **Create pipeline**.
+1. Navigate back to **Data pipelines** and select **Create pipeline**.
 
-1. Select the title of the pipeline on the top left corner and rename it to _oee-process-pipeline_.
+1. Select the title of the pipeline on the top left corner, rename it to _oee-process-pipeline_, and **Apply** the change.
 
-1. Select the **MQ** input source, enter the information from the following table, and select **Apply**:
+1. Use the **Sources** tab on the left to select **MQ** as the source, and select the source from the pipeline diagram to open its configuration. Use the information from the following table to configure it:
   
     | Field           | Value                              |
     |-----------------|------------------------------------|
@@ -357,9 +361,9 @@ To create the _oee-process-pipeline_ pipeline:
     | Topic           | `Contoso/#`                        |
     | Data format     | `JSON`                             |
 
-    The simulated production line assets send measurements to the MQ broker in the cluster. This input stage configuration subscribes to all the topics under the `Contoso` topic in the MQ broker.
+    Select **Apply**. The simulated production line assets send measurements to the MQ broker in the cluster. This input stage configuration subscribes to all the topics under the `Contoso` topic in the MQ broker.
 
-1. Add a transform stage after the source stage with the following JQ expressions and select **Apply**. This transform creates a flat, readable view of the message and extracts the `Line` and `Site` information from the topic:
+1. Use the **Stages** list on the left to add a **Transform** stage after the source stage with the following JQ expressions. This transform creates a flat, readable view of the message and extracts the `Line` and `Site` information from the topic:
 
     ```jq
     .payload[0].Payload |= with_entries(.value |= .Value) |
@@ -377,13 +381,16 @@ To create the _oee-process-pipeline_ pipeline:
     .payload.Payload.Site = (.topic | split("/")[1])
     ```
 
-1. Add an aggregate stage after the transform stage and select it. In this pipeline, you use the aggregate stage to down sample the measurements from the production line assets. You configure the stage to aggregate data for 10 seconds. Then for the relevant data, calculate the average or pick the latest value. Select the **Advanced** tab in the aggregate stage, paste in the following configuration and select **Save**: <!-- TODO: Need to double check this - can we avoid error associated with "next"? -->
+    Select **Apply**.
+
+1. Use the **Stages** list on the left to add an **Aggregate** stage after the transform stage and select it. In this pipeline, you use the aggregate stage to down sample the measurements from the production line assets. You configure the stage to aggregate data for 10 seconds. Then for the relevant data, calculate the average or pick the latest value. Select the **Advanced** tab in the aggregate stage and paste in the following configuration: <!-- TODO: Need to double check this - can we avoid error associated with "next"? -->
 
     ```json
     {
       "displayName": "Aggregate - 1b84f9",
       "type": "processor/aggregate@v1",
       "next": [
+          "output"
       ],
       "viewOptions": {
           "position": {
@@ -480,7 +487,9 @@ To create the _oee-process-pipeline_ pipeline:
     }
     ```
 
-1. Add an HTTP call out stage after the aggregate stage and select it. This HTTP call out stage calls a custom module running in the Kubernetes cluster that exposes an HTTP API. The module calculates the shift based on the current time. To configure the stage, select **Add condition**, enter the information from the following table, and select **Apply**:
+    Select **Apply**. 
+
+1. Use the **Stages** list on the left to add a **Call out HTTP** stage after the aggregate stage and select it. This HTTP call out stage calls a custom module running in the Kubernetes cluster that exposes an HTTP API. The module calculates the shift based on the current time. To configure the stage, select **Add condition** and enter the information from the following table:
 
     | Field           | Value                            |
     |-----------------|----------------------------------|
@@ -493,27 +502,33 @@ To create the _oee-process-pipeline_ pipeline:
     | API Response - Data format | JSON                  |
     | API Response - Path        | .payload              |
 
-1. Add an enrich stage after the HTTP call out stage and select it. This stage enriches the measurements from the simulated production line assets with reference data from the operations-data dataset. This stage uses a condition to determine when to add the operations data. Select **Add condition**, add the following information, and select **Apply**:
+    Select **Apply**.
+
+1. Use the **Stages** list on the left to add an **Enrich** stage after the HTTP call out stage and select it. This stage enriches the measurements from the simulated production line assets with reference data from the _operations-data_ dataset. This stage uses a condition to determine when to add the operations data. Open the **Add condition** options and add the following information:
 
     | Field           | Value                            |
     |-----------------|----------------------------------|
     | Dataset         | operations-data                  |
     | Output path     | .payload.operatorData            |
-    | Operator        | Key match                        |
     | Input path      | .payload.shift                   |
     | Property        | Shift                            |
+    | Operator        | Key match                        |
 
-1. Add another enrich stage after the previous enrich stage and select it. This stage enriches the measurements from the simulated production line assets with reference data from the production-data dataset. Select **Add condition**, add the following information, and select **Apply**:
+    Select **Apply**.
+
+1. Use the **Stages** list on the left to add another **Enrich** stage after the first enrich stage and select it. This stage enriches the measurements from the simulated production line assets with reference data from the _production-data_ dataset. Open the **Add condition** options and add the following information:
 
     | Field           | Value                            |
     |-----------------|----------------------------------|
     | Dataset         | production-data                  |
     | Output path     | .payload.productionData          |
-    | Operator        | Key match                        |
     | Input path      | .payload.Line                    |
     | Property        | Line                             |
+    | Operator        | Key match                        |
 
-1. Add another transform stage after the enrich stage and select it. Add the following JQ expressions and select **Apply**:
+    Select **Apply**.
+
+1. Use the **Stages** list on the left to add another **Transform** stage after the enrich stage and select it. Add the following JQ expressions:
 
     ```json
     .payload |= . + .operatorData |
@@ -522,24 +537,30 @@ To create the _oee-process-pipeline_ pipeline:
     .payload |= del(.productionData)
     ```
 
-    These JQ expressions move the enrichment data to the same flat path as the real-time data as key/value pairs. This structure makes it easy to export the data to Microsoft Fabric.
+    Select **Apply**. These JQ expressions move the enrichment data to the same flat path as the real-time data as key/value pairs. This structure makes it easy to export the data to Microsoft Fabric.
 
-1. Select the output stage and then select **MQ**.
+1. Use the **Destinations** tab on the left to select **MQ** for the output stage, and select the stage. Add the following configuration:
 
-1. Add the following configuration, select **Apply**, and then select **Save** to save your pipeline:
+    | Field       | Value                            |
+    |-------------|----------------------------------|
+    | Broker      | tls://aio-mq-dmqtt-frontend:8883 |
+    | Topic       | Oee-processed-output             |
+    | Data format | JSON                             |
+    | Path        | .payload                         |
 
-| Field       | Value                            |
-|-------------|----------------------------------|
-| Broker      | tls://aio-mq-dmqtt-frontend:8883 |
-| Data format | json                             |
-| Path        | .payload                         |
-| Topic       | Oee-processed-output             |
+    Select **Apply**.
 
-1. To save your pipeline, select **Save**.
+1. Review your pipeline diagram to make sure all the stages are present and connected. It should look something like this:
+ 
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png.png" alt-text="Screenshot that shows the oee-process-pipeline in the Azure IoT Operations portal." lightbox="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png.png":::
+
+1. To save your pipeline, select **Save**. It may take a few minutes for the pipeline to deploy to your cluster, so make sure it's finished before you proceed.
+
+### View processed data
 
 [!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
 
-The following example shows a message in the _Oee-processed-output_ topic:
+Look for **Oee-processed-output** in the list of topics and verify that it's receiving messages. The following example shows a message in the _Oee-processed-output_ topic:
 
 ```json
 {
@@ -572,22 +593,22 @@ The following example shows a message in the _Oee-processed-output_ topic:
 }
 ```
 
-After it passes through the pipeline stages, the data:
+Now that the data has passed through the pipeline stages, the data:
 
 - Is easier to read.
 - Is better organized.
 - Has no unnecessary fields.
 - Is enriched with information such as the manufacturer, customer, product ID, operator, and shift.
 
-Now you can send your transformed and enriched measurement data to Microsoft Fabric for further analysis and to create visualizations of the OEE of your production lines.
+Next, you can send your transformed and enriched measurement data to Microsoft Fabric for further analysis and to create visualizations of the OEE of your production lines.
 
 ## Send data to Microsoft Fabric
 
 The next step is to create a Data Processor pipeline that sends the transformed and enriched measurement data to your Microsoft Fabric lakehouse.
 
-1. Navigate to **Data pipelines** and select **Create pipeline**.
+1. Back in the [Azure IoT Operations](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
 
-1. Select the **MQ** input source, enter the information from the following table, and select **Apply**:
+1. 1. Select **Configure source** and then select **MQ**. Use the information from the following table to configure it:
 
     | Field       | Value                            |
     |-------------|----------------------------------|
@@ -596,11 +617,13 @@ The next step is to create a Data Processor pipeline that sends the transformed 
     | Topic       | Oee-processed-output             |
     | Data Format | JSON                             |
 
+    Select **Apply**.
+
 1. Select **Add stages** and then select **Delete** to delete the stage.
 
 1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
-1. Select the destination stage and then select **Fabric Lakehouse**. Select the **Advanced** tab and then paste in the following configuration:
+1. Select **Add destination** and then select **Fabric Lakehouse**. Select the **Advanced** tab and then paste in the following configuration:
 
     ```json
     {
@@ -720,7 +743,7 @@ The next step is to create a Data Processor pipeline that sends the transformed 
     }
     ```
 
-1. Then navigate to the **Basic** tag and fill in the following fields by using the information you made a note of previously. Then select **Apply**:
+1. Then navigate to the **Basic** tag and fill in the following fields by using the information you made a note of previously:
 
     | Field | Value |
     |-------|-------|
@@ -730,11 +753,13 @@ The next step is to create a Data Processor pipeline that sends the transformed 
     | Workspace | The Microsoft Fabric workspace ID you made a note of when you created the lakehouse. |
     | Lakehouse | The Microsoft Fabric lakehouse ID you made a note of when you created the lakehouse. |
 
+    Select **Apply**.
+
 1. Save the pipeline as **oee-fabric**.
 
 ## View your measurement data in Microsoft Fabric
 
-Navigate to your Microsoft Fabric lakehouse and select the _OEE_ table. It looks like the following example:
+In [Microsoft Fabric](https://msit.powerbi.com/groups/me/list?experience=power-bi), navigate to your lakehouse and select the _OEE_ table. After a few minutes of receiving data from the pipeline, it looks like the following example:
 
 :::image type="content" source="media/tutorial-overall-equipment-effectiveness/lakehouse-oee-table.png" alt-text="Screenshot that shows the OEE table in Microsoft Fabric lakehouse." lightbox="media/tutorial-overall-equipment-effectiveness/lakehouse-oee-table.png":::
 
@@ -752,37 +777,37 @@ Navigate to your Microsoft Fabric lakehouse and select the _OEE_ table. It looks
 
     :::image type="content" source="media/tutorial-overall-equipment-effectiveness/powerbi-connect-sql-endpoint.png" alt-text="Screenshot that shows how to access SQL endpoint in Power BI.":::
 
-1. Select the **OEE** table and then select **Load**.
+1. Check the box next to the **OEE** table and then select **Load**.
 
 1. Select **DirectQuery** as the connection setting and then select **OK**.
 
-    You can now create measurements and tiles to display OEE for your production lines by using formulae such as:
+You can now create measurements and tiles to display OEE for your production lines by using formulae such as:
+- `OEE = Availability\*performance\*Quality`
+- `Performance = TotalUnitsProduced/10 (StandardProductionOutput)`
+- `Availability = TotalOperatingTime/PlannedProductionTime`
+- `Quality = TotalGoodUnitsProduced/TotalUnitsProduced`
 
-    `OEE = Availability\*performance\*Quality`
+Follow these steps to create some measures and use them to build a visualization dashboard.
 
-    `Performance = TotalUnitsProduced/10 (StandardProductionOutput)`
-
-    `Availability = TotalOperatingTime/PlannedProductionTime`
-
-    `Quality = TotalGoodUnitsProduced/TotalUnitsProduced`
-
-1. Select **New measure** and enter the following data analysis expression into the main text field:
+1. From the top navigation plane, select **New measure**. Paste the following data analysis expression into the main text field:
 
     ```dax
     OEE = DIVIDE(AVERAGE(OEE[TotalUnitsProduced]),10) * DIVIDE(AVERAGE(OEE[TotalOperatingTime]),AVERAGE(OEE[PlannedProductionTime])) * (DIVIDE(AVERAGE(OEE[TotalGoodUnitsProduced]), AVERAGE(OEE[TotalUnitsProduced])))
     ```
 
-1. Change the **Name** to _OEE_, the **Format** to _Percentage_, and the number of decimals to `2`.
+1. Change the measure **Name** to _OEE_, the **Format** to _Percentage_, and the number of decimals to `2`.
 
 1. Select the checkmark to save your measurement:
 
     :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-measurement.png" alt-text="Screenshot that shows how to save a Power BI measurement.":::
 
-    The new OEE measurement now appears in the **Data** panel.
+    The new OEE measurement now appears in the **Data** panel on the right.
 
-1. Select the **Card (new)** icon in the visualizations panel and select the **OEE** measurement you created. You're now using the most recent asset measurement data to calculate OEE for your production lines.
+1. Select the **Card** icon in the Visualizations panel and select the **OEE** measurement you created. You're now using the most recent asset measurement data to calculate OEE for your production lines.
 
-1. Follow the same steps to create new measurements and their corresponding tiles for _Performance_, _Availability_, and _Quality_. Use the following data analysis expressions:
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-card.png" alt-text="Screenshot that shows a visualization card for OEE in Power BI.":::
+
+1. Repeat these steps to create new measurements and their corresponding tiles for _Performance_, _Availability_, and _Quality_. Use the following data analysis expressions:
 
     ```dax
     Performance = DIVIDE(AVERAGE(OEE[TotalUnitsProduced]),10)

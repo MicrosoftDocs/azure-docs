@@ -15,11 +15,11 @@ To ensure you can see the **Manage access** option in your Microsoft Fabric work
 
     :::image type="content" source="media/grant-service-principal-fabric-access/create-fabric-workspace.png" alt-text="Screenshot that shows how to create a new Microsoft Fabric workspace.":::
 
-1. Enter a name for your workspace such as _Your name AIO workspace_ and select **Apply**.
+1. Enter a name for your workspace, such as _Your name AIO workspace_, and select **Apply**.
 
 To grant the service principal access to your Microsoft Fabric workspace:
 
-1. Navigate to your Microsoft Fabric workspace and select **Manage access**:
+1. In your Microsoft Fabric workspace, select **Manage access**:
 
     :::image type="content" source="media/grant-service-principal-fabric-access/workspace-manage-access.png" alt-text="Screenshot that shows how to access the Manage access option in a workspace.":::
 

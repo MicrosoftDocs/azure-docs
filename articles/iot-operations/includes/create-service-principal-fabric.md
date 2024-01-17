@@ -19,9 +19,9 @@ To create a service principal that gives your pipeline access to your Microsoft 
 
     ```json
     {
-        "appId": "<app-id>",
+        "appId": "<app-ID>",
         "displayName": "<name>",
         "password": "<client-secret>",
-        "tenant": "<tenant-id>"
+        "tenant": "<tenant-ID>"
     }
     ```

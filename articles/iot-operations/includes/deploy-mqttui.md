@@ -7,7 +7,7 @@ ms.date: 12/18/2023
 ms.author: dobett
 ---
 
-To verify data is flowing to the MQTT broker by using the **mqttui** tool. In this example, you run the **mqttui** tool inside your Kubernetes cluster:
+Verify data is flowing to the MQTT broker by using the **mqttui** tool. In this example, you run the **mqttui** tool inside your Kubernetes cluster:
 
 1. Run the following command to deploy a pod that includes the **mqttui** and **mosquitto** tools that are useful for interacting with the MQ broker in the cluster:
 
