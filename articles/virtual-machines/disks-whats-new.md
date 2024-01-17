@@ -17,6 +17,7 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 - [What's new in 2024](#whats-new-in-2024)
     - [Quarter 1 (January, February, March)](#quarter-1-january-february-march)
+        - [Generally available: Trusted launch support for Ultra Disks and Premium SSD v2](#generally-available-trusted-launch-support-for-ultra-disks-and-premium-ssd-v2)
         - [Ultra Disk regional availability expansion](#ultra-disk-regional-availability-expansion)
         - [Zone redundant storage disk regional availability expansion](#zone-redundant-storage-disk-regional-availability-expansion)
 - [What's new in 2023](#whats-new-in-2023)
@@ -42,6 +43,10 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 ## What's new in 2024
 
 ### Quarter 1 (January, February, March)
+
+#### Generally available: Trusted launch support for Ultra Disks and Premium SSD v2
+
+Trusted launch VMs added support for Ultra Disks and Premium SSD v2, allowing you to combine the foundational compute security of Trusted Launch with the high throughput, high IOPS, and low latency of Ultra Disks and Premium SSD v2. For more information, see [Trusted launch for Azure virtual machines](trusted-launch.md) or the [Azure Update](https://azure.microsoft.com/updates/premium-ssd-v2-and-ultra-disks-support-with-trusted-launch-vm/).
 
 #### Ultra Disk regional availability expansion
 
