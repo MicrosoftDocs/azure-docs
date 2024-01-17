@@ -35,6 +35,25 @@ Resources used in this article:
 
 Sign in to **subscription-1** in the [Azure portal](https://portal.azure.com).
 
+## Register the resource providers for subscription-1
+
+For the private endpoint connection to complete successfully, the `Microsoft.Network` and `Microsoft.Storage` resource providers must be registered in **subscription-1**. Use the following steps to register the resource providers. If the `Microsoft.Network` and `Microsoft.Storage` resource providers are already registered, skip this step.
+
+> [!IMPORTANT]
+> If you're using a different resource type, you must register the resource provider for that resource type if it's not already registered.
+
+1. In the search box at the top of the portal, enter **Subscription**. Select **Subscriptions** in the search results.
+
+1. Select **subscription-1**.
+
+1. In **Settings**, select **Resource providers**.
+
+1. In the **Resource providers** filter box, enter **Microsoft.Storage**. Select **Microsoft.Storage**.
+
+1. Select **Register**.
+
+1. Repeat the previous steps to register the **Microsoft.Network** resource provider.
+
 ## Create a resource group
 
 1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
@@ -72,9 +91,9 @@ You need the storage account resource ID to create the private endpoint connecti
 
 Sign in to **subscription-2** in the [Azure portal](https://portal.azure.com).
 
-## Register the `Microsoft.Storage` resource provider
+## Register the resource providers for subscription-2
 
-For the private endpoint connection to complete successfully, the Microsoft.Storage resource provider must be registered in **subscription-2**. Use the following steps to register the resource provider. If the `Microsoft.Storage` resource provider is already registered, skip this step.
+For the private endpoint connection to complete successfully, the `Microsoft.Storage` and `Microsoft.Network` resource provider must be registered in **subscription-2**. Use the following steps to register the resource providers. If the `Microsoft.Storage` and `Microsoft.Network` resource providers are already registered, skip this step.
 
 > [!IMPORTANT]
 > If you're using a different resource type, you must register the resource provider for that resource type if it's not already registered.
@@ -88,6 +107,8 @@ For the private endpoint connection to complete successfully, the Microsoft.Stor
 1. In the **Resource providers** filter box, enter **Microsoft.Storage**. Select **Microsoft.Storage**.
 
 1. Select **Register**.
+
+1. Repeat the previous steps to register the **Microsoft.Network** resource provider.
 
 [!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
 
