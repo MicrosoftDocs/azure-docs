@@ -13,13 +13,13 @@ ms.custom: devx-track-azurepowershell, template-how-to, devx-track-azurecli
 
 # Manage Azure private endpoints
 
-Azure private endpoints have several options for managing configuration and their deployment.
+Azure private endpoints have several options for managing their configuration and deployment.
 
-You can determine `GroupId` and `MemberName` values by querying the Azure Private Link resource. The `GroupId` and `MemberName` values are needed to configure a static IP address for a private endpoint during creation.
+You can determine `GroupId` and `MemberName` values by querying the Azure Private Link resource. You need the `GroupId` and `MemberName` values to configure a static IP address for a private endpoint during creation.
 
 A private endpoint has two custom properties: static IP address and network interface name. These properties must be set when the private endpoint is created.
 
-With a service provider and consumer deployment of a Private Link instance, an approval process is in place to make the connection.
+With a service provider and consumer deployment of Private Link, an approval process is in place to make the connection.
 
 ## Determine GroupID and MemberName
 
@@ -182,7 +182,7 @@ Use the following steps to manage a private endpoint connection in the Azure por
 
 ## Manage private endpoint connections on a customer- or partner-owned Private Link service
 
-Use the following PowerShell and Azure CLI commands to manage private endpoint connections on Microsoft Partner Services or customer-owned services.
+Use the following PowerShell and Azure CLI commands to manage private endpoint connections on Microsoft partner services or customer-owned services.
 
 # [**PowerShell**](#tab/manage-private-link-powershell)
 
@@ -190,7 +190,7 @@ Use the following PowerShell commands to manage private endpoint connections.
 
 ## Get Private Link connection states
 
-Use the [Get-AzPrivateEndpointConnection](/powershell/module/az.network/get-azprivateendpointconnection) cmdlet to get the private endpoint connections and their states.
+Use [Get-AzPrivateEndpointConnection](/powershell/module/az.network/get-azprivateendpointconnection) to get the private endpoint connections and their states.
 
 ```azurepowershell
 $get = @{
@@ -202,7 +202,7 @@ Get-AzPrivateEndpointConnection @get
 
 ## Approve a private endpoint connection
 
-Use the [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) cmdlet to approve a private endpoint connection.
+Use [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) to approve a private endpoint connection.
 
 ```azurepowershell
 $approve = @{
@@ -215,7 +215,7 @@ Approve-AzPrivateEndpointConnection @approve
 
 ## Deny a private endpoint connection
 
-Use the [Deny-AzPrivateEndpointConnection](/powershell/module/az.network/deny-azprivateendpointconnection) cmdlet to reject a private endpoint connection.
+Use [Deny-AzPrivateEndpointConnection](/powershell/module/az.network/deny-azprivateendpointconnection) to reject a private endpoint connection.
 
 ```azurepowershell
 $deny = @{
@@ -228,7 +228,7 @@ Deny-AzPrivateEndpointConnection  @deny
 
 ## Remove a private endpoint connection
 
-Use the [Remove-AzPrivateEndpointConnection](/powershell/module/az.network/remove-azprivateendpointconnection) cmdlet to remove a private endpoint connection.
+Use [Remove-AzPrivateEndpointConnection](/powershell/module/az.network/remove-azprivateendpointconnection) to remove a private endpoint connection.
 
 ```azurepowershell
 $remove = @{
@@ -245,7 +245,7 @@ Use the following Azure CLI commands to manage private endpoint connections.
 
 ## Get Private Link connection states
 
-Use the [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-show) cmdlet to get the private endpoint connections and their states.
+Use [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-show) to get the private endpoint connections and their states.
 
 ```azurecli
   az network private-endpoint-connection show \
@@ -255,7 +255,7 @@ Use the [az network private-endpoint-connection show](/cli/azure/network/private
 
 ## Approve a private endpoint connection
 
-Use the [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) cmdlet to approve a private endpoint connection.
+Use [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) to approve a private endpoint connection.
 
 ```azurecli
   az network private-endpoint-connection approve \
@@ -265,7 +265,7 @@ Use the [az network private-endpoint-connection approve](/cli/azure/network/priv
 
 ## Deny a private endpoint connection
 
-Use the [az network private-endpoint-connection reject](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-reject) cmdlet to reject a private endpoint connection.
+Use [az network private-endpoint-connection reject](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-reject) to reject a private endpoint connection.
 
 ```azurecli
   az network private-endpoint-connection reject \
@@ -275,7 +275,7 @@ Use the [az network private-endpoint-connection reject](/cli/azure/network/priva
 
 ## Remove a private endpoint connection
 
-Use the [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-delete) cmdlet to remove a private endpoint connection.
+Use [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-delete) to remove a private endpoint connection.
 
 ```azurecli
   az network private-endpoint-connection delete \

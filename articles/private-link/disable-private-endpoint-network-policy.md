@@ -204,4 +204,4 @@ This section describes how to disable subnet private endpoint policies by using 
 
 ## Next steps
 
-- Learn more about [What is a private endpoint?](private-endpoint-overview.md).
+- To learn more, see [What is a private endpoint?](private-endpoint-overview.md).
