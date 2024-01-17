@@ -1,4 +1,3 @@
-
 ---
 title: "Severity level tables - image"
 description: Content safety severity level definition tables, for image content, four-level
