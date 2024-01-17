@@ -82,7 +82,7 @@ Create-AzStandbyPool `
    -ResourceGroup myResourceGroup 
    -Name myStandbyPool `
    -MaxReadyCapacity 20 `
-   -VirtualMachineState "Deallocated" 
+   -VirtualMachineState "Deallocated" `
    -AttachedScaleSet "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 

@@ -43,7 +43,7 @@ Update-AzStandbyPool `
    -ResourceGroup myResourceGroup 
    -Name myStandbyPool `
    -MaxReadyCapcity 20 `
-   -VirtualMachineState "Deallocated" 
+   -VirtualMachineState "Deallocated" `
    -AttachedScaleSet "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 
@@ -169,7 +169,7 @@ Delete-AzStandbyPool -ResourceGroup myResourceGroup -Name myStandbyPool
 Delete an existing Standby Pool using Microsoft.Standby Pool REST API. 
 
 ```HTTP
-Delete https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-06-01-preview
+DELETE https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-06-01-preview
 ```
 
 ---
