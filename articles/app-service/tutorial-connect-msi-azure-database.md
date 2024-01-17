@@ -4,8 +4,7 @@ description: Secure database connectivity (Azure SQL Database, Database for MySQ
 keywords: azure app service, web app, security, msi, managed service identity, managed identity, .net, dotnet, asp.net, c#, csharp, node.js, node, python, java, visual studio, visual studio code, visual studio for mac, azure cli, azure powershell, defaultazurecredential
 author: cephalin
 ms.author: cephalin
-
-ms.devlang: csharp,java,javascript
+ms.devlang: csharp
 # ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
