@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/26/2023
+ms.date: 1/17/2024
 ---
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
@@ -28,7 +28,7 @@ The following metrics are available for an Azure Database for PostgreSQL flexibl
 
 |Display name                    |Metric ID                    |Unit      |Description                                                                                                                                                                                                                                                                                                                                                                                 |Default enabled|
 |--------------------------------|-----------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-|**Active Connections**          |`active_connections`         |Count     |Number of connections to your server.                                                                                                                                                                                                                                                                                                                                                       |Yes            |
+|**Active Connections**          |`active_connections`         |Count     |Total number of connections to database Server, covering all states of connections, including active, idle, and others as seen in `pg_stat_activity` view. For a detailed view focusing solely on active connections, use "Sessions By State" metric.                                                                                                                                       |Yes            |
 |**Backup Storage Used**         |`backup_storage_used`        |Bytes     |Amount of backup storage used. This metric represents the sum of storage that's consumed by all the full backups, differential backups, and log backups that are retained based on the backup retention period that's set for the server. The frequency of the backups is service managed. For geo-redundant storage, backup storage usage is twice the usage for locally redundant storage.|Yes            |
 |**Failed Connections**          |`connections_failed`         |Count     |Number of failed connections.                                                                                                                                                                                                                                                                                                                                                               |Yes            |
 |**Succeeded Connections**       |`connections_succeeded`      |Count     |Number of succeeded connections.                                                                                                                                                                                                                                                                                                                                                            |Yes            |
@@ -75,7 +75,7 @@ You can choose from the following categories of enhanced metrics:
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
-|**Sessions By State** |`sessions_by_state` |Count|Overall state of the back ends. |State|No|
+|**Sessions By State** |`sessions_by_state` |Count|Overall state of the backend. |State|No|
 |**Sessions By WaitEventType** |`sessions_by_wait_event_type` |Count|Sessions by the type of event for which the back end is waiting.|Wait Event Type|No|
 |**Oldest Backend** |`oldest_backend_time_sec` |Seconds|Age in seconds of the oldest back end (irrespective of the state).|Doesn't apply|No|
 |**Oldest Query** |`longest_query_time_sec`|Seconds|Age in seconds of the longest query that's currently running. |Doesn't apply|No|
@@ -87,7 +87,7 @@ You can choose from the following categories of enhanced metrics:
 
 |Display name                     |Metric ID    |Unit |Description                                                                                         |Dimension   |Default enabled|
 |---------------------------------|-------------|-----|----------------------------------------------------------------------------------------------------|------------|---------------|
-|**Backends**                         |`numbackends`  |Count|Number of back ends that are connected to this database.                                            |DatabaseName|No             |
+|**Backends**                         |`numbackends`  |Count|Number of backends that are connected to this database.                                            |DatabaseName|No             |
 |**Deadlocks**                        |`deadlocks`    |Count|Number of deadlocks that are detected in this database.                                             |DatabaseName|No             |
 |**Disk Blocks Hit**                  |`blks_hit`     |Count|Number of times disk blocks were found already in the buffer cache, so that a read wasn't necessary.|DatabaseName|No             |
 |**Disk Blocks Read**                 |`blks_read`    |Count|Number of disk blocks that were read in this database.                                              |DatabaseName|No             |
