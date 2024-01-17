@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Build and deploy your app from a repository to Azure Container Apps"
+title: "Quickstart: Build and deploy from a repository to Azure Container Apps"
 description: Build your container app from a code repository and deploy in Azure Container Apps using az containerapp up.
 services: container-apps
 author: craigshoemaker
@@ -8,17 +8,17 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 12/19/2023
+ms.date: 01/16/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
 
 
-# Quickstart: Build and deploy your container app from a code repository in Azure Container Apps
+# Quickstart: Build and deploy from a repository to Azure Container Apps
 
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from a GitHub repository using the programming language of your choice. In this quickstart, you create a sample microservice, which represents a backend web API service that returns a static collection of music albums.
 
-This sample microservice is available as both a containerized (source contains a Dockerfile) and uncontainerized version (source contains no Dockerfile). We suggest you choose the variant that aligns most closely with your own source code. Choosing the uncontainerized path is easier for you if you're new to containers.
+This sample application is available in two versions. One version includes a container, where the source contains a Dockerfile. The other version has no Dockerfile. Select the version that best reflects your source code. If you are new to containers, select the **No  Dockerfile** option at the top.
 
 > [!NOTE]
 > You can also build and deploy this sample application from your local filesystem. For more information, see [Build from local source code and deploy your application in Azure Container Apps](quickstart-code-to-cloud.md).
@@ -170,7 +170,6 @@ $ACR_NAME="acaalbums"+$GITHUB_USERNAME
 ## Prepare the GitHub repository
 
 In a browser window, go to the GitHub repository for your preferred language and fork the repository.
-1
 
 # [C#](#tab/csharp)
 
@@ -223,15 +222,16 @@ Build and deploy your first container app from your forked GitHub repository wit
 ::: zone-end
 - Create a GitHub Action workflow to build and deploy the container app
 
-Once new code it pushed to the code repository the GitHub Action will:
+When you push new code to the repository, the GitHub Action will:
 
 ::: zone pivot="with-dockerfile"
 - Build the container image and push it to the Azure Container Registry
 - Deploy the container image to the created container app
 ::: zone-end
 ::: zone pivot="without-dockerfile"
-- Autodetect the language and build the image automatically using the appropriate Buildpack
-- Push the image into Azure Container App's default registry to be deployed from there
+- Automatically detect the language and runtime
+- Build the image using the appropriate Buildpack
+- Push the image into the Azure Container Apps default registry
 ::: zone-end
 
 ::: zone pivot="with-dockerfile"
@@ -312,13 +312,13 @@ az containerapp up `
 
 Using the URL and the user code displayed in the terminal, go to the GitHub device activation page in a browser and enter the user code to the page.  Follow the prompts to authorize the Azure CLI to access your GitHub repository.  
 
-The `up` command creates a GitHub Action workflow in your repository *.github/workflows* folder. The workflow is triggered to build and deploy your container app when you push changes to the repository.
+The `up` command creates a GitHub Action workflow in your repository's *.github/workflows* folder. The workflow is triggered to build and deploy your container app when you push changes to the repository.
 
 ---
 
 ## Verify deployment
 
-Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endpoint of the FQDN.
+Copy the domain name returned by the `containerapp up` to a web browser.  From your web browser, go to the `/albums` endpoint of the URL.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
@@ -346,7 +346,7 @@ az group delete --name $RESOURCE_GROUP
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
-## Next step
+## Next steps
 
 After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 

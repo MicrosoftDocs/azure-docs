@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Select the right code-to-cloud path for Azure Container Apps
 
-You have several options available as you develop and deploy your apps to Azure Container Apps. As evaluate your goals and the needs of your team, consider the following questions:
+You have several options available as you develop and deploy your apps to Azure Container Apps. As you evaluate your goals and the needs of your team, consider the following questions:
 
 - Do you want to focus more on your application, your infrastructure or both?
 - Are you working on a team or as an individual? Which stage are you in with your application? Are you innovating rapidly or in a stable steady state?
@@ -21,13 +21,15 @@ Your answers to these questions affect your preferred development and deployment
 
 This article helps you select the most appropriate option for how you develop and deploy your applications to Azure Container Apps.
 
-Depending on your situation, you might [never have used containers](#new-to-containers) before. You may want to deploy from a [code editor](#code-editor), through the [Azure portal](#azure-portal), with a hosted [code repository](#code-repository), or via [infrastructure as code](#infrastructure-as-code).
+Depending on your situation, you may want to deploy from a [code editor](#code-editor), through the [Azure portal](#azure-portal), with a hosted [code repository](#code-repository), or via [infrastructure as code](#infrastructure-as-code). However, if you are new to containers, you can [learn more](#new-to-containers) about how containers can help your development process.
 
 ## New to containers
 
 Azure Container Apps can containerize your application for you. This can help get your started more quickly if you or team members are new to containers. Hereby Azure Container App's cloud build will automatically identify your application stack, and use [CNCF Buildpacks](https://buildpacks.io/) to turn it into a container image which then runs automatically. 
 
-Using this path doesn't require Docker and you can even skip the container registry, as cloud build handles all that behind the scenes. If you have the need to onboard applications which haven't been containerized we recommend you use this path.
+Defining containers ahead of time often requires using Docker and publishing your container on a container registry. When you use the Container Apps cloud build, you don't have to worry about special container tooling or registries.
+
+If your application currently doesn't use a container, consider using the Container Apps cloud build to deploy your application.
 
 ### Resources
 

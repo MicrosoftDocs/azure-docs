@@ -8,18 +8,18 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 12/19/2023
+ms.date: 01/16/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
 
 
-# Quickstart: Build from local source code and deploy you application in Azure Container Apps
+# Quickstart: Build and deploy from local source code to Azure Container Apps
 
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from local source code using the programming language of your choice. In this quickstart, you create a backend web API service that returns a static collection of music albums.  
 
 > [!NOTE]
-> This sample application is available as both a containerized (source contains a Dockerfile) as well as uncontainerized version (source contains no Dockerfile). We suggest you choose the variant that aligns most closely with your own application source. Choosing the uncontainerized path will be easier for you if you're new to containers.
+> This sample application is available in two versions. One version includes a container, where the source contains a Dockerfile. The other version has no Dockerfile. Select the version that best reflects your source code. If you are new to containers, select the **No  Dockerfile** option at the top.
 
 The following screenshot shows the output from the album API service you deploy.
 
@@ -136,7 +136,7 @@ $API_NAME="album-api"
 
 ---
 
-## Acquire the sample code to be built and deployed
+## Get the sample code
 
 Download and extract the API sample application in the language of your choice.
 
@@ -146,31 +146,31 @@ Download and extract the API sample application in the language of your choice.
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-csharp repo](https://github.com/azure-samples/containerapps-albumapi-csharp).
 
-Extract the download navigate into the `containerapps-albumapi-csharp-main/src` directory and proceed to the next step.
+Extract the download and change into the *containerapps-albumapi-csharp-main/src* folder.
 
 
 # [Java](#tab/java)
 
-[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-java repo](https://github.com/azure-samples/containerapps-albumapi-java).
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/main) to your machine.
 
-Extract the download and navigate into the `containerapps-albumapi-java-main/src` directory and proceed to the next step.
+Extract the download and change into the *containerapps-albumapi-java-main/src* folder.
 
 > [!NOTE] 
-> The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
+> The Java sample only supports a Maven build, which creates an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
 
 
 # [JavaScript](#tab/javascript)
 
-[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-javascript/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-javascript repo](https://github.com/azure-samples/containerapps-albumapi-javascript).
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-javascript/zip/refs/heads/main) to your machine.
 
-Extract the download and navigate into the `containerapps-albumapi-javascript-main/src` directory and proceed to the next step.
+Extract the download and change into the *containerapps-albumapi-javascript-main/src* folder.
 
 
 # [Python](#tab/python)
 
-[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-python repo](https://github.com/azure-samples/containerapps-albumapi-javascript).
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/main) to your machine.
 
-Extract the download and navigate into the `containerapps-albumapi-python-main/src` directory and proceed to the next step.
+Extract the download and change into the *containerapps-albumapi-python-main/src* folder.
 
 
 # [Go](#tab/go)
@@ -237,25 +237,26 @@ Build and deploy your first container app with the `containerapp up` command. Th
 ::: zone-end
 ::: zone pivot="without-dockerfile"
 - Automatically create a default registry as part of your environment
-- Autodetect the language and build the image automatically using the appropriate Buildpack
-- Push the image into Azure Container App's default registry
+- Automatically detect the language and runtime
+- Build the image using the appropriate Buildpack
+- Push the image into the Azure Container Apps default registry
 ::: zone-end
 - Create the Container Apps environment with a Log Analytics workspace
 - Create and deploy the container app using the build container image
 
 ::: zone pivot="with-dockerfile"
 
-The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Dockerfile. This is the port that is used to send ingress traffic to the container.
+The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the `EXPOSE` instruction in the Dockerfile, which is the port used to send ingress traffic to the container.
 
 ::: zone-end
 ::: zone pivot="without-dockerfile"
 
-If the `up` command doesn't find a Dockerfile, it automatically tries to use Buildpacks in order to turn your application source into a runnable container. You hence need to tell the `up` command which port to use.
+If the `up` command doesn't find a Dockerfile, it automatically uses Buildpacks to turn your application source into a runnable container. Since the Buildpack is trying to run the build on your behalf, you need to tell the `up` command which port to use.
 
 ::: zone-end
 
 
-Note the `.` (dot) in the command. It assumes you are in the `src` directory of the extracted sample API application.
+In the following code example, the `.` (dot) tells `containerapp up` to run in the `src` directory of the extracted sample API application.
 
 # [Bash](#tab/bash)
 
@@ -350,7 +351,7 @@ az group delete --name $RESOURCE_GROUP
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
-## Next step
+## Next steps
 
 After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 

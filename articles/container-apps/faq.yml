@@ -104,11 +104,11 @@ sections:
      - question: |
          What is a Docker-less deployment?
        answer: |
-         A Docker-less deployment is a deployment that doesn't require a Dockerfile. Instead, ACA's cloud build functionality will utilize Buildpacks to turn your source code from a repo or your local machine into a container image. This option also currently uses the ACA default registry.
+         A Docker-less deployment allows you to deploy your application without defining a Dockerfile in your code. Instead, the Container Apps cloud build functionality uses Buildpacks to turn source code on your local machine into a container image. This option uses the Azure Container Apps default registry.
      - question: |
-         During the deployment of my Docker-less application I am seeing a message about "ImagePullBackOff on legion", "Kubernetes error" or "Gateway error" and my application doesn't deploy successfully.
+         During the deployment of my Docker-less application, messages about "ImagePullBackOff on legion", "Kubernetes error" or "Gateway error" appear and my application doesn't deploy successfully.
        answer: |
-         You are experiencing a known issue with Docker-less deployments. Retrying might resolve this for you. We are working at resolving this issue as fast as possible. If you run into this issue please let us know by opening an issue on our [GitHub repo](https://github.com/microsoft/azure-container-apps/issues).
+         You are experiencing a known issue with Docker-less deployments. Retrying might resolve this for you. If you run into this issue, open a [GitHub issue](https://github.com/microsoft/azure-container-apps/issues) so our team can investigate.
 
   - name: Deploy Java applications
     questions:
