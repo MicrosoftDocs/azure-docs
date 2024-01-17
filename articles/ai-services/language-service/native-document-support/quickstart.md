@@ -50,7 +50,7 @@ Let's get started:
 
   1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 
-  1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication, choose a **geographic** region like **West US**.
+  1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity (RBAC)](../concepts/role-based-access-control.md) for authentication, choose a **geographic** region like **West US**.
 
   1. **Name**. Enter the name you chose for your resource. The name you choose must be unique within Azure.
 
@@ -74,7 +74,7 @@ Requests to the Language service require a read-only key and custom endpoint to 
 
 ## Create Azure Blob Storage containers
 
-You must [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
+You must [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
 
 * **Source container**. This container is where you upload your native files for analysis (required).
 * **Target container**. This container is where your analyzed files are stored (required).
@@ -83,7 +83,7 @@ You must [**create containers**](../../../../storage/blobs/storage-quickstart-bl
 
 You must grant the Language Service resource access to your storage account before it can create, read, or delete blobs. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
-The `sourceUrl` and `targetUrl` are authenticated with Shared Access Signature (SAS) tokens appended as query strings. Tokens can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Language service process**](../../translator/document-translation/how-to-guides/create-sas-tokens.md).
+The `sourceUrl` and `targetUrl` are authenticated with Shared Access Signature (SAS) tokens appended as query strings. Tokens can be assigned to your container or specific blobs. *See* [**Create SAS tokens**](../../translator/document-translation/how-to-guides/create-sas-tokens.md).
 
 :::image type="content" source="media/sas-url-token.png" alt-text="Screenshot of a storage url with SAS token appended.":::
 
@@ -92,7 +92,7 @@ The `sourceUrl` and `targetUrl` are authenticated with Shared Access Signature (
 
 > [!TIP]
 >
-> * When translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
+> * When processing a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
 >
 > * As an alternative to SAS tokens, you can use a system-assigned managed identity for [**Role-based access control**](../concepts/role-based-access-control.md) (managed identities) for authentication.
 
@@ -111,7 +111,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 ### Sample document
 
-For this quickstart, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/Language/native-document-pii.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl//Language/native-document-pii.pdf) for this project. The source language is English.
+For this quickstart, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-pii.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl//Language/native-document-pii.pdf) for this project. The source language is English.
 
 ### Build the POST request
 
@@ -151,7 +151,7 @@ For this quickstart, you need a **source document** uploaded to your **source co
 1. Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the values from your Azure portal Language service instance.
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* Azure AI services [security](/azure/ai-services/security-features).
 
     ***PowerShell***
 
@@ -164,12 +164,6 @@ For this quickstart, you need a **source document** uploaded to your **source co
     ```curl
     curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
     ```
-
-1. Upon successful completion:
-
-* The processed native documents can be found in your target container.
-* The successful POST method returns a `202 Accepted` response code indicating that the service created the request.
-* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
 ### [Document Summarization](#tab/summarization)
 
@@ -210,26 +204,28 @@ For this project, you need a **source document** uploaded to your **source conta
 
 ### Run the POST request
 
-1. Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the endpoint value from your Azure portal Translator instance.
+Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the endpoint value from your Azure portal Language resource instance.
 
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
+  > [!IMPORTANT]
+  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* Azure AI services [security](/azure/ai-services/security-features).
 
-    ***PowerShell***
+  ***PowerShell***
 
-    ```powershell
-    cmd /c curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
-    ```
+  ```powershell
+  cmd /c curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
+  ```
 
-    ***command prompt / terminal***
+  ***command prompt / terminal***
 
-    ```curl
-    curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
-    ```
+  ```curl
+  curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
+  ```
 
-1. Upon successful completion:
+---
 
-* The translated documents can be found in your target container.
+**Upon successful completion**:
+
+* The analyzed documents can be found in your target container.
 * The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
