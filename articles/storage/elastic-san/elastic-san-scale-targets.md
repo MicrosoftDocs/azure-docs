@@ -44,7 +44,7 @@ Different regions have varying levels of base storage capacity available. We'll 
 The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: Australia East,Brazil South, Canada Central, Germany West, North Europe, West Europe, UK South, East US, East US 2, South Central US, US Central, and West US 2.
 
 
-|  |Values  |
+|Resource  |Values  |
 |---------|---------|
 |Maximum number of Elastic SANs that can be deployed per subscription per region     | 5         |
 |Maximum total capacity units (TiB)     | 600         |
@@ -60,7 +60,7 @@ The following regions are regions with higher base storage capacity available, a
 The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: East Asia, Korea Central, South Africa North, France Central, Southeast Asia, Qatar Central, West US 3, Sweden Central, Switzerland North.
 
 
-|  |Values  |
+|Resource  |Values  |
 |---------|---------|
 |Maximum number of Elastic SANs that can be deployed per subscription per region     | 5         |
 |Maximum total capacity units (TiB)     | 100         |
