@@ -13,7 +13,7 @@ ms.date: 01/11/2024
 
 # Monitor Azure Kubernetes Service (AKS) control plane metrics (preview)
 
-The Azure Kubernetes Service (AKS) [control plane](concepts-clusters-workloads.md#control-plane) health is critical for the performance and reliability of the cluster. Control plan metrics (preview) provide additional visibility into its availability and performance, allowing you to maximize overall observability and maintain operational excellence. These metrics are fully compatible with Prometheus and Grafana, and can be customized to only store what you consider necessary. With these new metrics, you can collect all metrics from API server, ETCD, Scheduler, Autoscaler, and controller manager.
+The Azure Kubernetes Service (AKS) [control plane](concepts-clusters-workloads.md#control-plane) health is critical for the performance and reliability of the cluster. Control plane metrics (preview) provide additional visibility into its availability and performance, allowing you to maximize overall observability and maintain operational excellence. These metrics are fully compatible with Prometheus and Grafana, and can be customized to only store what you consider necessary. With these new metrics, you can collect all metrics from API server, ETCD, Scheduler, Autoscaler, and controller manager.
 
 This article helps you understand this new feature, how to implement it, and how to observe the telemetry collected.
 
@@ -188,15 +188,23 @@ We have seen cases where the metric is documented, but it's not exposed from the
 
 When enabling the add-on, it's possible that you used an existing workspace and you might not have access to it. In that case, it might look like the metrics are not being collected and forwarded. Make sure that you create a new workspace when enabling the add-on or while creating the cluster.
 
-## Disable Control Plane metrics on your AKS cluster
+## Disable control plane metrics on your AKS cluster
 
-You can disable Control plane metrics at any time, by either disabling the feature flag, disabling managed Prometheus, or by deleting the AKS cluster.
+You can disable control plane metrics at any time, by either disabling the feature flag, disabling managed Prometheus, or by deleting the AKS cluster.
 
 > [!NOTE]
 > This action doesn't remove any existing data stored in your Azure Monitor workspace.
 
-```azurecli
+Run the following command to remove the metrics add-on that scrapes Prometheus metrics.
+
+```azurecli-interactive
 az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
+```
+
+Run the following command to disable scraping of control plane metrics on the AKS cluster by unregistering the `AzureMonitorMetricsControlPlanePreview` feature flag using the [az feature unregister][az-feature-unregister] command.
+
+```azurecli-interactive
+az feature unregister "Microsoft.ContainerService" --name "AzureMonitorMetricsControlPlanePreview"
 ```
 
 ## Next steps
@@ -221,4 +229,5 @@ If you've evaluated this preview feature, [share your feedback][share-feedback] 
 [prometheus-metrics-scrape-configuration-minimal]: ../azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal.md#scenarios
 [prometheus-troubleshooting]: ../azure-monitor/containers/prometheus-metrics-troubleshoot.md
 [node-metrics]: ../azure-monitor/containers/prometheus-metrics-scrape-default.md
-[list-of-default-metrics-aks-control-plane]: control-plane-metrics-defaultlist.md
+[list-of-default-metrics-aks-control-plane]: control-plane-metrics-default-list.md
+[az-feature-unregister]: /cli/azure/feature?view=azure-cli-latest#az-feature-unregister
