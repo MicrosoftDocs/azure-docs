@@ -3,7 +3,7 @@ title: Azure Service Bus output bindings for Azure Functions
 description: Learn to send Azure Service Bus messages from Azure Functions.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 03/06/2023
+ms.date: 01/15/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
@@ -50,7 +50,21 @@ This example shows a [C# function](dotnet-isolated-process-guide.md) that receiv
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
 
-On this other example instead of using the return statement to send the message we have an HTTP trigger function which will send a reply different from the message sent.
+This example uses an `OutputType` object to both send an HTTP response and write an output message to the queue or event. 
+
+This code defines the multiple output type `OutputType`, which includes the Service Bus output binding definition on `OutputEvent`:
+
+```cs
+ public class OutputType
+{
+   [ServiceBusOutput("TopicOrQueueName", Connection = "ServiceBusConnection")]
+   public string OutputEvent { get; set; }
+
+   public HttpResponseData HttpResponse { get; set; }
+}
+```
+
+This code defines the HTTP trigger and returns a new `OutputType` object that contains both the HTTP response and the message.
 
 ```cs
 [Function("HttpSendMsg")]
@@ -68,18 +82,6 @@ public async Task<OutputType> Run([HttpTrigger(AuthorizationLevel.Function, "get
    };
 }
 ```
-And create a class OutputType to help:
-
-```cs
- public class OutputType
-{
-   [ServiceBusOutput("TopicOrQueueName", Connection = "ServiceBusConnection")]
-   public string OutputEvent { get; set; }
-
-   public HttpResponseData HttpResponse { get; set; }
-}
-```
-
 
 # [In-process model](#tab/in-process)
 
