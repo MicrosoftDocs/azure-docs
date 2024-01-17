@@ -18,7 +18,7 @@ ms.author: lajanuar
 
 # Quickstart: Native document support
 
-Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to analyze text-based data.  Native document support extends the accepted plain text (.txt) input for the [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md) and [Document Summarization](../summarization/overview.md) features to include Word and PDF native document eliminating the need for text extraction preprocessing. In this quickstart demonstrates Personally Identifiable Information (PII) and Summarization processing for documents.
+Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to analyze text-based data.  Native document support extends the accepted plain text (.txt) input for the [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md) and [`Document Summarization`](../summarization/overview.md) features to include Word and PDF native document eliminating the need for text extraction preprocessing. In this quickstart demonstrates Personally Identifiable Information (PII) and `Summarization` processing for documents.
 
 Let's get started:
 
@@ -30,7 +30,7 @@ Let's get started:
     > macOS `curl -V`
     > Linux: `curl --version`
 
-    If you don't have cURL installed, here are links for your platform:
+    If cURL isn't installed, here are links for your platform:
 
   * [Windows](https://curl.haxx.se/windows/).
   * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows).
@@ -52,7 +52,7 @@ Let's get started:
 
   1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication, choose a **geographic** region like **West US**.
 
-  1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
+  1. **Name**. Enter the name you chose for your resource. The name you choose must be unique within Azure.
 
   1. **Pricing tier**. You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -60,13 +60,13 @@ Let's get started:
 
   1. Review the service terms and select **Create** to deploy your resource.
 
-  1. After your resource has successfully deployed, select **Go to resource**.
+  1. After your resource successfully deploys, select **Go to resource**.
 
 ### Retrieve your key and language service endpoint
 
 Requests to the Language service require a read-only key and custom endpoint to authenticate access.
 
-1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing language service resource, navigate directly to your resource page.
+1. If you created a new resource, after it deploys, select **Go to resource**. If you have an existing language service resource, navigate directly to your resource page.
 
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 
@@ -76,7 +76,7 @@ Requests to the Language service require a read-only key and custom endpoint to 
 
 ## Create Azure Blob Storage containers
 
-It is required that you [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
+You must [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
 
 * **Source container**. This container is where you upload your native files for analysis (required).
 * **Target container**. This container is where your analyzed files are stored (required).
@@ -89,8 +89,8 @@ The `sourceUrl` and `targetUrl` must include a Shared Access Signature (SAS) tok
 
 :::image type="content" source="media/sas-url-token.png" alt-text="Screenshot of a storage url with SAS token appended.":::
 
-* Your **source** container or blob must have designated  **read** and **list** access.
-* Your **target** container or blob must have designated  **write** and **list** access.
+* Your **source** container or blob must designate **read** and **list** access.
+* Your **target** container or blob must designate **write** and **list** access.
 
 > [!TIP]
 >
@@ -115,7 +115,37 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 For this project, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/Language/native-document-pii.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl//Language/native-document-pii.pdf) for this quickstart. The source language is English.
 
-## Personally Identifying Information (PII) detection
+### Build and run the POST request
+
+1. Using your preferred editor or IDE, create a new directory for your app named `native-document`.
+1. Create a new json file called **native-document-pii.json** in your **native-document** directory.
+
+1. Copy and paste the Personally Identifiable Information (PII) **request sample** into your `native-document-pii.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance.
+
+1. Before you run the **POST** request, replace `{your-key}` with the endpoint value from your Azure portal Azure AI Language instance.
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
+
+***PowerShell***
+
+```powershell
+cmd /c curl "{your-document-translator-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@native-document-pii.json"
+```
+
+***command prompt / terminal***
+
+```curl
+curl "{your-document-translator-endpoint}/translator/text/batch/v1.1/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+```
+
+Upon successful completion: 
+
+* The translated documents can be found in your target container.
+* The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
+* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
+
+## `Personally Identifiable Information` detection
 
 ```bash
 curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
@@ -150,13 +180,36 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 
 For this project, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.pdf) for this quickstart. The source language is English.
 
-## Document summarization
+### Build and run the POST request
+
+Before you run the **POST** request, replace `{your-source-container-SAS-URL}` and `{your-key}` with the endpoint value from your Azure portal Translator instance.
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
+
+***PowerShell***
+
+```powershell
+cmd /c curl "{your-document-translator-endpoint}/translator/text/batch/v1.1/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+```
+
+***command prompt / terminal***
+
+```curl
+curl "{your-document-translator-endpoint}/translator/text/batch/v1.1/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+```
+
+Upon successful completion: 
+
+* The translated documents can be found in your target container.
+* The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
+* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
 ### Document extractive summarization example
 
-The following example will get you started with document extractive summarization:
+The following example gets you started with document extractive summarization:
 
-1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
+1. Copy the following command into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
 curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2023-04-01 \
@@ -200,7 +253,7 @@ curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2023-0
 >
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 > * You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
-> * Go to the Azure portal and find the key and endpoint for the Language resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**. Then replace the strings in the code below with your key and endpoint.
+> * Go to the Azure portal and find the key and endpoint for the Language resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**. Then replace the strings in the code with your key and endpoint.
 
 To call the API, you need the following information:
 

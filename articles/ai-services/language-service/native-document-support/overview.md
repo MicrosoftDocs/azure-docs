@@ -1,7 +1,7 @@
 ---
 title: What is the native document support feature in Azure AI Language?
 titleSuffix: Azure AI services
-description: An overview of the native document support feature in Azure AI services, which helps you extract categories of entities in text.
+description: An overview of the native document support feature for Azure AI Languages Personally Identifiable Information and Summarization capabilities.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-language
@@ -16,16 +16,16 @@ Azure AI Language is a cloud-based service that applies Natural Language Process
 
 ## Development options
 
-You can integrate native document support into your applications using the [Azure AI Language REST API](/rest/api/language/). The REST API is a language agnostic interface that enables you to create HTTP requests and authorization headers to analyze text.
+Native document support can be integrated into your applications using the [Azure AI Language REST API](/rest/api/language/). The REST API is a language agnostic interface that enables you to create HTTP requests for test analysis.
 
 |Service|Description|API Reference (Latest GA version)|API Reference (Latest Preview version)|
 |--|--|--|--|
-| Text analysis - runtime | Includes runtime prediction calls to **Personally Identifiable Information (PII)**|[2023-04-01](/rest/api/language/2023-04-01/text-analysis-runtime)|[2023-04-15-preview](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
-| Summarization for documents - runtime|Runtime prediction calls to **query summarization for documents models**.|[2023-04-01](/rest/api/language/2023-04-01/text-analysis-runtime/submit-job)|[2023-04-15-preview](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
+| Text analysis - runtime | Includes runtime prediction calls to **Personally Identifiable Information (PII)**|[`2023-04-01`](/rest/api/language/2023-04-01/text-analysis-runtime)|[`2023-04-15-preview`](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
+| Summarization for documents - runtime|Runtime prediction calls to **query summarization for documents models**.|[`2023-04-01`](/rest/api/language/2023-04-01/text-analysis-runtime/submit-job)|[`2023-04-15-preview`](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
 
 ## Supported document formats
 
-A native document refers to the file format used to create the original document such as Microsoft Word (.docx) or a portable document file (.pdf). When creating, saving, or opening a native document, applications employ the native file format.  Currently the following formats are supported:
+A native document refers to the file format used to create the original document such as Microsoft Word (.docx) or a portable document file (.pdf). To create, save, or open a native document, applications employ the native file format.  Currently the following formats are supported:
 
 |File type|File extension|Description|
 |---------|--------------|-----------|
@@ -36,12 +36,12 @@ A native document refers to the file format used to create the original document
 ## Input limits
 
 * Custom redaction: As supported in the latest 2023-04-14-preview
-* Text within images is not supported
-* Digital tables in digital documents are supported but scanned table quality may be compromised.
+* Text within images isn't supported
+* Digital tables in digital documents are supported but scanned table quality isn't guaranteed.
 
 ## Get started
 
-You can get started with our quickstart. YYou need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
+You can get started with our quickstart. You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
 > [Start here](quickstart.md "Learn how to process native documents with HTTP REST")
