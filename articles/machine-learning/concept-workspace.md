@@ -22,8 +22,6 @@ Workspaces are places to collaborate with colleagues to create machine learning 
 
 Ready to get started? [Create a workspace](#create-a-workspace).
 
-:::image type="content" source="./media/concept-workspace/workspace.png" alt-text="Screenshot of the Azure Machine Learning workspace.":::
-
 ## Tasks performed within a workspace 
 
 For machine learning teams, the workspace is a place to organize their work. Below are some of the tasks you can start from a workspace:
