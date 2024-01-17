@@ -9,7 +9,6 @@ ms.service: azure-ai-vision
 ms.topic: quickstart
 ms.date: 01/24/2023
 ms.author: pafarley
-ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, mode-api, devx-track-dotnet, devx-track-extended-java
 zone_pivot_groups: programming-languages-computer-vision-40
 keywords: Azure AI Vision, Azure AI Vision service
