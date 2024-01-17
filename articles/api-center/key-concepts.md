@@ -43,6 +43,9 @@ Each API version should ideally be defined by at least one definition, such as a
 
 An environment represents a location where an API runtime could be deployed, for example, an Azure API Management service, an Apigee API Management service, or a compute service such as a Kubernetes cluster, a Web App, or an Azure Function. Each environment has a type (such as production or staging) and may include information about developer portal or management interfaces.
 
+> [!NOTE]
+> Use API Center to track any of your API runtime environments, whether or not they're hosted on Azure infrastructure. These environments aren't the same as Azure Deployment Environments. 
+
 ## Deployment
 
 A deployment is a location (an address) where users can access an API. An API can have multiple deployments, such as different staging environments or regions. For example, an API could have one deployment in an internal staging environment and a second in a production environment. Each deployment is associated with a specific API definition.

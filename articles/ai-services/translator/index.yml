@@ -11,7 +11,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-translator
   ms.topic: landing-page
-  ms.date: 12/17/2022
+  ms.date: 01/16/2024
   ms.author: lajanuar
 
 
@@ -20,11 +20,11 @@ metadata:
 
 landingContent:
   # Card 1
-  - title: About Translator Service
+  - title: About Azure AI Translator Service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Translator Service?
+          - text: What is Azure AI Translator Service?
             url: translator-overview.md
           - text: Language support
             url:  language-support.md
@@ -34,7 +34,7 @@ landingContent:
             url: https://www.microsoft.com/translator/faq.aspx
       - linkListType: whats-new
         links:
-         - text: What's new in Translator Service?
+         - text: What's new in Azure AI Translator Service?
            url: whats-new.md
 
   # Card 2
