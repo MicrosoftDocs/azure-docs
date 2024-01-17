@@ -5,7 +5,7 @@ ms.author: nickoman
 author: nickomang
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/05/2024
+ms.date: 01/17/2024
 ---
 
 # Use Image Cleaner to clean up stale images on your Azure Kubernetes Service (AKS) cluster
@@ -53,7 +53,7 @@ Once `eraser-controller-manager` is deployed,
 
 ### Manual mode
 
-You can also manually trigger the clean up by defining a CRD object `ImageList`. Then `eraser-contoller-manager` will create worker pod per node as well to finish manual removal.
+You can also manually trigger the clean up by defining a CRD object `ImageList`. Then `eraser-contoller-manager` will create worker pod named `eraser-aks-xxxxx` per node as well to finish manual removal. 
 
 > [!NOTE]
 > After disabling Image Cleaner, the old configuration still exists. This means if you enable the feature again without explicitly passing configuration, the existing value is used instead of the default.
@@ -117,6 +117,32 @@ You can also manually trigger the clean up by defining a CRD object `ImageList`.
         - docker.io/library/alpine:3.7.3
     EOF
     ```
+
+The `ImageList` is one-time and manual mode is only triggered when the imagelist changes. After the image is deleted, the imagelist won't be deleted automatically.
+If you need to remove the new images, you need to delete the old `ImageList` and create a new one. 
+
+Delete the old imagelist
+
+    ```bash
+    kubectl delete imagelist imagelist
+    ```
+    
+Create a new imagelist with the new image names.
+
+    ```bash
+    cat <<EOF | kubectl apply -f -
+    apiVersion: eraser.sh/v1
+    kind: ImageList
+    metadata:
+      name: imagelist
+    spec:
+      images:
+        - docker.io/library/alpine:3.7.3
+          docker.io/library/python:alpine3.18
+    EOF
+    ```
+
+For manual mode, `eraser-aks-xxxxx` pod will be deleted in 10 minutes after work completion. 
 
 ## Image exclusion list
 
