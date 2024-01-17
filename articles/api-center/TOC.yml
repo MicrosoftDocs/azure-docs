@@ -32,6 +32,8 @@
 #- name: API discovery and consumption
 - name: Reference
   items:
+      - name: Azure CLI
+        href: /cli/azure/apic
       - name: REST API
         href: /rest/api/apicenter/
       - name: REST API SDKs
