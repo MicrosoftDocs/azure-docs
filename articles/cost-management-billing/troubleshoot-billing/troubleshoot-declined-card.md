@@ -42,23 +42,23 @@ You may be experiencing other sign-up issues
 
 For more information about how to troubleshoot Azure sign-up issues, see the following article:
 
-[You can't sign-up for Azure in the Azure portal](troubleshoot-azure-sign-up.md)
+[You can't sign-up for Azure in the Azure portal](../troubleshoot-subscription/troubleshoot-azure-sign-up.md)
 
 ## You represent a business that doesn't want to pay by card
 
 If you represent a business, you can use the invoice payment method (wire transfer) to pay for your Azure subscription. After you set up the account to pay by invoice, you can't change to another payment option, unless you have a Microsoft Customer Agreement and signed up for Azure through the Azure website.
 
-For more information about how to pay by invoice, see [Submit a request to pay Azure subscription by invoice](pay-by-invoice.md).
+For more information about how to pay by invoice, see [Submit a request to pay Azure subscription by invoice](../manage/pay-by-invoice.md).
 
 ## Your card information is outdated
 
-For information about how to manage your card information, including changing or removing a card, see [Add, update, or remove a credit for Azure](change-credit-card.md).
+For information about how to manage your card information, including changing or removing a card, see [Add, update, or remove a credit for Azure](../manage/change-credit-card.md).
 
 ## Card not authorized for service consumption (threshold billing)
 
 A billing threshold is a level of spending that, when met, triggers an authorization to the primary payment method associated to your Azure account. If the service consumption surpasses the billing threshold, Microsoft may attempt an authorization on the primary payment method. If the bank approves the authorization, it will be immediately reversed. There will be no settlement record on your bank statement. 
 
-However, if the authorization on the card is declined, you're asked to update the primary payment method in order to continue using the services. For information about how to manage your card information, including changing or removing a card, see [Add, update, or remove a credit card](change-credit-card.md).
+However, if the authorization on the card is declined, you're asked to update the primary payment method in order to continue using the services. For information about how to manage your card information, including changing or removing a card, see [Add, update, or remove a credit card](../manage/change-credit-card.md).
 
 For more information about threshold billing, see [Troubleshoot threshold billing](troubleshoot-threshold-billing.md).
 
@@ -66,9 +66,9 @@ For more information about threshold billing, see [Troubleshoot threshold billin
 
 Other troubleshooting articles for Azure Billing and Subscriptions
 
-- [Sign-up issues](troubleshoot-azure-sign-up.md)
-- [Subscription sign-in issues](troubleshoot-sign-in-issue.md)
-- [No subscriptions found](no-subscriptions-found.md)
+- [Sign-up issues](../troubleshoot-subscription/troubleshoot-azure-sign-up.md)
+- [Subscription sign-in issues](../troubleshoot-subscription/troubleshoot-sign-in-issue.md)
+- [No subscriptions found](../troubleshoot-subscription/no-subscriptions-found.md)
 - [Enterprise cost view disabled](enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## Contact us for help
