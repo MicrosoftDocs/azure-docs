@@ -158,7 +158,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.
     
-    [!INCLUDE [File path uniqueness preview registration](../includes/file-path-uniqueness.md)]
+    [!INCLUDE [File path uniqueness preview registration](./includes/file-path-uniqueness.md)]
 
     * Specify the **versions** to use for dual protocol: **NFSv4.1 and SMB**, or **NFSv3 and SMB**.
 

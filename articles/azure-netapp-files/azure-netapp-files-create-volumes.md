@@ -119,7 +119,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.
 
-    [!INCLUDE [File path uniqueness preview registration](../includes/file-path-uniqueness.md)]
+    [!INCLUDE [File path uniqueness preview registration](./includes/file-path-uniqueness.md)]
 
     * Select the **Version** (**NFSv3** or **NFSv4.1**) for the volume.  
 

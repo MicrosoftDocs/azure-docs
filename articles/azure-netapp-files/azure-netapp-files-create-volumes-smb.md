@@ -123,8 +123,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.   
     
-    [!INCLUDE [File path uniqueness preview registration](../includes/file-path-uniqueness.md)]
-
+    [!INCLUDE [File path uniqueness preview registration](./includes/file-path-uniqueness.md)]
 
     * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
 
