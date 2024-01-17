@@ -28,9 +28,15 @@ The individual app allows you to override the DNS configuration by specifying th
 az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.dnsConfiguration.dnsServers="['168.63.129.16','xxx.xxx.xxx.xxx']"
 ```
 
+## DNS app settings
+
+App Service has existing app settings to configure DNS servers and name resolution behavior. Site configuration will override the app settings if both exists. Site configuration has the advantage of being auditable with Azure Policy and validated at the time of configuration. We recommend you to use site configuration. 
+
 You can still use the existing `WEBSITE_DNS_SERVER` app setting, and you can add custom DNS servers with either setting. If you want to add multiple DNS servers using the app setting, you must separate the servers by commas with no blank spaces added.
 
-Using the app setting `WEBSITE_DNS_ALT_SERVER`, you append a DNS server to end of the configured DNS servers. You use the setting to configure a fallback server to custom DNS servers from the virtual network.
+Using the app setting `WEBSITE_DNS_ALT_SERVER`, you appends the specific DNS server to the list of DNS servers configured. This will be appended to both explicitly configured DNS servers and DNS servers inherited from the virtual network.
+
+App settings also exist for configuring name resolution behavior. These are named `WEBSITE_DNS_MAX_CACHE_TIMEOUT`, `WEBSITE_DNS_TIMEOUT` and `WEBSITE_DNS_ATTEMPTS`.
 
 ## Configure name resolution behavior
 
