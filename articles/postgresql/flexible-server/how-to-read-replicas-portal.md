@@ -1,6 +1,6 @@
 ---
-title: Manage read replicas - Azure portal, REST API - Azure Database for PostgreSQL - Flexible Server
-description: Learn how to manage read replicas Azure Database for PostgreSQL - Flexible Server from the Azure portal and REST API.
+title: Manage read replicas - Azure portal, CLI, REST API - Azure Database for PostgreSQL - Flexible Server
+description: Learn how to manage read replicas Azure Database for PostgreSQL - Flexible Server from the Azure portal, CLI and REST API.
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
@@ -12,11 +12,11 @@ ms.custom:
 ms.topic: how-to
 ---
 
-# Create and manage read replicas in Azure Database for PostgreSQL - Flexible Server from the Azure portal
+# Create and manage read replicas in Azure Database for PostgreSQL - Flexible Server from the Azure portal, CLI or REST API
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
+In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal, CLI and REST API. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
 
 > [!NOTE]  
