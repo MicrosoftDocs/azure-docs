@@ -33,12 +33,10 @@ The quickstart shows you how to extract visual features from an image, however, 
 
 ## Authenticate against the service
 
-To authenticate against the Image Analysis service, you need an Azure AI Vision key and endpoint URL.
+To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](../../security-features.md) article for more authentication options like [Azure Key Vault](../../use-key-vault.md). 
-
-The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 <!--
 #### [C#](#tab/csharp)
@@ -72,7 +70,7 @@ Where we used this helper function to read the value of an environment variable:
 #### [REST API](#tab/rest)
 -->
 
-Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview`, where `<endpoint>` is your unique Azure AI Vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for another query string you add to this URL.
+Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview`, where `<endpoint>` is your unique Computer Vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for another query string you add to this URL.
 
 
 ## Select the image to analyze
