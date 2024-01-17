@@ -276,7 +276,7 @@ Error responses look like:
 ```json
 {
     "error": "invalid_grant",
-    "error_description": "AADB2C90129: The provided grant has been revoked. Please reauthenticate and try again.\r\nCorrelation ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\r\nTimestamp: 2024-01-16 01:21:18Z\r\n",
+    "error_description": "AADB2C90129: The provided grant has been revoked. Please reauthenticate and try again.\r\nCorrelation ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\r\nTimestamp: xxxx-xx-xx xx:xx:xxZ\r\n",
 }
 ```
 
