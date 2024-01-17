@@ -209,7 +209,9 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 ## 10. Get the inbound IP address for your new App Service Environment v3 and update dependent resources
 
-You have two App Service Environments at this stage in the migration process. Your apps are running in both environments. You need to update any dependent resources to use the new inbound IP address for your new App Service Environment v3. You can get the inbound IP address for your new App Service Environment v3 by running the following command or by navigating to the [Azure portal](https://portal.azure.com).
+You have two App Service Environments at this stage in the migration process. Your apps are running in both environments. You need to update any dependent resources to use the new inbound IP address for your new App Service Environment v3. For ILB App Service Environments, you need to update the private DNS zone to point to the new inbound IP address.
+
+You can get the inbound IP address for your new App Service Environment v3 by running the following command or by navigating to the [Azure portal](https://portal.azure.com).
 
 ```azurecli
 TODO:az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --query inboundIpAddresses
